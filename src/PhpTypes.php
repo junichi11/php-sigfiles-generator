@@ -4,7 +4,7 @@ use utils\Html;
 use utils\Log;
 use utils\Strings;
 
-class Phptypes extends PhpElements {
+class PhpTypes extends PhpElements {
 
     /** @var string */
     private $title = null;
