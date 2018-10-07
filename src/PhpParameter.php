@@ -14,6 +14,8 @@ class PhpParameter {
     private $phpDoc;
     /** @var bool */
     private $reference;
+    /** @var bool */
+    private $optional;
 
     public function getType(): ?string {
         return $this->type;
@@ -57,6 +59,15 @@ class PhpParameter {
 
     public function setReference(bool $reference): PhpParameter {
         $this->reference = $reference;
+        return $this;
+    }
+
+    public function isOptional(): bool {
+        return $this->optional;
+    }
+
+    public function setOptional(bool $optional): PhpParameter {
+        $this->optional = $optional;
         return $this;
     }
 

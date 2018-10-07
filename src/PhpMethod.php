@@ -87,9 +87,13 @@ class PhpMethod extends SigFileElement {
         $this->type = Html::querySingleValue($this->xpath(), '*[@class="type"]', $method, true);
         $params = $this->xpath()->query('.//*[@class="methodparam"]', $method);
         $this->parameters = new PhpParameters();
+        $optionalParamIndexes = $this->getOptionalParameterIndexes($method);
+        $hasOptionalParam = !empty($optionalParamIndexes);
+        $paramIndex = 0;
         foreach ($params as $param) {
             if ($param->nodeValue === 'void') {
                 // no parameters
+                $paramIndex++;
                 continue;
             }
             $type = Html::queryFirstValue($this->xpath(), '*[@class="type"]', $param);
@@ -104,12 +108,54 @@ class PhpMethod extends SigFileElement {
             if ($initializer) {
                 $initializer = Php::sanitizeInitializer($initializer, $type);
             }
+            $optional = $hasOptionalParam && in_array($paramIndex, $optionalParamIndexes);
             $this->parameters->addParameter((new PhpParameter())
                 ->setType($type)
                 ->setName($name)
                 ->setReference($reference)
-                ->setInitializer($initializer));
+                ->setInitializer($initializer)
+                ->setOptional($optional));
+            $paramIndex++;
         }
+    }
+
+    private function getOptionalParameterIndexes(\DOMNode $method): array {
+        $indexes = [];
+        $methodSynopsis = $method->nodeValue;
+        $parenStart = strpos($methodSynopsis, '(');
+        $parenEnd = strpos($methodSynopsis, ')', -1);
+        $params = substr($methodSynopsis, $parenStart + 1, $parenEnd - ($parenStart + 1));
+        $length = strlen($params);
+        $bracketBalance = 0;
+        $paramIndex = 0;
+        for ($index = 0; $index < $length; $index++) {
+            $c = $params[$index];
+            switch ($c) {
+                case '[':
+                    // the first parameter may be optional
+                    // e.g. myfunc([mixed $array])
+                    $bracketBalance++;
+                    $index++;
+                    // e.g. myfunc($param1 [, mixed $value])
+                    if ($params[$index] === ',') {
+                        $paramIndex++;
+                    }
+                    $indexes[] = $paramIndex;
+                    break;
+                case ']':
+                    $bracketBalance--;
+                    break;
+                case ',':
+                    $paramIndex++;
+                    if ($bracketBalance > 0) {
+                        $indexes[] = $paramIndex;
+                    }
+                    break;
+                default:
+                    break;
+            }
+        }
+        return $indexes;
     }
 
     protected function detectMethodNode(): DOMNode {
@@ -149,6 +195,7 @@ class PhpMethod extends SigFileElement {
         $out .= $this->name->getName();
         $out .= '(';
         $first = true;
+        /* @var $parameter PhpParameter */
         foreach ($this->parameters->getParameters() as $parameter) {
             if ($first) {
                 $first = false;
@@ -164,6 +211,10 @@ class PhpMethod extends SigFileElement {
             $out .= $parameter->getName();
             if ($parameter->getInitializer()) {
                 $out .= ' ' . $parameter->getInitializer();
+            }
+            if (!$parameter->getInitializer() && $parameter->isOptional()) {
+                // e.g. [, mixed $... ]
+                $out .= ' = NULL';
             }
         }
         $out .= ')';
