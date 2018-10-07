@@ -27,6 +27,7 @@ Files::deleteFiles(Config::get()->outputDir());
 PhpFileMapper::init();
 
 // collect
+PhpGenerator::collectInternals();
 PhpGenerator::collectTypes();
 PhpGenerator::collectFunctions();
 PhpGenerator::collectConstants();

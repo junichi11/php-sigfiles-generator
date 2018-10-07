@@ -18,6 +18,10 @@ class PhpGenerator {
     /** @var PhpGeneratorItem[] */
     private static $duplicities= [];
 
+    public static function collectInternals(): void {
+        PhpInternals::collect();
+    }
+
     public static function collectTypes(): void {
         PhpTypes::collect();
     }

@@ -10,7 +10,6 @@ class PhpTypes extends PhpElements {
     private $title = null;
 
     public static function collect(): void {
-        PhpGenerator::collect(new PhpGeneratorItem("stdClass", PhpStdClass::create()));
         $types = glob(Config::get()->inputDir() . '/class.*.html', GLOB_ERR);
         foreach ($types as $type) {
             $typeName = self::getTypeName($type);
