@@ -203,7 +203,7 @@ class PhpMethod extends SigFileElement {
                 $out .= ', ';
             }
             if ($parameter->getType()) {
-                $parameterType = Php::sanitizeType($parameter->getType(), false, false);
+                $parameterType = Php::sanitizeType($parameter->getType());
                 if ($parameterType) {
                     $out .=  $parameterType . ' ';
                 }
@@ -222,7 +222,7 @@ class PhpMethod extends SigFileElement {
         }
         $out .= ')';
         if ($this->name->getName() !== '__construct') {
-            $type = Php::sanitizeType($this->type, false, false);
+            $type = Php::sanitizeType($this->type);
             if ($type) {
                 $out .= ': ' . $type;
             }

@@ -93,21 +93,21 @@ final class Php {
         return $name;
     }
 
-    public static function sanitizeType(?string $type, bool $allowPipe = false, bool $allowPseudoTypes = true): ?string {
+    public static function sanitizeType(?string $type, bool $phpDoc = false): ?string {
         if ($type === null) {
-            return $allowPseudoTypes ? 'mixed' : null;
+            return $phpDoc ? 'mixed' : null;
         }
         $type = explode('[', $type)[0];
-        if (!$allowPipe) {
+        if (!$phpDoc) {
             if (count(explode('|', $type)) > 1) {
-                return $allowPseudoTypes ? 'mixed' : null;
+                return $phpDoc ? 'mixed' : null;
             }
         }
         foreach (self::$pseudoTypesReplaceMap as $search => $replace) {
             $type = str_replace($search, $replace, $type);
         }
         $type = str_replace('-', '_', $type);
-        if (!$allowPseudoTypes && in_array($type, self::$pseudoTypes)) {
+        if (!$phpDoc && in_array($type, self::$pseudoTypes)) {
             return null;
         }
         $types = [];
