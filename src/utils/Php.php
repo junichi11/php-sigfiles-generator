@@ -35,6 +35,12 @@ final class Php {
         'resource',
     ];
 
+    /** @var string[] */
+    private static $pseudoTypesReplaceMap = [
+        'integer' => 'int',
+        'boolean' => 'bool',
+    ];
+
     private function __construct() {
     }
 
@@ -96,6 +102,9 @@ final class Php {
             if (count(explode('|', $type)) > 1) {
                 return $allowPseudoTypes ? 'mixed' : null;
             }
+        }
+        foreach (self::$pseudoTypesReplaceMap as $search => $replace) {
+            $type = str_replace($search, $replace, $type);
         }
         $type = str_replace('-', '_', $type);
         if (!$allowPseudoTypes && in_array($type, self::$pseudoTypes)) {
