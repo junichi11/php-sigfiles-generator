@@ -26,6 +26,21 @@ final class Php {
         'void',
     ];
 
+    /** @var string[] */
+    private static $pseudoTypes = [
+        'boolean',
+        'integer',
+        'mixed',
+        'number',
+        'resource',
+    ];
+
+    /** @var string[] */
+    private static $pseudoTypesReplaceMap = [
+        'integer' => 'int',
+        'boolean' => 'bool',
+    ];
+
     private function __construct() {
     }
 
@@ -78,16 +93,21 @@ final class Php {
         return $name;
     }
 
-    public static function sanitizeType(?string $type, bool $allowPipe = false, bool $allowMixed = true): ?string {
+    public static function sanitizeType(?string $type, bool $phpDoc = false): ?string {
         if ($type === null) {
-            return $allowMixed ? 'mixed' : null;
+            return $phpDoc ? 'mixed' : null;
         }
         $type = explode('[', $type)[0];
-        if (!$allowPipe) {
-            $type = explode('|', $type, 2)[0];
+        if (!$phpDoc) {
+            if (count(explode('|', $type)) > 1) {
+                return $phpDoc ? 'mixed' : null;
+            }
+        }
+        foreach (self::$pseudoTypesReplaceMap as $search => $replace) {
+            $type = str_replace($search, $replace, $type);
         }
         $type = str_replace('-', '_', $type);
-        if (!$allowMixed && $type === 'mixed') {
+        if (!$phpDoc && in_array($type, self::$pseudoTypes)) {
             return null;
         }
         $types = [];

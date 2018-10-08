@@ -25,4 +25,3 @@ Application that generates PHP signature files from the official HTML documentat
 - `mysqli_bind_param()` - no `@since`
 - "wrong" signature of `number_format()`
 - `class.ds-pair.html` - missing methods in synopsis
-- remove some return types e.g. `: mixed`

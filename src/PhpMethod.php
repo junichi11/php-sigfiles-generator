@@ -203,7 +203,10 @@ class PhpMethod extends SigFileElement {
                 $out .= ', ';
             }
             if ($parameter->getType()) {
-                $out .= Php::sanitizeType($parameter->getType()) . ' ';
+                $parameterType = Php::sanitizeType($parameter->getType());
+                if ($parameterType) {
+                    $out .=  $parameterType . ' ';
+                }
             }
             if ($parameter->isReference()) {
                 $out .= '&';
