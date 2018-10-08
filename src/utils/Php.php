@@ -26,6 +26,15 @@ final class Php {
         'void',
     ];
 
+    /** @var string[] */
+    private static $pseudoTypes = [
+        'boolean',
+        'integer',
+        'mixed',
+        'number',
+        'resource',
+    ];
+
     private function __construct() {
     }
 
@@ -78,16 +87,18 @@ final class Php {
         return $name;
     }
 
-    public static function sanitizeType(?string $type, bool $allowPipe = false, bool $allowMixed = true): ?string {
+    public static function sanitizeType(?string $type, bool $allowPipe = false, bool $allowPseudoTypes = true): ?string {
         if ($type === null) {
-            return $allowMixed ? 'mixed' : null;
+            return $allowPseudoTypes ? 'mixed' : null;
         }
         $type = explode('[', $type)[0];
         if (!$allowPipe) {
-            $type = explode('|', $type, 2)[0];
+            if (count(explode('|', $type)) > 1) {
+                return $allowPseudoTypes ? 'mixed' : null;
+            }
         }
         $type = str_replace('-', '_', $type);
-        if (!$allowMixed && $type === 'mixed') {
+        if (!$allowPseudoTypes && in_array($type, self::$pseudoTypes)) {
             return null;
         }
         $types = [];
