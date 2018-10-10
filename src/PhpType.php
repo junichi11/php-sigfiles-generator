@@ -5,6 +5,7 @@ use utils\Files;
 use utils\Html;
 use utils\Log;
 use utils\Php;
+use utils\SourceDocFixer;
 use utils\Strings;
 
 abstract class PhpType extends SigFileElement {
@@ -57,9 +58,9 @@ abstract class PhpType extends SigFileElement {
         $this->fields = new PhpFields();
         $fieldNodes = Html::queryNodes($this->xpath(), './/div[@class="fieldsynopsis"]', $this->typeInfo, true);
         $htmlIdent = $this->name->asHtmlIdent();
-        if ($htmlIdent === 'zookeeper') {
-            Log::debug("Fixing incorrect HTML ident for {$this->file}");
-            $htmlIdent .= '.class';
+        $fixedHtmlIdent = SourceDocFixer::getHtmlIdentForFields($htmlIdent);
+        if ($fixedHtmlIdent !== null) {
+            $htmlIdent = $fixedHtmlIdent;
         }
         $constantsPhpDoc = (new PhpDoc($this->xpath()))
             ->parseConstants($htmlIdent, true);

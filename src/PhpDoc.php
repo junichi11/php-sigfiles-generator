@@ -183,7 +183,7 @@ final class PhpDoc {
             $phpDoc = '';
             if (array_key_exists($this->field->getName(), $this->constants)) {
                 $phpDoc = $this->constants[$this->field->getName()];
-            } elseif (!$this->isConstantsBrokenFile()) {
+            } elseif (!SourceDocFixer::isConstantsBrokenFile($this->getFile())) {
                 Log::error("Cannot find documentation for constant {$this->field->getName()} in '{$this->getFile()}'");
             }
             $out = Strings::indent($indent, '/**');
@@ -245,8 +245,7 @@ final class PhpDoc {
         $newDoc = new DOMDocument();
         $comments = Html::queryNodes($this->xpath, './/p', $description, true);
         foreach ($comments as $comment) {
-            $text = strtolower($comment->nodeValue);
-            if (Strings::contains($text, 'object oriented style') || Strings::contains($text, 'procedural style')) {
+            if (SourceDocFixer::isInvalidComment($comment->nodeValue)) {
                 continue;
             }
             $this->importNode($newDoc, $comment);
@@ -394,21 +393,6 @@ final class PhpDoc {
         }
         Log::error("Type is expected for file '{$this->getFile()}'");
         return '???';
-    }
-
-    private function isConstantsBrokenFile(): bool {
-        $filename = basename($this->getFile());
-        if (Strings::startsWith($filename, 'class.ui-')) {
-            return true;
-        }
-        switch ($filename) {
-            case 'class.snmp.html':
-            case 'class.svm.html':
-            case 'class.tokyotyrant.html':
-            case 'class.yaf-response-abstract.html':
-                return true;
-        }
-        return false;
     }
 
 }
