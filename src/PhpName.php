@@ -80,8 +80,9 @@ class PhpName {
     public function asHtmlIdent(bool $nameOnly = false): string {
         $asString = $nameOnly ? $this->name : $this->asString();
         $ident = Php::asHtmlIdent($asString);
-        if (SourceDocFixer::isHtmlNameError($asString)) {
-            return $ident;
+        $fixedIdent = SourceDocFixer::getHtmlIdent($asString);
+        if ($fixedIdent !== null) {
+            return $fixedIdent;
         }
         return strtolower($ident);
     }

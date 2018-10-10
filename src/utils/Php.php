@@ -183,7 +183,7 @@ final class Php {
         if (Strings::endsWith($initializer, ' array()')) {
             return $initializer;
         }
-        // file:///home/gapon/tmp/phpsigfiles/html/mongodb-driver-manager.construct.html
+        // mongodb-driver-manager.construct.html
         if (Strings::startsWith($initializer, '= "') && !Strings::endsWith($initializer, '"')) {
             $initializer = str_replace('= "', "= '", $initializer) . "'";
         }

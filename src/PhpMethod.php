@@ -275,39 +275,13 @@ class PhpMethod extends SigFileElement {
             case '__set_state':
                 return 'object';
             default:
-                $errorType = $this->getDocErrorType();
+                $errorType = SourceDocFixer::getDocErrorType($this->file, $this->name);
                 if ($errorType !== null) {
                     return $errorType;
                 }
                 Log::error("Unknown type for function '{$this->name->getName()}' in file '$this->file'", true);
         }
         return 'mixed';
-    }
-
-    private function getDocErrorType(): ?string {
-        $filename = basename($this->file);
-        // doc error? e.g. soapfault.soapfault.html
-        $lowerName = strtolower($this->name->getName());
-        if (Strings::startsWith($filename, "$lowerName.$lowerName")) {
-            return 'self';
-        }
-        switch ($filename) {
-            case 'syncsharedmemory.read.html':
-            case 'transliterator.transliterate.html':
-                return 'string';
-            case 'syncsharedmemory.write.html':
-                return 'int';
-        }
-        if (Strings::startsWith($filename, 'ui-')) {
-            return 'void';
-        }
-        if (Strings::startsWith($filename, 'vtiful-kernel-excel.')) {
-            return 'self';
-        }
-        if (Strings::startsWith($filename, 'vtiful-kernel-format.')) {
-            return 'resource';
-        }
-        return null;
     }
 
 }
