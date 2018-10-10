@@ -58,7 +58,8 @@ final class PhpDoc {
     }
 
     public function parseFunctionAlias(): PhpDoc {
-        return $this->parseDescription();
+        return $this->parseDescription()
+            ->parseSince();
     }
 
     public function parseFunction(string $type, PhpParameters $parameters): PhpDoc {
@@ -139,6 +140,7 @@ final class PhpDoc {
             $out .= Strings::indent($indent, ' * ' . $description);
         }
         $out .= Strings::indent($indent, ' * @link ' . $this->link);
+        $out .= Strings::indent($indent, ' * @since ' . $this->since);
         $out .= Strings::indent($indent, ' */');
         return $out;
     }

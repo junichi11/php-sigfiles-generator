@@ -81,4 +81,11 @@ class SourceDocFixer {
         return null;
     }
 
+    public static function methodNodeIndex(PhpName $name): ?int {
+        if ($name->asString() === 'number_format') {
+            return 1;
+        }
+        return null;
+    }
+
 }

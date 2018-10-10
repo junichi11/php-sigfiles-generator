@@ -166,6 +166,10 @@ class PhpMethod extends SigFileElement {
         if ($nodes->length === 1) {
             return $nodes->item(0);
         }
+        $index = SourceDocFixer::methodNodeIndex($this->name);
+        if ($index !== null) {
+            return $nodes->item($index);
+        }
         foreach ($nodes as $node) {
             $methodName = Html::querySingleValue($this->xpath(), '*[@class="methodname"]', $node);
             if ($this->isMySignature($methodName)) {
