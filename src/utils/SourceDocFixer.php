@@ -2,6 +2,8 @@
 
 namespace utils;
 
+use PhpName;
+
 // XXX move everything here
 class SourceDocFixer {
 
@@ -24,6 +26,13 @@ class SourceDocFixer {
 
     public static function isHtmlDescriptionError(string $file): bool {
         return strtolower(basename($file)) === 'function.readline-callback-handler-install.html';
+    }
+
+    public static function methodNodeIndex(PhpName $name): ?int {
+        if ($name->asString() === 'number_format') {
+            return 1;
+        }
+        return null;
     }
 
 }
