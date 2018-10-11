@@ -57,7 +57,9 @@ final class PhpDoc {
             ->parseSince();
     }
 
-    public function parseFunctionAlias(): PhpDoc {
+    public function parseFunctionAlias(?string $type, ?PhpParameters $parameters): PhpDoc {
+        $this->type = $type;
+        $this->parameters = $parameters;
         return $this->parseDescription()
             ->parseSince();
     }
@@ -138,6 +140,14 @@ final class PhpDoc {
         $out = Strings::indent($indent, '/**');
         foreach ($this->description as $description) {
             $out .= Strings::indent($indent, ' * ' . $description);
+        }
+        if ($this->parameters) {
+            foreach ($this->parameters->getParameters() as $parameter) {
+                $out .= Strings::indent($indent, ' * @param ' . trim(Php::sanitizeType($parameter->getType(), true) . ' ' . $parameter->getName() . ' ' . $parameter->getPhpDoc()));
+            }
+        }
+        if ($this->type) {
+            $out .= Strings::indent($indent, ' * @return ' . trim($this->requiredType() . ' ' . $this->return));
         }
         $out .= Strings::indent($indent, ' * @link ' . $this->link);
         $out .= Strings::indent($indent, ' * @since ' . $this->since);

@@ -18,6 +18,8 @@ class PhpMethod extends SigFileElement {
     private $parameters;
     /** @var PhpDoc */
     private $phpDoc;
+    /** @var PhpMethod **/
+    private $aliasedMethod = null;
 
     protected function signatureInternal(bool $withPhpDoc, int $indent = 0): string {
         if ($this->alias) {
@@ -32,6 +34,14 @@ class PhpMethod extends SigFileElement {
         return $this->name;
     }
 
+    public function getParameters(): ?PhpParameters {
+        return $this->parameters;
+    }
+
+    public function getType(): ?string {
+        return $this->type;
+    }
+
     protected function initInternal(): void {
         if ($this->name === null) {
             $this->initName();
@@ -42,7 +52,8 @@ class PhpMethod extends SigFileElement {
         $this->phpDoc = new PhpDoc($this->xpath());
         if ($this->isAliasFunction()) {
             $this->initAlias();
-            $this->phpDoc->parseFunctionAlias();
+            $docType = $this->type === null ? null : $this->getPhpDocType();
+            $this->phpDoc->parseFunctionAlias($docType, $this->parameters);
         } else {
             $this->initRegular();
             $this->phpDoc->parseFunction($this->getPhpDocType(), $this->parameters);
@@ -57,7 +68,6 @@ class PhpMethod extends SigFileElement {
         $title = Html::querySingleValue($this->xpath(), '//title');
         if (Strings::startsWith(strtolower($title), 'alias of')) {
             $this->alias = true;
-            return true;
         }
         $description = null;
         if (SourceDocFixer::isHtmlDescriptionError($this->file)) {
@@ -69,13 +79,34 @@ class PhpMethod extends SigFileElement {
         if (Strings::contains($description, 'This function is an alias of')
                 || Strings::contains($description, 'This language construct is equivalent to')) {
             $this->alias = true;
+            $this->setAliasedMethod();
             return true;
         }
-        return false;
+        return $this->alias;
+    }
+
+    private function setAliasedMethod(): void {
+        // function alias
+        $elements = Html::queryNodes($this->xpath(), '//*[@class="refsect1 description"]//a[@class="function"]/@href', null, true);
+        if ($elements->length > 0) {
+            $aliasedFile = $elements->item(0)->nodeValue;
+            if ($aliasedFile) {
+                $this->aliasedMethod = new PhpFunction($aliasedFile);
+                $this->aliasedMethod->getName(); // init
+            }
+        }
+        // XXX method alias
+        // if ($elements->length === 0) {
+        //     $elements = Html::queryNodes($this->xpath(), '//*[@class="refsect1 description"]//a[@class="methodname"]/@href', null, true);
+        // }
     }
 
     private function initAlias(): void {
         Log::debug("Alias function from file '$this->file'");
+        if ($this->aliasedMethod) {
+            $this->parameters = $this->aliasedMethod->getParameters();
+            $this->type = $this->aliasedMethod->getType();
+        }
     }
 
     private function initRegular(): void {
@@ -188,7 +219,9 @@ class PhpMethod extends SigFileElement {
         $out = $withPhpDoc ? $this->phpDoc($indent) : '';
         $out .= Strings::indent($indent, 'function ', false);
         $out .= $this->name->getName();
-        $out .= '() {}' . NEW_LINE;
+        $out .= $this->signatureParameters();
+        $out .= $this->signatureReturnType();
+        $out .= $this->signatureMethodBody() . NEW_LINE;
         return $out;
     }
 
@@ -197,40 +230,8 @@ class PhpMethod extends SigFileElement {
         $out = $this->signatureModifiers();
         $out .= 'function ';
         $out .= $this->name->getName();
-        $out .= '(';
-        $first = true;
-        /* @var $parameter PhpParameter */
-        foreach ($this->parameters->getParameters() as $parameter) {
-            if ($first) {
-                $first = false;
-            } else {
-                $out .= ', ';
-            }
-            if ($parameter->getType()) {
-                $parameterType = Php::sanitizeType($parameter->getType());
-                if ($parameterType) {
-                    $out .=  $parameterType . ' ';
-                }
-            }
-            if ($parameter->isReference()) {
-                $out .= '&';
-            }
-            $out .= $parameter->getName();
-            if ($parameter->getInitializer()) {
-                $out .= ' ' . $parameter->getInitializer();
-            }
-            if (!$parameter->getInitializer() && $parameter->isOptional()) {
-                // e.g. [, mixed $... ]
-                $out .= ' = NULL';
-            }
-        }
-        $out .= ')';
-        if ($this->name->getName() !== '__construct') {
-            $type = Php::sanitizeType($this->type);
-            if ($type) {
-                $out .= ': ' . $type;
-            }
-        }
+        $out .= $this->signatureParameters();
+        $out .= $this->signatureReturnType();
         $out .= $this->signatureMethodBody();
         return $phpDoc . Strings::indent($indent, $out);
     }
@@ -238,6 +239,51 @@ class PhpMethod extends SigFileElement {
     protected function signatureModifiers(): string {
         $out = implode(' ', $this->modifiers);
         return $out ? $out . ' ' : '';
+    }
+
+    private function signatureParameters(): string {
+        $out = '(';
+        $first = true;
+        if ($this->parameters) {
+            /* @var $parameter PhpParameter */
+            foreach ($this->parameters->getParameters() as $parameter) {
+                if ($first) {
+                    $first = false;
+                } else {
+                    $out .= ', ';
+                }
+                if ($parameter->getType()) {
+                    $parameterType = Php::sanitizeType($parameter->getType());
+                    if ($parameterType) {
+                        $out .= $parameterType . ' ';
+                    }
+                }
+                if ($parameter->isReference()) {
+                    $out .= '&';
+                }
+                $out .= $parameter->getName();
+                if ($parameter->getInitializer()) {
+                    $out .= ' ' . $parameter->getInitializer();
+                }
+                if (!$parameter->getInitializer() && $parameter->isOptional()) {
+                    // e.g. [, mixed $... ]
+                    $out .= ' = NULL';
+                }
+            }
+        }
+        $out .= ')';
+        return $out;
+    }
+
+    private function signatureReturnType(): string {
+        $out = '';
+        if ($this->name->getName() !== '__construct') {
+            $type = Php::sanitizeType($this->type);
+            if ($type) {
+                $out .= ': ' . $type;
+            }
+        }
+        return $out;
     }
 
     protected function signatureMethodBody(): string {
