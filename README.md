@@ -13,7 +13,7 @@ Application that generates PHP signature files from the official HTML documentat
 
 ## Verification
 - open generated files in the IDE and wait for errors :)
-- run PHP lint `php -l <file>.php` but take its output easy ;)
+- run PHP lint `php -l <file>.php` or run `php verify-syntax.php` after sigfiles are generated but take its output easy ;)
 
 ## TODO
 - search for `XXX` :)
