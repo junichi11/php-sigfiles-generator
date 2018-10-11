@@ -1,0 +1,6 @@
+#!/bin/bash
+
+for file in `find "$1" -name "*.php"`
+do
+    php -l "$file"
+done
