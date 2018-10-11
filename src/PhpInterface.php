@@ -13,8 +13,7 @@ class PhpInterface extends PhpType {
             }
 
             protected function signatureModifiers(): string {
-                unset ($this->modifiers['abstract']);
-                unset ($this->modifiers['public']);
+                $this->modifiers = array_diff($this->modifiers, ['abstract']);
                 return parent::signatureModifiers();
             }
 
