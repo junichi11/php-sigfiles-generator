@@ -106,12 +106,20 @@ class PhpGenerator {
             if ($filename1 !== $filename2) {
                 return strcasecmp($filename1, $filename2);
             }
+            $isInDefaultNamespace1 = $item1->getName()->isInDefaultNamespace();
             $isType1 = $item1->isType();
             $isFunction1 = $item1->isFunction();
             $isConstant1 = $item1->isConstant();
+            $isInDefaultNamespace2 = $item2->getName()->isInDefaultNamespace();
             $isType2 = $item2->isType();
             $isFunction2 = $item2->isFunction();
             $isConstant2 = $item2->isConstant();
+            if ($isInDefaultNamespace1 && !$isInDefaultNamespace2) {
+                return -1;
+            }
+            if (!$isInDefaultNamespace1 && $isInDefaultNamespace2) {
+                return 1;
+            }
             if ($isType1) {
                 if (!$isType2) {
                     return -1;
