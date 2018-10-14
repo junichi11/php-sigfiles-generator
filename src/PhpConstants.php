@@ -7,6 +7,8 @@ class PhpConstants extends PhpElements {
 
     /** @var PhpDoc */
     private $phpDoc;
+    /** @var string[] */
+    private static $collectedConstantFiles = [];
 
     public static function collect(): void {
         $constants = glob(Config::get()->inputDir() . '/*.constants.*html', GLOB_ERR);
@@ -21,7 +23,19 @@ class PhpConstants extends PhpElements {
         }
     }
 
-    private static function getConstantsName(string $constants): string {
+    public static function addCollectedConstantFile(string $file): void {
+        if (in_array($file, self::$collectedConstantFiles)) {
+            Log::debug("'$file' has been already added.");
+            return;
+        }
+        self::$collectedConstantFiles[] = $file;
+    }
+
+    public static function isCollectedConstantFile(string $file): bool {
+        return in_array($file, self::$collectedConstantFiles);
+    }
+
+    public static function getConstantsName(string $constants): string {
         $name = strtolower(str_replace(['.html', 'constants.', 'constants'], '', basename($constants)));
         while (Strings::endsWith($name, '.')) {
             $name = substr($name, 0, -1);
@@ -44,13 +58,11 @@ class PhpConstants extends PhpElements {
                 continue;
             }
             if (Strings::contains($constant, '::')) {
-                // XXX
-                Log::info("Skipping class constant '$constant'");
-                continue;
-            }
-            if (Strings::contains($constant, PhpName::NAMESPACE_SEPARATOR)) {
-                // XXX
-                Log::info("Skipping namespace constant '$constant'");
+                if (!self::isCollectedConstantFile($this->file)) {
+                    // add the following constants to the blacklist because these extensions are EXPERIMENTAL
+                    // Swish*, SDO_DAS_ChangeSummary*, KTaglib_ID3v2_AttachedPictureFrame*, KTaglib_MPEG_Header*
+                    Log::info("Skipping class constant '$constant' $this->file" );
+                }
                 continue;
             }
             PhpGenerator::collect(new PhpGeneratorItem(self::getConstantsName($this->file),

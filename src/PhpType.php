@@ -62,6 +62,7 @@ abstract class PhpType extends SigFileElement {
         if ($fixedHtmlIdent !== null) {
             $htmlIdent = $fixedHtmlIdent;
         }
+        $this->initConstants();
         $constantsPhpDoc = (new PhpDoc($this->xpath()))
             ->parseConstants($htmlIdent, true);
         $this->allConstantsPhpDoc = (new PhpDoc($this->xpath()))
@@ -115,6 +116,73 @@ abstract class PhpType extends SigFileElement {
                 }
             }
             $this->fields->addField($field);
+        }
+    }
+
+    private function initConstants(): void {
+        // to add constants, find name.constants.html
+        $name = $this->name->getName();
+        $typeName = PhpFileMapper::map(strtolower($name));
+        $fileName = strtolower($typeName) . '.constants.html';
+
+        // find
+        $file = null;
+        try {
+            $file = Files::findFile($fileName);
+        } catch (RuntimeException $exception) {
+            Log::debug($exception->getMessage());
+        }
+        if (!$file) {
+            return;
+        }
+        Log::debug($name . " has constants.html $file");
+        $constantPhpDoc = (new PhpDoc(Html::xpath($file)))
+                ->parseConstants(PhpConstants::getConstantsName($file), false, true);
+        $constants = $constantPhpDoc->getConstantNames();
+        if (!count($constants)) {
+            Log::debug("No constants found in file '$file'");
+        }
+
+        // add
+        $this->addConstants($constants, $constantPhpDoc);
+        PhpConstants::addCollectedConstantFile($file);
+    }
+
+    private function addConstants(array $constants, PhpDoc $constantPhpDoc): void {
+        foreach ($constants as $constant) {
+            if (Config::get()->isBlacklistConstant($constant)) {
+                Log::debug("Constant '$constant' is blacklisted");
+                continue;
+            }
+            // default namespace constants are added in PhpConstants
+            if (Strings::contains($constant, '::')) {
+                $arr = explode('::', $constant);
+                $className = $arr[0];
+                $constName = $arr[1];
+                if (strcasecmp($className, $this->getName()->getName()) !== 0) {
+                    continue;
+                }
+                $initializer = defined($constant) ? constant($constant) : null;
+                $constType = $constantPhpDoc->getConstantType($constant);
+                if (!$constType && $initializer) {
+                    $constType = gettype($initializer);
+                }
+                $field = new PhpField();
+                $field->setConstant(true)
+                        ->addModifier('const')
+                        ->setName($constName)
+                        ->setInitializer($initializer === null ? null : '= ' . $initializer)
+                        ->setType($constType ?: 'mixed')
+                        ->setExtraConstantKey($constant)
+                        ->setPhpDoc($constantPhpDoc);
+                $this->fields->addField($field);
+                continue;
+            }
+            if (Strings::contains($constant, PhpName::NAMESPACE_SEPARATOR)) {
+                // currently, there is no this case
+                Log::info("Skipping namespace constant '$constant'");
+                continue;
+            }
         }
     }
 

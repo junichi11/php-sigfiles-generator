@@ -14,10 +14,13 @@ class PhpConstant extends SigFileElement {
 
     protected function signatureInternal(bool $withPhpDoc, int $indent = 0): ?string {
         $out = '';
-        // XXX namespace constants
-        $constant = $this->name->getName();
+        $constantName = $this->name->getName();
+        $constant = $constantName;
+        if (!$this->name->isInDefaultNamespace()) {
+            $constant = $namespace = $this->name->getNamespace() . PhpName::NAMESPACE_SEPARATOR . $constantName;
+        }
         if ($withPhpDoc) {
-            $out .= $this->phpDoc->asConstant($constant);
+            $out .= $this->phpDoc->asConstant($constant, $indent);
         }
         $value = null;
         if (defined($constant)) {
@@ -34,7 +37,11 @@ class PhpConstant extends SigFileElement {
         } else {
             $value = 'null';
         }
-        $out .= Strings::indent($indent, "define('$constant', $value);");
+        if ($this->name->isInDefaultNamespace()) {
+            $out .= Strings::indent($indent, "define('$constantName', $value);");
+        } else {
+            $out .= Strings::indent($indent, "const $constantName = $value;");
+        }
         return $out;
     }
 

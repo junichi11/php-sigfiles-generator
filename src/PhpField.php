@@ -16,6 +16,8 @@ class PhpField {
     private $initializer;
     /** @var PhpDoc */
     private $phpDoc;
+    /** @var string */
+    private $extraConstantKey;
 
     public function isConstant(): bool {
         return $this->constant;
@@ -85,6 +87,15 @@ class PhpField {
 
     public function setPhpDoc(PhpDoc $phpDoc): PhpField {
         $this->phpDoc = $phpDoc;
+        return $this;
+    }
+
+    public function getExtraConstantKey(): ?string {
+        return $this->extraConstantKey;
+    }
+
+    public function setExtraConstantKey(?string $extraConstantKey): PhpField {
+        $this->extraConstantKey = $extraConstantKey;
         return $this;
     }
 

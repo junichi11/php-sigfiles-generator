@@ -38,6 +38,9 @@ final class PhpDoc {
     /** @var PhpField */
     private $field;
 
+    private const DESCRIPTION = 'description';
+    private const TYPE = 'type';
+
     public function __construct(DOMXPath $xpath, string $url = null) {
         $this->xpath = $xpath;
         $this->link = $this->getPhpdocLink(Config::get()->phpDocUrl(), $url ?: $this->getFile());
@@ -45,6 +48,14 @@ final class PhpDoc {
 
     public function getConstantNames(): array {
         return array_keys($this->constants);
+    }
+
+    public function getConstantType(string $name): ?string {
+        if (!array_key_exists($name, $this->constants)
+                || !array_key_exists(self::TYPE, $this->constants[$name])) {
+            return null;
+        }
+        return $this->constants[$name][self::TYPE];
     }
 
     public function setField(PhpField $field): PhpDoc {
@@ -91,7 +102,14 @@ final class PhpDoc {
             foreach ($rows as $row) {
                 $columns = Html::queryNodes($this->xpath, './td[not(@class="empty")]', $row, false);
                 $name = Php::sanitizeConstantName(trim($columns->item(0)->nodeValue), $sanitizeClassConstants);
-                $this->constants[$name] = $this->nodeHtml($columns->item($columns->length - 1));
+                if (array_key_exists($name, $this->constants)) {
+                    Log::error("The constant key '$name' already exists");
+                }
+                $this->constants[$name][self::DESCRIPTION] = $this->nodeHtml($columns->item($columns->length - 1));
+                $typeNodes = Html::queryNodes($this->xpath, '//*[@class="type"]', $row, true);
+                if (count($typeNodes) > 0) {
+                    $this->constants[$name][self::TYPE] = Php::sanitizeType($typeNodes->item(0)->nodeValue);
+                }
             }
         }
         $nodes = Html::queryNodes($this->xpath, '//*[contains(@id, "' . strtolower($element) . '.constants")]//dl', null, true);
@@ -111,12 +129,19 @@ final class PhpDoc {
                 switch ($childNode->nodeName) {
                     case 'dt':
                         $name = Php::sanitizeConstantName(trim($childNode->nodeValue), $sanitizeClassConstants);
-                        $this->constants[$name] = '';
+                        if (array_key_exists($name, $this->constants)) {
+                            Log::error("The constant key '$name' already exists");
+                        }
+                        $this->constants[$name][self::DESCRIPTION] = '';
                         $names[] = $name;
+                        $typeNodes = Html::queryNodes($this->xpath, '//*[@class="type"]', $childNode, true);
+                        if (count($typeNodes) > 0) {
+                            $this->constants[$name][self::TYPE] = Php::sanitizeType($typeNodes->item(0)->nodeValue);
+                        }
                         break;
                     case 'dd':
                         foreach ($names as $name) {
-                            $this->constants[$name] = $this->nodeHtml($childNode);
+                            $this->constants[$name][self::DESCRIPTION] = $this->nodeHtml($childNode);
                         }
                         $names = [];
                 }
@@ -178,7 +203,7 @@ final class PhpDoc {
             Log::error("Constant $constant not found in file '{$this->getFile()}'");
             return '';
         }
-        $phpDoc = $this->constants[$constant];
+        $phpDoc = $this->constants[$constant][self::DESCRIPTION];
         if (!$phpDoc) {
             return '';
         }
@@ -193,8 +218,12 @@ final class PhpDoc {
         if ($this->field->isConstant()) {
             // constant
             $phpDoc = '';
+            $extraConstantKey = $this->field->getExtraConstantKey();
             if (array_key_exists($this->field->getName(), $this->constants)) {
-                $phpDoc = $this->constants[$this->field->getName()];
+                $phpDoc = $this->constants[$this->field->getName()][self::DESCRIPTION];
+            } else if ($extraConstantKey !== null && array_key_exists($extraConstantKey, $this->constants)) {
+                // in this case, constants are in another file
+                $phpDoc = $this->constants[$extraConstantKey][self::DESCRIPTION];
             } elseif (!SourceDocFixer::isConstantsBrokenFile($this->getFile())) {
                 Log::error("Cannot find documentation for constant {$this->field->getName()} in '{$this->getFile()}'");
             }
