@@ -14,3 +14,12 @@ Application that generates PHP signature files from the official HTML documentat
 ## Verification
 - open generated files in the IDE and wait for errors :)
 - run PHP lint `php -l <file>.php` or run `php verify-syntax.php` after sigfiles are generated but take its output easy ;)
+
+## Install missing extensions
+
+Install missing extensions to get constant values if possible.
+
+e.g.
+```
+sudo apt install php-imagick php-gmagick php-memcashed php-zip
+```
