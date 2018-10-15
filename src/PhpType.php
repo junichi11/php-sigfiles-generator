@@ -149,6 +149,7 @@ abstract class PhpType extends SigFileElement {
     }
 
     private function addConstants(array $constants, PhpDoc $constantPhpDoc): void {
+        $extensionClasses = [];
         foreach ($constants as $constant) {
             if (Config::get()->isBlacklistConstant($constant)) {
                 Log::debug("Constant '$constant' is blacklisted");
@@ -162,7 +163,12 @@ abstract class PhpType extends SigFileElement {
                 if (strcasecmp($className, $this->getName()->getName()) !== 0) {
                     continue;
                 }
-                $initializer = defined($constant) ? constant($constant) : null;
+                $classExists = class_exists($className, false);
+                if (!$classExists && !in_array($className, $extensionClasses)) {
+                    $extensionClasses[] = $className;
+                    Log::info("$className class does not exist. Maybe the extension is needed to get constant values.");
+                }
+                $initializer = $classExists && defined($constant) ? constant($constant) : null;
                 $constType = $constantPhpDoc->getConstantType($constant);
                 if (!$constType && $initializer) {
                     $constType = gettype($initializer);
