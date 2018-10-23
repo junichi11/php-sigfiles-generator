@@ -20,6 +20,12 @@ class PhpMethod extends SigFileElement {
     private $phpDoc;
     /** @var PhpMethod **/
     private $aliasedMethod = null;
+    /** @var string[] */
+    private const NO_RETURN_TYPE_METHODS = [
+        '__construct',
+        '__destruct',
+        '__clone',
+    ];
 
     protected function signatureInternal(bool $withPhpDoc, int $indent = 0): string {
         if ($this->alias) {
@@ -237,7 +243,7 @@ class PhpMethod extends SigFileElement {
     }
 
     protected function signatureModifiers(): string {
-        $out = implode(' ', $this->modifiers);
+        $out = implode(' ', Php::sanitizeMethodModifiers($this->modifiers, $this->name->getName()));
         return $out ? $out . ' ' : '';
     }
 
@@ -277,7 +283,7 @@ class PhpMethod extends SigFileElement {
 
     private function signatureReturnType(): string {
         $out = '';
-        if ($this->name->getName() !== '__construct') {
+        if (!in_array($this->name->getName(), self::NO_RETURN_TYPE_METHODS)) {
             $type = Php::sanitizeType($this->type);
             if ($type) {
                 $out .= ': ' . $type;
