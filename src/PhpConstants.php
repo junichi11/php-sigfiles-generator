@@ -1,6 +1,7 @@
 <?php
 
 use utils\Log;
+use utils\SourceDocFixer;
 use utils\Strings;
 
 class PhpConstants extends PhpElements {
@@ -53,6 +54,9 @@ class PhpConstants extends PhpElements {
             return;
         }
         foreach ($constants as $constant) {
+            if (SourceDocFixer::isInvalidConstant(PhpFileMapper::map(self::getConstantsName($this->file)), $constant)) {
+                continue;
+            }
             if (Config::get()->isBlacklistConstant($constant)) {
                 Log::debug("Constant '$constant' is blacklisted");
                 continue;

@@ -88,4 +88,11 @@ class SourceDocFixer {
         return null;
     }
 
+    public static function isInvalidConstant(string $name, string $constant): bool {
+        if ($name === 'pdo' && $constant === 'Attribute') {
+            return true;
+        }
+        return false;
+    }
+
 }
