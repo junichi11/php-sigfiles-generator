@@ -197,6 +197,16 @@ final class Php {
         return str_replace(['_', PhpName::NAMESPACE_SEPARATOR], '-', $ident);
     }
 
+    public static function sanitizeMethodModifiers($modifires, string $methodName) {
+        $result = $modifires;
+        if ($methodName === '__construct') {
+            if (in_array('static', $modifires)) {
+                $result = array_diff($modifires, ['static']);
+            }
+        }
+        return $result;
+    }
+
     private static function isBuiltinType(string $type) {
         $type = strtolower($type);
         if (in_array($type, self::$builtInTypes)) {
