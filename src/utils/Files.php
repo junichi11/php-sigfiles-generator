@@ -35,6 +35,19 @@ final class Files {
         return $file;
     }
 
+    public static function createDirectory(string $dir): void {
+        if ($dir === '') {
+            Log::error('The directory path is empty', true);
+        }
+        if (!file_exists($dir)) {
+            Log::error('The directory does not exist: ' . $dir);
+            Log::info('Create the directory: ' . $dir);
+            if (!mkdir($dir, 0755, true)) {
+                Log::error('Cannot create the directory: ' . $dir, true);
+            }
+        }
+    }
+
     public static function writeToFile(string $file, string $content, bool $appendNewLine = true): void {
         if ($appendNewLine) {
             $content .= NEW_LINE;

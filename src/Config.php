@@ -41,12 +41,28 @@ final class Config {
         return $this->config['paths']['output'];
     }
 
+    public function zipOutputDir(): string {
+        return $this->config['paths']['zip.output'];
+    }
+
+    public function sigfilesVersion(): string {
+        return $this->config['other']['sigfiles.version'];
+    }
+
     public function license(): string {
         return trim($this->config['other']['license']);
     }
 
     public function phpDocUrl(): string {
         return $this->config['other']['phpdoc.url'];
+    }
+
+    public function overwriteZip(): bool {
+        return $this->config['zip']['overwrite'];
+    }
+
+    public function zipOnGenerate(): bool {
+        return $this->config['zip']['on.generate'];
     }
 
     public function isBlacklistType(string $type): bool {
