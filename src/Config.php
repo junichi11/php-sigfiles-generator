@@ -61,8 +61,8 @@ final class Config {
         return $this->config['zip']['overwrite'];
     }
 
-    public function zipOnGenerate(): bool {
-        return $this->config['zip']['on.generate'];
+    public function zipOnGenerating(): bool {
+        return $this->config['zip']['on.generating'];
     }
 
     public function isBlacklistType(string $type): bool {
