@@ -42,36 +42,32 @@ class PhpGenerator {
         foreach (self::$items as $item) {
             self::countItem($item);
             $filename = $item->getFilename();
-            if ($currentFilename != $filename) {
-                if ($currentFile !== null && $currentNamespace !== PhpName::DEFAULT_NAMESPACE) {
-                    Files::writeToFile($currentFile, '}');
-                }
-                $currentNamespace = PhpName::DEFAULT_NAMESPACE;
-                $currentFilename = $filename;
-                $currentFile = self::getOutputFile($filename);
-                self::$files++;
-            }
             $name = $item->getName();
             $namespace = $name->isInNamespace() ? $name->getNamespace() : PhpName::DEFAULT_NAMESPACE;
-            if ($currentNamespace !== $namespace) {
-                if ($currentNamespace !== PhpName::DEFAULT_NAMESPACE) {
-                    Files::writeToFile($currentFile, '}');
-                    Files::writeToFile($currentFile, NEW_LINE, false);
-                }
-                if ($namespace !== PhpName::DEFAULT_NAMESPACE) {
-                    Files::writeToFile($currentFile, "namespace $namespace {");
-                    Files::writeToFile($currentFile, '');
+            if ($currentFilename != $filename) {
+                if ($currentFile !== null) {
+                    self::writeNamespaceEnd($currentFile);
                 }
                 $currentNamespace = $namespace;
+                $currentFilename = $filename;
+                $currentFile = self::getOutputFile($filename);
+                self::writeNamespaceStart($namespace, $currentFile);
+                self::$files++;
             }
-            $indent = $currentNamespace === PhpName::DEFAULT_NAMESPACE ? 0 : 1;
+            if ($currentNamespace !== $namespace) {
+                self::writeNamespaceEnd($currentFile);
+                Files::writeToFile($currentFile, NEW_LINE, false);
+                self::writeNamespaceStart($namespace, $currentFile);
+                $currentNamespace = $namespace;
+            }
+            $indent = 1;
             $signature = $item->getSigFileElement()->signature(true, $indent);
             if ($signature) {
                 Files::writeToFile($currentFile, $signature);
             }
         }
-        if ($currentFile !== null && $currentNamespace !== PhpName::DEFAULT_NAMESPACE) {
-            Files::writeToFile($currentFile, '}');
+        if ($currentFile !== null) {
+            self::writeNamespaceEnd($currentFile);
         }
     }
 
@@ -161,6 +157,19 @@ class PhpGenerator {
 
     private static function sprintfNumber(int $number) {
         return sprintf('%8d', $number);
+    }
+
+    private static function writeNamespaceStart(string $namespace, string $currentFile): void {
+        if ($namespace === PhpName::DEFAULT_NAMESPACE) {
+            Files::writeToFile($currentFile, "namespace {");
+        } else {
+            Files::writeToFile($currentFile, "namespace $namespace {");
+        }
+        Files::writeToFile($currentFile, '');
+    }
+
+    private static function writeNamespaceEnd(string $currentFile): void {
+        Files::writeToFile($currentFile, '}');
     }
 
 }
