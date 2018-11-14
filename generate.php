@@ -28,7 +28,7 @@ echo NEW_LINE;
 PhpGenerator::report();
 
 // zip
-if (Config::get()->zipOnGenerate()) {
+if (Config::get()->zipOnGenerating()) {
     echo NEW_LINE;
     Log::info('Generate phpsigfiles-' . Config::get()->sigfilesVersion() . '.zip');
     $licenseFiles = glob(__DIR__ . '/resources/licenses/*');
