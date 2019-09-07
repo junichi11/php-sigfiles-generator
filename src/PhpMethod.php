@@ -160,7 +160,7 @@ class PhpMethod extends SigFileElement {
         $indexes = [];
         $methodSynopsis = $method->nodeValue;
         $parenStart = strpos($methodSynopsis, '(');
-        $parenEnd = strpos($methodSynopsis, ')', -1);
+        $parenEnd = strrpos($methodSynopsis, ')');
         $params = substr($methodSynopsis, $parenStart + 1, $parenEnd - ($parenStart + 1));
         $length = strlen($params);
         $bracketBalance = 0;

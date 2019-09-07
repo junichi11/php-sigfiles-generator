@@ -68,6 +68,13 @@ class SourceDocFixer {
                 return 'string';
             case 'syncsharedmemory.write.html':
                 return 'int';
+            case 'parallel-sync.invoke.html': // no break
+            case 'parallel-sync.notify.html': // no break
+            case 'parallel-sync.set.html': // no break
+            case 'parallel-sync.wait.html':
+                return 'void';
+            case 'snmp.setsecurity.html':
+                return 'bool';
         }
         if (Strings::startsWith($filename, 'ui-')) {
             return 'void';
