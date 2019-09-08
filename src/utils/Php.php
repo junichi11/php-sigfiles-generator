@@ -113,6 +113,15 @@ final class Php {
         $types = [];
         foreach (explode('|', $type) as $part) {
             $prefix = self::isBuiltinType($part) ? '' : PhpName::DEFAULT_NAMESPACE;
+            // e.g. public parallel\Events::poll ( void ) : ?Event
+            if (Strings::startsWith($part, '?')) {
+                $prefix = '?' . $prefix;
+                $part = substr($part, 1);
+            }
+            // avoid adding default namespace twice
+            if (Strings::startsWith($part, PhpName::DEFAULT_NAMESPACE)) {
+                $part = substr($part, 1);
+            }
             $types[] = $prefix . $part;
         }
         return implode('|', $types);
