@@ -2,6 +2,7 @@
 
 use utils\Log;
 
+putenv('project=' . __DIR__);
 define('NEW_LINE', "\n");
 spl_autoload_register(function($class) {
     $classFile = __DIR__ . '/src/' . str_replace('\\', '/', $class) . '.php';
