@@ -4,7 +4,9 @@ Application that generates PHP signature files from the official HTML documentat
 
 ## How to run
 
-- download and unzip `Many HTML files` from [PHP documentation site](http://php.net/download-docs.php)
+- download `Many HTML files` from [PHP documentation site](http://php.net/download-docs.php)
+and unzip it into `resources` directory (the HTML files will end in `php-chunked-xhtml` directory)
+- update `php-chunked-xhtml.txt` (size and date of the HTML help)
 - *[optional]* create any of the following files if any configuration option needs to be overwritten:
     - `config.local.ini` in the application directory
     - `.php.sigfiles.config.ini` in your home directory
