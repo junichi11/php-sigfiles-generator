@@ -1,0 +1,324 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Other Changes</title>
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="migration80.deprecated.html">« Deprecated Features</a></li>
+      <li style="float: right;"><a href="migration74.html">Migrating from PHP 7.3.x to PHP 7.4.x »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="migration80.html">Migrating from PHP 7.4.x to PHP 8.0.x</a></li>
+    <li>Other Changes</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="migration80.other-changes" class="sect1">
+ <h2 class="title">Other Changes</h2>
+
+ <div class="sect2" id="migration80.other-changes.sapi">
+  <h3 class="title">Changes in SAPI Modules</h3>
+
+  <div class="sect3" id="migration80.other-changes.sapi.apache2handler">
+   <h4 class="title">Apache2Handler</h4>
+
+   <p class="para">
+    The PHP module has been renamed from <code class="literal">php7_module</code> to
+    <code class="literal">php_module</code>.
+   </p>
+  </div>
+ </div>
+
+ <div class="sect2" id="migration80.other-changes.functions">
+  <h3 class="title">Changed Functions</h3>
+
+  <div class="sect3" id="migration80.other-changes.functions.reflection">
+   <h4 class="title">Reflection</h4>
+
+   <p class="para">
+    <span class="methodname"><a href="reflectionclass.getconstants.html" class="methodname">ReflectionClass::getConstants()</a></span> and
+    <span class="methodname"><a href="reflectionclass.getreflectionconstants.html" class="methodname">ReflectionClass::getReflectionConstants()</a></span> results can be now filtered via
+    a new parameter <code class="parameter">filter</code>. Three new constants were added to be used with it:
+   </p>
+   <p class="para">
+    <ul class="simplelist">
+     <li class="member"><strong><code>ReflectionClassConstant::IS_PUBLIC</code></strong></li>
+     <li class="member"><strong><code>ReflectionClassConstant::IS_PROTECTED</code></strong></li>
+     <li class="member"><strong><code>ReflectionClassConstant::IS_PRIVATE</code></strong></li>
+    </ul>
+   </p>
+  </div>
+
+  <div class="sect3" id="migration80.other-changes.functions.zip">
+   <h4 class="title">Zip</h4>
+
+   <ul class="itemizedlist">
+    <li class="listitem">
+     <p class="para">
+      The <span class="methodname"><a href="ziparchive.addglob.html" class="methodname">ZipArchive::addGlob()</a></span> and
+      <span class="methodname"><a href="ziparchive.addpattern.html" class="methodname">ZipArchive::addPattern()</a></span> methods accept more values in the
+      <code class="parameter">options</code> array argument:
+     </p>
+     <p class="para">
+      <ul class="simplelist">
+       <li class="member"><code class="literal">flags</code></li>
+       <li class="member"><code class="literal">comp_method</code></li>
+       <li class="member"><code class="literal">comp_flags</code></li>
+       <li class="member"><code class="literal">env_method</code></li>
+       <li class="member"><code class="literal">enc_password</code></li>
+      </ul>
+     </p>
+    </li>
+    <li class="listitem">
+     <p class="para">
+      <span class="methodname"><a href="ziparchive.addemptydir.html" class="methodname">ZipArchive::addEmptyDir()</a></span>, <span class="methodname"><a href="ziparchive.addfile.html" class="methodname">ZipArchive::addFile()</a></span>
+      and <span class="methodname"><a href="ziparchive.addfromstring.html" class="methodname">ZipArchive::addFromString()</a></span>
+      methods have a new <code class="parameter">flags</code> argument. This allows managing name encoding
+      (<strong><code>ZipArchive::FL_ENC_*</code></strong>) and entry replacement
+      (<strong><code>ZipArchive::FL_OVERWRITE</code></strong>).
+     </p>
+    </li>
+    <li class="listitem">
+     <p class="para">
+      <span class="methodname"><a href="ziparchive.extractto.html" class="methodname">ZipArchive::extractTo()</a></span> now restores the file modification time.
+     </p>
+    </li>
+   </ul>
+  </div>
+ </div>
+
+ <div class="sect2" id="migration80.other-changes.extensions">
+  <h3 class="title">Other Changes to Extensions</h3>
+
+  <div class="sect3" id="migration80.other-changes.extensions.curl">
+   <h4 class="title">CURL</h4>
+
+   <ul class="itemizedlist">
+    <li class="listitem">
+     <p class="para">
+      The CURL extension now requires at least libcurl 7.29.0.
+     </p>
+    </li>
+    <li class="listitem">
+     <p class="para">
+      The deprecated parameter <code class="parameter">version</code> of <span class="function"><a href="function.curl-version.html" class="function">curl_version()</a></span> has
+      been removed.
+     </p>
+    </li>
+   </ul>
+  </div>
+
+  <div class="sect3" id="migration80.other-changes.extensions.date">
+   <h4 class="title">Date and Time</h4>
+
+   <p class="para">
+    <a href="class.dateperiod.html" class="classname">DatePeriod</a> now implements <span class="interfacename"><a href="class.iteratoraggregate.html" class="interfacename">IteratorAggregate</a></span>
+    (instead of <span class="interfacename"><a href="class.traversable.html" class="interfacename">Traversable</a></span>).
+   </p>
+  </div>
+
+  <div class="sect3" id="migration80.other-changes.extensions.dom">
+   <h4 class="title">DOM</h4>
+
+   <p class="para">
+    <a href="class.domnamednodemap.html" class="classname">DOMNamedNodeMap</a> and <a href="class.domnodelist.html" class="classname">DOMNodeList</a> now implement
+    <span class="interfacename"><a href="class.iteratoraggregate.html" class="interfacename">IteratorAggregate</a></span> (instead of
+    <span class="interfacename"><a href="class.traversable.html" class="interfacename">Traversable</a></span>).
+   </p>
+  </div>
+
+  <div class="sect3" id="migration80.other-changes.extensions.intl">
+   <h4 class="title">Intl</h4>
+
+   <p class="para">
+    <a href="class.intlbreakiterator.html" class="classname">IntlBreakIterator</a> and <a href="class.resourcebundle.html" class="classname">ResourceBundle</a> now implement
+    <span class="interfacename"><a href="class.iteratoraggregate.html" class="interfacename">IteratorAggregate</a></span> (instead of <span class="interfacename"><a href="class.traversable.html" class="interfacename">Traversable</a></span>).
+   </p>
+  </div>
+
+  <div class="sect3" id="migration80.other-changes.extensions.enchant">
+   <h4 class="title">Enchant</h4>
+
+   <p class="para">
+    The enchant extension now uses libenchant-2 by default when available. libenchant version 1 is
+    still supported but is deprecated and could be removed in the future.
+   </p>
+  </div>
+
+  <div class="sect3" id="migration80.other-changes.extensions.gd">
+   <h4 class="title">GD</h4>
+
+   <ul class="itemizedlist">
+    <li class="listitem">
+     <p class="para">
+      The <code class="parameter">num_points</code> parameter of <span class="function"><a href="function.imagepolygon.html" class="function">imagepolygon()</a></span>,
+      <span class="function"><a href="function.imageopenpolygon.html" class="function">imageopenpolygon()</a></span> and <span class="function"><a href="function.imagefilledpolygon.html" class="function">imagefilledpolygon()</a></span> is now
+      optional, i.e. these functions may be called with either 3 or 4 arguments. If the argument is
+      omitted, it is calculated as <code class="code">count($points)/2</code>.
+     </p>
+    </li>
+    <li class="listitem">
+     <p class="para">
+      The function <span class="function"><a href="function.imagegetinterpolation.html" class="function">imagegetinterpolation()</a></span> to get the current interpolation method
+      has been added.
+     </p>
+    </li>
+   </ul>
+  </div>
+
+  <div class="sect3" id="migration80.other-changes.extensions.json">
+   <h4 class="title">JSON</h4>
+
+   <p class="para">
+    The JSON extension cannot be disabled anymore and is always an integral part of any PHP build,
+    similar to the date extension.
+   </p>
+  </div>
+
+  <div class="sect3" id="migration80.other-changes.extensions.mbstring">
+   <h4 class="title">MBString</h4>
+
+   <p class="para">
+    The Unicode data tables have been updated to version 13.0.0.
+   </p>
+  </div>
+
+  <div class="sect3" id="migration80.other-changes.extensions.pdo">
+   <h4 class="title">PDO</h4>
+
+   <p class="para">
+    <a href="class.pdostatement.html" class="classname">PDOStatement</a> now implements
+    <span class="interfacename"><a href="class.iteratoraggregate.html" class="interfacename">IteratorAggregate</a></span> (instead of
+    <span class="interfacename"><a href="class.traversable.html" class="interfacename">Traversable</a></span>).
+   </p>
+  </div>
+
+  <div class="sect3" id="migration80.other-changes.extensions.libxml">
+   <h4 class="title">LibXML</h4>
+
+   <p class="para">
+    The minimum required libxml version is now 2.9.0. This means that external entity loading is now
+    guaranteed to be disabled by default, and no extra steps need to be taken to protect against XXE
+    attacks.
+   </p>
+  </div>
+
+  <div class="sect3" id="migration80.other-changes.extensions.mysqli">
+   <h4 class="title">MySQLi / PDO MySQL</h4>
+
+   <ul class="itemizedlist">
+    <li class="listitem">
+     <p class="para">
+      When mysqlnd is not used (which is the default and recommended option), the minimum supported
+      libmysqlclient version is now 5.5.
+     </p>
+    </li>
+    <li class="listitem">
+     <p class="para">
+      <a href="class.mysqli-result.html" class="classname">mysqli_result</a> now implements
+      <span class="interfacename"><a href="class.iteratoraggregate.html" class="interfacename">IteratorAggregate</a></span> (instead of
+      <span class="interfacename"><a href="class.traversable.html" class="interfacename">Traversable</a></span>).
+     </p>
+    </li>
+   </ul>
+  </div>
+
+  <div class="sect3" id="migration80.other-changes.extensions.pgsql">
+   <h4 class="title">PGSQL / PDO PGSQL</h4>
+
+   <p class="para">
+    The PGSQL and PDO PGSQL extensions now require at least libpq 9.1.
+   </p>
+  </div>
+
+  <div class="sect3" id="migration80.other-changes.extensions.readline">
+   <h4 class="title">Readline</h4>
+
+   <p class="para">
+    Calling <span class="function"><a href="function.readline-completion-function.html" class="function">readline_completion_function()</a></span> before the interactive prompt starts
+    (e.g. in <a href="ini.core.html#ini.auto-prepend-file" class="link">auto_prepend_file</a>) will now override the
+    default interactive prompt completion function. Previously,
+    <span class="function"><a href="function.readline-completion-function.html" class="function">readline_completion_function()</a></span> only worked when called after starting the
+    interactive prompt.
+   </p>
+  </div>
+
+  <div class="sect3" id="migration80.other-changes.extensions.simplexml">
+   <h4 class="title">SimpleXML</h4>
+
+   <p class="para">
+    <a href="class.simplexmlelement.html" class="classname">SimpleXMLElement</a> now implements
+    <span class="interfacename"><a href="class.recursiveiterator.html" class="interfacename">RecursiveIterator</a></span> and absorbed the functionality of
+    <a href="class.simplexmliterator.html" class="classname">SimpleXMLIterator</a>. <a href="class.simplexmliterator.html" class="classname">SimpleXMLIterator</a> is an empty
+    extension of <a href="class.simplexmlelement.html" class="classname">SimpleXMLElement</a>.
+   </p>
+  </div>
+ </div>
+
+ <div class="sect2" id="migration80.other-changes.ini">
+  <h3 class="title">Changes to INI File Handling</h3>
+
+  <ul class="itemizedlist">
+   <li class="listitem">
+    <p class="para">
+     com.dotnet_version
+     is a new INI directive to choose the version of the .NET framework to use for
+     <a href="class.dotnet.html" class="classname">dotnet</a> objects.
+    </p>
+   </li>
+   <li class="listitem">
+    <p class="para">
+     zend.exception_string_param_max_len
+     is a new INI directive to set the maximum string length in an argument of a stringified
+     stack strace.
+    </p>
+   </li>
+   </ul>
+ </div>
+
+ <div class="sect2" id="migration80.other-changes.ebcdic">
+  <h3 class="title">EBCDIC</h3>
+
+  <p class="para">
+   EBCDIC targets are no longer supported, though it&#039;s unlikely that they were still working in the
+   first place.
+  </p>
+ </div>
+
+ <div class="sect2" id="migration80.other-changes.performance">
+  <h3 class="title">Performance</h3>
+
+  <ul class="itemizedlist">
+   <li class="listitem">
+    <p class="para">
+     A Just-In-Time (JIT) compiler has been added to the opcache extension.
+     
+    </p>
+   </li>
+   <li class="listitem">
+    <p class="para">
+     <span class="function"><a href="function.array-slice.html" class="function">array_slice()</a></span> on an array without gaps will no longer scan the whole array
+     to find the start offset. This may significantly reduce the runtime of the function with large
+     offsets and small lengths.
+    </p>
+   </li>
+   <li class="listitem">
+    <p class="para">
+     <span class="function"><a href="function.strtolower.html" class="function">strtolower()</a></span> now uses a SIMD implementation when using the
+     <code class="literal">&quot;C&quot;</code> <strong><code>LC_CTYPE</code></strong> locale (which is the default).
+    </p>
+   </li>
+  </ul>
+ </div>
+
+</div></div></div></body></html>
