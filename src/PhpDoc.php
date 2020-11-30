@@ -10,10 +10,6 @@ final class PhpDoc {
 
     /** @var DOMXPath */
     private $xpath;
-    /** @var string */
-    private $url;
-    /** @var PhpName */
-    private $name;
     /** @var string[] */
     private $intro = [];
     /** @var string[] */
