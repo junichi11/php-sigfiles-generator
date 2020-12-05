@@ -31,7 +31,6 @@ final class Php {
     private static $pseudoTypes = [
         'boolean',
         'integer',
-        'mixed',
         'number',
         'resource',
     ];
