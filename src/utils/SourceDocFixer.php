@@ -89,8 +89,10 @@ class SourceDocFixer {
     }
 
     public static function methodNodeIndex(PhpName $name): ?int {
-        if ($name->asString() === 'number_format') {
-            return 1;
+        switch ($name->asString()) {
+            case 'number_format':
+            case 'apache_note':
+                return 1;
         }
         return null;
     }
