@@ -100,11 +100,6 @@ final class Php {
             return $phpDoc ? 'mixed' : null;
         }
         $type = explode('[', $type)[0];
-        if (!$phpDoc) {
-            if (count(explode('|', $type)) > 1) {
-                return $phpDoc ? 'mixed' : null;
-            }
-        }
         foreach (self::$pseudoTypesReplaceMap as $search => $replace) {
             $type = str_replace($search, $replace, $type);
         }
