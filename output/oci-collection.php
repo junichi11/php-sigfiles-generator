@@ -5,11 +5,10 @@
 namespace {
 
 	/**
-	 * <p>OCI8 Collection functionality.</p>
 	 * @link http://php.net/manual/en/class.OCI-Collection.php
 	 * @since PHP 5, PHP 7, PECL OCI8 >= 1.1.0
 	 */
-	class OCI_Collection {
+	class OCICollection {
 
 		/**
 		 * Appends element to the collection
@@ -24,12 +23,12 @@ namespace {
 		/**
 		 * Assigns a value to the collection from another existing collection
 		 * <p>Assigns a value to the collection from another, previously created collection. Both collections must be created with <code>oci_new_collection()</code> prior to using them.</p>
-		 * @param \OCI_Collection $from <p>An instance of OCI-Collection.</p>
+		 * @param \OCICollection $from <p>An instance of OCI-Collection.</p>
 		 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
 		 * @link http://php.net/manual/en/oci-collection.assign.php
 		 * @since PHP 5, PHP 7, PECL OCI8 >= 1.1.0
 		 */
-		public function assign(\OCI_Collection $from): bool {}
+		public function assign(\OCICollection $from): bool {}
 
 		/**
 		 * Assigns a value to the element of the collection

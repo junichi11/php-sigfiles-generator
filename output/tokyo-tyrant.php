@@ -12,247 +12,247 @@ namespace {
 	class TokyoTyrant {
 
 		/**
-		 * @var integer <p>The default port of the Tokyo Tyrant database</p>
+		 * @var int <p>The default port of the Tokyo Tyrant database</p>
 		 * @link http://php.net/manual/en/class.tokyotyrant.php
 		 */
 		const RDBDEF_PORT = 1978;
 
 		/**
-		 * @var integer <p>string is equal to</p>
+		 * @var int <p>string is equal to</p>
 		 * @link http://php.net/manual/en/class.tokyotyrant.php
 		 */
 		const RDBQC_STREQ = 0;
 
 		/**
-		 * @var integer <p>string is included in</p>
+		 * @var int <p>string is included in</p>
 		 * @link http://php.net/manual/en/class.tokyotyrant.php
 		 */
 		const RDBQC_STRINC = 1;
 
 		/**
-		 * @var integer <p>string begins with</p>
+		 * @var int <p>string begins with</p>
 		 * @link http://php.net/manual/en/class.tokyotyrant.php
 		 */
 		const RDBQC_STRBW = 2;
 
 		/**
-		 * @var integer <p>string ends with</p>
+		 * @var int <p>string ends with</p>
 		 * @link http://php.net/manual/en/class.tokyotyrant.php
 		 */
 		const RDBQC_STREW = 3;
 
 		/**
-		 * @var integer <p>string includes all tokens in</p>
+		 * @var int <p>string includes all tokens in</p>
 		 * @link http://php.net/manual/en/class.tokyotyrant.php
 		 */
 		const RDBQC_STRAND = 4;
 
 		/**
-		 * @var integer <p>string includes at least one token in</p>
+		 * @var int <p>string includes at least one token in</p>
 		 * @link http://php.net/manual/en/class.tokyotyrant.php
 		 */
 		const RDBQC_STROR = 5;
 
 		/**
-		 * @var integer <p>string is equal to at least one token in</p>
+		 * @var int <p>string is equal to at least one token in</p>
 		 * @link http://php.net/manual/en/class.tokyotyrant.php
 		 */
 		const RDBQC_STROREQ = 6;
 
 		/**
-		 * @var integer <p>string matches regular expressions of</p>
+		 * @var int <p>string matches regular expressions of</p>
 		 * @link http://php.net/manual/en/class.tokyotyrant.php
 		 */
 		const RDBQC_STRRX = 7;
 
 		/**
-		 * @var integer <p>number is equal to</p>
+		 * @var int <p>number is equal to</p>
 		 * @link http://php.net/manual/en/class.tokyotyrant.php
 		 */
 		const RDBQC_NUMEQ = 8;
 
 		/**
-		 * @var integer <p>number is greater than</p>
+		 * @var int <p>number is greater than</p>
 		 * @link http://php.net/manual/en/class.tokyotyrant.php
 		 */
 		const RDBQC_NUMGT = 9;
 
 		/**
-		 * @var integer <p>number is greater than or equal to</p>
+		 * @var int <p>number is greater than or equal to</p>
 		 * @link http://php.net/manual/en/class.tokyotyrant.php
 		 */
 		const RDBQC_NUMGE = 10;
 
 		/**
-		 * @var integer <p>number is less than</p>
+		 * @var int <p>number is less than</p>
 		 * @link http://php.net/manual/en/class.tokyotyrant.php
 		 */
 		const RDBQC_NUMLT = 11;
 
 		/**
-		 * @var integer <p>number is less than or equal to</p>
+		 * @var int <p>number is less than or equal to</p>
 		 * @link http://php.net/manual/en/class.tokyotyrant.php
 		 */
 		const RDBQC_NUMLE = 12;
 
 		/**
-		 * @var integer <p>number is between two tokens of</p>
+		 * @var int <p>number is between two tokens of</p>
 		 * @link http://php.net/manual/en/class.tokyotyrant.php
 		 */
 		const RDBQC_NUMBT = 13;
 
 		/**
-		 * @var integer <p>number is equal to at least one token in</p>
+		 * @var int <p>number is equal to at least one token in</p>
 		 * @link http://php.net/manual/en/class.tokyotyrant.php
 		 */
 		const RDBQC_NUMOREQ = 14;
 
 		/**
-		 * @var integer <p>negation flag</p>
+		 * @var int <p>negation flag</p>
 		 * @link http://php.net/manual/en/class.tokyotyrant.php
 		 */
 		const RDBQC_NEGATE = 16777216;
 
 		/**
-		 * @var integer <p>no index flag</p>
+		 * @var int <p>no index flag</p>
 		 * @link http://php.net/manual/en/class.tokyotyrant.php
 		 */
 		const RDBQC_NOIDX = 33554432;
 
 		/**
-		 * @var integer <p>string ascending</p>
+		 * @var int <p>string ascending</p>
 		 * @link http://php.net/manual/en/class.tokyotyrant.php
 		 */
 		const RDBQO_STRASC = 0;
 
 		/**
-		 * @var integer <p>string descending</p>
+		 * @var int <p>string descending</p>
 		 * @link http://php.net/manual/en/class.tokyotyrant.php
 		 */
 		const RDBQO_STRDESC = 1;
 
 		/**
-		 * @var integer <p>number ascending</p>
+		 * @var int <p>number ascending</p>
 		 * @link http://php.net/manual/en/class.tokyotyrant.php
 		 */
 		const RDBQO_NUMASC = 2;
 
 		/**
-		 * @var integer <p>number descending</p>
+		 * @var int <p>number descending</p>
 		 * @link http://php.net/manual/en/class.tokyotyrant.php
 		 */
 		const RDBQO_NUMDESC = 3;
 
 		/**
-		 * @var integer <p>lexical string</p>
+		 * @var int <p>lexical string</p>
 		 * @link http://php.net/manual/en/class.tokyotyrant.php
 		 */
 		const RDBIT_LEXICAL = 0;
 
 		/**
-		 * @var integer <p>decimal string</p>
+		 * @var int <p>decimal string</p>
 		 * @link http://php.net/manual/en/class.tokyotyrant.php
 		 */
 		const RDBIT_DECIMAL = 1;
 
 		/**
-		 * @var integer <p>token inverted index (Tokyo Tyrant &gt;= 1.1.29)</p>
+		 * @var int <p>token inverted index (Tokyo Tyrant &gt;= 1.1.29)</p>
 		 * @link http://php.net/manual/en/class.tokyotyrant.php
 		 */
 		const RDBIT_TOKEN = 2;
 
 		/**
-		 * @var integer <p>QGRAM inverted index (Tokyo Tyrant &gt;= 1.1.29)</p>
+		 * @var int <p>QGRAM inverted index (Tokyo Tyrant &gt;= 1.1.29)</p>
 		 * @link http://php.net/manual/en/class.tokyotyrant.php
 		 */
 		const RDBIT_QGRAM = 3;
 
 		/**
-		 * @var integer <p>optimize</p>
+		 * @var int <p>optimize</p>
 		 * @link http://php.net/manual/en/class.tokyotyrant.php
 		 */
 		const RDBIT_OPT = 9998;
 
 		/**
-		 * @var integer <p>void</p>
+		 * @var int <p>void</p>
 		 * @link http://php.net/manual/en/class.tokyotyrant.php
 		 */
 		const RDBIT_VOID = 9999;
 
 		/**
-		 * @var integer <p>keep existing index</p>
+		 * @var int <p>keep existing index</p>
 		 * @link http://php.net/manual/en/class.tokyotyrant.php
 		 */
 		const RDBIT_KEEP = 16777216;
 
 		/**
-		 * @var integer <p>full-text search with the phrase of (Tokyo Tyrant &gt;= 1.1.29)</p>
+		 * @var int <p>full-text search with the phrase of (Tokyo Tyrant &gt;= 1.1.29)</p>
 		 * @link http://php.net/manual/en/class.tokyotyrant.php
 		 */
 		const RDBQCFTS_PH = 15;
 
 		/**
-		 * @var integer <p>Metasearch union between records (Tokyo Tyrant &gt;= 1.1.33)</p>
+		 * @var int <p>Metasearch union between records (Tokyo Tyrant &gt;= 1.1.33)</p>
 		 * @link http://php.net/manual/en/class.tokyotyrant.php
 		 */
 		const RDBQCFTS_AND = 16;
 
 		/**
-		 * @var integer <p>Metasearch intersection between records (Tokyo Tyrant &gt;= 1.1.33)</p>
+		 * @var int <p>Metasearch intersection between records (Tokyo Tyrant &gt;= 1.1.33)</p>
 		 * @link http://php.net/manual/en/class.tokyotyrant.php
 		 */
 		const RDBQCFTS_OR = 17;
 
 		/**
-		 * @var integer <p>Metasearch difference between records (Tokyo Tyrant &gt;= 1.1.33)</p>
+		 * @var int <p>Metasearch difference between records (Tokyo Tyrant &gt;= 1.1.33)</p>
 		 * @link http://php.net/manual/en/class.tokyotyrant.php
 		 */
 		const RDBQCFTS_EX = 18;
 
 		/**
-		 * @var integer
+		 * @var int
 		 * @link http://php.net/manual/en/class.tokyotyrant.php
 		 */
 		const RDBXO_LCKREC = 1;
 
 		/**
-		 * @var integer <p>global locking</p>
+		 * @var int <p>global locking</p>
 		 * @link http://php.net/manual/en/class.tokyotyrant.php
 		 */
 		const RDBXOLCK_GLB = 2;
 
 		/**
-		 * @var integer <p>record type int</p>
+		 * @var int <p>record type int</p>
 		 * @link http://php.net/manual/en/class.tokyotyrant.php
 		 */
 		const RDBREC_INT = 1;
 
 		/**
-		 * @var integer <p>record type float (double)</p>
+		 * @var int <p>record type float (double)</p>
 		 * @link http://php.net/manual/en/class.tokyotyrant.php
 		 */
 		const RDBREC_DBL = 2;
 
 		/**
-		 * @var integer
+		 * @var int
 		 * @link http://php.net/manual/en/class.tokyotyrant.php
 		 */
 		const RDBMS_UNION = 0;
 
 		/**
-		 * @var integer
+		 * @var int
 		 * @link http://php.net/manual/en/class.tokyotyrant.php
 		 */
 		const RDBMS_ISECT = 1;
 
 		/**
-		 * @var integer
+		 * @var int
 		 * @link http://php.net/manual/en/class.tokyotyrant.php
 		 */
 		const RDBMS_DIFF = 2;
 
 		/**
-		 * @var integer <p>Whether to reconnect on connection failure. It is recommended to have this parameter on for persistent connections</p>
+		 * @var int <p>Whether to reconnect on connection failure. It is recommended to have this parameter on for persistent connections</p>
 		 * @link http://php.net/manual/en/class.tokyotyrant.php
 		 */
 		const RDBT_RECON = 1;
@@ -273,9 +273,9 @@ namespace {
 		 * Adds to a numeric key
 		 * <p>Adds to an int or double value. This increments the value by the given amount and returns the new value. If the key does not exist a new key is created with initial value of the increment parameter.</p>
 		 * @param string $key <p>The string key</p>
-		 * @param number $increment <p>The amount to increment</p>
+		 * @param int|float $increment <p>The amount to increment</p>
 		 * @param int $type <p><b><code>TokyoTyrant::RDBREC_INT</code></b> or <b><code>TokyoTyrant::RDBREC_DBL</code></b> constant. If this parameter is omitted the type is guessed from the <code>increment</code> parameters type.</p>
-		 * @return number <p>Returns the new value on success</p>
+		 * @return int|float <p>Returns the new value on success</p>
 		 * @link http://php.net/manual/en/tokyotyrant.add.php
 		 * @since PECL tokyo_tyrant >= 0.1.0
 		 */
@@ -296,7 +296,7 @@ namespace {
 		/**
 		 * Connects to a database
 		 * <p>Connects to a database using an uri</p>
-		 * @param string $uri <p>An URI to the database. For example <i>tcp://localhost:1979/</i></p>
+		 * @param string $uri <p>An URI to the database. For example <code>tcp://localhost:1979/</code></p>
 		 * @return TokyoTyrant <p>This method returns the current object and throws TokyoTyrantException on failure.</p>
 		 * @link http://php.net/manual/en/tokyotyrant.connecturi.php
 		 * @since PECL tokyo_tyrant >= 0.1.0
@@ -541,7 +541,7 @@ namespace {
 		 * <p>Tries to clone the Exception, which results in Fatal error.</p>
 		 * @return void <p>No value is returned.</p>
 		 * @link http://php.net/manual/en/exception.clone.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final private function __clone() {}
 
@@ -550,16 +550,16 @@ namespace {
 		 * <p>Returns the <code>string</code> representation of the exception.</p>
 		 * @return string <p>Returns the <code>string</code> representation of the exception.</p>
 		 * @link http://php.net/manual/en/exception.tostring.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		public function __toString(): string {}
 
 		/**
 		 * Gets the Exception code
 		 * <p>Returns the Exception code.</p>
-		 * @return mixed <p>Returns the exception code as <code>integer</code> in Exception but possibly as other type in Exception descendants (for example as <code>string</code> in PDOException).</p>
+		 * @return mixed <p>Returns the exception code as <code>int</code> in Exception but possibly as other type in Exception descendants (for example as <code>string</code> in PDOException).</p>
 		 * @link http://php.net/manual/en/exception.getcode.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getCode() {}
 
@@ -568,7 +568,7 @@ namespace {
 		 * <p>Get the name of the file in which the exception was created.</p>
 		 * @return string <p>Returns the filename in which the exception was created.</p>
 		 * @link http://php.net/manual/en/exception.getfile.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getFile(): string {}
 
@@ -577,7 +577,7 @@ namespace {
 		 * <p>Get line number where the exception was created.</p>
 		 * @return int <p>Returns the line number where the exception was created.</p>
 		 * @link http://php.net/manual/en/exception.getline.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getLine(): int {}
 
@@ -586,7 +586,7 @@ namespace {
 		 * <p>Returns the Exception message.</p>
 		 * @return string <p>Returns the Exception message as a string.</p>
 		 * @link http://php.net/manual/en/exception.getmessage.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getMessage(): string {}
 
@@ -595,7 +595,7 @@ namespace {
 		 * <p>Returns previous exception (the third parameter of <code>Exception::__construct()</code>).</p>
 		 * @return Throwable <p>Returns the previous Throwable if available or <b><code>NULL</code></b> otherwise.</p>
 		 * @link http://php.net/manual/en/exception.getprevious.php
-		 * @since PHP 5 >= 5.3.0, PHP 7
+		 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8
 		 */
 		final public function getPrevious(): \Throwable {}
 
@@ -604,7 +604,7 @@ namespace {
 		 * <p>Returns the Exception stack trace.</p>
 		 * @return array <p>Returns the Exception stack trace as an <code>array</code>.</p>
 		 * @link http://php.net/manual/en/exception.gettrace.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getTrace(): array {}
 
@@ -613,7 +613,7 @@ namespace {
 		 * <p>Returns the Exception stack trace as a string.</p>
 		 * @return string <p>Returns the Exception stack trace as a string.</p>
 		 * @link http://php.net/manual/en/exception.gettraceasstring.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getTraceAsString(): string {}
 	}
@@ -639,9 +639,9 @@ namespace {
 		 * Adds to a numeric key
 		 * <p>Adds to an int or double value. This increments the value by the given amount and returns the new value. If the key does not exist a new key is created with initial value of the increment parameter.</p>
 		 * @param string $key <p>The string key</p>
-		 * @param number $increment <p>The amount to increment</p>
+		 * @param int|float $increment <p>The amount to increment</p>
 		 * @param int $type <p><b><code>TokyoTyrant::RDBREC_INT</code></b> or <b><code>TokyoTyrant::RDBREC_DBL</code></b> constant. If this parameter is omitted the type is guessed from the <code>increment</code> parameters type.</p>
-		 * @return number <p>Returns the new value on success</p>
+		 * @return int|float <p>Returns the new value on success</p>
 		 * @link http://php.net/manual/en/tokyotyrant.add.php
 		 * @since PECL tokyo_tyrant >= 0.1.0
 		 */
@@ -662,7 +662,7 @@ namespace {
 		/**
 		 * Connects to a database
 		 * <p>Connects to a database using an uri</p>
-		 * @param string $uri <p>An URI to the database. For example <i>tcp://localhost:1979/</i></p>
+		 * @param string $uri <p>An URI to the database. For example <code>tcp://localhost:1979/</code></p>
 		 * @return TokyoTyrant <p>This method returns the current object and throws TokyoTyrantException on failure.</p>
 		 * @link http://php.net/manual/en/tokyotyrant.connecturi.php
 		 * @since PECL tokyo_tyrant >= 0.1.0
@@ -1061,7 +1061,7 @@ namespace {
 	}
 
 	/**
-	 * <p>Provides an API to the table databases. A table database can be create using the following command: <i>ttserver -port 1979 /tmp/tt_table.tct</i>. In Tokyo Tyrant the table API is a schemaless database which can store arbitrary amount of key-value pairs under a single primary key.</p>
+	 * <p>Provides an API to the table databases. A table database can be create using the following command: <code>ttserver -port 1979 /tmp/tt_table.tct</code>. In Tokyo Tyrant the table API is a schemaless database which can store arbitrary amount of key-value pairs under a single primary key.</p>
 	 * @link http://php.net/manual/en/class.tokyotyranttable.php
 	 * @since PECL tokyo_tyrant >= 0.1.0
 	 */
@@ -1106,7 +1106,7 @@ namespace {
 		/**
 		 * Connects to a database
 		 * <p>Connects to a database using an uri</p>
-		 * @param string $uri <p>An URI to the database. For example <i>tcp://localhost:1979/</i></p>
+		 * @param string $uri <p>An URI to the database. For example <code>tcp://localhost:1979/</code></p>
 		 * @return TokyoTyrant <p>This method returns the current object and throws TokyoTyrantException on failure.</p>
 		 * @link http://php.net/manual/en/tokyotyrant.connecturi.php
 		 * @since PECL tokyo_tyrant >= 0.1.0

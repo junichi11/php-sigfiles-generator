@@ -73,7 +73,7 @@ namespace {
 	 * <p>Establish a connection to a remote SSH server.</p><p>Once connected, the client should verify the server's hostkey using <code>ssh2_fingerprint()</code>, then authenticate using either password or public key.</p>
 	 * @param string $host
 	 * @param int $port
-	 * @param array $methods <p><code>methods</code> may be an associative array with up to four parameters as described below.</p> <p></p> <b><code>methods</code> may be an associative array with any or all of the following parameters.</b>   Index Meaning Supported Values&#42;     kex  List of key exchange methods to advertise, comma separated in order of preference.   <i>diffie-hellman-group1-sha1</i>, <i>diffie-hellman-group14-sha1</i>, and <i>diffie-hellman-group-exchange-sha1</i>    hostkey  List of hostkey methods to advertise, comma separated in order of preference.   <i>ssh-rsa</i> and <i>ssh-dss</i>    client_to_server  Associative array containing crypt, compression, and message authentication code (MAC) method preferences for messages sent from client to server.  &nbsp;   server_to_client  Associative array containing crypt, compression, and message authentication code (MAC) method preferences for messages sent from server to client.  &nbsp;    <p>&#42; - Supported Values are dependent on methods supported by underlying library. See libssh2 documentation for additional information.</p> <p></p> <b> <code>client_to_server</code> and <code>server_to_client</code> may be an associative array with any or all of the following parameters. </b>   Index Meaning Supported Values&#42;     crypt List of crypto methods to advertise, comma separated in order of preference.  <i>rijndael-cbc@lysator.liu.se</i>, <i>aes256-cbc</i>, <i>aes192-cbc</i>, <i>aes128-cbc</i>, <i>3des-cbc</i>, <i>blowfish-cbc</i>, <i>cast128-cbc</i>, <i>arcfour</i>, and <i>none&#42;&#42;</i>    comp List of compression methods to advertise, comma separated in order of preference.  <i>zlib</i> and <i>none</i>    mac List of MAC methods to advertise, comma separated in order of preference.  <i>hmac-sha1</i>, <i>hmac-sha1-96</i>, <i>hmac-ripemd160</i>, <i>hmac-ripemd160@openssh.com</i>, and <i>none&#42;&#42;</i>     <p></p><p><b>Note</b>: <b>Crypt and MAC method "<i>none</i>"</b><br></p><p>For security reasons, <i>none</i> is disabled by the underlying libssh2 library unless explicitly enabled during build time by using the appropriate ./configure options. See documentation for the underlying library for more information.</p>
+	 * @param array $methods <p><code>methods</code> may be an associative array with up to four parameters as described below.</p> <p></p> <b><code>methods</code> may be an associative array with any or all of the following parameters.</b>   Index Meaning Supported Values&#42;     kex  List of key exchange methods to advertise, comma separated in order of preference.   <code>diffie-hellman-group1-sha1</code>, <code>diffie-hellman-group14-sha1</code>, and <code>diffie-hellman-group-exchange-sha1</code>    hostkey  List of hostkey methods to advertise, comma separated in order of preference.   <code>ssh-rsa</code> and <code>ssh-dss</code>    client_to_server  Associative array containing crypt, compression, and message authentication code (MAC) method preferences for messages sent from client to server.  &nbsp;   server_to_client  Associative array containing crypt, compression, and message authentication code (MAC) method preferences for messages sent from server to client.  &nbsp;    <p>&#42; - Supported Values are dependent on methods supported by underlying library. See libssh2 documentation for additional information.</p> <p></p> <b> <code>client_to_server</code> and <code>server_to_client</code> may be an associative array with any or all of the following parameters. </b>   Index Meaning Supported Values&#42;     crypt List of crypto methods to advertise, comma separated in order of preference.  <code>rijndael-cbc@lysator.liu.se</code>, <code>aes256-cbc</code>, <code>aes192-cbc</code>, <code>aes128-cbc</code>, <code>3des-cbc</code>, <code>blowfish-cbc</code>, <code>cast128-cbc</code>, <code>arcfour</code>, and <code>none&#42;&#42;</code>    comp List of compression methods to advertise, comma separated in order of preference.  <code>zlib</code> and <code>none</code>    mac List of MAC methods to advertise, comma separated in order of preference.  <code>hmac-sha1</code>, <code>hmac-sha1-96</code>, <code>hmac-ripemd160</code>, <code>hmac-ripemd160@openssh.com</code>, and <code>none&#42;&#42;</code>     <p></p><p><b>Note</b>: <b>Crypt and MAC method "<code>none</code>"</b><br></p><p>For security reasons, <code>none</code> is disabled by the underlying libssh2 library unless explicitly enabled during build time by using the appropriate ./configure options. See documentation for the underlying library for more information.</p>
 	 * @param array $callbacks <p><code>callbacks</code> may be an associative array with any or all of the following parameters.</p> <b> Callbacks parameters </b>   Index Meaning Prototype     ignore  Name of function to call when an <b><code>SSH2_MSG_IGNORE</code></b> packet is received  void ignore_cb($message)   debug  Name of function to call when an <b><code>SSH2_MSG_DEBUG</code></b> packet is received  void debug_cb($message, $language, $always_display)   macerror  Name of function to call when a packet is received but the message authentication code failed. If the callback returns <b><code>TRUE</code></b>, the mismatch will be ignored, otherwise the connection will be terminated.  bool macerror_cb($packet)   disconnect  Name of function to call when an <b><code>SSH2_MSG_DISCONNECT</code></b> packet is received  void disconnect_cb($reason, $message, $language)
 	 * @return resource <p>Returns a resource on success, or <b><code>FALSE</code></b> on error.</p>
 	 * @link http://php.net/manual/en/function.ssh2-connect.php
@@ -103,7 +103,7 @@ namespace {
 	 * @param int $width <p>Width of the virtual terminal.</p>
 	 * @param int $height <p>Height of the virtual terminal.</p>
 	 * @param int $width_height_type <p><code>width_height_type</code> should be one of <b><code>SSH2_TERM_UNIT_CHARS</code></b> or <b><code>SSH2_TERM_UNIT_PIXELS</code></b>.</p>
-	 * @return resource <p>Returns a stream on success or <b><code>FALSE</code></b> on failure.</p>
+	 * @return resource|false <p>Returns a stream on success or <b><code>FALSE</code></b> on failure.</p>
 	 * @link http://php.net/manual/en/function.ssh2-exec.php
 	 * @see ssh2_connect(), ssh2_shell(), ssh2_tunnel()
 	 * @since PECL ssh2 >= 0.9.0
@@ -163,7 +163,7 @@ namespace {
 	 * Initialize Publickey subsystem
 	 * <p>Request the Publickey subsystem from an already connected SSH2 server.</p><p>The publickey subsystem allows an already connected and authenticated client to manage the list of authorized public keys stored on the target server in an implementation agnostic manner. If the remote server does not support the publickey subsystem, the <b>ssh2_publickey_init()</b> function will return <b><code>FALSE</code></b>.</p>
 	 * @param resource $session
-	 * @return resource <p>Returns an <i>SSH2 Publickey Subsystem</i> resource for use with all other ssh2_publickey_&#42;() methods or <b><code>FALSE</code></b> on failure.</p>
+	 * @return resource|false <p>Returns an <code>SSH2 Publickey Subsystem</code> resource for use with all other ssh2_publickey_&#42;() methods or <b><code>FALSE</code></b> on failure.</p>
 	 * @link http://php.net/manual/en/function.ssh2-publickey-init.php
 	 * @see ssh2_publickey_add(), ssh2_publickey_remove(), ssh2_publickey_list()
 	 * @since PECL ssh2 >= 0.10
@@ -174,7 +174,7 @@ namespace {
 	 * List currently authorized publickeys
 	 * <p>List currently authorized publickeys.</p>
 	 * @param resource $pkey <p>Publickey Subsystem resource</p>
-	 * @return array <p>Returns a numerically indexed array of keys, each of which is an associative array containing: name, blob, and attrs elements.</p> <b>Publickey elements</b>   Array Key Meaning     name Name of algorithm used by this publickey, for example: <i>ssh-dss</i> or <i>ssh-rsa</i>.   blob Publickey blob as raw binary data.   attrs Attributes assigned to this publickey. The most common attribute, and the only one supported by publickey version 1 servers, is <i>comment</i>, which may be any freeform string.
+	 * @return array <p>Returns a numerically indexed array of keys, each of which is an associative array containing: name, blob, and attrs elements.</p> <b>Publickey elements</b>   Array Key Meaning     name Name of algorithm used by this publickey, for example: <code>ssh-dss</code> or <code>ssh-rsa</code>.   blob Publickey blob as raw binary data.   attrs Attributes assigned to this publickey. The most common attribute, and the only one supported by publickey version 1 servers, is <code>comment</code>, which may be any freeform string.
 	 * @link http://php.net/manual/en/function.ssh2-publickey-list.php
 	 * @see ssh2_publickey_init(), ssh2_publickey_add(), ssh2_publickey_remove()
 	 * @since PECL ssh2 >= 0.10
@@ -225,7 +225,7 @@ namespace {
 	 * Initialize SFTP subsystem
 	 * <p>Request the SFTP subsystem from an already connected SSH2 server.</p>
 	 * @param resource $session <p>An SSH connection link identifier, obtained from a call to <code>ssh2_connect()</code>.</p>
-	 * @return resource <p>This method returns an <i>SSH2 SFTP</i> resource for use with all other ssh2_sftp_&#42;() methods and the ssh2.sftp:// fopen wrapper.</p>
+	 * @return resource|false <p>This method returns an <code>SSH2 SFTP</code> resource for use with all other ssh2_sftp_&#42;() methods and the ssh2.sftp:// fopen wrapper, or <b><code>FALSE</code></b> on failure.</p>
 	 * @link http://php.net/manual/en/function.ssh2-sftp.php
 	 * @see ssh2_scp_recv(), ssh2_scp_send()
 	 * @since PECL ssh2 >= 0.9.0
@@ -361,7 +361,7 @@ namespace {
 	 * Request an interactive shell
 	 * <p>Open a shell at the remote end and allocate a stream for it.</p>
 	 * @param resource $session <p>An SSH connection link identifier, obtained from a call to <code>ssh2_connect()</code>.</p>
-	 * @param string $term_type <p><code>term_type</code> should correspond to one of the entries in the target system's <i>/etc/termcap</i> file.</p>
+	 * @param string $term_type <p><code>term_type</code> should correspond to one of the entries in the target system's <code>/etc/termcap</code> file.</p>
 	 * @param array $env <p><code>env</code> may be passed as an associative array of name/value pairs to set in the target environment.</p>
 	 * @param int $width <p>Width of the virtual terminal.</p>
 	 * @param int $height <p>Height of the virtual terminal.</p>

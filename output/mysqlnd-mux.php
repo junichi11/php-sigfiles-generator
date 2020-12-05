@@ -5,7 +5,7 @@
 namespace {
 
 	/**
-	 * Plugin version string, for example, "1.0.0-prototype".
+	 * Plugin version string, for example, 1.0.0-prototype.
 	 */
 	define('MYSQLND_MUX_VERSION', null);
 

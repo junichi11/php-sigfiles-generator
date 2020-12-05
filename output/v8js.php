@@ -19,13 +19,13 @@ namespace {
 		const V8_VERSION = null;
 
 		/**
-		 * @var integer <p>No flags.</p>
+		 * @var int <p>No flags.</p>
 		 * @link http://php.net/manual/en/class.v8js.php
 		 */
 		const FLAG_NONE = 1;
 
 		/**
-		 * @var integer <p>Forces all JS objects to be associative arrays in PHP.</p>
+		 * @var int <p>Forces all JS objects to be associative arrays in PHP.</p>
 		 * @link http://php.net/manual/en/class.v8js.php
 		 */
 		const FLAG_FORCE_ARRAY = 2;
@@ -34,7 +34,7 @@ namespace {
 		 * Construct a new V8Js object
 		 * <p>Constructs a new V8Js object.</p>
 		 * @param string $object_name <p>The name of the object passed to Javascript.</p>
-		 * @param array $variables <p>Map of PHP variables that will be available in Javascript. Must be an associative <code>array</code> in format <i>array("name-for-js" =&gt; "name-of-php-variable")</i>. Defaults to empty array.</p>
+		 * @param array $variables <p>Map of PHP variables that will be available in Javascript. Must be an associative <code>array</code> in format <code>array("name-for-js" =&gt; "name-of-php-variable")</code>. Defaults to empty array.</p>
 		 * @param array $extensions <p>List of extensions registered using <code>V8Js::registerExtension()</code> which should be available in the Javascript context of the created V8Js object.</p><p><b>Note</b>:</p><p>Extensions registered to be enabled automatically do not need to be listed in this array. Also if an extension has dependencies, those dependencies can be omitted as well. Defaults to empty array.</p>
 		 * @param bool $report_uncaught_exceptions <p>Controls whether uncaught Javascript exceptions are reported immediately or not. Defaults to <b><code>TRUE</code></b>. If set to <b><code>FALSE</code></b> the uncaught exception can be accessed using <code>V8Js::getPendingException()</code>.</p>
 		 * @return self <p>Returns a new V8Js context object.</p>
@@ -48,7 +48,7 @@ namespace {
 		 * <p>Compiles and executes the string passed with <code>script</code> as Javascript code.</p>
 		 * @param string $script <p>The code string to be executed.</p>
 		 * @param string $identifier <p>Identifier string for the executed code. Used for debugging.</p>
-		 * @param int $flags <p>Execution flags. This value must be one of the <i>V8Js::FLAG_&#42;</i> constants, defaulting to <b><code>V8Js::FLAG_NONE</code></b>.</p><ul> <li> <p><b><code>V8Js::FLAG_NONE</code></b>: no flags</p> </li> <li> <p><b><code>V8Js::FLAG_FORCE_ARRAY</code></b>: forces all Javascript objects passed to PHP to be associative arrays</p> </li> </ul>
+		 * @param int $flags <p>Execution flags. This value must be one of the <code>V8Js::FLAG_&#42;</code> constants, defaulting to <b><code>V8Js::FLAG_NONE</code></b>.</p><ul> <li> <p><b><code>V8Js::FLAG_NONE</code></b>: no flags</p> </li> <li> <p><b><code>V8Js::FLAG_FORCE_ARRAY</code></b>: forces all Javascript objects passed to PHP to be associative arrays</p> </li> </ul>
 		 * @return mixed <p>Returns the last variable instantiated in the Javascript code converted to matching PHP variable type.</p>
 		 * @link http://php.net/manual/en/v8js.executestring.php
 		 * @since PECL v8js >= 0.1.0
@@ -146,7 +146,7 @@ namespace {
 		 * <p>Tries to clone the Exception, which results in Fatal error.</p>
 		 * @return void <p>No value is returned.</p>
 		 * @link http://php.net/manual/en/exception.clone.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final private function __clone() {}
 
@@ -155,16 +155,16 @@ namespace {
 		 * <p>Returns the <code>string</code> representation of the exception.</p>
 		 * @return string <p>Returns the <code>string</code> representation of the exception.</p>
 		 * @link http://php.net/manual/en/exception.tostring.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		public function __toString(): string {}
 
 		/**
 		 * Gets the Exception code
 		 * <p>Returns the Exception code.</p>
-		 * @return mixed <p>Returns the exception code as <code>integer</code> in Exception but possibly as other type in Exception descendants (for example as <code>string</code> in PDOException).</p>
+		 * @return mixed <p>Returns the exception code as <code>int</code> in Exception but possibly as other type in Exception descendants (for example as <code>string</code> in PDOException).</p>
 		 * @link http://php.net/manual/en/exception.getcode.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getCode() {}
 
@@ -173,7 +173,7 @@ namespace {
 		 * <p>Get the name of the file in which the exception was created.</p>
 		 * @return string <p>Returns the filename in which the exception was created.</p>
 		 * @link http://php.net/manual/en/exception.getfile.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getFile(): string {}
 
@@ -218,7 +218,7 @@ namespace {
 		 * <p>Get line number where the exception was created.</p>
 		 * @return int <p>Returns the line number where the exception was created.</p>
 		 * @link http://php.net/manual/en/exception.getline.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getLine(): int {}
 
@@ -227,7 +227,7 @@ namespace {
 		 * <p>Returns the Exception message.</p>
 		 * @return string <p>Returns the Exception message as a string.</p>
 		 * @link http://php.net/manual/en/exception.getmessage.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getMessage(): string {}
 
@@ -236,7 +236,7 @@ namespace {
 		 * <p>Returns previous exception (the third parameter of <code>Exception::__construct()</code>).</p>
 		 * @return Throwable <p>Returns the previous Throwable if available or <b><code>NULL</code></b> otherwise.</p>
 		 * @link http://php.net/manual/en/exception.getprevious.php
-		 * @since PHP 5 >= 5.3.0, PHP 7
+		 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8
 		 */
 		final public function getPrevious(): \Throwable {}
 
@@ -245,7 +245,7 @@ namespace {
 		 * <p>Returns the Exception stack trace.</p>
 		 * @return array <p>Returns the Exception stack trace as an <code>array</code>.</p>
 		 * @link http://php.net/manual/en/exception.gettrace.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getTrace(): array {}
 
@@ -254,7 +254,7 @@ namespace {
 		 * <p>Returns the Exception stack trace as a string.</p>
 		 * @return string <p>Returns the Exception stack trace as a string.</p>
 		 * @link http://php.net/manual/en/exception.gettraceasstring.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getTraceAsString(): string {}
 	}

@@ -8,8 +8,8 @@ namespace {
 	 * Generates a backtrace
 	 * <p><b>debug_backtrace()</b> generates a PHP backtrace.</p>
 	 * @param int $options <p>As of 5.3.6, this parameter is a bitmask for the following options:</p> <b><b>debug_backtrace()</b> options</b>   DEBUG_BACKTRACE_PROVIDE_OBJECT  Whether or not to populate the "object" index.    DEBUG_BACKTRACE_IGNORE_ARGS  Whether or not to omit the "args" index, and thus all the function/method arguments, to save memory.     Before 5.3.6, the only values recognized are <b><code>TRUE</code></b> or <b><code>FALSE</code></b>, which are the same as setting or not setting the <b><code>DEBUG_BACKTRACE_PROVIDE_OBJECT</code></b> option respectively.
-	 * @param int $limit <p>As of 5.4.0, this parameter can be used to limit the number of stack frames returned. By default (<code>limit</code>=<i>0</i>) it returns all stack frames.</p>
-	 * @return array <p>Returns an array of associative <code>array</code>s. The possible returned elements are as follows:</p> <b>Possible returned elements from <b>debug_backtrace()</b></b>   Name Type Description     function <code>string</code>  The current function name. See also __FUNCTION__.    line <code>integer</code>  The current line number. See also __LINE__.    file <code>string</code>  The current file name. See also __FILE__.    class <code>string</code>  The current class name. See also __CLASS__    object <code>object</code>  The current object.    type <code>string</code>  The current call type. If a method call, "-&gt;" is returned. If a static method call, "::" is returned. If a function call, nothing is returned.    args <code>array</code>  If inside a function, this lists the functions arguments. If inside an included file, this lists the included file name(s).
+	 * @param int $limit <p>As of 5.4.0, this parameter can be used to limit the number of stack frames returned. By default (<code>limit</code>=<code>0</code>) it returns all stack frames.</p>
+	 * @return array <p>Returns an array of associative <code>array</code>s. The possible returned elements are as follows:</p> <b>Possible returned elements from <b>debug_backtrace()</b></b>   Name Type Description     function <code>string</code>  The current function name. See also __FUNCTION__.    line <code>int</code>  The current line number. See also __LINE__.    file <code>string</code>  The current file name. See also __FILE__.    class <code>string</code>  The current class name. See also __CLASS__    object <code>object</code>  The current object.    type <code>string</code>  The current call type. If a method call, "-&gt;" is returned. If a static method call, "::" is returned. If a function call, nothing is returned.    args <code>array</code>  If inside a function, this lists the functions arguments. If inside an included file, this lists the included file name(s).
 	 * @link http://php.net/manual/en/function.debug-backtrace.php
 	 * @see trigger_error(), debug_print_backtrace()
 	 * @since PHP 4 >= 4.3.0, PHP 5, PHP 7
@@ -20,7 +20,7 @@ namespace {
 	 * Prints a backtrace
 	 * <p><b>debug_print_backtrace()</b> prints a PHP backtrace. It prints the function calls, included/required files and <code>eval()</code>ed stuff.</p>
 	 * @param int $options <p>As of 5.3.6, this parameter is a bitmask for the following options:</p> <b><b>debug_print_backtrace()</b> options</b>   DEBUG_BACKTRACE_IGNORE_ARGS  Whether or not to omit the "args" index, and thus all the function/method arguments, to save memory.
-	 * @param int $limit <p>As of 5.4.0, this parameter can be used to limit the number of stack frames printed. By default (<code>limit</code>=<i>0</i>) it prints all stack frames.</p>
+	 * @param int $limit <p>As of 5.4.0, this parameter can be used to limit the number of stack frames printed. By default (<code>limit</code>=<code>0</code>) it prints all stack frames.</p>
 	 * @return void <p>No value is returned.</p>
 	 * @link http://php.net/manual/en/function.debug-print-backtrace.php
 	 * @see debug_backtrace()
@@ -52,7 +52,7 @@ namespace {
 	 * @param string $message <p>The error message that should be logged.</p>
 	 * @param int $message_type <p>Says where the error should go. The possible message types are as follows:</p> <p></p> <b><b>error_log()</b> log types</b>   0  <code>message</code> is sent to PHP's system logger, using the Operating System's system logging mechanism or a file, depending on what the error_log configuration directive is set to. This is the default option.    1  <code>message</code> is sent by email to the address in the <code>destination</code> parameter. This is the only message type where the fourth parameter, <code>extra_headers</code> is used.    2  No longer an option.    3  <code>message</code> is appended to the file <code>destination</code>. A newline is not automatically added to the end of the <code>message</code> string.    4  <code>message</code> is sent directly to the SAPI logging handler.
 	 * @param string $destination <p>The destination. Its meaning depends on the <code>message_type</code> parameter as described above.</p>
-	 * @param string $extra_headers <p>The extra headers. It's used when the <code>message_type</code> parameter is set to <i>1</i>. This message type uses the same internal function as <code>mail()</code> does.</p>
+	 * @param string $extra_headers <p>The extra headers. It's used when the <code>message_type</code> parameter is set to <code>1</code>. This message type uses the same internal function as <code>mail()</code> does.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
 	 * @link http://php.net/manual/en/function.error-log.php
 	 * @since PHP 4, PHP 5, PHP 7
@@ -92,8 +92,8 @@ namespace {
 
 	/**
 	 * Sets a user-defined error handler function
-	 * <p>Sets a user function (<code>error_handler</code>) to handle errors in a script.</p><p>This function can be used for defining your own way of handling errors during runtime, for example in applications in which you need to do cleanup of data/files when a critical error happens, or when you need to trigger an error under certain conditions (using <code>trigger_error()</code>).</p><p>It is important to remember that the standard PHP error handler is completely bypassed for the error types specified by <code>error_types</code> unless the callback function returns <b><code>FALSE</code></b>. <code>error_reporting()</code> settings will have no effect and your error handler will be called regardless - however you are still able to read the current value of error_reporting and act appropriately. Of particular note is that this value will be 0 if the statement that caused the error was prepended by the @ error-control operator.</p><p>Also note that it is your responsibility to <code>die()</code> if necessary. If the error-handler function returns, script execution will continue with the next statement after the one that caused an error.</p><p>The following error types cannot be handled with a user defined function: <b><code>E_ERROR</code></b>, <b><code>E_PARSE</code></b>, <b><code>E_CORE_ERROR</code></b>, <b><code>E_CORE_WARNING</code></b>, <b><code>E_COMPILE_ERROR</code></b>, <b><code>E_COMPILE_WARNING</code></b>, and most of <b><code>E_STRICT</code></b> raised in the file where <b>set_error_handler()</b> is called.</p><p>If errors occur before the script is executed (e.g. on file uploads) the custom error handler cannot be called since it is not registered at that time.</p>
-	 * @param callable $error_handler <p>A callback with the following signature. <b><code>NULL</code></b> may be passed instead, to reset this handler to its default state. Instead of a function name, an array containing an object reference and a method name can also be supplied.</p> <p></p> bool handler ( int <code>$errno</code> , string <code>$errstr</code> [, string <code>$errfile</code> [, int <code>$errline</code> [, array <code>$errcontext</code> ]]] )   <code>errno</code>   The first parameter, <code>errno</code>, contains the level of the error raised, as an integer.    <code>errstr</code>   The second parameter, <code>errstr</code>, contains the error message, as a string.    <code>errfile</code>   The third parameter is optional, <code>errfile</code>, which contains the filename that the error was raised in, as a string.    <code>errline</code>   The fourth parameter is optional, <code>errline</code>, which contains the line number the error was raised at, as an integer.    <code>errcontext</code>   The fifth parameter is optional, <code>errcontext</code>, which is an array that points to the active symbol table at the point the error occurred. In other words, <code>errcontext</code> will contain an array of every variable that existed in the scope the error was triggered in. User error handler must not modify error context.  <p><b>Warning</b></p> <p>This parameter has been <i>DEPRECATED</i> as of PHP 7.2.0. Relying on it is highly discouraged.</p>    <p>If the function returns <b><code>FALSE</code></b> then the normal error handler continues.</p>
+	 * <p>Sets a user function (<code>error_handler</code>) to handle errors in a script.</p><p>This function can be used for defining your own way of handling errors during runtime, for example in applications in which you need to do cleanup of data/files when a critical error happens, or when you need to trigger an error under certain conditions (using <code>trigger_error()</code>).</p><p>It is important to remember that the standard PHP error handler is completely bypassed for the error types specified by <code>error_types</code> unless the callback function returns <b><code>FALSE</code></b>. <code>error_reporting()</code> settings will have no effect and your error handler will be called regardless - however you are still able to read the current value of error_reporting and act appropriately. Of particular note is that this value will be 0 if the statement that caused the error was prepended by the @ error-control operator.</p><p>Also note that it is your responsibility to <code>die()</code> if necessary. If the error-handler function returns, script execution will continue with the next statement after the one that caused an error.</p><p>The following error types cannot be handled with a user defined function: <b><code>E_ERROR</code></b>, <b><code>E_PARSE</code></b>, <b><code>E_CORE_ERROR</code></b>, <b><code>E_CORE_WARNING</code></b>, <b><code>E_COMPILE_ERROR</code></b>, <b><code>E_COMPILE_WARNING</code></b> independent of where they were raised, and most of <b><code>E_STRICT</code></b> raised in the file where <b>set_error_handler()</b> is called.</p><p>If errors occur before the script is executed (e.g. on file uploads) the custom error handler cannot be called since it is not registered at that time.</p>
+	 * @param callable $error_handler <p>A callback with the following signature. <b><code>NULL</code></b> may be passed instead, to reset this handler to its default state. Instead of a function name, an array containing an object reference and a method name can also be supplied.</p> <p></p> handler ( <code>int</code> <code>$errno</code> , <code>string</code> <code>$errstr</code> [, <code>string</code> <code>$errfile</code> [, <code>int</code> <code>$errline</code> [, <code>array</code> <code>$errcontext</code> ]]] ) : <code>bool</code>   <code>errno</code>   The first parameter, <code>errno</code>, contains the level of the error raised, as an integer.    <code>errstr</code>   The second parameter, <code>errstr</code>, contains the error message, as a string.    <code>errfile</code>   The third parameter is optional, <code>errfile</code>, which contains the filename that the error was raised in, as a string.    <code>errline</code>   The fourth parameter is optional, <code>errline</code>, which contains the line number the error was raised at, as an integer.    <code>errcontext</code>   The fifth parameter is optional, <code>errcontext</code>, which is an array that points to the active symbol table at the point the error occurred. In other words, <code>errcontext</code> will contain an array of every variable that existed in the scope the error was triggered in. User error handler must not modify error context.  <p><b>Warning</b></p> <p>This parameter has been <i>DEPRECATED</i> as of PHP 7.2.0. Relying on it is highly discouraged.</p>    <p>If the function returns <b><code>FALSE</code></b> then the normal error handler continues.</p>
 	 * @param int $error_types <p>Can be used to mask the triggering of the <code>error_handler</code> function just like the error_reporting ini setting controls which errors are shown. Without this mask set the <code>error_handler</code> will be called for every error regardless to the setting of the error_reporting setting.</p>
 	 * @return mixed <p>Returns a string containing the previously defined error handler (if any). If the built-in error handler is used <b><code>NULL</code></b> is returned. <b><code>NULL</code></b> is also returned in case of an error such as an invalid callback. If the previous error handler was a class method, this function will return an indexed array with the class and the method name.</p>
 	 * @link http://php.net/manual/en/function.set-error-handler.php
@@ -105,7 +105,7 @@ namespace {
 	/**
 	 * Sets a user-defined exception handler function
 	 * <p>Sets the default exception handler if an exception is not caught within a try/catch block. Execution will stop after the <code>exception_handler</code> is called.</p>
-	 * @param callable $exception_handler <p>Name of the function to be called when an uncaught exception occurs. This handler function needs to accept one parameter, which will be the exception object that was thrown. This is the handler signature before PHP 7:</p> <p></p> void handler ( <code>Exception</code> <code>$ex</code> ) <p>Since PHP 7, most errors are reported by throwing Error exceptions, which will be caught by the handler as well. Both Error and Exception implements the Throwable interface. This is the handler signature since PHP 7:</p> <p></p> void handler ( <code>Throwable</code> <code>$ex</code> ) <p><b><code>NULL</code></b> may be passed instead, to reset this handler to its default state.</p> <b>Caution</b> <p>Note that providing an explicit Exception type hint for the <code>ex</code> parameter in your callback will cause issues with the changed exception hierarchy in PHP 7.</p>
+	 * @param callable $exception_handler <p>Name of the function to be called when an uncaught exception occurs. This handler function needs to accept one parameter, which will be the exception object that was thrown. This is the handler signature before PHP 7:</p> <p></p> handler ( <code>Exception</code> <code>$ex</code> ) : void <p>Since PHP 7, most errors are reported by throwing Error exceptions, which will be caught by the handler as well. Both Error and Exception implements the Throwable interface. This is the handler signature since PHP 7:</p> <p></p> handler ( <code>Throwable</code> <code>$ex</code> ) : void <p><b><code>NULL</code></b> may be passed instead, to reset this handler to its default state.</p> <b>Caution</b> <p>Note that providing an explicit Exception type hint for the <code>ex</code> parameter in your callback will cause issues with the changed exception hierarchy in PHP 7.</p>
 	 * @return callable <p>Returns the name of the previously defined exception handler, or <b><code>NULL</code></b> on error. If no previous handler was defined, <b><code>NULL</code></b> is also returned.</p>
 	 * @link http://php.net/manual/en/function.set-exception-handler.php
 	 * @see restore_exception_handler(), restore_error_handler(), error_reporting()
@@ -157,7 +157,7 @@ namespace {
 	define('16', null);
 
 	/**
-	 * Since PHP 5.3.0
+	 * As of PHP 5.3.0
 	 */
 	define('16384', null);
 
@@ -167,7 +167,7 @@ namespace {
 	define('2', null);
 
 	/**
-	 * Since PHP 5 but not included in <b><code>E_ALL</code></b> until PHP 5.4.0
+	 * Not included in <b><code>E_ALL</code></b> prior to PHP 5.4.0
 	 */
 	define('2048', null);
 
@@ -192,7 +192,7 @@ namespace {
 	define('4', null);
 
 	/**
-	 * Since PHP 5.2.0
+	 * As of PHP 5.2.0
 	 */
 	define('4096', null);
 
@@ -212,7 +212,7 @@ namespace {
 	define('8', null);
 
 	/**
-	 * Since PHP 5.3.0
+	 * As of PHP 5.3.0
 	 */
 	define('8192', null);
 

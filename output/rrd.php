@@ -172,7 +172,7 @@ namespace {
 	/**
 	 * Creates image from a data
 	 * <p>Creates image for a particular data from RRD file.</p>
-	 * @param string $filename <p>The filename to output the graph to. This will generally end in either <i>.png</i>, <i>.svg</i> or <i>.eps</i>, depending on the format you want to output.</p>
+	 * @param string $filename <p>The filename to output the graph to. This will generally end in either <code>.png</code>, <code>.svg</code> or <code>.eps</code>, depending on the format you want to output.</p>
 	 * @param array $options <p>Options for generating image. See man page of rrd graph for all possible options. All options (data definitions, variable defintions, etc.) are allowed.</p>
 	 * @return array <p>Array with information about generated image is returned, <b><code>FALSE</code></b> when error occurs.</p>
 	 * @link http://php.net/manual/en/function.rrd-graph.php

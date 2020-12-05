@@ -40,18 +40,29 @@ namespace {
 	 * <p>Calculates bitwise AND of two GMP numbers.</p>
 	 * @param \GMP $a <p>Either a GMP number <code>resource</code> in PHP 5.5 and earlier, a GMP object in PHP 5.6 and later, or a numeric string provided that it is possible to convert the latter to a number.</p>
 	 * @param \GMP $b <p>Either a GMP number <code>resource</code> in PHP 5.5 and earlier, a GMP object in PHP 5.6 and later, or a numeric string provided that it is possible to convert the latter to a number.</p>
-	 * @return GMP <p>A GMP number representing the bitwise <i>AND</i> comparison.</p>
+	 * @return GMP <p>A GMP number representing the bitwise <code>AND</code> comparison.</p>
 	 * @link http://php.net/manual/en/function.gmp-and.php
 	 * @since PHP 4 >= 4.0.4, PHP 5, PHP 7
 	 */
 	function gmp_and(\GMP $a, \GMP $b): \GMP {}
 
 	/**
+	 * Calculates binomial coefficient
+	 * <p>Calculates the binomial coefficient C(n, k).</p>
+	 * @param mixed $n <p>Either a GMP number <code>resource</code> in PHP 5.5 and earlier, a GMP object in PHP 5.6 and later, or a numeric string provided that it is possible to convert the latter to a number.</p>
+	 * @param int $k
+	 * @return GMP|false <p>Returns the binomial coefficient C(n, k), or <b><code>FALSE</code></b> on failure.</p>
+	 * @link http://php.net/manual/en/function.gmp-binomial.php
+	 * @since PHP 7 >= 7.3.0
+	 */
+	function gmp_binomial($n, int $k) {}
+
+	/**
 	 * Clear bit
 	 * <p>Clears (sets to 0) bit <code>index</code> in <code>a</code>. The index starts at 0.</p>
 	 * @param \GMP $a <p>Either a GMP number <code>resource</code> in PHP 5.5 and earlier, a GMP object in PHP 5.6 and later, or a numeric string provided that it is possible to convert the latter to a number.</p>
 	 * @param int $index <p>The index of the bit to clear. Index 0 represents the least significant bit.</p>
-	 * @return void <p>A GMP number <code>resource</code> in PHP 5.5 and earlier, or a GMP object in PHP 5.6 and later.</p>
+	 * @return void <p>A GMP object.</p>
 	 * @link http://php.net/manual/en/function.gmp-clrbit.php
 	 * @see gmp_setbit(), gmp_testbit()
 	 * @since PHP 4 >= 4.0.4, PHP 5, PHP 7
@@ -63,7 +74,7 @@ namespace {
 	 * <p>Compares two numbers.</p>
 	 * @param \GMP $a <p>Either a GMP number <code>resource</code> in PHP 5.5 and earlier, a GMP object in PHP 5.6 and later, or a numeric string provided that it is possible to convert the latter to a number.</p>
 	 * @param \GMP $b <p>Either a GMP number <code>resource</code> in PHP 5.5 and earlier, a GMP object in PHP 5.6 and later, or a numeric string provided that it is possible to convert the latter to a number.</p>
-	 * @return int <p>Returns a positive value if <i>a &gt; b</i>, zero if <i>a = b</i> and a negative value if <i>a &lt; b</i>.</p>
+	 * @return int <p>Returns a positive value if <code>a &gt; b</code>, zero if <code>a = b</code> and a negative value if <code>a &lt; b</code>.</p>
 	 * @link http://php.net/manual/en/function.gmp-cmp.php
 	 * @since PHP 4 >= 4.0.4, PHP 5, PHP 7
 	 */
@@ -84,7 +95,7 @@ namespace {
 	 * <p>This function is an alias of: <code>gmp_div_q()</code>.</p>
 	 * @param \GMP $a <p>The number being divided.</p> <p>Either a GMP number <code>resource</code> in PHP 5.5 and earlier, a GMP object in PHP 5.6 and later, or a numeric string provided that it is possible to convert the latter to a number.</p>
 	 * @param \GMP $b <p>The number that <code>a</code> is being divided by.</p> <p>Either a GMP number <code>resource</code> in PHP 5.5 and earlier, a GMP object in PHP 5.6 and later, or a numeric string provided that it is possible to convert the latter to a number.</p>
-	 * @param int $round <p>The result rounding is defined by the <code>round</code>, which can have the following values:</p><ul> <li>  <b><code>GMP_ROUND_ZERO</code></b>: The result is truncated towards 0.  </li> <li>  <b><code>GMP_ROUND_PLUSINF</code></b>: The result is rounded towards <i>+infinity</i>.  </li> <li>  <b><code>GMP_ROUND_MINUSINF</code></b>: The result is rounded towards <i>-infinity</i>.  </li> </ul> <p>Either a GMP number <code>resource</code> in PHP 5.5 and earlier, a GMP object in PHP 5.6 and later, or a numeric string provided that it is possible to convert the latter to a number.</p>
+	 * @param int $round <p>The result rounding is defined by the <code>round</code>, which can have the following values:</p><ul> <li>  <b><code>GMP_ROUND_ZERO</code></b>: The result is truncated towards 0.  </li> <li>  <b><code>GMP_ROUND_PLUSINF</code></b>: The result is rounded towards <code>+infinity</code>.  </li> <li>  <b><code>GMP_ROUND_MINUSINF</code></b>: The result is rounded towards <code>-infinity</code>.  </li> </ul> <p>Either a GMP number <code>resource</code> in PHP 5.5 and earlier, a GMP object in PHP 5.6 and later, or a numeric string provided that it is possible to convert the latter to a number.</p>
 	 * @return GMP
 	 * @link http://php.net/manual/en/function.gmp-div.php
 	 * @since PHP 4 >= 4.0.4, PHP 5, PHP 7
@@ -96,8 +107,8 @@ namespace {
 	 * <p>Divides <code>a</code> by <code>b</code> and returns the integer result.</p>
 	 * @param \GMP $a <p>The number being divided.</p> <p>Either a GMP number <code>resource</code> in PHP 5.5 and earlier, a GMP object in PHP 5.6 and later, or a numeric string provided that it is possible to convert the latter to a number.</p>
 	 * @param \GMP $b <p>The number that <code>a</code> is being divided by.</p> <p>Either a GMP number <code>resource</code> in PHP 5.5 and earlier, a GMP object in PHP 5.6 and later, or a numeric string provided that it is possible to convert the latter to a number.</p>
-	 * @param int $round <p>The result rounding is defined by the <code>round</code>, which can have the following values:</p><ul> <li>  <b><code>GMP_ROUND_ZERO</code></b>: The result is truncated towards 0.  </li> <li>  <b><code>GMP_ROUND_PLUSINF</code></b>: The result is rounded towards <i>+infinity</i>.  </li> <li>  <b><code>GMP_ROUND_MINUSINF</code></b>: The result is rounded towards <i>-infinity</i>.  </li> </ul> <p>Either a GMP number <code>resource</code> in PHP 5.5 and earlier, a GMP object in PHP 5.6 and later, or a numeric string provided that it is possible to convert the latter to a number.</p>
-	 * @return GMP <p>A GMP number <code>resource</code> in PHP 5.5 and earlier, or a GMP object in PHP 5.6 and later.</p>
+	 * @param int $round <p>The result rounding is defined by the <code>round</code>, which can have the following values:</p><ul> <li>  <b><code>GMP_ROUND_ZERO</code></b>: The result is truncated towards 0.  </li> <li>  <b><code>GMP_ROUND_PLUSINF</code></b>: The result is rounded towards <code>+infinity</code>.  </li> <li>  <b><code>GMP_ROUND_MINUSINF</code></b>: The result is rounded towards <code>-infinity</code>.  </li> </ul> <p>Either a GMP number <code>resource</code> in PHP 5.5 and earlier, a GMP object in PHP 5.6 and later, or a numeric string provided that it is possible to convert the latter to a number.</p>
+	 * @return GMP <p>A GMP object.</p>
 	 * @link http://php.net/manual/en/function.gmp-div-q.php
 	 * @see gmp_div_r(), gmp_div_qr()
 	 * @since PHP 4 >= 4.0.4, PHP 5, PHP 7
@@ -110,7 +121,7 @@ namespace {
 	 * @param \GMP $n <p>The number being divided.</p> <p>Either a GMP number <code>resource</code> in PHP 5.5 and earlier, a GMP object in PHP 5.6 and later, or a numeric string provided that it is possible to convert the latter to a number.</p>
 	 * @param \GMP $d <p>The number that <code>n</code> is being divided by.</p> <p>Either a GMP number <code>resource</code> in PHP 5.5 and earlier, a GMP object in PHP 5.6 and later, or a numeric string provided that it is possible to convert the latter to a number.</p>
 	 * @param int $round <p>See the <code>gmp_div_q()</code> function for description of the <code>round</code> argument.</p>
-	 * @return array <p>Returns an <code>array</code>, with the first element being <i>[n/d]</i> (the integer result of the division) and the second being <i>(n - [n/d] &#42; d)</i> (the remainder of the division).</p>
+	 * @return array <p>Returns an <code>array</code>, with the first element being <code>[n/d]</code> (the integer result of the division) and the second being <code>(n - [n/d] &#42; d)</code> (the remainder of the division).</p>
 	 * @link http://php.net/manual/en/function.gmp-div-qr.php
 	 * @see gmp_div_q(), gmp_div_r()
 	 * @since PHP 4 >= 4.0.4, PHP 5, PHP 7
@@ -135,7 +146,7 @@ namespace {
 	 * <p>Divides <code>n</code> by <code>d</code>, using fast "exact division" algorithm. This function produces correct results only when it is known in advance that <code>d</code> divides <code>n</code>.</p>
 	 * @param \GMP $n <p>The number being divided.</p> <p>Either a GMP number <code>resource</code> in PHP 5.5 and earlier, a GMP object in PHP 5.6 and later, or a numeric string provided that it is possible to convert the latter to a number.</p>
 	 * @param \GMP $d <p>The number that <code>a</code> is being divided by.</p> <p>Either a GMP number <code>resource</code> in PHP 5.5 and earlier, a GMP object in PHP 5.6 and later, or a numeric string provided that it is possible to convert the latter to a number.</p>
-	 * @return GMP <p>A GMP number <code>resource</code> in PHP 5.5 and earlier, or a GMP object in PHP 5.6 and later.</p>
+	 * @return GMP <p>A GMP object.</p>
 	 * @link http://php.net/manual/en/function.gmp-divexact.php
 	 * @since PHP 4 >= 4.0.4, PHP 5, PHP 7
 	 */
@@ -147,18 +158,18 @@ namespace {
 	 * @param \GMP $gmpnumber <p>The GMP number being exported</p>
 	 * @param int $word_size <p>Default value is 1. The number of bytes in each chunk of binary data. This is mainly used in conjunction with the options parameter.</p>
 	 * @param int $options <p>Default value is GMP_MSW_FIRST | GMP_NATIVE_ENDIAN.</p>
-	 * @return string <p>Returns a string or <b><code>FALSE</code></b> on failure.</p>
+	 * @return string|false <p>Returns a string or <b><code>FALSE</code></b> on failure.</p>
 	 * @link http://php.net/manual/en/function.gmp-export.php
 	 * @see gmp_import()
 	 * @since PHP 5 >= 5.6.1, PHP 7
 	 */
-	function gmp_export(\GMP $gmpnumber, int $word_size = 1, int $options = GMP_MSW_FIRST | GMP_NATIVE_ENDIAN): string {}
+	function gmp_export(\GMP $gmpnumber, int $word_size = 1, int $options = GMP_MSW_FIRST | GMP_NATIVE_ENDIAN) {}
 
 	/**
 	 * Factorial
-	 * <p>Calculates factorial (<i>a!</i>) of <code>a</code>.</p>
+	 * <p>Calculates factorial (<code>a!</code>) of <code>a</code>.</p>
 	 * @param mixed $a <p>The factorial number.</p> <p>Either a GMP number <code>resource</code> in PHP 5.5 and earlier, a GMP object in PHP 5.6 and later, or a numeric string provided that it is possible to convert the latter to a number.</p>
-	 * @return GMP <p>A GMP number <code>resource</code> in PHP 5.5 and earlier, or a GMP object in PHP 5.6 and later.</p>
+	 * @return GMP <p>A GMP object.</p>
 	 * @link http://php.net/manual/en/function.gmp-fact.php
 	 * @since PHP 4 >= 4.0.4, PHP 5, PHP 7
 	 */
@@ -171,13 +182,14 @@ namespace {
 	 * @param \GMP $b <p>Either a GMP number <code>resource</code> in PHP 5.5 and earlier, a GMP object in PHP 5.6 and later, or a numeric string provided that it is possible to convert the latter to a number.</p>
 	 * @return GMP <p>A positive GMP number that divides into both <code>a</code> and <code>b</code>.</p>
 	 * @link http://php.net/manual/en/function.gmp-gcd.php
+	 * @see gmp_lcm()
 	 * @since PHP 4 >= 4.0.4, PHP 5, PHP 7
 	 */
 	function gmp_gcd(\GMP $a, \GMP $b): \GMP {}
 
 	/**
 	 * Calculate GCD and multipliers
-	 * <p>Calculates g, s, and t, such that <i>a&#42;s + b&#42;t = g = gcd(a,b)</i>, where gcd is the greatest common divisor. Returns an array with respective elements g, s and t.</p><p>This function can be used to solve linear Diophantine equations in two variables. These are equations that allow only integer solutions and have the form: <i>a&#42;x + b&#42;y = c</i>. For more information, go to the "Diophantine Equation" page at MathWorld</p>
+	 * <p>Calculates g, s, and t, such that <code>a&#42;s + b&#42;t = g = gcd(a,b)</code>, where gcd is the greatest common divisor. Returns an array with respective elements g, s and t.</p><p>This function can be used to solve linear Diophantine equations in two variables. These are equations that allow only integer solutions and have the form: <code>a&#42;x + b&#42;y = c</code>. For more information, go to the "Diophantine Equation" page at MathWorld</p>
 	 * @param \GMP $a <p>Either a GMP number <code>resource</code> in PHP 5.5 and earlier, a GMP object in PHP 5.6 and later, or a numeric string provided that it is possible to convert the latter to a number.</p>
 	 * @param \GMP $b <p>Either a GMP number <code>resource</code> in PHP 5.5 and earlier, a GMP object in PHP 5.6 and later, or a numeric string provided that it is possible to convert the latter to a number.</p>
 	 * @return array <p>An <code>array</code> of GMP numbers.</p>
@@ -191,7 +203,7 @@ namespace {
 	 * <p>Returns the hamming distance between <code>a</code> and <code>b</code>. Both operands should be non-negative.</p>
 	 * @param \GMP $a <p>Either a GMP number <code>resource</code> in PHP 5.5 and earlier, a GMP object in PHP 5.6 and later, or a numeric string provided that it is possible to convert the latter to a number.</p> <p>It should be positive.</p>
 	 * @param \GMP $b <p>Either a GMP number <code>resource</code> in PHP 5.5 and earlier, a GMP object in PHP 5.6 and later, or a numeric string provided that it is possible to convert the latter to a number.</p> <p>It should be positive.</p>
-	 * @return int <p>A GMP number <code>resource</code> in PHP 5.5 and earlier, or a GMP object in PHP 5.6 and later.</p>
+	 * @return int <p>The hamming distance between <code>a</code> and <code>b</code>, as an <code>int</code>.</p>
 	 * @link http://php.net/manual/en/function.gmp-hamdist.php
 	 * @see gmp_popcount(), gmp_xor()
 	 * @since PHP 4 >= 4.0.4, PHP 5, PHP 7
@@ -204,19 +216,19 @@ namespace {
 	 * @param string $data <p>The binary string being imported</p>
 	 * @param int $word_size <p>Default value is 1. The number of bytes in each chunk of binary data. This is mainly used in conjunction with the options parameter.</p>
 	 * @param int $options <p>Default value is GMP_MSW_FIRST | GMP_NATIVE_ENDIAN.</p>
-	 * @return GMP <p>Returns a GMP number or <b><code>FALSE</code></b> on failure.</p>
+	 * @return GMP|false <p>Returns a GMP number or <b><code>FALSE</code></b> on failure.</p>
 	 * @link http://php.net/manual/en/function.gmp-import.php
 	 * @see gmp_export()
 	 * @since PHP 5 >= 5.6.1, PHP 7
 	 */
-	function gmp_import(string $data, int $word_size = 1, int $options = GMP_MSW_FIRST | GMP_NATIVE_ENDIAN): \GMP {}
+	function gmp_import(string $data, int $word_size = 1, int $options = GMP_MSW_FIRST | GMP_NATIVE_ENDIAN) {}
 
 	/**
 	 * Create GMP number
 	 * <p>Creates a GMP number from an integer or string.</p>
 	 * @param mixed $number <p>An integer or a string. The string representation can be decimal, hexadecimal or octal.</p>
-	 * @param int $base <p>The base.</p> <p>The base may vary from 2 to 36. If base is 0 (default value), the actual base is determined from the leading characters: if the first two characters are <i>0x</i> or <i>0X</i>, hexadecimal is assumed, otherwise if the first character is "0", octal is assumed, otherwise decimal is assumed.</p>
-	 * @return GMP <p>A GMP number <code>resource</code> in PHP 5.5 and earlier, or a GMP object in PHP 5.6 and later.</p>
+	 * @param int $base <p>The base.</p> <p>The base may vary from 2 to 36. If base is 0 (default value), the actual base is determined from the leading characters: if the first two characters are <code>0x</code> or <code>0X</code>, hexadecimal is assumed, otherwise if the first character is "0", octal is assumed, otherwise decimal is assumed.</p>
+	 * @return GMP <p>A GMP object.</p>
 	 * @link http://php.net/manual/en/function.gmp-init.php
 	 * @since PHP 4 >= 4.0.4, PHP 5, PHP 7
 	 */
@@ -224,9 +236,9 @@ namespace {
 
 	/**
 	 * Convert GMP number to integer
-	 * <p>This function converts GMP number into native PHP <code>integer</code>s.</p>
+	 * <p>This function converts GMP number into native PHP <code>int</code>s.</p>
 	 * @param \GMP $gmpnumber <p>Either a GMP number <code>resource</code> in PHP 5.5 and earlier, a GMP object in PHP 5.6 and later, or a numeric string provided that it is possible to convert the latter to a number.</p>
-	 * @return int <p>The <code>integer</code> value of <code>gmpnumber</code>.</p>
+	 * @return int <p>The <code>int</code> value of <code>gmpnumber</code>.</p>
 	 * @link http://php.net/manual/en/function.gmp-intval.php
 	 * @since PHP 4 >= 4.0.4, PHP 5, PHP 7
 	 */
@@ -248,19 +260,45 @@ namespace {
 	 * <p>Computes Jacobi symbol of <code>a</code> and <code>p</code>. <code>p</code> should be odd and must be positive.</p>
 	 * @param \GMP $a <p>Either a GMP number <code>resource</code> in PHP 5.5 and earlier, a GMP object in PHP 5.6 and later, or a numeric string provided that it is possible to convert the latter to a number.</p>
 	 * @param \GMP $p <p>Either a GMP number <code>resource</code> in PHP 5.5 and earlier, a GMP object in PHP 5.6 and later, or a numeric string provided that it is possible to convert the latter to a number.</p> <p>Should be odd and must be positive.</p>
-	 * @return int <p>A GMP number <code>resource</code> in PHP 5.5 and earlier, or a GMP object in PHP 5.6 and later.</p>
+	 * @return int <p>A GMP object.</p>
 	 * @link http://php.net/manual/en/function.gmp-jacobi.php
+	 * @see gmp_kronecker(), gmp_legendre()
 	 * @since PHP 4 >= 4.0.4, PHP 5, PHP 7
 	 */
 	function gmp_jacobi(\GMP $a, \GMP $p): int {}
+
+	/**
+	 * Kronecker symbol
+	 * <p>This function computes the Kronecker symbol of <code>a</code> and <code>b</code>.</p>
+	 * @param mixed $a <p>Either a GMP number <code>resource</code> in PHP 5.5 and earlier, a GMP object in PHP 5.6 and later, or a numeric string provided that it is possible to convert the latter to a number.</p>
+	 * @param mixed $b <p>Either a GMP number <code>resource</code> in PHP 5.5 and earlier, a GMP object in PHP 5.6 and later, or a numeric string provided that it is possible to convert the latter to a number.</p>
+	 * @return int <p>Returns the Kronecker symbol of <code>a</code> and <code>b</code></p>
+	 * @link http://php.net/manual/en/function.gmp-kronecker.php
+	 * @see gmp_jacobi(), gmp_legendre()
+	 * @since PHP 7 >= 7.3.0
+	 */
+	function gmp_kronecker($a, $b): int {}
+
+	/**
+	 * Calculate LCM
+	 * <p>This function computes the least common multiple (lcm) of <code>a</code> and <code>b</code>.</p>
+	 * @param mixed $a <p>Either a GMP number <code>resource</code> in PHP 5.5 and earlier, a GMP object in PHP 5.6 and later, or a numeric string provided that it is possible to convert the latter to a number.</p>
+	 * @param mixed $b <p>Either a GMP number <code>resource</code> in PHP 5.5 and earlier, a GMP object in PHP 5.6 and later, or a numeric string provided that it is possible to convert the latter to a number.</p>
+	 * @return GMP <p>A GMP object.</p>
+	 * @link http://php.net/manual/en/function.gmp-lcm.php
+	 * @see gmp_gcd()
+	 * @since PHP 7 >= 7.3.0
+	 */
+	function gmp_lcm($a, $b): \GMP {}
 
 	/**
 	 * Legendre symbol
 	 * <p>Compute the  Legendre symbol of <code>a</code> and <code>p</code>. <code>p</code> should be odd and must be positive.</p>
 	 * @param \GMP $a <p>Either a GMP number <code>resource</code> in PHP 5.5 and earlier, a GMP object in PHP 5.6 and later, or a numeric string provided that it is possible to convert the latter to a number.</p>
 	 * @param \GMP $p <p>Either a GMP number <code>resource</code> in PHP 5.5 and earlier, a GMP object in PHP 5.6 and later, or a numeric string provided that it is possible to convert the latter to a number.</p> <p>Should be odd and must be positive.</p>
-	 * @return int <p>A GMP number <code>resource</code> in PHP 5.5 and earlier, or a GMP object in PHP 5.6 and later.</p>
+	 * @return int <p>A GMP object.</p>
 	 * @link http://php.net/manual/en/function.gmp-legendre.php
+	 * @see gmp_jacobi(), gmp_kronecker()
 	 * @since PHP 4 >= 4.0.4, PHP 5, PHP 7
 	 */
 	function gmp_legendre(\GMP $a, \GMP $p): int {}
@@ -270,7 +308,7 @@ namespace {
 	 * <p>Calculates <code>n</code> modulo <code>d</code>. The result is always non-negative, the sign of <code>d</code> is ignored.</p>
 	 * @param \GMP $n <p>Either a GMP number <code>resource</code> in PHP 5.5 and earlier, a GMP object in PHP 5.6 and later, or a numeric string provided that it is possible to convert the latter to a number.</p>
 	 * @param \GMP $d <p>The modulo that is being evaluated.</p> <p>Either a GMP number <code>resource</code> in PHP 5.5 and earlier, a GMP object in PHP 5.6 and later, or a numeric string provided that it is possible to convert the latter to a number.</p>
-	 * @return GMP <p>A GMP number <code>resource</code> in PHP 5.5 and earlier, or a GMP object in PHP 5.6 and later.</p>
+	 * @return GMP <p>A GMP object.</p>
 	 * @link http://php.net/manual/en/function.gmp-mod.php
 	 * @since PHP 4 >= 4.0.4, PHP 5, PHP 7
 	 */
@@ -281,7 +319,7 @@ namespace {
 	 * <p>Multiplies <code>a</code> by <code>b</code> and returns the result.</p>
 	 * @param \GMP $a <p>A number that will be multiplied by <code>b</code>.</p> <p>Either a GMP number <code>resource</code> in PHP 5.5 and earlier, a GMP object in PHP 5.6 and later, or a numeric string provided that it is possible to convert the latter to a number.</p>
 	 * @param \GMP $b <p>A number that will be multiplied by <code>a</code>.</p> <p>Either a GMP number <code>resource</code> in PHP 5.5 and earlier, a GMP object in PHP 5.6 and later, or a numeric string provided that it is possible to convert the latter to a number.</p>
-	 * @return GMP <p>A GMP number <code>resource</code> in PHP 5.5 and earlier, or a GMP object in PHP 5.6 and later.</p>
+	 * @return GMP <p>A GMP object.</p>
 	 * @link http://php.net/manual/en/function.gmp-mul.php
 	 * @since PHP 4 >= 4.0.4, PHP 5, PHP 7
 	 */
@@ -312,11 +350,22 @@ namespace {
 	 * <p>Calculates bitwise inclusive OR of two GMP numbers.</p>
 	 * @param \GMP $a <p>Either a GMP number <code>resource</code> in PHP 5.5 and earlier, a GMP object in PHP 5.6 and later, or a numeric string provided that it is possible to convert the latter to a number.</p>
 	 * @param \GMP $b <p>Either a GMP number <code>resource</code> in PHP 5.5 and earlier, a GMP object in PHP 5.6 and later, or a numeric string provided that it is possible to convert the latter to a number.</p>
-	 * @return GMP <p>A GMP number <code>resource</code> in PHP 5.5 and earlier, or a GMP object in PHP 5.6 and later.</p>
+	 * @return GMP <p>A GMP object.</p>
 	 * @link http://php.net/manual/en/function.gmp-or.php
 	 * @since PHP 4 >= 4.0.4, PHP 5, PHP 7
 	 */
 	function gmp_or(\GMP $a, \GMP $b): \GMP {}
+
+	/**
+	 * Perfect power check
+	 * <p>Checks whether <code>a</code> is a perfect power.</p>
+	 * @param mixed $a <p>Either a GMP number <code>resource</code> in PHP 5.5 and earlier, a GMP object in PHP 5.6 and later, or a numeric string provided that it is possible to convert the latter to a number.</p>
+	 * @return bool <p>Returns <b><code>TRUE</code></b> if <code>a</code> is a perfect power, <b><code>FALSE</code></b> otherwise.</p>
+	 * @link http://php.net/manual/en/function.gmp-perfect-power.php
+	 * @see gmp_perfect_square()
+	 * @since PHP 7 >= 7.3.0
+	 */
+	function gmp_perfect_power($a): bool {}
 
 	/**
 	 * Perfect square check
@@ -324,7 +373,7 @@ namespace {
 	 * @param \GMP $a <p>The number being checked as a perfect square.</p> <p>Either a GMP number <code>resource</code> in PHP 5.5 and earlier, a GMP object in PHP 5.6 and later, or a numeric string provided that it is possible to convert the latter to a number.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> if <code>a</code> is a perfect square, <b><code>FALSE</code></b> otherwise.</p>
 	 * @link http://php.net/manual/en/function.gmp-perfect-square.php
-	 * @see gmp_sqrt(), gmp_sqrtrem()
+	 * @see gmp_perfect_power(), gmp_sqrt(), gmp_sqrtrem()
 	 * @since PHP 4 >= 4.0.4, PHP 5, PHP 7
 	 */
 	function gmp_perfect_square(\GMP $a): bool {}
@@ -333,7 +382,7 @@ namespace {
 	 * Population count
 	 * <p>Get the population count.</p>
 	 * @param \GMP $a <p>Either a GMP number <code>resource</code> in PHP 5.5 and earlier, a GMP object in PHP 5.6 and later, or a numeric string provided that it is possible to convert the latter to a number.</p>
-	 * @return int <p>The population count of <code>a</code>, as an <code>integer</code>.</p>
+	 * @return int <p>The population count of <code>a</code>, as an <code>int</code>.</p>
 	 * @link http://php.net/manual/en/function.gmp-popcount.php
 	 * @since PHP 4 >= 4.0.4, PHP 5, PHP 7
 	 */
@@ -344,7 +393,7 @@ namespace {
 	 * <p>Raise <code>base</code> into power <code>exp</code>.</p>
 	 * @param \GMP $base <p>The base number.</p> <p>Either a GMP number <code>resource</code> in PHP 5.5 and earlier, a GMP object in PHP 5.6 and later, or a numeric string provided that it is possible to convert the latter to a number.</p>
 	 * @param int $exp <p>The positive power to raise the <code>base</code>.</p>
-	 * @return GMP <p>The new (raised) number, as a GMP number. The case of <i>0^0</i> yields 1.</p>
+	 * @return GMP <p>The new (raised) number, as a GMP number. The case of <code>0^0</code> yields 1.</p>
 	 * @link http://php.net/manual/en/function.gmp-pow.php
 	 * @since PHP 4 >= 4.0.4, PHP 5, PHP 7
 	 */
@@ -386,7 +435,7 @@ namespace {
 	/**
 	 * Random number
 	 * <p>Generate a random number. The number will be between 0 and (2 &#42;&#42; <code>bits</code>) - 1.</p><p><code>bits</code> must greater than 0, and the maximum value is restricted by available memory.</p>
-	 * @param int $bits <p>The number of bits.</p> <p>Either a GMP number <code>resource</code> in PHP 5.5 and earlier, a GMP object in PHP 5.6 and later, or a numeric string provided that it is possible to convert the latter to a number.</p>
+	 * @param int $bits <p>The number of bits.</p>
 	 * @return GMP <p>A random GMP number.</p>
 	 * @link http://php.net/manual/en/function.gmp-random-bits.php
 	 * @since PHP 5 >= 5.6.3, PHP 7
@@ -441,7 +490,7 @@ namespace {
 	 * <p>Scans <code>a</code>, starting with bit <code>start</code>, towards more significant bits, until the first clear bit is found.</p>
 	 * @param \GMP $a <p>The number to scan.</p> <p>Either a GMP number <code>resource</code> in PHP 5.5 and earlier, a GMP object in PHP 5.6 and later, or a numeric string provided that it is possible to convert the latter to a number.</p>
 	 * @param int $start <p>The starting bit.</p>
-	 * @return int <p>Returns the index of the found bit, as an <code>integer</code>. The index starts from 0.</p>
+	 * @return int <p>Returns the index of the found bit, as an <code>int</code>. The index starts from 0.</p>
 	 * @link http://php.net/manual/en/function.gmp-scan0.php
 	 * @since PHP 4 >= 4.0.4, PHP 5, PHP 7
 	 */
@@ -452,7 +501,7 @@ namespace {
 	 * <p>Scans <code>a</code>, starting with bit <code>start</code>, towards more significant bits, until the first set bit is found.</p>
 	 * @param \GMP $a <p>The number to scan.</p> <p>Either a GMP number <code>resource</code> in PHP 5.5 and earlier, a GMP object in PHP 5.6 and later, or a numeric string provided that it is possible to convert the latter to a number.</p>
 	 * @param int $start <p>The starting bit.</p>
-	 * @return int <p>Returns the index of the found bit, as an <code>integer</code>. If no set bit is found, -1 is returned.</p>
+	 * @return int <p>Returns the index of the found bit, as an <code>int</code>. If no set bit is found, -1 is returned.</p>
 	 * @link http://php.net/manual/en/function.gmp-scan1.php
 	 * @since PHP 4 >= 4.0.4, PHP 5, PHP 7
 	 */
@@ -464,7 +513,7 @@ namespace {
 	 * @param \GMP $a <p>The value to modify.</p> <p>Either a GMP number <code>resource</code> in PHP 5.5 and earlier, a GMP object in PHP 5.6 and later, or a numeric string provided that it is possible to convert the latter to a number.</p>
 	 * @param int $index <p>The index of the bit to set. Index 0 represents the least significant bit.</p>
 	 * @param bool $bit_on <p>True to set the bit (set it to 1/on); false to clear the bit (set it to 0/off).</p>
-	 * @return void <p>A GMP number <code>resource</code> in PHP 5.5 and earlier, or a GMP object in PHP 5.6 and later.</p>
+	 * @return void <p>A GMP object.</p>
 	 * @link http://php.net/manual/en/function.gmp-setbit.php
 	 * @see gmp_clrbit(), gmp_testbit()
 	 * @since PHP 4 >= 4.0.4, PHP 5, PHP 7
@@ -474,7 +523,7 @@ namespace {
 	/**
 	 * Sign of number
 	 * <p>Checks the sign of a number.</p>
-	 * @param \GMP $a <p>Either a GMP number <code>resource</code> in PHP 5.5 and earlier, a GMP object in PHP 5.6 and later, or a numeric string provided that it is possible to convert the latter to an <code>integer</code>.</p>
+	 * @param \GMP $a <p>Either a GMP number <code>resource</code> in PHP 5.5 and earlier, a GMP object in PHP 5.6 and later, or a numeric string provided that it is possible to convert the latter to an <code>int</code>.</p>
 	 * @return int <p>Returns 1 if <code>a</code> is positive, -1 if <code>a</code> is negative, and 0 if <code>a</code> is zero.</p>
 	 * @link http://php.net/manual/en/function.gmp-sign.php
 	 * @see gmp_abs(), abs()
@@ -518,7 +567,7 @@ namespace {
 	 * <p>Subtracts <code>b</code> from <code>a</code> and returns the result.</p>
 	 * @param \GMP $a <p>The number being subtracted from.</p> <p>Either a GMP number <code>resource</code> in PHP 5.5 and earlier, a GMP object in PHP 5.6 and later, or a numeric string provided that it is possible to convert the latter to a number.</p>
 	 * @param \GMP $b <p>The number subtracted from <code>a</code>.</p> <p>Either a GMP number <code>resource</code> in PHP 5.5 and earlier, a GMP object in PHP 5.6 and later, or a numeric string provided that it is possible to convert the latter to a number.</p>
-	 * @return GMP <p>A GMP number <code>resource</code> in PHP 5.5 and earlier, or a GMP object in PHP 5.6 and later.</p>
+	 * @return GMP <p>A GMP object.</p>
 	 * @link http://php.net/manual/en/function.gmp-sub.php
 	 * @since PHP 4 >= 4.0.4, PHP 5, PHP 7
 	 */
@@ -541,7 +590,7 @@ namespace {
 	 * <p>Calculates bitwise exclusive OR (XOR) of two GMP numbers.</p>
 	 * @param \GMP $a <p>Either a GMP number <code>resource</code> in PHP 5.5 and earlier, a GMP object in PHP 5.6 and later, or a numeric string provided that it is possible to convert the latter to a number.</p>
 	 * @param \GMP $b <p>Either a GMP number <code>resource</code> in PHP 5.5 and earlier, a GMP object in PHP 5.6 and later, or a numeric string provided that it is possible to convert the latter to a number.</p>
-	 * @return GMP <p>A GMP number <code>resource</code> in PHP 5.5 and earlier, or a GMP object in PHP 5.6 and later.</p>
+	 * @return GMP <p>A GMP object.</p>
 	 * @link http://php.net/manual/en/function.gmp-xor.php
 	 * @since PHP 4 >= 4.0.4, PHP 5, PHP 7
 	 */

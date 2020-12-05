@@ -12,19 +12,19 @@ namespace {
 	class SplBool extends \SplEnum {
 
 		/**
-		 * @var boolean
+		 * @var bool
 		 * @link http://php.net/manual/en/class.splbool.php
 		 */
 		const __default = FALSE;
 
 		/**
-		 * @var boolean
+		 * @var bool
 		 * @link http://php.net/manual/en/class.splbool.php
 		 */
 		const false = FALSE;
 
 		/**
-		 * @var boolean
+		 * @var bool
 		 * @link http://php.net/manual/en/class.splbool.php
 		 */
 		const true = TRUE;
@@ -32,7 +32,7 @@ namespace {
 		/**
 		 * Returns all consts (possible values) as an array
 		 * <p></p><p>This function is currently not documented; only its argument list is available.</p>
-		 * @param bool $include_default <p>Whether to include <i>__default</i> property.</p>
+		 * @param bool $include_default <p>Whether to include <code>__default</code> property.</p>
 		 * @return array
 		 * @link http://php.net/manual/en/splenum.getconstlist.php
 		 * @since PECL spl_types >= 0.1.0
@@ -57,7 +57,7 @@ namespace {
 		 * Creates a new value of some type
 		 * <p></p><p>This function is currently not documented; only its argument list is available.</p>
 		 * @param mixed $initial_value <p>Type and default value depends on the extension class.</p>
-		 * @param bool $strict <p>Whether to set the object's sctrictness.</p>
+		 * @param bool $strict <p>Whether to set the object's strictness.</p>
 		 * @return self
 		 * @link http://php.net/manual/en/spltype.construct.php
 		 * @since PECL spl_types >= 0.1.0
@@ -67,7 +67,7 @@ namespace {
 		/**
 		 * Returns all consts (possible values) as an array
 		 * <p></p><p>This function is currently not documented; only its argument list is available.</p>
-		 * @param bool $include_default <p>Whether to include <i>__default</i> property.</p>
+		 * @param bool $include_default <p>Whether to include <code>__default</code> property.</p>
 		 * @return array
 		 * @link http://php.net/manual/en/splenum.getconstlist.php
 		 * @since PECL spl_types >= 0.1.0
@@ -92,7 +92,7 @@ namespace {
 		 * Creates a new value of some type
 		 * <p></p><p>This function is currently not documented; only its argument list is available.</p>
 		 * @param mixed $initial_value <p>Type and default value depends on the extension class.</p>
-		 * @param bool $strict <p>Whether to set the object's sctrictness.</p>
+		 * @param bool $strict <p>Whether to set the object's strictness.</p>
 		 * @return self
 		 * @link http://php.net/manual/en/spltype.construct.php
 		 * @since PECL spl_types >= 0.1.0
@@ -108,7 +108,7 @@ namespace {
 	class SplInt extends \SplType {
 
 		/**
-		 * @var integer
+		 * @var int
 		 * @link http://php.net/manual/en/class.splint.php
 		 */
 		const __default = 0;
@@ -117,7 +117,7 @@ namespace {
 		 * Creates a new value of some type
 		 * <p></p><p>This function is currently not documented; only its argument list is available.</p>
 		 * @param mixed $initial_value <p>Type and default value depends on the extension class.</p>
-		 * @param bool $strict <p>Whether to set the object's sctrictness.</p>
+		 * @param bool $strict <p>Whether to set the object's strictness.</p>
 		 * @return self
 		 * @link http://php.net/manual/en/spltype.construct.php
 		 * @since PECL spl_types >= 0.1.0
@@ -142,7 +142,7 @@ namespace {
 		 * Creates a new value of some type
 		 * <p></p><p>This function is currently not documented; only its argument list is available.</p>
 		 * @param mixed $initial_value <p>Type and default value depends on the extension class.</p>
-		 * @param bool $strict <p>Whether to set the object's sctrictness.</p>
+		 * @param bool $strict <p>Whether to set the object's strictness.</p>
 		 * @return self
 		 * @link http://php.net/manual/en/spltype.construct.php
 		 * @since PECL spl_types >= 0.1.0
@@ -167,7 +167,7 @@ namespace {
 		 * Creates a new value of some type
 		 * <p></p><p>This function is currently not documented; only its argument list is available.</p>
 		 * @param mixed $initial_value <p>Type and default value depends on the extension class.</p>
-		 * @param bool $strict <p>Whether to set the object's sctrictness.</p>
+		 * @param bool $strict <p>Whether to set the object's strictness.</p>
 		 * @return self
 		 * @link http://php.net/manual/en/spltype.construct.php
 		 * @since PECL spl_types >= 0.1.0

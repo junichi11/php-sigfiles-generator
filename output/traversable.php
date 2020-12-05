@@ -12,7 +12,7 @@ namespace {
 	 * <p><b>Note</b>:</p>
 	 * <p>This is an internal engine interface which cannot be implemented in PHP scripts. Either <code>IteratorAggregate</code> or <code>Iterator</code> must be used instead. When implementing an interface which extends Traversable, make sure to list <code>IteratorAggregate</code> or <code>Iterator</code> before its name in the implements clause.</p>
 	 * @link http://php.net/manual/en/class.traversable.php
-	 * @since PHP 5, PHP 7
+	 * @since PHP 5, PHP 7, PHP 8
 	 */
 	interface Traversable {
 	}

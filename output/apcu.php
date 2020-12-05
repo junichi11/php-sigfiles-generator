@@ -59,7 +59,6 @@ namespace {
 		 * <p>Gets the total cache size.</p><p>This function is currently not documented; only its argument list is available.</p>
 		 * @return int <p>The total cache size.</p>
 		 * @link http://php.net/manual/en/apcuiterator.gettotalsize.php
-		 * @see apc_cache_info()
 		 * @since PECL apcu >= 5.0.0
 		 */
 		public function getTotalSize(): int {}
@@ -76,11 +75,11 @@ namespace {
 		/**
 		 * Move pointer to next item
 		 * <p>Moves the iterator pointer to the next element.</p>
-		 * @return void <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+		 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
 		 * @link http://php.net/manual/en/apcuiterator.next.php
 		 * @since PECL apcu >= 5.0.0
 		 */
-		public function next(): void {}
+		public function next(): bool {}
 
 		/**
 		 * Rewinds iterator
@@ -94,11 +93,11 @@ namespace {
 		/**
 		 * Checks if current position is valid
 		 * <p>Checks if the current iterator position is valid.</p>
-		 * @return void <p>Returns <b><code>TRUE</code></b> if the current iterator position is valid, otherwise <b><code>FALSE</code></b>.</p>
+		 * @return bool <p>Returns <b><code>TRUE</code></b> if the current iterator position is valid, otherwise <b><code>FALSE</code></b>.</p>
 		 * @link http://php.net/manual/en/apcuiterator.valid.php
 		 * @since PECL apcu >= 5.0.0
 		 */
-		public function valid(): void {}
+		public function valid(): bool {}
 	}
 
 	/**
@@ -106,7 +105,7 @@ namespace {
 	 * <p>Caches a variable in the data store, only if it's not already stored.</p><p><b>Note</b>:  Unlike many other mechanisms in PHP, variables stored using <b>apcu_add()</b> will persist between requests (until the value is removed from the cache). </p>
 	 * @param string $key <p>Store the variable using this name. <code>key</code>s are cache-unique, so attempting to use <b>apcu_add()</b> to store data with a key that already exists will not overwrite the existing data, and will instead return <b><code>FALSE</code></b>. (This is the only difference between <b>apcu_add()</b> and <code>apcu_store()</code>.)</p>
 	 * @param mixed $var <p>The variable to store</p>
-	 * @param int $ttl <p>Time To Live; store <code>var</code> in the cache for <code>ttl</code> seconds. After the <code>ttl</code> has passed, the stored variable will be expunged from the cache (on the next request). If no <code>ttl</code> is supplied (or if the <code>ttl</code> is <i>0</i>), the value will persist until it is removed from the cache manually, or otherwise fails to exist in the cache (clear, restart, etc.).</p>
+	 * @param int $ttl <p>Time To Live; store <code>var</code> in the cache for <code>ttl</code> seconds. After the <code>ttl</code> has passed, the stored variable will be expunged from the cache (on the next request). If no <code>ttl</code> is supplied (or if the <code>ttl</code> is <code>0</code>), the value will persist until it is removed from the cache manually, or otherwise fails to exist in the cache (clear, restart, etc.).</p>
 	 * @return bool <p>Returns TRUE if something has effectively been added into the cache, FALSE otherwise. Second syntax returns array with error keys.</p>
 	 * @link http://php.net/manual/en/function.apcu-add.php
 	 * @see apcu_store(), apcu_fetch(), apcu_delete()
@@ -118,11 +117,11 @@ namespace {
 	 * Retrieves cached information from APCu's data store
 	 * <p>Retrieves cached information and meta-data from APC's data store.</p>
 	 * @param bool $limited <p>If <code>limited</code> is <b><code>TRUE</code></b>, the return value will exclude the individual list of cache entries. This is useful when trying to optimize calls for statistics gathering.</p>
-	 * @return array <p>Array of cached data (and meta-data) or <b><code>FALSE</code></b> on failure</p><p><b>Note</b>:  <b>apcu_cache_info()</b> will raise a warning if it is unable to retrieve APC cache data. This typically occurs when APC is not enabled. </p>
+	 * @return array|false <p>Array of cached data (and meta-data) or <b><code>FALSE</code></b> on failure</p><p><b>Note</b>:  <b>apcu_cache_info()</b> will raise a warning if it is unable to retrieve APC cache data. This typically occurs when APC is not enabled. </p>
 	 * @link http://php.net/manual/en/function.apcu-cache-info.php
 	 * @since PECL apcu >= 4.0.0
 	 */
-	function apcu_cache_info(bool $limited = FALSE): array {}
+	function apcu_cache_info(bool $limited = FALSE) {}
 
 	/**
 	 * Updates an old value with a new value
@@ -153,30 +152,40 @@ namespace {
 	 * @param string $key <p>The key of the value being decreased.</p>
 	 * @param int $step <p>The step, or value to decrease.</p>
 	 * @param bool $success <p>Optionally pass the success or fail boolean value to this referenced variable.</p>
-	 * @return int <p>Returns the current value of <code>key</code>'s value on success, or <b><code>FALSE</code></b> on failure</p>
+	 * @param int $ttl <p>TTL to use if the operation inserts a new value (rather than decrementing an existing one).</p>
+	 * @return int|false <p>Returns the current value of <code>key</code>'s value on success, or <b><code>FALSE</code></b> on failure</p>
 	 * @link http://php.net/manual/en/function.apcu-dec.php
 	 * @see apcu_inc()
 	 * @since PECL apcu >= 4.0.0
 	 */
-	function apcu_dec(string $key, int $step = 1, bool &$success = NULL): int {}
+	function apcu_dec(string $key, int $step = 1, bool &$success = NULL, int $ttl = 0) {}
 
 	/**
 	 * Removes a stored variable from the cache
 	 * <p>Removes a stored variable from the cache.</p>
 	 * @param mixed $key <p>A <code>key</code> used to store the value as a <code>string</code> for a single key, or as an <code>array</code> of strings for several keys, or as an APCUIterator <code>object</code>.</p>
-	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+	 * @return mixed <p>If <code>key</code> is an <code>array</code>, an indexed <code>array</code> of the keys is returned. Otherwise <b><code>TRUE</code></b> is returned on success, or <b><code>FALSE</code></b> on failure.</p>
 	 * @link http://php.net/manual/en/function.apcu-delete.php
 	 * @see apcu_store(), apcu_fetch(), apcu_clear_cache()
 	 * @since PECL apcu >= 4.0.0
 	 */
-	function apcu_delete($key): bool {}
+	function apcu_delete($key) {}
+
+	/**
+	 * Whether APCu is usable in the current environment
+	 * <p>Returns whether APCu is usable in the current environment.</p>
+	 * @return bool <p>Returns <b><code>TRUE</code></b> when APCu is usable in the current environment, <b><code>FALSE</code></b> otherwise.</p>
+	 * @link http://php.net/manual/en/function.apcu-enabled.php
+	 * @since PECL apcu >= 4.0.3
+	 */
+	function apcu_enabled(): bool {}
 
 	/**
 	 * Atomically fetch or generate a cache entry
 	 * <p>Atomically attempts to find <code>key</code> in the cache, if it cannot be found <code>generator</code> is called, passing <code>key</code> as the only argument. The return value of the call is then cached with the optionally specified <code>ttl</code>, and returned.</p><p><b>Note</b>:  When control enters <b>apcu_entry()</b> the lock for the cache is acquired exclusively, it is released when control leaves <b>apcu_entry()</b>: In effect, this turns the body of <code>generator</code> into a critical section, disallowing two processes from executing the same code paths concurrently. In addition, it prohibits the concurrent execution of any other APCu functions, since they will acquire the same lock. </p><p>The only APCu function that can be called safely by <code>generator</code> is <b>apcu_entry()</b>.</p>
 	 * @param string $key <p>Identity of cache entry</p>
 	 * @param callable $generator <p>A callable that accepts <code>key</code> as the only argument and returns the value to cache.</p>
-	 * @param int $ttl <p>Time To Live; store <code>var</code> in the cache for <code>ttl</code> seconds. After the <code>ttl</code> has passed, the stored variable will be expunged from the cache (on the next request). If no <code>ttl</code> is supplied (or if the <code>ttl</code> is <i>0</i>), the value will persist until it is removed from the cache manually, or otherwise fails to exist in the cache (clear, restart, etc.).</p>
+	 * @param int $ttl <p>Time To Live; store <code>var</code> in the cache for <code>ttl</code> seconds. After the <code>ttl</code> has passed, the stored variable will be expunged from the cache (on the next request). If no <code>ttl</code> is supplied (or if the <code>ttl</code> is <code>0</code>), the value will persist until it is removed from the cache manually, or otherwise fails to exist in the cache (clear, restart, etc.).</p>
 	 * @return mixed <p>Returns the cached value</p>
 	 * @link http://php.net/manual/en/function.apcu-entry.php
 	 * @see apcu_store(), apcu_fetch(), apcu_delete()
@@ -197,7 +206,7 @@ namespace {
 
 	/**
 	 * Fetch a stored variable from the cache
-	 * <p>Fetchs an entry from the cache.</p>
+	 * <p>Fetches an entry from the cache.</p>
 	 * @param mixed $key <p>The <code>key</code> used to store the value (with <code>apcu_store()</code>). If an array is passed then each element is fetched and returned.</p>
 	 * @param bool $success <p>Set to <b><code>TRUE</code></b> in success and <b><code>FALSE</code></b> in failure.</p>
 	 * @return mixed <p>The stored variable or array of variables on success; <b><code>FALSE</code></b> on failure</p>
@@ -213,12 +222,13 @@ namespace {
 	 * @param string $key <p>The key of the value being increased.</p>
 	 * @param int $step <p>The step, or value to increase.</p>
 	 * @param bool $success <p>Optionally pass the success or fail boolean value to this referenced variable.</p>
-	 * @return int <p>Returns the current value of <code>key</code>'s value on success, or <b><code>FALSE</code></b> on failure</p>
+	 * @param int $ttl <p>TTL to use if the operation inserts a new value (rather than incrementing an existing one).</p>
+	 * @return int|false <p>Returns the current value of <code>key</code>'s value on success, or <b><code>FALSE</code></b> on failure</p>
 	 * @link http://php.net/manual/en/function.apcu-inc.php
 	 * @see apcu_dec()
 	 * @since PECL apcu >= 4.0.0
 	 */
-	function apcu_inc(string $key, int $step = 1, bool &$success = NULL): int {}
+	function apcu_inc(string $key, int $step = 1, bool &$success = NULL, int $ttl = 0) {}
 
 	/**
 	 * Retrieves APCu Shared Memory Allocation information
@@ -235,12 +245,50 @@ namespace {
 	 * <p>Cache a variable in the data store.</p><p><b>Note</b>:  Unlike many other mechanisms in PHP, variables stored using <b>apcu_store()</b> will persist between requests (until the value is removed from the cache). </p>
 	 * @param string $key <p>Store the variable using this name. <code>key</code>s are cache-unique, so storing a second value with the same <code>key</code> will overwrite the original value.</p>
 	 * @param mixed $var <p>The variable to store</p>
-	 * @param int $ttl <p>Time To Live; store <code>var</code> in the cache for <code>ttl</code> seconds. After the <code>ttl</code> has passed, the stored variable will be expunged from the cache (on the next request). If no <code>ttl</code> is supplied (or if the <code>ttl</code> is <i>0</i>), the value will persist until it is removed from the cache manually, or otherwise fails to exist in the cache (clear, restart, etc.).</p>
+	 * @param int $ttl <p>Time To Live; store <code>var</code> in the cache for <code>ttl</code> seconds. After the <code>ttl</code> has passed, the stored variable will be expunged from the cache (on the next request). If no <code>ttl</code> is supplied (or if the <code>ttl</code> is <code>0</code>), the value will persist until it is removed from the cache manually, or otherwise fails to exist in the cache (clear, restart, etc.).</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure. Second syntax returns array with error keys.</p>
 	 * @link http://php.net/manual/en/function.apcu-store.php
 	 * @see apcu_add(), apcu_fetch(), apcu_delete()
 	 * @since PECL apcu >= 4.0.0
 	 */
 	function apcu_store(string $key, $var, int $ttl = 0): bool {}
+
+	define('APC_ITER_ALL', null);
+
+	define('APC_ITER_ATIME', null);
+
+	define('APC_ITER_CTIME', null);
+
+	define('APC_ITER_DEVICE', null);
+
+	define('APC_ITER_DTIME', null);
+
+	define('APC_ITER_FILENAME', null);
+
+	define('APC_ITER_INODE', null);
+
+	define('APC_ITER_KEY', null);
+
+	define('APC_ITER_MD5', null);
+
+	define('APC_ITER_MEM_SIZE', null);
+
+	define('APC_ITER_MTIME', null);
+
+	define('APC_ITER_NONE', null);
+
+	define('APC_ITER_NUM_HITS', null);
+
+	define('APC_ITER_REFCOUNT', null);
+
+	define('APC_ITER_TTL', null);
+
+	define('APC_ITER_TYPE', null);
+
+	define('APC_ITER_VALUE', null);
+
+	define('APC_LIST_ACTIVE', null);
+
+	define('APC_LIST_DELETED', null);
 
 }

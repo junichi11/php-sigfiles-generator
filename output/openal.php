@@ -40,12 +40,12 @@ namespace {
 	 * Retrieve an OpenAL buffer property
 	 * @param resource $buffer <p>An Open AL(Buffer) resource (previously created by <code>openal_buffer_create()</code>).</p>
 	 * @param int $property <p>Specific property, one of: <b><code>AL_FREQUENCY</code></b>, <b><code>AL_BITS</code></b>, <b><code>AL_CHANNELS</code></b> and <b><code>AL_SIZE</code></b>.</p>
-	 * @return int <p>Returns an integer value appropriate to the <code>property</code> requested or <b><code>FALSE</code></b> on failure.</p>
+	 * @return int|false <p>Returns an integer value appropriate to the <code>property</code> requested or <b><code>FALSE</code></b> on failure.</p>
 	 * @link http://php.net/manual/en/function.openal-buffer-get.php
 	 * @see openal_buffer_create()
 	 * @since PECL openal >= 0.1.0
 	 */
-	function openal_buffer_get($buffer, int $property): int {}
+	function openal_buffer_get($buffer, int $property) {}
 
 	/**
 	 * Load a .wav file into a buffer
@@ -236,7 +236,7 @@ namespace {
 	 * @param resource $source <p>An Open AL(Source) resource (previously created by <code>openal_source_create()</code>).</p>
 	 * @param int $format <p>Format of <code>data</code>, one of: <b><code>AL_FORMAT_MONO8</code></b>, <b><code>AL_FORMAT_MONO16</code></b>, <b><code>AL_FORMAT_STEREO8</code></b> and <b><code>AL_FORMAT_STEREO16</code></b></p>
 	 * @param int $rate <p>Frequency of data to stream given in Hz.</p>
-	 * @return resource <p>Returns a stream resource on success or <b><code>FALSE</code></b> on failure.</p>
+	 * @return resource|false <p>Returns a stream resource on success or <b><code>FALSE</code></b> on failure.</p>
 	 * @link http://php.net/manual/en/function.openal-stream.php
 	 * @see openal_source_create(), fwrite()
 	 * @since PECL openal >= 0.1.0

@@ -5,10 +5,9 @@
 namespace {
 
 	/**
-	 * <p><b>Exception</b> is the base class for all Exceptions in PHP 5, and the base class for all user exceptions in PHP 7.</p>
-	 * <p>Before PHP 7, <b>Exception</b> did not implement the Throwable interface.</p>
+	 * <p><b>Exception</b> is the base class for all user exceptions.</p>
 	 * @link http://php.net/manual/en/class.exception.php
-	 * @since PHP 5, PHP 7
+	 * @since PHP 5, PHP 7, PHP 8
 	 */
 	class Exception extends \Throwable {
 
@@ -41,7 +40,7 @@ namespace {
 		 * <p>Tries to clone the Exception, which results in Fatal error.</p>
 		 * @return void <p>No value is returned.</p>
 		 * @link http://php.net/manual/en/exception.clone.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final private function __clone() {}
 
@@ -53,7 +52,7 @@ namespace {
 		 * @param \Throwable $previous <p>The previous exception used for the exception chaining.</p>
 		 * @return self
 		 * @link http://php.net/manual/en/exception.construct.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		public function __construct(string $message = "", int $code = 0, \Throwable $previous = NULL) {}
 
@@ -62,16 +61,16 @@ namespace {
 		 * <p>Returns the <code>string</code> representation of the exception.</p>
 		 * @return string <p>Returns the <code>string</code> representation of the exception.</p>
 		 * @link http://php.net/manual/en/exception.tostring.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		public function __toString(): string {}
 
 		/**
 		 * Gets the Exception code
 		 * <p>Returns the Exception code.</p>
-		 * @return mixed <p>Returns the exception code as <code>integer</code> in Exception but possibly as other type in Exception descendants (for example as <code>string</code> in PDOException).</p>
+		 * @return mixed <p>Returns the exception code as <code>int</code> in Exception but possibly as other type in Exception descendants (for example as <code>string</code> in PDOException).</p>
 		 * @link http://php.net/manual/en/exception.getcode.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getCode() {}
 
@@ -80,7 +79,7 @@ namespace {
 		 * <p>Get the name of the file in which the exception was created.</p>
 		 * @return string <p>Returns the filename in which the exception was created.</p>
 		 * @link http://php.net/manual/en/exception.getfile.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getFile(): string {}
 
@@ -89,7 +88,7 @@ namespace {
 		 * <p>Get line number where the exception was created.</p>
 		 * @return int <p>Returns the line number where the exception was created.</p>
 		 * @link http://php.net/manual/en/exception.getline.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getLine(): int {}
 
@@ -98,7 +97,7 @@ namespace {
 		 * <p>Returns the Exception message.</p>
 		 * @return string <p>Returns the Exception message as a string.</p>
 		 * @link http://php.net/manual/en/exception.getmessage.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getMessage(): string {}
 
@@ -107,7 +106,7 @@ namespace {
 		 * <p>Returns previous exception (the third parameter of <code>Exception::__construct()</code>).</p>
 		 * @return Throwable <p>Returns the previous Throwable if available or <b><code>NULL</code></b> otherwise.</p>
 		 * @link http://php.net/manual/en/exception.getprevious.php
-		 * @since PHP 5 >= 5.3.0, PHP 7
+		 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8
 		 */
 		final public function getPrevious(): \Throwable {}
 
@@ -116,7 +115,7 @@ namespace {
 		 * <p>Returns the Exception stack trace.</p>
 		 * @return array <p>Returns the Exception stack trace as an <code>array</code>.</p>
 		 * @link http://php.net/manual/en/exception.gettrace.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getTrace(): array {}
 
@@ -125,7 +124,7 @@ namespace {
 		 * <p>Returns the Exception stack trace as a string.</p>
 		 * @return string <p>Returns the Exception stack trace as a string.</p>
 		 * @link http://php.net/manual/en/exception.gettraceasstring.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getTraceAsString(): string {}
 	}

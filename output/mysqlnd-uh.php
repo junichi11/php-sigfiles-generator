@@ -48,9 +48,9 @@ namespace {
 
 		/**
 		 * Closes a previously opened database connection
-		 * <p>Closes a previously opened database connection.</p><p><b>Note</b>:</p><p>Failing to call the parent implementation may cause memory leaks or crash PHP. This is not considered a bug. Please, keep in mind that the <i>mysqlnd</i> library functions have never been designed to be exposed to the user space.</p>
+		 * <p>Closes a previously opened database connection.</p><p><b>Note</b>:</p><p>Failing to call the parent implementation may cause memory leaks or crash PHP. This is not considered a bug. Please, keep in mind that the <code>mysqlnd</code> library functions have never been designed to be exposed to the user space.</p>
 		 * @param \mysqlnd_connection $connection <p>The connection to be closed. Do not modify!</p>
-		 * @param int $close_type <p>Why the connection is to be closed. The value of <code>close_type</code> is one of <b><code>MYSQLND_UH_MYSQLND_CLOSE_EXPLICIT</code></b>, <b><code>MYSQLND_UH_MYSQLND_CLOSE_IMPLICIT</code></b>, <b><code>MYSQLND_UH_MYSQLND_CLOSE_DISCONNECTED</code></b> or <b><code>MYSQLND_UH_MYSQLND_CLOSE_LAST</code></b>. The latter should never be seen, unless the default behaviour of the <i>mysqlnd</i> library has been changed by a plugin.</p>
+		 * @param int $close_type <p>Why the connection is to be closed. The value of <code>close_type</code> is one of <b><code>MYSQLND_UH_MYSQLND_CLOSE_EXPLICIT</code></b>, <b><code>MYSQLND_UH_MYSQLND_CLOSE_IMPLICIT</code></b>, <b><code>MYSQLND_UH_MYSQLND_CLOSE_DISCONNECTED</code></b> or <b><code>MYSQLND_UH_MYSQLND_CLOSE_LAST</code></b>. The latter should never be seen, unless the default behaviour of the <code>mysqlnd</code> library has been changed by a plugin.</p>
 		 * @return bool <p>Returns <b><code>TRUE</code></b> on success. Otherwise, returns <b><code>FALSE</code></b></p>
 		 * @link http://php.net/manual/en/mysqlnduhconnection.close.php
 		 * @see mysqlnd_uh_set_connection_proxy(), mysqli_close(), mysql_close()
@@ -67,7 +67,7 @@ namespace {
 		 * @param string $password <p>If not provided or <b><code>NULL</code></b>, the MySQL server will attempt to authenticate the user against those user records which have no password only. This allows one username to be used with different permissions (depending on if a password as provided or not).</p>
 		 * @param string $database <p>If provided will specify the default database to be used when performing queries.</p>
 		 * @param int $port <p>Specifies the port number to attempt to connect to the MySQL server.</p>
-		 * @param string $socket <p>Specifies the socket or named pipe that should be used. If <b><code>NULL</code></b>, mysqlnd will default to <i>/tmp/mysql.sock</i>.</p>
+		 * @param string $socket <p>Specifies the socket or named pipe that should be used. If <b><code>NULL</code></b>, mysqlnd will default to <code>/tmp/mysql.sock</code>.</p>
 		 * @param int $mysql_flags <p>Connection options.</p>
 		 * @return bool <p>Returns <b><code>TRUE</code></b> on success. Otherwise, returns <b><code>FALSE</code></b></p>
 		 * @link http://php.net/manual/en/mysqlnduhconnection.connect.php
@@ -169,7 +169,7 @@ namespace {
 		 * Retrieves information about the most recently executed query
 		 * <p>Retrieves information about the most recently executed query.</p>
 		 * @param \mysqlnd_connection $connection <p>Mysqlnd connection handle. Do not modify!</p>
-		 * @return void <p>Last message. Trying to return a string longer than 511 bytes will cause an error of the type <i>E_WARNING</i> and result in the string being truncated.</p>
+		 * @return void <p>Last message. Trying to return a string longer than 511 bytes will cause an error of the type <code>E_WARNING</code> and result in the string being truncated.</p>
 		 * @link http://php.net/manual/en/mysqlnduhconnection.getlastmessage.php
 		 * @see mysqlnd_uh_set_connection_proxy(), mysqli_info(), mysql_info()
 		 * @since PECL mysqlnd-uh >= 1.0.0-alpha
@@ -266,7 +266,7 @@ namespace {
 
 		/**
 		 * Initialize mysqlnd connection
-		 * <p>Initialize mysqlnd connection. This is an mysqlnd internal call to initialize the connection object.</p><p><b>Note</b>:</p><p>Failing to call the parent implementation may cause memory leaks or crash PHP. This is not considered a bug. Please, keep in mind that the <i>mysqlnd</i> library functions have never been designed to be exposed to the user space.</p>
+		 * <p>Initialize mysqlnd connection. This is an mysqlnd internal call to initialize the connection object.</p><p><b>Note</b>:</p><p>Failing to call the parent implementation may cause memory leaks or crash PHP. This is not considered a bug. Please, keep in mind that the <code>mysqlnd</code> library functions have never been designed to be exposed to the user space.</p>
 		 * @param \mysqlnd_connection $connection <p>Mysqlnd connection handle. Do not modify!</p>
 		 * @return bool <p>Returns <b><code>TRUE</code></b> on success. Otherwise, returns <b><code>FALSE</code></b></p>
 		 * @link http://php.net/manual/en/mysqlnduhconnection.init.php
@@ -519,7 +519,7 @@ namespace {
 		 * @param string $arg <p>Optional COM command arguments.</p>
 		 * @param int $ok_packet <p>The OK packet type.</p>
 		 * @param bool $silent <p>Whether mysqlnd may emit errors.</p>
-		 * @param bool $ignore_upsert_status <p>Whether to ignore <i>UPDATE</i>/<i>INSERT</i> status.</p>
+		 * @param bool $ignore_upsert_status <p>Whether to ignore <code>UPDATE</code>/<code>INSERT</code> status.</p>
 		 * @return bool <p>Returns <b><code>TRUE</code></b> on success. Otherwise, returns <b><code>FALSE</code></b></p>
 		 * @link http://php.net/manual/en/mysqlnduhconnection.simplecommand.php
 		 * @see mysqlnd_uh_set_connection_proxy()
@@ -534,7 +534,7 @@ namespace {
 		 * @param int $ok_packet <p>The OK packet type.</p>
 		 * @param bool $silent <p>Whether mysqlnd may emit errors.</p>
 		 * @param int $command <p>The COM command to process results from.</p>
-		 * @param bool $ignore_upsert_status <p>Whether to ignore <i>UPDATE</i>/<i>INSERT</i> status.</p>
+		 * @param bool $ignore_upsert_status <p>Whether to ignore <code>UPDATE</code>/<code>INSERT</code> status.</p>
 		 * @return bool <p>Returns <b><code>TRUE</code></b> on success. Otherwise, returns <b><code>FALSE</code></b></p>
 		 * @link http://php.net/manual/en/mysqlnduhconnection.simplecommandhandleresponse.php
 		 * @see mysqlnd_uh_set_connection_proxy()
@@ -562,7 +562,7 @@ namespace {
 		 * Initializes a statement and returns a resource for use with mysqli_statement::prepare
 		 * <p>Initializes a statement and returns a resource for use with mysqli_statement::prepare.</p>
 		 * @param \mysqlnd_connection $connection <p>Mysqlnd connection handle. Do not modify!</p>
-		 * @return resource <p>Resource of type <i>Mysqlnd Prepared Statement (internal only - you must not modify it!)</i>. The documentation may also refer to such resources using the alias name <i>mysqlnd_prepared_statement</i>.</p>
+		 * @return resource <p>Resource of type <code>Mysqlnd Prepared Statement (internal only - you must not modify it!)</code>. The documentation may also refer to such resources using the alias name <code>mysqlnd_prepared_statement</code>.</p>
 		 * @link http://php.net/manual/en/mysqlnduhconnection.stmtinit.php
 		 * @see mysqlnd_uh_set_connection_proxy(), mysqli_stmt_init()
 		 * @since PECL mysqlnd-uh >= 1.0.0-alpha
@@ -573,7 +573,7 @@ namespace {
 		 * Transfers a result set from the last query
 		 * <p>Transfers a result set from the last query.</p>
 		 * @param \mysqlnd_connection $connection <p>Mysqlnd connection handle. Do not modify!</p>
-		 * @return resource <p>Resource of type <i>Mysqlnd Resultset (internal only - you must not modify it!)</i>. The documentation may also refer to such resources using the alias name <i>mysqlnd_resultset</i>.</p>
+		 * @return resource <p>Resource of type <code>Mysqlnd Resultset (internal only - you must not modify it!)</code>. The documentation may also refer to such resources using the alias name <code>mysqlnd_resultset</code>.</p>
 		 * @link http://php.net/manual/en/mysqlnduhconnection.storeresult.php
 		 * @see mysqlnd_uh_set_connection_proxy(), mysqli_store_result(), mysqli_real_query()
 		 * @since PECL mysqlnd-uh >= 1.0.0-alpha
@@ -606,7 +606,7 @@ namespace {
 		 * Initiate a result set retrieval
 		 * <p>Initiate a result set retrieval.</p>
 		 * @param \mysqlnd_connection $connection <p>Mysqlnd connection handle. Do not modify!</p>
-		 * @return resource <p>Resource of type <i>Mysqlnd Resultset (internal only - you must not modify it!)</i>. The documentation may also refer to such resources using the alias name <i>mysqlnd_resultset</i>.</p>
+		 * @return resource <p>Resource of type <code>Mysqlnd Resultset (internal only - you must not modify it!)</code>. The documentation may also refer to such resources using the alias name <code>mysqlnd_resultset</code>.</p>
 		 * @link http://php.net/manual/en/mysqlnduhconnection.useresult.php
 		 * @see mysqlnd_uh_set_connection_proxy(), mysqli_use_result(), mysqli_real_query()
 		 * @since PECL mysqlnd-uh >= 1.0.0-alpha
@@ -632,7 +632,7 @@ namespace {
 		/**
 		 * Executes a prepared Query
 		 * <p>Executes a prepared Query.</p>
-		 * @param \mysqlnd_prepared_statement $statement <p>Mysqlnd prepared statement handle. Do not modify! Resource of type <i>Mysqlnd Prepared Statement (internal only - you must not modify it!)</i>.</p>
+		 * @param \mysqlnd_prepared_statement $statement <p>Mysqlnd prepared statement handle. Do not modify! Resource of type <code>Mysqlnd Prepared Statement (internal only - you must not modify it!)</code>.</p>
 		 * @return bool <p>Returns <b><code>TRUE</code></b> on success. Otherwise, returns <b><code>FALSE</code></b></p>
 		 * @link http://php.net/manual/en/mysqlnduhpreparedstatement.execute.php
 		 * @see mysqlnd_uh_set_statement_proxy(), mysqli_stmt_execute()
@@ -643,7 +643,7 @@ namespace {
 		/**
 		 * Prepare an SQL statement for execution
 		 * <p>Prepare an SQL statement for execution.</p>
-		 * @param \mysqlnd_prepared_statement $statement <p>Mysqlnd prepared statement handle. Do not modify! Resource of type <i>Mysqlnd Prepared Statement (internal only - you must not modify it!)</i>.</p>
+		 * @param \mysqlnd_prepared_statement $statement <p>Mysqlnd prepared statement handle. Do not modify! Resource of type <code>Mysqlnd Prepared Statement (internal only - you must not modify it!)</code>.</p>
 		 * @param string $query <p>The query to be prepared.</p>
 		 * @return bool <p>Returns <b><code>TRUE</code></b> on success. Otherwise, returns <b><code>FALSE</code></b></p>
 		 * @link http://php.net/manual/en/mysqlnduhpreparedstatement.prepare.php
@@ -655,7 +655,7 @@ namespace {
 
 	/**
 	 * Converts a MySQL connection handle into a mysqlnd connection handle
-	 * <p>Converts a MySQL connection handle into a mysqlnd connection handle. After conversion you can execute mysqlnd library calls on the connection handle. This can be used to access mysqlnd functionality not made available through user space API calls.</p><p>The function can be disabled with <i>mysqlnd_uh.enable</i>. If <i>mysqlnd_uh.enable</i> is set to <b><code>FALSE</code></b> the function will not install the proxy and always return <b><code>TRUE</code></b>. Additionally, an error of the type <i>E_WARNING</i> may be emitted. The error message may read like <i>PHP Warning: mysqlnd_uh_convert_to_mysqlnd(): (Mysqlnd User Handler) The plugin has been disabled by setting the configuration parameter mysqlnd_uh.enable = false. You are not allowed to call this function [...]</i>.</p>
+	 * <p>Converts a MySQL connection handle into a mysqlnd connection handle. After conversion you can execute mysqlnd library calls on the connection handle. This can be used to access mysqlnd functionality not made available through user space API calls.</p><p>The function can be disabled with <code>mysqlnd_uh.enable</code>. If <code>mysqlnd_uh.enable</code> is set to <b><code>FALSE</code></b> the function will not install the proxy and always return <b><code>TRUE</code></b>. Additionally, an error of the type <code>E_WARNING</code> may be emitted. The error message may read like <code>PHP Warning: mysqlnd_uh_convert_to_mysqlnd(): (Mysqlnd User Handler) The plugin has been disabled by setting the configuration parameter mysqlnd_uh.enable = false. You are not allowed to call this function [...]</code>.</p>
 	 * @param \mysqli $mysql_connection
 	 * @return resource <p>A mysqlnd connection handle.</p>
 	 * @link http://php.net/manual/en/function.mysqlnd-uh-convert-to-mysqlnd.php
@@ -665,9 +665,9 @@ namespace {
 
 	/**
 	 * Installs a proxy for mysqlnd connections
-	 * <p>Installs a proxy object to hook mysqlnd's connection objects methods. Once installed, the proxy will be used for all MySQL connections opened with mysqli, mysql or PDO_MYSQL, assuming that the listed extensions are compiled to use the mysqlnd library.</p><p>The function can be disabled with <i>mysqlnd_uh.enable</i>. If <i>mysqlnd_uh.enable</i> is set to <b><code>FALSE</code></b> the function will not install the proxy and always return <b><code>TRUE</code></b>. Additionally, an error of the type <i>E_WARNING</i> may be emitted. The error message may read like <i>PHP Warning: mysqlnd_uh_set_connection_proxy(): (Mysqlnd User Handler) The plugin has been disabled by setting the configuration parameter mysqlnd_uh.enable = false. The proxy has not been installed [...]</i>.</p>
+	 * <p>Installs a proxy object to hook mysqlnd's connection objects methods. Once installed, the proxy will be used for all MySQL connections opened with mysqli, mysql or PDO_MYSQL, assuming that the listed extensions are compiled to use the mysqlnd library.</p><p>The function can be disabled with <code>mysqlnd_uh.enable</code>. If <code>mysqlnd_uh.enable</code> is set to <b><code>FALSE</code></b> the function will not install the proxy and always return <b><code>TRUE</code></b>. Additionally, an error of the type <code>E_WARNING</code> may be emitted. The error message may read like <code>PHP Warning: mysqlnd_uh_set_connection_proxy(): (Mysqlnd User Handler) The plugin has been disabled by setting the configuration parameter mysqlnd_uh.enable = false. The proxy has not been installed [...]</code>.</p>
 	 * @param \MysqlndUhConnection $connection_proxy <p>A proxy object of type MysqlndUhConnection.</p>
-	 * @param \mysqli $mysqli_connection <p>Object of type <i>mysqli</i>. If given, the proxy will be set for this particular connection only.</p>
+	 * @param \mysqli $mysqli_connection <p>Object of type <code>mysqli</code>. If given, the proxy will be set for this particular connection only.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success. Otherwise, returns <b><code>FALSE</code></b></p>
 	 * @link http://php.net/manual/en/function.mysqlnd-uh-set-connection-proxy.php
 	 * @see mysqlnd_uh_set_statement_proxy()
@@ -677,8 +677,8 @@ namespace {
 
 	/**
 	 * Installs a proxy for mysqlnd statements
-	 * <p>Installs a proxy for mysqlnd statements. The proxy object will be used for all mysqlnd prepared statement objects, regardless which PHP MySQL extension (mysqli, mysql, PDO_MYSQL) has created them as long as the extension is compiled to use the mysqlnd library.</p><p>The function can be disabled with <i>mysqlnd_uh.enable</i>. If <i>mysqlnd_uh.enable</i> is set to <b><code>FALSE</code></b> the function will not install the proxy and always return <b><code>TRUE</code></b>. Additionally, an error of the type <i>E_WARNING</i> may be emitted. The error message may read like <i>PHP Warning: mysqlnd_uh_set_statement_proxy(): (Mysqlnd User Handler) The plugin has been disabled by setting the configuration parameter mysqlnd_uh.enable = false. The proxy has not been installed [...]</i>.</p>
-	 * @param \MysqlndUhStatement $statement_proxy <p>The mysqlnd statement proxy object of type <i>MysqlndUhStatement</i></p>
+	 * <p>Installs a proxy for mysqlnd statements. The proxy object will be used for all mysqlnd prepared statement objects, regardless which PHP MySQL extension (mysqli, mysql, PDO_MYSQL) has created them as long as the extension is compiled to use the mysqlnd library.</p><p>The function can be disabled with <code>mysqlnd_uh.enable</code>. If <code>mysqlnd_uh.enable</code> is set to <b><code>FALSE</code></b> the function will not install the proxy and always return <b><code>TRUE</code></b>. Additionally, an error of the type <code>E_WARNING</code> may be emitted. The error message may read like <code>PHP Warning: mysqlnd_uh_set_statement_proxy(): (Mysqlnd User Handler) The plugin has been disabled by setting the configuration parameter mysqlnd_uh.enable = false. The proxy has not been installed [...]</code>.</p>
+	 * @param \MysqlndUhStatement $statement_proxy <p>The mysqlnd statement proxy object of type <code>MysqlndUhStatement</code></p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success. Otherwise, returns <b><code>FALSE</code></b></p>
 	 * @link http://php.net/manual/en/function.mysqlnd-uh-set-statement-proxy.php
 	 * @see mysqlnd_uh_set_connection_proxy()
@@ -867,7 +867,7 @@ namespace {
 	define('MYSQLND_UH_MYSQLND_COM_TIME', null);
 
 	/**
-	 * Option: TODO. Available as of <i>PHP 5.4.0</i>.
+	 * Option: TODO. Available as of <code>PHP 5.4.0</code>.
 	 */
 	define('MYSQLND_UH_MYSQLND_OPT_AUTH_PROTOCOL', null);
 
@@ -882,12 +882,12 @@ namespace {
 	define('MYSQLND_UH_MYSQLND_OPT_INT_AND_FLOAT_NATIVE', null);
 
 	/**
-	 * Option: Whether to allow <i>LOAD DATA LOCAL INFILE</i> use.
+	 * Option: Whether to allow <code>LOAD DATA LOCAL INFILE</code> use.
 	 */
 	define('MYSQLND_UH_MYSQLND_OPT_LOCAL_INFILE', null);
 
 	/**
-	 * Option: maximum allowed packet size. Available as of <i>PHP 5.4.0</i>.
+	 * Option: maximum allowed packet size. Available as of <code>PHP 5.4.0</code>.
 	 */
 	define('MYSQLND_UH_MYSQLND_OPT_MAX_ALLOWED_PACKET', null);
 
@@ -1112,7 +1112,7 @@ namespace {
 	define('MYSQLND_UH_SERVER_OPTION_SET_CLIENT_IP', null);
 
 	/**
-	 * Plugin version string, for example, "1.0.0-alpha".
+	 * Plugin version string, for example, 1.0.0-alpha.
 	 */
 	define('MYSQLND_UH_VERSION', null);
 

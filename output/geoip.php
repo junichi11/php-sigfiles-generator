@@ -18,7 +18,7 @@ namespace {
 	 * Get the two letter continent code
 	 * <p>The <b>geoip_continent_code_by_name()</b> function will return the two letter continent code corresponding to a hostname or an IP address.</p>
 	 * @param string $hostname <p>The hostname or IP address whose location is to be looked-up.</p>
-	 * @return string <p>Returns the two letter continent code on success, or <b><code>FALSE</code></b> if the address cannot be found in the database.</p> <b>Continent codes</b>   Code Continent name     <i>AF</i> Africa   <i>AN</i> Antarctica   <i>AS</i> Asia   <i>EU</i> Europe   <i>NA</i> North america   <i>OC</i> Oceania   <i>SA</i> South america
+	 * @return string <p>Returns the two letter continent code on success, or <b><code>FALSE</code></b> if the address cannot be found in the database.</p> <b>Continent codes</b>   Code Continent name     <code>AF</code> Africa   <code>AN</code> Antarctica   <code>AS</code> Asia   <code>EU</code> Europe   <code>NA</code> North america   <code>OC</code> Oceania   <code>SA</code> South america
 	 * @link http://php.net/manual/en/function.geoip-continent-code-by-name.php
 	 * @see geoip_country_code_by_name()
 	 * @since PECL geoip >= 1.0.3

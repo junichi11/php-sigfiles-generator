@@ -117,6 +117,8 @@ namespace {
 
 	/**
 	 * <p>The WeakRef class provides a gateway to objects without preventing the garbage collector from freeing those objects. It also provides a way to turn a weak reference into a strong one.</p>
+	 * <p><b>Note</b>:</p>
+	 * <p>The class <b>WeakRef</b> is not to be confused with the class WeakReference.</p>
 	 * @link http://php.net/manual/en/class.weakref.php
 	 * @since PECL weakref >= 0.1.0
 	 */

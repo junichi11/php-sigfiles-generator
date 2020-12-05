@@ -6,8 +6,8 @@ namespace {
 
 	/**
 	 * Returns trailing name component of path
-	 * <p>Given a string containing the path to a file or directory, this function will return the trailing name component.</p><p><b>Note</b>:</p><p><b>basename()</b> operates naively on the input string, and is not aware of the actual filesystem, or path components such as "<i>..</i>".</p><p><b>basename()</b> is locale aware, so for it to see the correct basename with multibyte character paths, the matching locale must be set using the <code>setlocale()</code> function.</p>
-	 * @param string $path <p>A path.</p> <p>On Windows, both slash (<i>/</i>) and backslash (<i>\</i>) are used as directory separator character. In other environments, it is the forward slash (<i>/</i>).</p>
+	 * <p>Given a string containing the path to a file or directory, this function will return the trailing name component.</p><p><b>Note</b>:</p><p><b>basename()</b> operates naively on the input string, and is not aware of the actual filesystem, or path components such as "<code>..</code>".</p><p><b>basename()</b> is locale aware, so for it to see the correct basename with multibyte character paths, the matching locale must be set using the <code>setlocale()</code> function.</p>
+	 * @param string $path <p>A path.</p> <p>On Windows, both slash (<code>/</code>) and backslash (<code>\</code>) are used as directory separator character. In other environments, it is the forward slash (<code>/</code>).</p>
 	 * @param string $suffix <p>If the name component ends in <code>suffix</code> this will also be cut off.</p>
 	 * @return string <p>Returns the base name of the given <code>path</code>.</p>
 	 * @link http://php.net/manual/en/function.basename.php
@@ -78,10 +78,10 @@ namespace {
 
 	/**
 	 * Returns a parent directory's path
-	 * <p>Given a string containing the path of a file or directory, this function will return the parent directory's path that is <code>levels</code> up from the current directory.</p><p><b>Note</b>:</p><p><b>dirname()</b> operates naively on the input string, and is not aware of the actual filesystem, or path components such as "<i>..</i>".</p><p><b>dirname()</b> is locale aware, so for it to see the correct directory name with multibyte character paths, the matching locale must be set using the <code>setlocale()</code> function.</p>
-	 * @param string $path <p>A path.</p> <p>On Windows, both slash (<i>/</i>) and backslash (<i>\</i>) are used as directory separator character. In other environments, it is the forward slash (<i>/</i>).</p>
+	 * <p>Given a string containing the path of a file or directory, this function will return the parent directory's path that is <code>levels</code> up from the current directory.</p><p><b>Note</b>:</p><p><b>dirname()</b> operates naively on the input string, and is not aware of the actual filesystem, or path components such as "<code>..</code>".</p><p><b>dirname()</b> is locale aware, so for it to see the correct directory name with multibyte character paths, the matching locale must be set using the <code>setlocale()</code> function.</p>
+	 * @param string $path <p>A path.</p> <p>On Windows, both slash (<code>/</code>) and backslash (<code>\</code>) are used as directory separator character. In other environments, it is the forward slash (<code>/</code>).</p>
 	 * @param int $levels <p>The number of parent directories to go up.</p> <p>This must be an integer greater than 0.</p>
-	 * @return string <p>Returns the path of a parent directory. If there are no slashes in <code>path</code>, a dot ('<i>.</i>') is returned, indicating the current directory. Otherwise, the returned string is <code>path</code> with any trailing <i>/component</i> removed.</p>
+	 * @return string <p>Returns the path of a parent directory. If there are no slashes in <code>path</code>, a dot ('<code>.</code>') is returned, indicating the current directory. Otherwise, the returned string is <code>path</code> with any trailing <code>/component</code> removed.</p>
 	 * @link http://php.net/manual/en/function.dirname.php
 	 * @see basename(), pathinfo(), realpath()
 	 * @since PHP 4, PHP 5, PHP 7
@@ -92,33 +92,33 @@ namespace {
 	 * Returns available space on filesystem or disk partition
 	 * <p>Given a string containing a directory, this function will return the number of bytes available on the corresponding filesystem or disk partition.</p>
 	 * @param string $directory <p>A directory of the filesystem or disk partition.</p> <p><b>Note</b>:</p><p>Given a file name instead of a directory, the behaviour of the function is unspecified and may differ between operating systems and PHP versions.</p>
-	 * @return float <p>Returns the number of available bytes as a float or <b><code>FALSE</code></b> on failure.</p>
+	 * @return float|false <p>Returns the number of available bytes as a float or <b><code>FALSE</code></b> on failure.</p>
 	 * @link http://php.net/manual/en/function.disk-free-space.php
 	 * @see disk_total_space()
 	 * @since PHP 4 >= 4.1.0, PHP 5, PHP 7
 	 */
-	function disk_free_space(string $directory): float {}
+	function disk_free_space(string $directory) {}
 
 	/**
 	 * Returns the total size of a filesystem or disk partition
 	 * <p>Given a string containing a directory, this function will return the total number of bytes on the corresponding filesystem or disk partition.</p>
 	 * @param string $directory <p>A directory of the filesystem or disk partition.</p>
-	 * @return float <p>Returns the total number of bytes as a float or <b><code>FALSE</code></b> on failure.</p>
+	 * @return float|false <p>Returns the total number of bytes as a float or <b><code>FALSE</code></b> on failure.</p>
 	 * @link http://php.net/manual/en/function.disk-total-space.php
 	 * @see disk_free_space()
 	 * @since PHP 4 >= 4.1.0, PHP 5, PHP 7
 	 */
-	function disk_total_space(string $directory): float {}
+	function disk_total_space(string $directory) {}
 
 	/**
 	 * Alias of disk_free_space()
 	 * <p>This function is an alias of: <code>disk_free_space()</code>.</p>
 	 * @param string $directory <p>A directory of the filesystem or disk partition.</p> <p><b>Note</b>:</p><p>Given a file name instead of a directory, the behaviour of the function is unspecified and may differ between operating systems and PHP versions.</p>
-	 * @return float
+	 * @return float|false
 	 * @link http://php.net/manual/en/function.diskfreespace.php
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function diskfreespace(string $directory): float {}
+	function diskfreespace(string $directory) {}
 
 	/**
 	 * Closes an open file pointer
@@ -165,12 +165,12 @@ namespace {
 
 	/**
 	 * Gets line from file pointer and parse for CSV fields
-	 * <p>Similar to <code>fgets()</code> except that <b>fgetcsv()</b> parses the line it reads for fields in CSV format and returns an array containing the fields read.</p><p><b>Note</b>:</p><p>The locale settings are taken into account by this function. If <i>LC_CTYPE</i> is e.g. <i>en_US.UTF-8</i>, files in one-byte encodings may be read wrongly by this function.</p>
+	 * <p>Similar to <code>fgets()</code> except that <b>fgetcsv()</b> parses the line it reads for fields in CSV format and returns an array containing the fields read.</p><p><b>Note</b>:</p><p>The locale settings are taken into account by this function. If <code>LC_CTYPE</code> is e.g. <code>en_US.UTF-8</code>, files in one-byte encodings may be read wrongly by this function.</p>
 	 * @param resource $handle <p>A valid file pointer to a file successfully opened by <code>fopen()</code>, <code>popen()</code>, or <code>fsockopen()</code>.</p>
 	 * @param int $length <p>Must be greater than the longest line (in characters) to be found in the CSV file (allowing for trailing line-end characters). Otherwise the line is split in chunks of <code>length</code> characters, unless the split would occur inside an enclosure.</p> <p>Omitting this parameter (or setting it to 0 in PHP 5.1.0 and later) the maximum line length is not limited, which is slightly slower.</p>
 	 * @param string $delimiter <p>The optional <code>delimiter</code> parameter sets the field delimiter (one character only).</p>
 	 * @param string $enclosure <p>The optional <code>enclosure</code> parameter sets the field enclosure character (one character only).</p>
-	 * @param string $escape <p>The optional <code>escape</code> parameter sets the escape character (one character only).</p> <p><b>Note</b>:  Usually an <code>enclosure</code> character is escaped inside a field by doubling it; however, the <code>escape</code> character can be used as an alternative. So for the default parameter values <i>""</i> and <i>\"</i> have the same meaning. Other than allowing to escape the <code>enclosure</code> character the <code>escape</code> character has no special meaning; it isn't even meant to escape itself. </p>
+	 * @param string $escape <p>The optional <code>escape</code> parameter sets the escape character (at most one character). An empty string (<code>""</code>) disables the proprietary escape mechanism.</p> <p><b>Note</b>:  Usually an <code>enclosure</code> character is escaped inside a field by doubling it; however, the <code>escape</code> character can be used as an alternative. So for the default parameter values <code>""</code> and <code>\"</code> have the same meaning. Other than allowing to escape the <code>enclosure</code> character the <code>escape</code> character has no special meaning; it isn't even meant to escape itself. </p>
 	 * @return array <p>Returns an indexed array containing the fields read.</p><p><b>Note</b>:</p><p>A blank line in a CSV file will be returned as an array comprising a single <code>null</code> field, and will not be treated as an error.</p> <p><b>Note</b>: If PHP is not properly recognizing the line endings when reading files either on or created by a Macintosh computer, enabling the auto_detect_line_endings run-time configuration option may help resolve the problem.</p><p><b>fgetcsv()</b> returns <b><code>NULL</code></b> if an invalid <code>handle</code> is supplied or <b><code>FALSE</code></b> on other errors, including end of file.</p>
 	 * @link http://php.net/manual/en/function.fgetcsv.php
 	 * @see str_getcsv(), explode(), file(), pack(), fputcsv()
@@ -182,7 +182,7 @@ namespace {
 	 * Gets line from file pointer
 	 * <p>Gets a line from file pointer.</p>
 	 * @param resource $handle <p>The file pointer must be valid, and must point to a file successfully opened by <code>fopen()</code> or <code>fsockopen()</code> (and not yet closed by <code>fclose()</code>).</p>
-	 * @param int $length <p>Reading ends when <code>length</code> - 1 bytes have been read, or a newline (which is included in the return value), or an EOF (whichever comes first). If no length is specified, it will keep reading from the stream until it reaches the end of the line.</p> <p><b>Note</b>:</p><p>Until PHP 4.3.0, omitting it would assume 1024 as the line length. If the majority of the lines in the file are all larger than 8KB, it is more resource efficient for your script to specify the maximum line length.</p>
+	 * @param int $length <p>Reading ends when <code>length</code> - 1 bytes have been read, or a newline (which is included in the return value), or an EOF (whichever comes first). If no length is specified, it will keep reading from the stream until it reaches the end of the line.</p>
 	 * @return string <p>Returns a string of up to <code>length</code> - 1 bytes read from the file pointed to by <code>handle</code>. If there is no more data to read in the file pointer, then <b><code>FALSE</code></b> is returned.</p><p>If an error occurs, <b><code>FALSE</code></b> is returned.</p>
 	 * @link http://php.net/manual/en/function.fgets.php
 	 * @see fgetss(), fread(), fgetc(), stream_get_line(), fopen(), popen(), fsockopen(), stream_set_timeout()
@@ -192,7 +192,7 @@ namespace {
 
 	/**
 	 * Gets line from file pointer and strip HTML tags
-	 * <p>Identical to <code>fgets()</code>, except that <b>fgetss()</b> attempts to strip any NUL bytes, HTML and PHP tags from the text it reads.</p>
+	 * <p>Identical to <code>fgets()</code>, except that <b>fgetss()</b> attempts to strip any NUL bytes, HTML and PHP tags from the text it reads. The function retains the parsing state from call to call, and as such is not equivalent to calling <code>strip_tags()</code> on the return value of <code>fgets()</code>.</p>
 	 * @param resource $handle <p>The file pointer must be valid, and must point to a file successfully opened by <code>fopen()</code> or <code>fsockopen()</code> (and not yet closed by <code>fclose()</code>).</p>
 	 * @param int $length <p>Length of the data to be retrieved.</p>
 	 * @param string $allowable_tags <p>You can use the optional third parameter to specify tags which should not be stripped. See <code>strip_tags()</code> for details regarding <code>allowable_tags</code>.</p>
@@ -208,7 +208,7 @@ namespace {
 	 * <p>Reads an entire file into an array.</p><p><b>Note</b>:</p><p>You can use <code>file_get_contents()</code> to return the contents of a file as a string.</p>
 	 * @param string $filename <p>Path to the file.</p> <b>Tip</b><p>A URL can be used as a filename with this function if the fopen wrappers have been enabled. See <code>fopen()</code> for more details on how to specify the filename. See the Supported Protocols and Wrappers for links to information about what abilities the various wrappers have, notes on their usage, and information on any predefined variables they may provide.</p>
 	 * @param int $flags <p>The optional parameter <code>flags</code> can be one, or more, of the following constants:</p>  <b><code>FILE_USE_INCLUDE_PATH</code></b>    Search for the file in the include_path.    <b><code>FILE_IGNORE_NEW_LINES</code></b>    Omit newline at the end of each array element    <b><code>FILE_SKIP_EMPTY_LINES</code></b>    Skip empty lines
-	 * @param resource $context <p>A context resource created with the <code>stream_context_create()</code> function.</p> <p></p><p><b>Note</b>: Context support was added with PHP 5.0.0. For a description of <i>contexts</i>, refer to Streams.</p>
+	 * @param resource $context <p>A context resource created with the <code>stream_context_create()</code> function.</p> <p></p><p><b>Note</b>: Context support was added with PHP 5.0.0. For a description of <code>contexts</code>, refer to Streams.</p>
 	 * @return array <p>Returns the file in an array. Each element of the array corresponds to a line in the file, with the newline still attached. Upon failure, <b>file()</b> returns <b><code>FALSE</code></b>.</p><p><b>Note</b>:</p><p>Each line in the resulting array will include the line ending, unless <b><code>FILE_IGNORE_NEW_LINES</code></b> is used.</p> <p><b>Note</b>: If PHP is not properly recognizing the line endings when reading files either on or created by a Macintosh computer, enabling the auto_detect_line_endings run-time configuration option may help resolve the problem.</p>
 	 * @link http://php.net/manual/en/function.file.php
 	 * @see readfile(), fopen(), fsockopen(), popen(), file_get_contents(), include, stream_context_create()
@@ -220,7 +220,7 @@ namespace {
 	 * Checks whether a file or directory exists
 	 * <p>Checks whether a file or directory exists.</p>
 	 * @param string $filename <p>Path to the file or directory.</p> <p>On windows, use //computername/share/filename or \\computername\share\filename to check files on network shares.</p>
-	 * @return bool <p>Returns <b><code>TRUE</code></b> if the file or directory specified by <code>filename</code> exists; <b><code>FALSE</code></b> otherwise.</p><p><b>Note</b>:</p><p>This function will return <b><code>FALSE</code></b> for symlinks pointing to non-existing files.</p> <p><b>Warning</b></p> <p>This function returns <b><code>FALSE</code></b> for files inaccessible due to safe mode restrictions. However these files still can be included if they are located in safe_mode_include_dir.</p> <p><b>Note</b>:</p><p>The check is done using the real UID/GID instead of the effective one.</p> <p><b>Note</b>:  Because PHP's integer type is signed and many platforms use 32bit integers, some filesystem functions may return unexpected results for files which are larger than 2GB. </p>
+	 * @return bool <p>Returns <b><code>TRUE</code></b> if the file or directory specified by <code>filename</code> exists; <b><code>FALSE</code></b> otherwise.</p><p><b>Note</b>:</p><p>This function will return <b><code>FALSE</code></b> for symlinks pointing to non-existing files.</p> <p><b>Note</b>:</p><p>The check is done using the real UID/GID instead of the effective one.</p> <p><b>Note</b>:  Because PHP's integer type is signed and many platforms use 32bit integers, some filesystem functions may return unexpected results for files which are larger than 2GB. </p>
 	 * @link http://php.net/manual/en/function.file-exists.php
 	 * @see is_readable(), is_writable(), is_file(), file()
 	 * @since PHP 4, PHP 5, PHP 7
@@ -231,23 +231,23 @@ namespace {
 	 * Reads entire file into a string
 	 * <p>This function is similar to <code>file()</code>, except that <b>file_get_contents()</b> returns the file in a <code>string</code>, starting at the specified <code>offset</code> up to <code>maxlen</code> bytes. On failure, <b>file_get_contents()</b> will return <b><code>FALSE</code></b>.</p><p><b>file_get_contents()</b> is the preferred way to read the contents of a file into a string. It will use memory mapping techniques if supported by your OS to enhance performance.</p><p><b>Note</b>:</p><p>If you're opening a URI with special characters, such as spaces, you need to encode the URI with <code>urlencode()</code>.</p>
 	 * @param string $filename <p>Name of the file to read.</p>
-	 * @param bool $use_include_path <p><b>Note</b>:</p><p>As of PHP 5 the <b><code>FILE_USE_INCLUDE_PATH</code></b> constant can be used to trigger include path search. This is not possible if strict typing is enabled, since <b><code>FILE_USE_INCLUDE_PATH</code></b> is an <code>int</code>. Use <b><code>TRUE</code></b> instead.</p>
+	 * @param bool $use_include_path <p><b>Note</b>:</p><p>The <b><code>FILE_USE_INCLUDE_PATH</code></b> constant can be used to trigger include path search. This is not possible if strict typing is enabled, since <b><code>FILE_USE_INCLUDE_PATH</code></b> is an <code>int</code>. Use <b><code>TRUE</code></b> instead.</p>
 	 * @param resource $context <p>A valid context resource created with <code>stream_context_create()</code>. If you don't need to use a custom context, you can skip this parameter by <b><code>NULL</code></b>.</p>
 	 * @param int $offset <p>The offset where the reading starts on the original stream. Negative offsets count from the end of the stream.</p> <p>Seeking (<code>offset</code>) is not supported with remote files. Attempting to seek on non-local files may work with small offsets, but this is unpredictable because it works on the buffered stream.</p>
 	 * @param int $maxlen <p>Maximum length of data read. The default is to read until end of file is reached. Note that this parameter is applied to the stream processed by the filters.</p>
-	 * @return string <p>The function returns the read data or <b><code>FALSE</code></b> on failure.</p><p><b>Warning</b></p><p>This function may return Boolean <b><code>FALSE</code></b>, but may also return a non-Boolean value which evaluates to <b><code>FALSE</code></b>. Please read the section on Booleans for more information. Use the === operator for testing the return value of this function.</p>
+	 * @return string|false <p>The function returns the read data or <b><code>FALSE</code></b> on failure.</p><p><b>Warning</b></p><p>This function may return Boolean <b><code>FALSE</code></b>, but may also return a non-Boolean value which evaluates to <b><code>FALSE</code></b>. Please read the section on Booleans for more information. Use the === operator for testing the return value of this function.</p>
 	 * @link http://php.net/manual/en/function.file-get-contents.php
 	 * @see file(), fgets(), fread(), readfile(), file_put_contents(), stream_get_contents(), stream_context_create()
 	 * @since PHP 4 >= 4.3.0, PHP 5, PHP 7
 	 */
-	function file_get_contents(string $filename, bool $use_include_path = FALSE, $context = NULL, int $offset = 0, int $maxlen = NULL): string {}
+	function file_get_contents(string $filename, bool $use_include_path = FALSE, $context = NULL, int $offset = 0, int $maxlen = NULL) {}
 
 	/**
 	 * Write data to a file
 	 * <p>This function is identical to calling <code>fopen()</code>, <code>fwrite()</code> and <code>fclose()</code> successively to write data to a file.</p><p>If <code>filename</code> does not exist, the file is created. Otherwise, the existing file is overwritten, unless the <b><code>FILE_APPEND</code></b> flag is set.</p>
 	 * @param string $filename <p>Path to the file where to write the data.</p>
-	 * @param mixed $data <p>The data to write. Can be either a <code>string</code>, an <code>array</code> or a stream resource.</p> <p>If <code>data</code> is a stream resource, the remaining buffer of that stream will be copied to the specified file. This is similar with using <code>stream_copy_to_stream()</code>.</p> <p>You can also specify the <code>data</code> parameter as a single dimension array. This is equivalent to <i>file_put_contents($filename, implode('', $array))</i>.</p>
-	 * @param int $flags <p>The value of <code>flags</code> can be any combination of the following flags, joined with the binary OR (<i>|</i>) operator.</p> <p></p> <b>Available flags</b>   Flag Description      <b><code>FILE_USE_INCLUDE_PATH</code></b>   Search for <code>filename</code> in the include directory. See include_path for more information.     <b><code>FILE_APPEND</code></b>   If file <code>filename</code> already exists, append the data to the file instead of overwriting it.     <b><code>LOCK_EX</code></b>   Acquire an exclusive lock on the file while proceeding to the writing. In other words, a <code>flock()</code> call happens between the <code>fopen()</code> call and the <code>fwrite()</code> call. This is not identical to an <code>fopen()</code> call with mode "x".
+	 * @param mixed $data <p>The data to write. Can be either a <code>string</code>, an <code>array</code> or a stream resource.</p> <p>If <code>data</code> is a stream resource, the remaining buffer of that stream will be copied to the specified file. This is similar with using <code>stream_copy_to_stream()</code>.</p> <p>You can also specify the <code>data</code> parameter as a single dimension array. This is equivalent to <code>file_put_contents($filename, implode('', $array))</code>.</p>
+	 * @param int $flags <p>The value of <code>flags</code> can be any combination of the following flags, joined with the binary OR (<code>|</code>) operator.</p> <p></p> <b>Available flags</b>   Flag Description      <b><code>FILE_USE_INCLUDE_PATH</code></b>   Search for <code>filename</code> in the include directory. See include_path for more information.     <b><code>FILE_APPEND</code></b>   If file <code>filename</code> already exists, append the data to the file instead of overwriting it.     <b><code>LOCK_EX</code></b>   Acquire an exclusive lock on the file while proceeding to the writing. In other words, a <code>flock()</code> call happens between the <code>fopen()</code> call and the <code>fwrite()</code> call. This is not identical to an <code>fopen()</code> call with mode "x".
 	 * @param resource $context <p>A valid context resource created with <code>stream_context_create()</code>.</p>
 	 * @return int <p>This function returns the number of bytes that were written to the file, or <b><code>FALSE</code></b> on failure.</p><p><b>Warning</b></p><p>This function may return Boolean <b><code>FALSE</code></b>, but may also return a non-Boolean value which evaluates to <b><code>FALSE</code></b>. Please read the section on Booleans for more information. Use the === operator for testing the return value of this function.</p>
 	 * @link http://php.net/manual/en/function.file-put-contents.php
@@ -260,23 +260,23 @@ namespace {
 	 * Gets last access time of file
 	 * <p>Gets the last access time of the given file.</p>
 	 * @param string $filename <p>Path to the file.</p>
-	 * @return int <p>Returns the time the file was last accessed, or <b><code>FALSE</code></b> on failure. The time is returned as a Unix timestamp.</p>
+	 * @return int|false <p>Returns the time the file was last accessed, or <b><code>FALSE</code></b> on failure. The time is returned as a Unix timestamp.</p>
 	 * @link http://php.net/manual/en/function.fileatime.php
 	 * @see filemtime(), fileinode(), date()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function fileatime(string $filename): int {}
+	function fileatime(string $filename) {}
 
 	/**
 	 * Gets inode change time of file
 	 * <p>Gets the inode change time of a file.</p>
 	 * @param string $filename <p>Path to the file.</p>
-	 * @return int <p>Returns the time the file was last changed, or <b><code>FALSE</code></b> on failure. The time is returned as a Unix timestamp.</p>
+	 * @return int|false <p>Returns the time the file was last changed, or <b><code>FALSE</code></b> on failure. The time is returned as a Unix timestamp.</p>
 	 * @link http://php.net/manual/en/function.filectime.php
 	 * @see filemtime()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function filectime(string $filename): int {}
+	function filectime(string $filename) {}
 
 	/**
 	 * Gets file group
@@ -293,40 +293,40 @@ namespace {
 	 * Gets file inode
 	 * <p>Gets the file inode.</p>
 	 * @param string $filename <p>Path to the file.</p>
-	 * @return int <p>Returns the inode number of the file, or <b><code>FALSE</code></b> on failure.</p>
+	 * @return int|false <p>Returns the inode number of the file, or <b><code>FALSE</code></b> on failure.</p>
 	 * @link http://php.net/manual/en/function.fileinode.php
 	 * @see getmyinode(), stat()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function fileinode(string $filename): int {}
+	function fileinode(string $filename) {}
 
 	/**
 	 * Gets file modification time
 	 * <p>This function returns the time when the data blocks of a file were being written to, that is, the time when the content of the file was changed.</p>
 	 * @param string $filename <p>Path to the file.</p>
-	 * @return int <p>Returns the time the file was last modified, or <b><code>FALSE</code></b> on failure. The time is returned as a Unix timestamp, which is suitable for the <code>date()</code> function.</p>
+	 * @return int|false <p>Returns the time the file was last modified, or <b><code>FALSE</code></b> on failure. The time is returned as a Unix timestamp, which is suitable for the <code>date()</code> function.</p>
 	 * @link http://php.net/manual/en/function.filemtime.php
 	 * @see filectime(), stat(), touch(), getlastmod()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function filemtime(string $filename): int {}
+	function filemtime(string $filename) {}
 
 	/**
 	 * Gets file owner
 	 * <p>Gets the file owner.</p>
 	 * @param string $filename <p>Path to the file.</p>
-	 * @return int <p>Returns the user ID of the owner of the file, or <b><code>FALSE</code></b> on failure. The user ID is returned in numerical format, use <code>posix_getpwuid()</code> to resolve it to a username.</p>
+	 * @return int|false <p>Returns the user ID of the owner of the file, or <b><code>FALSE</code></b> on failure. The user ID is returned in numerical format, use <code>posix_getpwuid()</code> to resolve it to a username.</p>
 	 * @link http://php.net/manual/en/function.fileowner.php
 	 * @see filegroup(), stat(), posix_getpwuid()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function fileowner(string $filename): int {}
+	function fileowner(string $filename) {}
 
 	/**
 	 * Gets file permissions
 	 * <p>Gets permissions for the given file.</p>
 	 * @param string $filename <p>Path to the file.</p>
-	 * @return int <p>Returns the file's permissions as a numeric mode. Lower bits of this mode are the same as the permissions expected by <code>chmod()</code>, however on most platforms the return value will also include information on the type of file given as <code>filename</code>. The examples below demonstrate how to test the return value for specific permissions and file types on POSIX systems, including Linux and macOS.</p><p>For local files, the specific return value is that of the <i>st_mode</i> member of the structure returned by the C library's <code>stat()</code> function. Exactly which bits are set can vary from platform to platform, and looking up your specific platform's documentation is recommended if parsing the non-permission bits of the return value is required.</p>
+	 * @return int <p>Returns the file's permissions as a numeric mode. Lower bits of this mode are the same as the permissions expected by <code>chmod()</code>, however on most platforms the return value will also include information on the type of file given as <code>filename</code>. The examples below demonstrate how to test the return value for specific permissions and file types on POSIX systems, including Linux and macOS.</p><p>For local files, the specific return value is that of the <code>st_mode</code> member of the structure returned by the C library's <code>stat()</code> function. Exactly which bits are set can vary from platform to platform, and looking up your specific platform's documentation is recommended if parsing the non-permission bits of the return value is required.</p>
 	 * @link http://php.net/manual/en/function.fileperms.php
 	 * @see chmod(), is_readable(), stat()
 	 * @since PHP 4, PHP 5, PHP 7
@@ -359,7 +359,7 @@ namespace {
 	 * Portable advisory file locking
 	 * <p><b>flock()</b> allows you to perform a simple reader/writer model which can be used on virtually every platform (including most Unix derivatives and even Windows).</p><p>On versions of PHP before 5.3.2, the lock is released also by <code>fclose()</code> (which is also called automatically when script finished).</p><p>PHP supports a portable way of locking complete files in an advisory way (which means all accessing programs have to use the same way of locking or it will not work). By default, this function will block until the requested lock is acquired; this may be controlled with the <b><code>LOCK_NB</code></b> option documented below.</p>
 	 * @param resource $handle <p>A file system pointer <code>resource</code> that is typically created using <code>fopen()</code>.</p>
-	 * @param int $operation <p><code>operation</code> is one of the following:</p><ul> <li>  <b><code>LOCK_SH</code></b> to acquire a shared lock (reader).  </li> <li>  <b><code>LOCK_EX</code></b> to acquire an exclusive lock (writer).  </li> <li>  <b><code>LOCK_UN</code></b> to release a lock (shared or exclusive).  </li> </ul> <p>It is also possible to add <b><code>LOCK_NB</code></b> as a bitmask to one of the above operations if you don't want <b>flock()</b> to block while locking.</p>
+	 * @param int $operation <p><code>operation</code> is one of the following:</p><ul> <li>  <b><code>LOCK_SH</code></b> to acquire a shared lock (reader).  </li> <li>  <b><code>LOCK_EX</code></b> to acquire an exclusive lock (writer).  </li> <li>  <b><code>LOCK_UN</code></b> to release a lock (shared or exclusive).  </li> </ul> <p>It is also possible to add <b><code>LOCK_NB</code></b> as a bitmask to one of the above operations, if <b>flock()</b> should not block during the locking attempt.</p>
 	 * @param int $wouldblock <p>The optional third argument is set to 1 if the lock would block (EWOULDBLOCK errno condition).</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
 	 * @link http://php.net/manual/en/function.flock.php
@@ -371,7 +371,7 @@ namespace {
 	 * Match filename against a pattern
 	 * <p><b>fnmatch()</b> checks if the passed <code>string</code> would match the given shell wildcard <code>pattern</code>.</p>
 	 * @param string $pattern <p>The shell wildcard pattern.</p>
-	 * @param string $string <p>The tested string. This function is especially useful for filenames, but may also be used on regular strings.</p> <p>The average user may be used to shell patterns or at least in their simplest form to <i>'&#63;'</i> and <i>'&#42;'</i> wildcards so using <b>fnmatch()</b> instead of <code>preg_match()</code> for frontend search expression input may be way more convenient for non-programming users.</p>
+	 * @param string $string <p>The tested string. This function is especially useful for filenames, but may also be used on regular strings.</p> <p>The average user may be used to shell patterns or at least in their simplest form to <code>'&#63;'</code> and <code>'&#42;'</code> wildcards so using <b>fnmatch()</b> instead of <code>preg_match()</code> for frontend search expression input may be way more convenient for non-programming users.</p>
 	 * @param int $flags <p>The value of <code>flags</code> can be any combination of the following flags, joined with the binary OR (|) operator.</p> <b> A list of possible flags for <b>fnmatch()</b> </b>   <code>Flag</code> Description     <b><code>FNM_NOESCAPE</code></b>  Disable backslash escaping.    <b><code>FNM_PATHNAME</code></b>  Slash in string only matches slash in the given pattern.    <b><code>FNM_PERIOD</code></b>  Leading period in string must be exactly matched by period in the given pattern.    <b><code>FNM_CASEFOLD</code></b>  Caseless match. Part of the GNU extension.
 	 * @return bool <p>Returns <b><code>TRUE</code></b> if there is a match, <b><code>FALSE</code></b> otherwise.</p>
 	 * @link http://php.net/manual/en/function.fnmatch.php
@@ -383,11 +383,11 @@ namespace {
 	/**
 	 * Opens file or URL
 	 * <p><b>fopen()</b> binds a named resource, specified by <code>filename</code>, to a stream.</p>
-	 * @param string $filename <p>If <code>filename</code> is of the form "scheme://...", it is assumed to be a URL and PHP will search for a protocol handler (also known as a wrapper) for that scheme. If no wrappers for that protocol are registered, PHP will emit a notice to help you track potential problems in your script and then continue as though <code>filename</code> specifies a regular file.</p> <p>If PHP has decided that <code>filename</code> specifies a local file, then it will try to open a stream on that file. The file must be accessible to PHP, so you need to ensure that the file access permissions allow this access. If you have enabled safe mode or open_basedir further restrictions may apply.</p> <p>If PHP has decided that <code>filename</code> specifies a registered protocol, and that protocol is registered as a network URL, PHP will check to make sure that allow_url_fopen is enabled. If it is switched off, PHP will emit a warning and the fopen call will fail.</p> <p><b>Note</b>:</p><p>The list of supported protocols can be found in Supported Protocols and Wrappers. Some protocols (also referred to as <i>wrappers</i>) support <i>context</i> and/or php.ini options. Refer to the specific page for the protocol in use for a list of options which can be set. (e.g. php.ini value <i>user_agent</i> used by the <i>http</i> wrapper).</p>  <p>On the Windows platform, be careful to escape any backslashes used in the path to the file, or use forward slashes.</p>  <code> &lt;&#63;php<br>$handle&nbsp;=&nbsp;fopen("c:\\folder\\resource.txt",&nbsp;"r");<br>&#63;&gt;  </code>
-	 * @param string $mode <p>The <code>mode</code> parameter specifies the type of access you require to the stream. It may be any of the following:</p> <b> A list of possible modes for <b>fopen()</b> using <code>mode</code> </b>   <code>mode</code> Description     <i>'r'</i>  Open for reading only; place the file pointer at the beginning of the file.    <i>'r+'</i>  Open for reading and writing; place the file pointer at the beginning of the file.    <i>'w'</i>  Open for writing only; place the file pointer at the beginning of the file and truncate the file to zero length. If the file does not exist, attempt to create it.    <i>'w+'</i>  Open for reading and writing; place the file pointer at the beginning of the file and truncate the file to zero length. If the file does not exist, attempt to create it.    <i>'a'</i>  Open for writing only; place the file pointer at the end of the file. If the file does not exist, attempt to create it. In this mode, <code>fseek()</code> has no effect, writes are always appended.    <i>'a+'</i>  Open for reading and writing; place the file pointer at the end of the file. If the file does not exist, attempt to create it. In this mode, <code>fseek()</code> only affects the reading position, writes are always appended.    <i>'x'</i>  Create and open for writing only; place the file pointer at the beginning of the file. If the file already exists, the <b>fopen()</b> call will fail by returning <b><code>FALSE</code></b> and generating an error of level <b><code>E_WARNING</code></b>. If the file does not exist, attempt to create it. This is equivalent to specifying <i>O_EXCL|O_CREAT</i> flags for the underlying <i>open(2)</i> system call.    <i>'x+'</i>  Create and open for reading and writing; otherwise it has the same behavior as <i>'x'</i>.    <i>'c'</i>  Open the file for writing only. If the file does not exist, it is created. If it exists, it is neither truncated (as opposed to <i>'w'</i>), nor the call to this function fails (as is the case with <i>'x'</i>). The file pointer is positioned on the beginning of the file. This may be useful if it's desired to get an advisory lock (see <code>flock()</code>) before attempting to modify the file, as using <i>'w'</i> could truncate the file before the lock was obtained (if truncation is desired, <code>ftruncate()</code> can be used after the lock is requested).    <i>'c+'</i>  Open the file for reading and writing; otherwise it has the same behavior as <i>'c'</i>.    <i>'e'</i>  Set close-on-exec flag on the opened file descriptor. Only available in PHP compiled on POSIX.1-2008 conform systems.     <p><b>Note</b>:</p><p>Different operating system families have different line-ending conventions. When you write a text file and want to insert a line break, you need to use the correct line-ending character(s) for your operating system. Unix based systems use <i>\n</i> as the line ending character, Windows based systems use <i>\r\n</i> as the line ending characters and Macintosh based systems use <i>\r</i> as the line ending character.</p> <p>If you use the wrong line ending characters when writing your files, you might find that other applications that open those files will "look funny".</p> <p>Windows offers a text-mode translation flag (<i>'t'</i>) which will transparently translate <i>\n</i> to <i>\r\n</i> when working with the file. In contrast, you can also use <i>'b'</i> to force binary mode, which will not translate your data. To use these flags, specify either <i>'b'</i> or <i>'t'</i> as the last character of the <code>mode</code> parameter.</p> <p>The default translation mode depends on the SAPI and version of PHP that you are using, so you are encouraged to always specify the appropriate flag for portability reasons. You should use the <i>'t'</i> mode if you are working with plain-text files and you use <i>\n</i> to delimit your line endings in your script, but expect your files to be readable with applications such as notepad. You should use the <i>'b'</i> in all other cases.</p> <p>If you do not specify the 'b' flag when working with binary files, you may experience strange problems with your data, including broken image files and strange problems with <i>\r\n</i> characters.</p>  <p><b>Note</b>:</p><p>For portability, it is strongly recommended that you always use the 'b' flag when opening files with <b>fopen()</b>.</p>  <p><b>Note</b>:</p><p>Again, for portability, it is also strongly recommended that you re-write code that uses or relies upon the <i>'t'</i> mode so that it uses the correct line endings and <i>'b'</i> mode instead.</p>
+	 * @param string $filename <p>If <code>filename</code> is of the form "scheme://...", it is assumed to be a URL and PHP will search for a protocol handler (also known as a wrapper) for that scheme. If no wrappers for that protocol are registered, PHP will emit a notice to help you track potential problems in your script and then continue as though <code>filename</code> specifies a regular file.</p> <p>If PHP has decided that <code>filename</code> specifies a local file, then it will try to open a stream on that file. The file must be accessible to PHP, so you need to ensure that the file access permissions allow this access. If you have enabled open_basedir further restrictions may apply.</p> <p>If PHP has decided that <code>filename</code> specifies a registered protocol, and that protocol is registered as a network URL, PHP will check to make sure that allow_url_fopen is enabled. If it is switched off, PHP will emit a warning and the fopen call will fail.</p> <p><b>Note</b>:</p><p>The list of supported protocols can be found in Supported Protocols and Wrappers. Some protocols (also referred to as <code>wrappers</code>) support <code>context</code> and/or php.ini options. Refer to the specific page for the protocol in use for a list of options which can be set. (e.g. php.ini value <code>user_agent</code> used by the <code>http</code> wrapper).</p>  <p>On the Windows platform, be careful to escape any backslashes used in the path to the file, or use forward slashes.</p>  <code> &lt;&#63;php<br>$handle&nbsp;=&nbsp;fopen("c:\\folder\\resource.txt",&nbsp;"r");<br>&#63;&gt;  </code>
+	 * @param string $mode <p>The <code>mode</code> parameter specifies the type of access you require to the stream. It may be any of the following:</p> <b> A list of possible modes for <b>fopen()</b> using <code>mode</code> </b>   <code>mode</code> Description     <code>'r'</code>  Open for reading only; place the file pointer at the beginning of the file.    <code>'r+'</code>  Open for reading and writing; place the file pointer at the beginning of the file.    <code>'w'</code>  Open for writing only; place the file pointer at the beginning of the file and truncate the file to zero length. If the file does not exist, attempt to create it.    <code>'w+'</code>  Open for reading and writing; place the file pointer at the beginning of the file and truncate the file to zero length. If the file does not exist, attempt to create it.    <code>'a'</code>  Open for writing only; place the file pointer at the end of the file. If the file does not exist, attempt to create it. In this mode, <code>fseek()</code> has no effect, writes are always appended.    <code>'a+'</code>  Open for reading and writing; place the file pointer at the end of the file. If the file does not exist, attempt to create it. In this mode, <code>fseek()</code> only affects the reading position, writes are always appended.    <code>'x'</code>  Create and open for writing only; place the file pointer at the beginning of the file. If the file already exists, the <b>fopen()</b> call will fail by returning <b><code>FALSE</code></b> and generating an error of level <b><code>E_WARNING</code></b>. If the file does not exist, attempt to create it. This is equivalent to specifying <code>O_EXCL|O_CREAT</code> flags for the underlying <code>open(2)</code> system call.    <code>'x+'</code>  Create and open for reading and writing; otherwise it has the same behavior as <code>'x'</code>.    <code>'c'</code>  Open the file for writing only. If the file does not exist, it is created. If it exists, it is neither truncated (as opposed to <code>'w'</code>), nor the call to this function fails (as is the case with <code>'x'</code>). The file pointer is positioned on the beginning of the file. This may be useful if it's desired to get an advisory lock (see <code>flock()</code>) before attempting to modify the file, as using <code>'w'</code> could truncate the file before the lock was obtained (if truncation is desired, <code>ftruncate()</code> can be used after the lock is requested).    <code>'c+'</code>  Open the file for reading and writing; otherwise it has the same behavior as <code>'c'</code>.    <code>'e'</code>  Set close-on-exec flag on the opened file descriptor. Only available in PHP compiled on POSIX.1-2008 conform systems.     <p><b>Note</b>:</p><p>Different operating system families have different line-ending conventions. When you write a text file and want to insert a line break, you need to use the correct line-ending character(s) for your operating system. Unix based systems use <code>\n</code> as the line ending character, Windows based systems use <code>\r\n</code> as the line ending characters and Macintosh based systems (Mac OS Classic) used <code>\r</code> as the line ending character.</p> <p>If you use the wrong line ending characters when writing your files, you might find that other applications that open those files will "look funny".</p> <p>Windows offers a text-mode translation flag (<code>'t'</code>) which will transparently translate <code>\n</code> to <code>\r\n</code> when working with the file. In contrast, you can also use <code>'b'</code> to force binary mode, which will not translate your data. To use these flags, specify either <code>'b'</code> or <code>'t'</code> as the last character of the <code>mode</code> parameter.</p> <p>The default translation mode is <code>'b'</code>. You can use the <code>'t'</code> mode if you are working with plain-text files and you use <code>\n</code> to delimit your line endings in your script, but expect your files to be readable with applications such as old versions of notepad. You should use the <code>'b'</code> in all other cases.</p> <p>If you specify the 't' flag when working with binary files, you may experience strange problems with your data, including broken image files and strange problems with <code>\r\n</code> characters.</p>  <p><b>Note</b>:</p><p>For portability, it is also strongly recommended that you re-write code that uses or relies upon the <code>'t'</code> mode so that it uses the correct line endings and <code>'b'</code> mode instead.</p>
 	 * @param bool $use_include_path <p>The optional third <code>use_include_path</code> parameter can be set to '1' or <b><code>TRUE</code></b> if you want to search for the file in the include_path, too.</p>
-	 * @param resource $context <p><b>Note</b>: Context support was added with PHP 5.0.0. For a description of <i>contexts</i>, refer to Streams.</p>
-	 * @return resource <p>Returns a file pointer resource on success, or <b><code>FALSE</code></b> on error.</p>
+	 * @param resource $context <p><b>Note</b>: Context support was added with PHP 5.0.0. For a description of <code>contexts</code>, refer to Streams.</p>
+	 * @return resource <p>Returns a file pointer resource on success, or <b><code>FALSE</code></b> on failure</p>
 	 * @link http://php.net/manual/en/function.fopen.php
 	 * @see fclose(), fgets(), fread(), fwrite(), fsockopen(), file(), file_exists(), is_readable(), stream_set_timeout(), popen(), stream_context_create(), umask()
 	 * @since PHP 4, PHP 5, PHP 7
@@ -407,18 +407,18 @@ namespace {
 
 	/**
 	 * Format line as CSV and write to file pointer
-	 * <p><b>fputcsv()</b> formats a line (passed as a <code>fields</code> array) as CSV and write it (terminated by a newline) to the specified file <code>handle</code>.</p>
+	 * <p><b>fputcsv()</b> formats a line (passed as a <code>fields</code> array) as CSV and writes it (terminated by a newline) to the specified file <code>handle</code>.</p>
 	 * @param resource $handle <p>The file pointer must be valid, and must point to a file successfully opened by <code>fopen()</code> or <code>fsockopen()</code> (and not yet closed by <code>fclose()</code>).</p>
 	 * @param array $fields <p>An array of <code>string</code>s.</p>
 	 * @param string $delimiter <p>The optional <code>delimiter</code> parameter sets the field delimiter (one character only).</p>
 	 * @param string $enclosure <p>The optional <code>enclosure</code> parameter sets the field enclosure (one character only).</p>
-	 * @param string $escape_char <p>The optional <code>escape_char</code> parameter sets the escape character (one character only).</p>
-	 * @return int <p>Returns the length of the written string or <b><code>FALSE</code></b> on failure.</p>
+	 * @param string $escape_char <p>The optional <code>escape_char</code> parameter sets the escape character (at most one character). An empty string (<code>""</code>) disables the proprietary escape mechanism.</p>
+	 * @return int|false <p>Returns the length of the written string or <b><code>FALSE</code></b> on failure.</p>
 	 * @link http://php.net/manual/en/function.fputcsv.php
 	 * @see fgetcsv()
 	 * @since PHP 5 >= 5.1.0, PHP 7
 	 */
-	function fputcsv($handle, array $fields, string $delimiter = ",", string $enclosure = '"', string $escape_char = "\\"): int {}
+	function fputcsv($handle, array $fields, string $delimiter = ",", string $enclosure = '"', string $escape_char = "\\") {}
 
 	/**
 	 * Alias of fwrite()
@@ -437,25 +437,25 @@ namespace {
 	 * <p><b>fread()</b> reads up to <code>length</code> bytes from the file pointer referenced by <code>handle</code>. Reading stops as soon as one of the following conditions is met:</p>
 	 * @param resource $handle <p>A file system pointer <code>resource</code> that is typically created using <code>fopen()</code>.</p>
 	 * @param int $length <p>Up to <code>length</code> number of bytes read.</p>
-	 * @return string <p>Returns the read string or <b><code>FALSE</code></b> on failure.</p>
+	 * @return string|false <p>Returns the read string or <b><code>FALSE</code></b> on failure.</p>
 	 * @link http://php.net/manual/en/function.fread.php
 	 * @see fwrite(), fopen(), fsockopen(), popen(), fgets(), fgetss(), fscanf(), file(), fpassthru(), ftell(), rewind(), unpack()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function fread($handle, int $length): string {}
+	function fread($handle, int $length) {}
 
 	/**
 	 * Parses input from a file according to a format
-	 * <p>The function <b>fscanf()</b> is similar to <code>sscanf()</code>, but it takes its input from a file associated with <code>handle</code> and interprets the input according to the specified <code>format</code>, which is described in the documentation for <code>sprintf()</code>.</p><p>Any whitespace in the format string matches any whitespace in the input stream. This means that even a tab <i>\t</i> in the format string can match a single space character in the input stream.</p><p>Each call to <b>fscanf()</b> reads one line from the file.</p>
+	 * <p>The function <b>fscanf()</b> is similar to <code>sscanf()</code>, but it takes its input from a file associated with <code>handle</code> and interprets the input according to the specified <code>format</code>, which is described in the documentation for <code>sprintf()</code>.</p><p>Any whitespace in the format string matches any whitespace in the input stream. This means that even a tab <code>\t</code> in the format string can match a single space character in the input stream.</p><p>Each call to <b>fscanf()</b> reads one line from the file.</p>
 	 * @param resource $handle <p>A file system pointer <code>resource</code> that is typically created using <code>fopen()</code>.</p>
-	 * @param string $format <p>The specified format as described in the <code>sprintf()</code> documentation.</p>
-	 * @param mixed $_ <p>The optional assigned values.</p>
+	 * @param string $format <p>The format string is composed of zero or more directives: ordinary characters (excluding <code>%</code>) that are copied directly to the result and <i>conversion specifications</i>, each of which results in fetching its own parameter.</p> <p>A conversion specification follows this prototype: <code>%[argnum$][flags][width][.precision]specifier</code>.</p> <p></p>Argnum <p>An integer followed by a dollar sign <code>$</code>, to specify which number argument to treat in the conversion.</p> <p></p> <b>Flags</b>   Flag Description     <code>-</code>  Left-justify within the given field width; Right justification is the default    <code>+</code>  Prefix positive numbers with a plus sign <code>+</code>; Default only negative are prefixed with a negative sign.    <code> </code>(space)  Pads the result with spaces. This is the default.    <code>0</code>  Only left-pads numbers with zeros. With <code>s</code> specifiers this can also right-pad with zeros.    <code>'</code>(char)  Pads the result with the character (char).     <p></p>Width <p>An integer that says how many characters (minimum) this conversion should result in.</p> <p></p>Precision <p>A period <code>.</code> followed by an integer who's meaning depends on the specifier:</p><ul> <li>  For <code>e</code>, <code>E</code>, <code>f</code> and <code>F</code> specifiers: this is the number of digits to be printed after the decimal point (by default, this is 6).  </li> <li>  For <code>g</code> and <code>G</code> specifiers: this is the maximum number of significant digits to be printed.  </li> <li>  For <code>s</code> specifier: it acts as a cutoff point, setting a maximum character limit to the string.  </li> </ul> <p><b>Note</b>:  If the period is specified without an explicit value for precision, 0 is assumed. </p> <p><b>Note</b>:  Attempting to use a position specifier greater than <b><code>PHP_INT_MAX</code></b> will generate warnings. </p> <p></p> <b>Specifiers</b>   Specifier Description     <code>%</code>  A literal percent character. No argument is required.    <code>b</code>  The argument is treated as an integer and presented as a binary number.    <code>c</code>  The argument is treated as an integer and presented as the character with that ASCII.    <code>d</code>  The argument is treated as an integer and presented as a (signed) decimal number.    <code>e</code>  The argument is treated as scientific notation (e.g. 1.2e+2). The precision specifier stands for the number of digits after the decimal point since PHP 5.2.1. In earlier versions, it was taken as number of significant digits (one less).    <code>E</code>  Like the <code>e</code> specifier but uses uppercase letter (e.g. 1.2E+2).    <code>f</code>  The argument is treated as a float and presented as a floating-point number (locale aware).    <code>F</code>  The argument is treated as a float and presented as a floating-point number (non-locale aware). Available as of PHP 5.0.3.    <code>g</code>  <p>General format.</p> <p>Let P equal the precision if nonzero, 6 if the precision is omitted, or 1 if the precision is zero. Then, if a conversion with style E would have an exponent of X:</p> <p>If P &gt; X &ge; &minus;4, the conversion is with style f and precision P &minus; (X + 1). Otherwise, the conversion is with style e and precision P &minus; 1.</p>    <code>G</code>  Like the <code>g</code> specifier but uses <code>E</code> and <code>f</code>.    <code>o</code>  The argument is treated as an integer and presented as an octal number.    <code>s</code>  The argument is treated and presented as a string.    <code>u</code>  The argument is treated as an integer and presented as an unsigned decimal number.    <code>x</code>  The argument is treated as an integer and presented as a hexadecimal number (with lowercase letters).    <code>X</code>  The argument is treated as an integer and presented as a hexadecimal number (with uppercase letters).     <p><b>Warning</b></p> <p>The <code>c</code> type specifier ignores padding and width</p>  <p><b>Warning</b></p> <p>Attempting to use a combination of the string and width specifiers with character sets that require more than one byte per character may result in unexpected results</p>  <p>Variables will be co-erced to a suitable type for the specifier:</p> <b>Type Handling</b>   Type Specifiers     <code>string</code> <code>s</code>   <code>integer</code>  <code>d</code>, <code>u</code>, <code>c</code>, <code>o</code>, <code>x</code>, <code>X</code>, <code>b</code>    <code>double</code>  <code>g</code>, <code>G</code>, <code>e</code>, <code>E</code>, <code>f</code>, <code>F</code>
+	 * @param mixed $_$vars
 	 * @return mixed <p>If only two parameters were passed to this function, the values parsed will be returned as an array. Otherwise, if optional parameters are passed, the function will return the number of assigned values. The optional parameters must be passed by reference.</p>
 	 * @link http://php.net/manual/en/function.fscanf.php
 	 * @see fread(), fgets(), fgetss(), sscanf(), printf(), sprintf()
 	 * @since PHP 4 >= 4.0.1, PHP 5, PHP 7
 	 */
-	function fscanf($handle, string $format, &$_ = NULL) {}
+	function fscanf($handle, string $format, &$_$vars) {}
 
 	/**
 	 * Seeks on a file pointer
@@ -519,8 +519,8 @@ namespace {
 	/**
 	 * Find pathnames matching a pattern
 	 * <p>The <b>glob()</b> function searches for all the pathnames matching <code>pattern</code> according to the rules used by the libc glob() function, which is similar to the rules used by common shells.</p>
-	 * @param string $pattern <p>The pattern. No tilde expansion or parameter substitution is done.</p>
-	 * @param int $flags <p>Valid flags:</p><ul> <li>  <b><code>GLOB_MARK</code></b> - Adds a slash to each directory returned  </li> <li>  <b><code>GLOB_NOSORT</code></b> - Return files as they appear in the directory (no sorting). When this flag is not used, the pathnames are sorted alphabetically  </li> <li>  <b><code>GLOB_NOCHECK</code></b> - Return the search pattern if no files matching it were found  </li> <li>  <b><code>GLOB_NOESCAPE</code></b> - Backslashes do not quote metacharacters  </li> <li>  <b><code>GLOB_BRACE</code></b> - Expands {a,b,c} to match 'a', 'b', or 'c'  </li> <li>  <b><code>GLOB_ONLYDIR</code></b> - Return only directory entries which match the pattern  </li> <li>  <b><code>GLOB_ERR</code></b> - Stop on read errors (like unreadable directories), by default errors are ignored.  </li> </ul>
+	 * @param string $pattern <p>The pattern. No tilde expansion or parameter substitution is done.</p> <p>Special characters:</p><ul> <li>  <code>&#42;</code> - Matches zero or more characters.  </li> <li>  <code>&#63;</code> - Matches exactly one character (any character).  </li> <li>  <code>[...]</code> - Matches one character from a group of characters. If the first character is <code>!</code>, matches any character not in the group.  </li> <li>  <code>\</code> - Escapes the following character, except when the <b><code>GLOB_NOESCAPE</code></b> flag is used.  </li> </ul>
+	 * @param int $flags <p>Valid flags:</p><ul> <li>  <b><code>GLOB_MARK</code></b> - Adds a slash (a backslash on Windows) to each directory returned  </li> <li>  <b><code>GLOB_NOSORT</code></b> - Return files as they appear in the directory (no sorting). When this flag is not used, the pathnames are sorted alphabetically  </li> <li>  <b><code>GLOB_NOCHECK</code></b> - Return the search pattern if no files matching it were found  </li> <li>  <b><code>GLOB_NOESCAPE</code></b> - Backslashes do not quote metacharacters  </li> <li>  <b><code>GLOB_BRACE</code></b> - Expands {a,b,c} to match 'a', 'b', or 'c'  </li> <li>  <b><code>GLOB_ONLYDIR</code></b> - Return only directory entries which match the pattern  </li> <li>  <b><code>GLOB_ERR</code></b> - Stop on read errors (like unreadable directories), by default errors are ignored.  </li> </ul> <p><b>Note</b>:  The <b><code>GLOB_BRACE</code></b> flag is not available on some non GNU systems, like Solaris. </p>
 	 * @return array <p>Returns an array containing the matched files/directories, an empty array if no file matched or <b><code>FALSE</code></b> on error.</p><p><b>Note</b>:</p><p>On some systems it is impossible to distinguish between empty match and an error.</p>
 	 * @link http://php.net/manual/en/function.glob.php
 	 * @see opendir(), readdir(), closedir(), fnmatch()
@@ -531,7 +531,7 @@ namespace {
 	/**
 	 * Tells whether the filename is a directory
 	 * <p>Tells whether the given filename is a directory.</p>
-	 * @param string $filename <p>Path to the file. If <code>filename</code> is a relative filename, it will be checked relative to the current working directory. If <code>filename</code> is a symbolic or hard link then the link will be resolved and checked. If you have enabled safe mode, or open_basedir further restrictions may apply.</p>
+	 * @param string $filename <p>Path to the file. If <code>filename</code> is a relative filename, it will be checked relative to the current working directory. If <code>filename</code> is a symbolic or hard link then the link will be resolved and checked. If you have enabled open_basedir further restrictions may apply.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> if the filename exists and is a directory, <b><code>FALSE</code></b> otherwise.</p>
 	 * @link http://php.net/manual/en/function.is-dir.php
 	 * @see chdir(), dir(), opendir(), is_file(), is_link()
@@ -646,7 +646,7 @@ namespace {
 	 * @param string $link <p>The link name.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
 	 * @link http://php.net/manual/en/function.link.php
-	 * @see symlink(), readlink(), linkinfo()
+	 * @see symlink(), readlink(), linkinfo(), unlink()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
 	function link(string $target, string $link): bool {}
@@ -655,7 +655,7 @@ namespace {
 	 * Gets information about a link
 	 * <p>Gets information about a link.</p><p>This function is used to verify if a link (pointed to by <code>path</code>) really exists (using the same method as the S_ISLNK macro defined in stat.h).</p>
 	 * @param string $path <p>Path to the link.</p>
-	 * @return int <p><b>linkinfo()</b> returns the <i>st_dev</i> field of the Unix C stat structure returned by the <i>lstat</i> system call. Returns 0 or <b><code>FALSE</code></b> in case of error.</p>
+	 * @return int <p><b>linkinfo()</b> returns the <code>st_dev</code> field of the Unix C stat structure returned by the <code>lstat</code> system call. Returns a non-negative integer on success, -1 in case the link was not found, or <b><code>FALSE</code></b> if an open.base_dir violation occurs.</p>
 	 * @link http://php.net/manual/en/function.linkinfo.php
 	 * @see symlink(), link(), readlink()
 	 * @since PHP 4, PHP 5, PHP 7
@@ -679,7 +679,7 @@ namespace {
 	 * @param string $pathname <p>The directory path.</p>
 	 * @param int $mode <p>The mode is 0777 by default, which means the widest possible access. For more information on modes, read the details on the <code>chmod()</code> page.</p> <p><b>Note</b>:</p><p><code>mode</code> is ignored on Windows.</p>  <p>Note that you probably want to specify the mode as an octal number, which means it should have a leading zero. The mode is also modified by the current umask, which you can change using <code>umask()</code>.</p>
 	 * @param bool $recursive <p>Allows the creation of nested directories specified in the <code>pathname</code>.</p>
-	 * @param resource $context <p><b>Note</b>: Context support was added with PHP 5.0.0. For a description of <i>contexts</i>, refer to Streams.</p>
+	 * @param resource $context <p><b>Note</b>: Context support was added with PHP 5.0.0. For a description of <code>contexts</code>, refer to Streams.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
 	 * @link http://php.net/manual/en/function.mkdir.php
 	 * @see is_dir(), rmdir()
@@ -702,9 +702,9 @@ namespace {
 	/**
 	 * Parse a configuration file
 	 * <p><b>parse_ini_file()</b> loads in the ini file specified in <code>filename</code>, and returns the settings in it in an associative array.</p><p>The structure of the ini file is the same as the php.ini's.</p>
-	 * @param string $filename <p>The filename of the ini file being parsed.</p>
+	 * @param string $filename <p>The filename of the ini file being parsed. If a relative path is used, it is evaluated relative to the current working directory, then the include_path.</p>
 	 * @param bool $process_sections <p>By setting the <code>process_sections</code> parameter to <b><code>TRUE</code></b>, you get a multidimensional array, with the section names and settings included. The default for <code>process_sections</code> is <b><code>FALSE</code></b></p>
-	 * @param int $scanner_mode <p>Can either be <b><code>INI_SCANNER_NORMAL</code></b> (default) or <b><code>INI_SCANNER_RAW</code></b>. If <b><code>INI_SCANNER_RAW</code></b> is supplied, then option values will not be parsed.</p> <p>As of PHP 5.6.1 can also be specified as <b><code>INI_SCANNER_TYPED</code></b>. In this mode boolean, null and integer types are preserved when possible. String values <i>"true"</i>, <i>"on"</i> and <i>"yes"</i> are converted to <b><code>TRUE</code></b>. <i>"false"</i>, <i>"off"</i>, <i>"no"</i> and <i>"none"</i> are considered <b><code>FALSE</code></b>. <i>"null"</i> is converted to <b><code>NULL</code></b> in typed mode. Also, all numeric strings are converted to integer type if it is possible.</p>
+	 * @param int $scanner_mode <p>Can either be <b><code>INI_SCANNER_NORMAL</code></b> (default) or <b><code>INI_SCANNER_RAW</code></b>. If <b><code>INI_SCANNER_RAW</code></b> is supplied, then option values will not be parsed.</p> <p>As of PHP 5.6.1 can also be specified as <b><code>INI_SCANNER_TYPED</code></b>. In this mode boolean, null and integer types are preserved when possible. String values <code>"true"</code>, <code>"on"</code> and <code>"yes"</code> are converted to <b><code>TRUE</code></b>. <code>"false"</code>, <code>"off"</code>, <code>"no"</code> and <code>"none"</code> are considered <b><code>FALSE</code></b>. <code>"null"</code> is converted to <b><code>NULL</code></b> in typed mode. Also, all numeric strings are converted to integer type if it is possible.</p>
 	 * @return array <p>The settings are returned as an associative <code>array</code> on success, and <b><code>FALSE</code></b> on failure.</p>
 	 * @link http://php.net/manual/en/function.parse-ini-file.php
 	 * @see parse_ini_string()
@@ -717,7 +717,7 @@ namespace {
 	 * <p><b>parse_ini_string()</b> returns the settings in string <code>ini</code> in an associative array.</p><p>The structure of the ini string is the same as the php.ini's.</p>
 	 * @param string $ini <p>The contents of the ini file being parsed.</p>
 	 * @param bool $process_sections <p>By setting the <code>process_sections</code> parameter to <b><code>TRUE</code></b>, you get a multidimensional array, with the section names and settings included. The default for <code>process_sections</code> is <b><code>FALSE</code></b></p>
-	 * @param int $scanner_mode <p>Can either be <b><code>INI_SCANNER_NORMAL</code></b> (default) or <b><code>INI_SCANNER_RAW</code></b>. If <b><code>INI_SCANNER_RAW</code></b> is supplied, then option values will not be parsed.</p> <p>As of PHP 5.6.1 can also be specified as <b><code>INI_SCANNER_TYPED</code></b>. In this mode boolean, null and integer types are preserved when possible. String values <i>"true"</i>, <i>"on"</i> and <i>"yes"</i> are converted to <b><code>TRUE</code></b>. <i>"false"</i>, <i>"off"</i>, <i>"no"</i> and <i>"none"</i> are considered <b><code>FALSE</code></b>. <i>"null"</i> is converted to <b><code>NULL</code></b> in typed mode. Also, all numeric strings are converted to integer type if it is possible.</p>
+	 * @param int $scanner_mode <p>Can either be <b><code>INI_SCANNER_NORMAL</code></b> (default) or <b><code>INI_SCANNER_RAW</code></b>. If <b><code>INI_SCANNER_RAW</code></b> is supplied, then option values will not be parsed.</p> <p>As of PHP 5.6.1 can also be specified as <b><code>INI_SCANNER_TYPED</code></b>. In this mode boolean, null and integer types are preserved when possible. String values <code>"true"</code>, <code>"on"</code> and <code>"yes"</code> are converted to <b><code>TRUE</code></b>. <code>"false"</code>, <code>"off"</code>, <code>"no"</code> and <code>"none"</code> are considered <b><code>FALSE</code></b>. <code>"null"</code> is converted to <b><code>NULL</code></b> in typed mode. Also, all numeric strings are converted to integer type if it is possible.</p>
 	 * @return array <p>The settings are returned as an associative <code>array</code> on success, and <b><code>FALSE</code></b> on failure.</p>
 	 * @link http://php.net/manual/en/function.parse-ini-string.php
 	 * @see parse_ini_file()
@@ -730,7 +730,7 @@ namespace {
 	 * <p><b>pathinfo()</b> returns information about <code>path</code>: either an associative array or a string, depending on <code>options</code>.</p><p><b>Note</b>:</p><p>For information on retrieving the current path info, read the section on  predefined reserved variables.</p><p><b>pathinfo()</b> is locale aware, so for it to parse a path containing multibyte characters correctly, the matching locale must be set using the <code>setlocale()</code> function.</p>
 	 * @param string $path <p>The path to be parsed.</p>
 	 * @param int $options <p>If present, specifies a specific element to be returned; one of <b><code>PATHINFO_DIRNAME</code></b>, <b><code>PATHINFO_BASENAME</code></b>, <b><code>PATHINFO_EXTENSION</code></b> or <b><code>PATHINFO_FILENAME</code></b>.</p> <p>If <code>options</code> is not specified, returns all available elements.</p>
-	 * @return mixed <p>If the <code>options</code> parameter is not passed, an associative <code>array</code> containing the following elements is returned: <i>dirname</i>, <i>basename</i>, <i>extension</i> (if any), and <i>filename</i>.</p><p><b>Note</b>:</p><p>If the <code>path</code> has more than one extension, <b><code>PATHINFO_EXTENSION</code></b> returns only the last one and <b><code>PATHINFO_FILENAME</code></b> only strips the last one. (see first example below).</p> <p><b>Note</b>:</p><p>If the <code>path</code> does not have an extension, no <i>extension</i> element will be returned (see second example below).</p> <p><b>Note</b>:</p><p>If the <i>basename</i> of the <code>path</code> starts with a dot, the following characters are interpreted as <i>extension</i>, and the <i>filename</i> is empty (see third example below).</p> <p>If <code>options</code> is present, returns a <code>string</code> containing the requested element.</p>
+	 * @return mixed <p>If the <code>options</code> parameter is not passed, an associative <code>array</code> containing the following elements is returned: <code>dirname</code>, <code>basename</code>, <code>extension</code> (if any), and <code>filename</code>.</p><p><b>Note</b>:</p><p>If the <code>path</code> has more than one extension, <b><code>PATHINFO_EXTENSION</code></b> returns only the last one and <b><code>PATHINFO_FILENAME</code></b> only strips the last one. (see first example below).</p> <p><b>Note</b>:</p><p>If the <code>path</code> does not have an extension, no <code>extension</code> element will be returned (see second example below).</p> <p><b>Note</b>:</p><p>If the <code>basename</code> of the <code>path</code> starts with a dot, the following characters are interpreted as <code>extension</code>, and the <code>filename</code> is empty (see third example below).</p> <p>If <code>options</code> is present, returns a <code>string</code> containing the requested element.</p>
 	 * @link http://php.net/manual/en/function.pathinfo.php
 	 * @see dirname(), basename(), parse_url(), realpath()
 	 * @since PHP 4 >= 4.0.3, PHP 5, PHP 7
@@ -741,7 +741,7 @@ namespace {
 	 * Closes process file pointer
 	 * <p>Closes a file pointer to a pipe opened by <code>popen()</code>.</p>
 	 * @param resource $handle <p>The file pointer must be valid, and must have been returned by a successful call to <code>popen()</code>.</p>
-	 * @return int <p>Returns the termination status of the process that was run. In case of an error then <i>-1</i> is returned.</p><p><b>Note</b>:</p><p>If PHP has been compiled with --enable-sigchild, the return value of this function is undefined.</p>
+	 * @return int <p>Returns the termination status of the process that was run. In case of an error then <code>-1</code> is returned.</p><p><b>Note</b>:</p><p>If PHP has been compiled with --enable-sigchild, the return value of this function is undefined.</p>
 	 * @link http://php.net/manual/en/function.pclose.php
 	 * @see popen()
 	 * @since PHP 4, PHP 5, PHP 7
@@ -752,7 +752,7 @@ namespace {
 	 * Opens process file pointer
 	 * <p>Opens a pipe to a process executed by forking the command given by <code>command</code>.</p>
 	 * @param string $command <p>The command</p>
-	 * @param string $mode <p>The mode</p>
+	 * @param string $mode <p>The mode. Either <code>'r'</code> for reading, or <code>'w'</code> for writing.</p> <p>On Windows, <b>popen()</b> defaults to text mode, i.e. any <code>\n</code> characters written to or read from the pipe will be translated to <code>\r\n</code>. If this is not desired, binary mode can be enforced by setting <code>mode</code> to <code>'rb'</code> and <code>'wb'</code>, respectively.</p>
 	 * @return resource <p>Returns a file pointer identical to that returned by <code>fopen()</code>, except that it is unidirectional (may only be used for reading or writing) and must be closed with <code>pclose()</code>. This pointer may be used with <code>fgets()</code>, <code>fgetss()</code>, and <code>fwrite()</code>. When the mode is 'r', the returned file pointer equals to the STDOUT of the command, when the mode is 'w', the returned file pointer equals to the STDIN of the command.</p><p>If an error occurs, returns <b><code>FALSE</code></b>.</p>
 	 * @link http://php.net/manual/en/function.popen.php
 	 * @see pclose(), fopen(), proc_open()
@@ -766,18 +766,18 @@ namespace {
 	 * @param string $filename <p>The filename being read.</p>
 	 * @param bool $use_include_path <p>You can use the optional second parameter and set it to <b><code>TRUE</code></b>, if you want to search for the file in the include_path, too.</p>
 	 * @param resource $context <p>A context stream <code>resource</code>.</p>
-	 * @return int <p>Returns the number of bytes read from the file. If an error occurs, <b><code>FALSE</code></b> is returned and unless the function was called as @<b>readfile()</b>, an error message is printed.</p>
+	 * @return int|false <p>Returns the number of bytes read from the file on success, or <b><code>FALSE</code></b> on failure</p>
 	 * @link http://php.net/manual/en/function.readfile.php
 	 * @see fpassthru(), file(), fopen(), include, require, virtual(), file_get_contents()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function readfile(string $filename, bool $use_include_path = FALSE, $context = NULL): int {}
+	function readfile(string $filename, bool $use_include_path = FALSE, $context = NULL) {}
 
 	/**
 	 * Returns the target of a symbolic link
 	 * <p><b>readlink()</b> does the same as the readlink C function.</p>
 	 * @param string $path <p>The symbolic link path.</p>
-	 * @return string <p>Returns the contents of the symbolic link path or <b><code>FALSE</code></b> on error.</p>
+	 * @return string <p>Returns the contents of the symbolic link path or <b><code>FALSE</code></b> on error.</p><p><b>Note</b>:  The function fails if <code>path</code> is not a symlink, except on Windows, where the normalized path will be returned. </p>
 	 * @link http://php.net/manual/en/function.readlink.php
 	 * @see is_link(), symlink(), linkinfo()
 	 * @since PHP 4, PHP 5, PHP 7
@@ -786,9 +786,9 @@ namespace {
 
 	/**
 	 * Returns canonicalized absolute pathname
-	 * <p><b>realpath()</b> expands all symbolic links and resolves references to <i>/./</i>, <i>/../</i> and extra <i>/</i> characters in the input <code>path</code> and returns the canonicalized absolute pathname.</p>
-	 * @param string $path <p>The path being checked.</p><p><b>Note</b>:</p><p>Whilst a path must be supplied, the value can be blank or <b><code>NULL</code></b> In these cases, the value is interpreted as the current directory.</p>
-	 * @return string <p>Returns the canonicalized absolute pathname on success. The resulting path will have no symbolic link, <i>/./</i> or <i>/../</i> components. Trailing delimiters, such as <i>\</i> and <i>/</i>, are also removed.</p><p><b>realpath()</b> returns <b><code>FALSE</code></b> on failure, e.g. if the file does not exist.</p><p><b>Note</b>:</p><p>The running script must have executable permissions on all directories in the hierarchy, otherwise <b>realpath()</b> will return <b><code>FALSE</code></b>.</p> <p><b>Note</b>:</p><p>For case-insensitive filesystems <b>realpath()</b> may or may not normalize the character case.</p> <p><b>Note</b>:</p><p>The function <b>realpath()</b> will not work for a file which is inside a Phar as such path would be a virtual path, not a real one.</p> <p><b>Note</b>:  Because PHP's integer type is signed and many platforms use 32bit integers, some filesystem functions may return unexpected results for files which are larger than 2GB. </p>
+	 * <p><b>realpath()</b> expands all symbolic links and resolves references to <code>/./</code>, <code>/../</code> and extra <code>/</code> characters in the input <code>path</code> and returns the canonicalized absolute pathname.</p>
+	 * @param string $path <p>The path being checked.</p><p><b>Note</b>:</p><p>Whilst a path must be supplied, the value can be an empty string. In this case, the value is interpreted as the current directory.</p>
+	 * @return string <p>Returns the canonicalized absolute pathname on success. The resulting path will have no symbolic link, <code>/./</code> or <code>/../</code> components. Trailing delimiters, such as <code>\</code> and <code>/</code>, are also removed.</p><p><b>realpath()</b> returns <b><code>FALSE</code></b> on failure, e.g. if the file does not exist.</p><p><b>Note</b>:</p><p>The running script must have executable permissions on all directories in the hierarchy, otherwise <b>realpath()</b> will return <b><code>FALSE</code></b>.</p> <p><b>Note</b>:</p><p>For case-insensitive filesystems <b>realpath()</b> may or may not normalize the character case.</p> <p><b>Note</b>:</p><p>The function <b>realpath()</b> will not work for a file which is inside a Phar as such path would be a virtual path, not a real one.</p> <p><b>Note</b>:</p><p>On Windows, junctions and symbolic links to directories are only expanded by one level.</p> <p><b>Note</b>:  Because PHP's integer type is signed and many platforms use 32bit integers, some filesystem functions may return unexpected results for files which are larger than 2GB. </p>
 	 * @link http://php.net/manual/en/function.realpath.php
 	 * @see basename(), dirname(), pathinfo()
 	 * @since PHP 4, PHP 5, PHP 7
@@ -819,8 +819,8 @@ namespace {
 	 * Renames a file or directory
 	 * <p>Attempts to rename <code>oldname</code> to <code>newname</code>, moving it between directories if necessary. If renaming a file and <code>newname</code> exists, it will be overwritten. If renaming a directory and <code>newname</code> exists, this function will emit a warning.</p>
 	 * @param string $oldname <p>The old name.</p> <p><b>Note</b>:</p><p>The wrapper used in <code>oldname</code> <i>must</i> match the wrapper used in <code>newname</code>.</p>
-	 * @param string $newname <p>The new name.</p>
-	 * @param resource $context <p><b>Note</b>: Context support was added with PHP 5.0.0. For a description of <i>contexts</i>, refer to Streams.</p>
+	 * @param string $newname <p>The new name.</p><p><b>Note</b>:  On Windows, if <code>newname</code> already exists, it must be writable. Otherwise <b>rename()</b> fails and issues <b><code>E_WARNING</code></b>. </p>
+	 * @param resource $context <p><b>Note</b>: Context support was added with PHP 5.0.0. For a description of <code>contexts</code>, refer to Streams.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
 	 * @link http://php.net/manual/en/function.rename.php
 	 * @see copy(), unlink(), move_uploaded_file()
@@ -843,7 +843,7 @@ namespace {
 	 * Removes directory
 	 * <p>Attempts to remove the directory named by <code>dirname</code>. The directory must be empty, and the relevant permissions must permit this. A <b><code>E_WARNING</code></b> level error will be generated on failure.</p>
 	 * @param string $dirname <p>Path to the directory.</p>
-	 * @param resource $context <p><b>Note</b>: Context support was added with PHP 5.0.0. For a description of <i>contexts</i>, refer to Streams.</p>
+	 * @param resource $context <p><b>Note</b>: Context support was added with PHP 5.0.0. For a description of <code>contexts</code>, refer to Streams.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
 	 * @link http://php.net/manual/en/function.rmdir.php
 	 * @see is_dir(), mkdir(), unlink()
@@ -864,9 +864,9 @@ namespace {
 
 	/**
 	 * Gives information about a file
-	 * <p>Gathers the statistics of the file named by <code>filename</code>. If <code>filename</code> is a symbolic link, statistics are from the file itself, not the symlink.</p><p><code>lstat()</code> is identical to <b>stat()</b> except it would instead be based off the symlinks status.</p>
+	 * <p>Gathers the statistics of the file named by <code>filename</code>. If <code>filename</code> is a symbolic link, statistics are from the file itself, not the symlink. Prior to PHP 7.4.0, on Windows NTS builds the <code>size</code>, <code>atime</code>, <code>mtime</code> and <code>ctime</code> statistics have been from the symlink, in this case.</p><p><code>lstat()</code> is identical to <b>stat()</b> except it would instead be based off the symlinks status.</p>
 	 * @param string $filename <p>Path to the file.</p>
-	 * @return array <b><b>stat()</b> and <code>fstat()</code> result format</b>   Numeric Associative Description     0 dev device number   1 ino inode number &#42;   2 mode inode protection mode   3 nlink number of links   4 uid userid of owner &#42;   5 gid groupid of owner &#42;   6 rdev device type, if inode device   7 size size in bytes   8 atime time of last access (Unix timestamp)   9 mtime time of last modification (Unix timestamp)   10 ctime time of last inode change (Unix timestamp)   11 blksize blocksize of filesystem IO &#42;&#42;   12 blocks number of 512-byte blocks allocated &#42;&#42;    &#42; On Windows this will always be 0. <p>&#42;&#42; Only valid on systems supporting the st_blksize type - other systems (e.g. Windows) return -1.</p><p>In case of error, <b>stat()</b> returns <b><code>FALSE</code></b>.</p><p><b>Note</b>:  Because PHP's integer type is signed and many platforms use 32bit integers, some filesystem functions may return unexpected results for files which are larger than 2GB. </p>
+	 * @return array <b><b>stat()</b> and <code>fstat()</code> result format</b>   Numeric Associative Description     0 dev device number &#42;&#42;&#42;   1 ino inode number &#42;&#42;&#42;&#42;   2 mode inode protection mode   3 nlink number of links   4 uid userid of owner &#42;   5 gid groupid of owner &#42;   6 rdev device type, if inode device   7 size size in bytes   8 atime time of last access (Unix timestamp)   9 mtime time of last modification (Unix timestamp)   10 ctime time of last inode change (Unix timestamp)   11 blksize blocksize of filesystem IO &#42;&#42;   12 blocks number of 512-byte blocks allocated &#42;&#42;   <p>&#42; On Windows this will always be <code>0</code>.</p><p>&#42;&#42; Only valid on systems supporting the st_blksize type - other systems (e.g. Windows) return <code>-1</code>.</p><p>&#42;&#42;&#42; On Windows, as of PHP 7.4.0, this is the serial number of the volume that contains the file, which is a 64-bit <i>unsigned</i> integer, so may overflow. Previously, it was the numeric representation of the drive letter (e.g. <code>2</code> for <code>C:</code>) for <b>stat()</b>, and <code>0</code> for <code>lstat()</code>.</p><p>&#42;&#42;&#42;&#42; On Windows, as of PHP 7.4.0, this is the identifier associated with the file, which is a 64-bit <i>unsigned</i> integer, so may overflow. Previously, it was always <code>0</code>.</p><p>The value of <code>mode</code> contains information read by several functions. When written in octal, starting from the right, the first three digits are returned by <code>chmod()</code>. The next digit is ignored by PHP. The next two digits indicate the file type:</p> <b><code>mode</code> file types</b>   <code>mode</code> in octal Meaning     <b><code>0120000</code></b> link   <b><code>0100000</code></b> regular file   <b><code>0060000</code></b> block device   <b><code>0040000</code></b> directory   <b><code>0010000</code></b> fifo    So for example a regular file could be <b><code>0100644</code></b> and a directory could be <b><code>0040755</code></b>. <p>In case of error, <b>stat()</b> returns <b><code>FALSE</code></b>.</p><p><b>Note</b>:  Because PHP's integer type is signed and many platforms use 32bit integers, some filesystem functions may return unexpected results for files which are larger than 2GB. </p>
 	 * @link http://php.net/manual/en/function.stat.php
 	 * @see lstat(), fstat(), filemtime(), filegroup()
 	 * @since PHP 4, PHP 5, PHP 7
@@ -880,7 +880,7 @@ namespace {
 	 * @param string $link <p>The link name.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
 	 * @link http://php.net/manual/en/function.symlink.php
-	 * @see link(), readlink(), linkinfo()
+	 * @see link(), readlink(), linkinfo(), unlink()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
 	function symlink(string $target, string $link): bool {}
@@ -889,7 +889,7 @@ namespace {
 	 * Create file with unique file name
 	 * <p>Creates a file with a unique filename, with access permission set to 0600, in the specified directory. If the directory does not exist or is not writable, <b>tempnam()</b> may generate a file in the system's temporary directory, and return the full path to that file, including its name.</p>
 	 * @param string $dir <p>The directory where the temporary filename will be created.</p>
-	 * @param string $prefix <p>The prefix of the generated temporary filename.</p> <p><b>Note</b>:  Windows uses only the first three characters of prefix. </p>
+	 * @param string $prefix <p>The prefix of the generated temporary filename.</p> <p><b>Note</b>:  Only the first 63 characters of the prefix are used. Windows even uses only the first three characters of the prefix. </p>
 	 * @return string <p>Returns the new temporary filename (with path), or <b><code>FALSE</code></b> on failure.</p>
 	 * @link http://php.net/manual/en/function.tempnam.php
 	 * @see tmpfile(), sys_get_temp_dir(), unlink()
@@ -899,8 +899,8 @@ namespace {
 
 	/**
 	 * Creates a temporary file
-	 * <p>Creates a temporary file with a unique name in read-write (w+) mode and returns a file handle .</p><p>The file is automatically removed when closed (for example, by calling <code>fclose()</code>, or when there are no remaining references to the file handle returned by <b>tmpfile()</b>), or when the script ends.</p><p>For details, consult your system documentation on the <i>tmpfile(3)</i> function, as well as the stdio.h header file.</p>
-	 * @return resource <p>Returns a file handle, similar to the one returned by <code>fopen()</code>, for the new file or <b><code>FALSE</code></b> on failure.</p>
+	 * <p>Creates a temporary file with a unique name in read-write (w+) mode and returns a file handle.</p><p>The file is automatically removed when closed (for example, by calling <code>fclose()</code>, or when there are no remaining references to the file handle returned by <b>tmpfile()</b>), or when the script ends.</p><p>If the script terminates unexpectedly, the temporary file may not be deleted.</p>
+	 * @return resource|false <p>Returns a file handle, similar to the one returned by <code>fopen()</code>, for the new file or <b><code>FALSE</code></b> on failure.</p>
 	 * @link http://php.net/manual/en/function.tmpfile.php
 	 * @see tempnam(), sys_get_temp_dir()
 	 * @since PHP 4, PHP 5, PHP 7
@@ -933,7 +933,7 @@ namespace {
 	 * Deletes a file
 	 * <p>Deletes <code>filename</code>. Similar to the Unix C unlink() function. An <b><code>E_WARNING</code></b> level error will be generated on failure.</p>
 	 * @param string $filename <p>Path to the file.</p>
-	 * @param resource $context <p><b>Note</b>: Context support was added with PHP 5.0.0. For a description of <i>contexts</i>, refer to Streams.</p>
+	 * @param resource $context <p><b>Note</b>: Context support was added with PHP 5.0.0. For a description of <code>contexts</code>, refer to Streams.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
 	 * @link http://php.net/manual/en/function.unlink.php
 	 * @see rmdir()
@@ -947,29 +947,29 @@ namespace {
 	define('FILE_APPEND', 8);
 
 	/**
-	 * <p>Binary mode (since PHP 5.2.7).</p><p><b>Note</b>:</p><p>This constant has no effect, and is only available for <i>forward compatibility</i>.</p>
+	 * <p>Binary mode (since PHP 5.2.7).</p><p><b>Note</b>:</p><p>This constant has no effect, and is only available for <code>forward compatibility</code>.</p>
 	 */
 	define('FILE_BINARY', 0);
 
 	/**
-	 * Strip EOL characters (since PHP 5).
+	 * Strip EOL characters.
 	 */
 	define('FILE_IGNORE_NEW_LINES', 2);
 
 	define('FILE_NO_DEFAULT_CONTEXT', 16);
 
 	/**
-	 * Skip empty lines (since PHP 5).
+	 * Skip empty lines.
 	 */
 	define('FILE_SKIP_EMPTY_LINES', 4);
 
 	/**
-	 * <p>Text mode (since PHP 5.2.7).</p><p><b>Note</b>:</p><p>This constant has no effect, and is only available for <i>forward compatibility</i>.</p>
+	 * <p>Text mode (since PHP 5.2.7).</p><p><b>Note</b>:</p><p>This constant has no effect, and is only available for <code>forward compatibility</code>.</p>
 	 */
 	define('FILE_TEXT', 0);
 
 	/**
-	 * Search for <code>filename</code> in include_path (since PHP 5).
+	 * Search for <code>filename</code> in include_path.
 	 */
 	define('FILE_USE_INCLUDE_PATH', 1);
 

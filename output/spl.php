@@ -60,7 +60,7 @@ namespace {
 		/**
 		 * Gets an index of iterators
 		 * <p>Gets the index of the current inner iterator.</p>
-		 * @return int <p>Returns an <code>integer</code>, which is the zero-based index of the current inner iterator.</p>
+		 * @return int <p>Returns an <code>int</code>, which is the zero-based index of the current inner iterator.</p>
 		 * @link http://php.net/manual/en/appenditerator.getiteratorindex.php
 		 * @since PHP 5 >= 5.2.0, PHP 7
 		 */
@@ -110,6 +110,18 @@ namespace {
 	 * @since PHP 5, PHP 7
 	 */
 	class ArrayIterator implements \ArrayAccess, \SeekableIterator, \Countable, \Serializable {
+
+		/**
+		 * @var int <p>Properties of the object have their normal functionality when accessed as list (var_dump, foreach, etc.).</p>
+		 * @link http://php.net/manual/en/class.arrayiterator.php
+		 */
+		const STD_PROP_LIST = 1;
+
+		/**
+		 * @var int <p>Entries can be accessed as properties (read and write).</p>
+		 * @link http://php.net/manual/en/class.arrayiterator.php
+		 */
+		const ARRAY_AS_PROPS = 2;
 
 		/**
 		 * Construct an ArrayIterator
@@ -169,13 +181,13 @@ namespace {
 		public function getArrayCopy(): array {}
 
 		/**
-		 * Get flags
-		 * <p>Get the current flags.</p><p>This function is currently not documented; only its argument list is available.</p>
-		 * @return void <p>The current flags.</p>
+		 * Get behavior flags
+		 * <p>Gets the behavior flags of the ArrayIterator. See the ArrayIterator::setFlags method for a list of the available flags.</p>
+		 * @return int <p>Returns the behavior flags of the ArrayIterator.</p>
 		 * @link http://php.net/manual/en/arrayiterator.getflags.php
 		 * @since PHP 5 >= 5.1.0, PHP 7
 		 */
-		public function getFlags(): void {}
+		public function getFlags(): int {}
 
 		/**
 		 * Return current array key
@@ -227,43 +239,43 @@ namespace {
 		/**
 		 * Check if offset exists
 		 * <p>Checks if the offset exists.</p><p>This function is currently not documented; only its argument list is available.</p>
-		 * @param string $index <p>The offset being checked.</p>
-		 * @return void <p><b><code>TRUE</code></b> if the offset exists, otherwise <b><code>FALSE</code></b></p>
+		 * @param mixed $index <p>The offset being checked.</p>
+		 * @return bool <p><b><code>TRUE</code></b> if the offset exists, otherwise <b><code>FALSE</code></b></p>
 		 * @link http://php.net/manual/en/arrayiterator.offsetexists.php
 		 * @since PHP 5, PHP 7
 		 */
-		public function offsetExists(string $index): void {}
+		public function offsetExists($index): bool {}
 
 		/**
 		 * Get value for an offset
 		 * <p>Gets the value from the provided offset.</p><p>This function is currently not documented; only its argument list is available.</p>
-		 * @param string $index <p>The offset to get the value from.</p>
+		 * @param mixed $index <p>The offset to get the value from.</p>
 		 * @return mixed <p>The value at offset <code>index</code>.</p>
 		 * @link http://php.net/manual/en/arrayiterator.offsetget.php
 		 * @since PHP 5, PHP 7
 		 */
-		public function offsetGet(string $index) {}
+		public function offsetGet($index) {}
 
 		/**
 		 * Set value for an offset
 		 * <p>Sets a value for a given offset.</p><p>This function is currently not documented; only its argument list is available.</p>
-		 * @param string $index <p>The index to set for.</p>
-		 * @param string $newval <p>The new value to store at the index.</p>
+		 * @param mixed $index <p>The index to set for.</p>
+		 * @param mixed $newval <p>The new value to store at the index.</p>
 		 * @return void <p>No value is returned.</p>
 		 * @link http://php.net/manual/en/arrayiterator.offsetset.php
 		 * @since PHP 5, PHP 7
 		 */
-		public function offsetSet(string $index, string $newval): void {}
+		public function offsetSet($index, $newval): void {}
 
 		/**
 		 * Unset value for an offset
-		 * <p>Unsets a value for an offset.</p><p>This function is currently not documented; only its argument list is available.</p>
-		 * @param string $index <p>The offset to unset.</p>
+		 * <p>Unsets a value for an offset.</p><p>If iteration is in progress, and <b>ArrayIterator::offsetUnset()</b> is used to unset the current index of iteration, the iteration position will be advanced to the next index. Since the iteration position is also advanced at the end of a foreach loop body, use of <b>ArrayIterator::offsetUnset()</b> inside a <code>foreach</code> loop may result in indices being skipped.</p>
+		 * @param mixed $index <p>The offset to unset.</p>
 		 * @return void <p>No value is returned.</p>
 		 * @link http://php.net/manual/en/arrayiterator.offsetunset.php
 		 * @since PHP 5, PHP 7
 		 */
-		public function offsetUnset(string $index): void {}
+		public function offsetUnset($index): void {}
 
 		/**
 		 * Rewind array back to the start
@@ -295,8 +307,8 @@ namespace {
 
 		/**
 		 * Set behaviour flags
-		 * <p>Sets behaviour flags.</p><p>This function is currently not documented; only its argument list is available.</p>
-		 * @param string $flags <p>A bitmask as follows:</p><ul> <li> 0 = Properties of the object have their normal functionality when accessed as list (var_dump, foreach, etc.). </li> <li> 1 = Array indices can be accessed as properties in read/write. </li> </ul>
+		 * <p>Set the flags that change the behavior of the ArrayIterator.</p>
+		 * @param string $flags <p>The new ArrayIterator behavior. It takes on either a bitmask, or named constants. Using named constants is strongly encouraged to ensure compatibility for future versions.</p> <p>The available behavior flags are listed below. The actual meanings of these flags are described in the predefined constants.</p> <b>ArrayIterator behavior flags</b>   value constant     1  ArrayIterator::STD_PROP_LIST    2  ArrayIterator::ARRAY_AS_PROPS
 		 * @return void <p>No value is returned.</p>
 		 * @link http://php.net/manual/en/arrayiterator.setflags.php
 		 * @since PHP 5 >= 5.1.0, PHP 7
@@ -306,7 +318,7 @@ namespace {
 		/**
 		 * Sort with a user-defined comparison function and maintain index association
 		 * <p>This method sorts the elements such that indices maintain their correlation with the values they are associated with, using a user-defined comparison function.</p><p><b>Note</b>:</p><p>If two members compare as equal, their relative order in the sorted array is undefined.</p>
-		 * @param callable $cmp_function <p>The comparison function must return an integer less than, equal to, or greater than zero if the first argument is considered to be respectively less than, equal to, or greater than the second. Note that before PHP 7.0.0 this integer had to be in the range from -2147483648 to 2147483647.</p> int callback ( <code>mixed</code> <code>$a</code>, <code>mixed</code> <code>$b</code> )
+		 * @param callable $cmp_function <p>The comparison function must return an integer less than, equal to, or greater than zero if the first argument is considered to be respectively less than, equal to, or greater than the second.</p> callback ( <code>mixed</code> <code>$a</code>, <code>mixed</code> <code>$b</code> ) : <code>int</code>
 		 * @return void <p>No value is returned.</p>
 		 * @link http://php.net/manual/en/arrayiterator.uasort.php
 		 * @see usort()
@@ -317,7 +329,7 @@ namespace {
 		/**
 		 * Sort by keys using a user-defined comparison function
 		 * <p>This method sorts the elements by keys using a user-supplied comparison function.</p><p><b>Note</b>:</p><p>If two members compare as equal, their relative order in the sorted array is undefined.</p>
-		 * @param callable $cmp_function <p>The comparison function must return an integer less than, equal to, or greater than zero if the first argument is considered to be respectively less than, equal to, or greater than the second. Note that before PHP 7.0.0 this integer had to be in the range from -2147483648 to 2147483647.</p> int callback ( <code>mixed</code> <code>$a</code>, <code>mixed</code> <code>$b</code> )
+		 * @param callable $cmp_function <p>The comparison function must return an integer less than, equal to, or greater than zero if the first argument is considered to be respectively less than, equal to, or greater than the second.</p> callback ( <code>mixed</code> <code>$a</code>, <code>mixed</code> <code>$b</code> ) : <code>int</code>
 		 * @return void <p>No value is returned.</p>
 		 * @link http://php.net/manual/en/arrayiterator.uksort.php
 		 * @see uksort()
@@ -329,11 +341,11 @@ namespace {
 		 * Unserialize
 		 * <p>Unserialize.</p><p>This function is currently not documented; only its argument list is available.</p>
 		 * @param string $serialized <p>The serialized ArrayIterator object to be unserialized.</p>
-		 * @return string <p>The ArrayIterator.</p>
+		 * @return void <p>No value is returned.</p>
 		 * @link http://php.net/manual/en/arrayiterator.unserialize.php
 		 * @since PHP 5 >= 5.3.0, PHP 7
 		 */
-		public function unserialize(string $serialized): string {}
+		public function unserialize(string $serialized): void {}
 
 		/**
 		 * Check whether array contains more entries
@@ -353,13 +365,13 @@ namespace {
 	class ArrayObject implements \IteratorAggregate, \ArrayAccess, \Serializable, \Countable {
 
 		/**
-		 * @var integer <p>Properties of the object have their normal functionality when accessed as list (var_dump, foreach, etc.).</p>
+		 * @var int <p>Properties of the object have their normal functionality when accessed as list (var_dump, foreach, etc.).</p>
 		 * @link http://php.net/manual/en/class.arrayobject.php
 		 */
 		const STD_PROP_LIST = 1;
 
 		/**
-		 * @var integer <p>Entries can be accessed as properties (read and write).</p>
+		 * @var int <p>Entries can be accessed as properties (read and write).</p>
 		 * @link http://php.net/manual/en/class.arrayobject.php
 		 */
 		const ARRAY_AS_PROPS = 2;
@@ -417,7 +429,7 @@ namespace {
 		/**
 		 * Creates a copy of the ArrayObject
 		 * <p>Exports the ArrayObject to an array.</p>
-		 * @return array <p>Returns a copy of the array. When the ArrayObject refers to an object, an array of the public properties of that object will be returned.</p>
+		 * @return array <p>Returns a copy of the array. When the ArrayObject refers to an object, an array of the properties of that object will be returned.</p>
 		 * @link http://php.net/manual/en/arrayobject.getarraycopy.php
 		 * @since PHP 5, PHP 7
 		 */
@@ -614,25 +626,37 @@ namespace {
 		 * <p>Tries to clone the Exception, which results in Fatal error.</p>
 		 * @return void <p>No value is returned.</p>
 		 * @link http://php.net/manual/en/exception.clone.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final private function __clone() {}
+
+		/**
+		 * Construct the exception
+		 * <p>Constructs the Exception.</p>
+		 * @param string $message <p>The Exception message to throw.</p>
+		 * @param int $code <p>The Exception code.</p>
+		 * @param \Throwable $previous <p>The previous exception used for the exception chaining.</p>
+		 * @return self
+		 * @link http://php.net/manual/en/exception.construct.php
+		 * @since PHP 5, PHP 7, PHP 8
+		 */
+		public function __construct(string $message = "", int $code = 0, \Throwable $previous = NULL) {}
 
 		/**
 		 * String representation of the exception
 		 * <p>Returns the <code>string</code> representation of the exception.</p>
 		 * @return string <p>Returns the <code>string</code> representation of the exception.</p>
 		 * @link http://php.net/manual/en/exception.tostring.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		public function __toString(): string {}
 
 		/**
 		 * Gets the Exception code
 		 * <p>Returns the Exception code.</p>
-		 * @return mixed <p>Returns the exception code as <code>integer</code> in Exception but possibly as other type in Exception descendants (for example as <code>string</code> in PDOException).</p>
+		 * @return mixed <p>Returns the exception code as <code>int</code> in Exception but possibly as other type in Exception descendants (for example as <code>string</code> in PDOException).</p>
 		 * @link http://php.net/manual/en/exception.getcode.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getCode() {}
 
@@ -641,7 +665,7 @@ namespace {
 		 * <p>Get the name of the file in which the exception was created.</p>
 		 * @return string <p>Returns the filename in which the exception was created.</p>
 		 * @link http://php.net/manual/en/exception.getfile.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getFile(): string {}
 
@@ -650,7 +674,7 @@ namespace {
 		 * <p>Get line number where the exception was created.</p>
 		 * @return int <p>Returns the line number where the exception was created.</p>
 		 * @link http://php.net/manual/en/exception.getline.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getLine(): int {}
 
@@ -659,7 +683,7 @@ namespace {
 		 * <p>Returns the Exception message.</p>
 		 * @return string <p>Returns the Exception message as a string.</p>
 		 * @link http://php.net/manual/en/exception.getmessage.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getMessage(): string {}
 
@@ -668,7 +692,7 @@ namespace {
 		 * <p>Returns previous exception (the third parameter of <code>Exception::__construct()</code>).</p>
 		 * @return Throwable <p>Returns the previous Throwable if available or <b><code>NULL</code></b> otherwise.</p>
 		 * @link http://php.net/manual/en/exception.getprevious.php
-		 * @since PHP 5 >= 5.3.0, PHP 7
+		 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8
 		 */
 		final public function getPrevious(): \Throwable {}
 
@@ -677,7 +701,7 @@ namespace {
 		 * <p>Returns the Exception stack trace.</p>
 		 * @return array <p>Returns the Exception stack trace as an <code>array</code>.</p>
 		 * @link http://php.net/manual/en/exception.gettrace.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getTrace(): array {}
 
@@ -686,7 +710,7 @@ namespace {
 		 * <p>Returns the Exception stack trace as a string.</p>
 		 * @return string <p>Returns the Exception stack trace as a string.</p>
 		 * @link http://php.net/manual/en/exception.gettraceasstring.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getTraceAsString(): string {}
 	}
@@ -727,25 +751,37 @@ namespace {
 		 * <p>Tries to clone the Exception, which results in Fatal error.</p>
 		 * @return void <p>No value is returned.</p>
 		 * @link http://php.net/manual/en/exception.clone.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final private function __clone() {}
+
+		/**
+		 * Construct the exception
+		 * <p>Constructs the Exception.</p>
+		 * @param string $message <p>The Exception message to throw.</p>
+		 * @param int $code <p>The Exception code.</p>
+		 * @param \Throwable $previous <p>The previous exception used for the exception chaining.</p>
+		 * @return self
+		 * @link http://php.net/manual/en/exception.construct.php
+		 * @since PHP 5, PHP 7, PHP 8
+		 */
+		public function __construct(string $message = "", int $code = 0, \Throwable $previous = NULL) {}
 
 		/**
 		 * String representation of the exception
 		 * <p>Returns the <code>string</code> representation of the exception.</p>
 		 * @return string <p>Returns the <code>string</code> representation of the exception.</p>
 		 * @link http://php.net/manual/en/exception.tostring.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		public function __toString(): string {}
 
 		/**
 		 * Gets the Exception code
 		 * <p>Returns the Exception code.</p>
-		 * @return mixed <p>Returns the exception code as <code>integer</code> in Exception but possibly as other type in Exception descendants (for example as <code>string</code> in PDOException).</p>
+		 * @return mixed <p>Returns the exception code as <code>int</code> in Exception but possibly as other type in Exception descendants (for example as <code>string</code> in PDOException).</p>
 		 * @link http://php.net/manual/en/exception.getcode.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getCode() {}
 
@@ -754,7 +790,7 @@ namespace {
 		 * <p>Get the name of the file in which the exception was created.</p>
 		 * @return string <p>Returns the filename in which the exception was created.</p>
 		 * @link http://php.net/manual/en/exception.getfile.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getFile(): string {}
 
@@ -763,7 +799,7 @@ namespace {
 		 * <p>Get line number where the exception was created.</p>
 		 * @return int <p>Returns the line number where the exception was created.</p>
 		 * @link http://php.net/manual/en/exception.getline.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getLine(): int {}
 
@@ -772,7 +808,7 @@ namespace {
 		 * <p>Returns the Exception message.</p>
 		 * @return string <p>Returns the Exception message as a string.</p>
 		 * @link http://php.net/manual/en/exception.getmessage.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getMessage(): string {}
 
@@ -781,7 +817,7 @@ namespace {
 		 * <p>Returns previous exception (the third parameter of <code>Exception::__construct()</code>).</p>
 		 * @return Throwable <p>Returns the previous Throwable if available or <b><code>NULL</code></b> otherwise.</p>
 		 * @link http://php.net/manual/en/exception.getprevious.php
-		 * @since PHP 5 >= 5.3.0, PHP 7
+		 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8
 		 */
 		final public function getPrevious(): \Throwable {}
 
@@ -790,7 +826,7 @@ namespace {
 		 * <p>Returns the Exception stack trace.</p>
 		 * @return array <p>Returns the Exception stack trace as an <code>array</code>.</p>
 		 * @link http://php.net/manual/en/exception.gettrace.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getTrace(): array {}
 
@@ -799,7 +835,7 @@ namespace {
 		 * <p>Returns the Exception stack trace as a string.</p>
 		 * @return string <p>Returns the Exception stack trace as a string.</p>
 		 * @link http://php.net/manual/en/exception.gettraceasstring.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getTraceAsString(): string {}
 	}
@@ -812,37 +848,37 @@ namespace {
 	class CachingIterator extends \IteratorIterator implements \OuterIterator, \ArrayAccess, \Countable {
 
 		/**
-		 * @var integer <p>Convert every element to string.</p>
+		 * @var int <p>Convert every element to string.</p>
 		 * @link http://php.net/manual/en/class.cachingiterator.php
 		 */
 		const CALL_TOSTRING = 1;
 
 		/**
-		 * @var integer <p>Don't throw exception in accessing children.</p>
+		 * @var int <p>Don't throw exception in accessing children.</p>
 		 * @link http://php.net/manual/en/class.cachingiterator.php
 		 */
 		const CATCH_GET_CHILD = 16;
 
 		/**
-		 * @var integer <p>Use key for conversion to string.</p>
+		 * @var int <p>Use key for conversion to string.</p>
 		 * @link http://php.net/manual/en/class.cachingiterator.php
 		 */
 		const TOSTRING_USE_KEY = 2;
 
 		/**
-		 * @var integer <p>Use current for conversion to string.</p>
+		 * @var int <p>Use current for conversion to string.</p>
 		 * @link http://php.net/manual/en/class.cachingiterator.php
 		 */
 		const TOSTRING_USE_CURRENT = 4;
 
 		/**
-		 * @var integer <p>Use inner for conversion to string.</p>
+		 * @var int <p>Use inner for conversion to string.</p>
 		 * @link http://php.net/manual/en/class.cachingiterator.php
 		 */
 		const TOSTRING_USE_INNER = 8;
 
 		/**
-		 * @var integer <p>Cache all read data.</p>
+		 * @var int <p>Cache all read data.</p>
 		 * @link http://php.net/manual/en/class.cachingiterator.php
 		 */
 		const FULL_CACHE = 256;
@@ -879,11 +915,11 @@ namespace {
 		/**
 		 * Return the current element
 		 * <p>This function is currently not documented; only its argument list is available.</p><p>May return the current element in the iteration.</p>
-		 * @return void <p>Mixed</p>
+		 * @return mixed <p>Mixed</p>
 		 * @link http://php.net/manual/en/cachingiterator.current.php
 		 * @since PHP 5, PHP 7
 		 */
-		public function current(): void {}
+		public function current() {}
 
 		/**
 		 * Retrieve the contents of the cache
@@ -942,12 +978,12 @@ namespace {
 		/**
 		 * The offsetExists purpose
 		 * <p>This function is currently not documented; only its argument list is available.</p>
-		 * @param string $index <p>The index being checked.</p>
+		 * @param mixed $index <p>The index being checked.</p>
 		 * @return void <p>Returns <b><code>TRUE</code></b> if an entry referenced by the offset exists, <b><code>FALSE</code></b> otherwise.</p>
 		 * @link http://php.net/manual/en/cachingiterator.offsetexists.php
 		 * @since PHP 5 >= 5.2.0, PHP 7
 		 */
-		public function offsetExists(string $index): void {}
+		public function offsetExists($index): void {}
 
 		/**
 		 * The offsetGet purpose
@@ -962,13 +998,13 @@ namespace {
 		/**
 		 * The offsetSet purpose
 		 * <p>This function is currently not documented; only its argument list is available.</p>
-		 * @param string $index <p>The index of the element to be set.</p>
-		 * @param string $newval <p>The new value for the <code>index</code>.</p>
+		 * @param mixed $index <p>The index of the element to be set.</p>
+		 * @param mixed $newval <p>The new value for the <code>index</code>.</p>
 		 * @return void <p>No value is returned.</p>
 		 * @link http://php.net/manual/en/cachingiterator.offsetset.php
 		 * @since PHP 5 >= 5.2.0, PHP 7
 		 */
-		public function offsetSet(string $index, string $newval): void {}
+		public function offsetSet($index, $newval): void {}
 
 		/**
 		 * The offsetUnset purpose
@@ -1029,11 +1065,11 @@ namespace {
 		/**
 		 * Calls the callback with the current value, the current key and the inner iterator as arguments
 		 * <p>This method calls the callback with the current value, current key and the inner iterator.</p><p>The callback is expected to return <b><code>TRUE</code></b> if the current item is to be accepted, or <b><code>FALSE</code></b> otherwise.</p>
-		 * @return string <p>Returns <b><code>TRUE</code></b> to accept the current item, or <b><code>FALSE</code></b> otherwise.</p>
+		 * @return bool <p>Returns <b><code>TRUE</code></b> to accept the current item, or <b><code>FALSE</code></b> otherwise.</p>
 		 * @link http://php.net/manual/en/callbackfilteriterator.accept.php
 		 * @since PHP 5 >= 5.4.0, PHP 7
 		 */
-		public function accept(): string {}
+		public function accept(): bool {}
 
 		/**
 		 * Get the current element value
@@ -1069,7 +1105,7 @@ namespace {
 		 * <p>This function is currently not documented; only its argument list is available.</p><p>Move the iterator forward.</p>
 		 * @return void <p>No value is returned.</p>
 		 * @link http://php.net/manual/en/filteriterator.next.php
-		 * @see FilterIterator::current()
+		 * @see FilterIterator::current(), FilterIterator::key()
 		 * @since PHP 5 >= 5.1.0, PHP 7
 		 */
 		public function next(): void {}
@@ -1104,7 +1140,7 @@ namespace {
 		/**
 		 * Count elements of an object
 		 * <p>This method is executed when using the <code>count()</code> function on an object implementing Countable.</p>
-		 * @return int <p>The custom count as an <code>integer</code>.</p><p><b>Note</b>:</p><p>The return value is cast to an <code>integer</code>.</p>
+		 * @return int <p>The custom count as an <code>int</code>.</p><p><b>Note</b>:</p><p>The return value is cast to an <code>int</code>.</p>
 		 * @link http://php.net/manual/en/countable.count.php
 		 * @since PHP 5 >= 5.1.0, PHP 7
 		 */
@@ -1260,7 +1296,7 @@ namespace {
 		/**
 		 * Get the permissions of current DirectoryIterator item
 		 * <p>Get the permissions of the current DirectoryIterator item.</p>
-		 * @return int <p>Returns the permissions of the file, as a decimal <code>integer</code>.</p>
+		 * @return int <p>Returns the permissions of the file, as a decimal <code>int</code>.</p>
 		 * @link http://php.net/manual/en/directoryiterator.getperms.php
 		 * @since PHP 5, PHP 7
 		 */
@@ -1278,8 +1314,8 @@ namespace {
 
 		/**
 		 * Determine the type of the current DirectoryIterator item
-		 * <p>Determines which file type the current DirectoryIterator item belongs to. One of <i>file</i>, <i>link</i>, or <i>dir</i>.</p>
-		 * @return string <p>Returns a <code>string</code> representing the type of the file. May be one of <i>file</i>, <i>link</i>, or <i>dir</i>.</p>
+		 * <p>Determines which file type the current DirectoryIterator item belongs to. One of <code>file</code>, <code>link</code>, or <code>dir</code>.</p>
+		 * @return string <p>Returns a <code>string</code> representing the type of the file. May be one of <code>file</code>, <code>link</code>, or <code>dir</code>.</p>
 		 * @link http://php.net/manual/en/directoryiterator.gettype.php
 		 * @since PHP 5, PHP 7
 		 */
@@ -1296,8 +1332,8 @@ namespace {
 
 		/**
 		 * Determine if current DirectoryIterator item is '.' or '..'
-		 * <p>Determines if the current DirectoryIterator item is a directory and either <i>.</i> or <i>..</i></p>
-		 * @return bool <p><b><code>TRUE</code></b> if the entry is <i>.</i> or <i>..</i>, otherwise <b><code>FALSE</code></b></p>
+		 * <p>Determines if the current DirectoryIterator item is a directory and either <code>.</code> or <code>..</code></p>
+		 * @return bool <p><b><code>TRUE</code></b> if the entry is <code>.</code> or <code>..</code>, otherwise <b><code>FALSE</code></b></p>
 		 * @link http://php.net/manual/en/directoryiterator.isdot.php
 		 * @since PHP 5, PHP 7
 		 */
@@ -1315,7 +1351,7 @@ namespace {
 		/**
 		 * Determine if current DirectoryIterator item is a regular file
 		 * <p>Determines if the current DirectoryIterator item is a regular file.</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b> if the file exists and is a regular file (not a <i>link</i> or <i>dir</i>), otherwise <b><code>FALSE</code></b></p>
+		 * @return bool <p>Returns <b><code>TRUE</code></b> if the file exists and is a regular file (not a <code>link</code> or <code>dir</code>), otherwise <b><code>FALSE</code></b></p>
 		 * @link http://php.net/manual/en/directoryiterator.isfile.php
 		 * @since PHP 5, PHP 7
 		 */
@@ -1431,25 +1467,37 @@ namespace {
 		 * <p>Tries to clone the Exception, which results in Fatal error.</p>
 		 * @return void <p>No value is returned.</p>
 		 * @link http://php.net/manual/en/exception.clone.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final private function __clone() {}
+
+		/**
+		 * Construct the exception
+		 * <p>Constructs the Exception.</p>
+		 * @param string $message <p>The Exception message to throw.</p>
+		 * @param int $code <p>The Exception code.</p>
+		 * @param \Throwable $previous <p>The previous exception used for the exception chaining.</p>
+		 * @return self
+		 * @link http://php.net/manual/en/exception.construct.php
+		 * @since PHP 5, PHP 7, PHP 8
+		 */
+		public function __construct(string $message = "", int $code = 0, \Throwable $previous = NULL) {}
 
 		/**
 		 * String representation of the exception
 		 * <p>Returns the <code>string</code> representation of the exception.</p>
 		 * @return string <p>Returns the <code>string</code> representation of the exception.</p>
 		 * @link http://php.net/manual/en/exception.tostring.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		public function __toString(): string {}
 
 		/**
 		 * Gets the Exception code
 		 * <p>Returns the Exception code.</p>
-		 * @return mixed <p>Returns the exception code as <code>integer</code> in Exception but possibly as other type in Exception descendants (for example as <code>string</code> in PDOException).</p>
+		 * @return mixed <p>Returns the exception code as <code>int</code> in Exception but possibly as other type in Exception descendants (for example as <code>string</code> in PDOException).</p>
 		 * @link http://php.net/manual/en/exception.getcode.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getCode() {}
 
@@ -1458,7 +1506,7 @@ namespace {
 		 * <p>Get the name of the file in which the exception was created.</p>
 		 * @return string <p>Returns the filename in which the exception was created.</p>
 		 * @link http://php.net/manual/en/exception.getfile.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getFile(): string {}
 
@@ -1467,7 +1515,7 @@ namespace {
 		 * <p>Get line number where the exception was created.</p>
 		 * @return int <p>Returns the line number where the exception was created.</p>
 		 * @link http://php.net/manual/en/exception.getline.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getLine(): int {}
 
@@ -1476,7 +1524,7 @@ namespace {
 		 * <p>Returns the Exception message.</p>
 		 * @return string <p>Returns the Exception message as a string.</p>
 		 * @link http://php.net/manual/en/exception.getmessage.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getMessage(): string {}
 
@@ -1485,7 +1533,7 @@ namespace {
 		 * <p>Returns previous exception (the third parameter of <code>Exception::__construct()</code>).</p>
 		 * @return Throwable <p>Returns the previous Throwable if available or <b><code>NULL</code></b> otherwise.</p>
 		 * @link http://php.net/manual/en/exception.getprevious.php
-		 * @since PHP 5 >= 5.3.0, PHP 7
+		 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8
 		 */
 		final public function getPrevious(): \Throwable {}
 
@@ -1494,7 +1542,7 @@ namespace {
 		 * <p>Returns the Exception stack trace.</p>
 		 * @return array <p>Returns the Exception stack trace as an <code>array</code>.</p>
 		 * @link http://php.net/manual/en/exception.gettrace.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getTrace(): array {}
 
@@ -1503,7 +1551,7 @@ namespace {
 		 * <p>Returns the Exception stack trace as a string.</p>
 		 * @return string <p>Returns the Exception stack trace as a string.</p>
 		 * @link http://php.net/manual/en/exception.gettraceasstring.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getTraceAsString(): string {}
 	}
@@ -1569,67 +1617,67 @@ namespace {
 	class FilesystemIterator extends \DirectoryIterator implements \SeekableIterator {
 
 		/**
-		 * @var integer <p>Makes <code>FilesystemIterator::current()</code> return the pathname.</p>
+		 * @var int <p>Makes <code>FilesystemIterator::current()</code> return the pathname.</p>
 		 * @link http://php.net/manual/en/class.filesystemiterator.php
 		 */
 		const CURRENT_AS_PATHNAME = 32;
 
 		/**
-		 * @var integer <p>Makes <code>FilesystemIterator::current()</code> return an SplFileInfo instance.</p>
+		 * @var int <p>Makes <code>FilesystemIterator::current()</code> return an SplFileInfo instance.</p>
 		 * @link http://php.net/manual/en/class.filesystemiterator.php
 		 */
 		const CURRENT_AS_FILEINFO = 0;
 
 		/**
-		 * @var integer <p>Makes <code>FilesystemIterator::current()</code> return $this (the FilesystemIterator).</p>
+		 * @var int <p>Makes <code>FilesystemIterator::current()</code> return $this (the FilesystemIterator).</p>
 		 * @link http://php.net/manual/en/class.filesystemiterator.php
 		 */
 		const CURRENT_AS_SELF = 16;
 
 		/**
-		 * @var integer <p>Masks <code>FilesystemIterator::current()</code></p>
+		 * @var int <p>Masks <code>FilesystemIterator::current()</code></p>
 		 * @link http://php.net/manual/en/class.filesystemiterator.php
 		 */
 		const CURRENT_MODE_MASK = 240;
 
 		/**
-		 * @var integer <p>Makes <code>FilesystemIterator::key()</code> return the pathname.</p>
+		 * @var int <p>Makes <code>FilesystemIterator::key()</code> return the pathname.</p>
 		 * @link http://php.net/manual/en/class.filesystemiterator.php
 		 */
 		const KEY_AS_PATHNAME = 0;
 
 		/**
-		 * @var integer <p>Makes <code>FilesystemIterator::key()</code> return the filename.</p>
+		 * @var int <p>Makes <code>FilesystemIterator::key()</code> return the filename.</p>
 		 * @link http://php.net/manual/en/class.filesystemiterator.php
 		 */
 		const KEY_AS_FILENAME = 256;
 
 		/**
-		 * @var integer <p>Makes <code>RecursiveDirectoryIterator::hasChildren()</code> follow symlinks.</p>
+		 * @var int <p>Makes <code>RecursiveDirectoryIterator::hasChildren()</code> follow symlinks.</p>
 		 * @link http://php.net/manual/en/class.filesystemiterator.php
 		 */
 		const FOLLOW_SYMLINKS = 512;
 
 		/**
-		 * @var integer <p>Masks <code>FilesystemIterator::key()</code></p>
+		 * @var int <p>Masks <code>FilesystemIterator::key()</code></p>
 		 * @link http://php.net/manual/en/class.filesystemiterator.php
 		 */
 		const KEY_MODE_MASK = 3840;
 
 		/**
-		 * @var integer <p>Same as <i>FilesystemIterator::KEY_AS_FILENAME | FilesystemIterator::CURRENT_AS_FILEINFO</i>.</p>
+		 * @var int <p>Same as <code>FilesystemIterator::KEY_AS_FILENAME | FilesystemIterator::CURRENT_AS_FILEINFO</code>.</p>
 		 * @link http://php.net/manual/en/class.filesystemiterator.php
 		 */
 		const NEW_CURRENT_AND_KEY = 256;
 
 		/**
-		 * @var integer <p>Skips dot files (<i>.</i> and <i>..</i>).</p>
+		 * @var int <p>Skips dot files (<code>.</code> and <code>..</code>).</p>
 		 * @link http://php.net/manual/en/class.filesystemiterator.php
 		 */
 		const SKIP_DOTS = 4096;
 
 		/**
-		 * @var integer <p>Makes paths use Unix-style forward slash irrespective of system default. Note that the <code>path</code> that is passed to the constructor is not modified.</p>
+		 * @var int <p>Makes paths use Unix-style forward slash irrespective of system default. Note that the <code>path</code> that is passed to the constructor is not modified.</p>
 		 * @link http://php.net/manual/en/class.filesystemiterator.php
 		 */
 		const UNIX_PATHS = 8192;
@@ -1638,7 +1686,7 @@ namespace {
 		 * Constructs a new filesystem iterator
 		 * <p>Constructs a new filesystem iterator from the <code>path</code>.</p>
 		 * @param string $path <p>The path of the filesystem item to be iterated over.</p>
-		 * @param int $flags <p>Flags may be provided which will affect the behavior of some methods. A list of the flags can found under FilesystemIterator predefined constants. They can also be set later with <code>FilesystemIterator::setFlags()</code></p>
+		 * @param int $flags <p>Flags may be provided which will affect the behavior of some methods. A list of the flags can found under FilesystemIterator predefined constants. They can also be set later with <code>FilesystemIterator::setFlags()</code></p> <p><b>Note</b>:</p><p><b><code>FilesystemIterator::SKIP_DOTS</code></b> is always set, and cannot be removed.</p>
 		 * @return self <p>No value is returned.</p>
 		 * @link http://php.net/manual/en/filesystemiterator.construct.php
 		 * @since PHP 5 >= 5.3.0, PHP 7
@@ -1786,7 +1834,7 @@ namespace {
 		/**
 		 * Get the permissions of current DirectoryIterator item
 		 * <p>Get the permissions of the current DirectoryIterator item.</p>
-		 * @return int <p>Returns the permissions of the file, as a decimal <code>integer</code>.</p>
+		 * @return int <p>Returns the permissions of the file, as a decimal <code>int</code>.</p>
 		 * @link http://php.net/manual/en/directoryiterator.getperms.php
 		 * @since PHP 5, PHP 7
 		 */
@@ -1804,8 +1852,8 @@ namespace {
 
 		/**
 		 * Determine the type of the current DirectoryIterator item
-		 * <p>Determines which file type the current DirectoryIterator item belongs to. One of <i>file</i>, <i>link</i>, or <i>dir</i>.</p>
-		 * @return string <p>Returns a <code>string</code> representing the type of the file. May be one of <i>file</i>, <i>link</i>, or <i>dir</i>.</p>
+		 * <p>Determines which file type the current DirectoryIterator item belongs to. One of <code>file</code>, <code>link</code>, or <code>dir</code>.</p>
+		 * @return string <p>Returns a <code>string</code> representing the type of the file. May be one of <code>file</code>, <code>link</code>, or <code>dir</code>.</p>
 		 * @link http://php.net/manual/en/directoryiterator.gettype.php
 		 * @since PHP 5, PHP 7
 		 */
@@ -1832,8 +1880,8 @@ namespace {
 
 		/**
 		 * Determine if current DirectoryIterator item is '.' or '..'
-		 * <p>Determines if the current DirectoryIterator item is a directory and either <i>.</i> or <i>..</i></p>
-		 * @return bool <p><b><code>TRUE</code></b> if the entry is <i>.</i> or <i>..</i>, otherwise <b><code>FALSE</code></b></p>
+		 * <p>Determines if the current DirectoryIterator item is a directory and either <code>.</code> or <code>..</code></p>
+		 * @return bool <p><b><code>TRUE</code></b> if the entry is <code>.</code> or <code>..</code>, otherwise <b><code>FALSE</code></b></p>
 		 * @link http://php.net/manual/en/directoryiterator.isdot.php
 		 * @since PHP 5, PHP 7
 		 */
@@ -1851,7 +1899,7 @@ namespace {
 		/**
 		 * Determine if current DirectoryIterator item is a regular file
 		 * <p>Determines if the current DirectoryIterator item is a regular file.</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b> if the file exists and is a regular file (not a <i>link</i> or <i>dir</i>), otherwise <b><code>FALSE</code></b></p>
+		 * @return bool <p>Returns <b><code>TRUE</code></b> if the file exists and is a regular file (not a <code>link</code> or <code>dir</code>), otherwise <b><code>FALSE</code></b></p>
 		 * @link http://php.net/manual/en/directoryiterator.isfile.php
 		 * @since PHP 5, PHP 7
 		 */
@@ -2000,7 +2048,7 @@ namespace {
 		 * <p>This function is currently not documented; only its argument list is available.</p><p>Move the iterator forward.</p>
 		 * @return void <p>No value is returned.</p>
 		 * @link http://php.net/manual/en/filteriterator.next.php
-		 * @see FilterIterator::current()
+		 * @see FilterIterator::current(), FilterIterator::key()
 		 * @since PHP 5 >= 5.1.0, PHP 7
 		 */
 		public function next(): void {}
@@ -2047,7 +2095,7 @@ namespace {
 		/**
 		 * Get the number of directories and files
 		 * <p>Gets the number of directories and files found by the glob expression.</p>
-		 * @return int <p>The number of returned directories and files, as an <code>integer</code>.</p>
+		 * @return int <p>The number of returned directories and files, as an <code>int</code>.</p>
 		 * @link http://php.net/manual/en/globiterator.count.php
 		 * @see count(), glob()
 		 * @since PHP 5 >= 5.3.0, PHP 7
@@ -2147,11 +2195,11 @@ namespace {
 		/**
 		 * Get the key of the current element
 		 * <p>Get the key of the current element.</p>
-		 * @return scalar <p>The key of the current element.</p>
+		 * @return mixed <p>The key of the current element.</p>
 		 * @link http://php.net/manual/en/iteratoriterator.key.php
 		 * @since PHP 5 >= 5.1.0, PHP 7
 		 */
-		public function key(): \scalar {}
+		public function key() {}
 
 		/**
 		 * Moves the inner Iterator forward or rewinds it
@@ -2218,25 +2266,37 @@ namespace {
 		 * <p>Tries to clone the Exception, which results in Fatal error.</p>
 		 * @return void <p>No value is returned.</p>
 		 * @link http://php.net/manual/en/exception.clone.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final private function __clone() {}
+
+		/**
+		 * Construct the exception
+		 * <p>Constructs the Exception.</p>
+		 * @param string $message <p>The Exception message to throw.</p>
+		 * @param int $code <p>The Exception code.</p>
+		 * @param \Throwable $previous <p>The previous exception used for the exception chaining.</p>
+		 * @return self
+		 * @link http://php.net/manual/en/exception.construct.php
+		 * @since PHP 5, PHP 7, PHP 8
+		 */
+		public function __construct(string $message = "", int $code = 0, \Throwable $previous = NULL) {}
 
 		/**
 		 * String representation of the exception
 		 * <p>Returns the <code>string</code> representation of the exception.</p>
 		 * @return string <p>Returns the <code>string</code> representation of the exception.</p>
 		 * @link http://php.net/manual/en/exception.tostring.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		public function __toString(): string {}
 
 		/**
 		 * Gets the Exception code
 		 * <p>Returns the Exception code.</p>
-		 * @return mixed <p>Returns the exception code as <code>integer</code> in Exception but possibly as other type in Exception descendants (for example as <code>string</code> in PDOException).</p>
+		 * @return mixed <p>Returns the exception code as <code>int</code> in Exception but possibly as other type in Exception descendants (for example as <code>string</code> in PDOException).</p>
 		 * @link http://php.net/manual/en/exception.getcode.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getCode() {}
 
@@ -2245,7 +2305,7 @@ namespace {
 		 * <p>Get the name of the file in which the exception was created.</p>
 		 * @return string <p>Returns the filename in which the exception was created.</p>
 		 * @link http://php.net/manual/en/exception.getfile.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getFile(): string {}
 
@@ -2254,7 +2314,7 @@ namespace {
 		 * <p>Get line number where the exception was created.</p>
 		 * @return int <p>Returns the line number where the exception was created.</p>
 		 * @link http://php.net/manual/en/exception.getline.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getLine(): int {}
 
@@ -2263,7 +2323,7 @@ namespace {
 		 * <p>Returns the Exception message.</p>
 		 * @return string <p>Returns the Exception message as a string.</p>
 		 * @link http://php.net/manual/en/exception.getmessage.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getMessage(): string {}
 
@@ -2272,7 +2332,7 @@ namespace {
 		 * <p>Returns previous exception (the third parameter of <code>Exception::__construct()</code>).</p>
 		 * @return Throwable <p>Returns the previous Throwable if available or <b><code>NULL</code></b> otherwise.</p>
 		 * @link http://php.net/manual/en/exception.getprevious.php
-		 * @since PHP 5 >= 5.3.0, PHP 7
+		 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8
 		 */
 		final public function getPrevious(): \Throwable {}
 
@@ -2281,7 +2341,7 @@ namespace {
 		 * <p>Returns the Exception stack trace.</p>
 		 * @return array <p>Returns the Exception stack trace as an <code>array</code>.</p>
 		 * @link http://php.net/manual/en/exception.gettrace.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getTrace(): array {}
 
@@ -2290,7 +2350,7 @@ namespace {
 		 * <p>Returns the Exception stack trace as a string.</p>
 		 * @return string <p>Returns the Exception stack trace as a string.</p>
 		 * @link http://php.net/manual/en/exception.gettraceasstring.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getTraceAsString(): string {}
 	}
@@ -2333,11 +2393,11 @@ namespace {
 		/**
 		 * Get the key of the current element
 		 * <p>Get the key of the current element.</p>
-		 * @return scalar <p>The key of the current element.</p>
+		 * @return mixed <p>The key of the current element.</p>
 		 * @link http://php.net/manual/en/iteratoriterator.key.php
 		 * @since PHP 5 >= 5.1.0, PHP 7
 		 */
-		public function key(): \scalar {}
+		public function key() {}
 
 		/**
 		 * Forward to the next element
@@ -2404,25 +2464,37 @@ namespace {
 		 * <p>Tries to clone the Exception, which results in Fatal error.</p>
 		 * @return void <p>No value is returned.</p>
 		 * @link http://php.net/manual/en/exception.clone.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final private function __clone() {}
+
+		/**
+		 * Construct the exception
+		 * <p>Constructs the Exception.</p>
+		 * @param string $message <p>The Exception message to throw.</p>
+		 * @param int $code <p>The Exception code.</p>
+		 * @param \Throwable $previous <p>The previous exception used for the exception chaining.</p>
+		 * @return self
+		 * @link http://php.net/manual/en/exception.construct.php
+		 * @since PHP 5, PHP 7, PHP 8
+		 */
+		public function __construct(string $message = "", int $code = 0, \Throwable $previous = NULL) {}
 
 		/**
 		 * String representation of the exception
 		 * <p>Returns the <code>string</code> representation of the exception.</p>
 		 * @return string <p>Returns the <code>string</code> representation of the exception.</p>
 		 * @link http://php.net/manual/en/exception.tostring.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		public function __toString(): string {}
 
 		/**
 		 * Gets the Exception code
 		 * <p>Returns the Exception code.</p>
-		 * @return mixed <p>Returns the exception code as <code>integer</code> in Exception but possibly as other type in Exception descendants (for example as <code>string</code> in PDOException).</p>
+		 * @return mixed <p>Returns the exception code as <code>int</code> in Exception but possibly as other type in Exception descendants (for example as <code>string</code> in PDOException).</p>
 		 * @link http://php.net/manual/en/exception.getcode.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getCode() {}
 
@@ -2431,7 +2503,7 @@ namespace {
 		 * <p>Get the name of the file in which the exception was created.</p>
 		 * @return string <p>Returns the filename in which the exception was created.</p>
 		 * @link http://php.net/manual/en/exception.getfile.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getFile(): string {}
 
@@ -2440,7 +2512,7 @@ namespace {
 		 * <p>Get line number where the exception was created.</p>
 		 * @return int <p>Returns the line number where the exception was created.</p>
 		 * @link http://php.net/manual/en/exception.getline.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getLine(): int {}
 
@@ -2449,7 +2521,7 @@ namespace {
 		 * <p>Returns the Exception message.</p>
 		 * @return string <p>Returns the Exception message as a string.</p>
 		 * @link http://php.net/manual/en/exception.getmessage.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getMessage(): string {}
 
@@ -2458,7 +2530,7 @@ namespace {
 		 * <p>Returns previous exception (the third parameter of <code>Exception::__construct()</code>).</p>
 		 * @return Throwable <p>Returns the previous Throwable if available or <b><code>NULL</code></b> otherwise.</p>
 		 * @link http://php.net/manual/en/exception.getprevious.php
-		 * @since PHP 5 >= 5.3.0, PHP 7
+		 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8
 		 */
 		final public function getPrevious(): \Throwable {}
 
@@ -2467,7 +2539,7 @@ namespace {
 		 * <p>Returns the Exception stack trace.</p>
 		 * @return array <p>Returns the Exception stack trace as an <code>array</code>.</p>
 		 * @link http://php.net/manual/en/exception.gettrace.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getTrace(): array {}
 
@@ -2476,7 +2548,7 @@ namespace {
 		 * <p>Returns the Exception stack trace as a string.</p>
 		 * @return string <p>Returns the Exception stack trace as a string.</p>
 		 * @link http://php.net/manual/en/exception.gettraceasstring.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getTraceAsString(): string {}
 	}
@@ -2610,25 +2682,37 @@ namespace {
 		 * <p>Tries to clone the Exception, which results in Fatal error.</p>
 		 * @return void <p>No value is returned.</p>
 		 * @link http://php.net/manual/en/exception.clone.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final private function __clone() {}
+
+		/**
+		 * Construct the exception
+		 * <p>Constructs the Exception.</p>
+		 * @param string $message <p>The Exception message to throw.</p>
+		 * @param int $code <p>The Exception code.</p>
+		 * @param \Throwable $previous <p>The previous exception used for the exception chaining.</p>
+		 * @return self
+		 * @link http://php.net/manual/en/exception.construct.php
+		 * @since PHP 5, PHP 7, PHP 8
+		 */
+		public function __construct(string $message = "", int $code = 0, \Throwable $previous = NULL) {}
 
 		/**
 		 * String representation of the exception
 		 * <p>Returns the <code>string</code> representation of the exception.</p>
 		 * @return string <p>Returns the <code>string</code> representation of the exception.</p>
 		 * @link http://php.net/manual/en/exception.tostring.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		public function __toString(): string {}
 
 		/**
 		 * Gets the Exception code
 		 * <p>Returns the Exception code.</p>
-		 * @return mixed <p>Returns the exception code as <code>integer</code> in Exception but possibly as other type in Exception descendants (for example as <code>string</code> in PDOException).</p>
+		 * @return mixed <p>Returns the exception code as <code>int</code> in Exception but possibly as other type in Exception descendants (for example as <code>string</code> in PDOException).</p>
 		 * @link http://php.net/manual/en/exception.getcode.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getCode() {}
 
@@ -2637,7 +2721,7 @@ namespace {
 		 * <p>Get the name of the file in which the exception was created.</p>
 		 * @return string <p>Returns the filename in which the exception was created.</p>
 		 * @link http://php.net/manual/en/exception.getfile.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getFile(): string {}
 
@@ -2646,7 +2730,7 @@ namespace {
 		 * <p>Get line number where the exception was created.</p>
 		 * @return int <p>Returns the line number where the exception was created.</p>
 		 * @link http://php.net/manual/en/exception.getline.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getLine(): int {}
 
@@ -2655,7 +2739,7 @@ namespace {
 		 * <p>Returns the Exception message.</p>
 		 * @return string <p>Returns the Exception message as a string.</p>
 		 * @link http://php.net/manual/en/exception.getmessage.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getMessage(): string {}
 
@@ -2664,7 +2748,7 @@ namespace {
 		 * <p>Returns previous exception (the third parameter of <code>Exception::__construct()</code>).</p>
 		 * @return Throwable <p>Returns the previous Throwable if available or <b><code>NULL</code></b> otherwise.</p>
 		 * @link http://php.net/manual/en/exception.getprevious.php
-		 * @since PHP 5 >= 5.3.0, PHP 7
+		 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8
 		 */
 		final public function getPrevious(): \Throwable {}
 
@@ -2673,7 +2757,7 @@ namespace {
 		 * <p>Returns the Exception stack trace.</p>
 		 * @return array <p>Returns the Exception stack trace as an <code>array</code>.</p>
 		 * @link http://php.net/manual/en/exception.gettrace.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getTrace(): array {}
 
@@ -2682,7 +2766,7 @@ namespace {
 		 * <p>Returns the Exception stack trace as a string.</p>
 		 * @return string <p>Returns the Exception stack trace as a string.</p>
 		 * @link http://php.net/manual/en/exception.gettraceasstring.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getTraceAsString(): string {}
 	}
@@ -2695,25 +2779,25 @@ namespace {
 	class MultipleIterator implements \Iterator {
 
 		/**
-		 * @var integer <p>Do not require all sub iterators to be valid in iteration.</p>
+		 * @var int <p>Do not require all sub iterators to be valid in iteration.</p>
 		 * @link http://php.net/manual/en/class.multipleiterator.php
 		 */
 		const MIT_NEED_ANY = 0;
 
 		/**
-		 * @var integer <p>Require all sub iterators to be valid in iteration.</p>
+		 * @var int <p>Require all sub iterators to be valid in iteration.</p>
 		 * @link http://php.net/manual/en/class.multipleiterator.php
 		 */
 		const MIT_NEED_ALL = 1;
 
 		/**
-		 * @var integer <p>Keys are created from the sub iterators position.</p>
+		 * @var int <p>Keys are created from the sub iterators position.</p>
 		 * @link http://php.net/manual/en/class.multipleiterator.php
 		 */
 		const MIT_KEYS_NUMERIC = 0;
 
 		/**
-		 * @var integer <p>Keys are created from sub iterators associated information.</p>
+		 * @var int <p>Keys are created from sub iterators associated information.</p>
 		 * @link http://php.net/manual/en/class.multipleiterator.php
 		 */
 		const MIT_KEYS_ASSOC = 2;
@@ -2732,7 +2816,7 @@ namespace {
 		 * Attaches iterator information
 		 * <p>Attaches iterator information.</p><p>This function is currently not documented; only its argument list is available.</p>
 		 * @param \Iterator $iterator <p>The new iterator to attach.</p>
-		 * @param string $infos <p>The associative information for the Iterator, which must be an <code>integer</code>, a <code>string</code>, or <b><code>NULL</code></b>.</p>
+		 * @param string $infos <p>The associative information for the Iterator, which must be an <code>int</code>, a <code>string</code>, or <b><code>NULL</code></b>.</p>
 		 * @return void <p>Description...</p>
 		 * @link http://php.net/manual/en/multipleiterator.attachiterator.php
 		 * @since PHP 5 >= 5.3.0, PHP 7
@@ -2752,7 +2836,7 @@ namespace {
 		/**
 		 * Gets the number of attached iterator instances
 		 * <p>Gets the number of attached iterator instances.</p><p>This function is currently not documented; only its argument list is available.</p>
-		 * @return int <p>The number of attached iterator instances (as an <code>integer</code>).</p>
+		 * @return int <p>The number of attached iterator instances (as an <code>int</code>).</p>
 		 * @link http://php.net/manual/en/multipleiterator.countiterators.php
 		 * @since PHP 5 >= 5.3.0, PHP 7
 		 */
@@ -2780,7 +2864,7 @@ namespace {
 		/**
 		 * Gets the flag information
 		 * <p>Gets information about the flags.</p><p>This function is currently not documented; only its argument list is available.</p>
-		 * @return int <p>Information about the flags, as an <code>integer</code>.</p>
+		 * @return int <p>Information about the flags, as an <code>int</code>.</p>
 		 * @link http://php.net/manual/en/multipleiterator.getflags.php
 		 * @since PHP 5 >= 5.3.0, PHP 7
 		 */
@@ -2834,7 +2918,7 @@ namespace {
 	}
 
 	/**
-	 * <p>This iterator cannot be rewound.</p>
+	 * <p>This iterator ignores rewind operations. This allows processing an iterator in multiple partial foreach loops.</p>
 	 * @link http://php.net/manual/en/class.norewinditerator.php
 	 * @since PHP 5 >= 5.1.0, PHP 7
 	 */
@@ -2917,7 +3001,7 @@ namespace {
 		 * <p>Returns the current element.</p>
 		 * @return mixed <p>Can return any type.</p>
 		 * @link http://php.net/manual/en/iterator.current.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		public function current();
 
@@ -2935,7 +3019,7 @@ namespace {
 		 * <p>Returns the key of the current element.</p>
 		 * @return scalar <p>Returns scalar on success, or <b><code>NULL</code></b> on failure.</p>
 		 * @link http://php.net/manual/en/iterator.key.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		public function key(): \scalar;
 
@@ -2944,7 +3028,7 @@ namespace {
 		 * <p>Moves the current position to the next element.</p><p><b>Note</b>:</p><p>This method is called <i>after</i> each foreach loop.</p>
 		 * @return void <p>Any returned value is ignored.</p>
 		 * @link http://php.net/manual/en/iterator.next.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		public function next(): void;
 
@@ -2953,16 +3037,16 @@ namespace {
 		 * <p>Rewinds back to the first element of the Iterator.</p><p><b>Note</b>:</p><p>This is the <i>first</i> method called when starting a foreach loop. It will <i>not</i> be executed <i>after</i> foreach loops.</p>
 		 * @return void <p>Any returned value is ignored.</p>
 		 * @link http://php.net/manual/en/iterator.rewind.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		public function rewind(): void;
 
 		/**
 		 * Checks if current position is valid
 		 * <p>This method is called after <code>Iterator::rewind()</code> and <code>Iterator::next()</code> to check if the current position is valid.</p>
-		 * @return bool <p>The return value will be casted to <code>boolean</code> and then evaluated. Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+		 * @return bool <p>The return value will be casted to <code>bool</code> and then evaluated. Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
 		 * @link http://php.net/manual/en/iterator.valid.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		public function valid(): bool;
 	}
@@ -3003,25 +3087,37 @@ namespace {
 		 * <p>Tries to clone the Exception, which results in Fatal error.</p>
 		 * @return void <p>No value is returned.</p>
 		 * @link http://php.net/manual/en/exception.clone.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final private function __clone() {}
+
+		/**
+		 * Construct the exception
+		 * <p>Constructs the Exception.</p>
+		 * @param string $message <p>The Exception message to throw.</p>
+		 * @param int $code <p>The Exception code.</p>
+		 * @param \Throwable $previous <p>The previous exception used for the exception chaining.</p>
+		 * @return self
+		 * @link http://php.net/manual/en/exception.construct.php
+		 * @since PHP 5, PHP 7, PHP 8
+		 */
+		public function __construct(string $message = "", int $code = 0, \Throwable $previous = NULL) {}
 
 		/**
 		 * String representation of the exception
 		 * <p>Returns the <code>string</code> representation of the exception.</p>
 		 * @return string <p>Returns the <code>string</code> representation of the exception.</p>
 		 * @link http://php.net/manual/en/exception.tostring.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		public function __toString(): string {}
 
 		/**
 		 * Gets the Exception code
 		 * <p>Returns the Exception code.</p>
-		 * @return mixed <p>Returns the exception code as <code>integer</code> in Exception but possibly as other type in Exception descendants (for example as <code>string</code> in PDOException).</p>
+		 * @return mixed <p>Returns the exception code as <code>int</code> in Exception but possibly as other type in Exception descendants (for example as <code>string</code> in PDOException).</p>
 		 * @link http://php.net/manual/en/exception.getcode.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getCode() {}
 
@@ -3030,7 +3126,7 @@ namespace {
 		 * <p>Get the name of the file in which the exception was created.</p>
 		 * @return string <p>Returns the filename in which the exception was created.</p>
 		 * @link http://php.net/manual/en/exception.getfile.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getFile(): string {}
 
@@ -3039,7 +3135,7 @@ namespace {
 		 * <p>Get line number where the exception was created.</p>
 		 * @return int <p>Returns the line number where the exception was created.</p>
 		 * @link http://php.net/manual/en/exception.getline.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getLine(): int {}
 
@@ -3048,7 +3144,7 @@ namespace {
 		 * <p>Returns the Exception message.</p>
 		 * @return string <p>Returns the Exception message as a string.</p>
 		 * @link http://php.net/manual/en/exception.getmessage.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getMessage(): string {}
 
@@ -3057,7 +3153,7 @@ namespace {
 		 * <p>Returns previous exception (the third parameter of <code>Exception::__construct()</code>).</p>
 		 * @return Throwable <p>Returns the previous Throwable if available or <b><code>NULL</code></b> otherwise.</p>
 		 * @link http://php.net/manual/en/exception.getprevious.php
-		 * @since PHP 5 >= 5.3.0, PHP 7
+		 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8
 		 */
 		final public function getPrevious(): \Throwable {}
 
@@ -3066,7 +3162,7 @@ namespace {
 		 * <p>Returns the Exception stack trace.</p>
 		 * @return array <p>Returns the Exception stack trace as an <code>array</code>.</p>
 		 * @link http://php.net/manual/en/exception.gettrace.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getTrace(): array {}
 
@@ -3075,7 +3171,7 @@ namespace {
 		 * <p>Returns the Exception stack trace as a string.</p>
 		 * @return string <p>Returns the Exception stack trace as a string.</p>
 		 * @link http://php.net/manual/en/exception.gettraceasstring.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getTraceAsString(): string {}
 	}
@@ -3116,25 +3212,37 @@ namespace {
 		 * <p>Tries to clone the Exception, which results in Fatal error.</p>
 		 * @return void <p>No value is returned.</p>
 		 * @link http://php.net/manual/en/exception.clone.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final private function __clone() {}
+
+		/**
+		 * Construct the exception
+		 * <p>Constructs the Exception.</p>
+		 * @param string $message <p>The Exception message to throw.</p>
+		 * @param int $code <p>The Exception code.</p>
+		 * @param \Throwable $previous <p>The previous exception used for the exception chaining.</p>
+		 * @return self
+		 * @link http://php.net/manual/en/exception.construct.php
+		 * @since PHP 5, PHP 7, PHP 8
+		 */
+		public function __construct(string $message = "", int $code = 0, \Throwable $previous = NULL) {}
 
 		/**
 		 * String representation of the exception
 		 * <p>Returns the <code>string</code> representation of the exception.</p>
 		 * @return string <p>Returns the <code>string</code> representation of the exception.</p>
 		 * @link http://php.net/manual/en/exception.tostring.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		public function __toString(): string {}
 
 		/**
 		 * Gets the Exception code
 		 * <p>Returns the Exception code.</p>
-		 * @return mixed <p>Returns the exception code as <code>integer</code> in Exception but possibly as other type in Exception descendants (for example as <code>string</code> in PDOException).</p>
+		 * @return mixed <p>Returns the exception code as <code>int</code> in Exception but possibly as other type in Exception descendants (for example as <code>string</code> in PDOException).</p>
 		 * @link http://php.net/manual/en/exception.getcode.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getCode() {}
 
@@ -3143,7 +3251,7 @@ namespace {
 		 * <p>Get the name of the file in which the exception was created.</p>
 		 * @return string <p>Returns the filename in which the exception was created.</p>
 		 * @link http://php.net/manual/en/exception.getfile.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getFile(): string {}
 
@@ -3152,7 +3260,7 @@ namespace {
 		 * <p>Get line number where the exception was created.</p>
 		 * @return int <p>Returns the line number where the exception was created.</p>
 		 * @link http://php.net/manual/en/exception.getline.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getLine(): int {}
 
@@ -3161,7 +3269,7 @@ namespace {
 		 * <p>Returns the Exception message.</p>
 		 * @return string <p>Returns the Exception message as a string.</p>
 		 * @link http://php.net/manual/en/exception.getmessage.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getMessage(): string {}
 
@@ -3170,7 +3278,7 @@ namespace {
 		 * <p>Returns previous exception (the third parameter of <code>Exception::__construct()</code>).</p>
 		 * @return Throwable <p>Returns the previous Throwable if available or <b><code>NULL</code></b> otherwise.</p>
 		 * @link http://php.net/manual/en/exception.getprevious.php
-		 * @since PHP 5 >= 5.3.0, PHP 7
+		 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8
 		 */
 		final public function getPrevious(): \Throwable {}
 
@@ -3179,7 +3287,7 @@ namespace {
 		 * <p>Returns the Exception stack trace.</p>
 		 * @return array <p>Returns the Exception stack trace as an <code>array</code>.</p>
 		 * @link http://php.net/manual/en/exception.gettrace.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getTrace(): array {}
 
@@ -3188,7 +3296,7 @@ namespace {
 		 * <p>Returns the Exception stack trace as a string.</p>
 		 * @return string <p>Returns the Exception stack trace as a string.</p>
 		 * @link http://php.net/manual/en/exception.gettraceasstring.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getTraceAsString(): string {}
 	}
@@ -3229,25 +3337,37 @@ namespace {
 		 * <p>Tries to clone the Exception, which results in Fatal error.</p>
 		 * @return void <p>No value is returned.</p>
 		 * @link http://php.net/manual/en/exception.clone.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final private function __clone() {}
+
+		/**
+		 * Construct the exception
+		 * <p>Constructs the Exception.</p>
+		 * @param string $message <p>The Exception message to throw.</p>
+		 * @param int $code <p>The Exception code.</p>
+		 * @param \Throwable $previous <p>The previous exception used for the exception chaining.</p>
+		 * @return self
+		 * @link http://php.net/manual/en/exception.construct.php
+		 * @since PHP 5, PHP 7, PHP 8
+		 */
+		public function __construct(string $message = "", int $code = 0, \Throwable $previous = NULL) {}
 
 		/**
 		 * String representation of the exception
 		 * <p>Returns the <code>string</code> representation of the exception.</p>
 		 * @return string <p>Returns the <code>string</code> representation of the exception.</p>
 		 * @link http://php.net/manual/en/exception.tostring.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		public function __toString(): string {}
 
 		/**
 		 * Gets the Exception code
 		 * <p>Returns the Exception code.</p>
-		 * @return mixed <p>Returns the exception code as <code>integer</code> in Exception but possibly as other type in Exception descendants (for example as <code>string</code> in PDOException).</p>
+		 * @return mixed <p>Returns the exception code as <code>int</code> in Exception but possibly as other type in Exception descendants (for example as <code>string</code> in PDOException).</p>
 		 * @link http://php.net/manual/en/exception.getcode.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getCode() {}
 
@@ -3256,7 +3376,7 @@ namespace {
 		 * <p>Get the name of the file in which the exception was created.</p>
 		 * @return string <p>Returns the filename in which the exception was created.</p>
 		 * @link http://php.net/manual/en/exception.getfile.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getFile(): string {}
 
@@ -3265,7 +3385,7 @@ namespace {
 		 * <p>Get line number where the exception was created.</p>
 		 * @return int <p>Returns the line number where the exception was created.</p>
 		 * @link http://php.net/manual/en/exception.getline.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getLine(): int {}
 
@@ -3274,7 +3394,7 @@ namespace {
 		 * <p>Returns the Exception message.</p>
 		 * @return string <p>Returns the Exception message as a string.</p>
 		 * @link http://php.net/manual/en/exception.getmessage.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getMessage(): string {}
 
@@ -3283,7 +3403,7 @@ namespace {
 		 * <p>Returns previous exception (the third parameter of <code>Exception::__construct()</code>).</p>
 		 * @return Throwable <p>Returns the previous Throwable if available or <b><code>NULL</code></b> otherwise.</p>
 		 * @link http://php.net/manual/en/exception.getprevious.php
-		 * @since PHP 5 >= 5.3.0, PHP 7
+		 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8
 		 */
 		final public function getPrevious(): \Throwable {}
 
@@ -3292,7 +3412,7 @@ namespace {
 		 * <p>Returns the Exception stack trace.</p>
 		 * @return array <p>Returns the Exception stack trace as an <code>array</code>.</p>
 		 * @link http://php.net/manual/en/exception.gettrace.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getTrace(): array {}
 
@@ -3301,7 +3421,7 @@ namespace {
 		 * <p>Returns the Exception stack trace as a string.</p>
 		 * @return string <p>Returns the Exception stack trace as a string.</p>
 		 * @link http://php.net/manual/en/exception.gettraceasstring.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getTraceAsString(): string {}
 	}
@@ -3414,25 +3534,37 @@ namespace {
 		 * <p>Tries to clone the Exception, which results in Fatal error.</p>
 		 * @return void <p>No value is returned.</p>
 		 * @link http://php.net/manual/en/exception.clone.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final private function __clone() {}
+
+		/**
+		 * Construct the exception
+		 * <p>Constructs the Exception.</p>
+		 * @param string $message <p>The Exception message to throw.</p>
+		 * @param int $code <p>The Exception code.</p>
+		 * @param \Throwable $previous <p>The previous exception used for the exception chaining.</p>
+		 * @return self
+		 * @link http://php.net/manual/en/exception.construct.php
+		 * @since PHP 5, PHP 7, PHP 8
+		 */
+		public function __construct(string $message = "", int $code = 0, \Throwable $previous = NULL) {}
 
 		/**
 		 * String representation of the exception
 		 * <p>Returns the <code>string</code> representation of the exception.</p>
 		 * @return string <p>Returns the <code>string</code> representation of the exception.</p>
 		 * @link http://php.net/manual/en/exception.tostring.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		public function __toString(): string {}
 
 		/**
 		 * Gets the Exception code
 		 * <p>Returns the Exception code.</p>
-		 * @return mixed <p>Returns the exception code as <code>integer</code> in Exception but possibly as other type in Exception descendants (for example as <code>string</code> in PDOException).</p>
+		 * @return mixed <p>Returns the exception code as <code>int</code> in Exception but possibly as other type in Exception descendants (for example as <code>string</code> in PDOException).</p>
 		 * @link http://php.net/manual/en/exception.getcode.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getCode() {}
 
@@ -3441,7 +3573,7 @@ namespace {
 		 * <p>Get the name of the file in which the exception was created.</p>
 		 * @return string <p>Returns the filename in which the exception was created.</p>
 		 * @link http://php.net/manual/en/exception.getfile.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getFile(): string {}
 
@@ -3450,7 +3582,7 @@ namespace {
 		 * <p>Get line number where the exception was created.</p>
 		 * @return int <p>Returns the line number where the exception was created.</p>
 		 * @link http://php.net/manual/en/exception.getline.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getLine(): int {}
 
@@ -3459,7 +3591,7 @@ namespace {
 		 * <p>Returns the Exception message.</p>
 		 * @return string <p>Returns the Exception message as a string.</p>
 		 * @link http://php.net/manual/en/exception.getmessage.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getMessage(): string {}
 
@@ -3468,7 +3600,7 @@ namespace {
 		 * <p>Returns previous exception (the third parameter of <code>Exception::__construct()</code>).</p>
 		 * @return Throwable <p>Returns the previous Throwable if available or <b><code>NULL</code></b> otherwise.</p>
 		 * @link http://php.net/manual/en/exception.getprevious.php
-		 * @since PHP 5 >= 5.3.0, PHP 7
+		 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8
 		 */
 		final public function getPrevious(): \Throwable {}
 
@@ -3477,7 +3609,7 @@ namespace {
 		 * <p>Returns the Exception stack trace.</p>
 		 * @return array <p>Returns the Exception stack trace as an <code>array</code>.</p>
 		 * @link http://php.net/manual/en/exception.gettrace.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getTrace(): array {}
 
@@ -3486,7 +3618,7 @@ namespace {
 		 * <p>Returns the Exception stack trace as a string.</p>
 		 * @return string <p>Returns the Exception stack trace as a string.</p>
 		 * @link http://php.net/manual/en/exception.gettraceasstring.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getTraceAsString(): string {}
 	}
@@ -3499,7 +3631,7 @@ namespace {
 	class RecursiveArrayIterator extends \ArrayIterator implements \RecursiveIterator {
 
 		/**
-		 * @var integer <p>Treat only arrays (not objects) as having children for recursive iteration.</p>
+		 * @var int <p>Treat only arrays (not objects) as having children for recursive iteration.</p>
 		 * @link http://php.net/manual/en/class.recursivearrayiterator.php
 		 */
 		const CHILD_ARRAYS_ONLY = 4;
@@ -3572,13 +3704,13 @@ namespace {
 		public function getChildren(): \RecursiveArrayIterator {}
 
 		/**
-		 * Get flags
-		 * <p>Get the current flags.</p><p>This function is currently not documented; only its argument list is available.</p>
-		 * @return void <p>The current flags.</p>
+		 * Get behavior flags
+		 * <p>Gets the behavior flags of the ArrayIterator. See the ArrayIterator::setFlags method for a list of the available flags.</p>
+		 * @return int <p>Returns the behavior flags of the ArrayIterator.</p>
 		 * @link http://php.net/manual/en/arrayiterator.getflags.php
 		 * @since PHP 5 >= 5.1.0, PHP 7
 		 */
-		public function getFlags(): void {}
+		public function getFlags(): int {}
 
 		/**
 		 * Returns whether current entry is an array or an object
@@ -3640,43 +3772,43 @@ namespace {
 		/**
 		 * Check if offset exists
 		 * <p>Checks if the offset exists.</p><p>This function is currently not documented; only its argument list is available.</p>
-		 * @param string $index <p>The offset being checked.</p>
-		 * @return void <p><b><code>TRUE</code></b> if the offset exists, otherwise <b><code>FALSE</code></b></p>
+		 * @param mixed $index <p>The offset being checked.</p>
+		 * @return bool <p><b><code>TRUE</code></b> if the offset exists, otherwise <b><code>FALSE</code></b></p>
 		 * @link http://php.net/manual/en/arrayiterator.offsetexists.php
 		 * @since PHP 5, PHP 7
 		 */
-		public function offsetExists(string $index): void {}
+		public function offsetExists($index): bool {}
 
 		/**
 		 * Get value for an offset
 		 * <p>Gets the value from the provided offset.</p><p>This function is currently not documented; only its argument list is available.</p>
-		 * @param string $index <p>The offset to get the value from.</p>
+		 * @param mixed $index <p>The offset to get the value from.</p>
 		 * @return mixed <p>The value at offset <code>index</code>.</p>
 		 * @link http://php.net/manual/en/arrayiterator.offsetget.php
 		 * @since PHP 5, PHP 7
 		 */
-		public function offsetGet(string $index) {}
+		public function offsetGet($index) {}
 
 		/**
 		 * Set value for an offset
 		 * <p>Sets a value for a given offset.</p><p>This function is currently not documented; only its argument list is available.</p>
-		 * @param string $index <p>The index to set for.</p>
-		 * @param string $newval <p>The new value to store at the index.</p>
+		 * @param mixed $index <p>The index to set for.</p>
+		 * @param mixed $newval <p>The new value to store at the index.</p>
 		 * @return void <p>No value is returned.</p>
 		 * @link http://php.net/manual/en/arrayiterator.offsetset.php
 		 * @since PHP 5, PHP 7
 		 */
-		public function offsetSet(string $index, string $newval): void {}
+		public function offsetSet($index, $newval): void {}
 
 		/**
 		 * Unset value for an offset
-		 * <p>Unsets a value for an offset.</p><p>This function is currently not documented; only its argument list is available.</p>
-		 * @param string $index <p>The offset to unset.</p>
+		 * <p>Unsets a value for an offset.</p><p>If iteration is in progress, and <b>ArrayIterator::offsetUnset()</b> is used to unset the current index of iteration, the iteration position will be advanced to the next index. Since the iteration position is also advanced at the end of a foreach loop body, use of <b>ArrayIterator::offsetUnset()</b> inside a <code>foreach</code> loop may result in indices being skipped.</p>
+		 * @param mixed $index <p>The offset to unset.</p>
 		 * @return void <p>No value is returned.</p>
 		 * @link http://php.net/manual/en/arrayiterator.offsetunset.php
 		 * @since PHP 5, PHP 7
 		 */
-		public function offsetUnset(string $index): void {}
+		public function offsetUnset($index): void {}
 
 		/**
 		 * Rewind array back to the start
@@ -3708,8 +3840,8 @@ namespace {
 
 		/**
 		 * Set behaviour flags
-		 * <p>Sets behaviour flags.</p><p>This function is currently not documented; only its argument list is available.</p>
-		 * @param string $flags <p>A bitmask as follows:</p><ul> <li> 0 = Properties of the object have their normal functionality when accessed as list (var_dump, foreach, etc.). </li> <li> 1 = Array indices can be accessed as properties in read/write. </li> </ul>
+		 * <p>Set the flags that change the behavior of the ArrayIterator.</p>
+		 * @param string $flags <p>The new ArrayIterator behavior. It takes on either a bitmask, or named constants. Using named constants is strongly encouraged to ensure compatibility for future versions.</p> <p>The available behavior flags are listed below. The actual meanings of these flags are described in the predefined constants.</p> <b>ArrayIterator behavior flags</b>   value constant     1  ArrayIterator::STD_PROP_LIST    2  ArrayIterator::ARRAY_AS_PROPS
 		 * @return void <p>No value is returned.</p>
 		 * @link http://php.net/manual/en/arrayiterator.setflags.php
 		 * @since PHP 5 >= 5.1.0, PHP 7
@@ -3719,7 +3851,7 @@ namespace {
 		/**
 		 * Sort with a user-defined comparison function and maintain index association
 		 * <p>This method sorts the elements such that indices maintain their correlation with the values they are associated with, using a user-defined comparison function.</p><p><b>Note</b>:</p><p>If two members compare as equal, their relative order in the sorted array is undefined.</p>
-		 * @param callable $cmp_function <p>The comparison function must return an integer less than, equal to, or greater than zero if the first argument is considered to be respectively less than, equal to, or greater than the second. Note that before PHP 7.0.0 this integer had to be in the range from -2147483648 to 2147483647.</p> int callback ( <code>mixed</code> <code>$a</code>, <code>mixed</code> <code>$b</code> )
+		 * @param callable $cmp_function <p>The comparison function must return an integer less than, equal to, or greater than zero if the first argument is considered to be respectively less than, equal to, or greater than the second.</p> callback ( <code>mixed</code> <code>$a</code>, <code>mixed</code> <code>$b</code> ) : <code>int</code>
 		 * @return void <p>No value is returned.</p>
 		 * @link http://php.net/manual/en/arrayiterator.uasort.php
 		 * @see usort()
@@ -3730,7 +3862,7 @@ namespace {
 		/**
 		 * Sort by keys using a user-defined comparison function
 		 * <p>This method sorts the elements by keys using a user-supplied comparison function.</p><p><b>Note</b>:</p><p>If two members compare as equal, their relative order in the sorted array is undefined.</p>
-		 * @param callable $cmp_function <p>The comparison function must return an integer less than, equal to, or greater than zero if the first argument is considered to be respectively less than, equal to, or greater than the second. Note that before PHP 7.0.0 this integer had to be in the range from -2147483648 to 2147483647.</p> int callback ( <code>mixed</code> <code>$a</code>, <code>mixed</code> <code>$b</code> )
+		 * @param callable $cmp_function <p>The comparison function must return an integer less than, equal to, or greater than zero if the first argument is considered to be respectively less than, equal to, or greater than the second.</p> callback ( <code>mixed</code> <code>$a</code>, <code>mixed</code> <code>$b</code> ) : <code>int</code>
 		 * @return void <p>No value is returned.</p>
 		 * @link http://php.net/manual/en/arrayiterator.uksort.php
 		 * @see uksort()
@@ -3742,11 +3874,11 @@ namespace {
 		 * Unserialize
 		 * <p>Unserialize.</p><p>This function is currently not documented; only its argument list is available.</p>
 		 * @param string $serialized <p>The serialized ArrayIterator object to be unserialized.</p>
-		 * @return string <p>The ArrayIterator.</p>
+		 * @return void <p>No value is returned.</p>
 		 * @link http://php.net/manual/en/arrayiterator.unserialize.php
 		 * @since PHP 5 >= 5.3.0, PHP 7
 		 */
-		public function unserialize(string $serialized): string {}
+		public function unserialize(string $serialized): void {}
 
 		/**
 		 * Check whether array contains more entries
@@ -3769,12 +3901,12 @@ namespace {
 		 * Construct
 		 * <p>Constructs a new RecursiveCachingIterator, which consists of a passed in <code>iterator</code>.</p><p>This function is currently not documented; only its argument list is available.</p>
 		 * @param \Iterator $iterator <p>The iterator being used.</p>
-		 * @param string $flags <p>The flags. Use <b><code>CALL_TOSTRING</code></b> to call <b>RecursiveCachingIterator::__toString()</b> for every element (the default), and/or <b><code>CATCH_GET_CHILD</code></b> to catch exceptions when trying to get children.</p>
+		 * @param int $flags <p>The flags. Use <b><code>CALL_TOSTRING</code></b> to call <b>RecursiveCachingIterator::__toString()</b> for every element (the default), and/or <b><code>CATCH_GET_CHILD</code></b> to catch exceptions when trying to get children.</p>
 		 * @return self <p>The RecursiveCachingIterator.</p>
 		 * @link http://php.net/manual/en/recursivecachingiterator.construct.php
 		 * @since PHP 5 >= 5.1.0, PHP 7
 		 */
-		public function __construct(\Iterator $iterator, string $flags = 'self::CALL_TOSTRING') {}
+		public function __construct(\Iterator $iterator, int $flags = self::CALL_TOSTRING) {}
 
 		/**
 		 * Return the string representation of the current element
@@ -3797,11 +3929,11 @@ namespace {
 		/**
 		 * Return the current element
 		 * <p>This function is currently not documented; only its argument list is available.</p><p>May return the current element in the iteration.</p>
-		 * @return void <p>Mixed</p>
+		 * @return mixed <p>Mixed</p>
 		 * @link http://php.net/manual/en/cachingiterator.current.php
 		 * @since PHP 5, PHP 7
 		 */
-		public function current(): void {}
+		public function current() {}
 
 		/**
 		 * Retrieve the contents of the cache
@@ -3878,12 +4010,12 @@ namespace {
 		/**
 		 * The offsetExists purpose
 		 * <p>This function is currently not documented; only its argument list is available.</p>
-		 * @param string $index <p>The index being checked.</p>
+		 * @param mixed $index <p>The index being checked.</p>
 		 * @return void <p>Returns <b><code>TRUE</code></b> if an entry referenced by the offset exists, <b><code>FALSE</code></b> otherwise.</p>
 		 * @link http://php.net/manual/en/cachingiterator.offsetexists.php
 		 * @since PHP 5 >= 5.2.0, PHP 7
 		 */
-		public function offsetExists(string $index): void {}
+		public function offsetExists($index): void {}
 
 		/**
 		 * The offsetGet purpose
@@ -3898,13 +4030,13 @@ namespace {
 		/**
 		 * The offsetSet purpose
 		 * <p>This function is currently not documented; only its argument list is available.</p>
-		 * @param string $index <p>The index of the element to be set.</p>
-		 * @param string $newval <p>The new value for the <code>index</code>.</p>
+		 * @param mixed $index <p>The index of the element to be set.</p>
+		 * @param mixed $newval <p>The new value for the <code>index</code>.</p>
 		 * @return void <p>No value is returned.</p>
 		 * @link http://php.net/manual/en/cachingiterator.offsetset.php
 		 * @since PHP 5 >= 5.2.0, PHP 7
 		 */
-		public function offsetSet(string $index, string $newval): void {}
+		public function offsetSet($index, $newval): void {}
 
 		/**
 		 * The offsetUnset purpose
@@ -3965,11 +4097,11 @@ namespace {
 		/**
 		 * Calls the callback with the current value, the current key and the inner iterator as arguments
 		 * <p>This method calls the callback with the current value, current key and the inner iterator.</p><p>The callback is expected to return <b><code>TRUE</code></b> if the current item is to be accepted, or <b><code>FALSE</code></b> otherwise.</p>
-		 * @return string <p>Returns <b><code>TRUE</code></b> to accept the current item, or <b><code>FALSE</code></b> otherwise.</p>
+		 * @return bool <p>Returns <b><code>TRUE</code></b> to accept the current item, or <b><code>FALSE</code></b> otherwise.</p>
 		 * @link http://php.net/manual/en/callbackfilteriterator.accept.php
 		 * @since PHP 5 >= 5.4.0, PHP 7
 		 */
-		public function accept(): string {}
+		public function accept(): bool {}
 
 		/**
 		 * Return the inner iterator's children contained in a RecursiveCallbackFilterIterator
@@ -4179,7 +4311,7 @@ namespace {
 		 * <p>This function is currently not documented; only its argument list is available.</p><p>Move the iterator forward.</p>
 		 * @return void <p>No value is returned.</p>
 		 * @link http://php.net/manual/en/filteriterator.next.php
-		 * @see FilterIterator::current()
+		 * @see FilterIterator::current(), FilterIterator::key()
 		 * @since PHP 5 >= 5.1.0, PHP 7
 		 */
 		public function next(): void {}
@@ -4216,7 +4348,7 @@ namespace {
 		 * <p>Returns the current element.</p>
 		 * @return mixed <p>Can return any type.</p>
 		 * @link http://php.net/manual/en/iterator.current.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		public function current();
 
@@ -4245,7 +4377,7 @@ namespace {
 		 * <p>Returns the key of the current element.</p>
 		 * @return scalar <p>Returns scalar on success, or <b><code>NULL</code></b> on failure.</p>
 		 * @link http://php.net/manual/en/iterator.key.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		public function key(): \scalar;
 
@@ -4254,7 +4386,7 @@ namespace {
 		 * <p>Moves the current position to the next element.</p><p><b>Note</b>:</p><p>This method is called <i>after</i> each foreach loop.</p>
 		 * @return void <p>Any returned value is ignored.</p>
 		 * @link http://php.net/manual/en/iterator.next.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		public function next(): void;
 
@@ -4263,16 +4395,16 @@ namespace {
 		 * <p>Rewinds back to the first element of the Iterator.</p><p><b>Note</b>:</p><p>This is the <i>first</i> method called when starting a foreach loop. It will <i>not</i> be executed <i>after</i> foreach loops.</p>
 		 * @return void <p>Any returned value is ignored.</p>
 		 * @link http://php.net/manual/en/iterator.rewind.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		public function rewind(): void;
 
 		/**
 		 * Checks if current position is valid
 		 * <p>This method is called after <code>Iterator::rewind()</code> and <code>Iterator::next()</code> to check if the current position is valid.</p>
-		 * @return bool <p>The return value will be casted to <code>boolean</code> and then evaluated. Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+		 * @return bool <p>The return value will be casted to <code>bool</code> and then evaluated. Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
 		 * @link http://php.net/manual/en/iterator.valid.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		public function valid(): bool;
 	}
@@ -4285,25 +4417,25 @@ namespace {
 	class RecursiveIteratorIterator implements \OuterIterator {
 
 		/**
-		 * @var integer
+		 * @var int
 		 * @link http://php.net/manual/en/class.recursiveiteratoriterator.php
 		 */
 		const LEAVES_ONLY = 0;
 
 		/**
-		 * @var integer
+		 * @var int
 		 * @link http://php.net/manual/en/class.recursiveiteratoriterator.php
 		 */
 		const SELF_FIRST = 1;
 
 		/**
-		 * @var integer
+		 * @var int
 		 * @link http://php.net/manual/en/class.recursiveiteratoriterator.php
 		 */
 		const CHILD_FIRST = 2;
 
 		/**
-		 * @var integer
+		 * @var int
 		 * @link http://php.net/manual/en/class.recursiveiteratoriterator.php
 		 */
 		const CATCH_GET_CHILD = 16;
@@ -4459,7 +4591,7 @@ namespace {
 		/**
 		 * Set max depth
 		 * <p>Set the maximum allowed depth.</p><p>This function is currently not documented; only its argument list is available.</p>
-		 * @param int $max_depth <p>The maximum allowed depth. <i>-1</i> is used for any depth.</p>
+		 * @param int $max_depth <p>The maximum allowed depth. <code>-1</code> is used for any depth.</p>
 		 * @return void <p>No value is returned.</p>
 		 * @link http://php.net/manual/en/recursiveiteratoriterator.setmaxdepth.php
 		 * @since PHP 5 >= 5.1.0, PHP 7
@@ -4500,7 +4632,7 @@ namespace {
 
 		/**
 		 * Get accept status
-		 * <p>Matches <i>(string)</i> <b>RegexIterator::current()</b> (or <b>RegexIterator::key()</b> if the RegexIterator::USE_KEY flag is set) against the regular expression.</p>
+		 * <p>Matches <code>(string)</code> <b>RegexIterator::current()</b> (or <b>RegexIterator::key()</b> if the RegexIterator::USE_KEY flag is set) against the regular expression.</p>
 		 * @return bool <p><b><code>TRUE</code></b> if a match, <b><code>FALSE</code></b> otherwise.</p>
 		 * @link http://php.net/manual/en/regexiterator.accept.php
 		 * @since PHP 5 >= 5.2.0, PHP 7
@@ -4602,49 +4734,49 @@ namespace {
 	class RecursiveTreeIterator extends \RecursiveIteratorIterator implements \OuterIterator {
 
 		/**
-		 * @var integer
+		 * @var int
 		 * @link http://php.net/manual/en/class.recursivetreeiterator.php
 		 */
 		const BYPASS_CURRENT = 4;
 
 		/**
-		 * @var integer
+		 * @var int
 		 * @link http://php.net/manual/en/class.recursivetreeiterator.php
 		 */
 		const BYPASS_KEY = 8;
 
 		/**
-		 * @var integer
+		 * @var int
 		 * @link http://php.net/manual/en/class.recursivetreeiterator.php
 		 */
 		const PREFIX_LEFT = 0;
 
 		/**
-		 * @var integer
+		 * @var int
 		 * @link http://php.net/manual/en/class.recursivetreeiterator.php
 		 */
 		const PREFIX_MID_HAS_NEXT = 1;
 
 		/**
-		 * @var integer
+		 * @var int
 		 * @link http://php.net/manual/en/class.recursivetreeiterator.php
 		 */
 		const PREFIX_MID_LAST = 2;
 
 		/**
-		 * @var integer
+		 * @var int
 		 * @link http://php.net/manual/en/class.recursivetreeiterator.php
 		 */
 		const PREFIX_END_HAS_NEXT = 3;
 
 		/**
-		 * @var integer
+		 * @var int
 		 * @link http://php.net/manual/en/class.recursivetreeiterator.php
 		 */
 		const PREFIX_END_LAST = 4;
 
 		/**
-		 * @var integer
+		 * @var int
 		 * @link http://php.net/manual/en/class.recursivetreeiterator.php
 		 */
 		const PREFIX_RIGHT = 5;
@@ -4828,7 +4960,7 @@ namespace {
 		/**
 		 * Set max depth
 		 * <p>Set the maximum allowed depth.</p><p>This function is currently not documented; only its argument list is available.</p>
-		 * @param int $max_depth <p>The maximum allowed depth. <i>-1</i> is used for any depth.</p>
+		 * @param int $max_depth <p>The maximum allowed depth. <code>-1</code> is used for any depth.</p>
 		 * @return void <p>No value is returned.</p>
 		 * @link http://php.net/manual/en/recursiveiteratoriterator.setmaxdepth.php
 		 * @since PHP 5 >= 5.1.0, PHP 7
@@ -4874,37 +5006,37 @@ namespace {
 	class RegexIterator extends \FilterIterator {
 
 		/**
-		 * @var integer <p>Only execute match (filter) for the current entry (see <code>preg_match()</code>).</p>
+		 * @var int <p>Only execute match (filter) for the current entry (see <code>preg_match()</code>).</p>
 		 * @link http://php.net/manual/en/class.regexiterator.php
 		 */
 		const MATCH = 0;
 
 		/**
-		 * @var integer <p>Return the first match for the current entry (see <code>preg_match()</code>).</p>
+		 * @var int <p>Return the first match for the current entry (see <code>preg_match()</code>).</p>
 		 * @link http://php.net/manual/en/class.regexiterator.php
 		 */
 		const GET_MATCH = 1;
 
 		/**
-		 * @var integer <p>Return all matches for the current entry (see <code>preg_match_all()</code>).</p>
+		 * @var int <p>Return all matches for the current entry (see <code>preg_match_all()</code>).</p>
 		 * @link http://php.net/manual/en/class.regexiterator.php
 		 */
 		const ALL_MATCHES = 2;
 
 		/**
-		 * @var integer <p>Returns the split values for the current entry (see <code>preg_split()</code>).</p>
+		 * @var int <p>Returns the split values for the current entry (see <code>preg_split()</code>).</p>
 		 * @link http://php.net/manual/en/class.regexiterator.php
 		 */
 		const SPLIT = 3;
 
 		/**
-		 * @var integer <p>Replace the current entry (see <code>preg_replace()</code>; Not fully implemented yet)</p>
+		 * @var int <p>Replace the current entry (see <code>preg_replace()</code>; Not fully implemented yet)</p>
 		 * @link http://php.net/manual/en/class.regexiterator.php
 		 */
 		const REPLACE = 4;
 
 		/**
-		 * @var integer <p>Special flag: Match the entry key instead of the entry value.</p>
+		 * @var int <p>Special flag: Match the entry key instead of the entry value.</p>
 		 * @link http://php.net/manual/en/class.regexiterator.php
 		 */
 		const USE_KEY = 1;
@@ -4926,7 +5058,7 @@ namespace {
 
 		/**
 		 * Get accept status
-		 * <p>Matches <i>(string)</i> <b>RegexIterator::current()</b> (or <b>RegexIterator::key()</b> if the RegexIterator::USE_KEY flag is set) against the regular expression.</p>
+		 * <p>Matches <code>(string)</code> <b>RegexIterator::current()</b> (or <b>RegexIterator::key()</b> if the RegexIterator::USE_KEY flag is set) against the regular expression.</p>
 		 * @return bool <p><b><code>TRUE</code></b> if a match, <b><code>FALSE</code></b> otherwise.</p>
 		 * @link http://php.net/manual/en/regexiterator.accept.php
 		 * @since PHP 5 >= 5.2.0, PHP 7
@@ -5003,7 +5135,7 @@ namespace {
 		 * <p>This function is currently not documented; only its argument list is available.</p><p>Move the iterator forward.</p>
 		 * @return void <p>No value is returned.</p>
 		 * @link http://php.net/manual/en/filteriterator.next.php
-		 * @see FilterIterator::current()
+		 * @see FilterIterator::current(), FilterIterator::key()
 		 * @since PHP 5 >= 5.1.0, PHP 7
 		 */
 		public function next(): void {}
@@ -5094,25 +5226,37 @@ namespace {
 		 * <p>Tries to clone the Exception, which results in Fatal error.</p>
 		 * @return void <p>No value is returned.</p>
 		 * @link http://php.net/manual/en/exception.clone.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final private function __clone() {}
+
+		/**
+		 * Construct the exception
+		 * <p>Constructs the Exception.</p>
+		 * @param string $message <p>The Exception message to throw.</p>
+		 * @param int $code <p>The Exception code.</p>
+		 * @param \Throwable $previous <p>The previous exception used for the exception chaining.</p>
+		 * @return self
+		 * @link http://php.net/manual/en/exception.construct.php
+		 * @since PHP 5, PHP 7, PHP 8
+		 */
+		public function __construct(string $message = "", int $code = 0, \Throwable $previous = NULL) {}
 
 		/**
 		 * String representation of the exception
 		 * <p>Returns the <code>string</code> representation of the exception.</p>
 		 * @return string <p>Returns the <code>string</code> representation of the exception.</p>
 		 * @link http://php.net/manual/en/exception.tostring.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		public function __toString(): string {}
 
 		/**
 		 * Gets the Exception code
 		 * <p>Returns the Exception code.</p>
-		 * @return mixed <p>Returns the exception code as <code>integer</code> in Exception but possibly as other type in Exception descendants (for example as <code>string</code> in PDOException).</p>
+		 * @return mixed <p>Returns the exception code as <code>int</code> in Exception but possibly as other type in Exception descendants (for example as <code>string</code> in PDOException).</p>
 		 * @link http://php.net/manual/en/exception.getcode.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getCode() {}
 
@@ -5121,7 +5265,7 @@ namespace {
 		 * <p>Get the name of the file in which the exception was created.</p>
 		 * @return string <p>Returns the filename in which the exception was created.</p>
 		 * @link http://php.net/manual/en/exception.getfile.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getFile(): string {}
 
@@ -5130,7 +5274,7 @@ namespace {
 		 * <p>Get line number where the exception was created.</p>
 		 * @return int <p>Returns the line number where the exception was created.</p>
 		 * @link http://php.net/manual/en/exception.getline.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getLine(): int {}
 
@@ -5139,7 +5283,7 @@ namespace {
 		 * <p>Returns the Exception message.</p>
 		 * @return string <p>Returns the Exception message as a string.</p>
 		 * @link http://php.net/manual/en/exception.getmessage.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getMessage(): string {}
 
@@ -5148,7 +5292,7 @@ namespace {
 		 * <p>Returns previous exception (the third parameter of <code>Exception::__construct()</code>).</p>
 		 * @return Throwable <p>Returns the previous Throwable if available or <b><code>NULL</code></b> otherwise.</p>
 		 * @link http://php.net/manual/en/exception.getprevious.php
-		 * @since PHP 5 >= 5.3.0, PHP 7
+		 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8
 		 */
 		final public function getPrevious(): \Throwable {}
 
@@ -5157,7 +5301,7 @@ namespace {
 		 * <p>Returns the Exception stack trace.</p>
 		 * @return array <p>Returns the Exception stack trace as an <code>array</code>.</p>
 		 * @link http://php.net/manual/en/exception.gettrace.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getTrace(): array {}
 
@@ -5166,7 +5310,7 @@ namespace {
 		 * <p>Returns the Exception stack trace as a string.</p>
 		 * @return string <p>Returns the Exception stack trace as a string.</p>
 		 * @link http://php.net/manual/en/exception.gettraceasstring.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getTraceAsString(): string {}
 	}
@@ -5183,7 +5327,7 @@ namespace {
 		 * <p>Returns the current element.</p>
 		 * @return mixed <p>Can return any type.</p>
 		 * @link http://php.net/manual/en/iterator.current.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		public function current();
 
@@ -5192,7 +5336,7 @@ namespace {
 		 * <p>Returns the key of the current element.</p>
 		 * @return scalar <p>Returns scalar on success, or <b><code>NULL</code></b> on failure.</p>
 		 * @link http://php.net/manual/en/iterator.key.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		public function key(): \scalar;
 
@@ -5201,7 +5345,7 @@ namespace {
 		 * <p>Moves the current position to the next element.</p><p><b>Note</b>:</p><p>This method is called <i>after</i> each foreach loop.</p>
 		 * @return void <p>Any returned value is ignored.</p>
 		 * @link http://php.net/manual/en/iterator.next.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		public function next(): void;
 
@@ -5210,7 +5354,7 @@ namespace {
 		 * <p>Rewinds back to the first element of the Iterator.</p><p><b>Note</b>:</p><p>This is the <i>first</i> method called when starting a foreach loop. It will <i>not</i> be executed <i>after</i> foreach loops.</p>
 		 * @return void <p>Any returned value is ignored.</p>
 		 * @link http://php.net/manual/en/iterator.rewind.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		public function rewind(): void;
 
@@ -5227,9 +5371,9 @@ namespace {
 		/**
 		 * Checks if current position is valid
 		 * <p>This method is called after <code>Iterator::rewind()</code> and <code>Iterator::next()</code> to check if the current position is valid.</p>
-		 * @return bool <p>The return value will be casted to <code>boolean</code> and then evaluated. Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+		 * @return bool <p>The return value will be casted to <code>bool</code> and then evaluated. Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
 		 * @link http://php.net/manual/en/iterator.valid.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		public function valid(): bool;
 	}
@@ -5239,7 +5383,31 @@ namespace {
 	 * @link http://php.net/manual/en/class.spldoublylinkedlist.php
 	 * @since PHP 5 >= 5.3.0, PHP 7
 	 */
-	class SplDoublyLinkedList implements \Iterator, \ArrayAccess, \Countable {
+	class SplDoublyLinkedList implements \Iterator, \ArrayAccess, \Countable, \Serializable {
+
+		/**
+		 * @var int <p>The list will be iterated in a last in, first out order, like a stack.</p>
+		 * @link http://php.net/manual/en/class.spldoublylinkedlist.php
+		 */
+		const IT_MODE_LIFO = 2;
+
+		/**
+		 * @var int <p>The list will be iterated in a first in, first out order, like a queue.</p>
+		 * @link http://php.net/manual/en/class.spldoublylinkedlist.php
+		 */
+		const IT_MODE_FIFO = 0;
+
+		/**
+		 * @var int <p>Iteration will remove the iterated elements.</p>
+		 * @link http://php.net/manual/en/class.spldoublylinkedlist.php
+		 */
+		const IT_MODE_DELETE = 1;
+
+		/**
+		 * @var int <p>Iteration will not remove the iterated elements.</p>
+		 * @link http://php.net/manual/en/class.spldoublylinkedlist.php
+		 */
+		const IT_MODE_KEEP = 0;
 
 		/**
 		 * Constructs a new doubly linked list
@@ -5479,11 +5647,11 @@ namespace {
 		/**
 		 * Returns the path to the file as a string
 		 * <p>This method will return the file name of the referenced file.</p>
-		 * @return void <p>Returns the path to the file.</p>
+		 * @return string <p>Returns the path to the file.</p>
 		 * @link http://php.net/manual/en/splfileinfo.tostring.php
 		 * @since PHP 5 >= 5.1.2, PHP 7
 		 */
-		public function __toString(): void {}
+		public function __toString(): string {}
 
 		/**
 		 * Gets last access time of the file
@@ -5652,7 +5820,7 @@ namespace {
 		/**
 		 * Gets file type
 		 * <p>Returns the type of the file referenced.</p>
-		 * @return string <p>A <code>string</code> representing the type of the entry. May be one of <i>file</i>, <i>link</i>, or <i>dir</i></p>
+		 * @return string <p>A <code>string</code> representing the type of the entry. May be one of <code>file</code>, <code>link</code>, or <code>dir</code></p>
 		 * @link http://php.net/manual/en/splfileinfo.gettype.php
 		 * @since PHP 5 >= 5.1.2, PHP 7
 		 */
@@ -5717,7 +5885,7 @@ namespace {
 		 * <p>Creates an SplFileObject <code>object</code> of the file. This is useful because SplFileObject contains additional methods for manipulating the file whereas SplFileInfo is only useful for gaining information, like whether the file is writable.</p>
 		 * @param string $open_mode <p>The mode for opening the file. See the <code>fopen()</code> documentation for descriptions of possible modes. The default is read only.</p>
 		 * @param bool $use_include_path <p>When set to <b><code>TRUE</code></b>, the filename is also searched for within the include_path</p>
-		 * @param resource $context <p>Refer to the context section of the manual for a description of <i>contexts</i>.</p>
+		 * @param resource $context <p>Refer to the context section of the manual for a description of <code>contexts</code>.</p>
 		 * @return SplFileObject <p>The opened file as an SplFileObject <code>object</code>.</p>
 		 * @link http://php.net/manual/en/splfileinfo.openfile.php
 		 * @see stream_context_create(), fopen()
@@ -5754,25 +5922,25 @@ namespace {
 	class SplFileObject extends \SplFileInfo implements \RecursiveIterator, \SeekableIterator {
 
 		/**
-		 * @var integer <p>Drop newlines at the end of a line.</p>
+		 * @var int <p>Drop newlines at the end of a line.</p>
 		 * @link http://php.net/manual/en/class.splfileobject.php
 		 */
 		const DROP_NEW_LINE = 1;
 
 		/**
-		 * @var integer <p>Read on rewind/next.</p>
+		 * @var int <p>Read on rewind/next.</p>
 		 * @link http://php.net/manual/en/class.splfileobject.php
 		 */
 		const READ_AHEAD = 2;
 
 		/**
-		 * @var integer <p>Skips empty lines in the file. This requires the <b><code>READ_AHEAD</code></b> flag be enabled, to work as expected.</p>
+		 * @var int <p>Skips empty lines in the file. This requires the <b><code>READ_AHEAD</code></b> flag be enabled, to work as expected.</p>
 		 * @link http://php.net/manual/en/class.splfileobject.php
 		 */
 		const SKIP_EMPTY = 4;
 
 		/**
-		 * @var integer <p>Read lines as CSV rows.</p>
+		 * @var int <p>Read lines as CSV rows.</p>
 		 * @link http://php.net/manual/en/class.splfileobject.php
 		 */
 		const READ_CSV = 8;
@@ -5792,12 +5960,13 @@ namespace {
 		public function __construct(string $filename, string $open_mode = "r", bool $use_include_path = FALSE, $context = NULL) {}
 
 		/**
-		 * Alias of SplFileObject::current()
-		 * <p>This method is an alias of <code>SplFileObject::current()</code>.</p>
-		 * @link http://php.net/manual/en/splfileobject.tostring.php
-		 * @since PHP 5 >= 5.1.0, PHP 7
+		 * Returns the path to the file as a string
+		 * <p>This method will return the file name of the referenced file.</p>
+		 * @return string <p>Returns the path to the file.</p>
+		 * @link http://php.net/manual/en/splfileinfo.tostring.php
+		 * @since PHP 5 >= 5.1.2, PHP 7
 		 */
-		function __toString() {}
+		public function __toString(): string {}
 
 		/**
 		 * Retrieve current line of file
@@ -5838,10 +6007,10 @@ namespace {
 
 		/**
 		 * Gets line from file and parse as CSV fields
-		 * <p>Gets a line from the file which is in CSV format and returns an array containing the fields read.</p><p><b>Note</b>:</p><p>The locale settings are taken into account by this function. If <i>LC_CTYPE</i> is e.g. <i>en_US.UTF-8</i>, files in one-byte encodings may be read wrongly by this function.</p>
+		 * <p>Gets a line from the file which is in CSV format and returns an array containing the fields read.</p><p><b>Note</b>:</p><p>The locale settings are taken into account by this function. If <code>LC_CTYPE</code> is e.g. <code>en_US.UTF-8</code>, files in one-byte encodings may be read wrongly by this function.</p>
 		 * @param string $delimiter <p>The field delimiter (one character only). Defaults as a comma or the value set using <code>SplFileObject::setCsvControl()</code>.</p>
 		 * @param string $enclosure <p>The field enclosure character (one character only). Defaults as a double quotation mark or the value set using <code>SplFileObject::setCsvControl()</code>.</p>
-		 * @param string $escape <p>The escape character (one character only). Defaults as a backslash (<i>\</i>) or the value set using <code>SplFileObject::setCsvControl()</code>.</p> <p><b>Note</b>:  Usually an <code>enclosure</code> character is escpaped inside a field by doubling it; however, the <code>escape</code> character can be used as an alternative. So for the default parameter values <i>""</i> and <i>\"</i> have the same meaning. Other than allowing to escape the <code>enclosure</code> character the <code>escape</code> character has no special meaning; it isn't even meant to escape itself. </p>
+		 * @param string $escape <p>The escape character (at most one character). Defaults as a backslash (<code>\</code>) or the value set using <code>SplFileObject::setCsvControl()</code>. An empty string (<code>""</code>) disables the proprietary escape mechanism.</p> <p><b>Note</b>:  Usually an <code>enclosure</code> character is escpaped inside a field by doubling it; however, the <code>escape</code> character can be used as an alternative. So for the default parameter values <code>""</code> and <code>\"</code> have the same meaning. Other than allowing to escape the <code>enclosure</code> character the <code>escape</code> character has no special meaning; it isn't even meant to escape itself. </p>
 		 * @return array <p>Returns an indexed array containing the fields read, or <b><code>FALSE</code></b> on error.</p><p><b>Note</b>:</p><p>A blank line in a CSV file will be returned as an array comprising a single <b><code>NULL</code></b> field unless using <b><code>SplFileObject::SKIP_EMPTY | SplFileObject::DROP_NEW_LINE</code></b>, in which case empty lines are skipped.</p>
 		 * @link http://php.net/manual/en/splfileobject.fgetcsv.php
 		 * @since PHP 5 >= 5.1.0, PHP 7
@@ -5860,7 +6029,7 @@ namespace {
 
 		/**
 		 * Gets line from file and strip HTML tags
-		 * <p>Identical to <code>SplFileObject::fgets()</code>, except that <b>SplFileObject::fgetss()</b> attempts to strip any HTML and PHP tags from the text it reads.</p>
+		 * <p>Identical to <code>SplFileObject::fgets()</code>, except that <b>SplFileObject::fgetss()</b> attempts to strip any HTML and PHP tags from the text it reads. The function retains the parsing state from call to call, and as such is not equivalent to calling <code>strip_tags()</code> on the return value of <code>SplFileObject::fgets()</code>.</p>
 		 * @param string $allowable_tags <p>Optional parameter to specify tags which should not be stripped.</p>
 		 * @return string <p>Returns a string containing the next line of the file with HTML and PHP code stripped, or <b><code>FALSE</code></b> on error.</p>
 		 * @link http://php.net/manual/en/splfileobject.fgetss.php
@@ -5872,7 +6041,7 @@ namespace {
 		/**
 		 * Portable file locking
 		 * <p>Locks or unlocks the file in the same portable way as <code>flock()</code>.</p>
-		 * @param int $operation <p><code>operation</code> is one of the following:</p><ul> <li>  <b><code>LOCK_SH</code></b> to acquire a shared lock (reader).  </li> <li>  <b><code>LOCK_EX</code></b> to acquire an exclusive lock (writer).  </li> <li>  <b><code>LOCK_UN</code></b> to release a lock (shared or exclusive).  </li> <li>  <b><code>LOCK_NB</code></b> to not block while locking.  </li> </ul>
+		 * @param int $operation <p><code>operation</code> is one of the following:</p><ul> <li>  <b><code>LOCK_SH</code></b> to acquire a shared lock (reader).  </li> <li>  <b><code>LOCK_EX</code></b> to acquire an exclusive lock (writer).  </li> <li>  <b><code>LOCK_UN</code></b> to release a lock (shared or exclusive).  </li> </ul> <p>It is also possible to add <b><code>LOCK_NB</code></b> as a bitmask to one of the above operations, if <code>flock()</code> should not block during the locking attempt.</p>
 		 * @param int $wouldblock <p>Set to <b><code>TRUE</code></b> if the lock would block (EWOULDBLOCK errno condition).</p>
 		 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
 		 * @link http://php.net/manual/en/splfileobject.flock.php
@@ -5897,36 +6066,36 @@ namespace {
 		 * @param array $fields <p>An array of values.</p>
 		 * @param string $delimiter <p>The optional <code>delimiter</code> parameter sets the field delimiter (one character only).</p>
 		 * @param string $enclosure <p>The optional <code>enclosure</code> parameter sets the field enclosure (one character only).</p>
-		 * @param string $escape <p>The optional <code>escape</code> parameter sets the escape character (one character only).</p>
-		 * @return int <p>Returns the length of the written string or <b><code>FALSE</code></b> on failure.</p><p>Returns <b><code>FALSE</code></b>, and does not write the CSV line to the file, if the <code>delimiter</code> or <code>enclosure</code> parameter is not a single character.</p>
+		 * @param string $escape <p>The optional <code>escape</code> parameter sets the escape character (at most one character). An empty string (<code>""</code>) disables the proprietary escape mechanism.</p>
+		 * @return int|false <p>Returns the length of the written string or <b><code>FALSE</code></b> on failure.</p><p>Returns <b><code>FALSE</code></b>, and does not write the CSV line to the file, if the <code>delimiter</code> or <code>enclosure</code> parameter is not a single character.</p>
 		 * @link http://php.net/manual/en/splfileobject.fputcsv.php
 		 * @see fputcsv()
 		 * @since PHP 5 >= 5.4.0, PHP 7
 		 */
-		public function fputcsv(array $fields, string $delimiter = ",", string $enclosure = '"', string $escape = "\\"): int {}
+		public function fputcsv(array $fields, string $delimiter = ",", string $enclosure = '"', string $escape = "\\") {}
 
 		/**
 		 * Read from file
 		 * <p>Reads the given number of bytes from the file.</p>
 		 * @param int $length <p>The number of bytes to read.</p>
-		 * @return string <p>Returns the string read from the file or <b><code>FALSE</code></b> on failure.</p>
+		 * @return string|false <p>Returns the string read from the file or <b><code>FALSE</code></b> on failure.</p>
 		 * @link http://php.net/manual/en/splfileobject.fread.php
 		 * @see fread()
 		 * @since PHP 5 >= 5.5.11, PHP 7
 		 */
-		public function fread(int $length): string {}
+		public function fread(int $length) {}
 
 		/**
 		 * Parses input from file according to a format
-		 * <p>Reads a line from the file and interprets it according to the specified <code>format</code>, which is described in the documentation for <code>sprintf()</code>.</p><p>Any whitespace in the <code>format</code> string matches any whitespace in the line from the file. This means that even a tab <i>\t</i> in the format string can match a single space character in the input stream.</p>
-		 * @param string $format <p>The specified format as described in the <code>sprintf()</code> documentation.</p>
-		 * @param mixed $_ <p>The optional assigned values.</p>
+		 * <p>Reads a line from the file and interprets it according to the specified <code>format</code>, which is described in the documentation for <code>sprintf()</code>.</p><p>Any whitespace in the <code>format</code> string matches any whitespace in the line from the file. This means that even a tab <code>\t</code> in the format string can match a single space character in the input stream.</p>
+		 * @param string $format <p>The format string is composed of zero or more directives: ordinary characters (excluding <code>%</code>) that are copied directly to the result and <i>conversion specifications</i>, each of which results in fetching its own parameter.</p> <p>A conversion specification follows this prototype: <code>%[argnum$][flags][width][.precision]specifier</code>.</p> <p></p>Argnum <p>An integer followed by a dollar sign <code>$</code>, to specify which number argument to treat in the conversion.</p> <p></p> <b>Flags</b>   Flag Description     <code>-</code>  Left-justify within the given field width; Right justification is the default    <code>+</code>  Prefix positive numbers with a plus sign <code>+</code>; Default only negative are prefixed with a negative sign.    <code> </code>(space)  Pads the result with spaces. This is the default.    <code>0</code>  Only left-pads numbers with zeros. With <code>s</code> specifiers this can also right-pad with zeros.    <code>'</code>(char)  Pads the result with the character (char).     <p></p>Width <p>An integer that says how many characters (minimum) this conversion should result in.</p> <p></p>Precision <p>A period <code>.</code> followed by an integer who's meaning depends on the specifier:</p><ul> <li>  For <code>e</code>, <code>E</code>, <code>f</code> and <code>F</code> specifiers: this is the number of digits to be printed after the decimal point (by default, this is 6).  </li> <li>  For <code>g</code> and <code>G</code> specifiers: this is the maximum number of significant digits to be printed.  </li> <li>  For <code>s</code> specifier: it acts as a cutoff point, setting a maximum character limit to the string.  </li> </ul> <p><b>Note</b>:  If the period is specified without an explicit value for precision, 0 is assumed. </p> <p><b>Note</b>:  Attempting to use a position specifier greater than <b><code>PHP_INT_MAX</code></b> will generate warnings. </p> <p></p> <b>Specifiers</b>   Specifier Description     <code>%</code>  A literal percent character. No argument is required.    <code>b</code>  The argument is treated as an integer and presented as a binary number.    <code>c</code>  The argument is treated as an integer and presented as the character with that ASCII.    <code>d</code>  The argument is treated as an integer and presented as a (signed) decimal number.    <code>e</code>  The argument is treated as scientific notation (e.g. 1.2e+2). The precision specifier stands for the number of digits after the decimal point since PHP 5.2.1. In earlier versions, it was taken as number of significant digits (one less).    <code>E</code>  Like the <code>e</code> specifier but uses uppercase letter (e.g. 1.2E+2).    <code>f</code>  The argument is treated as a float and presented as a floating-point number (locale aware).    <code>F</code>  The argument is treated as a float and presented as a floating-point number (non-locale aware). Available as of PHP 5.0.3.    <code>g</code>  <p>General format.</p> <p>Let P equal the precision if nonzero, 6 if the precision is omitted, or 1 if the precision is zero. Then, if a conversion with style E would have an exponent of X:</p> <p>If P &gt; X &ge; &minus;4, the conversion is with style f and precision P &minus; (X + 1). Otherwise, the conversion is with style e and precision P &minus; 1.</p>    <code>G</code>  Like the <code>g</code> specifier but uses <code>E</code> and <code>f</code>.    <code>o</code>  The argument is treated as an integer and presented as an octal number.    <code>s</code>  The argument is treated and presented as a string.    <code>u</code>  The argument is treated as an integer and presented as an unsigned decimal number.    <code>x</code>  The argument is treated as an integer and presented as a hexadecimal number (with lowercase letters).    <code>X</code>  The argument is treated as an integer and presented as a hexadecimal number (with uppercase letters).     <p><b>Warning</b></p> <p>The <code>c</code> type specifier ignores padding and width</p>  <p><b>Warning</b></p> <p>Attempting to use a combination of the string and width specifiers with character sets that require more than one byte per character may result in unexpected results</p>  <p>Variables will be co-erced to a suitable type for the specifier:</p> <b>Type Handling</b>   Type Specifiers     <code>string</code> <code>s</code>   <code>integer</code>  <code>d</code>, <code>u</code>, <code>c</code>, <code>o</code>, <code>x</code>, <code>X</code>, <code>b</code>    <code>double</code>  <code>g</code>, <code>G</code>, <code>e</code>, <code>E</code>, <code>f</code>, <code>F</code>
+		 * @param mixed $_$vars
 		 * @return mixed <p>If only one parameter is passed to this method, the values parsed will be returned as an array. Otherwise, if optional parameters are passed, the function will return the number of assigned values. The optional parameters must be passed by reference.</p>
 		 * @link http://php.net/manual/en/splfileobject.fscanf.php
-		 * @see fscanf()
+		 * @see fscanf(), sscanf(), printf(), sprintf()
 		 * @since PHP 5 >= 5.1.0, PHP 7
 		 */
-		public function fscanf(string $format, &$_ = NULL) {}
+		public function fscanf(string $format, &$_$vars) {}
 
 		/**
 		 * Seek to a position
@@ -5976,7 +6145,7 @@ namespace {
 		 * <p>Writes the contents of <code>string</code> to the file</p>
 		 * @param string $str <p>The string to be written to the file.</p>
 		 * @param int $length <p>If the <code>length</code> argument is given, writing will stop after <code>length</code> bytes have been written or the end of <code>string</code> is reached, whichever comes first.</p>
-		 * @return int <p>Returns the number of bytes written, or 0 on error.</p>
+		 * @return int <p>Returns the number of bytes written, or <b><code>FALSE</code></b> on error.</p>
 		 * @link http://php.net/manual/en/splfileobject.fwrite.php
 		 * @see fwrite()
 		 * @since PHP 5 >= 5.1.0, PHP 7
@@ -6062,8 +6231,8 @@ namespace {
 
 		/**
 		 * Gets flags for the SplFileObject
-		 * <p>Gets the flags set for an instance of SplFileObject as an <code>integer</code>.</p>
-		 * @return int <p>Returns an <code>integer</code> representing the flags.</p>
+		 * <p>Gets the flags set for an instance of SplFileObject as an <code>int</code>.</p>
+		 * @return int <p>Returns an <code>int</code> representing the flags.</p>
 		 * @link http://php.net/manual/en/splfileobject.getflags.php
 		 * @since PHP 5 >= 5.1.0, PHP 7
 		 */
@@ -6111,7 +6280,7 @@ namespace {
 		/**
 		 * Get maximum line length
 		 * <p>Gets the maximum line length as set by <code>SplFileObject::setMaxLineLen()</code>.</p>
-		 * @return int <p>Returns the maximum line length if one has been set with <code>SplFileObject::setMaxLineLen()</code>, default is <i>0</i>.</p>
+		 * @return int <p>Returns the maximum line length if one has been set with <code>SplFileObject::setMaxLineLen()</code>, default is <code>0</code>.</p>
 		 * @link http://php.net/manual/en/splfileobject.getmaxlinelen.php
 		 * @since PHP 5 >= 5.1.0, PHP 7
 		 */
@@ -6186,7 +6355,7 @@ namespace {
 		/**
 		 * Gets file type
 		 * <p>Returns the type of the file referenced.</p>
-		 * @return string <p>A <code>string</code> representing the type of the entry. May be one of <i>file</i>, <i>link</i>, or <i>dir</i></p>
+		 * @return string <p>A <code>string</code> representing the type of the entry. May be one of <code>file</code>, <code>link</code>, or <code>dir</code></p>
 		 * @link http://php.net/manual/en/splfileinfo.gettype.php
 		 * @since PHP 5 >= 5.1.2, PHP 7
 		 */
@@ -6278,7 +6447,7 @@ namespace {
 		 * <p>Creates an SplFileObject <code>object</code> of the file. This is useful because SplFileObject contains additional methods for manipulating the file whereas SplFileInfo is only useful for gaining information, like whether the file is writable.</p>
 		 * @param string $open_mode <p>The mode for opening the file. See the <code>fopen()</code> documentation for descriptions of possible modes. The default is read only.</p>
 		 * @param bool $use_include_path <p>When set to <b><code>TRUE</code></b>, the filename is also searched for within the include_path</p>
-		 * @param resource $context <p>Refer to the context section of the manual for a description of <i>contexts</i>.</p>
+		 * @param resource $context <p>Refer to the context section of the manual for a description of <code>contexts</code>.</p>
 		 * @return SplFileObject <p>The opened file as an SplFileObject <code>object</code>.</p>
 		 * @link http://php.net/manual/en/splfileinfo.openfile.php
 		 * @see stream_context_create(), fopen()
@@ -6310,7 +6479,7 @@ namespace {
 		 * <p>Sets the delimiter, enclosure and escape character for parsing CSV fields.</p>
 		 * @param string $delimiter <p>The field delimiter (one character only).</p>
 		 * @param string $enclosure <p>The field enclosure character (one character only).</p>
-		 * @param string $escape <p>The field escape character (one character only).</p>
+		 * @param string $escape <p>The field escape character (at most one character). An empty string (<code>""</code>) disables the proprietary escape mechanism.</p>
 		 * @return void <p>No value is returned.</p>
 		 * @link http://php.net/manual/en/splfileobject.setcsvcontrol.php
 		 * @since PHP 5 >= 5.2.0, PHP 7
@@ -6368,7 +6537,7 @@ namespace {
 	}
 
 	/**
-	 * <p>The SplFixedArray class provides the main functionalities of array. The main differences between a SplFixedArray and a normal PHP array is that the SplFixedArray is of fixed length and allows only integers within the range as indexes. The advantage is that it allows a faster array implementation.</p>
+	 * <p>The SplFixedArray class provides the main functionalities of array. The main differences between a SplFixedArray and a normal PHP array is that the SplFixedArray is of fixed length and allows only integers within the range as indexes. The advantage is that it uses less memory than a standard <code>array</code>.</p>
 	 * @link http://php.net/manual/en/class.splfixedarray.php
 	 * @since PHP 5 >= 5.3.0, PHP 7
 	 */
@@ -6377,7 +6546,7 @@ namespace {
 		/**
 		 * Constructs a new fixed array
 		 * <p>Initializes a fixed array with a number of <b><code>NULL</code></b> values equal to <code>size</code>.</p>
-		 * @param int $size <p>The size of the fixed array. This expects a number between <i>0</i> and <b><code>PHP_INT_MAX</code></b>.</p>
+		 * @param int $size <p>The size of the fixed array. This expects a number between <code>0</code> and <b><code>PHP_INT_MAX</code></b>.</p>
 		 * @return self <p>No value is returned.</p>
 		 * @link http://php.net/manual/en/splfixedarray.construct.php
 		 * @since PHP 5 >= 5.3.0, PHP 7
@@ -6425,7 +6594,7 @@ namespace {
 		/**
 		 * Gets the size of the array
 		 * <p>Gets the size of the array.</p>
-		 * @return int <p>Returns the size of the array, as an <code>integer</code>.</p>
+		 * @return int <p>Returns the size of the array, as an <code>int</code>.</p>
 		 * @link http://php.net/manual/en/splfixedarray.getsize.php
 		 * @since PHP 5 >= 5.3.0, PHP 7
 		 */
@@ -6502,7 +6671,7 @@ namespace {
 		/**
 		 * Change the size of an array
 		 * <p>Change the size of an array to the new size of <code>size</code>. If <code>size</code> is less than the current array size, any values after the new size will be discarded. If <code>size</code> is greater than the current array size, the array will be padded with <b><code>NULL</code></b> values.</p>
-		 * @param int $size <p>The new array size. This should be a value between <i>0</i> and <b><code>PHP_INT_MAX</code></b>.</p>
+		 * @param int $size <p>The new array size. This should be a value between <code>0</code> and <b><code>PHP_INT_MAX</code></b>.</p>
 		 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
 		 * @link http://php.net/manual/en/splfixedarray.setsize.php
 		 * @since PHP 5 >= 5.3.0, PHP 7
@@ -6906,7 +7075,7 @@ namespace {
 	/**
 	 * <p>The SplObjectStorage class provides a map from objects to data or, by ignoring data, an object set. This dual purpose can be useful in many cases involving the need to uniquely identify objects.</p>
 	 * @link http://php.net/manual/en/class.splobjectstorage.php
-	 * @since PHP 5 >= 5.3.0, PHP 7
+	 * @since PHP 5 >= 5.1.0, PHP 7
 	 */
 	class SplObjectStorage implements \Countable, \Iterator, \Serializable, \ArrayAccess {
 
@@ -7201,17 +7370,17 @@ namespace {
 		 * <p>Insert <code>value</code> with the priority <code>priority</code> in the queue.</p>
 		 * @param mixed $value <p>The value to insert.</p>
 		 * @param mixed $priority <p>The associated priority.</p>
-		 * @return void <p>No value is returned.</p>
+		 * @return bool <p>Returns <b><code>TRUE</code></b>.</p>
 		 * @link http://php.net/manual/en/splpriorityqueue.insert.php
 		 * @since PHP 5 >= 5.3.0, PHP 7
 		 */
-		public function insert($value, $priority): void {}
+		public function insert($value, $priority): bool {}
 
 		/**
 		 * Tells if the priority queue is in a corrupted state
 		 * @return bool <p>Returns <b><code>TRUE</code></b> if the priority queue is corrupted, <b><code>FALSE</code></b> otherwise.</p>
 		 * @link http://php.net/manual/en/splpriorityqueue.iscorrupted.php
-		 * @since No version information available, might only be in Git
+		 * @since PHP 5 >= 5.3.0, PHP 7
 		 */
 		public function isCorrupted(): bool {}
 
@@ -7809,14 +7978,6 @@ namespace {
 		public function __construct(int $max_memory = NULL) {}
 
 		/**
-		 * Alias of SplFileObject::current()
-		 * <p>This method is an alias of <code>SplFileObject::current()</code>.</p>
-		 * @link http://php.net/manual/en/splfileobject.tostring.php
-		 * @since PHP 5 >= 5.1.0, PHP 7
-		 */
-		function __toString() {}
-
-		/**
 		 * Retrieve current line of file
 		 * <p>Retrieves the current line of the file.</p>
 		 * @return string|array <p>Retrieves the current line of the file. If the <b><code>SplFileObject::READ_CSV</code></b> flag is set, this method returns an array containing the current line parsed as CSV data.</p>
@@ -7855,10 +8016,10 @@ namespace {
 
 		/**
 		 * Gets line from file and parse as CSV fields
-		 * <p>Gets a line from the file which is in CSV format and returns an array containing the fields read.</p><p><b>Note</b>:</p><p>The locale settings are taken into account by this function. If <i>LC_CTYPE</i> is e.g. <i>en_US.UTF-8</i>, files in one-byte encodings may be read wrongly by this function.</p>
+		 * <p>Gets a line from the file which is in CSV format and returns an array containing the fields read.</p><p><b>Note</b>:</p><p>The locale settings are taken into account by this function. If <code>LC_CTYPE</code> is e.g. <code>en_US.UTF-8</code>, files in one-byte encodings may be read wrongly by this function.</p>
 		 * @param string $delimiter <p>The field delimiter (one character only). Defaults as a comma or the value set using <code>SplFileObject::setCsvControl()</code>.</p>
 		 * @param string $enclosure <p>The field enclosure character (one character only). Defaults as a double quotation mark or the value set using <code>SplFileObject::setCsvControl()</code>.</p>
-		 * @param string $escape <p>The escape character (one character only). Defaults as a backslash (<i>\</i>) or the value set using <code>SplFileObject::setCsvControl()</code>.</p> <p><b>Note</b>:  Usually an <code>enclosure</code> character is escpaped inside a field by doubling it; however, the <code>escape</code> character can be used as an alternative. So for the default parameter values <i>""</i> and <i>\"</i> have the same meaning. Other than allowing to escape the <code>enclosure</code> character the <code>escape</code> character has no special meaning; it isn't even meant to escape itself. </p>
+		 * @param string $escape <p>The escape character (at most one character). Defaults as a backslash (<code>\</code>) or the value set using <code>SplFileObject::setCsvControl()</code>. An empty string (<code>""</code>) disables the proprietary escape mechanism.</p> <p><b>Note</b>:  Usually an <code>enclosure</code> character is escpaped inside a field by doubling it; however, the <code>escape</code> character can be used as an alternative. So for the default parameter values <code>""</code> and <code>\"</code> have the same meaning. Other than allowing to escape the <code>enclosure</code> character the <code>escape</code> character has no special meaning; it isn't even meant to escape itself. </p>
 		 * @return array <p>Returns an indexed array containing the fields read, or <b><code>FALSE</code></b> on error.</p><p><b>Note</b>:</p><p>A blank line in a CSV file will be returned as an array comprising a single <b><code>NULL</code></b> field unless using <b><code>SplFileObject::SKIP_EMPTY | SplFileObject::DROP_NEW_LINE</code></b>, in which case empty lines are skipped.</p>
 		 * @link http://php.net/manual/en/splfileobject.fgetcsv.php
 		 * @since PHP 5 >= 5.1.0, PHP 7
@@ -7877,7 +8038,7 @@ namespace {
 
 		/**
 		 * Gets line from file and strip HTML tags
-		 * <p>Identical to <code>SplFileObject::fgets()</code>, except that <b>SplFileObject::fgetss()</b> attempts to strip any HTML and PHP tags from the text it reads.</p>
+		 * <p>Identical to <code>SplFileObject::fgets()</code>, except that <b>SplFileObject::fgetss()</b> attempts to strip any HTML and PHP tags from the text it reads. The function retains the parsing state from call to call, and as such is not equivalent to calling <code>strip_tags()</code> on the return value of <code>SplFileObject::fgets()</code>.</p>
 		 * @param string $allowable_tags <p>Optional parameter to specify tags which should not be stripped.</p>
 		 * @return string <p>Returns a string containing the next line of the file with HTML and PHP code stripped, or <b><code>FALSE</code></b> on error.</p>
 		 * @link http://php.net/manual/en/splfileobject.fgetss.php
@@ -7889,7 +8050,7 @@ namespace {
 		/**
 		 * Portable file locking
 		 * <p>Locks or unlocks the file in the same portable way as <code>flock()</code>.</p>
-		 * @param int $operation <p><code>operation</code> is one of the following:</p><ul> <li>  <b><code>LOCK_SH</code></b> to acquire a shared lock (reader).  </li> <li>  <b><code>LOCK_EX</code></b> to acquire an exclusive lock (writer).  </li> <li>  <b><code>LOCK_UN</code></b> to release a lock (shared or exclusive).  </li> <li>  <b><code>LOCK_NB</code></b> to not block while locking.  </li> </ul>
+		 * @param int $operation <p><code>operation</code> is one of the following:</p><ul> <li>  <b><code>LOCK_SH</code></b> to acquire a shared lock (reader).  </li> <li>  <b><code>LOCK_EX</code></b> to acquire an exclusive lock (writer).  </li> <li>  <b><code>LOCK_UN</code></b> to release a lock (shared or exclusive).  </li> </ul> <p>It is also possible to add <b><code>LOCK_NB</code></b> as a bitmask to one of the above operations, if <code>flock()</code> should not block during the locking attempt.</p>
 		 * @param int $wouldblock <p>Set to <b><code>TRUE</code></b> if the lock would block (EWOULDBLOCK errno condition).</p>
 		 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
 		 * @link http://php.net/manual/en/splfileobject.flock.php
@@ -7914,36 +8075,36 @@ namespace {
 		 * @param array $fields <p>An array of values.</p>
 		 * @param string $delimiter <p>The optional <code>delimiter</code> parameter sets the field delimiter (one character only).</p>
 		 * @param string $enclosure <p>The optional <code>enclosure</code> parameter sets the field enclosure (one character only).</p>
-		 * @param string $escape <p>The optional <code>escape</code> parameter sets the escape character (one character only).</p>
-		 * @return int <p>Returns the length of the written string or <b><code>FALSE</code></b> on failure.</p><p>Returns <b><code>FALSE</code></b>, and does not write the CSV line to the file, if the <code>delimiter</code> or <code>enclosure</code> parameter is not a single character.</p>
+		 * @param string $escape <p>The optional <code>escape</code> parameter sets the escape character (at most one character). An empty string (<code>""</code>) disables the proprietary escape mechanism.</p>
+		 * @return int|false <p>Returns the length of the written string or <b><code>FALSE</code></b> on failure.</p><p>Returns <b><code>FALSE</code></b>, and does not write the CSV line to the file, if the <code>delimiter</code> or <code>enclosure</code> parameter is not a single character.</p>
 		 * @link http://php.net/manual/en/splfileobject.fputcsv.php
 		 * @see fputcsv()
 		 * @since PHP 5 >= 5.4.0, PHP 7
 		 */
-		public function fputcsv(array $fields, string $delimiter = ",", string $enclosure = '"', string $escape = "\\"): int {}
+		public function fputcsv(array $fields, string $delimiter = ",", string $enclosure = '"', string $escape = "\\") {}
 
 		/**
 		 * Read from file
 		 * <p>Reads the given number of bytes from the file.</p>
 		 * @param int $length <p>The number of bytes to read.</p>
-		 * @return string <p>Returns the string read from the file or <b><code>FALSE</code></b> on failure.</p>
+		 * @return string|false <p>Returns the string read from the file or <b><code>FALSE</code></b> on failure.</p>
 		 * @link http://php.net/manual/en/splfileobject.fread.php
 		 * @see fread()
 		 * @since PHP 5 >= 5.5.11, PHP 7
 		 */
-		public function fread(int $length): string {}
+		public function fread(int $length) {}
 
 		/**
 		 * Parses input from file according to a format
-		 * <p>Reads a line from the file and interprets it according to the specified <code>format</code>, which is described in the documentation for <code>sprintf()</code>.</p><p>Any whitespace in the <code>format</code> string matches any whitespace in the line from the file. This means that even a tab <i>\t</i> in the format string can match a single space character in the input stream.</p>
-		 * @param string $format <p>The specified format as described in the <code>sprintf()</code> documentation.</p>
-		 * @param mixed $_ <p>The optional assigned values.</p>
+		 * <p>Reads a line from the file and interprets it according to the specified <code>format</code>, which is described in the documentation for <code>sprintf()</code>.</p><p>Any whitespace in the <code>format</code> string matches any whitespace in the line from the file. This means that even a tab <code>\t</code> in the format string can match a single space character in the input stream.</p>
+		 * @param string $format <p>The format string is composed of zero or more directives: ordinary characters (excluding <code>%</code>) that are copied directly to the result and <i>conversion specifications</i>, each of which results in fetching its own parameter.</p> <p>A conversion specification follows this prototype: <code>%[argnum$][flags][width][.precision]specifier</code>.</p> <p></p>Argnum <p>An integer followed by a dollar sign <code>$</code>, to specify which number argument to treat in the conversion.</p> <p></p> <b>Flags</b>   Flag Description     <code>-</code>  Left-justify within the given field width; Right justification is the default    <code>+</code>  Prefix positive numbers with a plus sign <code>+</code>; Default only negative are prefixed with a negative sign.    <code> </code>(space)  Pads the result with spaces. This is the default.    <code>0</code>  Only left-pads numbers with zeros. With <code>s</code> specifiers this can also right-pad with zeros.    <code>'</code>(char)  Pads the result with the character (char).     <p></p>Width <p>An integer that says how many characters (minimum) this conversion should result in.</p> <p></p>Precision <p>A period <code>.</code> followed by an integer who's meaning depends on the specifier:</p><ul> <li>  For <code>e</code>, <code>E</code>, <code>f</code> and <code>F</code> specifiers: this is the number of digits to be printed after the decimal point (by default, this is 6).  </li> <li>  For <code>g</code> and <code>G</code> specifiers: this is the maximum number of significant digits to be printed.  </li> <li>  For <code>s</code> specifier: it acts as a cutoff point, setting a maximum character limit to the string.  </li> </ul> <p><b>Note</b>:  If the period is specified without an explicit value for precision, 0 is assumed. </p> <p><b>Note</b>:  Attempting to use a position specifier greater than <b><code>PHP_INT_MAX</code></b> will generate warnings. </p> <p></p> <b>Specifiers</b>   Specifier Description     <code>%</code>  A literal percent character. No argument is required.    <code>b</code>  The argument is treated as an integer and presented as a binary number.    <code>c</code>  The argument is treated as an integer and presented as the character with that ASCII.    <code>d</code>  The argument is treated as an integer and presented as a (signed) decimal number.    <code>e</code>  The argument is treated as scientific notation (e.g. 1.2e+2). The precision specifier stands for the number of digits after the decimal point since PHP 5.2.1. In earlier versions, it was taken as number of significant digits (one less).    <code>E</code>  Like the <code>e</code> specifier but uses uppercase letter (e.g. 1.2E+2).    <code>f</code>  The argument is treated as a float and presented as a floating-point number (locale aware).    <code>F</code>  The argument is treated as a float and presented as a floating-point number (non-locale aware). Available as of PHP 5.0.3.    <code>g</code>  <p>General format.</p> <p>Let P equal the precision if nonzero, 6 if the precision is omitted, or 1 if the precision is zero. Then, if a conversion with style E would have an exponent of X:</p> <p>If P &gt; X &ge; &minus;4, the conversion is with style f and precision P &minus; (X + 1). Otherwise, the conversion is with style e and precision P &minus; 1.</p>    <code>G</code>  Like the <code>g</code> specifier but uses <code>E</code> and <code>f</code>.    <code>o</code>  The argument is treated as an integer and presented as an octal number.    <code>s</code>  The argument is treated and presented as a string.    <code>u</code>  The argument is treated as an integer and presented as an unsigned decimal number.    <code>x</code>  The argument is treated as an integer and presented as a hexadecimal number (with lowercase letters).    <code>X</code>  The argument is treated as an integer and presented as a hexadecimal number (with uppercase letters).     <p><b>Warning</b></p> <p>The <code>c</code> type specifier ignores padding and width</p>  <p><b>Warning</b></p> <p>Attempting to use a combination of the string and width specifiers with character sets that require more than one byte per character may result in unexpected results</p>  <p>Variables will be co-erced to a suitable type for the specifier:</p> <b>Type Handling</b>   Type Specifiers     <code>string</code> <code>s</code>   <code>integer</code>  <code>d</code>, <code>u</code>, <code>c</code>, <code>o</code>, <code>x</code>, <code>X</code>, <code>b</code>    <code>double</code>  <code>g</code>, <code>G</code>, <code>e</code>, <code>E</code>, <code>f</code>, <code>F</code>
+		 * @param mixed $_$vars
 		 * @return mixed <p>If only one parameter is passed to this method, the values parsed will be returned as an array. Otherwise, if optional parameters are passed, the function will return the number of assigned values. The optional parameters must be passed by reference.</p>
 		 * @link http://php.net/manual/en/splfileobject.fscanf.php
-		 * @see fscanf()
+		 * @see fscanf(), sscanf(), printf(), sprintf()
 		 * @since PHP 5 >= 5.1.0, PHP 7
 		 */
-		public function fscanf(string $format, &$_ = NULL) {}
+		public function fscanf(string $format, &$_$vars) {}
 
 		/**
 		 * Seek to a position
@@ -7993,7 +8154,7 @@ namespace {
 		 * <p>Writes the contents of <code>string</code> to the file</p>
 		 * @param string $str <p>The string to be written to the file.</p>
 		 * @param int $length <p>If the <code>length</code> argument is given, writing will stop after <code>length</code> bytes have been written or the end of <code>string</code> is reached, whichever comes first.</p>
-		 * @return int <p>Returns the number of bytes written, or 0 on error.</p>
+		 * @return int <p>Returns the number of bytes written, or <b><code>FALSE</code></b> on error.</p>
 		 * @link http://php.net/manual/en/splfileobject.fwrite.php
 		 * @see fwrite()
 		 * @since PHP 5 >= 5.1.0, PHP 7
@@ -8020,8 +8181,8 @@ namespace {
 
 		/**
 		 * Gets flags for the SplFileObject
-		 * <p>Gets the flags set for an instance of SplFileObject as an <code>integer</code>.</p>
-		 * @return int <p>Returns an <code>integer</code> representing the flags.</p>
+		 * <p>Gets the flags set for an instance of SplFileObject as an <code>int</code>.</p>
+		 * @return int <p>Returns an <code>int</code> representing the flags.</p>
 		 * @link http://php.net/manual/en/splfileobject.getflags.php
 		 * @since PHP 5 >= 5.1.0, PHP 7
 		 */
@@ -8030,7 +8191,7 @@ namespace {
 		/**
 		 * Get maximum line length
 		 * <p>Gets the maximum line length as set by <code>SplFileObject::setMaxLineLen()</code>.</p>
-		 * @return int <p>Returns the maximum line length if one has been set with <code>SplFileObject::setMaxLineLen()</code>, default is <i>0</i>.</p>
+		 * @return int <p>Returns the maximum line length if one has been set with <code>SplFileObject::setMaxLineLen()</code>, default is <code>0</code>.</p>
 		 * @link http://php.net/manual/en/splfileobject.getmaxlinelen.php
 		 * @since PHP 5 >= 5.1.0, PHP 7
 		 */
@@ -8087,7 +8248,7 @@ namespace {
 		 * <p>Sets the delimiter, enclosure and escape character for parsing CSV fields.</p>
 		 * @param string $delimiter <p>The field delimiter (one character only).</p>
 		 * @param string $enclosure <p>The field enclosure character (one character only).</p>
-		 * @param string $escape <p>The field escape character (one character only).</p>
+		 * @param string $escape <p>The field escape character (at most one character). An empty string (<code>""</code>) disables the proprietary escape mechanism.</p>
 		 * @return void <p>No value is returned.</p>
 		 * @link http://php.net/manual/en/splfileobject.setcsvcontrol.php
 		 * @since PHP 5 >= 5.2.0, PHP 7
@@ -8160,25 +8321,37 @@ namespace {
 		 * <p>Tries to clone the Exception, which results in Fatal error.</p>
 		 * @return void <p>No value is returned.</p>
 		 * @link http://php.net/manual/en/exception.clone.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final private function __clone() {}
+
+		/**
+		 * Construct the exception
+		 * <p>Constructs the Exception.</p>
+		 * @param string $message <p>The Exception message to throw.</p>
+		 * @param int $code <p>The Exception code.</p>
+		 * @param \Throwable $previous <p>The previous exception used for the exception chaining.</p>
+		 * @return self
+		 * @link http://php.net/manual/en/exception.construct.php
+		 * @since PHP 5, PHP 7, PHP 8
+		 */
+		public function __construct(string $message = "", int $code = 0, \Throwable $previous = NULL) {}
 
 		/**
 		 * String representation of the exception
 		 * <p>Returns the <code>string</code> representation of the exception.</p>
 		 * @return string <p>Returns the <code>string</code> representation of the exception.</p>
 		 * @link http://php.net/manual/en/exception.tostring.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		public function __toString(): string {}
 
 		/**
 		 * Gets the Exception code
 		 * <p>Returns the Exception code.</p>
-		 * @return mixed <p>Returns the exception code as <code>integer</code> in Exception but possibly as other type in Exception descendants (for example as <code>string</code> in PDOException).</p>
+		 * @return mixed <p>Returns the exception code as <code>int</code> in Exception but possibly as other type in Exception descendants (for example as <code>string</code> in PDOException).</p>
 		 * @link http://php.net/manual/en/exception.getcode.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getCode() {}
 
@@ -8187,7 +8360,7 @@ namespace {
 		 * <p>Get the name of the file in which the exception was created.</p>
 		 * @return string <p>Returns the filename in which the exception was created.</p>
 		 * @link http://php.net/manual/en/exception.getfile.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getFile(): string {}
 
@@ -8196,7 +8369,7 @@ namespace {
 		 * <p>Get line number where the exception was created.</p>
 		 * @return int <p>Returns the line number where the exception was created.</p>
 		 * @link http://php.net/manual/en/exception.getline.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getLine(): int {}
 
@@ -8205,7 +8378,7 @@ namespace {
 		 * <p>Returns the Exception message.</p>
 		 * @return string <p>Returns the Exception message as a string.</p>
 		 * @link http://php.net/manual/en/exception.getmessage.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getMessage(): string {}
 
@@ -8214,7 +8387,7 @@ namespace {
 		 * <p>Returns previous exception (the third parameter of <code>Exception::__construct()</code>).</p>
 		 * @return Throwable <p>Returns the previous Throwable if available or <b><code>NULL</code></b> otherwise.</p>
 		 * @link http://php.net/manual/en/exception.getprevious.php
-		 * @since PHP 5 >= 5.3.0, PHP 7
+		 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8
 		 */
 		final public function getPrevious(): \Throwable {}
 
@@ -8223,7 +8396,7 @@ namespace {
 		 * <p>Returns the Exception stack trace.</p>
 		 * @return array <p>Returns the Exception stack trace as an <code>array</code>.</p>
 		 * @link http://php.net/manual/en/exception.gettrace.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getTrace(): array {}
 
@@ -8232,7 +8405,7 @@ namespace {
 		 * <p>Returns the Exception stack trace as a string.</p>
 		 * @return string <p>Returns the Exception stack trace as a string.</p>
 		 * @link http://php.net/manual/en/exception.gettraceasstring.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getTraceAsString(): string {}
 	}
@@ -8273,25 +8446,37 @@ namespace {
 		 * <p>Tries to clone the Exception, which results in Fatal error.</p>
 		 * @return void <p>No value is returned.</p>
 		 * @link http://php.net/manual/en/exception.clone.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final private function __clone() {}
+
+		/**
+		 * Construct the exception
+		 * <p>Constructs the Exception.</p>
+		 * @param string $message <p>The Exception message to throw.</p>
+		 * @param int $code <p>The Exception code.</p>
+		 * @param \Throwable $previous <p>The previous exception used for the exception chaining.</p>
+		 * @return self
+		 * @link http://php.net/manual/en/exception.construct.php
+		 * @since PHP 5, PHP 7, PHP 8
+		 */
+		public function __construct(string $message = "", int $code = 0, \Throwable $previous = NULL) {}
 
 		/**
 		 * String representation of the exception
 		 * <p>Returns the <code>string</code> representation of the exception.</p>
 		 * @return string <p>Returns the <code>string</code> representation of the exception.</p>
 		 * @link http://php.net/manual/en/exception.tostring.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		public function __toString(): string {}
 
 		/**
 		 * Gets the Exception code
 		 * <p>Returns the Exception code.</p>
-		 * @return mixed <p>Returns the exception code as <code>integer</code> in Exception but possibly as other type in Exception descendants (for example as <code>string</code> in PDOException).</p>
+		 * @return mixed <p>Returns the exception code as <code>int</code> in Exception but possibly as other type in Exception descendants (for example as <code>string</code> in PDOException).</p>
 		 * @link http://php.net/manual/en/exception.getcode.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getCode() {}
 
@@ -8300,7 +8485,7 @@ namespace {
 		 * <p>Get the name of the file in which the exception was created.</p>
 		 * @return string <p>Returns the filename in which the exception was created.</p>
 		 * @link http://php.net/manual/en/exception.getfile.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getFile(): string {}
 
@@ -8309,7 +8494,7 @@ namespace {
 		 * <p>Get line number where the exception was created.</p>
 		 * @return int <p>Returns the line number where the exception was created.</p>
 		 * @link http://php.net/manual/en/exception.getline.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getLine(): int {}
 
@@ -8318,7 +8503,7 @@ namespace {
 		 * <p>Returns the Exception message.</p>
 		 * @return string <p>Returns the Exception message as a string.</p>
 		 * @link http://php.net/manual/en/exception.getmessage.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getMessage(): string {}
 
@@ -8327,7 +8512,7 @@ namespace {
 		 * <p>Returns previous exception (the third parameter of <code>Exception::__construct()</code>).</p>
 		 * @return Throwable <p>Returns the previous Throwable if available or <b><code>NULL</code></b> otherwise.</p>
 		 * @link http://php.net/manual/en/exception.getprevious.php
-		 * @since PHP 5 >= 5.3.0, PHP 7
+		 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8
 		 */
 		final public function getPrevious(): \Throwable {}
 
@@ -8336,7 +8521,7 @@ namespace {
 		 * <p>Returns the Exception stack trace.</p>
 		 * @return array <p>Returns the Exception stack trace as an <code>array</code>.</p>
 		 * @link http://php.net/manual/en/exception.gettrace.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getTrace(): array {}
 
@@ -8345,7 +8530,7 @@ namespace {
 		 * <p>Returns the Exception stack trace as a string.</p>
 		 * @return string <p>Returns the Exception stack trace as a string.</p>
 		 * @link http://php.net/manual/en/exception.gettraceasstring.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getTraceAsString(): string {}
 	}
@@ -8390,7 +8575,7 @@ namespace {
 	 * Call a function for every element in an iterator
 	 * <p>Calls a function for every element in an iterator.</p>
 	 * @param \Traversable $iterator <p>The iterator object to iterate over.</p>
-	 * @param callable $function <p>The callback function to call on every element. This function only receives the given <code>args</code>, so it is nullary by default. If <i>count($args) === 3</i>, for instance, the callback function is ternary.</p><p><b>Note</b>:  The function must return <b><code>TRUE</code></b> in order to continue iterating over the <code>iterator</code>. </p>
+	 * @param callable $function <p>The callback function to call on every element. This function only receives the given <code>args</code>, so it is nullary by default. If <code>count($args) === 3</code>, for instance, the callback function is ternary.</p><p><b>Note</b>:  The function must return <b><code>TRUE</code></b> in order to continue iterating over the <code>iterator</code>. </p>
 	 * @param array $args <p>An <code>array</code> of arguments; each element of <code>args</code> is passed to the callback <code>function</code> as separate argument.</p>
 	 * @return int <p>Returns the iteration count.</p>
 	 * @link http://php.net/manual/en/function.iterator-apply.php
@@ -8413,7 +8598,7 @@ namespace {
 	 * Copy the iterator into an array
 	 * <p>Copy the elements of an iterator into an array.</p>
 	 * @param \Traversable $iterator <p>The iterator being copied.</p>
-	 * @param bool $use_keys <p>Whether to use the iterator element keys as index.</p> <p>In PHP 5.5 and later, if a key is an <code>array</code> or <code>object</code>, a warning will be generated. <b><code>NULL</code></b> keys will be converted to an empty string, <code>float</code> keys will be truncated to their <code>integer</code> counterpart, <code>resource</code> keys will generate a warning and be converted to their resource ID, and <code>boolean</code> keys will be converted to integers.</p> <p><b>Note</b>:</p><p>If this parameter is not set or set to <b><code>TRUE</code></b>, duplicate keys will be overwritten. The last value with a given key will be in the returned <code>array</code>. Set this paramater to <b><code>FALSE</code></b> to get all the values in any case.</p>
+	 * @param bool $use_keys <p>Whether to use the iterator element keys as index.</p> <p>In PHP 5.5 and later, if a key is an <code>array</code> or <code>object</code>, a warning will be generated. <b><code>NULL</code></b> keys will be converted to an empty string, <code>float</code> keys will be truncated to their <code>int</code> counterpart, <code>resource</code> keys will generate a warning and be converted to their resource ID, and <code>bool</code> keys will be converted to integers.</p> <p><b>Note</b>:</p><p>If this parameter is not set or set to <b><code>TRUE</code></b>, duplicate keys will be overwritten. The last value with a given key will be in the returned <code>array</code>. Set this parameter to <b><code>FALSE</code></b> to get all the values in any case.</p>
 	 * @return array <p>An <code>array</code> containing the elements of the <code>iterator</code>.</p>
 	 * @link http://php.net/manual/en/function.iterator-to-array.php
 	 * @since PHP 5 >= 5.1.0, PHP 7
@@ -8443,7 +8628,7 @@ namespace {
 
 	/**
 	 * Register and return default file extensions for spl_autoload
-	 * <p>This function can modify and check the file extensions that the built in <code>__autoload()</code> fallback function <code>spl_autoload()</code> will be using.</p>
+	 * <p>This function can modify and check the file extensions that the built in <code>__autoload()</code> fallback function <code>spl_autoload()</code> will be using.</p><p><b>Note</b>:  There should not be a space between the defined file extensions. </p>
 	 * @param string $file_extensions <p>When calling without an argument, it simply returns the current list of extensions each separated by comma. To modify the list of file extensions, simply invoke the functions with the new list of file extensions to use in a single string with each extensions separated by comma.</p>
 	 * @return string <p>A comma delimited list of default file extensions for <code>spl_autoload()</code>.</p>
 	 * @link http://php.net/manual/en/function.spl-autoload-extensions.php

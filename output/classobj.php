@@ -16,31 +16,6 @@ namespace {
 	function __autoload(string $class): void {}
 
 	/**
-	 * Call a user method on an specific object
-	 * @param string $method_name <p>The method name being called.</p>
-	 * @param object $obj <p>The <code>object</code> that <code>method_name</code> is being called on.</p>
-	 * @param mixed $parameter <p>The optional parameters.</p>
-	 * @param mixed $_
-	 * @return mixed
-	 * @link http://php.net/manual/en/function.call-user-method.php
-	 * @see call_user_func_array(), call_user_func()
-	 * @since PHP 4, PHP 5
-	 */
-	function call_user_method(string $method_name, object &$obj, $parameter = NULL, $_ = NULL) {}
-
-	/**
-	 * Call a user method given with an array of parameters
-	 * @param string $method_name <p>The method name being called.</p>
-	 * @param object $obj <p>The <code>object</code> that <code>method_name</code> is being called on.</p>
-	 * @param array $params <p>An array of parameters.</p>
-	 * @return mixed
-	 * @link http://php.net/manual/en/function.call-user-method-array.php
-	 * @see call_user_func_array(), call_user_func()
-	 * @since PHP 4 >= 4.0.5, PHP 5
-	 */
-	function call_user_method_array(string $method_name, object &$obj, array $params) {}
-
-	/**
 	 * Creates an alias for a class
 	 * <p>Creates an alias named <code>alias</code> based on the user defined class <code>original</code>. The aliased class is exactly the same as the original class.</p>
 	 * @param string $original <p>The original class.</p>
@@ -101,7 +76,7 @@ namespace {
 	 * Get the default properties of the class
 	 * <p>Get the default properties of the given class.</p>
 	 * @param string $class_name <p>The class name</p>
-	 * @return array <p>Returns an associative array of declared properties visible from the current scope, with their default value. The resulting array elements are in the form of <i>varname =&gt; value</i>. In case of an error, it returns <b><code>FALSE</code></b>.</p>
+	 * @return array <p>Returns an associative array of declared properties visible from the current scope, with their default value. The resulting array elements are in the form of <code>varname =&gt; value</code>. In case of an error, it returns <b><code>FALSE</code></b>.</p>
 	 * @link http://php.net/manual/en/function.get-class-vars.php
 	 * @see get_class_methods(), get_object_vars()
 	 * @since PHP 4, PHP 5, PHP 7
@@ -141,7 +116,7 @@ namespace {
 	 * Gets the properties of the given object
 	 * <p>Gets the accessible non-static properties of the given <code>object</code> according to scope.</p>
 	 * @param object $object <p>An object instance.</p>
-	 * @return array <p>Returns an associative array of defined object accessible non-static properties for the specified <code>object</code> in scope. If a property has not been assigned a value, it will be returned with a <b><code>NULL</code></b> value.</p>
+	 * @return array <p>Returns an associative array of defined object accessible non-static properties for the specified <code>object</code> in scope.</p>
 	 * @link http://php.net/manual/en/function.get-object-vars.php
 	 * @see get_class_methods(), get_class_vars()
 	 * @since PHP 4, PHP 5, PHP 7
@@ -174,7 +149,7 @@ namespace {
 	/**
 	 * Checks if the object is of this class or has this class as one of its parents
 	 * <p>Checks if the given <code>object</code> is of this class or has this class as one of its parents.</p>
-	 * @param object $object <p>The tested object</p>
+	 * @param mixed $object <p>A class name or an object instance.</p>
 	 * @param string $class_name <p>The class name</p>
 	 * @param bool $allow_string <p>If this parameter set to <b><code>FALSE</code></b>, string class name as <code>object</code> is not allowed. This also prevents from calling autoloader if the class doesn't exist.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> if the object is of this class or has this class as one of its parents, <b><code>FALSE</code></b> otherwise.</p>
@@ -182,7 +157,7 @@ namespace {
 	 * @see get_class(), get_parent_class(), is_subclass_of()
 	 * @since PHP 4 >= 4.2.0, PHP 5, PHP 7
 	 */
-	function is_a(object $object, string $class_name, bool $allow_string = FALSE): bool {}
+	function is_a($object, string $class_name, bool $allow_string = FALSE): bool {}
 
 	/**
 	 * Checks if the object has this class as one of its parents or implements it
@@ -200,7 +175,7 @@ namespace {
 	/**
 	 * Checks if the class method exists
 	 * <p>Checks if the class method exists in the given <code>object</code>.</p>
-	 * @param mixed $object <p>An object instance or a class name</p>
+	 * @param string|object $object <p>An object instance or a class name</p>
 	 * @param string $method_name <p>The method name</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> if the method given by <code>method_name</code> has been defined for the given <code>object</code>, <b><code>FALSE</code></b> otherwise.</p>
 	 * @link http://php.net/manual/en/function.method-exists.php

@@ -66,7 +66,7 @@ namespace {
 	 * Determines if an array value represents an XMLRPC fault
 	 * <p>This function is <i>EXPERIMENTAL</i>. The behaviour of this function, its name, and surrounding documentation may change without notice in a future release of PHP. This function should be used at your own risk.</p>
 	 * @param array $arg <p>Array returned by <code>xmlrpc_decode()</code>.</p>
-	 * @return bool <p>Returns <b><code>TRUE</code></b> if the argument means fault, <b><code>FALSE</code></b> otherwise. Fault description is available in <i>$arg["faultString"]</i>, fault code is in <i>$arg["faultCode"]</i>.</p>
+	 * @return bool <p>Returns <b><code>TRUE</code></b> if the argument means fault, <b><code>FALSE</code></b> otherwise. Fault description is available in <code>$arg["faultString"]</code>, fault code is in <code>$arg["faultCode"]</code>.</p>
 	 * @link http://php.net/manual/en/function.xmlrpc-is-fault.php
 	 * @see xmlrpc_decode()
 	 * @since PHP 4 >= 4.3.0, PHP 5, PHP 7

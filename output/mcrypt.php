@@ -49,15 +49,15 @@ namespace {
 	 * <p>Decrypts the <code>data</code> and returns the unencrypted data.</p>
 	 * @param string $cipher <p>One of the <b><code>MCRYPT_ciphername</code></b> constants, or the name of the algorithm as string.</p>
 	 * @param string $key <p>The key with which the data was encrypted. If the provided key size is not supported by the cipher, the function will emit a warning and return <b><code>FALSE</code></b></p>
-	 * @param string $data <p>The data that will be decrypted with the given <code>cipher</code> and <code>mode</code>. If the size of the data is not n &#42; blocksize, the data will be padded with '<i>\0</i>'.</p>
+	 * @param string $data <p>The data that will be decrypted with the given <code>cipher</code> and <code>mode</code>. If the size of the data is not n &#42; blocksize, the data will be padded with '<code>\0</code>'.</p>
 	 * @param string $mode <p>One of the <b><code>MCRYPT_MODE_modename</code></b> constants, or one of the following strings: "ecb", "cbc", "cfb", "ofb", "nofb" or "stream".</p>
 	 * @param string $iv <p>Used for the initialization in CBC, CFB, OFB modes, and in some algorithms in STREAM mode. If the provided IV size is not supported by the chaining mode or no IV was provided, but the chaining mode requires one, the function will emit a warning and return <b><code>FALSE</code></b>.</p>
-	 * @return string <p>Returns the decrypted data as a string or <b><code>FALSE</code></b> on failure.</p>
+	 * @return string|false <p>Returns the decrypted data as a string or <b><code>FALSE</code></b> on failure.</p>
 	 * @link http://php.net/manual/en/function.mcrypt-decrypt.php
 	 * @see mcrypt_encrypt()
 	 * @since PHP 4 >= 4.0.2, PHP 5, PHP 7 < 7.2.0, PECL mcrypt >= 1.0.0
 	 */
-	function mcrypt_decrypt(string $cipher, string $key, string $data, string $mode, string $iv = NULL): string {}
+	function mcrypt_decrypt(string $cipher, string $key, string $data, string $mode, string $iv = NULL) {}
 
 	/**
 	 * Deprecated: Encrypts/decrypts data in ECB mode
@@ -166,7 +166,7 @@ namespace {
 	 * Runs a self test on the opened module
 	 * <p>This function runs the self test on the algorithm specified by the descriptor <code>td</code>.</p>
 	 * @param resource $td <p>The encryption descriptor.</p>
-	 * @return int <p>If the self test succeeds it returns <b><code>FALSE</code></b>. In case of an error, it returns <b><code>TRUE</code></b>.</p>
+	 * @return int <p>Returns <code>0</code> on success and a negative <code>int</code> on failure.</p>
 	 * @link http://php.net/manual/en/function.mcrypt-enc-self-test.php
 	 * @since PHP 4 >= 4.0.2, PHP 5, PHP 7 < 7.2.0, PECL mcrypt >= 1.0.0
 	 */
@@ -177,19 +177,19 @@ namespace {
 	 * <p>Encrypts the data and returns it.</p>
 	 * @param string $cipher <p>One of the <b><code>MCRYPT_ciphername</code></b> constants, or the name of the algorithm as string.</p>
 	 * @param string $key <p>The key with which the data will be encrypted. If the provided key size is not supported by the cipher, the function will emit a warning and return <b><code>FALSE</code></b></p>
-	 * @param string $data <p>The data that will be encrypted with the given <code>cipher</code> and <code>mode</code>. If the size of the data is not n &#42; blocksize, the data will be padded with '<i>\0</i>'.</p> <p>The returned crypttext can be larger than the size of the data that was given by <code>data</code>.</p>
+	 * @param string $data <p>The data that will be encrypted with the given <code>cipher</code> and <code>mode</code>. If the size of the data is not n &#42; blocksize, the data will be padded with '<code>\0</code>'.</p> <p>The returned crypttext can be larger than the size of the data that was given by <code>data</code>.</p>
 	 * @param string $mode <p>One of the <b><code>MCRYPT_MODE_modename</code></b> constants, or one of the following strings: "ecb", "cbc", "cfb", "ofb", "nofb" or "stream".</p>
 	 * @param string $iv <p>Used for the initialization in CBC, CFB, OFB modes, and in some algorithms in STREAM mode. If the provided IV size is not supported by the chaining mode or no IV was provided, but the chaining mode requires one, the function will emit a warning and return <b><code>FALSE</code></b>.</p>
-	 * @return string <p>Returns the encrypted data as a string or <b><code>FALSE</code></b> on failure.</p>
+	 * @return string|false <p>Returns the encrypted data as a string or <b><code>FALSE</code></b> on failure.</p>
 	 * @link http://php.net/manual/en/function.mcrypt-encrypt.php
 	 * @see mcrypt_decrypt(), mcrypt_module_open()
 	 * @since PHP 4 >= 4.0.2, PHP 5, PHP 7 < 7.2.0, PECL mcrypt >= 1.0.0
 	 */
-	function mcrypt_encrypt(string $cipher, string $key, string $data, string $mode, string $iv = NULL): string {}
+	function mcrypt_encrypt(string $cipher, string $key, string $data, string $mode, string $iv = NULL) {}
 
 	/**
 	 * This function encrypts data
-	 * <p>This function encrypts data. The data is padded with "<i>\0</i>" to make sure the length of the data is n &#42; blocksize. This function returns the encrypted data. Note that the length of the returned string can in fact be longer than the input, due to the padding of the data.</p><p>If you want to store the encrypted data in a database make sure to store the entire string as returned by mcrypt_generic, or the string will not entirely decrypt properly. If your original string is 10 characters long and the block size is 8 (use <code>mcrypt_enc_get_block_size()</code> to determine the blocksize), you would need at least 16 characters in your database field. Note the string returned by <code>mdecrypt_generic()</code> will be 16 characters as well...use rtrim($str, "\0") to remove the padding.</p><p>If you are for example storing the data in a MySQL database remember that varchar fields automatically have trailing spaces removed during insertion. As encrypted data can end in a space (ASCII 32), the data will be damaged by this removal. Store data in a tinyblob/tinytext (or larger) field instead.</p>
+	 * <p>This function encrypts data. The data is padded with "<code>\0</code>" to make sure the length of the data is n &#42; blocksize. This function returns the encrypted data. Note that the length of the returned string can in fact be longer than the input, due to the padding of the data.</p><p>If you want to store the encrypted data in a database make sure to store the entire string as returned by mcrypt_generic, or the string will not entirely decrypt properly. If your original string is 10 characters long and the block size is 8 (use <code>mcrypt_enc_get_block_size()</code> to determine the blocksize), you would need at least 16 characters in your database field. Note the string returned by <code>mdecrypt_generic()</code> will be 16 characters as well...use rtrim($str, "\0") to remove the padding.</p><p>If you are for example storing the data in a MySQL database remember that varchar fields automatically have trailing spaces removed during insertion. As encrypted data can end in a space (ASCII 32), the data will be damaged by this removal. Store data in a tinyblob/tinytext (or larger) field instead.</p>
 	 * @param resource $td <p>The encryption descriptor.</p> <p>The encryption handle should always be initialized with <code>mcrypt_generic_init()</code> with a key and an IV before calling this function. Where the encryption is done, you should free the encryption buffers by calling <code>mcrypt_generic_deinit()</code>. See <code>mcrypt_module_open()</code> for an example.</p>
 	 * @param string $data <p>The data to encrypt.</p>
 	 * @return string <p>Returns the encrypted data.</p>
@@ -237,12 +237,12 @@ namespace {
 	 * Gets the block size of the specified cipher
 	 * <p>The first prototype is when linked against libmcrypt 2.2.x, the second when linked against libmcrypt 2.4.x or 2.5.x.</p><p><b>mcrypt_get_block_size()</b> is used to get the size of a block of the specified <code>cipher</code> (in combination with an encryption mode).</p><p>It is more useful to use the <code>mcrypt_enc_get_block_size()</code> function as this uses the resource returned by <code>mcrypt_module_open()</code>.</p>
 	 * @param int $cipher <p>One of the <b><code>MCRYPT_ciphername</code></b> constants, or the name of the algorithm as string.</p>
-	 * @return int <p>Returns the algorithm block size in bytes or <b><code>FALSE</code></b> on failure.</p>
+	 * @return int|false <p>Returns the algorithm block size in bytes or <b><code>FALSE</code></b> on failure.</p>
 	 * @link http://php.net/manual/en/function.mcrypt-get-block-size.php
 	 * @see mcrypt_get_key_size(), mcrypt_enc_get_block_size(), mcrypt_encrypt()
 	 * @since PHP 4, PHP 5, PHP 7 < 7.2.0, PECL mcrypt >= 1.0.0
 	 */
-	function mcrypt_get_block_size(int $cipher): int {}
+	function mcrypt_get_block_size(int $cipher) {}
 
 	/**
 	 * Gets the name of the specified cipher
@@ -270,17 +270,17 @@ namespace {
 	 * Gets the key size of the specified cipher
 	 * <p>The first prototype is when linked against libmcrypt 2.2.x, the second when linked against libmcrypt 2.4.x or 2.5.x.</p><p><b>mcrypt_get_key_size()</b> is used to get the size of a key of the specified <code>cipher</code> (in combination with an encryption mode).</p><p>It is more useful to use the <code>mcrypt_enc_get_key_size()</code> function as this uses the resource returned by <code>mcrypt_module_open()</code>.</p>
 	 * @param int $cipher <p>One of the <b><code>MCRYPT_ciphername</code></b> constants, or the name of the algorithm as string.</p>
-	 * @return int <p>Returns the maximum supported key size of the algorithm in bytes or <b><code>FALSE</code></b> on failure.</p>
+	 * @return int|false <p>Returns the maximum supported key size of the algorithm in bytes or <b><code>FALSE</code></b> on failure.</p>
 	 * @link http://php.net/manual/en/function.mcrypt-get-key-size.php
 	 * @see mcrypt_get_block_size(), mcrypt_enc_get_key_size(), mcrypt_encrypt()
 	 * @since PHP 4, PHP 5, PHP 7 < 7.2.0, PECL mcrypt >= 1.0.0
 	 */
-	function mcrypt_get_key_size(int $cipher): int {}
+	function mcrypt_get_key_size(int $cipher) {}
 
 	/**
 	 * Gets an array of all supported ciphers
 	 * <p>Gets the list of all supported algorithms in the <code>lib_dir</code> parameter.</p>
-	 * @param string $lib_dir <p>Specifies the directory where all algorithms are located. If not specified, the value of the <i>mcrypt.algorithms_dir</i> php.ini directive is used.</p>
+	 * @param string $lib_dir <p>Specifies the directory where all algorithms are located. If not specified, the value of the <code>mcrypt.algorithms_dir</code> php.ini directive is used.</p>
 	 * @return array <p>Returns an array with all the supported algorithms.</p>
 	 * @link http://php.net/manual/en/function.mcrypt-list-algorithms.php
 	 * @since PHP 4 >= 4.0.2, PHP 5, PHP 7 < 7.2.0, PECL mcrypt >= 1.0.0
@@ -290,7 +290,7 @@ namespace {
 	/**
 	 * Gets an array of all supported modes
 	 * <p>Gets the list of all supported modes in the <code>lib_dir</code> parameter.</p>
-	 * @param string $lib_dir <p>Specifies the directory where all modes are located. If not specified, the value of the <i>mcrypt.modes_dir</i> php.ini directive is used.</p>
+	 * @param string $lib_dir <p>Specifies the directory where all modes are located. If not specified, the value of the <code>mcrypt.modes_dir</code> php.ini directive is used.</p>
 	 * @return array <p>Returns an array with all the supported modes.</p>
 	 * @link http://php.net/manual/en/function.mcrypt-list-modes.php
 	 * @since PHP 4 >= 4.0.2, PHP 5, PHP 7 < 7.2.0, PECL mcrypt >= 1.0.0
@@ -377,11 +377,11 @@ namespace {
 
 	/**
 	 * Opens the module of the algorithm and the mode to be used
-	 * <p>This function opens the module of the algorithm and the mode to be used. The name of the algorithm is specified in algorithm, e.g. <i>"twofish"</i> or is one of the <b><code>MCRYPT_ciphername</code></b> constants. The module is closed by calling <code>mcrypt_module_close()</code>.</p>
+	 * <p>This function opens the module of the algorithm and the mode to be used. The name of the algorithm is specified in algorithm, e.g. <code>"twofish"</code> or is one of the <b><code>MCRYPT_ciphername</code></b> constants. The module is closed by calling <code>mcrypt_module_close()</code>.</p>
 	 * @param string $algorithm <p>One of the <b><code>MCRYPT_ciphername</code></b> constants, or the name of the algorithm as string.</p>
-	 * @param string $algorithm_directory <p>The <code>algorithm_directory</code> parameter is used to locate the encryption module. When you supply a directory name, it is used. When you set it to an empty string (<i>""</i>), the value set by the <i>mcrypt.algorithms_dir</i> php.ini directive is used. When it is not set, the default directory that is used is the one that was compiled into libmcrypt (usually /usr/local/lib/libmcrypt).</p>
+	 * @param string $algorithm_directory <p>The <code>algorithm_directory</code> parameter is used to locate the encryption module. When you supply a directory name, it is used. When you set it to an empty string (<code>""</code>), the value set by the <code>mcrypt.algorithms_dir</code> php.ini directive is used. When it is not set, the default directory that is used is the one that was compiled into libmcrypt (usually /usr/local/lib/libmcrypt).</p>
 	 * @param string $mode <p>One of the <b><code>MCRYPT_MODE_modename</code></b> constants, or one of the following strings: "ecb", "cbc", "cfb", "ofb", "nofb" or "stream".</p>
-	 * @param string $mode_directory <p>The <code>mode_directory</code> parameter is used to locate the encryption module. When you supply a directory name, it is used. When you set it to an empty string (<i>""</i>), the value set by the <i>mcrypt.modes_dir</i> php.ini directive is used. When it is not set, the default directory that is used is the one that was compiled-in into libmcrypt (usually /usr/local/lib/libmcrypt).</p>
+	 * @param string $mode_directory <p>The <code>mode_directory</code> parameter is used to locate the encryption module. When you supply a directory name, it is used. When you set it to an empty string (<code>""</code>), the value set by the <code>mcrypt.modes_dir</code> php.ini directive is used. When it is not set, the default directory that is used is the one that was compiled-in into libmcrypt (usually /usr/local/lib/libmcrypt).</p>
 	 * @return resource <p>Normally it returns an encryption descriptor, or <b><code>FALSE</code></b> on error.</p>
 	 * @link http://php.net/manual/en/function.mcrypt-module-open.php
 	 * @see mcrypt_module_close(), mcrypt_generic(), mdecrypt_generic(), mcrypt_generic_init(), mcrypt_generic_deinit()

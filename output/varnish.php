@@ -181,313 +181,313 @@ namespace {
 	class VarnishLog {
 
 		/**
-		 * @var integer
+		 * @var int
 		 * @link http://php.net/manual/en/class.varnishlog.php
 		 */
 		const TAG_Debug = 0;
 
 		/**
-		 * @var integer
+		 * @var int
 		 * @link http://php.net/manual/en/class.varnishlog.php
 		 */
 		const TAG_Error = 1;
 
 		/**
-		 * @var integer
+		 * @var int
 		 * @link http://php.net/manual/en/class.varnishlog.php
 		 */
 		const TAG_CLI = 2;
 
 		/**
-		 * @var integer
+		 * @var int
 		 * @link http://php.net/manual/en/class.varnishlog.php
 		 */
 		const TAG_StatSess = 3;
 
 		/**
-		 * @var integer
+		 * @var int
 		 * @link http://php.net/manual/en/class.varnishlog.php
 		 */
 		const TAG_ReqEnd = 4;
 
 		/**
-		 * @var integer
+		 * @var int
 		 * @link http://php.net/manual/en/class.varnishlog.php
 		 */
 		const TAG_SessionOpen = 5;
 
 		/**
-		 * @var integer
+		 * @var int
 		 * @link http://php.net/manual/en/class.varnishlog.php
 		 */
 		const TAG_SessionClose = 6;
 
 		/**
-		 * @var integer
+		 * @var int
 		 * @link http://php.net/manual/en/class.varnishlog.php
 		 */
 		const TAG_BackendOpen = 7;
 
 		/**
-		 * @var integer
+		 * @var int
 		 * @link http://php.net/manual/en/class.varnishlog.php
 		 */
 		const TAG_BackendXID = 8;
 
 		/**
-		 * @var integer
+		 * @var int
 		 * @link http://php.net/manual/en/class.varnishlog.php
 		 */
 		const TAG_BackendReuse = 9;
 
 		/**
-		 * @var integer
+		 * @var int
 		 * @link http://php.net/manual/en/class.varnishlog.php
 		 */
 		const TAG_BackendClose = 10;
 
 		/**
-		 * @var integer
+		 * @var int
 		 * @link http://php.net/manual/en/class.varnishlog.php
 		 */
 		const TAG_HttpGarbage = 11;
 
 		/**
-		 * @var integer
+		 * @var int
 		 * @link http://php.net/manual/en/class.varnishlog.php
 		 */
 		const TAG_Backend = 12;
 
 		/**
-		 * @var integer
+		 * @var int
 		 * @link http://php.net/manual/en/class.varnishlog.php
 		 */
 		const TAG_Length = 13;
 
 		/**
-		 * @var integer
+		 * @var int
 		 * @link http://php.net/manual/en/class.varnishlog.php
 		 */
 		const TAG_FetchError = 14;
 
 		/**
-		 * @var integer
+		 * @var int
 		 * @link http://php.net/manual/en/class.varnishlog.php
 		 */
 		const TAG_RxRequest = 15;
 
 		/**
-		 * @var integer
+		 * @var int
 		 * @link http://php.net/manual/en/class.varnishlog.php
 		 */
 		const TAG_RxResponse = 16;
 
 		/**
-		 * @var integer
+		 * @var int
 		 * @link http://php.net/manual/en/class.varnishlog.php
 		 */
 		const TAG_RxStatus = 17;
 
 		/**
-		 * @var integer
+		 * @var int
 		 * @link http://php.net/manual/en/class.varnishlog.php
 		 */
 		const TAG_RxURL = 18;
 
 		/**
-		 * @var integer
+		 * @var int
 		 * @link http://php.net/manual/en/class.varnishlog.php
 		 */
 		const TAG_RxProtocol = 19;
 
 		/**
-		 * @var integer
+		 * @var int
 		 * @link http://php.net/manual/en/class.varnishlog.php
 		 */
 		const TAG_RxHeader = 20;
 
 		/**
-		 * @var integer
+		 * @var int
 		 * @link http://php.net/manual/en/class.varnishlog.php
 		 */
 		const TAG_TxRequest = 21;
 
 		/**
-		 * @var integer
+		 * @var int
 		 * @link http://php.net/manual/en/class.varnishlog.php
 		 */
 		const TAG_TxResponse = 22;
 
 		/**
-		 * @var integer
+		 * @var int
 		 * @link http://php.net/manual/en/class.varnishlog.php
 		 */
 		const TAG_TxStatus = 23;
 
 		/**
-		 * @var integer
+		 * @var int
 		 * @link http://php.net/manual/en/class.varnishlog.php
 		 */
 		const TAG_TxURL = 24;
 
 		/**
-		 * @var integer
+		 * @var int
 		 * @link http://php.net/manual/en/class.varnishlog.php
 		 */
 		const TAG_TxProtocol = 25;
 
 		/**
-		 * @var integer
+		 * @var int
 		 * @link http://php.net/manual/en/class.varnishlog.php
 		 */
 		const TAG_TxHeader = 26;
 
 		/**
-		 * @var integer
+		 * @var int
 		 * @link http://php.net/manual/en/class.varnishlog.php
 		 */
 		const TAG_ObjRequest = 27;
 
 		/**
-		 * @var integer
+		 * @var int
 		 * @link http://php.net/manual/en/class.varnishlog.php
 		 */
 		const TAG_ObjResponse = 28;
 
 		/**
-		 * @var integer
+		 * @var int
 		 * @link http://php.net/manual/en/class.varnishlog.php
 		 */
 		const TAG_ObjStatus = 29;
 
 		/**
-		 * @var integer
+		 * @var int
 		 * @link http://php.net/manual/en/class.varnishlog.php
 		 */
 		const TAG_ObjURL = 30;
 
 		/**
-		 * @var integer
+		 * @var int
 		 * @link http://php.net/manual/en/class.varnishlog.php
 		 */
 		const TAG_ObjProtocol = 31;
 
 		/**
-		 * @var integer
+		 * @var int
 		 * @link http://php.net/manual/en/class.varnishlog.php
 		 */
 		const TAG_ObjHeader = 32;
 
 		/**
-		 * @var integer
+		 * @var int
 		 * @link http://php.net/manual/en/class.varnishlog.php
 		 */
 		const TAG_LostHeader = 33;
 
 		/**
-		 * @var integer
+		 * @var int
 		 * @link http://php.net/manual/en/class.varnishlog.php
 		 */
 		const TAG_TTL = 34;
 
 		/**
-		 * @var integer
+		 * @var int
 		 * @link http://php.net/manual/en/class.varnishlog.php
 		 */
 		const TAG_Fetch_Body = 35;
 
 		/**
-		 * @var integer
+		 * @var int
 		 * @link http://php.net/manual/en/class.varnishlog.php
 		 */
 		const TAG_VCL_acl = 36;
 
 		/**
-		 * @var integer
+		 * @var int
 		 * @link http://php.net/manual/en/class.varnishlog.php
 		 */
 		const TAG_VCL_call = 37;
 
 		/**
-		 * @var integer
+		 * @var int
 		 * @link http://php.net/manual/en/class.varnishlog.php
 		 */
 		const TAG_VCL_trace = 38;
 
 		/**
-		 * @var integer
+		 * @var int
 		 * @link http://php.net/manual/en/class.varnishlog.php
 		 */
 		const TAG_VCL_return = 39;
 
 		/**
-		 * @var integer
+		 * @var int
 		 * @link http://php.net/manual/en/class.varnishlog.php
 		 */
 		const TAG_VCL_error = 40;
 
 		/**
-		 * @var integer
+		 * @var int
 		 * @link http://php.net/manual/en/class.varnishlog.php
 		 */
 		const TAG_ReqStart = 41;
 
 		/**
-		 * @var integer
+		 * @var int
 		 * @link http://php.net/manual/en/class.varnishlog.php
 		 */
 		const TAG_Hit = 42;
 
 		/**
-		 * @var integer
+		 * @var int
 		 * @link http://php.net/manual/en/class.varnishlog.php
 		 */
 		const TAG_HitPass = 43;
 
 		/**
-		 * @var integer
+		 * @var int
 		 * @link http://php.net/manual/en/class.varnishlog.php
 		 */
 		const TAG_ExpBan = 44;
 
 		/**
-		 * @var integer
+		 * @var int
 		 * @link http://php.net/manual/en/class.varnishlog.php
 		 */
 		const TAG_ExpKill = 45;
 
 		/**
-		 * @var integer
+		 * @var int
 		 * @link http://php.net/manual/en/class.varnishlog.php
 		 */
 		const TAG_WorkThread = 46;
 
 		/**
-		 * @var integer
+		 * @var int
 		 * @link http://php.net/manual/en/class.varnishlog.php
 		 */
 		const TAG_ESI_xmlerror = 47;
 
 		/**
-		 * @var integer
+		 * @var int
 		 * @link http://php.net/manual/en/class.varnishlog.php
 		 */
 		const TAG_Hash = 48;
 
 		/**
-		 * @var integer
+		 * @var int
 		 * @link http://php.net/manual/en/class.varnishlog.php
 		 */
 		const TAG_Backend_health = 49;
 
 		/**
-		 * @var integer
+		 * @var int
 		 * @link http://php.net/manual/en/class.varnishlog.php
 		 */
 		const TAG_VCL_Log = 50;
 
 		/**
-		 * @var integer
+		 * @var int
 		 * @link http://php.net/manual/en/class.varnishlog.php
 		 */
 		const TAG_Gzip = 51;

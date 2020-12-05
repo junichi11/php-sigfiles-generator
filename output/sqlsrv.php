@@ -6,7 +6,7 @@ namespace {
 
 	/**
 	 * Begins a database transaction
-	 * <p>The transaction begun by <b>sqlsrv_begin_transaction()</b> includes all statements that were executed after the call to <b>sqlsrv_begin_transaction()</b> and before calls to <code>sqlsrv_rollback()</code> or <code>sqlsrv_commit()</code>. Explicit transactions should be started and committed or rolled back using these functions instead of executing SQL statements that begin and committ/roll back transactions. For more information, see SQLSRV Transactions.</p>
+	 * <p>The transaction begun by <b>sqlsrv_begin_transaction()</b> includes all statements that were executed after the call to <b>sqlsrv_begin_transaction()</b> and before calls to <code>sqlsrv_rollback()</code> or <code>sqlsrv_commit()</code>. Explicit transactions should be started and committed or rolled back using these functions instead of executing SQL statements that begin and commit/roll back transactions. For more information, see SQLSRV Transactions.</p>
 	 * @param resource $conn <p>The connection resource returned by a call to <code>sqlsrv_connect()</code>.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
 	 * @link http://php.net/manual/en/function.sqlsrv-begin-transaction.php
@@ -50,7 +50,7 @@ namespace {
 
 	/**
 	 * Commits a transaction that was begun with sqlsrv_begin_transaction()
-	 * <p>Commits a transaction that was begun with <code>sqlsrv_begin_transaction()</code>. The connection is returned to auto-commit mode after <b>sqlsrv_commit()</b> is called. The transaction that is committed includes all statements that were executed after the call to <code>sqlsrv_begin_transaction()</code>. Explicit transactions should be started and committed or rolled back using these functions instead of executing SQL statements that begin and committ/roll back transactions. For more information, see SQLSRV Transactions.</p>
+	 * <p>Commits a transaction that was begun with <code>sqlsrv_begin_transaction()</code>. The connection is returned to auto-commit mode after <b>sqlsrv_commit()</b> is called. The transaction that is committed includes all statements that were executed after the call to <code>sqlsrv_begin_transaction()</code>. Explicit transactions should be started and committed or rolled back using these functions instead of executing SQL statements that begin and commit/roll back transactions. For more information, see SQLSRV Transactions.</p>
 	 * @param resource $conn <p>The connection on which the transaction is to be committed.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
 	 * @link http://php.net/manual/en/function.sqlsrv-commit.php
@@ -149,8 +149,8 @@ namespace {
 	/**
 	 * Retrieves metadata for the fields of a statement prepared by sqlsrv_prepare() or sqlsrv_query()
 	 * <p>Retrieves metadata for the fields of a statement prepared by <code>sqlsrv_prepare()</code> or <code>sqlsrv_query()</code>. <b>sqlsrv_field_metadata()</b> can be called on a statement before or after statement execution.</p>
-	 * @param resource $stmt <p>The statment resource for which metadata is returned.</p>
-	 * @return mixed <p>Returns an array of arrays is returned on success. Otherwise, <b><code>FALSE</code></b> is returned. Each returned array is described by the following table:</p> <b>Array returned by sqlsrv_field_metadata</b>   Key Description     Name The name of the field.   Type The numeric value for the SQL type.   Size The number of characters for fields of character type, the number of bytes for fields of binary type, or <b><code>NULL</code></b> for other types.   Precision The precision for types of variable precision, <b><code>NULL</code></b> for other types.   Scale The scale for types of variable scale, <b><code>NULL</code></b> for other types.   Nullable An enumeration indicating whether the column is nullable, not nullable, or if it is not known.    For more information, see sqlsrv_field_metadata in the Microsoft SQLSRV documentation.
+	 * @param resource $stmt <p>The statement resource for which metadata is returned.</p>
+	 * @return mixed <p>Returns an array of arrays on success. Otherwise, <b><code>FALSE</code></b> is returned. Each returned array is described by the following table:</p> <b>Array returned by sqlsrv_field_metadata</b>   Key Description     Name The name of the field.   Type The numeric value for the SQL type.   Size The number of characters for fields of character type, the number of bytes for fields of binary type, or <b><code>NULL</code></b> for other types.   Precision The precision for types of variable precision, <b><code>NULL</code></b> for other types.   Scale The scale for types of variable scale, <b><code>NULL</code></b> for other types.   Nullable An enumeration indicating whether the column is nullable, not nullable, or if it is not known.    For more information, see sqlsrv_field_metadata in the Microsoft SQLSRV documentation.
 	 * @link http://php.net/manual/en/function.sqlsrv-field-metadata.php
 	 * @see sqlsrv_client_info()
 	 * @since No version information available, might only be in Git
@@ -160,7 +160,7 @@ namespace {
 	/**
 	 * Frees all resources for the specified statement
 	 * <p>Frees all resources for the specified statement. The statement cannot be used after <b>sqlsrv_free_stmt()</b> has been called on it. If <b>sqlsrv_free_stmt()</b> is called on an in-progress statement that alters server state, statement execution is terminated and the statement is rolled back.</p>
-	 * @param resource $stmt <p>The statment for which resources are freed. Note that <b><code>NULL</code></b> is a valid parameter value. This allows the function to be called multiple times in a script.</p>
+	 * @param resource $stmt <p>The statement for which resources are freed. Note that <b><code>NULL</code></b> is a valid parameter value. This allows the function to be called multiple times in a script.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
 	 * @link http://php.net/manual/en/function.sqlsrv-free-stmt.php
 	 * @see sqlsrv_cancel()
@@ -206,7 +206,7 @@ namespace {
 	/**
 	 * Makes the next result of the specified statement active
 	 * <p>Makes the next result of the specified statement active. Results include result sets, row counts, and output parameters.</p>
-	 * @param resource $stmt <p>The statment on which the next result is being called.</p>
+	 * @param resource $stmt <p>The statement on which the next result is being called.</p>
 	 * @return mixed <p>Returns <b><code>TRUE</code></b> if the next result was successfully retrieved, <b><code>FALSE</code></b> if an error occurred, and <b><code>NULL</code></b> if there are no more results to retrieve.</p>
 	 * @link http://php.net/manual/en/function.sqlsrv-next-result.php
 	 * @see sqlsrv_query(), sqlsrv_fetch_array(), sqlsrv_rows_affected()
@@ -217,7 +217,7 @@ namespace {
 	/**
 	 * Retrieves the number of fields (columns) on a statement
 	 * <p>Retrieves the number of fields (columns) on a statement.</p>
-	 * @param resource $stmt <p>The statment for which the number of fields is returned. <b>sqlsrv_num_fields()</b> can be called on a statement before or after statement execution.</p>
+	 * @param resource $stmt <p>The statement for which the number of fields is returned. <b>sqlsrv_num_fields()</b> can be called on a statement before or after statement execution.</p>
 	 * @return mixed <p>Returns the number of fields on success. Returns <b><code>FALSE</code></b> otherwise.</p>
 	 * @link http://php.net/manual/en/function.sqlsrv-num-fields.php
 	 * @see sqlsrv_field_metadata(), sqlsrv_fetch(), sqlsrv_get_field()
@@ -227,8 +227,8 @@ namespace {
 
 	/**
 	 * Retrieves the number of rows in a result set
-	 * <p>Retrieves the number of rows in a result set. This function requires that the statment resource be created with a static or keyset cursor. For more information, see <code>sqlsrv_query()</code>, <code>sqlsrv_prepare()</code>, or Specifying a Cursor Type and Selecting Rows in the Microsoft SQLSRV documentation.</p>
-	 * @param resource $stmt <p>The statement for which the row count is returned. The statment resource must be created with a static or keyset cursor. For more information, see <code>sqlsrv_query()</code>, <code>sqlsrv_prepare()</code>, or Specifying a Cursor Type and Selecting Rows in the Microsoft SQLSRV documentation.</p>
+	 * <p>Retrieves the number of rows in a result set. This function requires that the statement resource be created with a static or keyset cursor. For more information, see <code>sqlsrv_query()</code>, <code>sqlsrv_prepare()</code>, or Specifying a Cursor Type and Selecting Rows in the Microsoft SQLSRV documentation.</p>
+	 * @param resource $stmt <p>The statement for which the row count is returned. The statement resource must be created with a static or keyset cursor. For more information, see <code>sqlsrv_query()</code>, <code>sqlsrv_prepare()</code>, or Specifying a Cursor Type and Selecting Rows in the Microsoft SQLSRV documentation.</p>
 	 * @return mixed <p>Returns the number of rows retrieved on success and <b><code>FALSE</code></b> if an error occurred. If a forward cursor (the default) or dynamic cursor is used, <b><code>FALSE</code></b> is returned.</p>
 	 * @link http://php.net/manual/en/function.sqlsrv-num-rows.php
 	 * @see sqlsrv_has_rows(), sqlsrv_rows_affected()
@@ -242,7 +242,7 @@ namespace {
 	 * @param resource $conn <p>A connection resource returned by <code>sqlsrv_connect()</code>.</p>
 	 * @param string $sql <p>The string that defines the query to be prepared and executed.</p>
 	 * @param array $params <p>An array specifying parameter information when executing a parameterized query. Array elements can be any of the following:</p><ul> <li>A literal value</li> <li>A PHP variable</li> <li>An array with this structure: array($value [, $direction [, $phpType [, $sqlType]]])</li> </ul> The following table describes the elements in the array structure above:  <b>Array structure</b>   Element Description     $value A literal value, a PHP variable, or a PHP by-reference variable.   $direction (optional) One of the following SQLSRV constants used to indicate the parameter direction: SQLSRV_PARAM_IN, SQLSRV_PARAM_OUT, SQLSRV_PARAM_INOUT. The default value is SQLSRV_PARAM_IN.    $phpType (optional) A SQLSRV_PHPTYPE_&#42; constant that specifies PHP data type of the returned value.   $sqlType (optional) A SQLSRV_SQLTYPE_&#42; constant that specifies the SQL Server data type of the input value.
-	 * @param array $options <p>An array specifing query property options. The supported keys are described in the following table:</p>  <b>Query Options</b>   Key Values Description     QueryTimeout A positive integer value. Sets the query timeout in seconds. By default, the driver will wait indefinitely for results.   SendStreamParamsAtExec <b><code>TRUE</code></b> or <b><code>FALSE</code></b> (the default is <b><code>TRUE</code></b>) Configures the driver to send all stream data at execution (<b><code>TRUE</code></b>), or to send stream data in chunks (<b><code>FALSE</code></b>). By default, the value is set to <b><code>TRUE</code></b>. For more information, see <code>sqlsrv_send_stream_data()</code>.   Scrollable SQLSRV_CURSOR_FORWARD, SQLSRV_CURSOR_STATIC, SQLSRV_CURSOR_DYNAMIC, or SQLSRV_CURSOR_KEYSET See Specifying a Cursor Type and Selecting Rows in the Microsoft SQLSRV documentation.
+	 * @param array $options <p>An array specifying query property options. The supported keys are described in the following table:</p>  <b>Query Options</b>   Key Values Description     QueryTimeout A positive integer value. Sets the query timeout in seconds. By default, the driver will wait indefinitely for results.   SendStreamParamsAtExec <b><code>TRUE</code></b> or <b><code>FALSE</code></b> (the default is <b><code>TRUE</code></b>) Configures the driver to send all stream data at execution (<b><code>TRUE</code></b>), or to send stream data in chunks (<b><code>FALSE</code></b>). By default, the value is set to <b><code>TRUE</code></b>. For more information, see <code>sqlsrv_send_stream_data()</code>.   Scrollable SQLSRV_CURSOR_FORWARD, SQLSRV_CURSOR_STATIC, SQLSRV_CURSOR_DYNAMIC, or SQLSRV_CURSOR_KEYSET See Specifying a Cursor Type and Selecting Rows in the Microsoft SQLSRV documentation.
 	 * @return mixed <p>Returns a statement resource on success and <b><code>FALSE</code></b> if an error occurred.</p>
 	 * @link http://php.net/manual/en/function.sqlsrv-prepare.php
 	 * @see sqlsrv_execute(), sqlsrv_query()
@@ -256,7 +256,7 @@ namespace {
 	 * @param resource $conn <p>A connection resource returned by <code>sqlsrv_connect()</code>.</p>
 	 * @param string $sql <p>The string that defines the query to be prepared and executed.</p>
 	 * @param array $params <p>An array specifying parameter information when executing a parameterized query. Array elements can be any of the following:</p><ul> <li>A literal value</li> <li>A PHP variable</li> <li>An array with this structure: array($value [, $direction [, $phpType [, $sqlType]]])</li> </ul> The following table describes the elements in the array structure above:  <b>Array structure</b>   Element Description     $value A literal value, a PHP variable, or a PHP by-reference variable.   $direction (optional) One of the following SQLSRV constants used to indicate the parameter direction: SQLSRV_PARAM_IN, SQLSRV_PARAM_OUT, SQLSRV_PARAM_INOUT. The default value is SQLSRV_PARAM_IN.   $phpType (optional) A SQLSRV_PHPTYPE_&#42; constant that specifies PHP data type of the returned value.   $sqlType (optional) A SQLSRV_SQLTYPE_&#42; constant that specifies the SQL Server data type of the input value.
-	 * @param array $options <p>An array specifing query property options. The supported keys are described in the following table:</p>  <b>Query Options</b>   Key Values Description     QueryTimeout A positive integer value. Sets the query timeout in seconds. By default, the driver will wait indefinitely for results.   SendStreamParamsAtExec <b><code>TRUE</code></b> or <b><code>FALSE</code></b> (the default is <b><code>TRUE</code></b>) Configures the driver to send all stream data at execution (<b><code>TRUE</code></b>), or to send stream data in chunks (<b><code>FALSE</code></b>). By default, the value is set to <b><code>TRUE</code></b>. For more information, see <code>sqlsrv_send_stream_data()</code>.   Scrollable SQLSRV_CURSOR_FORWARD, SQLSRV_CURSOR_STATIC, SQLSRV_CURSOR_DYNAMIC, or SQLSRV_CURSOR_KEYSET See Specifying a Cursor Type and Selecting Rows in the Microsoft SQLSRV documentation.
+	 * @param array $options <p>An array specifying query property options. The supported keys are described in the following table:</p>  <b>Query Options</b>   Key Values Description     QueryTimeout A positive integer value. Sets the query timeout in seconds. By default, the driver will wait indefinitely for results.   SendStreamParamsAtExec <b><code>TRUE</code></b> or <b><code>FALSE</code></b> (the default is <b><code>TRUE</code></b>) Configures the driver to send all stream data at execution (<b><code>TRUE</code></b>), or to send stream data in chunks (<b><code>FALSE</code></b>). By default, the value is set to <b><code>TRUE</code></b>. For more information, see <code>sqlsrv_send_stream_data()</code>.   Scrollable SQLSRV_CURSOR_FORWARD, SQLSRV_CURSOR_STATIC, SQLSRV_CURSOR_DYNAMIC, or SQLSRV_CURSOR_KEYSET See Specifying a Cursor Type and Selecting Rows in the Microsoft SQLSRV documentation.
 	 * @return mixed <p>Returns a statement resource on success and <b><code>FALSE</code></b> if an error occurred.</p>
 	 * @link http://php.net/manual/en/function.sqlsrv-query.php
 	 * @see sqlsrv_prepare(), sqlsrv_execute()
@@ -314,22 +314,22 @@ namespace {
 	define('SQLSRV_CURSOR_BUFFERED', null);
 
 	/**
-	 * Inidicates a dynamic cursor. For usage information, see Specifying a Cursor Type and Selecting Rows.
+	 * Indicates a dynamic cursor. For usage information, see Specifying a Cursor Type and Selecting Rows.
 	 */
 	define('SQLSRV_CURSOR_DYNAMIC', null);
 
 	/**
-	 * Inidicates a forward-only cursor. For usage information, see Specifying a Cursor Type and Selecting Rows.
+	 * Indicates a forward-only cursor. For usage information, see Specifying a Cursor Type and Selecting Rows.
 	 */
 	define('SQLSRV_CURSOR_FORWARD', null);
 
 	/**
-	 * Inidicates a keyset cursor. For usage information, see Specifying a Cursor Type and Selecting Rows.
+	 * Indicates a keyset cursor. For usage information, see Specifying a Cursor Type and Selecting Rows.
 	 */
 	define('SQLSRV_CURSOR_KEYSET', null);
 
 	/**
-	 * Inidicates a static cursor. For usage information, see Specifying a Cursor Type and Selecting Rows.
+	 * Indicates a static cursor. For usage information, see Specifying a Cursor Type and Selecting Rows.
 	 */
 	define('SQLSRV_CURSOR_STATIC', null);
 
@@ -659,27 +659,27 @@ namespace {
 	define('SQLSRV_SQLTYPE_XML', null);
 
 	/**
-	 * Inidicates a transaction isolation level of READ COMMITTED. This value is used to set the TransactionIsolation level in the $connectionOptions arrary passed to <code>sqlsrv_connect()</code>.
+	 * Indicates a transaction isolation level of READ COMMITTED. This value is used to set the TransactionIsolation level in the $connectionOptions array passed to <code>sqlsrv_connect()</code>.
 	 */
 	define('SQLSRV_TXN_READ_COMMITTED', null);
 
 	/**
-	 * Inidicates a transaction isolation level of SERIALIZABLE. This value is used to set the TransactionIsolation level in the $connectionOptions arrary passed to <code>sqlsrv_connect()</code>.
+	 * Indicates a transaction isolation level of SERIALIZABLE. This value is used to set the TransactionIsolation level in the $connectionOptions array passed to <code>sqlsrv_connect()</code>.
 	 */
 	define('SQLSRV_TXN_READ_SERIALIZABLE', null);
 
 	/**
-	 * Inidicates a transaction isolation level of READ UNCOMMITTED. This value is used to set the TransactionIsolation level in the $connectionOptions arrary passed to <code>sqlsrv_connect()</code>.
+	 * Indicates a transaction isolation level of READ UNCOMMITTED. This value is used to set the TransactionIsolation level in the $connectionOptions array passed to <code>sqlsrv_connect()</code>.
 	 */
 	define('SQLSRV_TXN_READ_UNCOMMITTED', null);
 
 	/**
-	 * Inidicates a transaction isolation level of REPEATABLE READ. This value is used to set the TransactionIsolation level in the $connectionOptions arrary passed to <code>sqlsrv_connect()</code>.
+	 * Indicates a transaction isolation level of REPEATABLE READ. This value is used to set the TransactionIsolation level in the $connectionOptions array passed to <code>sqlsrv_connect()</code>.
 	 */
 	define('SQLSRV_TXN_REPEATABLE_READ', null);
 
 	/**
-	 * Inidicates a transaction isolation level of SNAPSHOT. This value is used to set the TransactionIsolation level in the $connectionOptions arrary passed to <code>sqlsrv_connect()</code>.
+	 * Indicates a transaction isolation level of SNAPSHOT. This value is used to set the TransactionIsolation level in the $connectionOptions array passed to <code>sqlsrv_connect()</code>.
 	 */
 	define('SQLSRV_TXN_SNAPSHOT', null);
 

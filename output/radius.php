@@ -137,23 +137,23 @@ namespace {
 	 * Extracts the data from a tagged attribute
 	 * <p>If a tagged attribute has been returned from <code>radius_get_attr()</code>, <b>radius_get_tagged_attr_data()</b> will return the data from the attribute.</p>
 	 * @param string $data <p>The tagged attribute to be decoded.</p>
-	 * @return string <p>Returns the data from the tagged attribute or <b><code>FALSE</code></b> on failure.</p>
+	 * @return string|false <p>Returns the data from the tagged attribute or <b><code>FALSE</code></b> on failure.</p>
 	 * @link http://php.net/manual/en/function.radius-get-tagged-attr-data.php
 	 * @see radius_get_attr(), radius_get_tagged_attr_tag()
 	 * @since PECL radius >= 1.3.0
 	 */
-	function radius_get_tagged_attr_data(string $data): string {}
+	function radius_get_tagged_attr_data(string $data) {}
 
 	/**
 	 * Extracts the tag from a tagged attribute
 	 * <p>If a tagged attribute has been returned from <code>radius_get_attr()</code>, <code>radius_get_tagged_attr_data()</code> will return the tag from the attribute.</p>
 	 * @param string $data <p>The tagged attribute to be decoded.</p>
-	 * @return int <p>Returns the tag from the tagged attribute or <b><code>FALSE</code></b> on failure.</p>
+	 * @return int|false <p>Returns the tag from the tagged attribute or <b><code>FALSE</code></b> on failure.</p>
 	 * @link http://php.net/manual/en/function.radius-get-tagged-attr-tag.php
 	 * @see radius_get_attr(), radius_get_tagged_attr_data()
 	 * @since PECL radius >= 1.3.0
 	 */
-	function radius_get_tagged_attr_tag(string $data): int {}
+	function radius_get_tagged_attr_tag(string $data) {}
 
 	/**
 	 * Extracts a vendor specific attribute
@@ -171,7 +171,7 @@ namespace {
 	 * <p>Attaches an IP address attribute to the current RADIUS request.</p><p><b>Note</b>:</p><p>A request must be created via <code>radius_create_request()</code> before this function can be called.</p>
 	 * @param resource $radius_handle <p>The RADIUS resource.</p>
 	 * @param int $type <p>The attribute type.</p>
-	 * @param string $addr <p>An IPv4 address in string form, such as <i>10.0.0.1</i>.</p>
+	 * @param string $addr <p>An IPv4 address in string form, such as <code>10.0.0.1</code>.</p>
 	 * @param int $options <p>A bitmask of the attribute options. The available options include <b><code>RADIUS_OPTION_TAGGED</code></b> and <b><code>RADIUS_OPTION_SALT</code></b>.</p>
 	 * @param int $tag <p>The attribute tag. This parameter is ignored unless the <b><code>RADIUS_OPTION_TAGGED</code></b> option is set.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
@@ -231,7 +231,7 @@ namespace {
 	 * @param resource $radius_handle <p>The RADIUS resource.</p>
 	 * @param int $vendor <p>The vendor ID.</p>
 	 * @param int $type <p>The attribute type.</p>
-	 * @param string $addr <p>An IPv4 address in string form, such as <i>10.0.0.1</i>.</p>
+	 * @param string $addr <p>An IPv4 address in string form, such as <code>10.0.0.1</code>.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
 	 * @link http://php.net/manual/en/function.radius-put-vendor-addr.php
 	 * @since PECL radius >= 1.1.0
@@ -302,12 +302,12 @@ namespace {
 	 * <p>Applies the RADIUS salt-encryption algorithm to the given value.</p><p>In general, this is achieved automatically by providing the <b><code>RADIUS_OPTION_SALT</code></b> option to an attribute setter function, but this function can be used if low-level request construction is required.</p>
 	 * @param resource $radius_handle
 	 * @param string $data <p>The data to be salt-encrypted.</p>
-	 * @return string <p>Returns the salt-encrypted data or <b><code>FALSE</code></b> on failure.</p>
+	 * @return string|false <p>Returns the salt-encrypted data or <b><code>FALSE</code></b> on failure.</p>
 	 * @link http://php.net/manual/en/function.radius-salt-encrypt-attr.php
 	 * @see radius_put_addr(), radius_put_attr(), radius_put_int(), radius_put_string()
 	 * @since PECL radius >= 1.3.0
 	 */
-	function radius_salt_encrypt_attr($radius_handle, string $data): string {}
+	function radius_salt_encrypt_attr($radius_handle, string $data) {}
 
 	/**
 	 * Sends the request and waits for a reply

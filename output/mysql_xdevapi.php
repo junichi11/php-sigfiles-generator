@@ -12,6 +12,23 @@ namespace mysql_xdevapi {
 	}
 
 	/**
+	 * <p>Provides access to the connection pool.</p>
+	 * @link http://php.net/manual/en/class.mysql-xdevapi-client.php
+	 * @since No version information available, might only be in Git
+	 */
+	class Client {
+
+		/**
+		 * Close client
+		 * <p>Close all client connections with the server.</p>
+		 * @return bool <p><b><code>TRUE</code></b> if connections are closed.</p>
+		 * @link http://php.net/manual/en/mysql-xdevapi-client.close.php
+		 * @since No version information available, might only be in Git
+		 */
+		public function close(): bool {}
+	}
+
+	/**
 	 * @link http://php.net/manual/en/class.mysql-xdevapi-collection.php
 	 * @since PECL mysql-xdevapi >= 8.0.11
 	 */
@@ -102,19 +119,6 @@ namespace mysql_xdevapi {
 	}
 
 	/**
-	 * @link http://php.net/manual/en/class.mysql-xdevapi-driver.php
-	 * @since PECL mysql-xdevapi >= 8.0.11
-	 */
-	class Driver {
-
-		/**
-		 * @var string
-		 * @link http://php.net/manual/en/class.mysql-xdevapi-driver.php
-		 */
-		const version = '8.0.3';
-	}
-
-	/**
 	 * @link http://php.net/manual/en/class.mysql-xdevapi-exception.php
 	 * @since PECL mysql-xdevapi >= 8.0.11
 	 */
@@ -179,91 +183,6 @@ namespace mysql_xdevapi {
 	}
 
 	/**
-	 * @link http://php.net/manual/en/class.mysql-xdevapi-fieldmetadata.php
-	 * @since PECL mysql-xdevapi >= 8.0.11
-	 */
-	class FieldMetadata {
-
-		/**
-		 * @var mixed
-		 * @link http://php.net/manual/en/class.mysql-xdevapi-fieldmetadata.php#mysql-xdevapi-fieldmetadata.props.type
-		 */
-		public $type;
-
-		/**
-		 * @var mixed
-		 * @link http://php.net/manual/en/class.mysql-xdevapi-fieldmetadata.php#mysql-xdevapi-fieldmetadata.props.type-name
-		 */
-		public $type_name;
-
-		/**
-		 * @var mixed
-		 * @link http://php.net/manual/en/class.mysql-xdevapi-fieldmetadata.php#mysql-xdevapi-fieldmetadata.props.name
-		 */
-		public $name;
-
-		/**
-		 * @var mixed
-		 * @link http://php.net/manual/en/class.mysql-xdevapi-fieldmetadata.php#mysql-xdevapi-fieldmetadata.props.original-name
-		 */
-		public $original_name;
-
-		/**
-		 * @var mixed
-		 * @link http://php.net/manual/en/class.mysql-xdevapi-fieldmetadata.php#mysql-xdevapi-fieldmetadata.props.table
-		 */
-		public $table;
-
-		/**
-		 * @var mixed
-		 * @link http://php.net/manual/en/class.mysql-xdevapi-fieldmetadata.php#mysql-xdevapi-fieldmetadata.props.original-table
-		 */
-		public $original_table;
-
-		/**
-		 * @var mixed
-		 * @link http://php.net/manual/en/class.mysql-xdevapi-fieldmetadata.php#mysql-xdevapi-fieldmetadata.props.schema
-		 */
-		public $schema;
-
-		/**
-		 * @var mixed
-		 * @link http://php.net/manual/en/class.mysql-xdevapi-fieldmetadata.php#mysql-xdevapi-fieldmetadata.props.catalog
-		 */
-		public $catalog;
-
-		/**
-		 * @var mixed
-		 * @link http://php.net/manual/en/class.mysql-xdevapi-fieldmetadata.php#mysql-xdevapi-fieldmetadata.props.collation
-		 */
-		public $collation;
-
-		/**
-		 * @var mixed
-		 * @link http://php.net/manual/en/class.mysql-xdevapi-fieldmetadata.php#mysql-xdevapi-fieldmetadata.props.fractional-digits
-		 */
-		public $fractional_digits;
-
-		/**
-		 * @var mixed
-		 * @link http://php.net/manual/en/class.mysql-xdevapi-fieldmetadata.php#mysql-xdevapi-fieldmetadata.props.length
-		 */
-		public $length;
-
-		/**
-		 * @var mixed
-		 * @link http://php.net/manual/en/class.mysql-xdevapi-fieldmetadata.php#mysql-xdevapi-fieldmetadata.props.flags
-		 */
-		public $flags;
-
-		/**
-		 * @var mixed
-		 * @link http://php.net/manual/en/class.mysql-xdevapi-fieldmetadata.php#mysql-xdevapi-fieldmetadata.props.content-type
-		 */
-		public $content_type;
-	}
-
-	/**
 	 * @link http://php.net/manual/en/class.mysql-xdevapi-result.php
 	 * @since PECL mysql-xdevapi >= 8.0.11
 	 */
@@ -311,13 +230,13 @@ namespace mysql_xdevapi {
 	class SqlStatement {
 
 		/**
-		 * @var integer
+		 * @var int
 		 * @link http://php.net/manual/en/class.mysql-xdevapi-sqlstatement.php
 		 */
 		const EXECUTE_ASYNC = 1;
 
 		/**
-		 * @var integer
+		 * @var int
 		 * @link http://php.net/manual/en/class.mysql-xdevapi-sqlstatement.php
 		 */
 		const BUFFERED = 2;
@@ -343,13 +262,13 @@ namespace mysql_xdevapi {
 	class Statement {
 
 		/**
-		 * @var integer
+		 * @var int
 		 * @link http://php.net/manual/en/class.mysql-xdevapi-statement.php
 		 */
 		const EXECUTE_ASYNC = 1;
 
 		/**
-		 * @var integer
+		 * @var int
 		 * @link http://php.net/manual/en/class.mysql-xdevapi-statement.php
 		 */
 		const BUFFERED = 2;
@@ -424,13 +343,6 @@ namespace mysql_xdevapi {
 		 * @link http://php.net/manual/en/class.mysql-xdevapi-warning.php#mysql-xdevapi-warning.props.code
 		 */
 		public $code;
-	}
-
-	/**
-	 * @link http://php.net/manual/en/class.mysql-xdevapi-xsession.php
-	 * @since PECL mysql-xdevapi >= 8.0.11
-	 */
-	class XSession {
 	}
 
 }

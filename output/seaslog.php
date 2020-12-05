@@ -59,6 +59,17 @@ namespace {
 		public static function analyzerDetail(string $level, string $log_path = NULL, string $key_word = NULL, int $start = NULL, int $limit = NULL, int $order = NULL) {}
 
 		/**
+		 * Manually release stream flow from logger
+		 * <p>Manually release stream flow from logger. SeasLog caches the stream handle opened by the log logger to save the overhead of creating a stream. The handle will be automatically released at the end of the request. If in CLI mode, the process will also automatically release when it exits. Or you can use the following functions to manually release(manually release function needs to update SeasLog 1.8.6 or updated version).</p>
+		 * @param int $model <p>Constant int.</p><ul> <li>SEASLOG_CLOSE_LOGGER_STREAM_MOD_ALL</li> <li>SEASLOG_CLOSE_LOGGER_STREAM_MOD_ASSIGN</li> </ul>
+		 * @param string $logger <p>The logger name.</p>
+		 * @return bool <p>Return TRUE on released stream flow success, FALSE on failure.</p>
+		 * @link http://php.net/manual/en/seaslog.closeloggerstream.php
+		 * @since PECL seaslog >=1.8.6
+		 */
+		public static function closeLoggerStream(int $model, string $logger): bool {}
+
+		/**
 		 * Record critical log information
 		 * <p>Record critical log information.</p><p><b>Note</b>:</p><p>"CRITICAL" - Critical conditions.Need to be repaired immediately, and the program component is unavailable.</p>
 		 * @param string $message <p>The log message.</p>
@@ -169,6 +180,16 @@ namespace {
 		public static function getRequestID(): string {}
 
 		/**
+		 * Get SeasLog request variable
+		 * <p>Get SeasLog request variable.</p>
+		 * @param int $key <p>Constant int.</p><ul> <li>SEASLOG_REQUEST_VARIABLE_DOMAIN_PORT</li> <li>SEASLOG_REQUEST_VARIABLE_REQUEST_URI</li> <li>SEASLOG_REQUEST_VARIABLE_REQUEST_METHOD</li> <li>SEASLOG_REQUEST_VARIABLE_CLIENT_IP</li> </ul>
+		 * @return bool <p>Return request variable value on set success.</p>
+		 * @link http://php.net/manual/en/seaslog.getrequestvariable.php
+		 * @since PECL seaslog >=1.9.0
+		 */
+		public static function getRequestVariable(int $key): bool {}
+
+		/**
 		 * Record info log information
 		 * <p>Record info log information.</p><p><b>Note</b>:</p><p>"INFO" - Interesting events.Emphasizes the running process of the application.</p>
 		 * @param string $message <p>The log message.</p>
@@ -246,6 +267,17 @@ namespace {
 		public static function setRequestID(string $request_id): bool {}
 
 		/**
+		 * Manually set SeasLog request variable
+		 * <p>Manually set SeasLog request variable.</p>
+		 * @param int $key <p>Constant int.</p><ul> <li>SEASLOG_REQUEST_VARIABLE_DOMAIN_PORT</li> <li>SEASLOG_REQUEST_VARIABLE_REQUEST_URI</li> <li>SEASLOG_REQUEST_VARIABLE_REQUEST_METHOD</li> <li>SEASLOG_REQUEST_VARIABLE_CLIENT_IP</li> </ul>
+		 * @param string $value <p>The request variable value.</p>
+		 * @return bool <p>Return TRUE on set success, FALSE on failure.</p>
+		 * @link http://php.net/manual/en/seaslog.setrequestvariable.php
+		 * @since PECL seaslog >=1.9.0
+		 */
+		public static function setRequestVariable(int $key, string $value): bool {}
+
+		/**
 		 * Record warning log information
 		 * <p>Record warning log information.</p><p><b>Note</b>:</p><p>"WARNING" - Exceptional occurrences that are not errors. Potentially aberrant information that needs attention and needs to be repaired.</p>
 		 * @param string $message <p>The log message.</p>
@@ -302,6 +334,16 @@ namespace {
 	define('SEASLOG_AUTHOR', null);
 
 	/**
+	 * 1
+	 */
+	define('SEASLOG_CLOSE_LOGGER_STREAM_MOD_ALL', null);
+
+	/**
+	 * 2
+	 */
+	define('SEASLOG_CLOSE_LOGGER_STREAM_MOD_ASSIGN', null);
+
+	/**
 	 * "CRITICAL" - Critical conditions.Need to be repaired immediately, and the program component is unavailable.
 	 */
 	define('SEASLOG_CRITICAL', null);
@@ -340,6 +382,26 @@ namespace {
 	 * "NOTICE" - Normal but significant events.Information that is more important than the INFO level during execution.
 	 */
 	define('SEASLOG_NOTICE', null);
+
+	/**
+	 * 4
+	 */
+	define('SEASLOG_REQUEST_VARIABLE_CLIENT_IP', null);
+
+	/**
+	 * 1
+	 */
+	define('SEASLOG_REQUEST_VARIABLE_DOMAIN_PORT', null);
+
+	/**
+	 * 3
+	 */
+	define('SEASLOG_REQUEST_VARIABLE_REQUEST_METHOD', null);
+
+	/**
+	 * 2
+	 */
+	define('SEASLOG_REQUEST_VARIABLE_REQUEST_URI', null);
 
 	define('SEASLOG_VERSION', null);
 

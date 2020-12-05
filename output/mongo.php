@@ -7,7 +7,7 @@ namespace {
 	/**
 	 * <p>A connection between PHP and MongoDB.</p>
 	 * <p>This class extends MongoClient and provides access to several deprecated methods.</p>
-	 * <p>For backwards compatibility, it also defaults the <i>"w"</i> option of its constructor argument to <i>0</i>, which does not require write operations to be acknowledged by the server. See <code>MongoClient::__construct()</code> for more information.</p>
+	 * <p>For backwards compatibility, it also defaults the <code>"w"</code> option of its constructor argument to <code>0</code>, which does not require write operations to be acknowledged by the server. See <code>MongoClient::__construct()</code> for more information.</p>
 	 * <p>This class has been <i>DEPRECATED</i> as of version 1.3.0. Relying on this feature is highly discouraged. Please use MongoClient instead.</p>
 	 * @link http://php.net/manual/en/class.mongo.php
 	 * @since PECL mongo >=0.9.0
@@ -101,7 +101,7 @@ namespace {
 
 		/**
 		 * Get the read preference for this connection
-		 * @return array <p>This function returns an array describing the read preference. The array contains the values <i>type</i> for the string read preference mode (corresponding to the MongoClient constants), and <i>tagsets</i> containing a list of all tag set criteria. If no tag sets were specified, <i>tagsets</i> will not be present in the array.</p>
+		 * @return array <p>This function returns an array describing the read preference. The array contains the values <code>type</code> for the string read preference mode (corresponding to the MongoClient constants), and <code>tagsets</code> containing a list of all tag set criteria. If no tag sets were specified, <code>tagsets</code> will not be present in the array.</p>
 		 * @link http://php.net/manual/en/mongoclient.getreadpreference.php
 		 * @see MongoClient::setReadPreference()
 		 * @since PECL mongo >=1.3.0
@@ -129,7 +129,7 @@ namespace {
 
 		/**
 		 * Get the write concern for this connection
-		 * @return array <p>This function returns an array describing the write concern. The array contains the values <i>w</i> for an integer acknowledgement level or string mode, and <i>wtimeout</i> denoting the maximum number of milliseconds to wait for the server to satisfy the write concern.</p>
+		 * @return array <p>This function returns an array describing the write concern. The array contains the values <code>w</code> for an integer acknowledgement level or string mode, and <code>wtimeout</code> denoting the maximum number of milliseconds to wait for the server to satisfy the write concern.</p>
 		 * @link http://php.net/manual/en/mongoclient.getwriteconcern.php
 		 * @see MongoClient::setWriteConcern()
 		 * @since PECL mongo >=1.5.0
@@ -149,7 +149,7 @@ namespace {
 
 		/**
 		 * Lists all of the databases available
-		 * @return array <p>Returns an associative array containing three fields. The first field is <i>databases</i>, which in turn contains an array. Each element of the array is an associative array corresponding to a database, giving th database's name, size, and if it's empty. The other two fields are <i>totalSize</i> (in bytes) and <i>ok</i>, which is 1 if this method ran successfully.</p>
+		 * @return array <p>Returns an associative array containing three fields. The first field is <code>databases</code>, which in turn contains an array. Each element of the array is an associative array corresponding to a database, giving th database's name, size, and if it's empty. The other two fields are <code>totalSize</code> (in bytes) and <code>ok</code>, which is 1 if this method ran successfully.</p>
 		 * @link http://php.net/manual/en/mongoclient.listdbs.php
 		 * @since PECL mongo >=1.3.0
 		 */
@@ -305,7 +305,7 @@ namespace {
 
 		/**
 		 * The string representation of this binary data object
-		 * @return string <p>Returns the string "&lt;Mongo Binary Data&gt;". To access the contents of a MongoBinData, use the <i>bin</i> field.</p>
+		 * @return string <p>Returns the string "&lt;Mongo Binary Data&gt;". To access the contents of a MongoBinData, use the <code>bin</code> field.</p>
 		 * @link http://php.net/manual/en/mongobindata.tostring.php
 		 * @since PECL mongo >= 0.8.1
 		 */
@@ -371,13 +371,13 @@ namespace {
 		const RP_NEAREST = "nearest";
 
 		/**
-		 * @var boolean <p>This property will be set to <b><code>TRUE</code></b> if we have a open connection to the database, <b><code>FALSE</code></b> otherwise. If the connection is to a replica set, this property will only be <b><code>TRUE</code></b> if the driver has a connection to a node matching the current read preference. This property does not take authentication into account.</p> <p>This property is <i>deprecated</i> since version 1.5.0.</p>
+		 * @var bool <p>This property will be set to <b><code>TRUE</code></b> if we have a open connection to the database, <b><code>FALSE</code></b> otherwise. If the connection is to a replica set, this property will only be <b><code>TRUE</code></b> if the driver has a connection to a node matching the current read preference. This property does not take authentication into account.</p> <p>This property is <i>deprecated</i> since version 1.5.0.</p>
 		 * @link http://php.net/manual/en/class.mongoclient.php#mongoclient.props.connected
 		 */
 		public $connected = FALSE;
 
 		/**
-		 * @var string <p>This property is no longer used and will be set to <b><code>NULL</code></b> In driver versions 1.1.x and earlier, this may be set to a string value (e.g. <i>"recycled"</i>, <i>"new"</i>) when persistent connections are used.</p> <p>This property is <i>deprecated</i> since version 1.5.0.</p>
+		 * @var string <p>This property is no longer used and will be set to <b><code>NULL</code></b> In driver versions 1.1.x and earlier, this may be set to a string value (e.g. <code>"recycled"</code>, <code>"new"</code>) when persistent connections are used.</p> <p>This property is <i>deprecated</i> since version 1.5.0.</p>
 		 * @link http://php.net/manual/en/class.mongoclient.php#mongoclient.props.status
 		 */
 		public $status = NULL;
@@ -388,10 +388,10 @@ namespace {
 
 		/**
 		 * Creates a new database connection object
-		 * <p>If no parameters are passed, this connects to "localhost:27017" (or whatever was specified in php.ini for mongo.default_host and mongo.default_port).</p><p><code>server</code> should have the form:</p><p>The connection string always starts with <i>mongodb://</i>, to indicate it is a connection string in this form.</p><p>If <i>username</i> and <i>password</i> are specified, the constructor will attempt to authenticate the connection with the database before returning. Username and password are optional and must be followed by an <i>@</i>, if specified.</p><p>At least one host must be given (port optional, always defaulting to 27017) and as many hosts as desired may be connected to. Host names are comma-separated and the constructor will return successfully if it connected to at least one host. If it could not connect to any of the hosts, it will throw a MongoConnectionException. Please see the Replica Sets section for information on how to connect to Replica Sets.</p><p>If you specified a username and password, you may specify a database to authenticate with. If <i>db</i> is not specified, "admin" will be used.</p><p>An optional query string may be used to specify extra options. The same options are supported through the <code>options</code> array as well, and are therefore redescribed there. See the examples below on how to set those options.</p><p>One part of the options governs how the driver reads from secondary nodes in a replica set environment. Extra information on how these read preferences work is available as well through the read preferences documentation page.</p>
+		 * <p>If no parameters are passed, this connects to "localhost:27017" (or whatever was specified in php.ini for mongo.default_host and mongo.default_port).</p><p><code>server</code> should have the form:</p><p>The connection string always starts with <code>mongodb://</code>, to indicate it is a connection string in this form.</p><p>If <code>username</code> and <code>password</code> are specified, the constructor will attempt to authenticate the connection with the database before returning. Username and password are optional and must be followed by an <code>@</code>, if specified.</p><p>At least one host must be given (port optional, always defaulting to 27017) and as many hosts as desired may be connected to. Host names are comma-separated and the constructor will return successfully if it connected to at least one host. If it could not connect to any of the hosts, it will throw a MongoConnectionException. Please see the Replica Sets section for information on how to connect to Replica Sets.</p><p>If you specified a username and password, you may specify a database to authenticate with. If <code>db</code> is not specified, "admin" will be used.</p><p>An optional query string may be used to specify extra options. The same options are supported through the <code>options</code> array as well, and are therefore redescribed there. See the examples below on how to set those options.</p><p>One part of the options governs how the driver reads from secondary nodes in a replica set environment. Extra information on how these read preferences work is available as well through the read preferences documentation page.</p>
 		 * @param string $server <p>The server name.</p>
-		 * @param array $options <p>An array of options for the connection. Currently available options include:</p><ul> <li> <p><i>"authMechanism"</i></p> <p>Available mechanisms are:</p>   authMechanism Description Availability     MONGODB-CR Authenticate using Challenge Response mechanism. This is the default value. All MongoDB versions   MONGODB-X509 Authenticates using X509 certificates MongoDB 2.6. Only available when OpenSSL is enabled   PLAIN Authenticates using unencrypted plain username+password. Must be used over SSL connections. Generally used by MongoDB to login via 3rd party LDAP server MongoDB Enterprise 2.4. The Driver must be compiled against CyrusSASL2   GSSAPI Authenticates via kerberos systems MongoDB Enterprise 2.4. The Driver must be compiled against CyrusSASL2   SCRAM-SHA-1 Authenticates using SCRAM-SHA-1 MongoDB 3.0.    </li> <li> <p><i>"authSource"</i></p> <p>Should be set to the database name where the user is defined it.</p> </li> <li> <p><i>"connect"</i></p> <p>If the constructor should connect before returning. Default is <b><code>TRUE</code></b>. When set to <b><code>FALSE</code></b> the driver will <i>automatically</i> connect to the server whenever it is necessary to do a query. Alternatively, you can run <code>MongoClient::connect()</code> manually.</p> <p><b>Warning</b></p> <p>This option is not supported through the connection string.</p>  </li> <li> <p><i>"connectTimeoutMS"</i></p> <p>How long a connection can take to be opened before timing out in milliseconds. Defaults to <i>60000</i> (60 seconds).</p> <p>If <i>-1</i> is specified, no connection timeout will be applied and PHP will use default_socket_timeout.</p> </li> <li> <p><i>"db"</i></p> <p>The database to authenticate against can be specified here, instead of including it in the host list. This overrides a database given in the host list.</p> </li> <li> <p><i>"fsync"</i></p> <p>When <i>"fsync"</i> is set, all write operations will block until the database has flushed the changes to disk. This makes the write operations slower, but it guarantees that writes have succeeded and that the operations can be recovered in case of total system failure.</p> <p>If the MongoDB server has journaling enabled, this option is identical to <i>"journal"</i>. If journaling is not enabled, this option ensures that write operations will be synced to database files on disk.</p> <p><b>Note</b>:  If journaling is enabled, users are strongly encouraged to use the <i>"journal"</i> option instead of <i>"fsync"</i>. Do not use <i>"fsync"</i> and <i>"journal"</i> simultaneously, as that will result in an error. </p> </li> <li> <p><i>"journal"</i></p> <p>When <i>"journal"</i> is set, all write operations will block until the database has flushed the changes to the journal on disk. This makes the write operations slower, but it guarantees that writes have succeeded and that the operations can be recovered in case of total system failure.</p> <p><b>Note</b>:  If this option is used and journaling is disabled, MongoDB 2.6+ will raise an error and the write will fail; older server versions will simply ignore the option. </p> </li> <li> <p><i>"gssapiServiceName"</i></p> <p>Sets the Kerberos service principal. Only applicable when authMechanism=GSSAPI. Defaults to "mongodb".</p> </li> <li> <p><i>"password"</i></p> <p>The password can be specified here, instead of including it in the host list. This is especially useful if a password has a "@" in it. This overrides a password set in the host list.</p> </li> <li> <p><i>"readPreference"</i></p> <p>Specifies the read preference type. Read preferences provide you with control from which secondaries data can be read from.</p> <p>Allowed values are: <b><code>MongoClient::RP_PRIMARY</code></b>, <b><code>MongoClient::RP_PRIMARY_PREFERRED</code></b>, <b><code>MongoClient::RP_SECONDARY</code></b>, <b><code>MongoClient::RP_SECONDARY_PREFERRED</code></b> and <b><code>MongoClient::RP_NEAREST</code></b>.</p> <p>See the documentation on read preferences for more information.</p> </li> <li> <p><i>"readPreferenceTags"</i></p> <p>Specifies the read preference tags as an array of strings. Tags can be used in combination with the <i>readPreference</i> option to further control which secondaries data might be read from.</p> <p>See the documentation on read preferences for more information.</p> </li> <li> <p><i>"replicaSet"</i></p> <p>The name of the replica set to connect to. If this is given, the primary will be automatically be determined. This means that the driver may end up connecting to a server that was not even listed. See the replica set example below for details.</p> </li> <li> <p><i>"secondaryAcceptableLatencyMS"</i></p> <p>When reading from a secondary (using ReadPreferences), do not read from secondaries known to be more then <i>secondaryAcceptableLatencyMS</i> away from us. Defaults to <i>15</i></p> </li> <li> <p><i>"socketTimeoutMS"</i></p> <p>How long a socket operation (read or write) can take before timing out in milliseconds. Defaults to <i>30000</i> (30 seconds).</p> <p>If <i>-1</i> is specified, socket operations may block indefinitely. This option may also be set on a per-operation basis using <code>MongoCursor::timeout()</code> for queries or the <i>"socketTimeoutMS"</i> option for write methods.</p> <p><b>Note</b>:  This is a client-side timeout. If a write operation times out, there is no way to know if the server actually handled the write or not, as a MongoCursorTimeoutException will be thrown in lieu of returning a write result. </p> </li> <li> <p><i>"ssl"</i></p> <p>A boolean to specify whether you want to enable SSL for the connections to MongoDB. Extra options such as certificates can be set with SSL context options.</p> </li> <li> <p><i>"username"</i></p> <p>The username can be specified here, instead of including it in the host list. This is especially useful if a username has a ":" in it. This overrides a username set in the host list.</p> </li> <li> <p><i>"w"</i></p> <p>The <i>w</i> option specifies the Write Concern for the driver, which determines how long the driver blocks when writing. The default value is <i>1</i>.</p> <p>This option is applicable when connecting to both single servers and replica sets. A positive value controls how <i>many</i> nodes must acknowledge the write instruction before the driver continues. A value of <i>1</i> would require the single server or primary (in a replica set) to acknowledge the write operation. A value of <i>3</i> would cause the driver to block until the write has been applied to the primary as well as two secondary servers (in a replica set).</p> <p>A string value is used to control which tag sets are taken into account for write concerns. <i>"majority"</i> is special and ensures that the write operation has been applied to the majority (more than 50%) of the participating nodes.</p> </li> <li> <p><i>"wTimeoutMS"</i></p> <p>This option specifies the time limit, in milliseconds, for write concern acknowledgement. It is only applicable for write operations where <i>"w"</i> is greater than <i>1</i>, as the timeout pertains to replication. If the write concern is not satisfied within the time limit, a MongoCursorException will be thrown. A value of <i>0</i> may be specified to block indefinitely. The default value is <i>10000</i> (ten seconds).</p> </li> </ul> <p>The following options are deprecated and should no longer be used:</p><ul> <li> <p><i>"slaveOkay"</i></p> <p>Deprecated. Please use the read preference options.</p> </li> <li> <p><i>"timeout"</i></p> <p>Deprecated alias for <i>"connectTimeoutMS"</i>.</p> </li> <li> <p><i>"wTimeout"</i></p> <p>Deprecated alias for <i>"wTimeoutMS"</i>.</p> </li> </ul>
-		 * @param array $driver_options <p>An array of options for the MongoDB driver. Options include setting connection context options for SSL or logging callbacks.</p><ul> <li> <p><i>"context"</i></p> <p>The Stream Context to attach to all new connections. This allows you for example to configure SSL certificates and are described at SSL context options. See the Connecting over SSL tutorial.</p> </li> </ul>
+		 * @param array $options <p>An array of options for the connection. Currently available options include:</p><ul> <li> <p><code>"authMechanism"</code></p> <p>Available mechanisms are:</p>   authMechanism Description Availability     MONGODB-CR Authenticate using Challenge Response mechanism. This is the default value. All MongoDB versions   MONGODB-X509 Authenticates using X509 certificates MongoDB 2.6. Only available when OpenSSL is enabled   PLAIN Authenticates using unencrypted plain username+password. Must be used over SSL connections. Generally used by MongoDB to login via 3rd party LDAP server MongoDB Enterprise 2.4. The Driver must be compiled against CyrusSASL2   GSSAPI Authenticates via kerberos systems MongoDB Enterprise 2.4. The Driver must be compiled against CyrusSASL2   SCRAM-SHA-1 Authenticates using SCRAM-SHA-1 MongoDB 3.0.    </li> <li> <p><code>"authSource"</code></p> <p>Should be set to the database name where the user is defined it.</p> </li> <li> <p><code>"connect"</code></p> <p>If the constructor should connect before returning. Default is <b><code>TRUE</code></b>. When set to <b><code>FALSE</code></b> the driver will <i>automatically</i> connect to the server whenever it is necessary to do a query. Alternatively, you can run <code>MongoClient::connect()</code> manually.</p> <p><b>Warning</b></p> <p>This option is not supported through the connection string.</p>  </li> <li> <p><code>"connectTimeoutMS"</code></p> <p>How long a connection can take to be opened before timing out in milliseconds. Defaults to <code>60000</code> (60 seconds).</p> <p>If <code>-1</code> is specified, no connection timeout will be applied and PHP will use default_socket_timeout.</p> </li> <li> <p><code>"db"</code></p> <p>The database to authenticate against can be specified here, instead of including it in the host list. This overrides a database given in the host list.</p> </li> <li> <p><code>"fsync"</code></p> <p>When <code>"fsync"</code> is set, all write operations will block until the database has flushed the changes to disk. This makes the write operations slower, but it guarantees that writes have succeeded and that the operations can be recovered in case of total system failure.</p> <p>If the MongoDB server has journaling enabled, this option is identical to <i>"journal"</i>. If journaling is not enabled, this option ensures that write operations will be synced to database files on disk.</p> <p><b>Note</b>:  If journaling is enabled, users are strongly encouraged to use the <code>"journal"</code> option instead of <code>"fsync"</code>. Do not use <code>"fsync"</code> and <code>"journal"</code> simultaneously, as that will result in an error. </p> </li> <li> <p><code>"journal"</code></p> <p>When <code>"journal"</code> is set, all write operations will block until the database has flushed the changes to the journal on disk. This makes the write operations slower, but it guarantees that writes have succeeded and that the operations can be recovered in case of total system failure.</p> <p><b>Note</b>:  If this option is used and journaling is disabled, MongoDB 2.6+ will raise an error and the write will fail; older server versions will simply ignore the option. </p> </li> <li> <p><code>"gssapiServiceName"</code></p> <p>Sets the Kerberos service principal. Only applicable when authMechanism=GSSAPI. Defaults to "mongodb".</p> </li> <li> <p><code>"password"</code></p> <p>The password can be specified here, instead of including it in the host list. This is especially useful if a password has a "@" in it. This overrides a password set in the host list.</p> </li> <li> <p><code>"readPreference"</code></p> <p>Specifies the read preference type. Read preferences provide you with control from which secondaries data can be read from.</p> <p>Allowed values are: <b><code>MongoClient::RP_PRIMARY</code></b>, <b><code>MongoClient::RP_PRIMARY_PREFERRED</code></b>, <b><code>MongoClient::RP_SECONDARY</code></b>, <b><code>MongoClient::RP_SECONDARY_PREFERRED</code></b> and <b><code>MongoClient::RP_NEAREST</code></b>.</p> <p>See the documentation on read preferences for more information.</p> </li> <li> <p><code>"readPreferenceTags"</code></p> <p>Specifies the read preference tags as an array of strings. Tags can be used in combination with the <code>readPreference</code> option to further control which secondaries data might be read from.</p> <p>See the documentation on read preferences for more information.</p> </li> <li> <p><code>"replicaSet"</code></p> <p>The name of the replica set to connect to. If this is given, the primary will be automatically be determined. This means that the driver may end up connecting to a server that was not even listed. See the replica set example below for details.</p> </li> <li> <p><code>"secondaryAcceptableLatencyMS"</code></p> <p>When reading from a secondary (using ReadPreferences), do not read from secondaries known to be more then <code>secondaryAcceptableLatencyMS</code> away from us. Defaults to <code>15</code></p> </li> <li> <p><code>"socketTimeoutMS"</code></p> <p>How long a socket operation (read or write) can take before timing out in milliseconds. Defaults to <code>30000</code> (30 seconds).</p> <p>If <code>-1</code> is specified, socket operations may block indefinitely. This option may also be set on a per-operation basis using <code>MongoCursor::timeout()</code> for queries or the <code>"socketTimeoutMS"</code> option for write methods.</p> <p><b>Note</b>:  This is a client-side timeout. If a write operation times out, there is no way to know if the server actually handled the write or not, as a MongoCursorTimeoutException will be thrown in lieu of returning a write result. </p> </li> <li> <p><code>"ssl"</code></p> <p>A boolean to specify whether you want to enable SSL for the connections to MongoDB. Extra options such as certificates can be set with SSL context options.</p> </li> <li> <p><code>"username"</code></p> <p>The username can be specified here, instead of including it in the host list. This is especially useful if a username has a ":" in it. This overrides a username set in the host list.</p> </li> <li> <p><code>"w"</code></p> <p>The <code>w</code> option specifies the Write Concern for the driver, which determines how long the driver blocks when writing. The default value is <code>1</code>.</p> <p>This option is applicable when connecting to both single servers and replica sets. A positive value controls how <i>many</i> nodes must acknowledge the write instruction before the driver continues. A value of <code>1</code> would require the single server or primary (in a replica set) to acknowledge the write operation. A value of <code>3</code> would cause the driver to block until the write has been applied to the primary as well as two secondary servers (in a replica set).</p> <p>A string value is used to control which tag sets are taken into account for write concerns. <code>"majority"</code> is special and ensures that the write operation has been applied to the majority (more than 50%) of the participating nodes.</p> </li> <li> <p><code>"wTimeoutMS"</code></p> <p>This option specifies the time limit, in milliseconds, for write concern acknowledgement. It is only applicable for write operations where <code>"w"</code> is greater than <code>1</code>, as the timeout pertains to replication. If the write concern is not satisfied within the time limit, a MongoCursorException will be thrown. A value of <code>0</code> may be specified to block indefinitely. The default value is <code>10000</code> (ten seconds).</p> </li> </ul> <p>The following options are deprecated and should no longer be used:</p><ul> <li> <p><code>"slaveOkay"</code></p> <p>Deprecated. Please use the read preference options.</p> </li> <li> <p><code>"timeout"</code></p> <p>Deprecated alias for <code>"connectTimeoutMS"</code>.</p> </li> <li> <p><code>"wTimeout"</code></p> <p>Deprecated alias for <code>"wTimeoutMS"</code>.</p> </li> </ul>
+		 * @param array $driver_options <p>An array of options for the MongoDB driver. Options include setting connection context options for SSL or logging callbacks.</p><ul> <li> <p><code>"context"</code></p> <p>The Stream Context to attach to all new connections. This allows you for example to configure SSL certificates and are described at SSL context options. See the Connecting over SSL tutorial.</p> </li> </ul>
 		 * @return self <p>Returns a new database connection object.</p>
 		 * @link http://php.net/manual/en/mongoclient.construct.php
 		 * @since PECL mongo >=1.3.0
@@ -466,7 +466,7 @@ namespace {
 
 		/**
 		 * Get the read preference for this connection
-		 * @return array <p>This function returns an array describing the read preference. The array contains the values <i>type</i> for the string read preference mode (corresponding to the MongoClient constants), and <i>tagsets</i> containing a list of all tag set criteria. If no tag sets were specified, <i>tagsets</i> will not be present in the array.</p>
+		 * @return array <p>This function returns an array describing the read preference. The array contains the values <code>type</code> for the string read preference mode (corresponding to the MongoClient constants), and <code>tagsets</code> containing a list of all tag set criteria. If no tag sets were specified, <code>tagsets</code> will not be present in the array.</p>
 		 * @link http://php.net/manual/en/mongoclient.getreadpreference.php
 		 * @see MongoClient::setReadPreference()
 		 * @since PECL mongo >=1.3.0
@@ -475,7 +475,7 @@ namespace {
 
 		/**
 		 * Get the write concern for this connection
-		 * @return array <p>This function returns an array describing the write concern. The array contains the values <i>w</i> for an integer acknowledgement level or string mode, and <i>wtimeout</i> denoting the maximum number of milliseconds to wait for the server to satisfy the write concern.</p>
+		 * @return array <p>This function returns an array describing the write concern. The array contains the values <code>w</code> for an integer acknowledgement level or string mode, and <code>wtimeout</code> denoting the maximum number of milliseconds to wait for the server to satisfy the write concern.</p>
 		 * @link http://php.net/manual/en/mongoclient.getwriteconcern.php
 		 * @see MongoClient::setWriteConcern()
 		 * @since PECL mongo >=1.5.0
@@ -495,7 +495,7 @@ namespace {
 
 		/**
 		 * Lists all of the databases available
-		 * @return array <p>Returns an associative array containing three fields. The first field is <i>databases</i>, which in turn contains an array. Each element of the array is an associative array corresponding to a database, giving th database's name, size, and if it's empty. The other two fields are <i>totalSize</i> (in bytes) and <i>ok</i>, which is 1 if this method ran successfully.</p>
+		 * @return array <p>Returns an associative array containing three fields. The first field is <code>databases</code>, which in turn contains an array. Each element of the array is an associative array corresponding to a database, giving th database's name, size, and if it's empty. The other two fields are <code>totalSize</code> (in bytes) and <code>ok</code>, which is 1 if this method ran successfully.</p>
 		 * @link http://php.net/manual/en/mongoclient.listdbs.php
 		 * @since PECL mongo >=1.3.0
 		 */
@@ -598,13 +598,13 @@ namespace {
 		public $db = NULL;
 
 		/**
-		 * @var integer <p>The number of servers to replicate a change to before returning success. Value is inherited from the parent database. The MongoDB class has a more detailed description of how <i>w</i> works.</p>
+		 * @var int <p>The number of servers to replicate a change to before returning success. Value is inherited from the parent database. The MongoDB class has a more detailed description of how <code>w</code> works.</p>
 		 * @link http://php.net/manual/en/class.mongocollection.php#mongocollection.props.w
 		 */
 		public $w;
 
 		/**
-		 * @var integer <p>The number of milliseconds to wait for <i>$this-&gt;w</i> replications to take place. Value is inherited from the parent database. The MongoDB class has a more detailed description of how <i>wtimeout</i> works.</p>
+		 * @var int <p>The number of milliseconds to wait for <code>$this-&gt;w</code> replications to take place. Value is inherited from the parent database. The MongoDB class has a more detailed description of how <code>wtimeout</code> works.</p>
 		 * @link http://php.net/manual/en/class.mongocollection.php#mongocollection.props.wtimeout
 		 */
 		public $wtimeout;
@@ -641,8 +641,8 @@ namespace {
 		 * Perform an aggregation using the aggregation framework
 		 * <p>The MongoDB aggregation framework provides a means to calculate aggregated values without having to use MapReduce. While MapReduce is powerful, it is often more difficult than necessary for many simple aggregation tasks, such as totaling or averaging field values.</p><p>This method accepts either a variable amount of pipeline operators, or a single array of operators constituting the pipeline.</p>
 		 * @param array $pipeline <p>An array of pipeline operators.</p>
-		 * @param array $options <p>Options for the aggregation command. Valid options include:</p> <ul> <li> <p><i>"allowDiskUse"</i></p> <p>Allow aggregation stages to write to temporary files</p> </li> <li> <p><i>"cursor"</i></p> <p>Options controlling the creation of the cursor object. This option causes the command to return a result document suitable for constructing a MongoCommandCursor. If you need to use this option, you should consider using <code>MongoCollection::aggregateCursor()</code>.</p> </li> <li> <p><i>"explain"</i></p> <p>Return information on the processing of the pipeline.</p> </li> <li><p><i>"maxTimeMS"</i></p><p>Specifies a cumulative time limit in milliseconds for processing the operation on the server (does not include idle time). If the operation is not completed by the server within the timeout period, a MongoExecutionTimeoutException will be thrown.</p></li> </ul>
-		 * @return array <p>The result of the aggregation as an array. The ok will be set to <i>1</i> on success, <i>0</i> on failure.</p>
+		 * @param array $options <p>Options for the aggregation command. Valid options include:</p> <ul> <li> <p><code>"allowDiskUse"</code></p> <p>Allow aggregation stages to write to temporary files</p> </li> <li> <p><code>"cursor"</code></p> <p>Options controlling the creation of the cursor object. This option causes the command to return a result document suitable for constructing a MongoCommandCursor. If you need to use this option, you should consider using <code>MongoCollection::aggregateCursor()</code>.</p> </li> <li> <p><code>"explain"</code></p> <p>Return information on the processing of the pipeline.</p> </li> <li><p><code>"maxTimeMS"</code></p><p>Specifies a cumulative time limit in milliseconds for processing the operation on the server (does not include idle time). If the operation is not completed by the server within the timeout period, a MongoExecutionTimeoutException will be thrown.</p></li> </ul>
+		 * @return array <p>The result of the aggregation as an array. The ok will be set to <code>1</code> on success, <code>0</code> on failure.</p>
 		 * @link http://php.net/manual/en/mongocollection.aggregate.php
 		 * @since PECL mongo >=1.3.0
 		 */
@@ -652,7 +652,7 @@ namespace {
 		 * Execute an aggregation pipeline command and retrieve results through a cursor
 		 * <p>With this method you can execute Aggregation Framework pipelines and retrieve the results through a cursor, instead of getting just one document back as you would with <code>MongoCollection::aggregate()</code>. This method returns a MongoCommandCursor object. This cursor object implements the Iterator interface just like the MongoCursor objects that are returned by the <code>MongoCollection::find()</code> method.</p><p><b>Note</b>:  The resulting MongoCommandCursor will inherit this collection's read preference. <code>MongoCommandCursor::setReadPreference()</code> may be used to change the read preference before iterating on the cursor. </p>
 		 * @param array $command
-		 * @param array $options <p>Options for the aggregation command. Valid options include:</p> <ul> <li> <p><i>"allowDiskUse"</i></p> <p>Allow aggregation stages to write to temporary files</p> </li> <li> <p><i>"cursor"</i></p> <p>It is possible to configure how many initial documents the server should return with the first result set. The default initial batch size is <i>101</i>. You can change it by adding the <i>batchSize</i> option:</p>  <code> &lt;&#63;php<br>$collection-&gt;aggregateCursor(&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;$pipeline,<br>&nbsp;&nbsp;&nbsp;&nbsp;[&nbsp;"cursor"&nbsp;=&gt;&nbsp;[&nbsp;"batchSize"&nbsp;=&gt;&nbsp;4&nbsp;]&nbsp;]<br>);  </code>  <p>This option only configures the size of the first batch. To configure the size of future batches, please use the <code>MongoCommandCursor::batchSize()</code> method on the returned MongoCommandCursor object.</p> </li> <li> <p><i>"explain"</i></p> <p>Return information on the processing of the pipeline. This option may cause the command to return a result document that is unsuitable for constructing a MongoCommandCursor. If you need to use this option, you should consider using <code>MongoCollection::aggregate()</code>.</p> </li> <li><p><i>"maxTimeMS"</i></p><p>Specifies a cumulative time limit in milliseconds for processing the operation on the server (does not include idle time). If the operation is not completed by the server within the timeout period, a MongoExecutionTimeoutException will be thrown.</p></li> </ul>
+		 * @param array $options <p>Options for the aggregation command. Valid options include:</p> <ul> <li> <p><code>"allowDiskUse"</code></p> <p>Allow aggregation stages to write to temporary files</p> </li> <li> <p><code>"cursor"</code></p> <p>It is possible to configure how many initial documents the server should return with the first result set. The default initial batch size is <code>101</code>. You can change it by adding the <code>batchSize</code> option:</p>  <code> &lt;&#63;php<br>$collection-&gt;aggregateCursor(&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;$pipeline,<br>&nbsp;&nbsp;&nbsp;&nbsp;[&nbsp;"cursor"&nbsp;=&gt;&nbsp;[&nbsp;"batchSize"&nbsp;=&gt;&nbsp;4&nbsp;]&nbsp;]<br>);  </code>  <p>This option only configures the size of the first batch. To configure the size of future batches, please use the <code>MongoCommandCursor::batchSize()</code> method on the returned MongoCommandCursor object.</p> </li> <li> <p><code>"explain"</code></p> <p>Return information on the processing of the pipeline. This option may cause the command to return a result document that is unsuitable for constructing a MongoCommandCursor. If you need to use this option, you should consider using <code>MongoCollection::aggregate()</code>.</p> </li> <li><p><code>"maxTimeMS"</code></p><p>Specifies a cumulative time limit in milliseconds for processing the operation on the server (does not include idle time). If the operation is not completed by the server within the timeout period, a MongoExecutionTimeoutException will be thrown.</p></li> </ul>
 		 * @return MongoCommandCursor <p>Returns a MongoCommandCursor object. Because this implements the Iterator interface you can iterate over each of the results as returned by the command query. The MongoCommandCursor also implements the MongoCursorInterface interface which adds the <code>MongoCommandCursor::batchSize()</code>, <code>MongoCommandCursor::dead()</code>, <code>MongoCommandCursor::info()</code> methods.</p>
 		 * @link http://php.net/manual/en/mongocollection.aggregatecursor.php
 		 * @since PECL mongo >=1.5.0
@@ -661,9 +661,9 @@ namespace {
 
 		/**
 		 * Inserts multiple documents into this collection
-		 * @param array $a <p>An array of arrays or objects. If any objects are used, they may not have protected or private properties.</p> <p><b>Note</b>:</p><p>If the documents to insert do not have an <i>_id</i> key or property, a new MongoId instance will be created and assigned to it. See <code>MongoCollection::insert()</code> for additional information on this behavior.</p>
-		 * @param array $options <p>An array of options for the batch of insert operations. Currently available options include:</p><ul> <li> <p><i>"continueOnError"</i></p> <p>Boolean, defaults to <b><code>FALSE</code></b>. If set, the database will not stop processing a bulk insert if one fails (eg due to duplicate IDs). This makes bulk insert behave similarly to a series of single inserts, except that calling <code>MongoDB::lastError()</code> will have an error set if any insert fails, not just the last one. If multiple errors occur, only the most recent will be reported by <code>MongoDB::lastError()</code>.</p> <p><b>Note</b>:</p><p>Please note that <i>continueOnError</i> affects errors on the database side only. If you try to insert a document that has errors (for example it contains a key with an empty name), then the document is not even transferred to the database as the driver detects this error and bails out. <i>continueOnError</i> has no effect on errors detected in the documents by the driver.</p>  </li> <li><p><i>"fsync"</i></p><p>Boolean, defaults to <b><code>FALSE</code></b>. If journaling is enabled, it works exactly like <i>"j"</i>. If journaling is not enabled, the write operation blocks until it is synced to database files on disk. If <b><code>TRUE</code></b>, an acknowledged insert is implied and this option will override setting <i>"w"</i> to <i>0</i>.</p><p><b>Note</b>: If journaling is enabled, users are strongly encouraged to use the <i>"j"</i> option instead of <i>"fsync"</i>. Do not use <i>"fsync"</i> and <i>"j"</i> simultaneously, as that will result in an error.</p></li> <li><p><i>"j"</i></p><p>Boolean, defaults to <b><code>FALSE</code></b>. Forces the write operation to block until it is synced to the journal on disk. If <b><code>TRUE</code></b>, an acknowledged write is implied and this option will override setting <i>"w"</i> to <i>0</i>.</p><p><b>Note</b>: If this option is used and journaling is disabled, MongoDB 2.6+ will raise an error and the write will fail; older server versions will simply ignore the option.</p></li> <li><p><i>"socketTimeoutMS"</i></p><p>This option specifies the time limit, in milliseconds, for socket communication. If the server does not respond within the timeout period, a MongoCursorTimeoutException will be thrown and there will be no way to determine if the server actually handled the write or not. A value of <i>-1</i> may be specified to block indefinitely. The default value for MongoClient is <i>30000</i> (30 seconds).</p></li> <li><p><i>"w"</i></p><p>See Write Concerns. The default value for MongoClient is <i>1</i>.</p></li> <li><p><i>"wTimeoutMS"</i></p><p>This option specifies the time limit, in milliseconds, for write concern acknowledgement. It is only applicable when <i>"w"</i> is greater than <i>1</i>, as the timeout pertains to replication. If the write concern is not satisfied within the time limit, a MongoCursorException will be thrown. A value of <i>0</i> may be specified to block indefinitely. The default value for MongoClient is <i>10000</i> (ten seconds).</p></li> </ul> <p>The following options are deprecated and should no longer be used:</p><ul> <li><p><i>"safe"</i></p><p>Deprecated. Please use the write concern <i>"w"</i> option.</p></li> <li><p><i>"timeout"</i></p><p>Deprecated alias for <i>"socketTimeoutMS"</i>.</p></li> <li><p><i>"wtimeout"</i></p><p>Deprecated alias for <i>"wTimeoutMS"</i>.</p></li> </ul>
-		 * @return mixed <p>If the <i>w</i> parameter is set to acknowledge the write, returns an associative array with the status of the inserts ("ok") and any error that may have occurred ("err"). Otherwise, returns <b><code>TRUE</code></b> if the batch insert was successfully sent, <b><code>FALSE</code></b> otherwise.</p>
+		 * @param array $a <p>An array of arrays or objects. If any objects are used, they may not have protected or private properties.</p> <p><b>Note</b>:</p><p>If the documents to insert do not have an <code>_id</code> key or property, a new MongoId instance will be created and assigned to it. See <code>MongoCollection::insert()</code> for additional information on this behavior.</p>
+		 * @param array $options <p>An array of options for the batch of insert operations. Currently available options include:</p><ul> <li> <p><code>"continueOnError"</code></p> <p>Boolean, defaults to <b><code>FALSE</code></b>. If set, the database will not stop processing a bulk insert if one fails (eg due to duplicate IDs). This makes bulk insert behave similarly to a series of single inserts, except that calling <code>MongoDB::lastError()</code> will have an error set if any insert fails, not just the last one. If multiple errors occur, only the most recent will be reported by <code>MongoDB::lastError()</code>.</p> <p><b>Note</b>:</p><p>Please note that <code>continueOnError</code> affects errors on the database side only. If you try to insert a document that has errors (for example it contains a key with an empty name), then the document is not even transferred to the database as the driver detects this error and bails out. <code>continueOnError</code> has no effect on errors detected in the documents by the driver.</p>  </li> <li><p><code>"fsync"</code></p><p>Boolean, defaults to <b><code>FALSE</code></b>. If journaling is enabled, it works exactly like <code>"j"</code>. If journaling is not enabled, the write operation blocks until it is synced to database files on disk. If <b><code>TRUE</code></b>, an acknowledged insert is implied and this option will override setting <code>"w"</code> to <code>0</code>.</p><p><b>Note</b>: If journaling is enabled, users are strongly encouraged to use the <code>"j"</code> option instead of <code>"fsync"</code>. Do not use <code>"fsync"</code> and <code>"j"</code> simultaneously, as that will result in an error.</p></li> <li><p><code>"j"</code></p><p>Boolean, defaults to <b><code>FALSE</code></b>. Forces the write operation to block until it is synced to the journal on disk. If <b><code>TRUE</code></b>, an acknowledged write is implied and this option will override setting <code>"w"</code> to <code>0</code>.</p><p><b>Note</b>: If this option is used and journaling is disabled, MongoDB 2.6+ will raise an error and the write will fail; older server versions will simply ignore the option.</p></li> <li><p><code>"socketTimeoutMS"</code></p><p>This option specifies the time limit, in milliseconds, for socket communication. If the server does not respond within the timeout period, a MongoCursorTimeoutException will be thrown and there will be no way to determine if the server actually handled the write or not. A value of <code>-1</code> may be specified to block indefinitely. The default value for MongoClient is <code>30000</code> (30 seconds).</p></li> <li><p><code>"w"</code></p><p>See Write Concerns. The default value for MongoClient is <code>1</code>.</p></li> <li><p><code>"wTimeoutMS"</code></p><p>This option specifies the time limit, in milliseconds, for write concern acknowledgement. It is only applicable when <code>"w"</code> is greater than <code>1</code>, as the timeout pertains to replication. If the write concern is not satisfied within the time limit, a MongoCursorException will be thrown. A value of <code>0</code> may be specified to block indefinitely. The default value for MongoClient is <code>10000</code> (ten seconds).</p></li> </ul> <p>The following options are deprecated and should no longer be used:</p><ul> <li><p><code>"safe"</code></p><p>Deprecated. Please use the write concern <code>"w"</code> option.</p></li> <li><p><code>"timeout"</code></p><p>Deprecated alias for <code>"socketTimeoutMS"</code>.</p></li> <li><p><code>"wtimeout"</code></p><p>Deprecated alias for <code>"wTimeoutMS"</code>.</p></li> </ul>
+		 * @return mixed <p>If the <code>w</code> parameter is set to acknowledge the write, returns an associative array with the status of the inserts ("ok") and any error that may have occurred ("err"). Otherwise, returns <b><code>TRUE</code></b> if the batch insert was successfully sent, <b><code>FALSE</code></b> otherwise.</p>
 		 * @link http://php.net/manual/en/mongocollection.batchinsert.php
 		 * @see MongoCollection::insert(), MongoCollection::update(), MongoCollection::find(), MongoCollection::remove()
 		 * @since PECL mongo >=0.9.0
@@ -673,7 +673,7 @@ namespace {
 		/**
 		 * Counts the number of documents in this collection
 		 * @param array $query <p>Associative array or object with fields to match.</p>
-		 * @param array $options <p>An array of options for the index creation. Currently available options include:</p>   Name Type Description     hint <code>mixed</code>  <p>Index to use for the query. If a string is passed, it should correspond to an index name. If an array or object is passed, it should correspond to the specification used to create the index (i.e. the first argument to <code>MongoCollection::createIndex()</code>).</p> This option is only supported in MongoDB 2.6+.    limit <code>integer</code> The maximum number of matching documents to return.   maxTimeMS <code>integer</code>  <p>Specifies a cumulative time limit in milliseconds for processing the operation (does not include idle time). If the operation is not completed within the timeout period, a MongoExecutionTimeoutException will be thrown.</p> This option is only supported in MongoDB 2.6+.    skip <code>integer</code> The number of matching documents to skip before returning results.
+		 * @param array $options <p>An array of options for the index creation. Currently available options include:</p>   Name Type Description     hint <code>mixed</code>  <p>Index to use for the query. If a string is passed, it should correspond to an index name. If an array or object is passed, it should correspond to the specification used to create the index (i.e. the first argument to <code>MongoCollection::createIndex()</code>).</p> This option is only supported in MongoDB 2.6+.    limit <code>int</code> The maximum number of matching documents to return.   maxTimeMS <code>int</code>  <p>Specifies a cumulative time limit in milliseconds for processing the operation (does not include idle time). If the operation is not completed within the timeout period, a MongoExecutionTimeoutException will be thrown.</p> This option is only supported in MongoDB 2.6+.    skip <code>int</code> The number of matching documents to skip before returning results.
 		 * @return int <p>Returns the number of documents matching the query.</p>
 		 * @link http://php.net/manual/en/mongocollection.count.php
 		 * @since PECL mongo >=0.9.0
@@ -682,8 +682,8 @@ namespace {
 
 		/**
 		 * Creates a database reference
-		 * @param mixed $document_or_id <p>If an array or object is given, its <i>_id</i> field will be used as the reference ID. If a MongoId or scalar is given, it will be used as the reference ID.</p>
-		 * @return array <p>Returns a database reference array.</p><p>If an array without an <i>_id</i> field was provided as the <i>document_or_id</i> parameter, <b><code>NULL</code></b> will be returned.</p>
+		 * @param mixed $document_or_id <p>If an array or object is given, its <code>_id</code> field will be used as the reference ID. If a MongoId or scalar is given, it will be used as the reference ID.</p>
+		 * @return array <p>Returns a database reference array.</p><p>If an array without an <code>_id</code> field was provided as the <code>document_or_id</code> parameter, <b><code>NULL</code></b> will be returned.</p>
 		 * @link http://php.net/manual/en/mongocollection.createdbref.php
 		 * @since PECL mongo >=0.9.0
 		 */
@@ -691,10 +691,10 @@ namespace {
 
 		/**
 		 * Creates an index on the specified field(s) if it does not already exist
-		 * <p>Creates an index on the specified field(s) if it does not already exist. Fields may be indexed with a direction (e.g. ascending or descending) or a special type (e.g. text, geospatial, hashed).</p><p><b>Note</b>:</p><p>This method will use the createIndexes database command when communicating with MongoDB 2.6+. For previous database versions, the method will perform an insert operation on the special <i>system.indexes</i> collection.</p>
-		 * @param array $keys <p>An array specifying the index's fields as its keys. For each field, the value is either the index direction or index type. If specifying direction, specify <i>1</i> for ascending or <i>-1</i> for descending.</p>
-		 * @param array $options <p>An array of options for the index creation. We pass all given options straight to the server, but a non-exhaustive list of currently available options include:</p><ul> <li><p><i>"unique"</i></p><p>Specify <b><code>TRUE</code></b> to create a unique index. The default value is <b><code>FALSE</code></b>. This option applies only to ascending/descending indexes.</p><p><b>Note</b>:</p><p>When MongoDB indexes a field, if a document does not have a value for the field, a <b><code>NULL</code></b> value is indexed. If multiple documents do not contain a field, a unique index will reject all but the first of those documents. The <i>"sparse"</i> option may be used to overcome this, since it will prevent documents without the field from being indexed.</p></li> <li><p><i>"sparse"</i></p><p>Specify <b><code>TRUE</code></b> to create a sparse index, which only indexes documents containing a specified field. The default value is <b><code>FALSE</code></b>.</p></li> <li><p><i>"expireAfterSeconds"</i></p><p>The value of this option should specify the number of seconds after which a document should be considered expired and automatically removed from the collection. This option is only compatible with single-field indexes where the field will contain MongoDate values.</p><p><b>Note</b>:</p><p>This feature is available in MongoDB 2.2+. See Expire Data from Collections by Setting TTL for more information.</p></li> <li><p><i>"name"</i></p><p>A optional name that uniquely identifies the index.</p><p><b>Note</b>:</p><p>By default, the driver will generate an index name based on the index's field(s) and ordering or type. For example, a compound index <i>array("x" =&gt; 1, "y" =&gt; -1)</i> would be named <i>"x_1_y_-1"</i> and a geospatial index <i>array("loc" =&gt; "2dsphere")</i> would be named <i>"loc_2dsphere"</i>. For indexes with many fields, it is possible that the generated name might exceed MongoDB's limit for index names. The <i>"name"</i> option may be used in that case to supply a shorter name.</p></li> <li><p><i>"background"</i></p><p>Builds the index in the background so that building an index does <i>not</i> block other database activities. Specify <b><code>TRUE</code></b> to build in the background. The default value is <b><code>FALSE</code></b>.</p><p><b>Warning</b></p><p>Prior to MongoDB 2.6.0, index builds on secondaries were executed as foreground operations, irrespective of this option. See Building Indexes with Replica Sets for more information.</p></li> <li><p><i>"socketTimeoutMS"</i></p><p>This option specifies the time limit, in milliseconds, for socket communication. If the server does not respond within the timeout period, a MongoCursorTimeoutException will be thrown and there will be no way to determine if the server actually handled the write or not. A value of <i>-1</i> may be specified to block indefinitely. The default value for MongoClient is <i>30000</i> (30 seconds).</p></li> </ul> <p>The following option may be used with MongoDB 2.6+:</p><ul> <li><p><i>"maxTimeMS"</i></p><p>Specifies a cumulative time limit in milliseconds for processing the operation on the server (does not include idle time). If the operation is not completed by the server within the timeout period, a MongoExecutionTimeoutException will be thrown.</p></li> </ul> <p>The following options may be used with MongoDB versions before 2.8:</p><ul> <li><p><i>"dropDups"</i></p><p>Specify <b><code>TRUE</code></b> to force creation of a unique index where the collection may contain duplicate values for a key. MongoDB will index the first occurrence of a key and delete all subsequent documents from the collection that contain a duplicate value for that key. The default value is <b><code>FALSE</code></b>.</p><p><b>Warning</b></p><p><i>"dropDups"</i> may delete data from your database. Use with extreme caution.</p><p><b>Note</b>:</p><p>This option is not supported on MongoDB 2.8+. Index creation will fail if the collection contains duplicate values.</p></li> </ul> <p>The following options may be used with MongoDB versions before 2.6:</p><ul> <li><p><i>"w"</i></p><p>See Write Concerns. The default value for MongoClient is <i>1</i>.</p></li> <li><p><i>"wTimeoutMS"</i></p><p>This option specifies the time limit, in milliseconds, for write concern acknowledgement. It is only applicable when <i>"w"</i> is greater than <i>1</i>, as the timeout pertains to replication. If the write concern is not satisfied within the time limit, a MongoCursorException will be thrown. A value of <i>0</i> may be specified to block indefinitely. The default value for MongoClient is <i>10000</i> (ten seconds).</p></li> </ul> <p>The following options are deprecated and should no longer be used:</p><ul> <li><p><i>"safe"</i></p><p>Deprecated. Please use the write concern <i>"w"</i> option.</p></li> <li><p><i>"timeout"</i></p><p>Deprecated alias for <i>"socketTimeoutMS"</i>.</p></li> <li><p><i>"wtimeout"</i></p><p>Deprecated alias for <i>"wTimeoutMS"</i>.</p></li> </ul>
-		 * @return bool <p>Returns an array containing the status of the index creation. The array contains whether the operation succeeded (<i>"ok"</i>), the number of indexes before and after the operation (<i>"numIndexesBefore"</i> and <i>"numIndexesAfter"</i>), and whether the collection that the index belongs to has been created (<i>"createdCollectionAutomatically"</i>). If the index already existed and did not need to be created, a <i>"note"</i> field may be present in lieu of <i>"numIndexesAfter"</i>.</p><p>With MongoDB 2.4 and earlier, a status document is only returned if the write concern is at least <i>1</i>. Otherwise, <b><code>TRUE</code></b> is returned. The fields in the status document are different, except for the <i>"ok"</i> field, which signals whether the index creation was successful. Additional fields are described in the documentation for <code>MongoCollection::insert()</code>.</p>
+		 * <p>Creates an index on the specified field(s) if it does not already exist. Fields may be indexed with a direction (e.g. ascending or descending) or a special type (e.g. text, geospatial, hashed).</p><p><b>Note</b>:</p><p>This method will use the createIndexes database command when communicating with MongoDB 2.6+. For previous database versions, the method will perform an insert operation on the special <code>system.indexes</code> collection.</p>
+		 * @param array $keys <p>An array specifying the index's fields as its keys. For each field, the value is either the index direction or index type. If specifying direction, specify <code>1</code> for ascending or <code>-1</code> for descending.</p>
+		 * @param array $options <p>An array of options for the index creation. We pass all given options straight to the server, but a non-exhaustive list of currently available options include:</p><ul> <li><p><code>"unique"</code></p><p>Specify <b><code>TRUE</code></b> to create a unique index. The default value is <b><code>FALSE</code></b>. This option applies only to ascending/descending indexes.</p><p><b>Note</b>:</p><p>When MongoDB indexes a field, if a document does not have a value for the field, a <b><code>NULL</code></b> value is indexed. If multiple documents do not contain a field, a unique index will reject all but the first of those documents. The <code>"sparse"</code> option may be used to overcome this, since it will prevent documents without the field from being indexed.</p></li> <li><p><code>"sparse"</code></p><p>Specify <b><code>TRUE</code></b> to create a sparse index, which only indexes documents containing a specified field. The default value is <b><code>FALSE</code></b>.</p></li> <li><p><code>"expireAfterSeconds"</code></p><p>The value of this option should specify the number of seconds after which a document should be considered expired and automatically removed from the collection. This option is only compatible with single-field indexes where the field will contain MongoDate values.</p><p><b>Note</b>:</p><p>This feature is available in MongoDB 2.2+. See Expire Data from Collections by Setting TTL for more information.</p></li> <li><p><code>"name"</code></p><p>A optional name that uniquely identifies the index.</p><p><b>Note</b>:</p><p>By default, the driver will generate an index name based on the index's field(s) and ordering or type. For example, a compound index <code>array("x" =&gt; 1, "y" =&gt; -1)</code> would be named <code>"x_1_y_-1"</code> and a geospatial index <code>array("loc" =&gt; "2dsphere")</code> would be named <code>"loc_2dsphere"</code>. For indexes with many fields, it is possible that the generated name might exceed MongoDB's limit for index names. The <code>"name"</code> option may be used in that case to supply a shorter name.</p></li> <li><p><code>"background"</code></p><p>Builds the index in the background so that building an index does <i>not</i> block other database activities. Specify <b><code>TRUE</code></b> to build in the background. The default value is <b><code>FALSE</code></b>.</p><p><b>Warning</b></p><p>Prior to MongoDB 2.6.0, index builds on secondaries were executed as foreground operations, irrespective of this option. See Building Indexes with Replica Sets for more information.</p></li> <li><p><code>"socketTimeoutMS"</code></p><p>This option specifies the time limit, in milliseconds, for socket communication. If the server does not respond within the timeout period, a MongoCursorTimeoutException will be thrown and there will be no way to determine if the server actually handled the write or not. A value of <code>-1</code> may be specified to block indefinitely. The default value for MongoClient is <code>30000</code> (30 seconds).</p></li> </ul> <p>The following option may be used with MongoDB 2.6+:</p><ul> <li><p><code>"maxTimeMS"</code></p><p>Specifies a cumulative time limit in milliseconds for processing the operation on the server (does not include idle time). If the operation is not completed by the server within the timeout period, a MongoExecutionTimeoutException will be thrown.</p></li> </ul> <p>The following options may be used with MongoDB versions before 2.8:</p><ul> <li><p><code>"dropDups"</code></p><p>Specify <b><code>TRUE</code></b> to force creation of a unique index where the collection may contain duplicate values for a key. MongoDB will index the first occurrence of a key and delete all subsequent documents from the collection that contain a duplicate value for that key. The default value is <b><code>FALSE</code></b>.</p><p><b>Warning</b></p><p><code>"dropDups"</code> may delete data from your database. Use with extreme caution.</p><p><b>Note</b>:</p><p>This option is not supported on MongoDB 2.8+. Index creation will fail if the collection contains duplicate values.</p></li> </ul> <p>The following options may be used with MongoDB versions before 2.6:</p><ul> <li><p><code>"w"</code></p><p>See Write Concerns. The default value for MongoClient is <code>1</code>.</p></li> <li><p><code>"wTimeoutMS"</code></p><p>This option specifies the time limit, in milliseconds, for write concern acknowledgement. It is only applicable when <code>"w"</code> is greater than <code>1</code>, as the timeout pertains to replication. If the write concern is not satisfied within the time limit, a MongoCursorException will be thrown. A value of <code>0</code> may be specified to block indefinitely. The default value for MongoClient is <code>10000</code> (ten seconds).</p></li> </ul> <p>The following options are deprecated and should no longer be used:</p><ul> <li><p><code>"safe"</code></p><p>Deprecated. Please use the write concern <code>"w"</code> option.</p></li> <li><p><code>"timeout"</code></p><p>Deprecated alias for <code>"socketTimeoutMS"</code>.</p></li> <li><p><code>"wtimeout"</code></p><p>Deprecated alias for <code>"wTimeoutMS"</code>.</p></li> </ul>
+		 * @return bool <p>Returns an array containing the status of the index creation. The array contains whether the operation succeeded (<code>"ok"</code>), the number of indexes before and after the operation (<code>"numIndexesBefore"</code> and <code>"numIndexesAfter"</code>), and whether the collection that the index belongs to has been created (<code>"createdCollectionAutomatically"</code>). If the index already existed and did not need to be created, a <code>"note"</code> field may be present in lieu of <code>"numIndexesAfter"</code>.</p><p>With MongoDB 2.4 and earlier, a status document is only returned if the write concern is at least <code>1</code>. Otherwise, <b><code>TRUE</code></b> is returned. The fields in the status document are different, except for the <code>"ok"</code> field, which signals whether the index creation was successful. Additional fields are described in the documentation for <code>MongoCollection::insert()</code>.</p>
 		 * @link http://php.net/manual/en/mongocollection.createindex.php
 		 * @since PECL mongo >=1.5.0
 		 */
@@ -702,8 +702,8 @@ namespace {
 
 		/**
 		 * Deletes an index from this collection
-		 * <p>This method is identical to:</p><p>Each index is given a unique name when it is created. This is often generated by the driver based on the index key(s) and order/type, but custom names may also be specified with <code>MongoCollection::createIndex()</code>'s <i>"name"</i> option).</p><p>Unfortunately, <b>MongoCollection::deleteIndex()</b> cannot delete custom-named indexes due to a backwards compatibility issue. When a string argument is provided, it is assumed to be the single field name in an ascending index (e.g. the name <i>"x_1"</i> would be used for the argument <i>"x"</i>). If an array or object is provided, an index name is generated just as if that argument was passed to <code>MongoCollection::createIndex()</code>.</p><p>In order to delete a custom-named index with the PHP driver, the <i>deleteIndexes</i> database command must be used. For instance, an index named "myIndex" could be deleted with the PHP driver by running:</p><p>To determine the name of an index with the PHP driver, you can query the <i>system.indexes</i> collection of a database and look for the <i>"name"</i> field of each result. The <i>"ns"</i> field will indicate the collection to which each index belongs.</p>
-		 * @param string|array $keys <p>An array specifying the index's fields as its keys. For each field, the value is either the index direction or index type. If specifying direction, specify <i>1</i> for ascending or <i>-1</i> for descending.</p> <p>If a string is provided, it is assumed to be the single field name in an ascending index.</p>
+		 * <p>This method is identical to:</p><p>Each index is given a unique name when it is created. This is often generated by the driver based on the index key(s) and order/type, but custom names may also be specified with <code>MongoCollection::createIndex()</code>'s <code>"name"</code> option).</p><p>Unfortunately, <b>MongoCollection::deleteIndex()</b> cannot delete custom-named indexes due to a backwards compatibility issue. When a string argument is provided, it is assumed to be the single field name in an ascending index (e.g. the name <code>"x_1"</code> would be used for the argument <code>"x"</code>). If an array or object is provided, an index name is generated just as if that argument was passed to <code>MongoCollection::createIndex()</code>.</p><p>In order to delete a custom-named index with the PHP driver, the <code>deleteIndexes</code> database command must be used. For instance, an index named "myIndex" could be deleted with the PHP driver by running:</p><p>To determine the name of an index with the PHP driver, you can query the <code>system.indexes</code> collection of a database and look for the <code>"name"</code> field of each result. The <code>"ns"</code> field will indicate the collection to which each index belongs.</p>
+		 * @param string|array $keys <p>An array specifying the index's fields as its keys. For each field, the value is either the index direction or index type. If specifying direction, specify <code>1</code> for ascending or <code>-1</code> for descending.</p> <p>If a string is provided, it is assumed to be the single field name in an ascending index.</p>
 		 * @return array <p>Returns the database response.</p>
 		 * @link http://php.net/manual/en/mongocollection.deleteindex.php
 		 * @since PECL mongo >=0.9.0
@@ -723,11 +723,11 @@ namespace {
 		 * <p>The distinct command returns a list of distinct values for the given key across a collection.</p>
 		 * @param string $key <p>The key to use.</p>
 		 * @param array $query <p>An optional query parameters</p>
-		 * @return array <p>Returns an array of distinct values, or <b><code>FALSE</code></b> on failure</p>
+		 * @return array|false <p>Returns an array of distinct values, or <b><code>FALSE</code></b> on failure</p>
 		 * @link http://php.net/manual/en/mongocollection.distinct.php
 		 * @since PECL mongo >=1.2.11
 		 */
-		public function distinct(string $key, array $query = NULL): array {}
+		public function distinct(string $key, array $query = NULL) {}
 
 		/**
 		 * Drops this collection
@@ -740,10 +740,10 @@ namespace {
 
 		/**
 		 * Creates an index on the specified field(s) if it does not already exist
-		 * <p>This method is deprecated since version 1.5.0. Please use <code>MongoCollection::createIndex()</code> instead.</p><p>Creates an index on the specified field(s) if it does not already exist. Fields may be indexed with a direction (e.g. ascending or descending) or a special type (e.g. text, geospatial, hashed).</p><p><b>Note</b>:</p><p>This method will use the createIndexes database command when communicating with MongoDB 2.6+. For previous database versions, the method will perform an insert operation on the special <i>system.indexes</i> collection.</p>
-		 * @param string|array $keys <p>An array specifying the index's fields as its keys. For each field, the value is either the index direction or index type. If specifying direction, specify <i>1</i> for ascending or <i>-1</i> for descending.</p>
-		 * @param array $options <p>An array of options for the index creation. Currently available options include:</p><ul> <li><p><i>"unique"</i></p><p>Specify <b><code>TRUE</code></b> to create a unique index. The default value is <b><code>FALSE</code></b>. This option applies only to ascending/descending indexes.</p><p><b>Note</b>:</p><p>When MongoDB indexes a field, if a document does not have a value for the field, a <b><code>NULL</code></b> value is indexed. If multiple documents do not contain a field, a unique index will reject all but the first of those documents. The <i>"sparse"</i> option may be used to overcome this, since it will prevent documents without the field from being indexed.</p></li> <li><p><i>"sparse"</i></p><p>Specify <b><code>TRUE</code></b> to create a sparse index, which only indexes documents containing a specified field. The default value is <b><code>FALSE</code></b>.</p></li> <li><p><i>"expireAfterSeconds"</i></p><p>The value of this option should specify the number of seconds after which a document should be considered expired and automatically removed from the collection. This option is only compatible with single-field indexes where the field will contain MongoDate values.</p><p><b>Note</b>:</p><p>This feature is available in MongoDB 2.2+. See Expire Data from Collections by Setting TTL for more information.</p></li> <li><p><i>"name"</i></p><p>A optional name that uniquely identifies the index.</p><p><b>Note</b>:</p><p>By default, the driver will generate an index name based on the index's field(s) and ordering or type. For example, a compound index <i>array("x" =&gt; 1, "y" =&gt; -1)</i> would be named <i>"x_1_y_-1"</i> and a geospatial index <i>array("loc" =&gt; "2dsphere")</i> would be named <i>"loc_2dsphere"</i>. For indexes with many fields, it is possible that the generated name might exceed MongoDB's limit for index names. The <i>"name"</i> option may be used in that case to supply a shorter name.</p></li> <li><p><i>"background"</i></p><p>Builds the index in the background so that building an index does <i>not</i> block other database activities. Specify <b><code>TRUE</code></b> to build in the background. The default value is <b><code>FALSE</code></b>.</p><p><b>Warning</b></p><p>Prior to MongoDB 2.6.0, index builds on secondaries were executed as foreground operations, irrespective of this option. See Building Indexes with Replica Sets for more information.</p></li> <li><p><i>"socketTimeoutMS"</i></p><p>This option specifies the time limit, in milliseconds, for socket communication. If the server does not respond within the timeout period, a MongoCursorTimeoutException will be thrown and there will be no way to determine if the server actually handled the write or not. A value of <i>-1</i> may be specified to block indefinitely. The default value for MongoClient is <i>30000</i> (30 seconds).</p></li> </ul> <p>The following option may be used with MongoDB 2.6+:</p><ul> <li><p><i>"maxTimeMS"</i></p><p>Specifies a cumulative time limit in milliseconds for processing the operation on the server (does not include idle time). If the operation is not completed by the server within the timeout period, a MongoExecutionTimeoutException will be thrown.</p></li> </ul> <p>The following options may be used with MongoDB versions before 2.8:</p><ul> <li><p><i>"dropDups"</i></p><p>Specify <b><code>TRUE</code></b> to force creation of a unique index where the collection may contain duplicate values for a key. MongoDB will index the first occurrence of a key and delete all subsequent documents from the collection that contain a duplicate value for that key. The default value is <b><code>FALSE</code></b>.</p><p><b>Warning</b></p><p><i>"dropDups"</i> may delete data from your database. Use with extreme caution.</p><p><b>Note</b>:</p><p>This option is not supported on MongoDB 2.8+. Index creation will fail if the collection contains duplicate values.</p></li> </ul> <p>The following options may be used with MongoDB versions before 2.6:</p><ul> <li><p><i>"w"</i></p><p>See Write Concerns. The default value for MongoClient is <i>1</i>.</p></li> <li><p><i>"wTimeoutMS"</i></p><p>This option specifies the time limit, in milliseconds, for write concern acknowledgement. It is only applicable when <i>"w"</i> is greater than <i>1</i>, as the timeout pertains to replication. If the write concern is not satisfied within the time limit, a MongoCursorException will be thrown. A value of <i>0</i> may be specified to block indefinitely. The default value for MongoClient is <i>10000</i> (ten seconds).</p></li> </ul> <p>The following options are deprecated and should no longer be used:</p><ul> <li><p><i>"safe"</i></p><p>Deprecated. Please use the write concern <i>"w"</i> option.</p></li> <li><p><i>"timeout"</i></p><p>Deprecated alias for <i>"socketTimeoutMS"</i>.</p></li> <li><p><i>"wtimeout"</i></p><p>Deprecated alias for <i>"wTimeoutMS"</i>.</p></li> </ul>
-		 * @return bool <p>Returns an array containing the status of the index creation. The array contains whether the operation succeeded (<i>"ok"</i>), the number of indexes before and after the operation (<i>"numIndexesBefore"</i> and <i>"numIndexesAfter"</i>), and whether the collection that the index belongs to has been created (<i>"createdCollectionAutomatically"</i>). If the index already existed and did not need to be created, a <i>"note"</i> field may be present in lieu of <i>"numIndexesAfter"</i>.</p><p>With MongoDB 2.4 and earlier, a status document is only returned if the write concern is at least <i>1</i>. Otherwise, <b><code>TRUE</code></b> is returned. The fields in the status document are different, except for the <i>"ok"</i> field, which signals whether the index creation was successful. Additional fields are described in the documentation for <code>MongoCollection::insert()</code>.</p>
+		 * <p>This method is deprecated since version 1.5.0. Please use <code>MongoCollection::createIndex()</code> instead.</p><p>Creates an index on the specified field(s) if it does not already exist. Fields may be indexed with a direction (e.g. ascending or descending) or a special type (e.g. text, geospatial, hashed).</p><p><b>Note</b>:</p><p>This method will use the createIndexes database command when communicating with MongoDB 2.6+. For previous database versions, the method will perform an insert operation on the special <code>system.indexes</code> collection.</p>
+		 * @param string|array $keys <p>An array specifying the index's fields as its keys. For each field, the value is either the index direction or index type. If specifying direction, specify <code>1</code> for ascending or <code>-1</code> for descending.</p>
+		 * @param array $options <p>An array of options for the index creation. Currently available options include:</p><ul> <li><p><code>"unique"</code></p><p>Specify <b><code>TRUE</code></b> to create a unique index. The default value is <b><code>FALSE</code></b>. This option applies only to ascending/descending indexes.</p><p><b>Note</b>:</p><p>When MongoDB indexes a field, if a document does not have a value for the field, a <b><code>NULL</code></b> value is indexed. If multiple documents do not contain a field, a unique index will reject all but the first of those documents. The <code>"sparse"</code> option may be used to overcome this, since it will prevent documents without the field from being indexed.</p></li> <li><p><code>"sparse"</code></p><p>Specify <b><code>TRUE</code></b> to create a sparse index, which only indexes documents containing a specified field. The default value is <b><code>FALSE</code></b>.</p></li> <li><p><code>"expireAfterSeconds"</code></p><p>The value of this option should specify the number of seconds after which a document should be considered expired and automatically removed from the collection. This option is only compatible with single-field indexes where the field will contain MongoDate values.</p><p><b>Note</b>:</p><p>This feature is available in MongoDB 2.2+. See Expire Data from Collections by Setting TTL for more information.</p></li> <li><p><code>"name"</code></p><p>A optional name that uniquely identifies the index.</p><p><b>Note</b>:</p><p>By default, the driver will generate an index name based on the index's field(s) and ordering or type. For example, a compound index <code>array("x" =&gt; 1, "y" =&gt; -1)</code> would be named <code>"x_1_y_-1"</code> and a geospatial index <code>array("loc" =&gt; "2dsphere")</code> would be named <code>"loc_2dsphere"</code>. For indexes with many fields, it is possible that the generated name might exceed MongoDB's limit for index names. The <code>"name"</code> option may be used in that case to supply a shorter name.</p></li> <li><p><code>"background"</code></p><p>Builds the index in the background so that building an index does <i>not</i> block other database activities. Specify <b><code>TRUE</code></b> to build in the background. The default value is <b><code>FALSE</code></b>.</p><p><b>Warning</b></p><p>Prior to MongoDB 2.6.0, index builds on secondaries were executed as foreground operations, irrespective of this option. See Building Indexes with Replica Sets for more information.</p></li> <li><p><code>"socketTimeoutMS"</code></p><p>This option specifies the time limit, in milliseconds, for socket communication. If the server does not respond within the timeout period, a MongoCursorTimeoutException will be thrown and there will be no way to determine if the server actually handled the write or not. A value of <code>-1</code> may be specified to block indefinitely. The default value for MongoClient is <code>30000</code> (30 seconds).</p></li> </ul> <p>The following option may be used with MongoDB 2.6+:</p><ul> <li><p><code>"maxTimeMS"</code></p><p>Specifies a cumulative time limit in milliseconds for processing the operation on the server (does not include idle time). If the operation is not completed by the server within the timeout period, a MongoExecutionTimeoutException will be thrown.</p></li> </ul> <p>The following options may be used with MongoDB versions before 2.8:</p><ul> <li><p><code>"dropDups"</code></p><p>Specify <b><code>TRUE</code></b> to force creation of a unique index where the collection may contain duplicate values for a key. MongoDB will index the first occurrence of a key and delete all subsequent documents from the collection that contain a duplicate value for that key. The default value is <b><code>FALSE</code></b>.</p><p><b>Warning</b></p><p><code>"dropDups"</code> may delete data from your database. Use with extreme caution.</p><p><b>Note</b>:</p><p>This option is not supported on MongoDB 2.8+. Index creation will fail if the collection contains duplicate values.</p></li> </ul> <p>The following options may be used with MongoDB versions before 2.6:</p><ul> <li><p><code>"w"</code></p><p>See Write Concerns. The default value for MongoClient is <code>1</code>.</p></li> <li><p><code>"wTimeoutMS"</code></p><p>This option specifies the time limit, in milliseconds, for write concern acknowledgement. It is only applicable when <code>"w"</code> is greater than <code>1</code>, as the timeout pertains to replication. If the write concern is not satisfied within the time limit, a MongoCursorException will be thrown. A value of <code>0</code> may be specified to block indefinitely. The default value for MongoClient is <code>10000</code> (ten seconds).</p></li> </ul> <p>The following options are deprecated and should no longer be used:</p><ul> <li><p><code>"safe"</code></p><p>Deprecated. Please use the write concern <code>"w"</code> option.</p></li> <li><p><code>"timeout"</code></p><p>Deprecated alias for <code>"socketTimeoutMS"</code>.</p></li> <li><p><code>"wtimeout"</code></p><p>Deprecated alias for <code>"wTimeoutMS"</code>.</p></li> </ul>
+		 * @return bool <p>Returns an array containing the status of the index creation. The array contains whether the operation succeeded (<code>"ok"</code>), the number of indexes before and after the operation (<code>"numIndexesBefore"</code> and <code>"numIndexesAfter"</code>), and whether the collection that the index belongs to has been created (<code>"createdCollectionAutomatically"</code>). If the index already existed and did not need to be created, a <code>"note"</code> field may be present in lieu of <code>"numIndexesAfter"</code>.</p><p>With MongoDB 2.4 and earlier, a status document is only returned if the write concern is at least <code>1</code>. Otherwise, <b><code>TRUE</code></b> is returned. The fields in the status document are different, except for the <code>"ok"</code> field, which signals whether the index creation was successful. Additional fields are described in the documentation for <code>MongoCollection::insert()</code>.</p>
 		 * @link http://php.net/manual/en/mongocollection.ensureindex.php
 		 * @since PECL mongo >=0.9.0
 		 */
@@ -751,8 +751,8 @@ namespace {
 
 		/**
 		 * Queries this collection, returning a MongoCursor for the result set
-		 * @param array $query <p>The fields for which to search. MongoDB's query language is quite extensive. The PHP driver will in almost all cases pass the query straight through to the server, so reading the MongoDB core docs on find is a good idea.</p> <p><b>Warning</b></p> <p>Please make sure that for all special query operators (starting with <i>$</i>) you use single quotes so that PHP doesn't try to replace <i>"$exists"</i> with the value of the variable <i>$exists</i>.</p>
-		 * @param array $fields <p>Fields of the results to return. The array is in the format <i>array('fieldname' =&gt; true, 'fieldname2' =&gt; true)</i>. The <i>_id</i> field is always returned.</p>
+		 * @param array $query <p>The fields for which to search. MongoDB's query language is quite extensive. The PHP driver will in almost all cases pass the query straight through to the server, so reading the MongoDB core docs on find is a good idea.</p> <p><b>Warning</b></p> <p>Please make sure that for all special query operators (starting with <code>$</code>) you use single quotes so that PHP doesn't try to replace <code>"$exists"</code> with the value of the variable <code>$exists</code>.</p>
+		 * @param array $fields <p>Fields of the results to return. The array is in the format <code>array('fieldname' =&gt; true, 'fieldname2' =&gt; true)</code>. The <code>_id</code> field is always returned.</p>
 		 * @return MongoCursor <p>Returns a cursor for the search results.</p>
 		 * @link http://php.net/manual/en/mongocollection.find.php
 		 * @see MongoCollection::findOne(), MongoCollection::insert()
@@ -766,7 +766,7 @@ namespace {
 		 * @param array $query <p>The query criteria to search for.</p>
 		 * @param array $update <p>The update criteria.</p>
 		 * @param array $fields <p>Optionally only return these fields.</p>
-		 * @param array $options <p>An array of options to apply, such as remove the match document from the DB and return it.</p>   Option Description     sort <code>array</code>  Determines which document the operation will modify if the query selects multiple documents. findAndModify will modify the first document in the sort order specified by this argument.    remove <code>boolean</code>  Optional if update field exists. When <b><code>TRUE</code></b>, removes the selected document. The default is <b><code>FALSE</code></b>.    update <code>array</code>  Optional if remove field exists. Performs an update of the selected document.    new <code>boolean</code>  Optional. When <b><code>TRUE</code></b>, returns the modified document rather than the original. The findAndModify method ignores the new option for remove operations. The default is <b><code>FALSE</code></b>.    upsert <code>boolean</code>  Optional. Used in conjunction with the update field. When <b><code>TRUE</code></b>, the findAndModify command creates a new document if the query returns no documents. The default is false. In MongoDB 2.2, the findAndModify command returns <b><code>NULL</code></b> when upsert is <b><code>TRUE</code></b>.
+		 * @param array $options <p>An array of options to apply, such as remove the match document from the DB and return it.</p>   Option Description     sort <code>array</code>  Determines which document the operation will modify if the query selects multiple documents. findAndModify will modify the first document in the sort order specified by this argument.    remove <code>bool</code>  Optional if update field exists. When <b><code>TRUE</code></b>, removes the selected document. The default is <b><code>FALSE</code></b>.    update <code>array</code>  Optional if remove field exists. Performs an update of the selected document.    new <code>bool</code>  Optional. When <b><code>TRUE</code></b>, returns the modified document rather than the original. The findAndModify method ignores the new option for remove operations. The default is <b><code>FALSE</code></b>.    upsert <code>bool</code>  Optional. Used in conjunction with the update field. When <b><code>TRUE</code></b>, the findAndModify command creates a new document if the query returns no documents. The default is false. In MongoDB 2.2, the findAndModify command returns <b><code>NULL</code></b> when upsert is <b><code>TRUE</code></b>.
 		 * @return array <p>Returns the original document, or the modified document when new is set.</p>
 		 * @link http://php.net/manual/en/mongocollection.findandmodify.php
 		 * @since PECL mongo >=1.3.0
@@ -776,9 +776,9 @@ namespace {
 		/**
 		 * Queries this collection, returning a single element
 		 * <p>As opposed to <code>MongoCollection::find()</code>, this method will return only the <i>first</i> result from the result set, and not a MongoCursor that can be iterated over.</p>
-		 * @param array $query <p>The fields for which to search. MongoDB's query language is quite extensive. The PHP driver will in almost all cases pass the query straight through to the server, so reading the MongoDB core docs on find is a good idea.</p> <p><b>Warning</b></p> <p>Please make sure that for all special query operaters (starting with <i>$</i>) you use single quotes so that PHP doesn't try to replace <i>"$exists"</i> with the value of the variable <i>$exists</i>.</p>
-		 * @param array $fields <p>Fields of the results to return. The array is in the format <i>array('fieldname' =&gt; true, 'fieldname2' =&gt; true)</i>. The <i>_id</i> field is always returned.</p>
-		 * @param array $options <p>This parameter is an associative array of the form <i>array("name" =&gt; &lt;value&gt;, ...)</i>. Currently supported options are:</p> <ul> <li><p><i>"maxTimeMS"</i></p><p>Specifies a cumulative time limit in milliseconds for processing the operation on the server (does not include idle time). If the operation is not completed by the server within the timeout period, a MongoExecutionTimeoutException will be thrown.</p></li> </ul>
+		 * @param array $query <p>The fields for which to search. MongoDB's query language is quite extensive. The PHP driver will in almost all cases pass the query straight through to the server, so reading the MongoDB core docs on find is a good idea.</p> <p><b>Warning</b></p> <p>Please make sure that for all special query operaters (starting with <code>$</code>) you use single quotes so that PHP doesn't try to replace <code>"$exists"</code> with the value of the variable <code>$exists</code>.</p>
+		 * @param array $fields <p>Fields of the results to return. The array is in the format <code>array('fieldname' =&gt; true, 'fieldname2' =&gt; true)</code>. The <code>_id</code> field is always returned.</p>
+		 * @param array $options <p>This parameter is an associative array of the form <code>array("name" =&gt; &lt;value&gt;, ...)</code>. Currently supported options are:</p> <ul> <li><p><code>"maxTimeMS"</code></p><p>Specifies a cumulative time limit in milliseconds for processing the operation on the server (does not include idle time). If the operation is not completed by the server within the timeout period, a MongoExecutionTimeoutException will be thrown.</p></li> </ul>
 		 * @return array <p>Returns record matching the search or <b><code>NULL</code></b>.</p>
 		 * @link http://php.net/manual/en/mongocollection.findone.php
 		 * @see MongoCollection::find(), MongoCollection::insert()
@@ -797,7 +797,7 @@ namespace {
 
 		/**
 		 * Returns information about indexes on this collection
-		 * @return array <p>This function returns an array in which each element describes an index. Elements will contain the values <i>name</i> for the name of the index, <i>ns</i> for the namespace (a combination of the database and collection name), and <i>key</i> for a list of all fields in the index and their ordering. Additional values may be present for special indexes, such as <i>unique</i> or <i>sparse</i>.</p>
+		 * @return array <p>This function returns an array in which each element describes an index. Elements will contain the values <code>name</code> for the name of the index, <code>ns</code> for the namespace (a combination of the database and collection name), and <code>key</code> for a list of all fields in the index and their ordering. Additional values may be present for special indexes, such as <code>unique</code> or <code>sparse</code>.</p>
 		 * @link http://php.net/manual/en/mongocollection.getindexinfo.php
 		 * @since PECL mongo >=0.9.0
 		 */
@@ -813,7 +813,7 @@ namespace {
 
 		/**
 		 * Get the read preference for this collection
-		 * @return array <p>This function returns an array describing the read preference. The array contains the values <i>type</i> for the string read preference mode (corresponding to the MongoClient constants), and <i>tagsets</i> containing a list of all tag set criteria. If no tag sets were specified, <i>tagsets</i> will not be present in the array.</p>
+		 * @return array <p>This function returns an array describing the read preference. The array contains the values <code>type</code> for the string read preference mode (corresponding to the MongoClient constants), and <code>tagsets</code> containing a list of all tag set criteria. If no tag sets were specified, <code>tagsets</code> will not be present in the array.</p>
 		 * @link http://php.net/manual/en/mongocollection.getreadpreference.php
 		 * @see MongoCollection::setReadPreference()
 		 * @since PECL mongo >=1.3.0
@@ -831,7 +831,7 @@ namespace {
 
 		/**
 		 * Get the write concern for this collection
-		 * @return array <p>This function returns an array describing the write concern. The array contains the values <i>w</i> for an integer acknowledgement level or string mode, and <i>wtimeout</i> denoting the maximum number of milliseconds to wait for the server to satisfy the write concern.</p>
+		 * @return array <p>This function returns an array describing the write concern. The array contains the values <code>w</code> for an integer acknowledgement level or string mode, and <code>wtimeout</code> denoting the maximum number of milliseconds to wait for the server to satisfy the write concern.</p>
 		 * @link http://php.net/manual/en/mongocollection.getwriteconcern.php
 		 * @see MongoCollection::setWriteConcern()
 		 * @since PECL mongo >=1.5.0
@@ -843,7 +843,7 @@ namespace {
 		 * @param mixed $keys <p>Fields to group by. If an array or non-code object is passed, it will be the key used to group results.</p> <p>1.0.4+: If <code>keys</code> is an instance of MongoCode, <code>keys</code> will be treated as a function that returns the key to group by (see the "Passing a <code>keys</code> function" example below).</p>
 		 * @param array $initial <p>Initial value of the aggregation counter object.</p>
 		 * @param \MongoCode $reduce <p>A function that takes two arguments (the current document and the aggregation to this point) and does the aggregation.</p>
-		 * @param array $options <p>Optional parameters to the group command. Valid options include:</p> <ul> <li> <p><i>"condition"</i></p> <p>Criteria for including a document in the aggregation.</p> </li> <li> <p><i>"finalize"</i></p> <p>Function called once per unique key that takes the final output of the reduce function.</p> </li> <li><p><i>"maxTimeMS"</i></p><p>Specifies a cumulative time limit in milliseconds for processing the operation on the server (does not include idle time). If the operation is not completed by the server within the timeout period, a MongoExecutionTimeoutException will be thrown.</p></li> </ul>
+		 * @param array $options <p>Optional parameters to the group command. Valid options include:</p> <ul> <li> <p><code>"condition"</code></p> <p>Criteria for including a document in the aggregation.</p> </li> <li> <p><code>"finalize"</code></p> <p>Function called once per unique key that takes the final output of the reduce function.</p> </li> <li><p><code>"maxTimeMS"</code></p><p>Specifies a cumulative time limit in milliseconds for processing the operation on the server (does not include idle time). If the operation is not completed by the server within the timeout period, a MongoExecutionTimeoutException will be thrown.</p></li> </ul>
 		 * @return array <p>Returns an array containing the result.</p>
 		 * @link http://php.net/manual/en/mongocollection.group.php
 		 * @since PECL mongo >=0.9.2
@@ -853,9 +853,9 @@ namespace {
 		/**
 		 * Inserts a document into the collection
 		 * <p>All strings sent to the database must be UTF-8. If a string is not UTF-8, a MongoException will be thrown. To insert (or query for) a non-UTF-8 string, use MongoBinData.</p>
-		 * @param array|object $document <p>An array or object. If an object is used, it may not have protected or private properties.</p> <p><b>Note</b>:</p><p>If the parameter does not have an <i>_id</i> key or property, a new MongoId instance will be created and assigned to it. This special behavior does not mean that the parameter is passed by reference.</p>
-		 * @param array $options <p>An array of options for the insert operation. Currently available options include:</p><ul> <li><p><i>"fsync"</i></p><p>Boolean, defaults to <b><code>FALSE</code></b>. If journaling is enabled, it works exactly like <i>"j"</i>. If journaling is not enabled, the write operation blocks until it is synced to database files on disk. If <b><code>TRUE</code></b>, an acknowledged insert is implied and this option will override setting <i>"w"</i> to <i>0</i>.</p><p><b>Note</b>: If journaling is enabled, users are strongly encouraged to use the <i>"j"</i> option instead of <i>"fsync"</i>. Do not use <i>"fsync"</i> and <i>"j"</i> simultaneously, as that will result in an error.</p></li> <li><p><i>"j"</i></p><p>Boolean, defaults to <b><code>FALSE</code></b>. Forces the write operation to block until it is synced to the journal on disk. If <b><code>TRUE</code></b>, an acknowledged write is implied and this option will override setting <i>"w"</i> to <i>0</i>.</p><p><b>Note</b>: If this option is used and journaling is disabled, MongoDB 2.6+ will raise an error and the write will fail; older server versions will simply ignore the option.</p></li> <li><p><i>"socketTimeoutMS"</i></p><p>This option specifies the time limit, in milliseconds, for socket communication. If the server does not respond within the timeout period, a MongoCursorTimeoutException will be thrown and there will be no way to determine if the server actually handled the write or not. A value of <i>-1</i> may be specified to block indefinitely. The default value for MongoClient is <i>30000</i> (30 seconds).</p></li> <li><p><i>"w"</i></p><p>See Write Concerns. The default value for MongoClient is <i>1</i>.</p></li> <li><p><i>"wTimeoutMS"</i></p><p>This option specifies the time limit, in milliseconds, for write concern acknowledgement. It is only applicable when <i>"w"</i> is greater than <i>1</i>, as the timeout pertains to replication. If the write concern is not satisfied within the time limit, a MongoCursorException will be thrown. A value of <i>0</i> may be specified to block indefinitely. The default value for MongoClient is <i>10000</i> (ten seconds).</p></li> </ul> <p>The following options are deprecated and should no longer be used:</p><ul> <li><p><i>"safe"</i></p><p>Deprecated. Please use the write concern <i>"w"</i> option.</p></li> <li><p><i>"timeout"</i></p><p>Deprecated alias for <i>"socketTimeoutMS"</i>.</p></li> <li><p><i>"wtimeout"</i></p><p>Deprecated alias for <i>"wTimeoutMS"</i>.</p></li> </ul>
-		 * @return bool|array <p>Returns an array containing the status of the insertion if the <i>"w"</i> option is set. Otherwise, returns <b><code>TRUE</code></b> if the inserted array is not empty (a MongoException will be thrown if the inserted array is empty).</p><p>If an array is returned, the following keys may be present:</p>  <code>ok</code>   <p>This should almost always be 1 (unless last_error itself failed).</p>   <code>err</code>   <p>If this field is non-null, an error occurred on the previous operation. If this field is set, it will be a string describing the error that occurred.</p>   <code>code</code>   <p>If a database error occurred, the relevant error code will be passed back to the client.</p>   <code>errmsg</code>   <p>This field is set if something goes wrong with a database command. It is coupled with <i>ok</i> being 0. For example, if <i>w</i> is set and times out, errmsg will be set to "timed out waiting for slaves" and <i>ok</i> will be 0. If this field is set, it will be a string describing the error that occurred.</p>   <code>n</code>   <p>If the last operation was an update, upsert, or a remove, the number of documents affected will be returned. For insert operations, this value is always <i>0</i>.</p>   <code>wtimeout</code>   <p>If the previous option timed out waiting for replication.</p>   <code>waited</code>   <p>How long the operation waited before timing out.</p>   <code>wtime</code>   <p>If <i>w</i> was set and the operation succeeded, how long it took to replicate to <i>w</i> servers.</p>   <code>upserted</code>   <p>If an upsert occurred, this field will contain the new record's <i>_id</i> field. For upserts, either this field or <i>updatedExisting</i> will be present (unless an error occurred).</p>   <code>updatedExisting</code>   <p>If an upsert updated an existing element, this field will be true. For upserts, either this field or upserted will be present (unless an error occurred).</p>
+		 * @param array|object $document <p>An array or object. If an object is used, it may not have protected or private properties.</p> <p><b>Note</b>:</p><p>If the parameter does not have an <code>_id</code> key or property, a new MongoId instance will be created and assigned to it. This special behavior does not mean that the parameter is passed by reference.</p>
+		 * @param array $options <p>An array of options for the insert operation. Currently available options include:</p><ul> <li><p><code>"fsync"</code></p><p>Boolean, defaults to <b><code>FALSE</code></b>. If journaling is enabled, it works exactly like <code>"j"</code>. If journaling is not enabled, the write operation blocks until it is synced to database files on disk. If <b><code>TRUE</code></b>, an acknowledged insert is implied and this option will override setting <code>"w"</code> to <code>0</code>.</p><p><b>Note</b>: If journaling is enabled, users are strongly encouraged to use the <code>"j"</code> option instead of <code>"fsync"</code>. Do not use <code>"fsync"</code> and <code>"j"</code> simultaneously, as that will result in an error.</p></li> <li><p><code>"j"</code></p><p>Boolean, defaults to <b><code>FALSE</code></b>. Forces the write operation to block until it is synced to the journal on disk. If <b><code>TRUE</code></b>, an acknowledged write is implied and this option will override setting <code>"w"</code> to <code>0</code>.</p><p><b>Note</b>: If this option is used and journaling is disabled, MongoDB 2.6+ will raise an error and the write will fail; older server versions will simply ignore the option.</p></li> <li><p><code>"socketTimeoutMS"</code></p><p>This option specifies the time limit, in milliseconds, for socket communication. If the server does not respond within the timeout period, a MongoCursorTimeoutException will be thrown and there will be no way to determine if the server actually handled the write or not. A value of <code>-1</code> may be specified to block indefinitely. The default value for MongoClient is <code>30000</code> (30 seconds).</p></li> <li><p><code>"w"</code></p><p>See Write Concerns. The default value for MongoClient is <code>1</code>.</p></li> <li><p><code>"wTimeoutMS"</code></p><p>This option specifies the time limit, in milliseconds, for write concern acknowledgement. It is only applicable when <code>"w"</code> is greater than <code>1</code>, as the timeout pertains to replication. If the write concern is not satisfied within the time limit, a MongoCursorException will be thrown. A value of <code>0</code> may be specified to block indefinitely. The default value for MongoClient is <code>10000</code> (ten seconds).</p></li> </ul> <p>The following options are deprecated and should no longer be used:</p><ul> <li><p><code>"safe"</code></p><p>Deprecated. Please use the write concern <code>"w"</code> option.</p></li> <li><p><code>"timeout"</code></p><p>Deprecated alias for <code>"socketTimeoutMS"</code>.</p></li> <li><p><code>"wtimeout"</code></p><p>Deprecated alias for <code>"wTimeoutMS"</code>.</p></li> </ul>
+		 * @return bool|array <p>Returns an array containing the status of the insertion if the <code>"w"</code> option is set. Otherwise, returns <b><code>TRUE</code></b> if the inserted array is not empty (a MongoException will be thrown if the inserted array is empty).</p><p>If an array is returned, the following keys may be present:</p>  <code>ok</code>   <p>This should almost always be 1 (unless last_error itself failed).</p>   <code>err</code>   <p>If this field is non-null, an error occurred on the previous operation. If this field is set, it will be a string describing the error that occurred.</p>   <code>code</code>   <p>If a database error occurred, the relevant error code will be passed back to the client.</p>   <code>errmsg</code>   <p>This field is set if something goes wrong with a database command. It is coupled with <code>ok</code> being 0. For example, if <code>w</code> is set and times out, errmsg will be set to "timed out waiting for slaves" and <code>ok</code> will be 0. If this field is set, it will be a string describing the error that occurred.</p>   <code>n</code>   <p>If the last operation was an update, upsert, or a remove, the number of documents affected will be returned. For insert operations, this value is always <code>0</code>.</p>   <code>wtimeout</code>   <p>If the previous option timed out waiting for replication.</p>   <code>waited</code>   <p>How long the operation waited before timing out.</p>   <code>wtime</code>   <p>If <code>w</code> was set and the operation succeeded, how long it took to replicate to <code>w</code> servers.</p>   <code>upserted</code>   <p>If an upsert occurred, this field will contain the new record's <code>_id</code> field. For upserts, either this field or <code>updatedExisting</code> will be present (unless an error occurred).</p>   <code>updatedExisting</code>   <p>If an upsert updated an existing element, this field will be true. For upserts, either this field or upserted will be present (unless an error occurred).</p>
 		 * @link http://php.net/manual/en/mongocollection.insert.php
 		 * @see MongoCollection::batchInsert(), MongoCollection::update(), MongoCollection::find(), MongoCollection::remove()
 		 * @since PECL mongo >=0.9.0
@@ -864,7 +864,7 @@ namespace {
 
 		/**
 		 * Returns an array of cursors to iterator over a full collection in parallel
-		 * <p>This method returns an array of a maximum of <i>num_cursors</i> cursors. An iteration over one of the returned cursors results in a partial set of documents for a collection. Iteration over all the returned cursors results in getting every document back from the collection.</p><p>This method is a wrapper for the <i>parallelCollectionScan</i> MongoDB command.</p>
+		 * <p>This method returns an array of a maximum of <code>num_cursors</code> cursors. An iteration over one of the returned cursors results in a partial set of documents for a collection. Iteration over all the returned cursors results in getting every document back from the collection.</p><p>This method is a wrapper for the <code>parallelCollectionScan</code> MongoDB command.</p>
 		 * @param int $num_cursors <p>The number of cursors to request from the server. Please note, that the server can return less cursors than you requested.</p>
 		 * @return array[MongoCommandCursor] <p>Returns an array of MongoCommandCursor objects.</p>
 		 * @link http://php.net/manual/en/mongocollection.parallelcollectionscan.php
@@ -875,8 +875,8 @@ namespace {
 		/**
 		 * Remove records from this collection
 		 * @param array $criteria <p>Query criteria for the documents to delete.</p>
-		 * @param array $options <p>An array of options for the remove operation. Currently available options include:</p><ul> <li><p><i>"w"</i></p><p>See Write Concerns. The default value for MongoClient is <i>1</i>.</p></li> <li> <p><i>"justOne"</i></p> <p>Specify <b><code>TRUE</code></b> to limit deletion to just one document. If <b><code>FALSE</code></b> or omitted, all documents matching the criteria will be deleted.</p> </li> <li><p><i>"fsync"</i></p><p>Boolean, defaults to <b><code>FALSE</code></b>. If journaling is enabled, it works exactly like <i>"j"</i>. If journaling is not enabled, the write operation blocks until it is synced to database files on disk. If <b><code>TRUE</code></b>, an acknowledged insert is implied and this option will override setting <i>"w"</i> to <i>0</i>.</p><p><b>Note</b>: If journaling is enabled, users are strongly encouraged to use the <i>"j"</i> option instead of <i>"fsync"</i>. Do not use <i>"fsync"</i> and <i>"j"</i> simultaneously, as that will result in an error.</p></li> <li><p><i>"j"</i></p><p>Boolean, defaults to <b><code>FALSE</code></b>. Forces the write operation to block until it is synced to the journal on disk. If <b><code>TRUE</code></b>, an acknowledged write is implied and this option will override setting <i>"w"</i> to <i>0</i>.</p><p><b>Note</b>: If this option is used and journaling is disabled, MongoDB 2.6+ will raise an error and the write will fail; older server versions will simply ignore the option.</p></li> <li><p><i>"socketTimeoutMS"</i></p><p>This option specifies the time limit, in milliseconds, for socket communication. If the server does not respond within the timeout period, a MongoCursorTimeoutException will be thrown and there will be no way to determine if the server actually handled the write or not. A value of <i>-1</i> may be specified to block indefinitely. The default value for MongoClient is <i>30000</i> (30 seconds).</p></li> <li><p><i>"w"</i></p><p>See Write Concerns. The default value for MongoClient is <i>1</i>.</p></li> <li><p><i>"wTimeoutMS"</i></p><p>This option specifies the time limit, in milliseconds, for write concern acknowledgement. It is only applicable when <i>"w"</i> is greater than <i>1</i>, as the timeout pertains to replication. If the write concern is not satisfied within the time limit, a MongoCursorException will be thrown. A value of <i>0</i> may be specified to block indefinitely. The default value for MongoClient is <i>10000</i> (ten seconds).</p></li> </ul> <p>The following options are deprecated and should no longer be used:</p><ul> <li><p><i>"safe"</i></p><p>Deprecated. Please use the write concern <i>"w"</i> option.</p></li> <li><p><i>"timeout"</i></p><p>Deprecated alias for <i>"socketTimeoutMS"</i>.</p></li> <li><p><i>"wtimeout"</i></p><p>Deprecated alias for <i>"wTimeoutMS"</i>.</p></li> </ul>
-		 * @return bool|array <p>Returns an array containing the status of the removal if the <i>"w"</i> option is set. Otherwise, returns <b><code>TRUE</code></b>.</p><p>Fields in the status array are described in the documentation for <code>MongoCollection::insert()</code>.</p>
+		 * @param array $options <p>An array of options for the remove operation. Currently available options include:</p><ul> <li><p><code>"w"</code></p><p>See Write Concerns. The default value for MongoClient is <code>1</code>.</p></li> <li> <p><code>"justOne"</code></p> <p>Specify <b><code>TRUE</code></b> to limit deletion to just one document. If <b><code>FALSE</code></b> or omitted, all documents matching the criteria will be deleted.</p> </li> <li><p><code>"fsync"</code></p><p>Boolean, defaults to <b><code>FALSE</code></b>. If journaling is enabled, it works exactly like <code>"j"</code>. If journaling is not enabled, the write operation blocks until it is synced to database files on disk. If <b><code>TRUE</code></b>, an acknowledged insert is implied and this option will override setting <code>"w"</code> to <code>0</code>.</p><p><b>Note</b>: If journaling is enabled, users are strongly encouraged to use the <code>"j"</code> option instead of <code>"fsync"</code>. Do not use <code>"fsync"</code> and <code>"j"</code> simultaneously, as that will result in an error.</p></li> <li><p><code>"j"</code></p><p>Boolean, defaults to <b><code>FALSE</code></b>. Forces the write operation to block until it is synced to the journal on disk. If <b><code>TRUE</code></b>, an acknowledged write is implied and this option will override setting <code>"w"</code> to <code>0</code>.</p><p><b>Note</b>: If this option is used and journaling is disabled, MongoDB 2.6+ will raise an error and the write will fail; older server versions will simply ignore the option.</p></li> <li><p><code>"socketTimeoutMS"</code></p><p>This option specifies the time limit, in milliseconds, for socket communication. If the server does not respond within the timeout period, a MongoCursorTimeoutException will be thrown and there will be no way to determine if the server actually handled the write or not. A value of <code>-1</code> may be specified to block indefinitely. The default value for MongoClient is <code>30000</code> (30 seconds).</p></li> <li><p><code>"w"</code></p><p>See Write Concerns. The default value for MongoClient is <code>1</code>.</p></li> <li><p><code>"wTimeoutMS"</code></p><p>This option specifies the time limit, in milliseconds, for write concern acknowledgement. It is only applicable when <code>"w"</code> is greater than <code>1</code>, as the timeout pertains to replication. If the write concern is not satisfied within the time limit, a MongoCursorException will be thrown. A value of <code>0</code> may be specified to block indefinitely. The default value for MongoClient is <code>10000</code> (ten seconds).</p></li> </ul> <p>The following options are deprecated and should no longer be used:</p><ul> <li><p><code>"safe"</code></p><p>Deprecated. Please use the write concern <code>"w"</code> option.</p></li> <li><p><code>"timeout"</code></p><p>Deprecated alias for <code>"socketTimeoutMS"</code>.</p></li> <li><p><code>"wtimeout"</code></p><p>Deprecated alias for <code>"wTimeoutMS"</code>.</p></li> </ul>
+		 * @return bool|array <p>Returns an array containing the status of the removal if the <code>"w"</code> option is set. Otherwise, returns <b><code>TRUE</code></b>.</p><p>Fields in the status array are described in the documentation for <code>MongoCollection::insert()</code>.</p>
 		 * @link http://php.net/manual/en/mongocollection.remove.php
 		 * @see MongoCollection::insert(), MongoCollection::update()
 		 * @since PECL mongo >=0.9.0
@@ -886,8 +886,8 @@ namespace {
 		/**
 		 * Saves a document to this collection
 		 * <p>If the object is from the database, update the existing database object, otherwise insert this object.</p>
-		 * @param array|object $document <p>Array or object to save. If an object is used, it may not have protected or private properties.</p> <p><b>Note</b>:</p><p>If the parameter does not have an <i>_id</i> key or property, a new MongoId instance will be created and assigned to it. See <code>MongoCollection::insert()</code> for additional information on this behavior.</p>
-		 * @param array $options <p>Options for the save.</p><ul> <li><p><i>"fsync"</i></p><p>Boolean, defaults to <b><code>FALSE</code></b>. If journaling is enabled, it works exactly like <i>"j"</i>. If journaling is not enabled, the write operation blocks until it is synced to database files on disk. If <b><code>TRUE</code></b>, an acknowledged insert is implied and this option will override setting <i>"w"</i> to <i>0</i>.</p><p><b>Note</b>: If journaling is enabled, users are strongly encouraged to use the <i>"j"</i> option instead of <i>"fsync"</i>. Do not use <i>"fsync"</i> and <i>"j"</i> simultaneously, as that will result in an error.</p></li> <li><p><i>"j"</i></p><p>Boolean, defaults to <b><code>FALSE</code></b>. Forces the write operation to block until it is synced to the journal on disk. If <b><code>TRUE</code></b>, an acknowledged write is implied and this option will override setting <i>"w"</i> to <i>0</i>.</p><p><b>Note</b>: If this option is used and journaling is disabled, MongoDB 2.6+ will raise an error and the write will fail; older server versions will simply ignore the option.</p></li> <li><p><i>"socketTimeoutMS"</i></p><p>This option specifies the time limit, in milliseconds, for socket communication. If the server does not respond within the timeout period, a MongoCursorTimeoutException will be thrown and there will be no way to determine if the server actually handled the write or not. A value of <i>-1</i> may be specified to block indefinitely. The default value for MongoClient is <i>30000</i> (30 seconds).</p></li> <li><p><i>"w"</i></p><p>See Write Concerns. The default value for MongoClient is <i>1</i>.</p></li> <li><p><i>"wtimeout"</i></p><p>Deprecated alias for <i>"wTimeoutMS"</i>.</p></li> <li><p><i>"wTimeoutMS"</i></p><p>This option specifies the time limit, in milliseconds, for write concern acknowledgement. It is only applicable when <i>"w"</i> is greater than <i>1</i>, as the timeout pertains to replication. If the write concern is not satisfied within the time limit, a MongoCursorException will be thrown. A value of <i>0</i> may be specified to block indefinitely. The default value for MongoClient is <i>10000</i> (ten seconds).</p></li> <li><p><i>"safe"</i></p><p>Deprecated. Please use the write concern <i>"w"</i> option.</p></li> <li><p><i>"timeout"</i></p><p>Deprecated alias for <i>"socketTimeoutMS"</i>.</p></li> </ul>
+		 * @param array|object $document <p>Array or object to save. If an object is used, it may not have protected or private properties.</p> <p><b>Note</b>:</p><p>If the parameter does not have an <code>_id</code> key or property, a new MongoId instance will be created and assigned to it. See <code>MongoCollection::insert()</code> for additional information on this behavior.</p>
+		 * @param array $options <p>Options for the save.</p><ul> <li><p><code>"fsync"</code></p><p>Boolean, defaults to <b><code>FALSE</code></b>. If journaling is enabled, it works exactly like <code>"j"</code>. If journaling is not enabled, the write operation blocks until it is synced to database files on disk. If <b><code>TRUE</code></b>, an acknowledged insert is implied and this option will override setting <code>"w"</code> to <code>0</code>.</p><p><b>Note</b>: If journaling is enabled, users are strongly encouraged to use the <code>"j"</code> option instead of <code>"fsync"</code>. Do not use <code>"fsync"</code> and <code>"j"</code> simultaneously, as that will result in an error.</p></li> <li><p><code>"j"</code></p><p>Boolean, defaults to <b><code>FALSE</code></b>. Forces the write operation to block until it is synced to the journal on disk. If <b><code>TRUE</code></b>, an acknowledged write is implied and this option will override setting <code>"w"</code> to <code>0</code>.</p><p><b>Note</b>: If this option is used and journaling is disabled, MongoDB 2.6+ will raise an error and the write will fail; older server versions will simply ignore the option.</p></li> <li><p><code>"socketTimeoutMS"</code></p><p>This option specifies the time limit, in milliseconds, for socket communication. If the server does not respond within the timeout period, a MongoCursorTimeoutException will be thrown and there will be no way to determine if the server actually handled the write or not. A value of <code>-1</code> may be specified to block indefinitely. The default value for MongoClient is <code>30000</code> (30 seconds).</p></li> <li><p><code>"w"</code></p><p>See Write Concerns. The default value for MongoClient is <code>1</code>.</p></li> <li><p><code>"wtimeout"</code></p><p>Deprecated alias for <code>"wTimeoutMS"</code>.</p></li> <li><p><code>"wTimeoutMS"</code></p><p>This option specifies the time limit, in milliseconds, for write concern acknowledgement. It is only applicable when <code>"w"</code> is greater than <code>1</code>, as the timeout pertains to replication. If the write concern is not satisfied within the time limit, a MongoCursorException will be thrown. A value of <code>0</code> may be specified to block indefinitely. The default value for MongoClient is <code>10000</code> (ten seconds).</p></li> <li><p><code>"safe"</code></p><p>Deprecated. Please use the write concern <code>"w"</code> option.</p></li> <li><p><code>"timeout"</code></p><p>Deprecated alias for <code>"socketTimeoutMS"</code>.</p></li> </ul>
 		 * @return mixed <p>If <code>w</code> was set, returns an array containing the status of the save. Otherwise, returns a boolean representing if the array was not empty (an empty array will not be inserted).</p>
 		 * @link http://php.net/manual/en/mongocollection.save.php
 		 * @since PECL mongo >=0.9.0
@@ -940,8 +940,8 @@ namespace {
 		 * Update records based on a given criteria
 		 * @param array $criteria <p>Query criteria for the documents to update.</p>
 		 * @param array $new_object <p>The object used to update the matched documents. This may either contain update operators (for modifying specific fields) or be a replacement document.</p>
-		 * @param array $options <p>An array of options for the update operation. Currently available options include:</p><ul> <li> <p><i>"upsert"</i></p> <p>If no document matches <code>$criteria</code>, a new document will be inserted.</p> <p>If a new document would be inserted and <code>$new_object</code> contains atomic modifiers (i.e. <i>$</i> operators), those operations will be applied to the <code>$criteria</code> parameter to create the new document. If <code>$new_object</code> does not contain atomic modifiers, it will be used as-is for the inserted document. See the upsert examples below for more information.</p> </li> <li> <p><i>"multiple"</i></p> <p>All documents matching $criteria will be updated. <b>MongoCollection::update()</b> has exactly the opposite behavior of <code>MongoCollection::remove()</code>: it updates one document by default, not all matching documents. <i>It is recommended that you always specify whether you want to update multiple documents or a single document</i>, as the database may change its default behavior at some point in the future.</p> </li> <li><p><i>"fsync"</i></p><p>Boolean, defaults to <b><code>FALSE</code></b>. If journaling is enabled, it works exactly like <i>"j"</i>. If journaling is not enabled, the write operation blocks until it is synced to database files on disk. If <b><code>TRUE</code></b>, an acknowledged insert is implied and this option will override setting <i>"w"</i> to <i>0</i>.</p><p><b>Note</b>: If journaling is enabled, users are strongly encouraged to use the <i>"j"</i> option instead of <i>"fsync"</i>. Do not use <i>"fsync"</i> and <i>"j"</i> simultaneously, as that will result in an error.</p></li> <li><p><i>"j"</i></p><p>Boolean, defaults to <b><code>FALSE</code></b>. Forces the write operation to block until it is synced to the journal on disk. If <b><code>TRUE</code></b>, an acknowledged write is implied and this option will override setting <i>"w"</i> to <i>0</i>.</p><p><b>Note</b>: If this option is used and journaling is disabled, MongoDB 2.6+ will raise an error and the write will fail; older server versions will simply ignore the option.</p></li> <li><p><i>"socketTimeoutMS"</i></p><p>This option specifies the time limit, in milliseconds, for socket communication. If the server does not respond within the timeout period, a MongoCursorTimeoutException will be thrown and there will be no way to determine if the server actually handled the write or not. A value of <i>-1</i> may be specified to block indefinitely. The default value for MongoClient is <i>30000</i> (30 seconds).</p></li> <li><p><i>"w"</i></p><p>See Write Concerns. The default value for MongoClient is <i>1</i>.</p></li> <li><p><i>"wTimeoutMS"</i></p><p>This option specifies the time limit, in milliseconds, for write concern acknowledgement. It is only applicable when <i>"w"</i> is greater than <i>1</i>, as the timeout pertains to replication. If the write concern is not satisfied within the time limit, a MongoCursorException will be thrown. A value of <i>0</i> may be specified to block indefinitely. The default value for MongoClient is <i>10000</i> (ten seconds).</p></li> </ul> <p>The following options are deprecated and should no longer be used:</p><ul> <li><p><i>"safe"</i></p><p>Deprecated. Please use the write concern <i>"w"</i> option.</p></li> <li><p><i>"timeout"</i></p><p>Deprecated alias for <i>"socketTimeoutMS"</i>.</p></li> <li><p><i>"wtimeout"</i></p><p>Deprecated alias for <i>"wTimeoutMS"</i>.</p></li> </ul>
-		 * @return bool|array <p>Returns an array containing the status of the update if the <i>"w"</i> option is set. Otherwise, returns <b><code>TRUE</code></b>.</p><p>Fields in the status array are described in the documentation for <code>MongoCollection::insert()</code>.</p>
+		 * @param array $options <p>An array of options for the update operation. Currently available options include:</p><ul> <li> <p><code>"upsert"</code></p> <p>If no document matches <code>$criteria</code>, a new document will be inserted.</p> <p>If a new document would be inserted and <code>$new_object</code> contains atomic modifiers (i.e. <code>$</code> operators), those operations will be applied to the <code>$criteria</code> parameter to create the new document. If <code>$new_object</code> does not contain atomic modifiers, it will be used as-is for the inserted document. See the upsert examples below for more information.</p> </li> <li> <p><code>"multiple"</code></p> <p>All documents matching $criteria will be updated. <b>MongoCollection::update()</b> has exactly the opposite behavior of <code>MongoCollection::remove()</code>: it updates one document by default, not all matching documents. <i>It is recommended that you always specify whether you want to update multiple documents or a single document</i>, as the database may change its default behavior at some point in the future.</p> </li> <li><p><code>"fsync"</code></p><p>Boolean, defaults to <b><code>FALSE</code></b>. If journaling is enabled, it works exactly like <code>"j"</code>. If journaling is not enabled, the write operation blocks until it is synced to database files on disk. If <b><code>TRUE</code></b>, an acknowledged insert is implied and this option will override setting <code>"w"</code> to <code>0</code>.</p><p><b>Note</b>: If journaling is enabled, users are strongly encouraged to use the <code>"j"</code> option instead of <code>"fsync"</code>. Do not use <code>"fsync"</code> and <code>"j"</code> simultaneously, as that will result in an error.</p></li> <li><p><code>"j"</code></p><p>Boolean, defaults to <b><code>FALSE</code></b>. Forces the write operation to block until it is synced to the journal on disk. If <b><code>TRUE</code></b>, an acknowledged write is implied and this option will override setting <code>"w"</code> to <code>0</code>.</p><p><b>Note</b>: If this option is used and journaling is disabled, MongoDB 2.6+ will raise an error and the write will fail; older server versions will simply ignore the option.</p></li> <li><p><code>"socketTimeoutMS"</code></p><p>This option specifies the time limit, in milliseconds, for socket communication. If the server does not respond within the timeout period, a MongoCursorTimeoutException will be thrown and there will be no way to determine if the server actually handled the write or not. A value of <code>-1</code> may be specified to block indefinitely. The default value for MongoClient is <code>30000</code> (30 seconds).</p></li> <li><p><code>"w"</code></p><p>See Write Concerns. The default value for MongoClient is <code>1</code>.</p></li> <li><p><code>"wTimeoutMS"</code></p><p>This option specifies the time limit, in milliseconds, for write concern acknowledgement. It is only applicable when <code>"w"</code> is greater than <code>1</code>, as the timeout pertains to replication. If the write concern is not satisfied within the time limit, a MongoCursorException will be thrown. A value of <code>0</code> may be specified to block indefinitely. The default value for MongoClient is <code>10000</code> (ten seconds).</p></li> </ul> <p>The following options are deprecated and should no longer be used:</p><ul> <li><p><code>"safe"</code></p><p>Deprecated. Please use the write concern <code>"w"</code> option.</p></li> <li><p><code>"timeout"</code></p><p>Deprecated alias for <code>"socketTimeoutMS"</code>.</p></li> <li><p><code>"wtimeout"</code></p><p>Deprecated alias for <code>"wTimeoutMS"</code>.</p></li> </ul>
+		 * @return bool|array <p>Returns an array containing the status of the update if the <code>"w"</code> option is set. Otherwise, returns <b><code>TRUE</code></b>.</p><p>Fields in the status array are described in the documentation for <code>MongoCollection::insert()</code>.</p>
 		 * @link http://php.net/manual/en/mongocollection.update.php
 		 * @since PECL mongo >=0.9.0
 		 */
@@ -970,7 +970,7 @@ namespace {
 		 * Create a new command cursor
 		 * <p>Generally, you should not have to construct a MongoCommandCursor manually, as there are helper functions such as <code>MongoCollection::aggregateCursor()</code> and <code>MongoCollection::parallelCollectionScan()</code>; however, if the server introduces new commands that can return cursors, this constructor will be useful in the absence of specific helper methods. You may also consider using <code>MongoCommandCursor::createFromDocument()</code>.</p>
 		 * @param \MongoClient $connection <p>Database connection.</p>
-		 * @param string $ns <p>Full name of the database and collection (e.g. <i>"test.foo"</i>)</p>
+		 * @param string $ns <p>Full name of the database and collection (e.g. <code>"test.foo"</code>)</p>
 		 * @param array $command <p>Database command.</p>
 		 * @return self <p>Returns the new cursor.</p>
 		 * @link http://php.net/manual/en/mongocommandcursor.construct.php
@@ -983,7 +983,7 @@ namespace {
 		 * Execute an aggregation pipeline command and retrieve results through a cursor
 		 * <p>With this method you can execute Aggregation Framework pipelines and retrieve the results through a cursor, instead of getting just one document back as you would with <code>MongoCollection::aggregate()</code>. This method returns a MongoCommandCursor object. This cursor object implements the Iterator interface just like the MongoCursor objects that are returned by the <code>MongoCollection::find()</code> method.</p><p><b>Note</b>:  The resulting MongoCommandCursor will inherit this collection's read preference. <code>MongoCommandCursor::setReadPreference()</code> may be used to change the read preference before iterating on the cursor. </p>
 		 * @param array $command
-		 * @param array $options <p>Options for the aggregation command. Valid options include:</p> <ul> <li> <p><i>"allowDiskUse"</i></p> <p>Allow aggregation stages to write to temporary files</p> </li> <li> <p><i>"cursor"</i></p> <p>It is possible to configure how many initial documents the server should return with the first result set. The default initial batch size is <i>101</i>. You can change it by adding the <i>batchSize</i> option:</p>  <code> &lt;&#63;php<br>$collection-&gt;aggregateCursor(&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;$pipeline,<br>&nbsp;&nbsp;&nbsp;&nbsp;[&nbsp;"cursor"&nbsp;=&gt;&nbsp;[&nbsp;"batchSize"&nbsp;=&gt;&nbsp;4&nbsp;]&nbsp;]<br>);  </code>  <p>This option only configures the size of the first batch. To configure the size of future batches, please use the <code>MongoCommandCursor::batchSize()</code> method on the returned MongoCommandCursor object.</p> </li> <li> <p><i>"explain"</i></p> <p>Return information on the processing of the pipeline. This option may cause the command to return a result document that is unsuitable for constructing a MongoCommandCursor. If you need to use this option, you should consider using <code>MongoCollection::aggregate()</code>.</p> </li> <li><p><i>"maxTimeMS"</i></p><p>Specifies a cumulative time limit in milliseconds for processing the operation on the server (does not include idle time). If the operation is not completed by the server within the timeout period, a MongoExecutionTimeoutException will be thrown.</p></li> </ul>
+		 * @param array $options <p>Options for the aggregation command. Valid options include:</p> <ul> <li> <p><code>"allowDiskUse"</code></p> <p>Allow aggregation stages to write to temporary files</p> </li> <li> <p><code>"cursor"</code></p> <p>It is possible to configure how many initial documents the server should return with the first result set. The default initial batch size is <code>101</code>. You can change it by adding the <code>batchSize</code> option:</p>  <code> &lt;&#63;php<br>$collection-&gt;aggregateCursor(&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;$pipeline,<br>&nbsp;&nbsp;&nbsp;&nbsp;[&nbsp;"cursor"&nbsp;=&gt;&nbsp;[&nbsp;"batchSize"&nbsp;=&gt;&nbsp;4&nbsp;]&nbsp;]<br>);  </code>  <p>This option only configures the size of the first batch. To configure the size of future batches, please use the <code>MongoCommandCursor::batchSize()</code> method on the returned MongoCommandCursor object.</p> </li> <li> <p><code>"explain"</code></p> <p>Return information on the processing of the pipeline. This option may cause the command to return a result document that is unsuitable for constructing a MongoCommandCursor. If you need to use this option, you should consider using <code>MongoCollection::aggregate()</code>.</p> </li> <li><p><code>"maxTimeMS"</code></p><p>Specifies a cumulative time limit in milliseconds for processing the operation on the server (does not include idle time). If the operation is not completed by the server within the timeout period, a MongoExecutionTimeoutException will be thrown.</p></li> </ul>
 		 * @return MongoCommandCursor <p>Returns a MongoCommandCursor object. Because this implements the Iterator interface you can iterate over each of the results as returned by the command query. The MongoCommandCursor also implements the MongoCursorInterface interface which adds the <code>MongoCommandCursor::batchSize()</code>, <code>MongoCommandCursor::dead()</code>, <code>MongoCommandCursor::info()</code> methods.</p>
 		 * @link http://php.net/manual/en/mongocollection.aggregatecursor.php
 		 * @since PECL mongo >=1.5.0
@@ -1004,9 +1004,9 @@ namespace {
 		 * Execute a database command
 		 * <p>Almost everything that is not a CRUD operation can be done with a database command. Need to know the database version&#63; There's a command for that. Need to do aggregation&#63; There's a command for that. Need to turn up logging&#63; You get the idea.</p><p>This method is identical to:</p>
 		 * @param array $command <p>The query to send.</p>
-		 * @param array $options <p>An array of options for the index creation. Currently available options include:</p><ul> <li><p><i>"socketTimeoutMS"</i></p><p>This option specifies the time limit, in milliseconds, for socket communication. If the server does not respond within the timeout period, a MongoCursorTimeoutException will be thrown and there will be no way to determine if the server actually handled the write or not. A value of <i>-1</i> may be specified to block indefinitely. The default value for MongoClient is <i>30000</i> (30 seconds).</p></li> </ul> <p>The following options are deprecated and should no longer be used:</p><ul> <li><p><i>"timeout"</i></p><p>Deprecated alias for <i>"socketTimeoutMS"</i>.</p></li> </ul>
+		 * @param array $options <p>An array of options for the index creation. Currently available options include:</p><ul> <li><p><code>"socketTimeoutMS"</code></p><p>This option specifies the time limit, in milliseconds, for socket communication. If the server does not respond within the timeout period, a MongoCursorTimeoutException will be thrown and there will be no way to determine if the server actually handled the write or not. A value of <code>-1</code> may be specified to block indefinitely. The default value for MongoClient is <code>30000</code> (30 seconds).</p></li> </ul> <p>The following options are deprecated and should no longer be used:</p><ul> <li><p><code>"timeout"</code></p><p>Deprecated alias for <code>"socketTimeoutMS"</code>.</p></li> </ul>
 		 * @param string $hash <p>Set to the connection hash of the server that executed the command. When the command result is suitable for creating a MongoCommandCursor, the hash is intended to be passed to <code>MongoCommandCursor::createFromDocument()</code>.</p> <p>The hash will also correspond to a connection returned from <code>MongoClient::getConnections()</code>.</p>
-		 * @return array <p>Returns database response. Every database response is always maximum one document, which means that the result of a database command can never exceed 16MB. The resulting document's structure depends on the command, but most results will have the <i>ok</i> field to indicate success or failure and <i>results</i> containing an array of each of the resulting documents.</p>
+		 * @return array <p>Returns database response. Every database response is always maximum one document, which means that the result of a database command can never exceed 16MB. The resulting document's structure depends on the command, but most results will have the <code>ok</code> field to indicate success or failure and <code>results</code> containing an array of each of the resulting documents.</p>
 		 * @link http://php.net/manual/en/mongodb.command.php
 		 * @since PECL mongo >=0.9.2
 		 */
@@ -1017,7 +1017,7 @@ namespace {
 		 * <p>Use this method if you have a raw command result with cursor information in it. Note that cursors created with this method cannot be iterated multiple times, as they will lack the original command necessary for re-execution.</p>
 		 * @param \MongoClient $connection <p>Database connection.</p>
 		 * @param string $hash <p>The connection hash, as obtained through the third by-reference argument to <code>MongoDB::command()</code>.</p>
-		 * @param array $document <p>Document with cursor information in it. This document needs to contain the <i>id</i>, <i>ns</i> and <i>firstBatch</i> fields. Such a document is obtained by calling the <code>MongoDB::command()</code> with appropriate arguments to return a cursor, and not just an inline result. See the example below.</p>
+		 * @param array $document <p>Document with cursor information in it. This document needs to contain the <code>id</code>, <code>ns</code> and <code>firstBatch</code> fields. Such a document is obtained by calling the <code>MongoDB::command()</code> with appropriate arguments to return a cursor, and not just an inline result. See the example below.</p>
 		 * @return MongoCommandCursor <p>Returns the new cursor.</p>
 		 * @link http://php.net/manual/en/mongocommandcursor.createfromdocument.php
 		 * @see MongoCommandCursor::__construct()
@@ -1045,7 +1045,7 @@ namespace {
 
 		/**
 		 * Get the read preference for this command
-		 * @return array <p>This function returns an array describing the read preference. The array contains the values <i>type</i> for the string read preference mode (corresponding to the MongoClient constants), and <i>tagsets</i> containing a list of all tag set criteria. If no tag sets were specified, <i>tagsets</i> will not be present in the array.</p>
+		 * @return array <p>This function returns an array describing the read preference. The array contains the values <code>type</code> for the string read preference mode (corresponding to the MongoClient constants), and <code>tagsets</code> containing a list of all tag set criteria. If no tag sets were specified, <code>tagsets</code> will not be present in the array.</p>
 		 * @link http://php.net/manual/en/mongocommandcursor.getreadpreference.php
 		 * @see MongoCommandCursor::setReadPreference(), MongoCursorInterface::getReadPreference()
 		 * @since PECL mongo >=1.6.0
@@ -1100,7 +1100,7 @@ namespace {
 		/**
 		 * Sets a client-side timeout for this command
 		 * <p>A timeout can be set at any time and will affect subsequent data retrieval associated with this cursor, including fetching more results from the database.</p>
-		 * @param int $ms <p>The number of milliseconds for the cursor to wait for a response. Use <i>-1</i> to wait forever. By default, the cursor will wait 30000 milliseconds (30 seconds).</p>
+		 * @param int $ms <p>The number of milliseconds for the cursor to wait for a response. Use <code>-1</code> to wait forever. By default, the cursor will wait 30000 milliseconds (30 seconds).</p>
 		 * @return MongoCommandCursor <p>This cursor.</p>
 		 * @link http://php.net/manual/en/mongocommandcursor.timeout.php
 		 * @see MongoCollection::aggregateCursor(), MongoClient::__construct()
@@ -1120,23 +1120,23 @@ namespace {
 	/**
 	 * <p>Thrown when the driver fails to connect to the database.</p>
 	 * <p>There are a number of possible error messages to help you diagnose the connection problem. These are:</p>
-	 * <p><i>No candidate servers found</i></p>
+	 * <p><code>No candidate servers found</code></p>
 	 * <p>Thrown when the driver cannot establish a connection to MongoDB (fulfilling the ReadPreferences, if specified).</p>
-	 * <p><i>No server name given.</i></p>
+	 * <p><code>No server name given.</code></p>
 	 * <p>This error occurs if you pass in "" as the server name, probably because of an typo with string interpolation, e.g., "$servr" instead of "$server".</p>
-	 * <p><i> failed to get host [hostname] or port [portnum] from [server]. </i></p>
+	 * <p><code> failed to get host [hostname] or port [portnum] from [server]. </code></p>
 	 * <p>This indicated that the server string was malformed. "[hostname]" and "[portnum]" will be as much as the driver could dicipher of it.</p>
-	 * <p><i>Operation in progress</i></p>
+	 * <p><code>Operation in progress</code></p>
 	 * <p>Connecting to the database timed out.</p>
-	 * <p><i>Transport endpoint is not connected</i></p>
+	 * <p><code>Transport endpoint is not connected</code></p>
 	 * <p>Generally means that the connection string isn't correct, the driver couldn't even find the database server.</p>
-	 * <p><i>couldn't determine master</i></p>
+	 * <p><code>couldn't determine master</code></p>
 	 * <p>No server in a replica set connection was identified as the primary.</p>
-	 * <p><i>couldn't get host info for [server]</i></p>
+	 * <p><code>couldn't get host info for [server]</code></p>
 	 * <p>This indicated that DNS could not resolve the server address you gave. This could easily be caused by a typo, for example, "server" instead of "$server".</p>
-	 * <p><i>Invalid Argument</i></p>
+	 * <p><code>Invalid Argument</code></p>
 	 * <p>This can be caused by attempting to connect to a machine that is up but that the database isn't actually running on. Make sure that you've started the database server before connecting.</p>
-	 * <p><i>Permission denied</i></p>
+	 * <p><code>Permission denied</code></p>
 	 * <p>This means that the socket could not be opened due to permissions issues. On Red Hat variants, this can be caused by a default setting that does not allow Apache to create network connections. You can override this setting by running:</p>
 	 * <p>If the error message is not listed above, it is probably an error from the C socket, and you can search the web for its usual cause.</p>
 	 * @link http://php.net/manual/en/class.mongoconnectionexception.php
@@ -1149,7 +1149,7 @@ namespace {
 	 * <p>A cursor is used to iterate through the results of a database query. For example, to query the database and see all results, you could do:</p>
 	 * <p><b>Example #1 <b>MongoCursor</b> basic usage</b></p>
 	 * <p>You don't generally create cursors using the <b>MongoCursor</b> constructor, you get a new cursor by calling <code>MongoCollection::find()</code> (as shown above).</p>
-	 * <p>Suppose that, in the example above, <i>$collection</i> was a 50GB collection. We certainly wouldn't want to load that into memory all at once, which is what a cursor is for: allowing the client to access the collection in dribs and drabs.</p>
+	 * <p>Suppose that, in the example above, <code>$collection</code> was a 50GB collection. We certainly wouldn't want to load that into memory all at once, which is what a cursor is for: allowing the client to access the collection in dribs and drabs.</p>
 	 * <p>If we have a large result set, we can iterate through it, loading a few megabytes of results into memory at a time. For example, we could do:</p>
 	 * <p><b>Example #2 Iterating over <b>MongoCursor</b></b></p>
 	 * <p>Note that this means that a cursor does not "contain" the database results, it just manages them. Thus, if you print a cursor (with, say, <code>var_dump()</code> or <code>print_r()</code>), you'll just get the cursor object, not your documents. To get the documents themselves, you can use one of the methods shown above.</p>
@@ -1159,13 +1159,13 @@ namespace {
 	class MongoCursor implements \MongoCursorInterface, \Iterator {
 
 		/**
-		 * @var boolean <p>If the query should have the "slaveOkay" flag set, which allows reads on the secondary (secondaries are, by default, just for backup and not queried). Can be overridden with <code>MongoCursor::slaveOkay()</code>.</p> <p>This functionality is <i>deprecated</i>. Please use Read Preferences instead.</p>
+		 * @var bool <p>If the query should have the "slaveOkay" flag set, which allows reads on the secondary (secondaries are, by default, just for backup and not queried). Can be overridden with <code>MongoCursor::slaveOkay()</code>.</p> <p>This functionality is <i>deprecated</i>. Please use Read Preferences instead.</p>
 		 * @link http://php.net/manual/en/class.mongocursor.php#mongocursor.props.slaveokay
 		 */
 		static $slaveOkay = FALSE;
 
 		/**
-		 * @var integer <p>Set timeout in milliseconds for all database responses. Use <i>-1</i> to wait forever. Can be overridden with <code>MongoCursor::timeout()</code>. This does not cause the MongoDB server to cancel the operation; it only instructs the driver to stop waiting for a response and throw a MongoCursorTimeoutException after a set time.</p>
+		 * @var int <p>Set timeout in milliseconds for all database responses. Use <code>-1</code> to wait forever. Can be overridden with <code>MongoCursor::timeout()</code>. This does not cause the MongoDB server to cancel the operation; it only instructs the driver to stop waiting for a response and throw a MongoCursorTimeoutException after a set time.</p>
 		 * @link http://php.net/manual/en/class.mongocursor.php#mongocursor.props.timeout
 		 */
 		static $timeout = 30000;
@@ -1207,7 +1207,7 @@ namespace {
 		/**
 		 * Limits the number of elements returned in one batch
 		 * <p>A cursor typically fetches a batch of result objects and store them locally. This method sets the batchSize value to configure the amount of documents retrieved from the server in one round trip. However, it will never return more documents than fit in the max batch size limit (usually 4MB).</p>
-		 * @param int $batchSize <p>The number of results to return per batch. Each batch requires a round-trip to the server.</p> <p>If <code>batchSize</code> is <i>2 or more</i>, it represents the size of each batch of objects retrieved. It can be adjusted to optimize performance and limit data transfer.</p> <p>If <code>batchSize</code> is <i>1</i> or negative, it will limit of number returned documents to the absolute value of batchSize, and the cursor will be closed. For example if batchSize is <i>-10</i>, then the server will return a maximum of 10 documents and as many as can fit in 4MB, then close the cursor.</p> <p><b>Warning</b></p> <p>A <code>batchSize</code> of <i>1</i> is special, and means the same as <i>-1</i>, i.e. a value of <i>1</i> makes the cursor only capable of returning <i>one</i> document.</p>  <p>Note that this feature is different from <code>MongoCursor::limit()</code> in that documents must fit within a maximum size, and it removes the need to send a request to close the cursor server-side. The batch size can be changed even after a cursor is iterated, in which case the setting will apply on the next batch retrieval.</p> <p>This cannot override MongoDB's limit on the amount of data it will return to the client (i.e., if you set batch size to 1,000,000,000, MongoDB will still only return 4-16MB of results per batch).</p> <p>To ensure consistent behavior, the rules of <b>MongoCursor::batchSize()</b> and <code>MongoCursor::limit()</code> behave a little complex but work "as expected". The rules are: hard limits override soft limits with preference given to <code>MongoCursor::limit()</code> over <b>MongoCursor::batchSize()</b>. After that, whichever is set and lower than the other will take precedence. See below. section for some examples.</p>
+		 * @param int $batchSize <p>The number of results to return per batch. Each batch requires a round-trip to the server.</p> <p>If <code>batchSize</code> is <i>2 or more</i>, it represents the size of each batch of objects retrieved. It can be adjusted to optimize performance and limit data transfer.</p> <p>If <code>batchSize</code> is <code>1</code> or negative, it will limit of number returned documents to the absolute value of batchSize, and the cursor will be closed. For example if batchSize is <code>-10</code>, then the server will return a maximum of 10 documents and as many as can fit in 4MB, then close the cursor.</p> <p><b>Warning</b></p> <p>A <code>batchSize</code> of <code>1</code> is special, and means the same as <code>-1</code>, i.e. a value of <code>1</code> makes the cursor only capable of returning <i>one</i> document.</p>  <p>Note that this feature is different from <code>MongoCursor::limit()</code> in that documents must fit within a maximum size, and it removes the need to send a request to close the cursor server-side. The batch size can be changed even after a cursor is iterated, in which case the setting will apply on the next batch retrieval.</p> <p>This cannot override MongoDB's limit on the amount of data it will return to the client (i.e., if you set batch size to 1,000,000,000, MongoDB will still only return 4-16MB of results per batch).</p> <p>To ensure consistent behavior, the rules of <b>MongoCursor::batchSize()</b> and <code>MongoCursor::limit()</code> behave a little complex but work "as expected". The rules are: hard limits override soft limits with preference given to <code>MongoCursor::limit()</code> over <b>MongoCursor::batchSize()</b>. After that, whichever is set and lower than the other will take precedence. See below. section for some examples.</p>
 		 * @return MongoCursor <p>Returns this cursor.</p>
 		 * @link http://php.net/manual/en/mongocursor.batchsize.php
 		 * @see MongoCursor::limit()
@@ -1262,7 +1262,7 @@ namespace {
 
 		/**
 		 * Sets the fields for a query
-		 * <p>Fields are specified by <i>"fieldname" : bool</i>. <b><code>TRUE</code></b> indicates that a field should be returned, <b><code>FALSE</code></b> indicates that it should not be returned. You can also use 1 and 0 instead of <b><code>TRUE</code></b> and <b><code>FALSE</code></b>.</p><p>Thus, to return only the "summary" field, one could say:</p><p>To return all fields except the "hidden" field:</p>
+		 * <p>Fields are specified by <code>"fieldname" : bool</code>. <b><code>TRUE</code></b> indicates that a field should be returned, <b><code>FALSE</code></b> indicates that it should not be returned. You can also use 1 and 0 instead of <b><code>TRUE</code></b> and <b><code>FALSE</code></b>.</p><p>Thus, to return only the "summary" field, one could say:</p><p>To return all fields except the "hidden" field:</p>
 		 * @param array $f <p>Fields to return (or not return).</p>
 		 * @return MongoCursor <p>Returns this cursor.</p>
 		 * @link http://php.net/manual/en/mongocursor.fields.php
@@ -1281,7 +1281,7 @@ namespace {
 
 		/**
 		 * Get the read preference for this query
-		 * @return array <p>This function returns an array describing the read preference. The array contains the values <i>type</i> for the string read preference mode (corresponding to the MongoClient constants), and <i>tagsets</i> containing a list of all tag set criteria. If no tag sets were specified, <i>tagsets</i> will not be present in the array.</p>
+		 * @return array <p>This function returns an array describing the read preference. The array contains the values <code>type</code> for the string read preference mode (corresponding to the MongoClient constants), and <code>tagsets</code> containing a list of all tag set criteria. If no tag sets were specified, <code>tagsets</code> will not be present in the array.</p>
 		 * @link http://php.net/manual/en/mongocursor.getreadpreference.php
 		 * @see MongoCursor::setReadPreference(), MongoCursorInterface::getReadPreference()
 		 * @since PECL mongo >=1.3.3
@@ -1326,7 +1326,7 @@ namespace {
 
 		/**
 		 * Returns the current result's _id, or its index within the result set
-		 * @return string|int <p>The current result's <i>_id</i> as a string. If the result has no <i>_id</i>, its numeric index within the result set will be returned as an integer.</p>
+		 * @return string|int <p>The current result's <code>_id</code> as a string. If the result has no <code>_id</code>, its numeric index within the result set will be returned as an integer.</p>
 		 * @link http://php.net/manual/en/mongocursor.key.php
 		 * @since PECL mongo >=0.9.0
 		 */
@@ -1440,7 +1440,7 @@ namespace {
 
 		/**
 		 * Sorts the results by given fields
-		 * @param array $fields <p>An array of fields by which to sort. Each element in the array has as key the field name, and as value either <i>1</i> for ascending sort, or <i>-1</i> for descending sort.</p> <p>Each result is first sorted on the first field in the array, then (if it exists) on the second field in the array, etc. This means that the order of the fields in the <code>fields</code> array is important. See also the examples section.</p>
+		 * @param array $fields <p>An array of fields by which to sort. Each element in the array has as key the field name, and as value either <code>1</code> for ascending sort, or <code>-1</code> for descending sort.</p> <p>Each result is first sorted on the first field in the array, then (if it exists) on the second field in the array, etc. This means that the order of the fields in the <code>fields</code> array is important. See also the examples section.</p>
 		 * @return MongoCursor <p>Returns the same cursor that this method was called on.</p>
 		 * @link http://php.net/manual/en/mongocursor.sort.php
 		 * @since PECL mongo >=0.9.0
@@ -1461,7 +1461,7 @@ namespace {
 		/**
 		 * Sets a client-side timeout for this query
 		 * <p>A timeout can be set at any time and will affect subsequent queries on the cursor, including fetching more results from the database.</p>
-		 * @param int $ms <p>The number of milliseconds for the cursor to wait for a response. Use <i>-1</i> to wait forever. By default, the cursor will wait 30000 milliseconds (30 seconds).</p>
+		 * @param int $ms <p>The number of milliseconds for the cursor to wait for a response. Use <code>-1</code> to wait forever. By default, the cursor will wait 30000 milliseconds (30 seconds).</p>
 		 * @return MongoCursor <p>This cursor.</p>
 		 * @link http://php.net/manual/en/mongocursor.timeout.php
 		 * @see MongoClient::__construct()
@@ -1479,58 +1479,58 @@ namespace {
 	}
 
 	/**
-	 * <p>Caused by accessing a cursor incorrectly or a error receiving a reply. Note that this can be thrown by any database request that receives a reply, not just queries. Writes, commands, and any other operation that sends information to the database and waits for a response can throw a <b>MongoCursorException</b>. The only exception is <i>new MongoClient()</i> (creating a new connection), which will only throw MongoConnectionExceptions.</p>
+	 * <p>Caused by accessing a cursor incorrectly or a error receiving a reply. Note that this can be thrown by any database request that receives a reply, not just queries. Writes, commands, and any other operation that sends information to the database and waits for a response can throw a <b>MongoCursorException</b>. The only exception is <code>new MongoClient()</code> (creating a new connection), which will only throw MongoConnectionExceptions.</p>
 	 * <p>This returns a specific error message to help diagnose the problem and a numeric error code associated with the cause of the exception.</p>
 	 * <p>For example, suppose you tried to insert two documents with the same _id:</p>
 	 * <p>The following is a list of common errors, codes, and causes. Exact errors are in italics, errors where the message can vary are described in obliques.</p>
-	 * <p><i>cannot modify cursor after beginning iteration</i></p>
+	 * <p><code>cannot modify cursor after beginning iteration</code></p>
 	 * <p>Code: 0</p>
 	 * <p>You are calling a method that sets up the query after executing the query. Reset the cursor and try again.</p>
 	 * <p>An example:</p>
 	 * <p>Get next batch send errors</p>
 	 * <p>Code: 1</p>
 	 * <p>Could not send the query to the database. Make sure the database is still up and the network is okay.</p>
-	 * <p><i>cursor not found</i></p>
+	 * <p><code>cursor not found</code></p>
 	 * <p>Code: 2</p>
 	 * <p>The driver was trying to fetch more results from the database, but the database did not have a record of the query. This usually means that the cursor timed out on the server side: after a few minutes of inactivity, the database will kill a cursor (see <code>MongoCursor::immortal()</code> for information on preventing this).</p>
 	 * <p>An example:</p>
-	 * <p><i>cursor-&gt;buf.pos is null</i></p>
+	 * <p><code>cursor-&gt;buf.pos is null</code></p>
 	 * <p>Code: 3</p>
 	 * <p>This may indicate you are out of RAM or some other extraordinary circumstance.</p>
-	 * <p><i>couldn't get response header</i></p>
+	 * <p><code>couldn't get response header</code></p>
 	 * <p>Code: 4</p>
 	 * <p>A common error if the database or network goes down. This means that the driver couldn't get a response from the connection.</p>
-	 * <p><i>no db response</i></p>
+	 * <p><code>no db response</code></p>
 	 * <p>Code: 5</p>
 	 * <p>This may not even be an error, for example, the database command "shutdown" returns no response. However, if you were expecting a response, this means the database didn't give one.</p>
-	 * <p><i>bad response length: %d, did the db assert&#63;</i></p>
+	 * <p><code>bad response length: %d, did the db assert&#63;</code></p>
 	 * <p>Code: 6</p>
 	 * <p>This means that the database said that its response was less than 0. This error probably indicates a network error or database corruption.</p>
-	 * <p><i>incomplete header</i></p>
+	 * <p><code>incomplete header</code></p>
 	 * <p>Code: 7</p>
 	 * <p>Highly unusual. Occurs if the database response started out correctly, but broke off in the middle. Probably indicates a network problem.</p>
-	 * <p><i>incomplete response</i></p>
+	 * <p><code>incomplete response</code></p>
 	 * <p>Code: 8</p>
 	 * <p>Highly unusual. Occurs if the database response started out correctly, but broke off in the middle. Probably indicates a network problem.</p>
-	 * <p><i>couldn't find a response</i></p>
+	 * <p><code>couldn't find a response</code></p>
 	 * <p>Code: 9</p>
 	 * <p>If the response was cached and now cannot be located.</p>
-	 * <p><i>error getting socket</i></p>
+	 * <p><code>error getting socket</code></p>
 	 * <p>Code: 10</p>
 	 * <p>The socket was closed or encountered an error. The driver should automatically reconnect (if possible) on the next operation.</p>
-	 * <p><i>couldn't find reply, please try again</i></p>
+	 * <p><code>couldn't find reply, please try again</code></p>
 	 * <p>Code: 11</p>
 	 * <p>The driver saves any database responses it cannot immediately match with a request. This exception occurs if the driver has already passed your request's response and cannot find your response in its cache.</p>
-	 * <p><i>error getting database response: errstr</i></p>
-	 * <p><i>WSA error getting database response: errstr</i></p>
+	 * <p><code>error getting database response: errstr</code></p>
+	 * <p><code>WSA error getting database response: errstr</code></p>
 	 * <p>"errstr" is an io error reported directly from the C socket subsystem. On Windows, the error message is prefixed with "WSA".</p>
-	 * <p><i>Timeout error</i></p>
+	 * <p><code>Timeout error</code></p>
 	 * <p>Code: 13</p>
 	 * <p>If there was an error while waiting for a query to complete.</p>
-	 * <p><i>couldn't send query: &lt;various&gt;</i></p>
+	 * <p><code>couldn't send query: &lt;various&gt;</code></p>
 	 * <p>Code: 14</p>
 	 * <p>C socket error on send.</p>
-	 * <p><i>max number of retries exhausted, couldn't send query</i></p>
+	 * <p><code>max number of retries exhausted, couldn't send query</code></p>
 	 * <p>Code: 19</p>
 	 * <p>The driver will automatically retry "plain" queries (not commands) a couple of times if the first attempt failed for certain reasons. This is to cause fewer exceptions during replica set failover (although you will probably still have to deal with some) and gloss over transient network issues.</p>
 	 * <p>This can also be caused by the driver not being able to reconnect at all to the database (if, for example, the database is unreachable).</p>
@@ -1564,7 +1564,7 @@ namespace {
 		 * <p>Returns the current element.</p>
 		 * @return mixed <p>Can return any type.</p>
 		 * @link http://php.net/manual/en/iterator.current.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		public function current();
 
@@ -1579,7 +1579,7 @@ namespace {
 
 		/**
 		 * Get the read preference for this query
-		 * @return array <p>This function returns an array describing the read preference. The array contains the values <i>type</i> for the string read preference mode (corresponding to the MongoClient constants), and <i>tagsets</i> containing a list of all tag set criteria. If no tag sets were specified, <i>tagsets</i> will not be present in the array.</p>
+		 * @return array <p>This function returns an array describing the read preference. The array contains the values <code>type</code> for the string read preference mode (corresponding to the MongoClient constants), and <code>tagsets</code> containing a list of all tag set criteria. If no tag sets were specified, <code>tagsets</code> will not be present in the array.</p>
 		 * @link http://php.net/manual/en/mongocursorinterface.getreadpreference.php
 		 * @see MongoCursorInterface::setReadPreference()
 		 * @since PECL mongo >=1.6.0
@@ -1600,7 +1600,7 @@ namespace {
 		 * <p>Returns the key of the current element.</p>
 		 * @return scalar <p>Returns scalar on success, or <b><code>NULL</code></b> on failure.</p>
 		 * @link http://php.net/manual/en/iterator.key.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		public function key(): \scalar;
 
@@ -1609,7 +1609,7 @@ namespace {
 		 * <p>Moves the current position to the next element.</p><p><b>Note</b>:</p><p>This method is called <i>after</i> each foreach loop.</p>
 		 * @return void <p>Any returned value is ignored.</p>
 		 * @link http://php.net/manual/en/iterator.next.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		public function next(): void;
 
@@ -1618,7 +1618,7 @@ namespace {
 		 * <p>Rewinds back to the first element of the Iterator.</p><p><b>Note</b>:</p><p>This is the <i>first</i> method called when starting a foreach loop. It will <i>not</i> be executed <i>after</i> foreach loops.</p>
 		 * @return void <p>Any returned value is ignored.</p>
 		 * @link http://php.net/manual/en/iterator.rewind.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		public function rewind(): void;
 
@@ -1636,7 +1636,7 @@ namespace {
 		/**
 		 * Sets a client-side timeout for this query
 		 * <p>A timeout can be set at any time and will affect subsequent data retrieval associated with this cursor, including fetching more results from the database.</p>
-		 * @param int $ms <p>The number of milliseconds for the cursor to wait for a response. Use <i>-1</i> to wait forever. By default, the cursor will wait 30000 milliseconds (30 seconds).</p>
+		 * @param int $ms <p>The number of milliseconds for the cursor to wait for a response. Use <code>-1</code> to wait forever. By default, the cursor will wait 30000 milliseconds (30 seconds).</p>
 		 * @return MongoCursorInterface <p>Returns this cursor.</p>
 		 * @link http://php.net/manual/en/mongocursorinterface.timeout.php
 		 * @see MongoClient::__construct()
@@ -1647,15 +1647,15 @@ namespace {
 		/**
 		 * Checks if current position is valid
 		 * <p>This method is called after <code>Iterator::rewind()</code> and <code>Iterator::next()</code> to check if the current position is valid.</p>
-		 * @return bool <p>The return value will be casted to <code>boolean</code> and then evaluated. Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+		 * @return bool <p>The return value will be casted to <code>bool</code> and then evaluated. Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
 		 * @link http://php.net/manual/en/iterator.valid.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		public function valid(): bool;
 	}
 
 	/**
-	 * <p>Caused by a query timing out. You can set the length of time to wait before this exception is thrown by calling <code>MongoCursor::timeout()</code> on the cursor or setting <i>MongoCursor::$timeout</i>. The static variable is useful for queries such as database commands and <code>MongoCollection::findOne()</code>, both of which implicitly use cursors.</p>
+	 * <p>Caused by a query timing out. You can set the length of time to wait before this exception is thrown by calling <code>MongoCursor::timeout()</code> on the cursor or setting <code>MongoCursor::$timeout</code>. The static variable is useful for queries such as database commands and <code>MongoCollection::findOne()</code>, both of which implicitly use cursors.</p>
 	 * @link http://php.net/manual/en/class.mongocursortimeoutexception.php
 	 * @since PECL mongo >= 1.0.0
 	 */
@@ -1697,7 +1697,7 @@ namespace {
 
 		/**
 		 * Returns a DateTime object representing this date
-		 * <p>Returns a DateTime object representation of this date.</p>
+		 * <p>Returns the DateTime representation of this date. The returned DateTime will use the UTC time zone.</p>
 		 * @return DateTime <p>This date as a DateTime object.</p>
 		 * @link http://php.net/manual/en/mongodate.todatetime.php
 		 * @since PECL mongo >= 1.6.0
@@ -1734,13 +1734,13 @@ namespace {
 		const PROFILING_ON = 2;
 
 		/**
-		 * @var integer
+		 * @var int
 		 * @link http://php.net/manual/en/class.mongodb.php#mongodb.props.w
 		 */
 		public $w = 1;
 
 		/**
-		 * @var integer
+		 * @var int
 		 * @link http://php.net/manual/en/class.mongodb.php#mongodb.props.wtimeout
 		 */
 		public $wtimeout = 10000;
@@ -1789,9 +1789,9 @@ namespace {
 		 * Execute a database command
 		 * <p>Almost everything that is not a CRUD operation can be done with a database command. Need to know the database version&#63; There's a command for that. Need to do aggregation&#63; There's a command for that. Need to turn up logging&#63; You get the idea.</p><p>This method is identical to:</p>
 		 * @param array $command <p>The query to send.</p>
-		 * @param array $options <p>An array of options for the index creation. Currently available options include:</p><ul> <li><p><i>"socketTimeoutMS"</i></p><p>This option specifies the time limit, in milliseconds, for socket communication. If the server does not respond within the timeout period, a MongoCursorTimeoutException will be thrown and there will be no way to determine if the server actually handled the write or not. A value of <i>-1</i> may be specified to block indefinitely. The default value for MongoClient is <i>30000</i> (30 seconds).</p></li> </ul> <p>The following options are deprecated and should no longer be used:</p><ul> <li><p><i>"timeout"</i></p><p>Deprecated alias for <i>"socketTimeoutMS"</i>.</p></li> </ul>
+		 * @param array $options <p>An array of options for the index creation. Currently available options include:</p><ul> <li><p><code>"socketTimeoutMS"</code></p><p>This option specifies the time limit, in milliseconds, for socket communication. If the server does not respond within the timeout period, a MongoCursorTimeoutException will be thrown and there will be no way to determine if the server actually handled the write or not. A value of <code>-1</code> may be specified to block indefinitely. The default value for MongoClient is <code>30000</code> (30 seconds).</p></li> </ul> <p>The following options are deprecated and should no longer be used:</p><ul> <li><p><code>"timeout"</code></p><p>Deprecated alias for <code>"socketTimeoutMS"</code>.</p></li> </ul>
 		 * @param string $hash <p>Set to the connection hash of the server that executed the command. When the command result is suitable for creating a MongoCommandCursor, the hash is intended to be passed to <code>MongoCommandCursor::createFromDocument()</code>.</p> <p>The hash will also correspond to a connection returned from <code>MongoClient::getConnections()</code>.</p>
-		 * @return array <p>Returns database response. Every database response is always maximum one document, which means that the result of a database command can never exceed 16MB. The resulting document's structure depends on the command, but most results will have the <i>ok</i> field to indicate success or failure and <i>results</i> containing an array of each of the resulting documents.</p>
+		 * @return array <p>Returns database response. Every database response is always maximum one document, which means that the result of a database command can never exceed 16MB. The resulting document's structure depends on the command, but most results will have the <code>ok</code> field to indicate success or failure and <code>results</code> containing an array of each of the resulting documents.</p>
 		 * @link http://php.net/manual/en/mongodb.command.php
 		 * @since PECL mongo >=0.9.2
 		 */
@@ -1801,7 +1801,7 @@ namespace {
 		 * Creates a collection
 		 * <p>This method is used to create capped collections and other collections requiring special options. It is identical to running:</p>
 		 * @param string $name <p>The name of the collection.</p>
-		 * @param array $options <p>An array containing options for the collections. Each option is its own element in the options array, with the option name listed below being the key of the element. The supported options depend on the MongoDB server version and storage engine, and the driver passes any option that you give it straight to the server. A few of the supported options are, but you can find a full list in the MongoDB core docs on createCollection:</p> <p></p>  <code>capped</code>   <p>If the collection should be a fixed size.</p>   <code>size</code>   <p>If the collection is fixed size, its size in bytes.</p>   <code>max</code>   <p>If the collection is fixed size, the maximum number of elements to store in the collection.</p>   <code>autoIndexId</code>   <p>If capped is <b><code>TRUE</code></b> you can specify <b><code>FALSE</code></b> to disable the automatic index created on the <i>_id</i> field. Before MongoDB 2.2, the default value for <i>autoIndexId</i> was <b><code>FALSE</code></b>.</p>
+		 * @param array $options <p>An array containing options for the collections. Each option is its own element in the options array, with the option name listed below being the key of the element. The supported options depend on the MongoDB server version and storage engine, and the driver passes any option that you give it straight to the server. A few of the supported options are, but you can find a full list in the MongoDB core docs on createCollection:</p> <p></p>  <code>capped</code>   <p>If the collection should be a fixed size.</p>   <code>size</code>   <p>If the collection is fixed size, its size in bytes.</p>   <code>max</code>   <p>If the collection is fixed size, the maximum number of elements to store in the collection.</p>   <code>autoIndexId</code>   <p>If capped is <b><code>TRUE</code></b> you can specify <b><code>FALSE</code></b> to disable the automatic index created on the <code>_id</code> field. Before MongoDB 2.2, the default value for <code>autoIndexId</code> was <b><code>FALSE</code></b>.</p>
 		 * @return MongoCollection <p>Returns a collection object representing the new collection.</p>
 		 * @link http://php.net/manual/en/mongodb.createcollection.php
 		 * @since PECL mongo >=0.9.0
@@ -1812,8 +1812,8 @@ namespace {
 		 * Creates a database reference
 		 * <p>This method is a flexible interface for creating database refrences (see MongoDBRef).</p>
 		 * @param string $collection <p>The collection to which the database reference will point.</p>
-		 * @param mixed $document_or_id <p>If an array or object is given, its <i>_id</i> field will be used as the reference ID. If a MongoId or scalar is given, it will be used as the reference ID.</p>
-		 * @return array <p>Returns a database reference array.</p><p>If an array without an <i>_id</i> field was provided as the <i>document_or_id</i> parameter, <b><code>NULL</code></b> will be returned.</p>
+		 * @param mixed $document_or_id <p>If an array or object is given, its <code>_id</code> field will be used as the reference ID. If a MongoId or scalar is given, it will be used as the reference ID.</p>
+		 * @return array <p>Returns a database reference array.</p><p>If an array without an <code>_id</code> field was provided as the <code>document_or_id</code> parameter, <b><code>NULL</code></b> will be returned.</p>
 		 * @link http://php.net/manual/en/mongodb.createdbref.php
 		 * @since PECL mongo >=0.9.0
 		 */
@@ -1842,7 +1842,7 @@ namespace {
 		 * Runs JavaScript code on the database server [deprecated]
 		 * <p>The eval command, which this method invokes, is deprecated in MongoDB 3.0+.</p><p>The Mongo database server runs a JavaScript engine. This method allows you to run arbitary JavaScript on the database. This can be useful if you want touch a number of collections lightly, or process some results on the database side to reduce the amount that has to be sent to the client.</p><p>Running JavaScript in the database takes a write lock, meaning it blocks other operations. Make sure you consider this before running a long script.</p><p>This is a wrapper for the eval database command. This method is basically:</p><p>MongoDB implies a return statement if you have a single statement on a single line. This can cause some unintuitive behavior. For example, this returns "foo":</p><p>However, these return <b><code>NULL</code></b>:</p><p>To avoid surprising behavior, it is best not to depend on MongoDB to decide what to return, but to explicitly state a return value. In the examples above, we can change them to:</p><p>Now the first statement will return "foo" and the second statement will return a count of the "foo" collection.</p>
 		 * @param mixed $code <p>MongoCode or string to execute.</p>
-		 * @param array $args <p>Arguments to be passed to <i>code</i>.</p>
+		 * @param array $args <p>Arguments to be passed to <code>code</code>.</p>
 		 * @return array <p>Returns the result of the evaluation.</p>
 		 * @link http://php.net/manual/en/mongodb.execute.php
 		 * @since PECL mongo >=0.9.3
@@ -1860,9 +1860,9 @@ namespace {
 
 		/**
 		 * Returns information about collections in this database
-		 * <p>Gets a list of all collections in the database and returns them as an array of documents, which contain their names and options.</p><p><b>Note</b>: This method will use the listCollections database command when communicating with MongoDB 2.8+. For previous database versions, the method will query the special <i>system.namespaces</i> collection.</p>
-		 * @param array $options <p>An array of options for listing the collections. Currently available options include:</p><ul> <li><p><i>"filter"</i></p><p>Optional query criteria. If provided, this criteria will be used to filter the collections included in the result.</p><p>Relevant fields that may be queried include <i>"name"</i> (collection name as a string, without the database name prefix) and <i>"options" (object containing options used to create the collection).</i>.</p><p><b>Note</b>: MongoDB 2.6 and earlier versions require the <i>"name"</i> criteria, if specified, to be a string value (i.e. equality match). This is because the driver must prefix the value with the database name in order to query the <i>system.namespaces</i> collection. Later versions of MongoDB do not have this limitation, as the driver will use the listCollections command.</p></li> <li><p><i>"includeSystemCollections"</i></p><p>Boolean, defaults to <b><code>FALSE</code></b>. Determines whether system collections should be included in the result.</p></li> </ul> <p>The following option may be used with MongoDB 2.8+:</p><ul> <li><p><i>"maxTimeMS"</i></p><p>Specifies a cumulative time limit in milliseconds for processing the operation on the server (does not include idle time). If the operation is not completed by the server within the timeout period, a MongoExecutionTimeoutException will be thrown.</p></li> </ul>
-		 * @return array <p>This function returns an array where each element is an array describing a collection. Elements will contain a <i>name</i> key denoting the name of the collection, and optionally contain an <i>options</i> key denoting an array of objects used to create the collection. For example, capped collections will include <i>capped</i> and <i>size</i> options.</p>
+		 * <p>Gets a list of all collections in the database and returns them as an array of documents, which contain their names and options.</p><p><b>Note</b>: This method will use the listCollections database command when communicating with MongoDB 2.8+. For previous database versions, the method will query the special <code>system.namespaces</code> collection.</p>
+		 * @param array $options <p>An array of options for listing the collections. Currently available options include:</p><ul> <li><p><code>"filter"</code></p><p>Optional query criteria. If provided, this criteria will be used to filter the collections included in the result.</p><p>Relevant fields that may be queried include <code>"name"</code> (collection name as a string, without the database name prefix) and <code>"options" (object containing options used to create the collection).</code>.</p><p><b>Note</b>: MongoDB 2.6 and earlier versions require the <code>"name"</code> criteria, if specified, to be a string value (i.e. equality match). This is because the driver must prefix the value with the database name in order to query the <code>system.namespaces</code> collection. Later versions of MongoDB do not have this limitation, as the driver will use the listCollections command.</p></li> <li><p><code>"includeSystemCollections"</code></p><p>Boolean, defaults to <b><code>FALSE</code></b>. Determines whether system collections should be included in the result.</p></li> </ul> <p>The following option may be used with MongoDB 2.8+:</p><ul> <li><p><code>"maxTimeMS"</code></p><p>Specifies a cumulative time limit in milliseconds for processing the operation on the server (does not include idle time). If the operation is not completed by the server within the timeout period, a MongoExecutionTimeoutException will be thrown.</p></li> </ul>
+		 * @return array <p>This function returns an array where each element is an array describing a collection. Elements will contain a <code>name</code> key denoting the name of the collection, and optionally contain an <code>options</code> key denoting an array of objects used to create the collection. For example, capped collections will include <code>capped</code> and <code>size</code> options.</p>
 		 * @link http://php.net/manual/en/mongodb.getcollectioninfo.php
 		 * @see MongoDB::getCollectionNames(), MongoDB::listCollections()
 		 * @since PECL mongo >=1.6.0
@@ -1871,8 +1871,8 @@ namespace {
 
 		/**
 		 * Gets an array of names for all collections in this database
-		 * <p>Gets a list of all collections in the database and returns their names as an array of strings.</p><p><b>Note</b>: This method will use the listCollections database command when communicating with MongoDB 2.8+. For previous database versions, the method will query the special <i>system.namespaces</i> collection.</p>
-		 * @param array $options <p>An array of options for listing the collections. Currently available options include:</p><ul> <li><p><i>"filter"</i></p><p>Optional query criteria. If provided, this criteria will be used to filter the collections included in the result.</p><p>Relevant fields that may be queried include <i>"name"</i> (collection name as a string, without the database name prefix) and <i>"options" (object containing options used to create the collection).</i>.</p><p><b>Note</b>: MongoDB 2.6 and earlier versions require the <i>"name"</i> criteria, if specified, to be a string value (i.e. equality match). This is because the driver must prefix the value with the database name in order to query the <i>system.namespaces</i> collection. Later versions of MongoDB do not have this limitation, as the driver will use the listCollections command.</p></li> <li><p><i>"includeSystemCollections"</i></p><p>Boolean, defaults to <b><code>FALSE</code></b>. Determines whether system collections should be included in the result.</p></li> </ul> <p>The following option may be used with MongoDB 2.8+:</p><ul> <li><p><i>"maxTimeMS"</i></p><p>Specifies a cumulative time limit in milliseconds for processing the operation on the server (does not include idle time). If the operation is not completed by the server within the timeout period, a MongoExecutionTimeoutException will be thrown.</p></li> </ul>
+		 * <p>Gets a list of all collections in the database and returns their names as an array of strings.</p><p><b>Note</b>: This method will use the listCollections database command when communicating with MongoDB 2.8+. For previous database versions, the method will query the special <code>system.namespaces</code> collection.</p>
+		 * @param array $options <p>An array of options for listing the collections. Currently available options include:</p><ul> <li><p><code>"filter"</code></p><p>Optional query criteria. If provided, this criteria will be used to filter the collections included in the result.</p><p>Relevant fields that may be queried include <code>"name"</code> (collection name as a string, without the database name prefix) and <code>"options" (object containing options used to create the collection).</code>.</p><p><b>Note</b>: MongoDB 2.6 and earlier versions require the <code>"name"</code> criteria, if specified, to be a string value (i.e. equality match). This is because the driver must prefix the value with the database name in order to query the <code>system.namespaces</code> collection. Later versions of MongoDB do not have this limitation, as the driver will use the listCollections command.</p></li> <li><p><code>"includeSystemCollections"</code></p><p>Boolean, defaults to <b><code>FALSE</code></b>. Determines whether system collections should be included in the result.</p></li> </ul> <p>The following option may be used with MongoDB 2.8+:</p><ul> <li><p><code>"maxTimeMS"</code></p><p>Specifies a cumulative time limit in milliseconds for processing the operation on the server (does not include idle time). If the operation is not completed by the server within the timeout period, a MongoExecutionTimeoutException will be thrown.</p></li> </ul>
 		 * @return array <p>Returns the collection names as an array of strings.</p>
 		 * @link http://php.net/manual/en/mongodb.getcollectionnames.php
 		 * @see MongoDB::listCollections(), MongoDB::getCollectionInfo()
@@ -1909,7 +1909,7 @@ namespace {
 
 		/**
 		 * Get the read preference for this database
-		 * @return array <p>This function returns an array describing the read preference. The array contains the values <i>type</i> for the string read preference mode (corresponding to the MongoClient constants), and <i>tagsets</i> containing a list of all tag set criteria. If no tag sets were specified, <i>tagsets</i> will not be present in the array.</p>
+		 * @return array <p>This function returns an array describing the read preference. The array contains the values <code>type</code> for the string read preference mode (corresponding to the MongoClient constants), and <code>tagsets</code> containing a list of all tag set criteria. If no tag sets were specified, <code>tagsets</code> will not be present in the array.</p>
 		 * @link http://php.net/manual/en/mongodb.getreadpreference.php
 		 * @see MongoDB::setReadPreference()
 		 * @since PECL mongo >=1.3.0
@@ -1927,7 +1927,7 @@ namespace {
 
 		/**
 		 * Get the write concern for this database
-		 * @return array <p>This function returns an array describing the write concern. The array contains the values <i>w</i> for an integer acknowledgement level or string mode, and <i>wtimeout</i> denoting the maximum number of milliseconds to wait for the server to satisfy the write concern.</p>
+		 * @return array <p>This function returns an array describing the write concern. The array contains the values <code>w</code> for an integer acknowledgement level or string mode, and <code>wtimeout</code> denoting the maximum number of milliseconds to wait for the server to satisfy the write concern.</p>
 		 * @link http://php.net/manual/en/mongodb.getwriteconcern.php
 		 * @see MongoDB::setWriteConcern()
 		 * @since PECL mongo >=1.5.0
@@ -1945,8 +1945,8 @@ namespace {
 
 		/**
 		 * Gets an array of MongoCollection objects for all collections in this database
-		 * <p>Gets a list of all collections in the database and returns them as an array of MongoCollection objects.</p><p><b>Note</b>: This method will use the listCollections database command when communicating with MongoDB 2.8+. For previous database versions, the method will query the special <i>system.namespaces</i> collection.</p>
-		 * @param array $options <p>An array of options for listing the collections. Currently available options include:</p><ul> <li><p><i>"filter"</i></p><p>Optional query criteria. If provided, this criteria will be used to filter the collections included in the result.</p><p>Relevant fields that may be queried include <i>"name"</i> (collection name as a string, without the database name prefix) and <i>"options" (object containing options used to create the collection).</i>.</p><p><b>Note</b>: MongoDB 2.6 and earlier versions require the <i>"name"</i> criteria, if specified, to be a string value (i.e. equality match). This is because the driver must prefix the value with the database name in order to query the <i>system.namespaces</i> collection. Later versions of MongoDB do not have this limitation, as the driver will use the listCollections command.</p></li> <li><p><i>"includeSystemCollections"</i></p><p>Boolean, defaults to <b><code>FALSE</code></b>. Determines whether system collections should be included in the result.</p></li> </ul> <p>The following option may be used with MongoDB 2.8+:</p><ul> <li><p><i>"maxTimeMS"</i></p><p>Specifies a cumulative time limit in milliseconds for processing the operation on the server (does not include idle time). If the operation is not completed by the server within the timeout period, a MongoExecutionTimeoutException will be thrown.</p></li> </ul>
+		 * <p>Gets a list of all collections in the database and returns them as an array of MongoCollection objects.</p><p><b>Note</b>: This method will use the listCollections database command when communicating with MongoDB 2.8+. For previous database versions, the method will query the special <code>system.namespaces</code> collection.</p>
+		 * @param array $options <p>An array of options for listing the collections. Currently available options include:</p><ul> <li><p><code>"filter"</code></p><p>Optional query criteria. If provided, this criteria will be used to filter the collections included in the result.</p><p>Relevant fields that may be queried include <code>"name"</code> (collection name as a string, without the database name prefix) and <code>"options" (object containing options used to create the collection).</code>.</p><p><b>Note</b>: MongoDB 2.6 and earlier versions require the <code>"name"</code> criteria, if specified, to be a string value (i.e. equality match). This is because the driver must prefix the value with the database name in order to query the <code>system.namespaces</code> collection. Later versions of MongoDB do not have this limitation, as the driver will use the listCollections command.</p></li> <li><p><code>"includeSystemCollections"</code></p><p>Boolean, defaults to <b><code>FALSE</code></b>. Determines whether system collections should be included in the result.</p></li> </ul> <p>The following option may be used with MongoDB 2.8+:</p><ul> <li><p><code>"maxTimeMS"</code></p><p>Specifies a cumulative time limit in milliseconds for processing the operation on the server (does not include idle time). If the operation is not completed by the server within the timeout period, a MongoExecutionTimeoutException will be thrown.</p></li> </ul>
 		 * @return array <p>Returns an array of MongoCollection objects.</p>
 		 * @link http://php.net/manual/en/mongodb.listcollections.php
 		 * @see MongoDB::getCollectionNames(), MongoDB::getCollectionInfo()
@@ -1994,7 +1994,7 @@ namespace {
 
 		/**
 		 * Sets this database's profiling level
-		 * <p>This changes the current database profiling level.</p><p>This function is equivalent to running:</p><p>The options for level are 0 (off), 1 (queries &gt; 100ms), and 2 (all queries). If you would like to profile queries that take longer than another time period, use the database command and pass it a second option, the number of milliseconds. For example, to profile all queries that take longer than one second, run:</p><p>Profiled queries will appear in the <i>system.profile</i> collection of this database.</p>
+		 * <p>This changes the current database profiling level.</p><p>This function is equivalent to running:</p><p>The options for level are 0 (off), 1 (queries &gt; 100ms), and 2 (all queries). If you would like to profile queries that take longer than another time period, use the database command and pass it a second option, the number of milliseconds. For example, to profile all queries that take longer than one second, run:</p><p>Profiled queries will appear in the <code>system.profile</code> collection of this database.</p>
 		 * @param int $level <p>Profiling level.</p>
 		 * @return int <p>Returns the previous profiling level.</p>
 		 * @link http://php.net/manual/en/mongodb.setprofilinglevel.php
@@ -2103,8 +2103,8 @@ namespace {
 
 		/**
 		 * Adds a write operation to a batch
-		 * <p>Adds a write operation to the batch.</p><p>If <code>$item</code> causes the batch to exceed the <i>maxWriteBatchSize</i> or <i>maxBsonObjectSize</i> limits, the driver will internally split the batches into multiple write commands upon calling <code>MongoWriteBatch::execute()</code>.</p>
-		 * @param array $item <p>An array that describes a write operation. The structure of this value depends on the batch's operation type.</p>   Batch type Argument expectation     <b><code>MongoWriteBatch::COMMAND_INSERT</code></b>  The document to add.    <b><code>MongoWriteBatch::COMMAND_UPDATE</code></b>  <p>Raw update operation.</p> <p>Required keys are <i>"q"</i> and <i>"u"</i>, which correspond to the <code>$criteria</code> and <code>$new_object</code> parameters of <code>MongoCollection::update()</code>, respectively.</p> <p>Optional keys are <i>"multi"</i> and <i>"upsert"</i>, which correspond to the <i>"multiple"</i> and <i>"upsert"</i> options for <code>MongoCollection::update()</code>, respectively. If unspecified, both options default to <b><code>FALSE</code></b>.</p>    <b><code>MongoWriteBatch::COMMAND_DELETE</code></b>  <p>Raw delete operation.</p> <p>Required keys are: <i>"q"</i> and <i>"limit"</i>, which correspond to the <code>$criteria</code> parameter and <i>"justOne"</i> option of <code>MongoCollection::remove()</code>, respectively.</p> <p>The <i>"limit"</i> option is an <code>integer</code>; however, MongoDB only supports <i>0</i> (i.e. remove all matching documents) and <i>1</i> (i.e. remove at most one matching document) at this time.</p>
+		 * <p>Adds a write operation to the batch.</p><p>If <code>$item</code> causes the batch to exceed the <code>maxWriteBatchSize</code> or <code>maxBsonObjectSize</code> limits, the driver will internally split the batches into multiple write commands upon calling <code>MongoWriteBatch::execute()</code>.</p>
+		 * @param array $item <p>An array that describes a write operation. The structure of this value depends on the batch's operation type.</p>   Batch type Argument expectation     <b><code>MongoWriteBatch::COMMAND_INSERT</code></b>  The document to add.    <b><code>MongoWriteBatch::COMMAND_UPDATE</code></b>  <p>Raw update operation.</p> <p>Required keys are <code>"q"</code> and <code>"u"</code>, which correspond to the <code>$criteria</code> and <code>$new_object</code> parameters of <code>MongoCollection::update()</code>, respectively.</p> <p>Optional keys are <code>"multi"</code> and <code>"upsert"</code>, which correspond to the <code>"multiple"</code> and <code>"upsert"</code> options for <code>MongoCollection::update()</code>, respectively. If unspecified, both options default to <b><code>FALSE</code></b>.</p>    <b><code>MongoWriteBatch::COMMAND_DELETE</code></b>  <p>Raw delete operation.</p> <p>Required keys are: <code>"q"</code> and <code>"limit"</code>, which correspond to the <code>$criteria</code> parameter and <code>"justOne"</code> option of <code>MongoCollection::remove()</code>, respectively.</p> <p>The <code>"limit"</code> option is an <code>int</code>; however, MongoDB only supports <code>0</code> (i.e. remove all matching documents) and <code>1</code> (i.e. remove at most one matching document) at this time.</p>
 		 * @return bool <p>Returns <b><code>TRUE</code></b> on success and throws an exception on failure.</p>
 		 * @link http://php.net/manual/en/mongowritebatch.add.php
 		 * @since PECL mongo >= 1.5.0
@@ -2166,47 +2166,47 @@ namespace {
 	/**
 	 * <p>Default Mongo exception.</p>
 	 * <p>This covers a bunch of different error conditions that may eventually be moved to more specific exceptions, but will always extend <b>MongoException</b>.</p>
-	 * <p><i>The MongoSomething object has not been correctly initialized by its constructor</i></p>
+	 * <p><code>The MongoSomething object has not been correctly initialized by its constructor</code></p>
 	 * <p>Code: 0</p>
 	 * <p>Probably your Mongo object is not connected to a database server.</p>
-	 * <p><i>zero-length keys are not allowed, did you use $ with double quotes&#63;</i></p>
+	 * <p><code>zero-length keys are not allowed, did you use $ with double quotes&#63;</code></p>
 	 * <p>Code: 1</p>
 	 * <p>You tried to save "" as a key. You generally should not do this. "" can mess up subobject access and is used by MongoDB internally. However, if you really want, you can set mongo.allow_empty_keys to true in your php.ini file to override this sanity check. If you override this, it is highly recommended that you set error checking to strict to avoid string interpolation errors.</p>
-	 * <p><i>'.' not allowed in key: &lt;key&gt;</i></p>
+	 * <p><code>'.' not allowed in key: &lt;key&gt;</code></p>
 	 * <p>Code: 2</p>
 	 * <p>You attempted to write a key with '.' in it, which is prohibited.</p>
-	 * <p><i>insert too large: &lt;size&gt;, max: &lt;max&gt;</i></p>
+	 * <p><code>insert too large: &lt;size&gt;, max: &lt;max&gt;</code></p>
 	 * <p>Code: 3</p>
 	 * <p>You're attempting to send too much data to the database at once: the database will only accept inserts up to a certain size (currently 16 MB).</p>
-	 * <p><i>no elements in doc</i></p>
+	 * <p><code>no elements in doc</code></p>
 	 * <p>Code: 4</p>
 	 * <p>You're attempting to save a document with no fields.</p>
-	 * <p><i>size of BSON doc is &lt;size&gt; bytes, max &lt;max&gt;MB</i></p>
+	 * <p><code>size of BSON doc is &lt;size&gt; bytes, max &lt;max&gt;MB</code></p>
 	 * <p>Code: 5</p>
 	 * <p>You're attempting to save a document that is larger than MongoDB can save.</p>
-	 * <p><i>no documents given</i></p>
+	 * <p><code>no documents given</code></p>
 	 * <p>Code: 6</p>
 	 * <p>You're attempting to batch insert an empty array of documents.</p>
-	 * <p><i>MongoCollection::group takes an array, object, or MongoCode key</i></p>
+	 * <p><code>MongoCollection::group takes an array, object, or MongoCode key</code></p>
 	 * <p>Code: 7</p>
 	 * <p>Wrong type parameter send to <code>MongoCollection::group()</code>.</p>
-	 * <p><i>field names must be strings</i></p>
+	 * <p><code>field names must be strings</code></p>
 	 * <p>Code: 8</p>
-	 * <p>You should format field selectors as <i>array("field1" =&gt; 1, "field2" =&gt; 1, ..., "fieldN" =&gt; 1)</i>.</p>
-	 * <p><i>invalid regex</i></p>
+	 * <p>You should format field selectors as <code>array("field1" =&gt; 1, "field2" =&gt; 1, ..., "fieldN" =&gt; 1)</code>.</p>
+	 * <p><code>invalid regex</code></p>
 	 * <p>Code: 9</p>
 	 * <p>The regex passed to MongoRegex is not of the correct form.</p>
-	 * <p><i>MongoDBRef::get: $ref field must be a string</i></p>
+	 * <p><code>MongoDBRef::get: $ref field must be a string</code></p>
 	 * <p>Code: 10</p>
-	 * <p><i>MongoDBRef::get: $db field must be a string</i></p>
+	 * <p><code>MongoDBRef::get: $db field must be a string</code></p>
 	 * <p>Code: 11</p>
-	 * <p><i>non-utf8 string: &lt;str&gt;</i></p>
+	 * <p><code>non-utf8 string: &lt;str&gt;</code></p>
 	 * <p>Code: 12</p>
 	 * <p>This error occurs if you attempt to send a non-utf8 string to the database. All strings going into the database should be UTF8. See php.ini options for the transition option of quieting this exception.</p>
-	 * <p><i>mutex error: &lt;err&gt;</i></p>
+	 * <p><code>mutex error: &lt;err&gt;</code></p>
 	 * <p>Code: 13</p>
 	 * <p>The driver uses mutexes for synchronizing requests and responses in multithreaded environments. This is a fairly serious error and may not have a stack trace. It's unusual and should be reported to maintainers with any system information and steps to reproduce that you can provide.</p>
-	 * <p><i>index name too long: &lt;len&gt;, max &lt;max&gt; characters</i></p>
+	 * <p><code>index name too long: &lt;len&gt;, max &lt;max&gt; characters</code></p>
 	 * <p>Code: 14</p>
 	 * <p>Indexes with names longer than 128 characters cannot be created. If you get this error, you should use <code>MongoCollection::ensureIndex()</code>'s "name" option to create a shorter name for your index.</p>
 	 * @link http://php.net/manual/en/class.mongoexception.php
@@ -2217,7 +2217,7 @@ namespace {
 
 	/**
 	 * <p>Thrown when a operation times out server side (i.e. in MongoDB).</p>
-	 * <p>To configure the operation timeout threshold, use <code>MongoCursor::maxTimeMS()</code> or the <i>"maxTimeMS"</i> command option.</p>
+	 * <p>To configure the operation timeout threshold, use <code>MongoCursor::maxTimeMS()</code> or the <code>"maxTimeMS"</code> command option.</p>
 	 * @link http://php.net/manual/en/class.mongoexecutiontimeoutexception.php
 	 * @since PECL mongo >= 1.5.0
 	 */
@@ -2260,8 +2260,8 @@ namespace {
 
 	/**
 	 * <p>Utilities for storing and retrieving files from the database.</p>
-	 * <p>GridFS is a storage specification all supported drivers implement. Basically, it defines two collections: <i>files</i>, for file metadata, and <i>chunks</i>, for file content. If the file is large, it will automatically be split into smaller chunks and each chunk will be saved as a document in the chunks collection.</p>
-	 * <p>Each document in the files collection contains the filename, upload date, and md5 hash. It also contains a unique <i>_id</i> field, which can be used to query the chunks collection for the file's content. Each document in the chunks collection contains a chunk of binary data, a <i>files_id</i> field that matches its file's <i>_id</i>, and the position of this chunk in the overall file.</p>
+	 * <p>GridFS is a storage specification all supported drivers implement. Basically, it defines two collections: <code>files</code>, for file metadata, and <code>chunks</code>, for file content. If the file is large, it will automatically be split into smaller chunks and each chunk will be saved as a document in the chunks collection.</p>
+	 * <p>Each document in the files collection contains the filename, upload date, and md5 hash. It also contains a unique <code>_id</code> field, which can be used to query the chunks collection for the file's content. Each document in the chunks collection contains a chunk of binary data, a <code>files_id</code> field that matches its file's <code>_id</code>, and the position of this chunk in the overall file.</p>
 	 * <p>For example, the files document is something like:</p>
 	 * @link http://php.net/manual/en/class.mongogridfs.php
 	 * @since PECL mongo >=0.9.0
@@ -2289,8 +2289,8 @@ namespace {
 		/**
 		 * Remove a file and its chunks from the database
 		 * <p><b>Note</b>:</p><p><b>MongoGridFS::delete()</b> is a convenience method for calling <code>MongoGridFS::remove()</code> with specific <code>criteria</code> and default <code>options</code> parameters.</p>
-		 * @param mixed $id <p><i>_id</i> of the file to remove.</p>
-		 * @return bool|array <p>Returns an array containing the status of the removal (with respect to the <i>files</i> collection) if a write concern is applied. Otherwise, returns <b><code>TRUE</code></b>.</p><p>Fields in the status array are described in the documentation for <code>MongoCollection::insert()</code>.</p>
+		 * @param mixed $id <p><code>_id</code> of the file to remove.</p>
+		 * @return bool|array <p>Returns an array containing the status of the removal (with respect to the <code>files</code> collection) if a write concern is applied. Otherwise, returns <b><code>TRUE</code></b>.</p><p>Fields in the status array are described in the documentation for <code>MongoCollection::insert()</code>.</p>
 		 * @link http://php.net/manual/en/mongogridfs.delete.php
 		 * @since PECL mongo >=1.0.8
 		 */
@@ -2326,7 +2326,7 @@ namespace {
 
 		/**
 		 * Retrieve a file from the database
-		 * @param mixed $id <p><i>_id</i> of the file to find.</p>
+		 * @param mixed $id <p><code>_id</code> of the file to find.</p>
 		 * @return MongoGridFSFile <p>Returns the file, if found, or <b><code>NULL</code></b>.</p>
 		 * @link http://php.net/manual/en/mongogridfs.get.php
 		 * @since PECL mongo >=1.0.8
@@ -2337,9 +2337,9 @@ namespace {
 		 * Stores a file in the database
 		 * <p><b>Note</b>:</p><p><b>MongoGridFS::put()</b> is an alias of <code>MongoGridFS::storeFile()</code>.</p>
 		 * @param string $filename <p>Name of the file to store.</p>
-		 * @param array $metadata <p>Other metadata fields to include in the file document.</p> <p><b>Note</b>:</p><p>These fields may also overwrite those that would be created automatically by the driver, as described in the MongoDB core documentation for the files collection. Some practical use cases for this behavior would be to specify a custom <i>chunkSize</i> or <i>_id</i> for the file.</p>
-		 * @param array $options <p>An array of options for the insert operations executed against the <i>chunks</i> and <i>files</i> collections. See <code>MongoCollection::insert()</code> for documentation on these these options.</p>
-		 * @return mixed <p>Returns the <i>_id</i> of the saved file document. This will be a generated MongoId unless an <i>_id</i> was explicitly specified in the <code>metadata</code> parameter.</p>
+		 * @param array $metadata <p>Other metadata fields to include in the file document.</p> <p><b>Note</b>:</p><p>These fields may also overwrite those that would be created automatically by the driver, as described in the MongoDB core documentation for the files collection. Some practical use cases for this behavior would be to specify a custom <code>chunkSize</code> or <code>_id</code> for the file.</p>
+		 * @param array $options <p>An array of options for the insert operations executed against the <code>chunks</code> and <code>files</code> collections. See <code>MongoCollection::insert()</code> for documentation on these these options.</p>
+		 * @return mixed <p>Returns the <code>_id</code> of the saved file document. This will be a generated MongoId unless an <code>_id</code> was explicitly specified in the <code>metadata</code> parameter.</p>
 		 * @link http://php.net/manual/en/mongogridfs.put.php
 		 * @see MongoGridFS::storeBytes(), MongoGridFS::storeFile(), MongoGridFS::storeUpload()
 		 * @since PECL mongo >=1.0.8
@@ -2349,8 +2349,8 @@ namespace {
 		/**
 		 * Remove files and their chunks from the database
 		 * @param array $criteria <p>The filename or criteria for which to search.</p>
-		 * @param array $options <p>An array of options for the remove operations executed against the <i>chunks</i> and <i>files</i> collections. See <code>MongoCollection::remove()</code> for documentation on these options.</p>
-		 * @return bool|array <p>Returns an array containing the status of the removal (with respect to the <i>files</i> collection) if the <i>"w"</i> option is set. Otherwise, returns <b><code>TRUE</code></b>.</p><p>Fields in the status array are described in the documentation for <code>MongoCollection::insert()</code>.</p>
+		 * @param array $options <p>An array of options for the remove operations executed against the <code>chunks</code> and <code>files</code> collections. See <code>MongoCollection::remove()</code> for documentation on these options.</p>
+		 * @return bool|array <p>Returns an array containing the status of the removal (with respect to the <code>files</code> collection) if the <code>"w"</code> option is set. Otherwise, returns <b><code>TRUE</code></b>.</p><p>Fields in the status array are described in the documentation for <code>MongoCollection::insert()</code>.</p>
 		 * @link http://php.net/manual/en/mongogridfs.remove.php
 		 * @since PECL mongo >=0.9.0
 		 */
@@ -2359,9 +2359,9 @@ namespace {
 		/**
 		 * Stores a string of bytes in the database
 		 * @param string $bytes <p>String of bytes to store.</p>
-		 * @param array $metadata <p>Other metadata fields to include in the file document.</p> <p><b>Note</b>:</p><p>These fields may also overwrite those that would be created automatically by the driver, as described in the MongoDB core documentation for the files collection. Some practical use cases for this behavior would be to specify a custom <i>chunkSize</i> or <i>_id</i> for the file.</p>
-		 * @param array $options <p>An array of options for the insert operations executed against the <i>chunks</i> and <i>files</i> collections. See <code>MongoCollection::insert()</code> for documentation on these these options.</p>
-		 * @return mixed <p>Returns the <i>_id</i> of the saved file document. This will be a generated MongoId unless an <i>_id</i> was explicitly specified in the <code>metadata</code> parameter.</p>
+		 * @param array $metadata <p>Other metadata fields to include in the file document.</p> <p><b>Note</b>:</p><p>These fields may also overwrite those that would be created automatically by the driver, as described in the MongoDB core documentation for the files collection. Some practical use cases for this behavior would be to specify a custom <code>chunkSize</code> or <code>_id</code> for the file.</p>
+		 * @param array $options <p>An array of options for the insert operations executed against the <code>chunks</code> and <code>files</code> collections. See <code>MongoCollection::insert()</code> for documentation on these these options.</p>
+		 * @return mixed <p>Returns the <code>_id</code> of the saved file document. This will be a generated MongoId unless an <code>_id</code> was explicitly specified in the <code>metadata</code> parameter.</p>
 		 * @link http://php.net/manual/en/mongogridfs.storebytes.php
 		 * @see MongoGridFS::put(), MongoGridFS::storeFile(), MongoGridFS::storeUpload()
 		 * @since PECL mongo >=0.9.2
@@ -2371,9 +2371,9 @@ namespace {
 		/**
 		 * Stores a file in the database
 		 * @param string|resource $filename <p>Name of the file or a readable stream to store.</p>
-		 * @param array $metadata <p>Other metadata fields to include in the file document.</p> <p><b>Note</b>:</p><p>These fields may also overwrite those that would be created automatically by the driver, as described in the MongoDB core documentation for the files collection. Some practical use cases for this behavior would be to specify a custom <i>chunkSize</i> or <i>_id</i> for the file.</p>
-		 * @param array $options <p>An array of options for the insert operations executed against the <i>chunks</i> and <i>files</i> collections. See <code>MongoCollection::insert()</code> for documentation on these these options.</p>
-		 * @return mixed <p>Returns the <i>_id</i> of the saved file document. This will be a generated MongoId unless an <i>_id</i> was explicitly specified in the <code>metadata</code> parameter.</p>
+		 * @param array $metadata <p>Other metadata fields to include in the file document.</p> <p><b>Note</b>:</p><p>These fields may also overwrite those that would be created automatically by the driver, as described in the MongoDB core documentation for the files collection. Some practical use cases for this behavior would be to specify a custom <code>chunkSize</code> or <code>_id</code> for the file.</p>
+		 * @param array $options <p>An array of options for the insert operations executed against the <code>chunks</code> and <code>files</code> collections. See <code>MongoCollection::insert()</code> for documentation on these these options.</p>
+		 * @return mixed <p>Returns the <code>_id</code> of the saved file document. This will be a generated MongoId unless an <code>_id</code> was explicitly specified in the <code>metadata</code> parameter.</p>
 		 * @link http://php.net/manual/en/mongogridfs.storefile.php
 		 * @see MongoGridFS::put(), MongoGridFS::storeBytes(), MongoGridFS::storeUpload()
 		 * @since PECL mongo >=0.9.0
@@ -2382,9 +2382,9 @@ namespace {
 
 		/**
 		 * Stores an uploaded file in the database
-		 * @param string $name <p>The name of the uploaded file(s) to store. This should correspond to the file field's <i>name</i> attribute in the HTML form.</p>
-		 * @param array $metadata <p>Other metadata fields to include in the file document.</p> <p><b>Note</b>:</p><p>These fields may also overwrite those that would be created automatically by the driver, as described in the MongoDB core documentation for the files collection. Some practical use cases for this behavior would be to specify a custom <i>chunkSize</i> or <i>_id</i> for the file.</p> <p><b>Note</b>:</p><p>The <i>filename</i> field will be populated with the client's filename (e.g. <i>$_FILES['foo']['name']</i>).</p>
-		 * @return mixed <p>Returns the <i>_id</i> of the saved file document. This will be a generated MongoId unless an <i>_id</i> was explicitly specified in the <code>metadata</code> parameter.</p><p><b>Note</b>:</p><p>If multiple files are uploaded using the same field name, this method will not return anything; however, the files themselves will still be processed.</p>
+		 * @param string $name <p>The name of the uploaded file(s) to store. This should correspond to the file field's <code>name</code> attribute in the HTML form.</p>
+		 * @param array $metadata <p>Other metadata fields to include in the file document.</p> <p><b>Note</b>:</p><p>These fields may also overwrite those that would be created automatically by the driver, as described in the MongoDB core documentation for the files collection. Some practical use cases for this behavior would be to specify a custom <code>chunkSize</code> or <code>_id</code> for the file.</p> <p><b>Note</b>:</p><p>The <code>filename</code> field will be populated with the client's filename (e.g. <code>$_FILES['foo']['name']</code>).</p>
+		 * @return mixed <p>Returns the <code>_id</code> of the saved file document. This will be a generated MongoId unless an <code>_id</code> was explicitly specified in the <code>metadata</code> parameter.</p><p><b>Note</b>:</p><p>If multiple files are uploaded using the same field name, this method will not return anything; however, the files themselves will still be processed.</p>
 		 * @link http://php.net/manual/en/mongogridfs.storeupload.php
 		 * @see MongoGridFS::put(), MongoGridFS::storeBytes(), MongoGridFS::storeFile()
 		 * @since PECL mongo >=0.9.0
@@ -2523,7 +2523,7 @@ namespace {
 	class MongoId {
 
 		/**
-		 * @var string This field contains the string representation of this object.  <p><b>Note</b>:  The property name begins with a <i>$</i> character. It may be accessed using complex variable parsed syntax (e.g. <i>$mongoId-&gt;{'$id'}</i>). </p>
+		 * @var string This field contains the string representation of this object.  <p><b>Note</b>:  The property name begins with a <code>$</code> character. It may be accessed using complex variable parsed syntax (e.g. <code>$mongoId-&gt;{'$id'}</code>). </p>
 		 * @link http://php.net/manual/en/class.mongoid.php#mongoid.props.id
 		 */
 		public $id = NULL;
@@ -2621,8 +2621,8 @@ namespace {
 
 		/**
 		 * Adds a write operation to a batch
-		 * <p>Adds a write operation to the batch.</p><p>If <code>$item</code> causes the batch to exceed the <i>maxWriteBatchSize</i> or <i>maxBsonObjectSize</i> limits, the driver will internally split the batches into multiple write commands upon calling <code>MongoWriteBatch::execute()</code>.</p>
-		 * @param array $item <p>An array that describes a write operation. The structure of this value depends on the batch's operation type.</p>   Batch type Argument expectation     <b><code>MongoWriteBatch::COMMAND_INSERT</code></b>  The document to add.    <b><code>MongoWriteBatch::COMMAND_UPDATE</code></b>  <p>Raw update operation.</p> <p>Required keys are <i>"q"</i> and <i>"u"</i>, which correspond to the <code>$criteria</code> and <code>$new_object</code> parameters of <code>MongoCollection::update()</code>, respectively.</p> <p>Optional keys are <i>"multi"</i> and <i>"upsert"</i>, which correspond to the <i>"multiple"</i> and <i>"upsert"</i> options for <code>MongoCollection::update()</code>, respectively. If unspecified, both options default to <b><code>FALSE</code></b>.</p>    <b><code>MongoWriteBatch::COMMAND_DELETE</code></b>  <p>Raw delete operation.</p> <p>Required keys are: <i>"q"</i> and <i>"limit"</i>, which correspond to the <code>$criteria</code> parameter and <i>"justOne"</i> option of <code>MongoCollection::remove()</code>, respectively.</p> <p>The <i>"limit"</i> option is an <code>integer</code>; however, MongoDB only supports <i>0</i> (i.e. remove all matching documents) and <i>1</i> (i.e. remove at most one matching document) at this time.</p>
+		 * <p>Adds a write operation to the batch.</p><p>If <code>$item</code> causes the batch to exceed the <code>maxWriteBatchSize</code> or <code>maxBsonObjectSize</code> limits, the driver will internally split the batches into multiple write commands upon calling <code>MongoWriteBatch::execute()</code>.</p>
+		 * @param array $item <p>An array that describes a write operation. The structure of this value depends on the batch's operation type.</p>   Batch type Argument expectation     <b><code>MongoWriteBatch::COMMAND_INSERT</code></b>  The document to add.    <b><code>MongoWriteBatch::COMMAND_UPDATE</code></b>  <p>Raw update operation.</p> <p>Required keys are <code>"q"</code> and <code>"u"</code>, which correspond to the <code>$criteria</code> and <code>$new_object</code> parameters of <code>MongoCollection::update()</code>, respectively.</p> <p>Optional keys are <code>"multi"</code> and <code>"upsert"</code>, which correspond to the <code>"multiple"</code> and <code>"upsert"</code> options for <code>MongoCollection::update()</code>, respectively. If unspecified, both options default to <b><code>FALSE</code></b>.</p>    <b><code>MongoWriteBatch::COMMAND_DELETE</code></b>  <p>Raw delete operation.</p> <p>Required keys are: <code>"q"</code> and <code>"limit"</code>, which correspond to the <code>$criteria</code> parameter and <code>"justOne"</code> option of <code>MongoCollection::remove()</code>, respectively.</p> <p>The <code>"limit"</code> option is an <code>int</code>; however, MongoDB only supports <code>0</code> (i.e. remove all matching documents) and <code>1</code> (i.e. remove at most one matching document) at this time.</p>
 		 * @return bool <p>Returns <b><code>TRUE</code></b> on success and throws an exception on failure.</p>
 		 * @link http://php.net/manual/en/mongowritebatch.add.php
 		 * @since PECL mongo >= 1.5.0
@@ -2707,7 +2707,7 @@ namespace {
 	/**
 	 * <p>Logging can be used to get detailed information about what the driver is doing. Logging is disabled by default, but this class allows you to activate specific levels of logging for various parts of the driver. Some examples:</p>
 	 * <p><b>Note</b>:</p>
-	 * <p>By default, MongoLog emits all log messages as PHP notices. Depending on the SAPI you use, messages may be sent to <i>stderr</i> (for CLI) or the web server's error log. If, after configuring MongoLog, log messages are not appearing as expected, ensure that the <b><code>E_NOTICE</code></b> bit is included in error_reporting and that display_errors is on.</p>
+	 * <p>By default, MongoLog emits all log messages as PHP notices. Depending on the SAPI you use, messages may be sent to <code>stderr</code> (for CLI) or the web server's error log. If, after configuring MongoLog, log messages are not appearing as expected, ensure that the <b><code>E_NOTICE</code></b> bit is included in error_reporting and that display_errors is on.</p>
 	 * @link http://php.net/manual/en/class.mongolog.php
 	 * @since PECL mongo >=1.2.3
 	 */
@@ -2815,7 +2815,7 @@ namespace {
 		/**
 		 * Sets a callback function to be invoked for events
 		 * <p>This function will set a callback function to be invoked for events in lieu of emitting of PHP notice.</p>
-		 * @param callable $log_function <p>The callback function to be invoked on events. It should have the following prototype:</p> <p></p> log_function ( int <code>$module</code> , int <code>$level</code> , string <code>$message</code> )   <code>module</code>   One of the MongoLog module constants.    <code>level</code>   One of the MongoLog level constants.    <code>message</code>   The log message itself.
+		 * @param callable $log_function <p>The callback function to be invoked on events. It should have the following prototype:</p> <p></p> log_function ( <code>int</code> <code>$module</code> , <code>int</code> <code>$level</code> , <code>string</code> <code>$message</code> )   <code>module</code>   One of the MongoLog module constants.    <code>level</code>   One of the MongoLog level constants.    <code>message</code>   The log message itself.
 		 * @return void <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
 		 * @link http://php.net/manual/en/mongolog.setcallback.php
 		 * @since PECL mongo >= 1.3.0
@@ -2935,15 +2935,15 @@ namespace {
 
 	/**
 	 * <p>This class can be used to create regular expressions. Typically, these expressions will be used to query the database and find matching strings. More unusually, they can be saved to the database and retrieved.</p>
-	 * <p>Regular expressions consist of four parts. First a <i>/</i> as starting delimiter, then the pattern, another <i>/</i> and finally a string containing flags.</p>
+	 * <p>Regular expressions consist of four parts. First a <code>/</code> as starting delimiter, then the pattern, another <code>/</code> and finally a string containing flags.</p>
 	 * <p><b>Example #1 Regular expression pattern</b></p>
 	 * <p>MongoDB recognizes six regular expression flags:</p>
-	 * <p><i>i</i>: Case insensitive</p>
-	 * <p><i>m</i>: Multiline</p>
-	 * <p><i>x</i>: Can contain comments</p>
-	 * <p><i>l</i>: locale</p>
-	 * <p><i>s</i>: dotall, "." matches everything, including newlines</p>
-	 * <p><i>u</i>: match unicode</p>
+	 * <p><code>i</code>: Case insensitive</p>
+	 * <p><code>m</code>: Multiline</p>
+	 * <p><code>x</code>: Can contain comments</p>
+	 * <p><code>l</code>: locale</p>
+	 * <p><code>s</code>: dotall, "." matches everything, including newlines</p>
+	 * <p><code>u</code>: match unicode</p>
 	 * @link http://php.net/manual/en/class.mongoregex.php
 	 * @since PECL mongo >=0.8.1
 	 */
@@ -2956,7 +2956,7 @@ namespace {
 		/**
 		 * Creates a new regular expression
 		 * <p>Creates a new regular expression.</p>
-		 * @param string $regex <p>Regular expression string of the form <i>/expr/flags</i>.</p>
+		 * @param string $regex <p>Regular expression string of the form <code>/expr/flags</code>.</p>
 		 * @return self <p>Returns a new regular expression.</p>
 		 * @link http://php.net/manual/en/mongoregex.construct.php
 		 * @since PECL mongo >= 0.8.1
@@ -3016,7 +3016,7 @@ namespace {
 		 * @param array $query <p>The query criteria to search for.</p>
 		 * @param array $update <p>The update criteria.</p>
 		 * @param array $fields <p>Optionally only return these fields.</p>
-		 * @param array $options <p>An array of options to apply, such as remove the match document from the DB and return it.</p>   Option Description     sort <code>array</code>  Determines which document the operation will modify if the query selects multiple documents. findAndModify will modify the first document in the sort order specified by this argument.    remove <code>boolean</code>  Optional if update field exists. When <b><code>TRUE</code></b>, removes the selected document. The default is <b><code>FALSE</code></b>.    update <code>array</code>  Optional if remove field exists. Performs an update of the selected document.    new <code>boolean</code>  Optional. When <b><code>TRUE</code></b>, returns the modified document rather than the original. The findAndModify method ignores the new option for remove operations. The default is <b><code>FALSE</code></b>.    upsert <code>boolean</code>  Optional. Used in conjunction with the update field. When <b><code>TRUE</code></b>, the findAndModify command creates a new document if the query returns no documents. The default is false. In MongoDB 2.2, the findAndModify command returns <b><code>NULL</code></b> when upsert is <b><code>TRUE</code></b>.
+		 * @param array $options <p>An array of options to apply, such as remove the match document from the DB and return it.</p>   Option Description     sort <code>array</code>  Determines which document the operation will modify if the query selects multiple documents. findAndModify will modify the first document in the sort order specified by this argument.    remove <code>bool</code>  Optional if update field exists. When <b><code>TRUE</code></b>, removes the selected document. The default is <b><code>FALSE</code></b>.    update <code>array</code>  Optional if remove field exists. Performs an update of the selected document.    new <code>bool</code>  Optional. When <b><code>TRUE</code></b>, returns the modified document rather than the original. The findAndModify method ignores the new option for remove operations. The default is <b><code>FALSE</code></b>.    upsert <code>bool</code>  Optional. Used in conjunction with the update field. When <b><code>TRUE</code></b>, the findAndModify command creates a new document if the query returns no documents. The default is false. In MongoDB 2.2, the findAndModify command returns <b><code>NULL</code></b> when upsert is <b><code>TRUE</code></b>.
 		 * @return array <p>Returns the original document, or the modified document when new is set.</p>
 		 * @link http://php.net/manual/en/mongocollection.findandmodify.php
 		 * @since PECL mongo >=1.3.0
@@ -3086,8 +3086,8 @@ namespace {
 
 		/**
 		 * Adds a write operation to a batch
-		 * <p>Adds a write operation to the batch.</p><p>If <code>$item</code> causes the batch to exceed the <i>maxWriteBatchSize</i> or <i>maxBsonObjectSize</i> limits, the driver will internally split the batches into multiple write commands upon calling <code>MongoWriteBatch::execute()</code>.</p>
-		 * @param array $item <p>An array that describes a write operation. The structure of this value depends on the batch's operation type.</p>   Batch type Argument expectation     <b><code>MongoWriteBatch::COMMAND_INSERT</code></b>  The document to add.    <b><code>MongoWriteBatch::COMMAND_UPDATE</code></b>  <p>Raw update operation.</p> <p>Required keys are <i>"q"</i> and <i>"u"</i>, which correspond to the <code>$criteria</code> and <code>$new_object</code> parameters of <code>MongoCollection::update()</code>, respectively.</p> <p>Optional keys are <i>"multi"</i> and <i>"upsert"</i>, which correspond to the <i>"multiple"</i> and <i>"upsert"</i> options for <code>MongoCollection::update()</code>, respectively. If unspecified, both options default to <b><code>FALSE</code></b>.</p>    <b><code>MongoWriteBatch::COMMAND_DELETE</code></b>  <p>Raw delete operation.</p> <p>Required keys are: <i>"q"</i> and <i>"limit"</i>, which correspond to the <code>$criteria</code> parameter and <i>"justOne"</i> option of <code>MongoCollection::remove()</code>, respectively.</p> <p>The <i>"limit"</i> option is an <code>integer</code>; however, MongoDB only supports <i>0</i> (i.e. remove all matching documents) and <i>1</i> (i.e. remove at most one matching document) at this time.</p>
+		 * <p>Adds a write operation to the batch.</p><p>If <code>$item</code> causes the batch to exceed the <code>maxWriteBatchSize</code> or <code>maxBsonObjectSize</code> limits, the driver will internally split the batches into multiple write commands upon calling <code>MongoWriteBatch::execute()</code>.</p>
+		 * @param array $item <p>An array that describes a write operation. The structure of this value depends on the batch's operation type.</p>   Batch type Argument expectation     <b><code>MongoWriteBatch::COMMAND_INSERT</code></b>  The document to add.    <b><code>MongoWriteBatch::COMMAND_UPDATE</code></b>  <p>Raw update operation.</p> <p>Required keys are <code>"q"</code> and <code>"u"</code>, which correspond to the <code>$criteria</code> and <code>$new_object</code> parameters of <code>MongoCollection::update()</code>, respectively.</p> <p>Optional keys are <code>"multi"</code> and <code>"upsert"</code>, which correspond to the <code>"multiple"</code> and <code>"upsert"</code> options for <code>MongoCollection::update()</code>, respectively. If unspecified, both options default to <b><code>FALSE</code></b>.</p>    <b><code>MongoWriteBatch::COMMAND_DELETE</code></b>  <p>Raw delete operation.</p> <p>Required keys are: <code>"q"</code> and <code>"limit"</code>, which correspond to the <code>$criteria</code> parameter and <code>"justOne"</code> option of <code>MongoCollection::remove()</code>, respectively.</p> <p>The <code>"limit"</code> option is an <code>int</code>; however, MongoDB only supports <code>0</code> (i.e. remove all matching documents) and <code>1</code> (i.e. remove at most one matching document) at this time.</p>
 		 * @return bool <p>Returns <b><code>TRUE</code></b> on success and throws an exception on failure.</p>
 		 * @link http://php.net/manual/en/mongowritebatch.add.php
 		 * @since PECL mongo >= 1.5.0
@@ -3137,7 +3137,7 @@ namespace {
 		 * Creates a new batch of write operations
 		 * <p>Constructs a new MongoWriteBatch.</p><p><b>Note</b>:</p><p>This is a protected constructor. Please use one of the classes inheriting MongoWriteBatch.</p>
 		 * @param \MongoCollection $collection <p>The MongoCollection to execute the batch on. Its write concern will be copied and used as the default write concern if none is given as <code>$write_options</code> or during <code>MongoWriteBatch::execute()</code>.</p>
-		 * @param string $batch_type <p>One of:</p><ul> <li><i>0</i> - make an MongoWriteBatch::COMMAND_INSERT batch</li> <li><i>1</i> - make an MongoWriteBatch::COMMAND_UPDATE batch</li> <li><i>2</i> - make a MongoWriteBatch::COMMAND_DELETE batch</li> </ul>
+		 * @param string $batch_type <p>One of:</p><ul> <li><code>0</code> - make an MongoWriteBatch::COMMAND_INSERT batch</li> <li><code>1</code> - make an MongoWriteBatch::COMMAND_UPDATE batch</li> <li><code>2</code> - make a MongoWriteBatch::COMMAND_DELETE batch</li> </ul>
 		 * @param array $write_options <p>An array of Write Options.</p>keyvalue meaning  w (int|string)Write concern value wtimeout (int)Maximum time to wait for replication orderedDetermines if MongoDB must apply this batch in order. Ordered writes execute serially (i.e. one at a time) and execution will stop after the first error. Unordered writes may execute in parallel and execution will not stop after the first error. Defaults to <b><code>TRUE</code></b> j (bool)Wait for journaling on the primary. This value is discouraged, use WriteConcern instead fsync (bool)Wait for fsync on the primary. This value is discouraged, use WriteConcern instead
 		 * @return self <p>A new MongoWriteBatch of type <code>batch_type</code>.</p>
 		 * @link http://php.net/manual/en/mongowritebatch.construct.php
@@ -3147,8 +3147,8 @@ namespace {
 
 		/**
 		 * Adds a write operation to a batch
-		 * <p>Adds a write operation to the batch.</p><p>If <code>$item</code> causes the batch to exceed the <i>maxWriteBatchSize</i> or <i>maxBsonObjectSize</i> limits, the driver will internally split the batches into multiple write commands upon calling <code>MongoWriteBatch::execute()</code>.</p>
-		 * @param array $item <p>An array that describes a write operation. The structure of this value depends on the batch's operation type.</p>   Batch type Argument expectation     <b><code>MongoWriteBatch::COMMAND_INSERT</code></b>  The document to add.    <b><code>MongoWriteBatch::COMMAND_UPDATE</code></b>  <p>Raw update operation.</p> <p>Required keys are <i>"q"</i> and <i>"u"</i>, which correspond to the <code>$criteria</code> and <code>$new_object</code> parameters of <code>MongoCollection::update()</code>, respectively.</p> <p>Optional keys are <i>"multi"</i> and <i>"upsert"</i>, which correspond to the <i>"multiple"</i> and <i>"upsert"</i> options for <code>MongoCollection::update()</code>, respectively. If unspecified, both options default to <b><code>FALSE</code></b>.</p>    <b><code>MongoWriteBatch::COMMAND_DELETE</code></b>  <p>Raw delete operation.</p> <p>Required keys are: <i>"q"</i> and <i>"limit"</i>, which correspond to the <code>$criteria</code> parameter and <i>"justOne"</i> option of <code>MongoCollection::remove()</code>, respectively.</p> <p>The <i>"limit"</i> option is an <code>integer</code>; however, MongoDB only supports <i>0</i> (i.e. remove all matching documents) and <i>1</i> (i.e. remove at most one matching document) at this time.</p>
+		 * <p>Adds a write operation to the batch.</p><p>If <code>$item</code> causes the batch to exceed the <code>maxWriteBatchSize</code> or <code>maxBsonObjectSize</code> limits, the driver will internally split the batches into multiple write commands upon calling <code>MongoWriteBatch::execute()</code>.</p>
+		 * @param array $item <p>An array that describes a write operation. The structure of this value depends on the batch's operation type.</p>   Batch type Argument expectation     <b><code>MongoWriteBatch::COMMAND_INSERT</code></b>  The document to add.    <b><code>MongoWriteBatch::COMMAND_UPDATE</code></b>  <p>Raw update operation.</p> <p>Required keys are <code>"q"</code> and <code>"u"</code>, which correspond to the <code>$criteria</code> and <code>$new_object</code> parameters of <code>MongoCollection::update()</code>, respectively.</p> <p>Optional keys are <code>"multi"</code> and <code>"upsert"</code>, which correspond to the <code>"multiple"</code> and <code>"upsert"</code> options for <code>MongoCollection::update()</code>, respectively. If unspecified, both options default to <b><code>FALSE</code></b>.</p>    <b><code>MongoWriteBatch::COMMAND_DELETE</code></b>  <p>Raw delete operation.</p> <p>Required keys are: <code>"q"</code> and <code>"limit"</code>, which correspond to the <code>$criteria</code> parameter and <code>"justOne"</code> option of <code>MongoCollection::remove()</code>, respectively.</p> <p>The <code>"limit"</code> option is an <code>int</code>; however, MongoDB only supports <code>0</code> (i.e. remove all matching documents) and <code>1</code> (i.e. remove at most one matching document) at this time.</p>
 		 * @return bool <p>Returns <b><code>TRUE</code></b> on success and throws an exception on failure.</p>
 		 * @link http://php.net/manual/en/mongowritebatch.add.php
 		 * @since PECL mongo >= 1.5.0
@@ -3157,9 +3157,9 @@ namespace {
 
 		/**
 		 * Inserts multiple documents into this collection
-		 * @param array $a <p>An array of arrays or objects. If any objects are used, they may not have protected or private properties.</p> <p><b>Note</b>:</p><p>If the documents to insert do not have an <i>_id</i> key or property, a new MongoId instance will be created and assigned to it. See <code>MongoCollection::insert()</code> for additional information on this behavior.</p>
-		 * @param array $options <p>An array of options for the batch of insert operations. Currently available options include:</p><ul> <li> <p><i>"continueOnError"</i></p> <p>Boolean, defaults to <b><code>FALSE</code></b>. If set, the database will not stop processing a bulk insert if one fails (eg due to duplicate IDs). This makes bulk insert behave similarly to a series of single inserts, except that calling <code>MongoDB::lastError()</code> will have an error set if any insert fails, not just the last one. If multiple errors occur, only the most recent will be reported by <code>MongoDB::lastError()</code>.</p> <p><b>Note</b>:</p><p>Please note that <i>continueOnError</i> affects errors on the database side only. If you try to insert a document that has errors (for example it contains a key with an empty name), then the document is not even transferred to the database as the driver detects this error and bails out. <i>continueOnError</i> has no effect on errors detected in the documents by the driver.</p>  </li> <li><p><i>"fsync"</i></p><p>Boolean, defaults to <b><code>FALSE</code></b>. If journaling is enabled, it works exactly like <i>"j"</i>. If journaling is not enabled, the write operation blocks until it is synced to database files on disk. If <b><code>TRUE</code></b>, an acknowledged insert is implied and this option will override setting <i>"w"</i> to <i>0</i>.</p><p><b>Note</b>: If journaling is enabled, users are strongly encouraged to use the <i>"j"</i> option instead of <i>"fsync"</i>. Do not use <i>"fsync"</i> and <i>"j"</i> simultaneously, as that will result in an error.</p></li> <li><p><i>"j"</i></p><p>Boolean, defaults to <b><code>FALSE</code></b>. Forces the write operation to block until it is synced to the journal on disk. If <b><code>TRUE</code></b>, an acknowledged write is implied and this option will override setting <i>"w"</i> to <i>0</i>.</p><p><b>Note</b>: If this option is used and journaling is disabled, MongoDB 2.6+ will raise an error and the write will fail; older server versions will simply ignore the option.</p></li> <li><p><i>"socketTimeoutMS"</i></p><p>This option specifies the time limit, in milliseconds, for socket communication. If the server does not respond within the timeout period, a MongoCursorTimeoutException will be thrown and there will be no way to determine if the server actually handled the write or not. A value of <i>-1</i> may be specified to block indefinitely. The default value for MongoClient is <i>30000</i> (30 seconds).</p></li> <li><p><i>"w"</i></p><p>See Write Concerns. The default value for MongoClient is <i>1</i>.</p></li> <li><p><i>"wTimeoutMS"</i></p><p>This option specifies the time limit, in milliseconds, for write concern acknowledgement. It is only applicable when <i>"w"</i> is greater than <i>1</i>, as the timeout pertains to replication. If the write concern is not satisfied within the time limit, a MongoCursorException will be thrown. A value of <i>0</i> may be specified to block indefinitely. The default value for MongoClient is <i>10000</i> (ten seconds).</p></li> </ul> <p>The following options are deprecated and should no longer be used:</p><ul> <li><p><i>"safe"</i></p><p>Deprecated. Please use the write concern <i>"w"</i> option.</p></li> <li><p><i>"timeout"</i></p><p>Deprecated alias for <i>"socketTimeoutMS"</i>.</p></li> <li><p><i>"wtimeout"</i></p><p>Deprecated alias for <i>"wTimeoutMS"</i>.</p></li> </ul>
-		 * @return mixed <p>If the <i>w</i> parameter is set to acknowledge the write, returns an associative array with the status of the inserts ("ok") and any error that may have occurred ("err"). Otherwise, returns <b><code>TRUE</code></b> if the batch insert was successfully sent, <b><code>FALSE</code></b> otherwise.</p>
+		 * @param array $a <p>An array of arrays or objects. If any objects are used, they may not have protected or private properties.</p> <p><b>Note</b>:</p><p>If the documents to insert do not have an <code>_id</code> key or property, a new MongoId instance will be created and assigned to it. See <code>MongoCollection::insert()</code> for additional information on this behavior.</p>
+		 * @param array $options <p>An array of options for the batch of insert operations. Currently available options include:</p><ul> <li> <p><code>"continueOnError"</code></p> <p>Boolean, defaults to <b><code>FALSE</code></b>. If set, the database will not stop processing a bulk insert if one fails (eg due to duplicate IDs). This makes bulk insert behave similarly to a series of single inserts, except that calling <code>MongoDB::lastError()</code> will have an error set if any insert fails, not just the last one. If multiple errors occur, only the most recent will be reported by <code>MongoDB::lastError()</code>.</p> <p><b>Note</b>:</p><p>Please note that <code>continueOnError</code> affects errors on the database side only. If you try to insert a document that has errors (for example it contains a key with an empty name), then the document is not even transferred to the database as the driver detects this error and bails out. <code>continueOnError</code> has no effect on errors detected in the documents by the driver.</p>  </li> <li><p><code>"fsync"</code></p><p>Boolean, defaults to <b><code>FALSE</code></b>. If journaling is enabled, it works exactly like <code>"j"</code>. If journaling is not enabled, the write operation blocks until it is synced to database files on disk. If <b><code>TRUE</code></b>, an acknowledged insert is implied and this option will override setting <code>"w"</code> to <code>0</code>.</p><p><b>Note</b>: If journaling is enabled, users are strongly encouraged to use the <code>"j"</code> option instead of <code>"fsync"</code>. Do not use <code>"fsync"</code> and <code>"j"</code> simultaneously, as that will result in an error.</p></li> <li><p><code>"j"</code></p><p>Boolean, defaults to <b><code>FALSE</code></b>. Forces the write operation to block until it is synced to the journal on disk. If <b><code>TRUE</code></b>, an acknowledged write is implied and this option will override setting <code>"w"</code> to <code>0</code>.</p><p><b>Note</b>: If this option is used and journaling is disabled, MongoDB 2.6+ will raise an error and the write will fail; older server versions will simply ignore the option.</p></li> <li><p><code>"socketTimeoutMS"</code></p><p>This option specifies the time limit, in milliseconds, for socket communication. If the server does not respond within the timeout period, a MongoCursorTimeoutException will be thrown and there will be no way to determine if the server actually handled the write or not. A value of <code>-1</code> may be specified to block indefinitely. The default value for MongoClient is <code>30000</code> (30 seconds).</p></li> <li><p><code>"w"</code></p><p>See Write Concerns. The default value for MongoClient is <code>1</code>.</p></li> <li><p><code>"wTimeoutMS"</code></p><p>This option specifies the time limit, in milliseconds, for write concern acknowledgement. It is only applicable when <code>"w"</code> is greater than <code>1</code>, as the timeout pertains to replication. If the write concern is not satisfied within the time limit, a MongoCursorException will be thrown. A value of <code>0</code> may be specified to block indefinitely. The default value for MongoClient is <code>10000</code> (ten seconds).</p></li> </ul> <p>The following options are deprecated and should no longer be used:</p><ul> <li><p><code>"safe"</code></p><p>Deprecated. Please use the write concern <code>"w"</code> option.</p></li> <li><p><code>"timeout"</code></p><p>Deprecated alias for <code>"socketTimeoutMS"</code>.</p></li> <li><p><code>"wtimeout"</code></p><p>Deprecated alias for <code>"wTimeoutMS"</code>.</p></li> </ul>
+		 * @return mixed <p>If the <code>w</code> parameter is set to acknowledge the write, returns an associative array with the status of the inserts ("ok") and any error that may have occurred ("err"). Otherwise, returns <b><code>TRUE</code></b> if the batch insert was successfully sent, <b><code>FALSE</code></b> otherwise.</p>
 		 * @link http://php.net/manual/en/mongocollection.batchinsert.php
 		 * @see MongoCollection::insert(), MongoCollection::update(), MongoCollection::find(), MongoCollection::remove()
 		 * @since PECL mongo >=0.9.0
@@ -3343,43 +3343,49 @@ namespace MongoDB\BSON {
 	final class Binary implements \MongoDB\BSON\BinaryInterface, \MongoDB\BSON\Type, \Serializable, \JsonSerializable {
 
 		/**
-		 * @var integer <p>Generic binary data.</p>
+		 * @var int <p>Generic binary data.</p>
 		 * @link http://php.net/manual/en/class.mongodb-bson-binary.php
 		 */
 		const TYPE_GENERIC = 0;
 
 		/**
-		 * @var integer <p>Function.</p>
+		 * @var int <p>Function.</p>
 		 * @link http://php.net/manual/en/class.mongodb-bson-binary.php
 		 */
 		const TYPE_FUNCTION = 1;
 
 		/**
-		 * @var integer <p>Generic binary data (deprecated in favor of <b><code>MongoDB\BSON\Binary::TYPE_GENERIC</code></b>).</p>
+		 * @var int <p>Generic binary data (deprecated in favor of <b><code>MongoDB\BSON\Binary::TYPE_GENERIC</code></b>).</p>
 		 * @link http://php.net/manual/en/class.mongodb-bson-binary.php
 		 */
 		const TYPE_OLD_BINARY = 2;
 
 		/**
-		 * @var integer <p>Universally unique identifier (deprecated in favor of <b><code>MongoDB\BSON\Binary::TYPE_UUID</code></b>). When using this type, the Binary's data should be 16 bytes in length.</p> <p>Historically, other drivers encoded values with this type based on their language conventions (e.g. varying endianness), which makes it non-portable. The PHP driver applies no special handling for encoding or decoding data with this type.</p>
+		 * @var int <p>Universally unique identifier (deprecated in favor of <b><code>MongoDB\BSON\Binary::TYPE_UUID</code></b>). When using this type, the Binary's data should be 16 bytes in length.</p> <p>Historically, other drivers encoded values with this type based on their language conventions (e.g. varying endianness), which makes it non-portable. The PHP driver applies no special handling for encoding or decoding data with this type.</p>
 		 * @link http://php.net/manual/en/class.mongodb-bson-binary.php
 		 */
 		const TYPE_OLD_UUID = 3;
 
 		/**
-		 * @var integer <p>Universally unique identifier. When using this type, the Binary's data should be 16 bytes in length and encoded according to RFC 4122.</p>
+		 * @var int <p>Universally unique identifier. When using this type, the Binary's data should be 16 bytes in length and encoded according to RFC 4122.</p>
 		 * @link http://php.net/manual/en/class.mongodb-bson-binary.php
 		 */
 		const TYPE_UUID = 4;
 
 		/**
-		 * @var integer <p>MD5 hash. When using this type, the Binary's data should be 16 bytes in length.</p>
+		 * @var int <p>MD5 hash. When using this type, the Binary's data should be 16 bytes in length.</p>
 		 * @link http://php.net/manual/en/class.mongodb-bson-binary.php
 		 */
 		const TYPE_MD5 = 5;
 
 		/**
-		 * @var integer <p>User-defined type. While types between 0 and 127 are predefined or reserved, types between 128 and 255 are user-defined and may be used for anything.</p>
+		 * @var int <p>Encrypted value. This subtype is used for client-side encryption.</p>
+		 * @link http://php.net/manual/en/class.mongodb-bson-binary.php
+		 */
+		const TYPE_ENCRYPTED = 6;
+
+		/**
+		 * @var int <p>User-defined type. While types between 0 and 127 are predefined or reserved, types between 128 and 255 are user-defined and may be used for anything.</p>
 		 * @link http://php.net/manual/en/class.mongodb-bson-binary.php
 		 */
 		const TYPE_USER_DEFINED = 128;
@@ -3536,7 +3542,7 @@ namespace MongoDB\BSON {
 
 	/**
 	 * <p>BSON type for the Decimal128 floating-point format, which supports numbers with up to 34 decimal digits (i.e. significant digits) and an exponent range of &minus;6143 to +6144.</p>
-	 * <p>Unlike the double BSON type (i.e. <code>float</code> in PHP), which only stores an approximation of the decimal values, the decimal data type stores the exact value. For example, <i>MongoDB\BSON\Decimal128('9.99')</i> has a precise value of 9.99 where as a double 9.99 would have an approximate value of 9.9900000000000002131628&hellip;.</p>
+	 * <p>Unlike the double BSON type (i.e. <code>float</code> in PHP), which only stores an approximation of the decimal values, the decimal data type stores the exact value. For example, <code>MongoDB\BSON\Decimal128('9.99')</code> has a precise value of 9.99 where as a double 9.99 would have an approximate value of 9.9900000000000002131628&hellip;.</p>
 	 * <p><b>Note</b>:  <b>MongoDB\BSON\Decimal128</b> is only compatible with MongoDB 3.4+. Attempting to use the BSON type with an earlier version of MongoDB will result in an error. </p>
 	 * @link http://php.net/manual/en/class.mongodb-bson-decimal128.php
 	 * @since mongodb >=1.2.0
@@ -3698,7 +3704,7 @@ namespace MongoDB\BSON {
 
 		/**
 		 * Returns the Javascript's scope document
-		 * @return object|null <p>Returns the Javascript's scope document.</p>
+		 * @return object|null <p>Returns the Javascript's scope document, or <b><code>NULL</code></b> if the is no scope.</p>
 		 * @link http://php.net/manual/en/mongodb-bson-javascript.getscope.php
 		 * @since mongodb >=1.2.0
 		 */
@@ -3874,8 +3880,8 @@ namespace MongoDB\BSON {
 
 	/**
 	 * <p>BSON type for an ObjectId. The value consists of 12 bytes, where the first four bytes are a timestamp that reflect the ObjectId's creation. Specifically, the value consists of:</p>
-	 * <p>In MongoDB, each document stored in a collection requires a unique <i>_id</i> field that acts as a primary key. If an inserted document omits the <i>_id</i> field, the driver automatically generates an ObjectId for the <i>_id</i> field.</p>
-	 * <p>Using ObjectIds for the <i>_id</i> field provides the following additional benefits:</p>
+	 * <p>In MongoDB, each document stored in a collection requires a unique <code>_id</code> field that acts as a primary key. If an inserted document omits the <code>_id</code> field, the driver automatically generates an ObjectId for the <code>_id</code> field.</p>
+	 * <p>Using ObjectIds for the <code>_id</code> field provides the following additional benefits:</p>
 	 * @link http://php.net/manual/en/class.mongodb-bson-objectid.php
 	 * @since mongodb >=1.0.0
 	 */
@@ -3900,7 +3906,7 @@ namespace MongoDB\BSON {
 
 		/**
 		 * Returns the timestamp component of this ObjectId
-		 * <p>The timestamp component of an ObjectId is its most significant 32 bits, which denotes the number of seconds since the Unix epoch. This value is read as an unsigned 32-bit integer with big-endian byte order.</p><p><b>Note</b>:  Because PHP's integer type is signed, some values returned by this method may appear as negative integers on 32-bit platforms. The <i>"%u"</i> formatter of <code>sprintf()</code> may be used to obtain a string representation of the unsigned decimal value. </p>
+		 * <p>The timestamp component of an ObjectId is its most significant 32 bits, which denotes the number of seconds since the Unix epoch. This value is read as an unsigned 32-bit integer with big-endian byte order.</p><p><b>Note</b>:  Because PHP's integer type is signed, some values returned by this method may appear as negative integers on 32-bit platforms. The <code>"%u"</code> formatter of <code>sprintf()</code> may be used to obtain a string representation of the unsigned decimal value. </p>
 		 * @return int <p>Returns the timestamp component of this ObjectId.</p>
 		 * @link http://php.net/manual/en/mongodb-bson-objectid.gettimestamp.php
 		 * @since mongodb >=1.2.0
@@ -3970,7 +3976,7 @@ namespace MongoDB\BSON {
 
 		/**
 		 * Provides an array or document to serialize as BSON
-		 * <p>Called during serialization of the object to BSON. The method must return an <code>array</code> or <b>stdClass</b>.</p><p>Root documents (e.g. a <code>MongoDB\BSON\Serializable</code> passed to <code>MongoDB\BSON\fromPHP()</code>) will always be serialized as a BSON document. For field values, associative arrays and <b>stdClass</b> instances will be serialized as a BSON document and sequential arrays (i.e. sequential, numeric indexes starting at <i>0</i>) will be serialized as a BSON array.</p><p>Users are encouraged to include an _id property (e.g. a MongoDB\BSON\ObjectId initialized in your constructor) when returning data for a BSON root document; otherwise, the driver or database will need to generate a MongoDB\BSON\ObjectId when inserting or upserting the document, respectively.</p>
+		 * <p>Called during serialization of the object to BSON. The method must return an <code>array</code> or <b>stdClass</b>.</p><p>Root documents (e.g. a <code>MongoDB\BSON\Serializable</code> passed to <code>MongoDB\BSON\fromPHP()</code>) will always be serialized as a BSON document. For field values, associative arrays and <b>stdClass</b> instances will be serialized as a BSON document and sequential arrays (i.e. sequential, numeric indexes starting at <code>0</code>) will be serialized as a BSON array.</p><p>Users are encouraged to include an _id property (e.g. a MongoDB\BSON\ObjectId initialized in your constructor) when returning data for a BSON root document; otherwise, the driver or database will need to generate a MongoDB\BSON\ObjectId when inserting or upserting the document, respectively.</p>
 		 * @return array|object <p>An <code>array</code> or <b>stdClass</b> to be serialized as a BSON array or document.</p>
 		 * @link http://php.net/manual/en/mongodb-bson-serializable.bsonserialize.php
 		 * @see MongoDB\BSON\Unserializable::bsonUnserialize()
@@ -4102,7 +4108,7 @@ namespace MongoDB\BSON {
 
 		/**
 		 * Provides an array or document to serialize as BSON
-		 * <p>Called during serialization of the object to BSON. The method must return an <code>array</code> or <b>stdClass</b>.</p><p>Root documents (e.g. a <code>MongoDB\BSON\Serializable</code> passed to <code>MongoDB\BSON\fromPHP()</code>) will always be serialized as a BSON document. For field values, associative arrays and <b>stdClass</b> instances will be serialized as a BSON document and sequential arrays (i.e. sequential, numeric indexes starting at <i>0</i>) will be serialized as a BSON array.</p><p>Users are encouraged to include an _id property (e.g. a MongoDB\BSON\ObjectId initialized in your constructor) when returning data for a BSON root document; otherwise, the driver or database will need to generate a MongoDB\BSON\ObjectId when inserting or upserting the document, respectively.</p>
+		 * <p>Called during serialization of the object to BSON. The method must return an <code>array</code> or <b>stdClass</b>.</p><p>Root documents (e.g. a <code>MongoDB\BSON\Serializable</code> passed to <code>MongoDB\BSON\fromPHP()</code>) will always be serialized as a BSON document. For field values, associative arrays and <b>stdClass</b> instances will be serialized as a BSON document and sequential arrays (i.e. sequential, numeric indexes starting at <code>0</code>) will be serialized as a BSON array.</p><p>Users are encouraged to include an _id property (e.g. a MongoDB\BSON\ObjectId initialized in your constructor) when returning data for a BSON root document; otherwise, the driver or database will need to generate a MongoDB\BSON\ObjectId when inserting or upserting the document, respectively.</p>
 		 * @return array|object <p>An <code>array</code> or <b>stdClass</b> to be serialized as a BSON array or document.</p>
 		 * @link http://php.net/manual/en/mongodb-bson-serializable.bsonserialize.php
 		 * @see MongoDB\BSON\Unserializable::bsonUnserialize()
@@ -4192,7 +4198,7 @@ namespace MongoDB\BSON {
 
 		/**
 		 * Returns the increment component of this Timestamp
-		 * <p>The increment component of a Timestamp is its least significant 32 bits, whichs denotes the incrementing ordinal for operations within a given second. This value is read as an unsigned 32-bit integer with big-endian byte order.</p><p><b>Note</b>:  Because PHP's integer type is signed, some values returned by this method may appear as negative integers on 32-bit platforms. The <i>"%u"</i> formatter of <code>sprintf()</code> may be used to obtain a string representation of the unsigned decimal value. </p>
+		 * <p>The increment component of a Timestamp is its least significant 32 bits, whichs denotes the incrementing ordinal for operations within a given second. This value is read as an unsigned 32-bit integer with big-endian byte order.</p><p><b>Note</b>:  Because PHP's integer type is signed, some values returned by this method may appear as negative integers on 32-bit platforms. The <code>"%u"</code> formatter of <code>sprintf()</code> may be used to obtain a string representation of the unsigned decimal value. </p>
 		 * @return int <p>Returns the increment component of this Timestamp.</p><p><b>Warning</b></p> <p>On 32-bit systems this method may return a negative number. Although the increment and timestamp parts of the BSON timestamp type consists of two unsigned 32-bit values, PHP can not represent these on 32-bit platforms.</p>
 		 * @link http://php.net/manual/en/mongodb-bson-timestamp.getincrement.php
 		 * @since mongodb >=1.3.0
@@ -4201,7 +4207,7 @@ namespace MongoDB\BSON {
 
 		/**
 		 * Returns the timestamp component of this Timestamp
-		 * <p>The timestamp component of a Timestamp is its most significant 32 bits, which denotes the number of seconds since the Unix epoch. This value is read as an unsigned 32-bit integer with big-endian byte order.</p><p><b>Note</b>:  Because PHP's integer type is signed, some values returned by this method may appear as negative integers on 32-bit platforms. The <i>"%u"</i> formatter of <code>sprintf()</code> may be used to obtain a string representation of the unsigned decimal value. </p>
+		 * <p>The timestamp component of a Timestamp is its most significant 32 bits, which denotes the number of seconds since the Unix epoch. This value is read as an unsigned 32-bit integer with big-endian byte order.</p><p><b>Note</b>:  Because PHP's integer type is signed, some values returned by this method may appear as negative integers on 32-bit platforms. The <code>"%u"</code> formatter of <code>sprintf()</code> may be used to obtain a string representation of the unsigned decimal value. </p>
 		 * @return int <p>Returns the timestamp component of this Timestamp.</p><p><b>Warning</b></p> <p>On 32-bit systems this method may return a negative number. Although the increment and timestamp parts of the BSON timestamp type consists of two unsigned 32-bit values, PHP can not represent these on 32-bit platforms.</p>
 		 * @link http://php.net/manual/en/mongodb-bson-timestamp.gettimestamp.php
 		 * @since mongodb >=1.3.0
@@ -4449,7 +4455,7 @@ namespace MongoDB\Driver {
 		/**
 		 * Create a new BulkWrite
 		 * <p>Constructs a new MongoDB\Driver\BulkWrite, which is a mutable object to which one or more write operations may be added. The write(s) may then be executed with <code>MongoDB\Driver\Manager::executeBulkWrite()</code>.</p>
-		 * @param array $options <p></p> <b>options</b>   Option Type Description Default     bypassDocumentValidation <code>boolean</code>  <p>If <b><code>TRUE</code></b>, allows insert and update operations to circumvent document level validation.</p> <p>This option is available in MongoDB 3.2+ and is ignored for older server versions, which do not support document level validation.</p>  <b><code>FALSE</code></b>   ordered <code>boolean</code>  Ordered operations (<b><code>TRUE</code></b>) are executed serially on the MongoDB server, while unordered operations (<b><code>FALSE</code></b>) are sent to the server in an arbitrary order and may be executed in parallel.  <b><code>TRUE</code></b>
+		 * @param array $options <p></p> <b>options</b>   Option Type Description Default     bypassDocumentValidation <code>bool</code>  <p>If <b><code>TRUE</code></b>, allows insert and update operations to circumvent document level validation.</p> <p>This option is available in MongoDB 3.2+ and is ignored for older server versions, which do not support document level validation.</p>  <b><code>FALSE</code></b>   ordered <code>bool</code>  Ordered operations (<b><code>TRUE</code></b>) are executed serially on the MongoDB server, while unordered operations (<b><code>FALSE</code></b>) are sent to the server in an arbitrary order and may be executed in parallel.  <b><code>TRUE</code></b>
 		 * @return self
 		 * @link http://php.net/manual/en/mongodb-driver-bulkwrite.construct.php
 		 * @since mongodb >=1.0.0
@@ -4469,7 +4475,7 @@ namespace MongoDB\Driver {
 		 * Add a delete operation to the bulk
 		 * <p>Adds a delete operation to the MongoDB\Driver\BulkWrite.</p>
 		 * @param array|object $filter
-		 * @param array $deleteOptions <p></p> <b>deleteOptions</b>   Option Type Description Default     collation array|object  <p>Collation allows users to specify language-specific rules for string comparison, such as rules for lettercase and accent marks. When specifying collation, the <i>"locale"</i> field is mandatory; all other collation fields are optional. For descriptions of the fields, see Collation Document.</p> <p>If the collation is unspecified but the collection has a default collation, the operation uses the collation specified for the collection. If no collation is specified for the collection or for the operation, MongoDB uses the simple binary comparison used in prior versions for string comparisons.</p> <p>This option is available in MongoDB 3.4+ and will result in an exception at execution time if specified for an older server version.</p>    limit <code>boolean</code> Delete all matching documents (<b><code>FALSE</code></b>), or only the first matching document (<b><code>TRUE</code></b>) <b><code>FALSE</code></b>
+		 * @param array $deleteOptions <p></p> <b>deleteOptions</b>   Option Type Description Default     collation <code>array</code>|<code>object</code>  <p>Collation allows users to specify language-specific rules for string comparison, such as rules for lettercase and accent marks. When specifying collation, the <code>"locale"</code> field is mandatory; all other collation fields are optional. For descriptions of the fields, see Collation Document.</p> <p>If the collation is unspecified but the collection has a default collation, the operation uses the collation specified for the collection. If no collation is specified for the collection or for the operation, MongoDB uses the simple binary comparison used in prior versions for string comparisons.</p> <p>This option is available in MongoDB 3.4+ and will result in an exception at execution time if specified for an older server version.</p>    hint <code>string</code>|<code>array</code>|<code>object</code>  <p>Index specification. Specify either the index name as a string or the index key pattern. If specified, then the query system will only consider plans using the hinted index.</p> <p>This option is available in MongoDB 4.4+ and will result in an exception at execution time if specified for an older server version.</p>    limit <code>bool</code> Delete all matching documents (<b><code>FALSE</code></b>), or only the first matching document (<b><code>TRUE</code></b>) <b><code>FALSE</code></b>
 		 * @return void <p>No value is returned.</p>
 		 * @link http://php.net/manual/en/mongodb-driver-bulkwrite.delete.php
 		 * @since mongodb >=1.0.0
@@ -4479,7 +4485,7 @@ namespace MongoDB\Driver {
 		/**
 		 * Execute one or more write operations
 		 * <p>Executes one or more write operations on the primary server.</p><p>A MongoDB\Driver\BulkWrite can be constructed with one or more write operations of varying types (e.g. updates, deletes, and inserts). The driver will attempt to send operations of the same type to the server in as few requests as possible to optimize round trips.</p>
-		 * @param string $namespace <p>A fully qualified namespace (e.g. <i>"databaseName.collectionName"</i>).</p>
+		 * @param string $namespace <p>A fully qualified namespace (e.g. <code>"databaseName.collectionName"</code>).</p>
 		 * @param \MongoDB\Driver\BulkWrite $bulk <p>The write(s) to execute.</p>
 		 * @param array $options <p></p> <b>options</b>   Option Type Description     session MongoDB\Driver\Session  <p>A session to associate with the operation.</p>    writeConcern MongoDB\Driver\WriteConcern  <p>A write concern to apply to the operation.</p>
 		 * @return MongoDB\Driver\WriteResult <p>Returns MongoDB\Driver\WriteResult on success.</p>
@@ -4493,7 +4499,7 @@ namespace MongoDB\Driver {
 		 * Add an insert operation to the bulk
 		 * <p>Adds an insert operation to the MongoDB\Driver\BulkWrite.</p>
 		 * @param array|object $document
-		 * @return mixed <p>Returns the <i>_id</i> of the inserted document. If the <code>document</code> did not have an <i>_id</i>, the MongoDB\BSON\ObjectId generated for the insert will be returned.</p>
+		 * @return mixed <p>Returns the <code>_id</code> of the inserted document. If the <code>document</code> did not have an <code>_id</code>, the MongoDB\BSON\ObjectId generated for the insert will be returned.</p>
 		 * @link http://php.net/manual/en/mongodb-driver-bulkwrite.insert.php
 		 * @since mongodb >=1.0.0
 		 */
@@ -4504,7 +4510,7 @@ namespace MongoDB\Driver {
 		 * <p>Adds an update operation to the MongoDB\Driver\BulkWrite.</p>
 		 * @param array|object $filter
 		 * @param array|object $newObj
-		 * @param array $updateOptions <p></p> <b>updateOptions</b>   Option Type Description Default     arrayFilters array|object  <p>An array of filter documents that determines which array elements to modify for an update operation on an array field. See Specify arrayFilters for Array Update Operations in the MongoDB manual for more information.</p> <p>This option is available in MongoDB 3.6+ and will result in an exception at execution time if specified for an older server version.</p>    collation array|object  <p>Collation allows users to specify language-specific rules for string comparison, such as rules for lettercase and accent marks. When specifying collation, the <i>"locale"</i> field is mandatory; all other collation fields are optional. For descriptions of the fields, see Collation Document.</p> <p>If the collation is unspecified but the collection has a default collation, the operation uses the collation specified for the collection. If no collation is specified for the collection or for the operation, MongoDB uses the simple binary comparison used in prior versions for string comparisons.</p> <p>This option is available in MongoDB 3.4+ and will result in an exception at execution time if specified for an older server version.</p>    multi <code>boolean</code>  Update only the first matching document if <b><code>FALSE</code></b>, or all matching documents <b><code>TRUE</code></b>. This option cannot be <b><code>TRUE</code></b> if <code>newObj</code> is a replacement document.  <b><code>FALSE</code></b>   upsert <code>boolean</code>  If <code>filter</code> does not match an existing document, insert a <i>single</i> document. The document will be created from <code>newObj</code> if it is a replacement document (i.e. no update operators); otherwise, the operators in <code>newObj</code> will be applied to <code>filter</code> to create the new document.  <b><code>FALSE</code></b>
+		 * @param array $updateOptions <p></p> <b>updateOptions</b>   Option Type Description Default     arrayFilters <code>array</code>  <p>An array of filter documents that determines which array elements to modify for an update operation on an array field. See Specify arrayFilters for Array Update Operations in the MongoDB manual for more information.</p> <p>This option is available in MongoDB 3.6+ and will result in an exception at execution time if specified for an older server version.</p>    collation <code>array</code>|<code>object</code>  <p>Collation allows users to specify language-specific rules for string comparison, such as rules for lettercase and accent marks. When specifying collation, the <code>"locale"</code> field is mandatory; all other collation fields are optional. For descriptions of the fields, see Collation Document.</p> <p>If the collation is unspecified but the collection has a default collation, the operation uses the collation specified for the collection. If no collation is specified for the collection or for the operation, MongoDB uses the simple binary comparison used in prior versions for string comparisons.</p> <p>This option is available in MongoDB 3.4+ and will result in an exception at execution time if specified for an older server version.</p>    hint <code>string</code>|<code>array</code>|<code>object</code>  <p>Index specification. Specify either the index name as a string or the index key pattern. If specified, then the query system will only consider plans using the hinted index.</p> <p>This option is available in MongoDB 4.2+ and will result in an exception at execution time if specified for an older server version.</p>    multi <code>bool</code>  Update only the first matching document if <b><code>FALSE</code></b>, or all matching documents <b><code>TRUE</code></b>. This option cannot be <b><code>TRUE</code></b> if <code>newObj</code> is a replacement document.  <b><code>FALSE</code></b>   upsert <code>bool</code>  If <code>filter</code> does not match an existing document, insert a <i>single</i> document. The document will be created from <code>newObj</code> if it is a replacement document (i.e. no update operators); otherwise, the operators in <code>newObj</code> will be applied to <code>filter</code> to create the new document.  <b><code>FALSE</code></b>
 		 * @return void <p>No value is returned.</p>
 		 * @link http://php.net/manual/en/mongodb-driver-bulkwrite.update.php
 		 * @since mongodb >=1.0.0
@@ -4513,8 +4519,62 @@ namespace MongoDB\Driver {
 	}
 
 	/**
+	 * <p>The <b>MongoDB\Driver\ClientEncryption</b> class handles creation of data keys for client-side encryption, as well as manually encrypting and decrypting values.</p>
+	 * @link http://php.net/manual/en/class.mongodb-driver-clientencryption.php
+	 * @since mongodb >=1.7.0
+	 */
+	final class ClientEncryption {
+
+		/**
+		 * @var string <p>Uses randomized encryption.</p>
+		 * @link http://php.net/manual/en/class.mongodb-driver-clientencryption.php
+		 */
+		const AEAD_AES_256_CBC_HMAC_SHA_512_DETERMINISTIC = 'AEAD_AES_256_CBC_HMAC_SHA_512-Deterministic';
+
+		/**
+		 * @var string <p>Uses deterministic (queryable) encryption.</p>
+		 * @link http://php.net/manual/en/class.mongodb-driver-clientencryption.php
+		 */
+		const AEAD_AES_256_CBC_HMAC_SHA_512_RANDOM = 'AEAD_AES_256_CBC_HMAC_SHA_512-Random';
+
+		/**
+		 * Create a new encryption data key
+		 * <p>Creates a new key document and inserts it into the key vault collection.</p>
+		 * @param string $kmsProvider <p>The KMS provider (<code>"local"</code> or <code>"aws"</code>) that will be used to encrypt the new encryption key.</p>
+		 * @param array $options <p></p> <b>Data key options</b>   Option Type Description     masterKey <code>array</code>  <p>The masterKey identifies a KMS-specific key used to encrypt the new data key. If the kmsProvider is <code>aws</code> it is required and has the following fields:</p> <b>AWS masterKey options</b>   Option Type Description     region string Required.   key string Required. The Amazon Resource Name (ARN) to the AWS customer master key (CMK).   endpoint string Optional. An alternate host identifier to send KMS requests to. May include port number.       keyAltNames <code>array</code>  <p>An optional list of string alternate names used to reference a key. If a key is created with alternate names, then encryption may refer to the key by the unique alternate name instead of by <code>_id</code>.</p>
+		 * @return MongoDB\BSON\Binary <p>Returns the identifier of the new key as a MongoDB\BSON\Binary object with subtype 4 (UUID).</p>
+		 * @link http://php.net/manual/en/mongodb-driver-clientencryption.createdatakey.php
+		 * @since mongodb >=1.7.0
+		 */
+		final public function createDataKey(string $kmsProvider, array $options = NULL): \MongoDB\BSON\Binary {}
+
+		/**
+		 * Decrypt a value
+		 * <p>Decrypts the value.</p>
+		 * @param \MongoDB\BSON\Binary $value <p>A MongoDB\BSON\Binary instance with subtype 6 containing the encrypted value.</p>
+		 * @return mixed <p>Returns the decrypted value as it was passed to <code>MongoDB\Driver\ClientEncryption::encrypt()</code>.</p>
+		 * @link http://php.net/manual/en/mongodb-driver-clientencryption.decrypt.php
+		 * @see MongoDB\Driver\ClientEncryption::encrypt()
+		 * @since mongodb >=1.7.0
+		 */
+		final public function decrypt(\MongoDB\BSON\Binary $value) {}
+
+		/**
+		 * Encrypt a value
+		 * <p>Encrypts the value.</p>
+		 * @param mixed $value <p>The value to be encrypted. Any value that can be inserted into MongoDB can be encrypted using this method.</p>
+		 * @param array $options <p></p> <b>Encryption options</b>   Option Type Description     algorithm <code>string</code>  <p>The encryption algorithm to be used. Use the constants defined in MongoDB\Driver\ClientEncryption.</p>    keyAltName <code>string</code>  <p>Identifies a key vault collection document by <code>keyAltName</code>.</p>    keyId MongoDB\BSON\Binary  <p>Identifies a data key by <code>_id</code>. The value is a UUID (binary subtype 4).</p>     <p><b>Note</b>:  Exactly one of <code>keyId</code> and <code>keyAltName</code> must be provided. The <code>algorithm</code> option is required. </p>
+		 * @return MongoDB\BSON\Binary <p>Returns the encrypted value as MongoDB\BSON\Binary object with subtype 6.</p>
+		 * @link http://php.net/manual/en/mongodb-driver-clientencryption.encrypt.php
+		 * @see MongoDB\Driver\ClientEncryption::decrypt()
+		 * @since mongodb >=1.7.0
+		 */
+		final public function encrypt($value, array $options = NULL): \MongoDB\BSON\Binary {}
+	}
+
+	/**
 	 * <p>The <b>MongoDB\Driver\Command</b> class is a value object that represents a database command.</p>
-	 * <p>To provide "Command Helpers" the <b>MongoDB\Driver\Command</b> object should be composed.</p>
+	 * <p>To provide Command Helpers the <b>MongoDB\Driver\Command</b> object should be composed.</p>
 	 * @link http://php.net/manual/en/class.mongodb-driver-command.php
 	 * @since mongodb >=1.0.0
 	 */
@@ -4524,7 +4584,7 @@ namespace MongoDB\Driver {
 		 * Create a new Command
 		 * <p>Constructs a new MongoDB\Driver\Command, which is an immutable value object that represents a database command. The command may then be executed with <code>MongoDB\Driver\Manager::executeCommand()</code>.</p><p>The complete command document, which includes the command name and its options, should be expressed in the <code>document</code> parameter. The <code>commandOptions</code> parameter is only used to specify options related to the execution of the command and the resulting MongoDB\Driver\Cursor.</p>
 		 * @param array|object $document <p>The complete command document, which will be sent to the server.</p>
-		 * @param array $commandOptions <p><b>Note</b>:  Do not use this parameter to specify options described in the command's reference in the MongoDB manual. This parameter should only be used for the options explicitly listed below. </p> <p></p> <b>commandOptions</b>   Option Type Description     maxAwaitTimeMS <code>integer</code>  <p>Positive integer denoting the time limit in milliseconds for the server to block a getMore operation if no data is available. This option should only be used in conjunction with commands that return a tailable cursor (e.g. Change Streams).</p>
+		 * @param array $commandOptions <p><b>Note</b>:  Do not use this parameter to specify options described in the command's reference in the MongoDB manual. This parameter should only be used for the options explicitly listed below. </p> <p></p> <b>commandOptions</b>   Option Type Description     maxAwaitTimeMS <code>int</code>  <p>Positive integer denoting the time limit in milliseconds for the server to block a getMore operation if no data is available. This option should only be used in conjunction with commands that return a tailable cursor (e.g. Change Streams).</p>
 		 * @return self
 		 * @link http://php.net/manual/en/mongodb-driver-command.construct.php
 		 * @since mongodb >=1.0.0
@@ -4537,7 +4597,7 @@ namespace MongoDB\Driver {
 	 * @link http://php.net/manual/en/class.mongodb-driver-cursor.php
 	 * @since mongodb >=1.0.0
 	 */
-	final class Cursor implements \Traversable {
+	final class Cursor implements \MongoDB\Driver\CursorInterface, \Iterator {
 
 		/**
 		 * Create a new Cursor (not used)
@@ -4550,11 +4610,19 @@ namespace MongoDB\Driver {
 		final private function __construct() {}
 
 		/**
+		 * Returns the current element
+		 * @return array|object <p>Returns the current result document as an array or object, depending on the cursor's type map. If iteration has not started or the current position is not valid, <b><code>NULL</code></b> will be returned.</p>
+		 * @link http://php.net/manual/en/mongodb-driver-cursor.current.php
+		 * @since mongodb >=1.9.0
+		 */
+		public function current() {}
+
+		/**
 		 * Execute a database command
-		 * <p>Selects a server according to the <i>"readPreference"</i> option and executes the command on that server. By default, the read preference from the MongoDB Connection URI will be used.</p><p>This method applies no special logic to the command. Although this method accepts <i>"readConcern"</i> and <i>"writeConcern"</i> options, which will be incorporated into the command document, those options will not default to corresponding values from the MongoDB Connection URI nor will the MongoDB server version be taken into account. Users are therefore encouraged to use specific read and/or write command methods if possible.</p>
+		 * <p>Selects a server according to the <code>"readPreference"</code> option and executes the command on that server. By default, the read preference from the MongoDB Connection URI will be used.</p><p>This method applies no special logic to the command. Although this method accepts <code>"readConcern"</code> and <code>"writeConcern"</code> options, which will be incorporated into the command document, those options will not default to corresponding values from the MongoDB Connection URI nor will the MongoDB server version be taken into account. Users are therefore encouraged to use specific read and/or write command methods if possible.</p>
 		 * @param string $db <p>The name of the database on which to execute the command.</p>
 		 * @param \MongoDB\Driver\Command $command <p>The command to execute.</p>
-		 * @param array $options <p></p> <b>options</b>   Option Type Description     readConcern MongoDB\Driver\ReadConcern  <p>A read concern to apply to the operation.</p> <p>This option is available in MongoDB 3.2+ and will result in an exception at execution time if specified for an older server version.</p>    readPreference MongoDB\Driver\ReadPreference  <p>A read preference to use for selecting a server for the operation.</p>    session MongoDB\Driver\Session  <p>A session to associate with the operation.</p>    writeConcern MongoDB\Driver\WriteConcern  <p>A write concern to apply to the operation.</p>     <p><b>Warning</b></p> <p>If you are using a <i>"session"</i> which has a transaction in progress, you cannot specify a <i>"readConcern"</i> or <i>"writeConcern"</i> option. This will result in an MongoDB\Driver\Exception\InvalidArgumentException being thrown. Instead, you should set these two options when you create the transaction with <code>MongoDB\Driver\Session::startTransaction()</code>.</p>
+		 * @param array $options <p></p> <b>options</b>   Option Type Description     readConcern MongoDB\Driver\ReadConcern  <p>A read concern to apply to the operation.</p> <p>This option is available in MongoDB 3.2+ and will result in an exception at execution time if specified for an older server version.</p>    readPreference MongoDB\Driver\ReadPreference  <p>A read preference to use for selecting a server for the operation.</p>    session MongoDB\Driver\Session  <p>A session to associate with the operation.</p>    writeConcern MongoDB\Driver\WriteConcern  <p>A write concern to apply to the operation.</p>     <p><b>Warning</b></p> <p>If you are using a <code>"session"</code> which has a transaction in progress, you cannot specify a <code>"readConcern"</code> or <code>"writeConcern"</code> option. This will result in an MongoDB\Driver\Exception\InvalidArgumentException being thrown. Instead, you should set these two options when you create the transaction with <code>MongoDB\Driver\Session::startTransaction()</code>.</p>
 		 * @return MongoDB\Driver\Cursor <p>Returns MongoDB\Driver\Cursor on success.</p>
 		 * @link http://php.net/manual/en/mongodb-driver-manager.executecommand.php
 		 * @see MongoDB\Driver\Manager::executeReadCommand(), MongoDB\Driver\Manager::executeReadWriteCommand(), MongoDB\Driver\Manager::executeWriteCommand(), MongoDB\Driver\Server::executeCommand()
@@ -4564,8 +4632,8 @@ namespace MongoDB\Driver {
 
 		/**
 		 * Execute a database query
-		 * <p>Selects a server according to the <i>"readPreference"</i> option and executes the query on that server. By default, the read preference from the MongoDB Connection URI will be used.</p>
-		 * @param string $namespace <p>A fully qualified namespace (e.g. <i>"databaseName.collectionName"</i>).</p>
+		 * <p>Selects a server according to the <code>"readPreference"</code> option and executes the query on that server. By default, the read preference from the MongoDB Connection URI will be used.</p>
+		 * @param string $namespace <p>A fully qualified namespace (e.g. <code>"databaseName.collectionName"</code>).</p>
 		 * @param \MongoDB\Driver\Query $query <p>The query to execute.</p>
 		 * @param array $options <p></p> <b>options</b>   Option Type Description     readPreference MongoDB\Driver\ReadPreference  <p>A read preference to use for selecting a server for the operation.</p>    session MongoDB\Driver\Session  <p>A session to associate with the operation.</p>
 		 * @return MongoDB\Driver\Cursor <p>Returns MongoDB\Driver\Cursor on success.</p>
@@ -4595,13 +4663,38 @@ namespace MongoDB\Driver {
 		final public function getServer(): \MongoDB\Driver\Server {}
 
 		/**
-		 * Checks if the cursor may have additional results
-		 * <p>Checks whether the cursor may have additional results available to read. A cursor is initially "alive" but may become "dead" for any of the following reasons:</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b> if additional results are not available, and <b><code>FALSE</code></b> otherwise.</p>
+		 * Checks if the cursor is exhausted or may have additional results
+		 * <p>Checks whether there are definitely no additional results available on the cursor. This method is similar to the cursor.isExhausted() method in the MongoDB shell and is primarily useful when iterating tailable cursors.</p><p>A cursor has no additional results and is considered "dead" when one of the following is true:</p><p>By design, it is not possible to always determine whether a cursor has additional results. The cases where a cursor <i>may</i> have more data available is as follows:</p>
+		 * @return bool <p>Returns <b><code>TRUE</code></b> if there are definitely no additional results available on the cursor, and <b><code>FALSE</code></b> otherwise.</p>
 		 * @link http://php.net/manual/en/mongodb-driver-cursor.isdead.php
 		 * @since mongodb >=1.0.0
 		 */
 		final public function isDead(): bool {}
+
+		/**
+		 * Returns the current result's index within the cursor
+		 * @return int <p>The current result's numeric index within the cursor.</p>
+		 * @link http://php.net/manual/en/mongodb-driver-cursor.key.php
+		 * @since mongodb >=1.9.0
+		 */
+		public function key(): int {}
+
+		/**
+		 * Advances the cursor to the next result
+		 * @return void <p>Moves the current position to the next element in the cursor.</p>
+		 * @link http://php.net/manual/en/mongodb-driver-cursor.next.php
+		 * @since mongodb >=1.9.0
+		 */
+		public function next(): void {}
+
+		/**
+		 * Rewind the cursor to the first result
+		 * <p>If the cursor has advanced beyond its first position, it can no longer be rewound.</p>
+		 * @return void <p><b><code>NULL</code></b>.</p>
+		 * @link http://php.net/manual/en/mongodb-driver-cursor.rewind.php
+		 * @since mongodb >=1.9.0
+		 */
+		public function rewind(): void {}
 
 		/**
 		 * Sets a type map to use for BSON unserialization
@@ -4622,6 +4715,14 @@ namespace MongoDB\Driver {
 		 * @since mongodb >=1.0.0
 		 */
 		final public function toArray(): array {}
+
+		/**
+		 * Checks if the current position in the cursor is valid
+		 * @return bool <p><b><code>TRUE</code></b> if the current cursor position is valid, <b><code>FALSE</code></b> otherwise.</p>
+		 * @link http://php.net/manual/en/mongodb-driver-cursor.valid.php
+		 * @since mongodb >=1.9.0
+		 */
+		public function valid(): bool {}
 	}
 
 	/**
@@ -4629,7 +4730,7 @@ namespace MongoDB\Driver {
 	 * @link http://php.net/manual/en/class.mongodb-driver-cursorid.php
 	 * @since mongodb >=1.0.0
 	 */
-	final class CursorId {
+	final class CursorId implements \Serializable {
 
 		/**
 		 * Create a new CursorId (not used)
@@ -4650,6 +4751,81 @@ namespace MongoDB\Driver {
 		 * @since mongodb >=1.0.0
 		 */
 		final public function __toString(): string {}
+
+		/**
+		 * Serialize a CursorId
+		 * @return string <p>Returns the serialized representation of the MongoDB\Driver\CursorId.</p>
+		 * @link http://php.net/manual/en/mongodb-driver-cursorid.serialize.php
+		 * @see serialize()
+		 * @since mongodb >=1.7.0
+		 */
+		final public function serialize(): string {}
+
+		/**
+		 * Unserialize a CursorId
+		 * @param string $serialized <p>The serialized MongoDB\Driver\CursorId.</p>
+		 * @return void <p>Returns the unserialized MongoDB\Driver\CursorId.</p>
+		 * @link http://php.net/manual/en/mongodb-driver-cursorid.unserialize.php
+		 * @see unserialize()
+		 * @since mongodb >=1.7.0
+		 */
+		final public function unserialize(string $serialized): void {}
+	}
+
+	/**
+	 * <p>This interface is implemented by MongoDB\Driver\Cursor but may also be used for type-hinting and userland classes.</p>
+	 * @link http://php.net/manual/en/class.mongodb-driver-cursorinterface.php
+	 * @since mongodb >=1.6.0
+	 */
+	interface CursorInterface {
+
+		/**
+		 * Returns the ID for this cursor
+		 * <p>Returns the MongoDB\Driver\CursorId associated with this cursor. A cursor ID uniquely identifies the cursor on the server.</p>
+		 * @return MongoDB\Driver\CursorId <p>Returns the MongoDB\Driver\CursorId for this cursor.</p>
+		 * @link http://php.net/manual/en/mongodb-driver-cursorinterface.getid.php
+		 * @see MongoDB\Driver\CursorId::__toString()
+		 * @since mongodb >=1.6.0
+		 */
+		public function getId(): \MongoDB\Driver\CursorId;
+
+		/**
+		 * Returns the server associated with this cursor
+		 * <p>Returns the MongoDB\Driver\Server associated with this cursor. This is the server that executed the MongoDB\Driver\Query or MongoDB\Driver\Command.</p>
+		 * @return MongoDB\Driver\Server <p>Returns the MongoDB\Driver\Server associated with this cursor.</p>
+		 * @link http://php.net/manual/en/mongodb-driver-cursorinterface.getserver.php
+		 * @since mongodb >=1.6.0
+		 */
+		public function getServer(): \MongoDB\Driver\Server;
+
+		/**
+		 * Checks if the cursor may have additional results
+		 * <p>Checks whether the cursor may have additional results available to read. A cursor is initially "alive" but may become "dead" for any of the following reasons:</p>
+		 * @return bool <p>Returns <b><code>TRUE</code></b> if additional results are not available, and <b><code>FALSE</code></b> otherwise.</p>
+		 * @link http://php.net/manual/en/mongodb-driver-cursorinterface.isdead.php
+		 * @since mongodb >=1.6.0
+		 */
+		public function isDead(): bool;
+
+		/**
+		 * Sets a type map to use for BSON unserialization
+		 * <p>Sets the type map configuration to use when unserializing the BSON results into PHP values.</p>
+		 * @param array $typemap
+		 * @return void <p>No value is returned.</p>
+		 * @link http://php.net/manual/en/mongodb-driver-cursorinterface.settypemap.php
+		 * @since mongodb >=1.6.0
+		 */
+		public function setTypeMap(array $typemap): void;
+
+		/**
+		 * Returns an array containing all results for this cursor
+		 * <p>Iterates the cursor and returns its results in an array. <code>MongoDB\Driver\CursorInterface::setTypeMap()</code> may be used to control how documents are unserialized into PHP values.</p>
+		 * @return array <p>Returns an <code>array</code> containing all results for this cursor.</p>
+		 * @link http://php.net/manual/en/mongodb-driver-cursorinterface.toarray.php
+		 * @see MongoDB\Driver\CursorInterface::setTypeMap()
+		 * @since mongodb >=1.6.0
+		 */
+		public function toArray(): array;
 	}
 
 }
@@ -4664,7 +4840,7 @@ namespace MongoDB\Driver\Exception {
 	class AuthenticationException extends \MongoDB\Driver\Exception\ConnectionException implements \MongoDB\Driver\Exception\Exception {
 
 		/**
-		 * @var bool <p>Contains an array of error labels to go with an exception. For example, error labels can be used to detect whether a transaction can be retried safely if the <i>TransientTransactionError</i> label is present. The existence of a specific error label should be tested for with the <code>MongoDB\Driver\Exception\RuntimeException::hasErrorLabel()</code>, instead of interpreting this <i>errorLabels</i> property manually.</p>
+		 * @var array|null <p>Contains an array of error labels to go with an exception. For example, error labels can be used to detect whether a transaction can be retried safely if the <code>TransientTransactionError</code> label is present. The existence of a specific error label should be tested for with the <code>MongoDB\Driver\Exception\RuntimeException::hasErrorLabel()</code>, instead of interpreting this <code>errorLabels</code> property manually.</p>
 		 * @link http://php.net/manual/en/class.mongodb-driver-exception-runtimeexception.php#mongodb-driver-exception-runtimeexception.props.errorlabels
 		 */
 		protected $errorLabels;
@@ -4698,7 +4874,7 @@ namespace MongoDB\Driver\Exception {
 		 * <p>Tries to clone the Exception, which results in Fatal error.</p>
 		 * @return void <p>No value is returned.</p>
 		 * @link http://php.net/manual/en/exception.clone.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final private function __clone() {}
 
@@ -4707,16 +4883,16 @@ namespace MongoDB\Driver\Exception {
 		 * <p>Returns the <code>string</code> representation of the exception.</p>
 		 * @return string <p>Returns the <code>string</code> representation of the exception.</p>
 		 * @link http://php.net/manual/en/exception.tostring.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		public function __toString(): string {}
 
 		/**
 		 * Gets the Exception code
 		 * <p>Returns the Exception code.</p>
-		 * @return mixed <p>Returns the exception code as <code>integer</code> in Exception but possibly as other type in Exception descendants (for example as <code>string</code> in PDOException).</p>
+		 * @return mixed <p>Returns the exception code as <code>int</code> in Exception but possibly as other type in Exception descendants (for example as <code>string</code> in PDOException).</p>
 		 * @link http://php.net/manual/en/exception.getcode.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getCode() {}
 
@@ -4725,7 +4901,7 @@ namespace MongoDB\Driver\Exception {
 		 * <p>Get the name of the file in which the exception was created.</p>
 		 * @return string <p>Returns the filename in which the exception was created.</p>
 		 * @link http://php.net/manual/en/exception.getfile.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getFile(): string {}
 
@@ -4734,7 +4910,7 @@ namespace MongoDB\Driver\Exception {
 		 * <p>Get line number where the exception was created.</p>
 		 * @return int <p>Returns the line number where the exception was created.</p>
 		 * @link http://php.net/manual/en/exception.getline.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getLine(): int {}
 
@@ -4743,7 +4919,7 @@ namespace MongoDB\Driver\Exception {
 		 * <p>Returns the Exception message.</p>
 		 * @return string <p>Returns the Exception message as a string.</p>
 		 * @link http://php.net/manual/en/exception.getmessage.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getMessage(): string {}
 
@@ -4752,7 +4928,7 @@ namespace MongoDB\Driver\Exception {
 		 * <p>Returns previous exception (the third parameter of <code>Exception::__construct()</code>).</p>
 		 * @return Throwable <p>Returns the previous Throwable if available or <b><code>NULL</code></b> otherwise.</p>
 		 * @link http://php.net/manual/en/exception.getprevious.php
-		 * @since PHP 5 >= 5.3.0, PHP 7
+		 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8
 		 */
 		final public function getPrevious(): \Throwable {}
 
@@ -4761,7 +4937,7 @@ namespace MongoDB\Driver\Exception {
 		 * <p>Returns the Exception stack trace.</p>
 		 * @return array <p>Returns the Exception stack trace as an <code>array</code>.</p>
 		 * @link http://php.net/manual/en/exception.gettrace.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getTrace(): array {}
 
@@ -4770,15 +4946,15 @@ namespace MongoDB\Driver\Exception {
 		 * <p>Returns the Exception stack trace as a string.</p>
 		 * @return string <p>Returns the Exception stack trace as a string.</p>
 		 * @link http://php.net/manual/en/exception.gettraceasstring.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getTraceAsString(): string {}
 
 		/**
 		 * Returns whether an error label is associated with an exception
-		 * <p>Returns whether the <code>errorLabel</code> has been set for this exception. Error labels are set by either the server or the driver to indicated specific situations on which you might want to decide on how you want to handle a specific exception. A common situation might be to find out whether you can safely retry a transaction that failed due to a transient error (like a networking issue, or a transaction conflict). Examples of error labels are <i>TransientTransactionError</i> and <i>UnknownTransactionCommitResult</i>.</p>
-		 * @param string $errorLabel <p>The name of the <i>errorLabel</i> to test for.</p>
-		 * @return bool <p>Whether the given <i>errorLabel</i> is associated with this exception.</p>
+		 * <p>Returns whether the <code>errorLabel</code> has been set for this exception. Error labels are set by either the server or the driver to indicated specific situations on which you might want to decide on how you want to handle a specific exception. A common situation might be to find out whether you can safely retry a transaction that failed due to a transient error (like a networking issue, or a transaction conflict). Examples of error labels are <code>TransientTransactionError</code> and <code>UnknownTransactionCommitResult</code>.</p>
+		 * @param string $errorLabel <p>The name of the <code>errorLabel</code> to test for.</p>
+		 * @return bool <p>Whether the given <code>errorLabel</code> is associated with this exception.</p>
 		 * @link http://php.net/manual/en/mongodb-driver-runtimeexception.haserrorlabel.php
 		 * @see MongoDB\Driver\Session::commitTransaction()
 		 * @since mongodb >= 1.6.0
@@ -4800,7 +4976,7 @@ namespace MongoDB\Driver\Exception {
 		protected $writeResult;
 
 		/**
-		 * @var bool <p>Contains an array of error labels to go with an exception. For example, error labels can be used to detect whether a transaction can be retried safely if the <i>TransientTransactionError</i> label is present. The existence of a specific error label should be tested for with the <code>MongoDB\Driver\Exception\RuntimeException::hasErrorLabel()</code>, instead of interpreting this <i>errorLabels</i> property manually.</p>
+		 * @var array|null <p>Contains an array of error labels to go with an exception. For example, error labels can be used to detect whether a transaction can be retried safely if the <code>TransientTransactionError</code> label is present. The existence of a specific error label should be tested for with the <code>MongoDB\Driver\Exception\RuntimeException::hasErrorLabel()</code>, instead of interpreting this <code>errorLabels</code> property manually.</p>
 		 * @link http://php.net/manual/en/class.mongodb-driver-exception-runtimeexception.php#mongodb-driver-exception-runtimeexception.props.errorlabels
 		 */
 		protected $errorLabels;
@@ -4834,7 +5010,7 @@ namespace MongoDB\Driver\Exception {
 		 * <p>Tries to clone the Exception, which results in Fatal error.</p>
 		 * @return void <p>No value is returned.</p>
 		 * @link http://php.net/manual/en/exception.clone.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final private function __clone() {}
 
@@ -4843,16 +5019,16 @@ namespace MongoDB\Driver\Exception {
 		 * <p>Returns the <code>string</code> representation of the exception.</p>
 		 * @return string <p>Returns the <code>string</code> representation of the exception.</p>
 		 * @link http://php.net/manual/en/exception.tostring.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		public function __toString(): string {}
 
 		/**
 		 * Gets the Exception code
 		 * <p>Returns the Exception code.</p>
-		 * @return mixed <p>Returns the exception code as <code>integer</code> in Exception but possibly as other type in Exception descendants (for example as <code>string</code> in PDOException).</p>
+		 * @return mixed <p>Returns the exception code as <code>int</code> in Exception but possibly as other type in Exception descendants (for example as <code>string</code> in PDOException).</p>
 		 * @link http://php.net/manual/en/exception.getcode.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getCode() {}
 
@@ -4861,7 +5037,7 @@ namespace MongoDB\Driver\Exception {
 		 * <p>Get the name of the file in which the exception was created.</p>
 		 * @return string <p>Returns the filename in which the exception was created.</p>
 		 * @link http://php.net/manual/en/exception.getfile.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getFile(): string {}
 
@@ -4870,7 +5046,7 @@ namespace MongoDB\Driver\Exception {
 		 * <p>Get line number where the exception was created.</p>
 		 * @return int <p>Returns the line number where the exception was created.</p>
 		 * @link http://php.net/manual/en/exception.getline.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getLine(): int {}
 
@@ -4879,7 +5055,7 @@ namespace MongoDB\Driver\Exception {
 		 * <p>Returns the Exception message.</p>
 		 * @return string <p>Returns the Exception message as a string.</p>
 		 * @link http://php.net/manual/en/exception.getmessage.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getMessage(): string {}
 
@@ -4888,7 +5064,7 @@ namespace MongoDB\Driver\Exception {
 		 * <p>Returns previous exception (the third parameter of <code>Exception::__construct()</code>).</p>
 		 * @return Throwable <p>Returns the previous Throwable if available or <b><code>NULL</code></b> otherwise.</p>
 		 * @link http://php.net/manual/en/exception.getprevious.php
-		 * @since PHP 5 >= 5.3.0, PHP 7
+		 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8
 		 */
 		final public function getPrevious(): \Throwable {}
 
@@ -4897,7 +5073,7 @@ namespace MongoDB\Driver\Exception {
 		 * <p>Returns the Exception stack trace.</p>
 		 * @return array <p>Returns the Exception stack trace as an <code>array</code>.</p>
 		 * @link http://php.net/manual/en/exception.gettrace.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getTrace(): array {}
 
@@ -4906,7 +5082,7 @@ namespace MongoDB\Driver\Exception {
 		 * <p>Returns the Exception stack trace as a string.</p>
 		 * @return string <p>Returns the Exception stack trace as a string.</p>
 		 * @link http://php.net/manual/en/exception.gettraceasstring.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getTraceAsString(): string {}
 
@@ -4922,9 +5098,9 @@ namespace MongoDB\Driver\Exception {
 
 		/**
 		 * Returns whether an error label is associated with an exception
-		 * <p>Returns whether the <code>errorLabel</code> has been set for this exception. Error labels are set by either the server or the driver to indicated specific situations on which you might want to decide on how you want to handle a specific exception. A common situation might be to find out whether you can safely retry a transaction that failed due to a transient error (like a networking issue, or a transaction conflict). Examples of error labels are <i>TransientTransactionError</i> and <i>UnknownTransactionCommitResult</i>.</p>
-		 * @param string $errorLabel <p>The name of the <i>errorLabel</i> to test for.</p>
-		 * @return bool <p>Whether the given <i>errorLabel</i> is associated with this exception.</p>
+		 * <p>Returns whether the <code>errorLabel</code> has been set for this exception. Error labels are set by either the server or the driver to indicated specific situations on which you might want to decide on how you want to handle a specific exception. A common situation might be to find out whether you can safely retry a transaction that failed due to a transient error (like a networking issue, or a transaction conflict). Examples of error labels are <code>TransientTransactionError</code> and <code>UnknownTransactionCommitResult</code>.</p>
+		 * @param string $errorLabel <p>The name of the <code>errorLabel</code> to test for.</p>
+		 * @return bool <p>Whether the given <code>errorLabel</code> is associated with this exception.</p>
 		 * @link http://php.net/manual/en/mongodb-driver-runtimeexception.haserrorlabel.php
 		 * @see MongoDB\Driver\Session::commitTransaction()
 		 * @since mongodb >= 1.6.0
@@ -4946,7 +5122,7 @@ namespace MongoDB\Driver\Exception {
 		protected $resultDocument;
 
 		/**
-		 * @var bool <p>Contains an array of error labels to go with an exception. For example, error labels can be used to detect whether a transaction can be retried safely if the <i>TransientTransactionError</i> label is present. The existence of a specific error label should be tested for with the <code>MongoDB\Driver\Exception\RuntimeException::hasErrorLabel()</code>, instead of interpreting this <i>errorLabels</i> property manually.</p>
+		 * @var array|null <p>Contains an array of error labels to go with an exception. For example, error labels can be used to detect whether a transaction can be retried safely if the <code>TransientTransactionError</code> label is present. The existence of a specific error label should be tested for with the <code>MongoDB\Driver\Exception\RuntimeException::hasErrorLabel()</code>, instead of interpreting this <code>errorLabels</code> property manually.</p>
 		 * @link http://php.net/manual/en/class.mongodb-driver-exception-runtimeexception.php#mongodb-driver-exception-runtimeexception.props.errorlabels
 		 */
 		protected $errorLabels;
@@ -4980,7 +5156,7 @@ namespace MongoDB\Driver\Exception {
 		 * <p>Tries to clone the Exception, which results in Fatal error.</p>
 		 * @return void <p>No value is returned.</p>
 		 * @link http://php.net/manual/en/exception.clone.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final private function __clone() {}
 
@@ -4989,16 +5165,16 @@ namespace MongoDB\Driver\Exception {
 		 * <p>Returns the <code>string</code> representation of the exception.</p>
 		 * @return string <p>Returns the <code>string</code> representation of the exception.</p>
 		 * @link http://php.net/manual/en/exception.tostring.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		public function __toString(): string {}
 
 		/**
 		 * Gets the Exception code
 		 * <p>Returns the Exception code.</p>
-		 * @return mixed <p>Returns the exception code as <code>integer</code> in Exception but possibly as other type in Exception descendants (for example as <code>string</code> in PDOException).</p>
+		 * @return mixed <p>Returns the exception code as <code>int</code> in Exception but possibly as other type in Exception descendants (for example as <code>string</code> in PDOException).</p>
 		 * @link http://php.net/manual/en/exception.getcode.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getCode() {}
 
@@ -5007,7 +5183,7 @@ namespace MongoDB\Driver\Exception {
 		 * <p>Get the name of the file in which the exception was created.</p>
 		 * @return string <p>Returns the filename in which the exception was created.</p>
 		 * @link http://php.net/manual/en/exception.getfile.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getFile(): string {}
 
@@ -5016,7 +5192,7 @@ namespace MongoDB\Driver\Exception {
 		 * <p>Get line number where the exception was created.</p>
 		 * @return int <p>Returns the line number where the exception was created.</p>
 		 * @link http://php.net/manual/en/exception.getline.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getLine(): int {}
 
@@ -5025,7 +5201,7 @@ namespace MongoDB\Driver\Exception {
 		 * <p>Returns the Exception message.</p>
 		 * @return string <p>Returns the Exception message as a string.</p>
 		 * @link http://php.net/manual/en/exception.getmessage.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getMessage(): string {}
 
@@ -5034,7 +5210,7 @@ namespace MongoDB\Driver\Exception {
 		 * <p>Returns previous exception (the third parameter of <code>Exception::__construct()</code>).</p>
 		 * @return Throwable <p>Returns the previous Throwable if available or <b><code>NULL</code></b> otherwise.</p>
 		 * @link http://php.net/manual/en/exception.getprevious.php
-		 * @since PHP 5 >= 5.3.0, PHP 7
+		 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8
 		 */
 		final public function getPrevious(): \Throwable {}
 
@@ -5053,7 +5229,7 @@ namespace MongoDB\Driver\Exception {
 		 * <p>Returns the Exception stack trace.</p>
 		 * @return array <p>Returns the Exception stack trace as an <code>array</code>.</p>
 		 * @link http://php.net/manual/en/exception.gettrace.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getTrace(): array {}
 
@@ -5062,15 +5238,15 @@ namespace MongoDB\Driver\Exception {
 		 * <p>Returns the Exception stack trace as a string.</p>
 		 * @return string <p>Returns the Exception stack trace as a string.</p>
 		 * @link http://php.net/manual/en/exception.gettraceasstring.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getTraceAsString(): string {}
 
 		/**
 		 * Returns whether an error label is associated with an exception
-		 * <p>Returns whether the <code>errorLabel</code> has been set for this exception. Error labels are set by either the server or the driver to indicated specific situations on which you might want to decide on how you want to handle a specific exception. A common situation might be to find out whether you can safely retry a transaction that failed due to a transient error (like a networking issue, or a transaction conflict). Examples of error labels are <i>TransientTransactionError</i> and <i>UnknownTransactionCommitResult</i>.</p>
-		 * @param string $errorLabel <p>The name of the <i>errorLabel</i> to test for.</p>
-		 * @return bool <p>Whether the given <i>errorLabel</i> is associated with this exception.</p>
+		 * <p>Returns whether the <code>errorLabel</code> has been set for this exception. Error labels are set by either the server or the driver to indicated specific situations on which you might want to decide on how you want to handle a specific exception. A common situation might be to find out whether you can safely retry a transaction that failed due to a transient error (like a networking issue, or a transaction conflict). Examples of error labels are <code>TransientTransactionError</code> and <code>UnknownTransactionCommitResult</code>.</p>
+		 * @param string $errorLabel <p>The name of the <code>errorLabel</code> to test for.</p>
+		 * @return bool <p>Whether the given <code>errorLabel</code> is associated with this exception.</p>
 		 * @link http://php.net/manual/en/mongodb-driver-runtimeexception.haserrorlabel.php
 		 * @see MongoDB\Driver\Session::commitTransaction()
 		 * @since mongodb >= 1.6.0
@@ -5086,7 +5262,7 @@ namespace MongoDB\Driver\Exception {
 	class ConnectionException extends \MongoDB\Driver\Exception\RuntimeException implements \MongoDB\Driver\Exception\Exception {
 
 		/**
-		 * @var bool <p>Contains an array of error labels to go with an exception. For example, error labels can be used to detect whether a transaction can be retried safely if the <i>TransientTransactionError</i> label is present. The existence of a specific error label should be tested for with the <code>MongoDB\Driver\Exception\RuntimeException::hasErrorLabel()</code>, instead of interpreting this <i>errorLabels</i> property manually.</p>
+		 * @var array|null <p>Contains an array of error labels to go with an exception. For example, error labels can be used to detect whether a transaction can be retried safely if the <code>TransientTransactionError</code> label is present. The existence of a specific error label should be tested for with the <code>MongoDB\Driver\Exception\RuntimeException::hasErrorLabel()</code>, instead of interpreting this <code>errorLabels</code> property manually.</p>
 		 * @link http://php.net/manual/en/class.mongodb-driver-exception-runtimeexception.php#mongodb-driver-exception-runtimeexception.props.errorlabels
 		 */
 		protected $errorLabels;
@@ -5120,7 +5296,7 @@ namespace MongoDB\Driver\Exception {
 		 * <p>Tries to clone the Exception, which results in Fatal error.</p>
 		 * @return void <p>No value is returned.</p>
 		 * @link http://php.net/manual/en/exception.clone.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final private function __clone() {}
 
@@ -5129,16 +5305,16 @@ namespace MongoDB\Driver\Exception {
 		 * <p>Returns the <code>string</code> representation of the exception.</p>
 		 * @return string <p>Returns the <code>string</code> representation of the exception.</p>
 		 * @link http://php.net/manual/en/exception.tostring.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		public function __toString(): string {}
 
 		/**
 		 * Gets the Exception code
 		 * <p>Returns the Exception code.</p>
-		 * @return mixed <p>Returns the exception code as <code>integer</code> in Exception but possibly as other type in Exception descendants (for example as <code>string</code> in PDOException).</p>
+		 * @return mixed <p>Returns the exception code as <code>int</code> in Exception but possibly as other type in Exception descendants (for example as <code>string</code> in PDOException).</p>
 		 * @link http://php.net/manual/en/exception.getcode.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getCode() {}
 
@@ -5147,7 +5323,7 @@ namespace MongoDB\Driver\Exception {
 		 * <p>Get the name of the file in which the exception was created.</p>
 		 * @return string <p>Returns the filename in which the exception was created.</p>
 		 * @link http://php.net/manual/en/exception.getfile.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getFile(): string {}
 
@@ -5156,7 +5332,7 @@ namespace MongoDB\Driver\Exception {
 		 * <p>Get line number where the exception was created.</p>
 		 * @return int <p>Returns the line number where the exception was created.</p>
 		 * @link http://php.net/manual/en/exception.getline.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getLine(): int {}
 
@@ -5165,7 +5341,7 @@ namespace MongoDB\Driver\Exception {
 		 * <p>Returns the Exception message.</p>
 		 * @return string <p>Returns the Exception message as a string.</p>
 		 * @link http://php.net/manual/en/exception.getmessage.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getMessage(): string {}
 
@@ -5174,7 +5350,7 @@ namespace MongoDB\Driver\Exception {
 		 * <p>Returns previous exception (the third parameter of <code>Exception::__construct()</code>).</p>
 		 * @return Throwable <p>Returns the previous Throwable if available or <b><code>NULL</code></b> otherwise.</p>
 		 * @link http://php.net/manual/en/exception.getprevious.php
-		 * @since PHP 5 >= 5.3.0, PHP 7
+		 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8
 		 */
 		final public function getPrevious(): \Throwable {}
 
@@ -5183,7 +5359,7 @@ namespace MongoDB\Driver\Exception {
 		 * <p>Returns the Exception stack trace.</p>
 		 * @return array <p>Returns the Exception stack trace as an <code>array</code>.</p>
 		 * @link http://php.net/manual/en/exception.gettrace.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getTrace(): array {}
 
@@ -5192,15 +5368,15 @@ namespace MongoDB\Driver\Exception {
 		 * <p>Returns the Exception stack trace as a string.</p>
 		 * @return string <p>Returns the Exception stack trace as a string.</p>
 		 * @link http://php.net/manual/en/exception.gettraceasstring.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getTraceAsString(): string {}
 
 		/**
 		 * Returns whether an error label is associated with an exception
-		 * <p>Returns whether the <code>errorLabel</code> has been set for this exception. Error labels are set by either the server or the driver to indicated specific situations on which you might want to decide on how you want to handle a specific exception. A common situation might be to find out whether you can safely retry a transaction that failed due to a transient error (like a networking issue, or a transaction conflict). Examples of error labels are <i>TransientTransactionError</i> and <i>UnknownTransactionCommitResult</i>.</p>
-		 * @param string $errorLabel <p>The name of the <i>errorLabel</i> to test for.</p>
-		 * @return bool <p>Whether the given <i>errorLabel</i> is associated with this exception.</p>
+		 * <p>Returns whether the <code>errorLabel</code> has been set for this exception. Error labels are set by either the server or the driver to indicated specific situations on which you might want to decide on how you want to handle a specific exception. A common situation might be to find out whether you can safely retry a transaction that failed due to a transient error (like a networking issue, or a transaction conflict). Examples of error labels are <code>TransientTransactionError</code> and <code>UnknownTransactionCommitResult</code>.</p>
+		 * @param string $errorLabel <p>The name of the <code>errorLabel</code> to test for.</p>
+		 * @return bool <p>Whether the given <code>errorLabel</code> is associated with this exception.</p>
 		 * @link http://php.net/manual/en/mongodb-driver-runtimeexception.haserrorlabel.php
 		 * @see MongoDB\Driver\Session::commitTransaction()
 		 * @since mongodb >= 1.6.0
@@ -5216,7 +5392,7 @@ namespace MongoDB\Driver\Exception {
 	final class ConnectionTimeoutException extends \MongoDB\Driver\Exception\ConnectionException implements \MongoDB\Driver\Exception\Exception {
 
 		/**
-		 * @var bool <p>Contains an array of error labels to go with an exception. For example, error labels can be used to detect whether a transaction can be retried safely if the <i>TransientTransactionError</i> label is present. The existence of a specific error label should be tested for with the <code>MongoDB\Driver\Exception\RuntimeException::hasErrorLabel()</code>, instead of interpreting this <i>errorLabels</i> property manually.</p>
+		 * @var array|null <p>Contains an array of error labels to go with an exception. For example, error labels can be used to detect whether a transaction can be retried safely if the <code>TransientTransactionError</code> label is present. The existence of a specific error label should be tested for with the <code>MongoDB\Driver\Exception\RuntimeException::hasErrorLabel()</code>, instead of interpreting this <code>errorLabels</code> property manually.</p>
 		 * @link http://php.net/manual/en/class.mongodb-driver-exception-runtimeexception.php#mongodb-driver-exception-runtimeexception.props.errorlabels
 		 */
 		protected $errorLabels;
@@ -5250,7 +5426,7 @@ namespace MongoDB\Driver\Exception {
 		 * <p>Tries to clone the Exception, which results in Fatal error.</p>
 		 * @return void <p>No value is returned.</p>
 		 * @link http://php.net/manual/en/exception.clone.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final private function __clone() {}
 
@@ -5259,16 +5435,16 @@ namespace MongoDB\Driver\Exception {
 		 * <p>Returns the <code>string</code> representation of the exception.</p>
 		 * @return string <p>Returns the <code>string</code> representation of the exception.</p>
 		 * @link http://php.net/manual/en/exception.tostring.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		public function __toString(): string {}
 
 		/**
 		 * Gets the Exception code
 		 * <p>Returns the Exception code.</p>
-		 * @return mixed <p>Returns the exception code as <code>integer</code> in Exception but possibly as other type in Exception descendants (for example as <code>string</code> in PDOException).</p>
+		 * @return mixed <p>Returns the exception code as <code>int</code> in Exception but possibly as other type in Exception descendants (for example as <code>string</code> in PDOException).</p>
 		 * @link http://php.net/manual/en/exception.getcode.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getCode() {}
 
@@ -5277,7 +5453,7 @@ namespace MongoDB\Driver\Exception {
 		 * <p>Get the name of the file in which the exception was created.</p>
 		 * @return string <p>Returns the filename in which the exception was created.</p>
 		 * @link http://php.net/manual/en/exception.getfile.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getFile(): string {}
 
@@ -5286,7 +5462,7 @@ namespace MongoDB\Driver\Exception {
 		 * <p>Get line number where the exception was created.</p>
 		 * @return int <p>Returns the line number where the exception was created.</p>
 		 * @link http://php.net/manual/en/exception.getline.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getLine(): int {}
 
@@ -5295,7 +5471,7 @@ namespace MongoDB\Driver\Exception {
 		 * <p>Returns the Exception message.</p>
 		 * @return string <p>Returns the Exception message as a string.</p>
 		 * @link http://php.net/manual/en/exception.getmessage.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getMessage(): string {}
 
@@ -5304,7 +5480,7 @@ namespace MongoDB\Driver\Exception {
 		 * <p>Returns previous exception (the third parameter of <code>Exception::__construct()</code>).</p>
 		 * @return Throwable <p>Returns the previous Throwable if available or <b><code>NULL</code></b> otherwise.</p>
 		 * @link http://php.net/manual/en/exception.getprevious.php
-		 * @since PHP 5 >= 5.3.0, PHP 7
+		 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8
 		 */
 		final public function getPrevious(): \Throwable {}
 
@@ -5313,7 +5489,7 @@ namespace MongoDB\Driver\Exception {
 		 * <p>Returns the Exception stack trace.</p>
 		 * @return array <p>Returns the Exception stack trace as an <code>array</code>.</p>
 		 * @link http://php.net/manual/en/exception.gettrace.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getTrace(): array {}
 
@@ -5322,15 +5498,145 @@ namespace MongoDB\Driver\Exception {
 		 * <p>Returns the Exception stack trace as a string.</p>
 		 * @return string <p>Returns the Exception stack trace as a string.</p>
 		 * @link http://php.net/manual/en/exception.gettraceasstring.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getTraceAsString(): string {}
 
 		/**
 		 * Returns whether an error label is associated with an exception
-		 * <p>Returns whether the <code>errorLabel</code> has been set for this exception. Error labels are set by either the server or the driver to indicated specific situations on which you might want to decide on how you want to handle a specific exception. A common situation might be to find out whether you can safely retry a transaction that failed due to a transient error (like a networking issue, or a transaction conflict). Examples of error labels are <i>TransientTransactionError</i> and <i>UnknownTransactionCommitResult</i>.</p>
-		 * @param string $errorLabel <p>The name of the <i>errorLabel</i> to test for.</p>
-		 * @return bool <p>Whether the given <i>errorLabel</i> is associated with this exception.</p>
+		 * <p>Returns whether the <code>errorLabel</code> has been set for this exception. Error labels are set by either the server or the driver to indicated specific situations on which you might want to decide on how you want to handle a specific exception. A common situation might be to find out whether you can safely retry a transaction that failed due to a transient error (like a networking issue, or a transaction conflict). Examples of error labels are <code>TransientTransactionError</code> and <code>UnknownTransactionCommitResult</code>.</p>
+		 * @param string $errorLabel <p>The name of the <code>errorLabel</code> to test for.</p>
+		 * @return bool <p>Whether the given <code>errorLabel</code> is associated with this exception.</p>
+		 * @link http://php.net/manual/en/mongodb-driver-runtimeexception.haserrorlabel.php
+		 * @see MongoDB\Driver\Session::commitTransaction()
+		 * @since mongodb >= 1.6.0
+		 */
+		final public function hasErrorLabel(string $errorLabel): bool {}
+	}
+
+	/**
+	 * <p>Base class for exceptions thrown during client-side encryption.</p>
+	 * @link http://php.net/manual/en/class.mongodb-driver-exception-encryptionexception.php
+	 * @since mongodb >= 1.7.0
+	 */
+	class EncryptionException extends \MongoDB\Driver\Exception\RuntimeException implements \MongoDB\Driver\Exception\Exception {
+
+		/**
+		 * @var array|null <p>Contains an array of error labels to go with an exception. For example, error labels can be used to detect whether a transaction can be retried safely if the <code>TransientTransactionError</code> label is present. The existence of a specific error label should be tested for with the <code>MongoDB\Driver\Exception\RuntimeException::hasErrorLabel()</code>, instead of interpreting this <code>errorLabels</code> property manually.</p>
+		 * @link http://php.net/manual/en/class.mongodb-driver-exception-runtimeexception.php#mongodb-driver-exception-runtimeexception.props.errorlabels
+		 */
+		protected $errorLabels;
+
+		/**
+		 * @var string <p>The exception message</p>
+		 * @link http://php.net/manual/en/class.exception.php#exception.props.message
+		 */
+		protected $message;
+
+		/**
+		 * @var int <p>The exception code</p>
+		 * @link http://php.net/manual/en/class.exception.php#exception.props.code
+		 */
+		protected $code;
+
+		/**
+		 * @var string <p>The filename where the exception was created</p>
+		 * @link http://php.net/manual/en/class.exception.php#exception.props.file
+		 */
+		protected $file;
+
+		/**
+		 * @var int <p>The line where the exception was created</p>
+		 * @link http://php.net/manual/en/class.exception.php#exception.props.line
+		 */
+		protected $line;
+
+		/**
+		 * Clone the exception
+		 * <p>Tries to clone the Exception, which results in Fatal error.</p>
+		 * @return void <p>No value is returned.</p>
+		 * @link http://php.net/manual/en/exception.clone.php
+		 * @since PHP 5, PHP 7, PHP 8
+		 */
+		final private function __clone() {}
+
+		/**
+		 * String representation of the exception
+		 * <p>Returns the <code>string</code> representation of the exception.</p>
+		 * @return string <p>Returns the <code>string</code> representation of the exception.</p>
+		 * @link http://php.net/manual/en/exception.tostring.php
+		 * @since PHP 5, PHP 7, PHP 8
+		 */
+		public function __toString(): string {}
+
+		/**
+		 * Gets the Exception code
+		 * <p>Returns the Exception code.</p>
+		 * @return mixed <p>Returns the exception code as <code>int</code> in Exception but possibly as other type in Exception descendants (for example as <code>string</code> in PDOException).</p>
+		 * @link http://php.net/manual/en/exception.getcode.php
+		 * @since PHP 5, PHP 7, PHP 8
+		 */
+		final public function getCode() {}
+
+		/**
+		 * Gets the file in which the exception was created
+		 * <p>Get the name of the file in which the exception was created.</p>
+		 * @return string <p>Returns the filename in which the exception was created.</p>
+		 * @link http://php.net/manual/en/exception.getfile.php
+		 * @since PHP 5, PHP 7, PHP 8
+		 */
+		final public function getFile(): string {}
+
+		/**
+		 * Gets the line in which the exception was created
+		 * <p>Get line number where the exception was created.</p>
+		 * @return int <p>Returns the line number where the exception was created.</p>
+		 * @link http://php.net/manual/en/exception.getline.php
+		 * @since PHP 5, PHP 7, PHP 8
+		 */
+		final public function getLine(): int {}
+
+		/**
+		 * Gets the Exception message
+		 * <p>Returns the Exception message.</p>
+		 * @return string <p>Returns the Exception message as a string.</p>
+		 * @link http://php.net/manual/en/exception.getmessage.php
+		 * @since PHP 5, PHP 7, PHP 8
+		 */
+		final public function getMessage(): string {}
+
+		/**
+		 * Returns previous Exception
+		 * <p>Returns previous exception (the third parameter of <code>Exception::__construct()</code>).</p>
+		 * @return Throwable <p>Returns the previous Throwable if available or <b><code>NULL</code></b> otherwise.</p>
+		 * @link http://php.net/manual/en/exception.getprevious.php
+		 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8
+		 */
+		final public function getPrevious(): \Throwable {}
+
+		/**
+		 * Gets the stack trace
+		 * <p>Returns the Exception stack trace.</p>
+		 * @return array <p>Returns the Exception stack trace as an <code>array</code>.</p>
+		 * @link http://php.net/manual/en/exception.gettrace.php
+		 * @since PHP 5, PHP 7, PHP 8
+		 */
+		final public function getTrace(): array {}
+
+		/**
+		 * Gets the stack trace as a string
+		 * <p>Returns the Exception stack trace as a string.</p>
+		 * @return string <p>Returns the Exception stack trace as a string.</p>
+		 * @link http://php.net/manual/en/exception.gettraceasstring.php
+		 * @since PHP 5, PHP 7, PHP 8
+		 */
+		final public function getTraceAsString(): string {}
+
+		/**
+		 * Returns whether an error label is associated with an exception
+		 * <p>Returns whether the <code>errorLabel</code> has been set for this exception. Error labels are set by either the server or the driver to indicated specific situations on which you might want to decide on how you want to handle a specific exception. A common situation might be to find out whether you can safely retry a transaction that failed due to a transient error (like a networking issue, or a transaction conflict). Examples of error labels are <code>TransientTransactionError</code> and <code>UnknownTransactionCommitResult</code>.</p>
+		 * @param string $errorLabel <p>The name of the <code>errorLabel</code> to test for.</p>
+		 * @return bool <p>Whether the given <code>errorLabel</code> is associated with this exception.</p>
 		 * @link http://php.net/manual/en/mongodb-driver-runtimeexception.haserrorlabel.php
 		 * @see MongoDB\Driver\Session::commitTransaction()
 		 * @since mongodb >= 1.6.0
@@ -5354,7 +5660,7 @@ namespace MongoDB\Driver\Exception {
 	final class ExecutionTimeoutException extends \MongoDB\Driver\Exception\ServerException implements \MongoDB\Driver\Exception\Exception {
 
 		/**
-		 * @var bool <p>Contains an array of error labels to go with an exception. For example, error labels can be used to detect whether a transaction can be retried safely if the <i>TransientTransactionError</i> label is present. The existence of a specific error label should be tested for with the <code>MongoDB\Driver\Exception\RuntimeException::hasErrorLabel()</code>, instead of interpreting this <i>errorLabels</i> property manually.</p>
+		 * @var array|null <p>Contains an array of error labels to go with an exception. For example, error labels can be used to detect whether a transaction can be retried safely if the <code>TransientTransactionError</code> label is present. The existence of a specific error label should be tested for with the <code>MongoDB\Driver\Exception\RuntimeException::hasErrorLabel()</code>, instead of interpreting this <code>errorLabels</code> property manually.</p>
 		 * @link http://php.net/manual/en/class.mongodb-driver-exception-runtimeexception.php#mongodb-driver-exception-runtimeexception.props.errorlabels
 		 */
 		protected $errorLabels;
@@ -5388,7 +5694,7 @@ namespace MongoDB\Driver\Exception {
 		 * <p>Tries to clone the Exception, which results in Fatal error.</p>
 		 * @return void <p>No value is returned.</p>
 		 * @link http://php.net/manual/en/exception.clone.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final private function __clone() {}
 
@@ -5397,16 +5703,16 @@ namespace MongoDB\Driver\Exception {
 		 * <p>Returns the <code>string</code> representation of the exception.</p>
 		 * @return string <p>Returns the <code>string</code> representation of the exception.</p>
 		 * @link http://php.net/manual/en/exception.tostring.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		public function __toString(): string {}
 
 		/**
 		 * Gets the Exception code
 		 * <p>Returns the Exception code.</p>
-		 * @return mixed <p>Returns the exception code as <code>integer</code> in Exception but possibly as other type in Exception descendants (for example as <code>string</code> in PDOException).</p>
+		 * @return mixed <p>Returns the exception code as <code>int</code> in Exception but possibly as other type in Exception descendants (for example as <code>string</code> in PDOException).</p>
 		 * @link http://php.net/manual/en/exception.getcode.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getCode() {}
 
@@ -5415,7 +5721,7 @@ namespace MongoDB\Driver\Exception {
 		 * <p>Get the name of the file in which the exception was created.</p>
 		 * @return string <p>Returns the filename in which the exception was created.</p>
 		 * @link http://php.net/manual/en/exception.getfile.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getFile(): string {}
 
@@ -5424,7 +5730,7 @@ namespace MongoDB\Driver\Exception {
 		 * <p>Get line number where the exception was created.</p>
 		 * @return int <p>Returns the line number where the exception was created.</p>
 		 * @link http://php.net/manual/en/exception.getline.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getLine(): int {}
 
@@ -5433,7 +5739,7 @@ namespace MongoDB\Driver\Exception {
 		 * <p>Returns the Exception message.</p>
 		 * @return string <p>Returns the Exception message as a string.</p>
 		 * @link http://php.net/manual/en/exception.getmessage.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getMessage(): string {}
 
@@ -5442,7 +5748,7 @@ namespace MongoDB\Driver\Exception {
 		 * <p>Returns previous exception (the third parameter of <code>Exception::__construct()</code>).</p>
 		 * @return Throwable <p>Returns the previous Throwable if available or <b><code>NULL</code></b> otherwise.</p>
 		 * @link http://php.net/manual/en/exception.getprevious.php
-		 * @since PHP 5 >= 5.3.0, PHP 7
+		 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8
 		 */
 		final public function getPrevious(): \Throwable {}
 
@@ -5451,7 +5757,7 @@ namespace MongoDB\Driver\Exception {
 		 * <p>Returns the Exception stack trace.</p>
 		 * @return array <p>Returns the Exception stack trace as an <code>array</code>.</p>
 		 * @link http://php.net/manual/en/exception.gettrace.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getTrace(): array {}
 
@@ -5460,15 +5766,15 @@ namespace MongoDB\Driver\Exception {
 		 * <p>Returns the Exception stack trace as a string.</p>
 		 * @return string <p>Returns the Exception stack trace as a string.</p>
 		 * @link http://php.net/manual/en/exception.gettraceasstring.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getTraceAsString(): string {}
 
 		/**
 		 * Returns whether an error label is associated with an exception
-		 * <p>Returns whether the <code>errorLabel</code> has been set for this exception. Error labels are set by either the server or the driver to indicated specific situations on which you might want to decide on how you want to handle a specific exception. A common situation might be to find out whether you can safely retry a transaction that failed due to a transient error (like a networking issue, or a transaction conflict). Examples of error labels are <i>TransientTransactionError</i> and <i>UnknownTransactionCommitResult</i>.</p>
-		 * @param string $errorLabel <p>The name of the <i>errorLabel</i> to test for.</p>
-		 * @return bool <p>Whether the given <i>errorLabel</i> is associated with this exception.</p>
+		 * <p>Returns whether the <code>errorLabel</code> has been set for this exception. Error labels are set by either the server or the driver to indicated specific situations on which you might want to decide on how you want to handle a specific exception. A common situation might be to find out whether you can safely retry a transaction that failed due to a transient error (like a networking issue, or a transaction conflict). Examples of error labels are <code>TransientTransactionError</code> and <code>UnknownTransactionCommitResult</code>.</p>
+		 * @param string $errorLabel <p>The name of the <code>errorLabel</code> to test for.</p>
+		 * @return bool <p>Whether the given <code>errorLabel</code> is associated with this exception.</p>
 		 * @link http://php.net/manual/en/mongodb-driver-runtimeexception.haserrorlabel.php
 		 * @see MongoDB\Driver\Session::commitTransaction()
 		 * @since mongodb >= 1.6.0
@@ -5512,7 +5818,7 @@ namespace MongoDB\Driver\Exception {
 		 * <p>Tries to clone the Exception, which results in Fatal error.</p>
 		 * @return void <p>No value is returned.</p>
 		 * @link http://php.net/manual/en/exception.clone.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final private function __clone() {}
 
@@ -5521,16 +5827,16 @@ namespace MongoDB\Driver\Exception {
 		 * <p>Returns the <code>string</code> representation of the exception.</p>
 		 * @return string <p>Returns the <code>string</code> representation of the exception.</p>
 		 * @link http://php.net/manual/en/exception.tostring.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		public function __toString(): string {}
 
 		/**
 		 * Gets the Exception code
 		 * <p>Returns the Exception code.</p>
-		 * @return mixed <p>Returns the exception code as <code>integer</code> in Exception but possibly as other type in Exception descendants (for example as <code>string</code> in PDOException).</p>
+		 * @return mixed <p>Returns the exception code as <code>int</code> in Exception but possibly as other type in Exception descendants (for example as <code>string</code> in PDOException).</p>
 		 * @link http://php.net/manual/en/exception.getcode.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getCode() {}
 
@@ -5539,7 +5845,7 @@ namespace MongoDB\Driver\Exception {
 		 * <p>Get the name of the file in which the exception was created.</p>
 		 * @return string <p>Returns the filename in which the exception was created.</p>
 		 * @link http://php.net/manual/en/exception.getfile.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getFile(): string {}
 
@@ -5548,7 +5854,7 @@ namespace MongoDB\Driver\Exception {
 		 * <p>Get line number where the exception was created.</p>
 		 * @return int <p>Returns the line number where the exception was created.</p>
 		 * @link http://php.net/manual/en/exception.getline.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getLine(): int {}
 
@@ -5557,7 +5863,7 @@ namespace MongoDB\Driver\Exception {
 		 * <p>Returns the Exception message.</p>
 		 * @return string <p>Returns the Exception message as a string.</p>
 		 * @link http://php.net/manual/en/exception.getmessage.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getMessage(): string {}
 
@@ -5566,7 +5872,7 @@ namespace MongoDB\Driver\Exception {
 		 * <p>Returns previous exception (the third parameter of <code>Exception::__construct()</code>).</p>
 		 * @return Throwable <p>Returns the previous Throwable if available or <b><code>NULL</code></b> otherwise.</p>
 		 * @link http://php.net/manual/en/exception.getprevious.php
-		 * @since PHP 5 >= 5.3.0, PHP 7
+		 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8
 		 */
 		final public function getPrevious(): \Throwable {}
 
@@ -5575,7 +5881,7 @@ namespace MongoDB\Driver\Exception {
 		 * <p>Returns the Exception stack trace.</p>
 		 * @return array <p>Returns the Exception stack trace as an <code>array</code>.</p>
 		 * @link http://php.net/manual/en/exception.gettrace.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getTrace(): array {}
 
@@ -5584,7 +5890,7 @@ namespace MongoDB\Driver\Exception {
 		 * <p>Returns the Exception stack trace as a string.</p>
 		 * @return string <p>Returns the Exception stack trace as a string.</p>
 		 * @link http://php.net/manual/en/exception.gettraceasstring.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getTraceAsString(): string {}
 	}
@@ -5625,7 +5931,7 @@ namespace MongoDB\Driver\Exception {
 		 * <p>Tries to clone the Exception, which results in Fatal error.</p>
 		 * @return void <p>No value is returned.</p>
 		 * @link http://php.net/manual/en/exception.clone.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final private function __clone() {}
 
@@ -5634,16 +5940,16 @@ namespace MongoDB\Driver\Exception {
 		 * <p>Returns the <code>string</code> representation of the exception.</p>
 		 * @return string <p>Returns the <code>string</code> representation of the exception.</p>
 		 * @link http://php.net/manual/en/exception.tostring.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		public function __toString(): string {}
 
 		/**
 		 * Gets the Exception code
 		 * <p>Returns the Exception code.</p>
-		 * @return mixed <p>Returns the exception code as <code>integer</code> in Exception but possibly as other type in Exception descendants (for example as <code>string</code> in PDOException).</p>
+		 * @return mixed <p>Returns the exception code as <code>int</code> in Exception but possibly as other type in Exception descendants (for example as <code>string</code> in PDOException).</p>
 		 * @link http://php.net/manual/en/exception.getcode.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getCode() {}
 
@@ -5652,7 +5958,7 @@ namespace MongoDB\Driver\Exception {
 		 * <p>Get the name of the file in which the exception was created.</p>
 		 * @return string <p>Returns the filename in which the exception was created.</p>
 		 * @link http://php.net/manual/en/exception.getfile.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getFile(): string {}
 
@@ -5661,7 +5967,7 @@ namespace MongoDB\Driver\Exception {
 		 * <p>Get line number where the exception was created.</p>
 		 * @return int <p>Returns the line number where the exception was created.</p>
 		 * @link http://php.net/manual/en/exception.getline.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getLine(): int {}
 
@@ -5670,7 +5976,7 @@ namespace MongoDB\Driver\Exception {
 		 * <p>Returns the Exception message.</p>
 		 * @return string <p>Returns the Exception message as a string.</p>
 		 * @link http://php.net/manual/en/exception.getmessage.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getMessage(): string {}
 
@@ -5679,7 +5985,7 @@ namespace MongoDB\Driver\Exception {
 		 * <p>Returns previous exception (the third parameter of <code>Exception::__construct()</code>).</p>
 		 * @return Throwable <p>Returns the previous Throwable if available or <b><code>NULL</code></b> otherwise.</p>
 		 * @link http://php.net/manual/en/exception.getprevious.php
-		 * @since PHP 5 >= 5.3.0, PHP 7
+		 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8
 		 */
 		final public function getPrevious(): \Throwable {}
 
@@ -5688,7 +5994,7 @@ namespace MongoDB\Driver\Exception {
 		 * <p>Returns the Exception stack trace.</p>
 		 * @return array <p>Returns the Exception stack trace as an <code>array</code>.</p>
 		 * @link http://php.net/manual/en/exception.gettrace.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getTrace(): array {}
 
@@ -5697,7 +6003,7 @@ namespace MongoDB\Driver\Exception {
 		 * <p>Returns the Exception stack trace as a string.</p>
 		 * @return string <p>Returns the Exception stack trace as a string.</p>
 		 * @link http://php.net/manual/en/exception.gettraceasstring.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getTraceAsString(): string {}
 	}
@@ -5710,7 +6016,7 @@ namespace MongoDB\Driver\Exception {
 	class RuntimeException extends \RuntimeException implements \MongoDB\Driver\Exception\Exception {
 
 		/**
-		 * @var bool <p>Contains an array of error labels to go with an exception. For example, error labels can be used to detect whether a transaction can be retried safely if the <i>TransientTransactionError</i> label is present. The existence of a specific error label should be tested for with the <code>MongoDB\Driver\Exception\RuntimeException::hasErrorLabel()</code>, instead of interpreting this <i>errorLabels</i> property manually.</p>
+		 * @var array|null <p>Contains an array of error labels to go with an exception. For example, error labels can be used to detect whether a transaction can be retried safely if the <code>TransientTransactionError</code> label is present. The existence of a specific error label should be tested for with the <code>MongoDB\Driver\Exception\RuntimeException::hasErrorLabel()</code>, instead of interpreting this <code>errorLabels</code> property manually.</p>
 		 * @link http://php.net/manual/en/class.mongodb-driver-exception-runtimeexception.php#mongodb-driver-exception-runtimeexception.props.errorlabels
 		 */
 		protected $errorLabels;
@@ -5744,7 +6050,7 @@ namespace MongoDB\Driver\Exception {
 		 * <p>Tries to clone the Exception, which results in Fatal error.</p>
 		 * @return void <p>No value is returned.</p>
 		 * @link http://php.net/manual/en/exception.clone.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final private function __clone() {}
 
@@ -5753,16 +6059,16 @@ namespace MongoDB\Driver\Exception {
 		 * <p>Returns the <code>string</code> representation of the exception.</p>
 		 * @return string <p>Returns the <code>string</code> representation of the exception.</p>
 		 * @link http://php.net/manual/en/exception.tostring.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		public function __toString(): string {}
 
 		/**
 		 * Gets the Exception code
 		 * <p>Returns the Exception code.</p>
-		 * @return mixed <p>Returns the exception code as <code>integer</code> in Exception but possibly as other type in Exception descendants (for example as <code>string</code> in PDOException).</p>
+		 * @return mixed <p>Returns the exception code as <code>int</code> in Exception but possibly as other type in Exception descendants (for example as <code>string</code> in PDOException).</p>
 		 * @link http://php.net/manual/en/exception.getcode.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getCode() {}
 
@@ -5771,7 +6077,7 @@ namespace MongoDB\Driver\Exception {
 		 * <p>Get the name of the file in which the exception was created.</p>
 		 * @return string <p>Returns the filename in which the exception was created.</p>
 		 * @link http://php.net/manual/en/exception.getfile.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getFile(): string {}
 
@@ -5780,7 +6086,7 @@ namespace MongoDB\Driver\Exception {
 		 * <p>Get line number where the exception was created.</p>
 		 * @return int <p>Returns the line number where the exception was created.</p>
 		 * @link http://php.net/manual/en/exception.getline.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getLine(): int {}
 
@@ -5789,7 +6095,7 @@ namespace MongoDB\Driver\Exception {
 		 * <p>Returns the Exception message.</p>
 		 * @return string <p>Returns the Exception message as a string.</p>
 		 * @link http://php.net/manual/en/exception.getmessage.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getMessage(): string {}
 
@@ -5798,7 +6104,7 @@ namespace MongoDB\Driver\Exception {
 		 * <p>Returns previous exception (the third parameter of <code>Exception::__construct()</code>).</p>
 		 * @return Throwable <p>Returns the previous Throwable if available or <b><code>NULL</code></b> otherwise.</p>
 		 * @link http://php.net/manual/en/exception.getprevious.php
-		 * @since PHP 5 >= 5.3.0, PHP 7
+		 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8
 		 */
 		final public function getPrevious(): \Throwable {}
 
@@ -5807,7 +6113,7 @@ namespace MongoDB\Driver\Exception {
 		 * <p>Returns the Exception stack trace.</p>
 		 * @return array <p>Returns the Exception stack trace as an <code>array</code>.</p>
 		 * @link http://php.net/manual/en/exception.gettrace.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getTrace(): array {}
 
@@ -5816,15 +6122,15 @@ namespace MongoDB\Driver\Exception {
 		 * <p>Returns the Exception stack trace as a string.</p>
 		 * @return string <p>Returns the Exception stack trace as a string.</p>
 		 * @link http://php.net/manual/en/exception.gettraceasstring.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getTraceAsString(): string {}
 
 		/**
 		 * Returns whether an error label is associated with an exception
-		 * <p>Returns whether the <code>errorLabel</code> has been set for this exception. Error labels are set by either the server or the driver to indicated specific situations on which you might want to decide on how you want to handle a specific exception. A common situation might be to find out whether you can safely retry a transaction that failed due to a transient error (like a networking issue, or a transaction conflict). Examples of error labels are <i>TransientTransactionError</i> and <i>UnknownTransactionCommitResult</i>.</p>
-		 * @param string $errorLabel <p>The name of the <i>errorLabel</i> to test for.</p>
-		 * @return bool <p>Whether the given <i>errorLabel</i> is associated with this exception.</p>
+		 * <p>Returns whether the <code>errorLabel</code> has been set for this exception. Error labels are set by either the server or the driver to indicated specific situations on which you might want to decide on how you want to handle a specific exception. A common situation might be to find out whether you can safely retry a transaction that failed due to a transient error (like a networking issue, or a transaction conflict). Examples of error labels are <code>TransientTransactionError</code> and <code>UnknownTransactionCommitResult</code>.</p>
+		 * @param string $errorLabel <p>The name of the <code>errorLabel</code> to test for.</p>
+		 * @return bool <p>Whether the given <code>errorLabel</code> is associated with this exception.</p>
 		 * @link http://php.net/manual/en/mongodb-driver-runtimeexception.haserrorlabel.php
 		 * @see MongoDB\Driver\Session::commitTransaction()
 		 * @since mongodb >= 1.6.0
@@ -5840,7 +6146,7 @@ namespace MongoDB\Driver\Exception {
 	class ServerException extends \MongoDB\Driver\Exception\RuntimeException implements \MongoDB\Driver\Exception\Exception {
 
 		/**
-		 * @var bool <p>Contains an array of error labels to go with an exception. For example, error labels can be used to detect whether a transaction can be retried safely if the <i>TransientTransactionError</i> label is present. The existence of a specific error label should be tested for with the <code>MongoDB\Driver\Exception\RuntimeException::hasErrorLabel()</code>, instead of interpreting this <i>errorLabels</i> property manually.</p>
+		 * @var array|null <p>Contains an array of error labels to go with an exception. For example, error labels can be used to detect whether a transaction can be retried safely if the <code>TransientTransactionError</code> label is present. The existence of a specific error label should be tested for with the <code>MongoDB\Driver\Exception\RuntimeException::hasErrorLabel()</code>, instead of interpreting this <code>errorLabels</code> property manually.</p>
 		 * @link http://php.net/manual/en/class.mongodb-driver-exception-runtimeexception.php#mongodb-driver-exception-runtimeexception.props.errorlabels
 		 */
 		protected $errorLabels;
@@ -5874,7 +6180,7 @@ namespace MongoDB\Driver\Exception {
 		 * <p>Tries to clone the Exception, which results in Fatal error.</p>
 		 * @return void <p>No value is returned.</p>
 		 * @link http://php.net/manual/en/exception.clone.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final private function __clone() {}
 
@@ -5883,16 +6189,16 @@ namespace MongoDB\Driver\Exception {
 		 * <p>Returns the <code>string</code> representation of the exception.</p>
 		 * @return string <p>Returns the <code>string</code> representation of the exception.</p>
 		 * @link http://php.net/manual/en/exception.tostring.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		public function __toString(): string {}
 
 		/**
 		 * Gets the Exception code
 		 * <p>Returns the Exception code.</p>
-		 * @return mixed <p>Returns the exception code as <code>integer</code> in Exception but possibly as other type in Exception descendants (for example as <code>string</code> in PDOException).</p>
+		 * @return mixed <p>Returns the exception code as <code>int</code> in Exception but possibly as other type in Exception descendants (for example as <code>string</code> in PDOException).</p>
 		 * @link http://php.net/manual/en/exception.getcode.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getCode() {}
 
@@ -5901,7 +6207,7 @@ namespace MongoDB\Driver\Exception {
 		 * <p>Get the name of the file in which the exception was created.</p>
 		 * @return string <p>Returns the filename in which the exception was created.</p>
 		 * @link http://php.net/manual/en/exception.getfile.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getFile(): string {}
 
@@ -5910,7 +6216,7 @@ namespace MongoDB\Driver\Exception {
 		 * <p>Get line number where the exception was created.</p>
 		 * @return int <p>Returns the line number where the exception was created.</p>
 		 * @link http://php.net/manual/en/exception.getline.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getLine(): int {}
 
@@ -5919,7 +6225,7 @@ namespace MongoDB\Driver\Exception {
 		 * <p>Returns the Exception message.</p>
 		 * @return string <p>Returns the Exception message as a string.</p>
 		 * @link http://php.net/manual/en/exception.getmessage.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getMessage(): string {}
 
@@ -5928,7 +6234,7 @@ namespace MongoDB\Driver\Exception {
 		 * <p>Returns previous exception (the third parameter of <code>Exception::__construct()</code>).</p>
 		 * @return Throwable <p>Returns the previous Throwable if available or <b><code>NULL</code></b> otherwise.</p>
 		 * @link http://php.net/manual/en/exception.getprevious.php
-		 * @since PHP 5 >= 5.3.0, PHP 7
+		 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8
 		 */
 		final public function getPrevious(): \Throwable {}
 
@@ -5937,7 +6243,7 @@ namespace MongoDB\Driver\Exception {
 		 * <p>Returns the Exception stack trace.</p>
 		 * @return array <p>Returns the Exception stack trace as an <code>array</code>.</p>
 		 * @link http://php.net/manual/en/exception.gettrace.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getTrace(): array {}
 
@@ -5946,15 +6252,15 @@ namespace MongoDB\Driver\Exception {
 		 * <p>Returns the Exception stack trace as a string.</p>
 		 * @return string <p>Returns the Exception stack trace as a string.</p>
 		 * @link http://php.net/manual/en/exception.gettraceasstring.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getTraceAsString(): string {}
 
 		/**
 		 * Returns whether an error label is associated with an exception
-		 * <p>Returns whether the <code>errorLabel</code> has been set for this exception. Error labels are set by either the server or the driver to indicated specific situations on which you might want to decide on how you want to handle a specific exception. A common situation might be to find out whether you can safely retry a transaction that failed due to a transient error (like a networking issue, or a transaction conflict). Examples of error labels are <i>TransientTransactionError</i> and <i>UnknownTransactionCommitResult</i>.</p>
-		 * @param string $errorLabel <p>The name of the <i>errorLabel</i> to test for.</p>
-		 * @return bool <p>Whether the given <i>errorLabel</i> is associated with this exception.</p>
+		 * <p>Returns whether the <code>errorLabel</code> has been set for this exception. Error labels are set by either the server or the driver to indicated specific situations on which you might want to decide on how you want to handle a specific exception. A common situation might be to find out whether you can safely retry a transaction that failed due to a transient error (like a networking issue, or a transaction conflict). Examples of error labels are <code>TransientTransactionError</code> and <code>UnknownTransactionCommitResult</code>.</p>
+		 * @param string $errorLabel <p>The name of the <code>errorLabel</code> to test for.</p>
+		 * @return bool <p>Whether the given <code>errorLabel</code> is associated with this exception.</p>
 		 * @link http://php.net/manual/en/mongodb-driver-runtimeexception.haserrorlabel.php
 		 * @see MongoDB\Driver\Session::commitTransaction()
 		 * @since mongodb >= 1.6.0
@@ -5970,7 +6276,7 @@ namespace MongoDB\Driver\Exception {
 	final class SSLConnectionException extends \MongoDB\Driver\Exception\ConnectionException implements \MongoDB\Driver\Exception\Exception {
 
 		/**
-		 * @var bool <p>Contains an array of error labels to go with an exception. For example, error labels can be used to detect whether a transaction can be retried safely if the <i>TransientTransactionError</i> label is present. The existence of a specific error label should be tested for with the <code>MongoDB\Driver\Exception\RuntimeException::hasErrorLabel()</code>, instead of interpreting this <i>errorLabels</i> property manually.</p>
+		 * @var array|null <p>Contains an array of error labels to go with an exception. For example, error labels can be used to detect whether a transaction can be retried safely if the <code>TransientTransactionError</code> label is present. The existence of a specific error label should be tested for with the <code>MongoDB\Driver\Exception\RuntimeException::hasErrorLabel()</code>, instead of interpreting this <code>errorLabels</code> property manually.</p>
 		 * @link http://php.net/manual/en/class.mongodb-driver-exception-runtimeexception.php#mongodb-driver-exception-runtimeexception.props.errorlabels
 		 */
 		protected $errorLabels;
@@ -6004,7 +6310,7 @@ namespace MongoDB\Driver\Exception {
 		 * <p>Tries to clone the Exception, which results in Fatal error.</p>
 		 * @return void <p>No value is returned.</p>
 		 * @link http://php.net/manual/en/exception.clone.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final private function __clone() {}
 
@@ -6013,16 +6319,16 @@ namespace MongoDB\Driver\Exception {
 		 * <p>Returns the <code>string</code> representation of the exception.</p>
 		 * @return string <p>Returns the <code>string</code> representation of the exception.</p>
 		 * @link http://php.net/manual/en/exception.tostring.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		public function __toString(): string {}
 
 		/**
 		 * Gets the Exception code
 		 * <p>Returns the Exception code.</p>
-		 * @return mixed <p>Returns the exception code as <code>integer</code> in Exception but possibly as other type in Exception descendants (for example as <code>string</code> in PDOException).</p>
+		 * @return mixed <p>Returns the exception code as <code>int</code> in Exception but possibly as other type in Exception descendants (for example as <code>string</code> in PDOException).</p>
 		 * @link http://php.net/manual/en/exception.getcode.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getCode() {}
 
@@ -6031,7 +6337,7 @@ namespace MongoDB\Driver\Exception {
 		 * <p>Get the name of the file in which the exception was created.</p>
 		 * @return string <p>Returns the filename in which the exception was created.</p>
 		 * @link http://php.net/manual/en/exception.getfile.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getFile(): string {}
 
@@ -6040,7 +6346,7 @@ namespace MongoDB\Driver\Exception {
 		 * <p>Get line number where the exception was created.</p>
 		 * @return int <p>Returns the line number where the exception was created.</p>
 		 * @link http://php.net/manual/en/exception.getline.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getLine(): int {}
 
@@ -6049,7 +6355,7 @@ namespace MongoDB\Driver\Exception {
 		 * <p>Returns the Exception message.</p>
 		 * @return string <p>Returns the Exception message as a string.</p>
 		 * @link http://php.net/manual/en/exception.getmessage.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getMessage(): string {}
 
@@ -6058,7 +6364,7 @@ namespace MongoDB\Driver\Exception {
 		 * <p>Returns previous exception (the third parameter of <code>Exception::__construct()</code>).</p>
 		 * @return Throwable <p>Returns the previous Throwable if available or <b><code>NULL</code></b> otherwise.</p>
 		 * @link http://php.net/manual/en/exception.getprevious.php
-		 * @since PHP 5 >= 5.3.0, PHP 7
+		 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8
 		 */
 		final public function getPrevious(): \Throwable {}
 
@@ -6067,7 +6373,7 @@ namespace MongoDB\Driver\Exception {
 		 * <p>Returns the Exception stack trace.</p>
 		 * @return array <p>Returns the Exception stack trace as an <code>array</code>.</p>
 		 * @link http://php.net/manual/en/exception.gettrace.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getTrace(): array {}
 
@@ -6076,15 +6382,15 @@ namespace MongoDB\Driver\Exception {
 		 * <p>Returns the Exception stack trace as a string.</p>
 		 * @return string <p>Returns the Exception stack trace as a string.</p>
 		 * @link http://php.net/manual/en/exception.gettraceasstring.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getTraceAsString(): string {}
 
 		/**
 		 * Returns whether an error label is associated with an exception
-		 * <p>Returns whether the <code>errorLabel</code> has been set for this exception. Error labels are set by either the server or the driver to indicated specific situations on which you might want to decide on how you want to handle a specific exception. A common situation might be to find out whether you can safely retry a transaction that failed due to a transient error (like a networking issue, or a transaction conflict). Examples of error labels are <i>TransientTransactionError</i> and <i>UnknownTransactionCommitResult</i>.</p>
-		 * @param string $errorLabel <p>The name of the <i>errorLabel</i> to test for.</p>
-		 * @return bool <p>Whether the given <i>errorLabel</i> is associated with this exception.</p>
+		 * <p>Returns whether the <code>errorLabel</code> has been set for this exception. Error labels are set by either the server or the driver to indicated specific situations on which you might want to decide on how you want to handle a specific exception. A common situation might be to find out whether you can safely retry a transaction that failed due to a transient error (like a networking issue, or a transaction conflict). Examples of error labels are <code>TransientTransactionError</code> and <code>UnknownTransactionCommitResult</code>.</p>
+		 * @param string $errorLabel <p>The name of the <code>errorLabel</code> to test for.</p>
+		 * @return bool <p>Whether the given <code>errorLabel</code> is associated with this exception.</p>
 		 * @link http://php.net/manual/en/mongodb-driver-runtimeexception.haserrorlabel.php
 		 * @see MongoDB\Driver\Session::commitTransaction()
 		 * @since mongodb >= 1.6.0
@@ -6128,7 +6434,7 @@ namespace MongoDB\Driver\Exception {
 		 * <p>Tries to clone the Exception, which results in Fatal error.</p>
 		 * @return void <p>No value is returned.</p>
 		 * @link http://php.net/manual/en/exception.clone.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final private function __clone() {}
 
@@ -6137,16 +6443,16 @@ namespace MongoDB\Driver\Exception {
 		 * <p>Returns the <code>string</code> representation of the exception.</p>
 		 * @return string <p>Returns the <code>string</code> representation of the exception.</p>
 		 * @link http://php.net/manual/en/exception.tostring.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		public function __toString(): string {}
 
 		/**
 		 * Gets the Exception code
 		 * <p>Returns the Exception code.</p>
-		 * @return mixed <p>Returns the exception code as <code>integer</code> in Exception but possibly as other type in Exception descendants (for example as <code>string</code> in PDOException).</p>
+		 * @return mixed <p>Returns the exception code as <code>int</code> in Exception but possibly as other type in Exception descendants (for example as <code>string</code> in PDOException).</p>
 		 * @link http://php.net/manual/en/exception.getcode.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getCode() {}
 
@@ -6155,7 +6461,7 @@ namespace MongoDB\Driver\Exception {
 		 * <p>Get the name of the file in which the exception was created.</p>
 		 * @return string <p>Returns the filename in which the exception was created.</p>
 		 * @link http://php.net/manual/en/exception.getfile.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getFile(): string {}
 
@@ -6164,7 +6470,7 @@ namespace MongoDB\Driver\Exception {
 		 * <p>Get line number where the exception was created.</p>
 		 * @return int <p>Returns the line number where the exception was created.</p>
 		 * @link http://php.net/manual/en/exception.getline.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getLine(): int {}
 
@@ -6173,7 +6479,7 @@ namespace MongoDB\Driver\Exception {
 		 * <p>Returns the Exception message.</p>
 		 * @return string <p>Returns the Exception message as a string.</p>
 		 * @link http://php.net/manual/en/exception.getmessage.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getMessage(): string {}
 
@@ -6182,7 +6488,7 @@ namespace MongoDB\Driver\Exception {
 		 * <p>Returns previous exception (the third parameter of <code>Exception::__construct()</code>).</p>
 		 * @return Throwable <p>Returns the previous Throwable if available or <b><code>NULL</code></b> otherwise.</p>
 		 * @link http://php.net/manual/en/exception.getprevious.php
-		 * @since PHP 5 >= 5.3.0, PHP 7
+		 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8
 		 */
 		final public function getPrevious(): \Throwable {}
 
@@ -6191,7 +6497,7 @@ namespace MongoDB\Driver\Exception {
 		 * <p>Returns the Exception stack trace.</p>
 		 * @return array <p>Returns the Exception stack trace as an <code>array</code>.</p>
 		 * @link http://php.net/manual/en/exception.gettrace.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getTrace(): array {}
 
@@ -6200,7 +6506,7 @@ namespace MongoDB\Driver\Exception {
 		 * <p>Returns the Exception stack trace as a string.</p>
 		 * @return string <p>Returns the Exception stack trace as a string.</p>
 		 * @link http://php.net/manual/en/exception.gettraceasstring.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getTraceAsString(): string {}
 	}
@@ -6219,7 +6525,7 @@ namespace MongoDB\Driver\Exception {
 		protected $writeResult;
 
 		/**
-		 * @var bool <p>Contains an array of error labels to go with an exception. For example, error labels can be used to detect whether a transaction can be retried safely if the <i>TransientTransactionError</i> label is present. The existence of a specific error label should be tested for with the <code>MongoDB\Driver\Exception\RuntimeException::hasErrorLabel()</code>, instead of interpreting this <i>errorLabels</i> property manually.</p>
+		 * @var array|null <p>Contains an array of error labels to go with an exception. For example, error labels can be used to detect whether a transaction can be retried safely if the <code>TransientTransactionError</code> label is present. The existence of a specific error label should be tested for with the <code>MongoDB\Driver\Exception\RuntimeException::hasErrorLabel()</code>, instead of interpreting this <code>errorLabels</code> property manually.</p>
 		 * @link http://php.net/manual/en/class.mongodb-driver-exception-runtimeexception.php#mongodb-driver-exception-runtimeexception.props.errorlabels
 		 */
 		protected $errorLabels;
@@ -6253,7 +6559,7 @@ namespace MongoDB\Driver\Exception {
 		 * <p>Tries to clone the Exception, which results in Fatal error.</p>
 		 * @return void <p>No value is returned.</p>
 		 * @link http://php.net/manual/en/exception.clone.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final private function __clone() {}
 
@@ -6262,16 +6568,16 @@ namespace MongoDB\Driver\Exception {
 		 * <p>Returns the <code>string</code> representation of the exception.</p>
 		 * @return string <p>Returns the <code>string</code> representation of the exception.</p>
 		 * @link http://php.net/manual/en/exception.tostring.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		public function __toString(): string {}
 
 		/**
 		 * Gets the Exception code
 		 * <p>Returns the Exception code.</p>
-		 * @return mixed <p>Returns the exception code as <code>integer</code> in Exception but possibly as other type in Exception descendants (for example as <code>string</code> in PDOException).</p>
+		 * @return mixed <p>Returns the exception code as <code>int</code> in Exception but possibly as other type in Exception descendants (for example as <code>string</code> in PDOException).</p>
 		 * @link http://php.net/manual/en/exception.getcode.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getCode() {}
 
@@ -6280,7 +6586,7 @@ namespace MongoDB\Driver\Exception {
 		 * <p>Get the name of the file in which the exception was created.</p>
 		 * @return string <p>Returns the filename in which the exception was created.</p>
 		 * @link http://php.net/manual/en/exception.getfile.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getFile(): string {}
 
@@ -6289,7 +6595,7 @@ namespace MongoDB\Driver\Exception {
 		 * <p>Get line number where the exception was created.</p>
 		 * @return int <p>Returns the line number where the exception was created.</p>
 		 * @link http://php.net/manual/en/exception.getline.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getLine(): int {}
 
@@ -6298,7 +6604,7 @@ namespace MongoDB\Driver\Exception {
 		 * <p>Returns the Exception message.</p>
 		 * @return string <p>Returns the Exception message as a string.</p>
 		 * @link http://php.net/manual/en/exception.getmessage.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getMessage(): string {}
 
@@ -6307,7 +6613,7 @@ namespace MongoDB\Driver\Exception {
 		 * <p>Returns previous exception (the third parameter of <code>Exception::__construct()</code>).</p>
 		 * @return Throwable <p>Returns the previous Throwable if available or <b><code>NULL</code></b> otherwise.</p>
 		 * @link http://php.net/manual/en/exception.getprevious.php
-		 * @since PHP 5 >= 5.3.0, PHP 7
+		 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8
 		 */
 		final public function getPrevious(): \Throwable {}
 
@@ -6316,7 +6622,7 @@ namespace MongoDB\Driver\Exception {
 		 * <p>Returns the Exception stack trace.</p>
 		 * @return array <p>Returns the Exception stack trace as an <code>array</code>.</p>
 		 * @link http://php.net/manual/en/exception.gettrace.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getTrace(): array {}
 
@@ -6325,7 +6631,7 @@ namespace MongoDB\Driver\Exception {
 		 * <p>Returns the Exception stack trace as a string.</p>
 		 * @return string <p>Returns the Exception stack trace as a string.</p>
 		 * @link http://php.net/manual/en/exception.gettraceasstring.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getTraceAsString(): string {}
 
@@ -6341,9 +6647,9 @@ namespace MongoDB\Driver\Exception {
 
 		/**
 		 * Returns whether an error label is associated with an exception
-		 * <p>Returns whether the <code>errorLabel</code> has been set for this exception. Error labels are set by either the server or the driver to indicated specific situations on which you might want to decide on how you want to handle a specific exception. A common situation might be to find out whether you can safely retry a transaction that failed due to a transient error (like a networking issue, or a transaction conflict). Examples of error labels are <i>TransientTransactionError</i> and <i>UnknownTransactionCommitResult</i>.</p>
-		 * @param string $errorLabel <p>The name of the <i>errorLabel</i> to test for.</p>
-		 * @return bool <p>Whether the given <i>errorLabel</i> is associated with this exception.</p>
+		 * <p>Returns whether the <code>errorLabel</code> has been set for this exception. Error labels are set by either the server or the driver to indicated specific situations on which you might want to decide on how you want to handle a specific exception. A common situation might be to find out whether you can safely retry a transaction that failed due to a transient error (like a networking issue, or a transaction conflict). Examples of error labels are <code>TransientTransactionError</code> and <code>UnknownTransactionCommitResult</code>.</p>
+		 * @param string $errorLabel <p>The name of the <code>errorLabel</code> to test for.</p>
+		 * @return bool <p>Whether the given <code>errorLabel</code> is associated with this exception.</p>
 		 * @link http://php.net/manual/en/mongodb-driver-runtimeexception.haserrorlabel.php
 		 * @see MongoDB\Driver\Session::commitTransaction()
 		 * @since mongodb >= 1.6.0
@@ -6366,20 +6672,30 @@ namespace MongoDB\Driver {
 
 		/**
 		 * Create new MongoDB Manager
-		 * <p>Constructs a new MongoDB\Driver\Manager object with the specified options.</p><p><b>Note</b>:  Per the Server Discovery and Monitoring Specification, this constructor performs no I/O. Connections will be initialized on demand, when the first operation is executed. </p><p><b>Note</b>:  On Unix platforms, the MongoDB driver is sensitive to scripts that use the fork() system call without also calling exec(). Users are advised not to re-use MongoDB\Driver\Manager instances in a forked child process. </p>
-		 * @param string $uri <p>A mongodb:// connection URI:</p> <pre>mongodb://[username:password@]host1[:port1][,host2[:port2],...[,hostN[:portN]]][/[database][&#63;options]]</pre>   <p>For details on supported options, see Connection String Options in the MongoDB manual. Connection pool options are not supported, as the PHP driver does not implement connection pools.</p> <p>The <code>uri</code> is a URL, hence any special characters in its components need to be URL encoded according to RFC 3986. This is particularly relevant to the username and password, which can often include special characters such as <i>@</i>, <i>:</i>, or <i>%</i>. When connecting via a Unix domain socket, the socket path may contain special characters such as slashes and must be encoded. The <code>rawurlencode()</code> function may be used to encode constituent parts of the URI.</p>
-		 * @param array $uriOptions <p>Additional connection string options, which will overwrite any options with the same name in the <code>uri</code> parameter.</p> <p></p> <b>uriOptions</b>   Option Type Description     appname <code>string</code>  <p>MongoDB 3.4+ has the ability to annotate connections with metadata provided by the connecting client. This metadata is included in the server's logs upon establishing a connection and also recorded in slow query logs when database profiling is enabled.</p> <p>This option may be used to specify an application name, which will be included in the metadata. The value cannot exceed 128 characters in length.</p>    authMechanism <code>string</code>  <p>The authentication mechanism that MongoDB will use to authenticate the connection. For additional details and a list of supported values, see Authentication Options in the MongoDB manual.</p>    authMechanismProperties <code>array</code>  <p>Properties for the selected authentication mechanism. For additional details and a list of supported properties, see the Driver Authentication Specification.</p> <p><b>Note</b>:  When not specified in the URI string, this option is expressed as an array of key/value pairs. The keys and values in this array should be strings. </p>    authSource <code>string</code>  <p>The database name associated with the user's credentials. Defaults to the database component of the connection URI.</p> <p>For authentication mechanisms that delegate credential storage to other services (e.g. GSSAPI), this should be <i>"$external"</i>.</p>    canonicalizeHostname <code>boolean</code>  <p>If <b><code>TRUE</code></b>, the driver will resolve the real hostname for the server IP address before authenticating via SASL. Some underlying GSSAPI layers already do this, but the functionality may be disabled in their config (e.g. <i>krb.conf</i>). Defaults to <b><code>FALSE</code></b>.</p> <p>This option is a deprecated alias for the <i>"CANONICALIZE_HOST_NAME"</i> property of the <i>"authMechanismProperties"</i> URI option.</p>    compressors <code>string</code>  <p>A prioritized, comma-delimited list of compressors that the client wants to use. Messages are only compressed if the client and server share any compressors in common, and the compressor used in each direction will depend on the individual configuration of the server or driver. See the Driver Compression Specification for more information.</p>    connectTimeoutMS <code>integer</code>  <p>The time in milliseconds to attempt a connection before timing out. Defaults to 10,000 milliseconds.</p>    gssapiServiceName <code>string</code>  <p>Set the Kerberos service name when connecting to Kerberized MongoDB instances. This value must match the service name set on MongoDB instances (i.e. saslServiceName server parameter). Defaults to <i>"mongodb"</i>.</p> <p>This option is a deprecated alias for the <i>"SERVICE_NAME"</i> property of the <i>"authMechanismProperties"</i> URI option.</p>    heartbeatFrequencyMS <code>integer</code>  <p>Specifies the interval in milliseconds between the driver's checks of the MongoDB topology, counted from the end of the previous check until the beginning of the next one. Defaults to 60,000 milliseconds.</p> <p>Per the Server Discovery and Monitoring Specification, this value cannot be less than 500 milliseconds.</p>    journal <code>boolean</code>  <p>Corresponds to the default write concern's <code>journal</code> parameter. If <b><code>TRUE</code></b>, writes will require acknowledgement from MongoDB that the operation has been written to the journal. For details, see MongoDB\Driver\WriteConcern.</p>    localThresholdMS <code>integer</code>  <p>The size in milliseconds of the latency window for selecting among multiple suitable MongoDB instances while resolving a read preference. Defaults to 15 milliseconds.</p>    maxStalenessSeconds <code>integer</code>  <p>Corresponds to the read preference's <i>"maxStalenessSeconds"</i>. Specifies, in seconds, how stale a secondary can be before the client stops using it for read operations. By default, there is no maximum staleness and clients will not consider a secondary&rsquo;s lag when choosing where to direct a read operation. For details, see MongoDB\Driver\ReadPreference.</p> <p>If specified, the max staleness must be a signed 32-bit integer greater than or equal to <b><code>MongoDB\Driver\ReadPreference::SMALLEST_MAX_STALENESS_SECONDS</code></b> (i.e. 90 seconds).</p>    password <code>string</code>  The password for the user being authenticated. This option is useful if the password contains special characters, which would otherwise need to be URL encoded for the connection URI.    readConcernLevel <code>string</code>  Corresponds to the read concern's <code>level</code> parameter. Specifies the level of read isolation. For details, see MongoDB\Driver\ReadConcern.    readPreference <code>string</code>  <p>Corresponds to the read preferences's <code>mode</code> parameter. Defaults to <i>"primary"</i>. For details, see MongoDB\Driver\ReadPreference.</p>    readPreferenceTags <code>array</code>  <p>Corresponds to the read preferences's <code>tagSets</code> parameter. Tag sets allow you to target read operations to specific members of a replica set. For details, see MongoDB\Driver\ReadPreference.</p> <p><b>Note</b>:  When not specified in the URI string, this option is expressed as an array consistent with the format expected by <code>MongoDB\Driver\ReadPreference::__construct()</code>. </p>    replicaSet <code>string</code>  <p>Specifies the name of the replica set.</p>    retryWrites <code>boolean</code>  <p>If <b><code>TRUE</code></b>, the driver will automatically retry certain write operations that fail due to transient network errors or replica set elections. Defaults to <b><code>FALSE</code></b>.</p> <p>See Retryable Writes in the MongoDB manual for more information.</p>    safe <code>boolean</code>  <p>If <b><code>TRUE</code></b>, specifies <i>1</i> for the default write concern's <code>w</code> parameter. If <b><code>FALSE</code></b>, <i>0</i> is specified. For details, see MongoDB\Driver\WriteConcern.</p> <p>This option is deprecated and should not be used.</p>    serverSelectionTimeoutMS <code>integer</code>  <p>Specifies how long in milliseconds to block for server selection before throwing an exception. Defaults to 30,000 milliseconds.</p>    serverSelectionTryOnce <code>boolean</code>  <p>When <b><code>TRUE</code></b>, instructs the driver to scan the MongoDB deployment exactly once after server selection fails and then either select a server or raise an error. When <b><code>FALSE</code></b>, the driver blocks and searches for a server up to the <i>"serverSelectionTimeoutMS"</i> value. Defaults to <b><code>TRUE</code></b>.</p>    slaveOk <code>boolean</code>  <p>Specifies <i>"secondaryPreferred"</i> for the read preference mode if <b><code>TRUE</code></b>. For details, see MongoDB\Driver\ReadPreference.</p> <p>This option is deprecated and should not be used.</p>    socketCheckIntervalMS <code>integer</code>  <p>If a socket has not been used recently, the driver must check it via an <i>isMaster</i> command before using it for any operation. Defaults to 5,000 milliseconds.</p>    socketTimeoutMS <code>integer</code>  <p>The time in milliseconds to attempt a send or receive on a socket before timing out. Defaults to 300,000 milliseconds (i.e. five minutes).</p>    ssl <code>boolean</code>  <p>Initiates the connection with TLS/SSL if <b><code>TRUE</code></b>. Defaults to <b><code>FALSE</code></b>.</p>    username <code>string</code>  The username for the user being authenticated. This option is useful if the username contains special characters, which would otherwise need to be URL encoded for the connection URI.    w integer|string  <p>Corresponds to the default write concern's <code>w</code> parameter. For details, see MongoDB\Driver\WriteConcern.</p>    wTimeoutMS integer|string  <p>Corresponds to the default write concern's <code>wtimeout</code> parameter. Specifies a time limit, in milliseconds, for the write concern. For details, see MongoDB\Driver\WriteConcern.</p> <p>If specified, <i>wTimeoutMS</i> must be a signed 32-bit integer greater than or equal to zero.</p>    zlibCompressionLevel <code>integer</code>  <p>Specifies the compression level to use for the zlib compressor. This option has no effect if <i>zlib</i> is not included in the <i>"compressors"</i> URI option. See the Driver Compression Specification for more information.</p>
-		 * @param array $driverOptions <p></p> <b>driverOptions</b>   Option Type Description     allow_invalid_hostname <code>boolean</code>  <p>Disables hostname validation if <b><code>TRUE</code></b>. Defaults to <b><code>FALSE</code></b>.</p> <p>Allowing invalid hostnames may expose the driver to a man-in-the-middle attack.</p>    ca_dir <code>string</code>  <p>Path to a correctly hashed certificate directory. The system certificate store will be used by default.</p> <p>Falls back to the deprecated <i>"capath"</i> SSL context option if not specified.</p>    ca_file <code>string</code>  <p>Path to a certificate authority file. The system certificate store will be used by default.</p> <p>Falls back to the deprecated <i>"cafile"</i> SSL context option if not specified.</p>    crl_file <code>string</code> Path to a certificate revocation list file.   pem_file <code>string</code>  <p>Path to a PEM encoded certificate to use for client authentication.</p> <p>Falls back to the deprecated <i>"local_cert"</i> SSL context option if not specified.</p>    pem_pwd <code>string</code>  <p>Passphrase for the PEM encoded certificate (if applicable).</p> <p>Falls back to the deprecated <i>"passphrase"</i> SSL context option if not specified.</p>    context <code>resource</code>  <p>SSL context options to be used as fallbacks for other driver options (as specified). Note that the driver does not consult the default stream context.</p> <p>This option is supported for backwards compatibility, but should be considered deprecated.</p>    weak_cert_validation <code>boolean</code>  <p>Disables certificate validation if <b><code>TRUE</code></b>. Defaults to <b><code>FALSE</code></b></p> <p>Falls back to the deprecated <i>"allow_self_signed"</i> SSL context option if not specified.</p>
+		 * <p>Constructs a new MongoDB\Driver\Manager object with the specified options.</p><p><b>Note</b>:  Per the Server Discovery and Monitoring Specification, this constructor performs no I/O. Connections will be initialized on demand, when the first operation is executed. </p><p><b>Note</b>:  When specifying any SSL or TLS URI options via the connection string or <code>uriOptions</code> parameter, the driver will implicitly enable TLS for its connections. To avoid this, either explicitly disable the <code>tls</code> option or don't specify any TLS options. </p><p><b>Note</b>:  On Unix platforms, the MongoDB driver is sensitive to scripts that use the fork() system call without also calling exec(). Users are advised not to re-use MongoDB\Driver\Manager instances in a forked child process. </p>
+		 * @param string $uri <p>A mongodb:// connection URI:</p> <pre>mongodb://[username:password@]host1[:port1][,host2[:port2],...[,hostN[:portN]]][/[defaultAuthDb][&#63;options]]</pre>   <p>For details on supported URI options, see Connection String Options in the MongoDB manual. Connection pool options are not supported, as the PHP driver does not implement connection pools.</p> <p>The <code>uri</code> is a URL, hence any special characters in its components need to be URL encoded according to RFC 3986. This is particularly relevant to the username and password, which can often include special characters such as <code>@</code>, <code>:</code>, or <code>%</code>. When connecting via a Unix domain socket, the socket path may contain special characters such as slashes and must be encoded. The <code>rawurlencode()</code> function may be used to encode constituent parts of the URI.</p> <p>The <code>defaultAuthDb</code> component may be used to specify the database name associated with the user's credentials; however the <code>authSource</code> URI option will take priority if specified. If neither <code>defaultAuthDb</code> nor <code>authSource</code> are specified, the <code>admin</code> database will be used by default. The <code>defaultAuthDb</code> component has no effect in the absence of user credentials.</p>
+		 * @param array $uriOptions <p>Additional connection string options, which will overwrite any options with the same name in the <code>uri</code> parameter.</p> <p></p> <b>uriOptions</b>   Option Type Description     appname <code>string</code>  <p>MongoDB 3.4+ has the ability to annotate connections with metadata provided by the connecting client. This metadata is included in the server's logs upon establishing a connection and also recorded in slow query logs when database profiling is enabled.</p> <p>This option may be used to specify an application name, which will be included in the metadata. The value cannot exceed 128 characters in length.</p>    authMechanism <code>string</code>  <p>The authentication mechanism that MongoDB will use to authenticate the connection. For additional details and a list of supported values, see Authentication Options in the MongoDB manual.</p>    authMechanismProperties <code>array</code>  <p>Properties for the selected authentication mechanism. For additional details and a list of supported properties, see the Driver Authentication Specification.</p> <p><b>Note</b>:  When not specified in the URI string, this option is expressed as an array of key/value pairs. The keys and values in this array should be strings. </p>    authSource <code>string</code>  <p>The database name associated with the user's credentials. Defaults to the database component of the connection URI, or the <code>admin</code> database if both are unspecified.</p> <p>For authentication mechanisms that delegate credential storage to other services (e.g. GSSAPI), this should be <code>"$external"</code>.</p>    canonicalizeHostname <code>bool</code>  <p>If <b><code>TRUE</code></b>, the driver will resolve the real hostname for the server IP address before authenticating via SASL. Some underlying GSSAPI layers already do this, but the functionality may be disabled in their config (e.g. <code>krb.conf</code>). Defaults to <b><code>FALSE</code></b>.</p> <p>This option is a deprecated alias for the <code>"CANONICALIZE_HOST_NAME"</code> property of the <code>"authMechanismProperties"</code> URI option.</p>    compressors <code>string</code>  <p>A prioritized, comma-delimited list of compressors that the client wants to use. Messages are only compressed if the client and server share any compressors in common, and the compressor used in each direction will depend on the individual configuration of the server or driver. See the Driver Compression Specification for more information.</p>    connectTimeoutMS <code>int</code>  <p>The time in milliseconds to attempt a connection before timing out. Defaults to 10,000 milliseconds.</p>    directConnection <code>bool</code>  <p>This option can be used to control replica set discovery behavior when only a single host is provided in the connection string. By default, providing a single member in the connection string will establish a direct connection or discover additional members depending on whether the <code>"replicaSet"</code> URI option is omitted or present, respectively. Specify <b><code>FALSE</code></b> to force discovery to occur (if <code>"replicaSet"</code> is omitted) or specify <b><code>TRUE</code></b> to force a direct connection (if <code>"replicaSet"</code> is present).</p>    gssapiServiceName <code>string</code>  <p>Set the Kerberos service name when connecting to Kerberized MongoDB instances. This value must match the service name set on MongoDB instances (i.e. saslServiceName server parameter). Defaults to <code>"mongodb"</code>.</p> <p>This option is a deprecated alias for the <code>"SERVICE_NAME"</code> property of the <code>"authMechanismProperties"</code> URI option.</p>    heartbeatFrequencyMS <code>int</code>  <p>Specifies the interval in milliseconds between the driver's checks of the MongoDB topology, counted from the end of the previous check until the beginning of the next one. Defaults to 60,000 milliseconds.</p> <p>Per the Server Discovery and Monitoring Specification, this value cannot be less than 500 milliseconds.</p>    journal <code>bool</code>  <p>Corresponds to the default write concern's <code>journal</code> parameter. If <b><code>TRUE</code></b>, writes will require acknowledgement from MongoDB that the operation has been written to the journal. For details, see MongoDB\Driver\WriteConcern.</p>    localThresholdMS <code>int</code>  <p>The size in milliseconds of the latency window for selecting among multiple suitable MongoDB instances while resolving a read preference. Defaults to 15 milliseconds.</p>    maxStalenessSeconds <code>int</code>  <p>Corresponds to the read preference's <code>"maxStalenessSeconds"</code>. Specifies, in seconds, how stale a secondary can be before the client stops using it for read operations. By default, there is no maximum staleness and clients will not consider a secondary&rsquo;s lag when choosing where to direct a read operation. For details, see MongoDB\Driver\ReadPreference.</p> <p>If specified, the max staleness must be a signed 32-bit integer greater than or equal to <b><code>MongoDB\Driver\ReadPreference::SMALLEST_MAX_STALENESS_SECONDS</code></b> (i.e. 90 seconds).</p>    password <code>string</code>  The password for the user being authenticated. This option is useful if the password contains special characters, which would otherwise need to be URL encoded for the connection URI.    readConcernLevel <code>string</code>  Corresponds to the read concern's <code>level</code> parameter. Specifies the level of read isolation. For details, see MongoDB\Driver\ReadConcern.    readPreference <code>string</code>  <p>Corresponds to the read preference's <code>mode</code> parameter. Defaults to <code>"primary"</code>. For details, see MongoDB\Driver\ReadPreference.</p>    readPreferenceTags <code>array</code>  <p>Corresponds to the read preference's <code>tagSets</code> parameter. Tag sets allow you to target read operations to specific members of a replica set. For details, see MongoDB\Driver\ReadPreference.</p> <p><b>Note</b>:  When not specified in the URI string, this option is expressed as an array consistent with the format expected by <code>MongoDB\Driver\ReadPreference::__construct()</code>. </p>    replicaSet <code>string</code>  <p>Specifies the name of the replica set.</p>    retryReads <code>bool</code>  <p>Specifies whether or not the driver should automatically retry certain read operations that fail due to transient network errors or replica set elections. This functionality requires MongoDB 3.6+. Defaults to <b><code>TRUE</code></b>.</p> <p>See the Retryable Reads Specification for more information.</p>    retryWrites <code>bool</code>  <p>Specifies whether or not the driver should automatically retry certain write operations that fail due to transient network errors or replica set elections. This functionality requires MongoDB 3.6+. Defaults to <b><code>TRUE</code></b>.</p> <p>See Retryable Writes in the MongoDB manual for more information.</p>    safe <code>bool</code>  <p>If <b><code>TRUE</code></b>, specifies <code>1</code> for the default write concern's <code>w</code> parameter. If <b><code>FALSE</code></b>, <code>0</code> is specified. For details, see MongoDB\Driver\WriteConcern.</p> <p>This option is deprecated and should not be used.</p>    serverSelectionTimeoutMS <code>int</code>  <p>Specifies how long in milliseconds to block for server selection before throwing an exception. Defaults to 30,000 milliseconds.</p>    serverSelectionTryOnce <code>bool</code>  <p>When <b><code>TRUE</code></b>, instructs the driver to scan the MongoDB deployment exactly once after server selection fails and then either select a server or raise an error. When <b><code>FALSE</code></b>, the driver blocks and searches for a server up to the <code>"serverSelectionTimeoutMS"</code> value. Defaults to <b><code>TRUE</code></b>.</p>    slaveOk <code>bool</code>  <p>Specifies <code>"secondaryPreferred"</code> for the read preference mode if <b><code>TRUE</code></b>. For details, see MongoDB\Driver\ReadPreference.</p> <p>This option is deprecated and should not be used.</p>    socketCheckIntervalMS <code>int</code>  <p>If a socket has not been used recently, the driver must check it via an <code>isMaster</code> command before using it for any operation. Defaults to 5,000 milliseconds.</p>    socketTimeoutMS <code>int</code>  <p>The time in milliseconds to attempt a send or receive on a socket before timing out. Defaults to 300,000 milliseconds (i.e. five minutes).</p>    ssl <code>bool</code>  <p>Initiates the connection with TLS/SSL if <b><code>TRUE</code></b>. Defaults to <b><code>FALSE</code></b>.</p> <p>This option is a deprecated alias for the <code>"tls"</code> URI option.</p>    tls <code>bool</code>  <p>Initiates the connection with TLS/SSL if <b><code>TRUE</code></b>. Defaults to <b><code>FALSE</code></b>.</p>    tlsAllowInvalidCertificates <code>bool</code>  <p>Specifies whether or not the driver should error when the server's TLS certificate is invalid. Defaults to <b><code>FALSE</code></b>.</p> <p><b>Warning</b></p> <p>Disabling certificate validation creates a vulnerability.</p>     tlsAllowInvalidHostnames <code>bool</code>  <p>Specifies whether or not the driver should error when there is a mismatch between the server's hostname and the hostname specified by the TLS certificate. Defaults to <b><code>FALSE</code></b>.</p> <p><b>Warning</b></p> <p>Disabling certificate validation creates a vulnerability. Allowing invalid hostnames may expose the driver to a man-in-the-middle attack.</p>     tlsCAFile <code>string</code>  <p>Path to file with either a single or bundle of certificate authorities to be considered trusted when making a TLS connection. The system certificate store will be used by default.</p>    tlsCertificateKeyFile <code>string</code>  <p>Path to the client certificate file or the client private key file; in the case that they both are needed, the files should be concatenated.</p>    tlsCertificateKeyFilePassword <code>string</code>  <p>Password to decrypt the client private key (i.e. <code>"tlsCertificateKeyFile"</code> URI option) to be used for TLS connections.</p>    tlsDisableCertificateRevocationCheck <code>bool</code>  <p>If <b><code>TRUE</code></b>, the driver will not attempt to check certificate revocation status (e.g. OCSP, CRL). Defaults to <b><code>FALSE</code></b>.</p>    tlsDisableOCSPEndpointCheck <code>bool</code>  <p>If <b><code>TRUE</code></b>, the driver will not attempt to contact an OCSP responder endpoint if needed (i.e. an OCSP response is not stapled). Defaults to <b><code>FALSE</code></b>.</p>    tlsInsecure <code>bool</code>  <p>Relax TLS constraints as much as possible. Specifying <b><code>TRUE</code></b> for this option has the same effect as specifying <b><code>TRUE</code></b> for both the <code>"tlsAllowInvalidCertificates"</code> and <code>"tlsAllowInvalidHostnames"</code> URI options. Defaults to <b><code>FALSE</code></b>.</p> <p><b>Warning</b></p> <p>Disabling certificate validation creates a vulnerability. Allowing invalid hostnames may expose the driver to a man-in-the-middle attack.</p>     username <code>string</code>  The username for the user being authenticated. This option is useful if the username contains special characters, which would otherwise need to be URL encoded for the connection URI.    w <code>int</code>|<code>string</code>  <p>Corresponds to the default write concern's <code>w</code> parameter. For details, see MongoDB\Driver\WriteConcern.</p>    wTimeoutMS <code>int</code>|<code>string</code>  <p>Corresponds to the default write concern's <code>wtimeout</code> parameter. Specifies a time limit, in milliseconds, for the write concern. For details, see MongoDB\Driver\WriteConcern.</p> <p>If specified, <code>wTimeoutMS</code> must be a signed 32-bit integer greater than or equal to zero.</p>    zlibCompressionLevel <code>int</code>  <p>Specifies the compression level to use for the zlib compressor. This option has no effect if <code>zlib</code> is not included in the <code>"compressors"</code> URI option. See the Driver Compression Specification for more information.</p>
+		 * @param array $driverOptions <p></p> <b>driverOptions</b>   Option Type Description     allow_invalid_hostname <code>bool</code>  <p>Disables hostname validation if <b><code>TRUE</code></b>. Defaults to <b><code>FALSE</code></b>.</p> <p>Allowing invalid hostnames may expose the driver to a man-in-the-middle attack.</p> <p>This option is a deprecated alias for the <code>"tlsAllowInvalidHostnames"</code> URI option.</p>    autoEncryption <code>array</code>  <p>Provides options to enable automatic client-side field level encryption. The following options are supported:</p> <b>Options for automatic encryption</b>   Option Type Description     keyVaultClient MongoDB\Driver\Manager The Manager used to route data key queries to a separate MongoDB cluster. By default, the current Manager and cluster is used.   keyVaultNamespace <code>string</code> A fully qualified namespace (e.g. <code>"databaseName.collectionName"</code>) denoting the collection that contains all data keys used for encryption and decryption.   kmsProviders <code>array</code>  <p>A document containing the configuration for one or more KMS providers, which are used to encrypt data keys. Currently <code>aws</code> or <code>local</code>are supported and at least one must be specified.</p> <p>The format for <code>aws</code> is as follows:</p>  <pre>aws: { accessKeyId: &lt;string&gt;, secretAccessKey: &lt;string&gt; }</pre>   <p>The format for <code>local</code> is as follows:</p>  <pre>local: { // The master key used to encrypt/decrypt data keys key: &lt;96-byte MongoDB\BSON\Binary with subtype 0&gt; }</pre>      schemaMap <code>array</code>  <p>Allows specifying a local JSON schema that is used to configure encryption.</p> <p><b>Note</b>:  Supplying a <code>schemaMap</code> provides more security than relying on JSON schemas obtained from the server. It protects against a malicious server advertising a false JSON schema, which could trick the client into sending unencrypted data that should be encrypted. </p> <p><b>Note</b>:  Schemas supplied in the <code>schemaMap</code> only apply to configuring automatic encryption for client side encryption. Other validation rules in the JSON schema will not be enforced by the driver and will result in an error. </p>    bypassAutoEncryption <code>bool</code>  With this option set to <b><code>TRUE</code></b>, <code>mongocryptd</code> will not be spawned automatically. This is used to disable automatic encryption.    extraOptions <code>array</code>  The <code>extraOptions</code> relate to the <code>mongocryptd</code> process. See the Client-Side Encryption Specification for more information.     <p><b>Note</b>:  Automatic encryption is an enterprise only feature that only applies to operations on a collection. Automatic encryption is not supported for operations on a database or view, and operations that are not bypassed will result in error. To bypass automatic encryption for all operations, set <code>bypassAutoEncryption=true</code> in <code>autoEncryption</code>. For more information on whitelisted operations, see the Client-Side Encryption Specification. </p>    ca_dir <code>string</code>  <p>Path to a correctly hashed certificate directory. The system certificate store will be used by default.</p>    ca_file <code>string</code>  <p>Path to file with either a single or bundle of certificate authorities to be considered trusted when making a TLS connection. The system certificate store will be used by default.</p> <p>This option is a deprecated alias for the <code>"tlsCAFile"</code> URI option.</p>    context <code>resource</code>  <p>SSL context options to be used as fallbacks if a driver option or its equivalent URI option, if any, is not specified. Note that the driver does not consult the default stream context (i.e. <code>stream_context_get_default()</code>). The following context options are supported:</p>  <b>SSL context option fallbacks</b>   Driver option Context option (fallback)     ca_dir capath   ca_file cafile   pem_file local_cert   pem_pwd passphrase   weak_cert_validation allow_self_signed    <p>This option is supported for backwards compatibility, but should be considered deprecated.</p>    crl_file <code>string</code> Path to a certificate revocation list file.   driver <code>array</code>  <p>Allows custom drivers to append their own metadata to the server handshake. By default, the driver submits its own name, version, and platform (i.e. PHP version) in the handshake. Custom drivers can specify strings for the <code>"name"</code>, <code>"version"</code>, and <code>"platform"</code> keys of this array, which will be appended to the respective field(s) in the handshake document.</p> <p><b>Note</b>:  Handshake information is limited to 512 bytes. The driver will truncate handshake data to fit within this 512-byte string. Drivers and ODMs are encouraged to keep their own metadata concise. </p>    pem_file <code>string</code>  <p>Path to a PEM encoded certificate to use for client authentication.</p> <p>This option is a deprecated alias for the <code>"tlsCertificateKeyFile"</code> URI option.</p>    pem_pwd <code>string</code>  <p>Passphrase for the PEM encoded certificate (if applicable).</p> <p>This option is a deprecated alias for the <code>"tlsCertificateKeyFilePassword"</code> URI option.</p>    weak_cert_validation <code>bool</code>  <p>Disables certificate validation if <b><code>TRUE</code></b>. Defaults to <b><code>FALSE</code></b></p> <p>This option is a deprecated alias for the <code>"tlsAllowInvalidHostnames"</code> URI option.</p>
 		 * @return self
 		 * @link http://php.net/manual/en/mongodb-driver-manager.construct.php
 		 * @since mongodb >=1.0.0
 		 */
-		final public function __construct(string $uri = '"mongodb://127.0.0.1/', array $uriOptions = array(), array $driverOptions = array()) {}
+		final public function __construct(string $uri = "mongodb://127.0.0.1/", array $uriOptions = array(), array $driverOptions = array()) {}
+
+		/**
+		 * Create a new ClientEncryption object
+		 * <p>Constructs a new MongoDB\Driver\ClientEncryption object with the specified options.</p>
+		 * @param array $options <p></p> <b>options</b>   Option Type Description     keyVaultClient MongoDB\Driver\Manager The Manager used to route data key queries to a separate MongoDB cluster. By default, the current Manager and cluster is used.   keyVaultNamespace <code>string</code> A fully qualified namespace (e.g. <code>"databaseName.collectionName"</code>) denoting the collection that contains all data keys used for encryption and decryption.   kmsProviders <code>array</code>  <p>A document containing the configuration for one or more KMS providers, which are used to encrypt data keys. Currently <code>aws</code> or <code>local</code>are supported and at least one must be specified.</p> <p>The format for <code>aws</code> is as follows:</p>  <pre>aws: { accessKeyId: &lt;string&gt;, secretAccessKey: &lt;string&gt; }</pre>   <p>The format for <code>local</code> is as follows:</p>  <pre>local: { // The master key used to encrypt/decrypt data keys key: &lt;96-byte MongoDB\BSON\Binary with subtype 0&gt; }</pre>
+		 * @return MongoDB\Driver\ClientEncryption <p>Returns a new MongoDB\Driver\ClientEncryption instance.</p>
+		 * @link http://php.net/manual/en/mongodb-driver-manager.createclientencryption.php
+		 * @since mongodb >=1.7.0
+		 */
+		final public function createClientEncryption(array $options): \MongoDB\Driver\ClientEncryption {}
 
 		/**
 		 * Execute one or more write operations
 		 * <p>Executes one or more write operations on the primary server.</p><p>A MongoDB\Driver\BulkWrite can be constructed with one or more write operations of varying types (e.g. updates, deletes, and inserts). The driver will attempt to send operations of the same type to the server in as few requests as possible to optimize round trips.</p>
-		 * @param string $namespace <p>A fully qualified namespace (e.g. <i>"databaseName.collectionName"</i>).</p>
+		 * @param string $namespace <p>A fully qualified namespace (e.g. <code>"databaseName.collectionName"</code>).</p>
 		 * @param \MongoDB\Driver\BulkWrite $bulk <p>The write(s) to execute.</p>
 		 * @param array $options <p></p> <b>options</b>   Option Type Description     session MongoDB\Driver\Session  <p>A session to associate with the operation.</p>    writeConcern MongoDB\Driver\WriteConcern  <p>A write concern to apply to the operation.</p>
 		 * @return MongoDB\Driver\WriteResult <p>Returns MongoDB\Driver\WriteResult on success.</p>
@@ -6391,10 +6707,10 @@ namespace MongoDB\Driver {
 
 		/**
 		 * Execute a database command
-		 * <p>Selects a server according to the <i>"readPreference"</i> option and executes the command on that server. By default, the read preference from the MongoDB Connection URI will be used.</p><p>This method applies no special logic to the command. Although this method accepts <i>"readConcern"</i> and <i>"writeConcern"</i> options, which will be incorporated into the command document, those options will not default to corresponding values from the MongoDB Connection URI nor will the MongoDB server version be taken into account. Users are therefore encouraged to use specific read and/or write command methods if possible.</p>
+		 * <p>Selects a server according to the <code>"readPreference"</code> option and executes the command on that server. By default, the read preference from the MongoDB Connection URI will be used.</p><p>This method applies no special logic to the command. Although this method accepts <code>"readConcern"</code> and <code>"writeConcern"</code> options, which will be incorporated into the command document, those options will not default to corresponding values from the MongoDB Connection URI nor will the MongoDB server version be taken into account. Users are therefore encouraged to use specific read and/or write command methods if possible.</p>
 		 * @param string $db <p>The name of the database on which to execute the command.</p>
 		 * @param \MongoDB\Driver\Command $command <p>The command to execute.</p>
-		 * @param array $options <p></p> <b>options</b>   Option Type Description     readConcern MongoDB\Driver\ReadConcern  <p>A read concern to apply to the operation.</p> <p>This option is available in MongoDB 3.2+ and will result in an exception at execution time if specified for an older server version.</p>    readPreference MongoDB\Driver\ReadPreference  <p>A read preference to use for selecting a server for the operation.</p>    session MongoDB\Driver\Session  <p>A session to associate with the operation.</p>    writeConcern MongoDB\Driver\WriteConcern  <p>A write concern to apply to the operation.</p>     <p><b>Warning</b></p> <p>If you are using a <i>"session"</i> which has a transaction in progress, you cannot specify a <i>"readConcern"</i> or <i>"writeConcern"</i> option. This will result in an MongoDB\Driver\Exception\InvalidArgumentException being thrown. Instead, you should set these two options when you create the transaction with <code>MongoDB\Driver\Session::startTransaction()</code>.</p>
+		 * @param array $options <p></p> <b>options</b>   Option Type Description     readConcern MongoDB\Driver\ReadConcern  <p>A read concern to apply to the operation.</p> <p>This option is available in MongoDB 3.2+ and will result in an exception at execution time if specified for an older server version.</p>    readPreference MongoDB\Driver\ReadPreference  <p>A read preference to use for selecting a server for the operation.</p>    session MongoDB\Driver\Session  <p>A session to associate with the operation.</p>    writeConcern MongoDB\Driver\WriteConcern  <p>A write concern to apply to the operation.</p>     <p><b>Warning</b></p> <p>If you are using a <code>"session"</code> which has a transaction in progress, you cannot specify a <code>"readConcern"</code> or <code>"writeConcern"</code> option. This will result in an MongoDB\Driver\Exception\InvalidArgumentException being thrown. Instead, you should set these two options when you create the transaction with <code>MongoDB\Driver\Session::startTransaction()</code>.</p>
 		 * @return MongoDB\Driver\Cursor <p>Returns MongoDB\Driver\Cursor on success.</p>
 		 * @link http://php.net/manual/en/mongodb-driver-manager.executecommand.php
 		 * @see MongoDB\Driver\Manager::executeReadCommand(), MongoDB\Driver\Manager::executeReadWriteCommand(), MongoDB\Driver\Manager::executeWriteCommand(), MongoDB\Driver\Server::executeCommand()
@@ -6404,8 +6720,8 @@ namespace MongoDB\Driver {
 
 		/**
 		 * Execute a database query
-		 * <p>Selects a server according to the <i>"readPreference"</i> option and executes the query on that server. By default, the read preference from the MongoDB Connection URI will be used.</p>
-		 * @param string $namespace <p>A fully qualified namespace (e.g. <i>"databaseName.collectionName"</i>).</p>
+		 * <p>Selects a server according to the <code>"readPreference"</code> option and executes the query on that server. By default, the read preference from the MongoDB Connection URI will be used.</p>
+		 * @param string $namespace <p>A fully qualified namespace (e.g. <code>"databaseName.collectionName"</code>).</p>
 		 * @param \MongoDB\Driver\Query $query <p>The query to execute.</p>
 		 * @param array $options <p></p> <b>options</b>   Option Type Description     readPreference MongoDB\Driver\ReadPreference  <p>A read preference to use for selecting a server for the operation.</p>    session MongoDB\Driver\Session  <p>A session to associate with the operation.</p>
 		 * @return MongoDB\Driver\Cursor <p>Returns MongoDB\Driver\Cursor on success.</p>
@@ -6417,10 +6733,10 @@ namespace MongoDB\Driver {
 
 		/**
 		 * Execute a database command that reads
-		 * <p>Selects a server according to the <i>"readPreference"</i> option and executes the command on that server. By default, the read preference from the MongoDB Connection URI will be used.</p><p>This method will apply logic that is specific to commands that read (e.g. count) and take the MongoDB server version into account. The <i>"readConcern"</i> option will default to the corresponding value from the MongoDB Connection URI.</p>
+		 * <p>Selects a server according to the <code>"readPreference"</code> option and executes the command on that server. By default, the read preference from the MongoDB Connection URI will be used.</p><p>This method will apply logic that is specific to commands that read (e.g. count) and take the MongoDB server version into account. The <code>"readConcern"</code> option will default to the corresponding value from the MongoDB Connection URI.</p>
 		 * @param string $db <p>The name of the database on which to execute the command.</p>
 		 * @param \MongoDB\Driver\Command $command <p>The command to execute.</p>
-		 * @param array $options <p></p> <b>options</b>   Option Type Description     readConcern MongoDB\Driver\ReadConcern  <p>A read concern to apply to the operation.</p> <p>This option is available in MongoDB 3.2+ and will result in an exception at execution time if specified for an older server version.</p>    readPreference MongoDB\Driver\ReadPreference  <p>A read preference to use for selecting a server for the operation.</p>    session MongoDB\Driver\Session  <p>A session to associate with the operation.</p>     <p><b>Warning</b></p> <p>If you are using a <i>"session"</i> which has a transaction in progress, you cannot specify a <i>"readConcern"</i> or <i>"writeConcern"</i> option. This will result in an MongoDB\Driver\Exception\InvalidArgumentException being thrown. Instead, you should set these two options when you create the transaction with <code>MongoDB\Driver\Session::startTransaction()</code>.</p>
+		 * @param array $options <p></p> <b>options</b>   Option Type Description     readConcern MongoDB\Driver\ReadConcern  <p>A read concern to apply to the operation.</p> <p>This option is available in MongoDB 3.2+ and will result in an exception at execution time if specified for an older server version.</p>    readPreference MongoDB\Driver\ReadPreference  <p>A read preference to use for selecting a server for the operation.</p>    session MongoDB\Driver\Session  <p>A session to associate with the operation.</p>     <p><b>Warning</b></p> <p>If you are using a <code>"session"</code> which has a transaction in progress, you cannot specify a <code>"readConcern"</code> or <code>"writeConcern"</code> option. This will result in an MongoDB\Driver\Exception\InvalidArgumentException being thrown. Instead, you should set these two options when you create the transaction with <code>MongoDB\Driver\Session::startTransaction()</code>.</p>
 		 * @return MongoDB\Driver\Cursor <p>Returns MongoDB\Driver\Cursor on success.</p>
 		 * @link http://php.net/manual/en/mongodb-driver-manager.executereadcommand.php
 		 * @see MongoDB\Driver\Manager::executeCommand(), MongoDB\Driver\Manager::executeReadWriteCommand(), MongoDB\Driver\Manager::executeWriteCommand(), MongoDB\Driver\Server::executeReadCommand()
@@ -6430,10 +6746,10 @@ namespace MongoDB\Driver {
 
 		/**
 		 * Execute a database command that reads and writes
-		 * <p>Executes the command on the primary server.</p><p>This method will apply logic that is specific to commands that read and write (e.g. findAndModify) and take the MongoDB server version into account. The <i>"readConcern"</i> and <i>"writeConcern"</i> options will default to the corresponding values from the MongoDB Connection URI.</p>
+		 * <p>Executes the command on the primary server.</p><p>This method will apply logic that is specific to commands that read and write (e.g. aggregate) and take the MongoDB server version into account. The <code>"readConcern"</code> and <code>"writeConcern"</code> options will default to the corresponding values from the MongoDB Connection URI.</p>
 		 * @param string $db <p>The name of the database on which to execute the command.</p>
 		 * @param \MongoDB\Driver\Command $command <p>The command to execute.</p>
-		 * @param array $options <p></p> <b>options</b>   Option Type Description     readConcern MongoDB\Driver\ReadConcern  <p>A read concern to apply to the operation.</p> <p>This option is available in MongoDB 3.2+ and will result in an exception at execution time if specified for an older server version.</p>    session MongoDB\Driver\Session  <p>A session to associate with the operation.</p>    writeConcern MongoDB\Driver\WriteConcern  <p>A write concern to apply to the operation.</p>     <p><b>Warning</b></p> <p>If you are using a <i>"session"</i> which has a transaction in progress, you cannot specify a <i>"readConcern"</i> or <i>"writeConcern"</i> option. This will result in an MongoDB\Driver\Exception\InvalidArgumentException being thrown. Instead, you should set these two options when you create the transaction with <code>MongoDB\Driver\Session::startTransaction()</code>.</p>
+		 * @param array $options <p></p> <b>options</b>   Option Type Description     readConcern MongoDB\Driver\ReadConcern  <p>A read concern to apply to the operation.</p> <p>This option is available in MongoDB 3.2+ and will result in an exception at execution time if specified for an older server version.</p>    session MongoDB\Driver\Session  <p>A session to associate with the operation.</p>    writeConcern MongoDB\Driver\WriteConcern  <p>A write concern to apply to the operation.</p>     <p><b>Warning</b></p> <p>If you are using a <code>"session"</code> which has a transaction in progress, you cannot specify a <code>"readConcern"</code> or <code>"writeConcern"</code> option. This will result in an MongoDB\Driver\Exception\InvalidArgumentException being thrown. Instead, you should set these two options when you create the transaction with <code>MongoDB\Driver\Session::startTransaction()</code>.</p>
 		 * @return MongoDB\Driver\Cursor <p>Returns MongoDB\Driver\Cursor on success.</p>
 		 * @link http://php.net/manual/en/mongodb-driver-manager.executereadwritecommand.php
 		 * @see MongoDB\Driver\Manager::executeCommand(), MongoDB\Driver\Manager::executeReadCommand(), MongoDB\Driver\Manager::executeWriteCommand(), MongoDB\Driver\Server::executeReadWriteCommand()
@@ -6443,10 +6759,10 @@ namespace MongoDB\Driver {
 
 		/**
 		 * Execute a database command that writes
-		 * <p>Executes the command on the primary server.</p><p>This method will apply logic that is specific to commands that write (e.g. drop) and take the MongoDB server version into account. The <i>"writeConcern"</i> option will default to the corresponding value from the MongoDB Connection URI.</p>
+		 * <p>Executes the command on the primary server.</p><p>This method will apply logic that is specific to commands that write (e.g. drop) and take the MongoDB server version into account. The <code>"writeConcern"</code> option will default to the corresponding value from the MongoDB Connection URI.</p><p><b>Note</b>:  This method is not intended to be used to execute insert, update, or delete commands. Users are encouraged to use <code>MongoDB\Driver\Manager::executeBulkWrite()</code> for those commands. </p>
 		 * @param string $db <p>The name of the database on which to execute the command.</p>
 		 * @param \MongoDB\Driver\Command $command <p>The command to execute.</p>
-		 * @param array $options <p></p> <b>options</b>   Option Type Description     session MongoDB\Driver\Session  <p>A session to associate with the operation.</p>    writeConcern MongoDB\Driver\WriteConcern  <p>A write concern to apply to the operation.</p>     <p><b>Warning</b></p> <p>If you are using a <i>"session"</i> which has a transaction in progress, you cannot specify a <i>"readConcern"</i> or <i>"writeConcern"</i> option. This will result in an MongoDB\Driver\Exception\InvalidArgumentException being thrown. Instead, you should set these two options when you create the transaction with <code>MongoDB\Driver\Session::startTransaction()</code>.</p>
+		 * @param array $options <p></p> <b>options</b>   Option Type Description     session MongoDB\Driver\Session  <p>A session to associate with the operation.</p>    writeConcern MongoDB\Driver\WriteConcern  <p>A write concern to apply to the operation.</p>     <p><b>Warning</b></p> <p>If you are using a <code>"session"</code> which has a transaction in progress, you cannot specify a <code>"readConcern"</code> or <code>"writeConcern"</code> option. This will result in an MongoDB\Driver\Exception\InvalidArgumentException being thrown. Instead, you should set these two options when you create the transaction with <code>MongoDB\Driver\Session::startTransaction()</code>.</p>
 		 * @return MongoDB\Driver\Cursor <p>Returns MongoDB\Driver\Cursor on success.</p>
 		 * @link http://php.net/manual/en/mongodb-driver-manager.executewritecommand.php
 		 * @see MongoDB\Driver\Manager::executeCommand(), MongoDB\Driver\Manager::executeReadCommand(), MongoDB\Driver\Manager::executeReadWriteCommand(), MongoDB\Driver\Server::executeWriteCommand()
@@ -6508,7 +6824,7 @@ namespace MongoDB\Driver {
 		/**
 		 * Start a new client session for use with this client
 		 * <p>Creates a MongoDB\Driver\Session for the given options. The session may then be specified when executing commands, queries, and write operations.</p><p><b>Note</b>:  A MongoDB\Driver\Session can only be used with the MongoDB\Driver\Manager from which it was created. </p>
-		 * @param array $options <p></p> <b>options</b>   Option Type Description Default     causalConsistency <code>boolean</code>  <p>Configure causal consistency in a session. If <b><code>TRUE</code></b>, each operation in the session will be causally ordered after the previous read or write operation. Set to <b><code>FALSE</code></b> to disable causal consistency.</p> <p>See Casual Consistency in the MongoDB manual for more information.</p>  <b><code>TRUE</code></b>   defaultTransactionOptions <code>array</code>  <p>Default options to apply to newly created transactions. These options are used unless they are overridden when a transaction is started with different value for each option.</p> <p></p> <b>options</b>   Option Type Description     readConcern MongoDB\Driver\ReadConcern  <p>A read concern to apply to the operation.</p> <p>This option is available in MongoDB 3.2+ and will result in an exception at execution time if specified for an older server version.</p>    readPreference MongoDB\Driver\ReadPreference  <p>A read preference to use for selecting a server for the operation.</p>    writeConcern MongoDB\Driver\WriteConcern  <p>A write concern to apply to the operation.</p>     <p>This option is available in MongoDB 4.0+.</p>  <i>[]</i>
+		 * @param array $options <p></p> <b>options</b>   Option Type Description Default     causalConsistency <code>bool</code>  <p>Configure causal consistency in a session. If <b><code>TRUE</code></b>, each operation in the session will be causally ordered after the previous read or write operation. Set to <b><code>FALSE</code></b> to disable causal consistency.</p> <p>See Casual Consistency in the MongoDB manual for more information.</p>  <b><code>TRUE</code></b>   defaultTransactionOptions <code>array</code>  <p>Default options to apply to newly created transactions. These options are used unless they are overridden when a transaction is started with different value for each option.</p> <p></p> <b>options</b>   Option Type Description     maxCommitTimeMS integer  <p>The maximum amount of time in milliseconds to allow a single <code>commitTransaction</code> command to run.</p> <p>If specified, <code>maxCommitTimeMS</code> must be a signed 32-bit integer greater than or equal to zero.</p>    readConcern MongoDB\Driver\ReadConcern  <p>A read concern to apply to the operation.</p> <p>This option is available in MongoDB 3.2+ and will result in an exception at execution time if specified for an older server version.</p>    readPreference MongoDB\Driver\ReadPreference  <p>A read preference to use for selecting a server for the operation.</p>    writeConcern MongoDB\Driver\WriteConcern  <p>A write concern to apply to the operation.</p>     <p>This option is available in MongoDB 4.0+.</p>  <code>[]</code>
 		 * @return MongoDB\Driver\Session <p>Returns a MongoDB\Driver\Session.</p>
 		 * @link http://php.net/manual/en/mongodb-driver-manager.startsession.php
 		 * @since mongodb >=1.4.0
@@ -6529,7 +6845,7 @@ namespace MongoDB\Driver\Monitoring {
 
 		/**
 		 * Returns the command name
-		 * <p>Returns the command name (e.g. <i>"find"</i>, <i>"aggregate"</i>).</p>
+		 * <p>Returns the command name (e.g. <code>"find"</code>, <code>"aggregate"</code>).</p>
 		 * @return string <p>Returns the command name.</p>
 		 * @link http://php.net/manual/en/mongodb-driver-monitoring-commandfailedevent.getcommandname.php
 		 * @since mongodb >=1.3.0
@@ -6608,7 +6924,7 @@ namespace MongoDB\Driver\Monitoring {
 
 		/**
 		 * Returns the command name
-		 * <p>Returns the command name (e.g. <i>"find"</i>, <i>"aggregate"</i>).</p>
+		 * <p>Returns the command name (e.g. <code>"find"</code>, <code>"aggregate"</code>).</p>
 		 * @return string <p>Returns the command name.</p>
 		 * @link http://php.net/manual/en/mongodb-driver-monitoring-commandstartedevent.getcommandname.php
 		 * @since mongodb >=1.3.0
@@ -6701,7 +7017,7 @@ namespace MongoDB\Driver\Monitoring {
 
 		/**
 		 * Returns the command name
-		 * <p>Returns the command name (e.g. <i>"find"</i>, <i>"aggregate"</i>).</p>
+		 * <p>Returns the command name (e.g. <code>"find"</code>, <code>"aggregate"</code>).</p>
 		 * @return string <p>Returns the command name.</p>
 		 * @link http://php.net/manual/en/mongodb-driver-monitoring-commandsucceededevent.getcommandname.php
 		 * @since mongodb >=1.3.0
@@ -6777,7 +7093,7 @@ namespace MongoDB\Driver {
 		 * Create a new Query
 		 * <p>Constructs a new MongoDB\Driver\Query, which is an immutable value object that represents a database query. The query may then be executed with <code>MongoDB\Driver\Manager::executeQuery()</code>.</p>
 		 * @param array|object $filter
-		 * @param array $queryOptions <p></p> <b>queryOptions</b>   Option Type Description     allowPartialResults <code>boolean</code>  <p>For queries against a sharded collection, returns partial results from the mongos if some shards are unavailable instead of throwing an error.</p> <p>Falls back to the deprecated <i>"partial"</i> option if not specified.</p>    awaitData <code>boolean</code>  Use in conjunction with the <i>"tailable"</i> option to block a getMore operation on the cursor temporarily if at the end of data rather than returning no data. After a timeout period, the query returns as normal.    batchSize <code>integer</code>  <p>The number of documents to return in the first batch. Defaults to 101. A batch size of 0 means that the cursor will be established, but no documents will be returned in the first batch.</p> <p>In versions of MongoDB before 3.2, where queries use the legacy wire protocol OP_QUERY, a batch size of 1 will close the cursor irrespective of the number of matched documents.</p>    collation array|object  <p>Collation allows users to specify language-specific rules for string comparison, such as rules for lettercase and accent marks. When specifying collation, the <i>"locale"</i> field is mandatory; all other collation fields are optional. For descriptions of the fields, see Collation Document.</p> <p>If the collation is unspecified but the collection has a default collation, the operation uses the collation specified for the collection. If no collation is specified for the collection or for the operation, MongoDB uses the simple binary comparison used in prior versions for string comparisons.</p> <p>This option is available in MongoDB 3.4+ and will result in an exception at execution time if specified for an older server version.</p>    comment <code>string</code>  <p>A comment to attach to the query to help interpret and trace query profile data.</p> <p>Falls back to the deprecated <i>"$comment"</i> modifier if not specified.</p>    exhaust <code>boolean</code>  <p>Stream the data down full blast in multiple "more" packages, on the assumption that the client will fully read all data queried. Faster when you are pulling a lot of data and know you want to pull it all down. Note: the client is not allowed to not read all the data unless it closes the connection.</p> <p>This option is not supported by the find command in MongoDB 3.2+ and will force the driver to use the legacy wire protocol version (i.e. OP_QUERY).</p>    explain <code>boolean</code>  <p>If <b><code>TRUE</code></b>, the returned MongoDB\Driver\Cursor will contain a single document that describes the process and indexes used to return the query.</p> <p>Falls back to the deprecated <i>"$explain"</i> modifier if not specified.</p> <p>This option is not supported by the find command in MongoDB 3.2+ and will only be respected when using the legacy wire protocol version (i.e. OP_QUERY). The explain command should be used on MongoDB 3.0+.</p>    hint string|array|object  <p>Index specification. Specify either the index name as a string or the index key pattern. If specified, then the query system will only consider plans using the hinted index.</p> <p>Falls back to the deprecated <i>"hint"</i> option if not specified.</p>    limit <code>integer</code>  <p>The maximum number of documents to return. If unspecified, then defaults to no limit. A limit of 0 is equivalent to setting no limit.</p> <p>A negative limit is will be interpreted as a positive limit with the <i>"singleBatch"</i> option set to <b><code>TRUE</code></b>. This behavior is supported for backwards compatibility, but should be considered deprecated.</p>    max array|object  <p>The <i>exclusive</i> upper bound for a specific index.</p> <p>Falls back to the deprecated <i>"$max"</i> modifier if not specified.</p>    maxAwaitTimeMS <code>integer</code>  <p>Positive integer denoting the time limit in milliseconds for the server to block a getMore operation if no data is available. This option should only be used in conjunction with the <i>"tailable"</i> and <i>"awaitData"</i> options.</p>    maxScan <code>integer</code>  <p><b>Warning</b></p> <p>This option is deprecated and should not be used.</p>  <p>Positive integer denoting the maximum number of documents or index keys to scan when executing the query.</p> <p>Falls back to the deprecated <i>"$maxScan"</i> modifier if not specified.</p>    maxTimeMS <code>integer</code>  <p>The cumulative time limit in milliseconds for processing operations on the cursor. MongoDB aborts the operation at the earliest following interrupt point.</p> <p>Falls back to the deprecated <i>"$maxTimeMS"</i> modifier if not specified.</p>    min array|object  <p>The <i>inclusive</i> lower bound for a specific index.</p> <p>Falls back to the deprecated <i>"$min"</i> modifier if not specified.</p>    modifiers <code>array</code>  Meta operators modifying the output or behavior of a query. Use of these operators is deprecated in favor of named options.    noCursorTimeout <code>boolean</code>  Prevents the server from timing out idle cursors after an inactivity period (10 minutes).    oplogReplay <code>boolean</code>  <p>Internal use for replica sets. To use oplogReplay, you must include the following condition in the filter:</p> <p></p> <pre>[ 'ts' =&gt; [ '$gte' =&gt; &lt;timestamp&gt; ] ]</pre>      projection array|object  <p>The projection specification to determine which fields to include in the returned documents.</p> <p>If you are using the ODM functionality to deserialise documents as their original PHP class, make sure that you include the __pclass field in the projection. This is required for the deserialization to work and without it, the driver will return (by default) a <b>stdClass</b> object instead.</p>    readConcern MongoDB\Driver\ReadConcern  <p>A read concern to apply to the operation. By default, the read concern from the MongoDB Connection URI will be used.</p> <p>This option is available in MongoDB 3.2+ and will result in an exception at execution time if specified for an older server version.</p>    returnKey <code>boolean</code>  <p>If <b><code>TRUE</code></b>, returns only the index keys in the resulting documents. Default value is <b><code>FALSE</code></b>. If <b><code>TRUE</code></b> and the find command does not use an index, the returned documents will be empty.</p> <p>Falls back to the deprecated <i>"$returnKey"</i> modifier if not specified.</p>    showRecordId <code>boolean</code>  <p>Determines whether to return the record identifier for each document. If <b><code>TRUE</code></b>, adds a top-level <i>"$recordId"</i> field to the returned documents.</p> <p>Falls back to the deprecated <i>"$showDiskLoc"</i> modifier if not specified.</p>    singleBatch <code>boolean</code>  Determines whether to close the cursor after the first batch. Defaults to <b><code>FALSE</code></b>.    skip <code>integer</code> Number of documents to skip. Defaults to 0.   slaveOk <code>boolean</code> Allow query of replica set secondaries   snapshot <code>boolean</code>  <p><b>Warning</b></p> <p>This option is deprecated and should not be used.</p>  <p>Prevents the cursor from returning a document more than once because of an intervening write operation.</p> <p>Falls back to the deprecated <i>"$snapshot"</i> modifier if not specified.</p>    sort array|object  <p>The sort specification for the ordering of the results.</p> <p>Falls back to the deprecated <i>"$orderby"</i> modifier if not specified.</p>    tailable <code>boolean</code> Returns a tailable cursor for a capped collection.
+		 * @param array $queryOptions <p></p> <b>queryOptions</b>   Option Type Description     allowDiskUse <code>bool</code>  <p>Allows MongoDB to use temporary disk files to store data exceeding the 100 megabyte system memory limit while processing a blocking sort operation.</p>    allowPartialResults <code>bool</code>  <p>For queries against a sharded collection, returns partial results from the mongos if some shards are unavailable instead of throwing an error.</p> <p>Falls back to the deprecated <code>"partial"</code> option if not specified.</p>    awaitData <code>bool</code>  Use in conjunction with the <code>"tailable"</code> option to block a getMore operation on the cursor temporarily if at the end of data rather than returning no data. After a timeout period, the query returns as normal.    batchSize <code>int</code>  <p>The number of documents to return in the first batch. Defaults to 101. A batch size of 0 means that the cursor will be established, but no documents will be returned in the first batch.</p> <p>In versions of MongoDB before 3.2, where queries use the legacy wire protocol OP_QUERY, a batch size of 1 will close the cursor irrespective of the number of matched documents.</p>    collation <code>array</code>|<code>object</code>  <p>Collation allows users to specify language-specific rules for string comparison, such as rules for lettercase and accent marks. When specifying collation, the <code>"locale"</code> field is mandatory; all other collation fields are optional. For descriptions of the fields, see Collation Document.</p> <p>If the collation is unspecified but the collection has a default collation, the operation uses the collation specified for the collection. If no collation is specified for the collection or for the operation, MongoDB uses the simple binary comparison used in prior versions for string comparisons.</p> <p>This option is available in MongoDB 3.4+ and will result in an exception at execution time if specified for an older server version.</p>    comment <code>string</code>  <p>A comment to attach to the query to help interpret and trace query profile data.</p> <p>Falls back to the deprecated <code>"$comment"</code> modifier if not specified.</p>    exhaust <code>bool</code>  <p>Stream the data down full blast in multiple "more" packages, on the assumption that the client will fully read all data queried. Faster when you are pulling a lot of data and know you want to pull it all down. Note: the client is not allowed to not read all the data unless it closes the connection.</p> <p>This option is not supported by the find command in MongoDB 3.2+ and will force the driver to use the legacy wire protocol version (i.e. OP_QUERY).</p>    explain <code>bool</code>  <p>If <b><code>TRUE</code></b>, the returned MongoDB\Driver\Cursor will contain a single document that describes the process and indexes used to return the query.</p> <p>Falls back to the deprecated <code>"$explain"</code> modifier if not specified.</p> <p>This option is not supported by the find command in MongoDB 3.2+ and will only be respected when using the legacy wire protocol version (i.e. OP_QUERY). The explain command should be used on MongoDB 3.0+.</p>    hint <code>string</code>|<code>array</code>|<code>object</code>  <p>Index specification. Specify either the index name as a string or the index key pattern. If specified, then the query system will only consider plans using the hinted index.</p> <p>Falls back to the deprecated <code>"hint"</code> option if not specified.</p>    limit <code>int</code>  <p>The maximum number of documents to return. If unspecified, then defaults to no limit. A limit of 0 is equivalent to setting no limit.</p> <p>A negative limit is will be interpreted as a positive limit with the <code>"singleBatch"</code> option set to <b><code>TRUE</code></b>. This behavior is supported for backwards compatibility, but should be considered deprecated.</p>    max <code>array</code>|<code>object</code>  <p>The <i>exclusive</i> upper bound for a specific index.</p> <p>Falls back to the deprecated <code>"$max"</code> modifier if not specified.</p>    maxAwaitTimeMS <code>int</code>  <p>Positive integer denoting the time limit in milliseconds for the server to block a getMore operation if no data is available. This option should only be used in conjunction with the <code>"tailable"</code> and <code>"awaitData"</code> options.</p>    maxScan <code>int</code>  <p><b>Warning</b></p> <p>This option is deprecated and should not be used.</p>  <p>Positive integer denoting the maximum number of documents or index keys to scan when executing the query.</p> <p>Falls back to the deprecated <code>"$maxScan"</code> modifier if not specified.</p>    maxTimeMS <code>int</code>  <p>The cumulative time limit in milliseconds for processing operations on the cursor. MongoDB aborts the operation at the earliest following interrupt point.</p> <p>Falls back to the deprecated <code>"$maxTimeMS"</code> modifier if not specified.</p>    min <code>array</code>|<code>object</code>  <p>The <i>inclusive</i> lower bound for a specific index.</p> <p>Falls back to the deprecated <code>"$min"</code> modifier if not specified.</p>    modifiers <code>array</code>  Meta operators modifying the output or behavior of a query. Use of these operators is deprecated in favor of named options.    noCursorTimeout <code>bool</code>  Prevents the server from timing out idle cursors after an inactivity period (10 minutes).    oplogReplay <code>bool</code>  <p>Internal use for replica sets. To use oplogReplay, you must include the following condition in the filter:</p> <p></p> <pre>[ 'ts' =&gt; [ '$gte' =&gt; &lt;timestamp&gt; ] ]</pre>   <p><b>Note</b>: This option is deprecated as of the 1.8.0 release.</p>    projection <code>array</code>|<code>object</code>  <p>The projection specification to determine which fields to include in the returned documents.</p> <p>If you are using the ODM functionality to deserialise documents as their original PHP class, make sure that you include the __pclass field in the projection. This is required for the deserialization to work and without it, the driver will return (by default) a <b>stdClass</b> object instead.</p>    readConcern MongoDB\Driver\ReadConcern  <p>A read concern to apply to the operation. By default, the read concern from the MongoDB Connection URI will be used.</p> <p>This option is available in MongoDB 3.2+ and will result in an exception at execution time if specified for an older server version.</p>    returnKey <code>bool</code>  <p>If <b><code>TRUE</code></b>, returns only the index keys in the resulting documents. Default value is <b><code>FALSE</code></b>. If <b><code>TRUE</code></b> and the find command does not use an index, the returned documents will be empty.</p> <p>Falls back to the deprecated <code>"$returnKey"</code> modifier if not specified.</p>    showRecordId <code>bool</code>  <p>Determines whether to return the record identifier for each document. If <b><code>TRUE</code></b>, adds a top-level <code>"$recordId"</code> field to the returned documents.</p> <p>Falls back to the deprecated <code>"$showDiskLoc"</code> modifier if not specified.</p>    singleBatch <code>bool</code>  Determines whether to close the cursor after the first batch. Defaults to <b><code>FALSE</code></b>.    skip <code>int</code> Number of documents to skip. Defaults to 0.   slaveOk <code>bool</code> Allow query of replica set secondaries   snapshot <code>bool</code>  <p><b>Warning</b></p> <p>This option is deprecated and should not be used.</p>  <p>Prevents the cursor from returning a document more than once because of an intervening write operation.</p> <p>Falls back to the deprecated <code>"$snapshot"</code> modifier if not specified.</p>    sort <code>array</code>|<code>object</code>  <p>The sort specification for the ordering of the results.</p> <p>Falls back to the deprecated <code>"$orderby"</code> modifier if not specified.</p>    tailable <code>bool</code> Returns a tailable cursor for a capped collection.
 		 * @return self
 		 * @link http://php.net/manual/en/mongodb-driver-query.construct.php
 		 * @since mongodb >=1.0.0
@@ -6790,28 +7106,28 @@ namespace MongoDB\Driver {
 	 * @link http://php.net/manual/en/class.mongodb-driver-readconcern.php
 	 * @since mongodb >=1.1.0
 	 */
-	final class ReadConcern implements \MongoDB\BSON\Serializable {
+	final class ReadConcern implements \MongoDB\BSON\Serializable, \Serializable {
 
 		/**
-		 * @var string <p>Default for reads against secondaries when <i>afterClusterTime</i>and <i>level</i> are unspecified.</p> <p>The query returns the instance's most recent data. Provides no guarantee that the data has been written to a majority of the replica set members (i.e. may be rolled back).</p> <p>For unsharded collections (including collections in a standalone deployment or a replica set deployment), <i>"local"</i> and <i>"available"</i> read concerns behave identically.</p> <p>For a sharded cluster, <i>"available"</i> read concern provides greater tolerance for partitions since it does not wait to ensure consistency guarantees. However, a query with <i>"available"</i> read concern may return orphan documents if the shard is undergoing chunk migrations since the <i>"available"</i> read concern, unlike <i>"local"</i> read concern, does not contact the shard's primary nor the config servers for updated metadata.</p>
+		 * @var string <p>Default for reads against secondaries when <code>afterClusterTime</code>and <code>level</code> are unspecified.</p> <p>The query returns the instance's most recent data. Provides no guarantee that the data has been written to a majority of the replica set members (i.e. may be rolled back).</p> <p>For unsharded collections (including collections in a standalone deployment or a replica set deployment), <code>"local"</code> and <code>"available"</code> read concerns behave identically.</p> <p>For a sharded cluster, <code>"available"</code> read concern provides greater tolerance for partitions since it does not wait to ensure consistency guarantees. However, a query with <code>"available"</code> read concern may return orphan documents if the shard is undergoing chunk migrations since the <code>"available"</code> read concern, unlike <code>"local"</code> read concern, does not contact the shard's primary nor the config servers for updated metadata.</p>
 		 * @link http://php.net/manual/en/class.mongodb-driver-readconcern.php
 		 */
 		const AVAILABLE = "available";
 
 		/**
-		 * @var string <p>The query returns data that reflects all successful writes issued with a write concern of <i>"majority"</i> <i>and</i> acknowledged prior to the start of the read operation. For replica sets that run with <i>writeConcernMajorityJournalDefault</i> set to <b><code>TRUE</code></b>, linearizable read concern returns data that will never be rolled back.</p> <p>With <i>writeConcernMajorityJournalDefault</i> set to <b><code>FALSE</code></b>, MongoDB will not wait for <i>w: "majority"</i> writes to be durable before acknowledging the writes. As such, <i>"majority"</i> write operations could possibly roll back in the event of a loss of a replica set member.</p> <p>You can specify linearizable read concern for read operations on the primary only.</p> <p>Linearizable read concern guarantees only apply if read operations specify a query filter that uniquely identifies a single document.</p> <b>Tip</b> <p>Always use <i>maxTimeMS</i> with linearizable read concern in case a majority of data bearing members are unavailable. <i>maxTimeMS</i> ensures that the operation does not block indefinitely and instead ensures that the operation returns an error if the read concern cannot be fulfilled.</p>  <p>Linearizable read concern requires MongoDB 3.4.</p>
+		 * @var string <p>The query returns data that reflects all successful writes issued with a write concern of <code>"majority"</code> <i>and</i> acknowledged prior to the start of the read operation. For replica sets that run with <code>writeConcernMajorityJournalDefault</code> set to <b><code>TRUE</code></b>, linearizable read concern returns data that will never be rolled back.</p> <p>With <code>writeConcernMajorityJournalDefault</code> set to <b><code>FALSE</code></b>, MongoDB will not wait for <code>w: "majority"</code> writes to be durable before acknowledging the writes. As such, <code>"majority"</code> write operations could possibly roll back in the event of a loss of a replica set member.</p> <p>You can specify linearizable read concern for read operations on the primary only.</p> <p>Linearizable read concern guarantees only apply if read operations specify a query filter that uniquely identifies a single document.</p> <b>Tip</b> <p>Always use <code>maxTimeMS</code> with linearizable read concern in case a majority of data bearing members are unavailable. <code>maxTimeMS</code> ensures that the operation does not block indefinitely and instead ensures that the operation returns an error if the read concern cannot be fulfilled.</p>  <p>Linearizable read concern requires MongoDB 3.4.</p>
 		 * @link http://php.net/manual/en/class.mongodb-driver-readconcern.php
 		 */
 		const LINEARIZABLE = "linearizable";
 
 		/**
-		 * @var string <p>Default for reads against primary if <i>level</i> is unspecified and for reads against secondaries if <i>level</i> is unspecified but <i>afterClusterTime</i> is specified.</p> <p>The query returns the instance's most recent data. Provides no guarantee that the data has been written to a majority of the replica set members (i.e. may be rolled back).</p>
+		 * @var string <p>Default for reads against primary if <code>level</code> is unspecified and for reads against secondaries if <code>level</code> is unspecified but <code>afterClusterTime</code> is specified.</p> <p>The query returns the instance's most recent data. Provides no guarantee that the data has been written to a majority of the replica set members (i.e. may be rolled back).</p>
 		 * @link http://php.net/manual/en/class.mongodb-driver-readconcern.php
 		 */
 		const LOCAL = "local";
 
 		/**
-		 * @var string <p>The query returns the instance's most recent data acknowledged as having been written to a majority of members in the replica set.</p> <p>To use read concern level of <i>"majority"</i>, replica sets must use WiredTiger storage engine and election protocol version 1.</p>
+		 * @var string <p>The query returns the instance's most recent data acknowledged as having been written to a majority of members in the replica set.</p> <p>To use read concern level of <code>"majority"</code>, replica sets must use WiredTiger storage engine and election protocol version 1.</p>
 		 * @link http://php.net/manual/en/class.mongodb-driver-readconcern.php
 		 */
 		const MAJORITY = "majority";
@@ -6850,52 +7166,101 @@ namespace MongoDB\Driver {
 		 * @since mongodb >=1.3.0
 		 */
 		final public function isDefault(): bool {}
+
+		/**
+		 * Serialize a ReadConcern
+		 * @return string <p>Returns the serialized representation of the MongoDB\Driver\ReadConcern.</p>
+		 * @link http://php.net/manual/en/mongodb-driver-readconcern.serialize.php
+		 * @see serialize()
+		 * @since mongodb >=1.7.0
+		 */
+		final public function serialize(): string {}
+
+		/**
+		 * Unserialize a ReadConcern
+		 * @param string $serialized <p>The serialized MongoDB\Driver\ReadConcern.</p>
+		 * @return void <p>Returns the unserialized MongoDB\Driver\ReadConcern.</p>
+		 * @link http://php.net/manual/en/mongodb-driver-readconcern.unserialize.php
+		 * @see unserialize()
+		 * @since mongodb >=1.7.0
+		 */
+		final public function unserialize(string $serialized): void {}
 	}
 
 	/**
 	 * @link http://php.net/manual/en/class.mongodb-driver-readpreference.php
 	 * @since mongodb >=1.0.0
 	 */
-	final class ReadPreference implements \MongoDB\BSON\Serializable {
+	final class ReadPreference implements \MongoDB\BSON\Serializable, \Serializable {
 
 		/**
-		 * @var integer <p>All operations read from the current replica set primary. This is the default read preference for MongoDB.</p>
+		 * @var int <p>All operations read from the current replica set primary. This is the default read preference for MongoDB.</p>
 		 * @link http://php.net/manual/en/class.mongodb-driver-readpreference.php
 		 */
 		const RP_PRIMARY = 1;
 
 		/**
-		 * @var integer <p>In most situations, operations read from the primary but if it is unavailable, operations read from secondary members.</p>
+		 * @var int <p>In most situations, operations read from the primary but if it is unavailable, operations read from secondary members.</p>
 		 * @link http://php.net/manual/en/class.mongodb-driver-readpreference.php
 		 */
 		const RP_PRIMARY_PREFERRED = 5;
 
 		/**
-		 * @var integer <p>All operations read from the secondary members of the replica set.</p>
+		 * @var int <p>All operations read from the secondary members of the replica set.</p>
 		 * @link http://php.net/manual/en/class.mongodb-driver-readpreference.php
 		 */
 		const RP_SECONDARY = 2;
 
 		/**
-		 * @var integer <p>In most situations, operations read from secondary members but if no secondary members are available, operations read from the primary.</p>
+		 * @var int <p>In most situations, operations read from secondary members but if no secondary members are available, operations read from the primary.</p>
 		 * @link http://php.net/manual/en/class.mongodb-driver-readpreference.php
 		 */
 		const RP_SECONDARY_PREFERRED = 6;
 
 		/**
-		 * @var integer <p>Operations read from member of the replica set with the least network latency, irrespective of the member's type.</p>
+		 * @var int <p>Operations read from member of the replica set with the least network latency, irrespective of the member's type.</p>
 		 * @link http://php.net/manual/en/class.mongodb-driver-readpreference.php
 		 */
 		const RP_NEAREST = 10;
 
 		/**
-		 * @var integer <p>The default value for the <i>"maxStalenessSeconds"</i> option is to specify no limit on maximum staleness, which means that the driver will not consider a secondary's lag when choosing where to direct a read operation.</p>
+		 * @var string <p>All operations read from the current replica set primary. This is the default read preference for MongoDB.</p>
+		 * @link http://php.net/manual/en/class.mongodb-driver-readpreference.php
+		 */
+		const PRIMARY = 'primary';
+
+		/**
+		 * @var string <p>In most situations, operations read from the primary but if it is unavailable, operations read from secondary members.</p>
+		 * @link http://php.net/manual/en/class.mongodb-driver-readpreference.php
+		 */
+		const PRIMARY_PREFERRED = 'primaryPreferred';
+
+		/**
+		 * @var string <p>All operations read from the secondary members of the replica set.</p>
+		 * @link http://php.net/manual/en/class.mongodb-driver-readpreference.php
+		 */
+		const SECONDARY = 'secondary';
+
+		/**
+		 * @var string <p>In most situations, operations read from secondary members but if no secondary members are available, operations read from the primary.</p>
+		 * @link http://php.net/manual/en/class.mongodb-driver-readpreference.php
+		 */
+		const SECONDARY_PREFERRED = 'secondaryPreferred';
+
+		/**
+		 * @var string <p>Operations read from member of the replica set with the least network latency, irrespective of the member's type.</p>
+		 * @link http://php.net/manual/en/class.mongodb-driver-readpreference.php
+		 */
+		const NEAREST = 'nearest';
+
+		/**
+		 * @var int <p>The default value for the <code>"maxStalenessSeconds"</code> option is to specify no limit on maximum staleness, which means that the driver will not consider a secondary's lag when choosing where to direct a read operation.</p>
 		 * @link http://php.net/manual/en/class.mongodb-driver-readpreference.php
 		 */
 		const NO_MAX_STALENESS = -1;
 
 		/**
-		 * @var integer <p>The minimum value for the <i>"maxStalenessSeconds"</i> option is 90 seconds. The driver estimates secondaries' staleness by periodically checking the latest write date of each replica set member. Since these checks are infrequent, the staleness estimate is coarse. Thus, the driver cannot enforce a max staleness value of less than 90 seconds.</p>
+		 * @var int <p>The minimum value for the <code>"maxStalenessSeconds"</code> option is 90 seconds. The driver estimates secondaries' staleness by periodically checking the latest write date of each replica set member. Since these checks are infrequent, the staleness estimate is coarse. Thus, the driver cannot enforce a max staleness value of less than 90 seconds.</p>
 		 * @link http://php.net/manual/en/class.mongodb-driver-readpreference.php
 		 */
 		const SMALLEST_MAX_STALENESS_SECONDS = 90;
@@ -6903,9 +7268,9 @@ namespace MongoDB\Driver {
 		/**
 		 * Create a new ReadPreference
 		 * <p>Constructs a new MongoDB\Driver\ReadPreference, which is an immutable value object.</p>
-		 * @param string|int $mode <p></p> <b>Read preference mode</b>   Value Description     <b><code>MongoDB\Driver\ReadPreference::RP_PRIMARY</code></b> or <i>"primary"</i>  <p>All operations read from the current replica set primary. This is the default read preference for MongoDB.</p>    <b><code>MongoDB\Driver\ReadPreference::RP_PRIMARY_PREFERRED</code></b> or <i>"primaryPreferred"</i>  <p>In most situations, operations read from the primary but if it is unavailable, operations read from secondary members.</p>    <b><code>MongoDB\Driver\ReadPreference::RP_SECONDARY</code></b> or <i>"secondary"</i>  <p>All operations read from the secondary members of the replica set.</p>    <b><code>MongoDB\Driver\ReadPreference::RP_SECONDARY_PREFERRED</code></b> or <i>"secondaryPreferred"</i>  <p>In most situations, operations read from secondary members but if no secondary members are available, operations read from the primary.</p>    <b><code>MongoDB\Driver\ReadPreference::RP_NEAREST</code></b> or <i>"nearest"</i>  <p>Operations read from member of the replica set with the least network latency, irrespective of the member's type.</p>
-		 * @param array $tagSets <p>Tag sets allow you to target read operations to specific members of a replica set. This parameter should be an array of associative arrays, each of which contain zero or more key/value pairs. When selecting a server for a read operation, the driver attempt to select a node having all tags in a set (i.e. the associative array of key/value pairs). If selection fails, the driver will attempt subsequent sets. An empty tag set (<i>array()</i>) will match any node and may be used as a fallback.</p> <p>Tags are not compatible with the <b><code>MongoDB\Driver\ReadPreference::RP_PRIMARY</code></b> mode and, in general, only apply when selecting a secondary member of a set for a read operation. However, the <b><code>MongoDB\Driver\ReadPreference::RP_NEAREST</code></b> mode, when combined with a tag set, selects the matching member with the lowest network latency. This member may be a primary or secondary.</p>
-		 * @param array $options <p></p> <b>options</b>   Option Type Description     maxStalenessSeconds <code>integer</code>  <p>Specifies a maximum replication lag, or "staleness", for reads from secondaries. When a secondary's estimated staleness exceeds this value, the driver stops using it for read operations.</p> <p>If specified, the max staleness must be a signed 32-bit integer greater than or equal to <b><code>MongoDB\Driver\ReadPreference::SMALLEST_MAX_STALENESS_SECONDS</code></b>.</p> <p>Defaults to <b><code>MongoDB\Driver\ReadPreference::NO_MAX_STALENESS</code></b>, which means that the driver will not consider a secondary's lag when choosing where to direct a read operation.</p> <p>This option is not compatible with the <b><code>MongoDB\Driver\ReadPreference::RP_PRIMARY</code></b> mode. Specifying a max staleness also requires all MongoDB instances in the deployment to be using MongoDB 3.4+. An exception will be thrown at execution time if any MongoDB instances in the deployment are of an older server version.</p>
+		 * @param string|int $mode <p></p> <b>Read preference mode</b>   Value Description     <b><code>MongoDB\Driver\ReadPreference::RP_PRIMARY</code></b> or <code>"primary"</code>  <p>All operations read from the current replica set primary. This is the default read preference for MongoDB.</p>    <b><code>MongoDB\Driver\ReadPreference::RP_PRIMARY_PREFERRED</code></b> or <code>"primaryPreferred"</code>  <p>In most situations, operations read from the primary but if it is unavailable, operations read from secondary members.</p>    <b><code>MongoDB\Driver\ReadPreference::RP_SECONDARY</code></b> or <code>"secondary"</code>  <p>All operations read from the secondary members of the replica set.</p>    <b><code>MongoDB\Driver\ReadPreference::RP_SECONDARY_PREFERRED</code></b> or <code>"secondaryPreferred"</code>  <p>In most situations, operations read from secondary members but if no secondary members are available, operations read from the primary.</p>    <b><code>MongoDB\Driver\ReadPreference::RP_NEAREST</code></b> or <code>"nearest"</code>  <p>Operations read from member of the replica set with the least network latency, irrespective of the member's type.</p>
+		 * @param array $tagSets <p>Tag sets allow you to target read operations to specific members of a replica set. This parameter should be an array of associative arrays, each of which contain zero or more key/value pairs. When selecting a server for a read operation, the driver attempt to select a node having all tags in a set (i.e. the associative array of key/value pairs). If selection fails, the driver will attempt subsequent sets. An empty tag set (<code>array()</code>) will match any node and may be used as a fallback.</p> <p>Tags are not compatible with the <b><code>MongoDB\Driver\ReadPreference::RP_PRIMARY</code></b> mode and, in general, only apply when selecting a secondary member of a set for a read operation. However, the <b><code>MongoDB\Driver\ReadPreference::RP_NEAREST</code></b> mode, when combined with a tag set, selects the matching member with the lowest network latency. This member may be a primary or secondary.</p>
+		 * @param array $options <p></p> <b>options</b>   Option Type Description     hedge <code>object</code>|<code>array</code>  <p>Specifies whether to use hedged reads, which are supported by MongoDB 4.4+ for sharded queries.</p> <p>Server hedged reads are available for all non-primary read preferences and are enabled by default when using the <code>"nearest"</code> mode. This option allows explicitly enabling server hedged reads for non-primary read preferences by specifying <code>['enabled' =&gt; true]</code>, or explicitly disabling server hedged reads for the <code>"nearest"</code> read preference by specifying <code>['enabled' =&gt; false]</code>.</p>    maxStalenessSeconds <code>int</code>  <p>Specifies a maximum replication lag, or "staleness", for reads from secondaries. When a secondary's estimated staleness exceeds this value, the driver stops using it for read operations.</p> <p>If specified, the max staleness must be a signed 32-bit integer greater than or equal to <b><code>MongoDB\Driver\ReadPreference::SMALLEST_MAX_STALENESS_SECONDS</code></b>.</p> <p>Defaults to <b><code>MongoDB\Driver\ReadPreference::NO_MAX_STALENESS</code></b>, which means that the driver will not consider a secondary's lag when choosing where to direct a read operation.</p> <p>This option is not compatible with the <b><code>MongoDB\Driver\ReadPreference::RP_PRIMARY</code></b> mode. Specifying a max staleness also requires all MongoDB instances in the deployment to be using MongoDB 3.4+. An exception will be thrown at execution time if any MongoDB instances in the deployment are of an older server version.</p>
 		 * @return self
 		 * @link http://php.net/manual/en/mongodb-driver-readpreference.construct.php
 		 * @since mongodb >=1.0.0
@@ -6919,6 +7284,14 @@ namespace MongoDB\Driver {
 		 * @since mongodb >=1.2.0
 		 */
 		final public function bsonSerialize(): object {}
+
+		/**
+		 * Returns the ReadPreference's "hedge" option
+		 * @return object|null <p>Returns the ReadPreference's "hedge" option.</p>
+		 * @link http://php.net/manual/en/mongodb-driver-readpreference.gethedge.php
+		 * @since mongodb >=1.8.0
+		 */
+		final public function getHedge() {}
 
 		/**
 		 * Returns the ReadPreference's "maxStalenessSeconds" option
@@ -6937,12 +7310,39 @@ namespace MongoDB\Driver {
 		final public function getMode(): int {}
 
 		/**
+		 * Returns the ReadPreference's "mode" option as a string
+		 * @return string <p>Returns the ReadPreference's "mode" option as a string.</p>
+		 * @link http://php.net/manual/en/mongodb-driver-readpreference.getmodestring.php
+		 * @since mongodb >=1.7.0
+		 */
+		final public function getModeString(): string {}
+
+		/**
 		 * Returns the ReadPreference's "tagSets" option
 		 * @return array <p>Returns the ReadPreference's "tagSets" option.</p>
 		 * @link http://php.net/manual/en/mongodb-driver-readpreference.gettagsets.php
 		 * @since mongodb >=1.0.0
 		 */
 		final public function getTagSets(): array {}
+
+		/**
+		 * Serialize a ReadPreference
+		 * @return string <p>Returns the serialized representation of the MongoDB\Driver\ReadPreference.</p>
+		 * @link http://php.net/manual/en/mongodb-driver-readpreference.serialize.php
+		 * @see serialize()
+		 * @since mongodb >=1.7.0
+		 */
+		final public function serialize(): string {}
+
+		/**
+		 * Unserialize a ReadPreference
+		 * @param string $serialized <p>The serialized MongoDB\Driver\ReadPreference.</p>
+		 * @return void <p>Returns the unserialized MongoDB\Driver\ReadPreference.</p>
+		 * @link http://php.net/manual/en/mongodb-driver-readpreference.unserialize.php
+		 * @see unserialize()
+		 * @since mongodb >=1.7.0
+		 */
+		final public function unserialize(string $serialized): void {}
 	}
 
 	/**
@@ -6952,55 +7352,55 @@ namespace MongoDB\Driver {
 	final class Server {
 
 		/**
-		 * @var integer <p>Unknown server type, returned by <code>MongoDB\Driver\Server::getType()</code>.</p>
+		 * @var int <p>Unknown server type, returned by <code>MongoDB\Driver\Server::getType()</code>.</p>
 		 * @link http://php.net/manual/en/class.mongodb-driver-server.php
 		 */
 		const TYPE_UNKNOWN = 0;
 
 		/**
-		 * @var integer <p>Standalone server type, returned by <code>MongoDB\Driver\Server::getType()</code>.</p>
+		 * @var int <p>Standalone server type, returned by <code>MongoDB\Driver\Server::getType()</code>.</p>
 		 * @link http://php.net/manual/en/class.mongodb-driver-server.php
 		 */
 		const TYPE_STANDALONE = 1;
 
 		/**
-		 * @var integer <p>Mongos server type, returned by <code>MongoDB\Driver\Server::getType()</code>.</p>
+		 * @var int <p>Mongos server type, returned by <code>MongoDB\Driver\Server::getType()</code>.</p>
 		 * @link http://php.net/manual/en/class.mongodb-driver-server.php
 		 */
 		const TYPE_MONGOS = 2;
 
 		/**
-		 * @var integer <p>Replica set possible primary server type, returned by <code>MongoDB\Driver\Server::getType()</code>.</p> <p>A server may be identified as a possible primary if it has not yet been checked but another memory of the replica set thinks it is the primary.</p>
+		 * @var int <p>Replica set possible primary server type, returned by <code>MongoDB\Driver\Server::getType()</code>.</p> <p>A server may be identified as a possible primary if it has not yet been checked but another memory of the replica set thinks it is the primary.</p>
 		 * @link http://php.net/manual/en/class.mongodb-driver-server.php
 		 */
 		const TYPE_POSSIBLE_PRIMARY = 3;
 
 		/**
-		 * @var integer <p>Replica set primary server type, returned by <code>MongoDB\Driver\Server::getType()</code>.</p>
+		 * @var int <p>Replica set primary server type, returned by <code>MongoDB\Driver\Server::getType()</code>.</p>
 		 * @link http://php.net/manual/en/class.mongodb-driver-server.php
 		 */
 		const TYPE_RS_PRIMARY = 4;
 
 		/**
-		 * @var integer <p>Replica set secondary server type, returned by <code>MongoDB\Driver\Server::getType()</code>.</p>
+		 * @var int <p>Replica set secondary server type, returned by <code>MongoDB\Driver\Server::getType()</code>.</p>
 		 * @link http://php.net/manual/en/class.mongodb-driver-server.php
 		 */
 		const TYPE_RS_SECONDARY = 5;
 
 		/**
-		 * @var integer <p>Replica set arbiter server type, returned by <code>MongoDB\Driver\Server::getType()</code>.</p>
+		 * @var int <p>Replica set arbiter server type, returned by <code>MongoDB\Driver\Server::getType()</code>.</p>
 		 * @link http://php.net/manual/en/class.mongodb-driver-server.php
 		 */
 		const TYPE_RS_ARBITER = 6;
 
 		/**
-		 * @var integer <p>Replica set other server type, returned by <code>MongoDB\Driver\Server::getType()</code>.</p> <p>Such servers may be hidden, starting up, or recovering. They cannot be queried, but their hosts lists are useful for discovering the current replica set configuration.</p>
+		 * @var int <p>Replica set other server type, returned by <code>MongoDB\Driver\Server::getType()</code>.</p> <p>Such servers may be hidden, starting up, or recovering. They cannot be queried, but their hosts lists are useful for discovering the current replica set configuration.</p>
 		 * @link http://php.net/manual/en/class.mongodb-driver-server.php
 		 */
 		const TYPE_RS_OTHER = 7;
 
 		/**
-		 * @var integer <p>Replica set ghost server type, returned by <code>MongoDB\Driver\Server::getType()</code>.</p> <p>Servers may be identified as such in at least three situations: briefly during server startup; in an uninitialized replica set; or when the server is shunned (i.e. removed from the replica set config). They cannot be queried, nor can their host list be used to discover the current replica set configuration; however, the client may monitor this server in hope that it transitions to a more useful state.</p>
+		 * @var int <p>Replica set ghost server type, returned by <code>MongoDB\Driver\Server::getType()</code>.</p> <p>Servers may be identified as such in at least three situations: briefly during server startup; in an uninitialized replica set; or when the server is shunned (i.e. removed from the replica set config). They cannot be queried, nor can their host list be used to discover the current replica set configuration; however, the client may monitor this server in hope that it transitions to a more useful state.</p>
 		 * @link http://php.net/manual/en/class.mongodb-driver-server.php
 		 */
 		const TYPE_RS_GHOST = 8;
@@ -7018,7 +7418,7 @@ namespace MongoDB\Driver {
 		/**
 		 * Execute one or more write operations on this server
 		 * <p>Executes one or more write operations on this server.</p><p>A MongoDB\Driver\BulkWrite can be constructed with one or more write operations of varying types (e.g. updates, deletes, and inserts). The driver will attempt to send operations of the same type to the server in as few requests as possible to optimize round trips.</p>
-		 * @param string $namespace <p>A fully qualified namespace (e.g. <i>"databaseName.collectionName"</i>).</p>
+		 * @param string $namespace <p>A fully qualified namespace (e.g. <code>"databaseName.collectionName"</code>).</p>
 		 * @param \MongoDB\Driver\BulkWrite $bulk <p>The write(s) to execute.</p>
 		 * @param array $options <p></p> <b>options</b>   Option Type Description     session MongoDB\Driver\Session  <p>A session to associate with the operation.</p>    writeConcern MongoDB\Driver\WriteConcern  <p>A write concern to apply to the operation.</p>
 		 * @return MongoDB\Driver\WriteResult <p>Returns MongoDB\Driver\WriteResult on success.</p>
@@ -7030,10 +7430,10 @@ namespace MongoDB\Driver {
 
 		/**
 		 * Execute a database command on this server
-		 * <p>Executes the command on this server.</p><p>This method applies no special logic to the command. Although this method accepts <i>"readConcern"</i> and <i>"writeConcern"</i> options, which will be incorporated into the command document, those options will not default to corresponding values from the MongoDB Connection URI nor will the MongoDB server version be taken into account. Users are therefore encouraged to use specific read and/or write command methods if possible.</p><p><b>Note</b>:  The <i>"readPreference"</i> option does not control the server to which the driver issues the operation; it will always be executed on this server object. Instead, it may be used when issuing the operation to a secondary (from a replica set connection, not standalone) or mongos node to ensure that the driver sets the wire protocol accordingly or adds the read preference to the operation, respectively. </p>
+		 * <p>Executes the command on this server.</p><p>This method applies no special logic to the command. Although this method accepts <code>"readConcern"</code> and <code>"writeConcern"</code> options, which will be incorporated into the command document, those options will not default to corresponding values from the MongoDB Connection URI nor will the MongoDB server version be taken into account. Users are therefore encouraged to use specific read and/or write command methods if possible.</p><p><b>Note</b>:  The <code>"readPreference"</code> option does not control the server to which the driver issues the operation; it will always be executed on this server object. Instead, it may be used when issuing the operation to a secondary (from a replica set connection, not standalone) or mongos node to ensure that the driver sets the wire protocol accordingly or adds the read preference to the operation, respectively. </p>
 		 * @param string $db <p>The name of the database on which to execute the command.</p>
 		 * @param \MongoDB\Driver\Command $command <p>The command to execute.</p>
-		 * @param array $options <p></p> <b>options</b>   Option Type Description     readConcern MongoDB\Driver\ReadConcern  <p>A read concern to apply to the operation.</p> <p>This option is available in MongoDB 3.2+ and will result in an exception at execution time if specified for an older server version.</p>    readPreference MongoDB\Driver\ReadPreference  <p>A read preference to use for selecting a server for the operation.</p>    session MongoDB\Driver\Session  <p>A session to associate with the operation.</p>    writeConcern MongoDB\Driver\WriteConcern  <p>A write concern to apply to the operation.</p>     <p><b>Warning</b></p> <p>If you are using a <i>"session"</i> which has a transaction in progress, you cannot specify a <i>"readConcern"</i> or <i>"writeConcern"</i> option. This will result in an MongoDB\Driver\Exception\InvalidArgumentException being thrown. Instead, you should set these two options when you create the transaction with <code>MongoDB\Driver\Session::startTransaction()</code>.</p>
+		 * @param array $options <p></p> <b>options</b>   Option Type Description     readConcern MongoDB\Driver\ReadConcern  <p>A read concern to apply to the operation.</p> <p>This option is available in MongoDB 3.2+ and will result in an exception at execution time if specified for an older server version.</p>    readPreference MongoDB\Driver\ReadPreference  <p>A read preference to use for selecting a server for the operation.</p>    session MongoDB\Driver\Session  <p>A session to associate with the operation.</p>    writeConcern MongoDB\Driver\WriteConcern  <p>A write concern to apply to the operation.</p>     <p><b>Warning</b></p> <p>If you are using a <code>"session"</code> which has a transaction in progress, you cannot specify a <code>"readConcern"</code> or <code>"writeConcern"</code> option. This will result in an MongoDB\Driver\Exception\InvalidArgumentException being thrown. Instead, you should set these two options when you create the transaction with <code>MongoDB\Driver\Session::startTransaction()</code>.</p>
 		 * @return MongoDB\Driver\Cursor <p>Returns MongoDB\Driver\Cursor on success.</p>
 		 * @link http://php.net/manual/en/mongodb-driver-server.executecommand.php
 		 * @see MongoDB\Driver\Server::executeReadCommand(), MongoDB\Driver\Server::executeReadWriteCommand(), MongoDB\Driver\Server::executeWriteCommand(), MongoDB\Driver\Manager::executeCommand()
@@ -7043,8 +7443,8 @@ namespace MongoDB\Driver {
 
 		/**
 		 * Execute a database query on this server
-		 * <p>Executes the query on this server.</p><p><b>Note</b>:  The <i>"readPreference"</i> option does not control the server to which the driver issues the operation; it will always be executed on this server object. Instead, it may be used when issuing the operation to a secondary (from a replica set connection, not standalone) or mongos node to ensure that the driver sets the wire protocol accordingly or adds the read preference to the operation, respectively. </p>
-		 * @param string $namespace <p>A fully qualified namespace (e.g. <i>"databaseName.collectionName"</i>).</p>
+		 * <p>Executes the query on this server.</p><p><b>Note</b>:  The <code>"readPreference"</code> option does not control the server to which the driver issues the operation; it will always be executed on this server object. Instead, it may be used when issuing the operation to a secondary (from a replica set connection, not standalone) or mongos node to ensure that the driver sets the wire protocol accordingly or adds the read preference to the operation, respectively. </p>
+		 * @param string $namespace <p>A fully qualified namespace (e.g. <code>"databaseName.collectionName"</code>).</p>
 		 * @param \MongoDB\Driver\Query $query <p>The query to execute.</p>
 		 * @param array $options <p></p> <b>options</b>   Option Type Description     readPreference MongoDB\Driver\ReadPreference  <p>A read preference to use for selecting a server for the operation.</p>    session MongoDB\Driver\Session  <p>A session to associate with the operation.</p>
 		 * @return MongoDB\Driver\Cursor <p>Returns MongoDB\Driver\Cursor on success.</p>
@@ -7056,10 +7456,10 @@ namespace MongoDB\Driver {
 
 		/**
 		 * Execute a database command that reads on this server
-		 * <p>Executes the command on this server.</p><p>This method will apply logic that is specific to commands that read (e.g. count) and take the MongoDB server version into account. The <i>"readConcern"</i> option will default to the corresponding value from the MongoDB Connection URI.</p><p><b>Note</b>:  The <i>"readPreference"</i> option does not control the server to which the driver issues the operation; it will always be executed on this server object. Instead, it may be used when issuing the operation to a secondary (from a replica set connection, not standalone) or mongos node to ensure that the driver sets the wire protocol accordingly or adds the read preference to the operation, respectively. </p>
+		 * <p>Executes the command on this server.</p><p>This method will apply logic that is specific to commands that read (e.g. count) and take the MongoDB server version into account. The <code>"readConcern"</code> option will default to the corresponding value from the MongoDB Connection URI.</p><p><b>Note</b>:  The <code>"readPreference"</code> option does not control the server to which the driver issues the operation; it will always be executed on this server object. Instead, it may be used when issuing the operation to a secondary (from a replica set connection, not standalone) or mongos node to ensure that the driver sets the wire protocol accordingly or adds the read preference to the operation, respectively. </p>
 		 * @param string $db <p>The name of the database on which to execute the command.</p>
 		 * @param \MongoDB\Driver\Command $command <p>The command to execute.</p>
-		 * @param array $options <p></p> <b>options</b>   Option Type Description     readConcern MongoDB\Driver\ReadConcern  <p>A read concern to apply to the operation.</p> <p>This option is available in MongoDB 3.2+ and will result in an exception at execution time if specified for an older server version.</p>    readPreference MongoDB\Driver\ReadPreference  <p>A read preference to use for selecting a server for the operation.</p>    session MongoDB\Driver\Session  <p>A session to associate with the operation.</p>     <p><b>Warning</b></p> <p>If you are using a <i>"session"</i> which has a transaction in progress, you cannot specify a <i>"readConcern"</i> or <i>"writeConcern"</i> option. This will result in an MongoDB\Driver\Exception\InvalidArgumentException being thrown. Instead, you should set these two options when you create the transaction with <code>MongoDB\Driver\Session::startTransaction()</code>.</p>
+		 * @param array $options <p></p> <b>options</b>   Option Type Description     readConcern MongoDB\Driver\ReadConcern  <p>A read concern to apply to the operation.</p> <p>This option is available in MongoDB 3.2+ and will result in an exception at execution time if specified for an older server version.</p>    readPreference MongoDB\Driver\ReadPreference  <p>A read preference to use for selecting a server for the operation.</p>    session MongoDB\Driver\Session  <p>A session to associate with the operation.</p>     <p><b>Warning</b></p> <p>If you are using a <code>"session"</code> which has a transaction in progress, you cannot specify a <code>"readConcern"</code> or <code>"writeConcern"</code> option. This will result in an MongoDB\Driver\Exception\InvalidArgumentException being thrown. Instead, you should set these two options when you create the transaction with <code>MongoDB\Driver\Session::startTransaction()</code>.</p>
 		 * @return MongoDB\Driver\Cursor <p>Returns MongoDB\Driver\Cursor on success.</p>
 		 * @link http://php.net/manual/en/mongodb-driver-server.executereadcommand.php
 		 * @see MongoDB\Driver\Server::executeCommand(), MongoDB\Driver\Server::executeReadWriteCommand(), MongoDB\Driver\Server::executeWriteCommand(), MongoDB\Driver\Manager::executeReadCommand()
@@ -7069,10 +7469,10 @@ namespace MongoDB\Driver {
 
 		/**
 		 * Execute a database command that reads and writes on this server
-		 * <p>Executes the command on this server.</p><p>This method will apply logic that is specific to commands that read and write (e.g. findAndModify) and take the MongoDB server version into account. The <i>"readConcern"</i> and <i>"writeConcern"</i> options will default to the corresponding values from the MongoDB Connection URI.</p>
+		 * <p>Executes the command on this server.</p><p>This method will apply logic that is specific to commands that read and write (e.g. aggregate) and take the MongoDB server version into account. The <code>"readConcern"</code> and <code>"writeConcern"</code> options will default to the corresponding values from the MongoDB Connection URI.</p>
 		 * @param string $db <p>The name of the database on which to execute the command.</p>
 		 * @param \MongoDB\Driver\Command $command <p>The command to execute.</p>
-		 * @param array $options <p></p> <b>options</b>   Option Type Description     readConcern MongoDB\Driver\ReadConcern  <p>A read concern to apply to the operation.</p> <p>This option is available in MongoDB 3.2+ and will result in an exception at execution time if specified for an older server version.</p>    session MongoDB\Driver\Session  <p>A session to associate with the operation.</p>    writeConcern MongoDB\Driver\WriteConcern  <p>A write concern to apply to the operation.</p>     <p><b>Warning</b></p> <p>If you are using a <i>"session"</i> which has a transaction in progress, you cannot specify a <i>"readConcern"</i> or <i>"writeConcern"</i> option. This will result in an MongoDB\Driver\Exception\InvalidArgumentException being thrown. Instead, you should set these two options when you create the transaction with <code>MongoDB\Driver\Session::startTransaction()</code>.</p>
+		 * @param array $options <p></p> <b>options</b>   Option Type Description     readConcern MongoDB\Driver\ReadConcern  <p>A read concern to apply to the operation.</p> <p>This option is available in MongoDB 3.2+ and will result in an exception at execution time if specified for an older server version.</p>    session MongoDB\Driver\Session  <p>A session to associate with the operation.</p>    writeConcern MongoDB\Driver\WriteConcern  <p>A write concern to apply to the operation.</p>     <p><b>Warning</b></p> <p>If you are using a <code>"session"</code> which has a transaction in progress, you cannot specify a <code>"readConcern"</code> or <code>"writeConcern"</code> option. This will result in an MongoDB\Driver\Exception\InvalidArgumentException being thrown. Instead, you should set these two options when you create the transaction with <code>MongoDB\Driver\Session::startTransaction()</code>.</p>
 		 * @return MongoDB\Driver\Cursor <p>Returns MongoDB\Driver\Cursor on success.</p>
 		 * @link http://php.net/manual/en/mongodb-driver-server.executereadwritecommand.php
 		 * @see MongoDB\Driver\Server::executeCommand(), MongoDB\Driver\Server::executeReadCommand(), MongoDB\Driver\Server::executeWriteCommand(), MongoDB\Driver\Manager::executeReadWriteCommand()
@@ -7082,10 +7482,10 @@ namespace MongoDB\Driver {
 
 		/**
 		 * Execute a database command that writes on this server
-		 * <p>Executes the command on this server.</p><p>This method will apply logic that is specific to commands that write (e.g. drop) and take the MongoDB server version into account. The <i>"writeConcern"</i> option will default to the corresponding value from the MongoDB Connection URI.</p>
+		 * <p>Executes the command on this server.</p><p>This method will apply logic that is specific to commands that write (e.g. drop) and take the MongoDB server version into account. The <code>"writeConcern"</code> option will default to the corresponding value from the MongoDB Connection URI.</p><p><b>Note</b>:  This method is not intended to be used to execute insert, update, or delete commands. Users are encouraged to use <code>MongoDB\Driver\Server::executeBulkWrite()</code> for those commands. </p>
 		 * @param string $db <p>The name of the database on which to execute the command.</p>
 		 * @param \MongoDB\Driver\Command $command <p>The command to execute.</p>
-		 * @param array $options <p></p> <b>options</b>   Option Type Description     session MongoDB\Driver\Session  <p>A session to associate with the operation.</p>    writeConcern MongoDB\Driver\WriteConcern  <p>A write concern to apply to the operation.</p>     <p><b>Warning</b></p> <p>If you are using a <i>"session"</i> which has a transaction in progress, you cannot specify a <i>"readConcern"</i> or <i>"writeConcern"</i> option. This will result in an MongoDB\Driver\Exception\InvalidArgumentException being thrown. Instead, you should set these two options when you create the transaction with <code>MongoDB\Driver\Session::startTransaction()</code>.</p>
+		 * @param array $options <p></p> <b>options</b>   Option Type Description     session MongoDB\Driver\Session  <p>A session to associate with the operation.</p>    writeConcern MongoDB\Driver\WriteConcern  <p>A write concern to apply to the operation.</p>     <p><b>Warning</b></p> <p>If you are using a <code>"session"</code> which has a transaction in progress, you cannot specify a <code>"readConcern"</code> or <code>"writeConcern"</code> option. This will result in an MongoDB\Driver\Exception\InvalidArgumentException being thrown. Instead, you should set these two options when you create the transaction with <code>MongoDB\Driver\Session::startTransaction()</code>.</p>
 		 * @return MongoDB\Driver\Cursor <p>Returns MongoDB\Driver\Cursor on success.</p>
 		 * @link http://php.net/manual/en/mongodb-driver-server.executewritecommand.php
 		 * @see MongoDB\Driver\Server::executeCommand(), MongoDB\Driver\Server::executeReadCommand(), MongoDB\Driver\Server::executeReadWriteCommand(), MongoDB\Driver\Manager::executeWriteCommand()
@@ -7114,7 +7514,7 @@ namespace MongoDB\Driver {
 
 		/**
 		 * Returns the latency of this server
-		 * <p>Returns the latency of this server (i.e. the client's measured round trip time of an <i>ismaster</i> command).</p>
+		 * <p>Returns the latency of this server (i.e. the client's measured round trip time of an <code>ismaster</code> command).</p>
 		 * @return string <p>Returns the latency of this server.</p>
 		 * @link http://php.net/manual/en/mongodb-driver-server.getlatency.php
 		 * @see MongoDB\Driver\Server::getInfo()
@@ -7144,8 +7544,8 @@ namespace MongoDB\Driver {
 
 		/**
 		 * Returns an integer denoting the type of this server
-		 * <p>Returns an <code>integer</code> denoting the type of this server. The value will correlate with a MongoDB\Driver\Server constant.</p>
-		 * @return int <p>Returns an <code>integer</code> denoting the type of this server.</p>
+		 * <p>Returns an <code>int</code> denoting the type of this server. The value will correlate with a MongoDB\Driver\Server constant.</p>
+		 * @return int <p>Returns an <code>int</code> denoting the type of this server.</p>
 		 * @link http://php.net/manual/en/mongodb-driver-server.gettype.php
 		 * @see MongoDB\Driver\Server::getInfo()
 		 * @since mongodb >=1.0.0
@@ -7174,7 +7574,7 @@ namespace MongoDB\Driver {
 
 		/**
 		 * Checks if this server is a passive member of a replica set
-		 * <p>Returns whether this server is a passive member of a replica set (i.e. its priority is <i>0</i>).</p>
+		 * <p>Returns whether this server is a passive member of a replica set (i.e. its priority is <code>0</code>).</p>
 		 * @return bool <p>Returns <b><code>TRUE</code></b> if this server is a passive member of a replica set, and <b><code>FALSE</code></b> otherwise.</p>
 		 * @link http://php.net/manual/en/mongodb-driver-server.ispassive.php
 		 * @see MongoDB\Driver\Server::getInfo()
@@ -7211,6 +7611,36 @@ namespace MongoDB\Driver {
 	final class Session {
 
 		/**
+		 * @var string <p>There is no transaction in progress.</p>
+		 * @link http://php.net/manual/en/class.mongodb-driver-session.php
+		 */
+		const TRANSACTION_NONE = 'none';
+
+		/**
+		 * @var string <p>A transaction has been started, but no operation has been sent to the server.</p>
+		 * @link http://php.net/manual/en/class.mongodb-driver-session.php
+		 */
+		const TRANSACTION_STARTING = 'starting';
+
+		/**
+		 * @var string <p>A transaction is in progress.</p>
+		 * @link http://php.net/manual/en/class.mongodb-driver-session.php
+		 */
+		const TRANSACTION_IN_PROGRESS = 'in_progress';
+
+		/**
+		 * @var string <p>The transaction was committed.</p>
+		 * @link http://php.net/manual/en/class.mongodb-driver-session.php
+		 */
+		const TRANSACTION_COMMITTED = 'committed';
+
+		/**
+		 * @var string <p>The transaction was aborted.</p>
+		 * @link http://php.net/manual/en/class.mongodb-driver-session.php
+		 */
+		const TRANSACTION_ABORTED = 'aborted';
+
+		/**
 		 * Create a new Session (not used)
 		 * <p>MongoDB\Driver\Session objects are returned by <code>MongoDB\Driver\Manager::startSession()</code> and cannot be constructed directly.</p>
 		 * @return self
@@ -7222,7 +7652,7 @@ namespace MongoDB\Driver {
 
 		/**
 		 * Aborts a transaction
-		 * <p>This method aborts an existing transaction and all the associated operations are rolled back. It is like all operations that were part of this transaction never existed.</p>
+		 * <p>Terminates the multi-document transaction and rolls back any data changes made by the operations within the transaction. That is, the transaction ends without saving any of the changes made by the operations in the transaction.</p>
 		 * @return void <p>No value is returned.</p>
 		 * @link http://php.net/manual/en/mongodb-driver-session.aborttransaction.php
 		 * @since mongodb >=1.5.0
@@ -7251,7 +7681,7 @@ namespace MongoDB\Driver {
 
 		/**
 		 * Commits a transaction
-		 * <p>This method commits an existing transaction and all the associated operations are persisted in the database.</p>
+		 * <p>Saves the changes made by the operations in the multi-document transaction and ends the transaction. Until the commit, none of the data changes made from within the transaction are visible outside the transaction.</p>
 		 * @return void <p>No value is returned.</p>
 		 * @link http://php.net/manual/en/mongodb-driver-session.committransaction.php
 		 * @since mongodb >=1.5.0
@@ -7260,7 +7690,7 @@ namespace MongoDB\Driver {
 
 		/**
 		 * Terminates a session
-		 * <p>This method closes an existing session. If a transaction was associated with this session, this transaction is also aborted, and all its operations are rolled back.</p>
+		 * <p>This method closes an existing session. If a transaction was associated with this session, the transaction will be aborted. After calling this method, applications should not invoke other methods on the session.</p><p><b>Note</b>:  Sessions are also closed during garbage collection. It should not be necessary to call this method under normal circumstances. </p>
 		 * @return void <p>No value is returned.</p>
 		 * @link http://php.net/manual/en/mongodb-driver-session.endsession.php
 		 * @since mongodb >=1.5.0
@@ -7295,9 +7725,45 @@ namespace MongoDB\Driver {
 		final public function getOperationTime() {}
 
 		/**
+		 * Returns the server to which this session is pinned
+		 * <p>Returns the MongoDB\Driver\Server to which this session is pinned. If the session is not pinned to a server, <b><code>NULL</code></b> will be returned.</p><p>Session pinning is primarily used for sharded transactions, as all commands within a sharded transaction must be sent to the same mongos instance. This method is intended to be used by libraries built atop the extension to allow use of a pinned server instead of invoking server selection.</p>
+		 * @return MongoDB\Driver\Server|null <p>Returns the MongoDB\Driver\Server to which this session is pinned, or <b><code>NULL</code></b> if the session is not pinned to any server.</p>
+		 * @link http://php.net/manual/en/mongodb-driver-session.getserver.php
+		 * @since mongodb >=1.6.0
+		 */
+		final public function getServer() {}
+
+		/**
+		 * Returns options for the currently running transaction
+		 * <p>Returns options for the currently running transaction.</p>
+		 * @return array|null <p>Returns a <code>array</code> containing current transaction options, or <b><code>NULL</code></b> if no transaction is running.</p>
+		 * @link http://php.net/manual/en/mongodb-driver-session.gettransactionoptions.php
+		 * @since mongodb >=1.7.0
+		 */
+		final public function getTransactionOptions() {}
+
+		/**
+		 * Returns the current transaction state for this session
+		 * <p>Returns the transaction state for this session.</p>
+		 * @return string <p>Returns the current transaction state for this session.</p>
+		 * @link http://php.net/manual/en/mongodb-driver-session.gettransactionstate.php
+		 * @since mongodb >=1.7.0
+		 */
+		final public function getTransactionState(): string {}
+
+		/**
+		 * Returns whether a multi-document transaction is in progress
+		 * <p>Returns whether a multi-document transaction is currently in progress for this session. A transaction is considered "in progress" if it has been started but has not been committed or aborted.</p>
+		 * @return bool <p>Returns <b><code>TRUE</code></b> if a transaction is currently in progress for this session, and <b><code>FALSE</code></b> otherwise.</p>
+		 * @link http://php.net/manual/en/mongodb-driver-session.isintransaction.php
+		 * @since mongodb >=1.6.0
+		 */
+		final public function isInTransaction(): bool {}
+
+		/**
 		 * Start a new client session for use with this client
 		 * <p>Creates a MongoDB\Driver\Session for the given options. The session may then be specified when executing commands, queries, and write operations.</p><p><b>Note</b>:  A MongoDB\Driver\Session can only be used with the MongoDB\Driver\Manager from which it was created. </p>
-		 * @param array $options <p></p> <b>options</b>   Option Type Description Default     causalConsistency <code>boolean</code>  <p>Configure causal consistency in a session. If <b><code>TRUE</code></b>, each operation in the session will be causally ordered after the previous read or write operation. Set to <b><code>FALSE</code></b> to disable causal consistency.</p> <p>See Casual Consistency in the MongoDB manual for more information.</p>  <b><code>TRUE</code></b>   defaultTransactionOptions <code>array</code>  <p>Default options to apply to newly created transactions. These options are used unless they are overridden when a transaction is started with different value for each option.</p> <p></p> <b>options</b>   Option Type Description     readConcern MongoDB\Driver\ReadConcern  <p>A read concern to apply to the operation.</p> <p>This option is available in MongoDB 3.2+ and will result in an exception at execution time if specified for an older server version.</p>    readPreference MongoDB\Driver\ReadPreference  <p>A read preference to use for selecting a server for the operation.</p>    writeConcern MongoDB\Driver\WriteConcern  <p>A write concern to apply to the operation.</p>     <p>This option is available in MongoDB 4.0+.</p>  <i>[]</i>
+		 * @param array $options <p></p> <b>options</b>   Option Type Description Default     causalConsistency <code>bool</code>  <p>Configure causal consistency in a session. If <b><code>TRUE</code></b>, each operation in the session will be causally ordered after the previous read or write operation. Set to <b><code>FALSE</code></b> to disable causal consistency.</p> <p>See Casual Consistency in the MongoDB manual for more information.</p>  <b><code>TRUE</code></b>   defaultTransactionOptions <code>array</code>  <p>Default options to apply to newly created transactions. These options are used unless they are overridden when a transaction is started with different value for each option.</p> <p></p> <b>options</b>   Option Type Description     maxCommitTimeMS integer  <p>The maximum amount of time in milliseconds to allow a single <code>commitTransaction</code> command to run.</p> <p>If specified, <code>maxCommitTimeMS</code> must be a signed 32-bit integer greater than or equal to zero.</p>    readConcern MongoDB\Driver\ReadConcern  <p>A read concern to apply to the operation.</p> <p>This option is available in MongoDB 3.2+ and will result in an exception at execution time if specified for an older server version.</p>    readPreference MongoDB\Driver\ReadPreference  <p>A read preference to use for selecting a server for the operation.</p>    writeConcern MongoDB\Driver\WriteConcern  <p>A write concern to apply to the operation.</p>     <p>This option is available in MongoDB 4.0+.</p>  <code>[]</code>
 		 * @return MongoDB\Driver\Session <p>Returns a MongoDB\Driver\Session.</p>
 		 * @link http://php.net/manual/en/mongodb-driver-manager.startsession.php
 		 * @since mongodb >=1.4.0
@@ -7306,21 +7772,21 @@ namespace MongoDB\Driver {
 
 		/**
 		 * Starts a transaction
-		 * <p>This method starts a new transaction within this session. When the session is attached to operations through the <i>"session"</i> argument, these operations become of the started transaction.</p><p>Transactions can be committed through <code>MongoDB\Driver\Session::commitTransaction()</code>, and aborted with <code>MongoDB\Driver\Session::abortTransaction()</code>.</p><p>Transactions are also automatically aborted when the session is terminated through <code>MongoDB\Driver\Session::endSession()</code>.</p>
-		 * @param array|object $options <p>Options can be passed as argument to this method. Each element in this options array overrides the corresponding option from the <i>"defaultTransactionOptions"</i> option, if set when starting the session with <code>MongoDB\Driver\Manager::startSession()</code>.</p> <p></p> <b>options</b>   Option Type Description     readConcern MongoDB\Driver\ReadConcern  <p>A read concern to apply to the operation.</p> <p>This option is available in MongoDB 3.2+ and will result in an exception at execution time if specified for an older server version.</p>    readPreference MongoDB\Driver\ReadPreference  <p>A read preference to use for selecting a server for the operation.</p>    writeConcern MongoDB\Driver\WriteConcern  <p>A write concern to apply to the operation.</p>
+		 * <p>Starts a multi-document transaction associated with the session. At any given time, you can have at most one open transaction for a session. After starting a transaction, the session object must be passed to each operation via the <code>"session"</code> option (e.g. <code>MongoDB\Driver\Manager::executeBulkWrite()</code>) in order to associate that operation with the transaction.</p><p>Transactions can be committed through <code>MongoDB\Driver\Session::commitTransaction()</code>, and aborted with <code>MongoDB\Driver\Session::abortTransaction()</code>. Transactions are also automatically aborted when the session is closed from garbage collection or by explicitly calling <code>MongoDB\Driver\Session::endSession()</code>.</p>
+		 * @param array $options <p>Options can be passed as argument to this method. Each element in this options array overrides the corresponding option from the <code>"defaultTransactionOptions"</code> option, if set when starting the session with <code>MongoDB\Driver\Manager::startSession()</code>.</p> <p></p> <b>options</b>   Option Type Description     maxCommitTimeMS integer  <p>The maximum amount of time in milliseconds to allow a single <code>commitTransaction</code> command to run.</p> <p>If specified, <code>maxCommitTimeMS</code> must be a signed 32-bit integer greater than or equal to zero.</p>    readConcern MongoDB\Driver\ReadConcern  <p>A read concern to apply to the operation.</p> <p>This option is available in MongoDB 3.2+ and will result in an exception at execution time if specified for an older server version.</p>    readPreference MongoDB\Driver\ReadPreference  <p>A read preference to use for selecting a server for the operation.</p>    writeConcern MongoDB\Driver\WriteConcern  <p>A write concern to apply to the operation.</p>
 		 * @return void <p>No value is returned.</p>
 		 * @link http://php.net/manual/en/mongodb-driver-session.starttransaction.php
 		 * @since mongodb >=1.5.0
 		 */
-		final public function startTransaction($options): void {}
+		final public function startTransaction(array $options = NULL): void {}
 	}
 
 	/**
-	 * <p><b>MongoDB\Driver\WriteConcern</b> describes the level of acknowledgement requested from MongoDB for write operations to a standalone <i>mongod</i> or to replica sets or to sharded clusters. In sharded clusters, <i>mongos</i> instances will pass the write concern on to the shards.</p>
+	 * <p><b>MongoDB\Driver\WriteConcern</b> describes the level of acknowledgement requested from MongoDB for write operations to a standalone <code>mongod</code> or to replica sets or to sharded clusters. In sharded clusters, <code>mongos</code> instances will pass the write concern on to the shards.</p>
 	 * @link http://php.net/manual/en/class.mongodb-driver-writeconcern.php
 	 * @since mongodb >=1.0.0
 	 */
-	final class WriteConcern implements \MongoDB\BSON\Serializable {
+	final class WriteConcern implements \MongoDB\BSON\Serializable, \Serializable {
 
 		/**
 		 * @var string <p>Majority of all the members in the set; arbiters, non-voting members, passive members, hidden members and delayed members are all included in the definition of majority write concern.</p>
@@ -7331,8 +7797,8 @@ namespace MongoDB\Driver {
 		/**
 		 * Create a new WriteConcern
 		 * <p>Constructs a new MongoDB\Driver\WriteConcern, which is an immutable value object.</p>
-		 * @param string|int $w <p></p> <b>Write concern</b>   Value Description     1  Requests acknowledgement that the write operation has propagated to the standalone <i>mongod</i> or the primary in a replica set. This is the default write concern for MongoDB.    0  Requests no acknowledgment of the write operation. However, this may return information about socket exceptions and networking errors to the application.    &lt;integer greater than 1&gt;  Numbers greater than 1 are valid only for replica sets to request acknowledgement from specified number of members, including the primary.    <b><code>MongoDB\Driver\WriteConcern::MAJORITY</code></b>  <p>Requests acknowledgment that write operations have propagated to the majority of voting nodes, including the primary, and have been written to the on-disk journal for these nodes.</p> <p>Prior to MongoDB 3.0, this refers to the majority of replica set members (not just voting nodes).</p>    string  A string value is interpereted as a tag set. Requests acknowledgement that the write operations have propagated to a replica set member with the specified tag.
-		 * @param int $wtimeout <p>How long to wait (in milliseconds) for secondaries before failing.</p> <p><i>wtimeout</i> causes write operations to return with an error (<b>WriteConcernError</b>) after the specified limit, even if the required write concern will eventually succeed. When these write operations return, MongoDB does not undo successful data modifications performed before the write concern exceeded the <i>wtimeout</i> time limit.</p> <p>If specified, <i>wtimeout</i> must be a signed 32-bit integer greater than or equal to zero.</p> <p></p> <b>Write concern timeout</b>   Value Description     0 Block indefinitely. This is the default.   &lt;integer greater than 0&gt;  Milliseconds to wait until returning.
+		 * @param string|int $w <p></p> <b>Write concern</b>   Value Description     1  Requests acknowledgement that the write operation has propagated to the standalone <code>mongod</code> or the primary in a replica set. This is the default write concern for MongoDB.    0  Requests no acknowledgment of the write operation. However, this may return information about socket exceptions and networking errors to the application.    &lt;integer greater than 1&gt;  Numbers greater than 1 are valid only for replica sets to request acknowledgement from specified number of members, including the primary.    <b><code>MongoDB\Driver\WriteConcern::MAJORITY</code></b>  <p>Requests acknowledgment that write operations have propagated to the majority of voting nodes, including the primary, and have been written to the on-disk journal for these nodes.</p> <p>Prior to MongoDB 3.0, this refers to the majority of replica set members (not just voting nodes).</p>    string  A string value is interpereted as a tag set. Requests acknowledgement that the write operations have propagated to a replica set member with the specified tag.
+		 * @param int $wtimeout <p>How long to wait (in milliseconds) for secondaries before failing.</p> <p><code>wtimeout</code> causes write operations to return with an error (<b>WriteConcernError</b>) after the specified limit, even if the required write concern will eventually succeed. When these write operations return, MongoDB does not undo successful data modifications performed before the write concern exceeded the <code>wtimeout</code> time limit.</p> <p>If specified, <code>wtimeout</code> must be a signed 64-bit integer greater than or equal to zero.</p> <p></p> <b>Write concern timeout</b>   Value Description     0 Block indefinitely. This is the default.   &lt;integer greater than 0&gt;  Milliseconds to wait until returning.
 		 * @param bool $journal <p>Wait until mongod has applied the write to the journal.</p>
 		 * @return self
 		 * @link http://php.net/manual/en/mongodb-driver-writeconcern.construct.php
@@ -7350,7 +7816,7 @@ namespace MongoDB\Driver {
 
 		/**
 		 * Returns the WriteConcern's "journal" option
-		 * @return boolean|null <p>Returns the WriteConcern's "journal" option.</p>
+		 * @return bool|null <p>Returns the WriteConcern's "journal" option.</p>
 		 * @link http://php.net/manual/en/mongodb-driver-writeconcern.getjournal.php
 		 * @since mongodb >=1.0.0
 		 */
@@ -7358,7 +7824,7 @@ namespace MongoDB\Driver {
 
 		/**
 		 * Returns the WriteConcern's "w" option
-		 * @return string|integer|null <p>Returns the WriteConcern's "w" option.</p>
+		 * @return string|int|null <p>Returns the WriteConcern's "w" option.</p>
 		 * @link http://php.net/manual/en/mongodb-driver-writeconcern.getw.php
 		 * @since mongodb >=1.0.0
 		 */
@@ -7366,11 +7832,11 @@ namespace MongoDB\Driver {
 
 		/**
 		 * Returns the WriteConcern's "wtimeout" option
-		 * @return int <p>Returns the WriteConcern's "wtimeout" option.</p>
+		 * @return int|MongoDB\BSON\Int64 <p>Returns the WriteConcern's "wtimeout" option.</p>
 		 * @link http://php.net/manual/en/mongodb-driver-writeconcern.getwtimeout.php
 		 * @since mongodb >=1.0.0
 		 */
-		final public function getWtimeout(): int {}
+		final public function getWtimeout() {}
 
 		/**
 		 * Checks if this is the default write concern
@@ -7380,6 +7846,25 @@ namespace MongoDB\Driver {
 		 * @since mongodb >=1.3.0
 		 */
 		final public function isDefault(): bool {}
+
+		/**
+		 * Serialize a WriteConcern
+		 * @return string <p>Returns the serialized representation of the MongoDB\Driver\WriteConcern.</p>
+		 * @link http://php.net/manual/en/mongodb-driver-writeconcern.serialize.php
+		 * @see serialize()
+		 * @since mongodb >=1.7.0
+		 */
+		final public function serialize(): string {}
+
+		/**
+		 * Unserialize a WriteConcern
+		 * @param string $serialized <p>The serialized MongoDB\Driver\WriteConcern.</p>
+		 * @return void <p>Returns the unserialized MongoDB\Driver\WriteConcern.</p>
+		 * @link http://php.net/manual/en/mongodb-driver-writeconcern.unserialize.php
+		 * @see unserialize()
+		 * @since mongodb >=1.7.0
+		 */
+		final public function unserialize(string $serialized): void {}
 	}
 
 	/**
@@ -7398,8 +7883,8 @@ namespace MongoDB\Driver {
 		final public function getCode(): int {}
 
 		/**
-		 * Returns additional metadata for the WriteConcernError
-		 * @return mixed <p>Returns additional metadata for the WriteConcernError, or <b><code>NULL</code></b> if no metadata is available.</p>
+		 * Returns metadata document for the WriteConcernError
+		 * @return object|null <p>Returns the metadata document for the WriteConcernError, or <b><code>NULL</code></b> if no metadata is available.</p>
 		 * @link http://php.net/manual/en/mongodb-driver-writeconcernerror.getinfo.php
 		 * @since mongodb >=1.0.0
 		 */
@@ -7446,8 +7931,8 @@ namespace MongoDB\Driver {
 		final public function getIndex(): int {}
 
 		/**
-		 * Returns additional metadata for the WriteError
-		 * @return mixed <p>Returns additional metadata for the WriteError, or <b><code>NULL</code></b> if no metadata is available.</p>
+		 * Returns metadata document for the WriteError
+		 * @return object|null <p>Returns the metadata document for the WriteError, or <b><code>NULL</code></b> if no metadata is available.</p>
 		 * @link http://php.net/manual/en/mongodb-driver-writeerror.getinfo.php
 		 * @since mongodb >=1.0.0
 		 */
@@ -7480,7 +7965,7 @@ namespace MongoDB\Driver {
 		/**
 		 * Execute one or more write operations
 		 * <p>Executes one or more write operations on the primary server.</p><p>A MongoDB\Driver\BulkWrite can be constructed with one or more write operations of varying types (e.g. updates, deletes, and inserts). The driver will attempt to send operations of the same type to the server in as few requests as possible to optimize round trips.</p>
-		 * @param string $namespace <p>A fully qualified namespace (e.g. <i>"databaseName.collectionName"</i>).</p>
+		 * @param string $namespace <p>A fully qualified namespace (e.g. <code>"databaseName.collectionName"</code>).</p>
 		 * @param \MongoDB\Driver\BulkWrite $bulk <p>The write(s) to execute.</p>
 		 * @param array $options <p></p> <b>options</b>   Option Type Description     session MongoDB\Driver\Session  <p>A session to associate with the operation.</p>    writeConcern MongoDB\Driver\WriteConcern  <p>A write concern to apply to the operation.</p>
 		 * @return MongoDB\Driver\WriteResult <p>Returns MongoDB\Driver\WriteResult on success.</p>
@@ -7492,7 +7977,7 @@ namespace MongoDB\Driver {
 
 		/**
 		 * Returns the number of documents deleted
-		 * @return integer|null <p>Returns the number of documents deleted, or <b><code>NULL</code></b> if the write was not acknowledged.</p>
+		 * @return int|null <p>Returns the number of documents deleted, or <b><code>NULL</code></b> if the write was not acknowledged.</p>
 		 * @link http://php.net/manual/en/mongodb-driver-writeresult.getdeletedcount.php
 		 * @since mongodb >=1.0.0
 		 */
@@ -7500,7 +7985,7 @@ namespace MongoDB\Driver {
 
 		/**
 		 * Returns the number of documents inserted (excluding upserts)
-		 * @return integer|null <p>Returns the number of documents inserted (excluding upserts), or <b><code>NULL</code></b> if the write was not acknowledged.</p>
+		 * @return int|null <p>Returns the number of documents inserted (excluding upserts), or <b><code>NULL</code></b> if the write was not acknowledged.</p>
 		 * @link http://php.net/manual/en/mongodb-driver-writeresult.getinsertedcount.php
 		 * @since mongodb >=1.0.0
 		 */
@@ -7509,7 +7994,7 @@ namespace MongoDB\Driver {
 		/**
 		 * Returns the number of documents selected for update
 		 * <p>If the update operation results in no change to the document (e.g. setting the value of a field to its current value), the matched count may be greater than the value returned by <code>MongoDB\Driver\WriteResult::getModifiedCount()</code>.</p>
-		 * @return integer|null <p>Returns the number of documents selected for update, or <b><code>NULL</code></b> if the write was not acknowledged.</p>
+		 * @return int|null <p>Returns the number of documents selected for update, or <b><code>NULL</code></b> if the write was not acknowledged.</p>
 		 * @link http://php.net/manual/en/mongodb-driver-writeresult.getmatchedcount.php
 		 * @since mongodb >=1.0.0
 		 */
@@ -7518,7 +8003,7 @@ namespace MongoDB\Driver {
 		/**
 		 * Returns the number of existing documents updated
 		 * <p>If the update operation results in no change to the document (e.g. setting the value of a field to its current value), the modified count may be less than the value returned by <code>MongoDB\Driver\WriteResult::getMatchedCount()</code>.</p>
-		 * @return integer|null <p>Returns the number of existing documents updated, or <b><code>NULL</code></b> if the write was not acknowledged.</p><p>The modified count is not available on versions of MongoDB before 2.6, which used the legacy wire protocol version (i.e. OP_UPDATE). If this is the case, the modified count will also be <b><code>NULL</code></b>.</p>
+		 * @return int|null <p>Returns the number of existing documents updated, or <b><code>NULL</code></b> if the write was not acknowledged.</p><p>The modified count is not available on versions of MongoDB before 2.6, which used the legacy wire protocol version (i.e. OP_UPDATE). If this is the case, the modified count will also be <b><code>NULL</code></b>.</p>
 		 * @link http://php.net/manual/en/mongodb-driver-writeresult.getmodifiedcount.php
 		 * @since mongodb >=1.0.0
 		 */
@@ -7535,7 +8020,7 @@ namespace MongoDB\Driver {
 
 		/**
 		 * Returns the number of documents inserted by an upsert
-		 * @return integer|null <p>Returns the number of documents inserted by an upsert.</p>
+		 * @return int|null <p>Returns the number of documents inserted by an upsert.</p>
 		 * @link http://php.net/manual/en/mongodb-driver-writeresult.getupsertedcount.php
 		 * @since mongodb >=1.0.0
 		 */
@@ -7543,7 +8028,7 @@ namespace MongoDB\Driver {
 
 		/**
 		 * Returns an array of identifiers for upserted documents
-		 * @return array <p>Returns an array of identifiers (i.e. <i>"_id"</i> field values) for upserted documents. The array keys will correspond to the index of the write operation (from MongoDB\Driver\BulkWrite) responsible for the upsert.</p>
+		 * @return array <p>Returns an array of identifiers (i.e. <code>"_id"</code> field values) for upserted documents. The array keys will correspond to the index of the write operation (from MongoDB\Driver\BulkWrite) responsible for the upsert.</p>
 		 * @link http://php.net/manual/en/mongodb-driver-writeresult.getupsertedids.php
 		 * @since mongodb >=1.0.0
 		 */
@@ -7614,7 +8099,7 @@ namespace MongoDB\BSON {
 
 	/**
 	 * Returns the Legacy Extended JSON representation of a BSON value
-	 * <p>Converts a BSON string to its Legacy Extended JSON representation.</p><p><b>Note</b>:  There exist several JSON formats for representing BSON. This function implements the "strict mode" defined in MongoDB Extended JSON, which has been superseded by the canonical and relaxed formats defined in the Extended JSON Specification and implemented by <code>MongoDB\BSON\toCanonicalExtendedJSON()</code> and <code>MongoDB\BSON\toRelaxedExtendedJSON()</code>, respectively. </p><p>JSON does not support <b><code>NAN</code></b> and <b><code>INF</code></b> and MongoDB's Legacy Extended JSON format does not define an alternative representation for these values (libbson will output <i>nan</i> and <i>inf</i> literals, which may not be parsed as valid JSON). If you are working with BSON that may contain non-finite numbers, please use <code>MongoDB\BSON\toCanonicalExtendedJSON()</code> or <code>MongoDB\BSON\toRelaxedExtendedJSON()</code>.</p>
+	 * <p>Converts a BSON string to its Legacy Extended JSON representation.</p><p><b>Note</b>:  There exist several JSON formats for representing BSON. This function implements the "strict mode" defined in MongoDB Extended JSON, which has been superseded by the canonical and relaxed formats defined in the Extended JSON Specification and implemented by <code>MongoDB\BSON\toCanonicalExtendedJSON()</code> and <code>MongoDB\BSON\toRelaxedExtendedJSON()</code>, respectively. </p><p>JSON does not support <b><code>NAN</code></b> and <b><code>INF</code></b> and MongoDB's Legacy Extended JSON format does not define an alternative representation for these values (libbson will output <code>nan</code> and <code>inf</code> literals, which may not be parsed as valid JSON). If you are working with BSON that may contain non-finite numbers, please use <code>MongoDB\BSON\toCanonicalExtendedJSON()</code> or <code>MongoDB\BSON\toRelaxedExtendedJSON()</code>.</p>
 	 * @param string $bson <p>BSON value to be converted.</p>
 	 * @return string <p>The converted JSON value.</p>
 	 * @link http://php.net/manual/en/function.mongodb.bson-tojson.php

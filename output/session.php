@@ -18,7 +18,7 @@ namespace {
 
 		/**
 		 * Close the session
-		 * <p>Closes the current session. This method is automatically executed internally by PHP when closing the session, or explicitly via <code>session_write_close()</code> (which first calls the <code>SessionHandler::write()</code>).</p><p>This method wraps the internal PHP save handler defined in the session.save_handler ini setting that was set before this handler was activated by <code>session_set_save_handler()</code>.</p><p>If this class is extended by inheritiance, calling the parent <code>close</code> method will invoke the wrapper for this method and therefor invoke the associated internal callback. This allows the method to be overidden and or intercepted.</p><p>For more information on what this method is expected to do, please refer to the documentation at <code>SessionHandlerInterface::close()</code>.</p>
+		 * <p>Closes the current session. This method is automatically executed internally by PHP when closing the session, or explicitly via <code>session_write_close()</code> (which first calls the <code>SessionHandler::write()</code>).</p><p>This method wraps the internal PHP save handler defined in the session.save_handler ini setting that was set before this handler was activated by <code>session_set_save_handler()</code>.</p><p>If this class is extended by inheritiance, calling the parent <code>close</code> method will invoke the wrapper for this method and therefore invoke the associated internal callback. This allows the method to be overridden and or intercepted.</p><p>For more information on what this method is expected to do, please refer to the documentation at <code>SessionHandlerInterface::close()</code>.</p>
 		 * @return bool <p>The return value (usually <b><code>TRUE</code></b> on success, <b><code>FALSE</code></b> on failure). Note this value is returned internally to PHP for processing.</p>
 		 * @link http://php.net/manual/en/sessionhandler.close.php
 		 * @since PHP 5 >= 5.4.0, PHP 7
@@ -37,7 +37,7 @@ namespace {
 
 		/**
 		 * Destroy a session
-		 * <p>Destroys a session. Called internally by PHP with <code>session_regenerate_id()</code> (assuming the <code>$destroy</code> is set to <b><code>TRUE</code></b>, by <code>session_destroy()</code> or when <code>session_decode()</code> fails.</p><p>This method wraps the internal PHP save handler defined in the session.save_handler ini setting that was set before this handler was set by <code>session_set_save_handler()</code>.</p><p>If this class is extended by inheritiance, calling the parent <code>destroy</code> method will invoke the wrapper for this method and therefor invoke the associated internal callback. This allows this method to be overidden and or intercepted and filtered.</p><p>For more information on what this method is expected to do, please refer to the documentation at <code>SessionHandlerInterface::destroy()</code>.</p>
+		 * <p>Destroys a session. Called internally by PHP with <code>session_regenerate_id()</code> (assuming the <code>$destroy</code> is set to <b><code>TRUE</code></b>, by <code>session_destroy()</code> or when <code>session_decode()</code> fails.</p><p>This method wraps the internal PHP save handler defined in the session.save_handler ini setting that was set before this handler was set by <code>session_set_save_handler()</code>.</p><p>If this class is extended by inheritiance, calling the parent <code>destroy</code> method will invoke the wrapper for this method and therefore invoke the associated internal callback. This allows this method to be overridden and or intercepted and filtered.</p><p>For more information on what this method is expected to do, please refer to the documentation at <code>SessionHandlerInterface::destroy()</code>.</p>
 		 * @param string $session_id <p>The session ID being destroyed.</p>
 		 * @return bool <p>The return value (usually <b><code>TRUE</code></b> on success, <b><code>FALSE</code></b> on failure). Note this value is returned internally to PHP for processing.</p>
 		 * @link http://php.net/manual/en/sessionhandler.destroy.php
@@ -47,7 +47,7 @@ namespace {
 
 		/**
 		 * Cleanup old sessions
-		 * <p>Cleans up expired sessions. Called randomly by PHP internally when a session starts or when <code>session_start()</code> is invoked. The frequency this is called is based on the session.gc_divisor and session.gc_probability configuration directives.</p><p>This method wraps the internal PHP save handler defined in the session.save_handler ini setting that was set before this handler was set by <code>session_set_save_handler()</code>.</p><p>If this class is extended by inheritiance, calling the parent <code>gc</code> method will invoke the wrapper for this method and therefore invoke the associated internal callback. This allows this method to be overidden and or intercepted and filtered.</p><p>For more information on what this method is expected to do, please refer to the documentation at <code>SessionHandlerInterface::gc()</code>.</p>
+		 * <p>Cleans up expired sessions. Called randomly by PHP internally when a session starts or when <code>session_start()</code> is invoked. The frequency this is called is based on the session.gc_divisor and session.gc_probability configuration directives.</p><p>This method wraps the internal PHP save handler defined in the session.save_handler ini setting that was set before this handler was set by <code>session_set_save_handler()</code>.</p><p>If this class is extended by inheritiance, calling the parent <code>gc</code> method will invoke the wrapper for this method and therefore invoke the associated internal callback. This allows this method to be overridden and or intercepted and filtered.</p><p>For more information on what this method is expected to do, please refer to the documentation at <code>SessionHandlerInterface::gc()</code>.</p>
 		 * @param int $maxlifetime <p>Sessions that have not updated for the last <code>maxlifetime</code> seconds will be removed.</p>
 		 * @return int <p>The return value (usually <b><code>TRUE</code></b> on success, <b><code>FALSE</code></b> on failure). Note this value is returned internally to PHP for processing.</p>
 		 * @link http://php.net/manual/en/sessionhandler.gc.php
@@ -57,7 +57,7 @@ namespace {
 
 		/**
 		 * Initialize session
-		 * <p>Create new session, or re-initialize existing session. Called internally by PHP when a session starts either automatically or when <code>session_start()</code> is invoked.</p><p>This method wraps the internal PHP save handler defined in the session.save_handler ini setting that was set before this handler was set by <code>session_set_save_handler()</code>.</p><p>If this class is extended by inheritiance, calling the parent <code>open</code> method will invoke the wrapper for this method and therefor invoke the associated internal callback. This allows this method to be overidden and or intercepted and filtered.</p><p>For more information on what this method is expected to do, please refer to the documentation at <code>SessionHandlerInterface::open()</code>.</p>
+		 * <p>Create new session, or re-initialize existing session. Called internally by PHP when a session starts either automatically or when <code>session_start()</code> is invoked.</p><p>This method wraps the internal PHP save handler defined in the session.save_handler ini setting that was set before this handler was set by <code>session_set_save_handler()</code>.</p><p>If this class is extended by inheritiance, calling the parent <code>open</code> method will invoke the wrapper for this method and therefore invoke the associated internal callback. This allows this method to be overridden and or intercepted and filtered.</p><p>For more information on what this method is expected to do, please refer to the documentation at <code>SessionHandlerInterface::open()</code>.</p>
 		 * @param string $save_path <p>The path where to store/retrieve the session.</p>
 		 * @param string $session_name <p>The session name.</p>
 		 * @return bool <p>The return value (usually <b><code>TRUE</code></b> on success, <b><code>FALSE</code></b> on failure). Note this value is returned internally to PHP for processing.</p>
@@ -68,7 +68,7 @@ namespace {
 
 		/**
 		 * Read session data
-		 * <p>Reads the session data from the session storage, and returns the result back to PHP for internal processing. This method is called automatically by PHP when a session is started (either automatically or explicity with <code>session_start()</code> and is preceeded by an internal call to the <code>SessionHandler::open()</code>.</p><p>This method wraps the internal PHP save handler defined in the session.save_handler ini setting that was set before this handler was set by <code>session_set_save_handler()</code>.</p><p>If this class is extended by inheritiance, calling the parent <code>read</code> method will invoke the wrapper for this method and therefor invoke the associated internal callback. This allows the method to be overidden and or intercepted and filtered (for example, decrypting <code>$data</code> value returned by the parent <code>read</code> method).</p><p>For more information on what this method is expected to do, please refer to the documentation at <code>SessionHandlerInterface::read()</code>.</p>
+		 * <p>Reads the session data from the session storage, and returns the result back to PHP for internal processing. This method is called automatically by PHP when a session is started (either automatically or explicitly with <code>session_start()</code> and is preceded by an internal call to the <code>SessionHandler::open()</code>.</p><p>This method wraps the internal PHP save handler defined in the session.save_handler ini setting that was set before this handler was set by <code>session_set_save_handler()</code>.</p><p>If this class is extended by inheritance, calling the parent <code>read</code> method will invoke the wrapper for this method and therefore invoke the associated internal callback. This allows the method to be overridden and or intercepted and filtered (for example, decrypting <code>$data</code> value returned by the parent <code>read</code> method).</p><p>For more information on what this method is expected to do, please refer to the documentation at <code>SessionHandlerInterface::read()</code>.</p>
 		 * @param string $session_id <p>The session id to read data for.</p>
 		 * @return string <p>Returns an encoded string of the read data. If nothing was read, it must return an empty string. Note this value is returned internally to PHP for processing.</p>
 		 * @link http://php.net/manual/en/sessionhandler.read.php
@@ -78,7 +78,7 @@ namespace {
 
 		/**
 		 * Write session data
-		 * <p>Writes the session data to the session storage. Called by normal PHP shutdown, by <code>session_write_close()</code>, or when <code>session_register_shutdown()</code> fails. PHP will call <code>SessionHandler::close()</code> immediately after this method returns.</p><p>This method wraps the internal PHP save handler defined in the session.save_handler ini setting that was set before this handler was set by <code>session_set_save_handler()</code>.</p><p>If this class is extended by inheritiance, calling the parent <code>write</code> method will invoke the wrapper for this method and therefor invoke the associated internal callback. This allows this method to be overidden and or intercepted and filtered (for example, encrypting the <code>$data</code> value before sending it to the parent <code>write</code> method).</p><p>For more information on what this method is expected to do, please refer to the documentation at <code>SessionHandlerInterface::write()</code>.</p>
+		 * <p>Writes the session data to the session storage. Called by normal PHP shutdown, by <code>session_write_close()</code>, or when <code>session_register_shutdown()</code> fails. PHP will call <code>SessionHandler::close()</code> immediately after this method returns.</p><p>This method wraps the internal PHP save handler defined in the session.save_handler ini setting that was set before this handler was set by <code>session_set_save_handler()</code>.</p><p>If this class is extended by inheritiance, calling the parent <code>write</code> method will invoke the wrapper for this method and therefore invoke the associated internal callback. This allows this method to be overridden and or intercepted and filtered (for example, encrypting the <code>$data</code> value before sending it to the parent <code>write</code> method).</p><p>For more information on what this method is expected to do, please refer to the documentation at <code>SessionHandlerInterface::write()</code>.</p>
 		 * @param string $session_id <p>The session id.</p>
 		 * @param string $session_data <p>The encoded session data. This data is the result of the PHP internally encoding the $_SESSION superglobal to a serialized string and passing it as this parameter. Please note sessions use an alternative serialization method.</p>
 		 * @return bool <p>The return value (usually <b><code>TRUE</code></b> on success, <b><code>FALSE</code></b> on failure). Note this value is returned internally to PHP for processing.</p>
@@ -89,7 +89,7 @@ namespace {
 	}
 
 	/**
-	 * <p><b>SessionHandlerInterface</b> is an interface which defines a prototype for creating a custom session handler. In order to pass a custom session handler to <code>session_set_save_handler()</code> using its <i>OOP</i> invocation, the class must implement this interface.</p>
+	 * <p><b>SessionHandlerInterface</b> is an interface which defines the minimal prototype for creating a custom session handler. In order to pass a custom session handler to <code>session_set_save_handler()</code> using its OOP invocation, the class can implement this interface.</p>
 	 * <p>Please note the callback methods of this class are designed to be called internally by PHP and are not meant to be called from user-space code.</p>
 	 * @link http://php.net/manual/en/class.sessionhandlerinterface.php
 	 * @since PHP 5 >= 5.4.0, PHP 7
@@ -160,6 +160,8 @@ namespace {
 	}
 
 	/**
+	 * <p><b>SessionIdInterface</b> is an interface which defines optional methods for creating a custom session handler. In order to pass a custom session handler to <code>session_set_save_handler()</code> using its OOP invocation, the class can implement this interface.</p>
+	 * <p>Note that the callback methods of classes implementing this interface are designed to be called internally by PHP and are not meant to be called from user-space code.</p>
 	 * @link http://php.net/manual/en/class.sessionidinterface.php
 	 * @since PHP 5 >= 5.5.1, PHP 7
 	 */
@@ -167,8 +169,8 @@ namespace {
 
 		/**
 		 * Create session ID
-		 * <p></p><p>This function is currently not documented; only its argument list is available.</p>
-		 * @return string
+		 * <p>Creates a new session ID.This function is automatically executed when a new session ID needs to be created.</p>
+		 * @return string <p>The new session ID. Note that this value is returned internally to PHP for processing.</p>
 		 * @link http://php.net/manual/en/sessionidinterface.create-sid.php
 		 * @since PHP 5 >= 5.5.1, PHP 7
 		 */
@@ -176,6 +178,8 @@ namespace {
 	}
 
 	/**
+	 * <p><b>SessionUpdateTimestampHandlerInterface</b> is an interface which defines optional methods for creating a custom session handler. In order to pass a custom session handler to <code>session_set_save_handler()</code> using its OOP invocation, the class can implement this interface.</p>
+	 * <p>Note that the callback methods of classes implementing this interface are designed to be called internally by PHP and are not meant to be called from user-space code.</p>
 	 * @link http://php.net/manual/en/class.sessionupdatetimestamphandlerinterface.php
 	 * @since PHP 7
 	 */
@@ -183,10 +187,10 @@ namespace {
 
 		/**
 		 * Update timestamp
-		 * <p></p><p>This function is currently not documented; only its argument list is available.</p>
-		 * @param string $key
-		 * @param string $val
-		 * @return bool <p>Returns <b><code>TRUE</code></b> if the timestamp was updated, <b><code>FALSE</code></b> otherwise.</p>
+		 * <p>Updates the last modification timestamp of the session. This function is automatically executed when a session is updated.</p>
+		 * @param string $key <p>The session ID.</p>
+		 * @param string $val <p>The session data.</p>
+		 * @return bool <p>Returns <b><code>TRUE</code></b> if the timestamp was updated, <b><code>FALSE</code></b> otherwise. Note that this value is returned internally to PHP for processing.</p>
 		 * @link http://php.net/manual/en/sessionupdatetimestamphandlerinterface.updatetimestamp.php
 		 * @since PHP 7
 		 */
@@ -194,9 +198,9 @@ namespace {
 
 		/**
 		 * Validate ID
-		 * <p></p><p>This function is currently not documented; only its argument list is available.</p>
-		 * @param string $key
-		 * @return bool <p>Returns <b><code>TRUE</code></b> for valid ID, <b><code>FALSE</code></b> otherwise.</p>
+		 * <p>Validates a given session ID. A session ID is valid, if a session with that ID already exists. This function is automatically executed when a session is to be started, a session ID is supplied and session.use_strict_mode is enabled.</p>
+		 * @param string $key <p>The session ID.</p>
+		 * @return bool <p>Returns <b><code>TRUE</code></b> for valid ID, <b><code>FALSE</code></b> otherwise. Note that this value is returned internally to PHP for processing.</p>
 		 * @link http://php.net/manual/en/sessionupdatetimestamphandlerinterface.validateid.php
 		 * @since PHP 7
 		 */
@@ -214,10 +218,10 @@ namespace {
 	function session_abort(): bool {}
 
 	/**
-	 * Return current cache expire
-	 * <p><b>session_cache_expire()</b> returns the current setting of <i>session.cache_expire</i>.</p><p>The cache expire is reset to the default value of 180 stored in session.cache_expire at request startup time. Thus, you need to call <b>session_cache_expire()</b> for every request (and before <code>session_start()</code> is called).</p>
-	 * @param string $new_cache_expire <p>If <code>new_cache_expire</code> is given, the current cache expire is replaced with <code>new_cache_expire</code>.</p> <p></p><p><b>Note</b>:  Setting <code>new_cache_expire</code> is of value only, if <i>session.cache_limiter</i> is set to a value <i>different</i> from <i>nocache</i>. </p>
-	 * @return int <p>Returns the current setting of <i>session.cache_expire</i>. The value returned should be read in minutes, defaults to 180.</p>
+	 * Get and/or set current cache expire
+	 * <p><b>session_cache_expire()</b> returns the current setting of <code>session.cache_expire</code>.</p><p>The cache expire is reset to the default value of 180 stored in session.cache_expire at request startup time. Thus, you need to call <b>session_cache_expire()</b> for every request (and before <code>session_start()</code> is called).</p>
+	 * @param string $new_cache_expire <p>If <code>new_cache_expire</code> is given, the current cache expire is replaced with <code>new_cache_expire</code>.</p> <p></p><p><b>Note</b>:  Setting <code>new_cache_expire</code> is of value only, if <code>session.cache_limiter</code> is set to a value <i>different</i> from <code>nocache</code>. </p>
+	 * @return int <p>Returns the current setting of <code>session.cache_expire</code>. The value returned should be read in minutes, defaults to 180.</p>
 	 * @link http://php.net/manual/en/function.session-cache-expire.php
 	 * @see session_cache_limiter()
 	 * @since PHP 4 >= 4.2.0, PHP 5, PHP 7
@@ -226,8 +230,8 @@ namespace {
 
 	/**
 	 * Get and/or set the current cache limiter
-	 * <p><b>session_cache_limiter()</b> returns the name of the current cache limiter.</p><p>The cache limiter defines which cache control HTTP headers are sent to the client. These headers determine the rules by which the page content may be cached by the client and intermediate proxies. Setting the cache limiter to <i>nocache</i> disallows any client/proxy caching. A value of <i>public</i> permits caching by proxies and the client, whereas <i>private</i> disallows caching by proxies and permits the client to cache the contents.</p><p>In <i>private</i> mode, the Expire header sent to the client may cause confusion for some browsers, including Mozilla. You can avoid this problem by using <i>private_no_expire</i> mode. The <i>Expire</i> header is never sent to the client in this mode.</p><p>Setting the cache limiter to <i>''</i> will turn off automatic sending of cache headers entirely.</p><p>The cache limiter is reset to the default value stored in session.cache_limiter at request startup time. Thus, you need to call <b>session_cache_limiter()</b> for every request (and before <code>session_start()</code> is called).</p>
-	 * @param string $cache_limiter <p>If <code>cache_limiter</code> is specified, the name of the current cache limiter is changed to the new value.</p>  <b>Possible values</b>   Value Headers sent     <i>public</i>   <pre>Expires: (sometime in the future, according session.cache_expire) Cache-Control: public, max-age=(sometime in the future, according to session.cache_expire) Last-Modified: (the timestamp of when the session was last saved)</pre>      <i>private_no_expire</i>   <pre>Cache-Control: private, max-age=(session.cache_expire in the future), pre-check=(session.cache_expire in the future) Last-Modified: (the timestamp of when the session was last saved)</pre>      <i>private</i>   <pre>Expires: Thu, 19 Nov 1981 08:52:00 GMT Cache-Control: private, max-age=(session.cache_expire in the future), pre-check=(session.cache_expire in the future) Last-Modified: (the timestamp of when the session was last saved)</pre>      <i>nocache</i>   <pre>Expires: Thu, 19 Nov 1981 08:52:00 GMT Cache-Control: no-store, no-cache, must-revalidate, post-check=0, pre-check=0 Pragma: no-cache</pre>
+	 * <p><b>session_cache_limiter()</b> returns the name of the current cache limiter.</p><p>The cache limiter defines which cache control HTTP headers are sent to the client. These headers determine the rules by which the page content may be cached by the client and intermediate proxies. Setting the cache limiter to <code>nocache</code> disallows any client/proxy caching. A value of <code>public</code> permits caching by proxies and the client, whereas <code>private</code> disallows caching by proxies and permits the client to cache the contents.</p><p>In <code>private</code> mode, the Expire header sent to the client may cause confusion for some browsers, including Mozilla. You can avoid this problem by using <code>private_no_expire</code> mode. The <code>Expire</code> header is never sent to the client in this mode.</p><p>Setting the cache limiter to <code>''</code> will turn off automatic sending of cache headers entirely.</p><p>The cache limiter is reset to the default value stored in session.cache_limiter at request startup time. Thus, you need to call <b>session_cache_limiter()</b> for every request (and before <code>session_start()</code> is called).</p>
+	 * @param string $cache_limiter <p>If <code>cache_limiter</code> is specified, the name of the current cache limiter is changed to the new value.</p>  <b>Possible values</b>   Value Headers sent     <code>public</code>   <pre>Expires: (sometime in the future, according session.cache_expire) Cache-Control: public, max-age=(sometime in the future, according to session.cache_expire) Last-Modified: (the timestamp of when the session was last saved)</pre>      <code>private_no_expire</code>   <pre>Cache-Control: private, max-age=(session.cache_expire in the future), pre-check=(session.cache_expire in the future) Last-Modified: (the timestamp of when the session was last saved)</pre>      <code>private</code>   <pre>Expires: Thu, 19 Nov 1981 08:52:00 GMT Cache-Control: private, max-age=(session.cache_expire in the future), pre-check=(session.cache_expire in the future) Last-Modified: (the timestamp of when the session was last saved)</pre>      <code>nocache</code>   <pre>Expires: Thu, 19 Nov 1981 08:52:00 GMT Cache-Control: no-store, no-cache, must-revalidate, post-check=0, pre-check=0 Pragma: no-cache</pre>
 	 * @return string <p>Returns the name of the current cache limiter.</p>
 	 * @link http://php.net/manual/en/function.session-cache-limiter.php
 	 * @since PHP 4 >= 4.0.3, PHP 5, PHP 7
@@ -246,7 +250,7 @@ namespace {
 	/**
 	 * Create new session id
 	 * <p><b>session_create_id()</b> is used to create new session id for the current session. It returns collision free session id.</p><p>If session is not active, collision check is omitted.</p><p>Session ID is created according to php.ini settings.</p><p>It is important to use the same user ID of your web server for GC task script. Otherwise, you may have permission problems especially with files save handler.</p>
-	 * @param string $prefix <p>If <code>prefix</code> is specified, new session id is prefixed by <code>prefix</code>. Not all characters are allowed within the session id. Characters in the range <i>a-z A-Z 0-9 , (comma) and - (minus)</i> are allowed.</p>
+	 * @param string $prefix <p>If <code>prefix</code> is specified, new session id is prefixed by <code>prefix</code>. Not all characters are allowed within the session id. Characters in the range <code>a-z A-Z 0-9 , (comma) and - (minus)</code> are allowed.</p>
 	 * @return string <p><b>session_create_id()</b> returns new collision free session id for the current session. If it is used without active session, it omits collision check.</p>
 	 * @link http://php.net/manual/en/function.session-create-id.php
 	 * @see session_regenerate_id(), session_start()
@@ -298,7 +302,7 @@ namespace {
 	/**
 	 * Get the session cookie parameters
 	 * <p>Gets the session cookie parameters.</p>
-	 * @return array <p>Returns an array with the current session cookie information, the array contains the following items:</p><ul> <li>  "lifetime" - The lifetime of the cookie in seconds.  </li> <li>  "path" - The path where information is stored.  </li> <li>  "domain" - The domain of the cookie.  </li> <li>  "secure" - The cookie should only be sent over secure connections.  </li> <li>  "httponly" - The cookie can only be accessed through the HTTP protocol.  </li> </ul>
+	 * @return array <p>Returns an array with the current session cookie information, the array contains the following items:</p><ul> <li>  "lifetime" - The lifetime of the cookie in seconds.  </li> <li>  "path" - The path where information is stored.  </li> <li>  "domain" - The domain of the cookie.  </li> <li>  "secure" - The cookie should only be sent over secure connections.  </li> <li>  "httponly" - The cookie can only be accessed through the HTTP protocol.  </li> <li>  "samesite" - Controls the cross-domain sending of the cookie.  </li> </ul>
 	 * @link http://php.net/manual/en/function.session-get-cookie-params.php
 	 * @see session_set_cookie_params()
 	 * @since PHP 4, PHP 5, PHP 7
@@ -308,8 +312,8 @@ namespace {
 	/**
 	 * Get and/or set the current session id
 	 * <p><b>session_id()</b> is used to get or set the session id for the current session.</p><p>The constant <b><code>SID</code></b> can also be used to retrieve the current name and session id as a string suitable for adding to URLs. See also Session handling.</p>
-	 * @param string $id <p>If <code>id</code> is specified, it will replace the current session id. <b>session_id()</b> needs to be called before <code>session_start()</code> for that purpose. Depending on the session handler, not all characters are allowed within the session id. For example, the file session handler only allows characters in the range <i>a-z A-Z 0-9 , (comma) and - (minus)</i>!</p> <p><b>Note</b>:  When using session cookies, specifying an <code>id</code> for <b>session_id()</b> will always send a new cookie when <code>session_start()</code> is called, regardless if the current session id is identical to the one being set. </p>
-	 * @return string <p><b>session_id()</b> returns the session id for the current session or the empty string (<i>""</i>) if there is no current session (no current session id exists).</p>
+	 * @param string $id <p>If <code>id</code> is specified, it will replace the current session id. <b>session_id()</b> needs to be called before <code>session_start()</code> for that purpose. Depending on the session handler, not all characters are allowed within the session id. For example, the file session handler only allows characters in the range <code>a-z A-Z 0-9 , (comma) and - (minus)</code>!</p> <p><b>Note</b>:  When using session cookies, specifying an <code>id</code> for <b>session_id()</b> will always send a new cookie when <code>session_start()</code> is called, regardless if the current session id is identical to the one being set. </p>
+	 * @return string <p><b>session_id()</b> returns the session id for the current session or the empty string (<code>""</code>) if there is no current session (no current session id exists).</p>
 	 * @link http://php.net/manual/en/function.session-id.php
 	 * @see session_regenerate_id(), session_start(), session_set_save_handler()
 	 * @since PHP 4, PHP 5, PHP 7
@@ -328,8 +332,8 @@ namespace {
 
 	/**
 	 * Get and/or set the current session module
-	 * <p><b>session_module_name()</b> gets the name of the current session module.</p>
-	 * @param string $module <p>If <code>module</code> is specified, that module will be used instead.</p>
+	 * <p><b>session_module_name()</b> gets the name of the current session module, which is also known as session.save_handler.</p>
+	 * @param string $module <p>If <code>module</code> is specified, that module will be used instead. Passing <code>"user"</code> to this parameter is forbidden. Instead <code>session_set_save_handler()</code> has to be called to set a user defined session handler.</p>
 	 * @return string <p>Returns the name of the current session module.</p>
 	 * @link http://php.net/manual/en/function.session-module-name.php
 	 * @since PHP 4, PHP 5, PHP 7
@@ -338,8 +342,8 @@ namespace {
 
 	/**
 	 * Get and/or set the current session name
-	 * <p><b>session_name()</b> returns the name of the current session. If <code>name</code> is given, <b>session_name()</b> will update the session name and return the <i>old</i> session name.</p><p>If a new session <code>name</code> is supplied, <b>session_name()</b> modifies the HTTP cookie (and output content when <i>session.transid</i> is enabled). Once the HTTP cookie is sent, <b>session_name()</b> raises error. <b>session_name()</b> must be called before <code>session_start()</code> for the session to work properly.</p><p>The session name is reset to the default value stored in <i>session.name</i> at request startup time. Thus, you need to call <b>session_name()</b> for every request (and before <code>session_start()</code> is called).</p>
-	 * @param string $name <p>The session name references the name of the session, which is used in cookies and URLs (e.g. <i>PHPSESSID</i>). It should contain only alphanumeric characters; it should be short and descriptive (i.e. for users with enabled cookie warnings). If <code>name</code> is specified, the name of the current session is changed to its value.</p> <p></p><p><b>Warning</b></p> <p>The session name can't consist of digits only, at least one letter must be present. Otherwise a new session id is generated every time.</p>
+	 * <p><b>session_name()</b> returns the name of the current session. If <code>name</code> is given, <b>session_name()</b> will update the session name and return the <i>old</i> session name.</p><p>If a new session <code>name</code> is supplied, <b>session_name()</b> modifies the HTTP cookie (and output content when <code>session.transid</code> is enabled). Once the HTTP cookie is sent, <b>session_name()</b> raises error. <b>session_name()</b> must be called before <code>session_start()</code> for the session to work properly.</p><p>The session name is reset to the default value stored in <code>session.name</code> at request startup time. Thus, you need to call <b>session_name()</b> for every request (and before <code>session_start()</code> is called).</p>
+	 * @param string $name <p>The session name references the name of the session, which is used in cookies and URLs (e.g. <code>PHPSESSID</code>). It should contain only alphanumeric characters; it should be short and descriptive (i.e. for users with enabled cookie warnings). If <code>name</code> is specified, the name of the current session is changed to its value.</p> <p></p><p><b>Warning</b></p> <p>The session name can't consist of digits only, at least one letter must be present. Otherwise a new session id is generated every time.</p>
 	 * @return string <p>Returns the name of the current session. If <code>name</code> is given and function updates the session name, name of the <i>old</i> session is returned.</p>
 	 * @link http://php.net/manual/en/function.session-name.php
 	 * @since PHP 4, PHP 5, PHP 7
@@ -348,7 +352,7 @@ namespace {
 
 	/**
 	 * Update the current session id with a newly generated one
-	 * <p><b>session_regenerate_id()</b> will replace the current session id with a new one, and keep the current session information.</p><p>When session.use_trans_sid is enabled, output must be started after <b>session_regenerate_id()</b> call. Otherwise, old session ID is used.</p><p>Current session_regenerate_id does not handle unstable network well. e.g. Mobile and WiFi network. Therefore, you may experience lost session by calling session_regenerate_id.</p><p>You should not destroy old session data immediately, but should use destroy time-stamp and control access to old session ID. Otherwise, concurrent access to page may result in inconsistent state, or you may have lost session, or it may cause client(browser) side race condition and may create many session ID needlessly. Immediate session data deletion disables session hijack attack detection and prevention also.</p>
+	 * <p><b>session_regenerate_id()</b> will replace the current session id with a new one, and keep the current session information.</p><p>When session.use_trans_sid is enabled, output must be started after <b>session_regenerate_id()</b> call. Otherwise, old session ID is used.</p><p>Currently, session_regenerate_id does not handle an unstable network well, e.g. Mobile and WiFi network. Therefore, you may experience a lost session by calling session_regenerate_id.</p><p>You should not destroy old session data immediately, but should use destroy time-stamp and control access to old session ID. Otherwise, concurrent access to page may result in inconsistent state, or you may have lost session, or it may cause client(browser) side race condition and may create many session ID needlessly. Immediate session data deletion disables session hijack attack detection and prevention also.</p>
 	 * @param bool $delete_old_session <p>Whether to delete the old associated session file or not. You should not delete old session if you need to avoid races caused by deletion or detect/avoid session hijack attacks.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
 	 * @link http://php.net/manual/en/function.session-regenerate-id.php
@@ -361,13 +365,13 @@ namespace {
 	 * Register one or more global variables with the current session
 	 * <p><b>session_register()</b> accepts a variable number of arguments, any of which can be either a string holding the name of a variable or an array consisting of variable names or other arrays. For each name, <b>session_register()</b> registers the global variable with that name in the current session.</p><p>You can also create a session variable by simply setting the appropriate member of the $_SESSION array.</p><p>If <code>session_start()</code> was not called before this function is called, an implicit call to <code>session_start()</code> with no parameters will be made. $_SESSION does not mimic this behavior and requires <code>session_start()</code> before use.</p><p>This function has been <i>DEPRECATED</i> as of PHP 5.3.0 and <i>REMOVED</i> as of PHP 5.4.0.</p>
 	 * @param mixed $name <p>A string holding the name of a variable or an array consisting of variable names or other arrays.</p>
-	 * @param mixed $_
+	 * @param mixed $_$names
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
 	 * @link http://php.net/manual/en/function.session-register.php
 	 * @see session_is_registered(), session_unregister()
 	 * @since PHP 4, PHP 5 < 5.4.0
 	 */
-	function session_register($name, $_ = NULL): bool {}
+	function session_register($name, $_$names): bool {}
 
 	/**
 	 * Session shutdown function
@@ -434,8 +438,8 @@ namespace {
 
 	/**
 	 * Start new or resume existing session
-	 * <p><b>session_start()</b> creates a session or resumes the current one based on a session identifier passed via a GET or POST request, or passed via a cookie.</p><p>When <b>session_start()</b> is called or when a session auto starts, PHP will call the open and read session save handlers. These will either be a built-in save handler provided by default or by PHP extensions (such as SQLite or Memcached); or can be custom handler as defined by <code>session_set_save_handler()</code>. The read callback will retrieve any existing session data (stored in a special serialized format) and will be unserialized and used to automatically populate the $_SESSION superglobal when the read callback returns the saved session data back to PHP session handling.</p><p>To use a named session, call <code>session_name()</code> before calling <b>session_start()</b>.</p><p>When session.use_trans_sid is enabled, the <b>session_start()</b> function will register an internal output handler for URL rewriting.</p><p>If a user uses <i>ob_gzhandler</i> or similar with <code>ob_start()</code>, the function order is important for proper output. For example, <i>ob_gzhandler</i> must be registered before starting the session.</p>
-	 * @param array $options <p>If provided, this is an associative array of options that will override the currently set session configuration directives. The keys should not include the <i>session.</i> prefix.</p> <p>In addition to the normal set of configuration directives, a <i>read_and_close</i> option may also be provided. If set to <b><code>TRUE</code></b>, this will result in the session being closed immediately after being read, thereby avoiding unnecessary locking if the session data won't be changed.</p>
+	 * <p><b>session_start()</b> creates a session or resumes the current one based on a session identifier passed via a GET or POST request, or passed via a cookie.</p><p>When <b>session_start()</b> is called or when a session auto starts, PHP will call the open and read session save handlers. These will either be a built-in save handler provided by default or by PHP extensions (such as SQLite or Memcached); or can be custom handler as defined by <code>session_set_save_handler()</code>. The read callback will retrieve any existing session data (stored in a special serialized format) and will be unserialized and used to automatically populate the $_SESSION superglobal when the read callback returns the saved session data back to PHP session handling.</p><p>To use a named session, call <code>session_name()</code> before calling <b>session_start()</b>.</p><p>When session.use_trans_sid is enabled, the <b>session_start()</b> function will register an internal output handler for URL rewriting.</p><p>If a user uses <code>ob_gzhandler</code> or similar with <code>ob_start()</code>, the function order is important for proper output. For example, <code>ob_gzhandler</code> must be registered before starting the session.</p>
+	 * @param array $options <p>If provided, this is an associative array of options that will override the currently set session configuration directives. The keys should not include the <code>session.</code> prefix.</p> <p>In addition to the normal set of configuration directives, a <code>read_and_close</code> option may also be provided. If set to <b><code>TRUE</code></b>, this will result in the session being closed immediately after being read, thereby avoiding unnecessary locking if the session data won't be changed.</p>
 	 * @return bool <p>This function returns <b><code>TRUE</code></b> if a session was successfully started, otherwise <b><code>FALSE</code></b>.</p>
 	 * @link http://php.net/manual/en/function.session-start.php
 	 * @see session_id()
@@ -498,7 +502,7 @@ namespace {
 	define('PHP_SESSION_NONE', 1);
 
 	/**
-	 * Constant containing either the session name and session ID in the form of <i>"name=ID"</i> or empty string if session ID was set in an appropriate session cookie. This is the same id as the one returned by <code>session_id()</code>.
+	 * Constant containing either the session name and session ID in the form of <code>"name=ID"</code> or empty string if session ID was set in an appropriate session cookie. This is the same id as the one returned by <code>session_id()</code>.
 	 */
 	define('SID', null);
 

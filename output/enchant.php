@@ -8,11 +8,11 @@ namespace {
 	 * Enumerates the Enchant providers
 	 * <p>Enumerates the Enchant providers and tells you some rudimentary information about them. The same info is provided through phpinfo().</p>
 	 * @param resource $broker <p>Broker resource</p>
-	 * @return array <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+	 * @return array|false <p>Returns an <code>array</code> of available Enchant providers with their details, or <b><code>FALSE</code></b> on failure.</p>
 	 * @link http://php.net/manual/en/function.enchant-broker-describe.php
 	 * @since PHP 5 >= 5.3.0, PHP 7, PECL enchant >= 0.1.0
 	 */
-	function enchant_broker_describe($broker): array {}
+	function enchant_broker_describe($broker) {}
 
 	/**
 	 * Whether a dictionary exists or not. Using non-empty tag
@@ -27,7 +27,7 @@ namespace {
 	function enchant_broker_dict_exists($broker, string $tag): bool {}
 
 	/**
-	 * Free the broker resource and its dictionnaries
+	 * Free the broker resource and its dictionaries
 	 * <p>Free a broker resource with all its dictionaries.</p>
 	 * @param resource $broker <p>Broker resource</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
@@ -83,7 +83,7 @@ namespace {
 	 * Returns a list of available dictionaries
 	 * <p>Returns a list of available dictionaries with their details.</p>
 	 * @param resource $broker <p>Broker resource</p>
-	 * @return mixed <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+	 * @return mixed <p>Returns an <code>array</code> of available dictionaries with their details, or <b><code>FALSE</code></b> on failure.</p>
 	 * @link http://php.net/manual/en/function.enchant-broker-list-dicts.php
 	 * @see enchant_broker_describe()
 	 * @since PHP 5 >= 5.3.0, PHP 7, PECL enchant >= 1.0.1
@@ -95,7 +95,7 @@ namespace {
 	 * <p>create a new dictionary using tag, the non-empty language tag you wish to request a dictionary for ("en_US", "de_DE", ...)</p>
 	 * @param resource $broker <p>Broker resource</p>
 	 * @param string $tag <p>A tag describing the locale, for example en_US, de_DE</p>
-	 * @return resource <p>Returns a dictionary resource on success or <b><code>FALSE</code></b> on failure.</p>
+	 * @return resource|false <p>Returns a dictionary resource on success or <b><code>FALSE</code></b> on failure.</p>
 	 * @link http://php.net/manual/en/function.enchant-broker-request-dict.php
 	 * @see enchant_dict_describe(), enchant_broker_dict_exists(), enchant_broker_free_dict()
 	 * @since PHP 5 >= 5.3.0, PHP 7, PECL enchant >= 0.1.0 
@@ -107,7 +107,7 @@ namespace {
 	 * <p>Creates a dictionary using a PWL file. A PWL file is personal word file one word per line.</p>
 	 * @param resource $broker <p>Broker resource</p>
 	 * @param string $filename <p>Path to the PWL file. If there is no such file, a new one will be created if possible.</p>
-	 * @return resource <p>Returns a dictionary resource on success or <b><code>FALSE</code></b> on failure.</p>
+	 * @return resource|false <p>Returns a dictionary resource on success or <b><code>FALSE</code></b> on failure.</p>
 	 * @link http://php.net/manual/en/function.enchant-broker-request-pwl-dict.php
 	 * @see enchant_dict_describe(), enchant_broker_dict_exists(), enchant_broker_free_dict()
 	 * @since PHP 5 >= 5.3.0, PHP 7, PECL enchant >= 0.1.0 
@@ -245,11 +245,11 @@ namespace {
 	/**
 	 * Dictionary type for Ispell. Used with <code>enchant_broker_get_dict_path()</code> and <code>enchant_broker_set_dict_path()</code>.
 	 */
-	define('ENCHANT_ISPELL', 2);
+	define('ENCHANT_ISPELL', null);
 
 	/**
 	 * Dictionary type for MySpell. Used with <code>enchant_broker_get_dict_path()</code> and <code>enchant_broker_set_dict_path()</code>.
 	 */
-	define('ENCHANT_MYSPELL', 1);
+	define('ENCHANT_MYSPELL', null);
 
 }

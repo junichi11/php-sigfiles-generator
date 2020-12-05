@@ -151,7 +151,7 @@ namespace {
 	}
 
 	/**
-	 * <p>A cross-platform, native implementation of named and unnamed sempahore objects.</p>
+	 * <p>A cross-platform, native implementation of named and unnamed semaphore objects.</p>
 	 * <p>A semaphore restricts access to a limited resource to a limited number of instances. Semaphores differ from mutexes in that they can allow more than one instance to access a resource at one time while a mutex only allows one instance at a time.</p>
 	 * @link http://php.net/manual/en/class.syncsemaphore.php
 	 * @since PECL sync >= 1.0.0

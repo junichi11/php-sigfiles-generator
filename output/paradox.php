@@ -66,7 +66,7 @@ namespace {
 	 * Returns the specification of a single field
 	 * @param resource $pxdoc <p>Resource identifier of the paradox database as returned by <code>px_new()</code>.</p>
 	 * @param int $fieldno <p>Number of the field. The first field has number 0. Specifying a field number less than 0 and greater or equal the number of fields will trigger an error.</p>
-	 * @return array <p>Returns the specification of the <b>fieldno</b> 'th database field as an associated array. The array contains three fields named <i>name</i>, <i>type</i>, and <i>size</i>.</p>
+	 * @return array <p>Returns the specification of the <b>fieldno</b>'th database field as an associated array. The array contains three fields named <code>name</code>, <code>type</code>, and <code>size</code>.</p>
 	 * @link http://php.net/manual/en/function.px-get-field.php
 	 * @since PECL paradox >= 1.0.0
 	 */
@@ -87,11 +87,11 @@ namespace {
 	 * <p>Gets various parameters.</p>
 	 * @param resource $pxdoc <p>Resource identifier of the paradox database as returned by <code>px_new()</code>.</p>
 	 * @param string $name <p>The <code>name</code> can be one of the following:</p>   tablename  <p>The name of the table as it will be stored in the database header.</p>   targetencoding  <p>The encoding for the output. Data which is being read from character fields with <code>px_get_record()</code> or <code>px_retrieve_record()</code> is recoded into the targetencoding. If it is not set, then the data will be delivered as stored in the database file.</p>   inputencoding  <p>The encoding of the input data which is to be stored into the database. When storing data of character fields in the database, the data is expected to be delivered in this encoding.</p>
-	 * @return string <p>Returns the value of the parameter or <b><code>FALSE</code></b> on failure.</p>
+	 * @return string|false <p>Returns the value of the parameter or <b><code>FALSE</code></b> on failure.</p>
 	 * @link http://php.net/manual/en/function.px-get-parameter.php
 	 * @since PECL paradox >= 1.1.0
 	 */
-	function px_get_parameter($pxdoc, string $name): string {}
+	function px_get_parameter($pxdoc, string $name) {}
 
 	/**
 	 * Returns record of paradox database
@@ -110,7 +110,7 @@ namespace {
 	 * <p><b>px_get_schema()</b> returns the database schema.</p>
 	 * @param resource $pxdoc <p>Resource identifier of the paradox database as returned by <code>px_new()</code>.</p>
 	 * @param int $mode <p>If the optional <code>mode</code> is <b><code>PX_KEYTOLOWER</code></b> or <b><code>PX_KEYTOUPPER</code></b> the keys of the returned array will be converted to lower or upper case. If <code>mode</code> is 0 or not passed at all, then the key name will be identical to the field name.</p>
-	 * @return array <p>Returns the schema of a database file as an associated array. The key name is equal to the field name. Each array element is itself an associated array containing the two fields <i>type</i> and <i>size</i>. <i>type</i> is one of the constants in table Constants for field types. <i>size</i> is the number of bytes this field consumes in the record. The total of all field sizes is equal to the record size as it can be retrieved with <code>px-get-info()</code>.</p>
+	 * @return array <p>Returns the schema of a database file as an associated array. The key name is equal to the field name. Each array element is itself an associated array containing the two fields <code>type</code> and <code>size</code>. <code>type</code> is one of the constants in table Constants for field types. <code>size</code> is the number of bytes this field consumes in the record. The total of all field sizes is equal to the record size as it can be retrieved with <code>px-get-info()</code>.</p>
 	 * @link http://php.net/manual/en/function.px-get-schema.php
 	 * @since PECL paradox >= 1.0.0
 	 */
@@ -120,12 +120,12 @@ namespace {
 	 * Gets a value
 	 * <p>Gets various values.</p>
 	 * @param resource $pxdoc <p>Resource identifier of the paradox database as returned by <code>px_new()</code>.</p>
-	 * @param string $name <p><code>name</code> can be one of the following.</p>  numprimkeys  <p>The number of primary keys. Paradox databases always use the first <i>numprimkeys</i> fields for the primary index.</p>
-	 * @return float <p>Returns the value of the parameter or <b><code>FALSE</code></b> on failure.</p>
+	 * @param string $name <p><code>name</code> can be one of the following.</p>  numprimkeys  <p>The number of primary keys. Paradox databases always use the first <code>numprimkeys</code> fields for the primary index.</p>
+	 * @return float|false <p>Returns the value of the parameter or <b><code>FALSE</code></b> on failure.</p>
 	 * @link http://php.net/manual/en/function.px-get-value.php
 	 * @since PECL paradox >= 1.1.0
 	 */
-	function px_get_value($pxdoc, string $name): float {}
+	function px_get_value($pxdoc, string $name) {}
 
 	/**
 	 * Inserts record into paradox database
@@ -140,7 +140,7 @@ namespace {
 
 	/**
 	 * Create a new paradox object
-	 * <p>Create a new paradox object. You will have to call this function before any further functions. <b>px_new()</b> does not create any file on the disk, it just creates an instance of a paradox object. This function must not be called if the object oriented interface is used. Use <i>new paradox_db()</i> instead.</p>
+	 * <p>Create a new paradox object. You will have to call this function before any further functions. <b>px_new()</b> does not create any file on the disk, it just creates an instance of a paradox object. This function must not be called if the object oriented interface is used. Use <code>new paradox_db()</code> instead.</p>
 	 * @return resource <p>Returns <b><code>FALSE</code></b> on failure.</p>
 	 * @link http://php.net/manual/en/function.px-new.php
 	 * @see px_delete(), px_open_fp()
@@ -152,7 +152,7 @@ namespace {
 	 * Returns number of fields in a database
 	 * <p>Get the number of fields in a database file.</p>
 	 * @param resource $pxdoc <p>Resource identifier of the paradox database as returned by <code>px_new()</code>.</p>
-	 * @return int <p>Returns the number of fields in a database file. The return value of this function is identical to the element <i>numfields</i> in the array returned by <code>px_get_info()</code>.</p>
+	 * @return int <p>Returns the number of fields in a database file. The return value of this function is identical to the element <code>numfields</code> in the array returned by <code>px_get_info()</code>.</p>
 	 * @link http://php.net/manual/en/function.px-numfields.php
 	 * @since PECL paradox >= 1.0.0
 	 */
@@ -162,7 +162,7 @@ namespace {
 	 * Returns number of records in a database
 	 * <p>Get the number of records in a database file.</p>
 	 * @param resource $pxdoc <p>Resource identifier of the paradox database as returned by <code>px_new()</code>.</p>
-	 * @return int <p>Returns the number of records in a database file. The return value of this function is identical to the element <i>numrecords</i> in the array returned by <code>px_get_info()</code>.</p>
+	 * @return int <p>Returns the number of records in a database file. The return value of this function is identical to the element <code>numrecords</code> in the array returned by <code>px_get_info()</code>.</p>
 	 * @link http://php.net/manual/en/function.px-numrecords.php
 	 * @since PECL paradox >= 1.0.0
 	 */
@@ -209,7 +209,7 @@ namespace {
 	 * Sets the file where blobs are read from
 	 * <p>Sets the name of the file where blobs are going to be read from or written into. Without calling this function, <code>px_get_record()</code> or <code>px_retrieve_record()</code> will only return data in blob fields if the data is part of the record and not stored in the blob file. Blob data is stored in the record if it is small enough to fit in the size of the blob field.</p><p>Calling <code>px_put_record()</code>, <code>px_insert_record()</code>, or <code>px_update_record()</code> without calling <b>px_set_blob_file()</b> will result in truncated blob fields unless the data fits into the database file.</p><p>Calling this function twice will close the first blob file and open the new one.</p>
 	 * @param resource $pxdoc <p>Resource identifier of the paradox database as returned by <code>px_new()</code>.</p>
-	 * @param string $filename <p>The name of the file. Its extension should be <i>.MB</i>.</p>
+	 * @param string $filename <p>The name of the file. Its extension should be <code>.MB</code>.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
 	 * @link http://php.net/manual/en/function.px-set-blob-file.php
 	 * @since PECL paradox >= 1.3.0
@@ -234,15 +234,15 @@ namespace {
 	 * <p>Sets the table name of a paradox database, which was created with <code>px_create_fp()</code>. This function is deprecated use <code>px_set_parameter()</code> instead.</p>
 	 * @param resource $pxdoc <p>Resource identifier of the paradox database as returned by <code>px_new()</code>.</p>
 	 * @param string $name
-	 * @return void <p>Returns <b><code>NULL</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+	 * @return void|false <p>Returns <b><code>NULL</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
 	 * @link http://php.net/manual/en/function.px-set-tablename.php
 	 * @since PECL paradox >= 1.0.0
 	 */
-	function px_set_tablename($pxdoc, string $name): void {}
+	function px_set_tablename($pxdoc, string $name) {}
 
 	/**
 	 * Sets the encoding for character fields (deprecated)
-	 * <p>Set the encoding for data retrieved from a character field. All character fields will be recoded to the encoding set by this function. If the encoding is not set, the character data will be returned in the DOS code page encoding as specified in the database file. The <code>encoding</code> can be any string identifier known to iconv or recode. On Unix systems run <i>iconv -l</i> for a list of available encodings.</p><p>This function is deprecated and should be replaced by calling <code>px_set_parameter()</code>.</p><p>See also <code>px_get_info()</code> to determine the DOS code page as stored in the database file.</p>
+	 * <p>Set the encoding for data retrieved from a character field. All character fields will be recoded to the encoding set by this function. If the encoding is not set, the character data will be returned in the DOS code page encoding as specified in the database file. The <code>encoding</code> can be any string identifier known to iconv or recode. On Unix systems run <code>iconv -l</code> for a list of available encodings.</p><p>This function is deprecated and should be replaced by calling <code>px_set_parameter()</code>.</p><p>See also <code>px_get_info()</code> to determine the DOS code page as stored in the database file.</p>
 	 * @param resource $pxdoc <p>Resource identifier of the paradox database as returned by <code>px_new()</code>.</p>
 	 * @param string $encoding <p>The encoding for the output. Data which is being read from character fields is recoded into the targetencoding.</p>
 	 * @return bool <p>Returns <b><code>FALSE</code></b> if the encoding could not be set, e.g. the encoding is unknown, or pxlib does not support recoding at all. In the second case a warning will be issued.</p>

@@ -10,7 +10,7 @@ namespace {
 	 * @param int $timer_id
 	 * @return void
 	 * @link http://php.net/manual/en/swoole-server.cleartimer.php
-	 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+	 * @since PECL swoole >= 1.9.0
 	 */
 	function swoole_timer_clear(int $timer_id): void {}
 
@@ -100,7 +100,7 @@ namespace Swoole {
 
 	/**
 	 * @link http://php.net/manual/en/class.swoole-async.php
-	 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+	 * @since PECL swoole >= 1.9.0
 	 */
 	class Async {
 
@@ -108,32 +108,32 @@ namespace Swoole {
 		 * Async and non-blocking hostname to IP lookup.
 		 * <p></p><p>This function is currently not documented; only its argument list is available.</p>
 		 * @param string $hostname <p>The host name.</p>
-		 * @param callable $callback <code>mixed</code> callback ( string <code>$hostname</code> , string <code>$ip</code> )   <code>hostname</code>  <p>The host name.</p>   <code>IP</code>  <p>The IP address.</p>
+		 * @param callable $callback callback ( <code>string</code> <code>$hostname</code> , <code>string</code> <code>$ip</code> ) : <code>mixed</code>   <code>hostname</code>  <p>The host name.</p>   <code>IP</code>  <p>The IP address.</p>
 		 * @return void
 		 * @link http://php.net/manual/en/swoole-async.dnslookup.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public static function dnsLookup(string $hostname, callable $callback): void {}
 
 		/**
 		 * Read file stream asynchronously.
 		 * @param string $filename <p>The name of the file.</p>
-		 * @param callable $callback <code>mixed</code> callback ( string <code>$filename</code> , string <code>$content</code> )   <code>filename</code>  <p>The name of the file.</p>   <code>content</code>  <p>The content readed from the file stream.</p>
+		 * @param callable $callback callback ( <code>string</code> <code>$filename</code> , <code>string</code> <code>$content</code> ) : <code>mixed</code>   <code>filename</code>  <p>The name of the file.</p>   <code>content</code>  <p>The content readed from the file stream.</p>
 		 * @param int $chunk_size <p>The chunk length.</p>
 		 * @param int $offset <p>The offset.</p>
 		 * @return bool <p>Whether the read is succeed.</p>
 		 * @link http://php.net/manual/en/swoole-async.read.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public static function read(string $filename, callable $callback, int $chunk_size = NULL, int $offset = NULL): bool {}
 
 		/**
 		 * Read a file asynchronously.
 		 * @param string $filename <p>The filename of the file being read.</p>
-		 * @param callable $callback <code>mixed</code> callback ( string <code>$filename</code> , string <code>$content</code> )   <code>filename</code>  <p>The name of the file.</p>   <code>content</code>  <p>The content readed from the file.</p>
+		 * @param callable $callback callback ( <code>string</code> <code>$filename</code> , <code>string</code> <code>$content</code> ) : <code>mixed</code>   <code>filename</code>  <p>The name of the file.</p>   <code>content</code>  <p>The content readed from the file.</p>
 		 * @return void
 		 * @link http://php.net/manual/en/swoole-async.readfile.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public static function readFile(string $filename, callable $callback): void {}
 
@@ -142,7 +142,7 @@ namespace Swoole {
 		 * @param array $settings
 		 * @return void
 		 * @link http://php.net/manual/en/swoole-async.set.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public static function set(array $settings): void {}
 
@@ -154,7 +154,7 @@ namespace Swoole {
 		 * @param callable $callback
 		 * @return void
 		 * @link http://php.net/manual/en/swoole-async.write.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public static function write(string $filename, string $content, int $offset = NULL, callable $callback = NULL): void {}
 
@@ -167,14 +167,14 @@ namespace Swoole {
 		 * @param string $flags
 		 * @return void
 		 * @link http://php.net/manual/en/swoole-async.writefile.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public static function writeFile(string $filename, string $content, callable $callback = NULL, string $flags = NULL): void {}
 	}
 
 	/**
 	 * @link http://php.net/manual/en/class.swoole-atomic.php
-	 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+	 * @since PECL swoole >= 1.9.0
 	 */
 	class Atomic {
 
@@ -182,9 +182,9 @@ namespace Swoole {
 		 * Add a number to the value to the atomic object.
 		 * <p>Add a number to the value to the atomic object.</p>
 		 * @param int $add_value <p>The value which will be added to the current value.</p>
-		 * @return integer <p>The new value of the atomic object.</p>
+		 * @return int <p>The new value of the atomic object.</p>
 		 * @link http://php.net/manual/en/swoole-atomic.add.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function add(int $add_value = NULL): int {}
 
@@ -192,18 +192,18 @@ namespace Swoole {
 		 * Compare and set the value of the atomic object.
 		 * @param int $cmp_value <p>The value to compare with the current value of the atomic object.</p>
 		 * @param int $new_value <p>The value to set to the atomic object if the cmp_value is the same as the current value of the atomic object.</p>
-		 * @return integer <p>The new value of the atomic object.</p>
+		 * @return int <p>The new value of the atomic object.</p>
 		 * @link http://php.net/manual/en/swoole-atomic.cmpset.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function cmpset(int $cmp_value, int $new_value): int {}
 
 		/**
 		 * Get the current value of the atomic object.
 		 * <p>Get the current value of the atomic object.</p>
-		 * @return integer <p>The current value of the atomic object.</p>
+		 * @return int <p>The current value of the atomic object.</p>
 		 * @link http://php.net/manual/en/swoole-atomic.get.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function get(): int {}
 
@@ -211,9 +211,9 @@ namespace Swoole {
 		 * Set a new value to the atomic object.
 		 * <p>Set a new value to the atomic object.</p><p>This function is currently not documented; only its argument list is available.</p>
 		 * @param int $value <p>The value to set to the atomic object.</p>
-		 * @return integer <p>The current value of the atomic object.</p>
+		 * @return int <p>The current value of the atomic object.</p>
 		 * @link http://php.net/manual/en/swoole-atomic.set.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function set(int $value): int {}
 
@@ -221,16 +221,16 @@ namespace Swoole {
 		 * Subtract a number to the value of the atomic object.
 		 * <p>Subtract a number to the value of the atomic object.</p>
 		 * @param int $sub_value <p>The value which will be subtracted to the current value.</p>
-		 * @return integer <p>The current value of the atomic object.</p>
+		 * @return int <p>The current value of the atomic object.</p>
 		 * @link http://php.net/manual/en/swoole-atomic.sub.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function sub(int $sub_value = NULL): int {}
 	}
 
 	/**
 	 * @link http://php.net/manual/en/class.swoole-buffer.php
-	 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+	 * @since PECL swoole >= 1.9.0
 	 */
 	class Buffer {
 
@@ -239,7 +239,7 @@ namespace Swoole {
 		 * <p></p><p>This function is currently not documented; only its argument list is available.</p>
 		 * @return void
 		 * @link http://php.net/manual/en/swoole-buffer.destruct.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function __destruct() {}
 
@@ -247,16 +247,16 @@ namespace Swoole {
 		 * Get the string value of the memory buffer.
 		 * @return string <p>The string value of the memory buffer.</p>
 		 * @link http://php.net/manual/en/swoole-buffer.tostring.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function __toString(): string {}
 
 		/**
 		 * Append the string or binary data at the end of the memory buffer and return the new size of memory allocated.
 		 * @param string $data <p>The string or binary data to append at the end of the memory buffer.</p>
-		 * @return integer <p>The new size of the memory buffer.</p>
+		 * @return int <p>The new size of the memory buffer.</p>
 		 * @link http://php.net/manual/en/swoole-buffer.append.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function append(string $data): int {}
 
@@ -264,16 +264,16 @@ namespace Swoole {
 		 * Reset the memory buffer.
 		 * @return void
 		 * @link http://php.net/manual/en/swoole-buffer.clear.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function clear(): void {}
 
 		/**
 		 * Expand the size of memory buffer.
 		 * @param int $size <p>The new size of the memory buffer.</p>
-		 * @return integer <p>The new size of the memory buffer.</p>
+		 * @return int <p>The new size of the memory buffer.</p>
 		 * @link http://php.net/manual/en/swoole-buffer.expand.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function expand(int $size): int {}
 
@@ -283,7 +283,7 @@ namespace Swoole {
 		 * @param int $length <p>The length.</p>
 		 * @return string <p>The data readed from the memory buffer.</p>
 		 * @link http://php.net/manual/en/swoole-buffer.read.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function read(int $offset, int $length): string {}
 
@@ -291,7 +291,7 @@ namespace Swoole {
 		 * Release the memory to OS which is not used by the memory buffer.
 		 * @return void
 		 * @link http://php.net/manual/en/swoole-buffer.recycle.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function recycle(): void {}
 
@@ -303,7 +303,7 @@ namespace Swoole {
 		 * @param bool $remove <p>Whether to remove the data from the memory buffer.</p>
 		 * @return string <p>The data or string readed from the memory buffer.</p>
 		 * @link http://php.net/manual/en/swoole-buffer.substr.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function substr(int $offset, int $length = NULL, bool $remove = NULL): string {}
 
@@ -313,14 +313,14 @@ namespace Swoole {
 		 * @param string $data <p>The data to write to the memory buffer.</p>
 		 * @return void
 		 * @link http://php.net/manual/en/swoole-buffer.write.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function write(int $offset, string $data): void {}
 	}
 
 	/**
 	 * @link http://php.net/manual/en/class.swoole-channel.php
-	 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+	 * @since PECL swoole >= 1.9.0
 	 */
 	class Channel {
 
@@ -328,7 +328,7 @@ namespace Swoole {
 		 * Destruct a Swoole channel.
 		 * @return void
 		 * @link http://php.net/manual/en/swoole-channel.destruct.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function __destruct() {}
 
@@ -336,7 +336,7 @@ namespace Swoole {
 		 * Read and pop data from swoole channel.
 		 * @return mixed <p>If the channel is empty, the function will return false, or return the unserialized data.</p>
 		 * @link http://php.net/manual/en/swoole-channel.pop.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function pop() {}
 
@@ -346,7 +346,7 @@ namespace Swoole {
 		 * @param string $data <p>The data to push into the Swoole channel.</p>
 		 * @return bool <p>Wheter the data is pushed into he Swoole channel.</p>
 		 * @link http://php.net/manual/en/swoole-channel.push.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function push(string $data): bool {}
 
@@ -355,37 +355,37 @@ namespace Swoole {
 		 * <p>Get the numbers of queued elements and total size of the memory used by the queue.</p>
 		 * @return array <p>The stats of the Swoole channel.</p>
 		 * @link http://php.net/manual/en/swoole-channel.stats.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function stats(): array {}
 	}
 
 	/**
 	 * @link http://php.net/manual/en/class.swoole-client.php
-	 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+	 * @since PECL swoole >= 1.9.0
 	 */
 	class Client {
 
 		/**
-		 * @var integer
+		 * @var int
 		 * @link http://php.net/manual/en/class.swoole-client.php
 		 */
 		const MSG_OOB = 1;
 
 		/**
-		 * @var integer
+		 * @var int
 		 * @link http://php.net/manual/en/class.swoole-client.php
 		 */
 		const MSG_PEEK = 2;
 
 		/**
-		 * @var integer
+		 * @var int
 		 * @link http://php.net/manual/en/class.swoole-client.php
 		 */
 		const MSG_DONTWAIT = 128;
 
 		/**
-		 * @var integer
+		 * @var int
 		 * @link http://php.net/manual/en/class.swoole-client.php
 		 */
 		const MSG_WAITALL = 64;
@@ -419,7 +419,7 @@ namespace Swoole {
 		 * <p></p><p>This function is currently not documented; only its argument list is available.</p>
 		 * @return void
 		 * @link http://php.net/manual/en/swoole-client.destruct.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function __destruct() {}
 
@@ -428,7 +428,7 @@ namespace Swoole {
 		 * @param bool $force <p>Whether force to close the connection.</p>
 		 * @return bool <p>Whether the connection is closed.</p>
 		 * @link http://php.net/manual/en/swoole-client.close.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function close(bool $force = NULL): bool {}
 
@@ -440,7 +440,7 @@ namespace Swoole {
 		 * @param int $flag <p>If the type of client is UDP, the $flag means if to enable the configuration udp_connect. If the configuration udp_connect is enabled, the client will only receive the data from specified ip:port. If the type of client is TCP and the $flag is set to 1, it must use swoole_client_select to check the connection status before send/recv.</p>
 		 * @return bool <p>Whether the connection is established.</p>
 		 * @link http://php.net/manual/en/swoole-client.connect.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function connect(string $host, int $port = NULL, int $timeout = NULL, int $flag = NULL): bool {}
 
@@ -448,7 +448,7 @@ namespace Swoole {
 		 * Get the remote socket name of the connection.
 		 * @return array <p>The host and port of the remote socket.</p>
 		 * @link http://php.net/manual/en/swoole-client.getpeername.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function getpeername(): array {}
 
@@ -456,7 +456,7 @@ namespace Swoole {
 		 * Get the local socket name of the connection.
 		 * @return array <p>The host and port of the local socket.</p>
 		 * @link http://php.net/manual/en/swoole-client.getsockname.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function getsockname(): array {}
 
@@ -465,7 +465,7 @@ namespace Swoole {
 		 * <p>This method returns the connection status of application layer.</p>
 		 * @return bool <p>Whether the connection is established.</p>
 		 * @link http://php.net/manual/en/swoole-client.isconnected.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function isConnected(): bool {}
 
@@ -475,7 +475,7 @@ namespace Swoole {
 		 * @param callable $callback
 		 * @return void
 		 * @link http://php.net/manual/en/swoole-client.on.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function on(string $event, callable $callback): void {}
 
@@ -483,7 +483,7 @@ namespace Swoole {
 		 * Pause receiving data.
 		 * @return void
 		 * @link http://php.net/manual/en/swoole-client.pause.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function pause(): void {}
 
@@ -492,7 +492,7 @@ namespace Swoole {
 		 * @param string $socket
 		 * @return void
 		 * @link http://php.net/manual/en/swoole-client.pipe.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function pipe(string $socket): void {}
 
@@ -503,7 +503,7 @@ namespace Swoole {
 		 * @param string $flag
 		 * @return void
 		 * @link http://php.net/manual/en/swoole-client.recv.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function recv(string $size = NULL, string $flag = NULL): void {}
 
@@ -511,7 +511,7 @@ namespace Swoole {
 		 * Resume receiving data.
 		 * @return void
 		 * @link http://php.net/manual/en/swoole-client.resume.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function resume(): void {}
 
@@ -519,9 +519,9 @@ namespace Swoole {
 		 * Send data to the remote TCP socket.
 		 * @param string $data <p>The data to send which can be string or binary</p>
 		 * @param string $flag
-		 * @return integer <p>If the client sends data successfully, it returns the length of data sent. Or it returns false and sets $swoole_client-&gt;errCode. For sync client, there is no limit for the data to send. For async client, The limit for the data to send is socket_buffer_size.</p>
+		 * @return int <p>If the client sends data successfully, it returns the length of data sent. Or it returns false and sets $swoole_client-&gt;errCode. For sync client, there is no limit for the data to send. For async client, The limit for the data to send is socket_buffer_size.</p>
 		 * @link http://php.net/manual/en/swoole-client.send.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function send(string $data, string $flag = NULL): int {}
 
@@ -530,9 +530,9 @@ namespace Swoole {
 		 * <p>This is a wrapper of the Linux sendfile system call.</p>
 		 * @param string $filename <p>File path of the file to send.</p>
 		 * @param int $offset <p>Offset of the file to send</p>
-		 * @return boolean
+		 * @return bool
 		 * @link http://php.net/manual/en/swoole-client.sendfile.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function sendfile(string $filename, int $offset = NULL): bool {}
 
@@ -542,9 +542,9 @@ namespace Swoole {
 		 * @param string $ip <p>The IP address of remote host, IPv4 or IPv6.</p>
 		 * @param int $port <p>The port number of remote host.</p>
 		 * @param string $data <p>The data to send which should be less-than 64K.</p>
-		 * @return boolean
+		 * @return bool
 		 * @link http://php.net/manual/en/swoole-client.sendto.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function sendto(string $ip, int $port, string $data): bool {}
 
@@ -553,7 +553,7 @@ namespace Swoole {
 		 * @param array $settings
 		 * @return void
 		 * @link http://php.net/manual/en/swoole-client.set.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function set(array $settings): void {}
 
@@ -562,7 +562,7 @@ namespace Swoole {
 		 * <p>Remove the TCP client from system event loop.</p>
 		 * @return void
 		 * @link http://php.net/manual/en/swoole-client.sleep.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function sleep(): void {}
 
@@ -570,7 +570,7 @@ namespace Swoole {
 		 * Add the TCP client back into the system event loop.
 		 * @return void
 		 * @link http://php.net/manual/en/swoole-client.wakeup.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function wakeup(): void {}
 	}
@@ -581,7 +581,7 @@ namespace Swoole\Connection {
 
 	/**
 	 * @link http://php.net/manual/en/class.swoole-connection-iterator.php
-	 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+	 * @since PECL swoole >= 1.9.0
 	 */
 	class Iterator implements \Iterator, \Countable, \ArrayAccess {
 
@@ -590,7 +590,7 @@ namespace Swoole\Connection {
 		 * <p>Gets the number of connections.</p>
 		 * @return int <p>The number of connections.</p>
 		 * @link http://php.net/manual/en/swoole-connection-iterator.count.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function count(): int {}
 
@@ -599,7 +599,7 @@ namespace Swoole\Connection {
 		 * <p>Get current connection entry.</p>
 		 * @return Connection <p>The current connection entry.</p>
 		 * @link http://php.net/manual/en/swoole-connection-iterator.current.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function current(): \Connection {}
 
@@ -608,7 +608,7 @@ namespace Swoole\Connection {
 		 * <p>This function returns key of the current connection.</p>
 		 * @return int <p>Key of the current connection.</p>
 		 * @link http://php.net/manual/en/swoole-connection-iterator.key.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function key(): int {}
 
@@ -617,7 +617,7 @@ namespace Swoole\Connection {
 		 * <p>The iterator to the next connection.</p>
 		 * @return Connection
 		 * @link http://php.net/manual/en/swoole-connection-iterator.next.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function next(): \Connection {}
 
@@ -625,9 +625,9 @@ namespace Swoole\Connection {
 		 * Check if offet exists.
 		 * <p>Check if offset exists.</p>
 		 * @param int $index <p>The offset being checked.</p>
-		 * @return boolean <p>Returns TRUE if the offset exists, otherwise FALSE.</p>
+		 * @return bool <p>Returns TRUE if the offset exists, otherwise FALSE.</p>
 		 * @link http://php.net/manual/en/swoole-connection-iterator.offsetexists.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function offsetExists(int $index): bool {}
 
@@ -637,7 +637,7 @@ namespace Swoole\Connection {
 		 * @param string $index <p>The offset to retrieve.</p>
 		 * @return Connection
 		 * @link http://php.net/manual/en/swoole-connection-iterator.offsetget.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function offsetGet(string $index): \Connection {}
 
@@ -648,7 +648,7 @@ namespace Swoole\Connection {
 		 * @param mixed $connection <p>The connection to set.</p>
 		 * @return void
 		 * @link http://php.net/manual/en/swoole-connection-iterator.offsetset.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function offsetSet(int $offset, $connection): void {}
 
@@ -658,7 +658,7 @@ namespace Swoole\Connection {
 		 * @param int $offset <p>The offset to unset.</p>
 		 * @return void
 		 * @link http://php.net/manual/en/swoole-connection-iterator.offsetunset.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function offsetUnset(int $offset): void {}
 
@@ -666,16 +666,16 @@ namespace Swoole\Connection {
 		 * Rewinds iterator
 		 * @return void
 		 * @link http://php.net/manual/en/swoole-connection-iterator.rewind.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function rewind(): void {}
 
 		/**
 		 * Check if current position is valid.
 		 * <p>Checks if the current position is valid.</p>
-		 * @return boolean <p>Returns TRUE if the current iterator position is valid, otherwise FALSE.</p>
+		 * @return bool <p>Returns TRUE if the current iterator position is valid, otherwise FALSE.</p>
 		 * @link http://php.net/manual/en/swoole-connection-iterator.valid.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function valid(): bool {}
 	}
@@ -686,7 +686,7 @@ namespace Swoole {
 
 	/**
 	 * @link http://php.net/manual/en/class.swoole-coroutine.php
-	 * @since PHP 7, PECL swoole >= 2.0.0
+	 * @since PECL swoole >= 2.0.0
 	 */
 	class Coroutine {
 
@@ -695,7 +695,7 @@ namespace Swoole {
 		 * <p></p><p>This function is currently not documented; only its argument list is available.</p>
 		 * @return ReturnType
 		 * @link http://php.net/manual/en/swoole-coroutine-client.destruct.php
-		 * @since PHP 7, PECL swoole >= 2.0.0
+		 * @since PECL swoole >= 2.0.0
 		 */
 		public function __destruct() {}
 
@@ -704,7 +704,7 @@ namespace Swoole {
 		 * <p></p><p>This function is currently not documented; only its argument list is available.</p>
 		 * @return ReturnType
 		 * @link http://php.net/manual/en/swoole-coroutine-http-client.addfile.php
-		 * @since PHP 7, PECL swoole >= 2.0.0
+		 * @since PECL swoole >= 2.0.0
 		 */
 		public function addFile(): \ReturnType {}
 
@@ -712,13 +712,12 @@ namespace Swoole {
 		 * Call a callback given by the first parameter
 		 * <p>Calls the <code>callback</code> given by the first parameter and passes the remaining parameters as arguments.</p>
 		 * @param callable $callback <p>The <code>callable</code> to be called.</p>
-		 * @param mixed $parameter <p>Zero or more parameters to be passed to the callback.</p>
-		 * @param mixed $_
+		 * @param mixed $_$args
 		 * @return mixed
 		 * @link http://php.net/manual/en/swoole-coroutine.call-user-func.php
-		 * @since PHP 7, PECL swoole >= 2.0.0
+		 * @since PECL swoole >= 2.0.0
 		 */
-		public static function call_user_func(callable $callback, $parameter = NULL, $_ = NULL) {}
+		public static function call_user_func(callable $callback, $_$args) {}
 
 		/**
 		 * Call a callback with an array of parameters
@@ -727,7 +726,7 @@ namespace Swoole {
 		 * @param array $param_array <p>Zero or more parameters in the array to be passed to the callback.</p>
 		 * @return mixed
 		 * @link http://php.net/manual/en/swoole-coroutine.call-user-func-array.php
-		 * @since PHP 7, PECL swoole >= 2.0.0
+		 * @since PECL swoole >= 2.0.0
 		 */
 		public static function call_user_func_array(callable $callback, array $param_array) {}
 
@@ -735,7 +734,7 @@ namespace Swoole {
 		 * Description
 		 * @return ReturnType
 		 * @link http://php.net/manual/en/swoole-coroutine.cli-wait.php
-		 * @since PHP 7, PECL swoole >= 2.0.0
+		 * @since PECL swoole >= 2.0.0
 		 */
 		public static function cli_wait(): \ReturnType {}
 
@@ -744,7 +743,7 @@ namespace Swoole {
 		 * <p></p><p>This function is currently not documented; only its argument list is available.</p>
 		 * @return ReturnType
 		 * @link http://php.net/manual/en/swoole-coroutine-client.close.php
-		 * @since PHP 7, PECL swoole >= 2.0.0
+		 * @since PECL swoole >= 2.0.0
 		 */
 		public function close(): \ReturnType {}
 
@@ -753,7 +752,7 @@ namespace Swoole {
 		 * <p></p><p>This function is currently not documented; only its argument list is available.</p>
 		 * @return ReturnType
 		 * @link http://php.net/manual/en/swoole-coroutine-client.connect.php
-		 * @since PHP 7, PECL swoole >= 2.0.0
+		 * @since PECL swoole >= 2.0.0
 		 */
 		public function connect(): \ReturnType {}
 
@@ -762,7 +761,7 @@ namespace Swoole {
 		 * <p></p><p>This function is currently not documented; only its argument list is available.</p>
 		 * @return ReturnType
 		 * @link http://php.net/manual/en/swoole-coroutine.create.php
-		 * @since PHP 7, PECL swoole >= 2.0.0
+		 * @since PECL swoole >= 2.0.0
 		 */
 		public static function create(): \ReturnType {}
 
@@ -771,7 +770,7 @@ namespace Swoole {
 		 * <p></p><p>This function is currently not documented; only its argument list is available.</p>
 		 * @return ReturnType
 		 * @link http://php.net/manual/en/swoole-coroutine-http-client.execute.php
-		 * @since PHP 7, PECL swoole >= 2.0.0
+		 * @since PECL swoole >= 2.0.0
 		 */
 		public function execute(): \ReturnType {}
 
@@ -780,7 +779,7 @@ namespace Swoole {
 		 * <p></p><p>This function is currently not documented; only its argument list is available.</p>
 		 * @return ReturnType
 		 * @link http://php.net/manual/en/swoole-coroutine-http-client.get.php
-		 * @since PHP 7, PECL swoole >= 2.0.0
+		 * @since PECL swoole >= 2.0.0
 		 */
 		public function get(): \ReturnType {}
 
@@ -789,7 +788,7 @@ namespace Swoole {
 		 * <p></p><p>This function is currently not documented; only its argument list is available.</p>
 		 * @return ReturnType
 		 * @link http://php.net/manual/en/swoole-coroutine-http-client.getdefer.php
-		 * @since PHP 7, PECL swoole >= 2.0.0
+		 * @since PECL swoole >= 2.0.0
 		 */
 		public function getDefer(): \ReturnType {}
 
@@ -798,7 +797,7 @@ namespace Swoole {
 		 * <p></p><p>This function is currently not documented; only its argument list is available.</p>
 		 * @return ReturnType
 		 * @link http://php.net/manual/en/swoole-coroutine-client.getpeername.php
-		 * @since PHP 7, PECL swoole >= 2.0.0
+		 * @since PECL swoole >= 2.0.0
 		 */
 		public function getpeername(): \ReturnType {}
 
@@ -807,7 +806,7 @@ namespace Swoole {
 		 * <p></p><p>This function is currently not documented; only its argument list is available.</p>
 		 * @return ReturnType
 		 * @link http://php.net/manual/en/swoole-coroutine-client.getsockname.php
-		 * @since PHP 7, PECL swoole >= 2.0.0
+		 * @since PECL swoole >= 2.0.0
 		 */
 		public function getsockname(): \ReturnType {}
 
@@ -816,7 +815,7 @@ namespace Swoole {
 		 * <p></p><p>This function is currently not documented; only its argument list is available.</p>
 		 * @return ReturnType
 		 * @link http://php.net/manual/en/swoole-coroutine.getuid.php
-		 * @since PHP 7, PECL swoole >= 2.0.0
+		 * @since PECL swoole >= 2.0.0
 		 */
 		public static function getuid(): \ReturnType {}
 
@@ -825,7 +824,7 @@ namespace Swoole {
 		 * <p></p><p>This function is currently not documented; only its argument list is available.</p>
 		 * @return ReturnType
 		 * @link http://php.net/manual/en/swoole-coroutine-client.isconnected.php
-		 * @since PHP 7, PECL swoole >= 2.0.0
+		 * @since PECL swoole >= 2.0.0
 		 */
 		public function isConnected(): \ReturnType {}
 
@@ -834,7 +833,7 @@ namespace Swoole {
 		 * <p></p><p>This function is currently not documented; only its argument list is available.</p>
 		 * @return ReturnType
 		 * @link http://php.net/manual/en/swoole-coroutine-http-client.post.php
-		 * @since PHP 7, PECL swoole >= 2.0.0
+		 * @since PECL swoole >= 2.0.0
 		 */
 		public function post(): \ReturnType {}
 
@@ -843,7 +842,7 @@ namespace Swoole {
 		 * <p></p><p>This function is currently not documented; only its argument list is available.</p>
 		 * @return ReturnType
 		 * @link http://php.net/manual/en/swoole-coroutine-mysql.query.php
-		 * @since PHP 7, PECL swoole >= 2.0.0
+		 * @since PECL swoole >= 2.0.0
 		 */
 		public function query(): \ReturnType {}
 
@@ -852,7 +851,7 @@ namespace Swoole {
 		 * <p></p><p>This function is currently not documented; only its argument list is available.</p>
 		 * @return ReturnType
 		 * @link http://php.net/manual/en/swoole-coroutine-client.recv.php
-		 * @since PHP 7, PECL swoole >= 2.0.0
+		 * @since PECL swoole >= 2.0.0
 		 */
 		public function recv(): \ReturnType {}
 
@@ -861,7 +860,7 @@ namespace Swoole {
 		 * <p></p><p>This function is currently not documented; only its argument list is available.</p>
 		 * @return ReturnType
 		 * @link http://php.net/manual/en/swoole-coroutine.resume.php
-		 * @since PHP 7, PECL swoole >= 2.0.0
+		 * @since PECL swoole >= 2.0.0
 		 */
 		public static function resume(): \ReturnType {}
 
@@ -870,7 +869,7 @@ namespace Swoole {
 		 * <p></p><p>This function is currently not documented; only its argument list is available.</p>
 		 * @return ReturnType
 		 * @link http://php.net/manual/en/swoole-coroutine-client.send.php
-		 * @since PHP 7, PECL swoole >= 2.0.0
+		 * @since PECL swoole >= 2.0.0
 		 */
 		public function send(): \ReturnType {}
 
@@ -879,7 +878,7 @@ namespace Swoole {
 		 * <p></p><p>This function is currently not documented; only its argument list is available.</p>
 		 * @return ReturnType
 		 * @link http://php.net/manual/en/swoole-coroutine-client.sendfile.php
-		 * @since PHP 7, PECL swoole >= 2.0.0
+		 * @since PECL swoole >= 2.0.0
 		 */
 		public function sendfile(): \ReturnType {}
 
@@ -888,7 +887,7 @@ namespace Swoole {
 		 * <p></p><p>This function is currently not documented; only its argument list is available.</p>
 		 * @return ReturnType
 		 * @link http://php.net/manual/en/swoole-coroutine-client.sendto.php
-		 * @since PHP 7, PECL swoole >= 2.0.0
+		 * @since PECL swoole >= 2.0.0
 		 */
 		public function sendto(): \ReturnType {}
 
@@ -897,7 +896,7 @@ namespace Swoole {
 		 * <p></p><p>This function is currently not documented; only its argument list is available.</p>
 		 * @return ReturnType
 		 * @link http://php.net/manual/en/swoole-coroutine-client.set.php
-		 * @since PHP 7, PECL swoole >= 2.0.0
+		 * @since PECL swoole >= 2.0.0
 		 */
 		public function set(): \ReturnType {}
 
@@ -906,7 +905,7 @@ namespace Swoole {
 		 * <p></p><p>This function is currently not documented; only its argument list is available.</p>
 		 * @return ReturnType
 		 * @link http://php.net/manual/en/swoole-coroutine-http-client.setcookies.php
-		 * @since PHP 7, PECL swoole >= 2.0.0
+		 * @since PECL swoole >= 2.0.0
 		 */
 		public function setCookies(): \ReturnType {}
 
@@ -915,7 +914,7 @@ namespace Swoole {
 		 * <p></p><p>This function is currently not documented; only its argument list is available.</p>
 		 * @return ReturnType
 		 * @link http://php.net/manual/en/swoole-coroutine-http-client.setdata.php
-		 * @since PHP 7, PECL swoole >= 2.0.0
+		 * @since PECL swoole >= 2.0.0
 		 */
 		public function setData(): \ReturnType {}
 
@@ -924,7 +923,7 @@ namespace Swoole {
 		 * <p></p><p>This function is currently not documented; only its argument list is available.</p>
 		 * @return ReturnType
 		 * @link http://php.net/manual/en/swoole-coroutine-http-client.setdefer.php
-		 * @since PHP 7, PECL swoole >= 2.0.0
+		 * @since PECL swoole >= 2.0.0
 		 */
 		public function setDefer(): \ReturnType {}
 
@@ -933,7 +932,7 @@ namespace Swoole {
 		 * <p></p><p>This function is currently not documented; only its argument list is available.</p>
 		 * @return ReturnType
 		 * @link http://php.net/manual/en/swoole-coroutine-http-client.setheaders.php
-		 * @since PHP 7, PECL swoole >= 2.0.0
+		 * @since PECL swoole >= 2.0.0
 		 */
 		public function setHeaders(): \ReturnType {}
 
@@ -942,7 +941,7 @@ namespace Swoole {
 		 * <p></p><p>This function is currently not documented; only its argument list is available.</p>
 		 * @return ReturnType
 		 * @link http://php.net/manual/en/swoole-coroutine-http-client.setmethod.php
-		 * @since PHP 7, PECL swoole >= 2.0.0
+		 * @since PECL swoole >= 2.0.0
 		 */
 		public function setMethod(): \ReturnType {}
 
@@ -951,14 +950,14 @@ namespace Swoole {
 		 * <p></p><p>This function is currently not documented; only its argument list is available.</p>
 		 * @return ReturnType
 		 * @link http://php.net/manual/en/swoole-coroutine.suspend.php
-		 * @since PHP 7, PECL swoole >= 2.0.0
+		 * @since PECL swoole >= 2.0.0
 		 */
 		public static function suspend(): \ReturnType {}
 	}
 
 	/**
 	 * @link http://php.net/manual/en/class.swoole-event.php
-	 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+	 * @since PECL swoole >= 1.9.0
 	 */
 	class Event {
 
@@ -968,9 +967,9 @@ namespace Swoole {
 		 * @param callable $read_callback
 		 * @param callable $write_callback
 		 * @param string $events
-		 * @return boolean
+		 * @return bool
 		 * @link http://php.net/manual/en/swoole-event.add.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public static function add(int $fd, callable $read_callback, callable $write_callback = NULL, string $events = NULL): bool {}
 
@@ -979,16 +978,16 @@ namespace Swoole {
 		 * @param mixed $callback
 		 * @return void
 		 * @link http://php.net/manual/en/swoole-event.defer.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public static function defer($callback): void {}
 
 		/**
 		 * Remove all event callback functions of a socket.
 		 * @param string $fd
-		 * @return boolean
+		 * @return bool
 		 * @link http://php.net/manual/en/swoole-event.del.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public static function del(string $fd): bool {}
 
@@ -996,7 +995,7 @@ namespace Swoole {
 		 * Exit the eventloop, only available at client side.
 		 * @return void
 		 * @link http://php.net/manual/en/swoole-event.exit.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public static function exit(): void {}
 
@@ -1006,9 +1005,9 @@ namespace Swoole {
 		 * @param string $read_callback
 		 * @param string $write_callback
 		 * @param string $events
-		 * @return boolean
+		 * @return bool
 		 * @link http://php.net/manual/en/swoole-event.set.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public static function set(int $fd, string $read_callback = NULL, string $write_callback = NULL, string $events = NULL): bool {}
 
@@ -1017,7 +1016,7 @@ namespace Swoole {
 		 * <p></p><p>This function is currently not documented; only its argument list is available.</p>
 		 * @return void
 		 * @link http://php.net/manual/en/swoole-event.wait.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public static function wait(): void {}
 
@@ -1027,14 +1026,14 @@ namespace Swoole {
 		 * @param string $data
 		 * @return void
 		 * @link http://php.net/manual/en/swoole-event.write.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public static function write(string $fd, string $data): void {}
 	}
 
 	/**
 	 * @link http://php.net/manual/en/class.swoole-exception.php
-	 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+	 * @since PECL swoole >= 1.9.0
 	 */
 	class Exception extends \Exception implements \Throwable {
 
@@ -1069,7 +1068,7 @@ namespace Swoole\Http {
 
 	/**
 	 * @link http://php.net/manual/en/class.swoole-http-client.php
-	 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+	 * @since PECL swoole >= 1.9.0
 	 */
 	class Client {
 
@@ -1089,7 +1088,7 @@ namespace Swoole\Http {
 		 * Destruct the HTTP client.
 		 * @return void
 		 * @link http://php.net/manual/en/swoole-http-client.destruct.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function __destruct() {}
 
@@ -1102,7 +1101,7 @@ namespace Swoole\Http {
 		 * @param string $offset
 		 * @return void
 		 * @link http://php.net/manual/en/swoole-http-client.addfile.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function addFile(string $path, string $name, string $type = NULL, string $filename = NULL, string $offset = NULL): void {}
 
@@ -1110,7 +1109,7 @@ namespace Swoole\Http {
 		 * Close the http connection.
 		 * @return void
 		 * @link http://php.net/manual/en/swoole-http-client.close.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function close(): void {}
 
@@ -1122,7 +1121,7 @@ namespace Swoole\Http {
 		 * @param int $offset
 		 * @return void
 		 * @link http://php.net/manual/en/swoole-http-client.download.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function download(string $path, string $file, callable $callback, int $offset = NULL): void {}
 
@@ -1132,7 +1131,7 @@ namespace Swoole\Http {
 		 * @param string $callback
 		 * @return void
 		 * @link http://php.net/manual/en/swoole-http-client.execute.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function execute(string $path, string $callback): void {}
 
@@ -1142,15 +1141,15 @@ namespace Swoole\Http {
 		 * @param callable $callback
 		 * @return void
 		 * @link http://php.net/manual/en/swoole-http-client.get.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function get(string $path, callable $callback): void {}
 
 		/**
 		 * Check if the HTTP connection is connected.
-		 * @return boolean
+		 * @return bool
 		 * @link http://php.net/manual/en/swoole-http-client.isconnected.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function isConnected(): bool {}
 
@@ -1160,7 +1159,7 @@ namespace Swoole\Http {
 		 * @param callable $callback
 		 * @return void
 		 * @link http://php.net/manual/en/swoole-http-client.on.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function on(string $event_name, callable $callback): void {}
 
@@ -1171,7 +1170,7 @@ namespace Swoole\Http {
 		 * @param callable $callback
 		 * @return void
 		 * @link http://php.net/manual/en/swoole-http-client.post.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function post(string $path, string $data, callable $callback): void {}
 
@@ -1182,7 +1181,7 @@ namespace Swoole\Http {
 		 * @param string $finish
 		 * @return void
 		 * @link http://php.net/manual/en/swoole-http-client.push.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function push(string $data, string $opcode = NULL, string $finish = NULL): void {}
 
@@ -1191,7 +1190,7 @@ namespace Swoole\Http {
 		 * @param array $settings
 		 * @return void
 		 * @link http://php.net/manual/en/swoole-http-client.set.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function set(array $settings): void {}
 
@@ -1200,7 +1199,7 @@ namespace Swoole\Http {
 		 * @param array $cookies
 		 * @return void
 		 * @link http://php.net/manual/en/swoole-http-client.setcookies.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function setCookies(array $cookies): void {}
 
@@ -1210,7 +1209,7 @@ namespace Swoole\Http {
 		 * @param string $data
 		 * @return ReturnType
 		 * @link http://php.net/manual/en/swoole-http-client.setdata.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function setData(string $data): \ReturnType {}
 
@@ -1219,7 +1218,7 @@ namespace Swoole\Http {
 		 * @param array $headers
 		 * @return void
 		 * @link http://php.net/manual/en/swoole-http-client.setheaders.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function setHeaders(array $headers): void {}
 
@@ -1228,7 +1227,7 @@ namespace Swoole\Http {
 		 * @param string $method
 		 * @return void
 		 * @link http://php.net/manual/en/swoole-http-client.setmethod.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function setMethod(string $method): void {}
 
@@ -1238,14 +1237,14 @@ namespace Swoole\Http {
 		 * @param string $callback
 		 * @return void
 		 * @link http://php.net/manual/en/swoole-http-client.upgrade.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function upgrade(string $path, string $callback): void {}
 	}
 
 	/**
 	 * @link http://php.net/manual/en/class.swoole-http-request.php
-	 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+	 * @since PECL swoole >= 1.9.0
 	 */
 	class Request {
 
@@ -1253,7 +1252,7 @@ namespace Swoole\Http {
 		 * Destruct the HTTP request.
 		 * @return void
 		 * @link http://php.net/manual/en/swoole-http-request.destruct.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function __destruct() {}
 
@@ -1262,14 +1261,14 @@ namespace Swoole\Http {
 		 * <p>This method is used for the POST data which isn't in the form of `application/x-www-form-urlencoded`.</p><p>This function is currently not documented; only its argument list is available.</p>
 		 * @return string
 		 * @link http://php.net/manual/en/swoole-http-request.rawcontent.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function rawcontent(): string {}
 	}
 
 	/**
 	 * @link http://php.net/manual/en/class.swoole-http-response.php
-	 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+	 * @since PECL swoole >= 1.9.0
 	 */
 	class Response {
 
@@ -1277,7 +1276,7 @@ namespace Swoole\Http {
 		 * Destruct the HTTP response.
 		 * @return void
 		 * @link http://php.net/manual/en/swoole-http-response.destruct.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function __destruct() {}
 
@@ -1292,7 +1291,7 @@ namespace Swoole\Http {
 		 * @param string $httponly
 		 * @return string
 		 * @link http://php.net/manual/en/swoole-http-response.cookie.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function cookie(string $name, string $value = NULL, string $expires = NULL, string $path = NULL, string $domain = NULL, string $secure = NULL, string $httponly = NULL): string {}
 
@@ -1301,7 +1300,7 @@ namespace Swoole\Http {
 		 * @param string $content
 		 * @return void
 		 * @link http://php.net/manual/en/swoole-http-response.end.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function end(string $content = NULL): void {}
 
@@ -1311,7 +1310,7 @@ namespace Swoole\Http {
 		 * @param string $compress_level
 		 * @return ReturnType
 		 * @link http://php.net/manual/en/swoole-http-response.gzip.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function gzip(string $compress_level = NULL): \ReturnType {}
 
@@ -1322,7 +1321,7 @@ namespace Swoole\Http {
 		 * @param string $ucwords
 		 * @return void
 		 * @link http://php.net/manual/en/swoole-http-response.header.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function header(string $key, string $value, string $ucwords = NULL): void {}
 
@@ -1331,7 +1330,7 @@ namespace Swoole\Http {
 		 * <p>Init the HTTP response header.</p>
 		 * @return ReturnType
 		 * @link http://php.net/manual/en/swoole-http-response.initheader.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function initHeader(): \ReturnType {}
 
@@ -1346,7 +1345,7 @@ namespace Swoole\Http {
 		 * @param string $httponly
 		 * @return ReturnType
 		 * @link http://php.net/manual/en/swoole-http-response.rawcookie.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function rawcookie(string $name, string $value = NULL, string $expires = NULL, string $path = NULL, string $domain = NULL, string $secure = NULL, string $httponly = NULL): \ReturnType {}
 
@@ -1357,7 +1356,7 @@ namespace Swoole\Http {
 		 * @param int $offset
 		 * @return ReturnType
 		 * @link http://php.net/manual/en/swoole-http-response.sendfile.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function sendfile(string $filename, int $offset = NULL): \ReturnType {}
 
@@ -1367,7 +1366,7 @@ namespace Swoole\Http {
 		 * @param string $http_code
 		 * @return ReturnType
 		 * @link http://php.net/manual/en/swoole-http-response.status.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function status(string $http_code): \ReturnType {}
 
@@ -1377,14 +1376,14 @@ namespace Swoole\Http {
 		 * @param string $content
 		 * @return void
 		 * @link http://php.net/manual/en/swoole-http-response.write.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function write(string $content): void {}
 	}
 
 	/**
 	 * @link http://php.net/manual/en/class.swoole-http-server.php
-	 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+	 * @since PECL swoole >= 1.9.0
 	 */
 	class Server extends \Swoole\Server {
 
@@ -1392,16 +1391,16 @@ namespace Swoole\Http {
 		 * Destory server port
 		 * @return void
 		 * @link http://php.net/manual/en/swoole-server-port.destruct.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function __destruct() {}
 
 		/**
 		 * Add a user defined swoole_process to the server.
 		 * @param \swoole_process $process
-		 * @return boolean
+		 * @return bool
 		 * @link http://php.net/manual/en/swoole-server.addprocess.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function addProcess(\swoole_process $process): bool {}
 
@@ -1412,7 +1411,7 @@ namespace Swoole\Http {
 		 * @param string $socket_type
 		 * @return void
 		 * @link http://php.net/manual/en/swoole-server.addlistener.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function addlistener(string $host, int $port, string $socket_type): void {}
 
@@ -1423,7 +1422,7 @@ namespace Swoole\Http {
 		 * @param string $param
 		 * @return ReturnType
 		 * @link http://php.net/manual/en/swoole-server.after.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function after(int $after_time_ms, callable $callback, string $param = NULL): \ReturnType {}
 
@@ -1431,9 +1430,9 @@ namespace Swoole\Http {
 		 * Bind the connection to a user defined user ID.
 		 * @param int $fd
 		 * @param int $uid
-		 * @return boolean
+		 * @return bool
 		 * @link http://php.net/manual/en/swoole-server.bind.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function bind(int $fd, int $uid): bool {}
 
@@ -1443,7 +1442,7 @@ namespace Swoole\Http {
 		 * @param int $timer_id
 		 * @return void
 		 * @link http://php.net/manual/en/swoole-server.cleartimer.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function clearTimer(int $timer_id): void {}
 
@@ -1451,18 +1450,18 @@ namespace Swoole\Http {
 		 * Close a connection to the client.
 		 * @param int $fd
 		 * @param bool $reset
-		 * @return boolean
+		 * @return bool
 		 * @link http://php.net/manual/en/swoole-server.close.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function close(int $fd, bool $reset = NULL): bool {}
 
 		/**
 		 * Check status of the connection.
 		 * @param int $fd
-		 * @return boolean
+		 * @return bool
 		 * @link http://php.net/manual/en/swoole-server.confirm.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function confirm(int $fd): bool {}
 
@@ -1472,7 +1471,7 @@ namespace Swoole\Http {
 		 * @param int $reactor_id
 		 * @return array
 		 * @link http://php.net/manual/en/swoole-server.connection-info.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function connection_info(int $fd, int $reactor_id = NULL): array {}
 
@@ -1482,7 +1481,7 @@ namespace Swoole\Http {
 		 * @param int $pagesize
 		 * @return array
 		 * @link http://php.net/manual/en/swoole-server.connection-list.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function connection_list(int $start_fd, int $pagesize = NULL): array {}
 
@@ -1491,16 +1490,16 @@ namespace Swoole\Http {
 		 * @param callable $callback
 		 * @return void
 		 * @link http://php.net/manual/en/swoole-server.defer.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function defer(callable $callback): void {}
 
 		/**
 		 * Check if the connection is existed.
 		 * @param int $fd
-		 * @return boolean
+		 * @return bool
 		 * @link http://php.net/manual/en/swoole-server.exist.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function exist(int $fd): bool {}
 
@@ -1509,7 +1508,7 @@ namespace Swoole\Http {
 		 * @param string $data
 		 * @return void
 		 * @link http://php.net/manual/en/swoole-server.finish.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function finish(string $data): void {}
 
@@ -1519,7 +1518,7 @@ namespace Swoole\Http {
 		 * @param int $reactor_id
 		 * @return ReturnType
 		 * @link http://php.net/manual/en/swoole-server.getclientinfo.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function getClientInfo(int $fd, int $reactor_id = NULL): \ReturnType {}
 
@@ -1530,15 +1529,15 @@ namespace Swoole\Http {
 		 * @param int $pagesize
 		 * @return array
 		 * @link http://php.net/manual/en/swoole-server.getclientlist.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function getClientList(int $start_fd, int $pagesize = NULL): array {}
 
 		/**
 		 * Get the error code of the most recent error.
-		 * @return integer
+		 * @return int
 		 * @link http://php.net/manual/en/swoole-server.getlasterror.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function getLastError(): int {}
 
@@ -1547,7 +1546,7 @@ namespace Swoole\Http {
 		 * @param bool $if_close_connection
 		 * @return mixed
 		 * @link http://php.net/manual/en/swoole-server.heartbeat.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function heartbeat(bool $if_close_connection) {}
 
@@ -1556,9 +1555,9 @@ namespace Swoole\Http {
 		 * @param string $host
 		 * @param int $port
 		 * @param string $socket_type
-		 * @return boolean
+		 * @return bool
 		 * @link http://php.net/manual/en/swoole-server.listen.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function listen(string $host, int $port, string $socket_type): bool {}
 
@@ -1569,7 +1568,7 @@ namespace Swoole\Http {
 		 * @param callable $callback
 		 * @return void
 		 * @link http://php.net/manual/en/swoole-http-server.on.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function on(string $event_name, callable $callback): void {}
 
@@ -1578,7 +1577,7 @@ namespace Swoole\Http {
 		 * @param int $fd
 		 * @return void
 		 * @link http://php.net/manual/en/swoole-server.pause.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function pause(int $fd): void {}
 
@@ -1588,15 +1587,15 @@ namespace Swoole\Http {
 		 * @param bool $is_protected
 		 * @return void
 		 * @link http://php.net/manual/en/swoole-server.protect.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function protect(int $fd, bool $is_protected = NULL): void {}
 
 		/**
 		 * Restart all the worker process.
-		 * @return boolean
+		 * @return bool
 		 * @link http://php.net/manual/en/swoole-server.reload.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function reload(): bool {}
 
@@ -1605,7 +1604,7 @@ namespace Swoole\Http {
 		 * @param int $fd
 		 * @return void
 		 * @link http://php.net/manual/en/swoole-server.resume.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function resume(int $fd): void {}
 
@@ -1615,9 +1614,9 @@ namespace Swoole\Http {
 		 * @param int $fd
 		 * @param string $data
 		 * @param int $reactor_id
-		 * @return boolean
+		 * @return bool
 		 * @link http://php.net/manual/en/swoole-server.send.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function send(int $fd, string $data, int $reactor_id = NULL): bool {}
 
@@ -1625,9 +1624,9 @@ namespace Swoole\Http {
 		 * Send message to worker processes by ID.
 		 * @param int $worker_id
 		 * @param string $data
-		 * @return boolean
+		 * @return bool
 		 * @link http://php.net/manual/en/swoole-server.sendmessage.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function sendMessage(int $worker_id, string $data): bool {}
 
@@ -1637,9 +1636,9 @@ namespace Swoole\Http {
 		 * @param int $fd
 		 * @param string $filename
 		 * @param int $offset
-		 * @return boolean
+		 * @return bool
 		 * @link http://php.net/manual/en/swoole-server.sendfile.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function sendfile(int $fd, string $filename, int $offset = NULL): bool {}
 
@@ -1649,9 +1648,9 @@ namespace Swoole\Http {
 		 * @param int $port
 		 * @param string $data
 		 * @param string $server_socket
-		 * @return boolean
+		 * @return bool
 		 * @link http://php.net/manual/en/swoole-server.sendto.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function sendto(string $ip, int $port, string $data, string $server_socket = NULL): bool {}
 
@@ -1660,9 +1659,9 @@ namespace Swoole\Http {
 		 * <p></p><p>This function is currently not documented; only its argument list is available.</p>
 		 * @param int $fd
 		 * @param string $data
-		 * @return boolean
+		 * @return bool
 		 * @link http://php.net/manual/en/swoole-server.sendwait.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function sendwait(int $fd, string $data): bool {}
 
@@ -1671,7 +1670,7 @@ namespace Swoole\Http {
 		 * @param array $settings
 		 * @return void
 		 * @link http://php.net/manual/en/swoole-server-port.set.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function set(array $settings): void {}
 
@@ -1679,7 +1678,7 @@ namespace Swoole\Http {
 		 * Shutdown the master server process, this function can be called in worker processes.
 		 * @return void
 		 * @link http://php.net/manual/en/swoole-server.shutdown.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function shutdown(): void {}
 
@@ -1688,7 +1687,7 @@ namespace Swoole\Http {
 		 * <p>Start the swoole http server.</p>
 		 * @return void
 		 * @link http://php.net/manual/en/swoole-http-server.start.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function start(): void {}
 
@@ -1696,16 +1695,16 @@ namespace Swoole\Http {
 		 * Get the stats of the Swoole server.
 		 * @return array
 		 * @link http://php.net/manual/en/swoole-server.stats.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function stats(): array {}
 
 		/**
 		 * Stop the Swoole server.
 		 * @param int $worker_id
-		 * @return boolean
+		 * @return bool
 		 * @link http://php.net/manual/en/swoole-server.stop.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function stop(int $worker_id = NULL): bool {}
 
@@ -1717,7 +1716,7 @@ namespace Swoole\Http {
 		 * @param callable $callback
 		 * @return mixed
 		 * @link http://php.net/manual/en/swoole-server.task.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function task(string $data, int $dst_worker_id = NULL, callable $callback = NULL) {}
 
@@ -1727,7 +1726,7 @@ namespace Swoole\Http {
 		 * @param \double $timeout_ms
 		 * @return void
 		 * @link http://php.net/manual/en/swoole-server.taskwaitmulti.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function taskWaitMulti(array $tasks, \double $timeout_ms = NULL): void {}
 
@@ -1739,7 +1738,7 @@ namespace Swoole\Http {
 		 * @param int $worker_id
 		 * @return void
 		 * @link http://php.net/manual/en/swoole-server.taskwait.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function taskwait(string $data, float $timeout = NULL, int $worker_id = NULL): void {}
 
@@ -1749,7 +1748,7 @@ namespace Swoole\Http {
 		 * @param callable $callback
 		 * @return void
 		 * @link http://php.net/manual/en/swoole-server.tick.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function tick(int $interval_ms, callable $callback): void {}
 	}
@@ -1760,7 +1759,7 @@ namespace Swoole {
 
 	/**
 	 * @link http://php.net/manual/en/class.swoole-lock.php
-	 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+	 * @since PECL swoole >= 1.9.0
 	 */
 	class Lock {
 
@@ -1768,7 +1767,7 @@ namespace Swoole {
 		 * Destory a Swoole memory lock.
 		 * @return void
 		 * @link http://php.net/manual/en/swoole-lock.destruct.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function __destruct() {}
 
@@ -1776,7 +1775,7 @@ namespace Swoole {
 		 * Try to acquire the lock. It will block if the lock is not available.
 		 * @return void
 		 * @link http://php.net/manual/en/swoole-lock.lock.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function lock(): void {}
 
@@ -1785,7 +1784,7 @@ namespace Swoole {
 		 * <p>Lock a read-write lock for reading.</p>
 		 * @return void
 		 * @link http://php.net/manual/en/swoole-lock.lock-read.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function lock_read(): void {}
 
@@ -1793,7 +1792,7 @@ namespace Swoole {
 		 * Try to acquire the lock and return straight away even the lock is not available.
 		 * @return void
 		 * @link http://php.net/manual/en/swoole-lock.trylock.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function trylock(): void {}
 
@@ -1801,7 +1800,7 @@ namespace Swoole {
 		 * Try to lock a read-write lock for reading and return straight away even the lock is not available.
 		 * @return void
 		 * @link http://php.net/manual/en/swoole-lock.trylock-read.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function trylock_read(): void {}
 
@@ -1809,14 +1808,14 @@ namespace Swoole {
 		 * Release the lock.
 		 * @return void
 		 * @link http://php.net/manual/en/swoole-lock.unlock.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function unlock(): void {}
 	}
 
 	/**
 	 * @link http://php.net/manual/en/class.swoole-mmap.php
-	 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+	 * @since PECL swoole >= 1.9.0
 	 */
 	class Mmap {
 
@@ -1827,14 +1826,14 @@ namespace Swoole {
 		 * @param string $offset
 		 * @return ReturnType
 		 * @link http://php.net/manual/en/swoole-mmap.open.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public static function open(string $filename, string $size = NULL, string $offset = NULL): \ReturnType {}
 	}
 
 	/**
 	 * @link http://php.net/manual/en/class.swoole-mysql.php
-	 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+	 * @since PECL swoole >= 1.9.0
 	 */
 	class MySQL {
 
@@ -1842,7 +1841,7 @@ namespace Swoole {
 		 * Destory the async MySQL client.
 		 * @return void
 		 * @link http://php.net/manual/en/swoole-mysql.destruct.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function __destruct() {}
 
@@ -1850,7 +1849,7 @@ namespace Swoole {
 		 * Close the async MySQL connection.
 		 * @return void
 		 * @link http://php.net/manual/en/swoole-mysql.close.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function close(): void {}
 
@@ -1861,7 +1860,7 @@ namespace Swoole {
 		 * @param callable $callback
 		 * @return void
 		 * @link http://php.net/manual/en/swoole-mysql.connect.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function connect(array $server_config, callable $callback): void {}
 
@@ -1870,7 +1869,7 @@ namespace Swoole {
 		 * <p></p><p>This function is currently not documented; only its argument list is available.</p>
 		 * @return ReturnType
 		 * @link http://php.net/manual/en/swoole-mysql.getbuffer.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function getBuffer(): \ReturnType {}
 
@@ -1881,7 +1880,7 @@ namespace Swoole {
 		 * @param callable $callback
 		 * @return void
 		 * @link http://php.net/manual/en/swoole-mysql.on.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function on(string $event_name, callable $callback): void {}
 
@@ -1891,7 +1890,7 @@ namespace Swoole {
 		 * @param callable $callback
 		 * @return ReturnType
 		 * @link http://php.net/manual/en/swoole-mysql.query.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function query(string $sql, callable $callback): \ReturnType {}
 	}
@@ -1902,7 +1901,7 @@ namespace Swoole\MySQL {
 
 	/**
 	 * @link http://php.net/manual/en/class.swoole-mysql-exception.php
-	 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+	 * @since PECL swoole >= 1.9.0
 	 */
 	class Exception extends \Exception implements \Throwable {
 
@@ -1937,12 +1936,12 @@ namespace Swoole {
 
 	/**
 	 * @link http://php.net/manual/en/class.swoole-process.php
-	 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+	 * @since PECL swoole >= 1.9.0
 	 */
 	class Process {
 
 		/**
-		 * @var integer
+		 * @var int
 		 * @link http://php.net/manual/en/class.swoole-process.php
 		 */
 		const IPC_NOWAIT = 256;
@@ -1951,7 +1950,7 @@ namespace Swoole {
 		 * Destory the process.
 		 * @return void
 		 * @link http://php.net/manual/en/swoole-process.destruct.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function __destruct() {}
 
@@ -1960,7 +1959,7 @@ namespace Swoole {
 		 * @param int $interval_usec
 		 * @return void
 		 * @link http://php.net/manual/en/swoole-process.alarm.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public static function alarm(int $interval_usec): void {}
 
@@ -1969,7 +1968,7 @@ namespace Swoole {
 		 * <p>Close the pipe to the child process.</p>
 		 * @return void
 		 * @link http://php.net/manual/en/swoole-process.close.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function close(): void {}
 
@@ -1980,7 +1979,7 @@ namespace Swoole {
 		 * @param bool $noclose
 		 * @return void
 		 * @link http://php.net/manual/en/swoole-process.daemon.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public static function daemon(bool $nochdir = NULL, bool $noclose = NULL): void {}
 
@@ -1991,7 +1990,7 @@ namespace Swoole {
 		 * @param string $args
 		 * @return ReturnType
 		 * @link http://php.net/manual/en/swoole-process.exec.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function exec(string $exec_file, string $args): \ReturnType {}
 
@@ -2000,15 +1999,15 @@ namespace Swoole {
 		 * @param string $exit_code
 		 * @return void
 		 * @link http://php.net/manual/en/swoole-process.exit.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function exit(string $exit_code = NULL): void {}
 
 		/**
-		 * Destory the message queue created by swoole_process::useQueue.
+		 * Destroy the message queue created by swoole_process::useQueue.
 		 * @return void
 		 * @link http://php.net/manual/en/swoole-process.freequeue.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function freeQueue(): void {}
 
@@ -2019,7 +2018,7 @@ namespace Swoole {
 		 * @param string $signal_no
 		 * @return void
 		 * @link http://php.net/manual/en/swoole-process.kill.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public static function kill(int $pid, string $signal_no = NULL): void {}
 
@@ -2028,7 +2027,7 @@ namespace Swoole {
 		 * @param string $process_name
 		 * @return void
 		 * @link http://php.net/manual/en/swoole-process.name.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function name(string $process_name): void {}
 
@@ -2037,16 +2036,16 @@ namespace Swoole {
 		 * @param int $maxsize
 		 * @return mixed
 		 * @link http://php.net/manual/en/swoole-process.pop.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function pop(int $maxsize = NULL) {}
 
 		/**
 		 * Write and push data into the message queue.
 		 * @param string $data
-		 * @return boolean
+		 * @return bool
 		 * @link http://php.net/manual/en/swoole-process.push.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function push(string $data): bool {}
 
@@ -2055,7 +2054,7 @@ namespace Swoole {
 		 * @param int $maxsize
 		 * @return string
 		 * @link http://php.net/manual/en/swoole-process.read.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function read(int $maxsize = NULL): string {}
 
@@ -2065,7 +2064,7 @@ namespace Swoole {
 		 * @param callable $callback
 		 * @return void <p>If signal sent successfully, it returns TRUE, otherwise it returns FALSE.</p>
 		 * @link http://php.net/manual/en/swoole-process.signal.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public static function signal(string $signal_no, callable $callback): void {}
 
@@ -2073,7 +2072,7 @@ namespace Swoole {
 		 * Start the process.
 		 * @return void
 		 * @link http://php.net/manual/en/swoole-process.start.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function start(): void {}
 
@@ -2081,7 +2080,7 @@ namespace Swoole {
 		 * Get the stats of the message queue used as the communication method between processes.
 		 * @return array <p>The array of status of the message queue.</p>
 		 * @link http://php.net/manual/en/swoole-process.statqueue.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function statQueue(): array {}
 
@@ -2089,9 +2088,9 @@ namespace Swoole {
 		 * Create a message queue as the communication method between the parent process and child processes.
 		 * @param int $key
 		 * @param int $mode
-		 * @return boolean
+		 * @return bool
 		 * @link http://php.net/manual/en/swoole-process.usequeue.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function useQueue(int $key, int $mode = NULL): bool {}
 
@@ -2100,16 +2099,16 @@ namespace Swoole {
 		 * @param bool $blocking
 		 * @return array
 		 * @link http://php.net/manual/en/swoole-process.wait.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public static function wait(bool $blocking = NULL): array {}
 
 		/**
 		 * Write data into the pipe and communicate with the parent process or child processes.
 		 * @param string $data
-		 * @return integer
+		 * @return int
 		 * @link http://php.net/manual/en/swoole-process.write.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function write(string $data): int {}
 	}
@@ -2120,48 +2119,48 @@ namespace Swoole\Redis {
 
 	/**
 	 * @link http://php.net/manual/en/class.swoole-redis-server.php
-	 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+	 * @since PECL swoole >= 1.9.0
 	 */
 	class Server extends \Swoole\Server {
 
 		/**
-		 * @var integer
+		 * @var int
 		 * @link http://php.net/manual/en/class.swoole-redis-server.php
 		 */
 		const NIL = 1;
 
 		/**
-		 * @var integer
+		 * @var int
 		 * @link http://php.net/manual/en/class.swoole-redis-server.php
 		 */
 		const ERROR = 0;
 
 		/**
-		 * @var integer
+		 * @var int
 		 * @link http://php.net/manual/en/class.swoole-redis-server.php
 		 */
 		const STATUS = 2;
 
 		/**
-		 * @var integer
+		 * @var int
 		 * @link http://php.net/manual/en/class.swoole-redis-server.php
 		 */
 		const INT = 3;
 
 		/**
-		 * @var integer
+		 * @var int
 		 * @link http://php.net/manual/en/class.swoole-redis-server.php
 		 */
 		const STRING = 4;
 
 		/**
-		 * @var integer
+		 * @var int
 		 * @link http://php.net/manual/en/class.swoole-redis-server.php
 		 */
 		const SET = 5;
 
 		/**
-		 * @var integer
+		 * @var int
 		 * @link http://php.net/manual/en/class.swoole-redis-server.php
 		 */
 		const MAP = 6;
@@ -2170,16 +2169,16 @@ namespace Swoole\Redis {
 		 * Destory server port
 		 * @return void
 		 * @link http://php.net/manual/en/swoole-server-port.destruct.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function __destruct() {}
 
 		/**
 		 * Add a user defined swoole_process to the server.
 		 * @param \swoole_process $process
-		 * @return boolean
+		 * @return bool
 		 * @link http://php.net/manual/en/swoole-server.addprocess.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function addProcess(\swoole_process $process): bool {}
 
@@ -2190,7 +2189,7 @@ namespace Swoole\Redis {
 		 * @param string $socket_type
 		 * @return void
 		 * @link http://php.net/manual/en/swoole-server.addlistener.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function addlistener(string $host, int $port, string $socket_type): void {}
 
@@ -2201,7 +2200,7 @@ namespace Swoole\Redis {
 		 * @param string $param
 		 * @return ReturnType
 		 * @link http://php.net/manual/en/swoole-server.after.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function after(int $after_time_ms, callable $callback, string $param = NULL): \ReturnType {}
 
@@ -2209,9 +2208,9 @@ namespace Swoole\Redis {
 		 * Bind the connection to a user defined user ID.
 		 * @param int $fd
 		 * @param int $uid
-		 * @return boolean
+		 * @return bool
 		 * @link http://php.net/manual/en/swoole-server.bind.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function bind(int $fd, int $uid): bool {}
 
@@ -2221,7 +2220,7 @@ namespace Swoole\Redis {
 		 * @param int $timer_id
 		 * @return void
 		 * @link http://php.net/manual/en/swoole-server.cleartimer.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function clearTimer(int $timer_id): void {}
 
@@ -2229,18 +2228,18 @@ namespace Swoole\Redis {
 		 * Close a connection to the client.
 		 * @param int $fd
 		 * @param bool $reset
-		 * @return boolean
+		 * @return bool
 		 * @link http://php.net/manual/en/swoole-server.close.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function close(int $fd, bool $reset = NULL): bool {}
 
 		/**
 		 * Check status of the connection.
 		 * @param int $fd
-		 * @return boolean
+		 * @return bool
 		 * @link http://php.net/manual/en/swoole-server.confirm.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function confirm(int $fd): bool {}
 
@@ -2250,7 +2249,7 @@ namespace Swoole\Redis {
 		 * @param int $reactor_id
 		 * @return array
 		 * @link http://php.net/manual/en/swoole-server.connection-info.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function connection_info(int $fd, int $reactor_id = NULL): array {}
 
@@ -2260,7 +2259,7 @@ namespace Swoole\Redis {
 		 * @param int $pagesize
 		 * @return array
 		 * @link http://php.net/manual/en/swoole-server.connection-list.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function connection_list(int $start_fd, int $pagesize = NULL): array {}
 
@@ -2269,16 +2268,16 @@ namespace Swoole\Redis {
 		 * @param callable $callback
 		 * @return void
 		 * @link http://php.net/manual/en/swoole-server.defer.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function defer(callable $callback): void {}
 
 		/**
 		 * Check if the connection is existed.
 		 * @param int $fd
-		 * @return boolean
+		 * @return bool
 		 * @link http://php.net/manual/en/swoole-server.exist.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function exist(int $fd): bool {}
 
@@ -2287,7 +2286,7 @@ namespace Swoole\Redis {
 		 * @param string $data
 		 * @return void
 		 * @link http://php.net/manual/en/swoole-server.finish.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function finish(string $data): void {}
 
@@ -2298,7 +2297,7 @@ namespace Swoole\Redis {
 		 * @param string $value
 		 * @return ReturnType
 		 * @link http://php.net/manual/en/swoole-redis-server.format.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public static function format(string $type, string $value = NULL): \ReturnType {}
 
@@ -2308,7 +2307,7 @@ namespace Swoole\Redis {
 		 * @param int $reactor_id
 		 * @return ReturnType
 		 * @link http://php.net/manual/en/swoole-server.getclientinfo.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function getClientInfo(int $fd, int $reactor_id = NULL): \ReturnType {}
 
@@ -2319,15 +2318,15 @@ namespace Swoole\Redis {
 		 * @param int $pagesize
 		 * @return array
 		 * @link http://php.net/manual/en/swoole-server.getclientlist.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function getClientList(int $start_fd, int $pagesize = NULL): array {}
 
 		/**
 		 * Get the error code of the most recent error.
-		 * @return integer
+		 * @return int
 		 * @link http://php.net/manual/en/swoole-server.getlasterror.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function getLastError(): int {}
 
@@ -2336,7 +2335,7 @@ namespace Swoole\Redis {
 		 * @param bool $if_close_connection
 		 * @return mixed
 		 * @link http://php.net/manual/en/swoole-server.heartbeat.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function heartbeat(bool $if_close_connection) {}
 
@@ -2345,9 +2344,9 @@ namespace Swoole\Redis {
 		 * @param string $host
 		 * @param int $port
 		 * @param string $socket_type
-		 * @return boolean
+		 * @return bool
 		 * @link http://php.net/manual/en/swoole-server.listen.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function listen(string $host, int $port, string $socket_type): bool {}
 
@@ -2357,7 +2356,7 @@ namespace Swoole\Redis {
 		 * @param callable $callback
 		 * @return ReturnType
 		 * @link http://php.net/manual/en/swoole-server-port.on.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function on(string $event_name, callable $callback): \ReturnType {}
 
@@ -2366,7 +2365,7 @@ namespace Swoole\Redis {
 		 * @param int $fd
 		 * @return void
 		 * @link http://php.net/manual/en/swoole-server.pause.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function pause(int $fd): void {}
 
@@ -2376,15 +2375,15 @@ namespace Swoole\Redis {
 		 * @param bool $is_protected
 		 * @return void
 		 * @link http://php.net/manual/en/swoole-server.protect.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function protect(int $fd, bool $is_protected = NULL): void {}
 
 		/**
 		 * Restart all the worker process.
-		 * @return boolean
+		 * @return bool
 		 * @link http://php.net/manual/en/swoole-server.reload.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function reload(): bool {}
 
@@ -2393,7 +2392,7 @@ namespace Swoole\Redis {
 		 * @param int $fd
 		 * @return void
 		 * @link http://php.net/manual/en/swoole-server.resume.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function resume(int $fd): void {}
 
@@ -2403,9 +2402,9 @@ namespace Swoole\Redis {
 		 * @param int $fd
 		 * @param string $data
 		 * @param int $reactor_id
-		 * @return boolean
+		 * @return bool
 		 * @link http://php.net/manual/en/swoole-server.send.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function send(int $fd, string $data, int $reactor_id = NULL): bool {}
 
@@ -2413,9 +2412,9 @@ namespace Swoole\Redis {
 		 * Send message to worker processes by ID.
 		 * @param int $worker_id
 		 * @param string $data
-		 * @return boolean
+		 * @return bool
 		 * @link http://php.net/manual/en/swoole-server.sendmessage.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function sendMessage(int $worker_id, string $data): bool {}
 
@@ -2425,9 +2424,9 @@ namespace Swoole\Redis {
 		 * @param int $fd
 		 * @param string $filename
 		 * @param int $offset
-		 * @return boolean
+		 * @return bool
 		 * @link http://php.net/manual/en/swoole-server.sendfile.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function sendfile(int $fd, string $filename, int $offset = NULL): bool {}
 
@@ -2437,9 +2436,9 @@ namespace Swoole\Redis {
 		 * @param int $port
 		 * @param string $data
 		 * @param string $server_socket
-		 * @return boolean
+		 * @return bool
 		 * @link http://php.net/manual/en/swoole-server.sendto.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function sendto(string $ip, int $port, string $data, string $server_socket = NULL): bool {}
 
@@ -2448,9 +2447,9 @@ namespace Swoole\Redis {
 		 * <p></p><p>This function is currently not documented; only its argument list is available.</p>
 		 * @param int $fd
 		 * @param string $data
-		 * @return boolean
+		 * @return bool
 		 * @link http://php.net/manual/en/swoole-server.sendwait.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function sendwait(int $fd, string $data): bool {}
 
@@ -2459,7 +2458,7 @@ namespace Swoole\Redis {
 		 * @param array $settings
 		 * @return void
 		 * @link http://php.net/manual/en/swoole-server-port.set.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function set(array $settings): void {}
 
@@ -2472,7 +2471,7 @@ namespace Swoole\Redis {
 		 * @param string $type_of_array_param
 		 * @return ReturnType
 		 * @link http://php.net/manual/en/swoole-redis-server.sethandler.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function setHandler(string $command, string $callback, string $number_of_string_param = NULL, string $type_of_array_param = NULL): \ReturnType {}
 
@@ -2480,7 +2479,7 @@ namespace Swoole\Redis {
 		 * Shutdown the master server process, this function can be called in worker processes.
 		 * @return void
 		 * @link http://php.net/manual/en/swoole-server.shutdown.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function shutdown(): void {}
 
@@ -2489,7 +2488,7 @@ namespace Swoole\Redis {
 		 * <p></p><p>This function is currently not documented; only its argument list is available.</p>
 		 * @return ReturnType
 		 * @link http://php.net/manual/en/swoole-redis-server.start.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function start(): \ReturnType {}
 
@@ -2497,16 +2496,16 @@ namespace Swoole\Redis {
 		 * Get the stats of the Swoole server.
 		 * @return array
 		 * @link http://php.net/manual/en/swoole-server.stats.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function stats(): array {}
 
 		/**
 		 * Stop the Swoole server.
 		 * @param int $worker_id
-		 * @return boolean
+		 * @return bool
 		 * @link http://php.net/manual/en/swoole-server.stop.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function stop(int $worker_id = NULL): bool {}
 
@@ -2518,7 +2517,7 @@ namespace Swoole\Redis {
 		 * @param callable $callback
 		 * @return mixed
 		 * @link http://php.net/manual/en/swoole-server.task.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function task(string $data, int $dst_worker_id = NULL, callable $callback = NULL) {}
 
@@ -2528,7 +2527,7 @@ namespace Swoole\Redis {
 		 * @param \double $timeout_ms
 		 * @return void
 		 * @link http://php.net/manual/en/swoole-server.taskwaitmulti.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function taskWaitMulti(array $tasks, \double $timeout_ms = NULL): void {}
 
@@ -2540,7 +2539,7 @@ namespace Swoole\Redis {
 		 * @param int $worker_id
 		 * @return void
 		 * @link http://php.net/manual/en/swoole-server.taskwait.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function taskwait(string $data, float $timeout = NULL, int $worker_id = NULL): void {}
 
@@ -2550,7 +2549,7 @@ namespace Swoole\Redis {
 		 * @param callable $callback
 		 * @return void
 		 * @link http://php.net/manual/en/swoole-server.tick.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function tick(int $interval_ms, callable $callback): void {}
 	}
@@ -2561,7 +2560,7 @@ namespace Swoole {
 
 	/**
 	 * @link http://php.net/manual/en/class.swoole-serialize.php
-	 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+	 * @since PECL swoole >= 1.9.0
 	 */
 	class Serialize {
 
@@ -2572,7 +2571,7 @@ namespace Swoole {
 		 * @param int $is_fast
 		 * @return ReturnType
 		 * @link http://php.net/manual/en/swoole-serialize.pack.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public static function pack(string $data, int $is_fast = NULL): \ReturnType {}
 
@@ -2583,14 +2582,14 @@ namespace Swoole {
 		 * @param string $args
 		 * @return ReturnType
 		 * @link http://php.net/manual/en/swoole-serialize.unpack.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public static function unpack(string $data, string $args = NULL): \ReturnType {}
 	}
 
 	/**
 	 * @link http://php.net/manual/en/class.swoole-server.php
-	 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+	 * @since PECL swoole >= 1.9.0
 	 */
 	class Server {
 
@@ -2598,16 +2597,16 @@ namespace Swoole {
 		 * Destory server port
 		 * @return void
 		 * @link http://php.net/manual/en/swoole-server-port.destruct.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function __destruct() {}
 
 		/**
 		 * Add a user defined swoole_process to the server.
 		 * @param \swoole_process $process
-		 * @return boolean
+		 * @return bool
 		 * @link http://php.net/manual/en/swoole-server.addprocess.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function addProcess(\swoole_process $process): bool {}
 
@@ -2618,7 +2617,7 @@ namespace Swoole {
 		 * @param string $socket_type
 		 * @return void
 		 * @link http://php.net/manual/en/swoole-server.addlistener.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function addlistener(string $host, int $port, string $socket_type): void {}
 
@@ -2629,7 +2628,7 @@ namespace Swoole {
 		 * @param string $param
 		 * @return ReturnType
 		 * @link http://php.net/manual/en/swoole-server.after.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function after(int $after_time_ms, callable $callback, string $param = NULL): \ReturnType {}
 
@@ -2637,9 +2636,9 @@ namespace Swoole {
 		 * Bind the connection to a user defined user ID.
 		 * @param int $fd
 		 * @param int $uid
-		 * @return boolean
+		 * @return bool
 		 * @link http://php.net/manual/en/swoole-server.bind.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function bind(int $fd, int $uid): bool {}
 
@@ -2649,7 +2648,7 @@ namespace Swoole {
 		 * @param int $timer_id
 		 * @return void
 		 * @link http://php.net/manual/en/swoole-server.cleartimer.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function clearTimer(int $timer_id): void {}
 
@@ -2657,18 +2656,18 @@ namespace Swoole {
 		 * Close a connection to the client.
 		 * @param int $fd
 		 * @param bool $reset
-		 * @return boolean
+		 * @return bool
 		 * @link http://php.net/manual/en/swoole-server.close.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function close(int $fd, bool $reset = NULL): bool {}
 
 		/**
 		 * Check status of the connection.
 		 * @param int $fd
-		 * @return boolean
+		 * @return bool
 		 * @link http://php.net/manual/en/swoole-server.confirm.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function confirm(int $fd): bool {}
 
@@ -2678,7 +2677,7 @@ namespace Swoole {
 		 * @param int $reactor_id
 		 * @return array
 		 * @link http://php.net/manual/en/swoole-server.connection-info.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function connection_info(int $fd, int $reactor_id = NULL): array {}
 
@@ -2688,7 +2687,7 @@ namespace Swoole {
 		 * @param int $pagesize
 		 * @return array
 		 * @link http://php.net/manual/en/swoole-server.connection-list.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function connection_list(int $start_fd, int $pagesize = NULL): array {}
 
@@ -2697,16 +2696,16 @@ namespace Swoole {
 		 * @param callable $callback
 		 * @return void
 		 * @link http://php.net/manual/en/swoole-server.defer.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function defer(callable $callback): void {}
 
 		/**
 		 * Check if the connection is existed.
 		 * @param int $fd
-		 * @return boolean
+		 * @return bool
 		 * @link http://php.net/manual/en/swoole-server.exist.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function exist(int $fd): bool {}
 
@@ -2715,7 +2714,7 @@ namespace Swoole {
 		 * @param string $data
 		 * @return void
 		 * @link http://php.net/manual/en/swoole-server.finish.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function finish(string $data): void {}
 
@@ -2725,7 +2724,7 @@ namespace Swoole {
 		 * @param int $reactor_id
 		 * @return ReturnType
 		 * @link http://php.net/manual/en/swoole-server.getclientinfo.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function getClientInfo(int $fd, int $reactor_id = NULL): \ReturnType {}
 
@@ -2736,15 +2735,15 @@ namespace Swoole {
 		 * @param int $pagesize
 		 * @return array
 		 * @link http://php.net/manual/en/swoole-server.getclientlist.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function getClientList(int $start_fd, int $pagesize = NULL): array {}
 
 		/**
 		 * Get the error code of the most recent error.
-		 * @return integer
+		 * @return int
 		 * @link http://php.net/manual/en/swoole-server.getlasterror.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function getLastError(): int {}
 
@@ -2753,7 +2752,7 @@ namespace Swoole {
 		 * @param bool $if_close_connection
 		 * @return mixed
 		 * @link http://php.net/manual/en/swoole-server.heartbeat.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function heartbeat(bool $if_close_connection) {}
 
@@ -2762,9 +2761,9 @@ namespace Swoole {
 		 * @param string $host
 		 * @param int $port
 		 * @param string $socket_type
-		 * @return boolean
+		 * @return bool
 		 * @link http://php.net/manual/en/swoole-server.listen.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function listen(string $host, int $port, string $socket_type): bool {}
 
@@ -2774,7 +2773,7 @@ namespace Swoole {
 		 * @param callable $callback
 		 * @return ReturnType
 		 * @link http://php.net/manual/en/swoole-server-port.on.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function on(string $event_name, callable $callback): \ReturnType {}
 
@@ -2783,7 +2782,7 @@ namespace Swoole {
 		 * @param int $fd
 		 * @return void
 		 * @link http://php.net/manual/en/swoole-server.pause.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function pause(int $fd): void {}
 
@@ -2793,15 +2792,15 @@ namespace Swoole {
 		 * @param bool $is_protected
 		 * @return void
 		 * @link http://php.net/manual/en/swoole-server.protect.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function protect(int $fd, bool $is_protected = NULL): void {}
 
 		/**
 		 * Restart all the worker process.
-		 * @return boolean
+		 * @return bool
 		 * @link http://php.net/manual/en/swoole-server.reload.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function reload(): bool {}
 
@@ -2810,7 +2809,7 @@ namespace Swoole {
 		 * @param int $fd
 		 * @return void
 		 * @link http://php.net/manual/en/swoole-server.resume.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function resume(int $fd): void {}
 
@@ -2820,9 +2819,9 @@ namespace Swoole {
 		 * @param int $fd
 		 * @param string $data
 		 * @param int $reactor_id
-		 * @return boolean
+		 * @return bool
 		 * @link http://php.net/manual/en/swoole-server.send.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function send(int $fd, string $data, int $reactor_id = NULL): bool {}
 
@@ -2830,9 +2829,9 @@ namespace Swoole {
 		 * Send message to worker processes by ID.
 		 * @param int $worker_id
 		 * @param string $data
-		 * @return boolean
+		 * @return bool
 		 * @link http://php.net/manual/en/swoole-server.sendmessage.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function sendMessage(int $worker_id, string $data): bool {}
 
@@ -2842,9 +2841,9 @@ namespace Swoole {
 		 * @param int $fd
 		 * @param string $filename
 		 * @param int $offset
-		 * @return boolean
+		 * @return bool
 		 * @link http://php.net/manual/en/swoole-server.sendfile.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function sendfile(int $fd, string $filename, int $offset = NULL): bool {}
 
@@ -2854,9 +2853,9 @@ namespace Swoole {
 		 * @param int $port
 		 * @param string $data
 		 * @param string $server_socket
-		 * @return boolean
+		 * @return bool
 		 * @link http://php.net/manual/en/swoole-server.sendto.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function sendto(string $ip, int $port, string $data, string $server_socket = NULL): bool {}
 
@@ -2865,9 +2864,9 @@ namespace Swoole {
 		 * <p></p><p>This function is currently not documented; only its argument list is available.</p>
 		 * @param int $fd
 		 * @param string $data
-		 * @return boolean
+		 * @return bool
 		 * @link http://php.net/manual/en/swoole-server.sendwait.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function sendwait(int $fd, string $data): bool {}
 
@@ -2876,7 +2875,7 @@ namespace Swoole {
 		 * @param array $settings
 		 * @return void
 		 * @link http://php.net/manual/en/swoole-server-port.set.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function set(array $settings): void {}
 
@@ -2884,7 +2883,7 @@ namespace Swoole {
 		 * Shutdown the master server process, this function can be called in worker processes.
 		 * @return void
 		 * @link http://php.net/manual/en/swoole-server.shutdown.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function shutdown(): void {}
 
@@ -2892,7 +2891,7 @@ namespace Swoole {
 		 * Start the Swoole server.
 		 * @return void
 		 * @link http://php.net/manual/en/swoole-server.start.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function start(): void {}
 
@@ -2900,16 +2899,16 @@ namespace Swoole {
 		 * Get the stats of the Swoole server.
 		 * @return array
 		 * @link http://php.net/manual/en/swoole-server.stats.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function stats(): array {}
 
 		/**
 		 * Stop the Swoole server.
 		 * @param int $worker_id
-		 * @return boolean
+		 * @return bool
 		 * @link http://php.net/manual/en/swoole-server.stop.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function stop(int $worker_id = NULL): bool {}
 
@@ -2921,7 +2920,7 @@ namespace Swoole {
 		 * @param callable $callback
 		 * @return mixed
 		 * @link http://php.net/manual/en/swoole-server.task.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function task(string $data, int $dst_worker_id = NULL, callable $callback = NULL) {}
 
@@ -2931,7 +2930,7 @@ namespace Swoole {
 		 * @param \double $timeout_ms
 		 * @return void
 		 * @link http://php.net/manual/en/swoole-server.taskwaitmulti.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function taskWaitMulti(array $tasks, \double $timeout_ms = NULL): void {}
 
@@ -2943,7 +2942,7 @@ namespace Swoole {
 		 * @param int $worker_id
 		 * @return void
 		 * @link http://php.net/manual/en/swoole-server.taskwait.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function taskwait(string $data, float $timeout = NULL, int $worker_id = NULL): void {}
 
@@ -2953,31 +2952,31 @@ namespace Swoole {
 		 * @param callable $callback
 		 * @return void
 		 * @link http://php.net/manual/en/swoole-server.tick.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function tick(int $interval_ms, callable $callback): void {}
 	}
 
 	/**
 	 * @link http://php.net/manual/en/class.swoole-table.php
-	 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+	 * @since PECL swoole >= 1.9.0
 	 */
 	class Table implements \Iterator, \Countable {
 
 		/**
-		 * @var integer
+		 * @var int
 		 * @link http://php.net/manual/en/class.swoole-table.php
 		 */
 		const TYPE_INT = 1;
 
 		/**
-		 * @var integer
+		 * @var int
 		 * @link http://php.net/manual/en/class.swoole-table.php
 		 */
 		const TYPE_STRING = 7;
 
 		/**
-		 * @var integer
+		 * @var int
 		 * @link http://php.net/manual/en/class.swoole-table.php
 		 */
 		const TYPE_FLOAT = 6;
@@ -2989,15 +2988,15 @@ namespace Swoole {
 		 * @param int $size
 		 * @return ReturnType
 		 * @link http://php.net/manual/en/swoole-table.column.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function column(string $name, string $type, int $size = NULL): \ReturnType {}
 
 		/**
 		 * Count the rows in the table, or count all the elements in the table if $mode = 1.
-		 * @return integer
+		 * @return int
 		 * @link http://php.net/manual/en/swoole-table.count.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function count(): int {}
 
@@ -3005,7 +3004,7 @@ namespace Swoole {
 		 * Create the swoole memory table.
 		 * @return void
 		 * @link http://php.net/manual/en/swoole-table.create.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function create(): void {}
 
@@ -3013,7 +3012,7 @@ namespace Swoole {
 		 * Get the current row.
 		 * @return array
 		 * @link http://php.net/manual/en/swoole-table.current.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function current(): array {}
 
@@ -3024,7 +3023,7 @@ namespace Swoole {
 		 * @param int $decrby
 		 * @return ReturnType
 		 * @link http://php.net/manual/en/swoole-table.decr.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function decr(string $key, string $column, int $decrby = NULL): \ReturnType {}
 
@@ -3033,7 +3032,7 @@ namespace Swoole {
 		 * @param string $key
 		 * @return void
 		 * @link http://php.net/manual/en/swoole-table.del.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function del(string $key): void {}
 
@@ -3041,16 +3040,16 @@ namespace Swoole {
 		 * Destroy the Swoole table.
 		 * @return void
 		 * @link http://php.net/manual/en/swoole-table.destroy.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function destroy(): void {}
 
 		/**
 		 * Check if a row is existed by $row_key.
 		 * @param string $key
-		 * @return boolean
+		 * @return bool
 		 * @link http://php.net/manual/en/swoole-table.exist.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function exist(string $key): bool {}
 
@@ -3058,9 +3057,9 @@ namespace Swoole {
 		 * Get the value in the Swoole table by $row_key and $column_key.
 		 * @param string $row_key
 		 * @param string $column_key
-		 * @return integer
+		 * @return int
 		 * @link http://php.net/manual/en/swoole-table.get.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function get(string $row_key, string $column_key): int {}
 
@@ -3071,7 +3070,7 @@ namespace Swoole {
 		 * @param int $incrby
 		 * @return void
 		 * @link http://php.net/manual/en/swoole-table.incr.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function incr(string $key, string $column, int $incrby = NULL): void {}
 
@@ -3079,7 +3078,7 @@ namespace Swoole {
 		 * Get the key of current row.
 		 * @return string
 		 * @link http://php.net/manual/en/swoole-table.key.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function key(): string {}
 
@@ -3087,7 +3086,7 @@ namespace Swoole {
 		 * Iterator the next row.
 		 * @return ReturnType
 		 * @link http://php.net/manual/en/swoole-table.next.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function next(): \ReturnType {}
 
@@ -3095,7 +3094,7 @@ namespace Swoole {
 		 * Rewind the iterator.
 		 * @return void
 		 * @link http://php.net/manual/en/swoole-table.rewind.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function rewind(): void {}
 
@@ -3105,22 +3104,22 @@ namespace Swoole {
 		 * @param array $value
 		 * @return VOID
 		 * @link http://php.net/manual/en/swoole-table.set.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function set(string $key, array $value): VOID {}
 
 		/**
 		 * Check current if the current row is valid.
-		 * @return boolean
+		 * @return bool
 		 * @link http://php.net/manual/en/swoole-table.valid.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function valid(): bool {}
 	}
 
 	/**
 	 * @link http://php.net/manual/en/class.swoole-timer.php
-	 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+	 * @since PECL swoole >= 1.9.0
 	 */
 	class Timer {
 
@@ -3131,7 +3130,7 @@ namespace Swoole {
 		 * @param callable $callback
 		 * @return void
 		 * @link http://php.net/manual/en/swoole-timer.after.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public static function after(int $after_time_ms, callable $callback): void {}
 
@@ -3141,7 +3140,7 @@ namespace Swoole {
 		 * @param int $timer_id
 		 * @return void
 		 * @link http://php.net/manual/en/swoole-timer.clear.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public static function clear(int $timer_id): void {}
 
@@ -3149,9 +3148,9 @@ namespace Swoole {
 		 * Check if a timer is existed.
 		 * <p>Check if a timer is existed.</p>
 		 * @param int $timer_id
-		 * @return boolean
+		 * @return bool
 		 * @link http://php.net/manual/en/swoole-timer.exists.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public static function exists(int $timer_id): bool {}
 
@@ -3162,7 +3161,7 @@ namespace Swoole {
 		 * @param string $param
 		 * @return void
 		 * @link http://php.net/manual/en/swoole-timer.tick.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public static function tick(int $interval_ms, callable $callback, string $param = NULL): void {}
 	}
@@ -3173,23 +3172,23 @@ namespace Swoole\WebSocket {
 
 	/**
 	 * @link http://php.net/manual/en/class.swoole-websocket-frame.php
-	 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+	 * @since PECL swoole >= 1.9.0
 	 */
 	class Frame {
 	}
 
 	/**
 	 * @link http://php.net/manual/en/class.swoole-websocket-server.php
-	 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+	 * @since PECL swoole >= 1.9.0
 	 */
 	class Server extends \Swoole\Http\Server {
 
 		/**
-		 * Check if the the file description is existed.
+		 * Check if the file descriptor exists.
 		 * @param int $fd
-		 * @return boolean
+		 * @return bool
 		 * @link http://php.net/manual/en/swoole-websocket-server.exist.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function exist(int $fd): bool {}
 
@@ -3200,7 +3199,7 @@ namespace Swoole\WebSocket {
 		 * @param callable $callback
 		 * @return ReturnType
 		 * @link http://php.net/manual/en/swoole-websocket-server.on.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function on(string $event_name, callable $callback): \ReturnType {}
 
@@ -3212,7 +3211,7 @@ namespace Swoole\WebSocket {
 		 * @param string $mask
 		 * @return binary
 		 * @link http://php.net/manual/en/swoole-websocket-server.pack.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public static function pack(string $data, string $opcode = NULL, string $finish = NULL, string $mask = NULL): \binary {}
 
@@ -3224,7 +3223,7 @@ namespace Swoole\WebSocket {
 		 * @param string $finish
 		 * @return void
 		 * @link http://php.net/manual/en/swoole-websocket-server.push.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function push(string $fd, string $data, string $opcode = NULL, string $finish = NULL): void {}
 
@@ -3233,7 +3232,7 @@ namespace Swoole\WebSocket {
 		 * <p>Start the swoole http server.</p>
 		 * @return void
 		 * @link http://php.net/manual/en/swoole-http-server.start.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public function start(): void {}
 
@@ -3242,7 +3241,7 @@ namespace Swoole\WebSocket {
 		 * @param \binary $data
 		 * @return string
 		 * @link http://php.net/manual/en/swoole-websocket-server.unpack.php
-		 * @since PHP 5 >= 5.2.0, PHP 7, PECL swoole >= 1.9.0
+		 * @since PECL swoole >= 1.9.0
 		 */
 		public static function unpack(\binary $data): string {}
 	}

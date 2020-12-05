@@ -35,7 +35,7 @@ namespace {
 		 * @param string $consumer_key <p>The consumer key provided by the service provider.</p>
 		 * @param string $consumer_secret <p>The consumer secret provided by the service provider.</p>
 		 * @param string $signature_method <p>This optional parameter defines which signature method to use, by default it is <b><code>OAUTH_SIG_METHOD_HMACSHA1</code></b> (HMAC-SHA1).</p>
-		 * @param int $auth_type <p>This optional parameter defines how to pass the OAuth parameters to a consumer, by default it is <b><code>OAUTH_AUTH_TYPE_AUTHORIZATION</code></b> (in the <i>Authorization</i> header).</p>
+		 * @param int $auth_type <p>This optional parameter defines how to pass the OAuth parameters to a consumer, by default it is <b><code>OAUTH_AUTH_TYPE_AUTHORIZATION</code></b> (in the <code>Authorization</code> header).</p>
 		 * @return self
 		 * @link http://php.net/manual/en/oauth.construct.php
 		 * @since PECL OAuth >= 0.99.1
@@ -110,7 +110,7 @@ namespace {
 		 * <p>Fetch a resource.</p>
 		 * @param string $protected_resource_url <p>URL to the OAuth protected resource.</p>
 		 * @param array $extra_parameters <p>Extra parameters to send with the request for the resource.</p>
-		 * @param string $http_method <p>One of the <b><code>OAUTH_HTTP_METHOD_&#42;</code></b> OAUTH constants, which includes GET, POST, PUT, HEAD, or DELETE.</p> <p>HEAD (<b><code>OAUTH_HTTP_METHOD_HEAD</code></b>) can be useful for discovering information prior to the request (if OAuth credentials are in the <i>Authorization</i> header).</p>
+		 * @param string $http_method <p>One of the <b><code>OAUTH_HTTP_METHOD_&#42;</code></b> OAUTH constants, which includes GET, POST, PUT, HEAD, or DELETE.</p> <p>HEAD (<b><code>OAUTH_HTTP_METHOD_HEAD</code></b>) can be useful for discovering information prior to the request (if OAuth credentials are in the <code>Authorization</code> header).</p>
 		 * @param array $http_headers <p>HTTP client headers (such as User-Agent, Accept, etc.)</p>
 		 * @return mixed <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
 		 * @link http://php.net/manual/en/oauth.fetch.php
@@ -124,11 +124,11 @@ namespace {
 		 * @param string $http_method <p>HTTP method for request</p>
 		 * @param string $url <p>URL for request</p>
 		 * @param mixed $extra_parameters <p>String or array of additional parameters.</p>
-		 * @return string <p>A string containing the generated signature or <b><code>FALSE</code></b> on failure</p>
+		 * @return string|false <p>A string containing the generated signature or <b><code>FALSE</code></b> on failure</p>
 		 * @link http://php.net/manual/en/oauth.generatesignature.php
 		 * @since No version information available, might only be in Git
 		 */
-		public function generateSignature(string $http_method, string $url, $extra_parameters = NULL): string {}
+		public function generateSignature(string $http_method, string $url, $extra_parameters = NULL) {}
 
 		/**
 		 * Fetch an access token
@@ -136,7 +136,7 @@ namespace {
 		 * @param string $access_token_url <p>URL to the access token API.</p>
 		 * @param string $auth_session_handle <p>Authorization session handle, this parameter does not have any citation in the core OAuth 1.0 specification but may be implemented by large providers. See ScalableOAuth for more information.</p>
 		 * @param string $verifier_token <p>For service providers which support 1.0a, a <code>verifier_token</code> must be passed while exchanging the request token for the access token. If the <code>verifier_token</code> is present in <code>$_GET</code> or <code>$_POST</code> it is passed automatically and the caller does not need to specify a <code>verifier_token</code> (usually if the access token is exchanged at the oauth_callback URL). See ScalableOAuth for more information.</p>
-		 * @param string $http_method <p>HTTP method to use, e.g. <i>GET</i> or <i>POST</i>.</p>
+		 * @param string $http_method <p>HTTP method to use, e.g. <code>GET</code> or <code>POST</code>.</p>
 		 * @return array <p>Returns an array containing the parsed OAuth response on success or <b><code>FALSE</code></b> on failure.</p>
 		 * @link http://php.net/manual/en/oauth.getaccesstoken.php
 		 * @since PECL OAuth >= 0.99.1
@@ -146,7 +146,7 @@ namespace {
 		/**
 		 * Gets CA information
 		 * <p>Gets the Certificate Authority information, which includes the ca_path and ca_info set by <code>OAuth::setCaPath()</code>.</p><p>This function is currently not documented; only its argument list is available.</p>
-		 * @return array <p>An <code>array</code> of Certificate Authority information, specifically as <i>ca_path</i> and <i>ca_info</i> keys within the returned associative array.</p>
+		 * @return array <p>An <code>array</code> of Certificate Authority information, specifically as <code>ca_path</code> and <code>ca_info</code> keys within the returned associative array.</p>
 		 * @link http://php.net/manual/en/oauth.getcapath.php
 		 * @since PECL OAuth >= 0.99.8
 		 */
@@ -164,11 +164,11 @@ namespace {
 		/**
 		 * Get headers for last response
 		 * <p>Get headers for last response.</p>
-		 * @return string <p>A string containing the last response's headers or <b><code>FALSE</code></b> on failure</p>
+		 * @return string|false <p>A string containing the last response's headers or <b><code>FALSE</code></b> on failure</p>
 		 * @link http://php.net/manual/en/oauth.getlastresponseheaders.php
 		 * @since No version information available, might only be in Git
 		 */
-		public function getLastResponseHeaders(): string {}
+		public function getLastResponseHeaders() {}
 
 		/**
 		 * Get HTTP information about the last response
@@ -185,18 +185,18 @@ namespace {
 		 * @param string $http_method <p>HTTP method for request.</p>
 		 * @param string $url <p>URL for request.</p>
 		 * @param mixed $extra_parameters <p>String or array of additional parameters.</p>
-		 * @return string <p>A string containing the generated request header or <b><code>FALSE</code></b> on failure</p>
+		 * @return string|false <p>A string containing the generated request header or <b><code>FALSE</code></b> on failure</p>
 		 * @link http://php.net/manual/en/oauth.getrequestheader.php
 		 * @since No version information available, might only be in Git
 		 */
-		public function getRequestHeader(string $http_method, string $url, $extra_parameters = NULL): string {}
+		public function getRequestHeader(string $http_method, string $url, $extra_parameters = NULL) {}
 
 		/**
 		 * Fetch a request token
 		 * <p>Fetch a request token, secret and any additional response parameters from the service provider.</p>
 		 * @param string $request_token_url <p>URL to the request token API.</p>
 		 * @param string $callback_url <p>OAuth callback URL. If <code>callback_url</code> is passed and is an empty value, it is set to "oob" to address the OAuth 2009.1 advisory.</p>
-		 * @param string $http_method <p>HTTP method to use, e.g. <i>GET</i> or <i>POST</i>.</p>
+		 * @param string $http_method <p>HTTP method to use, e.g. <code>GET</code> or <code>POST</code>.</p>
 		 * @return array <p>Returns an array containing the parsed OAuth response on success or <b><code>FALSE</code></b> on failure.</p>
 		 * @link http://php.net/manual/en/oauth.getrequesttoken.php
 		 * @since PECL OAuth >= 0.99.1
@@ -206,7 +206,7 @@ namespace {
 		/**
 		 * Set authorization type
 		 * <p>Set where the OAuth parameters should be passed.</p>
-		 * @param int $auth_type <p><code>auth_type</code> can be one of the following flags (in order of decreasing preference as per OAuth 1.0 section 5.2):</p>  <b><code>OAUTH_AUTH_TYPE_AUTHORIZATION</code></b>   Pass the OAuth parameters in the HTTP <i>Authorization</i> header.    <b><code>OAUTH_AUTH_TYPE_FORM</code></b>   Append the OAuth parameters to the HTTP POST request body.    <b><code>OAUTH_AUTH_TYPE_URI</code></b>   Append the OAuth parameters to the request URI.    <b><code>OAUTH_AUTH_TYPE_NONE</code></b>   None.
+		 * @param int $auth_type <p><code>auth_type</code> can be one of the following flags (in order of decreasing preference as per OAuth 1.0 section 5.2):</p>  <b><code>OAUTH_AUTH_TYPE_AUTHORIZATION</code></b>   Pass the OAuth parameters in the HTTP <code>Authorization</code> header.    <b><code>OAUTH_AUTH_TYPE_FORM</code></b>   Append the OAuth parameters to the HTTP POST request body.    <b><code>OAUTH_AUTH_TYPE_URI</code></b>   Append the OAuth parameters to the request URI.    <b><code>OAUTH_AUTH_TYPE_NONE</code></b>   None.
 		 * @return bool <p>Returns <b><code>TRUE</code></b> if a parameter is correctly set, otherwise <b><code>FALSE</code></b> (e.g., if an invalid <code>auth_type</code> is passed in.)</p>
 		 * @link http://php.net/manual/en/oauth.setauthtype.php
 		 * @since PECL OAuth >= 0.99.1
@@ -344,7 +344,7 @@ namespace {
 		 * <p>Tries to clone the Exception, which results in Fatal error.</p>
 		 * @return void <p>No value is returned.</p>
 		 * @link http://php.net/manual/en/exception.clone.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final private function __clone() {}
 
@@ -353,16 +353,16 @@ namespace {
 		 * <p>Returns the <code>string</code> representation of the exception.</p>
 		 * @return string <p>Returns the <code>string</code> representation of the exception.</p>
 		 * @link http://php.net/manual/en/exception.tostring.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		public function __toString(): string {}
 
 		/**
 		 * Gets the Exception code
 		 * <p>Returns the Exception code.</p>
-		 * @return mixed <p>Returns the exception code as <code>integer</code> in Exception but possibly as other type in Exception descendants (for example as <code>string</code> in PDOException).</p>
+		 * @return mixed <p>Returns the exception code as <code>int</code> in Exception but possibly as other type in Exception descendants (for example as <code>string</code> in PDOException).</p>
 		 * @link http://php.net/manual/en/exception.getcode.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getCode() {}
 
@@ -371,7 +371,7 @@ namespace {
 		 * <p>Get the name of the file in which the exception was created.</p>
 		 * @return string <p>Returns the filename in which the exception was created.</p>
 		 * @link http://php.net/manual/en/exception.getfile.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getFile(): string {}
 
@@ -380,7 +380,7 @@ namespace {
 		 * <p>Get line number where the exception was created.</p>
 		 * @return int <p>Returns the line number where the exception was created.</p>
 		 * @link http://php.net/manual/en/exception.getline.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getLine(): int {}
 
@@ -389,7 +389,7 @@ namespace {
 		 * <p>Returns the Exception message.</p>
 		 * @return string <p>Returns the Exception message as a string.</p>
 		 * @link http://php.net/manual/en/exception.getmessage.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getMessage(): string {}
 
@@ -398,7 +398,7 @@ namespace {
 		 * <p>Returns previous exception (the third parameter of <code>Exception::__construct()</code>).</p>
 		 * @return Throwable <p>Returns the previous Throwable if available or <b><code>NULL</code></b> otherwise.</p>
 		 * @link http://php.net/manual/en/exception.getprevious.php
-		 * @since PHP 5 >= 5.3.0, PHP 7
+		 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8
 		 */
 		final public function getPrevious(): \Throwable {}
 
@@ -407,7 +407,7 @@ namespace {
 		 * <p>Returns the Exception stack trace.</p>
 		 * @return array <p>Returns the Exception stack trace as an <code>array</code>.</p>
 		 * @link http://php.net/manual/en/exception.gettrace.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getTrace(): array {}
 
@@ -416,7 +416,7 @@ namespace {
 		 * <p>Returns the Exception stack trace as a string.</p>
 		 * @return string <p>Returns the Exception stack trace as a string.</p>
 		 * @link http://php.net/manual/en/exception.gettraceasstring.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getTraceAsString(): string {}
 	}
@@ -501,7 +501,7 @@ namespace {
 		 * Generate a random token
 		 * <p>Generates a <code>string</code> of pseudo-random bytes.</p>
 		 * @param int $size <p>The desired token length, in terms of bytes.</p>
-		 * @param bool $strong <p>Setting to <b><code>TRUE</code></b> means <i>/dev/random</i> will be used for entropy, as otherwise the non-blocking <i>/dev/urandom</i> is used. This parameter is ignored on Windows.</p>
+		 * @param bool $strong <p>Setting to <b><code>TRUE</code></b> means <code>/dev/random</code> will be used for entropy, as otherwise the non-blocking <code>/dev/urandom</code> is used. This parameter is ignored on Windows.</p>
 		 * @return string <p>The generated token, as a <code>string</code> of bytes.</p>
 		 * @link http://php.net/manual/en/oauthprovider.generatetoken.php
 		 * @see openssl_random_pseudo_bytes(), mcrypt_create_iv()
@@ -615,7 +615,7 @@ namespace {
 	function oauth_urlencode(string $uri): string {}
 
 	/**
-	 * <p>This constant represents putting OAuth parameters in the <i>Authorization</i> header.</p>
+	 * <p>This constant represents putting OAuth parameters in the <code>Authorization</code> header.</p>
 	 */
 	define('OAUTH_AUTH_TYPE_AUTHORIZATION', null);
 

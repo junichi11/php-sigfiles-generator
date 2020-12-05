@@ -52,7 +52,7 @@ namespace {
 
 		/**
 		 * Returns the postions of terminating neuron
-		 * <p>Returns the postions of terminating neuron.</p>
+		 * <p>Returns the positions of terminating neuron.</p>
 		 * @return int <p>The postions of terminating neuron.</p>
 		 * @link http://php.net/manual/en/fannconnection.gettoneuron.php
 		 * @since PECL fann >= 1.0.0
@@ -147,13 +147,13 @@ namespace {
 	 * @param int $num_layers <p>The total number of layers including the input and the output layer.</p>
 	 * @param int $num_neurons1 <p>Number of neurons in the first layer.</p>
 	 * @param int $num_neurons2 <p>Number of neurons in the second layer.</p>
-	 * @param int $_ <p>Number of neurons in other layers.</p>
+	 * @param int $_$num_neuronsN
 	 * @return resource <p>Returns a neural network resource on success, or <b><code>FALSE</code></b> on error.</p>
 	 * @link http://php.net/manual/en/function.fann-create-shortcut.php
 	 * @see fann_create_shortcut_array(), fann_create_sparse(), fann_create_standard()
 	 * @since PECL fann >= 1.0.0
 	 */
-	function fann_create_shortcut(int $num_layers, int $num_neurons1, int $num_neurons2, int $_ = NULL) {}
+	function fann_create_shortcut(int $num_layers, int $num_neurons1, int $num_neurons2, int $_$num_neuronsN) {}
 
 	/**
 	 * Creates a standard backpropagation neural network which is not fully connectected and has shortcut connections
@@ -174,13 +174,13 @@ namespace {
 	 * @param int $num_layers <p>The total number of layers including the input and the output layer.</p>
 	 * @param int $num_neurons1 <p>Number of neurons in the first layer.</p>
 	 * @param int $num_neurons2 <p>Number of neurons in the second layer.</p>
-	 * @param int $_ <p>Number of neurons in other layers.</p>
+	 * @param int $_$num_neuronsN
 	 * @return resource <p>Returns a neural network resource on success, or <b><code>FALSE</code></b> on error.</p>
 	 * @link http://php.net/manual/en/function.fann-create-sparse.php
 	 * @see fann_create_sparse_array(), fann_create_standard(), fann_create_shortcut()
 	 * @since PECL fann >= 1.0.0
 	 */
-	function fann_create_sparse(float $connection_rate, int $num_layers, int $num_neurons1, int $num_neurons2, int $_ = NULL) {}
+	function fann_create_sparse(float $connection_rate, int $num_layers, int $num_neurons1, int $num_neurons2, int $_$num_neuronsN) {}
 
 	/**
 	 * Creates a standard backpropagation neural network, which is not fully connected using an array of layer sizes
@@ -201,13 +201,13 @@ namespace {
 	 * @param int $num_layers <p>The total number of layers including the input and the output layer.</p>
 	 * @param int $num_neurons1 <p>Number of neurons in the first layer.</p>
 	 * @param int $num_neurons2 <p>Number of neurons in the second layer.</p>
-	 * @param int $_ <p>Number of neurons in other layers.</p>
+	 * @param int $_$num_neuronsN
 	 * @return resource <p>Returns a neural network resource on success, or <b><code>FALSE</code></b> on error.</p>
 	 * @link http://php.net/manual/en/function.fann-create-standard.php
 	 * @see fann_create_standard_array(), fann_create_sparse(), fann_create_shortcut()
 	 * @since PECL fann >= 1.0.0
 	 */
-	function fann_create_standard(int $num_layers, int $num_neurons1, int $num_neurons2, int $_ = NULL) {}
+	function fann_create_standard(int $num_layers, int $num_neurons1, int $num_neurons2, int $_$num_neuronsN) {}
 
 	/**
 	 * Creates a standard fully connected backpropagation neural network using an array of layer sizes
@@ -240,7 +240,7 @@ namespace {
 	 * @param int $num_data <p>The number of training data</p>
 	 * @param int $num_input <p>The number of inputs per training data</p>
 	 * @param int $num_output <p>The number of ouputs per training data</p>
-	 * @param callable $user_function <p>The user supplied function with following parameters:</p><ul> <li><i>num</i> - The number of the training data set</li> <li><i>num_input</i> - The number of inputs per training data</li> <li><i>num_output</i> - The number of ouputs per training data</li> </ul> <p>The function should return an associative array with keys <i>input</i> and <i>output</i> and two array values of input and output.</p>
+	 * @param callable $user_function <p>The user supplied function with following parameters:</p><ul> <li><code>num</code> - The number of the training data set</li> <li><code>num_input</code> - The number of inputs per training data</li> <li><code>num_output</code> - The number of ouputs per training data</li> </ul> <p>The function should return an associative array with keys <code>input</code> and <code>output</code> and two array values of input and output.</p>
 	 * @return resource <p>Returns a train data <code>resource</code> on success, or <b><code>FALSE</code></b> on error.</p>
 	 * @link http://php.net/manual/en/function.fann-create-train-from-callback.php
 	 * @see fann_read_train_from_file(), fann_train_on_data(), fann_destroy_train(), fann_save_train()
@@ -316,7 +316,7 @@ namespace {
 
 	/**
 	 * Returns the activation function
-	 * <p>Get the activation function for neuron number <i>neuron</i> in layer number <i>layer</i>, counting the input layer as layer 0.</p><p>It is not possible to get activation functions for the neurons in the input layer.</p><p>The return value is one of the activation functions constants.</p>
+	 * <p>Get the activation function for neuron number <code>neuron</code> in layer number <code>layer</code>, counting the input layer as layer 0.</p><p>It is not possible to get activation functions for the neurons in the input layer.</p><p>The return value is one of the activation functions constants.</p>
 	 * @param resource $ann <p>Neural network <code>resource</code>.</p>
 	 * @param int $layer <p>Layer number.</p>
 	 * @param int $neuron <p>Neuron number.</p>
@@ -329,7 +329,7 @@ namespace {
 
 	/**
 	 * Returns the activation steepness for supplied neuron and layer number
-	 * <p>Get the activation steepness for neuron number <i>neuron</i> in layer number <i>layer</i>, counting the input layer as layer 0.</p><p>It is not possible to get activation steepness for the neurons in the input layer.</p><p>The steepness of an activation function says something about how fast the activation function goes from the minimum to the maximum. A high value for the activation function will also give a more agressive training.</p><p>When training neural networks where the output values should be at the extremes (usually 0 and 1, depending on the activation function), a steep activation function can be used (e.g. 1.0).</p><p>The default activation steepness is 0.5.</p>
+	 * <p>Get the activation steepness for neuron number <code>neuron</code> in layer number <code>layer</code>, counting the input layer as layer 0.</p><p>It is not possible to get activation steepness for the neurons in the input layer.</p><p>The steepness of an activation function says something about how fast the activation function goes from the minimum to the maximum. A high value for the activation function will also give a more agressive training.</p><p>When training neural networks where the output values should be at the extremes (usually 0 and 1, depending on the activation function), a steep activation function can be used (e.g. 1.0).</p><p>The default activation steepness is 0.5.</p>
 	 * @param resource $ann <p>Neural network <code>resource</code>.</p>
 	 * @param int $layer <p>Layer number</p>
 	 * @param int $neuron <p>Neuron number</p>
@@ -1082,7 +1082,7 @@ namespace {
 
 	/**
 	 * Sets the activation function for supplied neuron and layer
-	 * <p>Set the activation function for neuron number <i>neuron</i> in layer number <i>layer</i>, counting the input layer as layer 0.</p><p>It is not possible to set activation functions for the neurons in the input layer.</p><p>When choosing an activation function it is important to note that the activation functions have different range. <b><code>FANN_SIGMOID</code></b> is e.g. in the 0 - 1 range while <b><code>FANN_SIGMOID_SYMMETRIC</code></b> is in the -1 - 1 range and <b><code>FANN_LINEAR</code></b> is unbound.</p><p>The supplied activation_function value must be one of the activation functions constants.</p><p>The return value is one of the activation functions constants.</p>
+	 * <p>Set the activation function for neuron number <code>neuron</code> in layer number <code>layer</code>, counting the input layer as layer 0.</p><p>It is not possible to set activation functions for the neurons in the input layer.</p><p>When choosing an activation function it is important to note that the activation functions have different range. <b><code>FANN_SIGMOID</code></b> is e.g. in the 0 - 1 range while <b><code>FANN_SIGMOID_SYMMETRIC</code></b> is in the -1 - 1 range and <b><code>FANN_LINEAR</code></b> is unbound.</p><p>The supplied activation_function value must be one of the activation functions constants.</p><p>The return value is one of the activation functions constants.</p>
 	 * @param resource $ann <p>Neural network <code>resource</code>.</p>
 	 * @param int $activation_function <p>The activation functions constant.</p>
 	 * @param int $layer <p>Layer number.</p>
@@ -1108,7 +1108,7 @@ namespace {
 
 	/**
 	 * Sets the activation function for all the neurons in the supplied layer
-	 * <p>Set the activation function for all the neurons in the layer number <i>layer</i>, counting the input layer as layer 0.</p><p>It is not possible to set activation functions for the neurons in the input layer.</p>
+	 * <p>Set the activation function for all the neurons in the layer number <code>layer</code>, counting the input layer as layer 0.</p><p>It is not possible to set activation functions for the neurons in the input layer.</p>
 	 * @param resource $ann <p>Neural network <code>resource</code>.</p>
 	 * @param int $activation_function <p>The activation functions constant.</p>
 	 * @param int $layer <p>Layer number.</p>
@@ -1133,7 +1133,7 @@ namespace {
 
 	/**
 	 * Sets the activation steepness for supplied neuron and layer number
-	 * <p>Set the activation steepness for neuron number <i>neuron</i> in layer number <i>layer</i>, counting the input layer as layer 0.</p><p>It is not possible to set activation steepness for the neurons in the input layer.</p><p>The steepness of an activation function says something about how fast the activation function goes from the minimum to the maximum. A high value for the activation function will also give a more agressive training.</p><p>When training neural networks where the output values should be at the extremes (usually 0 and 1, depending on the activation function), a steep activation function can be used (e.g. 1.0).</p><p>The default activation steepness is 0.5.</p>
+	 * <p>Set the activation steepness for neuron number <code>neuron</code> in layer number <code>layer</code>, counting the input layer as layer 0.</p><p>It is not possible to set activation steepness for the neurons in the input layer.</p><p>The steepness of an activation function says something about how fast the activation function goes from the minimum to the maximum. A high value for the activation function will also give a more agressive training.</p><p>When training neural networks where the output values should be at the extremes (usually 0 and 1, depending on the activation function), a steep activation function can be used (e.g. 1.0).</p><p>The default activation steepness is 0.5.</p>
 	 * @param resource $ann <p>Neural network <code>resource</code>.</p>
 	 * @param float $activation_steepness <p>The activation steepness.</p>
 	 * @param int $layer <p>Layer number.</p>
@@ -1159,7 +1159,7 @@ namespace {
 
 	/**
 	 * Sets the activation steepness for all of the neurons in the supplied layer number
-	 * <p>Set the activation steepness for all of the neurons in layer number <i>layer</i>, counting the input layer as layer 0.</p><p>It is not possible to set activation steepness for the neurons in the input layer.</p>
+	 * <p>Set the activation steepness for all of the neurons in layer number <code>layer</code>, counting the input layer as layer 0.</p><p>It is not possible to set activation steepness for the neurons in the input layer.</p>
 	 * @param resource $ann <p>Neural network <code>resource</code>.</p>
 	 * @param float $activation_steepness <p>The activation steepness.</p>
 	 * @param int $layer <p>Layer number.</p>
@@ -1198,13 +1198,13 @@ namespace {
 	 * Sets the callback function for use during training
 	 * <p>Sets the callback function for use during training. It means that it is called from <code>fann_train_on_data()</code> or <code>fann_train_on_file()</code>.</p>
 	 * @param resource $ann <p>Neural network <code>resource</code>.</p>
-	 * @param \collable $callback <p>The supplied callback function takes following parameters:</p><ul> <li><i>ann</i> - The neural network <code>resource</code></li> <li><i>train</i> - The train data <code>resource</code> or <b><code>NULL</code></b> if called from <code>fann_train_on_file()</code></li> <li><i>max_epochs</i> - The maximum number of epochs the training should continue</li> <li><i>epochs_between_reports</i> - The number of epochs between calling this function</li> <li><i>desired_error</i> - The desired <code>fann_get_MSE()</code> or <code>fann_get_bit_fail()</code>, depending on the stop function chosen by <code>fann_set_train_stop_function()</code></li> <li><i>epochs</i> - The current epoch</li> </ul> <p>The callback should return <b><code>TRUE</code></b>. If it returns <b><code>FALSE</code></b>, the training will terminate.</p>
+	 * @param callable $callback <p>The supplied callback function takes following parameters:</p><ul> <li><code>ann</code> - The neural network <code>resource</code></li> <li><code>train</code> - The train data <code>resource</code> or <b><code>NULL</code></b> if called from <code>fann_train_on_file()</code></li> <li><code>max_epochs</code> - The maximum number of epochs the training should continue</li> <li><code>epochs_between_reports</code> - The number of epochs between calling this function</li> <li><code>desired_error</code> - The desired <code>fann_get_MSE()</code> or <code>fann_get_bit_fail()</code>, depending on the stop function chosen by <code>fann_set_train_stop_function()</code></li> <li><code>epochs</code> - The current epoch</li> </ul> <p>The callback should return <b><code>TRUE</code></b>. If it returns <b><code>FALSE</code></b>, the training will terminate.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success, or <b><code>FALSE</code></b> otherwise.</p>
 	 * @link http://php.net/manual/en/function.fann-set-callback.php
 	 * @see fann_train_on_data(), fann_train_on_file()
 	 * @since PECL fann >= 1.0.0
 	 */
-	function fann_set_callback($ann, \collable $callback): bool {}
+	function fann_set_callback($ann, callable $callback): bool {}
 
 	/**
 	 * Sets the array of cascade candidate activation functions
@@ -1645,7 +1645,7 @@ namespace {
 
 	/**
 	 * Returns an copy of a subset of the train data
-	 * <p>Returns an copy of a subset of the train data <code>resource</code>, starting at position <i>pos</i> and <i>length</i> elements forward.</p><p>The <i>fann_subset_train_data(train_data, 0, fann_length_train_data(train_data))</i> do the same as <code>fann_duplicate_train_data()</code></p>
+	 * <p>Returns an copy of a subset of the train data <code>resource</code>, starting at position <code>pos</code> and <code>length</code> elements forward.</p><p>The <code>fann_subset_train_data(train_data, 0, fann_length_train_data(train_data))</code> do the same as <code>fann_duplicate_train_data()</code></p>
 	 * @param resource $data <p>Neural network training data <code>resource</code>.</p>
 	 * @param int $pos <p>Starting position.</p>
 	 * @param int $length <p>The number of copied elements.</p>
@@ -1867,7 +1867,7 @@ namespace {
 	define('FANN_ERRORFUNC_LINEAR', null);
 
 	/**
-	 * Tanh error function, usually better but can require a lower learning rate. This error function agressively targets outputs that differ much from the desired, while not targetting outputs that only differ a little that much. This activation function is not recommended for cascade training and incremental training.
+	 * Tanh error function; usually better but may require a lower learning rate. This error function aggressively targets outputs that differ much from the desired, while not targeting outputs that only differ slightly. Not recommended for cascade or incremental training.
 	 */
 	define('FANN_ERRORFUNC_TANH', null);
 

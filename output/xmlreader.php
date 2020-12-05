@@ -231,13 +231,13 @@ namespace {
 		 * Set the data containing the XML to parse
 		 * <p>Set the data containing the XML to parse.</p>
 		 * @param string $source <p>String containing the XML to be parsed.</p>
-		 * @param string $encoding <p>The document encoding or <b><code>NULL</code></b>.</p>
-		 * @param int $options <p>A bitmask of the LIBXML_&#42; constants.</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure. If called statically, returns an XMLReader or <b><code>FALSE</code></b> on failure.</p>
+		 * @param string|null $encoding <p>The document encoding or <b><code>NULL</code></b>.</p>
+		 * @param int $flags <p>A bitmask of the LIBXML_&#42; constants.</p>
+		 * @return bool|XMLReader <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure. If called statically, returns an XMLReader or <b><code>FALSE</code></b> on failure.</p>
 		 * @link http://php.net/manual/en/xmlreader.xml.php
 		 * @since PHP 5 >= 5.1.0, PHP 7
 		 */
-		public function XML(string $source, string $encoding = NULL, int $options = 0): bool {}
+		public function XML(string $source, $encoding = NULL, int $flags = 0) {}
 
 		/**
 		 * Close the XMLReader input
@@ -251,43 +251,43 @@ namespace {
 		/**
 		 * Returns a copy of the current node as a DOM object
 		 * <p>This method copies the current node and returns the appropriate DOM object.</p>
-		 * @param \DOMNode $basenode <p>A DOMNode defining the target DOMDocument for the created DOM object.</p>
-		 * @return DOMNode <p>The resulting DOMNode or <b><code>FALSE</code></b> on error.</p>
+		 * @param \DOMNode|null $baseNode <p>A DOMNode defining the target DOMDocument for the created DOM object.</p>
+		 * @return DOMNode|false <p>The resulting DOMNode or <b><code>FALSE</code></b> on error.</p>
 		 * @link http://php.net/manual/en/xmlreader.expand.php
 		 * @since PHP 5 >= 5.1.0, PHP 7
 		 */
-		public function expand(\DOMNode $basenode = NULL): \DOMNode {}
+		public function expand($baseNode = NULL) {}
 
 		/**
 		 * Get the value of a named attribute
 		 * <p>Returns the value of a named attribute or <b><code>NULL</code></b> if the attribute does not exist or not positioned on an element node.</p>
 		 * @param string $name <p>The name of the attribute.</p>
-		 * @return string <p>The value of the attribute, or <b><code>NULL</code></b> if no attribute with the given <code>name</code> is found or not positioned on an element node.</p>
+		 * @return string|null <p>The value of the attribute, or <b><code>NULL</code></b> if no attribute with the given <code>name</code> is found or not positioned on an element node.</p>
 		 * @link http://php.net/manual/en/xmlreader.getattribute.php
 		 * @since PHP 5 >= 5.1.0, PHP 7
 		 */
-		public function getAttribute(string $name): string {}
+		public function getAttribute(string $name) {}
 
 		/**
 		 * Get the value of an attribute by index
 		 * <p>Returns the value of an attribute based on its position or an empty string if attribute does not exist or not positioned on an element node.</p>
 		 * @param int $index <p>The position of the attribute.</p>
-		 * @return string <p>The value of the attribute, or an empty string (before PHP 5.6) or <b><code>NULL</code></b> (from PHP 5.6 onwards) if no attribute exists at <code>index</code> or is not positioned on the element.</p>
+		 * @return string|null <p>The value of the attribute, or an empty string (before PHP 5.6) or <b><code>NULL</code></b> (from PHP 5.6 onwards) if no attribute exists at <code>index</code> or is not positioned on the element.</p>
 		 * @link http://php.net/manual/en/xmlreader.getattributeno.php
 		 * @since PHP 5 >= 5.1.0, PHP 7
 		 */
-		public function getAttributeNo(int $index): string {}
+		public function getAttributeNo(int $index) {}
 
 		/**
 		 * Get the value of an attribute by localname and URI
 		 * <p>Returns the value of an attribute by name and namespace URI or an empty string if attribute does not exist or not positioned on an element node.</p>
-		 * @param string $localName <p>The local name.</p>
-		 * @param string $namespaceURI <p>The namespace URI.</p>
-		 * @return string <p>The value of the attribute, or an empty string (before PHP 5.6) or <b><code>NULL</code></b> (from PHP 5.6 onwards) if no attribute with the given <code>localName</code> and <code>namespaceURI</code> is found or not positioned of element.</p>
+		 * @param string $name <p>The local name.</p>
+		 * @param string $namespace <p>The namespace URI.</p>
+		 * @return string|null <p>The value of the attribute, or an empty string (before PHP 5.6) or <b><code>NULL</code></b> (from PHP 5.6 onwards) if no attribute with the given <code>name</code> and <code>namespace</code> is found or not positioned of element.</p>
 		 * @link http://php.net/manual/en/xmlreader.getattributens.php
 		 * @since PHP 5 >= 5.1.0, PHP 7
 		 */
-		public function getAttributeNs(string $localName, string $namespaceURI): string {}
+		public function getAttributeNs(string $name, string $namespace) {}
 
 		/**
 		 * Indicates if specified property has been set
@@ -312,11 +312,11 @@ namespace {
 		 * Lookup namespace for a prefix
 		 * <p>Lookup in scope namespace for a given prefix.</p>
 		 * @param string $prefix <p>String containing the prefix.</p>
-		 * @return string <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+		 * @return string|null <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
 		 * @link http://php.net/manual/en/xmlreader.lookupnamespace.php
 		 * @since PHP 5 >= 5.1.0, PHP 7
 		 */
-		public function lookupNamespace(string $prefix): string {}
+		public function lookupNamespace(string $prefix) {}
 
 		/**
 		 * Move cursor to a named attribute
@@ -341,13 +341,13 @@ namespace {
 		/**
 		 * Move cursor to a named attribute
 		 * <p>Positions cursor on the named attribute in specified namespace.</p>
-		 * @param string $localName <p>The local name.</p>
-		 * @param string $namespaceURI <p>The namespace URI.</p>
+		 * @param string $name <p>The local name.</p>
+		 * @param string $namespace <p>The namespace URI.</p>
 		 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
 		 * @link http://php.net/manual/en/xmlreader.movetoattributens.php
 		 * @since PHP 5 >= 5.1.0, PHP 7
 		 */
-		public function moveToAttributeNs(string $localName, string $namespaceURI): bool {}
+		public function moveToAttributeNs(string $name, string $namespace): bool {}
 
 		/**
 		 * Position cursor on the parent Element of current Attribute
@@ -379,24 +379,24 @@ namespace {
 		/**
 		 * Move cursor to next node skipping all subtrees
 		 * <p>Positions cursor on the next node skipping all subtrees.</p>
-		 * @param string $localname <p>The name of the next node to move to.</p>
+		 * @param string|null $name <p>The name of the next node to move to.</p>
 		 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
 		 * @link http://php.net/manual/en/xmlreader.next.php
 		 * @since PHP 5 >= 5.1.0, PHP 7
 		 */
-		public function next(string $localname = NULL): bool {}
+		public function next($name = NULL): bool {}
 
 		/**
 		 * Set the URI containing the XML to parse
 		 * <p>Set the URI containing the XML document to be parsed.</p>
-		 * @param string $URI <p>URI pointing to the document.</p>
-		 * @param string $encoding <p>The document encoding or <b><code>NULL</code></b>.</p>
-		 * @param int $options <p>A bitmask of the LIBXML_&#42; constants.</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure. If called statically, returns an XMLReader or <b><code>FALSE</code></b> on failure.</p>
+		 * @param string $uri <p>URI pointing to the document.</p>
+		 * @param string|null $encoding <p>The document encoding or <b><code>NULL</code></b>.</p>
+		 * @param int $flags <p>A bitmask of the LIBXML_&#42; constants.</p>
+		 * @return bool|XMLReader <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure. If called statically, returns an XMLReader or <b><code>FALSE</code></b> on failure.</p>
 		 * @link http://php.net/manual/en/xmlreader.open.php
 		 * @since PHP 5 >= 5.1.0, PHP 7
 		 */
-		public function open(string $URI, string $encoding = NULL, int $options = 0): bool {}
+		public static function open(string $uri, $encoding = NULL, int $flags = 0) {}
 
 		/**
 		 * Move to next node in document
@@ -451,32 +451,32 @@ namespace {
 		/**
 		 * Set the filename or URI for a RelaxNG Schema
 		 * <p>Set the filename or URI for the RelaxNG Schema to use for validation.</p>
-		 * @param string $filename <p>filename or URI pointing to a RelaxNG Schema.</p>
+		 * @param string|null $filename <p>filename or URI pointing to a RelaxNG Schema.</p>
 		 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
 		 * @link http://php.net/manual/en/xmlreader.setrelaxngschema.php
 		 * @since PHP 5 >= 5.1.0, PHP 7
 		 */
-		public function setRelaxNGSchema(string $filename): bool {}
+		public function setRelaxNGSchema($filename): bool {}
 
 		/**
 		 * Set the data containing a RelaxNG Schema
 		 * <p>Set the data containing a RelaxNG Schema to use for validation.</p>
-		 * @param string $source <p>String containing the RelaxNG Schema.</p>
+		 * @param string|null $source <p>String containing the RelaxNG Schema.</p>
 		 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
 		 * @link http://php.net/manual/en/xmlreader.setrelaxngschemasource.php
 		 * @since PHP 5 >= 5.1.0, PHP 7
 		 */
-		public function setRelaxNGSchemaSource(string $source): bool {}
+		public function setRelaxNGSchemaSource($source): bool {}
 
 		/**
 		 * Validate document against XSD
 		 * <p>Use W3C XSD schema to validate the document as it is processed. Activation is only possible before the first Read().</p>
-		 * @param string $filename <p>The filename of the XSD schema.</p>
+		 * @param string|null $filename <p>The filename of the XSD schema.</p>
 		 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
 		 * @link http://php.net/manual/en/xmlreader.setschema.php
 		 * @since PHP 5 >= 5.2.0, PHP 7
 		 */
-		public function setSchema(string $filename): bool {}
+		public function setSchema($filename): bool {}
 	}
 
 }

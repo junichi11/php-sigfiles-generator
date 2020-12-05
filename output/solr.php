@@ -12,73 +12,73 @@ namespace {
 	final class SolrClient {
 
 		/**
-		 * @var integer <p>Used when updating the search servlet.</p>
+		 * @var int <p>Used when updating the search servlet.</p>
 		 * @link http://php.net/manual/en/class.solrclient.php
 		 */
 		const SEARCH_SERVLET_TYPE = 1;
 
 		/**
-		 * @var integer <p>Used when updating the update servlet.</p>
+		 * @var int <p>Used when updating the update servlet.</p>
 		 * @link http://php.net/manual/en/class.solrclient.php
 		 */
 		const UPDATE_SERVLET_TYPE = 2;
 
 		/**
-		 * @var integer <p>Used when updating the threads servlet.</p>
+		 * @var int <p>Used when updating the threads servlet.</p>
 		 * @link http://php.net/manual/en/class.solrclient.php
 		 */
 		const THREADS_SERVLET_TYPE = 4;
 
 		/**
-		 * @var integer <p>Used when updating the ping servlet.</p>
+		 * @var int <p>Used when updating the ping servlet.</p>
 		 * @link http://php.net/manual/en/class.solrclient.php
 		 */
 		const PING_SERVLET_TYPE = 8;
 
 		/**
-		 * @var integer <p>Used when updating the terms servlet.</p>
+		 * @var int <p>Used when updating the terms servlet.</p>
 		 * @link http://php.net/manual/en/class.solrclient.php
 		 */
 		const TERMS_SERVLET_TYPE = 16;
 
 		/**
-		 * @var integer <p>Used when retrieving system information from the system servlet.</p>
+		 * @var int <p>Used when retrieving system information from the system servlet.</p>
 		 * @link http://php.net/manual/en/class.solrclient.php
 		 */
 		const SYSTEM_SERVLET_TYPE = 32;
 
 		/**
-		 * @var string <p>This is the intial value for the search servlet.</p>
+		 * @var string <p>This is the initial value for the search servlet.</p>
 		 * @link http://php.net/manual/en/class.solrclient.php
 		 */
 		const DEFAULT_SEARCH_SERVLET = 'select';
 
 		/**
-		 * @var string <p>This is the intial value for the update servlet.</p>
+		 * @var string <p>This is the initial value for the update servlet.</p>
 		 * @link http://php.net/manual/en/class.solrclient.php
 		 */
 		const DEFAULT_UPDATE_SERVLET = 'update';
 
 		/**
-		 * @var string <p>This is the intial value for the threads servlet.</p>
+		 * @var string <p>This is the initial value for the threads servlet.</p>
 		 * @link http://php.net/manual/en/class.solrclient.php
 		 */
 		const DEFAULT_THREADS_SERVLET = 'admin/threads';
 
 		/**
-		 * @var string <p>This is the intial value for the ping servlet.</p>
+		 * @var string <p>This is the initial value for the ping servlet.</p>
 		 * @link http://php.net/manual/en/class.solrclient.php
 		 */
 		const DEFAULT_PING_SERVLET = 'admin/ping';
 
 		/**
-		 * @var string <p>This is the intial value for the terms servlet used for the TermsComponent</p>
+		 * @var string <p>This is the initial value for the terms servlet used for the TermsComponent</p>
 		 * @link http://php.net/manual/en/class.solrclient.php
 		 */
 		const DEFAULT_TERMS_SERVLET = 'terms';
 
 		/**
-		 * @var string <p>This is the intial value for the system servlet used to obtain Solr Server information</p>
+		 * @var string <p>This is the initial value for the system servlet used to obtain Solr Server information</p>
 		 * @link http://php.net/manual/en/class.solrclient.php
 		 */
 		const DEFAULT_SYSTEM_SERVLET = 'admin/system';
@@ -269,7 +269,7 @@ namespace {
 		/**
 		 * Sets the response writer used to prepare the response from Solr
 		 * <p>Sets the response writer used to prepare the response from Solr</p>
-		 * @param string $responseWriter <p>One of the following:</p> <ul> <li><i>json</i></li> <li><i>phps</i></li> <li><i>xml</i></li> </ul>
+		 * @param string $responseWriter <p>One of the following:</p> <ul> <li><code>json</code></li> <li><code>phps</code></li> <li><code>xml</code></li> </ul>
 		 * @return void <p>No value is returned.</p>
 		 * @link http://php.net/manual/en/solrclient.setresponsewriter.php
 		 * @since PECL solr >= 0.9.11
@@ -338,7 +338,7 @@ namespace {
 		protected $line;
 
 		/**
-		 * @var integer <p>The line in c-space source file where exception was generated</p>
+		 * @var int <p>The line in c-space source file where exception was generated</p>
 		 * @link http://php.net/manual/en/class.solrexception.php#solrexception.props.sourceline
 		 */
 		protected $sourceline;
@@ -360,7 +360,7 @@ namespace {
 		 * <p>Tries to clone the Exception, which results in Fatal error.</p>
 		 * @return void <p>No value is returned.</p>
 		 * @link http://php.net/manual/en/exception.clone.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final private function __clone() {}
 
@@ -369,16 +369,16 @@ namespace {
 		 * <p>Returns the <code>string</code> representation of the exception.</p>
 		 * @return string <p>Returns the <code>string</code> representation of the exception.</p>
 		 * @link http://php.net/manual/en/exception.tostring.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		public function __toString(): string {}
 
 		/**
 		 * Gets the Exception code
 		 * <p>Returns the Exception code.</p>
-		 * @return mixed <p>Returns the exception code as <code>integer</code> in Exception but possibly as other type in Exception descendants (for example as <code>string</code> in PDOException).</p>
+		 * @return mixed <p>Returns the exception code as <code>int</code> in Exception but possibly as other type in Exception descendants (for example as <code>string</code> in PDOException).</p>
 		 * @link http://php.net/manual/en/exception.getcode.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getCode() {}
 
@@ -387,7 +387,7 @@ namespace {
 		 * <p>Get the name of the file in which the exception was created.</p>
 		 * @return string <p>Returns the filename in which the exception was created.</p>
 		 * @link http://php.net/manual/en/exception.getfile.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getFile(): string {}
 
@@ -405,7 +405,7 @@ namespace {
 		 * <p>Get line number where the exception was created.</p>
 		 * @return int <p>Returns the line number where the exception was created.</p>
 		 * @link http://php.net/manual/en/exception.getline.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getLine(): int {}
 
@@ -414,7 +414,7 @@ namespace {
 		 * <p>Returns the Exception message.</p>
 		 * @return string <p>Returns the Exception message as a string.</p>
 		 * @link http://php.net/manual/en/exception.getmessage.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getMessage(): string {}
 
@@ -423,7 +423,7 @@ namespace {
 		 * <p>Returns previous exception (the third parameter of <code>Exception::__construct()</code>).</p>
 		 * @return Throwable <p>Returns the previous Throwable if available or <b><code>NULL</code></b> otherwise.</p>
 		 * @link http://php.net/manual/en/exception.getprevious.php
-		 * @since PHP 5 >= 5.3.0, PHP 7
+		 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8
 		 */
 		final public function getPrevious(): \Throwable {}
 
@@ -432,7 +432,7 @@ namespace {
 		 * <p>Returns the Exception stack trace.</p>
 		 * @return array <p>Returns the Exception stack trace as an <code>array</code>.</p>
 		 * @link http://php.net/manual/en/exception.gettrace.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getTrace(): array {}
 
@@ -441,7 +441,7 @@ namespace {
 		 * <p>Returns the Exception stack trace as a string.</p>
 		 * @return string <p>Returns the Exception stack trace as a string.</p>
 		 * @link http://php.net/manual/en/exception.gettraceasstring.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getTraceAsString(): string {}
 	}
@@ -990,7 +990,7 @@ namespace {
 		 * Returns the value for the facet.date.other parameter
 		 * <p>Returns the value for the facet.date.other parameter. This method accepts an optional field override.</p>
 		 * @param string $field_override <p>The name of the field</p>
-		 * @return array <p>Returns a string on success and <b><code>NULL</code></b> if not set.</p>
+		 * @return array <p>Returns an <code>array</code> on success and <b><code>NULL</code></b> if not set.</p>
 		 * @link http://php.net/manual/en/solrquery.getfacetdateother.php
 		 * @since PECL solr >= 0.9.2
 		 */
@@ -2788,37 +2788,37 @@ namespace {
 	final class SolrDocument implements \ArrayAccess, \Iterator, \Serializable {
 
 		/**
-		 * @var integer <p>Default mode for sorting fields within the document.</p>
+		 * @var int <p>Default mode for sorting fields within the document.</p>
 		 * @link http://php.net/manual/en/class.solrdocument.php
 		 */
 		const SORT_DEFAULT = 1;
 
 		/**
-		 * @var integer <p>Sorts the fields in ascending order</p>
+		 * @var int <p>Sorts the fields in ascending order</p>
 		 * @link http://php.net/manual/en/class.solrdocument.php
 		 */
 		const SORT_ASC = 1;
 
 		/**
-		 * @var integer <p>Sorts the fields in descending order</p>
+		 * @var int <p>Sorts the fields in descending order</p>
 		 * @link http://php.net/manual/en/class.solrdocument.php
 		 */
 		const SORT_DESC = 2;
 
 		/**
-		 * @var integer <p>Sorts the fields by field name.</p>
+		 * @var int <p>Sorts the fields by field name.</p>
 		 * @link http://php.net/manual/en/class.solrdocument.php
 		 */
 		const SORT_FIELD_NAME = 1;
 
 		/**
-		 * @var integer <p>Sorts the fields by number of values in each field.</p>
+		 * @var int <p>Sorts the fields by number of values in each field.</p>
 		 * @link http://php.net/manual/en/class.solrdocument.php
 		 */
 		const SORT_FIELD_VALUE_COUNT = 2;
 
 		/**
-		 * @var integer <p>Sorts the fields by thier boost values.</p>
+		 * @var int <p>Sorts the fields by thier boost values.</p>
 		 * @link http://php.net/manual/en/class.solrdocument.php
 		 */
 		const SORT_FIELD_BOOST_VALUE = 4;
@@ -3192,7 +3192,7 @@ namespace {
 	class SolrException extends \Exception {
 
 		/**
-		 * @var integer <p>The line in c-space source file where exception was generated</p>
+		 * @var int <p>The line in c-space source file where exception was generated</p>
 		 * @link http://php.net/manual/en/class.solrexception.php#solrexception.props.sourceline
 		 */
 		protected $sourceline;
@@ -3238,7 +3238,7 @@ namespace {
 		 * <p>Tries to clone the Exception, which results in Fatal error.</p>
 		 * @return void <p>No value is returned.</p>
 		 * @link http://php.net/manual/en/exception.clone.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final private function __clone() {}
 
@@ -3247,16 +3247,16 @@ namespace {
 		 * <p>Returns the <code>string</code> representation of the exception.</p>
 		 * @return string <p>Returns the <code>string</code> representation of the exception.</p>
 		 * @link http://php.net/manual/en/exception.tostring.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		public function __toString(): string {}
 
 		/**
 		 * Gets the Exception code
 		 * <p>Returns the Exception code.</p>
-		 * @return mixed <p>Returns the exception code as <code>integer</code> in Exception but possibly as other type in Exception descendants (for example as <code>string</code> in PDOException).</p>
+		 * @return mixed <p>Returns the exception code as <code>int</code> in Exception but possibly as other type in Exception descendants (for example as <code>string</code> in PDOException).</p>
 		 * @link http://php.net/manual/en/exception.getcode.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getCode() {}
 
@@ -3265,7 +3265,7 @@ namespace {
 		 * <p>Get the name of the file in which the exception was created.</p>
 		 * @return string <p>Returns the filename in which the exception was created.</p>
 		 * @link http://php.net/manual/en/exception.getfile.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getFile(): string {}
 
@@ -3283,7 +3283,7 @@ namespace {
 		 * <p>Get line number where the exception was created.</p>
 		 * @return int <p>Returns the line number where the exception was created.</p>
 		 * @link http://php.net/manual/en/exception.getline.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getLine(): int {}
 
@@ -3292,7 +3292,7 @@ namespace {
 		 * <p>Returns the Exception message.</p>
 		 * @return string <p>Returns the Exception message as a string.</p>
 		 * @link http://php.net/manual/en/exception.getmessage.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getMessage(): string {}
 
@@ -3301,7 +3301,7 @@ namespace {
 		 * <p>Returns previous exception (the third parameter of <code>Exception::__construct()</code>).</p>
 		 * @return Throwable <p>Returns the previous Throwable if available or <b><code>NULL</code></b> otherwise.</p>
 		 * @link http://php.net/manual/en/exception.getprevious.php
-		 * @since PHP 5 >= 5.3.0, PHP 7
+		 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8
 		 */
 		final public function getPrevious(): \Throwable {}
 
@@ -3310,7 +3310,7 @@ namespace {
 		 * <p>Returns the Exception stack trace.</p>
 		 * @return array <p>Returns the Exception stack trace as an <code>array</code>.</p>
 		 * @link http://php.net/manual/en/exception.gettrace.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getTrace(): array {}
 
@@ -3319,7 +3319,7 @@ namespace {
 		 * <p>Returns the Exception stack trace as a string.</p>
 		 * @return string <p>Returns the Exception stack trace as a string.</p>
 		 * @link http://php.net/manual/en/exception.gettraceasstring.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getTraceAsString(): string {}
 	}
@@ -3332,25 +3332,25 @@ namespace {
 	final class SolrGenericResponse extends \SolrResponse {
 
 		/**
-		 * @var integer <p>Documents should be parsed as SolrObject instances</p>
+		 * @var int <p>Documents should be parsed as SolrObject instances</p>
 		 * @link http://php.net/manual/en/class.solrgenericresponse.php
 		 */
 		const PARSE_SOLR_OBJ = 0;
 
 		/**
-		 * @var integer <p>Documents should be parsed as SolrDocument instances.</p>
+		 * @var int <p>Documents should be parsed as SolrDocument instances.</p>
 		 * @link http://php.net/manual/en/class.solrgenericresponse.php
 		 */
 		const PARSE_SOLR_DOC = 1;
 
 		/**
-		 * @var integer <p>The http status of the response.</p>
+		 * @var int <p>The http status of the response.</p>
 		 * @link http://php.net/manual/en/class.solrresponse.php#solrresponse.props.http-status
 		 */
 		protected $http_status;
 
 		/**
-		 * @var integer <p>Whether to parse the solr documents as SolrObject or SolrDocument instances.</p>
+		 * @var int <p>Whether to parse the solr documents as SolrObject or SolrDocument instances.</p>
 		 * @link http://php.net/manual/en/class.solrresponse.php#solrresponse.props.parser-mode
 		 */
 		protected $parser_mode;
@@ -3554,7 +3554,7 @@ namespace {
 		protected $line;
 
 		/**
-		 * @var integer <p>The line in c-space source file where exception was generated</p>
+		 * @var int <p>The line in c-space source file where exception was generated</p>
 		 * @link http://php.net/manual/en/class.solrexception.php#solrexception.props.sourceline
 		 */
 		protected $sourceline;
@@ -3576,7 +3576,7 @@ namespace {
 		 * <p>Tries to clone the Exception, which results in Fatal error.</p>
 		 * @return void <p>No value is returned.</p>
 		 * @link http://php.net/manual/en/exception.clone.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final private function __clone() {}
 
@@ -3585,16 +3585,16 @@ namespace {
 		 * <p>Returns the <code>string</code> representation of the exception.</p>
 		 * @return string <p>Returns the <code>string</code> representation of the exception.</p>
 		 * @link http://php.net/manual/en/exception.tostring.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		public function __toString(): string {}
 
 		/**
 		 * Gets the Exception code
 		 * <p>Returns the Exception code.</p>
-		 * @return mixed <p>Returns the exception code as <code>integer</code> in Exception but possibly as other type in Exception descendants (for example as <code>string</code> in PDOException).</p>
+		 * @return mixed <p>Returns the exception code as <code>int</code> in Exception but possibly as other type in Exception descendants (for example as <code>string</code> in PDOException).</p>
 		 * @link http://php.net/manual/en/exception.getcode.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getCode() {}
 
@@ -3603,7 +3603,7 @@ namespace {
 		 * <p>Get the name of the file in which the exception was created.</p>
 		 * @return string <p>Returns the filename in which the exception was created.</p>
 		 * @link http://php.net/manual/en/exception.getfile.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getFile(): string {}
 
@@ -3621,7 +3621,7 @@ namespace {
 		 * <p>Get line number where the exception was created.</p>
 		 * @return int <p>Returns the line number where the exception was created.</p>
 		 * @link http://php.net/manual/en/exception.getline.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getLine(): int {}
 
@@ -3630,7 +3630,7 @@ namespace {
 		 * <p>Returns the Exception message.</p>
 		 * @return string <p>Returns the Exception message as a string.</p>
 		 * @link http://php.net/manual/en/exception.getmessage.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getMessage(): string {}
 
@@ -3639,7 +3639,7 @@ namespace {
 		 * <p>Returns previous exception (the third parameter of <code>Exception::__construct()</code>).</p>
 		 * @return Throwable <p>Returns the previous Throwable if available or <b><code>NULL</code></b> otherwise.</p>
 		 * @link http://php.net/manual/en/exception.getprevious.php
-		 * @since PHP 5 >= 5.3.0, PHP 7
+		 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8
 		 */
 		final public function getPrevious(): \Throwable {}
 
@@ -3648,7 +3648,7 @@ namespace {
 		 * <p>Returns the Exception stack trace.</p>
 		 * @return array <p>Returns the Exception stack trace as an <code>array</code>.</p>
 		 * @link http://php.net/manual/en/exception.gettrace.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getTrace(): array {}
 
@@ -3657,7 +3657,7 @@ namespace {
 		 * <p>Returns the Exception stack trace as a string.</p>
 		 * @return string <p>Returns the Exception stack trace as a string.</p>
 		 * @link http://php.net/manual/en/exception.gettraceasstring.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getTraceAsString(): string {}
 	}
@@ -3694,7 +3694,7 @@ namespace {
 		protected $line;
 
 		/**
-		 * @var integer <p>The line in c-space source file where exception was generated</p>
+		 * @var int <p>The line in c-space source file where exception was generated</p>
 		 * @link http://php.net/manual/en/class.solrexception.php#solrexception.props.sourceline
 		 */
 		protected $sourceline;
@@ -3716,7 +3716,7 @@ namespace {
 		 * <p>Tries to clone the Exception, which results in Fatal error.</p>
 		 * @return void <p>No value is returned.</p>
 		 * @link http://php.net/manual/en/exception.clone.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final private function __clone() {}
 
@@ -3725,16 +3725,16 @@ namespace {
 		 * <p>Returns the <code>string</code> representation of the exception.</p>
 		 * @return string <p>Returns the <code>string</code> representation of the exception.</p>
 		 * @link http://php.net/manual/en/exception.tostring.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		public function __toString(): string {}
 
 		/**
 		 * Gets the Exception code
 		 * <p>Returns the Exception code.</p>
-		 * @return mixed <p>Returns the exception code as <code>integer</code> in Exception but possibly as other type in Exception descendants (for example as <code>string</code> in PDOException).</p>
+		 * @return mixed <p>Returns the exception code as <code>int</code> in Exception but possibly as other type in Exception descendants (for example as <code>string</code> in PDOException).</p>
 		 * @link http://php.net/manual/en/exception.getcode.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getCode() {}
 
@@ -3743,7 +3743,7 @@ namespace {
 		 * <p>Get the name of the file in which the exception was created.</p>
 		 * @return string <p>Returns the filename in which the exception was created.</p>
 		 * @link http://php.net/manual/en/exception.getfile.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getFile(): string {}
 
@@ -3761,7 +3761,7 @@ namespace {
 		 * <p>Get line number where the exception was created.</p>
 		 * @return int <p>Returns the line number where the exception was created.</p>
 		 * @link http://php.net/manual/en/exception.getline.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getLine(): int {}
 
@@ -3770,7 +3770,7 @@ namespace {
 		 * <p>Returns the Exception message.</p>
 		 * @return string <p>Returns the Exception message as a string.</p>
 		 * @link http://php.net/manual/en/exception.getmessage.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getMessage(): string {}
 
@@ -3779,7 +3779,7 @@ namespace {
 		 * <p>Returns previous exception (the third parameter of <code>Exception::__construct()</code>).</p>
 		 * @return Throwable <p>Returns the previous Throwable if available or <b><code>NULL</code></b> otherwise.</p>
 		 * @link http://php.net/manual/en/exception.getprevious.php
-		 * @since PHP 5 >= 5.3.0, PHP 7
+		 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8
 		 */
 		final public function getPrevious(): \Throwable {}
 
@@ -3788,7 +3788,7 @@ namespace {
 		 * <p>Returns the Exception stack trace.</p>
 		 * @return array <p>Returns the Exception stack trace as an <code>array</code>.</p>
 		 * @link http://php.net/manual/en/exception.gettrace.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getTrace(): array {}
 
@@ -3797,7 +3797,7 @@ namespace {
 		 * <p>Returns the Exception stack trace as a string.</p>
 		 * @return string <p>Returns the Exception stack trace as a string.</p>
 		 * @link http://php.net/manual/en/exception.gettraceasstring.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getTraceAsString(): string {}
 	}
@@ -3810,37 +3810,37 @@ namespace {
 	final class SolrInputDocument {
 
 		/**
-		 * @var integer <p>Sorts the fields in ascending order.</p>
+		 * @var int <p>Sorts the fields in ascending order.</p>
 		 * @link http://php.net/manual/en/class.solrinputdocument.php
 		 */
 		const SORT_DEFAULT = 1;
 
 		/**
-		 * @var integer <p>Sorts the fields in ascending order.</p>
+		 * @var int <p>Sorts the fields in ascending order.</p>
 		 * @link http://php.net/manual/en/class.solrinputdocument.php
 		 */
 		const SORT_ASC = 1;
 
 		/**
-		 * @var integer <p>Sorts the fields in descending order.</p>
+		 * @var int <p>Sorts the fields in descending order.</p>
 		 * @link http://php.net/manual/en/class.solrinputdocument.php
 		 */
 		const SORT_DESC = 2;
 
 		/**
-		 * @var integer <p>Sorts the fields by name</p>
+		 * @var int <p>Sorts the fields by name</p>
 		 * @link http://php.net/manual/en/class.solrinputdocument.php
 		 */
 		const SORT_FIELD_NAME = 1;
 
 		/**
-		 * @var integer <p>Sorts the fields by number of values.</p>
+		 * @var int <p>Sorts the fields by number of values.</p>
 		 * @link http://php.net/manual/en/class.solrinputdocument.php
 		 */
 		const SORT_FIELD_VALUE_COUNT = 2;
 
 		/**
-		 * @var integer <p>Sorts the fields by boost value.</p>
+		 * @var int <p>Sorts the fields by boost value.</p>
 		 * @link http://php.net/manual/en/class.solrinputdocument.php
 		 */
 		const SORT_FIELD_BOOST_VALUE = 4;
@@ -3983,11 +3983,11 @@ namespace {
 		/**
 		 * Returns the number of fields in the document
 		 * <p>Returns the number of fields in the document.</p>
-		 * @return int <p>Returns an integer on success or <b><code>FALSE</code></b> on failure.</p>
+		 * @return int|false <p>Returns an integer on success or <b><code>FALSE</code></b> on failure.</p>
 		 * @link http://php.net/manual/en/solrinputdocument.getfieldcount.php
 		 * @since PECL solr >= 0.9.2
 		 */
-		public function getFieldCount(): int {}
+		public function getFieldCount() {}
 
 		/**
 		 * Returns an array containing all the fields in the document
@@ -4099,7 +4099,7 @@ namespace {
 		protected $line;
 
 		/**
-		 * @var integer <p>The line in c-space source file where exception was generated</p>
+		 * @var int <p>The line in c-space source file where exception was generated</p>
 		 * @link http://php.net/manual/en/class.solrexception.php#solrexception.props.sourceline
 		 */
 		protected $sourceline;
@@ -4121,7 +4121,7 @@ namespace {
 		 * <p>Tries to clone the Exception, which results in Fatal error.</p>
 		 * @return void <p>No value is returned.</p>
 		 * @link http://php.net/manual/en/exception.clone.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final private function __clone() {}
 
@@ -4130,16 +4130,16 @@ namespace {
 		 * <p>Returns the <code>string</code> representation of the exception.</p>
 		 * @return string <p>Returns the <code>string</code> representation of the exception.</p>
 		 * @link http://php.net/manual/en/exception.tostring.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		public function __toString(): string {}
 
 		/**
 		 * Gets the Exception code
 		 * <p>Returns the Exception code.</p>
-		 * @return mixed <p>Returns the exception code as <code>integer</code> in Exception but possibly as other type in Exception descendants (for example as <code>string</code> in PDOException).</p>
+		 * @return mixed <p>Returns the exception code as <code>int</code> in Exception but possibly as other type in Exception descendants (for example as <code>string</code> in PDOException).</p>
 		 * @link http://php.net/manual/en/exception.getcode.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getCode() {}
 
@@ -4148,7 +4148,7 @@ namespace {
 		 * <p>Get the name of the file in which the exception was created.</p>
 		 * @return string <p>Returns the filename in which the exception was created.</p>
 		 * @link http://php.net/manual/en/exception.getfile.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getFile(): string {}
 
@@ -4166,7 +4166,7 @@ namespace {
 		 * <p>Get line number where the exception was created.</p>
 		 * @return int <p>Returns the line number where the exception was created.</p>
 		 * @link http://php.net/manual/en/exception.getline.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getLine(): int {}
 
@@ -4175,7 +4175,7 @@ namespace {
 		 * <p>Returns the Exception message.</p>
 		 * @return string <p>Returns the Exception message as a string.</p>
 		 * @link http://php.net/manual/en/exception.getmessage.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getMessage(): string {}
 
@@ -4184,7 +4184,7 @@ namespace {
 		 * <p>Returns previous exception (the third parameter of <code>Exception::__construct()</code>).</p>
 		 * @return Throwable <p>Returns the previous Throwable if available or <b><code>NULL</code></b> otherwise.</p>
 		 * @link http://php.net/manual/en/exception.getprevious.php
-		 * @since PHP 5 >= 5.3.0, PHP 7
+		 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8
 		 */
 		final public function getPrevious(): \Throwable {}
 
@@ -4193,7 +4193,7 @@ namespace {
 		 * <p>Returns the Exception stack trace.</p>
 		 * @return array <p>Returns the Exception stack trace as an <code>array</code>.</p>
 		 * @link http://php.net/manual/en/exception.gettrace.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getTrace(): array {}
 
@@ -4202,7 +4202,7 @@ namespace {
 		 * <p>Returns the Exception stack trace as a string.</p>
 		 * @return string <p>Returns the Exception stack trace as a string.</p>
 		 * @link http://php.net/manual/en/exception.gettraceasstring.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getTraceAsString(): string {}
 	}
@@ -4547,13 +4547,13 @@ namespace {
 	final class SolrPingResponse extends \SolrResponse {
 
 		/**
-		 * @var integer <p>Documents should be parsed as SolrObject instances</p>
+		 * @var int <p>Documents should be parsed as SolrObject instances</p>
 		 * @link http://php.net/manual/en/class.solrpingresponse.php
 		 */
 		const PARSE_SOLR_OBJ = 0;
 
 		/**
-		 * @var integer <p>Documents should be parsed as SolrDocument instances.</p>
+		 * @var int <p>Documents should be parsed as SolrDocument instances.</p>
 		 * @link http://php.net/manual/en/class.solrpingresponse.php
 		 */
 		const PARSE_SOLR_DOC = 1;
@@ -4685,37 +4685,37 @@ namespace {
 	class SolrQuery extends \SolrModifiableParams implements \Serializable {
 
 		/**
-		 * @var integer <p>Used to specify that the sorting should be in acending order</p>
+		 * @var int <p>Used to specify that the sorting should be in acending order</p>
 		 * @link http://php.net/manual/en/class.solrquery.php
 		 */
 		const ORDER_ASC = 0;
 
 		/**
-		 * @var integer <p>Used to specify that the sorting should be in descending order</p>
+		 * @var int <p>Used to specify that the sorting should be in descending order</p>
 		 * @link http://php.net/manual/en/class.solrquery.php
 		 */
 		const ORDER_DESC = 1;
 
 		/**
-		 * @var integer <p>Used to specify that the facet should sort by index</p>
+		 * @var int <p>Used to specify that the facet should sort by index</p>
 		 * @link http://php.net/manual/en/class.solrquery.php
 		 */
 		const FACET_SORT_INDEX = 0;
 
 		/**
-		 * @var integer <p>Used to specify that the facet should sort by count</p>
+		 * @var int <p>Used to specify that the facet should sort by count</p>
 		 * @link http://php.net/manual/en/class.solrquery.php
 		 */
 		const FACET_SORT_COUNT = 1;
 
 		/**
-		 * @var integer <p>Used in the TermsComponent</p>
+		 * @var int <p>Used in the TermsComponent</p>
 		 * @link http://php.net/manual/en/class.solrquery.php
 		 */
 		const TERMS_SORT_INDEX = 0;
 
 		/**
-		 * @var integer <p>Used in the TermsComponent</p>
+		 * @var int <p>Used in the TermsComponent</p>
 		 * @link http://php.net/manual/en/class.solrquery.php
 		 */
 		const TERMS_SORT_COUNT = 1;
@@ -5031,7 +5031,7 @@ namespace {
 		 * Returns the value for the facet.date.other parameter
 		 * <p>Returns the value for the facet.date.other parameter. This method accepts an optional field override.</p>
 		 * @param string $field_override <p>The name of the field</p>
-		 * @return array <p>Returns a string on success and <b><code>NULL</code></b> if not set.</p>
+		 * @return array <p>Returns an <code>array</code> on success and <b><code>NULL</code></b> if not set.</p>
 		 * @link http://php.net/manual/en/solrquery.getfacetdateother.php
 		 * @since PECL solr >= 0.9.2
 		 */
@@ -6621,25 +6621,25 @@ namespace {
 	final class SolrQueryResponse extends \SolrResponse {
 
 		/**
-		 * @var integer <p>Documents should be parsed as SolrObject instances</p>
+		 * @var int <p>Documents should be parsed as SolrObject instances</p>
 		 * @link http://php.net/manual/en/class.solrqueryresponse.php
 		 */
 		const PARSE_SOLR_OBJ = 0;
 
 		/**
-		 * @var integer <p>Documents should be parsed as SolrDocument instances.</p>
+		 * @var int <p>Documents should be parsed as SolrDocument instances.</p>
 		 * @link http://php.net/manual/en/class.solrqueryresponse.php
 		 */
 		const PARSE_SOLR_DOC = 1;
 
 		/**
-		 * @var integer <p>The http status of the response.</p>
+		 * @var int <p>The http status of the response.</p>
 		 * @link http://php.net/manual/en/class.solrresponse.php#solrresponse.props.http-status
 		 */
 		protected $http_status;
 
 		/**
-		 * @var integer <p>Whether to parse the solr documents as SolrObject or SolrDocument instances.</p>
+		 * @var int <p>Whether to parse the solr documents as SolrObject or SolrDocument instances.</p>
 		 * @link http://php.net/manual/en/class.solrresponse.php#solrresponse.props.parser-mode
 		 */
 		protected $parser_mode;
@@ -6819,25 +6819,25 @@ namespace {
 	abstract class SolrResponse {
 
 		/**
-		 * @var integer <p>Documents should be parsed as SolrObject instances</p>
+		 * @var int <p>Documents should be parsed as SolrObject instances</p>
 		 * @link http://php.net/manual/en/class.solrresponse.php
 		 */
 		const PARSE_SOLR_OBJ = 0;
 
 		/**
-		 * @var integer <p>Documents should be parsed as SolrDocument instances.</p>
+		 * @var int <p>Documents should be parsed as SolrDocument instances.</p>
 		 * @link http://php.net/manual/en/class.solrresponse.php
 		 */
 		const PARSE_SOLR_DOC = 1;
 
 		/**
-		 * @var integer <p>The http status of the response.</p>
+		 * @var int <p>The http status of the response.</p>
 		 * @link http://php.net/manual/en/class.solrresponse.php#solrresponse.props.http-status
 		 */
 		protected $http_status;
 
 		/**
-		 * @var integer <p>Whether to parse the solr documents as SolrObject or SolrDocument instances.</p>
+		 * @var int <p>Whether to parse the solr documents as SolrObject or SolrDocument instances.</p>
 		 * @link http://php.net/manual/en/class.solrresponse.php#solrresponse.props.parser-mode
 		 */
 		protected $parser_mode;
@@ -7023,7 +7023,7 @@ namespace {
 		protected $line;
 
 		/**
-		 * @var integer <p>The line in c-space source file where exception was generated</p>
+		 * @var int <p>The line in c-space source file where exception was generated</p>
 		 * @link http://php.net/manual/en/class.solrexception.php#solrexception.props.sourceline
 		 */
 		protected $sourceline;
@@ -7045,7 +7045,7 @@ namespace {
 		 * <p>Tries to clone the Exception, which results in Fatal error.</p>
 		 * @return void <p>No value is returned.</p>
 		 * @link http://php.net/manual/en/exception.clone.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final private function __clone() {}
 
@@ -7054,16 +7054,16 @@ namespace {
 		 * <p>Returns the <code>string</code> representation of the exception.</p>
 		 * @return string <p>Returns the <code>string</code> representation of the exception.</p>
 		 * @link http://php.net/manual/en/exception.tostring.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		public function __toString(): string {}
 
 		/**
 		 * Gets the Exception code
 		 * <p>Returns the Exception code.</p>
-		 * @return mixed <p>Returns the exception code as <code>integer</code> in Exception but possibly as other type in Exception descendants (for example as <code>string</code> in PDOException).</p>
+		 * @return mixed <p>Returns the exception code as <code>int</code> in Exception but possibly as other type in Exception descendants (for example as <code>string</code> in PDOException).</p>
 		 * @link http://php.net/manual/en/exception.getcode.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getCode() {}
 
@@ -7072,7 +7072,7 @@ namespace {
 		 * <p>Get the name of the file in which the exception was created.</p>
 		 * @return string <p>Returns the filename in which the exception was created.</p>
 		 * @link http://php.net/manual/en/exception.getfile.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getFile(): string {}
 
@@ -7090,7 +7090,7 @@ namespace {
 		 * <p>Get line number where the exception was created.</p>
 		 * @return int <p>Returns the line number where the exception was created.</p>
 		 * @link http://php.net/manual/en/exception.getline.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getLine(): int {}
 
@@ -7099,7 +7099,7 @@ namespace {
 		 * <p>Returns the Exception message.</p>
 		 * @return string <p>Returns the Exception message as a string.</p>
 		 * @link http://php.net/manual/en/exception.getmessage.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getMessage(): string {}
 
@@ -7108,7 +7108,7 @@ namespace {
 		 * <p>Returns previous exception (the third parameter of <code>Exception::__construct()</code>).</p>
 		 * @return Throwable <p>Returns the previous Throwable if available or <b><code>NULL</code></b> otherwise.</p>
 		 * @link http://php.net/manual/en/exception.getprevious.php
-		 * @since PHP 5 >= 5.3.0, PHP 7
+		 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8
 		 */
 		final public function getPrevious(): \Throwable {}
 
@@ -7117,7 +7117,7 @@ namespace {
 		 * <p>Returns the Exception stack trace.</p>
 		 * @return array <p>Returns the Exception stack trace as an <code>array</code>.</p>
 		 * @link http://php.net/manual/en/exception.gettrace.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getTrace(): array {}
 
@@ -7126,7 +7126,7 @@ namespace {
 		 * <p>Returns the Exception stack trace as a string.</p>
 		 * @return string <p>Returns the Exception stack trace as a string.</p>
 		 * @link http://php.net/manual/en/exception.gettraceasstring.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getTraceAsString(): string {}
 	}
@@ -7139,25 +7139,25 @@ namespace {
 	final class SolrUpdateResponse extends \SolrResponse {
 
 		/**
-		 * @var integer <p>Documents should be parsed as SolrObject instances</p>
+		 * @var int <p>Documents should be parsed as SolrObject instances</p>
 		 * @link http://php.net/manual/en/class.solrupdateresponse.php
 		 */
 		const PARSE_SOLR_OBJ = 0;
 
 		/**
-		 * @var integer <p>Documents should be parsed as SolrDocument instances.</p>
+		 * @var int <p>Documents should be parsed as SolrDocument instances.</p>
 		 * @link http://php.net/manual/en/class.solrupdateresponse.php
 		 */
 		const PARSE_SOLR_DOC = 1;
 
 		/**
-		 * @var integer <p>The http status of the response.</p>
+		 * @var int <p>The http status of the response.</p>
 		 * @link http://php.net/manual/en/class.solrresponse.php#solrresponse.props.http-status
 		 */
 		protected $http_status;
 
 		/**
-		 * @var integer <p>Whether to parse the solr documents as SolrObject or SolrDocument instances.</p>
+		 * @var int <p>Whether to parse the solr documents as SolrObject or SolrDocument instances.</p>
 		 * @link http://php.net/manual/en/class.solrresponse.php#solrresponse.props.parser-mode
 		 */
 		protected $parser_mode;
@@ -7352,11 +7352,11 @@ namespace {
 		 * Escapes a lucene query string
 		 * <p>Lucene supports escaping special characters that are part of the query syntax.</p><p>The current list special characters are:</p><p></p><p>These characters are part of the query syntax and must be escaped</p>
 		 * @param string $str <p>This is the query string to be escaped.</p>
-		 * @return string <p>Returns the escaped string or <b><code>FALSE</code></b> on failure.</p>
+		 * @return string|false <p>Returns the escaped string or <b><code>FALSE</code></b> on failure.</p>
 		 * @link http://php.net/manual/en/solrutils.escapequerychars.php
 		 * @since PECL solr >= 0.9.2
 		 */
-		public static function escapeQueryChars(string $str): string {}
+		public static function escapeQueryChars(string $str) {}
 
 		/**
 		 * Returns the current version of the Solr extension

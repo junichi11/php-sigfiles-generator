@@ -23,7 +23,7 @@ namespace {
 		/**
 		 * Add client options
 		 * <p>Adds one or more options to those already set.</p>
-		 * @param int $options <p>The options to add. One of the following constants, or a combination of them using the bitwise OR operator ("|"): <b><code>GEARMAN_CLIENT_GENERATE_UNIQUE</code></b>, <b><code>GEARMAN_CLIENT_NON_BLOCKING</code></b>, <b><code>GEARMAN_CLIENT_UNBUFFERED_RESULT</code></b> or <b><code>GEARMAN_CLIENT_FREE_TASKS</code></b>.</p>
+		 * @param int $options <p>The options to add. One of the following constants, or a combination of them using the bitwise OR operator (|): <b><code>GEARMAN_CLIENT_GENERATE_UNIQUE</code></b>, <b><code>GEARMAN_CLIENT_NON_BLOCKING</code></b>, <b><code>GEARMAN_CLIENT_UNBUFFERED_RESULT</code></b> or <b><code>GEARMAN_CLIENT_FREE_TASKS</code></b>.</p>
 		 * @return bool <p>Always returns <b><code>TRUE</code></b>.</p>
 		 * @link http://php.net/manual/en/gearmanclient.addoptions.php
 		 * @since PECL gearman >= 0.6.0
@@ -44,7 +44,7 @@ namespace {
 		/**
 		 * Add a list of job servers to the client
 		 * <p>Adds a list of job servers that can be used to run a task. No socket I/O happens here; the servers are simply added to the full list of servers.</p>
-		 * @param string $servers <p>A comma-separated list of servers, each server specified in the format '<i>host:port</i>'.</p>
+		 * @param string $servers <p>A comma-separated list of servers, each server specified in the format '<code>host:port</code>'.</p>
 		 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
 		 * @link http://php.net/manual/en/gearmanclient.addservers.php
 		 * @since PECL gearman >= 0.5.0
@@ -529,7 +529,7 @@ namespace {
 		 * <p>Tries to clone the Exception, which results in Fatal error.</p>
 		 * @return void <p>No value is returned.</p>
 		 * @link http://php.net/manual/en/exception.clone.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final private function __clone() {}
 
@@ -538,16 +538,16 @@ namespace {
 		 * <p>Returns the <code>string</code> representation of the exception.</p>
 		 * @return string <p>Returns the <code>string</code> representation of the exception.</p>
 		 * @link http://php.net/manual/en/exception.tostring.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		public function __toString(): string {}
 
 		/**
 		 * Gets the Exception code
 		 * <p>Returns the Exception code.</p>
-		 * @return mixed <p>Returns the exception code as <code>integer</code> in Exception but possibly as other type in Exception descendants (for example as <code>string</code> in PDOException).</p>
+		 * @return mixed <p>Returns the exception code as <code>int</code> in Exception but possibly as other type in Exception descendants (for example as <code>string</code> in PDOException).</p>
 		 * @link http://php.net/manual/en/exception.getcode.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getCode() {}
 
@@ -556,7 +556,7 @@ namespace {
 		 * <p>Get the name of the file in which the exception was created.</p>
 		 * @return string <p>Returns the filename in which the exception was created.</p>
 		 * @link http://php.net/manual/en/exception.getfile.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getFile(): string {}
 
@@ -565,7 +565,7 @@ namespace {
 		 * <p>Get line number where the exception was created.</p>
 		 * @return int <p>Returns the line number where the exception was created.</p>
 		 * @link http://php.net/manual/en/exception.getline.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getLine(): int {}
 
@@ -574,7 +574,7 @@ namespace {
 		 * <p>Returns the Exception message.</p>
 		 * @return string <p>Returns the Exception message as a string.</p>
 		 * @link http://php.net/manual/en/exception.getmessage.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getMessage(): string {}
 
@@ -583,7 +583,7 @@ namespace {
 		 * <p>Returns previous exception (the third parameter of <code>Exception::__construct()</code>).</p>
 		 * @return Throwable <p>Returns the previous Throwable if available or <b><code>NULL</code></b> otherwise.</p>
 		 * @link http://php.net/manual/en/exception.getprevious.php
-		 * @since PHP 5 >= 5.3.0, PHP 7
+		 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8
 		 */
 		final public function getPrevious(): \Throwable {}
 
@@ -592,7 +592,7 @@ namespace {
 		 * <p>Returns the Exception stack trace.</p>
 		 * @return array <p>Returns the Exception stack trace as an <code>array</code>.</p>
 		 * @link http://php.net/manual/en/exception.gettrace.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getTrace(): array {}
 
@@ -601,7 +601,7 @@ namespace {
 		 * <p>Returns the Exception stack trace as a string.</p>
 		 * @return string <p>Returns the Exception stack trace as a string.</p>
 		 * @link http://php.net/manual/en/exception.gettraceasstring.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getTraceAsString(): string {}
 	}
@@ -824,11 +824,11 @@ namespace {
 		/**
 		 * Create a task (deprecated)
 		 * <p>Returns a new GearmanTask object.</p><p><b>Note</b>:</p><p>This method was removed in the 0.6.0 version of the Gearman extension.</p>
-		 * @return GearmanTask <p>A GearmanTask oject or <b><code>FALSE</code></b> on failure.</p>
+		 * @return GearmanTask|false <p>A GearmanTask oject or <b><code>FALSE</code></b> on failure.</p>
 		 * @link http://php.net/manual/en/gearmantask.create.php
 		 * @since PECL gearman <= 0.5.0
 		 */
-		public function create(): \GearmanTask {}
+		public function create() {}
 
 		/**
 		 * Get data returned for a task

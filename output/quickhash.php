@@ -13,31 +13,31 @@ namespace {
 	class QuickHashIntHash {
 
 		/**
-		 * @var integer <p>If enabled, adding duplicate elements to a set (through either add() or loadFromFile()) will result in those elements to be dropped from the set. This will take up extra time, so only used when it is required.</p>
+		 * @var int <p>If enabled, adding duplicate elements to a set (through either add() or loadFromFile()) will result in those elements to be dropped from the set. This will take up extra time, so only used when it is required.</p>
 		 * @link http://php.net/manual/en/class.quickhashinthash.php
 		 */
 		const CHECK_FOR_DUPES = 1;
 
 		/**
-		 * @var integer <p>Disables the use of PHP's internal memory manager for internal set structures. With this option enabled, internal allocations will not count towards the memory_limit settings.</p>
+		 * @var int <p>Disables the use of PHP's internal memory manager for internal set structures. With this option enabled, internal allocations will not count towards the memory_limit settings.</p>
 		 * @link http://php.net/manual/en/class.quickhashinthash.php
 		 */
 		const DO_NOT_USE_ZEND_ALLOC = 2;
 
 		/**
-		 * @var integer <p>Selects to not use a hashing function, but merely use a modulo to find the bucket list index. This is not faster than normal hashing, and gives more collisions.</p>
+		 * @var int <p>Selects to not use a hashing function, but merely use a modulo to find the bucket list index. This is not faster than normal hashing, and gives more collisions.</p>
 		 * @link http://php.net/manual/en/class.quickhashinthash.php
 		 */
 		const HASHER_NO_HASH = 256;
 
 		/**
-		 * @var integer <p>This is the default hashing function to turn the integer hashes into bucket list indexes.</p>
+		 * @var int <p>This is the default hashing function to turn the integer hashes into bucket list indexes.</p>
 		 * @link http://php.net/manual/en/class.quickhashinthash.php
 		 */
 		const HASHER_JENKINS1 = 512;
 
 		/**
-		 * @var integer <p>Selects a variant hashing algorithm.</p>
+		 * @var int <p>Selects a variant hashing algorithm.</p>
 		 * @link http://php.net/manual/en/class.quickhashinthash.php
 		 */
 		const HASHER_JENKINS2 = 1024;
@@ -57,7 +57,7 @@ namespace {
 		 * This method adds a new entry to the hash
 		 * <p>This method adds a new entry to the hash, and returns whether the entry was added. Entries are by default always added unless QuickHashIntHash::CHECK_FOR_DUPES has been passed when the hash was created.</p>
 		 * @param int $key <p>The key of the entry to add.</p>
-		 * @param int $value <p>The optional value of the entry to add. If no value is specified, <i>1</i> will be used.</p>
+		 * @param int $value <p>The optional value of the entry to add. If no value is specified, <code>1</code> will be used.</p>
 		 * @return bool <p><b><code>TRUE</code></b> when the entry was added, and <b><code>FALSE</code></b> if the entry was not added.</p>
 		 * @link http://php.net/manual/en/quickhashinthash.add.php
 		 * @since PECL quickhash >= Unknown
@@ -176,31 +176,31 @@ namespace {
 	class QuickHashIntSet {
 
 		/**
-		 * @var integer <p>If enabled, adding duplicate elements to a set (through either add() or loadFromFile()) will result in those elements to be dropped from the set. This will take up extra time, so only used when it is required.</p>
+		 * @var int <p>If enabled, adding duplicate elements to a set (through either add() or loadFromFile()) will result in those elements to be dropped from the set. This will take up extra time, so only used when it is required.</p>
 		 * @link http://php.net/manual/en/class.quickhashintset.php
 		 */
 		const CHECK_FOR_DUPES = 1;
 
 		/**
-		 * @var integer <p>Disables the use of PHP's internal memory manager for internal set structures. With this option enabled, internal allocations will not count towards the memory_limit settings.</p>
+		 * @var int <p>Disables the use of PHP's internal memory manager for internal set structures. With this option enabled, internal allocations will not count towards the memory_limit settings.</p>
 		 * @link http://php.net/manual/en/class.quickhashintset.php
 		 */
 		const DO_NOT_USE_ZEND_ALLOC = 2;
 
 		/**
-		 * @var integer <p>Selects to not use a hashing function, but merely use a modulo to find the bucket list index. This is not faster than normal hashing, and gives more collisions.</p>
+		 * @var int <p>Selects to not use a hashing function, but merely use a modulo to find the bucket list index. This is not faster than normal hashing, and gives more collisions.</p>
 		 * @link http://php.net/manual/en/class.quickhashintset.php
 		 */
 		const HASHER_NO_HASH = 256;
 
 		/**
-		 * @var integer <p>This is the default hashing function to turn the integer hashes into bucket list indexes.</p>
+		 * @var int <p>This is the default hashing function to turn the integer hashes into bucket list indexes.</p>
 		 * @link http://php.net/manual/en/class.quickhashintset.php
 		 */
 		const HASHER_JENKINS1 = 512;
 
 		/**
-		 * @var integer <p>Selects a variant hashing algorithm.</p>
+		 * @var int <p>Selects a variant hashing algorithm.</p>
 		 * @link http://php.net/manual/en/class.quickhashintset.php
 		 */
 		const HASHER_JENKINS2 = 1024;
@@ -308,31 +308,31 @@ namespace {
 	class QuickHashIntStringHash {
 
 		/**
-		 * @var integer <p>If enabled, adding duplicate elements to a set (through either add() or loadFromFile()) will result in those elements to be dropped from the set. This will take up extra time, so only used when it is required.</p>
+		 * @var int <p>If enabled, adding duplicate elements to a set (through either add() or loadFromFile()) will result in those elements to be dropped from the set. This will take up extra time, so only used when it is required.</p>
 		 * @link http://php.net/manual/en/class.quickhashintstringhash.php
 		 */
 		const CHECK_FOR_DUPES = 1;
 
 		/**
-		 * @var integer <p>Disables the use of PHP's internal memory manager for internal set structures. With this option enabled, internal allocations will not count towards the memory_limit settings.</p>
+		 * @var int <p>Disables the use of PHP's internal memory manager for internal set structures. With this option enabled, internal allocations will not count towards the memory_limit settings.</p>
 		 * @link http://php.net/manual/en/class.quickhashintstringhash.php
 		 */
 		const DO_NOT_USE_ZEND_ALLOC = 2;
 
 		/**
-		 * @var integer <p>Selects to not use a hashing function, but merely use a modulo to find the bucket list index. This is not faster than normal hashing, and gives more collisions.</p>
+		 * @var int <p>Selects to not use a hashing function, but merely use a modulo to find the bucket list index. This is not faster than normal hashing, and gives more collisions.</p>
 		 * @link http://php.net/manual/en/class.quickhashintstringhash.php
 		 */
 		const HASHER_NO_HASH = 256;
 
 		/**
-		 * @var integer <p>This is the default hashing function to turn the integer hashes into bucket list indexes.</p>
+		 * @var int <p>This is the default hashing function to turn the integer hashes into bucket list indexes.</p>
 		 * @link http://php.net/manual/en/class.quickhashintstringhash.php
 		 */
 		const HASHER_JENKINS1 = 512;
 
 		/**
-		 * @var integer <p>Selects a variant hashing algorithm.</p>
+		 * @var int <p>Selects a variant hashing algorithm.</p>
 		 * @link http://php.net/manual/en/class.quickhashintstringhash.php
 		 */
 		const HASHER_JENKINS2 = 1024;
@@ -473,13 +473,13 @@ namespace {
 	class QuickHashStringIntHash {
 
 		/**
-		 * @var integer <p>If enabled, adding duplicate elements to a set (through either add() or loadFromFile()) will result in those elements to be dropped from the set. This will take up extra time, so only used when it is required.</p>
+		 * @var int <p>If enabled, adding duplicate elements to a set (through either add() or loadFromFile()) will result in those elements to be dropped from the set. This will take up extra time, so only used when it is required.</p>
 		 * @link http://php.net/manual/en/class.quickhashstringinthash.php
 		 */
 		const CHECK_FOR_DUPES = 1;
 
 		/**
-		 * @var integer <p>Disables the use of PHP's internal memory manager for internal set structures. With this option enabled, internal allocations will not count towards the memory_limit settings.</p>
+		 * @var int <p>Disables the use of PHP's internal memory manager for internal set structures. With this option enabled, internal allocations will not count towards the memory_limit settings.</p>
 		 * @link http://php.net/manual/en/class.quickhashstringinthash.php
 		 */
 		const DO_NOT_USE_ZEND_ALLOC = 2;

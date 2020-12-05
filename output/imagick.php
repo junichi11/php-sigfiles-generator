@@ -1103,7 +1103,7 @@ namespace {
 		const PIXEL_FLOAT = 3;
 
 		/**
-		 * @var int
+		 * @var int Only available for ImageMagick &lt; 7.
 		 * @link http://php.net/manual/en/imagick.constants.php
 		 */
 		const PIXEL_INTEGER = 4;
@@ -2450,7 +2450,7 @@ namespace {
 		 * @link http://php.net/manual/en/imagick.appendimages.php
 		 * @since PECL imagick 2.0.0
 		 */
-		public function appendImages(bool $stack = FALSE): \Imagick {}
+		public function appendImages(bool $stack): \Imagick {}
 
 		/**
 		 * Description
@@ -2695,7 +2695,7 @@ namespace {
 		 * @param \Imagick $image <p>Imagick object containing the image to compare.</p>
 		 * @param int $channelType <p>Provide any channel constant that is valid for your channel mode. To apply to more than one channel, combine channeltype constants using bitwise operators. Refer to this list of channel constants.</p>
 		 * @param int $metricType <p>One of the metric type constants.</p>
-		 * @return array <p>Array consisting of <i>new_wand</i> and <i>distortion</i>.</p>
+		 * @return array <p>Array consisting of <code>new_wand</code> and <code>distortion</code>.</p>
 		 * @link http://php.net/manual/en/imagick.compareimagechannels.php
 		 * @since PECL imagick 2.0.0
 		 */
@@ -3001,12 +3001,12 @@ namespace {
 
 		/**
 		 * Exports raw image pixels
-		 * <p>Exports image pixels into an array. The map defines the ordering of the exported pixels. The size of the returned array is <i>width &#42; height &#42; strlen(map)</i>. This method is available if Imagick has been compiled against ImageMagick version 6.4.7 or newer.</p>
+		 * <p>Exports image pixels into an array. The map defines the ordering of the exported pixels. The size of the returned array is <code>width &#42; height &#42; strlen(map)</code>. This method is available if Imagick has been compiled against ImageMagick version 6.4.7 or newer.</p>
 		 * @param int $x <p>X-coordinate of the exported area</p>
 		 * @param int $y <p>Y-coordinate of the exported area</p>
 		 * @param int $width <p>Width of the exported aread</p>
 		 * @param int $height <p>Height of the exported area</p>
-		 * @param string $map <p>Ordering of the exported pixels. For example <i>"RGB"</i>. Valid characters for the map are R, G, B, A, O, C, Y, M, K, I and P.</p>
+		 * @param string $map <p>Ordering of the exported pixels. For example <code>"RGB"</code>. Valid characters for the map are R, G, B, A, O, C, Y, M, K, I and P.</p>
 		 * @param int $STORAGE <p>Refer to this list of pixel type constants</p>
 		 * @return array <p>Returns an array containing the pixels values.</p>
 		 * @link http://php.net/manual/en/imagick.exportimagepixels.php
@@ -3074,8 +3074,8 @@ namespace {
 		public function floodFillPaintImage($fill, float $fuzz, $target, int $x, int $y, bool $invert, int $channel = Imagick::CHANNEL_DEFAULT): bool {}
 
 		/**
-		 * Creates a horizontal mirror image
-		 * <p>Creates a horizontal mirror image by reflecting the pixels around the central y-axis.</p>
+		 * Creates a vertical mirror image
+		 * <p>Creates a vertical mirror image by reflecting the pixels around the central y-axis.</p>
 		 * @return bool <p>Returns <b><code>TRUE</code></b> on success.</p>
 		 * @link http://php.net/manual/en/imagick.flopimage.php
 		 * @since PECL imagick 2.0.0
@@ -3357,7 +3357,7 @@ namespace {
 		 * The getImageChannelKurtosis purpose
 		 * <p>Get the kurtosis and skewness of a specific channel. This method is available if Imagick has been compiled against ImageMagick version 6.4.9 or newer.</p>
 		 * @param int $channel <p>Provide any channel constant that is valid for your channel mode. To apply to more than one channel, combine channel constants using bitwise operators. Defaults to <b><code>Imagick::CHANNEL_DEFAULT</code></b>. Refer to this list of channel constants</p>
-		 * @return array <p>Returns an array with <i>kurtosis</i> and <i>skewness</i> members.</p>
+		 * @return array <p>Returns an array with <code>kurtosis</code> and <code>skewness</code> members.</p>
 		 * @link http://php.net/manual/en/imagick.getimagechannelkurtosis.php
 		 * @since No version information available, might only be in Git
 		 */
@@ -3414,7 +3414,7 @@ namespace {
 		/**
 		 * Gets the number of unique colors in the image
 		 * <p>Gets the number of unique colors in the image.</p>
-		 * @return int <p>Returns an <code>integer</code>, the number of unique colors in the image.</p>
+		 * @return int <p>Returns an <code>int</code>, the number of unique colors in the image.</p>
 		 * @link http://php.net/manual/en/imagick.getimagecolors.php
 		 * @since PECL imagick 2.0.0
 		 */
@@ -3976,7 +3976,7 @@ namespace {
 		/**
 		 * Returns the Imagick quantum range
 		 * <p>Returns the quantum range for the Imagick instance.</p>
-		 * @return array <p>Returns an associative array containing the quantum range as an <code>integer</code> (<i>"quantumRangeLong"</i>) and as a <code>string</code> (<i>"quantumRangeString"</i>).</p>
+		 * @return array <p>Returns an associative array containing the quantum range as an <code>int</code> (<code>"quantumRangeLong"</code>) and as a <code>string</code> (<code>"quantumRangeString"</code>).</p>
 		 * @link http://php.net/manual/en/imagick.getquantumrange.php
 		 * @since PECL imagick 2.0.0
 		 */
@@ -4014,7 +4014,7 @@ namespace {
 		/**
 		 * Returns the specified resource limit
 		 * <p>Returns the specified resource limit.</p>
-		 * @param int $type <p>Refer to the list of resourcetype constants.</p>
+		 * @param int $type <p>One of the resourcetype constants. The unit depends on the type of the resource being limited.</p>
 		 * @return int <p>Returns the specified resource limit in megabytes.</p>
 		 * @link http://php.net/manual/en/imagick.getresourcelimit.php
 		 * @since PECL imagick 2.0.0
@@ -4090,11 +4090,11 @@ namespace {
 		 * Description
 		 * <p>Replaces any embedded formatting characters with the appropriate image property and returns the interpreted text. See http://www.imagemagick.org/script/escape.php for escape sequences.</p>
 		 * @param string $embedText <p>A string containing formatting sequences e.g. "Trim box: %@ number of unique colors: %k".</p>
-		 * @return string <p>Returns format or <b><code>FALSE</code></b> on failure.</p>
+		 * @return string|false <p>Returns format or <b><code>FALSE</code></b> on failure.</p>
 		 * @link http://php.net/manual/en/imagick.identifyformat.php
 		 * @since No version information available, might only be in Git
 		 */
-		public function identifyFormat(string $embedText): string {}
+		public function identifyFormat(string $embedText) {}
 
 		/**
 		 * Identifies an image and fetches attributes
@@ -4123,7 +4123,7 @@ namespace {
 		 * @param int $y <p>The image y position</p>
 		 * @param int $width <p>The image width</p>
 		 * @param int $height <p>The image height</p>
-		 * @param string $map <p>Map of pixel ordering as a string. This can be for example <i>RGB</i>. The value can be any combination or order of R = red, G = green, B = blue, A = alpha (0 is transparent), O = opacity (0 is opaque), C = cyan, Y = yellow, M = magenta, K = black, I = intensity (for grayscale), P = pad.</p>
+		 * @param string $map <p>Map of pixel ordering as a string. This can be for example <code>RGB</code>. The value can be any combination or order of R = red, G = green, B = blue, A = alpha (0 is transparent), O = opacity (0 is opaque), C = cyan, Y = yellow, M = magenta, K = black, I = intensity (for grayscale), P = pad.</p>
 		 * @param int $storage <p>The pixel storage method. Refer to this list of pixel constants.</p>
 		 * @param array $pixels <p>The array of pixels</p>
 		 * @return bool <p>Returns <b><code>TRUE</code></b> on success.</p>
@@ -4772,7 +4772,7 @@ namespace {
 		/**
 		 * Reset image page
 		 * <p>The page definition as a string. The string is in format WxH+x+y. This method is available if Imagick has been compiled against ImageMagick version 6.3.6 or newer.</p>
-		 * @param string $page <p>The page definition. For example <i>7168x5147+0+0</i></p>
+		 * @param string $page <p>The page definition. For example <code>7168x5147+0+0</code></p>
 		 * @return bool <p>Returns <b><code>TRUE</code></b> on success.</p>
 		 * @link http://php.net/manual/en/imagick.resetimagepage.php
 		 * @since No version information available, might only be in Git
@@ -4944,7 +4944,7 @@ namespace {
 		/**
 		 * Sets the object's default compression quality
 		 * <p>Sets the object's default compression quality.</p><p>This method only works for new images e.g. those created through Imagick::newPseudoImage. For existing images you should use <code>Imagick::setImageCompressionQuality()</code>.</p>
-		 * @param int $quality
+		 * @param int $quality <p>An <code>int</code> between 1 and 100, 1 = high compression, 100 low compression.</p>
 		 * @return bool <p>Returns <b><code>TRUE</code></b> on success.</p>
 		 * @link http://php.net/manual/en/imagick.setcompressionquality.php
 		 * @since PECL imagick 0.9.10-0.9.9
@@ -5419,7 +5419,7 @@ namespace {
 
 		/**
 		 * Sets the image ticks-per-second
-		 * <p>Adjust the amount of time that a frame of an animated image is displayed for.</p><p><b>Note</b>:</p><p>For animated GIFs, this function does not change the number of 'image ticks' per second, which is always defined as 100. Instead it adjusts the amount of time that the frame is displayed for to simulate the change in 'ticks per second'.</p><p>For example, for an animated GIF where each frame is displayed for 20 ticks (1/5 of a second) when this method is called on each frame of that image with an argument of <i>50</i> the frames are adjusted to be displayed for 40 ticks (2/5 of a second) and the animation will play at half the original speed.</p>
+		 * <p>Adjust the amount of time that a frame of an animated image is displayed for.</p><p><b>Note</b>:</p><p>For animated GIFs, this function does not change the number of 'image ticks' per second, which is always defined as 100. Instead it adjusts the amount of time that the frame is displayed for to simulate the change in 'ticks per second'.</p><p>For example, for an animated GIF where each frame is displayed for 20 ticks (1/5 of a second) when this method is called on each frame of that image with an argument of <code>50</code> the frames are adjusted to be displayed for 40 ticks (2/5 of a second) and the animation will play at half the original speed.</p>
 		 * @param int $ticks_per_second <p>The duration for which an image should be displayed expressed in ticks per second.</p>
 		 * @return bool <p>Returns <b><code>TRUE</code></b> on success.</p>
 		 * @link http://php.net/manual/en/imagick.setimagetickspersecond.php
@@ -5536,7 +5536,7 @@ namespace {
 		/**
 		 * Description
 		 * <p>Set a callback that will be called during the processing of the Imagick image.</p>
-		 * @param callable $callback <p>The progress function to call. It should return true if image processing should continue, or false if it should be cancelled. The offset parameter indicates the progress and the span parameter indicates the total amount of work needed to be done.</p>  bool  callback  (  <code>mixed</code> <code>$offset</code>  ,  <code>mixed</code> <code>$span</code>  ) <b>Caution</b> <p>The values passed to the callback function are not consistent. In particular the span parameter can increase during image processing. Because of this calculating the percentage complete of an image operation is not trivial.</p>
+		 * @param callable $callback <p>The progress function to call. It should return true if image processing should continue, or false if it should be cancelled. The offset parameter indicates the progress and the span parameter indicates the total amount of work needed to be done.</p>   callback  (  <code>mixed</code> <code>$offset</code>  ,  <code>mixed</code> <code>$span</code>  ) : <code>bool</code> <b>Caution</b> <p>The values passed to the callback function are not consistent. In particular the span parameter can increase during image processing. Because of this calculating the percentage complete of an image operation is not trivial.</p>
 		 * @return bool <p>Returns <b><code>TRUE</code></b> on success.</p>
 		 * @link http://php.net/manual/en/imagick.setprogressmonitor.php
 		 * @since No version information available, might only be in Git
@@ -5566,10 +5566,10 @@ namespace {
 		public function setResolution(float $x_resolution, float $y_resolution): bool {}
 
 		/**
-		 * Sets the limit for a particular resource in megabytes
+		 * Sets the limit for a particular resource
 		 * <p>This method is used to modify the resource limits of the underlying ImageMagick library.</p>
 		 * @param int $type <p>Refer to the list of resourcetype constants.</p>
-		 * @param int $limit <p>The resource limit. The unit depends on the type of the resource being limited.</p>
+		 * @param int $limit <p>One of the resourcetype constants. The unit depends on the type of the resource being limited.</p>
 		 * @return bool <p>Returns <b><code>TRUE</code></b> on success.</p>
 		 * @link http://php.net/manual/en/imagick.setresourcelimit.php
 		 * @since PECL imagick 2.0.0
@@ -5729,7 +5729,7 @@ namespace {
 		 * Interpolates colors
 		 * <p>Given the arguments array containing numeric values this method interpolates the colors found at those coordinates across the whole image using <code>sparse_method</code>. This method is available if Imagick has been compiled against ImageMagick version 6.4.5 or newer.</p>
 		 * @param int $SPARSE_METHOD <p>Refer to this list of sparse method constants</p>
-		 * @param array $arguments <p>An array containing the coordinates. The array is in format <i>array(1,1, 2,45)</i></p>
+		 * @param array $arguments <p>An array containing the coordinates. The array is in format <code>array(1,1, 2,45)</code></p>
 		 * @param int $channel <p>Provide any channel constant that is valid for your channel mode. To apply to more than one channel, combine channel constants using bitwise operators. Defaults to <b><code>Imagick::CHANNEL_DEFAULT</code></b>. Refer to this list of channel constants</p>
 		 * @return bool <p>Returns <b><code>TRUE</code></b> on success.</p>
 		 * @link http://php.net/manual/en/imagick.sparsecolorimage.php
@@ -7376,7 +7376,7 @@ namespace {
 
 		/**
 		 * Description
-		 * <p>Create a kernel from an 2d matrix of values. Each value should either be a float (if the element should be used) or 'false' if the element should be skipped. For matrices that are odd sizes in both dimensions the the origin pixel will default to the centre of the kernel. For all other kernel sizes the origin pixel must be specified.</p>
+		 * <p>Create a kernel from an 2d matrix of values. Each value should either be a float (if the element should be used) or 'false' if the element should be skipped. For matrices that are odd sizes in both dimensions the origin pixel will default to the centre of the kernel. For all other kernel sizes the origin pixel must be specified.</p>
 		 * @param array $matrix
 		 * @param array $origin
 		 * @return ImagickKernel <p>The generated ImagickKernel.</p>
@@ -7480,7 +7480,7 @@ namespace {
 		/**
 		 * Description
 		 * <p>Returns the color of the pixel in an array as Quantum values. If ImageMagick was compiled as HDRI these will be floats, otherwise they will be integers.</p><p>This function is currently not documented; only its argument list is available.</p>
-		 * @return array <p>Returns an array with keys <i>"r"</i>, <i>"g"</i>, <i>"b"</i>, <i>"a"</i>.</p>
+		 * @return array <p>Returns an array with keys <code>"r"</code>, <code>"g"</code>, <code>"b"</code>, <code>"a"</code>.</p>
 		 * @link http://php.net/manual/en/imagickpixel.getcolorquantum.php
 		 * @since No version information available, might only be in Git
 		 */
@@ -7500,7 +7500,7 @@ namespace {
 		 * Description
 		 * <p>Gets the quantum value of a color in the ImagickPixel. Return value is a float if ImageMagick was compiled with HDRI, otherwise an integer.</p>
 		 * @param int $color
-		 * @return number <p>The quantum value of the color element. Float if ImageMagick was compiled with HDRI, otherwise an int.</p>
+		 * @return int|float <p>The quantum value of the color element. Float if ImageMagick was compiled with HDRI, otherwise an int.</p>
 		 * @link http://php.net/manual/en/imagickpixel.getcolorvaluequantum.php
 		 * @since No version information available, might only be in Git
 		 */
@@ -7592,7 +7592,7 @@ namespace {
 		 * Description
 		 * <p>Sets the quantum value of a color element of the ImagickPixel.</p><p>This function is currently not documented; only its argument list is available.</p>
 		 * @param int $color <p>Which color element to set e.g. \Imagick::COLOR_GREEN.</p>
-		 * @param number $value <p>The quantum value to set the color element to. This should be a float if ImageMagick was compiled with HDRI otherwise an int in the range 0 to Imagick::getQuantum().</p>
+		 * @param int|float $value <p>The quantum value to set the color element to. This should be a float if ImageMagick was compiled with HDRI otherwise an int in the range 0 to Imagick::getQuantum().</p>
 		 * @return bool <p>Returns <b><code>TRUE</code></b> on success.</p>
 		 * @link http://php.net/manual/en/imagickpixel.setcolorvaluequantum.php
 		 * @since No version information available, might only be in Git

@@ -89,7 +89,7 @@ namespace {
 	 * Return an instance of the Directory class
 	 * <p>A pseudo-object oriented mechanism for reading a directory. The given <code>directory</code> is opened.</p>
 	 * @param string $directory <p>Directory to open</p>
-	 * @param resource $context <p></p><p><b>Note</b>: Context support was added with PHP 5.0.0. For a description of <i>contexts</i>, refer to Streams.</p>
+	 * @param resource $context <p></p><p><b>Note</b>: Context support was added with PHP 5.0.0. For a description of <code>contexts</code>, refer to Streams.</p>
 	 * @return Directory <p>Returns an instance of Directory, or <b><code>NULL</code></b> with wrong parameters, or <b><code>FALSE</code></b> in case of another error.</p>
 	 * @link http://php.net/manual/en/function.dir.php
 	 * @since PHP 4, PHP 5, PHP 7
@@ -111,7 +111,7 @@ namespace {
 	 * <p>Opens up a directory handle to be used in subsequent <code>closedir()</code>, <code>readdir()</code>, and <code>rewinddir()</code> calls.</p>
 	 * @param string $path <p>The directory path that is to be opened</p>
 	 * @param resource $context <p>For a description of the <code>context</code> parameter, refer to the streams section of the manual.</p>
-	 * @return resource <p>Returns a directory handle <code>resource</code> on success, or <b><code>FALSE</code></b> on failure.</p><p>If <code>path</code> is not a valid directory or the directory can not be opened due to permission restrictions or filesystem errors, <b>opendir()</b> returns <b><code>FALSE</code></b> and generates a PHP error of level  E_WARNING. You can suppress the error output of <b>opendir()</b> by prepending '@' to the front of the function name.</p>
+	 * @return resource|false <p>Returns a directory handle <code>resource</code> on success, or <b><code>FALSE</code></b> on failure</p>
 	 * @link http://php.net/manual/en/function.opendir.php
 	 * @see is_dir(), readdir(), dir()
 	 * @since PHP 4, PHP 5, PHP 7
@@ -122,12 +122,12 @@ namespace {
 	 * Read entry from directory handle
 	 * <p>Returns the name of the next entry in the directory. The entries are returned in the order in which they are stored by the filesystem.</p>
 	 * @param resource $dir_handle <p>The directory handle <code>resource</code> previously opened with <code>opendir()</code>. If the directory handle is not specified, the last link opened by <code>opendir()</code> is assumed.</p>
-	 * @return string <p>Returns the entry name on success or <b><code>FALSE</code></b> on failure.</p><p><b>Warning</b></p><p>This function may return Boolean <b><code>FALSE</code></b>, but may also return a non-Boolean value which evaluates to <b><code>FALSE</code></b>. Please read the section on Booleans for more information. Use the === operator for testing the return value of this function.</p>
+	 * @return string|false <p>Returns the entry name on success or <b><code>FALSE</code></b> on failure.</p><p><b>Warning</b></p><p>This function may return Boolean <b><code>FALSE</code></b>, but may also return a non-Boolean value which evaluates to <b><code>FALSE</code></b>. Please read the section on Booleans for more information. Use the === operator for testing the return value of this function.</p>
 	 * @link http://php.net/manual/en/function.readdir.php
 	 * @see is_dir(), glob(), opendir(), scandir()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function readdir($dir_handle = NULL): string {}
+	function readdir($dir_handle = NULL) {}
 
 	/**
 	 * Rewind directory handle

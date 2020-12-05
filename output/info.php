@@ -7,8 +7,8 @@ namespace {
 	/**
 	 * Checks if assertion is FALSE
 	 * <p>PHP 5 and 7</p><p>PHP 7</p><p><b>assert()</b> will check the given <code>assertion</code> and take appropriate action if its result is <b><code>FALSE</code></b>.</p><p>If the <code>assertion</code> is given as a string it will be evaluated as PHP code by <b>assert()</b>. If you pass a boolean condition as <code>assertion</code>, this condition will not show up as parameter to the assertion function which you may have defined with <code>assert_options()</code>. The condition is converted to a string before calling that handler function, and the boolean <b><code>FALSE</code></b> is converted as the empty string.</p><p>Assertions should be used as a debugging feature only. You may use them for sanity-checks that test for conditions that should always be <b><code>TRUE</code></b> and that indicate some programming errors if not or to check for the presence of certain features like extension functions or certain system limits and features.</p><p>Assertions should not be used for normal runtime operations like input parameter checks. As a rule of thumb your code should always be able to work correctly if assertion checking is not activated.</p><p>The behavior of <b>assert()</b> may be configured by <code>assert_options()</code> or by .ini-settings described in that functions manual page.</p><p>The <code>assert_options()</code> function and/or <b><code>ASSERT_CALLBACK</code></b> configuration directive allow a callback function to be set to handle failed assertions.</p><p><b>assert()</b> callbacks are particularly useful for building automated test suites because they allow you to easily capture the code passed to the assertion, along with information on where the assertion was made. While this information can be captured via other methods, using assertions makes it much faster and easier!</p><p>The callback function should accept three arguments. The first argument will contain the file the assertion failed in. The second argument will contain the line the assertion failed on and the third argument will contain the expression that failed (if any &mdash; literal values such as 1 or "two" will not be passed via this argument). Users of PHP 5.4.8 and later may also provide a fourth optional argument, which will contain the <code>description</code> given to <b>assert()</b>, if it was set.</p><p><b>assert()</b> is a language construct in PHP 7, allowing for the definition of expectations: assertions that take effect in development and testing environments, but are optimised away to have zero cost in production.</p><p>While <code>assert_options()</code> can still be used to control behaviour as described above for backward compatibility reasons, PHP 7 only code should use the two new configuration directives to control the behaviour of <b>assert()</b> and not call <code>assert_options()</code>.</p>
-	 * @param mixed $assertion <p>The assertion. In PHP 5, this must be either a <code>string</code> to be evaluated or a <code>boolean</code> to be tested. In PHP 7, this may also be any expression that returns a value, which will be executed and the result used to indicate whether the assertion succeeded or failed.</p> <p><b>Warning</b></p> <p>Using <code>string</code> as the <code>assertion</code> is <i>DEPRECATED</i> as of PHP 7.2.</p>
-	 * @param string $description <p>An optional description that will be included in the failure message if the <code>assertion</code> fails.</p>
+	 * @param mixed $assertion <p>The assertion. In PHP 5, this must be either a <code>string</code> to be evaluated or a <code>bool</code> to be tested. In PHP 7, this may also be any expression that returns a value, which will be executed and the result used to indicate whether the assertion succeeded or failed.</p> <p><b>Warning</b></p> <p>Using <code>string</code> as the <code>assertion</code> is <i>DEPRECATED</i> as of PHP 7.2.</p>
+	 * @param string $description <p>An optional description that will be included in the failure message if the <code>assertion</code> fails. From PHP 7, if no description is provided, a default description equal to the source code for the invocation of <b>assert()</b> is provided.</p>
 	 * @return bool <p><b><code>FALSE</code></b> if the assertion is false, <b><code>TRUE</code></b> otherwise.</p>
 	 * @link http://php.net/manual/en/function.assert.php
 	 * @see assert_options()
@@ -18,9 +18,9 @@ namespace {
 
 	/**
 	 * Set/get the various assert flags
-	 * <p>Set the various <code>assert()</code> control options or just query their current settings.</p>
+	 * <p>Set the various <code>assert()</code> control options or just query their current settings.</p><p><b>Note</b>:  As of PHP 7.0.0, the use of <b>assert_options()</b> is discouraged in favor of setting and getting the php.ini directives zend.assertions and assert.exception with <code>ini_set()</code> and <code>ini_get()</code>, respectively. </p>
 	 * @param int $what <p></p> <b>Assert Options</b>   Option INI Setting Default value Description     ASSERT_ACTIVE assert.active 1 enable <code>assert()</code> evaluation   ASSERT_WARNING assert.warning 1 issue a PHP warning for each failed assertion   ASSERT_BAIL assert.bail 0 terminate execution on failed assertions   ASSERT_QUIET_EVAL assert.quiet_eval 0  disable error_reporting during assertion expression evaluation    ASSERT_CALLBACK assert.callback (<b><code>NULL</code></b>) Callback to call on failed assertions
-	 * @param mixed $value <p>An optional new value for the option.</p>
+	 * @param mixed $value <p>An optional new value for the option.</p> <p>The callback function set via <b><code>ASSERT_CALLBACK</code></b> or assert.callback should have the following signature:</p> <b>assert_callback</b> ( <code>string</code> <code>$file</code> , <code>int</code> <code>$line</code> , <code>string</code> <code>$assertion</code> [, <code>string</code> <code>$description</code> ] ) : void   <code>file</code>   The file where <code>assert()</code> has been called.    <code>line</code>   The line where <code>assert()</code> has been called.    <code>assertion</code>   The assertion that has been passed to <code>assert()</code>, converted to a string.    <code>description</code>   The description that has been passed to <code>assert()</code>.
 	 * @return mixed <p>Returns the original setting of any option or <b><code>FALSE</code></b> on errors.</p>
 	 * @link http://php.net/manual/en/function.assert-options.php
 	 * @see assert()
@@ -52,8 +52,8 @@ namespace {
 	/**
 	 * Loads a PHP extension at runtime
 	 * <p>Loads the PHP extension given by the parameter <code>library</code>.</p><p>Use <code>extension_loaded()</code> to test whether a given extension is already available or not. This works on both built-in extensions and dynamically loaded ones (either through php.ini or <b>dl()</b>).</p><p>This function was removed from most SAPIs in PHP 5.3.0, and was removed from PHP-FPM in PHP 7.0.0.</p>
-	 * @param string $library <p>This parameter is <i>only</i> the filename of the extension to load which also depends on your platform. For example, the sockets extension (if compiled as a shared module, not the default!) would be called sockets.so on Unix platforms whereas it is called php_sockets.dll on the Windows platform.</p> <p>The directory where the extension is loaded from depends on your platform:</p> <p>Windows - If not explicitly set in the php.ini, the extension is loaded from C:\php5\ by default.</p> <p>Unix - If not explicitly set in the php.ini, the default extension directory depends on</p><ul> <li>  whether PHP has been built with <i>--enable-debug</i> or not  </li> <li>  whether PHP has been built with (experimental) ZTS (Zend Thread Safety) support or not  </li> <li>  the current internal <i>ZEND_MODULE_API_NO</i> (Zend internal module API number, which is basically the date on which a major module API change happened, e.g. <i>20010901</i>)  </li> </ul> Taking into account the above, the directory then defaults to <i>&lt;install-dir&gt;/lib/php/extensions/ &lt;debug-or-not&gt;-&lt;zts-or-not&gt;-ZEND_MODULE_API_NO</i>, e.g. /usr/local/php/lib/php/extensions/debug-non-zts-20010901 or /usr/local/php/lib/php/extensions/no-debug-zts-20010901.
-	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure. If the functionality of loading modules is not available or has been disabled (either by setting enable_dl off or by enabling safe mode in php.ini) an <b><code>E_ERROR</code></b> is emitted and execution is stopped. If <b>dl()</b> fails because the specified library couldn't be loaded, in addition to <b><code>FALSE</code></b> an <b><code>E_WARNING</code></b> message is emitted.</p>
+	 * @param string $library <p>This parameter is <i>only</i> the filename of the extension to load which also depends on your platform. For example, the sockets extension (if compiled as a shared module, not the default!) would be called sockets.so on Unix platforms whereas it is called php_sockets.dll on the Windows platform.</p> <p>The directory where the extension is loaded from depends on your platform:</p> <p>Windows - If not explicitly set in the php.ini, the extension is loaded from C:\php5\ by default.</p> <p>Unix - If not explicitly set in the php.ini, the default extension directory depends on</p><ul> <li>  whether PHP has been built with <code>--enable-debug</code> or not  </li> <li>  whether PHP has been built with (experimental) ZTS (Zend Thread Safety) support or not  </li> <li>  the current internal <code>ZEND_MODULE_API_NO</code> (Zend internal module API number, which is basically the date on which a major module API change happened, e.g. <code>20010901</code>)  </li> </ul> Taking into account the above, the directory then defaults to <code>&lt;install-dir&gt;/lib/php/extensions/ &lt;debug-or-not&gt;-&lt;zts-or-not&gt;-ZEND_MODULE_API_NO</code>, e.g. /usr/local/php/lib/php/extensions/debug-non-zts-20010901 or /usr/local/php/lib/php/extensions/no-debug-zts-20010901.
+	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure. If the functionality of loading modules is not available or has been disabled (by setting enable_dl off in php.ini) an <b><code>E_ERROR</code></b> is emitted and execution is stopped. If <b>dl()</b> fails because the specified library couldn't be loaded, in addition to <b><code>FALSE</code></b> an <b><code>E_WARNING</code></b> message is emitted.</p>
 	 * @link http://php.net/manual/en/function.dl.php
 	 * @see extension_loaded()
 	 * @since PHP 4, PHP 5, PHP 7
@@ -63,7 +63,7 @@ namespace {
 	/**
 	 * Find out whether an extension is loaded
 	 * <p>Finds out whether the extension is loaded.</p>
-	 * @param string $name <p>The extension name. This parameter is case-insensitive.</p> <p>You can see the names of various extensions by using <code>phpinfo()</code> or if you're using the <i>CGI</i> or <i>CLI</i> version of PHP you can use the <b>-m</b> switch to list all available extensions:</p> <pre> $ php -m [PHP Modules] xml tokenizer standard sockets session posix pcre overload mysql mbstring ctype [Zend Modules] </pre>
+	 * @param string $name <p>The extension name. This parameter is case-insensitive.</p> <p>You can see the names of various extensions by using <code>phpinfo()</code> or if you're using the <code>CGI</code> or <code>CLI</code> version of PHP you can use the <b>-m</b> switch to list all available extensions:</p> <pre> $ php -m [PHP Modules] xml tokenizer standard sockets session posix pcre overload mysql mbstring ctype [Zend Modules] </pre>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> if the extension identified by <code>name</code> is loaded, <b><code>FALSE</code></b> otherwise.</p>
 	 * @link http://php.net/manual/en/function.extension-loaded.php
 	 * @see get_loaded_extensions(), get_extension_funcs(), phpinfo(), dl(), function_exists()
@@ -82,7 +82,7 @@ namespace {
 
 	/**
 	 * Deactivates the circular reference collector
-	 * <p>Deactivates the circular reference collector, setting zend.enable_gc to <i>0</i>.</p>
+	 * <p>Deactivates the circular reference collector, setting zend.enable_gc to <code>0</code>.</p>
 	 * @return void <p>No value is returned.</p>
 	 * @link http://php.net/manual/en/function.gc-disable.php
 	 * @since PHP 5 >= 5.3.0, PHP 7
@@ -91,7 +91,7 @@ namespace {
 
 	/**
 	 * Activates the circular reference collector
-	 * <p>Activates the circular reference collector, setting zend.enable_gc to <i>1</i>.</p>
+	 * <p>Activates the circular reference collector, setting zend.enable_gc to <code>1</code>.</p>
 	 * @return void <p>No value is returned.</p>
 	 * @link http://php.net/manual/en/function.gc-enable.php
 	 * @since PHP 5 >= 5.3.0, PHP 7
@@ -115,6 +115,15 @@ namespace {
 	 * @since PHP 7
 	 */
 	function gc_mem_caches(): int {}
+
+	/**
+	 * Gets information about the garbage collector
+	 * <p>Gets information about the current state of the garbage collector.</p>
+	 * @return array <p>Returns an associative array with the following elements:</p><ul> <li>  <code>"runs"</code>  </li> <li>  <code>"collected"</code>  </li> <li>  <code>"threshold"</code>  </li> <li>  <code>"roots"</code>  </li> </ul>
+	 * @link http://php.net/manual/en/function.gc-status.php
+	 * @since PHP 7 >= 7.3.0
+	 */
+	function gc_status(): array {}
 
 	/**
 	 * Gets the value of a PHP configuration option
@@ -205,7 +214,7 @@ namespace {
 	 * <p>Returns the current active configuration setting of magic_quotes_runtime.</p>
 	 * @return bool <p>Returns 0 if magic_quotes_runtime is off, 1 otherwise. Or always returns <b><code>FALSE</code></b> as of PHP 5.4.0.</p>
 	 * @link http://php.net/manual/en/function.get-magic-quotes-runtime.php
-	 * @see get_magic_quotes_gpc(), set_magic_quotes_runtime()
+	 * @see get_magic_quotes_gpc()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
 	function get_magic_quotes_runtime(): bool {}
@@ -222,7 +231,7 @@ namespace {
 	/**
 	 * Returns active resources
 	 * <p>Returns an array of all currently active <code>resource</code>s, optionally filtered by resource type.</p>
-	 * @param string $type <p>If defined, this will cause <b>get_resources()</b> to only return resources of the given type. A list of resource types is available.</p> <p>If the <code>string</code> <i>Unknown</i> is provided as the type, then only resources that are of an unknown type will be returned.</p> <p>If omitted, all resources will be returned.</p>
+	 * @param string $type <p>If defined, this will cause <b>get_resources()</b> to only return resources of the given type. A list of resource types is available.</p> <p>If the <code>string</code> <code>Unknown</code> is provided as the type, then only resources that are of an unknown type will be returned.</p> <p>If omitted, all resources will be returned.</p>
 	 * @return array <p>Returns an <code>array</code> of currently active resources, indexed by resource number.</p>
 	 * @link http://php.net/manual/en/function.get-resources.php
 	 * @see get_loaded_extensions(), get_defined_constants(), get_defined_functions(), get_defined_vars()
@@ -295,14 +304,14 @@ namespace {
 	/**
 	 * Gets options from the command line argument list
 	 * <p>Parses options passed to the script.</p>
-	 * @param string $options Each character in this string will be used as option characters and matched against options passed to the script starting with a single hyphen (<i>-</i>).   For example, an option string <i>"x"</i> recognizes an option <i>-x</i>.   Only a-z, A-Z and 0-9 are allowed.
-	 * @param array $longopts An array of options. Each element in this array will be used as option strings and matched against options passed to the script starting with two hyphens (<i>--</i>).   For example, an longopts element <i>"opt"</i> recognizes an option <i>--opt</i>.
+	 * @param string $options Each character in this string will be used as option characters and matched against options passed to the script starting with a single hyphen (<code>-</code>).   For example, an option string <code>"x"</code> recognizes an option <code>-x</code>.   Only a-z, A-Z and 0-9 are allowed.
+	 * @param array $longopts An array of options. Each element in this array will be used as option strings and matched against options passed to the script starting with two hyphens (<code>--</code>).   For example, an longopts element <code>"opt"</code> recognizes an option <code>--opt</code>.
 	 * @param int $optind If the <code>optind</code> parameter is present, then the index where argument parsing stopped will be written to this variable.
-	 * @return array <p>This function will return an array of option / argument pairs, or <b><code>FALSE</code></b> on failure.</p><p><b>Note</b>:</p><p>The parsing of options will end at the first non-option found, anything that follows is discarded.</p>
+	 * @return array|false <p>This function will return an array of option / argument pairs, or <b><code>FALSE</code></b> on failure.</p><p><b>Note</b>:</p><p>The parsing of options will end at the first non-option found, anything that follows is discarded.</p>
 	 * @link http://php.net/manual/en/function.getopt.php
 	 * @since PHP 4 >= 4.3.0, PHP 5, PHP 7
 	 */
-	function getopt(string $options, array $longopts = NULL, int &$optind = NULL): array {}
+	function getopt(string $options, array $longopts = NULL, int &$optind = NULL) {}
 
 	/**
 	 * Gets the current resource usages
@@ -329,7 +338,7 @@ namespace {
 	 * Gets the value of a configuration option
 	 * <p>Returns the value of the configuration option on success.</p>
 	 * @param string $varname <p>The configuration option name.</p>
-	 * @return string <p>Returns the value of the configuration option as a string on success, or an empty string for <i>null</i> values. Returns <b><code>FALSE</code></b> if the configuration option doesn't exist.</p>
+	 * @return string <p>Returns the value of the configuration option as a string on success, or an empty string for <code>null</code> values. Returns <b><code>FALSE</code></b> if the configuration option doesn't exist.</p>
 	 * @link http://php.net/manual/en/function.ini-get.php
 	 * @see get_cfg_var(), ini_get_all(), ini_restore(), ini_set()
 	 * @since PHP 4, PHP 5, PHP 7
@@ -341,7 +350,7 @@ namespace {
 	 * <p>Returns all the registered configuration options.</p>
 	 * @param string $extension <p>An optional extension name. If set, the function return only options specific for that extension.</p>
 	 * @param bool $details <p>Retrieve details settings or only the current value for each setting. Default is <b><code>TRUE</code></b> (retrieve details).</p>
-	 * @return array <p>Returns an associative array with directive name as the array key.</p><p>When <code>details</code> is <b><code>TRUE</code></b> (default) the array will contain <i>global_value</i> (set in php.ini), <i>local_value</i> (perhaps set with <code>ini_set()</code> or .htaccess), and <i>access</i> (the access level).</p><p>When <code>details</code> is <b><code>FALSE</code></b> the value will be the current value of the option.</p><p>See the manual section for information on what access levels mean.</p><p><b>Note</b>:</p><p>It's possible for a directive to have multiple access levels, which is why <i>access</i> shows the appropriate bitmask values.</p>
+	 * @return array <p>Returns an associative array with directive name as the array key. Returns <b><code>FALSE</code></b> and raises an <b><code>E_WARNING</code></b> level error if the <code>extension</code> doesn't exist.</p><p>When <code>details</code> is <b><code>TRUE</code></b> (default) the array will contain <code>global_value</code> (set in php.ini), <code>local_value</code> (perhaps set with <code>ini_set()</code> or .htaccess), and <code>access</code> (the access level).</p><p>When <code>details</code> is <b><code>FALSE</code></b> the value will be the current value of the option.</p><p>See the manual section for information on what access levels mean.</p><p><b>Note</b>:</p><p>It's possible for a directive to have multiple access levels, which is why <code>access</code> shows the appropriate bitmask values.</p>
 	 * @link http://php.net/manual/en/function.ini-get-all.php
 	 * @see ini_get(), ini_restore(), ini_set(), get_loaded_extensions(), phpinfo()
 	 * @since PHP 4 >= 4.2.0, PHP 5, PHP 7
@@ -372,19 +381,9 @@ namespace {
 	function ini_set(string $varname, string $newvalue): string {}
 
 	/**
-	 * Alias of set_magic_quotes_runtime()
-	 * <p>This function is an alias of: <code>set_magic_quotes_runtime()</code></p>
-	 * @param bool $new_setting <p><b><code>FALSE</code></b> for off, <b><code>TRUE</code></b> for on.</p>
-	 * @return bool
-	 * @link http://php.net/manual/en/function.magic-quotes-runtime.php
-	 * @since PHP 4, PHP 5
-	 */
-	function magic_quotes_runtime(bool $new_setting): bool {}
-
-	/**
 	 * Returns the peak of memory allocated by PHP
 	 * <p>Returns the peak of memory, in bytes, that's been allocated to your PHP script.</p>
-	 * @param bool $real_usage <p>Set this to <b><code>TRUE</code></b> to get the real size of memory allocated from system. If not set or <b><code>FALSE</code></b> only the memory used by <i>emalloc()</i> is reported.</p>
+	 * @param bool $real_usage <p>Set this to <b><code>TRUE</code></b> to get the real size of memory allocated from system. If not set or <b><code>FALSE</code></b> only the memory used by <code>emalloc()</code> is reported.</p>
 	 * @return int <p>Returns the memory peak in bytes.</p>
 	 * @link http://php.net/manual/en/function.memory-get-peak-usage.php
 	 * @see memory_get_usage()
@@ -424,19 +423,9 @@ namespace {
 	function php_ini_scanned_files(): string {}
 
 	/**
-	 * Gets the logo guid
-	 * <p>This function returns the ID which can be used to display the PHP logo using the built-in image. Logo is displayed only if expose_php is On.</p><p>This function has been <i>DEPRECATED</i> and <i>REMOVED</i> as of PHP 5.5.0.</p>
-	 * @return string <p>Returns <i>PHPE9568F34-D428-11d2-A769-00AA001ACF42</i>.</p>
-	 * @link http://php.net/manual/en/function.php-logo-guid.php
-	 * @see phpinfo(), phpversion(), phpcredits(), zend_logo_guid()
-	 * @since PHP 4, PHP 5 < 5.5.0
-	 */
-	function php_logo_guid(): string {}
-
-	/**
 	 * Returns the type of interface between web server and PHP
 	 * <p>Returns a lowercase string that describes the type of interface (the Server API, SAPI) that PHP is using. For example, in CLI PHP this string will be "cli" whereas with Apache it may have several different values depending on the exact SAPI used. Possible values are listed below.</p>
-	 * @return string <p>Returns the interface type, as a lowercase string.</p><p>Although not exhaustive, the possible return values include <i>aolserver</i>, <i>apache</i>, <i>apache2filter</i>, <i>apache2handler</i>, <i>caudium</i>, <i>cgi</i> (until PHP 5.3), <i>cgi-fcgi</i>, <i>cli</i>, <i>cli-server</i>, <i>continuity</i>, <i>embed</i>, <i>fpm-fcgi</i>, <i>isapi</i>, <i>litespeed</i>, <i>milter</i>, <i>nsapi</i>, <i>phttpd</i>, <i>pi3web</i>, <i>roxen</i>, <i>thttpd</i>, <i>tux</i>, and <i>webjames</i>.</p>
+	 * @return string <p>Returns the interface type, as a lowercase string.</p><p>Although not exhaustive, the possible return values include <code>apache</code>, <code>apache2handler</code>, <code>cgi</code> (until PHP 5.3), <code>cgi-fcgi</code>, <code>cli</code>, <code>cli-server</code>, <code>embed</code>, <code>fpm-fcgi</code>, <code>litespeed</code>, <code>nsapi</code>, <code>phpdbg</code>.</p>
 	 * @link http://php.net/manual/en/function.php-sapi-name.php
 	 * @since PHP 4 >= 4.0.1, PHP 5, PHP 7
 	 */
@@ -445,7 +434,7 @@ namespace {
 	/**
 	 * Returns information about the operating system PHP is running on
 	 * <p><b>php_uname()</b> returns a description of the operating system PHP is running on. This is the same string you see at the very top of the <code>phpinfo()</code> output. For the name of just the operating system, consider using the <b><code>PHP_OS</code></b> constant, but keep in mind this constant will contain the operating system PHP was <i>built</i> on.</p><p>On some older UNIX platforms, it may not be able to determine the current OS information in which case it will revert to displaying the OS PHP was built on. This will only happen if your uname() library call either doesn't exist or doesn't work.</p>
-	 * @param string $mode <p><code>mode</code> is a single character that defines what information is returned:</p><ul> <li>  <i>'a'</i>: This is the default. Contains all modes in the sequence <i>"s n r v m"</i>.  </li> <li>  <i>'s'</i>: Operating system name. eg. <i>FreeBSD</i>.  </li> <li>  <i>'n'</i>: Host name. eg. <i>localhost.example.com</i>.  </li> <li>  <i>'r'</i>: Release name. eg. <i>5.1.2-RELEASE</i>.  </li> <li>  <i>'v'</i>: Version information. Varies a lot between operating systems.  </li> <li>  <i>'m'</i>: Machine type. eg. <i>i386</i>.  </li> </ul>
+	 * @param string $mode <p><code>mode</code> is a single character that defines what information is returned:</p><ul> <li>  <code>'a'</code>: This is the default. Contains all modes in the sequence <code>"s n r v m"</code>.  </li> <li>  <code>'s'</code>: Operating system name. eg. <code>FreeBSD</code>.  </li> <li>  <code>'n'</code>: Host name. eg. <code>localhost.example.com</code>.  </li> <li>  <code>'r'</code>: Release name. eg. <code>5.1.2-RELEASE</code>.  </li> <li>  <code>'v'</code>: Version information. Varies a lot between operating systems.  </li> <li>  <code>'m'</code>: Machine type. eg. <code>i386</code>.  </li> </ul>
 	 * @return string <p>Returns the description, as a string.</p>
 	 * @link http://php.net/manual/en/function.php-uname.php
 	 * @see phpversion(), php_sapi_name(), phpinfo()
@@ -459,7 +448,7 @@ namespace {
 	 * @param int $flag <p>To generate a custom credits page, you may want to use the <code>flag</code> parameter.</p> <p></p> <b>Pre-defined <b>phpcredits()</b> flags</b>   name description     CREDITS_ALL  All the credits, equivalent to using: <b><code>CREDITS_DOCS</code></b> + <b><code>CREDITS_GENERAL</code></b> + <b><code>CREDITS_GROUP</code></b> + <b><code>CREDITS_MODULES</code></b> + <b><code>CREDITS_FULLPAGE</code></b>. It generates a complete stand-alone HTML page with the appropriate tags.    CREDITS_DOCS The credits for the documentation team   CREDITS_FULLPAGE  Usually used in combination with the other flags. Indicates that a complete stand-alone HTML page needs to be printed including the information indicated by the other flags.    CREDITS_GENERAL  General credits: Language design and concept, PHP authors and SAPI module.    CREDITS_GROUP A list of the core developers   CREDITS_MODULES  A list of the extension modules for PHP, and their authors    CREDITS_SAPI  A list of the server API modules for PHP, and their authors
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
 	 * @link http://php.net/manual/en/function.phpcredits.php
-	 * @see phpversion(), php_logo_guid(), phpinfo()
+	 * @see phpversion(), phpinfo()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
 	function phpcredits(int $flag = CREDITS_ALL): bool {}
@@ -470,7 +459,7 @@ namespace {
 	 * @param int $what <p>The output may be customized by passing one or more of the following <i>constants</i> bitwise values summed together in the optional <code>what</code> parameter. One can also combine the respective constants or bitwise values together with the bitwise or operator.</p> <p></p> <b><b>phpinfo()</b> options</b>   Name (constant) Value Description     INFO_GENERAL 1  The configuration line, php.ini location, build date, Web Server, System and more.    INFO_CREDITS 2  PHP Credits. See also <code>phpcredits()</code>.    INFO_CONFIGURATION 4  Current Local and Master values for PHP directives. See also <code>ini_get()</code>.    INFO_MODULES 8  Loaded modules and their respective settings. See also <code>get_loaded_extensions()</code>.    INFO_ENVIRONMENT 16  Environment Variable information that's also available in $_ENV.    INFO_VARIABLES 32  Shows all  predefined variables from EGPCS (Environment, GET, POST, Cookie, Server).    INFO_LICENSE 64  PHP License information. See also the license FAQ.    INFO_ALL -1  Shows all of the above.
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
 	 * @link http://php.net/manual/en/function.phpinfo.php
-	 * @see phpversion(), phpcredits(), php_logo_guid(), ini_get(), ini_set(), get_loaded_extensions()
+	 * @see phpversion(), phpcredits(), ini_get(), ini_set(), get_loaded_extensions()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
 	function phpinfo(int $what = INFO_ALL): bool {}
@@ -481,15 +470,15 @@ namespace {
 	 * @param string $extension <p>An optional extension name.</p>
 	 * @return string <p>If the optional <code>extension</code> parameter is specified, <b>phpversion()</b> returns the version of that extension, or <b><code>FALSE</code></b> if there is no version information associated or the extension isn't enabled.</p>
 	 * @link http://php.net/manual/en/function.phpversion.php
-	 * @see version_compare(), phpinfo(), phpcredits(), php_logo_guid(), zend_version()
+	 * @see version_compare(), phpinfo(), phpcredits(), zend_version()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
 	function phpversion(string $extension = NULL): string {}
 
 	/**
 	 * Sets the value of an environment variable
-	 * <p>Adds <code>setting</code> to the server environment. The environment variable will only exist for the duration of the current request. At the end of the request the environment is restored to its original state.</p><p>Setting certain environment variables may be a potential security breach. The <i>safe_mode_allowed_env_vars</i> directive contains a comma-delimited list of prefixes. In Safe Mode, the user may only alter environment variables whose names begin with the prefixes supplied by this directive. By default, users will only be able to set environment variables that begin with <i>PHP_</i> (e.g. <i>PHP_FOO=BAR</i>). Note: if this directive is empty, PHP will let the user modify ANY environment variable!</p><p>The <i>safe_mode_protected_env_vars</i> directive contains a comma-delimited list of environment variables, that the end user won't be able to change using <b>putenv()</b>. These variables will be protected even if <i>safe_mode_allowed_env_vars</i> is set to allow to change them.</p>
-	 * @param string $setting <p>The setting, like <i>"FOO=BAR"</i></p>
+	 * <p>Adds <code>setting</code> to the server environment. The environment variable will only exist for the duration of the current request. At the end of the request the environment is restored to its original state.</p>
+	 * @param string $setting <p>The setting, like <code>"FOO=BAR"</code></p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
 	 * @link http://php.net/manual/en/function.putenv.php
 	 * @see getenv(), apache_setenv()
@@ -511,27 +500,16 @@ namespace {
 	 * Sets the include_path configuration option
 	 * <p>Sets the include_path configuration option for the duration of the script.</p>
 	 * @param string $new_include_path <p>The new value for the include_path</p>
-	 * @return string <p>Returns the old include_path on success or <b><code>FALSE</code></b> on failure.</p>
+	 * @return string|false <p>Returns the old include_path on success or <b><code>FALSE</code></b> on failure.</p>
 	 * @link http://php.net/manual/en/function.set-include-path.php
 	 * @see ini_set(), get_include_path(), restore_include_path(), include
 	 * @since PHP 4 >= 4.3.0, PHP 5, PHP 7
 	 */
-	function set_include_path(string $new_include_path): string {}
-
-	/**
-	 * Sets the current active configuration setting of magic_quotes_runtime
-	 * <p>Set the current active configuration setting of magic_quotes_runtime.</p>
-	 * @param bool $new_setting <p><b><code>FALSE</code></b> for off, <b><code>TRUE</code></b> for on.</p>
-	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.set-magic-quotes-runtime.php
-	 * @see get_magic_quotes_gpc(), get_magic_quotes_runtime()
-	 * @since PHP 4, PHP 5
-	 */
-	function set_magic_quotes_runtime(bool $new_setting): bool {}
+	function set_include_path(string $new_include_path) {}
 
 	/**
 	 * Limits the maximum execution time
-	 * <p>Set the number of seconds a script is allowed to run. If this is reached, the script returns a fatal error. The default limit is 30 seconds or, if it exists, the <i>max_execution_time</i> value defined in the php.ini.</p><p>When called, <b>set_time_limit()</b> restarts the timeout counter from zero. In other words, if the timeout is the default 30 seconds, and 25 seconds into script execution a call such as <i>set_time_limit(20)</i> is made, the script will run for a total of 45 seconds before timing out.</p>
+	 * <p>Set the number of seconds a script is allowed to run. If this is reached, the script returns a fatal error. The default limit is 30 seconds or, if it exists, the <code>max_execution_time</code> value defined in the php.ini.</p><p>When called, <b>set_time_limit()</b> restarts the timeout counter from zero. In other words, if the timeout is the default 30 seconds, and 25 seconds into script execution a call such as <code>set_time_limit(20)</code> is made, the script will run for a total of 45 seconds before timing out.</p>
 	 * @param int $seconds <p>The maximum execution time, in seconds. If set to zero, no time limit is imposed.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success, or <b><code>FALSE</code></b> on failure.</p>
 	 * @link http://php.net/manual/en/function.set-time-limit.php
@@ -551,25 +529,15 @@ namespace {
 
 	/**
 	 * Compares two "PHP-standardized" version number strings
-	 * <p><b>version_compare()</b> compares two "PHP-standardized" version number strings.</p><p>The function first replaces <i>_</i>, <i>-</i> and <i>+</i> with a dot <i>.</i> in the version strings and also inserts dots <i>.</i> before and after any non number so that for example '4.3.2RC1' becomes '4.3.2.RC.1'. Then it compares the parts starting from left to right. If a part contains special version strings these are handled in the following order: <i>any string not found in this list</i> &lt; <i>dev</i> &lt; <i>alpha</i> = <i>a</i> &lt; <i>beta</i> = <i>b</i> &lt; <i>RC</i> = <i>rc</i> &lt; <i>#</i> &lt; <i>pl</i> = <i>p</i>. This way not only versions with different levels like '4.1' and '4.1.2' can be compared but also any PHP specific version containing development state.</p>
+	 * <p><b>version_compare()</b> compares two "PHP-standardized" version number strings.</p><p>The function first replaces <code>_</code>, <code>-</code> and <code>+</code> with a dot <code>.</code> in the version strings and also inserts dots <code>.</code> before and after any non number so that for example '4.3.2RC1' becomes '4.3.2.RC.1'. Then it compares the parts starting from left to right. If a part contains special version strings these are handled in the following order: <code>any string not found in this list</code> &lt; <code>dev</code> &lt; <code>alpha</code> = <code>a</code> &lt; <code>beta</code> = <code>b</code> &lt; <code>RC</code> = <code>rc</code> &lt; <code>#</code> &lt; <code>pl</code> = <code>p</code>. This way not only versions with different levels like '4.1' and '4.1.2' can be compared but also any PHP specific version containing development state.</p>
 	 * @param string $version1 <p>First version number.</p>
 	 * @param string $version2 <p>Second version number.</p>
-	 * @return int <p>By default, <b>version_compare()</b> returns <i>-1</i> if the first version is lower than the second, <i>0</i> if they are equal, and <i>1</i> if the second is lower.</p><p>When using the optional <code>operator</code> argument, the function will return <b><code>TRUE</code></b> if the relationship is the one specified by the operator, <b><code>FALSE</code></b> otherwise.</p>
+	 * @return int <p>By default, <b>version_compare()</b> returns <code>-1</code> if the first version is lower than the second, <code>0</code> if they are equal, and <code>1</code> if the second is lower.</p><p>When using the optional <code>operator</code> argument, the function will return <b><code>TRUE</code></b> if the relationship is the one specified by the operator, <b><code>FALSE</code></b> otherwise. If an unsupported <code>operator</code> is given, <b><code>NULL</code></b> is returned.</p>
 	 * @link http://php.net/manual/en/function.version-compare.php
 	 * @see phpversion(), php_uname(), function_exists()
 	 * @since PHP 4 >= 4.1.0, PHP 5, PHP 7
 	 */
 	function version_compare(string $version1, string $version2): int {}
-
-	/**
-	 * Gets the Zend guid
-	 * <p>This function returns the ID which can be used to display the Zend logo using the built-in image.</p><p>This function has been <i>DEPRECATED</i> and <i>REMOVED</i> as of PHP 5.5.0.</p>
-	 * @return string <p>Returns <i>PHPE9568F35-D428-11d2-A769-00AA001ACF42</i>.</p>
-	 * @link http://php.net/manual/en/function.zend-logo-guid.php
-	 * @see php_logo_guid()
-	 * @since PHP 4, PHP < 5.5.0
-	 */
-	function zend_logo_guid(): string {}
 
 	/**
 	 * Returns a unique identifier for the current thread
@@ -585,7 +553,7 @@ namespace {
 	 * <p>Returns a string containing the version of the currently running Zend Engine.</p>
 	 * @return string <p>Returns the Zend Engine version number, as a string.</p>
 	 * @link http://php.net/manual/en/function.zend-version.php
-	 * @see phpinfo(), phpcredits(), php_logo_guid(), phpversion()
+	 * @see phpinfo(), phpcredits(), phpversion()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
 	function zend_version(): string {}
@@ -606,7 +574,7 @@ namespace {
 	define('0x00000004', null);
 
 	/**
-	 * Terminal Services is installed. This value is always set. If this value is set but <i>0x00000100</i> is not set, then the system is running in application server mode.
+	 * Terminal Services is installed. This value is always set. If this value is set but <code>0x00000100</code> is not set, then the system is running in application server mode.
 	 */
 	define('0x00000010', null);
 
@@ -671,7 +639,7 @@ namespace {
 	define('ASSERT_CALLBACK', 2);
 
 	/**
-	 * Disable <i>error_reporting</i> during assertion expression evaluation.
+	 * Disable <code>error_reporting</code> during assertion expression evaluation.
 	 */
 	define('ASSERT_QUIET_EVAL', 5);
 
@@ -681,7 +649,7 @@ namespace {
 	define('ASSERT_WARNING', 4);
 
 	/**
-	 * All the credits, equivalent to using: <i>CREDITS_DOCS + CREDITS_GENERAL + CREDITS_GROUP + CREDITS_MODULES + CREDITS_QA CREDITS_FULLPAGE</i>. It generates a complete stand-alone HTML page with the appropriate tags. This is the default value.
+	 * All the credits, equivalent to using: <code>CREDITS_DOCS + CREDITS_GENERAL + CREDITS_GROUP + CREDITS_MODULES + CREDITS_QA CREDITS_FULLPAGE</code>. It generates a complete stand-alone HTML page with the appropriate tags. This is the default value.
 	 */
 	define('CREDITS_ALL', 4294967295);
 
@@ -756,7 +724,7 @@ namespace {
 	define('INFO_MODULES', 8);
 
 	/**
-	 * Shows all  predefined variables from <i>EGPCS</i> (Environment, GET, POST, Cookie, Server).
+	 * Shows all  predefined variables from <code>EGPCS</code> (Environment, GET, POST, Cookie, Server).
 	 */
 	define('INFO_VARIABLES', 32);
 
@@ -801,32 +769,32 @@ namespace {
 	define('PHP_WINDOWS_VERSION_BUILD', null);
 
 	/**
-	 * The major version of Windows, this can be either <i>4</i> (NT4/Me/98/95), <i>5</i> (XP/2003 R2/2003/2000) or <i>6</i> (Vista/2008/7/8/8.1).
+	 * The major version of Windows, this can be either <code>4</code> (NT4/Me/98/95), <code>5</code> (XP/2003 R2/2003/2000) or <code>6</code> (Vista/2008/7/8/8.1).
 	 */
 	define('PHP_WINDOWS_VERSION_MAJOR', null);
 
 	/**
-	 * The minor version of Windows, this can be either <i>0</i> (Vista/2008/2000/NT4/95), <i>1</i> (XP), <i>2</i> (2003 R2/2003/XP x64), <i>10</i> (98) or <i>90</i> (ME).
+	 * The minor version of Windows, this can be either <code>0</code> (Vista/2008/2000/NT4/95), <code>1</code> (XP), <code>2</code> (2003 R2/2003/XP x64), <code>10</code> (98) or <code>90</code> (ME).
 	 */
 	define('PHP_WINDOWS_VERSION_MINOR', null);
 
 	/**
-	 * The platform that PHP currently is running on, this value is <i>2</i> on Windows Vista/XP/2000/NT4, Server 2008/2003 and on Windows ME/98/95 this value is <i>1</i>.
+	 * The platform that PHP currently is running on, this value is <code>2</code> on Windows Vista/XP/2000/NT4, Server 2008/2003 and on Windows ME/98/95 this value is <code>1</code>.
 	 */
 	define('PHP_WINDOWS_VERSION_PLATFORM', null);
 
 	/**
-	 * This contains the value used to determine the <i>PHP_WINDOWS_NT_&#42;</i> constants. This value may be one of the <i>PHP_WINDOWS_NT_&#42;</i> constants indicating the platform type.
+	 * This contains the value used to determine the <code>PHP_WINDOWS_NT_&#42;</code> constants. This value may be one of the <code>PHP_WINDOWS_NT_&#42;</code> constants indicating the platform type.
 	 */
 	define('PHP_WINDOWS_VERSION_PRODUCTTYPE', null);
 
 	/**
-	 * The major version of the service pack installed, this value is <i>0</i> if no service pack is installed. For example, Windows XP with service pack 3 installed will make this value <i>3</i>.
+	 * The major version of the service pack installed, this value is <code>0</code> if no service pack is installed. For example, Windows XP with service pack 3 installed will make this value <code>3</code>.
 	 */
 	define('PHP_WINDOWS_VERSION_SP_MAJOR', null);
 
 	/**
-	 * The minor version of the service pack installed, this value is <i>0</i> if no service pack is installed.
+	 * The minor version of the service pack installed, this value is <code>0</code> if no service pack is installed.
 	 */
 	define('PHP_WINDOWS_VERSION_SP_MINOR', null);
 

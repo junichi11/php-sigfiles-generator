@@ -6,9 +6,9 @@ namespace {
 
 	/**
 	 * Get the boolean value of a variable
-	 * <p>Returns the <code>boolean</code> value of <code>var</code>.</p>
-	 * @param mixed $var <p>The scalar value being converted to a <code>boolean</code>.</p>
-	 * @return bool <p>The <code>boolean</code> value of <code>var</code>.</p>
+	 * <p>Returns the <code>bool</code> value of <code>var</code>.</p>
+	 * @param mixed $var <p>The scalar value being converted to a <code>bool</code>.</p>
+	 * @return bool <p>The <code>bool</code> value of <code>var</code>.</p>
 	 * @link http://php.net/manual/en/function.boolval.php
 	 * @see floatval(), intval(), strval(), settype(), is_bool()
 	 * @since PHP 5 >= 5.5.0, PHP 7
@@ -18,14 +18,14 @@ namespace {
 	/**
 	 * Dumps a string representation of an internal zend value to output
 	 * <p>Dumps a string representation of an internal zend value to output.</p>
-	 * @param mixed $variable <p>The variable being evaluated.</p>
-	 * @param mixed $_
+	 * @param mixed $variable <p>The variable to dump.</p>
+	 * @param mixed $_$variables
 	 * @return void <p>No value is returned.</p>
 	 * @link http://php.net/manual/en/function.debug-zval-dump.php
 	 * @see var_dump(), debug_backtrace()
 	 * @since PHP 4 >= 4.2.0, PHP 5, PHP 7
 	 */
-	function debug_zval_dump($variable, $_ = NULL): void {}
+	function debug_zval_dump($variable, $_$variables): void {}
 
 	/**
 	 * Alias of floatval()
@@ -59,20 +59,32 @@ namespace {
 	function get_defined_vars(): array {}
 
 	/**
+	 * Returns an integer identifier for the given resource
+	 * <p>This function provides a type-safe way for generating the integer identifier for a resource.</p>
+	 * @param resource $res <p>The evaluated resource handle.</p>
+	 * @return int <p>The <code>int</code> identifier for the given <code>res</code>.</p><p>This function is essentially an <code>int</code> cast of <code>res</code> to make it easier to retrieve the resource ID.</p>
+	 * @link http://php.net/manual/en/function.get-resource-id.php
+	 * @see get_resource_type()
+	 * @since PHP 8
+	 */
+	function get_resource_id($res): int {}
+
+	/**
 	 * Returns the resource type
 	 * <p>This function gets the type of the given resource.</p>
 	 * @param resource $handle <p>The evaluated resource handle.</p>
-	 * @return string <p>If the given <code>handle</code> is a resource, this function will return a string representing its type. If the type is not identified by this function, the return value will be the string <i>Unknown</i>.</p><p>This function will return <b><code>NULL</code></b> and generate an error if <code>handle</code> is not a <code>resource</code>.</p>
+	 * @return string <p>If the given <code>handle</code> is a resource, this function will return a string representing its type. If the type is not identified by this function, the return value will be the string <code>Unknown</code>.</p><p>This function will return <b><code>NULL</code></b> and generate an error if <code>handle</code> is not a <code>resource</code>.</p>
 	 * @link http://php.net/manual/en/function.get-resource-type.php
+	 * @see get_resource_id()
 	 * @since PHP 4 >= 4.0.2, PHP 5, PHP 7
 	 */
 	function get_resource_type($handle): string {}
 
 	/**
 	 * Get the type of a variable
-	 * <p>Returns the type of the PHP variable <code>var</code>. For type checking, use <i>is_&#42;</i> functions.</p>
+	 * <p>Returns the type of the PHP variable <code>var</code>. For type checking, use <code>is_&#42;</code> functions.</p>
 	 * @param mixed $var <p>The variable being type checked.</p>
-	 * @return string <p>Possible values for the returned string are:</p><ul> <li>  "<code>boolean</code>"  </li> <li>  "<code>integer</code>"  </li> <li>  "<code>double</code>" (for historical reasons "double" is returned in case of a <code>float</code>, and not simply "float")  </li> <li>  "<code>string</code>"  </li> <li>  "<code>array</code>"  </li> <li>  "<code>object</code>"  </li> <li>  "<code>resource</code>"  </li> <li>  "resource (closed)" as of PHP 7.2.0  </li> <li>  "<code>NULL</code>"  </li> <li>  "unknown type"  </li> </ul>
+	 * @return string <p>Possible values for the returned string are:</p><ul> <li> <code>"boolean"</code> </li> <li> <code>"integer"</code> </li> <li> <code>"double"</code> (for historical reasons <code>"double"</code> is returned in case of a <code>float</code>, and not simply <code>"float"</code>) </li> <li> <code>"string"</code> </li> <li> <code>"array"</code> </li> <li> <code>"object"</code> </li> <li> <code>"resource"</code> </li> <li> <code>"resource (closed)"</code> as of PHP 7.2.0 </li> <li> <code>"NULL"</code> </li> <li> <code>"unknown type"</code> </li> </ul>
 	 * @link http://php.net/manual/en/function.gettype.php
 	 * @see settype(), get_class(), is_array(), is_bool(), is_callable(), is_float(), is_int(), is_null(), is_numeric(), is_object(), is_resource(), is_scalar(), is_string(), function_exists(), method_exists()
 	 * @since PHP 4, PHP 5, PHP 7
@@ -80,23 +92,11 @@ namespace {
 	function gettype($var): string {}
 
 	/**
-	 * Import GET/POST/Cookie variables into the global scope
-	 * <p>Imports GET/POST/Cookie variables into the global scope. It is useful if you disabled register_globals, but would like to see some variables in the global scope.</p><p>If you're interested in importing other variables into the global scope, such as $_SERVER, consider using <code>extract()</code>.</p><p>This function has been <i>DEPRECATED</i> as of PHP 5.3.0 and <i>REMOVED</i> as of PHP 5.4.0.</p>
-	 * @param string $types <p>Using the <code>types</code> parameter, you can specify which request variables to import. You can use 'G', 'P' and 'C' characters respectively for GET, POST and Cookie. These characters are not case sensitive, so you can also use any combination of 'g', 'p' and 'c'. POST includes the POST uploaded file information.</p> <p><b>Note</b>:</p><p>Note that the order of the letters matters, as when using "<i>GP</i>", the POST variables will overwrite GET variables with the same name. Any other letters than GPC are discarded.</p>
-	 * @param string $prefix <p>Variable name prefix, prepended before all variable's name imported into the global scope. So if you have a GET value named "<i>userid</i>", and provide a prefix "<i>pref_</i>", then you'll get a global variable named $pref_userid.</p> <p><b>Note</b>:</p><p>Although the <code>prefix</code> parameter is optional, you will get an <b><code>E_NOTICE</code></b> level error if you specify no prefix, or specify an empty string as a prefix. This is a possible security hazard. Notice level errors are not displayed using the default error reporting level.</p>
-	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.import-request-variables.php
-	 * @see extract()
-	 * @since PHP 4 >= 4.1.0, PHP 5 < 5.4.0
-	 */
-	function import_request_variables(string $types, string $prefix = NULL): bool {}
-
-	/**
 	 * Get the integer value of a variable
-	 * <p>Returns the <code>integer</code> value of <code>var</code>, using the specified <code>base</code> for the conversion (the default is base 10). <b>intval()</b> should not be used on objects, as doing so will emit an <b><code>E_NOTICE</code></b> level error and return 1.</p>
+	 * <p>Returns the <code>int</code> value of <code>var</code>, using the specified <code>base</code> for the conversion (the default is base 10). <b>intval()</b> should not be used on objects, as doing so will emit an <b><code>E_NOTICE</code></b> level error and return 1.</p>
 	 * @param mixed $var <p>The scalar value being converted to an integer</p>
 	 * @param int $base <p>The base for the conversion</p> <p><b>Note</b>:</p><p>If <code>base</code> is 0, the base used is determined by the format of <code>var</code>:</p><ul> <li>  if string includes a "0x" (or "0X") prefix, the base is taken as 16 (hex); otherwise,  </li> <li>  if string starts with "0", the base is taken as 8 (octal); otherwise,  </li> <li>  the base is taken as 10 (decimal).  </li> </ul>
-	 * @return int <p>The integer value of <code>var</code> on success, or 0 on failure. Empty arrays return 0, non-empty arrays return 1.</p><p>The maximum value depends on the system. 32 bit systems have a maximum signed integer range of -2147483648 to 2147483647. So for example on such a system, <i>intval('1000000000000')</i> will return 2147483647. The maximum signed integer value for 64 bit systems is 9223372036854775807.</p><p>Strings will most likely return 0 although this depends on the leftmost characters of the string. The common rules of integer casting apply.</p>
+	 * @return int <p>The integer value of <code>var</code> on success, or 0 on failure. Empty arrays return 0, non-empty arrays return 1.</p><p>The maximum value depends on the system. 32 bit systems have a maximum signed integer range of -2147483648 to 2147483647. So for example on such a system, <code>intval('1000000000000')</code> will return 2147483647. The maximum signed integer value for 64 bit systems is 9223372036854775807.</p><p>Strings will most likely return 0 although this depends on the leftmost characters of the string. The common rules of integer casting apply.</p>
 	 * @link http://php.net/manual/en/function.intval.php
 	 * @see boolval(), floatval(), strval(), settype(), is_numeric()
 	 * @since PHP 4, PHP 5, PHP 7
@@ -118,7 +118,7 @@ namespace {
 	 * Finds out whether a variable is a boolean
 	 * <p>Finds whether the given variable is a boolean.</p>
 	 * @param mixed $var <p>The variable being evaluated.</p>
-	 * @return bool <p>Returns <b><code>TRUE</code></b> if <code>var</code> is a <code>boolean</code>, <b><code>FALSE</code></b> otherwise.</p>
+	 * @return bool <p>Returns <b><code>TRUE</code></b> if <code>var</code> is a <code>bool</code>, <b><code>FALSE</code></b> otherwise.</p>
 	 * @link http://php.net/manual/en/function.is-bool.php
 	 * @see is_float(), is_int(), is_string(), is_object(), is_array()
 	 * @since PHP 4, PHP 5, PHP 7
@@ -127,9 +127,9 @@ namespace {
 
 	/**
 	 * Verify that the contents of a variable can be called as a function
-	 * <p>Verify that the contents of a variable can be called as a function. This can check that a simple variable contains the name of a valid function, or that an array contains a properly encoded object and function name.</p>
+	 * <p>Verify that a value is a <code>callable</code>.</p>
 	 * @param mixed $var <p>The value to check</p>
-	 * @param bool $syntax_only <p>If set to <b><code>TRUE</code></b> the function only verifies that <code>name</code> might be a function or method. It will only reject simple variables that are not strings, or an array that does not have a valid structure to be used as a callback. The valid ones are supposed to have only 2 entries, the first of which is an object or a string, and the second a string.</p>
+	 * @param bool $syntax_only <p>If set to <b><code>TRUE</code></b> the function only verifies that <code>var</code> might be a function or method. It will only reject simple variables that are not strings, or an array that does not have a valid structure to be used as a callback. The valid ones are supposed to have only 2 entries, the first of which is an object or a string, and the second a string.</p>
 	 * @param string $callable_name <p>Receives the "callable name". In the example below it is "someClass::someMethod". Note, however, that despite the implication that someClass::SomeMethod() is a callable static method, this is not the case.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> if <code>var</code> is callable, <b><code>FALSE</code></b> otherwise.</p>
 	 * @link http://php.net/manual/en/function.is-callable.php
@@ -174,7 +174,7 @@ namespace {
 	 * Find whether the type of a variable is integer
 	 * <p>Finds whether the type of the given variable is integer.</p><p><b>Note</b>:</p><p>To test if a variable is a number or a numeric string (such as form input, which is always a string), you must use <code>is_numeric()</code>.</p>
 	 * @param mixed $var <p>The variable being evaluated.</p>
-	 * @return bool <p>Returns <b><code>TRUE</code></b> if <code>var</code> is an <code>integer</code>, <b><code>FALSE</code></b> otherwise.</p>
+	 * @return bool <p>Returns <b><code>TRUE</code></b> if <code>var</code> is an <code>int</code>, <b><code>FALSE</code></b> otherwise.</p>
 	 * @link http://php.net/manual/en/function.is-int.php
 	 * @see is_bool(), is_float(), is_numeric(), is_string(), is_array(), is_object()
 	 * @since PHP 4, PHP 5, PHP 7
@@ -193,7 +193,7 @@ namespace {
 
 	/**
 	 * Verify that the contents of a variable is an iterable value
-	 * <p>Verify that the contents of a variable is accepted by the iterable pseudo-type, i.e. that it is an <code>array</code> or an object implementing Traversable</p>
+	 * <p>Verify that the contents of a variable is accepted by the <code>iterable</code> pseudo-type, i.e. that it is either an <code>array</code> or an object implementing Traversable</p>
 	 * @param mixed $var <p>The value to check</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> if <code>var</code> is iterable, <b><code>FALSE</code></b> otherwise.</p>
 	 * @link http://php.net/manual/en/function.is-iterable.php
@@ -225,7 +225,7 @@ namespace {
 
 	/**
 	 * Finds whether a variable is a number or a numeric string
-	 * <p>Finds whether the given variable is numeric. Numeric strings consist of optional sign, any number of digits, optional decimal part and optional exponential part. Thus <i>+0123.45e6</i> is a valid numeric value. Hexadecimal (e.g. <i>0xf4c3b00c</i>) and binary (e.g. <i>0b10100111001</i>) notation is not allowed.</p>
+	 * <p>Determines if the given variable is a number or a numeric string.</p>
 	 * @param mixed $var <p>The variable being evaluated.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> if <code>var</code> is a number or a numeric string, <b><code>FALSE</code></b> otherwise.</p>
 	 * @link http://php.net/manual/en/function.is-numeric.php
@@ -247,7 +247,7 @@ namespace {
 
 	/**
 	 * Alias of is_float()
-	 * <p>This function is an alias of: <code>is_float()</code>.</p>
+	 * <p>This function is an alias of: <code>is_float()</code>.</p><p>This alias was <i>DEPRECATED</i> in PHP 7.4.0, and <i>REMOVED</i> as of PHP 8.0.0.</p>
 	 * @param mixed $var <p>The variable being evaluated.</p>
 	 * @return bool
 	 * @link http://php.net/manual/en/function.is-real.php
@@ -257,7 +257,7 @@ namespace {
 
 	/**
 	 * Finds whether a variable is a resource
-	 * <p>Finds whether the given variable is a resource.</p>
+	 * <p>Finds whether the given variable is a <code>resource</code>.</p>
 	 * @param mixed $var <p>The variable being evaluated.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> if <code>var</code> is a <code>resource</code>, <b><code>FALSE</code></b> otherwise.</p>
 	 * @link http://php.net/manual/en/function.is-resource.php
@@ -268,7 +268,7 @@ namespace {
 
 	/**
 	 * Finds whether a variable is a scalar
-	 * <p>Finds whether the given variable is a scalar.</p><p>Scalar variables are those containing an <code>integer</code>, <code>float</code>, <code>string</code> or <code>boolean</code>. Types <code>array</code>, <code>object</code> and <code>resource</code> are not scalar.</p><p><b>Note</b>:</p><p><b>is_scalar()</b> does not consider <code>resource</code> type values to be scalar as resources are abstract datatypes which are currently based on integers. This implementation detail should not be relied upon, as it may change.</p><p><b>Note</b>:</p><p><b>is_scalar()</b> does not consider NULL to be scalar.</p>
+	 * <p>Finds whether the given variable is a scalar.</p><p>Scalar variables are those containing an <code>int</code>, <code>float</code>, <code>string</code> or <code>bool</code>. Types <code>array</code>, <code>object</code> and <code>resource</code> are not scalar.</p><p><b>Note</b>:</p><p><b>is_scalar()</b> does not consider <code>resource</code> type values to be scalar as resources are abstract datatypes which are currently based on integers. This implementation detail should not be relied upon, as it may change.</p><p><b>Note</b>:</p><p><b>is_scalar()</b> does not consider NULL to be scalar.</p>
 	 * @param mixed $var <p>The variable being evaluated.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> if <code>var</code> is a scalar, <b><code>FALSE</code></b> otherwise.</p>
 	 * @link http://php.net/manual/en/function.is-scalar.php
@@ -293,7 +293,7 @@ namespace {
 	 * <p><b>print_r()</b> displays information about a variable in a way that's readable by humans.</p><p><b>print_r()</b>, <code>var_dump()</code> and <code>var_export()</code> will also show protected and private properties of objects. Static class members will not be shown.</p>
 	 * @param mixed $expression <p>The expression to be printed.</p>
 	 * @param bool $return <p>If you would like to capture the output of <b>print_r()</b>, use the <code>return</code> parameter. When this parameter is set to <b><code>TRUE</code></b>, <b>print_r()</b> will return the information rather than print it.</p>
-	 * @return mixed <p>If given a <code>string</code>, <code>integer</code> or <code>float</code>, the value itself will be printed. If given an <code>array</code>, values will be presented in a format that shows keys and elements. Similar notation is used for <code>object</code>s.</p><p>When the <code>return</code> parameter is <b><code>TRUE</code></b>, this function will return a <code>string</code>. Otherwise, the return value is <b><code>TRUE</code></b>.</p>
+	 * @return mixed <p>If given a <code>string</code>, <code>int</code> or <code>float</code>, the value itself will be printed. If given an <code>array</code>, values will be presented in a format that shows keys and elements. Similar notation is used for <code>object</code>s.</p><p>When the <code>return</code> parameter is <b><code>TRUE</code></b>, this function will return a <code>string</code>. Otherwise, the return value is <b><code>TRUE</code></b>.</p>
 	 * @link http://php.net/manual/en/function.print-r.php
 	 * @see ob_start(), var_dump(), var_export()
 	 * @since PHP 4, PHP 5, PHP 7
@@ -303,7 +303,7 @@ namespace {
 	/**
 	 * Generates a storable representation of a value
 	 * <p>Generates a storable representation of a value.</p><p>This is useful for storing or passing PHP values around without losing their type and structure.</p><p>To make the serialized string into a PHP value again, use <code>unserialize()</code>.</p>
-	 * @param mixed $value <p>The value to be serialized. <b>serialize()</b> handles all types, except the <code>resource</code>-type. You can even <b>serialize()</b> arrays that contain references to itself. Circular references inside the array/object you are serializing will also be stored. Any other reference will be lost.</p> <p>When serializing objects, PHP will attempt to call the member function __sleep() prior to serialization. This is to allow the object to do any last minute clean-up, etc. prior to being serialized. Likewise, when the object is restored using <code>unserialize()</code> the __wakeup() member function is called.</p> <p><b>Note</b>:</p><p>Object's private members have the class name prepended to the member name; protected members have a '&#42;' prepended to the member name. These prepended values have null bytes on either side.</p>
+	 * @param mixed $value <p>The value to be serialized. <b>serialize()</b> handles all types, except the <code>resource</code>-type and some <code>object</code>s (see note below). You can even <b>serialize()</b> arrays that contain references to itself. Circular references inside the array/object you are serializing will also be stored. Any other reference will be lost.</p> <p>When serializing objects, PHP will attempt to call the member functions __serialize() or __sleep() prior to serialization. This is to allow the object to do any last minute clean-up, etc. prior to being serialized. Likewise, when the object is restored using <code>unserialize()</code> the __unserialize() or __wakeup() member function is called.</p> <p><b>Note</b>:</p><p>Object's private members have the class name prepended to the member name; protected members have a '&#42;' prepended to the member name. These prepended values have null bytes on either side.</p>
 	 * @return string <p>Returns a string containing a byte-stream representation of <code>value</code> that can be stored anywhere.</p><p>Note that this is a binary string which may include null bytes, and needs to be stored and handled as such. For example, <b>serialize()</b> output should generally be stored in a BLOB field in a database, rather than a CHAR or TEXT field.</p>
 	 * @link http://php.net/manual/en/function.serialize.php
 	 * @see unserialize(), var_export(), json_encode()
@@ -336,10 +336,10 @@ namespace {
 
 	/**
 	 * Creates a PHP value from a stored representation
-	 * <p><b>unserialize()</b> takes a single serialized variable and converts it back into a PHP value.</p><p>Do not pass untrusted user input to <b>unserialize()</b> regardless of the <code>options</code> value of <i>allowed_classes</i>. Unserialization can result in code being loaded and executed due to object instantiation and autoloading, and a malicious user may be able to exploit this. Use a safe, standard data interchange format such as JSON (via <code>json_decode()</code> and <code>json_encode()</code>) if you need to pass serialized data to the user.</p><p>If you need to unserialize externally-stored serialized data, consider using <code>hash_hmac()</code> for data validation. Make sure data is not modified by anyone but you.</p>
-	 * @param string $str <p>The serialized string.</p> <p>If the variable being unserialized is an object, after successfully reconstructing the object PHP will automatically attempt to call the __wakeup() member function (if it exists).</p> <p></p><p><b>Note</b>: <b>unserialize_callback_func directive</b><br></p><p>It's possible to set a callback-function which will be called, if an undefined class should be instantiated during unserializing. (to prevent getting an incomplete <code>object</code> "__PHP_Incomplete_Class".) Use your php.ini, <code>ini_set()</code> or .htaccess to define unserialize_callback_func. Everytime an undefined class should be instantiated, it'll be called. To disable this feature just empty this setting.</p>
-	 * @param array $options <p>Any options to be provided to <b>unserialize()</b>, as an associative array.</p>  <b>Valid options</b>   Name Type Description     <i>allowed_classes</i> <code>mixed</code>   Either an <code>array</code> of class names which should be accepted, <b><code>FALSE</code></b> to accept no classes, or <b><code>TRUE</code></b> to accept all classes. If this option is defined and <b>unserialize()</b> encounters an object of a class that isn't to be accepted, then the object will be instantiated as <b>__PHP_Incomplete_Class</b> instead.   Omitting this option is the same as defining it as <b><code>TRUE</code></b>: PHP will attempt to instantiate objects of any class.
-	 * @return mixed <p>The converted value is returned, and can be a <code>boolean</code>, <code>integer</code>, <code>float</code>, <code>string</code>, <code>array</code> or <code>object</code>.</p><p>In case the passed string is not unserializeable, <b><code>FALSE</code></b> is returned and <b><code>E_NOTICE</code></b> is issued.</p>
+	 * <p><b>unserialize()</b> takes a single serialized variable and converts it back into a PHP value.</p><p>Do not pass untrusted user input to <b>unserialize()</b> regardless of the <code>options</code> value of <code>allowed_classes</code>. Unserialization can result in code being loaded and executed due to object instantiation and autoloading, and a malicious user may be able to exploit this. Use a safe, standard data interchange format such as JSON (via <code>json_decode()</code> and <code>json_encode()</code>) if you need to pass serialized data to the user.</p><p>If you need to unserialize externally-stored serialized data, consider using <code>hash_hmac()</code> for data validation. Make sure data is not modified by anyone but you.</p>
+	 * @param string $str <p>The serialized string.</p> <p>If the variable being unserialized is an object, after successfully reconstructing the object PHP will automatically attempt to call the __unserialize() or __wakeup() methods (if one exists).</p> <p></p><p><b>Note</b>: <b>unserialize_callback_func directive</b><br></p><p>It's possible to set a callback-function which will be called, if an undefined class should be instantiated during unserializing. (to prevent getting an incomplete <code>object</code> "__PHP_Incomplete_Class".) Use your php.ini, <code>ini_set()</code> or .htaccess to define unserialize_callback_func. Everytime an undefined class should be instantiated, it'll be called. To disable this feature just empty this setting.</p>
+	 * @param array $options <p>Any options to be provided to <b>unserialize()</b>, as an associative array.</p>  <b>Valid options</b>   Name Type Description     <code>allowed_classes</code> <code>mixed</code>   Either an <code>array</code> of class names which should be accepted, <b><code>FALSE</code></b> to accept no classes, or <b><code>TRUE</code></b> to accept all classes. If this option is defined and <b>unserialize()</b> encounters an object of a class that isn't to be accepted, then the object will be instantiated as <b>__PHP_Incomplete_Class</b> instead.   Omitting this option is the same as defining it as <b><code>TRUE</code></b>: PHP will attempt to instantiate objects of any class.
+	 * @return mixed <p>The converted value is returned, and can be a <code>bool</code>, <code>int</code>, <code>float</code>, <code>string</code>, <code>array</code> or <code>object</code>.</p><p>In case the passed string is not unserializeable, <b><code>FALSE</code></b> is returned and <b><code>E_NOTICE</code></b> is issued.</p>
 	 * @link http://php.net/manual/en/function.unserialize.php
 	 * @see json_encode(), json_decode(), hash_hmac(), serialize()
 	 * @since PHP 4, PHP 5, PHP 7
@@ -349,14 +349,14 @@ namespace {
 	/**
 	 * Dumps information about a variable
 	 * <p>This function displays structured information about one or more expressions that includes its type and value. Arrays and objects are explored recursively with values indented to show structure.</p><p>All public, private and protected properties of objects will be returned in the output unless the object implements a __debugInfo() method (implemented in PHP 5.6.0).</p><p>As with anything that outputs its result directly to the browser, the output-control functions can be used to capture the output of this function, and save it in a <code>string</code> (for example).</p>
-	 * @param mixed $expression <p>The variable you want to dump.</p>
-	 * @param mixed $_
+	 * @param mixed $expression <p>The expression to dump.</p>
+	 * @param mixed $_$expressions
 	 * @return void <p>No value is returned.</p>
 	 * @link http://php.net/manual/en/function.var-dump.php
 	 * @see print_r(), debug_zval_dump(), var_export()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function var_dump($expression, $_ = NULL): void {}
+	function var_dump($expression, $_$expressions): void {}
 
 	/**
 	 * Outputs or returns a parsable string representation of a variable

@@ -24,7 +24,7 @@ namespace {
 		public $code;
 
 		/**
-		 * @var int <p>The column where the error occurred.</p> <p><b>Note</b>:</p><p>This property isn't entirely implemented in libxml and therefore <i>0</i> is often returned.</p>
+		 * @var int <p>The column where the error occurred.</p> <p><b>Note</b>:</p><p>This property isn't entirely implemented in libxml and therefore <code>0</code> is often returned.</p>
 		 * @link http://php.net/manual/en/class.libxmlerror.php#libxmlerror.props.column
 		 */
 		public $column;
@@ -60,7 +60,7 @@ namespace {
 
 	/**
 	 * Disable the ability to load external entities
-	 * <p>Disable/enable the ability to load external entities.</p>
+	 * <p>Disable/enable the ability to load external entities. Note that disabling the loading of external entities may cause general issues with loading XML documents. However, as of libxml 2.9.0 entity substitution is disabled by default, so there is no need to disable the loading of external entities.</p>
 	 * @param bool $disable <p>Disable (<b><code>TRUE</code></b>) or enable (<b><code>FALSE</code></b>) libxml extensions (such as DOM, XMLWriter and XMLReader) to load external entities.</p>
 	 * @return bool <p>Returns the previous value.</p>
 	 * @link http://php.net/manual/en/function.libxml-disable-entity-loader.php
@@ -82,45 +82,45 @@ namespace {
 	/**
 	 * Retrieve last error from libxml
 	 * <p>Retrieve last error from libxml.</p>
-	 * @return LibXMLError <p>Returns a <code>LibXMLError</code> object if there is any error in the buffer, <b><code>FALSE</code></b> otherwise.</p>
+	 * @return LibXMLError|false <p>Returns a <code>LibXMLError</code> object if there is any error in the buffer, <b><code>FALSE</code></b> otherwise.</p>
 	 * @link http://php.net/manual/en/function.libxml-get-last-error.php
 	 * @see libxml_get_errors(), libxml_clear_errors()
 	 * @since PHP 5 >= 5.1.0, PHP 7
 	 */
-	function libxml_get_last_error(): \LibXMLError {}
+	function libxml_get_last_error() {}
 
 	/**
 	 * Changes the default external entity loader
 	 * <p>Changes the default external entity loader.</p>
-	 * @param callable $resolver_function <p>A <code>callable</code> that takes three arguments. Two strings, a public id and system id, and a context (an array with four keys) as the third argument. This callback should return a resource, a string from which a resource can be opened, or <b><code>NULL</code></b>.</p>
+	 * @param callable|null $resolver_function <p>A <code>callable</code> that takes three arguments. Two strings, a public id and system id, and a context (an array with four keys) as the third argument. This callback should return a resource, a string from which a resource can be opened, or <b><code>NULL</code></b>.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
 	 * @link http://php.net/manual/en/function.libxml-set-external-entity-loader.php
 	 * @see libxml_disable_entity_loader()
 	 * @since PHP 5 >= 5.4.0, PHP 7
 	 */
-	function libxml_set_external_entity_loader(callable $resolver_function): bool {}
+	function libxml_set_external_entity_loader($resolver_function): bool {}
 
 	/**
 	 * Set the streams context for the next libxml document load or write
 	 * <p>Sets the streams context for the next libxml document load or write.</p>
-	 * @param resource $streams_context <p>The stream context resource (created with <code>stream_context_create()</code>)</p>
+	 * @param resource $context <p>The stream context resource (created with <code>stream_context_create()</code>)</p>
 	 * @return void <p>No value is returned.</p>
 	 * @link http://php.net/manual/en/function.libxml-set-streams-context.php
 	 * @see stream_context_create()
 	 * @since PHP 5, PHP 7
 	 */
-	function libxml_set_streams_context($streams_context): void {}
+	function libxml_set_streams_context($context): void {}
 
 	/**
 	 * Disable libxml errors and allow user to fetch error information as needed
 	 * <p><b>libxml_use_internal_errors()</b> allows you to disable standard libxml errors and enable user error handling.</p>
-	 * @param bool $use_errors <p>Enable (<b><code>TRUE</code></b>) user error handling or disable (<b><code>FALSE</code></b>) user error handling. Disabling will also clear any existing libxml errors.</p>
+	 * @param bool|null $use_errors <p>Enable (<b><code>TRUE</code></b>) user error handling or disable (<b><code>FALSE</code></b>) user error handling. Disabling will also clear any existing libxml errors.</p>
 	 * @return bool <p>This function returns the previous value of <code>use_errors</code>.</p>
 	 * @link http://php.net/manual/en/function.libxml-use-internal-errors.php
 	 * @see libxml_clear_errors(), libxml_get_errors()
 	 * @since PHP 5 >= 5.1.0, PHP 7
 	 */
-	function libxml_use_internal_errors(bool $use_errors = FALSE): bool {}
+	function libxml_use_internal_errors($use_errors = NULL): bool {}
 
 	/**
 	 * Allows line numbers greater than 65535 to be reported correctly.  <p><b>Note</b>:</p><p>Only available as of PHP 7.0.0 with Libxml &gt;= 2.9.0</p>
@@ -135,7 +135,7 @@ namespace {
 	/**
 	 * libxml version like 2.6.5 or 2.6.17
 	 */
-	define('LIBXML_DOTTED_VERSION', '2.9.4');
+	define('LIBXML_DOTTED_VERSION', '2.9.10');
 
 	/**
 	 * Default DTD attributes
@@ -193,12 +193,12 @@ namespace {
 	define('LIBXML_NOCDATA', 16384);
 
 	/**
-	 * Expand empty tags (e.g. <i>&lt;br/&gt;</i> to <i>&lt;br&gt;&lt;/br&gt;</i>)  <p><b>Note</b>:</p><p>This option is currently just available in the DOMDocument::save and DOMDocument::saveXML functions.</p>
+	 * Expand empty tags (e.g. <code>&lt;br/&gt;</code> to <code>&lt;br&gt;&lt;/br&gt;</code>)  <p><b>Note</b>:</p><p>This option is currently just available in the DOMDocument::save and DOMDocument::saveXML functions.</p>
 	 */
 	define('LIBXML_NOEMPTYTAG', 4);
 
 	/**
-	 * Substitute entities
+	 * Substitute entities  <b>Caution</b> <p>Enabling entity substitution may facilitate XML External Entity (XXE) attacks.</p>
 	 */
 	define('LIBXML_NOENT', 2);
 
@@ -245,7 +245,7 @@ namespace {
 	/**
 	 * libxml version like 20605 or 20617
 	 */
-	define('LIBXML_VERSION', 20904);
+	define('LIBXML_VERSION', 20910);
 
 	/**
 	 * Implement XInclude substitution

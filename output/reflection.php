@@ -41,19 +41,19 @@ namespace {
 	class ReflectionClass implements \Reflector {
 
 		/**
-		 * @var integer <p>Indicates class that is  abstract because it has some abstract methods.</p>
+		 * @var int <p>Indicates class that is  abstract because it has some abstract methods.</p>
 		 * @link http://php.net/manual/en/class.reflectionclass.php
 		 */
 		const IS_IMPLICIT_ABSTRACT = 16;
 
 		/**
-		 * @var integer <p>Indicates class that is  abstract because of its definition.</p>
+		 * @var int <p>Indicates class that is  abstract because of its definition.</p>
 		 * @link http://php.net/manual/en/class.reflectionclass.php
 		 */
 		const IS_EXPLICIT_ABSTRACT = 32;
 
 		/**
-		 * @var integer <p>Indicates final class.</p>
+		 * @var int <p>Indicates final class.</p>
 		 * @link http://php.net/manual/en/class.reflectionclass.php
 		 */
 		const IS_FINAL = 64;
@@ -97,8 +97,8 @@ namespace {
 		/**
 		 * Gets defined constant
 		 * <p>Gets the defined constant.</p><p>This function is currently not documented; only its argument list is available.</p>
-		 * @param string $name <p>Name of the constant.</p>
-		 * @return mixed <p>Value of the constant.</p>
+		 * @param string $name <p>The name of the class constant to get.</p>
+		 * @return mixed <p>Value of the constant with the name <code>name</code>. Returns <b><code>FALSE</code></b> if the constant was not found in the class.</p>
 		 * @link http://php.net/manual/en/reflectionclass.getconstant.php
 		 * @since PHP 5, PHP 7
 		 */
@@ -133,7 +133,7 @@ namespace {
 
 		/**
 		 * Gets doc comments
-		 * <p>Gets doc comments from a class.</p><p>This function is currently not documented; only its argument list is available.</p>
+		 * <p>Gets doc comments from a class. Doc comments start with /&#42;&#42;. If there are multiple doc comments above the class definition, the one closest to the class will be taken.</p>
 		 * @return string <p>The doc comment if it exists, otherwise <b><code>FALSE</code></b></p>
 		 * @link http://php.net/manual/en/reflectionclass.getdoccomment.php
 		 * @since PHP 5, PHP 7
@@ -207,7 +207,7 @@ namespace {
 		/**
 		 * Gets an array of methods
 		 * <p>Gets an array of methods for the class.</p>
-		 * @param int $filter <p>Filter the results to include only methods with certain attributes. Defaults to no filtering.</p> <p>Any bitwise disjunction of <b><code>ReflectionMethod::IS_STATIC</code></b>, <b><code>ReflectionMethod::IS_PUBLIC</code></b>, <b><code>ReflectionMethod::IS_PROTECTED</code></b>, <b><code>ReflectionMethod::IS_PRIVATE</code></b>, <b><code>ReflectionMethod::IS_ABSTRACT</code></b>, <b><code>ReflectionMethod::IS_FINAL</code></b>, so that all methods with <i>any</i> of the given attributes will be returned.</p> <p><b>Note</b>:  Note that other bitwise operations, for instance <i>~</i> will not work as expected. In other words, it is not possible to retrieve all non-static methods, for example. </p>
+		 * @param int $filter <p>Filter the results to include only methods with certain attributes. Defaults to no filtering.</p> <p>Any bitwise disjunction of <b><code>ReflectionMethod::IS_STATIC</code></b>, <b><code>ReflectionMethod::IS_PUBLIC</code></b>, <b><code>ReflectionMethod::IS_PROTECTED</code></b>, <b><code>ReflectionMethod::IS_PRIVATE</code></b>, <b><code>ReflectionMethod::IS_ABSTRACT</code></b>, <b><code>ReflectionMethod::IS_FINAL</code></b>, so that all methods with <i>any</i> of the given attributes will be returned.</p> <p><b>Note</b>:  Note that other bitwise operations, for instance <code>~</code> will not work as expected. In other words, it is not possible to retrieve all non-static methods, for example. </p>
 		 * @return array <p>An <code>array</code> of ReflectionMethod objects reflecting each method.</p>
 		 * @link http://php.net/manual/en/reflectionclass.getmethods.php
 		 * @see get_class_methods()
@@ -275,11 +275,11 @@ namespace {
 		 * Gets a ReflectionClassConstant for a class's constant
 		 * <p>Gets a ReflectionClassConstant for a class's property.</p>
 		 * @param string $name <p>The class constant name.</p>
-		 * @return ReflectionClassConstant <p>A ReflectionClassConstant.</p>
+		 * @return ReflectionClassConstant|false <p>A ReflectionClassConstant, or <b><code>FALSE</code></b> on failure.</p>
 		 * @link http://php.net/manual/en/reflectionclass.getreflectionconstant.php
 		 * @since PHP 7 >= 7.1.0
 		 */
-		public function getReflectionConstant(string $name): \ReflectionClassConstant {}
+		public function getReflectionConstant(string $name) {}
 
 		/**
 		 * Gets class constants
@@ -302,7 +302,7 @@ namespace {
 		/**
 		 * Gets starting line number
 		 * <p>Get the starting line number.</p><p>This function is currently not documented; only its argument list is available.</p>
-		 * @return int <p>The starting line number, as an <code>integer</code>.</p>
+		 * @return int <p>The starting line number, as an <code>int</code>.</p>
 		 * @link http://php.net/manual/en/reflectionclass.getstartline.php
 		 * @since PHP 5, PHP 7
 		 */
@@ -331,7 +331,7 @@ namespace {
 		/**
 		 * Returns an array of trait aliases
 		 * <p></p><p>This function is currently not documented; only its argument list is available.</p>
-		 * @return array <p>Returns an array with new method names in keys and original names (in the format <i>"TraitName::original"</i>) in values. Returns <b><code>NULL</code></b> in case of an error.</p>
+		 * @return array <p>Returns an array with new method names in keys and original names (in the format <code>"TraitName::original"</code>) in values. Returns <b><code>NULL</code></b> in case of an error.</p>
 		 * @link http://php.net/manual/en/reflectionclass.gettraitaliases.php
 		 * @since PHP 5 >= 5.4.0, PHP 7
 		 */
@@ -388,13 +388,13 @@ namespace {
 		/**
 		 * Implements interface
 		 * <p>Checks whether it implements an interface.</p>
-		 * @param string $interface <p>The interface name.</p>
+		 * @param \ReflectionClass|string $interface <p>The interface name.</p>
 		 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
 		 * @link http://php.net/manual/en/reflectionclass.implementsinterface.php
 		 * @see interface_exists()
 		 * @since PHP 5, PHP 7
 		 */
-		public function implementsInterface(string $interface): bool {}
+		public function implementsInterface($interface): bool {}
 
 		/**
 		 * Checks if in namespace
@@ -481,31 +481,23 @@ namespace {
 
 		/**
 		 * Check whether this class is iterable
-		 * @return bool <p>Returns <b><code>TRUE</code></b> if this class is iterable (can be used inside foreach), <b><code>FALSE</code></b> otherwise.</p>
+		 * <p>Check whether this class is iterable (i.e. can be used inside foreach).</p>
+		 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
 		 * @link http://php.net/manual/en/reflectionclass.isiterable.php
 		 * @since PHP 7 >= 7.2.0
 		 */
 		public function isIterable(): bool {}
 
 		/**
-		 * Checks if iterateable
-		 * <p>Checks whether the class is iterateable.</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-		 * @link http://php.net/manual/en/reflectionclass.isiterateable.php
-		 * @since PHP 5, PHP 7
-		 */
-		public function isIterateable(): bool {}
-
-		/**
 		 * Checks if a subclass
 		 * <p>Checks if the class is a subclass of a specified class or implements a specified interface.</p>
-		 * @param string $class <p>The class name being checked against.</p>
+		 * @param mixed $class <p>Either the name of the class as <code>string</code> or a <code>ReflectionClass</code> object of the class to check against.</p>
 		 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
 		 * @link http://php.net/manual/en/reflectionclass.issubclassof.php
 		 * @see is_subclass_of(), get_parent_class()
 		 * @since PHP 5, PHP 7
 		 */
-		public function isSubclassOf(string $class): bool {}
+		public function isSubclassOf($class): bool {}
 
 		/**
 		 * Returns whether this is a trait
@@ -528,13 +520,12 @@ namespace {
 		/**
 		 * Creates a new class instance from given arguments
 		 * <p>Creates a new instance of the class. The given arguments are passed to the class constructor.</p>
-		 * @param mixed $args <p>Accepts a variable number of arguments which are passed to the class constructor, much like <code>call_user_func()</code>.</p>
-		 * @param mixed $_
+		 * @param mixed $_$args
 		 * @return object
 		 * @link http://php.net/manual/en/reflectionclass.newinstance.php
 		 * @since PHP 5, PHP 7
 		 */
-		public function newInstance($args, $_ = NULL): object {}
+		public function newInstance($_$args): object {}
 
 		/**
 		 * Creates a new class instance from given arguments
@@ -726,7 +717,7 @@ namespace {
 		 * <p>Tries to clone the Exception, which results in Fatal error.</p>
 		 * @return void <p>No value is returned.</p>
 		 * @link http://php.net/manual/en/exception.clone.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final private function __clone() {}
 
@@ -735,16 +726,16 @@ namespace {
 		 * <p>Returns the <code>string</code> representation of the exception.</p>
 		 * @return string <p>Returns the <code>string</code> representation of the exception.</p>
 		 * @link http://php.net/manual/en/exception.tostring.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		public function __toString(): string {}
 
 		/**
 		 * Gets the Exception code
 		 * <p>Returns the Exception code.</p>
-		 * @return mixed <p>Returns the exception code as <code>integer</code> in Exception but possibly as other type in Exception descendants (for example as <code>string</code> in PDOException).</p>
+		 * @return mixed <p>Returns the exception code as <code>int</code> in Exception but possibly as other type in Exception descendants (for example as <code>string</code> in PDOException).</p>
 		 * @link http://php.net/manual/en/exception.getcode.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getCode() {}
 
@@ -753,7 +744,7 @@ namespace {
 		 * <p>Get the name of the file in which the exception was created.</p>
 		 * @return string <p>Returns the filename in which the exception was created.</p>
 		 * @link http://php.net/manual/en/exception.getfile.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getFile(): string {}
 
@@ -762,7 +753,7 @@ namespace {
 		 * <p>Get line number where the exception was created.</p>
 		 * @return int <p>Returns the line number where the exception was created.</p>
 		 * @link http://php.net/manual/en/exception.getline.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getLine(): int {}
 
@@ -771,7 +762,7 @@ namespace {
 		 * <p>Returns the Exception message.</p>
 		 * @return string <p>Returns the Exception message as a string.</p>
 		 * @link http://php.net/manual/en/exception.getmessage.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getMessage(): string {}
 
@@ -780,7 +771,7 @@ namespace {
 		 * <p>Returns previous exception (the third parameter of <code>Exception::__construct()</code>).</p>
 		 * @return Throwable <p>Returns the previous Throwable if available or <b><code>NULL</code></b> otherwise.</p>
 		 * @link http://php.net/manual/en/exception.getprevious.php
-		 * @since PHP 5 >= 5.3.0, PHP 7
+		 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8
 		 */
 		final public function getPrevious(): \Throwable {}
 
@@ -789,7 +780,7 @@ namespace {
 		 * <p>Returns the Exception stack trace.</p>
 		 * @return array <p>Returns the Exception stack trace as an <code>array</code>.</p>
 		 * @link http://php.net/manual/en/exception.gettrace.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getTrace(): array {}
 
@@ -798,7 +789,7 @@ namespace {
 		 * <p>Returns the Exception stack trace as a string.</p>
 		 * @return string <p>Returns the Exception stack trace as a string.</p>
 		 * @link http://php.net/manual/en/exception.gettraceasstring.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getTraceAsString(): string {}
 	}
@@ -846,7 +837,7 @@ namespace {
 
 		/**
 		 * Export
-		 * <p>Exports a reflected extension. The output format of this function is the same as the CLI argument <i>--re [extension]</i>.</p>
+		 * <p>Exports a reflected extension. The output format of this function is the same as the CLI argument <code>--re [extension]</code>.</p>
 		 * @param string $name <p>The reflection to export.</p>
 		 * @param string $return <p>Setting to <b><code>TRUE</code></b> will return the export, as opposed to emitting it. Setting to <b><code>FALSE</code></b> (the default) will do the opposite.</p>
 		 * @return string <p>If the <code>return</code> parameter is set to <b><code>TRUE</code></b>, then the export is returned as a <code>string</code>, otherwise <b><code>NULL</code></b> is returned.</p>
@@ -885,7 +876,7 @@ namespace {
 		/**
 		 * Gets dependencies
 		 * <p>Gets dependencies, by listing both required and conflicting dependencies.</p>
-		 * @return array <p>An associative <code>array</code> with dependencies as keys and either <i>Required</i>, <i>Optional</i> or <i>Conflicts</i> as the values.</p>
+		 * @return array <p>An associative <code>array</code> with dependencies as keys and either <code>Required</code>, <code>Optional</code> or <code>Conflicts</code> as the values.</p>
 		 * @link http://php.net/manual/en/reflectionextension.getdependencies.php
 		 * @since PHP 5 >= 5.1.3, PHP 7
 		 */
@@ -942,7 +933,7 @@ namespace {
 		/**
 		 * Returns whether this extension is persistent
 		 * <p></p><p>This function is currently not documented; only its argument list is available.</p>
-		 * @return void <p>Returns <b><code>TRUE</code></b> for extensions loaded by <i>extension</i>, <b><code>FALSE</code></b> otherwise.</p>
+		 * @return void <p>Returns <b><code>TRUE</code></b> for extensions loaded by <code>extension</code>, <b><code>FALSE</code></b> otherwise.</p>
 		 * @link http://php.net/manual/en/reflectionextension.ispersistent.php
 		 * @since PHP 5 >= 5.4.0, PHP 7
 		 */
@@ -966,7 +957,7 @@ namespace {
 	class ReflectionFunction extends \ReflectionFunctionAbstract implements \Reflector {
 
 		/**
-		 * @var integer <p>Indicates deprecated functions.</p>
+		 * @var int <p>Indicates deprecated functions.</p>
 		 * @link http://php.net/manual/en/class.reflectionfunction.php
 		 */
 		const IS_DEPRECATED = 262144;
@@ -1192,14 +1183,13 @@ namespace {
 		/**
 		 * Invokes function
 		 * <p>Invokes a reflected function.</p>
-		 * @param mixed $parameter
-		 * @param mixed $_
+		 * @param mixed $_$args
 		 * @return mixed <p>Returns the result of the invoked function call.</p>
 		 * @link http://php.net/manual/en/reflectionfunction.invoke.php
 		 * @see call_user_func()
 		 * @since PHP 5, PHP 7
 		 */
-		public function invoke($parameter = NULL, $_ = NULL) {}
+		public function invoke($_$args) {}
 
 		/**
 		 * Invokes function args
@@ -1599,8 +1589,8 @@ namespace {
 
 		/**
 		 * Gets the $this value of the generator
-		 * <p>Get the <i>$this</i> value that the generator has access to.</p>
-		 * @return object <p>Returns the <i>$this</i> value, or <b><code>NULL</code></b> if the generator was not created in a class context.</p>
+		 * <p>Get the <code>$this</code> value that the generator has access to.</p>
+		 * @return object <p>Returns the <code>$this</code> value, or <b><code>NULL</code></b> if the generator was not created in a class context.</p>
 		 * @link http://php.net/manual/en/reflectiongenerator.getthis.php
 		 * @since PHP 7
 		 */
@@ -1609,7 +1599,7 @@ namespace {
 		/**
 		 * Gets the trace of the executing generator
 		 * <p>Get the trace of the currently executing generator.</p>
-		 * @param int $options <p>The value of <code>options</code> can be any of the following the following flags.</p> <p></p> <b>Available options</b>   Option Description      <b><code>DEBUG_BACKTRACE_PROVIDE_OBJECT</code></b>   Default.     <b><code>DEBUG_BACKTRACE_IGNORE_ARGS</code></b>   Don't include the argument information for functions in the stack trace.
+		 * @param int $options <p>The value of <code>options</code> can be any of the following flags.</p> <p></p> <b>Available options</b>   Option Description      <b><code>DEBUG_BACKTRACE_PROVIDE_OBJECT</code></b>   Default.     <b><code>DEBUG_BACKTRACE_IGNORE_ARGS</code></b>   Don't include the argument information for functions in the stack trace.
 		 * @return array <p>Returns the trace of the currently executing generator.</p>
 		 * @link http://php.net/manual/en/reflectiongenerator.gettrace.php
 		 * @since PHP 7
@@ -1625,37 +1615,37 @@ namespace {
 	class ReflectionMethod extends \ReflectionFunctionAbstract implements \Reflector {
 
 		/**
-		 * @var integer <p>Indicates that the method is static.</p>
+		 * @var int <p>Indicates that the method is static.</p>
 		 * @link http://php.net/manual/en/class.reflectionmethod.php
 		 */
 		const IS_STATIC = 1;
 
 		/**
-		 * @var integer <p>Indicates that the method is public.</p>
+		 * @var int <p>Indicates that the method is public.</p>
 		 * @link http://php.net/manual/en/class.reflectionmethod.php
 		 */
 		const IS_PUBLIC = 256;
 
 		/**
-		 * @var integer <p>Indicates that the method is protected.</p>
+		 * @var int <p>Indicates that the method is protected.</p>
 		 * @link http://php.net/manual/en/class.reflectionmethod.php
 		 */
 		const IS_PROTECTED = 512;
 
 		/**
-		 * @var integer <p>Indicates that the method is private.</p>
+		 * @var int <p>Indicates that the method is private.</p>
 		 * @link http://php.net/manual/en/class.reflectionmethod.php
 		 */
 		const IS_PRIVATE = 1024;
 
 		/**
-		 * @var integer <p>Indicates that the method is abstract.</p>
+		 * @var int <p>Indicates that the method is abstract.</p>
 		 * @link http://php.net/manual/en/class.reflectionmethod.php
 		 */
 		const IS_ABSTRACT = 2;
 
 		/**
-		 * @var integer <p>Indicates that the method is final.</p>
+		 * @var int <p>Indicates that the method is final.</p>
 		 * @link http://php.net/manual/en/class.reflectionmethod.php
 		 */
 		const IS_FINAL = 4;
@@ -1684,7 +1674,7 @@ namespace {
 		/**
 		 * Constructs a ReflectionMethod
 		 * <p>Constructs a new ReflectionMethod.</p>
-		 * @param mixed $class <p>Classname or object (instance of the class) that contains the method.</p>
+		 * @param string|object $class <p>Classname or object (instance of the class) that contains the method.</p>
 		 * @param string $name <p>Name of the method.</p>
 		 * @return self <p>No value is returned.</p>
 		 * @link http://php.net/manual/en/reflectionmethod.construct.php
@@ -1918,14 +1908,13 @@ namespace {
 		 * Invoke
 		 * <p>Invokes a reflected method.</p>
 		 * @param object $object <p>The object to invoke the method on. For static methods, pass <code>null</code> to this parameter.</p>
-		 * @param mixed $parameter <p>Zero or more parameters to be passed to the method. It accepts a variable number of parameters which are passed to the method.</p>
-		 * @param mixed $_
+		 * @param mixed $_$args
 		 * @return mixed <p>Returns the method result.</p>
 		 * @link http://php.net/manual/en/reflectionmethod.invoke.php
 		 * @see call_user_func()
 		 * @since PHP 5, PHP 7
 		 */
-		public function invoke(object $object, $parameter = NULL, $_ = NULL) {}
+		public function invoke(object $object, $_$args) {}
 
 		/**
 		 * Invoke args
@@ -2087,7 +2076,7 @@ namespace {
 
 	/**
 	 * @link http://php.net/manual/en/class.reflectionnamedtype.php
-	 * @since No version information available, might only be in Git
+	 * @since PHP 7 >= 7.1.0
 	 */
 	class ReflectionNamedType extends \ReflectionType {
 
@@ -2173,8 +2162,8 @@ namespace {
 		/**
 		 * Gets defined constant
 		 * <p>Gets the defined constant.</p><p>This function is currently not documented; only its argument list is available.</p>
-		 * @param string $name <p>Name of the constant.</p>
-		 * @return mixed <p>Value of the constant.</p>
+		 * @param string $name <p>The name of the class constant to get.</p>
+		 * @return mixed <p>Value of the constant with the name <code>name</code>. Returns <b><code>FALSE</code></b> if the constant was not found in the class.</p>
 		 * @link http://php.net/manual/en/reflectionclass.getconstant.php
 		 * @since PHP 5, PHP 7
 		 */
@@ -2209,7 +2198,7 @@ namespace {
 
 		/**
 		 * Gets doc comments
-		 * <p>Gets doc comments from a class.</p><p>This function is currently not documented; only its argument list is available.</p>
+		 * <p>Gets doc comments from a class. Doc comments start with /&#42;&#42;. If there are multiple doc comments above the class definition, the one closest to the class will be taken.</p>
 		 * @return string <p>The doc comment if it exists, otherwise <b><code>FALSE</code></b></p>
 		 * @link http://php.net/manual/en/reflectionclass.getdoccomment.php
 		 * @since PHP 5, PHP 7
@@ -2283,7 +2272,7 @@ namespace {
 		/**
 		 * Gets an array of methods
 		 * <p>Gets an array of methods for the class.</p>
-		 * @param int $filter <p>Filter the results to include only methods with certain attributes. Defaults to no filtering.</p> <p>Any bitwise disjunction of <b><code>ReflectionMethod::IS_STATIC</code></b>, <b><code>ReflectionMethod::IS_PUBLIC</code></b>, <b><code>ReflectionMethod::IS_PROTECTED</code></b>, <b><code>ReflectionMethod::IS_PRIVATE</code></b>, <b><code>ReflectionMethod::IS_ABSTRACT</code></b>, <b><code>ReflectionMethod::IS_FINAL</code></b>, so that all methods with <i>any</i> of the given attributes will be returned.</p> <p><b>Note</b>:  Note that other bitwise operations, for instance <i>~</i> will not work as expected. In other words, it is not possible to retrieve all non-static methods, for example. </p>
+		 * @param int $filter <p>Filter the results to include only methods with certain attributes. Defaults to no filtering.</p> <p>Any bitwise disjunction of <b><code>ReflectionMethod::IS_STATIC</code></b>, <b><code>ReflectionMethod::IS_PUBLIC</code></b>, <b><code>ReflectionMethod::IS_PROTECTED</code></b>, <b><code>ReflectionMethod::IS_PRIVATE</code></b>, <b><code>ReflectionMethod::IS_ABSTRACT</code></b>, <b><code>ReflectionMethod::IS_FINAL</code></b>, so that all methods with <i>any</i> of the given attributes will be returned.</p> <p><b>Note</b>:  Note that other bitwise operations, for instance <code>~</code> will not work as expected. In other words, it is not possible to retrieve all non-static methods, for example. </p>
 		 * @return array <p>An <code>array</code> of ReflectionMethod objects reflecting each method.</p>
 		 * @link http://php.net/manual/en/reflectionclass.getmethods.php
 		 * @see get_class_methods()
@@ -2351,11 +2340,11 @@ namespace {
 		 * Gets a ReflectionClassConstant for a class's constant
 		 * <p>Gets a ReflectionClassConstant for a class's property.</p>
 		 * @param string $name <p>The class constant name.</p>
-		 * @return ReflectionClassConstant <p>A ReflectionClassConstant.</p>
+		 * @return ReflectionClassConstant|false <p>A ReflectionClassConstant, or <b><code>FALSE</code></b> on failure.</p>
 		 * @link http://php.net/manual/en/reflectionclass.getreflectionconstant.php
 		 * @since PHP 7 >= 7.1.0
 		 */
-		public function getReflectionConstant(string $name): \ReflectionClassConstant {}
+		public function getReflectionConstant(string $name) {}
 
 		/**
 		 * Gets class constants
@@ -2378,7 +2367,7 @@ namespace {
 		/**
 		 * Gets starting line number
 		 * <p>Get the starting line number.</p><p>This function is currently not documented; only its argument list is available.</p>
-		 * @return int <p>The starting line number, as an <code>integer</code>.</p>
+		 * @return int <p>The starting line number, as an <code>int</code>.</p>
 		 * @link http://php.net/manual/en/reflectionclass.getstartline.php
 		 * @since PHP 5, PHP 7
 		 */
@@ -2407,7 +2396,7 @@ namespace {
 		/**
 		 * Returns an array of trait aliases
 		 * <p></p><p>This function is currently not documented; only its argument list is available.</p>
-		 * @return array <p>Returns an array with new method names in keys and original names (in the format <i>"TraitName::original"</i>) in values. Returns <b><code>NULL</code></b> in case of an error.</p>
+		 * @return array <p>Returns an array with new method names in keys and original names (in the format <code>"TraitName::original"</code>) in values. Returns <b><code>NULL</code></b> in case of an error.</p>
 		 * @link http://php.net/manual/en/reflectionclass.gettraitaliases.php
 		 * @since PHP 5 >= 5.4.0, PHP 7
 		 */
@@ -2464,13 +2453,13 @@ namespace {
 		/**
 		 * Implements interface
 		 * <p>Checks whether it implements an interface.</p>
-		 * @param string $interface <p>The interface name.</p>
+		 * @param \ReflectionClass|string $interface <p>The interface name.</p>
 		 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
 		 * @link http://php.net/manual/en/reflectionclass.implementsinterface.php
 		 * @see interface_exists()
 		 * @since PHP 5, PHP 7
 		 */
-		public function implementsInterface(string $interface): bool {}
+		public function implementsInterface($interface): bool {}
 
 		/**
 		 * Checks if in namespace
@@ -2557,31 +2546,23 @@ namespace {
 
 		/**
 		 * Check whether this class is iterable
-		 * @return bool <p>Returns <b><code>TRUE</code></b> if this class is iterable (can be used inside foreach), <b><code>FALSE</code></b> otherwise.</p>
+		 * <p>Check whether this class is iterable (i.e. can be used inside foreach).</p>
+		 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
 		 * @link http://php.net/manual/en/reflectionclass.isiterable.php
 		 * @since PHP 7 >= 7.2.0
 		 */
 		public function isIterable(): bool {}
 
 		/**
-		 * Checks if iterateable
-		 * <p>Checks whether the class is iterateable.</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-		 * @link http://php.net/manual/en/reflectionclass.isiterateable.php
-		 * @since PHP 5, PHP 7
-		 */
-		public function isIterateable(): bool {}
-
-		/**
 		 * Checks if a subclass
 		 * <p>Checks if the class is a subclass of a specified class or implements a specified interface.</p>
-		 * @param string $class <p>The class name being checked against.</p>
+		 * @param mixed $class <p>Either the name of the class as <code>string</code> or a <code>ReflectionClass</code> object of the class to check against.</p>
 		 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
 		 * @link http://php.net/manual/en/reflectionclass.issubclassof.php
 		 * @see is_subclass_of(), get_parent_class()
 		 * @since PHP 5, PHP 7
 		 */
-		public function isSubclassOf(string $class): bool {}
+		public function isSubclassOf($class): bool {}
 
 		/**
 		 * Returns whether this is a trait
@@ -2604,13 +2585,12 @@ namespace {
 		/**
 		 * Creates a new class instance from given arguments
 		 * <p>Creates a new instance of the class. The given arguments are passed to the class constructor.</p>
-		 * @param mixed $args <p>Accepts a variable number of arguments which are passed to the class constructor, much like <code>call_user_func()</code>.</p>
-		 * @param mixed $_
+		 * @param mixed $_$args
 		 * @return object
 		 * @link http://php.net/manual/en/reflectionclass.newinstance.php
 		 * @since PHP 5, PHP 7
 		 */
-		public function newInstance($args, $_ = NULL): object {}
+		public function newInstance($_$args): object {}
 
 		/**
 		 * Creates a new class instance from given arguments
@@ -2668,14 +2648,14 @@ namespace {
 
 		/**
 		 * Construct
-		 * <p>Constructs a ReflectionParameter class.</p><p>This function is currently not documented; only its argument list is available.</p>
-		 * @param string $function <p>The function to reflect parameters from.</p>
-		 * @param string $parameter <p>The parameter.</p>
+		 * <p>Constructs a ReflectionParameter instance.</p>
+		 * @param callable $function <p>The function to reflect parameters from.</p>
+		 * @param mixed $parameter <p>Either an <code>int</code> specifying the position of the parameter (starting with zero), or a the parameter name as <code>string</code>.</p>
 		 * @return self <p>No value is returned.</p>
 		 * @link http://php.net/manual/en/reflectionparameter.construct.php
 		 * @since PHP 5, PHP 7
 		 */
-		public function __construct(string $function, string $parameter) {}
+		public function __construct(callable $function, $parameter) {}
 
 		/**
 		 * To string
@@ -2745,7 +2725,7 @@ namespace {
 
 		/**
 		 * Gets default parameter value
-		 * <p>Gets the default value of the parameter for a user-defined function or method. If the parameter is not optional a ReflectionException will be thrown.</p>
+		 * <p>Gets the default value of the parameter for any user-defined or internal function or method. If the parameter is not optional a ReflectionException will be thrown.</p>
 		 * @return mixed <p>The parameters default value.</p>
 		 * @link http://php.net/manual/en/reflectionparameter.getdefaultvalue.php
 		 * @since PHP 5 >= 5.0.3, PHP 7
@@ -2754,7 +2734,7 @@ namespace {
 
 		/**
 		 * Returns the default value's constant name if default value is constant or null
-		 * <p>Returns the default value's constant name of the parameter of a user-defined function or method, if default value is constant or null. If the parameter is not optional a ReflectionException will be thrown.</p>
+		 * <p>Returns the default value's constant name of the parameter of any user-defined or internal function or method, if default value is constant or null. If the parameter is not optional a ReflectionException will be thrown.</p>
 		 * @return string <p>Returns string on success or <b><code>NULL</code></b> on failure.</p>
 		 * @link http://php.net/manual/en/reflectionparameter.getdefaultvalueconstantname.php
 		 * @since PHP 5 >= 5.4.6, PHP 7
@@ -2872,32 +2852,32 @@ namespace {
 	}
 
 	/**
-	 * <p>The <b>ReflectionProperty</b> class reports information about classes properties.</p>
+	 * <p>The <b>ReflectionProperty</b> class reports information about class properties.</p>
 	 * @link http://php.net/manual/en/class.reflectionproperty.php
 	 * @since PHP 5, PHP 7
 	 */
 	class ReflectionProperty implements \Reflector {
 
 		/**
-		 * @var integer <p>Indicates static properties.</p>
+		 * @var int <p>Indicates static properties.</p>
 		 * @link http://php.net/manual/en/class.reflectionproperty.php
 		 */
 		const IS_STATIC = 1;
 
 		/**
-		 * @var integer <p>Indicates public properties.</p>
+		 * @var int <p>Indicates public properties.</p>
 		 * @link http://php.net/manual/en/class.reflectionproperty.php
 		 */
 		const IS_PUBLIC = 256;
 
 		/**
-		 * @var integer <p>Indicates protected properties.</p>
+		 * @var int <p>Indicates protected properties.</p>
 		 * @link http://php.net/manual/en/class.reflectionproperty.php
 		 */
 		const IS_PROTECTED = 512;
 
 		/**
-		 * @var integer <p>Indicates private properties.</p>
+		 * @var int <p>Indicates private properties.</p>
 		 * @link http://php.net/manual/en/class.reflectionproperty.php
 		 */
 		const IS_PRIVATE = 1024;
@@ -2965,6 +2945,15 @@ namespace {
 		public function getDeclaringClass(): \ReflectionClass {}
 
 		/**
+		 * Returns the default value declared for a property
+		 * <p>Gets the implicit or explicitly declared default value for a property.</p>
+		 * @return mixed <p>The default value if the property has any default value (including <b><code>NULL</code></b>). If there is no default value, then <b><code>NULL</code></b> is returned. It is not possible to differentiate between a <b><code>NULL</code></b> default value and an unitialized typed property. Use <b>ReflectionClass::hasDefaultValue()</b> to detect the difference.</p>
+		 * @link http://php.net/manual/en/reflectionproperty.getdefaultvalue.php
+		 * @since PHP 8
+		 */
+		public function getDefaultValue() {}
+
+		/**
 		 * Gets the property doc comment
 		 * <p>Gets the doc comment for a property.</p>
 		 * @return string <p>The property doc comment.</p>
@@ -2992,6 +2981,15 @@ namespace {
 		public function getName(): string {}
 
 		/**
+		 * Gets a property's type
+		 * <p>Gets the associated type of a property.</p>
+		 * @return ReflectionType|null <p>Returns a ReflectionType if the property has a type, and <b><code>NULL</code></b> otherwise.</p>
+		 * @link http://php.net/manual/en/reflectionproperty.gettype.php
+		 * @since PHP 7 >= 7.4.0
+		 */
+		public function getType() {}
+
+		/**
 		 * Gets value
 		 * <p>Gets the property's value.</p>
 		 * @param object $object <p>If the property is non-static an object must be provided to fetch the property from. If you want to fetch the default property without providing an object use <code>ReflectionClass::getDefaultProperties()</code> instead.</p>
@@ -3002,6 +3000,24 @@ namespace {
 		public function getValue(object $object = NULL) {}
 
 		/**
+		 * Checks if property has a default value declared
+		 * <p>Checks whether the property was declared with a default value, including an implicit <b><code>NULL</code></b> default value. Only returns <b><code>FALSE</code></b> for typed properties without default value (or dynamic properties).</p>
+		 * @return bool <p>If the property has any default value (including <b><code>NULL</code></b>) <b><code>TRUE</code></b> is returned; if the property is typed without a default value declared or is a dynamic property, <b><code>FALSE</code></b> is returned.</p>
+		 * @link http://php.net/manual/en/reflectionproperty.hasdefaultvalue.php
+		 * @since PHP 8
+		 */
+		public function hasDefaultValue(): bool {}
+
+		/**
+		 * Checks if property has a type
+		 * <p>Checks if the property has a type associated with it.</p>
+		 * @return bool <p><b><code>TRUE</code></b> if a type is specified, <b><code>FALSE</code></b> otherwise.</p>
+		 * @link http://php.net/manual/en/reflectionproperty.hastype.php
+		 * @since PHP 7 >= 7.4.0
+		 */
+		public function hasType(): bool {}
+
+		/**
 		 * Checks if property is a default property
 		 * <p>Checks whether the property was declared at compile-time, or whether the property was dynamically declared at run-time.</p>
 		 * @return bool <p><b><code>TRUE</code></b> if the property was declared at compile-time, or <b><code>FALSE</code></b> if it was created at run-time.</p>
@@ -3009,6 +3025,16 @@ namespace {
 		 * @since PHP 5, PHP 7
 		 */
 		public function isDefault(): bool {}
+
+		/**
+		 * Checks whether a property is initialized
+		 * <p>Checks whether a property is initialized.</p>
+		 * @param object $object <p>If the property is non-static an object must be provided to fetch the property from.</p>
+		 * @return bool <p>Returns <b><code>FALSE</code></b> for typed properties prior to initialization, and for properties that have been explicitly <code>unset()</code>. For all other properties <b><code>TRUE</code></b> will be returned.</p>
+		 * @link http://php.net/manual/en/reflectionproperty.isinitialized.php
+		 * @since PHP 7 >= 7.4.0
+		 */
+		public function isInitialized(object $object = NULL): bool {}
 
 		/**
 		 * Checks if property is private
@@ -3066,6 +3092,34 @@ namespace {
 		 * @since PHP 5, PHP 7
 		 */
 		public function setValue(object $object, $value): void {}
+	}
+
+	/**
+	 * <p>The <b>ReflectionReference</b> class provides information about a reference.</p>
+	 * @link http://php.net/manual/en/class.reflectionreference.php
+	 * @since PHP 7 >= 7.4.0
+	 */
+	final class ReflectionReference {
+
+		/**
+		 * Create a ReflectionReference from an array element
+		 * <p>Creates a ReflectionReference from an array element.</p>
+		 * @param array $array <p>The <code>array</code> which contains the potential reference.</p>
+		 * @param mixed $key <p>The key; either an <code>int</code> or a <code>string</code>.</p>
+		 * @return ReflectionReference <p>Returns a <b>ReflectionReference </b> instance if <code>$array[$key]</code> is a reference, or <b><code>NULL</code></b> otherwise.</p>
+		 * @link http://php.net/manual/en/reflectionreference.fromarrayelement.php
+		 * @since PHP 7 >= 7.4.0
+		 */
+		public static function fromArrayElement(array $array, $key): \ReflectionReference {}
+
+		/**
+		 * Get unique ID of a reference
+		 * <p>Returns an ID which is unique for the reference for the lifetime of that reference. This ID can be used to compare references for equality, or to maintain a map of known references.</p>
+		 * @return mixed <p>Returns an <code>int</code> or <code>string</code> of unspecified format.</p>
+		 * @link http://php.net/manual/en/reflectionreference.getid.php
+		 * @since PHP 7 >= 7.4.0
+		 */
+		public function getId() {}
 	}
 
 	/**

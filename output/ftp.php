@@ -6,7 +6,7 @@ namespace {
 
 	/**
 	 * Allocates space for a file to be uploaded
-	 * <p>Sends an <i>ALLO</i> command to the remote FTP server to allocate space for a file to be uploaded.</p><p><b>Note</b>:</p><p>Many FTP servers do not support this command. These servers may return a failure code (<b><code>FALSE</code></b>) indicating the command is not supported or a success code (<b><code>TRUE</code></b>) to indicate that pre-allocation is not necessary and the client should continue as though the operation were successful. Because of this, it may be best to reserve this function for servers which explicitly require preallocation.</p><p></p>
+	 * <p>Sends an <code>ALLO</code> command to the remote FTP server to allocate space for a file to be uploaded.</p><p><b>Note</b>:</p><p>Many FTP servers do not support this command. These servers may return a failure code (<b><code>FALSE</code></b>) indicating the command is not supported or a success code (<b><code>TRUE</code></b>) to indicate that pre-allocation is not necessary and the client should continue as though the operation were successful. Because of this, it may be best to reserve this function for servers which explicitly require preallocation.</p><p></p>
 	 * @param resource $ftp_stream <p>The link identifier of the FTP connection.</p>
 	 * @param int $filesize <p>The number of bytes to allocate.</p>
 	 * @param string $result <p>A textual representation of the servers response will be returned by reference in <code>result</code> if a variable is provided.</p>
@@ -18,7 +18,7 @@ namespace {
 	function ftp_alloc($ftp_stream, int $filesize, string &$result = NULL): bool {}
 
 	/**
-	 * Append content of a file a another file on the FTP server
+	 * Append the contents of a file to another file on the FTP server
 	 * <p></p><p>This function is currently not documented; only its argument list is available.</p>
 	 * @param resource $ftp
 	 * @param string $remote_file
@@ -28,7 +28,7 @@ namespace {
 	 * @link http://php.net/manual/en/function.ftp-append.php
 	 * @since PHP 7 >= 7.2.0
 	 */
-	function ftp_append($ftp, string $remote_file, string $local_file, int $mode = FTP_IMAGE): bool {}
+	function ftp_append($ftp, string $remote_file, string $local_file, int $mode = FTP_BINARY): bool {}
 
 	/**
 	 * Changes to the parent directory
@@ -80,7 +80,7 @@ namespace {
 	/**
 	 * Opens an FTP connection
 	 * <p><b>ftp_connect()</b> opens an FTP connection to the specified <code>host</code>.</p>
-	 * @param string $host <p>The FTP server address. This parameter shouldn't have any trailing slashes and shouldn't be prefixed with <i>ftp://</i>.</p>
+	 * @param string $host <p>The FTP server address. This parameter shouldn't have any trailing slashes and shouldn't be prefixed with <code>ftp://</code>.</p>
 	 * @param int $port <p>This parameter specifies an alternate port to connect to. If it is omitted or set to zero, then the default FTP port, 21, will be used.</p>
 	 * @param int $timeout <p>This parameter specifies the timeout in seconds for all subsequent network operations. If omitted, the default value is 90 seconds. The timeout can be changed and queried at any time with <code>ftp_set_option()</code> and <code>ftp_get_option()</code>.</p>
 	 * @return resource <p>Returns a FTP stream on success or <b><code>FALSE</code></b> on error.</p>
@@ -106,7 +106,7 @@ namespace {
 	 * <p>Sends a SITE EXEC <code>command</code> request to the FTP server.</p>
 	 * @param resource $ftp_stream <p>The link identifier of the FTP connection.</p>
 	 * @param string $command <p>The command to execute.</p>
-	 * @return bool <p>Returns <b><code>TRUE</code></b> if the command was successful (server sent response code: <i>200</i>); otherwise returns <b><code>FALSE</code></b>.</p>
+	 * @return bool <p>Returns <b><code>TRUE</code></b> if the command was successful (server sent response code: <code>200</code>); otherwise returns <b><code>FALSE</code></b>.</p>
 	 * @link http://php.net/manual/en/function.ftp-exec.php
 	 * @see ftp_raw()
 	 * @since PHP 4 >= 4.0.3, PHP 5, PHP 7
@@ -126,7 +126,7 @@ namespace {
 	 * @see ftp_get(), ftp_nb_get(), ftp_nb_fget()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function ftp_fget($ftp_stream, $handle, string $remote_file, int $mode = FTP_IMAGE, int $resumepos = 0): bool {}
+	function ftp_fget($ftp_stream, $handle, string $remote_file, int $mode = FTP_BINARY, int $resumepos = 0): bool {}
 
 	/**
 	 * Uploads from an open file to the FTP server
@@ -141,7 +141,7 @@ namespace {
 	 * @see ftp_put(), ftp_nb_fput(), ftp_nb_put()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function ftp_fput($ftp_stream, string $remote_file, $handle, int $mode = FTP_IMAGE, int $startpos = 0): bool {}
+	function ftp_fput($ftp_stream, string $remote_file, $handle, int $mode = FTP_BINARY, int $startpos = 0): bool {}
 
 	/**
 	 * Downloads a file from the FTP server
@@ -174,8 +174,8 @@ namespace {
 	 * Logs in to an FTP connection
 	 * <p>Logs in to the given FTP stream.</p>
 	 * @param resource $ftp_stream <p>The link identifier of the FTP connection.</p>
-	 * @param string $username <p>The username (<i>USER</i>).</p>
-	 * @param string $password <p>The password (<i>PASS</i>).</p>
+	 * @param string $username <p>The username (<code>USER</code>).</p>
+	 * @param string $password <p>The password (<code>PASS</code>).</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure. If login fails, PHP will also throw a warning.</p>
 	 * @link http://php.net/manual/en/function.ftp-login.php
 	 * @since PHP 4, PHP 5, PHP 7
@@ -239,7 +239,7 @@ namespace {
 	 * @see ftp_nb_get(), ftp_nb_continue(), ftp_fget(), ftp_get()
 	 * @since PHP 4 >= 4.3.0, PHP 5, PHP 7
 	 */
-	function ftp_nb_fget($ftp_stream, $handle, string $remote_file, int $mode = FTP_IMAGE, int $resumepos = 0): int {}
+	function ftp_nb_fget($ftp_stream, $handle, string $remote_file, int $mode = FTP_BINARY, int $resumepos = 0): int {}
 
 	/**
 	 * Stores a file from an open file to the FTP server (non-blocking)
@@ -254,7 +254,7 @@ namespace {
 	 * @see ftp_nb_put(), ftp_nb_continue(), ftp_put(), ftp_fput()
 	 * @since PHP 4 >= 4.3.0, PHP 5, PHP 7
 	 */
-	function ftp_nb_fput($ftp_stream, string $remote_file, $handle, int $mode = FTP_IMAGE, int $startpos = 0): int {}
+	function ftp_nb_fput($ftp_stream, string $remote_file, $handle, int $mode = FTP_BINARY, int $startpos = 0): int {}
 
 	/**
 	 * Retrieves a file from the FTP server and writes it to a local file (non-blocking)
@@ -269,7 +269,7 @@ namespace {
 	 * @see ftp_nb_fget(), ftp_nb_continue(), ftp_fget(), ftp_get()
 	 * @since PHP 4 >= 4.3.0, PHP 5, PHP 7
 	 */
-	function ftp_nb_get($ftp_stream, string $local_file, string $remote_file, int $mode = FTP_IMAGE, int $resumepos = 0): int {}
+	function ftp_nb_get($ftp_stream, string $local_file, string $remote_file, int $mode = FTP_BINARY, int $resumepos = 0): int {}
 
 	/**
 	 * Stores a file on the FTP server (non-blocking)
@@ -284,7 +284,7 @@ namespace {
 	 * @see ftp_nb_fput(), ftp_nb_continue(), ftp_put(), ftp_fput()
 	 * @since PHP 4 >= 4.3.0, PHP 5, PHP 7
 	 */
-	function ftp_nb_put($ftp_stream, string $remote_file, string $local_file, int $mode = FTP_IMAGE, int $startpos = 0): int {}
+	function ftp_nb_put($ftp_stream, string $remote_file, string $local_file, int $mode = FTP_BINARY, int $startpos = 0): int {}
 
 	/**
 	 * Returns a list of files in the given directory
@@ -321,7 +321,7 @@ namespace {
 	 * @see ftp_pasv(), ftp_fput(), ftp_nb_fput(), ftp_nb_put()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function ftp_put($ftp_stream, string $remote_file, string $local_file, int $mode = FTP_IMAGE, int $startpos = 0): bool {}
+	function ftp_put($ftp_stream, string $remote_file, string $local_file, int $mode = FTP_BINARY, int $startpos = 0): bool {}
 
 	/**
 	 * Returns the current directory name
@@ -374,7 +374,7 @@ namespace {
 	 * @param resource $ftp_stream <p>The link identifier of the FTP connection.</p>
 	 * @param string $oldname <p>The old file/directory name.</p>
 	 * @param string $newname <p>The new name.</p>
-	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure. Upon failure (such as attempting to rename a non-existent file), an <i>E_WARNING</i> error will be emitted.</p>
+	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure. Upon failure (such as attempting to rename a non-existent file), an <code>E_WARNING</code> error will be emitted.</p>
 	 * @link http://php.net/manual/en/function.ftp-rename.php
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
@@ -407,7 +407,7 @@ namespace {
 
 	/**
 	 * Sends a SITE command to the server
-	 * <p><b>ftp_site()</b> sends the given <i>SITE</i> command to the FTP server.</p><p><i>SITE</i> commands are not standardized, and vary from server to server. They are useful for handling such things as file permissions and group membership.</p>
+	 * <p><b>ftp_site()</b> sends the given <code>SITE</code> command to the FTP server.</p><p><code>SITE</code> commands are not standardized, and vary from server to server. They are useful for handling such things as file permissions and group membership.</p>
 	 * @param resource $ftp_stream <p>The link identifier of the FTP connection.</p>
 	 * @param string $command <p>The SITE command. Note that this parameter isn't escaped so there may be some issues with filenames containing spaces and other characters.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
@@ -431,8 +431,8 @@ namespace {
 
 	/**
 	 * Opens a Secure SSL-FTP connection
-	 * <p><b>ftp_ssl_connect()</b> opens an <i>explicit</i> SSL-FTP connection to the specified <code>host</code>. That implies that <b>ftp_ssl_connect()</b> will succeed even if the server is not configured for SSL-FTP, or its certificate is invalid. Only when <code>ftp_login()</code> is called, the client will send the appropriate AUTH FTP command, so <code>ftp_login()</code> will fail in the mentioned cases.</p><p><b>Note</b>: <b>Why this function may not exist</b><br></p><p><b>ftp_ssl_connect()</b> is only available if both the ftp module and the OpenSSL support is built statically into php, this means that on Windows this function will be undefined in the official PHP builds. To make this function available on Windows you must compile your own PHP binaries.</p><p><b>Note</b>:</p><p><b>ftp_ssl_connect()</b> is not intended for use with sFTP. To use sFTP with PHP, please see <code>ssh2_sftp()</code>.</p>
-	 * @param string $host <p>The FTP server address. This parameter shouldn't have any trailing slashes and shouldn't be prefixed with <i>ftp://</i>.</p>
+	 * <p><b>ftp_ssl_connect()</b> opens an <i>explicit</i> SSL-FTP connection to the specified <code>host</code>. That implies that <b>ftp_ssl_connect()</b> will succeed even if the server is not configured for SSL-FTP, or its certificate is invalid. Only when <code>ftp_login()</code> is called, the client will send the appropriate AUTH FTP command, so <code>ftp_login()</code> will fail in the mentioned cases.</p><p><b>Note</b>: <b>Why this function may not exist</b><br></p><p>Before PHP 7.0.0, <b>ftp_ssl_connect()</b> was only available if both the ftp module and the OpenSSL support have been built statically into php; this means that on Windows this function had been undefined in the official PHP builds. To have this function available on Windows, it had been necessary to compile own PHP binaries.</p><p><b>Note</b>:</p><p><b>ftp_ssl_connect()</b> is not intended for use with sFTP. To use sFTP with PHP, please see <code>ssh2_sftp()</code>.</p>
+	 * @param string $host <p>The FTP server address. This parameter shouldn't have any trailing slashes and shouldn't be prefixed with <code>ftp://</code>.</p>
 	 * @param int $port <p>This parameter specifies an alternate port to connect to. If it is omitted or set to zero, then the default FTP port, 21, will be used.</p>
 	 * @param int $timeout <p>This parameter specifies the timeout for all subsequent network operations. If omitted, the default value is 90 seconds. The timeout can be changed and queried at any time with <code>ftp_set_option()</code> and <code>ftp_get_option()</code>.</p>
 	 * @return resource <p>Returns a SSL-FTP stream on success or <b><code>FALSE</code></b> on error.</p>
@@ -495,5 +495,10 @@ namespace {
 	 * <p>See <code>ftp_set_option()</code> for information.</p>
 	 */
 	define('FTP_TIMEOUT_SEC', 0);
+
+	/**
+	 * <p>See <code>ftp_set_option()</code> for information. Available as of PHP 5.6.0.</p>
+	 */
+	define('FTP_USEPASVADDRESS', 2);
 
 }

@@ -1866,15 +1866,17 @@ namespace {
 		 * <p>Creates a vertical mirror image by reflecting the pixels around the central x-axis.</p>
 		 * @return Gmagick <p>The flipped Gmagick object.</p>
 		 * @link http://php.net/manual/en/gmagick.flipimage.php
+		 * @see Imagick::flopimage()
 		 * @since PECL gmagick >= Unknown
 		 */
 		public function flipimage(): \Gmagick {}
 
 		/**
 		 * The flopimage purpose
-		 * <p>Creates a horizontal mirror image by reflecting the pixels around the central y-axis.</p>
+		 * <p>Creates a vertical mirror image by reflecting the pixels around the central y-axis.</p>
 		 * @return Gmagick <p>The flopped Gmagick object.</p>
 		 * @link http://php.net/manual/en/gmagick.flopimage.php
+		 * @see Imagick::flipimage()
 		 * @since PECL gmagick >= Unknown
 		 */
 		public function flopimage(): \Gmagick {}
@@ -2142,7 +2144,7 @@ namespace {
 		/**
 		 * Gets the image rendering intent
 		 * <p>Gets the image rendering intent</p>
-		 * @return int <p>Extracts a region of the image and returns it as a a new wand</p>
+		 * @return int <p>Extracts a region of the image and returns it as a new wand</p>
 		 * @link http://php.net/manual/en/gmagick.getimagerenderingintent.php
 		 * @since PECL gmagick >= Unknown
 		 */

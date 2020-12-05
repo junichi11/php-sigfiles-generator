@@ -11,337 +11,337 @@ namespace {
 	class ZMQ {
 
 		/**
-		 * @var integer <p>Exclusive pair pattern</p>
+		 * @var int <p>Exclusive pair pattern</p>
 		 * @link http://php.net/manual/en/class.zmq.php
 		 */
 		const SOCKET_PAIR = null;
 
 		/**
-		 * @var integer <p>Publisher socket</p>
+		 * @var int <p>Publisher socket</p>
 		 * @link http://php.net/manual/en/class.zmq.php
 		 */
 		const SOCKET_PUB = null;
 
 		/**
-		 * @var integer <p>Subscriber socket</p>
+		 * @var int <p>Subscriber socket</p>
 		 * @link http://php.net/manual/en/class.zmq.php
 		 */
 		const SOCKET_SUB = null;
 
 		/**
-		 * @var integer <p>Request socket</p>
+		 * @var int <p>Request socket</p>
 		 * @link http://php.net/manual/en/class.zmq.php
 		 */
 		const SOCKET_REQ = null;
 
 		/**
-		 * @var integer <p>Reply socket</p>
+		 * @var int <p>Reply socket</p>
 		 * @link http://php.net/manual/en/class.zmq.php
 		 */
 		const SOCKET_REP = null;
 
 		/**
-		 * @var integer <p>Alias for SOCKET_DEALER</p>
+		 * @var int <p>Alias for SOCKET_DEALER</p>
 		 * @link http://php.net/manual/en/class.zmq.php
 		 */
 		const SOCKET_XREQ = null;
 
 		/**
-		 * @var integer <p>Alias for SOCKET_ROUTER</p>
+		 * @var int <p>Alias for SOCKET_ROUTER</p>
 		 * @link http://php.net/manual/en/class.zmq.php
 		 */
 		const SOCKET_XREP = null;
 
 		/**
-		 * @var integer <p>Pipeline upstream push socket</p>
+		 * @var int <p>Pipeline upstream push socket</p>
 		 * @link http://php.net/manual/en/class.zmq.php
 		 */
 		const SOCKET_PUSH = null;
 
 		/**
-		 * @var integer <p>Pipeline downstream pull socket</p>
+		 * @var int <p>Pipeline downstream pull socket</p>
 		 * @link http://php.net/manual/en/class.zmq.php
 		 */
 		const SOCKET_PULL = null;
 
 		/**
-		 * @var integer <p>Extended REP socket that can route replies to requesters</p>
+		 * @var int <p>Extended REP socket that can route replies to requesters</p>
 		 * @link http://php.net/manual/en/class.zmq.php
 		 */
 		const SOCKET_ROUTER = null;
 
 		/**
-		 * @var integer <p>Extended REQ socket that load balances to all connected peers</p>
+		 * @var int <p>Extended REQ socket that load balances to all connected peers</p>
 		 * @link http://php.net/manual/en/class.zmq.php
 		 */
 		const SOCKET_DEALER = null;
 
 		/**
-		 * @var integer <p>Similar to SOCKET_PUB, except you can receive subscriptions as messages. The subscription message is 0 (unsubscribe) or 1 (subscribe) followed by the topic.</p>
+		 * @var int <p>Similar to SOCKET_PUB, except you can receive subscriptions as messages. The subscription message is 0 (unsubscribe) or 1 (subscribe) followed by the topic.</p>
 		 * @link http://php.net/manual/en/class.zmq.php
 		 */
 		const SOCKET_XPUB = null;
 
 		/**
-		 * @var integer <p>Similar to SOCKET_SUB, except you can send subscriptions as messages. See SOCKET_XPUB for format.</p>
+		 * @var int <p>Similar to SOCKET_SUB, except you can send subscriptions as messages. See SOCKET_XPUB for format.</p>
 		 * @link http://php.net/manual/en/class.zmq.php
 		 */
 		const SOCKET_XSUB = null;
 
 		/**
-		 * @var integer <p>Used to send and receive TCP data from a non-&Oslash;MQ peer. Available if compiled against ZeroMQ 4.x or higher (Value: <code>integer</code>).</p>
+		 * @var int <p>Used to send and receive TCP data from a non-&Oslash;MQ peer. Available if compiled against ZeroMQ 4.x or higher (Value: <code>int</code>).</p>
 		 * @link http://php.net/manual/en/class.zmq.php
 		 */
 		const SOCKET_STREAM = null;
 
 		/**
-		 * @var integer <p>The high water mark for inbound and outbound messages is a hard limit on the maximum number of outstanding messages &Oslash;MQ shall queue in memory for any single peer that the specified socket is communicating with. Setting this option on a socket will only affect connections made after the option has been set. On ZeroMQ 3.x this is a wrapper for setting both SNDHWM and RCVHWM. (Value: <code>integer</code>).</p>
+		 * @var int <p>The high water mark for inbound and outbound messages is a hard limit on the maximum number of outstanding messages &Oslash;MQ shall queue in memory for any single peer that the specified socket is communicating with. Setting this option on a socket will only affect connections made after the option has been set. On ZeroMQ 3.x this is a wrapper for setting both SNDHWM and RCVHWM. (Value: <code>int</code>).</p>
 		 * @link http://php.net/manual/en/class.zmq.php
 		 */
 		const SOCKOPT_HWM = null;
 
 		/**
-		 * @var integer <p>The ZMQ_SNDHWM option shall set the high water mark for outbound messages on the specified socket. Available if compiled against ZeroMQ 3.x or higher (Value: <code>integer</code>).</p>
+		 * @var int <p>The ZMQ_SNDHWM option shall set the high water mark for outbound messages on the specified socket. Available if compiled against ZeroMQ 3.x or higher (Value: <code>int</code>).</p>
 		 * @link http://php.net/manual/en/class.zmq.php
 		 */
 		const SOCKOPT_SNDHWM = null;
 
 		/**
-		 * @var integer <p>The SOCKOPT_RCVHWM option shall set the high water mark for inbound messages on the specified socket. Available if compiled against ZeroMQ 3.x or higher (Value: <code>integer</code>).</p>
+		 * @var int <p>The SOCKOPT_RCVHWM option shall set the high water mark for inbound messages on the specified socket. Available if compiled against ZeroMQ 3.x or higher (Value: <code>int</code>).</p>
 		 * @link http://php.net/manual/en/class.zmq.php
 		 */
 		const SOCKOPT_RCVHWM = null;
 
 		/**
-		 * @var integer <p>Set I/O thread affinity (Value: <code>integer</code>)</p>
+		 * @var int <p>Set I/O thread affinity (Value: <code>int</code>)</p>
 		 * @link http://php.net/manual/en/class.zmq.php
 		 */
 		const SOCKOPT_AFFINITY = null;
 
 		/**
-		 * @var integer <p>Set socket identity (Value: <code>string</code>)</p>
+		 * @var int <p>Set socket identity (Value: <code>string</code>)</p>
 		 * @link http://php.net/manual/en/class.zmq.php
 		 */
 		const SOCKOPT_IDENTITY = null;
 
 		/**
-		 * @var integer <p>Establish message filter. Valid for subscriber socket (Value: <code>string</code>)</p>
+		 * @var int <p>Establish message filter. Valid for subscriber socket (Value: <code>string</code>)</p>
 		 * @link http://php.net/manual/en/class.zmq.php
 		 */
 		const SOCKOPT_SUBSCRIBE = null;
 
 		/**
-		 * @var integer <p>Remove message filter. Valid for subscriber socket (Value: <code>string</code>)</p>
+		 * @var int <p>Remove message filter. Valid for subscriber socket (Value: <code>string</code>)</p>
 		 * @link http://php.net/manual/en/class.zmq.php
 		 */
 		const SOCKOPT_UNSUBSCRIBE = null;
 
 		/**
-		 * @var integer <p>Set rate for multicast sockets (pgm) (Value: <code>integer</code> &gt;= 0)</p>
+		 * @var int <p>Set rate for multicast sockets (pgm) (Value: <code>int</code> &gt;= 0)</p>
 		 * @link http://php.net/manual/en/class.zmq.php
 		 */
 		const SOCKOPT_RATE = null;
 
 		/**
-		 * @var integer <p>Set multicast recovery interval (Value: <code>integer</code> &gt;= 0)</p>
+		 * @var int <p>Set multicast recovery interval (Value: <code>int</code> &gt;= 0)</p>
 		 * @link http://php.net/manual/en/class.zmq.php
 		 */
 		const SOCKOPT_RECOVERY_IVL = null;
 
 		/**
-		 * @var integer <p>Set the initial reconnection interval (Value: <code>integer</code> &gt;= 0)</p>
+		 * @var int <p>Set the initial reconnection interval (Value: <code>int</code> &gt;= 0)</p>
 		 * @link http://php.net/manual/en/class.zmq.php
 		 */
 		const SOCKOPT_RECONNECT_IVL = null;
 
 		/**
-		 * @var integer <p>Set the max reconnection interval (Value: <code>integer</code> &gt;= 0)</p>
+		 * @var int <p>Set the max reconnection interval (Value: <code>int</code> &gt;= 0)</p>
 		 * @link http://php.net/manual/en/class.zmq.php
 		 */
 		const SOCKOPT_RECONNECT_IVL_MAX = null;
 
 		/**
-		 * @var integer <p>Control multicast loopback (Value: <code>integer</code> &gt;= 0)</p>
+		 * @var int <p>Control multicast loopback (Value: <code>int</code> &gt;= 0)</p>
 		 * @link http://php.net/manual/en/class.zmq.php
 		 */
 		const SOCKOPT_MCAST_LOOP = null;
 
 		/**
-		 * @var integer <p>Set kernel transmit buffer size (Value: <code>integer</code> &gt;= 0)</p>
+		 * @var int <p>Set kernel transmit buffer size (Value: <code>int</code> &gt;= 0)</p>
 		 * @link http://php.net/manual/en/class.zmq.php
 		 */
 		const SOCKOPT_SNDBUF = null;
 
 		/**
-		 * @var integer <p>Set kernel receive buffer size (Value: <code>integer</code> &gt;= 0)</p>
+		 * @var int <p>Set kernel receive buffer size (Value: <code>int</code> &gt;= 0)</p>
 		 * @link http://php.net/manual/en/class.zmq.php
 		 */
 		const SOCKOPT_RCVBUF = null;
 
 		/**
-		 * @var integer <p>Receive multi-part messages (Value: <code>integer</code>)</p>
+		 * @var int <p>Receive multi-part messages (Value: <code>int</code>)</p>
 		 * @link http://php.net/manual/en/class.zmq.php
 		 */
 		const SOCKOPT_RCVMORE = null;
 
 		/**
-		 * @var integer <p>Get the socket type. Valid for getSockOpt (Value: <code>integer</code>)</p>
+		 * @var int <p>Get the socket type. Valid for getSockOpt (Value: <code>int</code>)</p>
 		 * @link http://php.net/manual/en/class.zmq.php
 		 */
 		const SOCKOPT_TYPE = null;
 
 		/**
-		 * @var integer <p>The linger value of the socket. Specifies how long the socket blocks trying flush messages after it has been closed (Value: <code>integer</code>)</p>
+		 * @var int <p>The linger value of the socket. Specifies how long the socket blocks trying flush messages after it has been closed (Value: <code>int</code>)</p>
 		 * @link http://php.net/manual/en/class.zmq.php
 		 */
 		const SOCKOPT_LINGER = null;
 
 		/**
-		 * @var integer <p>The SOCKOPT_BACKLOG option shall set the maximum length of the queue of outstanding peer connections for the specified socket; this only applies to connection-oriented transports. (Value: <code>integer</code>)</p>
+		 * @var int <p>The SOCKOPT_BACKLOG option shall set the maximum length of the queue of outstanding peer connections for the specified socket; this only applies to connection-oriented transports. (Value: <code>int</code>)</p>
 		 * @link http://php.net/manual/en/class.zmq.php
 		 */
 		const SOCKOPT_BACKLOG = null;
 
 		/**
-		 * @var integer <p>Limits the maximum size of the inbound message. Value -1 means no limit. Available if compiled against ZeroMQ 3.x or higher (Value: <code>integer</code>)</p>
+		 * @var int <p>Limits the maximum size of the inbound message. Value -1 means no limit. Available if compiled against ZeroMQ 3.x or higher (Value: <code>int</code>)</p>
 		 * @link http://php.net/manual/en/class.zmq.php
 		 */
 		const SOCKOPT_MAXMSGSIZE = null;
 
 		/**
-		 * @var integer <p>Sets the timeout for send operation on the socket. Value -1 means no limit. Available if compiled against ZeroMQ 3.x or higher (Value: <code>integer</code>)</p>
+		 * @var int <p>Sets the timeout for send operation on the socket. Value -1 means no limit. Available if compiled against ZeroMQ 3.x or higher (Value: <code>int</code>)</p>
 		 * @link http://php.net/manual/en/class.zmq.php
 		 */
 		const SOCKOPT_SNDTIMEO = null;
 
 		/**
-		 * @var integer <p>Sets the timeout for receive operation on the socket. Value -1 means no limit. Available if compiled against ZeroMQ 3.x or higher (Value: <code>integer</code>)</p>
+		 * @var int <p>Sets the timeout for receive operation on the socket. Value -1 means no limit. Available if compiled against ZeroMQ 3.x or higher (Value: <code>int</code>)</p>
 		 * @link http://php.net/manual/en/class.zmq.php
 		 */
 		const SOCKOPT_RCVTIMEO = null;
 
 		/**
-		 * @var integer <p>Disable IPV6 support if 1. Available if compiled against ZeroMQ 3.x (Value: <code>integer</code>)</p>
+		 * @var int <p>Disable IPV6 support if 1. Available if compiled against ZeroMQ 3.x (Value: <code>int</code>)</p>
 		 * @link http://php.net/manual/en/class.zmq.php
 		 */
 		const SOCKOPT_IPV4ONLY = null;
 
 		/**
-		 * @var integer <p>Retrieve the last connected endpoint - for use with &#42; wildcard ports. Available if compiled against ZeroMQ 3.x or higher (Value: <code>string</code>)</p>
+		 * @var int <p>Retrieve the last connected endpoint - for use with &#42; wildcard ports. Available if compiled against ZeroMQ 3.x or higher (Value: <code>string</code>)</p>
 		 * @link http://php.net/manual/en/class.zmq.php
 		 */
 		const SOCKOPT_LAST_ENDPOINT = null;
 
 		/**
-		 * @var integer <p>Idle time for TCP keepalive. Available if compiled against ZeroMQ 3.x or higher (Value: <code>integer</code>)</p>
+		 * @var int <p>Idle time for TCP keepalive. Available if compiled against ZeroMQ 3.x or higher (Value: <code>int</code>)</p>
 		 * @link http://php.net/manual/en/class.zmq.php
 		 */
 		const SOCKOPT_TCP_KEEPALIVE_IDLE = null;
 
 		/**
-		 * @var integer <p>Count time for TCP keepalive. Available if compiled against ZeroMQ 3.x or higher (Value: <code>integer</code>)</p>
+		 * @var int <p>Count time for TCP keepalive. Available if compiled against ZeroMQ 3.x or higher (Value: <code>int</code>)</p>
 		 * @link http://php.net/manual/en/class.zmq.php
 		 */
 		const SOCKOPT_TCP_KEEPALIVE_CNT = null;
 
 		/**
-		 * @var integer <p>Interval for TCP keepalive. Available if compiled against ZeroMQ 3.x or higher (Value: <code>integer</code>)</p>
+		 * @var int <p>Interval for TCP keepalive. Available if compiled against ZeroMQ 3.x or higher (Value: <code>int</code>)</p>
 		 * @link http://php.net/manual/en/class.zmq.php
 		 */
 		const SOCKOPT_TCP_KEEPALIVE_INTVL = null;
 
 		/**
-		 * @var integer <p>Set a CIDR string to match against incoming TCP connections. Available if compiled against ZeroMQ 3.x or higher (Value: <code>string</code>)</p>
+		 * @var int <p>Set a CIDR string to match against incoming TCP connections. Available if compiled against ZeroMQ 3.x or higher (Value: <code>string</code>)</p>
 		 * @link http://php.net/manual/en/class.zmq.php
 		 */
 		const SOCKOPT_TCP_ACCEPT_FILTER = null;
 
 		/**
-		 * @var integer <p>Set a CIDR string to match against incoming TCP connections. Available if compiled against ZeroMQ 3.x or higher (Value: <code>string</code>)</p>
+		 * @var int <p>Set a CIDR string to match against incoming TCP connections. Available if compiled against ZeroMQ 3.x or higher (Value: <code>string</code>)</p>
 		 * @link http://php.net/manual/en/class.zmq.php
 		 */
 		const SOCKOPT_DELAY_ATTACH_ON_CONNECT = null;
 
 		/**
-		 * @var integer <p>Set the XPUB to receive an application message on each instance of a subscription. Available if compiled against ZeroMQ 3.x or higher (Value: <code>string</code>)</p>
+		 * @var int <p>Set the XPUB to receive an application message on each instance of a subscription. Available if compiled against ZeroMQ 3.x or higher (Value: <code>string</code>)</p>
 		 * @link http://php.net/manual/en/class.zmq.php
 		 */
 		const SOCKOPT_XPUB_VERBOSE = null;
 
 		/**
-		 * @var integer <p>Sets the raw mode on the ROUTER, when set to 1. In raw mode when using tcp:// transport the socket will read and write without ZeroMQ framing. Available if compiled against ZeroMQ 4.0 or higher (Value: <code>string</code>)</p>
+		 * @var int <p>Sets the raw mode on the ROUTER, when set to 1. In raw mode when using tcp:// transport the socket will read and write without ZeroMQ framing. Available if compiled against ZeroMQ 4.0 or higher (Value: <code>string</code>)</p>
 		 * @link http://php.net/manual/en/class.zmq.php
 		 */
 		const SOCKOPT_ROUTER_RAW = null;
 
 		/**
-		 * @var integer <p>Enable IPV6. Available if compiled against ZeroMQ 4.0 or higher (Value: <code>string</code>)</p>
+		 * @var int <p>Enable IPV6. Available if compiled against ZeroMQ 4.0 or higher (Value: <code>string</code>)</p>
 		 * @link http://php.net/manual/en/class.zmq.php
 		 */
 		const SOCKOPT_IPV6 = null;
 
 		/**
-		 * @var integer <p>The socket limit for this context. Available if compiled against ZeroMQ 3.x or higher (Value: <code>integer</code>)</p>
+		 * @var int <p>The socket limit for this context. Available if compiled against ZeroMQ 3.x or higher (Value: <code>int</code>)</p>
 		 * @link http://php.net/manual/en/class.zmq.php
 		 */
 		const CTXOPT_MAX_SOCKETS = null;
 
 		/**
-		 * @var integer <p>Poll for incoming data</p>
+		 * @var int <p>Poll for incoming data</p>
 		 * @link http://php.net/manual/en/class.zmq.php
 		 */
 		const POLL_IN = null;
 
 		/**
-		 * @var integer <p>Poll for outgoing data</p>
+		 * @var int <p>Poll for outgoing data</p>
 		 * @link http://php.net/manual/en/class.zmq.php
 		 */
 		const POLL_OUT = null;
 
 		/**
-		 * @var integer <p>Non-blocking operation. Deprecated, use ZMQ::MODE_DONTWAIT instead</p>
+		 * @var int <p>Non-blocking operation. Deprecated, use ZMQ::MODE_DONTWAIT instead</p>
 		 * @link http://php.net/manual/en/class.zmq.php
 		 */
 		const MODE_NOBLOCK = null;
 
 		/**
-		 * @var integer <p>Non-blocking operation</p>
+		 * @var int <p>Non-blocking operation</p>
 		 * @link http://php.net/manual/en/class.zmq.php
 		 */
 		const MODE_DONTWAIT = null;
 
 		/**
-		 * @var integer <p>Send multi-part message</p>
+		 * @var int <p>Send multi-part message</p>
 		 * @link http://php.net/manual/en/class.zmq.php
 		 */
 		const MODE_SNDMORE = null;
 
 		/**
-		 * @var integer <p>ZMQ extension internal error</p>
+		 * @var int <p>ZMQ extension internal error</p>
 		 * @link http://php.net/manual/en/class.zmq.php
 		 */
 		const ERR_INTERNAL = null;
 
 		/**
-		 * @var integer <p>Implies that the operation would block when ZMQ::MODE_DONTWAIT is used</p>
+		 * @var int <p>Implies that the operation would block when ZMQ::MODE_DONTWAIT is used</p>
 		 * @link http://php.net/manual/en/class.zmq.php
 		 */
 		const ERR_EAGAIN = null;
 
 		/**
-		 * @var integer <p>The operation is not supported by the socket type</p>
+		 * @var int <p>The operation is not supported by the socket type</p>
 		 * @link http://php.net/manual/en/class.zmq.php
 		 */
 		const ERR_ENOTSUP = null;
 
 		/**
-		 * @var integer <p>The operation can not be executed because the socket is not in correct state</p>
+		 * @var int <p>The operation can not be executed because the socket is not in correct state</p>
 		 * @link http://php.net/manual/en/class.zmq.php
 		 */
 		const ERR_EFSM = null;
 
 		/**
-		 * @var integer <p>The context has been terminated</p>
+		 * @var int <p>The context has been terminated</p>
 		 * @link http://php.net/manual/en/class.zmq.php
 		 */
 		const ERR_ETERM = null;
@@ -377,7 +377,7 @@ namespace {
 		 * Get context option
 		 * <p>Returns the value of a context option.</p>
 		 * @param string $key <p>An integer representing the option. See the <b><code>ZMQ::CTXOPT_&#42;</code></b> constants.</p>
-		 * @return mixed <p>Returns either a <code>string</code> or an <code>integer</code> depending on <code>key</code>. Throws ZMQContextException on error.</p>
+		 * @return mixed <p>Returns either a <code>string</code> or an <code>int</code> depending on <code>key</code>. Throws ZMQContextException on error.</p>
 		 * @link http://php.net/manual/en/zmqcontext.getopt.php
 		 * @since PECL zmq >= 1.0.4
 		 */
@@ -388,12 +388,12 @@ namespace {
 		 * <p>Shortcut for creating new sockets from the context. If the context is not persistent the <code>persistent_id</code> parameter is ignored and the socket falls back to being non-persistent. The <code>on_new_socket</code> is called only when a new underlying socket structure is created.</p>
 		 * @param int $type <p><b><code>ZMQ::SOCKET_&#42;</code></b> constant to specify socket type.</p>
 		 * @param string $persistent_id <p>If <code>persistent_id</code> is specified the socket will be persisted over multiple requests.</p>
-		 * @param callback $on_new_socket <p>Callback function, which is executed when a new socket structure is created. This function does not get invoked if the underlying persistent connection is re-used. The callback takes ZMQSocket and persistent_id as two arguments.</p>
+		 * @param callable $on_new_socket <p>Callback function, which is executed when a new socket structure is created. This function does not get invoked if the underlying persistent connection is re-used. The callback takes ZMQSocket and persistent_id as two arguments.</p>
 		 * @return ZMQSocket <p>Returns a ZMQSocket object on success. Throws ZMQSocketException on error.</p>
 		 * @link http://php.net/manual/en/zmqcontext.getsocket.php
 		 * @since PECL zmq >= 0.5.0
 		 */
-		public function getSocket(int $type, string $persistent_id = NULL, callback $on_new_socket = NULL): \ZMQSocket {}
+		public function getSocket(int $type, string $persistent_id = NULL, callable $on_new_socket = NULL): \ZMQSocket {}
 
 		/**
 		 * Whether the context is persistent
@@ -535,7 +535,7 @@ namespace {
 		/**
 		 * Count items in the poll set
 		 * <p>Count the items in the poll set.</p>
-		 * @return int <p>Returns an <code>integer</code> representing the amount of items in the poll set.</p>
+		 * @return int <p>Returns an <code>int</code> representing the amount of items in the poll set.</p>
 		 * @link http://php.net/manual/en/zmqpoll.count.php
 		 * @since PECL zmq >= 0.5.0
 		 */
@@ -585,17 +585,17 @@ namespace {
 		 * @param \ZMQContext $context <p>ZMQContext object.</p>
 		 * @param int $type <p>The socket type. See <b><code>ZMQ::SOCKET_&#42;</code></b> constants.</p>
 		 * @param string $persistent_id <p>If <code>persistent_id</code> is specified the socket will be persisted over multiple requests. If <code>context</code> is not persistent the socket falls back to non-persistent mode.</p>
-		 * @param callback $on_new_socket <p>Callback function, which is executed when a new socket structure is created. This function does not get invoked if the underlying persistent connection is re-used.</p>
+		 * @param callable $on_new_socket <p>Callback function, which is executed when a new socket structure is created. This function does not get invoked if the underlying persistent connection is re-used.</p>
 		 * @return self <p>Throws ZMQSocketException on error.</p>
 		 * @link http://php.net/manual/en/zmqsocket.construct.php
 		 * @since PECL zmq >= 0.5.0
 		 */
-		public function __construct(\ZMQContext $context, int $type, string $persistent_id = NULL, callback $on_new_socket = NULL) {}
+		public function __construct(\ZMQContext $context, int $type, string $persistent_id = NULL, callable $on_new_socket = NULL) {}
 
 		/**
 		 * Bind the socket
-		 * <p>Bind the socket to an endpoint. The endpoint is defined in format <i>transport://address</i> where transport is one of the following: inproc, ipc, tcp, pgm or epgm.</p>
-		 * @param string $dsn <p>The bind dsn, for example <i>transport://address</i>.</p>
+		 * <p>Bind the socket to an endpoint. The endpoint is defined in format <code>transport://address</code> where transport is one of the following: inproc, ipc, tcp, pgm or epgm.</p>
+		 * @param string $dsn <p>The bind dsn, for example <code>transport://address</code>.</p>
 		 * @param bool $force <p>Tries to bind even if the socket has already been bound to the given endpoint.</p>
 		 * @return ZMQSocket <p>Returns the current object. Throws ZMQSocketException on error.</p>
 		 * @link http://php.net/manual/en/zmqsocket.bind.php
@@ -605,8 +605,8 @@ namespace {
 
 		/**
 		 * Connect the socket
-		 * <p>Connect the socket to a remote endpoint. The endpoint is defined in format <i>transport://address</i> where transport is one of the following: inproc, ipc, tcp, pgm or epgm.</p>
-		 * @param string $dsn <p>The connect dsn, for example <i>transport://address</i>.</p>
+		 * <p>Connect the socket to a remote endpoint. The endpoint is defined in format <code>transport://address</code> where transport is one of the following: inproc, ipc, tcp, pgm or epgm.</p>
+		 * @param string $dsn <p>The connect dsn, for example <code>transport://address</code>.</p>
 		 * @param bool $force <p>Tries to connect even if the socket has already been connected to given endpoint.</p>
 		 * @return ZMQSocket <p>Returns the current object. Throws ZMQSocketException on error.</p>
 		 * @link http://php.net/manual/en/zmqsocket.connect.php
@@ -616,8 +616,8 @@ namespace {
 
 		/**
 		 * Disconnect a socket
-		 * <p>Disconnect the socket from a previously connected remote endpoint. The endpoint is defined in format <i>transport://address</i> where transport is one of the following: inproc, ipc, tcp, pgm or epgm.</p>
-		 * @param string $dsn <p>The connect dsn, for example <i>transport://address</i>.</p>
+		 * <p>Disconnect the socket from a previously connected remote endpoint. The endpoint is defined in format <code>transport://address</code> where transport is one of the following: inproc, ipc, tcp, pgm or epgm.</p>
+		 * @param string $dsn <p>The connect dsn, for example <code>transport://address</code>.</p>
 		 * @return ZMQSocket <p>Returns the current object. Throws ZMQSocketException on error.</p>
 		 * @link http://php.net/manual/en/zmqsocket.disconnect.php
 		 * @since PECL zmq >= 1.0.4
@@ -646,7 +646,7 @@ namespace {
 		 * Get socket option
 		 * <p>Returns the value of a socket option.</p>
 		 * @param string $key <p>An integer representing the option. See the <b><code>ZMQ::SOCKOPT_&#42;</code></b> constants.</p>
-		 * @return mixed <p>Returns either a <code>string</code> or an <code>integer</code> depending on <code>key</code>. Throws ZMQSocketException on error.</p>
+		 * @return mixed <p>Returns either a <code>string</code> or an <code>int</code> depending on <code>key</code>. Throws ZMQSocketException on error.</p>
 		 * @link http://php.net/manual/en/zmqsocket.getsockopt.php
 		 * @since PECL zmq >= 0.5.0
 		 */
@@ -664,7 +664,7 @@ namespace {
 		/**
 		 * Whether the socket is persistent
 		 * <p>Check whether the socket is persistent.</p>
-		 * @return bool <p>Returns a <code>boolean</code> based on whether the socket is persistent or not.</p>
+		 * @return bool <p>Returns a <code>bool</code> based on whether the socket is persistent or not.</p>
 		 * @link http://php.net/manual/en/zmqsocket.ispersistent.php
 		 * @since PECL zmq >= 0.5.0
 		 */
@@ -672,9 +672,9 @@ namespace {
 
 		/**
 		 * Receives a message
-		 * <p>Receive a message from a socket. By default receiving will block until a message is available unless <b><code>ZMQ::MODE_NOBLOCK</code></b> flag is used. <b><code>ZMQ::SOCKOPT_RCVMORE</code></b> socket option can be used for receiving multi-part messages. See <code>ZMQSocket::setSockOpt()</code> for more information.</p>
+		 * <p>Receive a message from a socket. By default receiving will block until a message is available unless <b><code>ZMQ::MODE_DONTWAIT</code></b> flag is used. <b><code>ZMQ::SOCKOPT_RCVMORE</code></b> socket option can be used for receiving multi-part messages. See <code>ZMQSocket::setSockOpt()</code> for more information.</p>
 		 * @param int $mode <p>Pass mode flags to receive multipart messages or non-blocking operation. See <b><code>ZMQ::MODE_&#42;</code></b> constants.</p>
-		 * @return string <p>Returns the message. Throws ZMQSocketException in error. If <b><code>ZMQ::MODE_NOBLOCK</code></b> is used and the operation would block <code>boolean</code> false shall be returned.</p>
+		 * @return string <p>Returns the message. Throws ZMQSocketException in error. If <b><code>ZMQ::MODE_DONTWAIT</code></b> is used and the operation would block <code>bool</code> false shall be returned.</p>
 		 * @link http://php.net/manual/en/zmqsocket.recv.php
 		 * @since PECL zmq >= 0.5.0
 		 */
@@ -684,22 +684,33 @@ namespace {
 		 * Receives a multipart message
 		 * <p>Receive an array multipart message from a socket. By default receiving will block until a message is available unless <b><code>ZMQ::MODE_NOBLOCK</code></b> flag is used.</p>
 		 * @param int $mode <p>Pass mode flags to receive multipart messages or non-blocking operation. See <b><code>ZMQ::MODE_&#42;</code></b> constants.</p>
-		 * @return string <p>Returns the array of message parts. Throws ZMQSocketException in error. If <b><code>ZMQ::MODE_NOBLOCK</code></b> is used and the operation would block <code>boolean</code> false shall be returned.</p>
+		 * @return array <p>Returns the array of message parts. Throws ZMQSocketException in error. If <b><code>ZMQ::MODE_NOBLOCK</code></b> is used and the operation would block <code>bool</code> false shall be returned.</p>
 		 * @link http://php.net/manual/en/zmqsocket.recvmulti.php
 		 * @since PECL zmq >= 0.8.0
 		 */
-		public function recvMulti(int $mode = 0): string {}
+		public function recvMulti(int $mode = 0): array {}
 
 		/**
 		 * Sends a message
 		 * <p>Send a message using the socket. The operation can block unless <b><code>ZMQ::MODE_NOBLOCK</code></b> is used.</p>
 		 * @param string $message <p>The message to send.</p>
 		 * @param int $mode <p>Pass mode flags to receive multipart messages or non-blocking operation. See <b><code>ZMQ::MODE_&#42;</code></b> constants.</p>
-		 * @return ZMQSocket <p>Returns the current object. Throws ZMQSocketException on error. If <b><code>ZMQ::MODE_NOBLOCK</code></b> is used and the operation would block <code>boolean</code> false shall be returned.</p>
+		 * @return ZMQSocket <p>Returns the current object. Throws ZMQSocketException on error. If <b><code>ZMQ::MODE_NOBLOCK</code></b> is used and the operation would block <code>bool</code> false shall be returned.</p>
 		 * @link http://php.net/manual/en/zmqsocket.send.php
 		 * @since PECL zmq >= 0.5.0
 		 */
 		public function send(string $message, int $mode = 0): \ZMQSocket {}
+
+		/**
+		 * Sends a multipart message
+		 * <p>Send a multipart message using the socket. The operation can block unless <b><code>ZMQ::MODE_NOBLOCK</code></b> is used.</p>
+		 * @param array $message <p>The message to send - an array of strings</p>
+		 * @param int $mode <p>Pass mode flags to receive multipart messages or non-blocking operation. See <b><code>ZMQ::MODE_&#42;</code></b> constants.</p>
+		 * @return ZMQSocket <p>Returns the current object. Throws ZMQSocketException on error. If <b><code>ZMQ::MODE_NOBLOCK</code></b> is used and the operation would block <code>bool</code> false shall be returned.</p>
+		 * @link http://php.net/manual/en/zmqsocket.sendmulti.php
+		 * @since PECL zmq >= 0.8.0
+		 */
+		public function sendmulti(array $message, int $mode = 0): \ZMQSocket {}
 
 		/**
 		 * Set a socket option
@@ -714,8 +725,8 @@ namespace {
 
 		/**
 		 * Unbind the socket
-		 * <p>Unbind the socket from an endpoint. The endpoint is defined in format <i>transport://address</i> where transport is one of the following: inproc, ipc, tcp, pgm or epgm.</p>
-		 * @param string $dsn <p>The previously bound dsn, for example <i>transport://address</i>.</p>
+		 * <p>Unbind the socket from an endpoint. The endpoint is defined in format <code>transport://address</code> where transport is one of the following: inproc, ipc, tcp, pgm or epgm.</p>
+		 * @param string $dsn <p>The previously bound dsn, for example <code>transport://address</code>.</p>
 		 * @return ZMQSocket <p>Returns the current object. Throws ZMQSocketException on error.</p>
 		 * @link http://php.net/manual/en/zmqsocket.unbind.php
 		 * @since PECL zmq >= 1.0.4

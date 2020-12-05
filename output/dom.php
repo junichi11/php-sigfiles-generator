@@ -42,17 +42,113 @@ namespace {
 		public $value;
 
 		/**
+		 * @var string <p>Returns the most accurate name for the current node type</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.nodename
+		 */
+		public $nodeName;
+
+		/**
+		 * @var string <p>The value of this node, depending on its type. Contrary to the W3C specification, the node value of DOMElement nodes is equal to DOMNode::textContent instead of <b><code>NULL</code></b>.</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.nodevalue
+		 */
+		public $nodeValue;
+
+		/**
+		 * @var int <p>Gets the type of the node. One of the predefined XML_xxx_NODE constants</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.nodetype
+		 */
+		public $nodeType;
+
+		/**
+		 * @var DOMNode|null <p>The parent of this node. If there is no such node, this returns <b><code>NULL</code></b>.</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.parentnode
+		 */
+		public $parentNode;
+
+		/**
+		 * @var DOMNodeList <p>A DOMNodeList that contains all children of this node. If there are no children, this is an empty DOMNodeList.</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.childnodes
+		 */
+		public $childNodes;
+
+		/**
+		 * @var DOMNode|null <p>The first child of this node. If there is no such node, this returns <b><code>NULL</code></b>.</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.firstchild
+		 */
+		public $firstChild;
+
+		/**
+		 * @var DOMNode|null <p>The last child of this node. If there is no such node, this returns <b><code>NULL</code></b>.</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.lastchild
+		 */
+		public $lastChild;
+
+		/**
+		 * @var DOMNode|null <p>The node immediately preceding this node. If there is no such node, this returns <b><code>NULL</code></b>.</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.previoussibling
+		 */
+		public $previousSibling;
+
+		/**
+		 * @var DOMNode|null <p>The node immediately following this node. If there is no such node, this returns <b><code>NULL</code></b>.</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.nextsibling
+		 */
+		public $nextSibling;
+
+		/**
+		 * @var DOMNamedNodeMap|null <p>A DOMNamedNodeMap containing the attributes of this node (if it is a DOMElement) or <b><code>NULL</code></b> otherwise.</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.attributes
+		 */
+		public $attributes;
+
+		/**
+		 * @var DOMDocument|null <p>The DOMDocument object associated with this node, or <b><code>NULL</code></b> if this node is a DOMDOcument</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.ownerdocument
+		 */
+		public $ownerDocument;
+
+		/**
+		 * @var string|null <p>The namespace URI of this node, or <b><code>NULL</code></b> if it is unspecified.</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.namespaceuri
+		 */
+		public $namespaceURI;
+
+		/**
+		 * @var string <p>The namespace prefix of this node, or <b><code>NULL</code></b> if it is unspecified.</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.prefix
+		 */
+		public $prefix;
+
+		/**
+		 * @var string <p>Returns the local part of the qualified name of this node.</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.localname
+		 */
+		public $localName;
+
+		/**
+		 * @var string|null <p>The absolute base URI of this node or <b><code>NULL</code></b> if the implementation wasn't able to obtain an absolute URI.</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.baseuri
+		 */
+		public $baseURI;
+
+		/**
+		 * @var string <p>The text content of this node and its descendants.</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.textcontent
+		 */
+		public $textContent;
+
+		/**
 		 * Canonicalize nodes to a string
 		 * <p>Canonicalize nodes to a string</p>
 		 * @param bool $exclusive <p>Enable exclusive parsing of only the nodes matched by the provided xpath or namespace prefixes.</p>
 		 * @param bool $with_comments <p>Retain comments in output.</p>
-		 * @param array $xpath <p>An array of <i>xpath</i>s to filter the nodes by.</p>
+		 * @param array $xpath <p>An array of <code>xpath</code>s to filter the nodes by.</p>
 		 * @param array $ns_prefixes <p>An array of namespace prefixes to filter the nodes by.</p>
-		 * @return string <p>Returns canonicalized nodes as a string or <b><code>FALSE</code></b> on failure</p>
+		 * @return string|false <p>Returns canonicalized nodes as a string or <b><code>FALSE</code></b> on failure</p>
 		 * @link http://php.net/manual/en/domnode.c14n.php
 		 * @since PHP 5 >= 5.2.0, PHP 7
 		 */
-		public function C14N(bool $exclusive = NULL, bool $with_comments = NULL, array $xpath = NULL, array $ns_prefixes = NULL): string {}
+		public function C14N(bool $exclusive = NULL, bool $with_comments = NULL, array $xpath = NULL, array $ns_prefixes = NULL) {}
 
 		/**
 		 * Canonicalize nodes to a file
@@ -60,13 +156,13 @@ namespace {
 		 * @param string $uri <p>Path to write the output to.</p>
 		 * @param bool $exclusive <p>Enable exclusive parsing of only the nodes matched by the provided xpath or namespace prefixes.</p>
 		 * @param bool $with_comments <p>Retain comments in output.</p>
-		 * @param array $xpath <p>An array of <i>xpath</i>s to filter the nodes by.</p>
+		 * @param array $xpath <p>An array of <code>xpath</code>s to filter the nodes by.</p>
 		 * @param array $ns_prefixes <p>An array of namespace prefixes to filter the nodes by.</p>
-		 * @return int <p>Number of bytes written or <b><code>FALSE</code></b> on failure</p>
+		 * @return int|false <p>Number of bytes written or <b><code>FALSE</code></b> on failure</p>
 		 * @link http://php.net/manual/en/domnode.c14nfile.php
 		 * @since PHP 5 >= 5.2.0, PHP 7
 		 */
-		public function C14NFile(string $uri, bool $exclusive = FALSE, bool $with_comments = FALSE, array $xpath = NULL, array $ns_prefixes = NULL): int {}
+		public function C14NFile(string $uri, bool $exclusive = FALSE, bool $with_comments = FALSE, array $xpath = NULL, array $ns_prefixes = NULL) {}
 
 		/**
 		 * Creates a new DOMAttr object
@@ -81,7 +177,7 @@ namespace {
 
 		/**
 		 * Adds new child at the end of the children
-		 * <p>This function appends a child to an existing list of children or creates a new list of children. The child can be created with e.g. <code>DOMDocument::createElement()</code>, <code>DOMDocument::createTextNode()</code> etc. or simply by using any other node.</p>
+		 * <p>This function appends a child to an existing list of children or creates a new list of children. The child can be created with e.g. <code>DOMDocument::createElement()</code>, <code>DOMDocument::createTextNode()</code> etc. or simply by using any other node.</p><p>When using an existing node it will be moved.</p>
 		 * @param \DOMNode $newnode <p>The appended child.</p>
 		 * @return DOMNode <p>The node added.</p>
 		 * @link http://php.net/manual/en/domnode.appendchild.php
@@ -137,7 +233,7 @@ namespace {
 
 		/**
 		 * Adds a new child before a reference node
-		 * <p>This function inserts a new node right before the reference node. If you plan to do further modifications on the appended child you must use the returned node.</p>
+		 * <p>This function inserts a new node right before the reference node. If you plan to do further modifications on the appended child you must use the returned node.</p><p>When using an existing node it will be moved.</p>
 		 * @param \DOMNode $newnode <p>The new node.</p>
 		 * @param \DOMNode $refnode <p>The reference node. If not supplied, <code>newnode</code> is appended to the children.</p>
 		 * @return DOMNode <p>The inserted node.</p>
@@ -158,7 +254,7 @@ namespace {
 
 		/**
 		 * Checks if attribute is a defined ID
-		 * <p>This function checks if the attribute is a defined ID.</p><p>According to the DOM standard this requires a DTD which defines the attribute ID to be of type ID. You need to validate your document with DOMDocument::validate or <i>DOMDocument::validateOnParse</i> before using this function.</p>
+		 * <p>This function checks if the attribute is a defined ID.</p><p>According to the DOM standard this requires a DTD which defines the attribute ID to be of type ID. You need to validate your document with DOMDocument::validate or <code>DOMDocument::validateOnParse</code> before using this function.</p>
 		 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
 		 * @link http://php.net/manual/en/domattr.isid.php
 		 * @since PHP 5, PHP 7
@@ -245,17 +341,131 @@ namespace {
 	class DOMCdataSection extends \DOMText {
 
 		/**
+		 * @var string <p>Holds all the text of logically-adjacent (not separated by Element, Comment or Processing Instruction) Text nodes.</p>
+		 * @link http://php.net/manual/en/class.domtext.php#domtext.props.wholetext
+		 */
+		public $wholeText;
+
+		/**
+		 * @var string <p>The contents of the node.</p>
+		 * @link http://php.net/manual/en/class.domcharacterdata.php#domcharacterdata.props.data
+		 */
+		public $data;
+
+		/**
+		 * @var int <p>The length of the contents.</p>
+		 * @link http://php.net/manual/en/class.domcharacterdata.php#domcharacterdata.props.length
+		 */
+		public $length;
+
+		/**
+		 * @var string <p>Returns the most accurate name for the current node type</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.nodename
+		 */
+		public $nodeName;
+
+		/**
+		 * @var string <p>The value of this node, depending on its type. Contrary to the W3C specification, the node value of DOMElement nodes is equal to DOMNode::textContent instead of <b><code>NULL</code></b>.</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.nodevalue
+		 */
+		public $nodeValue;
+
+		/**
+		 * @var int <p>Gets the type of the node. One of the predefined XML_xxx_NODE constants</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.nodetype
+		 */
+		public $nodeType;
+
+		/**
+		 * @var DOMNode|null <p>The parent of this node. If there is no such node, this returns <b><code>NULL</code></b>.</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.parentnode
+		 */
+		public $parentNode;
+
+		/**
+		 * @var DOMNodeList <p>A DOMNodeList that contains all children of this node. If there are no children, this is an empty DOMNodeList.</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.childnodes
+		 */
+		public $childNodes;
+
+		/**
+		 * @var DOMNode|null <p>The first child of this node. If there is no such node, this returns <b><code>NULL</code></b>.</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.firstchild
+		 */
+		public $firstChild;
+
+		/**
+		 * @var DOMNode|null <p>The last child of this node. If there is no such node, this returns <b><code>NULL</code></b>.</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.lastchild
+		 */
+		public $lastChild;
+
+		/**
+		 * @var DOMNode|null <p>The node immediately preceding this node. If there is no such node, this returns <b><code>NULL</code></b>.</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.previoussibling
+		 */
+		public $previousSibling;
+
+		/**
+		 * @var DOMNode|null <p>The node immediately following this node. If there is no such node, this returns <b><code>NULL</code></b>.</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.nextsibling
+		 */
+		public $nextSibling;
+
+		/**
+		 * @var DOMNamedNodeMap|null <p>A DOMNamedNodeMap containing the attributes of this node (if it is a DOMElement) or <b><code>NULL</code></b> otherwise.</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.attributes
+		 */
+		public $attributes;
+
+		/**
+		 * @var DOMDocument|null <p>The DOMDocument object associated with this node, or <b><code>NULL</code></b> if this node is a DOMDOcument</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.ownerdocument
+		 */
+		public $ownerDocument;
+
+		/**
+		 * @var string|null <p>The namespace URI of this node, or <b><code>NULL</code></b> if it is unspecified.</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.namespaceuri
+		 */
+		public $namespaceURI;
+
+		/**
+		 * @var string <p>The namespace prefix of this node, or <b><code>NULL</code></b> if it is unspecified.</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.prefix
+		 */
+		public $prefix;
+
+		/**
+		 * @var string <p>Returns the local part of the qualified name of this node.</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.localname
+		 */
+		public $localName;
+
+		/**
+		 * @var string|null <p>The absolute base URI of this node or <b><code>NULL</code></b> if the implementation wasn't able to obtain an absolute URI.</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.baseuri
+		 */
+		public $baseURI;
+
+		/**
+		 * @var string <p>The text content of this node and its descendants.</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.textcontent
+		 */
+		public $textContent;
+
+		/**
 		 * Canonicalize nodes to a string
 		 * <p>Canonicalize nodes to a string</p>
 		 * @param bool $exclusive <p>Enable exclusive parsing of only the nodes matched by the provided xpath or namespace prefixes.</p>
 		 * @param bool $with_comments <p>Retain comments in output.</p>
-		 * @param array $xpath <p>An array of <i>xpath</i>s to filter the nodes by.</p>
+		 * @param array $xpath <p>An array of <code>xpath</code>s to filter the nodes by.</p>
 		 * @param array $ns_prefixes <p>An array of namespace prefixes to filter the nodes by.</p>
-		 * @return string <p>Returns canonicalized nodes as a string or <b><code>FALSE</code></b> on failure</p>
+		 * @return string|false <p>Returns canonicalized nodes as a string or <b><code>FALSE</code></b> on failure</p>
 		 * @link http://php.net/manual/en/domnode.c14n.php
 		 * @since PHP 5 >= 5.2.0, PHP 7
 		 */
-		public function C14N(bool $exclusive = NULL, bool $with_comments = NULL, array $xpath = NULL, array $ns_prefixes = NULL): string {}
+		public function C14N(bool $exclusive = NULL, bool $with_comments = NULL, array $xpath = NULL, array $ns_prefixes = NULL) {}
 
 		/**
 		 * Canonicalize nodes to a file
@@ -263,13 +473,13 @@ namespace {
 		 * @param string $uri <p>Path to write the output to.</p>
 		 * @param bool $exclusive <p>Enable exclusive parsing of only the nodes matched by the provided xpath or namespace prefixes.</p>
 		 * @param bool $with_comments <p>Retain comments in output.</p>
-		 * @param array $xpath <p>An array of <i>xpath</i>s to filter the nodes by.</p>
+		 * @param array $xpath <p>An array of <code>xpath</code>s to filter the nodes by.</p>
 		 * @param array $ns_prefixes <p>An array of namespace prefixes to filter the nodes by.</p>
-		 * @return int <p>Number of bytes written or <b><code>FALSE</code></b> on failure</p>
+		 * @return int|false <p>Number of bytes written or <b><code>FALSE</code></b> on failure</p>
 		 * @link http://php.net/manual/en/domnode.c14nfile.php
 		 * @since PHP 5 >= 5.2.0, PHP 7
 		 */
-		public function C14NFile(string $uri, bool $exclusive = FALSE, bool $with_comments = FALSE, array $xpath = NULL, array $ns_prefixes = NULL): int {}
+		public function C14NFile(string $uri, bool $exclusive = FALSE, bool $with_comments = FALSE, array $xpath = NULL, array $ns_prefixes = NULL) {}
 
 		/**
 		 * Constructs a new DOMCdataSection object
@@ -283,7 +493,7 @@ namespace {
 
 		/**
 		 * Adds new child at the end of the children
-		 * <p>This function appends a child to an existing list of children or creates a new list of children. The child can be created with e.g. <code>DOMDocument::createElement()</code>, <code>DOMDocument::createTextNode()</code> etc. or simply by using any other node.</p>
+		 * <p>This function appends a child to an existing list of children or creates a new list of children. The child can be created with e.g. <code>DOMDocument::createElement()</code>, <code>DOMDocument::createTextNode()</code> etc. or simply by using any other node.</p><p>When using an existing node it will be moved.</p>
 		 * @param \DOMNode $newnode <p>The appended child.</p>
 		 * @return DOMNode <p>The node added.</p>
 		 * @link http://php.net/manual/en/domnode.appendchild.php
@@ -360,7 +570,7 @@ namespace {
 
 		/**
 		 * Adds a new child before a reference node
-		 * <p>This function inserts a new node right before the reference node. If you plan to do further modifications on the appended child you must use the returned node.</p>
+		 * <p>This function inserts a new node right before the reference node. If you plan to do further modifications on the appended child you must use the returned node.</p><p>When using an existing node it will be moved.</p>
 		 * @param \DOMNode $newnode <p>The new node.</p>
 		 * @param \DOMNode $refnode <p>The reference node. If not supplied, <code>newnode</code> is appended to the children.</p>
 		 * @return DOMNode <p>The inserted node.</p>
@@ -532,17 +742,113 @@ namespace {
 		public $length;
 
 		/**
+		 * @var string <p>Returns the most accurate name for the current node type</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.nodename
+		 */
+		public $nodeName;
+
+		/**
+		 * @var string <p>The value of this node, depending on its type. Contrary to the W3C specification, the node value of DOMElement nodes is equal to DOMNode::textContent instead of <b><code>NULL</code></b>.</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.nodevalue
+		 */
+		public $nodeValue;
+
+		/**
+		 * @var int <p>Gets the type of the node. One of the predefined XML_xxx_NODE constants</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.nodetype
+		 */
+		public $nodeType;
+
+		/**
+		 * @var DOMNode|null <p>The parent of this node. If there is no such node, this returns <b><code>NULL</code></b>.</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.parentnode
+		 */
+		public $parentNode;
+
+		/**
+		 * @var DOMNodeList <p>A DOMNodeList that contains all children of this node. If there are no children, this is an empty DOMNodeList.</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.childnodes
+		 */
+		public $childNodes;
+
+		/**
+		 * @var DOMNode|null <p>The first child of this node. If there is no such node, this returns <b><code>NULL</code></b>.</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.firstchild
+		 */
+		public $firstChild;
+
+		/**
+		 * @var DOMNode|null <p>The last child of this node. If there is no such node, this returns <b><code>NULL</code></b>.</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.lastchild
+		 */
+		public $lastChild;
+
+		/**
+		 * @var DOMNode|null <p>The node immediately preceding this node. If there is no such node, this returns <b><code>NULL</code></b>.</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.previoussibling
+		 */
+		public $previousSibling;
+
+		/**
+		 * @var DOMNode|null <p>The node immediately following this node. If there is no such node, this returns <b><code>NULL</code></b>.</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.nextsibling
+		 */
+		public $nextSibling;
+
+		/**
+		 * @var DOMNamedNodeMap|null <p>A DOMNamedNodeMap containing the attributes of this node (if it is a DOMElement) or <b><code>NULL</code></b> otherwise.</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.attributes
+		 */
+		public $attributes;
+
+		/**
+		 * @var DOMDocument|null <p>The DOMDocument object associated with this node, or <b><code>NULL</code></b> if this node is a DOMDOcument</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.ownerdocument
+		 */
+		public $ownerDocument;
+
+		/**
+		 * @var string|null <p>The namespace URI of this node, or <b><code>NULL</code></b> if it is unspecified.</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.namespaceuri
+		 */
+		public $namespaceURI;
+
+		/**
+		 * @var string <p>The namespace prefix of this node, or <b><code>NULL</code></b> if it is unspecified.</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.prefix
+		 */
+		public $prefix;
+
+		/**
+		 * @var string <p>Returns the local part of the qualified name of this node.</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.localname
+		 */
+		public $localName;
+
+		/**
+		 * @var string|null <p>The absolute base URI of this node or <b><code>NULL</code></b> if the implementation wasn't able to obtain an absolute URI.</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.baseuri
+		 */
+		public $baseURI;
+
+		/**
+		 * @var string <p>The text content of this node and its descendants.</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.textcontent
+		 */
+		public $textContent;
+
+		/**
 		 * Canonicalize nodes to a string
 		 * <p>Canonicalize nodes to a string</p>
 		 * @param bool $exclusive <p>Enable exclusive parsing of only the nodes matched by the provided xpath or namespace prefixes.</p>
 		 * @param bool $with_comments <p>Retain comments in output.</p>
-		 * @param array $xpath <p>An array of <i>xpath</i>s to filter the nodes by.</p>
+		 * @param array $xpath <p>An array of <code>xpath</code>s to filter the nodes by.</p>
 		 * @param array $ns_prefixes <p>An array of namespace prefixes to filter the nodes by.</p>
-		 * @return string <p>Returns canonicalized nodes as a string or <b><code>FALSE</code></b> on failure</p>
+		 * @return string|false <p>Returns canonicalized nodes as a string or <b><code>FALSE</code></b> on failure</p>
 		 * @link http://php.net/manual/en/domnode.c14n.php
 		 * @since PHP 5 >= 5.2.0, PHP 7
 		 */
-		public function C14N(bool $exclusive = NULL, bool $with_comments = NULL, array $xpath = NULL, array $ns_prefixes = NULL): string {}
+		public function C14N(bool $exclusive = NULL, bool $with_comments = NULL, array $xpath = NULL, array $ns_prefixes = NULL) {}
 
 		/**
 		 * Canonicalize nodes to a file
@@ -550,17 +856,17 @@ namespace {
 		 * @param string $uri <p>Path to write the output to.</p>
 		 * @param bool $exclusive <p>Enable exclusive parsing of only the nodes matched by the provided xpath or namespace prefixes.</p>
 		 * @param bool $with_comments <p>Retain comments in output.</p>
-		 * @param array $xpath <p>An array of <i>xpath</i>s to filter the nodes by.</p>
+		 * @param array $xpath <p>An array of <code>xpath</code>s to filter the nodes by.</p>
 		 * @param array $ns_prefixes <p>An array of namespace prefixes to filter the nodes by.</p>
-		 * @return int <p>Number of bytes written or <b><code>FALSE</code></b> on failure</p>
+		 * @return int|false <p>Number of bytes written or <b><code>FALSE</code></b> on failure</p>
 		 * @link http://php.net/manual/en/domnode.c14nfile.php
 		 * @since PHP 5 >= 5.2.0, PHP 7
 		 */
-		public function C14NFile(string $uri, bool $exclusive = FALSE, bool $with_comments = FALSE, array $xpath = NULL, array $ns_prefixes = NULL): int {}
+		public function C14NFile(string $uri, bool $exclusive = FALSE, bool $with_comments = FALSE, array $xpath = NULL, array $ns_prefixes = NULL) {}
 
 		/**
 		 * Adds new child at the end of the children
-		 * <p>This function appends a child to an existing list of children or creates a new list of children. The child can be created with e.g. <code>DOMDocument::createElement()</code>, <code>DOMDocument::createTextNode()</code> etc. or simply by using any other node.</p>
+		 * <p>This function appends a child to an existing list of children or creates a new list of children. The child can be created with e.g. <code>DOMDocument::createElement()</code>, <code>DOMDocument::createTextNode()</code> etc. or simply by using any other node.</p><p>When using an existing node it will be moved.</p>
 		 * @param \DOMNode $newnode <p>The appended child.</p>
 		 * @return DOMNode <p>The node added.</p>
 		 * @link http://php.net/manual/en/domnode.appendchild.php
@@ -637,7 +943,7 @@ namespace {
 
 		/**
 		 * Adds a new child before a reference node
-		 * <p>This function inserts a new node right before the reference node. If you plan to do further modifications on the appended child you must use the returned node.</p>
+		 * <p>This function inserts a new node right before the reference node. If you plan to do further modifications on the appended child you must use the returned node.</p><p>When using an existing node it will be moved.</p>
 		 * @param \DOMNode $newnode <p>The new node.</p>
 		 * @param \DOMNode $refnode <p>The reference node. If not supplied, <code>newnode</code> is appended to the children.</p>
 		 * @return DOMNode <p>The inserted node.</p>
@@ -770,17 +1076,125 @@ namespace {
 	class DOMComment extends \DOMCharacterData {
 
 		/**
+		 * @var string <p>The contents of the node.</p>
+		 * @link http://php.net/manual/en/class.domcharacterdata.php#domcharacterdata.props.data
+		 */
+		public $data;
+
+		/**
+		 * @var int <p>The length of the contents.</p>
+		 * @link http://php.net/manual/en/class.domcharacterdata.php#domcharacterdata.props.length
+		 */
+		public $length;
+
+		/**
+		 * @var string <p>Returns the most accurate name for the current node type</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.nodename
+		 */
+		public $nodeName;
+
+		/**
+		 * @var string <p>The value of this node, depending on its type. Contrary to the W3C specification, the node value of DOMElement nodes is equal to DOMNode::textContent instead of <b><code>NULL</code></b>.</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.nodevalue
+		 */
+		public $nodeValue;
+
+		/**
+		 * @var int <p>Gets the type of the node. One of the predefined XML_xxx_NODE constants</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.nodetype
+		 */
+		public $nodeType;
+
+		/**
+		 * @var DOMNode|null <p>The parent of this node. If there is no such node, this returns <b><code>NULL</code></b>.</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.parentnode
+		 */
+		public $parentNode;
+
+		/**
+		 * @var DOMNodeList <p>A DOMNodeList that contains all children of this node. If there are no children, this is an empty DOMNodeList.</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.childnodes
+		 */
+		public $childNodes;
+
+		/**
+		 * @var DOMNode|null <p>The first child of this node. If there is no such node, this returns <b><code>NULL</code></b>.</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.firstchild
+		 */
+		public $firstChild;
+
+		/**
+		 * @var DOMNode|null <p>The last child of this node. If there is no such node, this returns <b><code>NULL</code></b>.</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.lastchild
+		 */
+		public $lastChild;
+
+		/**
+		 * @var DOMNode|null <p>The node immediately preceding this node. If there is no such node, this returns <b><code>NULL</code></b>.</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.previoussibling
+		 */
+		public $previousSibling;
+
+		/**
+		 * @var DOMNode|null <p>The node immediately following this node. If there is no such node, this returns <b><code>NULL</code></b>.</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.nextsibling
+		 */
+		public $nextSibling;
+
+		/**
+		 * @var DOMNamedNodeMap|null <p>A DOMNamedNodeMap containing the attributes of this node (if it is a DOMElement) or <b><code>NULL</code></b> otherwise.</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.attributes
+		 */
+		public $attributes;
+
+		/**
+		 * @var DOMDocument|null <p>The DOMDocument object associated with this node, or <b><code>NULL</code></b> if this node is a DOMDOcument</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.ownerdocument
+		 */
+		public $ownerDocument;
+
+		/**
+		 * @var string|null <p>The namespace URI of this node, or <b><code>NULL</code></b> if it is unspecified.</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.namespaceuri
+		 */
+		public $namespaceURI;
+
+		/**
+		 * @var string <p>The namespace prefix of this node, or <b><code>NULL</code></b> if it is unspecified.</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.prefix
+		 */
+		public $prefix;
+
+		/**
+		 * @var string <p>Returns the local part of the qualified name of this node.</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.localname
+		 */
+		public $localName;
+
+		/**
+		 * @var string|null <p>The absolute base URI of this node or <b><code>NULL</code></b> if the implementation wasn't able to obtain an absolute URI.</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.baseuri
+		 */
+		public $baseURI;
+
+		/**
+		 * @var string <p>The text content of this node and its descendants.</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.textcontent
+		 */
+		public $textContent;
+
+		/**
 		 * Canonicalize nodes to a string
 		 * <p>Canonicalize nodes to a string</p>
 		 * @param bool $exclusive <p>Enable exclusive parsing of only the nodes matched by the provided xpath or namespace prefixes.</p>
 		 * @param bool $with_comments <p>Retain comments in output.</p>
-		 * @param array $xpath <p>An array of <i>xpath</i>s to filter the nodes by.</p>
+		 * @param array $xpath <p>An array of <code>xpath</code>s to filter the nodes by.</p>
 		 * @param array $ns_prefixes <p>An array of namespace prefixes to filter the nodes by.</p>
-		 * @return string <p>Returns canonicalized nodes as a string or <b><code>FALSE</code></b> on failure</p>
+		 * @return string|false <p>Returns canonicalized nodes as a string or <b><code>FALSE</code></b> on failure</p>
 		 * @link http://php.net/manual/en/domnode.c14n.php
 		 * @since PHP 5 >= 5.2.0, PHP 7
 		 */
-		public function C14N(bool $exclusive = NULL, bool $with_comments = NULL, array $xpath = NULL, array $ns_prefixes = NULL): string {}
+		public function C14N(bool $exclusive = NULL, bool $with_comments = NULL, array $xpath = NULL, array $ns_prefixes = NULL) {}
 
 		/**
 		 * Canonicalize nodes to a file
@@ -788,13 +1202,13 @@ namespace {
 		 * @param string $uri <p>Path to write the output to.</p>
 		 * @param bool $exclusive <p>Enable exclusive parsing of only the nodes matched by the provided xpath or namespace prefixes.</p>
 		 * @param bool $with_comments <p>Retain comments in output.</p>
-		 * @param array $xpath <p>An array of <i>xpath</i>s to filter the nodes by.</p>
+		 * @param array $xpath <p>An array of <code>xpath</code>s to filter the nodes by.</p>
 		 * @param array $ns_prefixes <p>An array of namespace prefixes to filter the nodes by.</p>
-		 * @return int <p>Number of bytes written or <b><code>FALSE</code></b> on failure</p>
+		 * @return int|false <p>Number of bytes written or <b><code>FALSE</code></b> on failure</p>
 		 * @link http://php.net/manual/en/domnode.c14nfile.php
 		 * @since PHP 5 >= 5.2.0, PHP 7
 		 */
-		public function C14NFile(string $uri, bool $exclusive = FALSE, bool $with_comments = FALSE, array $xpath = NULL, array $ns_prefixes = NULL): int {}
+		public function C14NFile(string $uri, bool $exclusive = FALSE, bool $with_comments = FALSE, array $xpath = NULL, array $ns_prefixes = NULL) {}
 
 		/**
 		 * Creates a new DOMComment object
@@ -808,7 +1222,7 @@ namespace {
 
 		/**
 		 * Adds new child at the end of the children
-		 * <p>This function appends a child to an existing list of children or creates a new list of children. The child can be created with e.g. <code>DOMDocument::createElement()</code>, <code>DOMDocument::createTextNode()</code> etc. or simply by using any other node.</p>
+		 * <p>This function appends a child to an existing list of children or creates a new list of children. The child can be created with e.g. <code>DOMDocument::createElement()</code>, <code>DOMDocument::createTextNode()</code> etc. or simply by using any other node.</p><p>When using an existing node it will be moved.</p>
 		 * @param \DOMNode $newnode <p>The appended child.</p>
 		 * @return DOMNode <p>The node added.</p>
 		 * @link http://php.net/manual/en/domnode.appendchild.php
@@ -885,7 +1299,7 @@ namespace {
 
 		/**
 		 * Adds a new child before a reference node
-		 * <p>This function inserts a new node right before the reference node. If you plan to do further modifications on the appended child you must use the returned node.</p>
+		 * <p>This function inserts a new node right before the reference node. If you plan to do further modifications on the appended child you must use the returned node.</p><p>When using an existing node it will be moved.</p>
 		 * @param \DOMNode $newnode <p>The new node.</p>
 		 * @param \DOMNode $refnode <p>The reference node. If not supplied, <code>newnode</code> is appended to the children.</p>
 		 * @return DOMNode <p>The inserted node.</p>
@@ -1042,7 +1456,7 @@ namespace {
 		public $documentElement;
 
 		/**
-		 * @var string <p>The location of the document or <b><code>NULL</code></b> if undefined.</p>
+		 * @var string|null <p>The location of the document or <b><code>NULL</code></b> if undefined.</p>
 		 * @link http://php.net/manual/en/class.domdocument.php#domdocument.props.documenturi
 		 */
 		public $documentURI;
@@ -1054,7 +1468,7 @@ namespace {
 		public $encoding;
 
 		/**
-		 * @var bool <p>Nicely formats output with indentation and extra space.</p>
+		 * @var bool <p>Nicely formats output with indentation and extra space. This has no effect if the document was loaded with preserveWhitespace enabled.</p>
 		 * @link http://php.net/manual/en/class.domdocument.php#domdocument.props.formatoutput
 		 */
 		public $formatOutput;
@@ -1066,7 +1480,7 @@ namespace {
 		public $implementation;
 
 		/**
-		 * @var bool <p>Do not remove redundant white space. Default to <b><code>TRUE</code></b>.</p>
+		 * @var bool <p>Do not remove redundant white space. Default to <b><code>TRUE</code></b>. Setting this to <b><code>FALSE</code></b> has the same effect as passing <b><code>LIBXML_NOBLANKS</code></b> as <code>option</code> to <code>DOMDocument::load()</code> etc.</p>
 		 * @link http://php.net/manual/en/class.domdocument.php#domdocument.props.preservewhitespace
 		 */
 		public $preserveWhiteSpace = TRUE;
@@ -1096,7 +1510,7 @@ namespace {
 		public $strictErrorChecking = TRUE;
 
 		/**
-		 * @var bool <p><i>Proprietary</i>. Whether or not to substitute entities. This attribute is not part of the DOM specification and is specific to libxml.</p>
+		 * @var bool <p><i>Proprietary</i>. Whether or not to substitute entities. This attribute is not part of the DOM specification and is specific to libxml.</p> <b>Caution</b> <p>Enabling entity substitution may facilitate XML External Entity (XXE) attacks.</p>
 		 * @link http://php.net/manual/en/class.domdocument.php#domdocument.props.substituteentities
 		 */
 		public $substituteEntities;
@@ -1114,7 +1528,7 @@ namespace {
 		public $version;
 
 		/**
-		 * @var string <p>An attribute specifying, as part of the XML declaration, the encoding of this document. This is <b><code>NULL</code></b> when unspecified or when it is not known, such as when the Document was created in memory.</p>
+		 * @var string|null <p>An attribute specifying, as part of the XML declaration, the encoding of this document. This is <b><code>NULL</code></b> when unspecified or when it is not known, such as when the Document was created in memory.</p>
 		 * @link http://php.net/manual/en/class.domdocument.php#domdocument.props.xmlencoding
 		 */
 		public $xmlEncoding;
@@ -1132,17 +1546,113 @@ namespace {
 		public $xmlVersion;
 
 		/**
+		 * @var string <p>Returns the most accurate name for the current node type</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.nodename
+		 */
+		public $nodeName;
+
+		/**
+		 * @var string <p>The value of this node, depending on its type. Contrary to the W3C specification, the node value of DOMElement nodes is equal to DOMNode::textContent instead of <b><code>NULL</code></b>.</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.nodevalue
+		 */
+		public $nodeValue;
+
+		/**
+		 * @var int <p>Gets the type of the node. One of the predefined XML_xxx_NODE constants</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.nodetype
+		 */
+		public $nodeType;
+
+		/**
+		 * @var DOMNode|null <p>The parent of this node. If there is no such node, this returns <b><code>NULL</code></b>.</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.parentnode
+		 */
+		public $parentNode;
+
+		/**
+		 * @var DOMNodeList <p>A DOMNodeList that contains all children of this node. If there are no children, this is an empty DOMNodeList.</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.childnodes
+		 */
+		public $childNodes;
+
+		/**
+		 * @var DOMNode|null <p>The first child of this node. If there is no such node, this returns <b><code>NULL</code></b>.</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.firstchild
+		 */
+		public $firstChild;
+
+		/**
+		 * @var DOMNode|null <p>The last child of this node. If there is no such node, this returns <b><code>NULL</code></b>.</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.lastchild
+		 */
+		public $lastChild;
+
+		/**
+		 * @var DOMNode|null <p>The node immediately preceding this node. If there is no such node, this returns <b><code>NULL</code></b>.</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.previoussibling
+		 */
+		public $previousSibling;
+
+		/**
+		 * @var DOMNode|null <p>The node immediately following this node. If there is no such node, this returns <b><code>NULL</code></b>.</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.nextsibling
+		 */
+		public $nextSibling;
+
+		/**
+		 * @var DOMNamedNodeMap|null <p>A DOMNamedNodeMap containing the attributes of this node (if it is a DOMElement) or <b><code>NULL</code></b> otherwise.</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.attributes
+		 */
+		public $attributes;
+
+		/**
+		 * @var DOMDocument|null <p>The DOMDocument object associated with this node, or <b><code>NULL</code></b> if this node is a DOMDOcument</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.ownerdocument
+		 */
+		public $ownerDocument;
+
+		/**
+		 * @var string|null <p>The namespace URI of this node, or <b><code>NULL</code></b> if it is unspecified.</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.namespaceuri
+		 */
+		public $namespaceURI;
+
+		/**
+		 * @var string <p>The namespace prefix of this node, or <b><code>NULL</code></b> if it is unspecified.</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.prefix
+		 */
+		public $prefix;
+
+		/**
+		 * @var string <p>Returns the local part of the qualified name of this node.</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.localname
+		 */
+		public $localName;
+
+		/**
+		 * @var string|null <p>The absolute base URI of this node or <b><code>NULL</code></b> if the implementation wasn't able to obtain an absolute URI.</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.baseuri
+		 */
+		public $baseURI;
+
+		/**
+		 * @var string <p>The text content of this node and its descendants.</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.textcontent
+		 */
+		public $textContent;
+
+		/**
 		 * Canonicalize nodes to a string
 		 * <p>Canonicalize nodes to a string</p>
 		 * @param bool $exclusive <p>Enable exclusive parsing of only the nodes matched by the provided xpath or namespace prefixes.</p>
 		 * @param bool $with_comments <p>Retain comments in output.</p>
-		 * @param array $xpath <p>An array of <i>xpath</i>s to filter the nodes by.</p>
+		 * @param array $xpath <p>An array of <code>xpath</code>s to filter the nodes by.</p>
 		 * @param array $ns_prefixes <p>An array of namespace prefixes to filter the nodes by.</p>
-		 * @return string <p>Returns canonicalized nodes as a string or <b><code>FALSE</code></b> on failure</p>
+		 * @return string|false <p>Returns canonicalized nodes as a string or <b><code>FALSE</code></b> on failure</p>
 		 * @link http://php.net/manual/en/domnode.c14n.php
 		 * @since PHP 5 >= 5.2.0, PHP 7
 		 */
-		public function C14N(bool $exclusive = NULL, bool $with_comments = NULL, array $xpath = NULL, array $ns_prefixes = NULL): string {}
+		public function C14N(bool $exclusive = NULL, bool $with_comments = NULL, array $xpath = NULL, array $ns_prefixes = NULL) {}
 
 		/**
 		 * Canonicalize nodes to a file
@@ -1150,13 +1660,13 @@ namespace {
 		 * @param string $uri <p>Path to write the output to.</p>
 		 * @param bool $exclusive <p>Enable exclusive parsing of only the nodes matched by the provided xpath or namespace prefixes.</p>
 		 * @param bool $with_comments <p>Retain comments in output.</p>
-		 * @param array $xpath <p>An array of <i>xpath</i>s to filter the nodes by.</p>
+		 * @param array $xpath <p>An array of <code>xpath</code>s to filter the nodes by.</p>
 		 * @param array $ns_prefixes <p>An array of namespace prefixes to filter the nodes by.</p>
-		 * @return int <p>Number of bytes written or <b><code>FALSE</code></b> on failure</p>
+		 * @return int|false <p>Number of bytes written or <b><code>FALSE</code></b> on failure</p>
 		 * @link http://php.net/manual/en/domnode.c14nfile.php
 		 * @since PHP 5 >= 5.2.0, PHP 7
 		 */
-		public function C14NFile(string $uri, bool $exclusive = FALSE, bool $with_comments = FALSE, array $xpath = NULL, array $ns_prefixes = NULL): int {}
+		public function C14NFile(string $uri, bool $exclusive = FALSE, bool $with_comments = FALSE, array $xpath = NULL, array $ns_prefixes = NULL) {}
 
 		/**
 		 * Creates a new DOMDocument object
@@ -1171,7 +1681,7 @@ namespace {
 
 		/**
 		 * Adds new child at the end of the children
-		 * <p>This function appends a child to an existing list of children or creates a new list of children. The child can be created with e.g. <code>DOMDocument::createElement()</code>, <code>DOMDocument::createTextNode()</code> etc. or simply by using any other node.</p>
+		 * <p>This function appends a child to an existing list of children or creates a new list of children. The child can be created with e.g. <code>DOMDocument::createElement()</code>, <code>DOMDocument::createTextNode()</code> etc. or simply by using any other node.</p><p>When using an existing node it will be moved.</p>
 		 * @param \DOMNode $newnode <p>The appended child.</p>
 		 * @return DOMNode <p>The node added.</p>
 		 * @link http://php.net/manual/en/domnode.appendchild.php
@@ -1203,7 +1713,7 @@ namespace {
 		 * Create new attribute node with an associated namespace
 		 * <p>This function creates a new instance of class DOMAttr. This node will not show up in the document unless it is inserted with (e.g.) <code>DOMNode::appendChild()</code>.</p>
 		 * @param string $namespaceURI <p>The URI of the namespace.</p>
-		 * @param string $qualifiedName <p>The tag name and prefix of the attribute, as <i>prefix:tagname</i>.</p>
+		 * @param string $qualifiedName <p>The tag name and prefix of the attribute, as <code>prefix:tagname</code>.</p>
 		 * @return DOMAttr <p>The new DOMAttr or <b><code>FALSE</code></b> if an error occurred.</p>
 		 * @link http://php.net/manual/en/domdocument.createattributens.php
 		 * @since PHP 5, PHP 7
@@ -1254,7 +1764,7 @@ namespace {
 		 * Create new element node with an associated namespace
 		 * <p>This function creates a new element node with an associated namespace. This node will not show up in the document unless it is inserted with (e.g.) <code>DOMNode::appendChild()</code>.</p>
 		 * @param string $namespaceURI <p>The URI of the namespace.</p>
-		 * @param string $qualifiedName <p>The qualified name of the element, as <i>prefix:tagname</i>.</p>
+		 * @param string $qualifiedName <p>The qualified name of the element, as <code>prefix:tagname</code>.</p>
 		 * @param string $value <p>The value of the element. By default, an empty element will be created. You can also set the value later with DOMElement::$nodeValue.</p>
 		 * @return DOMElement <p>The new DOMElement or <b><code>FALSE</code></b> if an error occurred.</p>
 		 * @link http://php.net/manual/en/domdocument.createelementns.php
@@ -1265,7 +1775,7 @@ namespace {
 		/**
 		 * Create new entity reference node
 		 * <p>This function creates a new instance of class DOMEntityReference. This node will not show up in the document unless it is inserted with (e.g.) <code>DOMNode::appendChild()</code>.</p>
-		 * @param string $name <p>The content of the entity reference, e.g. the entity reference minus the leading <i>&amp;</i> and the trailing <i>;</i> characters.</p>
+		 * @param string $name <p>The content of the entity reference, e.g. the entity reference minus the leading <code>&amp;</code> and the trailing <code>;</code> characters.</p>
 		 * @return DOMEntityReference <p>The new DOMEntityReference or <b><code>FALSE</code></b> if an error occurred.</p>
 		 * @link http://php.net/manual/en/domdocument.createentityreference.php
 		 * @since PHP 5, PHP 7
@@ -1306,7 +1816,7 @@ namespace {
 		/**
 		 * Searches for all elements with given local tag name
 		 * <p>This function returns a new instance of class DOMNodeList containing all the elements with a given local tag name.</p>
-		 * @param string $name <p>The local name (without namespace) of the tag to match on. The special value <i>&#42;</i> matches all tags.</p>
+		 * @param string $name <p>The local name (without namespace) of the tag to match on. The special value <code>&#42;</code> matches all tags.</p>
 		 * @return DOMNodeList <p>A new DOMNodeList object containing all the matched elements.</p>
 		 * @link http://php.net/manual/en/domdocument.getelementsbytagname.php
 		 * @since PHP 5, PHP 7
@@ -1316,8 +1826,8 @@ namespace {
 		/**
 		 * Searches for all elements with given tag name in specified namespace
 		 * <p>Returns a DOMNodeList of all elements with a given local name and a namespace URI.</p>
-		 * @param string $namespaceURI <p>The namespace URI of the elements to match on. The special value <i>&#42;</i> matches all namespaces.</p>
-		 * @param string $localName <p>The local name of the elements to match on. The special value <i>&#42;</i> matches all local names.</p>
+		 * @param string $namespaceURI <p>The namespace URI of the elements to match on. The special value <code>&#42;</code> matches all namespaces.</p>
+		 * @param string $localName <p>The local name of the elements to match on. The special value <code>&#42;</code> matches all local names.</p>
 		 * @return DOMNodeList <p>A new DOMNodeList object containing all the matched elements.</p>
 		 * @link http://php.net/manual/en/domdocument.getelementsbytagnamens.php
 		 * @since PHP 5, PHP 7
@@ -1369,11 +1879,11 @@ namespace {
 		 * @link http://php.net/manual/en/domdocument.importnode.php
 		 * @since PHP 5, PHP 7
 		 */
-		public function importNode(\DOMNode $importedNode, bool $deep = NULL): \DOMNode {}
+		public function importNode(\DOMNode $importedNode, bool $deep = FALSE): \DOMNode {}
 
 		/**
 		 * Adds a new child before a reference node
-		 * <p>This function inserts a new node right before the reference node. If you plan to do further modifications on the appended child you must use the returned node.</p>
+		 * <p>This function inserts a new node right before the reference node. If you plan to do further modifications on the appended child you must use the returned node.</p><p>When using an existing node it will be moved.</p>
 		 * @param \DOMNode $newnode <p>The new node.</p>
 		 * @param \DOMNode $refnode <p>The reference node. If not supplied, <code>newnode</code> is appended to the children.</p>
 		 * @return DOMNode <p>The inserted node.</p>
@@ -1417,7 +1927,7 @@ namespace {
 		 * Load XML from a file
 		 * <p>Loads an XML document from a file.</p><p>Unix style paths with forward slashes can cause significant performance degradation on Windows systems; be sure to call <code>realpath()</code> in such a case.</p>
 		 * @param string $filename <p>The path to the XML document.</p>
-		 * @param int $options <p>Bitwise <i>OR</i> of the libxml option constants.</p>
+		 * @param int $options <p>Bitwise <code>OR</code> of the libxml option constants.</p>
 		 * @return mixed <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure. If called statically, returns a DOMDocument or <b><code>FALSE</code></b> on failure.</p>
 		 * @link http://php.net/manual/en/domdocument.load.php
 		 * @since PHP 5, PHP 7
@@ -1450,7 +1960,7 @@ namespace {
 		 * Load XML from a string
 		 * <p>Loads an XML document from a string.</p>
 		 * @param string $source <p>The string containing the XML.</p>
-		 * @param int $options <p>Bitwise <i>OR</i> of the libxml option constants.</p>
+		 * @param int $options <p>Bitwise <code>OR</code> of the libxml option constants.</p>
 		 * @return mixed <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure. If called statically, returns a DOMDocument or <b><code>FALSE</code></b> on failure.</p>
 		 * @link http://php.net/manual/en/domdocument.loadxml.php
 		 * @since PHP 5, PHP 7
@@ -1556,7 +2066,7 @@ namespace {
 		 * @link http://php.net/manual/en/domdocument.save.php
 		 * @since PHP 5, PHP 7
 		 */
-		public function save(string $filename, int $options = NULL): int {}
+		public function save(string $filename, int $options = 0): int {}
 
 		/**
 		 * Dumps the internal document into a string using HTML formatting
@@ -1587,10 +2097,10 @@ namespace {
 		 * @link http://php.net/manual/en/domdocument.savexml.php
 		 * @since PHP 5, PHP 7
 		 */
-		public function saveXML(\DOMNode $node = NULL, int $options = NULL): string {}
+		public function saveXML(\DOMNode $node = NULL, int $options = 0): string {}
 
 		/**
-		 * Validates a document based on a schema
+		 * Validates a document based on a schema. Only XML Schema 1.0 is supported.
 		 * <p>Validates a document based on the given schema file.</p>
 		 * @param string $filename <p>The path to the schema.</p>
 		 * @param int $flags <p>A bitmask of Libxml schema validation flags. Currently the only supported value is LIBXML_SCHEMA_CREATE. Available since PHP 5.5.2 and Libxml 2.6.14.</p>
@@ -1598,7 +2108,7 @@ namespace {
 		 * @link http://php.net/manual/en/domdocument.schemavalidate.php
 		 * @since PHP 5, PHP 7
 		 */
-		public function schemaValidate(string $filename, int $flags = NULL): bool {}
+		public function schemaValidate(string $filename, int $flags = 0): bool {}
 
 		/**
 		 * Validates a document based on a schema
@@ -1613,8 +2123,8 @@ namespace {
 
 		/**
 		 * Validates the document based on its DTD
-		 * <p>Validates the document based on its DTD.</p><p>You can also use the <i>validateOnParse</i> property of DOMDocument to make a DTD validation.</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure. If the document have no DTD attached, this method will return <b><code>FALSE</code></b>.</p>
+		 * <p>Validates the document based on its DTD.</p><p>You can also use the <code>validateOnParse</code> property of DOMDocument to make a DTD validation.</p>
+		 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure. If the document has no DTD attached, this method will return <b><code>FALSE</code></b>.</p>
 		 * @link http://php.net/manual/en/domdocument.validate.php
 		 * @since PHP 5, PHP 7
 		 */
@@ -1628,7 +2138,7 @@ namespace {
 		 * @link http://php.net/manual/en/domdocument.xinclude.php
 		 * @since PHP 5, PHP 7
 		 */
-		public function xinclude(int $options = NULL): int {}
+		public function xinclude(int $options = 0): int {}
 	}
 
 	/**
@@ -1638,17 +2148,113 @@ namespace {
 	class DOMDocumentFragment extends \DOMNode {
 
 		/**
+		 * @var string <p>Returns the most accurate name for the current node type</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.nodename
+		 */
+		public $nodeName;
+
+		/**
+		 * @var string <p>The value of this node, depending on its type. Contrary to the W3C specification, the node value of DOMElement nodes is equal to DOMNode::textContent instead of <b><code>NULL</code></b>.</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.nodevalue
+		 */
+		public $nodeValue;
+
+		/**
+		 * @var int <p>Gets the type of the node. One of the predefined XML_xxx_NODE constants</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.nodetype
+		 */
+		public $nodeType;
+
+		/**
+		 * @var DOMNode|null <p>The parent of this node. If there is no such node, this returns <b><code>NULL</code></b>.</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.parentnode
+		 */
+		public $parentNode;
+
+		/**
+		 * @var DOMNodeList <p>A DOMNodeList that contains all children of this node. If there are no children, this is an empty DOMNodeList.</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.childnodes
+		 */
+		public $childNodes;
+
+		/**
+		 * @var DOMNode|null <p>The first child of this node. If there is no such node, this returns <b><code>NULL</code></b>.</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.firstchild
+		 */
+		public $firstChild;
+
+		/**
+		 * @var DOMNode|null <p>The last child of this node. If there is no such node, this returns <b><code>NULL</code></b>.</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.lastchild
+		 */
+		public $lastChild;
+
+		/**
+		 * @var DOMNode|null <p>The node immediately preceding this node. If there is no such node, this returns <b><code>NULL</code></b>.</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.previoussibling
+		 */
+		public $previousSibling;
+
+		/**
+		 * @var DOMNode|null <p>The node immediately following this node. If there is no such node, this returns <b><code>NULL</code></b>.</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.nextsibling
+		 */
+		public $nextSibling;
+
+		/**
+		 * @var DOMNamedNodeMap|null <p>A DOMNamedNodeMap containing the attributes of this node (if it is a DOMElement) or <b><code>NULL</code></b> otherwise.</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.attributes
+		 */
+		public $attributes;
+
+		/**
+		 * @var DOMDocument|null <p>The DOMDocument object associated with this node, or <b><code>NULL</code></b> if this node is a DOMDOcument</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.ownerdocument
+		 */
+		public $ownerDocument;
+
+		/**
+		 * @var string|null <p>The namespace URI of this node, or <b><code>NULL</code></b> if it is unspecified.</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.namespaceuri
+		 */
+		public $namespaceURI;
+
+		/**
+		 * @var string <p>The namespace prefix of this node, or <b><code>NULL</code></b> if it is unspecified.</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.prefix
+		 */
+		public $prefix;
+
+		/**
+		 * @var string <p>Returns the local part of the qualified name of this node.</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.localname
+		 */
+		public $localName;
+
+		/**
+		 * @var string|null <p>The absolute base URI of this node or <b><code>NULL</code></b> if the implementation wasn't able to obtain an absolute URI.</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.baseuri
+		 */
+		public $baseURI;
+
+		/**
+		 * @var string <p>The text content of this node and its descendants.</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.textcontent
+		 */
+		public $textContent;
+
+		/**
 		 * Canonicalize nodes to a string
 		 * <p>Canonicalize nodes to a string</p>
 		 * @param bool $exclusive <p>Enable exclusive parsing of only the nodes matched by the provided xpath or namespace prefixes.</p>
 		 * @param bool $with_comments <p>Retain comments in output.</p>
-		 * @param array $xpath <p>An array of <i>xpath</i>s to filter the nodes by.</p>
+		 * @param array $xpath <p>An array of <code>xpath</code>s to filter the nodes by.</p>
 		 * @param array $ns_prefixes <p>An array of namespace prefixes to filter the nodes by.</p>
-		 * @return string <p>Returns canonicalized nodes as a string or <b><code>FALSE</code></b> on failure</p>
+		 * @return string|false <p>Returns canonicalized nodes as a string or <b><code>FALSE</code></b> on failure</p>
 		 * @link http://php.net/manual/en/domnode.c14n.php
 		 * @since PHP 5 >= 5.2.0, PHP 7
 		 */
-		public function C14N(bool $exclusive = NULL, bool $with_comments = NULL, array $xpath = NULL, array $ns_prefixes = NULL): string {}
+		public function C14N(bool $exclusive = NULL, bool $with_comments = NULL, array $xpath = NULL, array $ns_prefixes = NULL) {}
 
 		/**
 		 * Canonicalize nodes to a file
@@ -1656,17 +2262,17 @@ namespace {
 		 * @param string $uri <p>Path to write the output to.</p>
 		 * @param bool $exclusive <p>Enable exclusive parsing of only the nodes matched by the provided xpath or namespace prefixes.</p>
 		 * @param bool $with_comments <p>Retain comments in output.</p>
-		 * @param array $xpath <p>An array of <i>xpath</i>s to filter the nodes by.</p>
+		 * @param array $xpath <p>An array of <code>xpath</code>s to filter the nodes by.</p>
 		 * @param array $ns_prefixes <p>An array of namespace prefixes to filter the nodes by.</p>
-		 * @return int <p>Number of bytes written or <b><code>FALSE</code></b> on failure</p>
+		 * @return int|false <p>Number of bytes written or <b><code>FALSE</code></b> on failure</p>
 		 * @link http://php.net/manual/en/domnode.c14nfile.php
 		 * @since PHP 5 >= 5.2.0, PHP 7
 		 */
-		public function C14NFile(string $uri, bool $exclusive = FALSE, bool $with_comments = FALSE, array $xpath = NULL, array $ns_prefixes = NULL): int {}
+		public function C14NFile(string $uri, bool $exclusive = FALSE, bool $with_comments = FALSE, array $xpath = NULL, array $ns_prefixes = NULL) {}
 
 		/**
 		 * Adds new child at the end of the children
-		 * <p>This function appends a child to an existing list of children or creates a new list of children. The child can be created with e.g. <code>DOMDocument::createElement()</code>, <code>DOMDocument::createTextNode()</code> etc. or simply by using any other node.</p>
+		 * <p>This function appends a child to an existing list of children or creates a new list of children. The child can be created with e.g. <code>DOMDocument::createElement()</code>, <code>DOMDocument::createTextNode()</code> etc. or simply by using any other node.</p><p>When using an existing node it will be moved.</p>
 		 * @param \DOMNode $newnode <p>The appended child.</p>
 		 * @return DOMNode <p>The node added.</p>
 		 * @link http://php.net/manual/en/domnode.appendchild.php
@@ -1732,7 +2338,7 @@ namespace {
 
 		/**
 		 * Adds a new child before a reference node
-		 * <p>This function inserts a new node right before the reference node. If you plan to do further modifications on the appended child you must use the returned node.</p>
+		 * <p>This function inserts a new node right before the reference node. If you plan to do further modifications on the appended child you must use the returned node.</p><p>When using an existing node it will be moved.</p>
 		 * @param \DOMNode $newnode <p>The new node.</p>
 		 * @param \DOMNode $refnode <p>The reference node. If not supplied, <code>newnode</code> is appended to the children.</p>
 		 * @return DOMNode <p>The inserted node.</p>
@@ -1824,7 +2430,7 @@ namespace {
 	}
 
 	/**
-	 * <p>Each DOMDocument has a <i>doctype</i> attribute whose value is either <b><code>NULL</code></b> or a <b>DOMDocumentType</b> object.</p>
+	 * <p>Each DOMDocument has a <code>doctype</code> attribute whose value is either <b><code>NULL</code></b> or a <b>DOMDocumentType</b> object.</p>
 	 * @link http://php.net/manual/en/class.domdocumenttype.php
 	 * @since PHP 5, PHP 7
 	 */
@@ -1843,7 +2449,7 @@ namespace {
 		public $systemId;
 
 		/**
-		 * @var string <p>The name of DTD; i.e., the name immediately following the <i>DOCTYPE</i> keyword.</p>
+		 * @var string <p>The name of DTD; i.e., the name immediately following the <code>DOCTYPE</code> keyword.</p>
 		 * @link http://php.net/manual/en/class.domdocumenttype.php#domdocumenttype.props.name
 		 */
 		public $name;
@@ -1867,17 +2473,113 @@ namespace {
 		public $internalSubset;
 
 		/**
+		 * @var string <p>Returns the most accurate name for the current node type</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.nodename
+		 */
+		public $nodeName;
+
+		/**
+		 * @var string <p>The value of this node, depending on its type. Contrary to the W3C specification, the node value of DOMElement nodes is equal to DOMNode::textContent instead of <b><code>NULL</code></b>.</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.nodevalue
+		 */
+		public $nodeValue;
+
+		/**
+		 * @var int <p>Gets the type of the node. One of the predefined XML_xxx_NODE constants</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.nodetype
+		 */
+		public $nodeType;
+
+		/**
+		 * @var DOMNode|null <p>The parent of this node. If there is no such node, this returns <b><code>NULL</code></b>.</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.parentnode
+		 */
+		public $parentNode;
+
+		/**
+		 * @var DOMNodeList <p>A DOMNodeList that contains all children of this node. If there are no children, this is an empty DOMNodeList.</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.childnodes
+		 */
+		public $childNodes;
+
+		/**
+		 * @var DOMNode|null <p>The first child of this node. If there is no such node, this returns <b><code>NULL</code></b>.</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.firstchild
+		 */
+		public $firstChild;
+
+		/**
+		 * @var DOMNode|null <p>The last child of this node. If there is no such node, this returns <b><code>NULL</code></b>.</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.lastchild
+		 */
+		public $lastChild;
+
+		/**
+		 * @var DOMNode|null <p>The node immediately preceding this node. If there is no such node, this returns <b><code>NULL</code></b>.</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.previoussibling
+		 */
+		public $previousSibling;
+
+		/**
+		 * @var DOMNode|null <p>The node immediately following this node. If there is no such node, this returns <b><code>NULL</code></b>.</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.nextsibling
+		 */
+		public $nextSibling;
+
+		/**
+		 * @var DOMNamedNodeMap|null <p>A DOMNamedNodeMap containing the attributes of this node (if it is a DOMElement) or <b><code>NULL</code></b> otherwise.</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.attributes
+		 */
+		public $attributes;
+
+		/**
+		 * @var DOMDocument|null <p>The DOMDocument object associated with this node, or <b><code>NULL</code></b> if this node is a DOMDOcument</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.ownerdocument
+		 */
+		public $ownerDocument;
+
+		/**
+		 * @var string|null <p>The namespace URI of this node, or <b><code>NULL</code></b> if it is unspecified.</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.namespaceuri
+		 */
+		public $namespaceURI;
+
+		/**
+		 * @var string <p>The namespace prefix of this node, or <b><code>NULL</code></b> if it is unspecified.</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.prefix
+		 */
+		public $prefix;
+
+		/**
+		 * @var string <p>Returns the local part of the qualified name of this node.</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.localname
+		 */
+		public $localName;
+
+		/**
+		 * @var string|null <p>The absolute base URI of this node or <b><code>NULL</code></b> if the implementation wasn't able to obtain an absolute URI.</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.baseuri
+		 */
+		public $baseURI;
+
+		/**
+		 * @var string <p>The text content of this node and its descendants.</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.textcontent
+		 */
+		public $textContent;
+
+		/**
 		 * Canonicalize nodes to a string
 		 * <p>Canonicalize nodes to a string</p>
 		 * @param bool $exclusive <p>Enable exclusive parsing of only the nodes matched by the provided xpath or namespace prefixes.</p>
 		 * @param bool $with_comments <p>Retain comments in output.</p>
-		 * @param array $xpath <p>An array of <i>xpath</i>s to filter the nodes by.</p>
+		 * @param array $xpath <p>An array of <code>xpath</code>s to filter the nodes by.</p>
 		 * @param array $ns_prefixes <p>An array of namespace prefixes to filter the nodes by.</p>
-		 * @return string <p>Returns canonicalized nodes as a string or <b><code>FALSE</code></b> on failure</p>
+		 * @return string|false <p>Returns canonicalized nodes as a string or <b><code>FALSE</code></b> on failure</p>
 		 * @link http://php.net/manual/en/domnode.c14n.php
 		 * @since PHP 5 >= 5.2.0, PHP 7
 		 */
-		public function C14N(bool $exclusive = NULL, bool $with_comments = NULL, array $xpath = NULL, array $ns_prefixes = NULL): string {}
+		public function C14N(bool $exclusive = NULL, bool $with_comments = NULL, array $xpath = NULL, array $ns_prefixes = NULL) {}
 
 		/**
 		 * Canonicalize nodes to a file
@@ -1885,17 +2587,17 @@ namespace {
 		 * @param string $uri <p>Path to write the output to.</p>
 		 * @param bool $exclusive <p>Enable exclusive parsing of only the nodes matched by the provided xpath or namespace prefixes.</p>
 		 * @param bool $with_comments <p>Retain comments in output.</p>
-		 * @param array $xpath <p>An array of <i>xpath</i>s to filter the nodes by.</p>
+		 * @param array $xpath <p>An array of <code>xpath</code>s to filter the nodes by.</p>
 		 * @param array $ns_prefixes <p>An array of namespace prefixes to filter the nodes by.</p>
-		 * @return int <p>Number of bytes written or <b><code>FALSE</code></b> on failure</p>
+		 * @return int|false <p>Number of bytes written or <b><code>FALSE</code></b> on failure</p>
 		 * @link http://php.net/manual/en/domnode.c14nfile.php
 		 * @since PHP 5 >= 5.2.0, PHP 7
 		 */
-		public function C14NFile(string $uri, bool $exclusive = FALSE, bool $with_comments = FALSE, array $xpath = NULL, array $ns_prefixes = NULL): int {}
+		public function C14NFile(string $uri, bool $exclusive = FALSE, bool $with_comments = FALSE, array $xpath = NULL, array $ns_prefixes = NULL) {}
 
 		/**
 		 * Adds new child at the end of the children
-		 * <p>This function appends a child to an existing list of children or creates a new list of children. The child can be created with e.g. <code>DOMDocument::createElement()</code>, <code>DOMDocument::createTextNode()</code> etc. or simply by using any other node.</p>
+		 * <p>This function appends a child to an existing list of children or creates a new list of children. The child can be created with e.g. <code>DOMDocument::createElement()</code>, <code>DOMDocument::createTextNode()</code> etc. or simply by using any other node.</p><p>When using an existing node it will be moved.</p>
 		 * @param \DOMNode $newnode <p>The appended child.</p>
 		 * @return DOMNode <p>The node added.</p>
 		 * @link http://php.net/manual/en/domnode.appendchild.php
@@ -1951,7 +2653,7 @@ namespace {
 
 		/**
 		 * Adds a new child before a reference node
-		 * <p>This function inserts a new node right before the reference node. If you plan to do further modifications on the appended child you must use the returned node.</p>
+		 * <p>This function inserts a new node right before the reference node. If you plan to do further modifications on the appended child you must use the returned node.</p><p>When using an existing node it will be moved.</p>
 		 * @param \DOMNode $newnode <p>The new node.</p>
 		 * @param \DOMNode $refnode <p>The reference node. If not supplied, <code>newnode</code> is appended to the children.</p>
 		 * @return DOMNode <p>The inserted node.</p>
@@ -2061,17 +2763,113 @@ namespace {
 		public $tagName;
 
 		/**
+		 * @var string <p>Returns the most accurate name for the current node type</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.nodename
+		 */
+		public $nodeName;
+
+		/**
+		 * @var string <p>The value of this node, depending on its type. Contrary to the W3C specification, the node value of DOMElement nodes is equal to DOMNode::textContent instead of <b><code>NULL</code></b>.</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.nodevalue
+		 */
+		public $nodeValue;
+
+		/**
+		 * @var int <p>Gets the type of the node. One of the predefined XML_xxx_NODE constants</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.nodetype
+		 */
+		public $nodeType;
+
+		/**
+		 * @var DOMNode|null <p>The parent of this node. If there is no such node, this returns <b><code>NULL</code></b>.</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.parentnode
+		 */
+		public $parentNode;
+
+		/**
+		 * @var DOMNodeList <p>A DOMNodeList that contains all children of this node. If there are no children, this is an empty DOMNodeList.</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.childnodes
+		 */
+		public $childNodes;
+
+		/**
+		 * @var DOMNode|null <p>The first child of this node. If there is no such node, this returns <b><code>NULL</code></b>.</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.firstchild
+		 */
+		public $firstChild;
+
+		/**
+		 * @var DOMNode|null <p>The last child of this node. If there is no such node, this returns <b><code>NULL</code></b>.</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.lastchild
+		 */
+		public $lastChild;
+
+		/**
+		 * @var DOMNode|null <p>The node immediately preceding this node. If there is no such node, this returns <b><code>NULL</code></b>.</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.previoussibling
+		 */
+		public $previousSibling;
+
+		/**
+		 * @var DOMNode|null <p>The node immediately following this node. If there is no such node, this returns <b><code>NULL</code></b>.</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.nextsibling
+		 */
+		public $nextSibling;
+
+		/**
+		 * @var DOMNamedNodeMap|null <p>A DOMNamedNodeMap containing the attributes of this node (if it is a DOMElement) or <b><code>NULL</code></b> otherwise.</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.attributes
+		 */
+		public $attributes;
+
+		/**
+		 * @var DOMDocument|null <p>The DOMDocument object associated with this node, or <b><code>NULL</code></b> if this node is a DOMDOcument</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.ownerdocument
+		 */
+		public $ownerDocument;
+
+		/**
+		 * @var string|null <p>The namespace URI of this node, or <b><code>NULL</code></b> if it is unspecified.</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.namespaceuri
+		 */
+		public $namespaceURI;
+
+		/**
+		 * @var string <p>The namespace prefix of this node, or <b><code>NULL</code></b> if it is unspecified.</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.prefix
+		 */
+		public $prefix;
+
+		/**
+		 * @var string <p>Returns the local part of the qualified name of this node.</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.localname
+		 */
+		public $localName;
+
+		/**
+		 * @var string|null <p>The absolute base URI of this node or <b><code>NULL</code></b> if the implementation wasn't able to obtain an absolute URI.</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.baseuri
+		 */
+		public $baseURI;
+
+		/**
+		 * @var string <p>The text content of this node and its descendants.</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.textcontent
+		 */
+		public $textContent;
+
+		/**
 		 * Canonicalize nodes to a string
 		 * <p>Canonicalize nodes to a string</p>
 		 * @param bool $exclusive <p>Enable exclusive parsing of only the nodes matched by the provided xpath or namespace prefixes.</p>
 		 * @param bool $with_comments <p>Retain comments in output.</p>
-		 * @param array $xpath <p>An array of <i>xpath</i>s to filter the nodes by.</p>
+		 * @param array $xpath <p>An array of <code>xpath</code>s to filter the nodes by.</p>
 		 * @param array $ns_prefixes <p>An array of namespace prefixes to filter the nodes by.</p>
-		 * @return string <p>Returns canonicalized nodes as a string or <b><code>FALSE</code></b> on failure</p>
+		 * @return string|false <p>Returns canonicalized nodes as a string or <b><code>FALSE</code></b> on failure</p>
 		 * @link http://php.net/manual/en/domnode.c14n.php
 		 * @since PHP 5 >= 5.2.0, PHP 7
 		 */
-		public function C14N(bool $exclusive = NULL, bool $with_comments = NULL, array $xpath = NULL, array $ns_prefixes = NULL): string {}
+		public function C14N(bool $exclusive = NULL, bool $with_comments = NULL, array $xpath = NULL, array $ns_prefixes = NULL) {}
 
 		/**
 		 * Canonicalize nodes to a file
@@ -2079,13 +2877,13 @@ namespace {
 		 * @param string $uri <p>Path to write the output to.</p>
 		 * @param bool $exclusive <p>Enable exclusive parsing of only the nodes matched by the provided xpath or namespace prefixes.</p>
 		 * @param bool $with_comments <p>Retain comments in output.</p>
-		 * @param array $xpath <p>An array of <i>xpath</i>s to filter the nodes by.</p>
+		 * @param array $xpath <p>An array of <code>xpath</code>s to filter the nodes by.</p>
 		 * @param array $ns_prefixes <p>An array of namespace prefixes to filter the nodes by.</p>
-		 * @return int <p>Number of bytes written or <b><code>FALSE</code></b> on failure</p>
+		 * @return int|false <p>Number of bytes written or <b><code>FALSE</code></b> on failure</p>
 		 * @link http://php.net/manual/en/domnode.c14nfile.php
 		 * @since PHP 5 >= 5.2.0, PHP 7
 		 */
-		public function C14NFile(string $uri, bool $exclusive = FALSE, bool $with_comments = FALSE, array $xpath = NULL, array $ns_prefixes = NULL): int {}
+		public function C14NFile(string $uri, bool $exclusive = FALSE, bool $with_comments = FALSE, array $xpath = NULL, array $ns_prefixes = NULL) {}
 
 		/**
 		 * Creates a new DOMElement object
@@ -2101,7 +2899,7 @@ namespace {
 
 		/**
 		 * Adds new child at the end of the children
-		 * <p>This function appends a child to an existing list of children or creates a new list of children. The child can be created with e.g. <code>DOMDocument::createElement()</code>, <code>DOMDocument::createTextNode()</code> etc. or simply by using any other node.</p>
+		 * <p>This function appends a child to an existing list of children or creates a new list of children. The child can be created with e.g. <code>DOMDocument::createElement()</code>, <code>DOMDocument::createTextNode()</code> etc. or simply by using any other node.</p><p>When using an existing node it will be moved.</p>
 		 * @param \DOMNode $newnode <p>The appended child.</p>
 		 * @return DOMNode <p>The node added.</p>
 		 * @link http://php.net/manual/en/domnode.appendchild.php
@@ -2144,7 +2942,7 @@ namespace {
 		 * Returns attribute node
 		 * <p>Returns the attribute node with name <code>name</code> for the current element.</p>
 		 * @param string $name <p>The name of the attribute.</p>
-		 * @return DOMAttr <p>The attribute node. Note that for XML namespace declarations (<i>xmlns</i> and <i>xmlns:&#42;</i> attributes) an instance of <b>DOMNameSpaceNode</b> is returned instead of a DOMAttr.</p>
+		 * @return DOMAttr <p>The attribute node. Note that for XML namespace declarations (<code>xmlns</code> and <code>xmlns:&#42;</code> attributes) an instance of <b>DOMNameSpaceNode</b> is returned instead of a DOMAttr.</p>
 		 * @link http://php.net/manual/en/domelement.getattributenode.php
 		 * @since PHP 5, PHP 7
 		 */
@@ -2155,7 +2953,7 @@ namespace {
 		 * <p>Returns the attribute node in namespace <code>namespaceURI</code> with local name <code>localName</code> for the current node.</p>
 		 * @param string $namespaceURI <p>The namespace URI.</p>
 		 * @param string $localName <p>The local name.</p>
-		 * @return DOMAttr <p>The attribute node. Note that for XML namespace declarations (<i>xmlns</i> and <i>xmlns:&#42;</i> attributes) an instance of <b>DOMNameSpaceNode</b> is returned instead of a DOMAttr object.</p>
+		 * @return DOMAttr <p>The attribute node. Note that for XML namespace declarations (<code>xmlns</code> and <code>xmlns:&#42;</code> attributes) an instance of <b>DOMNameSpaceNode</b> is returned instead of a DOMAttr object.</p>
 		 * @link http://php.net/manual/en/domelement.getattributenodens.php
 		 * @since PHP 5, PHP 7
 		 */
@@ -2164,7 +2962,7 @@ namespace {
 		/**
 		 * Gets elements by tagname
 		 * <p>This function returns a new instance of the class DOMNodeList of all descendant elements with a given tag <code>name</code>, in the order in which they are encountered in a preorder traversal of this element tree.</p>
-		 * @param string $name <p>The tag name. Use <i>&#42;</i> to return all elements within the element tree.</p>
+		 * @param string $name <p>The tag name. Use <code>&#42;</code> to return all elements within the element tree.</p>
 		 * @return DOMNodeList <p>This function returns a new instance of the class DOMNodeList of all matched elements.</p>
 		 * @link http://php.net/manual/en/domelement.getelementsbytagname.php
 		 * @since PHP 5, PHP 7
@@ -2175,7 +2973,7 @@ namespace {
 		 * Get elements by namespaceURI and localName
 		 * <p>This function fetch all the descendant elements with a given <code>localName</code> and <code>namespaceURI</code>.</p>
 		 * @param string $namespaceURI <p>The namespace URI.</p>
-		 * @param string $localName <p>The local name. Use <i>&#42;</i> to return all elements within the element tree.</p>
+		 * @param string $localName <p>The local name. Use <code>&#42;</code> to return all elements within the element tree.</p>
 		 * @return DOMNodeList <p>This function returns a new instance of the class DOMNodeList of all matched elements in the order in which they are encountered in a preorder traversal of this element tree.</p>
 		 * @link http://php.net/manual/en/domelement.getelementsbytagnamens.php
 		 * @since PHP 5, PHP 7
@@ -2241,7 +3039,7 @@ namespace {
 
 		/**
 		 * Adds a new child before a reference node
-		 * <p>This function inserts a new node right before the reference node. If you plan to do further modifications on the appended child you must use the returned node.</p>
+		 * <p>This function inserts a new node right before the reference node. If you plan to do further modifications on the appended child you must use the returned node.</p><p>When using an existing node it will be moved.</p>
 		 * @param \DOMNode $newnode <p>The new node.</p>
 		 * @param \DOMNode $refnode <p>The reference node. If not supplied, <code>newnode</code> is appended to the children.</p>
 		 * @return DOMNode <p>The inserted node.</p>
@@ -2377,7 +3175,7 @@ namespace {
 		 * Adds new attribute
 		 * <p>Sets an attribute with namespace <code>namespaceURI</code> and name <code>name</code> to the given value. If the attribute does not exist, it will be created.</p>
 		 * @param string $namespaceURI <p>The namespace URI.</p>
-		 * @param string $qualifiedName <p>The qualified name of the attribute, as <i>prefix:tagname</i>.</p>
+		 * @param string $qualifiedName <p>The qualified name of the attribute, as <code>prefix:tagname</code>.</p>
 		 * @param string $value <p>The value of the attribute.</p>
 		 * @return void <p>No value is returned.</p>
 		 * @link http://php.net/manual/en/domelement.setattributens.php
@@ -2420,7 +3218,7 @@ namespace {
 		 * Declares the attribute specified by local name and namespace URI to be of type ID
 		 * <p>Declares the attribute specified by <code>localName</code> and <code>namespaceURI</code> to be of type ID.</p>
 		 * @param string $namespaceURI <p>The namespace URI of the attribute.</p>
-		 * @param string $localName <p>The local name of the attribute, as <i>prefix:tagname</i>.</p>
+		 * @param string $localName <p>The local name of the attribute, as <code>prefix:tagname</code>.</p>
 		 * @param bool $isId <p>Set it to <b><code>TRUE</code></b> if you want <code>name</code> to be of type ID, <b><code>FALSE</code></b> otherwise.</p>
 		 * @return void <p>No value is returned.</p>
 		 * @link http://php.net/manual/en/domelement.setidattributens.php
@@ -2484,17 +3282,113 @@ namespace {
 		public $version;
 
 		/**
+		 * @var string <p>Returns the most accurate name for the current node type</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.nodename
+		 */
+		public $nodeName;
+
+		/**
+		 * @var string <p>The value of this node, depending on its type. Contrary to the W3C specification, the node value of DOMElement nodes is equal to DOMNode::textContent instead of <b><code>NULL</code></b>.</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.nodevalue
+		 */
+		public $nodeValue;
+
+		/**
+		 * @var int <p>Gets the type of the node. One of the predefined XML_xxx_NODE constants</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.nodetype
+		 */
+		public $nodeType;
+
+		/**
+		 * @var DOMNode|null <p>The parent of this node. If there is no such node, this returns <b><code>NULL</code></b>.</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.parentnode
+		 */
+		public $parentNode;
+
+		/**
+		 * @var DOMNodeList <p>A DOMNodeList that contains all children of this node. If there are no children, this is an empty DOMNodeList.</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.childnodes
+		 */
+		public $childNodes;
+
+		/**
+		 * @var DOMNode|null <p>The first child of this node. If there is no such node, this returns <b><code>NULL</code></b>.</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.firstchild
+		 */
+		public $firstChild;
+
+		/**
+		 * @var DOMNode|null <p>The last child of this node. If there is no such node, this returns <b><code>NULL</code></b>.</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.lastchild
+		 */
+		public $lastChild;
+
+		/**
+		 * @var DOMNode|null <p>The node immediately preceding this node. If there is no such node, this returns <b><code>NULL</code></b>.</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.previoussibling
+		 */
+		public $previousSibling;
+
+		/**
+		 * @var DOMNode|null <p>The node immediately following this node. If there is no such node, this returns <b><code>NULL</code></b>.</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.nextsibling
+		 */
+		public $nextSibling;
+
+		/**
+		 * @var DOMNamedNodeMap|null <p>A DOMNamedNodeMap containing the attributes of this node (if it is a DOMElement) or <b><code>NULL</code></b> otherwise.</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.attributes
+		 */
+		public $attributes;
+
+		/**
+		 * @var DOMDocument|null <p>The DOMDocument object associated with this node, or <b><code>NULL</code></b> if this node is a DOMDOcument</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.ownerdocument
+		 */
+		public $ownerDocument;
+
+		/**
+		 * @var string|null <p>The namespace URI of this node, or <b><code>NULL</code></b> if it is unspecified.</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.namespaceuri
+		 */
+		public $namespaceURI;
+
+		/**
+		 * @var string <p>The namespace prefix of this node, or <b><code>NULL</code></b> if it is unspecified.</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.prefix
+		 */
+		public $prefix;
+
+		/**
+		 * @var string <p>Returns the local part of the qualified name of this node.</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.localname
+		 */
+		public $localName;
+
+		/**
+		 * @var string|null <p>The absolute base URI of this node or <b><code>NULL</code></b> if the implementation wasn't able to obtain an absolute URI.</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.baseuri
+		 */
+		public $baseURI;
+
+		/**
+		 * @var string <p>The text content of this node and its descendants.</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.textcontent
+		 */
+		public $textContent;
+
+		/**
 		 * Canonicalize nodes to a string
 		 * <p>Canonicalize nodes to a string</p>
 		 * @param bool $exclusive <p>Enable exclusive parsing of only the nodes matched by the provided xpath or namespace prefixes.</p>
 		 * @param bool $with_comments <p>Retain comments in output.</p>
-		 * @param array $xpath <p>An array of <i>xpath</i>s to filter the nodes by.</p>
+		 * @param array $xpath <p>An array of <code>xpath</code>s to filter the nodes by.</p>
 		 * @param array $ns_prefixes <p>An array of namespace prefixes to filter the nodes by.</p>
-		 * @return string <p>Returns canonicalized nodes as a string or <b><code>FALSE</code></b> on failure</p>
+		 * @return string|false <p>Returns canonicalized nodes as a string or <b><code>FALSE</code></b> on failure</p>
 		 * @link http://php.net/manual/en/domnode.c14n.php
 		 * @since PHP 5 >= 5.2.0, PHP 7
 		 */
-		public function C14N(bool $exclusive = NULL, bool $with_comments = NULL, array $xpath = NULL, array $ns_prefixes = NULL): string {}
+		public function C14N(bool $exclusive = NULL, bool $with_comments = NULL, array $xpath = NULL, array $ns_prefixes = NULL) {}
 
 		/**
 		 * Canonicalize nodes to a file
@@ -2502,17 +3396,17 @@ namespace {
 		 * @param string $uri <p>Path to write the output to.</p>
 		 * @param bool $exclusive <p>Enable exclusive parsing of only the nodes matched by the provided xpath or namespace prefixes.</p>
 		 * @param bool $with_comments <p>Retain comments in output.</p>
-		 * @param array $xpath <p>An array of <i>xpath</i>s to filter the nodes by.</p>
+		 * @param array $xpath <p>An array of <code>xpath</code>s to filter the nodes by.</p>
 		 * @param array $ns_prefixes <p>An array of namespace prefixes to filter the nodes by.</p>
-		 * @return int <p>Number of bytes written or <b><code>FALSE</code></b> on failure</p>
+		 * @return int|false <p>Number of bytes written or <b><code>FALSE</code></b> on failure</p>
 		 * @link http://php.net/manual/en/domnode.c14nfile.php
 		 * @since PHP 5 >= 5.2.0, PHP 7
 		 */
-		public function C14NFile(string $uri, bool $exclusive = FALSE, bool $with_comments = FALSE, array $xpath = NULL, array $ns_prefixes = NULL): int {}
+		public function C14NFile(string $uri, bool $exclusive = FALSE, bool $with_comments = FALSE, array $xpath = NULL, array $ns_prefixes = NULL) {}
 
 		/**
 		 * Adds new child at the end of the children
-		 * <p>This function appends a child to an existing list of children or creates a new list of children. The child can be created with e.g. <code>DOMDocument::createElement()</code>, <code>DOMDocument::createTextNode()</code> etc. or simply by using any other node.</p>
+		 * <p>This function appends a child to an existing list of children or creates a new list of children. The child can be created with e.g. <code>DOMDocument::createElement()</code>, <code>DOMDocument::createTextNode()</code> etc. or simply by using any other node.</p><p>When using an existing node it will be moved.</p>
 		 * @param \DOMNode $newnode <p>The appended child.</p>
 		 * @return DOMNode <p>The node added.</p>
 		 * @link http://php.net/manual/en/domnode.appendchild.php
@@ -2568,7 +3462,7 @@ namespace {
 
 		/**
 		 * Adds a new child before a reference node
-		 * <p>This function inserts a new node right before the reference node. If you plan to do further modifications on the appended child you must use the returned node.</p>
+		 * <p>This function inserts a new node right before the reference node. If you plan to do further modifications on the appended child you must use the returned node.</p><p>When using an existing node it will be moved.</p>
 		 * @param \DOMNode $newnode <p>The new node.</p>
 		 * @param \DOMNode $refnode <p>The reference node. If not supplied, <code>newnode</code> is appended to the children.</p>
 		 * @return DOMNode <p>The inserted node.</p>
@@ -2666,17 +3560,113 @@ namespace {
 	class DOMEntityReference extends \DOMNode {
 
 		/**
+		 * @var string <p>Returns the most accurate name for the current node type</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.nodename
+		 */
+		public $nodeName;
+
+		/**
+		 * @var string <p>The value of this node, depending on its type. Contrary to the W3C specification, the node value of DOMElement nodes is equal to DOMNode::textContent instead of <b><code>NULL</code></b>.</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.nodevalue
+		 */
+		public $nodeValue;
+
+		/**
+		 * @var int <p>Gets the type of the node. One of the predefined XML_xxx_NODE constants</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.nodetype
+		 */
+		public $nodeType;
+
+		/**
+		 * @var DOMNode|null <p>The parent of this node. If there is no such node, this returns <b><code>NULL</code></b>.</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.parentnode
+		 */
+		public $parentNode;
+
+		/**
+		 * @var DOMNodeList <p>A DOMNodeList that contains all children of this node. If there are no children, this is an empty DOMNodeList.</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.childnodes
+		 */
+		public $childNodes;
+
+		/**
+		 * @var DOMNode|null <p>The first child of this node. If there is no such node, this returns <b><code>NULL</code></b>.</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.firstchild
+		 */
+		public $firstChild;
+
+		/**
+		 * @var DOMNode|null <p>The last child of this node. If there is no such node, this returns <b><code>NULL</code></b>.</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.lastchild
+		 */
+		public $lastChild;
+
+		/**
+		 * @var DOMNode|null <p>The node immediately preceding this node. If there is no such node, this returns <b><code>NULL</code></b>.</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.previoussibling
+		 */
+		public $previousSibling;
+
+		/**
+		 * @var DOMNode|null <p>The node immediately following this node. If there is no such node, this returns <b><code>NULL</code></b>.</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.nextsibling
+		 */
+		public $nextSibling;
+
+		/**
+		 * @var DOMNamedNodeMap|null <p>A DOMNamedNodeMap containing the attributes of this node (if it is a DOMElement) or <b><code>NULL</code></b> otherwise.</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.attributes
+		 */
+		public $attributes;
+
+		/**
+		 * @var DOMDocument|null <p>The DOMDocument object associated with this node, or <b><code>NULL</code></b> if this node is a DOMDOcument</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.ownerdocument
+		 */
+		public $ownerDocument;
+
+		/**
+		 * @var string|null <p>The namespace URI of this node, or <b><code>NULL</code></b> if it is unspecified.</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.namespaceuri
+		 */
+		public $namespaceURI;
+
+		/**
+		 * @var string <p>The namespace prefix of this node, or <b><code>NULL</code></b> if it is unspecified.</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.prefix
+		 */
+		public $prefix;
+
+		/**
+		 * @var string <p>Returns the local part of the qualified name of this node.</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.localname
+		 */
+		public $localName;
+
+		/**
+		 * @var string|null <p>The absolute base URI of this node or <b><code>NULL</code></b> if the implementation wasn't able to obtain an absolute URI.</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.baseuri
+		 */
+		public $baseURI;
+
+		/**
+		 * @var string <p>The text content of this node and its descendants.</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.textcontent
+		 */
+		public $textContent;
+
+		/**
 		 * Canonicalize nodes to a string
 		 * <p>Canonicalize nodes to a string</p>
 		 * @param bool $exclusive <p>Enable exclusive parsing of only the nodes matched by the provided xpath or namespace prefixes.</p>
 		 * @param bool $with_comments <p>Retain comments in output.</p>
-		 * @param array $xpath <p>An array of <i>xpath</i>s to filter the nodes by.</p>
+		 * @param array $xpath <p>An array of <code>xpath</code>s to filter the nodes by.</p>
 		 * @param array $ns_prefixes <p>An array of namespace prefixes to filter the nodes by.</p>
-		 * @return string <p>Returns canonicalized nodes as a string or <b><code>FALSE</code></b> on failure</p>
+		 * @return string|false <p>Returns canonicalized nodes as a string or <b><code>FALSE</code></b> on failure</p>
 		 * @link http://php.net/manual/en/domnode.c14n.php
 		 * @since PHP 5 >= 5.2.0, PHP 7
 		 */
-		public function C14N(bool $exclusive = NULL, bool $with_comments = NULL, array $xpath = NULL, array $ns_prefixes = NULL): string {}
+		public function C14N(bool $exclusive = NULL, bool $with_comments = NULL, array $xpath = NULL, array $ns_prefixes = NULL) {}
 
 		/**
 		 * Canonicalize nodes to a file
@@ -2684,13 +3674,13 @@ namespace {
 		 * @param string $uri <p>Path to write the output to.</p>
 		 * @param bool $exclusive <p>Enable exclusive parsing of only the nodes matched by the provided xpath or namespace prefixes.</p>
 		 * @param bool $with_comments <p>Retain comments in output.</p>
-		 * @param array $xpath <p>An array of <i>xpath</i>s to filter the nodes by.</p>
+		 * @param array $xpath <p>An array of <code>xpath</code>s to filter the nodes by.</p>
 		 * @param array $ns_prefixes <p>An array of namespace prefixes to filter the nodes by.</p>
-		 * @return int <p>Number of bytes written or <b><code>FALSE</code></b> on failure</p>
+		 * @return int|false <p>Number of bytes written or <b><code>FALSE</code></b> on failure</p>
 		 * @link http://php.net/manual/en/domnode.c14nfile.php
 		 * @since PHP 5 >= 5.2.0, PHP 7
 		 */
-		public function C14NFile(string $uri, bool $exclusive = FALSE, bool $with_comments = FALSE, array $xpath = NULL, array $ns_prefixes = NULL): int {}
+		public function C14NFile(string $uri, bool $exclusive = FALSE, bool $with_comments = FALSE, array $xpath = NULL, array $ns_prefixes = NULL) {}
 
 		/**
 		 * Creates a new DOMEntityReference object
@@ -2704,7 +3694,7 @@ namespace {
 
 		/**
 		 * Adds new child at the end of the children
-		 * <p>This function appends a child to an existing list of children or creates a new list of children. The child can be created with e.g. <code>DOMDocument::createElement()</code>, <code>DOMDocument::createTextNode()</code> etc. or simply by using any other node.</p>
+		 * <p>This function appends a child to an existing list of children or creates a new list of children. The child can be created with e.g. <code>DOMDocument::createElement()</code>, <code>DOMDocument::createTextNode()</code> etc. or simply by using any other node.</p><p>When using an existing node it will be moved.</p>
 		 * @param \DOMNode $newnode <p>The appended child.</p>
 		 * @return DOMNode <p>The node added.</p>
 		 * @link http://php.net/manual/en/domnode.appendchild.php
@@ -2760,7 +3750,7 @@ namespace {
 
 		/**
 		 * Adds a new child before a reference node
-		 * <p>This function inserts a new node right before the reference node. If you plan to do further modifications on the appended child you must use the returned node.</p>
+		 * <p>This function inserts a new node right before the reference node. If you plan to do further modifications on the appended child you must use the returned node.</p><p>When using an existing node it will be moved.</p>
 		 * @param \DOMNode $newnode <p>The new node.</p>
 		 * @param \DOMNode $refnode <p>The reference node. If not supplied, <code>newnode</code> is appended to the children.</p>
 		 * @return DOMNode <p>The inserted node.</p>
@@ -2860,17 +3850,35 @@ namespace {
 	class DOMException extends \Exception {
 
 		/**
-		 * @var int <p>An integer indicating the type of error generated</p>
-		 * @link http://php.net/manual/en/class.domexception.php#domexception.props.code
+		 * @var int <p>The exception code</p>
+		 * @link http://php.net/manual/en/class.exception.php#exception.props.code
 		 */
-		public $code;
+		protected $code;
+
+		/**
+		 * @var string <p>The exception message</p>
+		 * @link http://php.net/manual/en/class.exception.php#exception.props.message
+		 */
+		protected $message;
+
+		/**
+		 * @var string <p>The filename where the exception was created</p>
+		 * @link http://php.net/manual/en/class.exception.php#exception.props.file
+		 */
+		protected $file;
+
+		/**
+		 * @var int <p>The line where the exception was created</p>
+		 * @link http://php.net/manual/en/class.exception.php#exception.props.line
+		 */
+		protected $line;
 
 		/**
 		 * Clone the exception
 		 * <p>Tries to clone the Exception, which results in Fatal error.</p>
 		 * @return void <p>No value is returned.</p>
 		 * @link http://php.net/manual/en/exception.clone.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final private function __clone() {}
 
@@ -2879,16 +3887,16 @@ namespace {
 		 * <p>Returns the <code>string</code> representation of the exception.</p>
 		 * @return string <p>Returns the <code>string</code> representation of the exception.</p>
 		 * @link http://php.net/manual/en/exception.tostring.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		public function __toString(): string {}
 
 		/**
 		 * Gets the Exception code
 		 * <p>Returns the Exception code.</p>
-		 * @return mixed <p>Returns the exception code as <code>integer</code> in Exception but possibly as other type in Exception descendants (for example as <code>string</code> in PDOException).</p>
+		 * @return mixed <p>Returns the exception code as <code>int</code> in Exception but possibly as other type in Exception descendants (for example as <code>string</code> in PDOException).</p>
 		 * @link http://php.net/manual/en/exception.getcode.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getCode() {}
 
@@ -2897,7 +3905,7 @@ namespace {
 		 * <p>Get the name of the file in which the exception was created.</p>
 		 * @return string <p>Returns the filename in which the exception was created.</p>
 		 * @link http://php.net/manual/en/exception.getfile.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getFile(): string {}
 
@@ -2906,7 +3914,7 @@ namespace {
 		 * <p>Get line number where the exception was created.</p>
 		 * @return int <p>Returns the line number where the exception was created.</p>
 		 * @link http://php.net/manual/en/exception.getline.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getLine(): int {}
 
@@ -2915,7 +3923,7 @@ namespace {
 		 * <p>Returns the Exception message.</p>
 		 * @return string <p>Returns the Exception message as a string.</p>
 		 * @link http://php.net/manual/en/exception.getmessage.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getMessage(): string {}
 
@@ -2924,7 +3932,7 @@ namespace {
 		 * <p>Returns previous exception (the third parameter of <code>Exception::__construct()</code>).</p>
 		 * @return Throwable <p>Returns the previous Throwable if available or <b><code>NULL</code></b> otherwise.</p>
 		 * @link http://php.net/manual/en/exception.getprevious.php
-		 * @since PHP 5 >= 5.3.0, PHP 7
+		 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8
 		 */
 		final public function getPrevious(): \Throwable {}
 
@@ -2933,7 +3941,7 @@ namespace {
 		 * <p>Returns the Exception stack trace.</p>
 		 * @return array <p>Returns the Exception stack trace as an <code>array</code>.</p>
 		 * @link http://php.net/manual/en/exception.gettrace.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getTrace(): array {}
 
@@ -2942,13 +3950,13 @@ namespace {
 		 * <p>Returns the Exception stack trace as a string.</p>
 		 * @return string <p>Returns the Exception stack trace as a string.</p>
 		 * @link http://php.net/manual/en/exception.gettraceasstring.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getTraceAsString(): string {}
 	}
 
 	/**
-	 * <p>The <b>DOMImplementation</b> interface provides a number of methods for performing operations that are independent of any particular instance of the document object model.</p>
+	 * <p>The <b>DOMImplementation</b> class provides a number of methods for performing operations that are independent of any particular instance of the document object model.</p>
 	 * @link http://php.net/manual/en/class.domimplementation.php
 	 * @since PHP 5, PHP 7
 	 */
@@ -2981,7 +3989,7 @@ namespace {
 		 * @param string $qualifiedName <p>The qualified name of the document type to create.</p>
 		 * @param string $publicId <p>The external subset public identifier.</p>
 		 * @param string $systemId <p>The external subset system identifier.</p>
-		 * @return DOMDocumentType <p>A new DOMDocumentType node with its <i>ownerDocument</i> set to <b><code>NULL</code></b>.</p>
+		 * @return DOMDocumentType <p>A new DOMDocumentType node with its <code>ownerDocument</code> set to <b><code>NULL</code></b>.</p>
 		 * @link http://php.net/manual/en/domimplementation.createdocumenttype.php
 		 * @since PHP 5, PHP 7
 		 */
@@ -2991,7 +3999,7 @@ namespace {
 		 * Test if the DOM implementation implements a specific feature
 		 * <p>Test if the DOM implementation implements a specific <code>feature</code>.</p><p>You can find a list of all features in the Conformance section of the DOM specification.</p>
 		 * @param string $feature <p>The feature to test.</p>
-		 * @param string $version <p>The version number of the <code>feature</code> to test. In level 2, this can be either <i>2.0</i> or <i>1.0</i>.</p>
+		 * @param string $version <p>The version number of the <code>feature</code> to test. In level 2, this can be either <code>2.0</code> or <code>1.0</code>.</p>
 		 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
 		 * @link http://php.net/manual/en/domimplementation.hasfeature.php
 		 * @since PHP 5, PHP 7
@@ -3006,16 +4014,25 @@ namespace {
 	class DOMNamedNodeMap implements \Traversable, \Countable {
 
 		/**
-		 * @var int <p>The number of nodes in the map. The range of valid child node indices is <i>0</i> to <i>length - 1</i> inclusive.</p>
+		 * @var int <p>The number of nodes in the map. The range of valid child node indices is <code>0</code> to <code>length - 1</code> inclusive.</p>
 		 * @link http://php.net/manual/en/class.domnamednodemap.php#domnamednodemap.props.length
 		 */
 		public $length;
 
 		/**
+		 * Get number of nodes in the map
+		 * <p>Gets the number of nodes in the map.</p>
+		 * @return int <p>Returns the number of nodes in the map, which is identical to the length property.</p>
+		 * @link http://php.net/manual/en/domnamednodemap.count.php
+		 * @since PHP 7 >= 7.2.0
+		 */
+		public function count(): int {}
+
+		/**
 		 * Retrieves a node specified by name
-		 * <p>Retrieves a node specified by its <i>nodeName</i>.</p>
-		 * @param string $name <p>The <i>nodeName</i> of the node to retrieve.</p>
-		 * @return DOMNode <p>A node (of any type) with the specified <i>nodeName</i>, or <b><code>NULL</code></b> if no node is found.</p>
+		 * <p>Retrieves a node specified by its <code>nodeName</code>.</p>
+		 * @param string $name <p>The <code>nodeName</code> of the node to retrieve.</p>
+		 * @return DOMNode <p>A node (of any type) with the specified <code>nodeName</code>, or <b><code>NULL</code></b> if no node is found.</p>
 		 * @link http://php.net/manual/en/domnamednodemap.getnameditem.php
 		 * @since PHP 5, PHP 7
 		 */
@@ -3068,7 +4085,7 @@ namespace {
 		public $nodeType;
 
 		/**
-		 * @var DOMNode <p>The parent of this node. If there is no such node, this returns <b><code>NULL</code></b>.</p>
+		 * @var DOMNode|null <p>The parent of this node. If there is no such node, this returns <b><code>NULL</code></b>.</p>
 		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.parentnode
 		 */
 		public $parentNode;
@@ -3080,43 +4097,43 @@ namespace {
 		public $childNodes;
 
 		/**
-		 * @var DOMNode <p>The first child of this node. If there is no such node, this returns <b><code>NULL</code></b>.</p>
+		 * @var DOMNode|null <p>The first child of this node. If there is no such node, this returns <b><code>NULL</code></b>.</p>
 		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.firstchild
 		 */
 		public $firstChild;
 
 		/**
-		 * @var DOMNode <p>The last child of this node. If there is no such node, this returns <b><code>NULL</code></b>.</p>
+		 * @var DOMNode|null <p>The last child of this node. If there is no such node, this returns <b><code>NULL</code></b>.</p>
 		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.lastchild
 		 */
 		public $lastChild;
 
 		/**
-		 * @var DOMNode <p>The node immediately preceding this node. If there is no such node, this returns <b><code>NULL</code></b>.</p>
+		 * @var DOMNode|null <p>The node immediately preceding this node. If there is no such node, this returns <b><code>NULL</code></b>.</p>
 		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.previoussibling
 		 */
 		public $previousSibling;
 
 		/**
-		 * @var DOMNode <p>The node immediately following this node. If there is no such node, this returns <b><code>NULL</code></b>.</p>
+		 * @var DOMNode|null <p>The node immediately following this node. If there is no such node, this returns <b><code>NULL</code></b>.</p>
 		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.nextsibling
 		 */
 		public $nextSibling;
 
 		/**
-		 * @var DOMNamedNodeMap <p>A DOMNamedNodeMap containing the attributes of this node (if it is a DOMElement) or <b><code>NULL</code></b> otherwise.</p>
+		 * @var DOMNamedNodeMap|null <p>A DOMNamedNodeMap containing the attributes of this node (if it is a DOMElement) or <b><code>NULL</code></b> otherwise.</p>
 		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.attributes
 		 */
 		public $attributes;
 
 		/**
-		 * @var DOMDocument <p>The DOMDocument object associated with this node.</p>
+		 * @var DOMDocument|null <p>The DOMDocument object associated with this node, or <b><code>NULL</code></b> if this node is a DOMDOcument</p>
 		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.ownerdocument
 		 */
 		public $ownerDocument;
 
 		/**
-		 * @var string <p>The namespace URI of this node, or <b><code>NULL</code></b> if it is unspecified.</p>
+		 * @var string|null <p>The namespace URI of this node, or <b><code>NULL</code></b> if it is unspecified.</p>
 		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.namespaceuri
 		 */
 		public $namespaceURI;
@@ -3134,7 +4151,7 @@ namespace {
 		public $localName;
 
 		/**
-		 * @var string <p>The absolute base URI of this node or <b><code>NULL</code></b> if the implementation wasn't able to obtain an absolute URI.</p>
+		 * @var string|null <p>The absolute base URI of this node or <b><code>NULL</code></b> if the implementation wasn't able to obtain an absolute URI.</p>
 		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.baseuri
 		 */
 		public $baseURI;
@@ -3150,13 +4167,13 @@ namespace {
 		 * <p>Canonicalize nodes to a string</p>
 		 * @param bool $exclusive <p>Enable exclusive parsing of only the nodes matched by the provided xpath or namespace prefixes.</p>
 		 * @param bool $with_comments <p>Retain comments in output.</p>
-		 * @param array $xpath <p>An array of <i>xpath</i>s to filter the nodes by.</p>
+		 * @param array $xpath <p>An array of <code>xpath</code>s to filter the nodes by.</p>
 		 * @param array $ns_prefixes <p>An array of namespace prefixes to filter the nodes by.</p>
-		 * @return string <p>Returns canonicalized nodes as a string or <b><code>FALSE</code></b> on failure</p>
+		 * @return string|false <p>Returns canonicalized nodes as a string or <b><code>FALSE</code></b> on failure</p>
 		 * @link http://php.net/manual/en/domnode.c14n.php
 		 * @since PHP 5 >= 5.2.0, PHP 7
 		 */
-		public function C14N(bool $exclusive = NULL, bool $with_comments = NULL, array $xpath = NULL, array $ns_prefixes = NULL): string {}
+		public function C14N(bool $exclusive = NULL, bool $with_comments = NULL, array $xpath = NULL, array $ns_prefixes = NULL) {}
 
 		/**
 		 * Canonicalize nodes to a file
@@ -3164,17 +4181,17 @@ namespace {
 		 * @param string $uri <p>Path to write the output to.</p>
 		 * @param bool $exclusive <p>Enable exclusive parsing of only the nodes matched by the provided xpath or namespace prefixes.</p>
 		 * @param bool $with_comments <p>Retain comments in output.</p>
-		 * @param array $xpath <p>An array of <i>xpath</i>s to filter the nodes by.</p>
+		 * @param array $xpath <p>An array of <code>xpath</code>s to filter the nodes by.</p>
 		 * @param array $ns_prefixes <p>An array of namespace prefixes to filter the nodes by.</p>
-		 * @return int <p>Number of bytes written or <b><code>FALSE</code></b> on failure</p>
+		 * @return int|false <p>Number of bytes written or <b><code>FALSE</code></b> on failure</p>
 		 * @link http://php.net/manual/en/domnode.c14nfile.php
 		 * @since PHP 5 >= 5.2.0, PHP 7
 		 */
-		public function C14NFile(string $uri, bool $exclusive = FALSE, bool $with_comments = FALSE, array $xpath = NULL, array $ns_prefixes = NULL): int {}
+		public function C14NFile(string $uri, bool $exclusive = FALSE, bool $with_comments = FALSE, array $xpath = NULL, array $ns_prefixes = NULL) {}
 
 		/**
 		 * Adds new child at the end of the children
-		 * <p>This function appends a child to an existing list of children or creates a new list of children. The child can be created with e.g. <code>DOMDocument::createElement()</code>, <code>DOMDocument::createTextNode()</code> etc. or simply by using any other node.</p>
+		 * <p>This function appends a child to an existing list of children or creates a new list of children. The child can be created with e.g. <code>DOMDocument::createElement()</code>, <code>DOMDocument::createTextNode()</code> etc. or simply by using any other node.</p><p>When using an existing node it will be moved.</p>
 		 * @param \DOMNode $newnode <p>The appended child.</p>
 		 * @return DOMNode <p>The node added.</p>
 		 * @link http://php.net/manual/en/domnode.appendchild.php
@@ -3230,7 +4247,7 @@ namespace {
 
 		/**
 		 * Adds a new child before a reference node
-		 * <p>This function inserts a new node right before the reference node. If you plan to do further modifications on the appended child you must use the returned node.</p>
+		 * <p>This function inserts a new node right before the reference node. If you plan to do further modifications on the appended child you must use the returned node.</p><p>When using an existing node it will be moved.</p>
 		 * @param \DOMNode $newnode <p>The new node.</p>
 		 * @param \DOMNode $refnode <p>The reference node. If not supplied, <code>newnode</code> is appended to the children.</p>
 		 * @return DOMNode <p>The inserted node.</p>
@@ -3328,22 +4345,23 @@ namespace {
 	class DOMNodeList implements \Traversable, \Countable {
 
 		/**
-		 * @var int <p>The number of nodes in the list. The range of valid child node indices is 0 to <i>length - 1</i> inclusive.</p>
+		 * @var int <p>The number of nodes in the list. The range of valid child node indices is 0 to <code>length - 1</code> inclusive.</p>
 		 * @link http://php.net/manual/en/class.domnodelist.php#domnodelist.props.length
 		 */
 		public $length;
 
 		/**
 		 * Get number of nodes in the list
-		 * @return int <p>Returns number of nodes in the list or <b><code>FALSE</code></b> on failure.</p>
+		 * <p>Gets the number of nodes in the list.</p>
+		 * @return int <p>Returns the number of nodes in the list, which is identical to the length property.</p>
 		 * @link http://php.net/manual/en/domnodelist.count.php
-		 * @since No version information available, might only be in Git
+		 * @since PHP 7 >= 7.2.0
 		 */
 		public function count(): int {}
 
 		/**
 		 * Retrieves a node specified by index
-		 * <p>Retrieves a node specified by <code>index</code> within the DOMNodeList object.</p><p>If you need to know the number of nodes in the collection, use the <i>length</i> property of the DOMNodeList object.</p>
+		 * <p>Retrieves a node specified by <code>index</code> within the DOMNodeList object.</p><p>If you need to know the number of nodes in the collection, use the <code>length</code> property of the DOMNodeList object.</p>
 		 * @param int $index <p>Index of the node into the collection.</p>
 		 * @return DOMNode <p>The node at the <code>index</code>th position in the DOMNodeList, or <b><code>NULL</code></b> if that is not a valid index.</p>
 		 * @link http://php.net/manual/en/domnodelist.item.php
@@ -3371,17 +4389,113 @@ namespace {
 		public $systemId;
 
 		/**
+		 * @var string <p>Returns the most accurate name for the current node type</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.nodename
+		 */
+		public $nodeName;
+
+		/**
+		 * @var string <p>The value of this node, depending on its type. Contrary to the W3C specification, the node value of DOMElement nodes is equal to DOMNode::textContent instead of <b><code>NULL</code></b>.</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.nodevalue
+		 */
+		public $nodeValue;
+
+		/**
+		 * @var int <p>Gets the type of the node. One of the predefined XML_xxx_NODE constants</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.nodetype
+		 */
+		public $nodeType;
+
+		/**
+		 * @var DOMNode|null <p>The parent of this node. If there is no such node, this returns <b><code>NULL</code></b>.</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.parentnode
+		 */
+		public $parentNode;
+
+		/**
+		 * @var DOMNodeList <p>A DOMNodeList that contains all children of this node. If there are no children, this is an empty DOMNodeList.</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.childnodes
+		 */
+		public $childNodes;
+
+		/**
+		 * @var DOMNode|null <p>The first child of this node. If there is no such node, this returns <b><code>NULL</code></b>.</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.firstchild
+		 */
+		public $firstChild;
+
+		/**
+		 * @var DOMNode|null <p>The last child of this node. If there is no such node, this returns <b><code>NULL</code></b>.</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.lastchild
+		 */
+		public $lastChild;
+
+		/**
+		 * @var DOMNode|null <p>The node immediately preceding this node. If there is no such node, this returns <b><code>NULL</code></b>.</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.previoussibling
+		 */
+		public $previousSibling;
+
+		/**
+		 * @var DOMNode|null <p>The node immediately following this node. If there is no such node, this returns <b><code>NULL</code></b>.</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.nextsibling
+		 */
+		public $nextSibling;
+
+		/**
+		 * @var DOMNamedNodeMap|null <p>A DOMNamedNodeMap containing the attributes of this node (if it is a DOMElement) or <b><code>NULL</code></b> otherwise.</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.attributes
+		 */
+		public $attributes;
+
+		/**
+		 * @var DOMDocument|null <p>The DOMDocument object associated with this node, or <b><code>NULL</code></b> if this node is a DOMDOcument</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.ownerdocument
+		 */
+		public $ownerDocument;
+
+		/**
+		 * @var string|null <p>The namespace URI of this node, or <b><code>NULL</code></b> if it is unspecified.</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.namespaceuri
+		 */
+		public $namespaceURI;
+
+		/**
+		 * @var string <p>The namespace prefix of this node, or <b><code>NULL</code></b> if it is unspecified.</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.prefix
+		 */
+		public $prefix;
+
+		/**
+		 * @var string <p>Returns the local part of the qualified name of this node.</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.localname
+		 */
+		public $localName;
+
+		/**
+		 * @var string|null <p>The absolute base URI of this node or <b><code>NULL</code></b> if the implementation wasn't able to obtain an absolute URI.</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.baseuri
+		 */
+		public $baseURI;
+
+		/**
+		 * @var string <p>The text content of this node and its descendants.</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.textcontent
+		 */
+		public $textContent;
+
+		/**
 		 * Canonicalize nodes to a string
 		 * <p>Canonicalize nodes to a string</p>
 		 * @param bool $exclusive <p>Enable exclusive parsing of only the nodes matched by the provided xpath or namespace prefixes.</p>
 		 * @param bool $with_comments <p>Retain comments in output.</p>
-		 * @param array $xpath <p>An array of <i>xpath</i>s to filter the nodes by.</p>
+		 * @param array $xpath <p>An array of <code>xpath</code>s to filter the nodes by.</p>
 		 * @param array $ns_prefixes <p>An array of namespace prefixes to filter the nodes by.</p>
-		 * @return string <p>Returns canonicalized nodes as a string or <b><code>FALSE</code></b> on failure</p>
+		 * @return string|false <p>Returns canonicalized nodes as a string or <b><code>FALSE</code></b> on failure</p>
 		 * @link http://php.net/manual/en/domnode.c14n.php
 		 * @since PHP 5 >= 5.2.0, PHP 7
 		 */
-		public function C14N(bool $exclusive = NULL, bool $with_comments = NULL, array $xpath = NULL, array $ns_prefixes = NULL): string {}
+		public function C14N(bool $exclusive = NULL, bool $with_comments = NULL, array $xpath = NULL, array $ns_prefixes = NULL) {}
 
 		/**
 		 * Canonicalize nodes to a file
@@ -3389,17 +4503,17 @@ namespace {
 		 * @param string $uri <p>Path to write the output to.</p>
 		 * @param bool $exclusive <p>Enable exclusive parsing of only the nodes matched by the provided xpath or namespace prefixes.</p>
 		 * @param bool $with_comments <p>Retain comments in output.</p>
-		 * @param array $xpath <p>An array of <i>xpath</i>s to filter the nodes by.</p>
+		 * @param array $xpath <p>An array of <code>xpath</code>s to filter the nodes by.</p>
 		 * @param array $ns_prefixes <p>An array of namespace prefixes to filter the nodes by.</p>
-		 * @return int <p>Number of bytes written or <b><code>FALSE</code></b> on failure</p>
+		 * @return int|false <p>Number of bytes written or <b><code>FALSE</code></b> on failure</p>
 		 * @link http://php.net/manual/en/domnode.c14nfile.php
 		 * @since PHP 5 >= 5.2.0, PHP 7
 		 */
-		public function C14NFile(string $uri, bool $exclusive = FALSE, bool $with_comments = FALSE, array $xpath = NULL, array $ns_prefixes = NULL): int {}
+		public function C14NFile(string $uri, bool $exclusive = FALSE, bool $with_comments = FALSE, array $xpath = NULL, array $ns_prefixes = NULL) {}
 
 		/**
 		 * Adds new child at the end of the children
-		 * <p>This function appends a child to an existing list of children or creates a new list of children. The child can be created with e.g. <code>DOMDocument::createElement()</code>, <code>DOMDocument::createTextNode()</code> etc. or simply by using any other node.</p>
+		 * <p>This function appends a child to an existing list of children or creates a new list of children. The child can be created with e.g. <code>DOMDocument::createElement()</code>, <code>DOMDocument::createTextNode()</code> etc. or simply by using any other node.</p><p>When using an existing node it will be moved.</p>
 		 * @param \DOMNode $newnode <p>The appended child.</p>
 		 * @return DOMNode <p>The node added.</p>
 		 * @link http://php.net/manual/en/domnode.appendchild.php
@@ -3455,7 +4569,7 @@ namespace {
 
 		/**
 		 * Adds a new child before a reference node
-		 * <p>This function inserts a new node right before the reference node. If you plan to do further modifications on the appended child you must use the returned node.</p>
+		 * <p>This function inserts a new node right before the reference node. If you plan to do further modifications on the appended child you must use the returned node.</p><p>When using an existing node it will be moved.</p>
 		 * @param \DOMNode $newnode <p>The new node.</p>
 		 * @param \DOMNode $refnode <p>The reference node. If not supplied, <code>newnode</code> is appended to the children.</p>
 		 * @return DOMNode <p>The inserted node.</p>
@@ -3565,17 +4679,113 @@ namespace {
 		public $data;
 
 		/**
+		 * @var string <p>Returns the most accurate name for the current node type</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.nodename
+		 */
+		public $nodeName;
+
+		/**
+		 * @var string <p>The value of this node, depending on its type. Contrary to the W3C specification, the node value of DOMElement nodes is equal to DOMNode::textContent instead of <b><code>NULL</code></b>.</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.nodevalue
+		 */
+		public $nodeValue;
+
+		/**
+		 * @var int <p>Gets the type of the node. One of the predefined XML_xxx_NODE constants</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.nodetype
+		 */
+		public $nodeType;
+
+		/**
+		 * @var DOMNode|null <p>The parent of this node. If there is no such node, this returns <b><code>NULL</code></b>.</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.parentnode
+		 */
+		public $parentNode;
+
+		/**
+		 * @var DOMNodeList <p>A DOMNodeList that contains all children of this node. If there are no children, this is an empty DOMNodeList.</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.childnodes
+		 */
+		public $childNodes;
+
+		/**
+		 * @var DOMNode|null <p>The first child of this node. If there is no such node, this returns <b><code>NULL</code></b>.</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.firstchild
+		 */
+		public $firstChild;
+
+		/**
+		 * @var DOMNode|null <p>The last child of this node. If there is no such node, this returns <b><code>NULL</code></b>.</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.lastchild
+		 */
+		public $lastChild;
+
+		/**
+		 * @var DOMNode|null <p>The node immediately preceding this node. If there is no such node, this returns <b><code>NULL</code></b>.</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.previoussibling
+		 */
+		public $previousSibling;
+
+		/**
+		 * @var DOMNode|null <p>The node immediately following this node. If there is no such node, this returns <b><code>NULL</code></b>.</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.nextsibling
+		 */
+		public $nextSibling;
+
+		/**
+		 * @var DOMNamedNodeMap|null <p>A DOMNamedNodeMap containing the attributes of this node (if it is a DOMElement) or <b><code>NULL</code></b> otherwise.</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.attributes
+		 */
+		public $attributes;
+
+		/**
+		 * @var DOMDocument|null <p>The DOMDocument object associated with this node, or <b><code>NULL</code></b> if this node is a DOMDOcument</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.ownerdocument
+		 */
+		public $ownerDocument;
+
+		/**
+		 * @var string|null <p>The namespace URI of this node, or <b><code>NULL</code></b> if it is unspecified.</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.namespaceuri
+		 */
+		public $namespaceURI;
+
+		/**
+		 * @var string <p>The namespace prefix of this node, or <b><code>NULL</code></b> if it is unspecified.</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.prefix
+		 */
+		public $prefix;
+
+		/**
+		 * @var string <p>Returns the local part of the qualified name of this node.</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.localname
+		 */
+		public $localName;
+
+		/**
+		 * @var string|null <p>The absolute base URI of this node or <b><code>NULL</code></b> if the implementation wasn't able to obtain an absolute URI.</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.baseuri
+		 */
+		public $baseURI;
+
+		/**
+		 * @var string <p>The text content of this node and its descendants.</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.textcontent
+		 */
+		public $textContent;
+
+		/**
 		 * Canonicalize nodes to a string
 		 * <p>Canonicalize nodes to a string</p>
 		 * @param bool $exclusive <p>Enable exclusive parsing of only the nodes matched by the provided xpath or namespace prefixes.</p>
 		 * @param bool $with_comments <p>Retain comments in output.</p>
-		 * @param array $xpath <p>An array of <i>xpath</i>s to filter the nodes by.</p>
+		 * @param array $xpath <p>An array of <code>xpath</code>s to filter the nodes by.</p>
 		 * @param array $ns_prefixes <p>An array of namespace prefixes to filter the nodes by.</p>
-		 * @return string <p>Returns canonicalized nodes as a string or <b><code>FALSE</code></b> on failure</p>
+		 * @return string|false <p>Returns canonicalized nodes as a string or <b><code>FALSE</code></b> on failure</p>
 		 * @link http://php.net/manual/en/domnode.c14n.php
 		 * @since PHP 5 >= 5.2.0, PHP 7
 		 */
-		public function C14N(bool $exclusive = NULL, bool $with_comments = NULL, array $xpath = NULL, array $ns_prefixes = NULL): string {}
+		public function C14N(bool $exclusive = NULL, bool $with_comments = NULL, array $xpath = NULL, array $ns_prefixes = NULL) {}
 
 		/**
 		 * Canonicalize nodes to a file
@@ -3583,13 +4793,13 @@ namespace {
 		 * @param string $uri <p>Path to write the output to.</p>
 		 * @param bool $exclusive <p>Enable exclusive parsing of only the nodes matched by the provided xpath or namespace prefixes.</p>
 		 * @param bool $with_comments <p>Retain comments in output.</p>
-		 * @param array $xpath <p>An array of <i>xpath</i>s to filter the nodes by.</p>
+		 * @param array $xpath <p>An array of <code>xpath</code>s to filter the nodes by.</p>
 		 * @param array $ns_prefixes <p>An array of namespace prefixes to filter the nodes by.</p>
-		 * @return int <p>Number of bytes written or <b><code>FALSE</code></b> on failure</p>
+		 * @return int|false <p>Number of bytes written or <b><code>FALSE</code></b> on failure</p>
 		 * @link http://php.net/manual/en/domnode.c14nfile.php
 		 * @since PHP 5 >= 5.2.0, PHP 7
 		 */
-		public function C14NFile(string $uri, bool $exclusive = FALSE, bool $with_comments = FALSE, array $xpath = NULL, array $ns_prefixes = NULL): int {}
+		public function C14NFile(string $uri, bool $exclusive = FALSE, bool $with_comments = FALSE, array $xpath = NULL, array $ns_prefixes = NULL) {}
 
 		/**
 		 * Creates a new DOMProcessingInstruction object
@@ -3604,7 +4814,7 @@ namespace {
 
 		/**
 		 * Adds new child at the end of the children
-		 * <p>This function appends a child to an existing list of children or creates a new list of children. The child can be created with e.g. <code>DOMDocument::createElement()</code>, <code>DOMDocument::createTextNode()</code> etc. or simply by using any other node.</p>
+		 * <p>This function appends a child to an existing list of children or creates a new list of children. The child can be created with e.g. <code>DOMDocument::createElement()</code>, <code>DOMDocument::createTextNode()</code> etc. or simply by using any other node.</p><p>When using an existing node it will be moved.</p>
 		 * @param \DOMNode $newnode <p>The appended child.</p>
 		 * @return DOMNode <p>The node added.</p>
 		 * @link http://php.net/manual/en/domnode.appendchild.php
@@ -3660,7 +4870,7 @@ namespace {
 
 		/**
 		 * Adds a new child before a reference node
-		 * <p>This function inserts a new node right before the reference node. If you plan to do further modifications on the appended child you must use the returned node.</p>
+		 * <p>This function inserts a new node right before the reference node. If you plan to do further modifications on the appended child you must use the returned node.</p><p>When using an existing node it will be moved.</p>
 		 * @param \DOMNode $newnode <p>The new node.</p>
 		 * @param \DOMNode $refnode <p>The reference node. If not supplied, <code>newnode</code> is appended to the children.</p>
 		 * @return DOMNode <p>The inserted node.</p>
@@ -3765,17 +4975,125 @@ namespace {
 		public $wholeText;
 
 		/**
+		 * @var string <p>The contents of the node.</p>
+		 * @link http://php.net/manual/en/class.domcharacterdata.php#domcharacterdata.props.data
+		 */
+		public $data;
+
+		/**
+		 * @var int <p>The length of the contents.</p>
+		 * @link http://php.net/manual/en/class.domcharacterdata.php#domcharacterdata.props.length
+		 */
+		public $length;
+
+		/**
+		 * @var string <p>Returns the most accurate name for the current node type</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.nodename
+		 */
+		public $nodeName;
+
+		/**
+		 * @var string <p>The value of this node, depending on its type. Contrary to the W3C specification, the node value of DOMElement nodes is equal to DOMNode::textContent instead of <b><code>NULL</code></b>.</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.nodevalue
+		 */
+		public $nodeValue;
+
+		/**
+		 * @var int <p>Gets the type of the node. One of the predefined XML_xxx_NODE constants</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.nodetype
+		 */
+		public $nodeType;
+
+		/**
+		 * @var DOMNode|null <p>The parent of this node. If there is no such node, this returns <b><code>NULL</code></b>.</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.parentnode
+		 */
+		public $parentNode;
+
+		/**
+		 * @var DOMNodeList <p>A DOMNodeList that contains all children of this node. If there are no children, this is an empty DOMNodeList.</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.childnodes
+		 */
+		public $childNodes;
+
+		/**
+		 * @var DOMNode|null <p>The first child of this node. If there is no such node, this returns <b><code>NULL</code></b>.</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.firstchild
+		 */
+		public $firstChild;
+
+		/**
+		 * @var DOMNode|null <p>The last child of this node. If there is no such node, this returns <b><code>NULL</code></b>.</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.lastchild
+		 */
+		public $lastChild;
+
+		/**
+		 * @var DOMNode|null <p>The node immediately preceding this node. If there is no such node, this returns <b><code>NULL</code></b>.</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.previoussibling
+		 */
+		public $previousSibling;
+
+		/**
+		 * @var DOMNode|null <p>The node immediately following this node. If there is no such node, this returns <b><code>NULL</code></b>.</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.nextsibling
+		 */
+		public $nextSibling;
+
+		/**
+		 * @var DOMNamedNodeMap|null <p>A DOMNamedNodeMap containing the attributes of this node (if it is a DOMElement) or <b><code>NULL</code></b> otherwise.</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.attributes
+		 */
+		public $attributes;
+
+		/**
+		 * @var DOMDocument|null <p>The DOMDocument object associated with this node, or <b><code>NULL</code></b> if this node is a DOMDOcument</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.ownerdocument
+		 */
+		public $ownerDocument;
+
+		/**
+		 * @var string|null <p>The namespace URI of this node, or <b><code>NULL</code></b> if it is unspecified.</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.namespaceuri
+		 */
+		public $namespaceURI;
+
+		/**
+		 * @var string <p>The namespace prefix of this node, or <b><code>NULL</code></b> if it is unspecified.</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.prefix
+		 */
+		public $prefix;
+
+		/**
+		 * @var string <p>Returns the local part of the qualified name of this node.</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.localname
+		 */
+		public $localName;
+
+		/**
+		 * @var string|null <p>The absolute base URI of this node or <b><code>NULL</code></b> if the implementation wasn't able to obtain an absolute URI.</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.baseuri
+		 */
+		public $baseURI;
+
+		/**
+		 * @var string <p>The text content of this node and its descendants.</p>
+		 * @link http://php.net/manual/en/class.domnode.php#domnode.props.textcontent
+		 */
+		public $textContent;
+
+		/**
 		 * Canonicalize nodes to a string
 		 * <p>Canonicalize nodes to a string</p>
 		 * @param bool $exclusive <p>Enable exclusive parsing of only the nodes matched by the provided xpath or namespace prefixes.</p>
 		 * @param bool $with_comments <p>Retain comments in output.</p>
-		 * @param array $xpath <p>An array of <i>xpath</i>s to filter the nodes by.</p>
+		 * @param array $xpath <p>An array of <code>xpath</code>s to filter the nodes by.</p>
 		 * @param array $ns_prefixes <p>An array of namespace prefixes to filter the nodes by.</p>
-		 * @return string <p>Returns canonicalized nodes as a string or <b><code>FALSE</code></b> on failure</p>
+		 * @return string|false <p>Returns canonicalized nodes as a string or <b><code>FALSE</code></b> on failure</p>
 		 * @link http://php.net/manual/en/domnode.c14n.php
 		 * @since PHP 5 >= 5.2.0, PHP 7
 		 */
-		public function C14N(bool $exclusive = NULL, bool $with_comments = NULL, array $xpath = NULL, array $ns_prefixes = NULL): string {}
+		public function C14N(bool $exclusive = NULL, bool $with_comments = NULL, array $xpath = NULL, array $ns_prefixes = NULL) {}
 
 		/**
 		 * Canonicalize nodes to a file
@@ -3783,13 +5101,13 @@ namespace {
 		 * @param string $uri <p>Path to write the output to.</p>
 		 * @param bool $exclusive <p>Enable exclusive parsing of only the nodes matched by the provided xpath or namespace prefixes.</p>
 		 * @param bool $with_comments <p>Retain comments in output.</p>
-		 * @param array $xpath <p>An array of <i>xpath</i>s to filter the nodes by.</p>
+		 * @param array $xpath <p>An array of <code>xpath</code>s to filter the nodes by.</p>
 		 * @param array $ns_prefixes <p>An array of namespace prefixes to filter the nodes by.</p>
-		 * @return int <p>Number of bytes written or <b><code>FALSE</code></b> on failure</p>
+		 * @return int|false <p>Number of bytes written or <b><code>FALSE</code></b> on failure</p>
 		 * @link http://php.net/manual/en/domnode.c14nfile.php
 		 * @since PHP 5 >= 5.2.0, PHP 7
 		 */
-		public function C14NFile(string $uri, bool $exclusive = FALSE, bool $with_comments = FALSE, array $xpath = NULL, array $ns_prefixes = NULL): int {}
+		public function C14NFile(string $uri, bool $exclusive = FALSE, bool $with_comments = FALSE, array $xpath = NULL, array $ns_prefixes = NULL) {}
 
 		/**
 		 * Creates a new DOMText object
@@ -3803,7 +5121,7 @@ namespace {
 
 		/**
 		 * Adds new child at the end of the children
-		 * <p>This function appends a child to an existing list of children or creates a new list of children. The child can be created with e.g. <code>DOMDocument::createElement()</code>, <code>DOMDocument::createTextNode()</code> etc. or simply by using any other node.</p>
+		 * <p>This function appends a child to an existing list of children or creates a new list of children. The child can be created with e.g. <code>DOMDocument::createElement()</code>, <code>DOMDocument::createTextNode()</code> etc. or simply by using any other node.</p><p>When using an existing node it will be moved.</p>
 		 * @param \DOMNode $newnode <p>The appended child.</p>
 		 * @return DOMNode <p>The node added.</p>
 		 * @link http://php.net/manual/en/domnode.appendchild.php
@@ -3880,7 +5198,7 @@ namespace {
 
 		/**
 		 * Adds a new child before a reference node
-		 * <p>This function inserts a new node right before the reference node. If you plan to do further modifications on the appended child you must use the returned node.</p>
+		 * <p>This function inserts a new node right before the reference node. If you plan to do further modifications on the appended child you must use the returned node.</p><p>When using an existing node it will be moved.</p>
 		 * @param \DOMNode $newnode <p>The new node.</p>
 		 * @param \DOMNode $refnode <p>The reference node. If not supplied, <code>newnode</code> is appended to the children.</p>
 		 * @return DOMNode <p>The inserted node.</p>

@@ -12,7 +12,7 @@ namespace {
 	 * @return int <p>The function will return <b><code>DBPLUS_ERR_NOERR</code></b> on success or a db++ error code on failure.</p>
 	 * @link http://php.net/manual/en/function.dbplus-add.php
 	 * @see dbplus_errcode()
-	 * @since PHP 4 <= 4.1.0, PECL dbplus >= 0.9
+	 * @since PHP 4 <= 4.3.0, PECL dbplus >= 0.9
 	 */
 	function dbplus_add($relation, array $tuple): int {}
 
@@ -24,7 +24,7 @@ namespace {
 	 * @param string $dbpath
 	 * @return resource <p>Returns a relation handle on success. The result data may be fetched from this relation by calling <code>dbplus_next()</code> and <code>dbplus_curr()</code>. Other relation access functions will not work on a result relation.</p>
 	 * @link http://php.net/manual/en/function.dbplus-aql.php
-	 * @since PHP 4 <= 4.1.0, PECL dbplus >= 0.9
+	 * @since PHP 4 <= 4.3.0, PECL dbplus >= 0.9
 	 */
 	function dbplus_aql(string $query, string $server = NULL, string $dbpath = NULL) {}
 
@@ -34,7 +34,7 @@ namespace {
 	 * @param string $newdir <p>The new directory for relation files. You can omit this parameter to query the current working directory.</p>
 	 * @return string <p>Returns the absolute path of the current directory.</p>
 	 * @link http://php.net/manual/en/function.dbplus-chdir.php
-	 * @since PHP 4 <= 4.1.0, PECL dbplus >= 0.9
+	 * @since PHP 4 <= 4.3.0, PECL dbplus >= 0.9
 	 */
 	function dbplus_chdir(string $newdir = NULL): string {}
 
@@ -44,7 +44,7 @@ namespace {
 	 * @param resource $relation <p>A relation opened by <code>dbplus_open()</code>.</p>
 	 * @return mixed <p>Returns <b><code>TRUE</code></b> on success or <b><code>DBPLUS_ERR_UNKNOWN</code></b> on failure.</p>
 	 * @link http://php.net/manual/en/function.dbplus-close.php
-	 * @since PHP 4 <= 4.1.0, PECL dbplus >= 0.9
+	 * @since PHP 4 <= 4.3.0, PECL dbplus >= 0.9
 	 */
 	function dbplus_close($relation) {}
 
@@ -56,7 +56,7 @@ namespace {
 	 * @return int <p>The function will return zero (aka. <b><code>DBPLUS_ERR_NOERR</code></b>) on success or a db++ error code on failure.</p>
 	 * @link http://php.net/manual/en/function.dbplus-curr.php
 	 * @see dbplus_first(), dbplus_prev(), dbplus_next(), dbplus_last(), dbplus_errcode()
-	 * @since PHP 4 <= 4.1.0, PECL dbplus >= 0.9
+	 * @since PHP 4 <= 4.3.0, PECL dbplus >= 0.9
 	 */
 	function dbplus_curr($relation, array &$tuple): int {}
 
@@ -66,7 +66,7 @@ namespace {
 	 * @param int $errno <p>The error code. If not provided, the result code of the last db++ operation is assumed.</p>
 	 * @return string <p>Returns the error message.</p>
 	 * @link http://php.net/manual/en/function.dbplus-errcode.php
-	 * @since PHP 4 <= 4.1.0, PECL dbplus >= 0.9
+	 * @since PHP 4 <= 4.3.0, PECL dbplus >= 0.9
 	 */
 	function dbplus_errcode(int $errno = NULL): string {}
 
@@ -76,7 +76,7 @@ namespace {
 	 * @return int <p>Returns the error code, as an integer.</p>
 	 * @link http://php.net/manual/en/function.dbplus-errno.php
 	 * @see dbplus_errcode()
-	 * @since PHP 4 <= 4.1.0, PECL dbplus >= 0.9
+	 * @since PHP 4 <= 4.3.0, PECL dbplus >= 0.9
 	 */
 	function dbplus_errno(): int {}
 
@@ -89,7 +89,7 @@ namespace {
 	 * @return int
 	 * @link http://php.net/manual/en/function.dbplus-find.php
 	 * @see dbplus_unselect()
-	 * @since PHP 4 <= 4.1.0, PECL dbplus >= 0.9
+	 * @since PHP 4 <= 4.3.0, PECL dbplus >= 0.9
 	 */
 	function dbplus_find($relation, array $constraints, $tuple): int {}
 
@@ -101,7 +101,7 @@ namespace {
 	 * @return int <p>Returns <b><code>DBPLUS_ERR_NOERR</code></b> on success or a db++ error code on failure.</p>
 	 * @link http://php.net/manual/en/function.dbplus-first.php
 	 * @see dbplus_curr(), dbplus_prev(), dbplus_next(), dbplus_last(), dbplus_errcode()
-	 * @since PHP 4 <= 4.1.0, PECL dbplus >= 0.9
+	 * @since PHP 4 <= 4.3.0, PECL dbplus >= 0.9
 	 */
 	function dbplus_first($relation, array &$tuple): int {}
 
@@ -112,7 +112,7 @@ namespace {
 	 * @return int <p>Returns <b><code>DBPLUS_ERR_NOERR</code></b> on success or a db++ error code on failure.</p>
 	 * @link http://php.net/manual/en/function.dbplus-flush.php
 	 * @see dbplus_errcode()
-	 * @since PHP 4 <= 4.1.0, PECL dbplus >= 0.9
+	 * @since PHP 4 <= 4.3.0, PECL dbplus >= 0.9
 	 */
 	function dbplus_flush($relation): int {}
 
@@ -122,7 +122,7 @@ namespace {
 	 * @return int
 	 * @link http://php.net/manual/en/function.dbplus-freealllocks.php
 	 * @see dbplus_getlock(), dbplus_freelock(), dbplus_freerlocks()
-	 * @since PHP 4 <= 4.1.0, PECL dbplus >= 0.9
+	 * @since PHP 4 <= 4.3.0, PECL dbplus >= 0.9
 	 */
 	function dbplus_freealllocks(): int {}
 
@@ -134,7 +134,7 @@ namespace {
 	 * @return int
 	 * @link http://php.net/manual/en/function.dbplus-freelock.php
 	 * @see dbplus_getlock(), dbplus_freerlocks(), dbplus_freealllocks()
-	 * @since PHP 4 <= 4.1.0, PECL dbplus >= 0.9
+	 * @since PHP 4 <= 4.3.0, PECL dbplus >= 0.9
 	 */
 	function dbplus_freelock($relation, string $tuple): int {}
 
@@ -145,7 +145,7 @@ namespace {
 	 * @return int
 	 * @link http://php.net/manual/en/function.dbplus-freerlocks.php
 	 * @see dbplus_getlock(), dbplus_freelock(), dbplus_freealllocks()
-	 * @since PHP 4 <= 4.1.0, PECL dbplus >= 0.9
+	 * @since PHP 4 <= 4.3.0, PECL dbplus >= 0.9
 	 */
 	function dbplus_freerlocks($relation): int {}
 
@@ -157,7 +157,7 @@ namespace {
 	 * @return int <p>Returns zero on success or a non-zero error code, especially <b><code>DBPLUS_ERR_WLOCKED</code></b> on failure.</p>
 	 * @link http://php.net/manual/en/function.dbplus-getlock.php
 	 * @see dbplus_freelock(), dbplus_freerlocks(), dbplus_freealllocks()
-	 * @since PHP 4 <= 4.1.0, PECL dbplus >= 0.9
+	 * @since PHP 4 <= 4.3.0, PECL dbplus >= 0.9
 	 */
 	function dbplus_getlock($relation, string $tuple): int {}
 
@@ -168,7 +168,7 @@ namespace {
 	 * @param int $uniqueid
 	 * @return int <p>Returns <b><code>DBPLUS_ERR_NOERR</code></b> on success or a db++ error code on failure.</p>
 	 * @link http://php.net/manual/en/function.dbplus-getunique.php
-	 * @since PHP 4 <= 4.1.0, PECL dbplus >= 0.9
+	 * @since PHP 4 <= 4.3.0, PECL dbplus >= 0.9
 	 */
 	function dbplus_getunique($relation, int $uniqueid): int {}
 
@@ -180,7 +180,7 @@ namespace {
 	 * @param array $result
 	 * @return int
 	 * @link http://php.net/manual/en/function.dbplus-info.php
-	 * @since PHP 4 <= 4.1.0, PECL dbplus >= 0.9
+	 * @since PHP 4 <= 4.3.0, PECL dbplus >= 0.9
 	 */
 	function dbplus_info($relation, string $key, array &$result): int {}
 
@@ -192,7 +192,7 @@ namespace {
 	 * @return int <p>Returns <b><code>DBPLUS_ERR_NOERR</code></b> on success or a db++ error code on failure.</p>
 	 * @link http://php.net/manual/en/function.dbplus-last.php
 	 * @see dbplus_first(), dbplus_curr(), dbplus_prev(), dbplus_next()
-	 * @since PHP 4 <= 4.1.0, PECL dbplus >= 0.9
+	 * @since PHP 4 <= 4.3.0, PECL dbplus >= 0.9
 	 */
 	function dbplus_last($relation, array &$tuple): int {}
 
@@ -202,7 +202,7 @@ namespace {
 	 * @param resource $relation <p>A relation opened by <code>dbplus_open()</code>.</p>
 	 * @return int
 	 * @link http://php.net/manual/en/function.dbplus-lockrel.php
-	 * @since PHP 4 <= 4.1.0, PECL dbplus >= 0.9
+	 * @since PHP 4 <= 4.3.0, PECL dbplus >= 0.9
 	 */
 	function dbplus_lockrel($relation): int {}
 
@@ -214,7 +214,7 @@ namespace {
 	 * @return int <p>Returns <b><code>DBPLUS_ERR_NOERR</code></b> on success or a db++ error code on failure.</p>
 	 * @link http://php.net/manual/en/function.dbplus-next.php
 	 * @see dbplus_first(), dbplus_curr(), dbplus_prev(), dbplus_last()
-	 * @since PHP 4 <= 4.1.0, PECL dbplus >= 0.9
+	 * @since PHP 4 <= 4.3.0, PECL dbplus >= 0.9
 	 */
 	function dbplus_next($relation, array &$tuple): int {}
 
@@ -224,7 +224,7 @@ namespace {
 	 * @param string $name <p>Can be either a file name or a relative or absolute path name. This will be mapped in any case to an absolute relation file path on a specific host machine and server.</p>
 	 * @return resource <p>On success a relation file resource (cursor) is returned which must be used in any subsequent commands referencing the relation. Failure leads to a zero return value, the actual error code may be asked for by calling <code>dbplus_errno()</code>.</p>
 	 * @link http://php.net/manual/en/function.dbplus-open.php
-	 * @since PHP 4 <= 4.1.0, PECL dbplus >= 0.9
+	 * @since PHP 4 <= 4.3.0, PECL dbplus >= 0.9
 	 */
 	function dbplus_open(string $name) {}
 
@@ -236,7 +236,7 @@ namespace {
 	 * @return int <p>Returns <b><code>DBPLUS_ERR_NOERR</code></b> on success or a db++ error code on failure.</p>
 	 * @link http://php.net/manual/en/function.dbplus-prev.php
 	 * @see dbplus_first(), dbplus_curr(), dbplus_next(), dbplus_last()
-	 * @since PHP 4 <= 4.1.0, PECL dbplus >= 0.9
+	 * @since PHP 4 <= 4.3.0, PECL dbplus >= 0.9
 	 */
 	function dbplus_prev($relation, array &$tuple): int {}
 
@@ -249,7 +249,7 @@ namespace {
 	 * @param string $group
 	 * @return int
 	 * @link http://php.net/manual/en/function.dbplus-rchperm.php
-	 * @since PHP 4 <= 4.1.0, PECL dbplus >= 0.9
+	 * @since PHP 4 <= 4.3.0, PECL dbplus >= 0.9
 	 */
 	function dbplus_rchperm($relation, int $mask, string $user, string $group): int {}
 
@@ -261,7 +261,7 @@ namespace {
 	 * @param bool $overwrite
 	 * @return resource
 	 * @link http://php.net/manual/en/function.dbplus-rcreate.php
-	 * @since PHP 4 <= 4.1.0, PECL dbplus >= 0.9
+	 * @since PHP 4 <= 4.3.0, PECL dbplus >= 0.9
 	 */
 	function dbplus_rcreate(string $name, $domlist, bool $overwrite = NULL) {}
 
@@ -273,7 +273,7 @@ namespace {
 	 * @param bool $overwrite <p>An existing relation by the same <code>name</code> will only be overwritten if this parameter is set to <b><code>TRUE</code></b> and no other process is currently using the relation.</p>
 	 * @return mixed <p>Returns resource on success or <b><code>DBPLUS_ERR_UNKNOWN</code></b> on failure.</p>
 	 * @link http://php.net/manual/en/function.dbplus-rcrtexact.php
-	 * @since PHP 4 <= 4.1.0, PECL dbplus >= 0.9
+	 * @since PHP 4 <= 4.3.0, PECL dbplus >= 0.9
 	 */
 	function dbplus_rcrtexact(string $name, $relation, bool $overwrite = NULL) {}
 
@@ -285,7 +285,7 @@ namespace {
 	 * @param int $overwrite <p>An existing relation by the same <code>name</code> will only be overwritten if this parameter is set to <b><code>TRUE</code></b> and no other process is currently using the relation.</p>
 	 * @return mixed <p>Returns resource on success or <b><code>DBPLUS_ERR_UNKNOWN</code></b> on failure.</p>
 	 * @link http://php.net/manual/en/function.dbplus-rcrtlike.php
-	 * @since PHP 4 <= 4.1.0, PECL dbplus >= 0.9
+	 * @since PHP 4 <= 4.3.0, PECL dbplus >= 0.9
 	 */
 	function dbplus_rcrtlike(string $name, $relation, int $overwrite = NULL) {}
 
@@ -293,10 +293,10 @@ namespace {
 	 * Resolve host information for relation
 	 * <p><b>dbplus_resolve()</b> will try to resolve the given <code>relation_name</code> and find out internal server id, real hostname and the database path on this host.</p>
 	 * @param string $relation_name <p>The relation name.</p>
-	 * @return array <p>Returns an array containing these values under the keys <i>sid</i>, <i>host</i> and <i>host_path</i> or <b><code>FALSE</code></b> on error.</p>
+	 * @return array <p>Returns an array containing these values under the keys <code>sid</code>, <code>host</code> and <code>host_path</code> or <b><code>FALSE</code></b> on error.</p>
 	 * @link http://php.net/manual/en/function.dbplus-resolve.php
 	 * @see dbplus_tcl()
-	 * @since PHP 4 <= 4.1.0, PECL dbplus >= 0.9
+	 * @since PHP 4 <= 4.3.0, PECL dbplus >= 0.9
 	 */
 	function dbplus_resolve(string $relation_name): array {}
 
@@ -307,7 +307,7 @@ namespace {
 	 * @param array $tuple
 	 * @return int
 	 * @link http://php.net/manual/en/function.dbplus-restorepos.php
-	 * @since PHP 4 <= 4.1.0, PECL dbplus >= 0.9
+	 * @since PHP 4 <= 4.3.0, PECL dbplus >= 0.9
 	 */
 	function dbplus_restorepos($relation, array $tuple): int {}
 
@@ -318,7 +318,7 @@ namespace {
 	 * @param mixed $domlist <p>A combination of domains. May be passed as a single domain name string or as an array of domain names.</p>
 	 * @return mixed <p>Returns resource on success or <b><code>DBPLUS_ERR_UNKNOWN</code></b> on failure.</p>
 	 * @link http://php.net/manual/en/function.dbplus-rkeys.php
-	 * @since PHP 4 <= 4.1.0, PECL dbplus >= 0.9
+	 * @since PHP 4 <= 4.3.0, PECL dbplus >= 0.9
 	 */
 	function dbplus_rkeys($relation, $domlist) {}
 
@@ -328,7 +328,7 @@ namespace {
 	 * @param string $name
 	 * @return resource
 	 * @link http://php.net/manual/en/function.dbplus-ropen.php
-	 * @since PHP 4 <= 4.1.0, PECL dbplus >= 0.9
+	 * @since PHP 4 <= 4.3.0, PECL dbplus >= 0.9
 	 */
 	function dbplus_ropen(string $name) {}
 
@@ -339,7 +339,7 @@ namespace {
 	 * @param string $dbpath
 	 * @return resource
 	 * @link http://php.net/manual/en/function.dbplus-rquery.php
-	 * @since PHP 4 <= 4.1.0, PECL dbplus >= 0.9
+	 * @since PHP 4 <= 4.3.0, PECL dbplus >= 0.9
 	 */
 	function dbplus_rquery(string $query, string $dbpath = NULL) {}
 
@@ -350,7 +350,7 @@ namespace {
 	 * @param string $name
 	 * @return int
 	 * @link http://php.net/manual/en/function.dbplus-rrename.php
-	 * @since PHP 4 <= 4.1.0, PECL dbplus >= 0.9
+	 * @since PHP 4 <= 4.3.0, PECL dbplus >= 0.9
 	 */
 	function dbplus_rrename($relation, string $name): int {}
 
@@ -362,7 +362,7 @@ namespace {
 	 * @param int $type
 	 * @return mixed <p>Returns resource on success or <b><code>DBPLUS_ERR_UNKNOWN</code></b> on failure.</p>
 	 * @link http://php.net/manual/en/function.dbplus-rsecindex.php
-	 * @since PHP 4 <= 4.1.0, PECL dbplus >= 0.9
+	 * @since PHP 4 <= 4.3.0, PECL dbplus >= 0.9
 	 */
 	function dbplus_rsecindex($relation, $domlist, int $type) {}
 
@@ -372,7 +372,7 @@ namespace {
 	 * @param resource $relation <p>A relation opened by <code>dbplus_open()</code>.</p>
 	 * @return int
 	 * @link http://php.net/manual/en/function.dbplus-runlink.php
-	 * @since PHP 4 <= 4.1.0, PECL dbplus >= 0.9
+	 * @since PHP 4 <= 4.3.0, PECL dbplus >= 0.9
 	 */
 	function dbplus_runlink($relation): int {}
 
@@ -382,7 +382,7 @@ namespace {
 	 * @param resource $relation <p>A relation opened by <code>dbplus_open()</code>.</p>
 	 * @return int
 	 * @link http://php.net/manual/en/function.dbplus-rzap.php
-	 * @since PHP 4 <= 4.1.0, PECL dbplus >= 0.9
+	 * @since PHP 4 <= 4.3.0, PECL dbplus >= 0.9
 	 */
 	function dbplus_rzap($relation): int {}
 
@@ -392,7 +392,7 @@ namespace {
 	 * @param resource $relation <p>A relation opened by <code>dbplus_open()</code>.</p>
 	 * @return int
 	 * @link http://php.net/manual/en/function.dbplus-savepos.php
-	 * @since PHP 4 <= 4.1.0, PECL dbplus >= 0.9
+	 * @since PHP 4 <= 4.3.0, PECL dbplus >= 0.9
 	 */
 	function dbplus_savepos($relation): int {}
 
@@ -403,7 +403,7 @@ namespace {
 	 * @param string $idx_name
 	 * @return int
 	 * @link http://php.net/manual/en/function.dbplus-setindex.php
-	 * @since PHP 4 <= 4.1.0, PECL dbplus >= 0.9
+	 * @since PHP 4 <= 4.3.0, PECL dbplus >= 0.9
 	 */
 	function dbplus_setindex($relation, string $idx_name): int {}
 
@@ -414,7 +414,7 @@ namespace {
 	 * @param int $idx_number
 	 * @return int
 	 * @link http://php.net/manual/en/function.dbplus-setindexbynumber.php
-	 * @since PHP 4 <= 4.1.0, PECL dbplus >= 0.9
+	 * @since PHP 4 <= 4.3.0, PECL dbplus >= 0.9
 	 */
 	function dbplus_setindexbynumber($relation, int $idx_number): int {}
 
@@ -426,7 +426,7 @@ namespace {
 	 * @param string $dbpath
 	 * @return resource
 	 * @link http://php.net/manual/en/function.dbplus-sql.php
-	 * @since PHP 4 <= 4.1.0, PECL dbplus >= 0.9
+	 * @since PHP 4 <= 4.3.0, PECL dbplus >= 0.9
 	 */
 	function dbplus_sql(string $query, string $server = NULL, string $dbpath = NULL) {}
 
@@ -438,7 +438,7 @@ namespace {
 	 * @return string
 	 * @link http://php.net/manual/en/function.dbplus-tcl.php
 	 * @see dbplus_resolve()
-	 * @since PHP 4 <= 4.1.0, PECL dbplus >= 0.9
+	 * @since PHP 4 <= 4.3.0, PECL dbplus >= 0.9
 	 */
 	function dbplus_tcl(int $sid, string $script): string {}
 
@@ -450,7 +450,7 @@ namespace {
 	 * @param array $current
 	 * @return int
 	 * @link http://php.net/manual/en/function.dbplus-tremove.php
-	 * @since PHP 4 <= 4.1.0, PECL dbplus >= 0.9
+	 * @since PHP 4 <= 4.3.0, PECL dbplus >= 0.9
 	 */
 	function dbplus_tremove($relation, array $tuple, array &$current = NULL): int {}
 
@@ -460,7 +460,7 @@ namespace {
 	 * @param resource $relation <p>A relation opened by <code>dbplus_open()</code>.</p>
 	 * @return int
 	 * @link http://php.net/manual/en/function.dbplus-undo.php
-	 * @since PHP 4 <= 4.1.0, PECL dbplus >= 0.9
+	 * @since PHP 4 <= 4.3.0, PECL dbplus >= 0.9
 	 */
 	function dbplus_undo($relation): int {}
 
@@ -470,7 +470,7 @@ namespace {
 	 * @param resource $relation <p>A relation opened by <code>dbplus_open()</code>.</p>
 	 * @return int
 	 * @link http://php.net/manual/en/function.dbplus-undoprepare.php
-	 * @since PHP 4 <= 4.1.0, PECL dbplus >= 0.9
+	 * @since PHP 4 <= 4.3.0, PECL dbplus >= 0.9
 	 */
 	function dbplus_undoprepare($relation): int {}
 
@@ -480,7 +480,7 @@ namespace {
 	 * @param resource $relation <p>A relation opened by <code>dbplus_open()</code>.</p>
 	 * @return int
 	 * @link http://php.net/manual/en/function.dbplus-unlockrel.php
-	 * @since PHP 4 <= 4.1.0, PECL dbplus >= 0.9
+	 * @since PHP 4 <= 4.3.0, PECL dbplus >= 0.9
 	 */
 	function dbplus_unlockrel($relation): int {}
 
@@ -490,7 +490,7 @@ namespace {
 	 * @param resource $relation <p>A relation opened by <code>dbplus_open()</code>.</p>
 	 * @return int
 	 * @link http://php.net/manual/en/function.dbplus-unselect.php
-	 * @since PHP 4 <= 4.1.0, PECL dbplus >= 0.9
+	 * @since PHP 4 <= 4.3.0, PECL dbplus >= 0.9
 	 */
 	function dbplus_unselect($relation): int {}
 
@@ -502,7 +502,7 @@ namespace {
 	 * @param array $new <p>The new tuple.</p>
 	 * @return int
 	 * @link http://php.net/manual/en/function.dbplus-update.php
-	 * @since PHP 4 <= 4.1.0, PECL dbplus >= 0.9
+	 * @since PHP 4 <= 4.3.0, PECL dbplus >= 0.9
 	 */
 	function dbplus_update($relation, array $old, array $new): int {}
 
@@ -513,7 +513,7 @@ namespace {
 	 * @return int
 	 * @link http://php.net/manual/en/function.dbplus-xlockrel.php
 	 * @see dbplus_xunlockrel()
-	 * @since PHP 4 <= 4.1.0, PECL dbplus >= 0.9
+	 * @since PHP 4 <= 4.3.0, PECL dbplus >= 0.9
 	 */
 	function dbplus_xlockrel($relation): int {}
 
@@ -523,7 +523,7 @@ namespace {
 	 * @param resource $relation <p>A relation opened by <code>dbplus_open()</code>.</p>
 	 * @return int
 	 * @link http://php.net/manual/en/function.dbplus-xunlockrel.php
-	 * @since PHP 4 <= 4.1.0, PECL dbplus >= 0.9
+	 * @since PHP 4 <= 4.3.0, PECL dbplus >= 0.9
 	 */
 	function dbplus_xunlockrel($relation): int {}
 

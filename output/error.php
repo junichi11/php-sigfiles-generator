@@ -7,7 +7,7 @@ namespace {
 	/**
 	 * <p><b>Error</b> is the base class for all internal PHP errors.</p>
 	 * @link http://php.net/manual/en/class.error.php
-	 * @since PHP 7
+	 * @since PHP 7, PHP 8
 	 */
 	class Error extends \Throwable {
 
@@ -37,10 +37,10 @@ namespace {
 
 		/**
 		 * Clone the error
-		 * <p>Error can not be clone, so this method results in fatal error.</p>
+		 * <p>Error can not be cloned, so this method results in fatal error.</p>
 		 * @return void <p>No value is returned.</p>
 		 * @link http://php.net/manual/en/error.clone.php
-		 * @since No version information available, might only be in Git
+		 * @since PHP 7, PHP 8
 		 */
 		final private function __clone() {}
 
@@ -52,7 +52,7 @@ namespace {
 		 * @param \Throwable $previous <p>The previous throwable used for the exception chaining.</p>
 		 * @return self
 		 * @link http://php.net/manual/en/error.construct.php
-		 * @since No version information available, might only be in Git
+		 * @since PHP 7, PHP 8
 		 */
 		public function __construct(string $message = "", int $code = 0, \Throwable $previous = NULL) {}
 
@@ -61,16 +61,16 @@ namespace {
 		 * <p>Returns the <code>string</code> representation of the error.</p>
 		 * @return string <p>Returns the <code>string</code> representation of the error.</p>
 		 * @link http://php.net/manual/en/error.tostring.php
-		 * @since No version information available, might only be in Git
+		 * @since PHP 7, PHP 8
 		 */
 		public function __toString(): string {}
 
 		/**
 		 * Gets the error code
 		 * <p>Returns the error code.</p>
-		 * @return mixed <p>Returns the error code as <code>integer</code></p>
+		 * @return mixed <p>Returns the error code as <code>int</code></p>
 		 * @link http://php.net/manual/en/error.getcode.php
-		 * @since No version information available, might only be in Git
+		 * @since PHP 7, PHP 8
 		 */
 		final public function getCode() {}
 
@@ -79,7 +79,7 @@ namespace {
 		 * <p>Get the name of the file the error occurred.</p>
 		 * @return string <p>Returns the filename in which the error occurred.</p>
 		 * @link http://php.net/manual/en/error.getfile.php
-		 * @since No version information available, might only be in Git
+		 * @since PHP 7, PHP 8
 		 */
 		final public function getFile(): string {}
 
@@ -88,7 +88,7 @@ namespace {
 		 * <p>Get line number where the error occurred.</p>
 		 * @return int <p>Returns the line number where the error occurred.</p>
 		 * @link http://php.net/manual/en/error.getline.php
-		 * @since No version information available, might only be in Git
+		 * @since PHP 7, PHP 8
 		 */
 		final public function getLine(): int {}
 
@@ -97,7 +97,7 @@ namespace {
 		 * <p>Returns the error message.</p>
 		 * @return string <p>Returns the error message as a string.</p>
 		 * @link http://php.net/manual/en/error.getmessage.php
-		 * @since No version information available, might only be in Git
+		 * @since PHP 7, PHP 8
 		 */
 		final public function getMessage(): string {}
 
@@ -106,7 +106,7 @@ namespace {
 		 * <p>Returns previous Throwable (the third parameter of <code>Error::__construct()</code>).</p>
 		 * @return Throwable <p>Returns the previous Throwable if available or <b><code>NULL</code></b> otherwise.</p>
 		 * @link http://php.net/manual/en/error.getprevious.php
-		 * @since No version information available, might only be in Git
+		 * @since PHP 7, PHP 8
 		 */
 		final public function getPrevious(): \Throwable {}
 
@@ -115,7 +115,7 @@ namespace {
 		 * <p>Returns the stack trace.</p>
 		 * @return array <p>Returns the stack trace as an <code>array</code>.</p>
 		 * @link http://php.net/manual/en/error.gettrace.php
-		 * @since No version information available, might only be in Git
+		 * @since PHP 7, PHP 8
 		 */
 		final public function getTrace(): array {}
 
@@ -124,7 +124,7 @@ namespace {
 		 * <p>Returns the stack trace as a string.</p>
 		 * @return string <p>Returns the stack trace as a string.</p>
 		 * @link http://php.net/manual/en/error.gettraceasstring.php
-		 * @since No version information available, might only be in Git
+		 * @since PHP 7, PHP 8
 		 */
 		final public function getTraceAsString(): string {}
 	}

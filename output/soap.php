@@ -13,9 +13,9 @@ namespace {
 
 		/**
 		 * SoapClient constructor
-		 * <p>This constructor creates SoapClient objects in <i>WSDL</i> or <i>non-WSDL</i> mode.</p>
-		 * @param mixed $wsdl <p>URI of the <i>WSDL</i> file or <b><code>NULL</code></b> if working in <i>non-WSDL</i> mode.</p> <p><b>Note</b>:</p><p>During development, WSDL caching may be disabled by the use of the <i>soap.wsdl_cache_ttl</i> php.ini setting otherwise changes made to the WSDL file will have no effect until <i>soap.wsdl_cache_ttl</i> is expired.</p>
-		 * @param array $options <p>An array of options. If working in WSDL mode, this parameter is optional. If working in non-WSDL mode, the <i>location</i> and <i>uri</i> options must be set, where <i>location</i> is the URL of the SOAP server to send the request to, and <i>uri</i> is the target namespace of the SOAP service.</p> <p>The <i>style</i> and <i>use</i> options only work in non-WSDL mode. In WSDL mode, they come from the WSDL file.</p> <p>The <i>soap_version</i> option should be one of either <b><code>SOAP_1_1</code></b> or <b><code>SOAP_1_2</code></b> to select SOAP 1.1 or 1.2, respectively. If omitted, 1.1 is used.</p> <p>For HTTP authentication, the <i>login</i> and <i>password</i> options can be used to supply credentials. For making an HTTP connection through a proxy server, the options <i>proxy_host</i>, <i>proxy_port</i>, <i>proxy_login</i> and <i>proxy_password</i> are also available. For HTTPS client certificate authentication use <i>local_cert</i> and <i>passphrase</i> options. An authentication may be supplied in the <i>authentication</i> option. The authentication method may be either <b><code>SOAP_AUTHENTICATION_BASIC</code></b> (default) or <b><code>SOAP_AUTHENTICATION_DIGEST</code></b>.</p> <p>The <i>compression</i> option allows to use compression of HTTP SOAP requests and responses.</p> <p>The <i>encoding</i> option defines internal character encoding. This option does not change the encoding of SOAP requests (it is always utf-8), but converts strings into it.</p> <p>The <i>trace</i> option enables tracing of request so faults can be backtraced. This defaults to <b><code>FALSE</code></b></p> <p>The <i>classmap</i> option can be used to map some WSDL types to PHP classes. This option must be an array with WSDL types as keys and names of PHP classes as values.</p> <p>Setting the boolean <i>trace</i> option enables use of the methods  SoapClient-&gt;__getLastRequest,  SoapClient-&gt;__getLastRequestHeaders,  SoapClient-&gt;__getLastResponse and  SoapClient-&gt;__getLastResponseHeaders.</p> <p>The <i>exceptions</i> option is a boolean value defining whether soap errors throw exceptions of type  SoapFault.</p> <p>The <i>connection_timeout</i> option defines a timeout in seconds for the connection to the SOAP service. This option does not define a timeout for services with slow responses. To limit the time to wait for calls to finish the default_socket_timeout setting is available.</p> <p>The <i>typemap</i> option is an array of type mappings. Type mapping is an array with keys <i>type_name</i>, <i>type_ns</i> (namespace URI), <i>from_xml</i> (callback accepting one string parameter) and <i>to_xml</i> (callback accepting one object parameter).</p> <p>The <i>cache_wsdl</i> option is one of <b><code>WSDL_CACHE_NONE</code></b>, <b><code>WSDL_CACHE_DISK</code></b>, <b><code>WSDL_CACHE_MEMORY</code></b> or <b><code>WSDL_CACHE_BOTH</code></b>.</p> <p>The <i>user_agent</i> option specifies string to use in <i>User-Agent</i> header.</p> <p>The <i>stream_context</i> option is a <code>resource</code> for context.</p> <p>The <i>features</i> option is a bitmask of <b><code>SOAP_SINGLE_ELEMENT_ARRAYS</code></b>, <b><code>SOAP_USE_XSI_ARRAY_TYPE</code></b>, <b><code>SOAP_WAIT_ONE_WAY_CALLS</code></b>.</p> <p>The <i>keep_alive</i> option is a boolean value defining whether to send the <i>Connection: Keep-Alive</i> header or <i>Connection: close</i>.</p> <p>The <i>ssl_method</i> option is one of <b><code>SOAP_SSL_METHOD_TLS</code></b>, <b><code>SOAP_SSL_METHOD_SSLv2</code></b>, <b><code>SOAP_SSL_METHOD_SSLv3</code></b> or <b><code>SOAP_SSL_METHOD_SSLv23</code></b>.</p>
+		 * <p>This constructor creates SoapClient objects in <code>WSDL</code> or <code>non-WSDL</code> mode.</p>
+		 * @param mixed $wsdl <p>URI of the <code>WSDL</code> file or <b><code>NULL</code></b> if working in <code>non-WSDL</code> mode.</p> <p><b>Note</b>:</p><p>During development, WSDL caching may be disabled by the use of the <code>soap.wsdl_cache_ttl</code> php.ini setting otherwise changes made to the WSDL file will have no effect until <code>soap.wsdl_cache_ttl</code> is expired.</p>
+		 * @param array $options <p>An array of options. If working in WSDL mode, this parameter is optional. If working in non-WSDL mode, the <code>location</code> and <code>uri</code> options must be set, where <code>location</code> is the URL of the SOAP server to send the request to, and <code>uri</code> is the target namespace of the SOAP service.</p> <p>The <code>style</code> and <code>use</code> options only work in non-WSDL mode. In WSDL mode, they come from the WSDL file.</p> <p>The <code>soap_version</code> option should be one of either <b><code>SOAP_1_1</code></b> or <b><code>SOAP_1_2</code></b> to select SOAP 1.1 or 1.2, respectively. If omitted, 1.1 is used.</p> <p>For HTTP authentication, the <code>login</code> and <code>password</code> options can be used to supply credentials. For making an HTTP connection through a proxy server, the options <code>proxy_host</code>, <code>proxy_port</code>, <code>proxy_login</code> and <code>proxy_password</code> are also available. For HTTPS client certificate authentication use <code>local_cert</code> and <code>passphrase</code> options. An authentication may be supplied in the <code>authentication</code> option. The authentication method may be either <b><code>SOAP_AUTHENTICATION_BASIC</code></b> (default) or <b><code>SOAP_AUTHENTICATION_DIGEST</code></b>.</p> <p>The <code>compression</code> option allows to use compression of HTTP SOAP requests and responses.</p> <p>The <code>encoding</code> option defines internal character encoding. This option does not change the encoding of SOAP requests (it is always utf-8), but converts strings into it.</p> <p>The <code>trace</code> option enables tracing of request so faults can be backtraced. This defaults to <b><code>FALSE</code></b></p> <p>The <code>classmap</code> option can be used to map some WSDL types to PHP classes. This option must be an array with WSDL types as keys and names of PHP classes as values.</p> <p>Setting the boolean <code>trace</code> option enables use of the methods  SoapClient-&gt;__getLastRequest,  SoapClient-&gt;__getLastRequestHeaders,  SoapClient-&gt;__getLastResponse and  SoapClient-&gt;__getLastResponseHeaders.</p> <p>The <code>exceptions</code> option is a boolean value defining whether soap errors throw exceptions of type  SoapFault.</p> <p>The <code>connection_timeout</code> option defines a timeout in seconds for the connection to the SOAP service. This option does not define a timeout for services with slow responses. To limit the time to wait for calls to finish the default_socket_timeout setting is available.</p> <p>The <code>typemap</code> option is an array of type mappings. Type mapping is an array with keys <code>type_name</code>, <code>type_ns</code> (namespace URI), <code>from_xml</code> (callback accepting one string parameter) and <code>to_xml</code> (callback accepting one object parameter).</p> <p>The <code>cache_wsdl</code> option is one of <b><code>WSDL_CACHE_NONE</code></b>, <b><code>WSDL_CACHE_DISK</code></b>, <b><code>WSDL_CACHE_MEMORY</code></b> or <b><code>WSDL_CACHE_BOTH</code></b>.</p> <p>The <code>user_agent</code> option specifies string to use in <code>User-Agent</code> header.</p> <p>The <code>stream_context</code> option is a <code>resource</code> for context.</p> <p>The <code>features</code> option is a bitmask of <b><code>SOAP_SINGLE_ELEMENT_ARRAYS</code></b>, <b><code>SOAP_USE_XSI_ARRAY_TYPE</code></b>, <b><code>SOAP_WAIT_ONE_WAY_CALLS</code></b>.</p> <p>The <code>keep_alive</code> option is a boolean value defining whether to send the <code>Connection: Keep-Alive</code> header or <code>Connection: close</code>.</p> <p>The <code>ssl_method</code> option is one of <b><code>SOAP_SSL_METHOD_TLS</code></b>, <b><code>SOAP_SSL_METHOD_SSLv2</code></b>, <b><code>SOAP_SSL_METHOD_SSLv3</code></b> or <b><code>SOAP_SSL_METHOD_SSLv23</code></b>.</p>
 		 * @return self
 		 * @link http://php.net/manual/en/soapclient.soapclient.php
 		 * @since PHP 5, PHP 7
@@ -48,7 +48,7 @@ namespace {
 		 * @param string $location <p>The URL to request.</p>
 		 * @param string $action <p>The SOAP action.</p>
 		 * @param int $version <p>The SOAP version.</p>
-		 * @param int $one_way <p>If <i>one_way</i> is set to 1, this method returns nothing. Use this where a response is not expected.</p>
+		 * @param int $one_way <p>If <code>one_way</code> is set to 1, this method returns nothing. Use this where a response is not expected.</p>
 		 * @return string <p>The XML SOAP response.</p>
 		 * @link http://php.net/manual/en/soapclient.dorequest.php
 		 * @since PHP 5, PHP 7
@@ -75,7 +75,7 @@ namespace {
 
 		/**
 		 * Returns last SOAP request
-		 * <p>Returns the XML sent in the last SOAP request.</p><p><b>Note</b>:</p><p>This method works only if the SoapClient object was created with the <i>trace</i> option set to <b><code>TRUE</code></b>.</p>
+		 * <p>Returns the XML sent in the last SOAP request.</p><p><b>Note</b>:</p><p>This method works only if the SoapClient object was created with the <code>trace</code> option set to <b><code>TRUE</code></b>.</p>
 		 * @return string <p>The last SOAP request, as an XML string.</p>
 		 * @link http://php.net/manual/en/soapclient.getlastrequest.php
 		 * @since PHP 5, PHP 7
@@ -84,7 +84,7 @@ namespace {
 
 		/**
 		 * Returns the SOAP headers from the last request
-		 * <p>Returns the SOAP headers from the last request.</p><p><b>Note</b>:</p><p>This function only works if the SoapClient object was created with the <i>trace</i> option set to <b><code>TRUE</code></b>.</p>
+		 * <p>Returns the SOAP headers from the last request.</p><p><b>Note</b>:</p><p>This function only works if the SoapClient object was created with the <code>trace</code> option set to <b><code>TRUE</code></b>.</p>
 		 * @return string <p>The last SOAP request headers.</p>
 		 * @link http://php.net/manual/en/soapclient.getlastrequestheaders.php
 		 * @since PHP 5, PHP 7
@@ -93,7 +93,7 @@ namespace {
 
 		/**
 		 * Returns last SOAP response
-		 * <p>Returns the XML received in the last SOAP response.</p><p><b>Note</b>:</p><p>This method works only if the SoapClient object was created with the <i>trace</i> option set to <b><code>TRUE</code></b>.</p>
+		 * <p>Returns the XML received in the last SOAP response.</p><p><b>Note</b>:</p><p>This method works only if the SoapClient object was created with the <code>trace</code> option set to <b><code>TRUE</code></b>.</p>
 		 * @return string <p>The last SOAP response, as an XML string.</p>
 		 * @link http://php.net/manual/en/soapclient.getlastresponse.php
 		 * @since PHP 5, PHP 7
@@ -102,7 +102,7 @@ namespace {
 
 		/**
 		 * Returns the SOAP headers from the last response
-		 * <p>Returns the SOAP headers from the last response.</p><p><b>Note</b>:</p><p>This function only works if the SoapClient object was created with the <i>trace</i> option set to <b><code>TRUE</code></b>.</p>
+		 * <p>Returns the SOAP headers from the last response.</p><p><b>Note</b>:</p><p>This function only works if the SoapClient object was created with the <code>trace</code> option set to <b><code>TRUE</code></b>.</p>
 		 * @return string <p>The last SOAP response headers.</p>
 		 * @link http://php.net/manual/en/soapclient.getlastresponseheaders.php
 		 * @since PHP 5, PHP 7
@@ -131,7 +131,7 @@ namespace {
 
 		/**
 		 * Sets the location of the Web service to use
-		 * <p>Sets the endpoint URL that will be touched by following SOAP requests. This is equivalent to specifying the <i>location</i> option when constructing the SoapClient.</p><p><b>Note</b>:</p><p>Calling this method is optional. The SoapClient uses the endpoint from the WSDL file by default.</p>
+		 * <p>Sets the endpoint URL that will be touched by following SOAP requests. This is equivalent to specifying the <code>location</code> option when constructing the SoapClient.</p><p><b>Note</b>:</p><p>Calling this method is optional. The SoapClient uses the endpoint from the WSDL file by default.</p>
 		 * @param string $new_location <p>The new endpoint URL.</p>
 		 * @return string <p>The old endpoint URL.</p>
 		 * @link http://php.net/manual/en/soapclient.setlocation.php
@@ -151,13 +151,13 @@ namespace {
 
 		/**
 		 * Calls a SOAP function
-		 * <p>This is a low level API function that is used to make a SOAP call. Usually, in WSDL mode, SOAP functions can be called as methods of the SoapClient object. This method is useful in non-WSDL mode when <i>soapaction</i> is unknown, <i>uri</i> differs from the default or when sending and/or receiving SOAP Headers.</p><p>On error, a call to a SOAP function can cause PHP to throw exceptions or return a SoapFault object if exceptions are disabled. To check if the function call failed to catch the SoapFault exceptions, check the result with <code>is_soap_fault()</code>.</p>
+		 * <p>This is a low level API function that is used to make a SOAP call. Usually, in WSDL mode, SOAP functions can be called as methods of the SoapClient object. This method is useful in non-WSDL mode when <code>soapaction</code> is unknown, <code>uri</code> differs from the default or when sending and/or receiving SOAP Headers.</p><p>On error, a call to a SOAP function can cause PHP to throw exceptions or return a SoapFault object if exceptions are disabled. To check if the function call failed to catch the SoapFault exceptions, check the result with <code>is_soap_fault()</code>.</p>
 		 * @param string $function_name <p>The name of the SOAP function to call.</p>
 		 * @param array $arguments <p>An array of the arguments to pass to the function. This can be either an ordered or an associative array. Note that most SOAP servers require parameter names to be provided, in which case this must be an associative array.</p>
-		 * @param array $options <p>An associative array of options to pass to the client.</p> <p>The <i>location</i> option is the URL of the remote Web service.</p> <p>The <i>uri</i> option is the target namespace of the SOAP service.</p> <p>The <i>soapaction</i> option is the action to call.</p>
+		 * @param array $options <p>An associative array of options to pass to the client.</p> <p>The <code>location</code> option is the URL of the remote Web service.</p> <p>The <code>uri</code> option is the target namespace of the SOAP service.</p> <p>The <code>soapaction</code> option is the action to call.</p>
 		 * @param mixed $input_headers <p>An array of headers to be sent along with the SOAP request.</p>
 		 * @param array $output_headers <p>If supplied, this array will be filled with the headers from the SOAP response.</p>
-		 * @return mixed <p>SOAP functions may return one, or multiple values. If only one value is returned by the SOAP function, the return value of <i>__soapCall</i> will be a simple value (e.g. an integer, a string, etc). If multiple values are returned, <i>__soapCall</i> will return an associative array of named output parameters.</p><p>On error, if the SoapClient object was constructed with the <i>exceptions</i> option set to <b><code>FALSE</code></b>, a SoapFault object will be returned.</p>
+		 * @return mixed <p>SOAP functions may return one, or multiple values. If only one value is returned by the SOAP function, the return value of <code>__soapCall</code> will be a simple value (e.g. an integer, a string, etc). If multiple values are returned, <code>__soapCall</code> will return an associative array of named output parameters.</p><p>On error, if the SoapClient object was constructed with the <code>exceptions</code> option set to <b><code>FALSE</code></b>, a SoapFault object will be returned.</p>
 		 * @link http://php.net/manual/en/soapclient.soapcall.php
 		 * @see is_soap_fault()
 		 * @since PHP 5, PHP 7
@@ -217,7 +217,7 @@ namespace {
 		 * <p>Tries to clone the Exception, which results in Fatal error.</p>
 		 * @return void <p>No value is returned.</p>
 		 * @link http://php.net/manual/en/exception.clone.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final private function __clone() {}
 
@@ -241,9 +241,9 @@ namespace {
 		/**
 		 * Gets the Exception code
 		 * <p>Returns the Exception code.</p>
-		 * @return mixed <p>Returns the exception code as <code>integer</code> in Exception but possibly as other type in Exception descendants (for example as <code>string</code> in PDOException).</p>
+		 * @return mixed <p>Returns the exception code as <code>int</code> in Exception but possibly as other type in Exception descendants (for example as <code>string</code> in PDOException).</p>
 		 * @link http://php.net/manual/en/exception.getcode.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getCode() {}
 
@@ -252,7 +252,7 @@ namespace {
 		 * <p>Get the name of the file in which the exception was created.</p>
 		 * @return string <p>Returns the filename in which the exception was created.</p>
 		 * @link http://php.net/manual/en/exception.getfile.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getFile(): string {}
 
@@ -261,7 +261,7 @@ namespace {
 		 * <p>Get line number where the exception was created.</p>
 		 * @return int <p>Returns the line number where the exception was created.</p>
 		 * @link http://php.net/manual/en/exception.getline.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getLine(): int {}
 
@@ -270,7 +270,7 @@ namespace {
 		 * <p>Returns the Exception message.</p>
 		 * @return string <p>Returns the Exception message as a string.</p>
 		 * @link http://php.net/manual/en/exception.getmessage.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getMessage(): string {}
 
@@ -279,7 +279,7 @@ namespace {
 		 * <p>Returns previous exception (the third parameter of <code>Exception::__construct()</code>).</p>
 		 * @return Throwable <p>Returns the previous Throwable if available or <b><code>NULL</code></b> otherwise.</p>
 		 * @link http://php.net/manual/en/exception.getprevious.php
-		 * @since PHP 5 >= 5.3.0, PHP 7
+		 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8
 		 */
 		final public function getPrevious(): \Throwable {}
 
@@ -288,7 +288,7 @@ namespace {
 		 * <p>Returns the Exception stack trace.</p>
 		 * @return array <p>Returns the Exception stack trace as an <code>array</code>.</p>
 		 * @link http://php.net/manual/en/exception.gettrace.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getTrace(): array {}
 
@@ -297,7 +297,7 @@ namespace {
 		 * <p>Returns the Exception stack trace as a string.</p>
 		 * @return string <p>Returns the Exception stack trace as a string.</p>
 		 * @link http://php.net/manual/en/exception.gettraceasstring.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getTraceAsString(): string {}
 	}
@@ -316,7 +316,7 @@ namespace {
 		 * @param string $name <p>The name of the SoapHeader object.</p>
 		 * @param mixed $data <p>A SOAP header's content. It can be a PHP value or a SoapVar object.</p>
 		 * @param bool $mustunderstand
-		 * @param string $actor <p>Value of the <i>actor</i> attribute of the SOAP header element.</p>
+		 * @param string $actor <p>Value of the <code>actor</code> attribute of the SOAP header element.</p>
 		 * @return self
 		 * @link http://php.net/manual/en/soapheader.soapheader.php
 		 * @since PHP 5, PHP 7
@@ -342,7 +342,7 @@ namespace {
 		/**
 		 * SoapParam constructor
 		 * <p>Constructs a new SoapParam object.</p>
-		 * @param mixed $data <p>The data to pass or return. This parameter can be passed directly as PHP value, but in this case it will be named as <i>paramN</i> and the SOAP service may not understand it.</p>
+		 * @param mixed $data <p>The data to pass or return. This parameter can be passed directly as PHP value, but in this case it will be named as <code>paramN</code> and the SOAP service may not understand it.</p>
 		 * @param string $name <p>The parameter name.</p>
 		 * @return self
 		 * @link http://php.net/manual/en/soapparam.soapparam.php
@@ -369,8 +369,8 @@ namespace {
 		/**
 		 * SoapServer constructor
 		 * <p>This constructor allows the creation of SoapServer objects in WSDL or non-WSDL mode.</p>
-		 * @param mixed $wsdl <p>To use the SoapServer in WSDL mode, pass the URI of a WSDL file. Otherwise, pass <b><code>NULL</code></b> and set the <i>uri</i> option to the target namespace for the server.</p>
-		 * @param array $options <p>Allow setting a default SOAP version (<i>soap_version</i>), internal character encoding (<i>encoding</i>), and actor URI (<i>actor</i>).</p> <p>The <i>classmap</i> option can be used to map some WSDL types to PHP classes. This option must be an array with WSDL types as keys and names of PHP classes as values.</p> <p>The <i>typemap</i> option is an array of type mappings. Type mapping is an array with keys <i>type_name</i>, <i>type_ns</i> (namespace URI), <i>from_xml</i> (callback accepting one string parameter) and <i>to_xml</i> (callback accepting one object parameter).</p> <p>The <i>cache_wsdl</i> option is one of <b><code>WSDL_CACHE_NONE</code></b>, <b><code>WSDL_CACHE_DISK</code></b>, <b><code>WSDL_CACHE_MEMORY</code></b> or <b><code>WSDL_CACHE_BOTH</code></b>.</p> <p>There is also a <i>features</i> option which can be set to <b><code>SOAP_WAIT_ONE_WAY_CALLS</code></b>, <b><code>SOAP_SINGLE_ELEMENT_ARRAYS</code></b>, <b><code>SOAP_USE_XSI_ARRAY_TYPE</code></b>.</p> <p>The <i>send_errors</i> option can be set to <b><code>FALSE</code></b> to sent a generic error message ("Internal error") instead of the specific error message sent otherwise.</p>
+		 * @param mixed $wsdl <p>To use the SoapServer in WSDL mode, pass the URI of a WSDL file. Otherwise, pass <b><code>NULL</code></b> and set the <code>uri</code> option to the target namespace for the server.</p>
+		 * @param array $options <p>Allow setting a default SOAP version (<code>soap_version</code>), internal character encoding (<code>encoding</code>), and actor URI (<code>actor</code>).</p> <p>The <code>classmap</code> option can be used to map some WSDL types to PHP classes. This option must be an array with WSDL types as keys and names of PHP classes as values.</p> <p>The <code>typemap</code> option is an array of type mappings. Type mapping is an array with keys <code>type_name</code>, <code>type_ns</code> (namespace URI), <code>from_xml</code> (callback accepting one string parameter) and <code>to_xml</code> (callback accepting one object parameter).</p> <p>The <code>cache_wsdl</code> option is one of <b><code>WSDL_CACHE_NONE</code></b>, <b><code>WSDL_CACHE_DISK</code></b>, <b><code>WSDL_CACHE_MEMORY</code></b> or <b><code>WSDL_CACHE_BOTH</code></b>.</p> <p>There is also a <code>features</code> option which can be set to <b><code>SOAP_WAIT_ONE_WAY_CALLS</code></b>, <b><code>SOAP_SINGLE_ELEMENT_ARRAYS</code></b>, <b><code>SOAP_USE_XSI_ARRAY_TYPE</code></b>.</p> <p>The <code>send_errors</code> option can be set to <b><code>FALSE</code></b> to sent a generic error message ("Internal error") instead of the specific error message sent otherwise.</p>
 		 * @return self
 		 * @link http://php.net/manual/en/soapserver.soapserver.php
 		 * @since PHP 5, PHP 7
@@ -422,7 +422,7 @@ namespace {
 		/**
 		 * Returns list of defined functions
 		 * <p>Returns a list of the defined functions in the SoapServer object. This method returns the list of all functions added by <code>SoapServer::addFunction()</code> or <code>SoapServer::setClass()</code>.</p>
-		 * @return array <p>An <i>array</i> of the defined functions.</p>
+		 * @return array <p>An <code>array</code> of the defined functions.</p>
 		 * @link http://php.net/manual/en/soapserver.getfunctions.php
 		 * @since PHP 5, PHP 7
 		 */
@@ -442,13 +442,12 @@ namespace {
 		 * Sets the class which handles SOAP requests
 		 * <p>Exports all methods from specified class.</p><p>The object can be made persistent across request for a given PHP session with the <code>SoapServer::setPersistence()</code> method.</p>
 		 * @param string $class_name <p>The name of the exported class.</p>
-		 * @param mixed $args <p>These optional parameters will be passed to the default class constructor during object creation.</p>
-		 * @param mixed $_
+		 * @param mixed $_$args
 		 * @return void <p>No value is returned.</p>
 		 * @link http://php.net/manual/en/soapserver.setclass.php
 		 * @since PHP 5, PHP 7
 		 */
-		public function setClass(string $class_name, $args = NULL, $_ = NULL): void {}
+		public function setClass(string $class_name, $_$args): void {}
 
 		/**
 		 * Sets the object which will be used to handle SOAP requests
@@ -463,7 +462,7 @@ namespace {
 		/**
 		 * Sets SoapServer persistence mode
 		 * <p>This function allows changing the persistence state of a SoapServer object between requests. This function allows saving data between requests utilizing PHP sessions. This method only has an affect on a SoapServer after it has exported functions utilizing <code>SoapServer::setClass()</code>.</p><p><b>Note</b>:</p><p>The persistence of <b><code>SOAP_PERSISTENCE_SESSION</code></b> makes only objects of the given class persistent, but not the class static data. In this case, use $this-&gt;bar instead of self::$bar.</p><p><b>Note</b>:</p><p><b><code>SOAP_PERSISTENCE_SESSION</code></b> serializes data on the class object between requests. In order to properly utilize resources (e.g. PDO), __wakeup() and __sleep() magic methods should be utilized.</p>
-		 * @param int $mode <p>One of the <i>SOAP_PERSISTENCE_XXX</i> constants.</p> <p><b><code>SOAP_PERSISTENCE_REQUEST</code></b> - SoapServer data does not persist between requests. This is the <i>default</i> behavior of any SoapServer object after setClass is called.</p> <p><b><code>SOAP_PERSISTENCE_SESSION</code></b> - SoapServer data persists between requests. This is accomplished by serializing the SoapServer class data into $_SESSION['_bogus_session_name'], because of this <code>session_start()</code> must be called before this persistence mode is set.</p>
+		 * @param int $mode <p>One of the <code>SOAP_PERSISTENCE_XXX</code> constants.</p> <p><b><code>SOAP_PERSISTENCE_REQUEST</code></b> - SoapServer data does not persist between requests. This is the <i>default</i> behavior of any SoapServer object after setClass is called.</p> <p><b><code>SOAP_PERSISTENCE_SESSION</code></b> - SoapServer data persists between requests. This is accomplished by serializing the SoapServer class data into $_SESSION['_bogus_session_name'], because of this <code>session_start()</code> must be called before this persistence mode is set.</p>
 		 * @return void <p>No value is returned.</p>
 		 * @link http://php.net/manual/en/soapserver.setpersistence.php
 		 * @since PHP 5, PHP 7
@@ -482,7 +481,7 @@ namespace {
 		 * SoapVar constructor
 		 * <p>Constructs a new SoapVar object.</p>
 		 * @param mixed $data <p>The data to pass or return.</p>
-		 * @param string $encoding <p>The encoding ID, one of the <i>XSD_...</i> constants.</p>
+		 * @param string $encoding <p>The encoding ID, one of the <code>XSD_...</code> constants.</p>
 		 * @param string $type_name <p>The type name.</p>
 		 * @param string $type_namespace <p>The type namespace.</p>
 		 * @param string $node_name <p>The XML node name.</p>
@@ -504,7 +503,7 @@ namespace {
 
 	/**
 	 * Checks if a SOAP call has failed
-	 * <p>This function is useful to check if the SOAP call failed, but without using exceptions. To use it, create a SoapClient object with the <i>exceptions</i> option set to zero or <b><code>FALSE</code></b>. In this case, the SOAP method will return a special SoapFault object which encapsulates the fault details (faultcode, faultstring, faultactor and faultdetails).</p><p>If <i>exceptions</i> is not set then SOAP call will throw an exception on error. <b>is_soap_fault()</b> checks if the given parameter is a SoapFault object.</p>
+	 * <p>This function is useful to check if the SOAP call failed, but without using exceptions. To use it, create a SoapClient object with the <code>exceptions</code> option set to zero or <b><code>FALSE</code></b>. In this case, the SOAP method will return a special SoapFault object which encapsulates the fault details (faultcode, faultstring, faultactor and faultdetails).</p><p>If <code>exceptions</code> is not set then SOAP call will throw an exception on error. <b>is_soap_fault()</b> checks if the given parameter is a SoapFault object.</p>
 	 * @param mixed $object <p>The object to test.</p>
 	 * @return bool <p>This will return <b><code>TRUE</code></b> on error, and <b><code>FALSE</code></b> otherwise.</p>
 	 * @link http://php.net/manual/en/function.is-soap-fault.php
@@ -526,397 +525,397 @@ namespace {
 	/**
 	 * 200
 	 */
-	define('APACHE_MAP', 200);
+	define('APACHE_MAP', null);
 
 	/**
 	 * 1
 	 */
-	define('SOAP_1_1', 1);
+	define('SOAP_1_1', null);
 
 	/**
 	 * 2
 	 */
-	define('SOAP_1_2', 2);
+	define('SOAP_1_2', null);
 
 	/**
 	 * 1
 	 */
-	define('SOAP_ACTOR_NEXT', 1);
+	define('SOAP_ACTOR_NEXT', null);
 
 	/**
 	 * 2
 	 */
-	define('SOAP_ACTOR_NONE', 2);
+	define('SOAP_ACTOR_NONE', null);
 
 	/**
 	 * 3
 	 */
-	define('SOAP_ACTOR_UNLIMATERECEIVER', 3);
+	define('SOAP_ACTOR_UNLIMATERECEIVER', null);
 
-	define('SOAP_AUTHENTICATION_BASIC', 0);
+	define('SOAP_AUTHENTICATION_BASIC', null);
 
 	/**
 	 * 1
 	 */
-	define('SOAP_AUTHENTICATION_DIGEST', 1);
+	define('SOAP_AUTHENTICATION_DIGEST', null);
 
 	/**
 	 * 32
 	 */
-	define('SOAP_COMPRESSION_ACCEPT', 32);
+	define('SOAP_COMPRESSION_ACCEPT', null);
 
 	/**
 	 * 16
 	 */
-	define('SOAP_COMPRESSION_DEFLATE', 16);
+	define('SOAP_COMPRESSION_DEFLATE', null);
 
-	define('SOAP_COMPRESSION_GZIP', 0);
+	define('SOAP_COMPRESSION_GZIP', null);
 
 	/**
 	 * 2
 	 */
-	define('SOAP_DOCUMENT', 2);
+	define('SOAP_DOCUMENT', null);
 
 	/**
 	 * 300
 	 */
-	define('SOAP_ENC_ARRAY', 300);
+	define('SOAP_ENC_ARRAY', null);
 
 	/**
 	 * 301
 	 */
-	define('SOAP_ENC_OBJECT', 301);
+	define('SOAP_ENC_OBJECT', null);
 
 	/**
 	 * 1
 	 */
-	define('SOAP_ENCODED', 1);
+	define('SOAP_ENCODED', null);
 
 	/**
 	 * 999
 	 */
-	define('SOAP_FUNCTIONS_ALL', 999);
+	define('SOAP_FUNCTIONS_ALL', null);
 
 	/**
 	 * 2
 	 */
-	define('SOAP_LITERAL', 2);
+	define('SOAP_LITERAL', null);
 
 	/**
 	 * 2
 	 */
-	define('SOAP_PERSISTENCE_REQUEST', 2);
+	define('SOAP_PERSISTENCE_REQUEST', null);
 
 	/**
 	 * 1
 	 */
-	define('SOAP_PERSISTENCE_SESSION', 1);
+	define('SOAP_PERSISTENCE_SESSION', null);
 
 	/**
 	 * 1
 	 */
-	define('SOAP_RPC', 1);
+	define('SOAP_RPC', null);
 
 	/**
 	 * 1
 	 */
-	define('SOAP_SINGLE_ELEMENT_ARRAYS', 1);
+	define('SOAP_SINGLE_ELEMENT_ARRAYS', null);
 
 	/**
 	 * Since PHP 5.5.0.
 	 */
-	define('SOAP_SSL_METHOD_SSLv2', 1);
+	define('SOAP_SSL_METHOD_SSLv2', null);
 
 	/**
 	 * Since PHP 5.5.0.
 	 */
-	define('SOAP_SSL_METHOD_SSLv23', 3);
+	define('SOAP_SSL_METHOD_SSLv23', null);
 
 	/**
 	 * Since PHP 5.5.0.
 	 */
-	define('SOAP_SSL_METHOD_SSLv3', 2);
+	define('SOAP_SSL_METHOD_SSLv3', null);
 
 	/**
 	 * Since PHP 5.5.0.
 	 */
-	define('SOAP_SSL_METHOD_TLS', 0);
+	define('SOAP_SSL_METHOD_TLS', null);
 
 	/**
 	 * 4
 	 */
-	define('SOAP_USE_XSI_ARRAY_TYPE', 4);
+	define('SOAP_USE_XSI_ARRAY_TYPE', null);
 
 	/**
 	 * 2
 	 */
-	define('SOAP_WAIT_ONE_WAY_CALLS', 2);
+	define('SOAP_WAIT_ONE_WAY_CALLS', null);
 
 	/**
 	 * 999998
 	 */
-	define('UNKNOWN_TYPE', 999998);
+	define('UNKNOWN_TYPE', null);
 
 	/**
 	 * 3
 	 */
-	define('WSDL_CACHE_BOTH', 3);
+	define('WSDL_CACHE_BOTH', null);
 
 	/**
 	 * 1
 	 */
-	define('WSDL_CACHE_DISK', 1);
+	define('WSDL_CACHE_DISK', null);
 
 	/**
 	 * 2
 	 */
-	define('WSDL_CACHE_MEMORY', 2);
+	define('WSDL_CACHE_MEMORY', null);
 
-	define('WSDL_CACHE_NONE', 0);
+	define('WSDL_CACHE_NONE', null);
 
 	/**
 	 * http://www.w3.org/1999/XMLSchema
 	 */
-	define('XSD_1999_NAMESPACE', 'http://www.w3.org/1999/XMLSchema');
+	define('XSD_1999_NAMESPACE', null);
 
 	/**
 	 * 401
 	 */
-	define('XSD_1999_TIMEINSTANT', 401);
+	define('XSD_1999_TIMEINSTANT', null);
 
 	/**
 	 * 145
 	 */
-	define('XSD_ANYTYPE', 145);
+	define('XSD_ANYTYPE', null);
 
 	/**
 	 * 117
 	 */
-	define('XSD_ANYURI', 117);
+	define('XSD_ANYURI', null);
 
 	/**
 	 * 147
 	 */
-	define('XSD_ANYXML', 147);
+	define('XSD_ANYXML', null);
 
 	/**
 	 * 116
 	 */
-	define('XSD_BASE64BINARY', 116);
+	define('XSD_BASE64BINARY', null);
 
 	/**
 	 * 102
 	 */
-	define('XSD_BOOLEAN', 102);
+	define('XSD_BOOLEAN', null);
 
 	/**
 	 * 137
 	 */
-	define('XSD_BYTE', 137);
+	define('XSD_BYTE', null);
 
 	/**
 	 * 109
 	 */
-	define('XSD_DATE', 109);
+	define('XSD_DATE', null);
 
 	/**
 	 * 107
 	 */
-	define('XSD_DATETIME', 107);
+	define('XSD_DATETIME', null);
 
 	/**
 	 * 103
 	 */
-	define('XSD_DECIMAL', 103);
+	define('XSD_DECIMAL', null);
 
 	/**
 	 * 105
 	 */
-	define('XSD_DOUBLE', 105);
+	define('XSD_DOUBLE', null);
 
 	/**
 	 * 106
 	 */
-	define('XSD_DURATION', 106);
+	define('XSD_DURATION', null);
 
 	/**
 	 * 130
 	 */
-	define('XSD_ENTITIES', 130);
+	define('XSD_ENTITIES', null);
 
 	/**
 	 * 129
 	 */
-	define('XSD_ENTITY', 129);
+	define('XSD_ENTITY', null);
 
 	/**
 	 * 104
 	 */
-	define('XSD_FLOAT', 104);
+	define('XSD_FLOAT', null);
 
 	/**
 	 * 113
 	 */
-	define('XSD_GDAY', 113);
+	define('XSD_GDAY', null);
 
 	/**
 	 * 114
 	 */
-	define('XSD_GMONTH', 114);
+	define('XSD_GMONTH', null);
 
 	/**
 	 * 112
 	 */
-	define('XSD_GMONTHDAY', 112);
+	define('XSD_GMONTHDAY', null);
 
 	/**
 	 * 111
 	 */
-	define('XSD_GYEAR', 111);
+	define('XSD_GYEAR', null);
 
 	/**
 	 * 110
 	 */
-	define('XSD_GYEARMONTH', 110);
+	define('XSD_GYEARMONTH', null);
 
 	/**
 	 * 115
 	 */
-	define('XSD_HEXBINARY', 115);
+	define('XSD_HEXBINARY', null);
 
 	/**
 	 * 126
 	 */
-	define('XSD_ID', 126);
+	define('XSD_ID', null);
 
 	/**
 	 * 127
 	 */
-	define('XSD_IDREF', 127);
+	define('XSD_IDREF', null);
 
 	/**
 	 * 128
 	 */
-	define('XSD_IDREFS', 128);
+	define('XSD_IDREFS', null);
 
 	/**
 	 * 135
 	 */
-	define('XSD_INT', 135);
+	define('XSD_INT', null);
 
 	/**
 	 * 131
 	 */
-	define('XSD_INTEGER', 131);
+	define('XSD_INTEGER', null);
 
 	/**
 	 * 122
 	 */
-	define('XSD_LANGUAGE', 122);
+	define('XSD_LANGUAGE', null);
 
 	/**
 	 * 134
 	 */
-	define('XSD_LONG', 134);
+	define('XSD_LONG', null);
 
 	/**
 	 * 124
 	 */
-	define('XSD_NAME', 124);
+	define('XSD_NAME', null);
 
 	/**
 	 * http://www.w3.org/2001/XMLSchema
 	 */
-	define('XSD_NAMESPACE', 'http://www.w3.org/2001/XMLSchema');
+	define('XSD_NAMESPACE', null);
 
 	/**
 	 * 125
 	 */
-	define('XSD_NCNAME', 125);
+	define('XSD_NCNAME', null);
 
 	/**
 	 * 133
 	 */
-	define('XSD_NEGATIVEINTEGER', 133);
+	define('XSD_NEGATIVEINTEGER', null);
 
 	/**
 	 * 123
 	 */
-	define('XSD_NMTOKEN', 123);
+	define('XSD_NMTOKEN', null);
 
 	/**
 	 * 144
 	 */
-	define('XSD_NMTOKENS', 144);
+	define('XSD_NMTOKENS', null);
 
 	/**
 	 * 138
 	 */
-	define('XSD_NONNEGATIVEINTEGER', 138);
+	define('XSD_NONNEGATIVEINTEGER', null);
 
 	/**
 	 * 132
 	 */
-	define('XSD_NONPOSITIVEINTEGER', 132);
+	define('XSD_NONPOSITIVEINTEGER', null);
 
 	/**
 	 * 120
 	 */
-	define('XSD_NORMALIZEDSTRING', 120);
+	define('XSD_NORMALIZEDSTRING', null);
 
 	/**
 	 * 119
 	 */
-	define('XSD_NOTATION', 119);
+	define('XSD_NOTATION', null);
 
 	/**
 	 * 143
 	 */
-	define('XSD_POSITIVEINTEGER', 143);
+	define('XSD_POSITIVEINTEGER', null);
 
 	/**
 	 * 118
 	 */
-	define('XSD_QNAME', 118);
+	define('XSD_QNAME', null);
 
 	/**
 	 * 136
 	 */
-	define('XSD_SHORT', 136);
+	define('XSD_SHORT', null);
 
 	/**
 	 * 101
 	 */
-	define('XSD_STRING', 101);
+	define('XSD_STRING', null);
 
 	/**
 	 * 108
 	 */
-	define('XSD_TIME', 108);
+	define('XSD_TIME', null);
 
 	/**
 	 * 121
 	 */
-	define('XSD_TOKEN', 121);
+	define('XSD_TOKEN', null);
 
 	/**
 	 * 142
 	 */
-	define('XSD_UNSIGNEDBYTE', 142);
+	define('XSD_UNSIGNEDBYTE', null);
 
 	/**
 	 * 140
 	 */
-	define('XSD_UNSIGNEDINT', 140);
+	define('XSD_UNSIGNEDINT', null);
 
 	/**
 	 * 139
 	 */
-	define('XSD_UNSIGNEDLONG', 139);
+	define('XSD_UNSIGNEDLONG', null);
 
 	/**
 	 * 141
 	 */
-	define('XSD_UNSIGNEDSHORT', 141);
+	define('XSD_UNSIGNEDSHORT', null);
 
 }

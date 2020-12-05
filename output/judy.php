@@ -14,31 +14,31 @@ namespace {
 	class Judy implements \ArrayAccess, \Iterator {
 
 		/**
-		 * @var integer <p>Define the Judy Array as a Bitset with keys as Integer and Values as a Boolean</p>
+		 * @var int <p>Define the Judy Array as a Bitset with keys as Integer and Values as a Boolean</p>
 		 * @link http://php.net/manual/en/class.judy.php
 		 */
 		const BITSET = 1;
 
 		/**
-		 * @var integer <p>Define the Judy Array with key/values as Integer, and Integer only.</p>
+		 * @var int <p>Define the Judy Array with key/values as Integer, and Integer only.</p>
 		 * @link http://php.net/manual/en/class.judy.php
 		 */
 		const INT_TO_INT = 2;
 
 		/**
-		 * @var integer <p>Define the Judy Array with keys as Integer and Values of any type.</p>
+		 * @var int <p>Define the Judy Array with keys as Integer and Values of any type.</p>
 		 * @link http://php.net/manual/en/class.judy.php
 		 */
 		const INT_TO_MIXED = 3;
 
 		/**
-		 * @var integer <p>Define the Judy Array with keys as a String and Values as Integer, and Integer only.</p>
+		 * @var int <p>Define the Judy Array with keys as a String and Values as Integer, and Integer only.</p>
 		 * @link http://php.net/manual/en/class.judy.php
 		 */
 		const STRING_TO_INT = 4;
 
 		/**
-		 * @var integer <p>Define the Judy Array with keys as a String and Values of any type.</p>
+		 * @var int <p>Define the Judy Array with keys as a String and Values of any type.</p>
 		 * @link http://php.net/manual/en/class.judy.php
 		 */
 		const STRING_TO_MIXED = 5;
@@ -233,7 +233,7 @@ namespace {
 
 		/**
 		 * Return the size of the current Judy array
-		 * <p>This method is an alias of Judy::count.</p><p>This function is currently not documented; only its argument list is available.</p>
+		 * <p>This method is an alias of: <code>Judy::count()</code>.</p><p>This function is currently not documented; only its argument list is available.</p>
 		 * @return void <p>Return an integer.</p>
 		 * @link http://php.net/manual/en/judy.size.php
 		 * @since PECL judy >= 0.1.1

@@ -9,12 +9,12 @@ namespace {
 	 * <p>Serializes the passed variables and add the result to the given packet.</p>
 	 * @param resource $packet_id <p>A WDDX packet, returned by <code>wddx_packet_start()</code>.</p>
 	 * @param mixed $var_name <p>Can be either a string naming a variable or an array containing strings naming the variables or another array, etc.</p>
-	 * @param mixed $_
+	 * @param mixed $_$var_names
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
 	 * @link http://php.net/manual/en/function.wddx-add-vars.php
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function wddx_add_vars($packet_id, $var_name, $_ = NULL): bool {}
+	function wddx_add_vars($packet_id, $var_name, $_$var_names): bool {}
 
 	/**
 	 * Unserializes a WDDX packet
@@ -61,11 +61,11 @@ namespace {
 	 * Serialize variables into a WDDX packet
 	 * <p>Creates a WDDX packet with a structure that contains the serialized representation of the passed variables.</p>
 	 * @param mixed $var_name <p>Can be either a string naming a variable or an array containing strings naming the variables or another array, etc.</p>
-	 * @param mixed $_
+	 * @param mixed $_$var_names
 	 * @return string <p>Returns the WDDX packet, or <b><code>FALSE</code></b> on error.</p>
 	 * @link http://php.net/manual/en/function.wddx-serialize-vars.php
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function wddx_serialize_vars($var_name, $_ = NULL): string {}
+	function wddx_serialize_vars($var_name, $_$var_names): string {}
 
 }

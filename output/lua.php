@@ -21,7 +21,7 @@ namespace {
 		 * <p></p><p>This function is currently not documented; only its argument list is available.</p>
 		 * @param callable $lua_func <p>Function name in lua</p>
 		 * @param array $args <p>Arguments passed to the Lua function</p>
-		 * @param int $use_self <p>Whether to use <i>self</i></p>
+		 * @param int $use_self <p>Whether to use <code>self</code></p>
 		 * @return mixed <p>Returns result of the called function, <b><code>NULL</code></b> for wrong arguments or <b><code>FALSE</code></b> on other failure.</p>
 		 * @link http://php.net/manual/en/lua.call.php
 		 * @since PECL lua >=0.9.0
@@ -54,7 +54,7 @@ namespace {
 		 * <p></p><p>This function is currently not documented; only its argument list is available.</p>
 		 * @param callable $lua_func <p>Function name in lua</p>
 		 * @param array $args <p>Arguments passed to the Lua function</p>
-		 * @param int $use_self <p>Whether to use <i>self</i></p>
+		 * @param int $use_self <p>Whether to use <code>self</code></p>
 		 * @return mixed <p>Returns result of the called function, <b><code>NULL</code></b> for wrong arguments or <b><code>FALSE</code></b> on other failure.</p>
 		 * @link http://php.net/manual/en/lua.call.php
 		 * @since PECL lua >=0.9.0
@@ -112,13 +112,12 @@ namespace {
 		/**
 		 * Invoke luaclosure
 		 * <p></p><p>This function is currently not documented; only its argument list is available.</p>
-		 * @param mixed $arg
-		 * @param mixed $_
+		 * @param mixed $_$args
 		 * @return void
 		 * @link http://php.net/manual/en/luaclosure.invoke.php
 		 * @since PECL lua >=0.9.0
 		 */
-		public function __invoke($arg, $_ = NULL): void {}
+		public function __invoke($_$args): void {}
 	}
 
 }

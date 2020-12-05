@@ -12,412 +12,412 @@ namespace {
 	class Memcached {
 
 		/**
-		 * @var mixed <p>Enables or disables payload compression. When enabled, item values longer than a certain threshold (currently 100 bytes) will be compressed during storage and decompressed during retrieval transparently.</p> <p>Type: <i>boolean</i>, default: <b><code>TRUE</code></b>.</p>
+		 * @var integer <p>Enables or disables payload compression. When enabled, item values longer than a certain threshold (currently 100 bytes) will be compressed during storage and decompressed during retrieval transparently.</p> <p>Type: <code>boolean</code>, default: <b><code>TRUE</code></b>.</p>
 		 * @link http://php.net/manual/en/memcached.constants.php
 		 */
-		const OPT_COMPRESSION = null;
+		const OPT_COMPRESSION = -1001;
 
 		/**
-		 * @var mixed <p>Specifies the serializer to use for serializing non-scalar values. The valid serializers are <b><code>Memcached::SERIALIZER_PHP</code></b> or <b><code>Memcached::SERIALIZER_IGBINARY</code></b>. The latter is supported only when memcached is configured with <i>--enable-memcached-igbinary</i> option and the <i>igbinary</i> extension is loaded.</p> <p>Type: <i>integer</i>, default: <b><code>Memcached::SERIALIZER_PHP</code></b>.</p>
+		 * @var integer <p>Specifies the serializer to use for serializing non-scalar values. The valid serializers are <b><code>Memcached::SERIALIZER_PHP</code></b> or <b><code>Memcached::SERIALIZER_IGBINARY</code></b>. The latter is supported only when memcached is configured with <code>--enable-memcached-igbinary</code> option and the <code>igbinary</code> extension is loaded.</p> <p>Type: <code>integer</code>, default: <b><code>Memcached::SERIALIZER_PHP</code></b>.</p>
 		 * @link http://php.net/manual/en/memcached.constants.php
 		 */
-		const OPT_SERIALIZER = null;
+		const OPT_SERIALIZER = -1003;
 
 		/**
-		 * @var mixed <p>The default PHP serializer.</p>
+		 * @var integer <p>The default PHP serializer.</p>
 		 * @link http://php.net/manual/en/memcached.constants.php
 		 */
-		const SERIALIZER_PHP = null;
+		const SERIALIZER_PHP = 1;
 
 		/**
-		 * @var mixed <p>The igbinary serializer. Instead of textual representation it stores PHP data structures in a compact binary form, resulting in space and time gains.</p>
+		 * @var integer <p>The igbinary serializer. Instead of textual representation it stores PHP data structures in a compact binary form, resulting in space and time gains.</p>
 		 * @link http://php.net/manual/en/memcached.constants.php
 		 */
-		const SERIALIZER_IGBINARY = null;
+		const SERIALIZER_IGBINARY = 2;
 
 		/**
-		 * @var mixed <p>The JSON serializer. Requires PHP 5.2.10+.</p>
+		 * @var integer <p>The JSON serializer. Requires PHP 5.2.10+.</p>
 		 * @link http://php.net/manual/en/memcached.constants.php
 		 */
-		const SERIALIZER_JSON = null;
+		const SERIALIZER_JSON = 3;
 
 		/**
-		 * @var mixed <p>This can be used to create a "domain" for your item keys. The value specified here will be prefixed to each of the keys. It cannot be longer than <i>128</i> characters and will reduce the maximum available key size. The prefix is applied only to the item keys, not to the server keys.</p> <p>Type: <i>string</i>, default: <i>""</i>.</p>
+		 * @var integer <p>This can be used to create a "domain" for your item keys. The value specified here will be prefixed to each of the keys. It cannot be longer than <code>128</code> characters and will reduce the maximum available key size. The prefix is applied only to the item keys, not to the server keys.</p> <p>Type: <code>string</code>, default: <code>""</code>.</p>
 		 * @link http://php.net/manual/en/memcached.constants.php
 		 */
-		const OPT_PREFIX_KEY = null;
+		const OPT_PREFIX_KEY = -1002;
 
 		/**
-		 * @var mixed <p>Specifies the hashing algorithm used for the item keys. The valid values are supplied via <b><code>Memcached::HASH_&#42;</code></b> constants. Each hash algorithm has its advantages and its disadvantages. Go with the default if you don't know or don't care.</p> <p>Type: <i>integer</i>, default: <b><code>Memcached::HASH_DEFAULT</code></b></p>
+		 * @var integer <p>Specifies the hashing algorithm used for the item keys. The valid values are supplied via <b><code>Memcached::HASH_&#42;</code></b> constants. Each hash algorithm has its advantages and its disadvantages. Go with the default if you don't know or don't care.</p> <p>Type: <code>integer</code>, default: <b><code>Memcached::HASH_DEFAULT</code></b></p>
 		 * @link http://php.net/manual/en/memcached.constants.php
 		 */
-		const OPT_HASH = null;
+		const OPT_HASH = 2;
 
 		/**
 		 * @var mixed <p>The default (Jenkins one-at-a-time) item key hashing algorithm.</p>
 		 * @link http://php.net/manual/en/memcached.constants.php
 		 */
-		const HASH_DEFAULT = null;
+		const HASH_DEFAULT = 0;
 
 		/**
-		 * @var mixed <p>MD5 item key hashing algorithm.</p>
+		 * @var integer <p>MD5 item key hashing algorithm.</p>
 		 * @link http://php.net/manual/en/memcached.constants.php
 		 */
-		const HASH_MD5 = null;
+		const HASH_MD5 = 1;
 
 		/**
-		 * @var mixed <p>CRC item key hashing algorithm.</p>
+		 * @var integer <p>CRC item key hashing algorithm.</p>
 		 * @link http://php.net/manual/en/memcached.constants.php
 		 */
-		const HASH_CRC = null;
+		const HASH_CRC = 2;
 
 		/**
-		 * @var mixed <p>FNV1_64 item key hashing algorithm.</p>
+		 * @var integer <p>FNV1_64 item key hashing algorithm.</p>
 		 * @link http://php.net/manual/en/memcached.constants.php
 		 */
-		const HASH_FNV1_64 = null;
+		const HASH_FNV1_64 = 3;
 
 		/**
-		 * @var mixed <p>FNV1_64A item key hashing algorithm.</p>
+		 * @var integer <p>FNV1_64A item key hashing algorithm.</p>
 		 * @link http://php.net/manual/en/memcached.constants.php
 		 */
-		const HASH_FNV1A_64 = null;
+		const HASH_FNV1A_64 = 4;
 
 		/**
-		 * @var mixed <p>FNV1_32 item key hashing algorithm.</p>
+		 * @var integer <p>FNV1_32 item key hashing algorithm.</p>
 		 * @link http://php.net/manual/en/memcached.constants.php
 		 */
-		const HASH_FNV1_32 = null;
+		const HASH_FNV1_32 = 5;
 
 		/**
-		 * @var mixed <p>FNV1_32A item key hashing algorithm.</p>
+		 * @var integer <p>FNV1_32A item key hashing algorithm.</p>
 		 * @link http://php.net/manual/en/memcached.constants.php
 		 */
-		const HASH_FNV1A_32 = null;
+		const HASH_FNV1A_32 = 6;
 
 		/**
-		 * @var mixed <p>Hsieh item key hashing algorithm.</p>
+		 * @var integer <p>Hsieh item key hashing algorithm.</p>
 		 * @link http://php.net/manual/en/memcached.constants.php
 		 */
-		const HASH_HSIEH = null;
+		const HASH_HSIEH = 7;
 
 		/**
-		 * @var mixed <p>Murmur item key hashing algorithm.</p>
+		 * @var integer <p>Murmur item key hashing algorithm.</p>
 		 * @link http://php.net/manual/en/memcached.constants.php
 		 */
-		const HASH_MURMUR = null;
+		const HASH_MURMUR = 8;
 
 		/**
-		 * @var mixed <p>Specifies the method of distributing item keys to the servers. Currently supported methods are modulo and consistent hashing. Consistent hashing delivers better distribution and allows servers to be added to the cluster with minimal cache losses.</p> <p>Type: <i>integer</i>, default: <b><code>Memcached::DISTRIBUTION_MODULA.</code></b></p>
+		 * @var integer <p>Specifies the method of distributing item keys to the servers. Currently supported methods are modulo and consistent hashing. Consistent hashing delivers better distribution and allows servers to be added to the cluster with minimal cache losses.</p> <p>Type: <code>integer</code>, default: <b><code>Memcached::DISTRIBUTION_MODULA.</code></b></p>
 		 * @link http://php.net/manual/en/memcached.constants.php
 		 */
-		const OPT_DISTRIBUTION = null;
+		const OPT_DISTRIBUTION = 9;
 
 		/**
 		 * @var mixed <p>Modulo-based key distribution algorithm.</p>
 		 * @link http://php.net/manual/en/memcached.constants.php
 		 */
-		const DISTRIBUTION_MODULA = null;
+		const DISTRIBUTION_MODULA = 0;
 
 		/**
-		 * @var mixed <p>Consistent hashing key distribution algorithm (based on libketama).</p>
+		 * @var integer <p>Consistent hashing key distribution algorithm (based on libketama).</p>
 		 * @link http://php.net/manual/en/memcached.constants.php
 		 */
-		const DISTRIBUTION_CONSISTENT = null;
+		const DISTRIBUTION_CONSISTENT = 1;
 
 		/**
-		 * @var mixed <p>Enables or disables compatibility with libketama-like behavior. When enabled, the item key hashing algorithm is set to MD5 and distribution is set to be weighted consistent hashing distribution. This is useful because other libketama-based clients (Python, Ruby, etc.) with the same server configuration will be able to access the keys transparently.</p> <p><b>Note</b>:</p><p>It is highly recommended to enable this option if you want to use consistent hashing, and it may be enabled by default in future releases.</p>  <p>Type: <i>boolean</i>, default: <b><code>FALSE</code></b>.</p>
+		 * @var integer <p>Enables or disables compatibility with libketama-like behavior. When enabled, the item key hashing algorithm is set to MD5 and distribution is set to be weighted consistent hashing distribution. This is useful because other libketama-based clients (Python, Ruby, etc.) with the same server configuration will be able to access the keys transparently.</p> <p><b>Note</b>:</p><p>It is highly recommended to enable this option if you want to use consistent hashing, and it may be enabled by default in future releases.</p>  <p>Type: <code>boolean</code>, default: <b><code>FALSE</code></b>.</p>
 		 * @link http://php.net/manual/en/memcached.constants.php
 		 */
-		const OPT_LIBKETAMA_COMPATIBLE = null;
+		const OPT_LIBKETAMA_COMPATIBLE = 16;
 
 		/**
-		 * @var mixed <p>Enables or disables buffered I/O. Enabling buffered I/O causes storage commands to "buffer" instead of being sent. Any action that retrieves data causes this buffer to be sent to the remote connection. Quitting the connection or closing down the connection will also cause the buffered data to be pushed to the remote connection.</p> <p>Type: <i>boolean</i>, default: <b><code>FALSE</code></b>.</p>
+		 * @var integer <p>Enables or disables buffered I/O. Enabling buffered I/O causes storage commands to "buffer" instead of being sent. Any action that retrieves data causes this buffer to be sent to the remote connection. Quitting the connection or closing down the connection will also cause the buffered data to be pushed to the remote connection.</p> <p>Type: <code>boolean</code>, default: <b><code>FALSE</code></b>.</p>
 		 * @link http://php.net/manual/en/memcached.constants.php
 		 */
-		const OPT_BUFFER_WRITES = null;
+		const OPT_BUFFER_WRITES = 10;
 
 		/**
-		 * @var mixed <p>Enable the use of the binary protocol. Please note that you cannot toggle this option on an open connection.</p> <p>Type: <i>boolean</i>, default: <b><code>FALSE</code></b>.</p>
+		 * @var integer <p>Enable the use of the binary protocol. Please note that you cannot toggle this option on an open connection.</p> <p>Type: <code>boolean</code>, default: <b><code>FALSE</code></b>.</p>
 		 * @link http://php.net/manual/en/memcached.constants.php
 		 */
-		const OPT_BINARY_PROTOCOL = null;
+		const OPT_BINARY_PROTOCOL = 18;
 
 		/**
-		 * @var mixed <p>Enables or disables asynchronous I/O. This is the fastest transport available for storage functions.</p> <p>Type: <i>boolean</i>, default: <b><code>FALSE</code></b>.</p>
+		 * @var mixed <p>Enables or disables asynchronous I/O. This is the fastest transport available for storage functions.</p> <p>Type: <code>boolean</code>, default: <b><code>FALSE</code></b>.</p>
 		 * @link http://php.net/manual/en/memcached.constants.php
 		 */
-		const OPT_NO_BLOCK = null;
+		const OPT_NO_BLOCK = 0;
 
 		/**
-		 * @var mixed <p>Enables or disables the no-delay feature for connecting sockets (may be faster in some environments).</p> <p>Type: <i>boolean</i>, default: <b><code>FALSE</code></b>.</p>
+		 * @var integer <p>Enables or disables the no-delay feature for connecting sockets (may be faster in some environments).</p> <p>Type: <code>boolean</code>, default: <b><code>FALSE</code></b>.</p>
 		 * @link http://php.net/manual/en/memcached.constants.php
 		 */
-		const OPT_TCP_NODELAY = null;
+		const OPT_TCP_NODELAY = 1;
 
 		/**
-		 * @var mixed <p>The maximum socket send buffer in bytes.</p> <p>Type: <i>integer</i>, default: varies by platform/kernel configuration.</p>
+		 * @var integer <p>The maximum socket send buffer in bytes.</p> <p>Type: <code>integer</code>, default: varies by platform/kernel configuration.</p>
 		 * @link http://php.net/manual/en/memcached.constants.php
 		 */
-		const OPT_SOCKET_SEND_SIZE = null;
+		const OPT_SOCKET_SEND_SIZE = 4;
 
 		/**
-		 * @var mixed <p>The maximum socket receive buffer in bytes.</p> <p>Type: <i>integer</i>, default: varies by platform/kernel configuration.</p>
+		 * @var integer <p>The maximum socket receive buffer in bytes.</p> <p>Type: <code>integer</code>, default: varies by platform/kernel configuration.</p>
 		 * @link http://php.net/manual/en/memcached.constants.php
 		 */
-		const OPT_SOCKET_RECV_SIZE = null;
+		const OPT_SOCKET_RECV_SIZE = 5;
 
 		/**
-		 * @var mixed <p>In non-blocking mode this set the value of the timeout during socket connection, in milliseconds.</p> <p>Type: <i>integer</i>, default: <i>1000</i>.</p>
+		 * @var integer <p>In non-blocking mode this set the value of the timeout during socket connection, in milliseconds.</p> <p>Type: <code>integer</code>, default: <code>1000</code>.</p>
 		 * @link http://php.net/manual/en/memcached.constants.php
 		 */
-		const OPT_CONNECT_TIMEOUT = null;
+		const OPT_CONNECT_TIMEOUT = 14;
 
 		/**
-		 * @var mixed <p>The amount of time, in seconds, to wait until retrying a failed connection attempt.</p> <p>Type: <i>integer</i>, default: <i>0</i>.</p>
+		 * @var integer <p>The amount of time, in seconds, to wait until retrying a failed connection attempt.</p> <p>Type: <code>integer</code>, default: <code>0</code>.</p>
 		 * @link http://php.net/manual/en/memcached.constants.php
 		 */
-		const OPT_RETRY_TIMEOUT = null;
+		const OPT_RETRY_TIMEOUT = 15;
 
 		/**
-		 * @var mixed <p>Socket sending timeout, in microseconds. In cases where you cannot use non-blocking I/O this will allow you to still have timeouts on the sending of data.</p> <p>Type: <i>integer</i>, default: <i>0</i>.</p>
+		 * @var integer <p>Socket sending timeout, in microseconds. In cases where you cannot use non-blocking I/O this will allow you to still have timeouts on the sending of data.</p> <p>Type: <code>integer</code>, default: <code>0</code>.</p>
 		 * @link http://php.net/manual/en/memcached.constants.php
 		 */
-		const OPT_SEND_TIMEOUT = null;
+		const OPT_SEND_TIMEOUT = 19;
 
 		/**
-		 * @var mixed <p>Socket reading timeout, in microseconds. In cases where you cannot use non-blocking I/O this will allow you to still have timeouts on the reading of data.</p> <p>Type: <i>integer</i>, default: <i>0</i>.</p>
+		 * @var integer <p>Socket reading timeout, in microseconds. In cases where you cannot use non-blocking I/O this will allow you to still have timeouts on the reading of data.</p> <p>Type: <code>integer</code>, default: <code>0</code>.</p>
 		 * @link http://php.net/manual/en/memcached.constants.php
 		 */
-		const OPT_RECV_TIMEOUT = null;
+		const OPT_RECV_TIMEOUT = 20;
 
 		/**
-		 * @var mixed <p>Timeout for connection polling, in milliseconds.</p> <p>Type: <i>integer</i>, default: <i>1000</i>.</p>
+		 * @var integer <p>Timeout for connection polling, in milliseconds.</p> <p>Type: <code>integer</code>, default: <code>1000</code>.</p>
 		 * @link http://php.net/manual/en/memcached.constants.php
 		 */
-		const OPT_POLL_TIMEOUT = null;
+		const OPT_POLL_TIMEOUT = 8;
 
 		/**
-		 * @var mixed <p>Enables or disables caching of DNS lookups.</p> <p>Type: <i>boolean</i>, default: <b><code>FALSE</code></b>.</p>
+		 * @var integer <p>Enables or disables caching of DNS lookups.</p> <p>Type: <code>boolean</code>, default: <b><code>FALSE</code></b>.</p>
 		 * @link http://php.net/manual/en/memcached.constants.php
 		 */
-		const OPT_CACHE_LOOKUPS = null;
+		const OPT_CACHE_LOOKUPS = 6;
 
 		/**
-		 * @var mixed <p>Specifies the failure limit for server connection attempts. The server will be removed after this many continuous connection failures.</p> <p>Type: <i>integer</i>, default: <i>0</i>.</p>
+		 * @var integer <p>Specifies the failure limit for server connection attempts. The server will be removed after this many continuous connection failures.</p> <p>Type: <code>integer</code>, default: <code>0</code>.</p>
 		 * @link http://php.net/manual/en/memcached.constants.php
 		 */
-		const OPT_SERVER_FAILURE_LIMIT = null;
+		const OPT_SERVER_FAILURE_LIMIT = 21;
 
 		/**
-		 * @var mixed <p>Indicates whether igbinary serializer support is available.</p> <p>Type: <i>boolean</i>.</p>
+		 * @var boolean <p>Indicates whether igbinary serializer support is available.</p> <p>Type: <code>boolean</code>.</p>
 		 * @link http://php.net/manual/en/memcached.constants.php
 		 */
-		const HAVE_IGBINARY = null;
+		const HAVE_IGBINARY = 1;
 
 		/**
-		 * @var mixed <p>Indicates whether JSON serializer support is available.</p> <p>Type: <i>boolean</i>.</p>
+		 * @var boolean <p>Indicates whether JSON serializer support is available.</p> <p>Type: <code>boolean</code>.</p>
 		 * @link http://php.net/manual/en/memcached.constants.php
 		 */
-		const HAVE_JSON = null;
+		const HAVE_JSON = 1;
 
 		/**
-		 * @var mixed <p>Indicates whether msgpack serializer support is available.</p> <p>Type: <i>boolean</i>.</p> <p>Available as of Memcached 3.0.0.</p>
+		 * @var boolean <p>Indicates whether msgpack serializer support is available.</p> <p>Type: <code>boolean</code>.</p> <p>Available as of Memcached 3.0.0.</p>
 		 * @link http://php.net/manual/en/memcached.constants.php
 		 */
-		const HAVE_MSGPACK = null;
+		const HAVE_MSGPACK = 1;
 
 		/**
-		 * @var mixed <p>Type: <i>boolean</i>.</p> <p>Available as of Memcached 3.0.0.</p>
+		 * @var boolean <p>Type: <code>boolean</code>.</p> <p>Available as of Memcached 3.0.0.</p>
 		 * @link http://php.net/manual/en/memcached.constants.php
 		 */
-		const HAVE_SESSION = null;
+		const HAVE_SESSION = 1;
 
 		/**
-		 * @var mixed <p>Type: <i>boolean</i>.</p> <p>Available as of Memcached 3.0.0.</p>
+		 * @var boolean <p>Type: <code>boolean</code>.</p> <p>Available as of Memcached 3.0.0.</p>
 		 * @link http://php.net/manual/en/memcached.constants.php
 		 */
-		const HAVE_SASL = null;
+		const HAVE_SASL = 1;
 
 		/**
-		 * @var mixed <p>A flag for <code>Memcached::get()</code>, <code>Memcached::getMulti()</code> and <code>Memcached::getMultiByKey()</code> to ensure that the CAS token values are returned as well.</p> <p>Available as of Memcached 3.0.0.</p>
+		 * @var integer <p>A flag for <code>Memcached::get()</code>, <code>Memcached::getMulti()</code> and <code>Memcached::getMultiByKey()</code> to ensure that the CAS token values are returned as well.</p> <p>Available as of Memcached 3.0.0.</p>
 		 * @link http://php.net/manual/en/memcached.constants.php
 		 */
-		const GET_EXTENDED = null;
+		const GET_EXTENDED = 2;
 
 		/**
-		 * @var mixed <p>A flag for <code>Memcached::getMulti()</code> and <code>Memcached::getMultiByKey()</code> to ensure that the keys are returned in the same order as they were requested in. Non-existing keys get a default value of NULL.</p>
+		 * @var integer <p>A flag for <code>Memcached::getMulti()</code> and <code>Memcached::getMultiByKey()</code> to ensure that the keys are returned in the same order as they were requested in. Non-existing keys get a default value of NULL.</p>
 		 * @link http://php.net/manual/en/memcached.constants.php
 		 */
-		const GET_PRESERVE_ORDER = null;
+		const GET_PRESERVE_ORDER = 1;
 
 		/**
 		 * @var mixed <p>The operation was successful.</p>
 		 * @link http://php.net/manual/en/memcached.constants.php
 		 */
-		const RES_SUCCESS = null;
+		const RES_SUCCESS = 0;
 
 		/**
-		 * @var mixed <p>The operation failed in some fashion.</p>
+		 * @var integer <p>The operation failed in some fashion.</p>
 		 * @link http://php.net/manual/en/memcached.constants.php
 		 */
-		const RES_FAILURE = null;
+		const RES_FAILURE = 1;
 
 		/**
-		 * @var mixed <p>DNS lookup failed.</p>
+		 * @var integer <p>DNS lookup failed.</p>
 		 * @link http://php.net/manual/en/memcached.constants.php
 		 */
-		const RES_HOST_LOOKUP_FAILURE = null;
+		const RES_HOST_LOOKUP_FAILURE = 2;
 
 		/**
-		 * @var mixed <p>Failed to read network data.</p>
+		 * @var integer <p>Failed to read network data.</p>
 		 * @link http://php.net/manual/en/memcached.constants.php
 		 */
-		const RES_UNKNOWN_READ_FAILURE = null;
+		const RES_UNKNOWN_READ_FAILURE = 7;
 
 		/**
-		 * @var mixed <p>Bad command in memcached protocol.</p>
+		 * @var integer <p>Bad command in memcached protocol.</p>
 		 * @link http://php.net/manual/en/memcached.constants.php
 		 */
-		const RES_PROTOCOL_ERROR = null;
+		const RES_PROTOCOL_ERROR = 8;
 
 		/**
-		 * @var mixed <p>Error on the client side.</p>
+		 * @var integer <p>Error on the client side.</p>
 		 * @link http://php.net/manual/en/memcached.constants.php
 		 */
-		const RES_CLIENT_ERROR = null;
+		const RES_CLIENT_ERROR = 9;
 
 		/**
-		 * @var mixed <p>Error on the server side.</p>
+		 * @var integer <p>Error on the server side.</p>
 		 * @link http://php.net/manual/en/memcached.constants.php
 		 */
-		const RES_SERVER_ERROR = null;
+		const RES_SERVER_ERROR = 10;
 
 		/**
-		 * @var mixed <p>Failed to write network data.</p>
+		 * @var integer <p>Failed to write network data.</p>
 		 * @link http://php.net/manual/en/memcached.constants.php
 		 */
-		const RES_WRITE_FAILURE = null;
+		const RES_WRITE_FAILURE = 5;
 
 		/**
-		 * @var mixed <p>Failed to do compare-and-swap: item you are trying to store has been modified since you last fetched it.</p>
+		 * @var integer <p>Failed to do compare-and-swap: item you are trying to store has been modified since you last fetched it.</p>
 		 * @link http://php.net/manual/en/memcached.constants.php
 		 */
-		const RES_DATA_EXISTS = null;
+		const RES_DATA_EXISTS = 12;
 
 		/**
-		 * @var mixed <p>Item was not stored: but not because of an error. This normally means that either the condition for an "add" or a "replace" command wasn't met, or that the item is in a delete queue.</p>
+		 * @var integer <p>Item was not stored: but not because of an error. This normally means that either the condition for an "add" or a "replace" command wasn't met, or that the item is in a delete queue.</p>
 		 * @link http://php.net/manual/en/memcached.constants.php
 		 */
-		const RES_NOTSTORED = null;
+		const RES_NOTSTORED = 14;
 
 		/**
-		 * @var mixed <p>Item with this key was not found (with "get" operation or "cas" operations).</p>
+		 * @var integer <p>Item with this key was not found (with "get" operation or "cas" operations).</p>
 		 * @link http://php.net/manual/en/memcached.constants.php
 		 */
-		const RES_NOTFOUND = null;
+		const RES_NOTFOUND = 16;
 
 		/**
-		 * @var mixed <p>Partial network data read error.</p>
+		 * @var integer <p>Partial network data read error.</p>
 		 * @link http://php.net/manual/en/memcached.constants.php
 		 */
-		const RES_PARTIAL_READ = null;
+		const RES_PARTIAL_READ = 18;
 
 		/**
-		 * @var mixed <p>Some errors occurred during multi-get.</p>
+		 * @var integer <p>Some errors occurred during multi-get.</p>
 		 * @link http://php.net/manual/en/memcached.constants.php
 		 */
-		const RES_SOME_ERRORS = null;
+		const RES_SOME_ERRORS = 19;
 
 		/**
-		 * @var mixed <p>Server list is empty.</p>
+		 * @var integer <p>Server list is empty.</p>
 		 * @link http://php.net/manual/en/memcached.constants.php
 		 */
-		const RES_NO_SERVERS = null;
+		const RES_NO_SERVERS = 20;
 
 		/**
-		 * @var mixed <p>End of result set.</p>
+		 * @var integer <p>End of result set.</p>
 		 * @link http://php.net/manual/en/memcached.constants.php
 		 */
-		const RES_END = null;
+		const RES_END = 21;
 
 		/**
-		 * @var mixed <p>System error.</p>
+		 * @var integer <p>System error.</p>
 		 * @link http://php.net/manual/en/memcached.constants.php
 		 */
-		const RES_ERRNO = null;
+		const RES_ERRNO = 26;
 
 		/**
-		 * @var mixed <p>The operation was buffered.</p>
+		 * @var integer <p>The operation was buffered.</p>
 		 * @link http://php.net/manual/en/memcached.constants.php
 		 */
-		const RES_BUFFERED = null;
+		const RES_BUFFERED = 32;
 
 		/**
-		 * @var mixed <p>The operation timed out.</p>
+		 * @var integer <p>The operation timed out.</p>
 		 * @link http://php.net/manual/en/memcached.constants.php
 		 */
-		const RES_TIMEOUT = null;
+		const RES_TIMEOUT = 31;
 
 		/**
-		 * @var mixed <p>Bad key.</p>
+		 * @var integer <p>Bad key.</p>
 		 * @link http://php.net/manual/en/memcached.constants.php
 		 */
-		const RES_BAD_KEY_PROVIDED = null;
+		const RES_BAD_KEY_PROVIDED = 33;
 
 		/**
-		 * @var mixed <p>Failed to create network socket.</p>
+		 * @var integer <p>Failed to create network socket.</p>
 		 * @link http://php.net/manual/en/memcached.constants.php
 		 */
-		const RES_CONNECTION_SOCKET_CREATE_FAILURE = null;
+		const RES_CONNECTION_SOCKET_CREATE_FAILURE = 11;
 
 		/**
-		 * @var mixed <p>Payload failure: could not compress/decompress or serialize/unserialize the value.</p>
+		 * @var integer <p>Payload failure: could not compress/decompress or serialize/unserialize the value.</p>
 		 * @link http://php.net/manual/en/memcached.constants.php
 		 */
-		const RES_PAYLOAD_FAILURE = null;
+		const RES_PAYLOAD_FAILURE = -1001;
 
 		/**
-		 * @var mixed <p>Available as of Memcached 3.0.0.</p>
+		 * @var integer <p>Available as of Memcached 3.0.0.</p>
 		 * @link http://php.net/manual/en/memcached.constants.php
 		 */
-		const RES_AUTH_PROBLEM = null;
+		const RES_AUTH_PROBLEM = 40;
 
 		/**
-		 * @var mixed <p>Available as of Memcached 3.0.0.</p>
+		 * @var integer <p>Available as of Memcached 3.0.0.</p>
 		 * @link http://php.net/manual/en/memcached.constants.php
 		 */
-		const RES_AUTH_FAILURE = null;
+		const RES_AUTH_FAILURE = 41;
 
 		/**
-		 * @var mixed <p>Available as of Memcached 3.0.0.</p>
+		 * @var integer <p>Available as of Memcached 3.0.0.</p>
 		 * @link http://php.net/manual/en/memcached.constants.php
 		 */
-		const RES_AUTH_CONTINUE = null;
+		const RES_AUTH_CONTINUE = 42;
 
 		/**
-		 * @var mixed <p>Available as of Memcached 3.0.0.</p>
+		 * @var integer <p>Available as of Memcached 3.0.0.</p>
 		 * @link http://php.net/manual/en/memcached.constants.php
 		 */
-		const RES_E2BIG = null;
+		const RES_E2BIG = 37;
 
 		/**
-		 * @var mixed <p>Available as of Memcached 3.0.0.</p>
+		 * @var integer <p>Available as of Memcached 3.0.0.</p>
 		 * @link http://php.net/manual/en/memcached.constants.php
 		 */
-		const RES_KEY_TOO_BIG = null;
+		const RES_KEY_TOO_BIG = 39;
 
 		/**
-		 * @var mixed <p>Available as of Memcached 3.0.0.</p>
+		 * @var integer <p>Available as of Memcached 3.0.0.</p>
 		 * @link http://php.net/manual/en/memcached.constants.php
 		 */
-		const RES_SERVER_TEMPORARILY_DISABLED = null;
+		const RES_SERVER_TEMPORARILY_DISABLED = 47;
 
 		/**
-		 * @var mixed <p>Available as of Memcached 3.0.0.</p>
+		 * @var integer <p>Available as of Memcached 3.0.0.</p>
 		 * @link http://php.net/manual/en/memcached.constants.php
 		 */
-		const RES_SERVER_MEMORY_ALLOCATION_FAILURE = null;
+		const RES_SERVER_MEMORY_ALLOCATION_FAILURE = 48;
 
 		/**
 		 * Create a Memcached instance
@@ -457,8 +457,8 @@ namespace {
 		/**
 		 * Add a server to the server pool
 		 * <p><b>Memcached::addServer()</b> adds the specified server to the server pool. No connection is established to the server at this time, but if you are using consistent key distribution option (via <b><code>Memcached::DISTRIBUTION_CONSISTENT</code></b> or <b><code>Memcached::OPT_LIBKETAMA_COMPATIBLE</code></b>), some of the internal data structures will have to be updated. Thus, if you need to add multiple servers, it is better to use <code>Memcached::addServers()</code> as the update then happens only once.</p><p>The same server may appear multiple times in the server pool, because no duplication checks are made. This is not advisable; instead, use the <code>weight</code> option to increase the selection weighting of this server.</p>
-		 * @param string $host <p>The hostname of the memcache server. If the hostname is invalid, data-related operations will set <b><code>Memcached::RES_HOST_LOOKUP_FAILURE</code></b> result code. As of version 2.0.0b1, this parameter may also specify the path of a unix socket filepath ex. <i>/path/to/memcached.sock</i> to use UNIX domain sockets, in this case <code>port</code> must also be set to <i>0</i>.</p>
-		 * @param int $port <p>The port on which memcache is running. Usually, this is <i>11211</i>. As of version 2.0.0b1, set this parameter to <i>0</i> when using UNIX domain sockets.</p>
+		 * @param string $host <p>The hostname of the memcache server. If the hostname is invalid, data-related operations will set <b><code>Memcached::RES_HOST_LOOKUP_FAILURE</code></b> result code. As of version 2.0.0b1, this parameter may also specify the path of a unix socket filepath ex. <code>/path/to/memcached.sock</code> to use UNIX domain sockets, in this case <code>port</code> must also be set to <code>0</code>.</p>
+		 * @param int $port <p>The port on which memcache is running. Usually, this is <code>11211</code>. As of version 2.0.0b1, set this parameter to <code>0</code> when using UNIX domain sockets.</p>
 		 * @param int $weight <p>The weight of the server relative to the total weight of all the servers in the pool. This controls the probability of the server being selected for operations. This is used only with consistent distribution option and usually corresponds to the amount of memory available to memcache on that server.</p>
 		 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
 		 * @link http://php.net/manual/en/memcached.addserver.php
@@ -533,11 +533,11 @@ namespace {
 		 * @param int $offset <p>The amount by which to decrement the item's value.</p>
 		 * @param int $initial_value <p>The value to set the item to if it doesn't currently exist.</p>
 		 * @param int $expiry <p>The expiry time to set on the item.</p>
-		 * @return int <p>Returns item's new value on success or <b><code>FALSE</code></b> on failure.</p>
+		 * @return int|false <p>Returns item's new value on success or <b><code>FALSE</code></b> on failure.</p>
 		 * @link http://php.net/manual/en/memcached.decrement.php
 		 * @since PECL memcached >= 0.1.0
 		 */
-		public function decrement(string $key, int $offset = 1, int $initial_value = 0, int $expiry = 0): int {}
+		public function decrement(string $key, int $offset = 1, int $initial_value = 0, int $expiry = 0) {}
 
 		/**
 		 * Decrement numeric item's value, stored on a specific server
@@ -547,15 +547,15 @@ namespace {
 		 * @param int $offset <p>The amount by which to decrement the item's value.</p>
 		 * @param int $initial_value <p>The value to set the item to if it doesn't currently exist.</p>
 		 * @param int $expiry <p>The expiry time to set on the item.</p>
-		 * @return int <p>Returns item's new value on success or <b><code>FALSE</code></b> on failure.</p>
+		 * @return int|false <p>Returns item's new value on success or <b><code>FALSE</code></b> on failure.</p>
 		 * @link http://php.net/manual/en/memcached.decrementbykey.php
 		 * @since PECL memcached >= 2.0.0
 		 */
-		public function decrementByKey(string $server_key, string $key, int $offset = 1, int $initial_value = 0, int $expiry = 0): int {}
+		public function decrementByKey(string $server_key, string $key, int $offset = 1, int $initial_value = 0, int $expiry = 0) {}
 
 		/**
 		 * Delete an item
-		 * <p><b>Memcached::delete()</b> deletes the <code>key</code> from the server. The <code>time</code> parameter is the amount of time in seconds (or Unix time until which) the client wishes the server to refuse <i>add</i> and <i>replace</i> commands for this key. For this amount of time, the item is put into a delete queue, which means that it won't possible to retrieve it by the <i>get</i> command, but <i>add</i> and <i>replace</i> command with this key will also fail (the <i>set</i> command will succeed, however). After the time passes, the item is finally deleted from server memory. The parameter <code>time</code> defaults to 0 (which means that the item will be deleted immediately and further storage commands with this key will succeed).</p>
+		 * <p><b>Memcached::delete()</b> deletes the <code>key</code> from the server. The <code>time</code> parameter is the amount of time in seconds (or Unix time until which) the client wishes the server to refuse <code>add</code> and <code>replace</code> commands for this key. For this amount of time, the item is put into a delete queue, which means that it won't possible to retrieve it by the <code>get</code> command, but <code>add</code> and <code>replace</code> command with this key will also fail (the <code>set</code> command will succeed, however). After the time passes, the item is finally deleted from server memory. The parameter <code>time</code> defaults to 0 (which means that the item will be deleted immediately and further storage commands with this key will succeed).</p>
 		 * @param string $key <p>The key to be deleted.</p>
 		 * @param int $time <p>The amount of time the server will wait to delete the item.</p>
 		 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure. The <code>Memcached::getResultCode()</code> will return <b><code>Memcached::RES_NOTFOUND</code></b> if the key does not exist.</p>
@@ -578,7 +578,7 @@ namespace {
 
 		/**
 		 * Delete multiple items
-		 * <p><b>Memcached::deleteMulti()</b> deletes the array of <code>keys</code> from the server. The <code>time</code> parameter is the amount of time in seconds (or Unix time until which) the client wishes the server to refuse <i>add</i> and <i>replace</i> commands for these keys. For this amount of time, the item is put into a delete queue, which means that it won't be possible to retrieve it by the <i>get</i> command, but <i>add</i> and <i>replace</i> command with these keys will also fail (the <i>set</i> command will succeed, however). After the time passes, the item is finally deleted from server memory. The parameter <code>time</code> defaults to 0 (which means that the item will be deleted immediately and further storage commands with these keys will succeed).</p>
+		 * <p><b>Memcached::deleteMulti()</b> deletes the array of <code>keys</code> from the server. The <code>time</code> parameter is the amount of time in seconds (or Unix time until which) the client wishes the server to refuse <code>add</code> and <code>replace</code> commands for these keys. For this amount of time, the item is put into a delete queue, which means that it won't be possible to retrieve it by the <code>get</code> command, but <code>add</code> and <code>replace</code> command with these keys will also fail (the <code>set</code> command will succeed, however). After the time passes, the item is finally deleted from server memory. The parameter <code>time</code> defaults to 0 (which means that the item will be deleted immediately and further storage commands with these keys will succeed).</p>
 		 * @param array $keys <p>The keys to be deleted.</p>
 		 * @param int $time <p>The amount of time the server will wait to delete the items.</p>
 		 * @return array <p>Returns array indexed by <code>keys</code> and where values are indicating whether operation succeeded or not. The <code>Memcached::getResultCode()</code> will return <b><code>Memcached::RES_NOTFOUND</code></b> if the key does not exist.</p>
@@ -611,11 +611,11 @@ namespace {
 		/**
 		 * Fetch all the remaining results
 		 * <p><b>Memcached::fetchAll()</b> retrieves all the remaining results from the last request.</p>
-		 * @return array <p>Returns the results or <b><code>FALSE</code></b> on failure. Use <code>Memcached::getResultCode()</code> if necessary.</p>
+		 * @return array|false <p>Returns the results or <b><code>FALSE</code></b> on failure. Use <code>Memcached::getResultCode()</code> if necessary.</p>
 		 * @link http://php.net/manual/en/memcached.fetchall.php
 		 * @since PECL memcached >= 0.1.0
 		 */
-		public function fetchAll(): array {}
+		public function fetchAll() {}
 
 		/**
 		 * Invalidate all items in the cache
@@ -642,11 +642,11 @@ namespace {
 		/**
 		 * Gets the keys stored on all the servers
 		 * <p><b>Memcached::getAllKeys()</b> queries each memcache server and retrieves an array of all keys stored on them at that point in time. This is not an atomic operation, so it isn't a truly consistent snapshot of the keys at point in time. As memcache doesn't guarantee to return all keys you also cannot assume that all keys have been returned.</p>
-		 * @return array <p>Returns the keys stored on all the servers on success or <b><code>FALSE</code></b> on failure.</p>
+		 * @return array|false <p>Returns the keys stored on all the servers on success or <b><code>FALSE</code></b> on failure.</p>
 		 * @link http://php.net/manual/en/memcached.getallkeys.php
 		 * @since PECL memcached >= 2.0.0
 		 */
-		public function getAllKeys(): array {}
+		public function getAllKeys() {}
 
 		/**
 		 * Retrieve an item from a specific server
@@ -703,16 +703,16 @@ namespace {
 		 * @param string $server_key <p>The key identifying the server to store the value on or retrieve it from. Instead of hashing on the actual key for the item, we hash on the server key when deciding which memcached server to talk to. This allows related items to be grouped together on a single server for efficiency with multi operations.</p>
 		 * @param array $keys <p>Array of keys to retrieve.</p>
 		 * @param int $flags <p>The flags for the get operation.</p>
-		 * @return array <p>Returns the array of found items or <b><code>FALSE</code></b> on failure. Use <code>Memcached::getResultCode()</code> if necessary.</p>
+		 * @return array|false <p>Returns the array of found items or <b><code>FALSE</code></b> on failure. Use <code>Memcached::getResultCode()</code> if necessary.</p>
 		 * @link http://php.net/manual/en/memcached.getmultibykey.php
 		 * @since PECL memcached >= 0.1.0
 		 */
-		public function getMultiByKey(string $server_key, array $keys, int $flags = NULL): array {}
+		public function getMultiByKey(string $server_key, array $keys, int $flags = NULL) {}
 
 		/**
 		 * Retrieve a Memcached option value
 		 * <p>This method returns the value of a Memcached <code>option</code>. Some options correspond to the ones defined by libmemcached, and some are specific to the extension. See Memcached Constants for more information.</p>
-		 * @param int $option <p>One of the <i>Memcached::OPT_&#42;</i> constants.</p>
+		 * @param int $option <p>One of the <code>Memcached::OPT_&#42;</code> constants.</p>
 		 * @return mixed <p>Returns the value of the requested option, or <b><code>FALSE</code></b> on error.</p>
 		 * @link http://php.net/manual/en/memcached.getoption.php
 		 * @since PECL memcached >= 0.1.0
@@ -741,7 +741,7 @@ namespace {
 		 * Map a key to a server
 		 * <p><b>Memcached::getServerByKey()</b> returns the server that would be selected by a particular <code>server_key</code> in all the <b>Memcached::&#42;ByKey()</b> operations.</p>
 		 * @param string $server_key <p>The key identifying the server to store the value on or retrieve it from. Instead of hashing on the actual key for the item, we hash on the server key when deciding which memcached server to talk to. This allows related items to be grouped together on a single server for efficiency with multi operations.</p>
-		 * @return array <p>Returns an array containing three keys of <i>host</i>, <i>port</i>, and <i>weight</i> on success or <b><code>FALSE</code></b> on failure. Use <code>Memcached::getResultCode()</code> if necessary.</p>
+		 * @return array <p>Returns an array containing three keys of <code>host</code>, <code>port</code>, and <code>weight</code> on success or <b><code>FALSE</code></b> on failure. Use <code>Memcached::getResultCode()</code> if necessary.</p>
 		 * @link http://php.net/manual/en/memcached.getserverbykey.php
 		 * @since PECL memcached >= 0.1.0
 		 */
@@ -759,11 +759,11 @@ namespace {
 		/**
 		 * Get server pool statistics
 		 * <p><b>Memcached::getStats()</b> returns an array containing the state of all available memcache servers. See memcache protocol specification for details on these statistics.</p>
-		 * @return array <p>Array of server statistics, one entry per server.</p>
+		 * @return array|false <p>Array of server statistics, one entry per server, or <b><code>FALSE</code></b> on failure.</p>
 		 * @link http://php.net/manual/en/memcached.getstats.php
 		 * @since PECL memcached >= 0.1.0
 		 */
-		public function getStats(): array {}
+		public function getStats() {}
 
 		/**
 		 * Get server pool version info
@@ -781,11 +781,11 @@ namespace {
 		 * @param int $offset <p>The amount by which to increment the item's value.</p>
 		 * @param int $initial_value <p>The value to set the item to if it doesn't currently exist.</p>
 		 * @param int $expiry <p>The expiry time to set on the item.</p>
-		 * @return int <p>Returns new item's value on success or <b><code>FALSE</code></b> on failure.</p>
+		 * @return int|false <p>Returns new item's value on success or <b><code>FALSE</code></b> on failure.</p>
 		 * @link http://php.net/manual/en/memcached.increment.php
 		 * @since PECL memcached >= 0.1.0
 		 */
-		public function increment(string $key, int $offset = 1, int $initial_value = 0, int $expiry = 0): int {}
+		public function increment(string $key, int $offset = 1, int $initial_value = 0, int $expiry = 0) {}
 
 		/**
 		 * Increment numeric item's value, stored on a specific server
@@ -795,11 +795,11 @@ namespace {
 		 * @param int $offset <p>The amount by which to increment the item's value.</p>
 		 * @param int $initial_value <p>The value to set the item to if it doesn't currently exist.</p>
 		 * @param int $expiry <p>The expiry time to set on the item.</p>
-		 * @return int <p>Returns new item's value on success or <b><code>FALSE</code></b> on failure.</p>
+		 * @return int|false <p>Returns new item's value on success or <b><code>FALSE</code></b> on failure.</p>
 		 * @link http://php.net/manual/en/memcached.incrementbykey.php
 		 * @since PECL memcached >= 2.0.0
 		 */
-		public function incrementByKey(string $server_key, string $key, int $offset = 1, int $initial_value = 0, int $expiry = 0): int {}
+		public function incrementByKey(string $server_key, string $key, int $offset = 1, int $initial_value = 0, int $expiry = 0) {}
 
 		/**
 		 * Check if a persitent connection to memcache is being used
@@ -878,7 +878,7 @@ namespace {
 
 		/**
 		 * Clears all servers from the server list
-		 * <p><b>Memcached::resetserverlist()</b> removes all memcache servers from the known server list, reseting it back to empty.</p>
+		 * <p><b>Memcached::resetserverlist()</b> removes all memcache servers from the known server list, resetting it back to empty.</p>
 		 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
 		 * @link http://php.net/manual/en/memcached.resetserverlist.php
 		 * @since PECL memcached >= 2.0.0
@@ -935,7 +935,7 @@ namespace {
 
 		/**
 		 * Set a Memcached option
-		 * <p>This method sets the value of a Memcached <code>option</code>. Some options correspond to the ones defined by libmemcached, and some are specific to the extension. See Memcached Constants for more information.</p><p>The options listed below require values specified via constants.</p><p><i>Memcached::OPT_HASH</i> requires <i>Memcached::HASH_&#42;</i> values.</p><p><i>Memcached::OPT_DISTRIBUTION</i> requires <i>Memcached::DISTRIBUTION_&#42;</i> values.</p>
+		 * <p>This method sets the value of a Memcached <code>option</code>. Some options correspond to the ones defined by libmemcached, and some are specific to the extension. See Memcached Constants for more information.</p><p>The options listed below require values specified via constants.</p><p><code>Memcached::OPT_HASH</code> requires <code>Memcached::HASH_&#42;</code> values.</p><p><code>Memcached::OPT_DISTRIBUTION</code> requires <code>Memcached::DISTRIBUTION_&#42;</code> values.</p>
 		 * @param int $option
 		 * @param mixed $value
 		 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
@@ -1024,7 +1024,7 @@ namespace {
 		 * <p>Tries to clone the Exception, which results in Fatal error.</p>
 		 * @return void <p>No value is returned.</p>
 		 * @link http://php.net/manual/en/exception.clone.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final private function __clone() {}
 
@@ -1033,16 +1033,16 @@ namespace {
 		 * <p>Returns the <code>string</code> representation of the exception.</p>
 		 * @return string <p>Returns the <code>string</code> representation of the exception.</p>
 		 * @link http://php.net/manual/en/exception.tostring.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		public function __toString(): string {}
 
 		/**
 		 * Gets the Exception code
 		 * <p>Returns the Exception code.</p>
-		 * @return mixed <p>Returns the exception code as <code>integer</code> in Exception but possibly as other type in Exception descendants (for example as <code>string</code> in PDOException).</p>
+		 * @return mixed <p>Returns the exception code as <code>int</code> in Exception but possibly as other type in Exception descendants (for example as <code>string</code> in PDOException).</p>
 		 * @link http://php.net/manual/en/exception.getcode.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getCode() {}
 
@@ -1051,7 +1051,7 @@ namespace {
 		 * <p>Get the name of the file in which the exception was created.</p>
 		 * @return string <p>Returns the filename in which the exception was created.</p>
 		 * @link http://php.net/manual/en/exception.getfile.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getFile(): string {}
 
@@ -1060,7 +1060,7 @@ namespace {
 		 * <p>Get line number where the exception was created.</p>
 		 * @return int <p>Returns the line number where the exception was created.</p>
 		 * @link http://php.net/manual/en/exception.getline.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getLine(): int {}
 
@@ -1069,7 +1069,7 @@ namespace {
 		 * <p>Returns the Exception message.</p>
 		 * @return string <p>Returns the Exception message as a string.</p>
 		 * @link http://php.net/manual/en/exception.getmessage.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getMessage(): string {}
 
@@ -1078,7 +1078,7 @@ namespace {
 		 * <p>Returns previous exception (the third parameter of <code>Exception::__construct()</code>).</p>
 		 * @return Throwable <p>Returns the previous Throwable if available or <b><code>NULL</code></b> otherwise.</p>
 		 * @link http://php.net/manual/en/exception.getprevious.php
-		 * @since PHP 5 >= 5.3.0, PHP 7
+		 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8
 		 */
 		final public function getPrevious(): \Throwable {}
 
@@ -1087,7 +1087,7 @@ namespace {
 		 * <p>Returns the Exception stack trace.</p>
 		 * @return array <p>Returns the Exception stack trace as an <code>array</code>.</p>
 		 * @link http://php.net/manual/en/exception.gettrace.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getTrace(): array {}
 
@@ -1096,7 +1096,7 @@ namespace {
 		 * <p>Returns the Exception stack trace as a string.</p>
 		 * @return string <p>Returns the Exception stack trace as a string.</p>
 		 * @link http://php.net/manual/en/exception.gettraceasstring.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getTraceAsString(): string {}
 	}

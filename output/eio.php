@@ -13,6 +13,7 @@ namespace {
 	 * @param mixed $data <p>Arbitrary variable passed to <code>callback</code>.</p>
 	 * @return resource <p><b>eio_busy()</b> returns request resource on success or <b><code>FALSE</code></b> on error.</p>
 	 * @link http://php.net/manual/en/function.eio-busy.php
+	 * @see eio_nop()
 	 * @since PECL eio >= 0.0.1dev
 	 */
 	function eio_busy(int $delay, int $pri = EIO_PRI_DEFAULT, callable $callback = NULL, $data = NULL) {}
@@ -23,13 +24,14 @@ namespace {
 	 * @param resource $req <p>The request resource</p>
 	 * @return void <p>No value is returned.</p>
 	 * @link http://php.net/manual/en/function.eio-cancel.php
+	 * @see eio_grp_cancel()
 	 * @since PECL eio >= 0.0.1dev
 	 */
 	function eio_cancel($req): void {}
 
 	/**
-	 * Change file/direcrory permissions
-	 * <p><b>eio_chmod()</b> changes file, or direcrory permissions. The new permissions are specified by <code>mode</code>.</p>
+	 * Change file/directory permissions
+	 * <p><b>eio_chmod()</b> changes file, or directory permissions. The new permissions are specified by <code>mode</code>.</p>
 	 * @param string $path <p>Path to the target file or directory</p><p><b>Warning</b></p><p>Avoid relative paths</p>
 	 * @param int $mode <p>The new permissions. E.g. <b><code>0644</code></b>.</p>
 	 * @param int $pri <p>The request priority: <b><code>EIO_PRI_DEFAULT</code></b>, <b><code>EIO_PRI_MIN</code></b>, <b><code>EIO_PRI_MAX</code></b>, or <b><code>NULL</code></b>. If <b><code>NULL</code></b> passed, <code>pri</code> internally is set to <b><code>EIO_PRI_DEFAULT</code></b>.</p>
@@ -37,12 +39,13 @@ namespace {
 	 * @param mixed $data <p>Arbitrary variable passed to <code>callback</code>.</p>
 	 * @return resource <p><b>eio_chmod()</b> returns request resource on success or <b><code>FALSE</code></b> on error.</p>
 	 * @link http://php.net/manual/en/function.eio-chmod.php
+	 * @see eio_chown()
 	 * @since PECL eio >= 0.0.1dev
 	 */
 	function eio_chmod(string $path, int $mode, int $pri = EIO_PRI_DEFAULT, callable $callback = NULL, $data = NULL) {}
 
 	/**
-	 * Change file/direcrory permissions
+	 * Change file/directory permissions
 	 * <p>Changes file, or directory permissions.</p>
 	 * @param string $path <p>Path to file or directory.</p><p><b>Warning</b></p><p>Avoid relative paths</p>
 	 * @param int $uid <p>User ID. Is ignored when equal to -1.</p>
@@ -52,6 +55,7 @@ namespace {
 	 * @param mixed $data <p>Arbitrary variable passed to <code>callback</code>.</p>
 	 * @return resource <p><b>eio_chown()</b> returns request resource on success or <b><code>FALSE</code></b> on error.</p>
 	 * @link http://php.net/manual/en/function.eio-chown.php
+	 * @see eio_chmod()
 	 * @since PECL eio >= 0.0.1dev
 	 */
 	function eio_chown(string $path, int $uid, int $gid = -1, int $pri = EIO_PRI_DEFAULT, callable $callback = NULL, $data = NULL) {}
@@ -65,6 +69,7 @@ namespace {
 	 * @param mixed $data <p>Arbitrary variable passed to <code>callback</code>.</p>
 	 * @return resource <p><b>eio_close()</b> returns request resource on success or <b><code>FALSE</code></b> on error.</p>
 	 * @link http://php.net/manual/en/function.eio-close.php
+	 * @see eio_open()
 	 * @since PECL eio >= 0.0.1dev
 	 */
 	function eio_close($fd, int $pri = EIO_PRI_DEFAULT, callable $callback = NULL, $data = NULL) {}
@@ -101,6 +106,7 @@ namespace {
 	 * <p><b>eio_event_loop()</b> polls libeio until all requests proceeded.</p>
 	 * @return bool <p><b>eio_event_loop()</b> returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on error.</p>
 	 * @link http://php.net/manual/en/function.eio-event-loop.php
+	 * @see eio_poll()
 	 * @since PECL eio >= 0.0.1dev
 	 */
 	function eio_event_loop(): bool {}
@@ -131,6 +137,7 @@ namespace {
 	 * @param mixed $data <p>Arbitrary variable passed to <code>callback</code>.</p>
 	 * @return resource <p><b>eio_fchmod()</b> returns request resource on success or <b><code>FALSE</code></b> on error.</p>
 	 * @link http://php.net/manual/en/function.eio-fchmod.php
+	 * @see eio_fchown()
 	 * @since PECL eio >= 0.0.1dev
 	 */
 	function eio_fchmod($fd, int $mode, int $pri = EIO_PRI_DEFAULT, callable $callback = NULL, $data = NULL) {}
@@ -146,6 +153,7 @@ namespace {
 	 * @param mixed $data <p>Arbitrary variable passed to <code>callback</code>.</p>
 	 * @return resource
 	 * @link http://php.net/manual/en/function.eio-fchown.php
+	 * @see eio_fchmod()
 	 * @since PECL eio >= 0.0.1dev
 	 */
 	function eio_fchown($fd, int $uid, int $gid = -1, int $pri = EIO_PRI_DEFAULT, callable $callback = NULL, $data = NULL) {}
@@ -172,6 +180,7 @@ namespace {
 	 * @param mixed $data <p>Arbitrary variable passed to <code>callback</code>.</p>
 	 * @return resource <p><code>eio_busy()</code> returns request resource on success or <b><code>FALSE</code></b> on error.</p>
 	 * @link http://php.net/manual/en/function.eio-fstat.php
+	 * @see eio_lstat(), eio_stat()
 	 * @since PECL eio >= 0.0.1dev
 	 */
 	function eio_fstat($fd, int $pri, callable $callback, $data = NULL) {}
@@ -185,6 +194,7 @@ namespace {
 	 * @param mixed $data <p>Arbitrary variable passed to <code>callback</code>.</p>
 	 * @return resource <p><b>eio_fstatvfs()</b> returns request resource on success or <b><code>FALSE</code></b> on error.</p>
 	 * @link http://php.net/manual/en/function.eio-fstatvfs.php
+	 * @see eio_statvfs()
 	 * @since PECL eio >= 0.0.1dev
 	 */
 	function eio_fstatvfs($fd, int $pri, callable $callback, $data = NULL) {}
@@ -198,6 +208,7 @@ namespace {
 	 * @param mixed $data <p>Arbitrary variable passed to <code>callback</code>.</p>
 	 * @return resource <p><b>eio_fsync()</b> returns request resource on success or <b><code>FALSE</code></b> on error.</p>
 	 * @link http://php.net/manual/en/function.eio-fsync.php
+	 * @see eio_sync()
 	 * @since PECL eio >= 0.0.1dev
 	 */
 	function eio_fsync($fd, int $pri = EIO_PRI_DEFAULT, callable $callback = NULL, $data = NULL) {}
@@ -212,6 +223,7 @@ namespace {
 	 * @param mixed $data <p>Arbitrary variable passed to <code>callback</code>.</p>
 	 * @return resource <p><b>eio_ftruncate()</b> returns request resource on success or <b><code>FALSE</code></b> on error.</p>
 	 * @link http://php.net/manual/en/function.eio-ftruncate.php
+	 * @see eio_truncate()
 	 * @since PECL eio >= 0.0.1dev
 	 */
 	function eio_ftruncate($fd, int $offset = 0, int $pri = EIO_PRI_DEFAULT, callable $callback = NULL, $data = NULL) {}
@@ -227,6 +239,7 @@ namespace {
 	 * @param mixed $data <p>Arbitrary variable passed to <code>callback</code>.</p>
 	 * @return resource <p><b>eio_futime()</b> returns request resource on success or <b><code>FALSE</code></b> on error.</p>
 	 * @link http://php.net/manual/en/function.eio-futime.php
+	 * @see eio_utime()
 	 * @since PECL eio >= 0.0.1dev
 	 */
 	function eio_futime($fd, float $atime, float $mtime, int $pri = EIO_PRI_DEFAULT, callable $callback = NULL, $data = NULL) {}
@@ -257,6 +270,7 @@ namespace {
 	 * @param string $data <p>Arbitrary variable passed to <code>callback</code>.</p>
 	 * @return resource <p><b>eio_grp()</b> returns request group resource on success or <b><code>FALSE</code></b> on error.</p>
 	 * @link http://php.net/manual/en/function.eio-grp.php
+	 * @see eio_grp_cancel(), eio_grp_add()
 	 * @since PECL eio >= 0.0.1dev
 	 */
 	function eio_grp(callable $callback, string $data = NULL) {}
@@ -268,6 +282,7 @@ namespace {
 	 * @param resource $req <p>The request resource</p>
 	 * @return void <p><b>eio_grp_add()</b> doesn't return a value.</p>
 	 * @link http://php.net/manual/en/function.eio-grp-add.php
+	 * @see eio_grp(), eio_grp_cancel(), eio_grp_limit()
 	 * @since PECL eio >= 0.0.1dev
 	 */
 	function eio_grp_add($grp, $req): void {}
@@ -278,6 +293,7 @@ namespace {
 	 * @param resource $grp <p>The request group resource returned by <code>eio_grp()</code>.</p>
 	 * @return void <p>No value is returned.</p>
 	 * @link http://php.net/manual/en/function.eio-grp-cancel.php
+	 * @see eio_grp(), eio_grp_add()
 	 * @since PECL eio >= 0.0.1dev
 	 */
 	function eio_grp_cancel($grp): void {}
@@ -289,6 +305,7 @@ namespace {
 	 * @param int $limit <p>Number of requests in the group.</p>
 	 * @return void <p>No value is returned.</p>
 	 * @link http://php.net/manual/en/function.eio-grp-limit.php
+	 * @see eio_grp_add()
 	 * @since PECL eio >= 0.0.1dev
 	 */
 	function eio_grp_limit($grp, int $limit): void {}
@@ -312,6 +329,7 @@ namespace {
 	 * @param mixed $data <p>Arbitrary variable passed to <code>callback</code>.</p>
 	 * @return resource
 	 * @link http://php.net/manual/en/function.eio-link.php
+	 * @see eio_symlink()
 	 * @since PECL eio >= 0.0.1dev
 	 */
 	function eio_link(string $path, string $new_path, int $pri = EIO_PRI_DEFAULT, callable $callback = NULL, $data = NULL) {}
@@ -325,6 +343,7 @@ namespace {
 	 * @param mixed $data <p>Arbitrary variable passed to <code>callback</code>.</p>
 	 * @return resource <p><b>eio_lstat()</b> returns request resource on success or <b><code>FALSE</code></b> on error.</p>
 	 * @link http://php.net/manual/en/function.eio-lstat.php
+	 * @see eio_stat(), eio_fstat()
 	 * @since PECL eio >= 0.0.1dev
 	 */
 	function eio_lstat(string $path, int $pri, callable $callback, $data = NULL) {}
@@ -339,6 +358,7 @@ namespace {
 	 * @param mixed $data <p>Arbitrary variable passed to <code>callback</code>.</p>
 	 * @return resource <p><b>eio_mkdir()</b> returns request resource on success or <b><code>FALSE</code></b> on error.</p>
 	 * @link http://php.net/manual/en/function.eio-mkdir.php
+	 * @see eio_rmdir()
 	 * @since PECL eio >= 0.0.1dev
 	 */
 	function eio_mkdir(string $path, int $mode, int $pri = EIO_PRI_DEFAULT, callable $callback = NULL, $data = NULL) {}
@@ -354,6 +374,7 @@ namespace {
 	 * @param mixed $data <p>Arbitrary variable passed to <code>callback</code>.</p>
 	 * @return resource <p><b>eio_mknod()</b> returns request resource on success or <b><code>FALSE</code></b> on error.</p>
 	 * @link http://php.net/manual/en/function.eio-mknod.php
+	 * @see eio_open()
 	 * @since PECL eio >= 0.0.1dev
 	 */
 	function eio_mknod(string $path, int $mode, int $dev, int $pri = EIO_PRI_DEFAULT, callable $callback = NULL, $data = NULL) {}
@@ -366,6 +387,7 @@ namespace {
 	 * @param mixed $data <p>Arbitrary variable passed to <code>callback</code>.</p>
 	 * @return resource <p><b>eio_nop()</b> returns request resource on success or <b><code>FALSE</code></b> on error.</p>
 	 * @link http://php.net/manual/en/function.eio-nop.php
+	 * @see eio_busy()
 	 * @since PECL eio >= 0.0.1dev
 	 */
 	function eio_nop(int $pri = EIO_PRI_DEFAULT, callable $callback = NULL, $data = NULL) {}
@@ -375,6 +397,7 @@ namespace {
 	 * <p><b>eio_npending()</b> returns number of finished, but unhandled requests</p>
 	 * @return int <p><b>eio_npending()</b> returns number of finished, but unhandled requests.</p>
 	 * @link http://php.net/manual/en/function.eio-npending.php
+	 * @see eio_nreqs(), eio_nready(), eio_nthreads()
 	 * @since PECL eio >= 0.0.1dev
 	 */
 	function eio_npending(): int {}
@@ -383,6 +406,7 @@ namespace {
 	 * Returns number of not-yet handled requests
 	 * @return int <p><b>eio_nready()</b> returns number of not-yet handled requests</p>
 	 * @link http://php.net/manual/en/function.eio-nready.php
+	 * @see eio_nreqs(), eio_nthreads()
 	 * @since PECL eio >= 0.0.1dev
 	 */
 	function eio_nready(): int {}
@@ -392,6 +416,7 @@ namespace {
 	 * <p><b>eio_nreqs()</b> could be called in a custom loop calling <code>eio_poll()</code>.</p>
 	 * @return int <p><b>eio_nreqs()</b> returns number of requests to be processed.</p>
 	 * @link http://php.net/manual/en/function.eio-nreqs.php
+	 * @see eio_poll(), eio_nready()
 	 * @since PECL eio >= 0.0.1dev
 	 */
 	function eio_nreqs(): int {}
@@ -400,6 +425,7 @@ namespace {
 	 * Returns number of threads currently in use
 	 * @return int <p><b>eio_nthreads()</b> returns number of threads currently in use.</p>
 	 * @link http://php.net/manual/en/function.eio-nthreads.php
+	 * @see eio_npending(), eio_nready(), eio_nreqs(), eio_set_max_idle(), eio_set_max_parallel(), eio_set_min_parallel()
 	 * @since PECL eio >= 0.0.1dev
 	 */
 	function eio_nthreads(): int {}
@@ -408,13 +434,14 @@ namespace {
 	 * Opens a file
 	 * <p><b>eio_open()</b> opens file specified by <code>path</code> in access mode <code>mode</code> with</p>
 	 * @param string $path <p>Path of the file to be opened.</p><p><b>Warning</b></p><p>In some SAPIs(e.g. <i>PHP-FPM</i>) it could fail, if you don't specify full path.</p>
-	 * @param int $flags <p>One of <i>EIO_O_&#42;</i> constants, or their combinations. <i>EIO_O_&#42;</i> constants have the same meaning, as their corresponding <i>O_&#42;</i> counterparts defined in <i>fnctl.h</i> C header file. Default is <b><code>EIO_O_RDWR</code></b>.</p>
+	 * @param int $flags <p>One of <i>EIO_O_&#42;</i> constants, or their combinations. <i>EIO_O_&#42;</i> constants have the same meaning, as their corresponding <i>O_&#42;</i> counterparts defined in <code>fnctl.h</code> C header file. Default is <b><code>EIO_O_RDWR</code></b>.</p>
 	 * @param int $mode <p>One of <i>EIO_S_I&#42;</i> constants, or their combination (via bitwise OR operator). The constants have the same meaning as their <i>S_I&#42;</i> counterparts defined in sys/stat.h C header file. Required, if a file is created. Otherwise ignored.</p>
 	 * @param int $pri <p>The request priority: <b><code>EIO_PRI_DEFAULT</code></b>, <b><code>EIO_PRI_MIN</code></b>, <b><code>EIO_PRI_MAX</code></b>, or <b><code>NULL</code></b>. If <b><code>NULL</code></b> passed, <code>pri</code> internally is set to <b><code>EIO_PRI_DEFAULT</code></b>.</p>
 	 * @param callable $callback <p><code>callback</code> function is called when the request is done. It should match the following prototype:</p><code> void&nbsp;callback(mixed&nbsp;$data,&nbsp;int&nbsp;$result[,&nbsp;resource&nbsp;$req]); </code>   <code>data</code>  <p>is custom data passed to the request.</p>  <code>result</code>  <p>request-specific result value; basically, the value returned by corresponding system call.</p>  <code>req</code>  <p>is optional request resource which can be used with functions like <code>eio_get_last_error()</code></p>
 	 * @param mixed $data <p>Arbitrary variable passed to <code>callback</code>.</p>
 	 * @return resource <p><b>eio_open()</b> returns file descriptor in <code>result</code> argument of <code>callback</code> on success; otherwise, <code>result</code> is equal to <b><code>-1</code></b>.</p>
 	 * @link http://php.net/manual/en/function.eio-open.php
+	 * @see eio_mknod()
 	 * @since PECL eio >= 0.0.1dev
 	 */
 	function eio_open(string $path, int $flags, int $mode, int $pri, callable $callback, $data = NULL) {}
@@ -424,6 +451,7 @@ namespace {
 	 * <p><b>eio_poll()</b> can be used to implement special event loop. For this <code>eio_nreqs()</code> could be used to test if there are unprocessed requests.</p><p><b>Note</b>:</p><p>Applicable only when implementing userspace event loop.</p>
 	 * @return int <p>If any request invocation returns a non-zero value, returns that value. Otherwise, it returns <b><code>0</code></b>.</p>
 	 * @link http://php.net/manual/en/function.eio-poll.php
+	 * @see eio_nreqs()
 	 * @since PECL eio >= 0.0.1dev
 	 */
 	function eio_poll(): int {}
@@ -439,13 +467,14 @@ namespace {
 	 * @param mixed $data <p>Arbitrary variable passed to <code>callback</code>.</p>
 	 * @return resource <p><b>eio_read()</b> stores read bytes in <code>result</code> argument of <code>callback</code> function.</p>
 	 * @link http://php.net/manual/en/function.eio-read.php
+	 * @see eio_open(), eio_write(), eio_close(), eio_event_loop()
 	 * @since PECL eio >= 0.0.1dev
 	 */
 	function eio_read($fd, int $length, int $offset, int $pri, callable $callback, $data = NULL) {}
 
 	/**
 	 * Perform file readahead into page cache
-	 * <p><b>eio_readahead()</b> populates the page cache with data from a file so that subsequent reads from that file will not block on disk I/O. See <i>READAHEAD(2)</i> man page for details.</p>
+	 * <p><b>eio_readahead()</b> populates the page cache with data from a file so that subsequent reads from that file will not block on disk I/O. See <code>READAHEAD(2)</code> man page for details.</p>
 	 * @param mixed $fd <p>Stream, Socket resource, or numeric file descriptor</p>
 	 * @param int $offset <p>Starting point from which data is to be read.</p>
 	 * @param int $length <p>Number of bytes to be read.</p>
@@ -460,13 +489,13 @@ namespace {
 
 	/**
 	 * Reads through a whole directory
-	 * <p>Reads through a whole directory(via the <i>opendir</i>, <i>readdir</i> and <i>closedir</i> system calls) and returns either the names or an array in <code>result</code> argument of <code>callback</code> function, depending on the <code>flags</code> argument.</p>
+	 * <p>Reads through a whole directory(via the <code>opendir</code>, <code>readdir</code> and <code>closedir</code> system calls) and returns either the names or an array in <code>result</code> argument of <code>callback</code> function, depending on the <code>flags</code> argument.</p>
 	 * @param string $path <p>Directory path.</p>
 	 * @param int $flags <p>Combination of <i>EIO_READDIR_&#42;</i> constants.</p>
 	 * @param int $pri <p>The request priority: <b><code>EIO_PRI_DEFAULT</code></b>, <b><code>EIO_PRI_MIN</code></b>, <b><code>EIO_PRI_MAX</code></b>, or <b><code>NULL</code></b>. If <b><code>NULL</code></b> passed, <code>pri</code> internally is set to <b><code>EIO_PRI_DEFAULT</code></b>.</p>
 	 * @param callable $callback <p><code>callback</code> function is called when the request is done. It should match the following prototype:</p><code> void&nbsp;callback(mixed&nbsp;$data,&nbsp;int&nbsp;$result[,&nbsp;resource&nbsp;$req]); </code>   <code>data</code>  <p>is custom data passed to the request.</p>  <code>result</code>  <p>request-specific result value; basically, the value returned by corresponding system call.</p>  <code>req</code>  <p>is optional request resource which can be used with functions like <code>eio_get_last_error()</code></p>
 	 * @param string $data <p>Arbitrary variable passed to <code>callback</code>.</p>
-	 * @return resource <p><b>eio_readdir()</b> returns request resource on success, or <b><code>FALSE</code></b> on error. Sets <code>result</code> argument of <code>callback</code> function according to <code>flags</code>:</p>  <b><code>EIO_READDIR_DENTS</code></b> (<code>integer</code>)    <b>eio_readdir()</b> flag. If specified, the result argument of the callback becomes an array with the following keys: <i>'names'</i> - array of directory names <i>'dents'</i> - array of <i>struct eio_dirent</i>-like arrays having the following keys each: <i>'name'</i> - the directory name; <i>'type'</i> - one of <i>EIO_DT_&#42;</i> constants; <i>'inode'</i> - the inode number, if available, otherwise unspecified;    <b><code>EIO_READDIR_DIRS_FIRST</code></b> (<code>integer</code>)    When this flag is specified, the names will be returned in an order where likely directories come first, in optimal stat order.    <b><code>EIO_READDIR_STAT_ORDER</code></b> (<code>integer</code>)    When this flag is specified, then the names will be returned in an order suitable for <i>stat</i>'ing each one. When planning to <code>stat()</code> all files in the given directory, the returned order will likely be fastest.    <b><code>EIO_READDIR_FOUND_UNKNOWN</code></b> (<code>integer</code>)      <p>Node types:</p>  <b><code>EIO_DT_UNKNOWN</code></b> (<code>integer</code>)    Unknown node type(very common). Further <code>stat()</code> needed.    <b><code>EIO_DT_FIFO</code></b> (<code>integer</code>)    FIFO node type    <b><code>EIO_DT_CHR</code></b> (<code>integer</code>)    Node type    <b><code>EIO_DT_MPC</code></b> (<code>integer</code>)    Multiplexed char device (v7+coherent) node type    <b><code>EIO_DT_DIR</code></b> (<code>integer</code>)    Directory node type    <b><code>EIO_DT_NAM</code></b> (<code>integer</code>)    Xenix special named file node type    <b><code>EIO_DT_BLK</code></b> (<code>integer</code>)    Node type    <b><code>EIO_DT_MPB</code></b> (<code>integer</code>)    Multiplexed block device (v7+coherent)    <b><code>EIO_DT_REG</code></b> (<code>integer</code>)    Node type    <b><code>EIO_DT_NWK</code></b> (<code>integer</code>)       <b><code>EIO_DT_CMP</code></b> (<code>integer</code>)    HP-UX network special node type    <b><code>EIO_DT_LNK</code></b> (<code>integer</code>)    Link node type    <b><code>EIO_DT_SOCK</code></b> (<code>integer</code>)    Socket node type    <b><code>EIO_DT_DOOR</code></b> (<code>integer</code>)    Solaris door node type    <b><code>EIO_DT_WHT</code></b> (<code>integer</code>)    Node type    <b><code>EIO_DT_MAX</code></b> (<code>integer</code>)    Highest node type value
+	 * @return resource <p><b>eio_readdir()</b> returns request resource on success, or <b><code>FALSE</code></b> on error. Sets <code>result</code> argument of <code>callback</code> function according to <code>flags</code>:</p>  <b><code>EIO_READDIR_DENTS</code></b> (<code>int</code>)    <b>eio_readdir()</b> flag. If specified, the result argument of the callback becomes an array with the following keys: <code>'names'</code> - array of directory names <code>'dents'</code> - array of <code>struct eio_dirent</code>-like arrays having the following keys each: <code>'name'</code> - the directory name; <code>'type'</code> - one of <i>EIO_DT_&#42;</i> constants; <code>'inode'</code> - the inode number, if available, otherwise unspecified;    <b><code>EIO_READDIR_DIRS_FIRST</code></b> (<code>int</code>)    When this flag is specified, the names will be returned in an order where likely directories come first, in optimal stat order.    <b><code>EIO_READDIR_STAT_ORDER</code></b> (<code>int</code>)    When this flag is specified, then the names will be returned in an order suitable for <code>stat</code>'ing each one. When planning to <code>stat()</code> all files in the given directory, the returned order will likely be fastest.    <b><code>EIO_READDIR_FOUND_UNKNOWN</code></b> (<code>int</code>)      <p>Node types:</p>  <b><code>EIO_DT_UNKNOWN</code></b> (<code>int</code>)    Unknown node type(very common). Further <code>stat()</code> needed.    <b><code>EIO_DT_FIFO</code></b> (<code>int</code>)    FIFO node type    <b><code>EIO_DT_CHR</code></b> (<code>int</code>)    Node type    <b><code>EIO_DT_MPC</code></b> (<code>int</code>)    Multiplexed char device (v7+coherent) node type    <b><code>EIO_DT_DIR</code></b> (<code>int</code>)    Directory node type    <b><code>EIO_DT_NAM</code></b> (<code>int</code>)    Xenix special named file node type    <b><code>EIO_DT_BLK</code></b> (<code>int</code>)    Node type    <b><code>EIO_DT_MPB</code></b> (<code>int</code>)    Multiplexed block device (v7+coherent)    <b><code>EIO_DT_REG</code></b> (<code>int</code>)    Node type    <b><code>EIO_DT_NWK</code></b> (<code>int</code>)       <b><code>EIO_DT_CMP</code></b> (<code>int</code>)    HP-UX network special node type    <b><code>EIO_DT_LNK</code></b> (<code>int</code>)    Link node type    <b><code>EIO_DT_SOCK</code></b> (<code>int</code>)    Socket node type    <b><code>EIO_DT_DOOR</code></b> (<code>int</code>)    Solaris door node type    <b><code>EIO_DT_WHT</code></b> (<code>int</code>)    Node type    <b><code>EIO_DT_MAX</code></b> (<code>int</code>)    Highest node type value
 	 * @link http://php.net/manual/en/function.eio-readdir.php
 	 * @since PECL eio >= 0.0.1dev
 	 */
@@ -480,6 +509,7 @@ namespace {
 	 * @param string $data <p>Arbitrary variable passed to <code>callback</code>.</p>
 	 * @return resource <p><b>eio_readlink()</b> returns request resource on success or <b><code>FALSE</code></b> on error.</p>
 	 * @link http://php.net/manual/en/function.eio-readlink.php
+	 * @see eio_symlink()
 	 * @since PECL eio >= 0.0.1dev
 	 */
 	function eio_readlink(string $path, int $pri, callable $callback, string $data = NULL) {}
@@ -520,6 +550,7 @@ namespace {
 	 * @param mixed $data <p>Arbitrary variable passed to <code>callback</code>.</p>
 	 * @return resource <p><b>eio_rmdir()</b> returns request resource on success or <b><code>FALSE</code></b> on error.</p>
 	 * @link http://php.net/manual/en/function.eio-rmdir.php
+	 * @see eio_mkdir()
 	 * @since PECL eio >= 0.0.1dev
 	 */
 	function eio_rmdir(string $path, int $pri = EIO_PRI_DEFAULT, callable $callback = NULL, $data = NULL) {}
@@ -541,7 +572,7 @@ namespace {
 
 	/**
 	 * Transfer data between file descriptors
-	 * <p><b>eio_sendfile()</b> copies data between one file descriptor and another. See <i>SENDFILE(2)</i> man page for details.</p>
+	 * <p><b>eio_sendfile()</b> copies data between one file descriptor and another. See <code>SENDFILE(2)</code> man page for details.</p>
 	 * @param mixed $out_fd <p>Output stream, Socket resource, or file descriptor. Should be opened for writing.</p>
 	 * @param mixed $in_fd <p>Input stream, Socket resource, or file descriptor. Should be opened for reading.</p>
 	 * @param int $offset <p>Offset within the source file.</p>
@@ -560,6 +591,7 @@ namespace {
 	 * @param int $nthreads <p>Number of idle threads.</p>
 	 * @return void <p>No value is returned.</p>
 	 * @link http://php.net/manual/en/function.eio-set-max-idle.php
+	 * @see eio_nthreads(), eio_set_min_parallel(), eio_set_max_parallel()
 	 * @since PECL eio >= 0.0.1dev
 	 */
 	function eio_set_max_idle(int $nthreads): void {}
@@ -569,6 +601,7 @@ namespace {
 	 * @param int $nthreads <p>Number of parallel threads</p>
 	 * @return void <p>No value is returned.</p>
 	 * @link http://php.net/manual/en/function.eio-set-max-parallel.php
+	 * @see eio_nthreads(), eio_set_max_idle(), eio_set_min_parallel()
 	 * @since PECL eio >= 0.0.1dev
 	 */
 	function eio_set_max_parallel(int $nthreads): void {}
@@ -597,6 +630,7 @@ namespace {
 	 * @param string $nthreads <p>Number of parallel threads.</p>
 	 * @return void <p>No value is returned.</p>
 	 * @link http://php.net/manual/en/function.eio-set-min-parallel.php
+	 * @see eio_nthreads(), eio_set_max_idle(), eio_set_max_parallel()
 	 * @since PECL eio >= 0.0.1dev
 	 */
 	function eio_set_min_parallel(string $nthreads): void {}
@@ -610,6 +644,7 @@ namespace {
 	 * @param mixed $data <p>Arbitrary variable passed to <code>callback</code>.</p>
 	 * @return resource <p><b>eio_stat()</b> returns request resource on success or <b><code>FALSE</code></b> on error. On success assigns <code>result</code> argument of <code>callback</code> to an array.</p>
 	 * @link http://php.net/manual/en/function.eio-stat.php
+	 * @see eio_lstat(), eio_fstat()
 	 * @since PECL eio >= 0.0.1dev
 	 */
 	function eio_stat(string $path, int $pri, callable $callback, $data = NULL) {}
@@ -637,6 +672,7 @@ namespace {
 	 * @param mixed $data <p>Arbitrary variable passed to <code>callback</code>.</p>
 	 * @return resource <p><b>eio_symlink()</b> returns request resource on success or <b><code>FALSE</code></b> on error.</p>
 	 * @link http://php.net/manual/en/function.eio-symlink.php
+	 * @see eio_link()
 	 * @since PECL eio >= 0.0.1dev
 	 */
 	function eio_symlink(string $path, string $new_path, int $pri = EIO_PRI_DEFAULT, callable $callback = NULL, $data = NULL) {}
@@ -658,7 +694,7 @@ namespace {
 	 * @param mixed $fd <p>File descriptor</p>
 	 * @param int $offset <p>The starting byte of the file range to be synchronized</p>
 	 * @param int $nbytes <p>Specifies the length of the range to be synchronized, in bytes. If <code>nbytes</code> is zero, then all bytes from <code>offset</code> through to the end of file are synchronized.</p>
-	 * @param int $flags <p>A bit-mask. Can include any of the following values: <b><code>EIO_SYNC_FILE_RANGE_WAIT_BEFORE</code></b>, <b><code>EIO_SYNC_FILE_RANGE_WRITE</code></b>, <b><code>EIO_SYNC_FILE_RANGE_WAIT_AFTER</code></b>. These flags have the same meaning as their <i>SYNC_FILE_RANGE_&#42;</i> counterparts(see <i>SYNC_FILE_RANGE(2)</i> man page).</p>
+	 * @param int $flags <p>A bit-mask. Can include any of the following values: <b><code>EIO_SYNC_FILE_RANGE_WAIT_BEFORE</code></b>, <b><code>EIO_SYNC_FILE_RANGE_WRITE</code></b>, <b><code>EIO_SYNC_FILE_RANGE_WAIT_AFTER</code></b>. These flags have the same meaning as their <i>SYNC_FILE_RANGE_&#42;</i> counterparts(see <code>SYNC_FILE_RANGE(2)</code> man page).</p>
 	 * @param int $pri <p>The request priority: <b><code>EIO_PRI_DEFAULT</code></b>, <b><code>EIO_PRI_MIN</code></b>, <b><code>EIO_PRI_MAX</code></b>, or <b><code>NULL</code></b>. If <b><code>NULL</code></b> passed, <code>pri</code> internally is set to <b><code>EIO_PRI_DEFAULT</code></b>.</p>
 	 * @param callable $callback <p><code>callback</code> function is called when the request is done. It should match the following prototype:</p><code> void&nbsp;callback(mixed&nbsp;$data,&nbsp;int&nbsp;$result[,&nbsp;resource&nbsp;$req]); </code>   <code>data</code>  <p>is custom data passed to the request.</p>  <code>result</code>  <p>request-specific result value; basically, the value returned by corresponding system call.</p>  <code>req</code>  <p>is optional request resource which can be used with functions like <code>eio_get_last_error()</code></p>
 	 * @param mixed $data <p>Arbitrary variable passed to <code>callback</code>.</p>
@@ -690,6 +726,7 @@ namespace {
 	 * @param mixed $data <p>Arbitrary variable passed to <code>callback</code>.</p>
 	 * @return resource <p><code>eio_busy()</code> returns request resource on success or <b><code>FALSE</code></b> on error.</p>
 	 * @link http://php.net/manual/en/function.eio-truncate.php
+	 * @see eio_ftruncate()
 	 * @since PECL eio >= 0.0.1dev
 	 */
 	function eio_truncate(string $path, int $offset = 0, int $pri = EIO_PRI_DEFAULT, callable $callback = NULL, $data = NULL) {}
@@ -717,6 +754,7 @@ namespace {
 	 * @param mixed $data <p>Arbitrary variable passed to <code>callback</code>.</p>
 	 * @return resource <p><b>eio_utime()</b> returns request resource on success or <b><code>FALSE</code></b> on error.</p>
 	 * @link http://php.net/manual/en/function.eio-utime.php
+	 * @see eio_futime()
 	 * @since PECL eio >= 0.0.1dev
 	 */
 	function eio_utime(string $path, float $atime, float $mtime, int $pri = EIO_PRI_DEFAULT, callable $callback = NULL, $data = NULL) {}
@@ -733,6 +771,7 @@ namespace {
 	 * @param mixed $data <p>Arbitrary variable passed to <code>callback</code>.</p>
 	 * @return resource <p><b>eio_write()</b> returns request resource on success or <b><code>FALSE</code></b> on error.</p>
 	 * @link http://php.net/manual/en/function.eio-write.php
+	 * @see eio_open()
 	 * @since PECL eio >= 0.0.1dev
 	 */
 	function eio_write($fd, string $str, int $length = 0, int $offset = 0, int $pri = EIO_PRI_DEFAULT, callable $callback = NULL, $data = NULL) {}
@@ -850,7 +889,7 @@ namespace {
 	define('EIO_PRI_MIN', null);
 
 	/**
-	 * <code>eio_readdir()</code> flag. If specified, the result argument of the callback becomes an array with the following keys: <i>'names'</i> - array of directory names <i>'dents'</i> - array of <i>struct eio_dirent</i>-like arrays having the following keys each: <i>'name'</i> - the directory name; <i>'type'</i> - one of <i>EIO_DT_&#42;</i> constants; <i>'inode'</i> - the inode number, if available, otherwise unspecified;
+	 * <code>eio_readdir()</code> flag. If specified, the result argument of the callback becomes an array with the following keys: <code>'names'</code> - array of directory names <code>'dents'</code> - array of <code>struct eio_dirent</code>-like arrays having the following keys each: <code>'name'</code> - the directory name; <code>'type'</code> - one of <i>EIO_DT_&#42;</i> constants; <code>'inode'</code> - the inode number, if available, otherwise unspecified;
 	 */
 	define('EIO_READDIR_DENTS', null);
 
@@ -862,7 +901,7 @@ namespace {
 	define('EIO_READDIR_FOUND_UNKNOWN', null);
 
 	/**
-	 * When this flag is specified, then the names will be returned in an order suitable for <i>stat</i>'ing each one. When planning to <code>stat()</code> all files in the given directory, the returned order will likely be fastest.
+	 * When this flag is specified, then the names will be returned in an order suitable for <code>stat</code>'ing each one. When planning to <code>stat()</code> all files in the given directory, the returned order will likely be fastest.
 	 */
 	define('EIO_READDIR_STAT_ORDER', null);
 

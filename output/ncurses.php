@@ -221,7 +221,7 @@ namespace {
 	 * @param int $r <p>A reference to which to return the red component of the color. The value returned to the reference will be between 0 and 1000.</p>
 	 * @param int $g <p>A reference to which to return the green component of the color. The value returned to the reference will be between 0 and 1000.</p>
 	 * @param int $b <p>A reference to which to return the blue component of the color. The value returned to the reference will be between 0 and 1000.</p>
-	 * @return int <p>Returns <i>-1</i> if the function was successful, and <i>0</i> if ncurses or terminal color capabilities have not been initialized.</p>
+	 * @return int <p>Returns <code>-1</code> if the function was successful, and <code>0</code> if ncurses or terminal color capabilities have not been initialized.</p>
 	 * @link http://php.net/manual/en/function.ncurses-color-content.php
 	 * @see ncurses_init_color(), ncurses_start_color()
 	 * @since PHP 4 >= 4.3.0, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
@@ -232,7 +232,7 @@ namespace {
 	 * Set active foreground and background colors
 	 * <p>Sets the active foreground and background colors. Any characters written after this function is invoked will have these colors. This function requires terminal colors to be supported and initialized using <code>ncurses_start_color()</code> beforehand.</p><p>ncurses uses color pairs to specify both foreground and background colors. Use <code>ncurses_init_pair()</code> to define a color pair.</p>
 	 * @param int $pair <p>The color pair from which to get the foreground and background colors to set as the active colors.</p>
-	 * @return int <p>Returns <i>-1</i> on success, and <i>0</i> on failure.</p>
+	 * @return int <p>Returns <code>-1</code> on success, and <code>0</code> on failure.</p>
 	 * @link http://php.net/manual/en/function.ncurses-color-set.php
 	 * @see ncurses_init_pair(), ncurses_start_color()
 	 * @since PHP 4 >= 4.0.7, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
@@ -557,7 +557,7 @@ namespace {
 	 * @param int $r <p>A color value, between 0 and 1000, for the red component.</p>
 	 * @param int $g <p>A color value, between 0 and 1000, for the green component.</p>
 	 * @param int $b <p>A color value, between 0 and 1000, for the blue component.</p>
-	 * @return int <p>Returns <i>-1</i> if the function was successful, and <i>0</i> if ncurses or terminal color capabilities have not been initialized or the terminal does not have color changing capabilities.</p>
+	 * @return int <p>Returns <code>-1</code> if the function was successful, and <code>0</code> if ncurses or terminal color capabilities have not been initialized or the terminal does not have color changing capabilities.</p>
 	 * @link http://php.net/manual/en/function.ncurses-init-color.php
 	 * @see ncurses_color_content(), ncurses_start_color()
 	 * @since PHP 4 >= 4.2.0, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
@@ -566,11 +566,11 @@ namespace {
 
 	/**
 	 * Define a color pair
-	 * <p>Defines or redefines the given color pair to have the given foreground and background colors. If the color pair was previously initialized, the screen is refreshed and all occurrences of it are changed to reflect the new definition.</p><p>Color capabilities must be initialized using <code>ncurses_start_color()</code> before calling this function. The first color pair (color pair <i>0</i>) is assumed to be white on black by default, but can be changed using <code>ncurses_assume_default_colors()</code>.</p>
+	 * <p>Defines or redefines the given color pair to have the given foreground and background colors. If the color pair was previously initialized, the screen is refreshed and all occurrences of it are changed to reflect the new definition.</p><p>Color capabilities must be initialized using <code>ncurses_start_color()</code> before calling this function. The first color pair (color pair <code>0</code>) is assumed to be white on black by default, but can be changed using <code>ncurses_assume_default_colors()</code>.</p>
 	 * @param int $pair <p>The number of the color pair to define.</p>
 	 * @param int $fg <p>The foreground color for the color pair. May be one of the pre-defined colors or one defined by <code>ncurses_init_color()</code> if the terminal has color changing capabilities.</p>
 	 * @param int $bg <p>The background color for the color pair. May be one of the pre-defined colors or one defined by <code>ncurses_init_color()</code> if the terminal has color changing capabilities.</p>
-	 * @return int <p>Returns <i>-1</i> if the function was successful, and <i>0</i> if ncurses or color support were not initialized.</p>
+	 * @return int <p>Returns <code>-1</code> if the function was successful, and <code>0</code> if ncurses or color support were not initialized.</p>
 	 * @link http://php.net/manual/en/function.ncurses-init-pair.php
 	 * @see ncurses_pair_content(), ncurses_start_color()
 	 * @since PHP 4 >= 4.0.7, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
@@ -716,7 +716,7 @@ namespace {
 	 * <p>This function is <i>EXPERIMENTAL</i>. The behaviour of this function, its name, and surrounding documentation may change without notice in a future release of PHP. This function should be used at your own risk.</p><p>Sets mouse events to be reported. By default no mouse events will be reported.</p><p>Mouse events are represented by <b><code>NCURSES_KEY_MOUSE</code></b> in the <code>ncurses_wgetch()</code> input stream. To read the event data and pop the event of queue, call <code>ncurses_getmouse()</code>.</p>
 	 * @param int $newmask <p>Mouse mask options can be set with the following predefined constants:</p><ul> <li><p>NCURSES_BUTTON1_PRESSED</p></li> <li><p>NCURSES_BUTTON1_RELEASED</p></li> <li><p>NCURSES_BUTTON1_CLICKED</p></li> <li><p>NCURSES_BUTTON1_DOUBLE_CLICKED</p></li> <li><p>NCURSES_BUTTON1_TRIPLE_CLICKED</p></li> <li><p>NCURSES_BUTTON2_PRESSED</p></li> <li><p>NCURSES_BUTTON2_RELEASED</p></li> <li><p>NCURSES_BUTTON2_CLICKED</p></li> <li><p>NCURSES_BUTTON2_DOUBLE_CLICKED</p></li> <li><p>NCURSES_BUTTON2_TRIPLE_CLICKED</p></li> <li><p>NCURSES_BUTTON3_PRESSED</p></li> <li><p>NCURSES_BUTTON3_RELEASED</p></li> <li><p>NCURSES_BUTTON3_CLICKED</p></li> <li><p>NCURSES_BUTTON3_DOUBLE_CLICKED</p></li> <li><p>NCURSES_BUTTON3_TRIPLE_CLICKED</p></li> <li><p>NCURSES_BUTTON4_PRESSED</p></li> <li><p>NCURSES_BUTTON4_RELEASED</p></li> <li><p>NCURSES_BUTTON4_CLICKED</p></li> <li><p>NCURSES_BUTTON4_DOUBLE_CLICKED</p></li> <li><p>NCURSES_BUTTON4_TRIPLE_CLICKED</p></li> <li><p>NCURSES_BUTTON_SHIFT&gt;</p></li> <li><p>NCURSES_BUTTON_CTRL</p></li> <li><p>NCURSES_BUTTON_ALT</p></li> <li><p>NCURSES_ALL_MOUSE_EVENTS</p></li> <li><p>NCURSES_REPORT_MOUSE_POSITION</p></li> </ul> <p>As a side effect, setting a zero mousemask in <code>newmask</code> turns off the mouse pointer. Setting a non zero value turns mouse pointer on.</p>
 	 * @param int $oldmask <p>This will be set to the previous value of the mouse event mask.</p>
-	 * @return int <p>Returns the mask of reportable events. On complete failure, it returns <i>0</i>.</p>
+	 * @return int <p>Returns the mask of reportable events. On complete failure, it returns <code>0</code>.</p>
 	 * @link http://php.net/manual/en/function.ncurses-mousemask.php
 	 * @see ncurses_getch(), ncurses_getmouse(), ncurses_ungetmouse()
 	 * @since PHP 4 >= 4.2.0, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
@@ -1000,7 +1000,7 @@ namespace {
 	 * @param int $pair <p>The number of the color pair to retrieve information for.</p>
 	 * @param int $f <p>A reference to which to return the foreground color of the color pair. The information returned will be a color number referring to one of the pre-defined colors or a color defined previously by <code>ncurses_init_color()</code> if the terminal supports color changing.</p>
 	 * @param int $b <p>A reference to which to return the background color of the color pair. The information returned will be a color number referring to one of the pre-defined colors or a color defined previously by <code>ncurses_init_color()</code> if the terminal supports color changing.</p>
-	 * @return int <p>Returns <i>-1</i> if the function was successful, and <i>0</i> if ncurses or terminal color capabilities have not been initialized.</p>
+	 * @return int <p>Returns <code>-1</code> if the function was successful, and <code>0</code> if ncurses or terminal color capabilities have not been initialized.</p>
 	 * @link http://php.net/manual/en/function.ncurses-pair-content.php
 	 * @see ncurses_init_pair(), ncurses_start_color()
 	 * @since PHP 4 >= 4.3.0, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
@@ -1354,7 +1354,7 @@ namespace {
 	/**
 	 * Initializes color functionality
 	 * <p>Initializes color functionality in ncurses. This function must be called before any color manipulation functions are called and after <code>ncurses_init()</code> is called. It is good practice to call this function right after <code>ncurses_init()</code>.</p>
-	 * @return int <p>Returns <i>0</i> on success, or <i>-1</i> if the color table could not be allocated or ncurses was not initialized.</p>
+	 * @return int <p>Returns <code>0</code> on success, or <code>-1</code> if the color table could not be allocated or ncurses was not initialized.</p>
 	 * @link http://php.net/manual/en/function.ncurses-start-color.php
 	 * @see ncurses_can_change_color(), ncurses_has_colors()
 	 * @since PHP 4 >= 4.0.7, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0

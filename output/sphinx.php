@@ -39,11 +39,11 @@ namespace {
 		 * @param string $index <p>Index name.</p>
 		 * @param string $words <p>Keywords to highlight.</p>
 		 * @param array $opts <p>Associative array of additional highlighting options (see below).</p>
-		 * @return array <p>Returns array of snippets on success or <b><code>FALSE</code></b> on failure.</p>
+		 * @return array|false <p>Returns array of snippets on success or <b><code>FALSE</code></b> on failure.</p>
 		 * @link http://php.net/manual/en/sphinxclient.buildexcerpts.php
 		 * @since PECL sphinx >= 0.1.0
 		 */
-		public function buildExcerpts(array $docs, string $index, string $words, array $opts = NULL): array {}
+		public function buildExcerpts(array $docs, string $index, string $words, array $opts = NULL) {}
 
 		/**
 		 * Extract keywords from query

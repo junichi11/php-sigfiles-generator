@@ -41,22 +41,22 @@ namespace {
 
 		/**
 		 * Get full list of entries from the RAR archive
-		 * <p>Get entries list (files and directories) from the RAR archive.</p><p><b>Note</b>:</p><p>If the archive has entries with the same name, this method, together with <code>RarArchive</code> <i>foreach</i> iteration and array-like access with numeric indexes, are the only ones to access all the entries (i.e., <code>RarArchive::getEntry()</code> and the  <i>rar://</i> wrapper are insufficient).</p>
-		 * @return array <p><b>rar_list()</b> returns array of <code>RarEntry</code> objects or <b><code>FALSE</code></b> on failure.</p>
+		 * <p>Get entries list (files and directories) from the RAR archive.</p><p><b>Note</b>:</p><p>If the archive has entries with the same name, this method, together with <code>RarArchive</code> <code>foreach</code> iteration and array-like access with numeric indexes, are the only ones to access all the entries (i.e., <code>RarArchive::getEntry()</code> and the  <code>rar://</code> wrapper are insufficient).</p>
+		 * @return array|false <p><b>rar_list()</b> returns array of <code>RarEntry</code> objects or <b><code>FALSE</code></b> on failure.</p>
 		 * @link http://php.net/manual/en/rararchive.getentries.php
 		 * @since PECL rar >= 2.0.0
 		 */
-		public function getEntries(): array {}
+		public function getEntries() {}
 
 		/**
 		 * Get entry object from the RAR archive
 		 * <p>Get entry object (file or directory) from the RAR archive.</p><p><b>Note</b>:</p><p>You can also get entry objects using <code>RarArchive::getEntries()</code>.</p><p>Note that a RAR archive can have multiple entries with the same name; this method will retrieve only the first.</p>
 		 * @param string $entryname <p>Path to the entry within the RAR archive.</p> <p><b>Note</b>:</p><p>The path must be the same returned by <code>RarEntry::getName()</code>.</p>
-		 * @return RarEntry <p>Returns the matching <code>RarEntry</code> object or <b><code>FALSE</code></b> on failure.</p>
+		 * @return RarEntry|false <p>Returns the matching <code>RarEntry</code> object or <b><code>FALSE</code></b> on failure.</p>
 		 * @link http://php.net/manual/en/rararchive.getentry.php
 		 * @since PECL rar >= 2.0.0
 		 */
-		public function getEntry(string $entryname): \RarEntry {}
+		public function getEntry(string $entryname) {}
 
 		/**
 		 * Test whether an archive is broken (incomplete)
@@ -82,11 +82,11 @@ namespace {
 		 * @param string $filename <p>Path to the Rar archive.</p>
 		 * @param string $password <p>A plain password, if needed to decrypt the headers. It will also be used by default if encrypted files are found. Note that the files may have different passwords in respect to the headers and among them.</p>
 		 * @param callable $volume_callback <p>A function that receives one parameter &ndash; the path of the volume that was not found &ndash; and returns a string with the correct path for such volume or <b><code>NULL</code></b> if such volume does not exist or is not known. The programmer should ensure the passed function doesn't cause loops as this function is called repeatedly if the path returned in a previous call did not correspond to the needed volume. Specifying this parameter omits the notice that would otherwise be emitted whenever a volume is not found; an implementation that only returns <b><code>NULL</code></b> can therefore be used to merely omit such notices.</p>
-		 * @return RarArchive <p>Returns the requested <code>RarArchive</code> instance or <b><code>FALSE</code></b> on failure.</p>
+		 * @return RarArchive|false <p>Returns the requested <code>RarArchive</code> instance or <b><code>FALSE</code></b> on failure.</p>
 		 * @link http://php.net/manual/en/rararchive.open.php
 		 * @since PECL rar >= 2.0.0
 		 */
-		public static function open(string $filename, string $password = NULL, callable $volume_callback = NULL): \RarArchive {}
+		public static function open(string $filename, string $password = NULL, callable $volume_callback = NULL) {}
 
 		/**
 		 * Whether opening broken archives is allowed
@@ -107,247 +107,247 @@ namespace {
 	final class RarEntry {
 
 		/**
-		 * @var integer <p>If the return value of <code>RarEntry::getHostOs()</code> equals this constant, MS-DOS was used to add this entry. Use instead of <b><code>RAR_HOST_MSDOS</code></b>.</p>
+		 * @var int <p>If the return value of <code>RarEntry::getHostOs()</code> equals this constant, MS-DOS was used to add this entry. Use instead of <b><code>RAR_HOST_MSDOS</code></b>.</p>
 		 * @link http://php.net/manual/en/class.rarentry.php
 		 */
 		const HOST_MSDOS = 0;
 
 		/**
-		 * @var integer <p>If the return value of <code>RarEntry::getHostOs()</code> equals this constant, OS/2 was used to add this entry. Intended to replace <b><code>RAR_HOST_OS2</code></b>.</p>
+		 * @var int <p>If the return value of <code>RarEntry::getHostOs()</code> equals this constant, OS/2 was used to add this entry. Intended to replace <b><code>RAR_HOST_OS2</code></b>.</p>
 		 * @link http://php.net/manual/en/class.rarentry.php
 		 */
 		const HOST_OS2 = 1;
 
 		/**
-		 * @var integer <p>If the return value of <code>RarEntry::getHostOs()</code> equals this constant, Microsoft Windows was used to add this entry. Intended to replace <b><code>RAR_HOST_WIN32</code></b>.</p>
+		 * @var int <p>If the return value of <code>RarEntry::getHostOs()</code> equals this constant, Microsoft Windows was used to add this entry. Intended to replace <b><code>RAR_HOST_WIN32</code></b>.</p>
 		 * @link http://php.net/manual/en/class.rarentry.php
 		 */
 		const HOST_WIN32 = 2;
 
 		/**
-		 * @var integer <p>If the return value of <code>RarEntry::getHostOs()</code> equals this constant, an unspecified UNIX OS was used to add this entry. Intended to replace <b><code>RAR_HOST_UNIX</code></b>.</p>
+		 * @var int <p>If the return value of <code>RarEntry::getHostOs()</code> equals this constant, an unspecified UNIX OS was used to add this entry. Intended to replace <b><code>RAR_HOST_UNIX</code></b>.</p>
 		 * @link http://php.net/manual/en/class.rarentry.php
 		 */
 		const HOST_UNIX = 3;
 
 		/**
-		 * @var integer <p>If the return value of <code>RarEntry::getHostOs()</code> equals this constant, Mac OS was used to add this entry.</p>
+		 * @var int <p>If the return value of <code>RarEntry::getHostOs()</code> equals this constant, Mac OS was used to add this entry.</p>
 		 * @link http://php.net/manual/en/class.rarentry.php
 		 */
 		const HOST_MACOS = 4;
 
 		/**
-		 * @var integer <p>If the return value of <code>RarEntry::getHostOs()</code> equals this constant, BeOS was used to add this entry. Intended to replace <b><code>RAR_HOST_BEOS</code></b>.</p>
+		 * @var int <p>If the return value of <code>RarEntry::getHostOs()</code> equals this constant, BeOS was used to add this entry. Intended to replace <b><code>RAR_HOST_BEOS</code></b>.</p>
 		 * @link http://php.net/manual/en/class.rarentry.php
 		 */
 		const HOST_BEOS = 5;
 
 		/**
-		 * @var integer <p>Bit that represents a Windows entry with a read-only attribute. To be used with <code>RarEntry::getAttr()</code> on entries whose host OS is Microsoft Windows.</p>
+		 * @var int <p>Bit that represents a Windows entry with a read-only attribute. To be used with <code>RarEntry::getAttr()</code> on entries whose host OS is Microsoft Windows.</p>
 		 * @link http://php.net/manual/en/class.rarentry.php
 		 */
 		const ATTRIBUTE_WIN_READONLY = 1;
 
 		/**
-		 * @var integer <p>Bit that represents a Windows entry with a hidden attribute. To be used with <code>RarEntry::getAttr()</code> on entries whose host OS is Microsoft Windows.</p>
+		 * @var int <p>Bit that represents a Windows entry with a hidden attribute. To be used with <code>RarEntry::getAttr()</code> on entries whose host OS is Microsoft Windows.</p>
 		 * @link http://php.net/manual/en/class.rarentry.php
 		 */
 		const ATTRIBUTE_WIN_HIDDEN = 2;
 
 		/**
-		 * @var integer <p>Bit that represents a Windows entry with a system attribute. To be used with <code>RarEntry::getAttr()</code> on entries whose host OS is Microsoft Windows.</p>
+		 * @var int <p>Bit that represents a Windows entry with a system attribute. To be used with <code>RarEntry::getAttr()</code> on entries whose host OS is Microsoft Windows.</p>
 		 * @link http://php.net/manual/en/class.rarentry.php
 		 */
 		const ATTRIBUTE_WIN_SYSTEM = 4;
 
 		/**
-		 * @var integer <p>Bit that represents a Windows entry with a directory attribute (entry is a directory). To be used with <code>RarEntry::getAttr()</code> on entries whose host OS is Microsoft Windows. See also <code>RarEntry::isDirectory()</code>, which also works with entries that were not added in WinRAR.</p>
+		 * @var int <p>Bit that represents a Windows entry with a directory attribute (entry is a directory). To be used with <code>RarEntry::getAttr()</code> on entries whose host OS is Microsoft Windows. See also <code>RarEntry::isDirectory()</code>, which also works with entries that were not added in WinRAR.</p>
 		 * @link http://php.net/manual/en/class.rarentry.php
 		 */
 		const ATTRIBUTE_WIN_DIRECTORY = 16;
 
 		/**
-		 * @var integer <p>Bit that represents a Windows entry with an archive attribute. To be used with <code>RarEntry::getAttr()</code> on entries whose host OS is Microsoft Windows.</p>
+		 * @var int <p>Bit that represents a Windows entry with an archive attribute. To be used with <code>RarEntry::getAttr()</code> on entries whose host OS is Microsoft Windows.</p>
 		 * @link http://php.net/manual/en/class.rarentry.php
 		 */
 		const ATTRIBUTE_WIN_ARCHIVE = 32;
 
 		/**
-		 * @var integer <p>Bit that represents a Windows entry with a device attribute. To be used with <code>RarEntry::getAttr()</code> on entries whose host OS is Microsoft Windows.</p>
+		 * @var int <p>Bit that represents a Windows entry with a device attribute. To be used with <code>RarEntry::getAttr()</code> on entries whose host OS is Microsoft Windows.</p>
 		 * @link http://php.net/manual/en/class.rarentry.php
 		 */
 		const ATTRIBUTE_WIN_DEVICE = 64;
 
 		/**
-		 * @var integer <p>Bit that represents a Windows entry with a normal file attribute (entry is NOT a directory). To be used with <code>RarEntry::getAttr()</code> on entries whose host OS is Microsoft Windows. See also <code>RarEntry::isDirectory()</code>, which also works with entries that were not added in WinRAR.</p>
+		 * @var int <p>Bit that represents a Windows entry with a normal file attribute (entry is NOT a directory). To be used with <code>RarEntry::getAttr()</code> on entries whose host OS is Microsoft Windows. See also <code>RarEntry::isDirectory()</code>, which also works with entries that were not added in WinRAR.</p>
 		 * @link http://php.net/manual/en/class.rarentry.php
 		 */
 		const ATTRIBUTE_WIN_NORMAL = 128;
 
 		/**
-		 * @var integer <p>Bit that represents a Windows entry with a temporary attribute. To be used with <code>RarEntry::getAttr()</code> on entries whose host OS is Microsoft Windows.</p>
+		 * @var int <p>Bit that represents a Windows entry with a temporary attribute. To be used with <code>RarEntry::getAttr()</code> on entries whose host OS is Microsoft Windows.</p>
 		 * @link http://php.net/manual/en/class.rarentry.php
 		 */
 		const ATTRIBUTE_WIN_TEMPORARY = 256;
 
 		/**
-		 * @var integer <p>Bit that represents a Windows entry with a sparse file attribute (file is an NTFS sparse file). To be used with <code>RarEntry::getAttr()</code> on entries whose host OS is Microsoft Windows.</p>
+		 * @var int <p>Bit that represents a Windows entry with a sparse file attribute (file is an NTFS sparse file). To be used with <code>RarEntry::getAttr()</code> on entries whose host OS is Microsoft Windows.</p>
 		 * @link http://php.net/manual/en/class.rarentry.php
 		 */
 		const ATTRIBUTE_WIN_SPARSE_FILE = 512;
 
 		/**
-		 * @var integer <p>Bit that represents a Windows entry with a reparse point attribute (entry is an NTFS reparse point, e.g. a directory junction or a mount file system). To be used with <code>RarEntry::getAttr()</code> on entries whose host OS is Microsoft Windows.</p>
+		 * @var int <p>Bit that represents a Windows entry with a reparse point attribute (entry is an NTFS reparse point, e.g. a directory junction or a mount file system). To be used with <code>RarEntry::getAttr()</code> on entries whose host OS is Microsoft Windows.</p>
 		 * @link http://php.net/manual/en/class.rarentry.php
 		 */
 		const ATTRIBUTE_WIN_REPARSE_POINT = 1024;
 
 		/**
-		 * @var integer <p>Bit that represents a Windows entry with a compressed attribute (NTFS only). To be used with <code>RarEntry::getAttr()</code> on entries whose host OS is Microsoft Windows.</p>
+		 * @var int <p>Bit that represents a Windows entry with a compressed attribute (NTFS only). To be used with <code>RarEntry::getAttr()</code> on entries whose host OS is Microsoft Windows.</p>
 		 * @link http://php.net/manual/en/class.rarentry.php
 		 */
 		const ATTRIBUTE_WIN_COMPRESSED = 2048;
 
 		/**
-		 * @var integer <p>Bit that represents a Windows entry with an offline attribute (entry is offline and not accessible). To be used with <code>RarEntry::getAttr()</code> on entries whose host OS is Microsoft Windows.</p>
+		 * @var int <p>Bit that represents a Windows entry with an offline attribute (entry is offline and not accessible). To be used with <code>RarEntry::getAttr()</code> on entries whose host OS is Microsoft Windows.</p>
 		 * @link http://php.net/manual/en/class.rarentry.php
 		 */
 		const ATTRIBUTE_WIN_OFFLINE = 4096;
 
 		/**
-		 * @var integer <p>Bit that represents a Windows entry with a not content indexed attribute (entry is to be indexed). To be used with <code>RarEntry::getAttr()</code> on entries whose host OS is Microsoft Windows.</p>
+		 * @var int <p>Bit that represents a Windows entry with a not content indexed attribute (entry is to be indexed). To be used with <code>RarEntry::getAttr()</code> on entries whose host OS is Microsoft Windows.</p>
 		 * @link http://php.net/manual/en/class.rarentry.php
 		 */
 		const ATTRIBUTE_WIN_NOT_CONTENT_INDEXED = 8192;
 
 		/**
-		 * @var integer <p>Bit that represents a Windows entry with an encrypted attribute (NTFS only). To be used with <code>RarEntry::getAttr()</code> on entries whose host OS is Microsoft Windows.</p>
+		 * @var int <p>Bit that represents a Windows entry with an encrypted attribute (NTFS only). To be used with <code>RarEntry::getAttr()</code> on entries whose host OS is Microsoft Windows.</p>
 		 * @link http://php.net/manual/en/class.rarentry.php
 		 */
 		const ATTRIBUTE_WIN_ENCRYPTED = 16384;
 
 		/**
-		 * @var integer <p>Bit that represents a Windows entry with a virtual attribute. To be used with <code>RarEntry::getAttr()</code> on entries whose host OS is Microsoft Windows.</p>
+		 * @var int <p>Bit that represents a Windows entry with a virtual attribute. To be used with <code>RarEntry::getAttr()</code> on entries whose host OS is Microsoft Windows.</p>
 		 * @link http://php.net/manual/en/class.rarentry.php
 		 */
 		const ATTRIBUTE_WIN_VIRTUAL = 65536;
 
 		/**
-		 * @var integer <p>Bit that represents a UNIX entry that is world executable. To be used with <code>RarEntry::getAttr()</code> on entries whose host OS is UNIX.</p>
+		 * @var int <p>Bit that represents a UNIX entry that is world executable. To be used with <code>RarEntry::getAttr()</code> on entries whose host OS is UNIX.</p>
 		 * @link http://php.net/manual/en/class.rarentry.php
 		 */
 		const ATTRIBUTE_UNIX_WORLD_EXECUTE = 1;
 
 		/**
-		 * @var integer <p>Bit that represents a UNIX entry that is world writable. To be used with <code>RarEntry::getAttr()</code> on entries whose host OS is UNIX.</p>
+		 * @var int <p>Bit that represents a UNIX entry that is world writable. To be used with <code>RarEntry::getAttr()</code> on entries whose host OS is UNIX.</p>
 		 * @link http://php.net/manual/en/class.rarentry.php
 		 */
 		const ATTRIBUTE_UNIX_WORLD_WRITE = 2;
 
 		/**
-		 * @var integer <p>Bit that represents a UNIX entry that is world readable. To be used with <code>RarEntry::getAttr()</code> on entries whose host OS is UNIX.</p>
+		 * @var int <p>Bit that represents a UNIX entry that is world readable. To be used with <code>RarEntry::getAttr()</code> on entries whose host OS is UNIX.</p>
 		 * @link http://php.net/manual/en/class.rarentry.php
 		 */
 		const ATTRIBUTE_UNIX_WORLD_READ = 4;
 
 		/**
-		 * @var integer <p>Bit that represents a UNIX entry that is group executable. To be used with <code>RarEntry::getAttr()</code> on entries whose host OS is UNIX.</p>
+		 * @var int <p>Bit that represents a UNIX entry that is group executable. To be used with <code>RarEntry::getAttr()</code> on entries whose host OS is UNIX.</p>
 		 * @link http://php.net/manual/en/class.rarentry.php
 		 */
 		const ATTRIBUTE_UNIX_GROUP_EXECUTE = 8;
 
 		/**
-		 * @var integer <p>Bit that represents a UNIX entry that is group writable. To be used with <code>RarEntry::getAttr()</code> on entries whose host OS is UNIX.</p>
+		 * @var int <p>Bit that represents a UNIX entry that is group writable. To be used with <code>RarEntry::getAttr()</code> on entries whose host OS is UNIX.</p>
 		 * @link http://php.net/manual/en/class.rarentry.php
 		 */
 		const ATTRIBUTE_UNIX_GROUP_WRITE = 16;
 
 		/**
-		 * @var integer <p>Bit that represents a UNIX entry that is group readable. To be used with <code>RarEntry::getAttr()</code> on entries whose host OS is UNIX.</p>
+		 * @var int <p>Bit that represents a UNIX entry that is group readable. To be used with <code>RarEntry::getAttr()</code> on entries whose host OS is UNIX.</p>
 		 * @link http://php.net/manual/en/class.rarentry.php
 		 */
 		const ATTRIBUTE_UNIX_GROUP_READ = 32;
 
 		/**
-		 * @var integer <p>Bit that represents a UNIX entry that is owner executable. To be used with <code>RarEntry::getAttr()</code> on entries whose host OS is UNIX.</p>
+		 * @var int <p>Bit that represents a UNIX entry that is owner executable. To be used with <code>RarEntry::getAttr()</code> on entries whose host OS is UNIX.</p>
 		 * @link http://php.net/manual/en/class.rarentry.php
 		 */
 		const ATTRIBUTE_UNIX_OWNER_EXECUTE = 64;
 
 		/**
-		 * @var integer <p>Bit that represents a UNIX entry that is owner writable. To be used with <code>RarEntry::getAttr()</code> on entries whose host OS is UNIX.</p>
+		 * @var int <p>Bit that represents a UNIX entry that is owner writable. To be used with <code>RarEntry::getAttr()</code> on entries whose host OS is UNIX.</p>
 		 * @link http://php.net/manual/en/class.rarentry.php
 		 */
 		const ATTRIBUTE_UNIX_OWNER_WRITE = 128;
 
 		/**
-		 * @var integer <p>Bit that represents a UNIX entry that is owner readable. To be used with <code>RarEntry::getAttr()</code> on entries whose host OS is UNIX.</p>
+		 * @var int <p>Bit that represents a UNIX entry that is owner readable. To be used with <code>RarEntry::getAttr()</code> on entries whose host OS is UNIX.</p>
 		 * @link http://php.net/manual/en/class.rarentry.php
 		 */
 		const ATTRIBUTE_UNIX_OWNER_READ = 256;
 
 		/**
-		 * @var integer <p>Bit that represents the UNIX sticky bit. To be used with <code>RarEntry::getAttr()</code> on entries whose host OS is UNIX.</p>
+		 * @var int <p>Bit that represents the UNIX sticky bit. To be used with <code>RarEntry::getAttr()</code> on entries whose host OS is UNIX.</p>
 		 * @link http://php.net/manual/en/class.rarentry.php
 		 */
 		const ATTRIBUTE_UNIX_STICKY = 512;
 
 		/**
-		 * @var integer <p>Bit that represents the UNIX setgid attribute. To be used with <code>RarEntry::getAttr()</code> on entries whose host OS is UNIX.</p>
+		 * @var int <p>Bit that represents the UNIX setgid attribute. To be used with <code>RarEntry::getAttr()</code> on entries whose host OS is UNIX.</p>
 		 * @link http://php.net/manual/en/class.rarentry.php
 		 */
 		const ATTRIBUTE_UNIX_SETGID = 1024;
 
 		/**
-		 * @var integer <p>Bit that represents the UNIX setuid attribute. To be used with <code>RarEntry::getAttr()</code> on entries whose host OS is UNIX.</p>
+		 * @var int <p>Bit that represents the UNIX setuid attribute. To be used with <code>RarEntry::getAttr()</code> on entries whose host OS is UNIX.</p>
 		 * @link http://php.net/manual/en/class.rarentry.php
 		 */
 		const ATTRIBUTE_UNIX_SETUID = 2048;
 
 		/**
-		 * @var integer <p>Mask to isolate the last four bits (nibble) of UNIX attributes (_S_IFMT, the type of file mask). To be used with <code>RarEntry::getAttr()</code> on entries whose host OS is UNIX and with the constants <b><code>RarEntry::ATTRIBUTE_UNIX_FIFO</code></b>, <b><code>RarEntry::ATTRIBUTE_UNIX_CHAR_DEV</code></b>, <b><code>RarEntry::ATTRIBUTE_UNIX_DIRECTORY</code></b>, <b><code>RarEntry::ATTRIBUTE_UNIX_BLOCK_DEV</code></b>, <b><code>RarEntry::ATTRIBUTE_UNIX_REGULAR_FILE</code></b>, <b><code>RarEntry::ATTRIBUTE_UNIX_SYM_LINK</code></b> and <b><code>RarEntry::ATTRIBUTE_UNIX_SOCKET</code></b>.</p>
+		 * @var int <p>Mask to isolate the last four bits (nibble) of UNIX attributes (_S_IFMT, the type of file mask). To be used with <code>RarEntry::getAttr()</code> on entries whose host OS is UNIX and with the constants <b><code>RarEntry::ATTRIBUTE_UNIX_FIFO</code></b>, <b><code>RarEntry::ATTRIBUTE_UNIX_CHAR_DEV</code></b>, <b><code>RarEntry::ATTRIBUTE_UNIX_DIRECTORY</code></b>, <b><code>RarEntry::ATTRIBUTE_UNIX_BLOCK_DEV</code></b>, <b><code>RarEntry::ATTRIBUTE_UNIX_REGULAR_FILE</code></b>, <b><code>RarEntry::ATTRIBUTE_UNIX_SYM_LINK</code></b> and <b><code>RarEntry::ATTRIBUTE_UNIX_SOCKET</code></b>.</p>
 		 * @link http://php.net/manual/en/class.rarentry.php
 		 */
 		const ATTRIBUTE_UNIX_FINAL_QUARTET = 61440;
 
 		/**
-		 * @var integer <p>Unix FIFOs will have attributes whose last four bits have this value. To be used with <code>RarEntry::getAttr()</code> on entries whose host OS is UNIX and with the constant  <b><code>RarEntry::ATTRIBUTE_UNIX_FINAL_QUARTET</code></b>.</p>
+		 * @var int <p>Unix FIFOs will have attributes whose last four bits have this value. To be used with <code>RarEntry::getAttr()</code> on entries whose host OS is UNIX and with the constant  <b><code>RarEntry::ATTRIBUTE_UNIX_FINAL_QUARTET</code></b>.</p>
 		 * @link http://php.net/manual/en/class.rarentry.php
 		 */
 		const ATTRIBUTE_UNIX_FIFO = 4096;
 
 		/**
-		 * @var integer <p>Unix character devices will have attributes whose last four bits have this value. To be used with <code>RarEntry::getAttr()</code> on entries whose host OS is UNIX and with the constant  <b><code>RarEntry::ATTRIBUTE_UNIX_FINAL_QUARTET</code></b>.</p>
+		 * @var int <p>Unix character devices will have attributes whose last four bits have this value. To be used with <code>RarEntry::getAttr()</code> on entries whose host OS is UNIX and with the constant  <b><code>RarEntry::ATTRIBUTE_UNIX_FINAL_QUARTET</code></b>.</p>
 		 * @link http://php.net/manual/en/class.rarentry.php
 		 */
 		const ATTRIBUTE_UNIX_CHAR_DEV = 8192;
 
 		/**
-		 * @var integer <p>Unix directories will have attributes whose last four bits have this value. To be used with <code>RarEntry::getAttr()</code> on entries whose host OS is UNIX and with the constant  <b><code>RarEntry::ATTRIBUTE_UNIX_FINAL_QUARTET</code></b>. See also <code>RarEntry::isDirectory()</code>, which also works with entries that were added in other operating systems.</p>
+		 * @var int <p>Unix directories will have attributes whose last four bits have this value. To be used with <code>RarEntry::getAttr()</code> on entries whose host OS is UNIX and with the constant  <b><code>RarEntry::ATTRIBUTE_UNIX_FINAL_QUARTET</code></b>. See also <code>RarEntry::isDirectory()</code>, which also works with entries that were added in other operating systems.</p>
 		 * @link http://php.net/manual/en/class.rarentry.php
 		 */
 		const ATTRIBUTE_UNIX_DIRECTORY = 16384;
 
 		/**
-		 * @var integer <p>Unix block devices will have attributes whose last four bits have this value. To be used with <code>RarEntry::getAttr()</code> on entries whose host OS is UNIX and with the constant  <b><code>RarEntry::ATTRIBUTE_UNIX_FINAL_QUARTET</code></b>.</p>
+		 * @var int <p>Unix block devices will have attributes whose last four bits have this value. To be used with <code>RarEntry::getAttr()</code> on entries whose host OS is UNIX and with the constant  <b><code>RarEntry::ATTRIBUTE_UNIX_FINAL_QUARTET</code></b>.</p>
 		 * @link http://php.net/manual/en/class.rarentry.php
 		 */
 		const ATTRIBUTE_UNIX_BLOCK_DEV = 24576;
 
 		/**
-		 * @var integer <p>Unix regular files (not directories) will have attributes whose last four bits have this value. To be used with <code>RarEntry::getAttr()</code> on entries whose host OS is UNIX and with the constant  <b><code>RarEntry::ATTRIBUTE_UNIX_FINAL_QUARTET</code></b>. See also <code>RarEntry::isDirectory()</code>, which also works with entries that were added in other operating systems.</p>
+		 * @var int <p>Unix regular files (not directories) will have attributes whose last four bits have this value. To be used with <code>RarEntry::getAttr()</code> on entries whose host OS is UNIX and with the constant  <b><code>RarEntry::ATTRIBUTE_UNIX_FINAL_QUARTET</code></b>. See also <code>RarEntry::isDirectory()</code>, which also works with entries that were added in other operating systems.</p>
 		 * @link http://php.net/manual/en/class.rarentry.php
 		 */
 		const ATTRIBUTE_UNIX_REGULAR_FILE = 32768;
 
 		/**
-		 * @var integer <p>Unix symbolic links will have attributes whose last four bits have this value. To be used with <code>RarEntry::getAttr()</code> on entries whose host OS is UNIX and with the constant  <b><code>RarEntry::ATTRIBUTE_UNIX_FINAL_QUARTET</code></b>.</p>
+		 * @var int <p>Unix symbolic links will have attributes whose last four bits have this value. To be used with <code>RarEntry::getAttr()</code> on entries whose host OS is UNIX and with the constant  <b><code>RarEntry::ATTRIBUTE_UNIX_FINAL_QUARTET</code></b>.</p>
 		 * @link http://php.net/manual/en/class.rarentry.php
 		 */
 		const ATTRIBUTE_UNIX_SYM_LINK = 40960;
 
 		/**
-		 * @var integer <p>Unix sockets will have attributes whose last four bits have this value. To be used with <code>RarEntry::getAttr()</code> on entries whose host OS is UNIX and with the constant  <b><code>RarEntry::ATTRIBUTE_UNIX_FINAL_QUARTET</code></b>.</p>
+		 * @var int <p>Unix sockets will have attributes whose last four bits have this value. To be used with <code>RarEntry::getAttr()</code> on entries whose host OS is UNIX and with the constant  <b><code>RarEntry::ATTRIBUTE_UNIX_FINAL_QUARTET</code></b>.</p>
 		 * @link http://php.net/manual/en/class.rarentry.php
 		 */
 		const ATTRIBUTE_UNIX_SOCKET = 49152;
@@ -395,7 +395,7 @@ namespace {
 		/**
 		 * Get entry last modification time
 		 * <p>Gets entry last modification time.</p>
-		 * @return string <p>Returns entry last modification time as string in format <i>YYYY-MM-DD HH:II:SS</i>, or <b><code>FALSE</code></b> on error.</p>
+		 * @return string <p>Returns entry last modification time as string in format <code>YYYY-MM-DD HH:II:SS</code>, or <b><code>FALSE</code></b> on error.</p>
 		 * @link http://php.net/manual/en/rarentry.getfiletime.php
 		 * @since PECL rar >= 0.1
 		 */
@@ -441,7 +441,7 @@ namespace {
 		 * Get file handler for entry
 		 * <p>Returns a file handler that supports read operations. This handler provides on-the-fly decompression for this entry.</p><p>The handler is not invalidated by calling <code>rar_close()</code>.</p><p>The resulting stream has no integrity verification. In particular, file corruption and decryption with a wrong a key will not be detected. It is the programmer's responsability to use the entry's CRC to check for integrity, if he so wishes.</p>
 		 * @param string $password <p>The password used to encrypt this entry. If the entry is not encrypted, this value will not be used and can be omitted. If this parameter is omitted and the entry is encrypted, the password given to <code>rar_open()</code>, if any, will be used. If a wrong password is given, either explicitly or implicitly via <code>rar_open()</code>, this method's resulting stream will produce wrong output. If no password is given and one is required, this method will fail and return <b><code>FALSE</code></b>. You can check whether an entry is encrypted with <code>RarEntry::isEncrypted()</code>.</p>
-		 * @return resource <p>The file handler or <b><code>FALSE</code></b> on failure.</p>
+		 * @return resource|false <p>The file handler or <b><code>FALSE</code></b> on failure.</p>
 		 * @link http://php.net/manual/en/rarentry.getstream.php
 		 * @since PECL rar >= 2.0.0
 		 */
@@ -497,7 +497,7 @@ namespace {
 		 * <p>Tries to clone the Exception, which results in Fatal error.</p>
 		 * @return void <p>No value is returned.</p>
 		 * @link http://php.net/manual/en/exception.clone.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final private function __clone() {}
 
@@ -506,16 +506,16 @@ namespace {
 		 * <p>Returns the <code>string</code> representation of the exception.</p>
 		 * @return string <p>Returns the <code>string</code> representation of the exception.</p>
 		 * @link http://php.net/manual/en/exception.tostring.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		public function __toString(): string {}
 
 		/**
 		 * Gets the Exception code
 		 * <p>Returns the Exception code.</p>
-		 * @return mixed <p>Returns the exception code as <code>integer</code> in Exception but possibly as other type in Exception descendants (for example as <code>string</code> in PDOException).</p>
+		 * @return mixed <p>Returns the exception code as <code>int</code> in Exception but possibly as other type in Exception descendants (for example as <code>string</code> in PDOException).</p>
 		 * @link http://php.net/manual/en/exception.getcode.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getCode() {}
 
@@ -524,7 +524,7 @@ namespace {
 		 * <p>Get the name of the file in which the exception was created.</p>
 		 * @return string <p>Returns the filename in which the exception was created.</p>
 		 * @link http://php.net/manual/en/exception.getfile.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getFile(): string {}
 
@@ -533,7 +533,7 @@ namespace {
 		 * <p>Get line number where the exception was created.</p>
 		 * @return int <p>Returns the line number where the exception was created.</p>
 		 * @link http://php.net/manual/en/exception.getline.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getLine(): int {}
 
@@ -542,7 +542,7 @@ namespace {
 		 * <p>Returns the Exception message.</p>
 		 * @return string <p>Returns the Exception message as a string.</p>
 		 * @link http://php.net/manual/en/exception.getmessage.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getMessage(): string {}
 
@@ -551,7 +551,7 @@ namespace {
 		 * <p>Returns previous exception (the third parameter of <code>Exception::__construct()</code>).</p>
 		 * @return Throwable <p>Returns the previous Throwable if available or <b><code>NULL</code></b> otherwise.</p>
 		 * @link http://php.net/manual/en/exception.getprevious.php
-		 * @since PHP 5 >= 5.3.0, PHP 7
+		 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8
 		 */
 		final public function getPrevious(): \Throwable {}
 
@@ -560,7 +560,7 @@ namespace {
 		 * <p>Returns the Exception stack trace.</p>
 		 * @return array <p>Returns the Exception stack trace as an <code>array</code>.</p>
 		 * @link http://php.net/manual/en/exception.gettrace.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getTrace(): array {}
 
@@ -569,7 +569,7 @@ namespace {
 		 * <p>Returns the Exception stack trace as a string.</p>
 		 * @return string <p>Returns the Exception stack trace as a string.</p>
 		 * @link http://php.net/manual/en/exception.gettraceasstring.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getTraceAsString(): string {}
 
@@ -628,21 +628,21 @@ namespace {
 	 * <p>Get entry object (file or directory) from the RAR archive.</p><p><b>Note</b>:</p><p>You can also get entry objects using <code>RarArchive::getEntries()</code>.</p><p>Note that a RAR archive can have multiple entries with the same name; this method will retrieve only the first.</p>
 	 * @param \RarArchive $rarfile <p>A <code>RarArchive</code> object, opened with <code>rar_open()</code>.</p>
 	 * @param string $entryname <p>Path to the entry within the RAR archive.</p> <p><b>Note</b>:</p><p>The path must be the same returned by <code>RarEntry::getName()</code>.</p>
-	 * @return RarEntry <p>Returns the matching <code>RarEntry</code> object or <b><code>FALSE</code></b> on failure.</p>
+	 * @return RarEntry|false <p>Returns the matching <code>RarEntry</code> object or <b><code>FALSE</code></b> on failure.</p>
 	 * @link http://php.net/manual/en/rararchive.getentry.php
 	 * @since PECL rar >= 2.0.0
 	 */
-	function rar_entry_get(\RarArchive $rarfile, string $entryname): \RarEntry {}
+	function rar_entry_get(\RarArchive $rarfile, string $entryname) {}
 
 	/**
 	 * Get full list of entries from the RAR archive
-	 * <p>Get entries list (files and directories) from the RAR archive.</p><p><b>Note</b>:</p><p>If the archive has entries with the same name, this method, together with <code>RarArchive</code> <i>foreach</i> iteration and array-like access with numeric indexes, are the only ones to access all the entries (i.e., <code>RarArchive::getEntry()</code> and the  <i>rar://</i> wrapper are insufficient).</p>
+	 * <p>Get entries list (files and directories) from the RAR archive.</p><p><b>Note</b>:</p><p>If the archive has entries with the same name, this method, together with <code>RarArchive</code> <code>foreach</code> iteration and array-like access with numeric indexes, are the only ones to access all the entries (i.e., <code>RarArchive::getEntry()</code> and the  <code>rar://</code> wrapper are insufficient).</p>
 	 * @param \RarArchive $rarfile <p>A <code>RarArchive</code> object, opened with <code>rar_open()</code>.</p>
-	 * @return array <p><b>rar_list()</b> returns array of <code>RarEntry</code> objects or <b><code>FALSE</code></b> on failure.</p>
+	 * @return array|false <p><b>rar_list()</b> returns array of <code>RarEntry</code> objects or <b><code>FALSE</code></b> on failure.</p>
 	 * @link http://php.net/manual/en/rararchive.getentries.php
 	 * @since PECL rar >= 2.0.0
 	 */
-	function rar_list(\RarArchive $rarfile): array {}
+	function rar_list(\RarArchive $rarfile) {}
 
 	/**
 	 * Open RAR archive
@@ -650,11 +650,11 @@ namespace {
 	 * @param string $filename <p>Path to the Rar archive.</p>
 	 * @param string $password <p>A plain password, if needed to decrypt the headers. It will also be used by default if encrypted files are found. Note that the files may have different passwords in respect to the headers and among them.</p>
 	 * @param callable $volume_callback <p>A function that receives one parameter &ndash; the path of the volume that was not found &ndash; and returns a string with the correct path for such volume or <b><code>NULL</code></b> if such volume does not exist or is not known. The programmer should ensure the passed function doesn't cause loops as this function is called repeatedly if the path returned in a previous call did not correspond to the needed volume. Specifying this parameter omits the notice that would otherwise be emitted whenever a volume is not found; an implementation that only returns <b><code>NULL</code></b> can therefore be used to merely omit such notices.</p>
-	 * @return RarArchive <p>Returns the requested <code>RarArchive</code> instance or <b><code>FALSE</code></b> on failure.</p>
+	 * @return RarArchive|false <p>Returns the requested <code>RarArchive</code> instance or <b><code>FALSE</code></b> on failure.</p>
 	 * @link http://php.net/manual/en/rararchive.open.php
 	 * @since PECL rar >= 2.0.0
 	 */
-	function rar_open(string $filename, string $password = NULL, callable $volume_callback = NULL): \RarArchive {}
+	function rar_open(string $filename, string $password = NULL, callable $volume_callback = NULL) {}
 
 	/**
 	 * Check whether the RAR archive is solid

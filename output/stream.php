@@ -26,11 +26,11 @@ namespace {
 		/**
 		 * Called when applying the filter
 		 * <p>This method is called whenever data is read from or written to the attached stream (such as with <code>fread()</code> or <code>fwrite()</code>).</p>
-		 * @param resource $in <p><code>in</code> is a resource pointing to a <i>bucket brigade</i> which contains one or more <i>bucket</i> objects containing data to be filtered.</p>
-		 * @param resource $out <p><code>out</code> is a resource pointing to a second <i>bucket brigade</i> into which your modified buckets should be placed.</p>
-		 * @param int $consumed <p><code>consumed</code>, which must <i>always</i> be declared by reference, should be incremented by the length of the data which your filter reads in and alters. In most cases this means you will increment <code>consumed</code> by <i>$bucket-&gt;datalen</i> for each <i>$bucket</i>.</p>
+		 * @param resource $in <p><code>in</code> is a resource pointing to a <code>bucket brigade</code> which contains one or more <code>bucket</code> objects containing data to be filtered.</p>
+		 * @param resource $out <p><code>out</code> is a resource pointing to a second <code>bucket brigade</code> into which your modified buckets should be placed.</p>
+		 * @param int $consumed <p><code>consumed</code>, which must <i>always</i> be declared by reference, should be incremented by the length of the data which your filter reads in and alters. In most cases this means you will increment <code>consumed</code> by <code>$bucket-&gt;datalen</code> for each <code>$bucket</code>.</p>
 		 * @param bool $closing <p>If the stream is in the process of closing (and therefore this is the last pass through the filterchain), the <code>closing</code> parameter will be set to <b><code>TRUE</code></b>.</p>
-		 * @return int <p>The <b>filter()</b> method must return one of three values upon completion.</p>   Return Value Meaning     <b><code>PSFS_PASS_ON</code></b>  Filter processed successfully with data available in the <code>out</code> <i>bucket brigade</i>.    <b><code>PSFS_FEED_ME</code></b>  Filter processed successfully, however no data was available to return. More data is required from the stream or prior filter.    <b><code>PSFS_ERR_FATAL</code></b> (default)  The filter experienced an unrecoverable error and cannot continue.
+		 * @return int <p>The <b>filter()</b> method must return one of three values upon completion.</p>   Return Value Meaning     <b><code>PSFS_PASS_ON</code></b>  Filter processed successfully with data available in the <code>out</code> <code>bucket brigade</code>.    <b><code>PSFS_FEED_ME</code></b>  Filter processed successfully, however no data was available to return. More data is required from the stream or prior filter.    <b><code>PSFS_ERR_FATAL</code></b> (default)  The filter experienced an unrecoverable error and cannot continue.
 		 * @link http://php.net/manual/en/php-user-filter.filter.php
 		 * @since PHP 5, PHP 7
 		 */
@@ -38,7 +38,7 @@ namespace {
 
 		/**
 		 * Called when closing the filter
-		 * <p>This method is called upon filter shutdown (typically, this is also during stream shutdown), and is executed <i>after</i> the <i>flush</i> method is called. If any resources were allocated or initialized during <i>onCreate()</i> this would be the time to destroy or dispose of them.</p>
+		 * <p>This method is called upon filter shutdown (typically, this is also during stream shutdown), and is executed <i>after</i> the <code>flush</code> method is called. If any resources were allocated or initialized during <code>onCreate()</code> this would be the time to destroy or dispose of them.</p>
 		 * @return void <p>Return value is ignored.</p>
 		 * @link http://php.net/manual/en/php-user-filter.onclose.php
 		 * @since PHP 5, PHP 7
@@ -47,7 +47,7 @@ namespace {
 
 		/**
 		 * Called when creating the filter
-		 * <p>This method is called during instantiation of the filter class object. If your filter allocates or initializes any other resources (such as a buffer), this is the place to do it.</p><p>When your filter is first instantiated, and <i>yourfilter-&gt;onCreate()</i> is called, a number of properties will be available as shown in the table below.</p><p></p>
+		 * <p>This method is called during instantiation of the filter class object. If your filter allocates or initializes any other resources (such as a buffer), this is the place to do it.</p><p>When your filter is first instantiated, and <code>yourfilter-&gt;onCreate()</code> is called, a number of properties will be available as shown in the table below.</p><p></p>
 		 * @return bool <p>Your implementation of this method should return <b><code>FALSE</code></b> on failure, or <b><code>TRUE</code></b> on success.</p>
 		 * @link http://php.net/manual/en/php-user-filter.oncreate.php
 		 * @since PHP 5, PHP 7
@@ -105,7 +105,7 @@ namespace {
 		 * Open directory handle
 		 * <p>This method is called in response to <code>opendir()</code>.</p>
 		 * @param string $path <p>Specifies the URL that was passed to <code>opendir()</code>.</p> <p><b>Note</b>:</p><p>The URL can be broken apart with <code>parse_url()</code>.</p>
-		 * @param int $options <p>Whether or not to enforce safe_mode (0x04).</p>
+		 * @param int $options
 		 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
 		 * @link http://php.net/manual/en/streamwrapper.dir-opendir.php
 		 * @see opendir(), parse_url()
@@ -227,7 +227,7 @@ namespace {
 		 * <p>This method is called to set metadata on the stream. It is called when one of the following functions is called on a stream URL:</p>
 		 * @param string $path <p>The file path or URL to set metadata. Note that in the case of a URL, it must be a :// delimited URL. Other URL forms are not supported.</p>
 		 * @param int $option <p>One of:</p><ul> <li><b><code>STREAM_META_TOUCH</code></b> (The method was called in response to <code>touch()</code>)</li> <li><b><code>STREAM_META_OWNER_NAME</code></b> (The method was called in response to <code>chown()</code> with string parameter)</li> <li><b><code>STREAM_META_OWNER</code></b> (The method was called in response to <code>chown()</code>)</li> <li><b><code>STREAM_META_GROUP_NAME</code></b> (The method was called in response to <code>chgrp()</code>)</li> <li><b><code>STREAM_META_GROUP</code></b> (The method was called in response to <code>chgrp()</code>)</li> <li><b><code>STREAM_META_ACCESS</code></b> (The method was called in response to <code>chmod()</code>)</li> </ul>
-		 * @param mixed $value <p>If <code>option</code> is</p><ul> <li><b><code>STREAM_META_TOUCH</code></b>: <code>Array</code> consisting of two arguments of the <code>touch()</code> function.</li> <li><b><code>STREAM_META_OWNER_NAME</code></b> or <b><code>STREAM_META_GROUP_NAME</code></b>: The name of the owner user/group as <code>string</code>.</li> <li><b><code>STREAM_META_OWNER</code></b> or <b><code>STREAM_META_GROUP</code></b>: The value owner user/group argument as <code>integer</code>.</li> <li><b><code>STREAM_META_ACCESS</code></b>: The argument of the <code>chmod()</code> as <code>integer</code>.</li> </ul>
+		 * @param mixed $value <p>If <code>option</code> is</p><ul> <li><b><code>STREAM_META_TOUCH</code></b>: <code>Array</code> consisting of two arguments of the <code>touch()</code> function.</li> <li><b><code>STREAM_META_OWNER_NAME</code></b> or <b><code>STREAM_META_GROUP_NAME</code></b>: The name of the owner user/group as <code>string</code>.</li> <li><b><code>STREAM_META_OWNER</code></b> or <b><code>STREAM_META_GROUP</code></b>: The value owner user/group argument as <code>int</code>.</li> <li><b><code>STREAM_META_ACCESS</code></b>: The argument of the <code>chmod()</code> as <code>int</code>.</li> </ul>
 		 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure. If <code>option</code> is not implemented, <b><code>FALSE</code></b> should be returned.</p>
 		 * @link http://php.net/manual/en/streamwrapper.stream-metadata.php
 		 * @see touch(), chmod(), chown(), chgrp()
@@ -264,7 +264,7 @@ namespace {
 		 * Seeks to specific location in a stream
 		 * <p>This method is called in response to <code>fseek()</code>.</p><p>The read/write position of the stream should be updated according to the <code>offset</code> and <code>whence</code>.</p>
 		 * @param int $offset <p>The stream offset to seek to.</p>
-		 * @param int $whence <p>Possible values:</p><ul> <li><b><code>SEEK_SET</code></b> - Set position equal to <code>offset</code> bytes.</li> <li><b><code>SEEK_CUR</code></b> - Set position to current location plus <code>offset</code>.</li> <li><b><code>SEEK_END</code></b> - Set position to end-of-file plus <code>offset</code>.</li> </ul>
+		 * @param int $whence <p>Possible values:</p><ul> <li><b><code>SEEK_SET</code></b> - Set position equal to <code>offset</code> bytes.</li> <li><b><code>SEEK_CUR</code></b> - Set position to current location plus <code>offset</code>.</li> <li><b><code>SEEK_END</code></b> - Set position to end-of-file plus <code>offset</code>.</li> </ul> <p><b>Note</b>:  The current implementation never sets <code>whence</code> to <b><code>SEEK_CUR</code></b>; instead such seeks are internally converted to <b><code>SEEK_SET</code></b> seeks. </p>
 		 * @return bool <p>Return <b><code>TRUE</code></b> if the position was updated, <b><code>FALSE</code></b> otherwise.</p>
 		 * @link http://php.net/manual/en/streamwrapper.stream-seek.php
 		 * @see fseek()
@@ -342,24 +342,13 @@ namespace {
 		 * <p>This method is called in response to all <code>stat()</code> related functions, such as:</p>
 		 * @param string $path <p>The file path or URL to stat. Note that in the case of a URL, it must be a :// delimited URL. Other URL forms are not supported.</p>
 		 * @param int $flags <p>Holds additional flags set by the streams API. It can hold one or more of the following values OR'd together.</p>   Flag Description     STREAM_URL_STAT_LINK  For resources with the ability to link to other resource (such as an HTTP Location: forward, or a filesystem symlink). This flag specified that only information about the link itself should be returned, not the resource pointed to by the link. This flag is set in response to calls to <code>lstat()</code>, <code>is_link()</code>, or <code>filetype()</code>.    STREAM_URL_STAT_QUIET If this flag is set, your wrapper should not raise any errors. If this flag is not set, you are responsible for reporting errors using the <code>trigger_error()</code> function during stating of the path.
-		 * @return array <p>Should return as many elements as <code>stat()</code> does. Unknown or unavailable values should be set to a rational value (usually <b><code>0</code></b>).</p>
+		 * @return array <p>Should return as many elements as <code>stat()</code> does. Unknown or unavailable values should be set to a rational value (usually <b><code>0</code></b>). Pay special attention to <code>mode</code> as documented under <code>stat()</code>.</p>
 		 * @link http://php.net/manual/en/streamwrapper.url-stat.php
 		 * @see stat()
 		 * @since PHP 4 >= 4.3.2, PHP 5, PHP 7
 		 */
 		public function url_stat(string $path, int $flags): array {}
 	}
-
-	/**
-	 * Alias of stream_set_blocking()
-	 * <p>This function is an alias of: <code>stream_set_blocking()</code></p>
-	 * @param resource $stream <p>The stream.</p>
-	 * @param bool $mode <p>If <code>mode</code> is <b><code>FALSE</code></b>, the given stream will be switched to non-blocking mode, and if <b><code>TRUE</code></b>, it will be switched to blocking mode. This affects calls like <code>fgets()</code> and <code>fread()</code> that read from the stream. In non-blocking mode an <code>fgets()</code> call will always return right away while in blocking mode it will wait for data to become available on the stream.</p>
-	 * @return bool
-	 * @link http://php.net/manual/en/function.set-socket-blocking.php
-	 * @since PHP 4, PHP 5
-	 */
-	function set_socket_blocking($stream, bool $mode): bool {}
 
 	/**
 	 * Append bucket to brigade
@@ -396,7 +385,7 @@ namespace {
 	/**
 	 * Prepend bucket to brigade
 	 * <p>This function can be called to prepend a bucket to a bucket brigade. It is typically called from <code>php_user_filter::filter()</code>.</p>
-	 * @param resource $brigade <p><code>brigade</code> is a resource pointing to a <i>bucket brigade</i> which contains one or more <i>bucket</i> objects.</p>
+	 * @param resource $brigade <p><code>brigade</code> is a resource pointing to a <code>bucket brigade</code> which contains one or more <code>bucket</code> objects.</p>
 	 * @param object $bucket <p>A bucket object.</p>
 	 * @return void <p>No value is returned.</p>
 	 * @link http://php.net/manual/en/function.stream-bucket-prepend.php
@@ -407,8 +396,8 @@ namespace {
 	/**
 	 * Creates a stream context
 	 * <p>Creates and returns a stream context with any options supplied in <code>options</code> preset.</p>
-	 * @param array $options <p>Must be an associative array of associative arrays in the format <i>$arr['wrapper']['option'] = $value</i>. Refer to context options for a list of available wrappers and options.</p> <p>Default to an empty array.</p>
-	 * @param array $params <p>Must be an associative array in the format <i>$arr['parameter'] = $value</i>. Refer to context parameters for a listing of standard stream parameters.</p>
+	 * @param array $options <p>Must be an associative array of associative arrays in the format <code>$arr['wrapper']['option'] = $value</code>. Refer to context options for a list of available wrappers and options.</p> <p>Default to an empty array.</p>
+	 * @param array $params <p>Must be an associative array in the format <code>$arr['parameter'] = $value</code>. Refer to context parameters for a listing of standard stream parameters.</p>
 	 * @return resource <p>A stream context <code>resource</code>.</p>
 	 * @link http://php.net/manual/en/function.stream-context-create.php
 	 * @see stream_context_set_option()
@@ -419,7 +408,7 @@ namespace {
 	/**
 	 * Retrieve the default stream context
 	 * <p>Returns the default stream context which is used whenever file operations (<code>fopen()</code>, <code>file_get_contents()</code>, etc...) are called without a context parameter. Options for the default context can optionally be specified with this function using the same syntax as <code>stream_context_create()</code>.</p>
-	 * @param array $options <code>options</code> must be an associative array of associative arrays in the format <i>$arr['wrapper']['option'] = $value</i>.  <p><b>Note</b>:</p><p>As of PHP 5.3.0, the <code>stream_context_set_default()</code> function can be used to set the default context.</p>
+	 * @param array $options <code>options</code> must be an associative array of associative arrays in the format <code>$arr['wrapper']['option'] = $value</code>.  <p><b>Note</b>:</p><p>As of PHP 5.3.0, the <code>stream_context_set_default()</code> function can be used to set the default context.</p>
 	 * @return resource <p>A stream context <code>resource</code>.</p>
 	 * @link http://php.net/manual/en/function.stream-context-get-default.php
 	 * @see stream_context_create()
@@ -451,7 +440,7 @@ namespace {
 	/**
 	 * Set the default stream context
 	 * <p>Set the default stream context which will be used whenever file operations (<code>fopen()</code>, <code>file_get_contents()</code>, etc...) are called without a context parameter. Uses the same syntax as <code>stream_context_create()</code>.</p>
-	 * @param array $options <p>The options to set for the default context.</p> <p><b>Note</b>:</p><p><code>options</code> must be an associative array of associative arrays in the format <i>$arr['wrapper']['option'] = $value</i>.</p>
+	 * @param array $options <p>The options to set for the default context.</p> <p><b>Note</b>:</p><p><code>options</code> must be an associative array of associative arrays in the format <code>$arr['wrapper']['option'] = $value</code>.</p>
 	 * @return resource <p>Returns the default stream context.</p>
 	 * @link http://php.net/manual/en/function.stream-context-set-default.php
 	 * @see stream_context_create(), stream_context_get_default()
@@ -476,7 +465,7 @@ namespace {
 	 * Set parameters for a stream/wrapper/context
 	 * <p>Sets parameters on the specified context.</p>
 	 * @param resource $stream_or_context <p>The stream or context to apply the parameters too.</p>
-	 * @param array $params <p>An array of parameters to set.</p> <p><b>Note</b>:</p><p><code>params</code> should be an associative array of the structure: <i>$params['paramname'] = "paramvalue";</i>.</p>
+	 * @param array $params <p>An array of parameters to set.</p> <p><b>Note</b>:</p><p><code>params</code> should be an associative array of the structure: <code>$params['paramname'] = "paramvalue";</code>.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
 	 * @link http://php.net/manual/en/function.stream-context-set-params.php
 	 * @see stream_notification_callback()
@@ -491,30 +480,19 @@ namespace {
 	 * @param resource $dest <p>The destination stream</p>
 	 * @param int $maxlength <p>Maximum bytes to copy</p>
 	 * @param int $offset <p>The offset where to start to copy data</p>
-	 * @return int <p>Returns the total count of bytes copied, or <b><code>FALSE</code></b> on failure.</p>
+	 * @return int|false <p>Returns the total count of bytes copied, or <b><code>FALSE</code></b> on failure.</p>
 	 * @link http://php.net/manual/en/function.stream-copy-to-stream.php
 	 * @see copy()
 	 * @since PHP 5, PHP 7
 	 */
-	function stream_copy_to_stream($source, $dest, int $maxlength = -1, int $offset = 0): int {}
-
-	/**
-	 * Set character set for stream encoding
-	 * <p>This function is currently not documented; only its argument list is available.</p>
-	 * @param resource $stream
-	 * @param string $encoding
-	 * @return bool
-	 * @link http://php.net/manual/en/function.stream-encoding.php
-	 * @since No version information available, might only be in Git
-	 */
-	function stream_encoding($stream, string $encoding = NULL): bool {}
+	function stream_copy_to_stream($source, $dest, int $maxlength = -1, int $offset = 0) {}
 
 	/**
 	 * Attach a filter to a stream
 	 * <p>Adds <code>filtername</code> to the list of filters attached to <code>stream</code>.</p>
 	 * @param resource $stream <p>The target stream.</p>
 	 * @param string $filtername <p>The filter name.</p>
-	 * @param int $read_write <p>By default, <b>stream_filter_append()</b> will attach the filter to the <i>read filter chain</i> if the file was opened for reading (i.e. File Mode: <i>r</i>, and/or <i>+</i>). The filter will also be attached to the <i>write filter chain</i> if the file was opened for writing (i.e. File Mode: <i>w</i>, <i>a</i>, and/or <i>+</i>). <b><code>STREAM_FILTER_READ</code></b>, <b><code>STREAM_FILTER_WRITE</code></b>, and/or <b><code>STREAM_FILTER_ALL</code></b> can also be passed to the <code>read_write</code> parameter to override this behavior.</p>
+	 * @param int $read_write <p>By default, <b>stream_filter_append()</b> will attach the filter to the <code>read filter chain</code> if the file was opened for reading (i.e. File Mode: <code>r</code>, and/or <code>+</code>). The filter will also be attached to the <code>write filter chain</code> if the file was opened for writing (i.e. File Mode: <code>w</code>, <code>a</code>, and/or <code>+</code>). <b><code>STREAM_FILTER_READ</code></b>, <b><code>STREAM_FILTER_WRITE</code></b>, and/or <b><code>STREAM_FILTER_ALL</code></b> can also be passed to the <code>read_write</code> parameter to override this behavior.</p>
 	 * @param mixed $params <p>This filter will be added with the specified <code>params</code> to the <i>end</i> of the list and will therefore be called last during stream operations. To add a filter to the beginning of the list, use <code>stream_filter_prepend()</code>.</p>
 	 * @return resource <p>Returns a resource on success or <b><code>FALSE</code></b> on failure. The resource can be used to refer to this filter instance during a call to <code>stream_filter_remove()</code>.</p><p><b><code>FALSE</code></b> is returned if <code>stream</code> is not a resource or if <code>filtername</code> cannot be located.</p>
 	 * @link http://php.net/manual/en/function.stream-filter-append.php
@@ -528,7 +506,7 @@ namespace {
 	 * <p>Adds <code>filtername</code> to the list of filters attached to <code>stream</code>.</p>
 	 * @param resource $stream <p>The target stream.</p>
 	 * @param string $filtername <p>The filter name.</p>
-	 * @param int $read_write <p>By default, <b>stream_filter_prepend()</b> will attach the filter to the <i>read filter chain</i> if the file was opened for reading (i.e. File Mode: <i>r</i>, and/or <i>+</i>). The filter will also be attached to the <i>write filter chain</i> if the file was opened for writing (i.e. File Mode: <i>w</i>, <i>a</i>, and/or <i>+</i>). <b><code>STREAM_FILTER_READ</code></b>, <b><code>STREAM_FILTER_WRITE</code></b>, and/or <b><code>STREAM_FILTER_ALL</code></b> can also be passed to the <code>read_write</code> parameter to override this behavior. See <code>stream_filter_append()</code> for an example of using this parameter.</p>
+	 * @param int $read_write <p>By default, <b>stream_filter_prepend()</b> will attach the filter to the <code>read filter chain</code> if the file was opened for reading (i.e. File Mode: <code>r</code>, and/or <code>+</code>). The filter will also be attached to the <code>write filter chain</code> if the file was opened for writing (i.e. File Mode: <code>w</code>, <code>a</code>, and/or <code>+</code>). <b><code>STREAM_FILTER_READ</code></b>, <b><code>STREAM_FILTER_WRITE</code></b>, and/or <b><code>STREAM_FILTER_ALL</code></b> can also be passed to the <code>read_write</code> parameter to override this behavior. See <code>stream_filter_append()</code> for an example of using this parameter.</p>
 	 * @param mixed $params <p>This filter will be added with the specified <code>params</code> to the <i>beginning</i> of the list and will therefore be called first during stream operations. To add a filter to the end of the list, use <code>stream_filter_append()</code>.</p>
 	 * @return resource <p>Returns a resource on success or <b><code>FALSE</code></b> on failure. The resource can be used to refer to this filter instance during a call to <code>stream_filter_remove()</code>.</p><p><b><code>FALSE</code></b> is returned if <code>stream</code> is not a resource or if <code>filtername</code> cannot be located.</p>
 	 * @link http://php.net/manual/en/function.stream-filter-prepend.php
@@ -566,12 +544,12 @@ namespace {
 	 * @param resource $handle <p>A stream resource (e.g. returned from <code>fopen()</code>)</p>
 	 * @param int $maxlength <p>The maximum bytes to read. Defaults to -1 (read all the remaining buffer).</p>
 	 * @param int $offset <p>Seek to the specified offset before reading. If this number is negative, no seeking will occur and reading will start from the current position.</p>
-	 * @return string <p>Returns a string or <b><code>FALSE</code></b> on failure.</p>
+	 * @return string|false <p>Returns a string or <b><code>FALSE</code></b> on failure.</p>
 	 * @link http://php.net/manual/en/function.stream-get-contents.php
 	 * @see fgets(), fread(), fpassthru()
 	 * @since PHP 5, PHP 7
 	 */
-	function stream_get_contents($handle, int $maxlength = -1, int $offset = -1): string {}
+	function stream_get_contents($handle, int $maxlength = -1, int $offset = -1) {}
 
 	/**
 	 * Retrieve list of registered filters
@@ -600,7 +578,7 @@ namespace {
 	 * Retrieves header/meta data from streams/file pointers
 	 * <p>Returns information about an existing <code>stream</code>.</p>
 	 * @param resource $stream <p>The stream can be any stream created by <code>fopen()</code>, <code>fsockopen()</code> and <code>pfsockopen()</code>.</p>
-	 * @return array <p>The result array contains the following items:</p><ul> <li> <p><i>timed_out</i> (bool) - <b><code>TRUE</code></b> if the stream timed out while waiting for data on the last call to <code>fread()</code> or <code>fgets()</code>.</p> </li> <li> <p><i>blocked</i> (bool) - <b><code>TRUE</code></b> if the stream is in blocking IO mode. See <code>stream_set_blocking()</code>.</p> </li> <li> <p><i>eof</i> (bool) - <b><code>TRUE</code></b> if the stream has reached end-of-file. Note that for socket streams this member can be <b><code>TRUE</code></b> even when <i>unread_bytes</i> is non-zero. To determine if there is more data to be read, use <code>feof()</code> instead of reading this item.</p> </li> <li> <p><i>unread_bytes</i> (int) - the number of bytes currently contained in the PHP's own internal buffer.</p> <p><b>Note</b>:  You shouldn't use this value in a script. </p> </li> <li> <p><i>stream_type</i> (string) - a label describing the underlying implementation of the stream.</p> </li> <li> <p><i>wrapper_type</i> (string) - a label describing the protocol wrapper implementation layered over the stream. See Supported Protocols and Wrappers for more information about wrappers.</p> </li> <li> <p><i>wrapper_data</i> (mixed) - wrapper specific data attached to this stream. See Supported Protocols and Wrappers for more information about wrappers and their wrapper data.</p> </li> <li> <p><i>mode</i> (string) - the type of access required for this stream (see Table 1 of the fopen() reference)</p> </li> <li> <p><i>seekable</i> (bool) - whether the current stream can be seeked.</p> </li> <li> <p><i>uri</i> (string) - the URI/filename associated with this stream.</p> </li> </ul>
+	 * @return array <p>The result array contains the following items:</p><ul> <li> <p><code>timed_out</code> (bool) - <b><code>TRUE</code></b> if the stream timed out while waiting for data on the last call to <code>fread()</code> or <code>fgets()</code>.</p> </li> <li> <p><code>blocked</code> (bool) - <b><code>TRUE</code></b> if the stream is in blocking IO mode. See <code>stream_set_blocking()</code>.</p> </li> <li> <p><code>eof</code> (bool) - <b><code>TRUE</code></b> if the stream has reached end-of-file. Note that for socket streams this member can be <b><code>TRUE</code></b> even when <code>unread_bytes</code> is non-zero. To determine if there is more data to be read, use <code>feof()</code> instead of reading this item.</p> </li> <li> <p><code>unread_bytes</code> (int) - the number of bytes currently contained in the PHP's own internal buffer.</p> <p><b>Note</b>:  You shouldn't use this value in a script. </p> </li> <li> <p><code>stream_type</code> (string) - a label describing the underlying implementation of the stream.</p> </li> <li> <p><code>wrapper_type</code> (string) - a label describing the protocol wrapper implementation layered over the stream. See Supported Protocols and Wrappers for more information about wrappers.</p> </li> <li> <p><code>wrapper_data</code> (mixed) - wrapper specific data attached to this stream. See Supported Protocols and Wrappers for more information about wrappers and their wrapper data.</p> </li> <li> <p><code>mode</code> (string) - the type of access required for this stream (see Table 1 of the fopen() reference)</p> </li> <li> <p><code>seekable</code> (bool) - whether the current stream can be seeked.</p> </li> <li> <p><code>uri</code> (string) - the URI/filename associated with this stream.</p> </li> </ul>
 	 * @link http://php.net/manual/en/function.stream-get-meta-data.php
 	 * @see get_headers()
 	 * @since PHP 4 >= 4.3.0, PHP 5, PHP 7
@@ -678,19 +656,19 @@ namespace {
 	 * Resolve filename against the include path
 	 * <p>Resolve <code>filename</code> against the include path according to the same rules as <code>fopen()</code>/<code>include</code>.</p>
 	 * @param string $filename <p>The filename to resolve.</p>
-	 * @return string <p>Returns a <code>string</code> containing the resolved absolute filename, or <b><code>FALSE</code></b> on failure.</p>
+	 * @return string|false <p>Returns a <code>string</code> containing the resolved absolute filename, or <b><code>FALSE</code></b> on failure.</p>
 	 * @link http://php.net/manual/en/function.stream-resolve-include-path.php
 	 * @since PHP 5 >= 5.3.2, PHP 7
 	 */
-	function stream_resolve_include_path(string $filename): string {}
+	function stream_resolve_include_path(string $filename) {}
 
 	/**
 	 * Runs the equivalent of the select() system call on the given arrays of streams with a timeout specified by tv_sec and tv_usec
 	 * <p>The <b>stream_select()</b> function accepts arrays of streams and waits for them to change status. Its operation is equivalent to that of the <code>socket_select()</code> function except in that it acts on streams.</p>
 	 * @param array $read <p>The streams listed in the <code>read</code> array will be watched to see if characters become available for reading (more precisely, to see if a read will not block - in particular, a stream resource is also ready on end-of-file, in which case an <code>fread()</code> will return a zero length string).</p>
 	 * @param array $write <p>The streams listed in the <code>write</code> array will be watched to see if a write will not block.</p>
-	 * @param array $except <p>The streams listed in the <code>except</code> array will be watched for high priority exceptional ("out-of-band") data arriving.</p> <p><b>Note</b>:</p><p>When <b>stream_select()</b> returns, the arrays <code>read</code>, <code>write</code> and <code>except</code> are modified to indicate which stream resource(s) actually changed status.</p>   You do not need to pass every array to <b>stream_select()</b>. You can leave it out and use an empty array or <b><code>NULL</code></b> instead. Also do not forget that those arrays are passed <i>by reference</i> and will be modified after <b>stream_select()</b> returns.
-	 * @param int $tv_sec <p>The <code>tv_sec</code> and <code>tv_usec</code> together form the <i>timeout</i> parameter, <code>tv_sec</code> specifies the number of seconds while <code>tv_usec</code> the number of microseconds. The <code>timeout</code> is an upper bound on the amount of time that <b>stream_select()</b> will wait before it returns. If <code>tv_sec</code> and <code>tv_usec</code> are both set to <i>0</i>, <b>stream_select()</b> will not wait for data - instead it will return immediately, indicating the current status of the streams.</p> <p>If <code>tv_sec</code> is <b><code>NULL</code></b> <b>stream_select()</b> can block indefinitely, returning only when an event on one of the watched streams occurs (or if a signal interrupts the system call).</p> <p><b>Warning</b></p> <p>Using a timeout value of <i>0</i> allows you to instantaneously poll the status of the streams, however, it is NOT a good idea to use a <i>0</i> timeout value in a loop as it will cause your script to consume too much CPU time.</p> <p>It is much better to specify a timeout value of a few seconds, although if you need to be checking and running other code concurrently, using a timeout value of at least <i>200000</i> microseconds will help reduce the CPU usage of your script.</p> <p>Remember that the timeout value is the maximum time that will elapse; <b>stream_select()</b> will return as soon as the requested streams are ready for use.</p>
+	 * @param array $except <p>The streams listed in the <code>except</code> array will be watched for high priority exceptional ("out-of-band") data arriving.</p> <p><b>Note</b>:</p><p>When <b>stream_select()</b> returns, the arrays <code>read</code>, <code>write</code> and <code>except</code> are modified to indicate which stream resource(s) actually changed status. The original keys of the <code>array</code>s are preserved.</p>
+	 * @param int $tv_sec <p>The <code>tv_sec</code> and <code>tv_usec</code> together form the <i>timeout</i> parameter, <code>tv_sec</code> specifies the number of seconds while <code>tv_usec</code> the number of microseconds. The <code>timeout</code> is an upper bound on the amount of time that <b>stream_select()</b> will wait before it returns. If <code>tv_sec</code> and <code>tv_usec</code> are both set to <code>0</code>, <b>stream_select()</b> will not wait for data - instead it will return immediately, indicating the current status of the streams.</p> <p>If <code>tv_sec</code> is <b><code>NULL</code></b> <b>stream_select()</b> can block indefinitely, returning only when an event on one of the watched streams occurs (or if a signal interrupts the system call).</p> <p><b>Warning</b></p> <p>Using a timeout value of <code>0</code> allows you to instantaneously poll the status of the streams, however, it is NOT a good idea to use a <code>0</code> timeout value in a loop as it will cause your script to consume too much CPU time.</p> <p>It is much better to specify a timeout value of a few seconds, although if you need to be checking and running other code concurrently, using a timeout value of at least <code>200000</code> microseconds will help reduce the CPU usage of your script.</p> <p>Remember that the timeout value is the maximum time that will elapse; <b>stream_select()</b> will return as soon as the requested streams are ready for use.</p>
 	 * @param int $tv_usec <p>See <code>tv_sec</code> description.</p>
 	 * @return int <p>On success <b>stream_select()</b> returns the number of stream resources contained in the modified arrays, which may be zero if the timeout expires before anything interesting happens. On error <b><code>FALSE</code></b> is returned and a warning raised (this can happen if the system call is interrupted by an incoming signal).</p>
 	 * @link http://php.net/manual/en/function.stream-select.php
@@ -765,7 +743,7 @@ namespace {
 	 * @param resource $server_socket <p>The server socket to accept a connection from.</p>
 	 * @param float $timeout <p>Override the default socket accept timeout. Time should be given in seconds.</p>
 	 * @param string $peername <p>Will be set to the name (address) of the client which connected, if included and available from the selected transport.</p> <p><b>Note</b>:</p><p>Can also be determined later using <code>stream_socket_get_name()</code>.</p>
-	 * @return resource <p>Returns a stream to the accepted socket connection or <b><code>FALSE</code></b> on failure.</p>
+	 * @return resource|false <p>Returns a stream to the accepted socket connection or <b><code>FALSE</code></b> on failure.</p>
 	 * @link http://php.net/manual/en/function.stream-socket-accept.php
 	 * @see stream_socket_server(), stream_socket_get_name(), stream_set_blocking(), stream_set_timeout(), fgets(), fgetss(), fwrite(), fclose(), feof()
 	 * @since PHP 5, PHP 7
@@ -774,11 +752,11 @@ namespace {
 
 	/**
 	 * Open Internet or Unix domain socket connection
-	 * <p>Initiates a stream or datagram connection to the destination specified by <code>remote_socket</code>. The type of socket created is determined by the transport specified using standard URL formatting: <i>transport://target</i>. For Internet Domain sockets (AF_INET) such as TCP and UDP, the <i>target</i> portion of the <code>remote_socket</code> parameter should consist of a hostname or IP address followed by a colon and a port number. For Unix domain sockets, the <code>target</code> portion should point to the socket file on the filesystem.</p><p><b>Note</b>:</p><p>The stream will by default be opened in blocking mode. You can switch it to non-blocking mode by using <code>stream_set_blocking()</code>.</p>
+	 * <p>Initiates a stream or datagram connection to the destination specified by <code>remote_socket</code>. The type of socket created is determined by the transport specified using standard URL formatting: <code>transport://target</code>. For Internet Domain sockets (AF_INET) such as TCP and UDP, the <code>target</code> portion of the <code>remote_socket</code> parameter should consist of a hostname or IP address followed by a colon and a port number. For Unix domain sockets, the <code>target</code> portion should point to the socket file on the filesystem.</p><p><b>Note</b>:</p><p>The stream will by default be opened in blocking mode. You can switch it to non-blocking mode by using <code>stream_set_blocking()</code>.</p>
 	 * @param string $remote_socket <p>Address to the socket to connect to.</p>
 	 * @param int $errno <p>Will be set to the system level error number if connection fails.</p>
 	 * @param string $errstr <p>Will be set to the system level error message if the connection fails.</p>
-	 * @param float $timeout <p>Number of seconds until the <i>connect()</i> system call should timeout.</p><p><b>Note</b>:  This parameter only applies when not making asynchronous connection attempts. </p> <p><b>Note</b>:</p><p>To set a timeout for reading/writing data over the socket, use the <code>stream_set_timeout()</code>, as the <code>timeout</code> only applies while making connecting the socket.</p>
+	 * @param float $timeout <p>Number of seconds until the <code>connect()</code> system call should timeout.</p><p><b>Note</b>:  This parameter only applies when not making asynchronous connection attempts. </p> <p><b>Note</b>:</p><p>To set a timeout for reading/writing data over the socket, use the <code>stream_set_timeout()</code>, as the <code>timeout</code> only applies while making connecting the socket.</p>
 	 * @param int $flags <p>Bitmask field which may be set to any combination of connection flags. Currently the select of connection flags is limited to <b><code>STREAM_CLIENT_CONNECT</code></b> (default), <b><code>STREAM_CLIENT_ASYNC_CONNECT</code></b> and <b><code>STREAM_CLIENT_PERSISTENT</code></b>.</p>
 	 * @param resource $context <p>A valid context resource created with <code>stream_context_create()</code>.</p>
 	 * @return resource <p>On success a stream resource is returned which may be used together with the other file functions (such as <code>fgets()</code>, <code>fgetss()</code>, <code>fwrite()</code>, <code>fclose()</code>, and <code>feof()</code>), <b><code>FALSE</code></b> on failure.</p>
@@ -793,9 +771,9 @@ namespace {
 	 * <p>Enable or disable encryption on the stream.</p><p>Once the crypto settings are established, cryptography can be turned on and off dynamically by passing <b><code>TRUE</code></b> or <b><code>FALSE</code></b> in the <code>enable</code> parameter.</p>
 	 * @param resource $stream <p>The stream resource.</p>
 	 * @param bool $enable <p>Enable/disable cryptography on the stream.</p>
-	 * @param int $crypto_type <p>Setup encryption on the stream. Valid methods are</p><ul> <li><b><code>STREAM_CRYPTO_METHOD_SSLv2_CLIENT</code></b></li> <li><b><code>STREAM_CRYPTO_METHOD_SSLv3_CLIENT</code></b></li> <li><b><code>STREAM_CRYPTO_METHOD_SSLv23_CLIENT</code></b></li> <li><b><code>STREAM_CRYPTO_METHOD_ANY_CLIENT</code></b></li> <li><b><code>STREAM_CRYPTO_METHOD_TLS_CLIENT</code></b></li> <li><b><code>STREAM_CRYPTO_METHOD_TLSv1_0_CLIENT</code></b></li> <li><b><code>STREAM_CRYPTO_METHOD_TLSv1_1_CLIENT</code></b></li> <li><b><code>STREAM_CRYPTO_METHOD_TLSv1_2_CLIENT</code></b></li> <li><b><code>STREAM_CRYPTO_METHOD_SSLv2_SERVER</code></b></li> <li><b><code>STREAM_CRYPTO_METHOD_SSLv3_SERVER</code></b></li> <li><b><code>STREAM_CRYPTO_METHOD_SSLv23_SERVER</code></b></li> <li><b><code>STREAM_CRYPTO_METHOD_ANY_SERVER</code></b></li> <li><b><code>STREAM_CRYPTO_METHOD_TLS_SERVER</code></b></li> <li><b><code>STREAM_CRYPTO_METHOD_TLSv1_0_SERVER</code></b></li> <li><b><code>STREAM_CRYPTO_METHOD_TLSv1_1_SERVER</code></b></li> <li><b><code>STREAM_CRYPTO_METHOD_TLSv1_2_SERVER</code></b></li> </ul> <p>If omitted, the <i>crypto_method</i> context option on the stream's SSL context will be used instead.</p>
+	 * @param int $crypto_type <p>Setup encryption on the stream. Valid methods are</p><ul> <li><b><code>STREAM_CRYPTO_METHOD_SSLv2_CLIENT</code></b></li> <li><b><code>STREAM_CRYPTO_METHOD_SSLv3_CLIENT</code></b></li> <li><b><code>STREAM_CRYPTO_METHOD_SSLv23_CLIENT</code></b></li> <li><b><code>STREAM_CRYPTO_METHOD_ANY_CLIENT</code></b></li> <li><b><code>STREAM_CRYPTO_METHOD_TLS_CLIENT</code></b></li> <li><b><code>STREAM_CRYPTO_METHOD_TLSv1_0_CLIENT</code></b></li> <li><b><code>STREAM_CRYPTO_METHOD_TLSv1_1_CLIENT</code></b></li> <li><b><code>STREAM_CRYPTO_METHOD_TLSv1_2_CLIENT</code></b></li> <li><b><code>STREAM_CRYPTO_METHOD_SSLv2_SERVER</code></b></li> <li><b><code>STREAM_CRYPTO_METHOD_SSLv3_SERVER</code></b></li> <li><b><code>STREAM_CRYPTO_METHOD_SSLv23_SERVER</code></b></li> <li><b><code>STREAM_CRYPTO_METHOD_ANY_SERVER</code></b></li> <li><b><code>STREAM_CRYPTO_METHOD_TLS_SERVER</code></b></li> <li><b><code>STREAM_CRYPTO_METHOD_TLSv1_0_SERVER</code></b></li> <li><b><code>STREAM_CRYPTO_METHOD_TLSv1_1_SERVER</code></b></li> <li><b><code>STREAM_CRYPTO_METHOD_TLSv1_2_SERVER</code></b></li> </ul> <p>If omitted, the <code>crypto_method</code> context option on the stream's SSL context will be used instead.</p>
 	 * @param resource $session_stream <p>Seed the stream with settings from <code>session_stream</code>.</p>
-	 * @return mixed <p>Returns <b><code>TRUE</code></b> on success, <b><code>FALSE</code></b> if negotiation has failed or <i>0</i> if there isn't enough data and you should try again (only for non-blocking sockets).</p>
+	 * @return mixed <p>Returns <b><code>TRUE</code></b> on success, <b><code>FALSE</code></b> if negotiation has failed or <code>0</code> if there isn't enough data and you should try again (only for non-blocking sockets).</p>
 	 * @link http://php.net/manual/en/function.stream-socket-enable-crypto.php
 	 * @since PHP 5 >= 5.1.0, PHP 7
 	 */
@@ -805,7 +783,7 @@ namespace {
 	 * Retrieve the name of the local or remote sockets
 	 * <p>Returns the local or remote name of a given socket connection.</p>
 	 * @param resource $handle <p>The socket to get the name of.</p>
-	 * @param bool $want_peer <p>If set to <b><code>TRUE</code></b> the <i>remote</i> socket name will be returned, if set to <b><code>FALSE</code></b> the <i>local</i> socket name will be returned.</p>
+	 * @param bool $want_peer <p>If set to <b><code>TRUE</code></b> the <code>remote</code> socket name will be returned, if set to <b><code>FALSE</code></b> the <code>local</code> socket name will be returned.</p>
 	 * @return string <p>The name of the socket.</p>
 	 * @link http://php.net/manual/en/function.stream-socket-get-name.php
 	 * @see stream_socket_accept()
@@ -830,7 +808,7 @@ namespace {
 	 * <p><b>stream_socket_recvfrom()</b> accepts data from a remote socket up to <code>length</code> bytes.</p>
 	 * @param resource $socket <p>The remote socket.</p>
 	 * @param int $length <p>The number of bytes to receive from the <code>socket</code>.</p>
-	 * @param int $flags <p>The value of <code>flags</code> can be any combination of the following:</p> <b>Possible values for <code>flags</code></b>   <b><code>STREAM_OOB</code></b>  Process OOB (<i>out-of-band</i>) data.    <b><code>STREAM_PEEK</code></b>  Retrieve data from the socket, but do not consume the buffer. Subsequent calls to <code>fread()</code> or <b>stream_socket_recvfrom()</b> will see the same data.
+	 * @param int $flags <p>The value of <code>flags</code> can be any combination of the following:</p> <b>Possible values for <code>flags</code></b>   <b><code>STREAM_OOB</code></b>  Process OOB (<code>out-of-band</code>) data.    <b><code>STREAM_PEEK</code></b>  Retrieve data from the socket, but do not consume the buffer. Subsequent calls to <code>fread()</code> or <b>stream_socket_recvfrom()</b> will see the same data.
 	 * @param string $address <p>If <code>address</code> is provided it will be populated with the address of the remote socket.</p>
 	 * @return string <p>Returns the read data, as a string</p>
 	 * @link http://php.net/manual/en/function.stream-socket-recvfrom.php
@@ -856,8 +834,8 @@ namespace {
 	/**
 	 * Create an Internet or Unix domain server socket
 	 * <p>Creates a stream or datagram socket on the specified <code>local_socket</code>.</p><p>This function only creates a socket, to begin accepting connections use <code>stream_socket_accept()</code>.</p>
-	 * @param string $local_socket <p>The type of socket created is determined by the transport specified using standard URL formatting: <i>transport://target</i>.</p> <p>For Internet Domain sockets (<b><code>AF_INET</code></b>) such as TCP and UDP, the <i>target</i> portion of the <code>remote_socket</code> parameter should consist of a hostname or IP address followed by a colon and a port number. For Unix domain sockets, the <i>target</i> portion should point to the socket file on the filesystem.</p> <p>Depending on the environment, Unix domain sockets may not be available. A list of available transports can be retrieved using <code>stream_get_transports()</code>. See List of Supported Socket Transports for a list of bulitin transports.</p>
-	 * @param int $errno <p>If the optional <code>errno</code> and <code>errstr</code> arguments are present they will be set to indicate the actual system level error that occurred in the system-level <i>socket()</i>, <i>bind()</i>, and <i>listen()</i> calls. If the value returned in <code>errno</code> is <i>0</i> and the function returned <b><code>FALSE</code></b>, it is an indication that the error occurred before the <i>bind()</i> call. This is most likely due to a problem initializing the socket. Note that the <code>errno</code> and <code>errstr</code> arguments will always be passed by reference.</p>
+	 * @param string $local_socket <p>The type of socket created is determined by the transport specified using standard URL formatting: <code>transport://target</code>.</p> <p>For Internet Domain sockets (<b><code>AF_INET</code></b>) such as TCP and UDP, the <code>target</code> portion of the <code>remote_socket</code> parameter should consist of a hostname or IP address followed by a colon and a port number. For Unix domain sockets, the <code>target</code> portion should point to the socket file on the filesystem.</p> <p>Depending on the environment, Unix domain sockets may not be available. A list of available transports can be retrieved using <code>stream_get_transports()</code>. See List of Supported Socket Transports for a list of bulitin transports.</p>
+	 * @param int $errno <p>If the optional <code>errno</code> and <code>errstr</code> arguments are present they will be set to indicate the actual system level error that occurred in the system-level <code>socket()</code>, <code>bind()</code>, and <code>listen()</code> calls. If the value returned in <code>errno</code> is <code>0</code> and the function returned <b><code>FALSE</code></b>, it is an indication that the error occurred before the <code>bind()</code> call. This is most likely due to a problem initializing the socket. Note that the <code>errno</code> and <code>errstr</code> arguments will always be passed by reference.</p>
 	 * @param string $errstr <p>See <code>errno</code> description.</p>
 	 * @param int $flags <p>A bitmask field which may be set to any combination of socket creation flags.</p> <p><b>Note</b>:</p><p>For UDP sockets, you must use <b><code>STREAM_SERVER_BIND</code></b> as the <code>flags</code> parameter.</p>
 	 * @param resource $context

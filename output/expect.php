@@ -21,7 +21,7 @@ namespace {
 	 * Execute command via Bourne shell, and open the PTY stream to the process
 	 * <p>Execute command via Bourne shell, and open the PTY stream to the process.</p>
 	 * @param string $command <p>Command to execute.</p>
-	 * @return resource <p>Returns an open PTY stream to the processes <i>stdio</i>, <i>stdout</i>, and <i>stderr</i>.</p><p>On failure this function returns <b><code>FALSE</code></b>.</p>
+	 * @return resource <p>Returns an open PTY stream to the processes <code>stdio</code>, <code>stdout</code>, and <code>stderr</code>.</p><p>On failure this function returns <b><code>FALSE</code></b>.</p>
 	 * @link http://php.net/manual/en/function.expect-popen.php
 	 * @see popen()
 	 * @since PECL expect >= 0.1.0

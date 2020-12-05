@@ -12,13 +12,13 @@ namespace Parle {
 	class ErrorInfo {
 
 		/**
-		 * @var integer <p>Error id.</p>
+		 * @var int <p>Error id.</p>
 		 * @link http://php.net/manual/en/class.parle-errorinfo.php#parle-errorinfo.props.id
 		 */
 		public $id;
 
 		/**
-		 * @var integer <p>Position in the input, where the error occurred.</p>
+		 * @var int <p>Position in the input, where the error occurred.</p>
 		 * @link http://php.net/manual/en/class.parle-errorinfo.php#parle-errorinfo.props.position
 		 */
 		public $position;
@@ -47,61 +47,61 @@ namespace Parle {
 	class Lexer {
 
 		/**
-		 * @var integer
+		 * @var int
 		 * @link http://php.net/manual/en/class.parle-lexer.php
 		 */
 		const ICASE = 1;
 
 		/**
-		 * @var integer
+		 * @var int
 		 * @link http://php.net/manual/en/class.parle-lexer.php
 		 */
 		const DOT_NOT_LF = 2;
 
 		/**
-		 * @var integer
+		 * @var int
 		 * @link http://php.net/manual/en/class.parle-lexer.php
 		 */
 		const DOT_NOT_CRLF = 4;
 
 		/**
-		 * @var integer
+		 * @var int
 		 * @link http://php.net/manual/en/class.parle-lexer.php
 		 */
 		const SKIP_WS = 8;
 
 		/**
-		 * @var integer
+		 * @var int
 		 * @link http://php.net/manual/en/class.parle-lexer.php
 		 */
 		const MATCH_ZERO_LEN = 16;
 
 		/**
-		 * @var boolean <p>Start of input flag.</p>
+		 * @var bool <p>Start of input flag.</p>
 		 * @link http://php.net/manual/en/class.parle-lexer.php#parle-lexer.props.bol
 		 */
 		public $bol = FALSE;
 
 		/**
-		 * @var integer <p>Lexer flags.</p>
+		 * @var int <p>Lexer flags.</p>
 		 * @link http://php.net/manual/en/class.parle-lexer.php#parle-lexer.props.flags
 		 */
 		public $flags = 0;
 
 		/**
-		 * @var integer <p>Current lexer state, readonly.</p>
+		 * @var int <p>Current lexer state, readonly.</p>
 		 * @link http://php.net/manual/en/class.parle-lexer.php#parle-lexer.props.state
 		 */
 		public $state = 0;
 
 		/**
-		 * @var integer <p>Position of the latest token match, readonly.</p>
+		 * @var int <p>Position of the latest token match, readonly.</p>
 		 * @link http://php.net/manual/en/class.parle-lexer.php#parle-lexer.props.marker
 		 */
 		public $marker = 0;
 
 		/**
-		 * @var integer <p>Current input offset, readonly.</p>
+		 * @var int <p>Current input offset, readonly.</p>
 		 * @link http://php.net/manual/en/class.parle-lexer.php#parle-lexer.props.cursor
 		 */
 		public $cursor = 0;
@@ -231,7 +231,7 @@ namespace Parle {
 		 * <p>Tries to clone the Exception, which results in Fatal error.</p>
 		 * @return void <p>No value is returned.</p>
 		 * @link http://php.net/manual/en/exception.clone.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final private function __clone() {}
 
@@ -240,16 +240,16 @@ namespace Parle {
 		 * <p>Returns the <code>string</code> representation of the exception.</p>
 		 * @return string <p>Returns the <code>string</code> representation of the exception.</p>
 		 * @link http://php.net/manual/en/exception.tostring.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		public function __toString(): string {}
 
 		/**
 		 * Gets the Exception code
 		 * <p>Returns the Exception code.</p>
-		 * @return mixed <p>Returns the exception code as <code>integer</code> in Exception but possibly as other type in Exception descendants (for example as <code>string</code> in PDOException).</p>
+		 * @return mixed <p>Returns the exception code as <code>int</code> in Exception but possibly as other type in Exception descendants (for example as <code>string</code> in PDOException).</p>
 		 * @link http://php.net/manual/en/exception.getcode.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getCode() {}
 
@@ -258,7 +258,7 @@ namespace Parle {
 		 * <p>Get the name of the file in which the exception was created.</p>
 		 * @return string <p>Returns the filename in which the exception was created.</p>
 		 * @link http://php.net/manual/en/exception.getfile.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getFile(): string {}
 
@@ -267,7 +267,7 @@ namespace Parle {
 		 * <p>Get line number where the exception was created.</p>
 		 * @return int <p>Returns the line number where the exception was created.</p>
 		 * @link http://php.net/manual/en/exception.getline.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getLine(): int {}
 
@@ -276,7 +276,7 @@ namespace Parle {
 		 * <p>Returns the Exception message.</p>
 		 * @return string <p>Returns the Exception message as a string.</p>
 		 * @link http://php.net/manual/en/exception.getmessage.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getMessage(): string {}
 
@@ -285,7 +285,7 @@ namespace Parle {
 		 * <p>Returns previous exception (the third parameter of <code>Exception::__construct()</code>).</p>
 		 * @return Throwable <p>Returns the previous Throwable if available or <b><code>NULL</code></b> otherwise.</p>
 		 * @link http://php.net/manual/en/exception.getprevious.php
-		 * @since PHP 5 >= 5.3.0, PHP 7
+		 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8
 		 */
 		final public function getPrevious(): \Throwable {}
 
@@ -294,7 +294,7 @@ namespace Parle {
 		 * <p>Returns the Exception stack trace.</p>
 		 * @return array <p>Returns the Exception stack trace as an <code>array</code>.</p>
 		 * @link http://php.net/manual/en/exception.gettrace.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getTrace(): array {}
 
@@ -303,7 +303,7 @@ namespace Parle {
 		 * <p>Returns the Exception stack trace as a string.</p>
 		 * @return string <p>Returns the Exception stack trace as a string.</p>
 		 * @link http://php.net/manual/en/exception.gettraceasstring.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getTraceAsString(): string {}
 	}
@@ -316,61 +316,61 @@ namespace Parle {
 	class Parser {
 
 		/**
-		 * @var integer
+		 * @var int
 		 * @link http://php.net/manual/en/class.parle-parser.php
 		 */
 		const ACTION_ERROR = 0;
 
 		/**
-		 * @var integer
+		 * @var int
 		 * @link http://php.net/manual/en/class.parle-parser.php
 		 */
 		const ACTION_SHIFT = 1;
 
 		/**
-		 * @var integer
+		 * @var int
 		 * @link http://php.net/manual/en/class.parle-parser.php
 		 */
 		const ACTION_REDUCE = 2;
 
 		/**
-		 * @var integer
+		 * @var int
 		 * @link http://php.net/manual/en/class.parle-parser.php
 		 */
 		const ACTION_GOTO = 3;
 
 		/**
-		 * @var integer
+		 * @var int
 		 * @link http://php.net/manual/en/class.parle-parser.php
 		 */
 		const ACTION_ACCEPT = 4;
 
 		/**
-		 * @var integer
+		 * @var int
 		 * @link http://php.net/manual/en/class.parle-parser.php
 		 */
 		const ERROR_SYNTAX = 0;
 
 		/**
-		 * @var integer
+		 * @var int
 		 * @link http://php.net/manual/en/class.parle-parser.php
 		 */
 		const ERROR_NON_ASSOCIATIVE = 1;
 
 		/**
-		 * @var integer
+		 * @var int
 		 * @link http://php.net/manual/en/class.parle-parser.php
 		 */
-		const ERROR_UNKOWN_TOKEN = 2;
+		const ERROR_UNKNOWN_TOKEN = 2;
 
 		/**
-		 * @var integer <p>Current parser action that matches one of the action class constants, readonly.</p>
+		 * @var int <p>Current parser action that matches one of the action class constants, readonly.</p>
 		 * @link http://php.net/manual/en/class.parle-parser.php#parle-parser.props.action
 		 */
 		public $action = 0;
 
 		/**
-		 * @var integer <p>Grammar rule id just processed in the reduce action. The value corresponds either to a token or to a production id. Readonly.</p>
+		 * @var int <p>Grammar rule id just processed in the reduce action. The value corresponds either to a token or to a production id. Readonly.</p>
 		 * @link http://php.net/manual/en/class.parle-parser.php#parle-parser.props.reduceId
 		 */
 		public $reduceId = 0;
@@ -457,7 +457,7 @@ namespace Parle {
 		 * <p>Push a grammar rule. The production id returned can be used later in the parsing process to identify the rule matched.</p>
 		 * @param string $name <p>Rule name.</p>
 		 * @param string $rule <p>The rule to be added. The syntax is Bison compatible.</p>
-		 * @return int <p>Returns <code>integer</code> representing the rule index.</p>
+		 * @return int <p>Returns <code>int</code> representing the rule index.</p>
 		 * @link http://php.net/manual/en/parle-parser.push.php
 		 * @since PECL parle >= 0.5.1
 		 */
@@ -491,7 +491,7 @@ namespace Parle {
 		 * @link http://php.net/manual/en/parle-parser.sigil.php
 		 * @since PECL parle >= 0.5.1
 		 */
-		public function sigil(int $idx = NULL): string {}
+		public function sigil(int $idx): string {}
 
 		/**
 		 * Declare a token
@@ -507,7 +507,7 @@ namespace Parle {
 		 * Get token id
 		 * <p>Retrieve the id of the named token.</p>
 		 * @param string $tok <p>Name of the token as used in <code>Parle\Parser::token()</code>.</p>
-		 * @return int <p>Returns <code>integer</code> representing the token id.</p>
+		 * @return int <p>Returns <code>int</code> representing the token id.</p>
 		 * @link http://php.net/manual/en/parle-parser.tokenid.php
 		 * @since PECL parle >= 0.5.1
 		 */
@@ -527,7 +527,7 @@ namespace Parle {
 		 * <p>Validate an input string. The string is parsed internally, thus this method is useful for the quick input validation.</p>
 		 * @param string $data <p>String to be validated.</p>
 		 * @param \Parle\Lexer $lexer <p>A lexer object containing the lexing rules prepared for the particular grammar.</p>
-		 * @return bool <p>Returns <code>boolean</code> witnessing whether the input chimes or not with the defined rules.</p>
+		 * @return bool <p>Returns <code>bool</code> witnessing whether the input chimes or not with the defined rules.</p>
 		 * @link http://php.net/manual/en/parle-parser.validate.php
 		 * @since PECL parle >= 0.5.1
 		 */
@@ -569,7 +569,7 @@ namespace Parle {
 		 * <p>Tries to clone the Exception, which results in Fatal error.</p>
 		 * @return void <p>No value is returned.</p>
 		 * @link http://php.net/manual/en/exception.clone.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final private function __clone() {}
 
@@ -578,16 +578,16 @@ namespace Parle {
 		 * <p>Returns the <code>string</code> representation of the exception.</p>
 		 * @return string <p>Returns the <code>string</code> representation of the exception.</p>
 		 * @link http://php.net/manual/en/exception.tostring.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		public function __toString(): string {}
 
 		/**
 		 * Gets the Exception code
 		 * <p>Returns the Exception code.</p>
-		 * @return mixed <p>Returns the exception code as <code>integer</code> in Exception but possibly as other type in Exception descendants (for example as <code>string</code> in PDOException).</p>
+		 * @return mixed <p>Returns the exception code as <code>int</code> in Exception but possibly as other type in Exception descendants (for example as <code>string</code> in PDOException).</p>
 		 * @link http://php.net/manual/en/exception.getcode.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getCode() {}
 
@@ -596,7 +596,7 @@ namespace Parle {
 		 * <p>Get the name of the file in which the exception was created.</p>
 		 * @return string <p>Returns the filename in which the exception was created.</p>
 		 * @link http://php.net/manual/en/exception.getfile.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getFile(): string {}
 
@@ -605,7 +605,7 @@ namespace Parle {
 		 * <p>Get line number where the exception was created.</p>
 		 * @return int <p>Returns the line number where the exception was created.</p>
 		 * @link http://php.net/manual/en/exception.getline.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getLine(): int {}
 
@@ -614,7 +614,7 @@ namespace Parle {
 		 * <p>Returns the Exception message.</p>
 		 * @return string <p>Returns the Exception message as a string.</p>
 		 * @link http://php.net/manual/en/exception.getmessage.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getMessage(): string {}
 
@@ -623,7 +623,7 @@ namespace Parle {
 		 * <p>Returns previous exception (the third parameter of <code>Exception::__construct()</code>).</p>
 		 * @return Throwable <p>Returns the previous Throwable if available or <b><code>NULL</code></b> otherwise.</p>
 		 * @link http://php.net/manual/en/exception.getprevious.php
-		 * @since PHP 5 >= 5.3.0, PHP 7
+		 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8
 		 */
 		final public function getPrevious(): \Throwable {}
 
@@ -632,7 +632,7 @@ namespace Parle {
 		 * <p>Returns the Exception stack trace.</p>
 		 * @return array <p>Returns the Exception stack trace as an <code>array</code>.</p>
 		 * @link http://php.net/manual/en/exception.gettrace.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getTrace(): array {}
 
@@ -641,7 +641,7 @@ namespace Parle {
 		 * <p>Returns the Exception stack trace as a string.</p>
 		 * @return string <p>Returns the Exception stack trace as a string.</p>
 		 * @link http://php.net/manual/en/exception.gettraceasstring.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getTraceAsString(): string {}
 	}
@@ -654,61 +654,61 @@ namespace Parle {
 	class RLexer {
 
 		/**
-		 * @var integer
+		 * @var int
 		 * @link http://php.net/manual/en/class.parle-rlexer.php
 		 */
 		const ICASE = 1;
 
 		/**
-		 * @var integer
+		 * @var int
 		 * @link http://php.net/manual/en/class.parle-rlexer.php
 		 */
 		const DOT_NOT_LF = 2;
 
 		/**
-		 * @var integer
+		 * @var int
 		 * @link http://php.net/manual/en/class.parle-rlexer.php
 		 */
 		const DOT_NOT_CRLF = 4;
 
 		/**
-		 * @var integer
+		 * @var int
 		 * @link http://php.net/manual/en/class.parle-rlexer.php
 		 */
 		const SKIP_WS = 8;
 
 		/**
-		 * @var integer
+		 * @var int
 		 * @link http://php.net/manual/en/class.parle-rlexer.php
 		 */
 		const MATCH_ZERO_LEN = 16;
 
 		/**
-		 * @var boolean <p>Start of input flag.</p>
+		 * @var bool <p>Start of input flag.</p>
 		 * @link http://php.net/manual/en/class.parle-rlexer.php#parle-rlexer.props.bol
 		 */
 		public $bol = FALSE;
 
 		/**
-		 * @var integer <p>Lexer flags.</p>
+		 * @var int <p>Lexer flags.</p>
 		 * @link http://php.net/manual/en/class.parle-rlexer.php#parle-rlexer.props.flags
 		 */
 		public $flags = 0;
 
 		/**
-		 * @var integer <p>Current lexer state, readonly.</p>
+		 * @var int <p>Current lexer state, readonly.</p>
 		 * @link http://php.net/manual/en/class.parle-rlexer.php#parle-rlexer.props.state
 		 */
 		public $state = 0;
 
 		/**
-		 * @var integer <p>Position of the latest token match, readonly.</p>
+		 * @var int <p>Position of the latest token match, readonly.</p>
 		 * @link http://php.net/manual/en/class.parle-rlexer.php#parle-rlexer.props.marker
 		 */
 		public $marker = 0;
 
 		/**
-		 * @var integer <p>Current input offset, readonly.</p>
+		 * @var int <p>Current input offset, readonly.</p>
 		 * @link http://php.net/manual/en/class.parle-rlexer.php#parle-rlexer.props.cursor
 		 */
 		public $cursor = 0;
@@ -821,61 +821,61 @@ namespace Parle {
 	class RParser {
 
 		/**
-		 * @var integer
+		 * @var int
 		 * @link http://php.net/manual/en/class.parle-rparser.php
 		 */
 		const ACTION_ERROR = 0;
 
 		/**
-		 * @var integer
+		 * @var int
 		 * @link http://php.net/manual/en/class.parle-rparser.php
 		 */
 		const ACTION_SHIFT = 1;
 
 		/**
-		 * @var integer
+		 * @var int
 		 * @link http://php.net/manual/en/class.parle-rparser.php
 		 */
 		const ACTION_REDUCE = 2;
 
 		/**
-		 * @var integer
+		 * @var int
 		 * @link http://php.net/manual/en/class.parle-rparser.php
 		 */
 		const ACTION_GOTO = 3;
 
 		/**
-		 * @var integer
+		 * @var int
 		 * @link http://php.net/manual/en/class.parle-rparser.php
 		 */
 		const ACTION_ACCEPT = 4;
 
 		/**
-		 * @var integer
+		 * @var int
 		 * @link http://php.net/manual/en/class.parle-rparser.php
 		 */
 		const ERROR_SYNTAX = 0;
 
 		/**
-		 * @var integer
+		 * @var int
 		 * @link http://php.net/manual/en/class.parle-rparser.php
 		 */
 		const ERROR_NON_ASSOCIATIVE = 1;
 
 		/**
-		 * @var integer
+		 * @var int
 		 * @link http://php.net/manual/en/class.parle-rparser.php
 		 */
-		const ERROR_UNKOWN_TOKEN = 2;
+		const ERROR_UNKNOWN_TOKEN = 2;
 
 		/**
-		 * @var integer <p>Current parser action that matches one of the action class constants, readonly.</p>
+		 * @var int <p>Current parser action that matches one of the action class constants, readonly.</p>
 		 * @link http://php.net/manual/en/class.parle-rparser.php#parle-rparser.props.action
 		 */
 		public $action = 0;
 
 		/**
-		 * @var integer <p>Grammar rule id just processed in the reduce action. The value corresponds either to a token or to a production id. Readonly.</p>
+		 * @var int <p>Grammar rule id just processed in the reduce action. The value corresponds either to a token or to a production id. Readonly.</p>
 		 * @link http://php.net/manual/en/class.parle-rparser.php#parle-rparser.props.reduceId
 		 */
 		public $reduceId = 0;
@@ -962,7 +962,7 @@ namespace Parle {
 		 * <p>Push a grammar rule. The production id returned can be used later in the parsing process to identify the rule matched.</p>
 		 * @param string $name <p>Rule name.</p>
 		 * @param string $rule <p>The rule to be added. The syntax is Bison compatible.</p>
-		 * @return int <p>Returns <code>integer</code> representing the rule index.</p>
+		 * @return int <p>Returns <code>int</code> representing the rule index.</p>
 		 * @link http://php.net/manual/en/parle-rparser.push.php
 		 * @since PECL parle >= 0.7.0
 		 */
@@ -1012,7 +1012,7 @@ namespace Parle {
 		 * Get token id
 		 * <p>Retrieve the id of the named token.</p>
 		 * @param string $tok <p>Name of the token as used in <code>Parle\RParser::token()</code>.</p>
-		 * @return int <p>Returns <code>integer</code> representing the token id.</p>
+		 * @return int <p>Returns <code>int</code> representing the token id.</p>
 		 * @link http://php.net/manual/en/parle-rparser.tokenid.php
 		 * @since PECL parle >= 0.7.0
 		 */
@@ -1032,7 +1032,7 @@ namespace Parle {
 		 * <p>Validate an input string. The string is parsed internally, thus this method is useful for the quick input validation.</p>
 		 * @param string $data <p>String to be validated.</p>
 		 * @param \Parle\RLexer $lexer <p>A lexer object containing the lexing rules prepared for the particular grammar.</p>
-		 * @return bool <p>Returns <code>boolean</code> whitnessing whether the input chimes or not with the defined rules.</p>
+		 * @return bool <p>Returns <code>bool</code> whitnessing whether the input chimes or not with the defined rules.</p>
 		 * @link http://php.net/manual/en/parle-rparser.validate.php
 		 * @since PECL parle >= 0.7.0
 		 */
@@ -1040,20 +1040,20 @@ namespace Parle {
 	}
 
 	/**
-	 * <p><b>Parle\Stack</b> is a LIFO stack. The elements are inserted and and removed only from one end.</p>
+	 * <p><b>Parle\Stack</b> is a LIFO stack. The elements are inserted and removed only from one end.</p>
 	 * @link http://php.net/manual/en/class.parle-stack.php
 	 * @since PECL parle >= 0.7.0
 	 */
 	class Stack {
 
 		/**
-		 * @var boolean <p>Whether the stack is empty, readonly.</p>
+		 * @var bool <p>Whether the stack is empty, readonly.</p>
 		 * @link http://php.net/manual/en/class.parle-stack.php#parle-stack.props.empty
 		 */
 		public $empty = TRUE;
 
 		/**
-		 * @var integer <p>Stack size, readonly.</p>
+		 * @var int <p>Stack size, readonly.</p>
 		 * @link http://php.net/manual/en/class.parle-stack.php#parle-stack.props.size
 		 */
 		public $size = 0;
@@ -1090,25 +1090,25 @@ namespace Parle {
 	class Token {
 
 		/**
-		 * @var integer <p>End of input token id.</p>
+		 * @var int <p>End of input token id.</p>
 		 * @link http://php.net/manual/en/class.parle-token.php
 		 */
 		const EOI = 0;
 
 		/**
-		 * @var integer <p>Unknown token id.</p>
+		 * @var int <p>Unknown token id.</p>
 		 * @link http://php.net/manual/en/class.parle-token.php
 		 */
 		const UNKNOWN = -1;
 
 		/**
-		 * @var integer <p>Skip token id.</p>
+		 * @var int <p>Skip token id.</p>
 		 * @link http://php.net/manual/en/class.parle-token.php
 		 */
 		const SKIP = -2;
 
 		/**
-		 * @var integer <p>Token id.</p>
+		 * @var int <p>Token id.</p>
 		 * @link http://php.net/manual/en/class.parle-token.php#parle-token.props.id
 		 */
 		public $id;

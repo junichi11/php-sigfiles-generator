@@ -6,14 +6,36 @@ namespace {
 
 	define('CHAR_MAX', 127);
 
+	/**
+	 * Indicates whether Blowfish hashes are supported in <code>crypt()</code>. Always <code>1</code>.
+	 */
 	define('CRYPT_BLOWFISH', 1);
 
+	/**
+	 * Indicates whether extended DES-based hashes are supported in <code>crypt()</code>. Always <code>1</code>.
+	 */
 	define('CRYPT_EXT_DES', 1);
 
+	/**
+	 * Indicates whether MD5 hashes are supported in <code>crypt()</code>. Always <code>1</code>.
+	 */
 	define('CRYPT_MD5', 1);
 
 	define('CRYPT_SALT_LENGTH', 123);
 
+	/**
+	 * Indicates whether SHA-256 hashes are supported in <code>crypt()</code>. Always <code>1</code>.
+	 */
+	define('CRYPT_SHA256', 1);
+
+	/**
+	 * Indicates whether SHA-512 hashes are supported in <code>crypt()</code>. Always <code>1</code>.
+	 */
+	define('CRYPT_SHA512', 1);
+
+	/**
+	 * Indicates whether standard DES-based hashes are supported in <code>crypt()</code>. Always <code>1</code>.
+	 */
 	define('CRYPT_STD_DES', 1);
 
 	define('ENT_COMPAT', 2);

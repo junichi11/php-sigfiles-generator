@@ -11,133 +11,133 @@ namespace {
 	class SVM {
 
 		/**
-		 * @var integer <p>The basic C_SVC SVM type. The default, and a good starting point</p>
+		 * @var int <p>The basic C_SVC SVM type. The default, and a good starting point</p>
 		 * @link http://php.net/manual/en/class.svm.php
 		 */
 		const C_SVC = 0;
 
 		/**
-		 * @var integer <p>The NU_SVC type uses a different, more flexible, error weighting</p>
+		 * @var int <p>The NU_SVC type uses a different, more flexible, error weighting</p>
 		 * @link http://php.net/manual/en/class.svm.php
 		 */
 		const NU_SVC = 1;
 
 		/**
-		 * @var integer <p>One class SVM type. Train just on a single class, using outliers as negative examples</p>
+		 * @var int <p>One class SVM type. Train just on a single class, using outliers as negative examples</p>
 		 * @link http://php.net/manual/en/class.svm.php
 		 */
 		const ONE_CLASS = 2;
 
 		/**
-		 * @var integer <p>A SVM type for regression (predicting a value rather than just a class)</p>
+		 * @var int <p>A SVM type for regression (predicting a value rather than just a class)</p>
 		 * @link http://php.net/manual/en/class.svm.php
 		 */
 		const EPSILON_SVR = 3;
 
 		/**
-		 * @var integer <p>A NU style SVM regression type</p>
+		 * @var int <p>A NU style SVM regression type</p>
 		 * @link http://php.net/manual/en/class.svm.php
 		 */
 		const NU_SVR = 4;
 
 		/**
-		 * @var integer <p>A very simple kernel, can work well on large document classification problems</p>
+		 * @var int <p>A very simple kernel, can work well on large document classification problems</p>
 		 * @link http://php.net/manual/en/class.svm.php
 		 */
 		const KERNEL_LINEAR = 0;
 
 		/**
-		 * @var integer <p>A polynomial kernel</p>
+		 * @var int <p>A polynomial kernel</p>
 		 * @link http://php.net/manual/en/class.svm.php
 		 */
 		const KERNEL_POLY = 1;
 
 		/**
-		 * @var integer <p>The common Gaussian RBD kernel. Handles non-linear problems well and is a good default for classification</p>
+		 * @var int <p>The common Gaussian RBD kernel. Handles non-linear problems well and is a good default for classification</p>
 		 * @link http://php.net/manual/en/class.svm.php
 		 */
 		const KERNEL_RBF = 2;
 
 		/**
-		 * @var integer <p>A kernel based on the sigmoid function. Using this makes the SVM very similar to a two layer sigmoid based neural network</p>
+		 * @var int <p>A kernel based on the sigmoid function. Using this makes the SVM very similar to a two layer sigmoid based neural network</p>
 		 * @link http://php.net/manual/en/class.svm.php
 		 */
 		const KERNEL_SIGMOID = 3;
 
 		/**
-		 * @var integer <p>A precomputed kernel - currently unsupported.</p>
+		 * @var int <p>A precomputed kernel - currently unsupported.</p>
 		 * @link http://php.net/manual/en/class.svm.php
 		 */
 		const KERNEL_PRECOMPUTED = 4;
 
 		/**
-		 * @var integer <p>The options key for the SVM type</p>
+		 * @var int <p>The options key for the SVM type</p>
 		 * @link http://php.net/manual/en/class.svm.php
 		 */
 		const OPT_TYPE = 101;
 
 		/**
-		 * @var integer <p>The options key for the kernel type</p>
+		 * @var int <p>The options key for the kernel type</p>
 		 * @link http://php.net/manual/en/class.svm.php
 		 */
 		const OPT_KERNEL_TYPE = 102;
 
 		/**
-		 * @var integer
+		 * @var int
 		 * @link http://php.net/manual/en/class.svm.php
 		 */
 		const OPT_DEGREE = 103;
 
 		/**
-		 * @var integer <p>Training parameter, boolean, for whether to use the shrinking heuristics</p>
+		 * @var int <p>Training parameter, boolean, for whether to use the shrinking heuristics</p>
 		 * @link http://php.net/manual/en/class.svm.php
 		 */
 		const OPT_SHRINKING = 104;
 
 		/**
-		 * @var integer
+		 * @var int
 		 * @link http://php.net/manual/en/class.svm.php
 		 */
 		const OPT_PROPABILITY = 105;
 
 		/**
-		 * @var integer <p>Algorithm parameter for Poly, RBF and Sigmoid kernel types.</p>
+		 * @var int <p>Algorithm parameter for Poly, RBF and Sigmoid kernel types.</p>
 		 * @link http://php.net/manual/en/class.svm.php
 		 */
 		const OPT_GAMMA = 201;
 
 		/**
-		 * @var integer <p>The option key for the nu parameter, only used in the NU_ SVM types</p>
+		 * @var int <p>The option key for the nu parameter, only used in the NU_ SVM types</p>
 		 * @link http://php.net/manual/en/class.svm.php
 		 */
 		const OPT_NU = 202;
 
 		/**
-		 * @var integer <p>The option key for the Epsilon parameter, used in epsilon regression</p>
+		 * @var int <p>The option key for the Epsilon parameter, used in epsilon regression</p>
 		 * @link http://php.net/manual/en/class.svm.php
 		 */
 		const OPT_EPS = 203;
 
 		/**
-		 * @var integer <p>Training parameter used by Episilon SVR regression</p>
+		 * @var int <p>Training parameter used by Episilon SVR regression</p>
 		 * @link http://php.net/manual/en/class.svm.php
 		 */
 		const OPT_P = 204;
 
 		/**
-		 * @var integer <p>Algorithm parameter for poly and sigmoid kernels</p>
+		 * @var int <p>Algorithm parameter for poly and sigmoid kernels</p>
 		 * @link http://php.net/manual/en/class.svm.php
 		 */
 		const OPT_COEF_ZERO = 205;
 
 		/**
-		 * @var integer <p>The option for the cost parameter that controls tradeoff between errors and generality - effectively the penalty for misclassifying training examples.</p>
+		 * @var int <p>The option for the cost parameter that controls tradeoff between errors and generality - effectively the penalty for misclassifying training examples.</p>
 		 * @link http://php.net/manual/en/class.svm.php
 		 */
 		const OPT_C = 206;
 
 		/**
-		 * @var integer <p>Memory cache size, in MB</p>
+		 * @var int <p>Memory cache size, in MB</p>
 		 * @link http://php.net/manual/en/class.svm.php
 		 */
 		const OPT_CACHE_SIZE = 207;

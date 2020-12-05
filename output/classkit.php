@@ -85,17 +85,17 @@ namespace {
 	function classkit_method_rename(string $classname, string $methodname, string $newname): bool {}
 
 	/**
-	 * Marks the method <i>private</i>
+	 * Marks the method <code>private</code>
 	 */
 	define('CLASSKIT_ACC_PRIVATE', null);
 
 	/**
-	 * Marks the method <i>protected</i>
+	 * Marks the method <code>protected</code>
 	 */
 	define('CLASSKIT_ACC_PROTECTED', null);
 
 	/**
-	 * Marks the method <i>public</i>
+	 * Marks the method <code>public</code>
 	 */
 	define('CLASSKIT_ACC_PUBLIC', null);
 

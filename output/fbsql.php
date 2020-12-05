@@ -11,7 +11,7 @@ namespace {
 	 * @return int <p>If the last query failed, this function will return -1.</p>
 	 * @link http://php.net/manual/en/function.fbsql-affected-rows.php
 	 * @see fbsql_num_rows()
-	 * @since PHP 4 >= 4.0.6, PHP 5, PHP 7
+	 * @since PHP 4 >= 4.0.6, PHP 5 < 5.3.0
 	 */
 	function fbsql_affected_rows($link_identifier = NULL): int {}
 
@@ -23,7 +23,7 @@ namespace {
 	 * @return bool <p>Returns the current autocommit status, as a boolean.</p>
 	 * @link http://php.net/manual/en/function.fbsql-autocommit.php
 	 * @see fbsql_commit(), fbsql_rollback()
-	 * @since PHP 4 >= 4.0.6, PHP 5, PHP 7
+	 * @since PHP 4 >= 4.0.6, PHP 5 < 5.3.0
 	 */
 	function fbsql_autocommit($link_identifier, bool $OnOff = NULL): bool {}
 
@@ -35,7 +35,7 @@ namespace {
 	 * @return int <p>Returns the BLOB size as an integer, or <b><code>FALSE</code></b> on error.</p>
 	 * @link http://php.net/manual/en/function.fbsql-blob-size.php
 	 * @see fbsql_clob_size()
-	 * @since PHP 4 >= 4.2.0, PHP 5, PHP 7
+	 * @since PHP 4 >= 4.2.0, PHP 5 < 5.3.0
 	 */
 	function fbsql_blob_size(string $blob_handle, $link_identifier = NULL): int {}
 
@@ -48,7 +48,7 @@ namespace {
 	 * @param resource $link_identifier <p>A FrontBase link identifier returned by <code>fbsql_connect()</code> or <code>fbsql_pconnect()</code>.</p><p>If optional and not specified, the function will try to find an open link to the FrontBase server and if no such link is found it will try to create one as if <code>fbsql_connect()</code> was called with no arguments.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
 	 * @link http://php.net/manual/en/function.fbsql-change-user.php
-	 * @since PHP 4 >= 4.0.6, PHP 5, PHP 7
+	 * @since PHP 4 >= 4.0.6, PHP 5 < 5.3.0
 	 */
 	function fbsql_change_user(string $user, string $password, string $database = NULL, $link_identifier = NULL): bool {}
 
@@ -60,7 +60,7 @@ namespace {
 	 * @return int <p>Returns the CLOB size as an integer, or <b><code>FALSE</code></b> on error.</p>
 	 * @link http://php.net/manual/en/function.fbsql-clob-size.php
 	 * @see fbsql_blob_size()
-	 * @since PHP 4 >= 4.2.0, PHP 5, PHP 7
+	 * @since PHP 4 >= 4.2.0, PHP 5 < 5.3.0
 	 */
 	function fbsql_clob_size(string $clob_handle, $link_identifier = NULL): int {}
 
@@ -71,7 +71,7 @@ namespace {
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
 	 * @link http://php.net/manual/en/function.fbsql-close.php
 	 * @see fbsql_connect(), fbsql_pconnect()
-	 * @since PHP 4 >= 4.0.6, PHP 5, PHP 7
+	 * @since PHP 4 >= 4.0.6, PHP 5 < 5.3.0
 	 */
 	function fbsql_close($link_identifier = NULL): bool {}
 
@@ -82,7 +82,7 @@ namespace {
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
 	 * @link http://php.net/manual/en/function.fbsql-commit.php
 	 * @see fbsql_autocommit(), fbsql_rollback()
-	 * @since PHP 4 >= 4.0.6, PHP 5, PHP 7
+	 * @since PHP 4 >= 4.0.6, PHP 5 < 5.3.0
 	 */
 	function fbsql_commit($link_identifier = NULL): bool {}
 
@@ -95,7 +95,7 @@ namespace {
 	 * @return resource <p>Returns a positive FrontBase link identifier on success, or <b><code>FALSE</code></b> on errors.</p>
 	 * @link http://php.net/manual/en/function.fbsql-connect.php
 	 * @see fbsql_pconnect(), fbsql_close()
-	 * @since PHP 4 >= 4.0.6, PHP 5, PHP 7
+	 * @since PHP 4 >= 4.0.6, PHP 5 < 5.3.0
 	 */
 	function fbsql_connect(string $hostname = 'ini_get("fbsql.default_host")', string $username = 'ini_get("fbsql.default_user")', string $password = 'ini_get("fbsql.default_password")') {}
 
@@ -107,7 +107,7 @@ namespace {
 	 * @return string <p>Returns a resource handle to the newly created BLOB, which can be used with insert and update commands to store the BLOB in the database.</p>
 	 * @link http://php.net/manual/en/function.fbsql-create-blob.php
 	 * @see fbsql_create_clob(), fbsql_read_blob(), fbsql_read_clob(), fbsql_set_lob_mode()
-	 * @since PHP 4 >= 4.2.0, PHP 5, PHP 7
+	 * @since PHP 4 >= 4.2.0, PHP 5 < 5.3.0
 	 */
 	function fbsql_create_blob(string $blob_data, $link_identifier = NULL): string {}
 
@@ -119,7 +119,7 @@ namespace {
 	 * @return string <p>Returns a resource handle to the newly created CLOB, which can be used with insert and update commands to store the CLOB in the database.</p>
 	 * @link http://php.net/manual/en/function.fbsql-create-clob.php
 	 * @see fbsql_create_blob(), fbsql_read_blob(), fbsql_read_clob(), fbsql_set_lob_mode()
-	 * @since PHP 4 >= 4.2.0, PHP 5, PHP 7
+	 * @since PHP 4 >= 4.2.0, PHP 5 < 5.3.0
 	 */
 	function fbsql_create_clob(string $clob_data, $link_identifier = NULL): string {}
 
@@ -132,7 +132,7 @@ namespace {
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
 	 * @link http://php.net/manual/en/function.fbsql-create-db.php
 	 * @see fbsql_drop_db()
-	 * @since PHP 4 >= 4.0.6, PHP 5, PHP 7
+	 * @since PHP 4 >= 4.0.6, PHP 5 < 5.3.0
 	 */
 	function fbsql_create_db(string $database_name, $link_identifier = NULL, string $database_options = NULL): bool {}
 
@@ -143,7 +143,7 @@ namespace {
 	 * @param int $row_number <p>The row number. Starts at 0.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
 	 * @link http://php.net/manual/en/function.fbsql-data-seek.php
-	 * @since PHP 4 >= 4.0.6, PHP 5, PHP 7
+	 * @since PHP 4 >= 4.0.6, PHP 5 < 5.3.0
 	 */
 	function fbsql_data_seek($result, int $row_number): bool {}
 
@@ -154,7 +154,7 @@ namespace {
 	 * @param string $database <p>The database name. If given, the default database of the connexion will be changed to <code>database</code>.</p>
 	 * @return string <p>Returns the name of the database used with this connection.</p>
 	 * @link http://php.net/manual/en/function.fbsql-database.php
-	 * @since PHP 4 >= 4.0.6, PHP 5, PHP 7
+	 * @since PHP 4 >= 4.0.6, PHP 5 < 5.3.0
 	 */
 	function fbsql_database($link_identifier, string $database = NULL): string {}
 
@@ -166,7 +166,7 @@ namespace {
 	 * @return string <p>Returns the database password associated with the link identifier.</p>
 	 * @link http://php.net/manual/en/function.fbsql-database-password.php
 	 * @see fbsql_connect(), fbsql_pconnect(), fbsql_select_db()
-	 * @since PHP 4 >= 4.0.6, PHP 5, PHP 7
+	 * @since PHP 4 >= 4.0.6, PHP 5 < 5.3.0
 	 */
 	function fbsql_database_password($link_identifier, string $database_password = NULL): string {}
 
@@ -179,7 +179,7 @@ namespace {
 	 * @return resource <p>Returns a positive FrontBase result identifier to the query result, or <b><code>FALSE</code></b> on error.</p>
 	 * @link http://php.net/manual/en/function.fbsql-db-query.php
 	 * @see fbsql_query(), fbsql_connect()
-	 * @since PHP 4 >= 4.0.6, PHP 5, PHP 7
+	 * @since PHP 4 >= 4.0.6, PHP 5 < 5.3.0
 	 */
 	function fbsql_db_query(string $database, string $query, $link_identifier = NULL) {}
 
@@ -191,7 +191,7 @@ namespace {
 	 * @return int <p>Returns an integer value with the current status. This can be one of the following constants:</p><ul> <li>  <b><code>FALSE</code></b> - The exec handler for the host was invalid. This error will occur when the <code>link_identifier</code> connects directly to a database by using a port number. FBExec can be available on the server but no connection has been made for it.  </li> <li>  <b><code>FBSQL_UNKNOWN</code></b> - The Status is unknown.  </li> <li>  <b><code>FBSQL_STOPPED</code></b> - The database is not running. Use <code>fbsql_start_db()</code> to start the database.  </li> <li>  <b><code>FBSQL_STARTING</code></b> - The database is starting.  </li> <li>  <b><code>FBSQL_RUNNING</code></b> - The database is running and can be used to perform SQL operations.  </li> <li>  <b><code>FBSQL_STOPPING</code></b> - The database is stopping.  </li> <li>  <b><code>FBSQL_NOEXEC</code></b> - FBExec is not running on the server and it is not possible to get the status of the database.  </li> </ul>
 	 * @link http://php.net/manual/en/function.fbsql-db-status.php
 	 * @see fbsql_start_db(), fbsql_stop_db()
-	 * @since PHP 4 >= 4.0.7, PHP 5, PHP 7
+	 * @since PHP 4 >= 4.0.7, PHP 5 < 5.3.0
 	 */
 	function fbsql_db_status(string $database_name, $link_identifier = NULL): int {}
 
@@ -203,7 +203,7 @@ namespace {
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
 	 * @link http://php.net/manual/en/function.fbsql-drop-db.php
 	 * @see fbsql_create_db()
-	 * @since PHP 4 >= 4.0.6, PHP 5, PHP 7
+	 * @since PHP 4 >= 4.0.6, PHP 5 < 5.3.0
 	 */
 	function fbsql_drop_db(string $database_name, $link_identifier = NULL): bool {}
 
@@ -211,10 +211,10 @@ namespace {
 	 * Returns the error number from previous operation
 	 * <p>Returns the numerical value of the error message from previous FrontBase operation.</p><p>Errors coming back from the fbsql database backend don't issue warnings. Instead, use <b>fbsql_errno()</b> to retrieve the error code. Note that this function only returns the error code from the most recently executed fbsql function (not including <code>fbsql_error()</code> and <b>fbsql_errno()</b>), so if you want to use it, make sure you check the value before calling another fbsql function.</p>
 	 * @param resource $link_identifier <p>A FrontBase link identifier returned by <code>fbsql_connect()</code> or <code>fbsql_pconnect()</code>.</p><p>If optional and not specified, the function will try to find an open link to the FrontBase server and if no such link is found it will try to create one as if <code>fbsql_connect()</code> was called with no arguments.</p>
-	 * @return int <p>Returns the error number from the last fbsql function, or <i>0</i> (zero) if no error occurred.</p>
+	 * @return int <p>Returns the error number from the last fbsql function, or <code>0</code> (zero) if no error occurred.</p>
 	 * @link http://php.net/manual/en/function.fbsql-errno.php
 	 * @see fbsql_error(), fbsql_warnings()
-	 * @since PHP 4 >= 4.0.6, PHP 5, PHP 7
+	 * @since PHP 4 >= 4.0.6, PHP 5 < 5.3.0
 	 */
 	function fbsql_errno($link_identifier = NULL): int {}
 
@@ -222,10 +222,10 @@ namespace {
 	 * Returns the error message from previous operation
 	 * <p>Returns the error message from previous FrontBase operation.</p><p>Errors coming back from the fbsql database backend don't issue warnings. Instead, use <b>fbsql_error()</b> to retrieve the error text. Note that this function only returns the error code from the most recently executed fbsql function (not including <b>fbsql_error()</b> and <code>fbsql_errno()</code>), so if you want to use it, make sure you check the value before calling another fbsql function.</p>
 	 * @param resource $link_identifier <p>A FrontBase link identifier returned by <code>fbsql_connect()</code> or <code>fbsql_pconnect()</code>.</p><p>If optional and not specified, the function will try to find an open link to the FrontBase server and if no such link is found it will try to create one as if <code>fbsql_connect()</code> was called with no arguments.</p>
-	 * @return string <p>Returns the error text from the last fbsql function, or <i>''</i> (the empty string) if no error occurred.</p>
+	 * @return string <p>Returns the error text from the last fbsql function, or <code>''</code> (the empty string) if no error occurred.</p>
 	 * @link http://php.net/manual/en/function.fbsql-error.php
 	 * @see fbsql_errno(), fbsql_warnings()
-	 * @since PHP 4 >= 4.0.6, PHP 5, PHP 7
+	 * @since PHP 4 >= 4.0.6, PHP 5 < 5.3.0
 	 */
 	function fbsql_error($link_identifier = NULL): string {}
 
@@ -237,7 +237,7 @@ namespace {
 	 * @return array <p>Returns an array that corresponds to the fetched row, or <b><code>FALSE</code></b> if there are no more rows.</p><p>If two or more columns of the result have the same field names, the last column will take precedence. To access the other column(s) of the same name, you must the numeric index of the column or make an alias for the column.</p>  <pre>select t1.f1 as foo t2.f1 as bar from t1, t2</pre>
 	 * @link http://php.net/manual/en/function.fbsql-fetch-array.php
 	 * @see fbsql_fetch_row(), fbsql_fetch_assoc(), fbsql_fetch_object()
-	 * @since PHP 4 >= 4.0.6, PHP 5, PHP 7
+	 * @since PHP 4 >= 4.0.6, PHP 5 < 5.3.0
 	 */
 	function fbsql_fetch_array($result, int $result_type = NULL): array {}
 
@@ -248,7 +248,7 @@ namespace {
 	 * @return array <p>Returns an associative array that corresponds to the fetched row, or <b><code>FALSE</code></b> if there are no more rows.</p><p>If two or more columns of the result have the same field names, the last column will take precedence. To access the other column(s) of the same name, you must use <code>fbsql_fetch_array()</code> and have it return the numeric indices as well.</p>
 	 * @link http://php.net/manual/en/function.fbsql-fetch-assoc.php
 	 * @see fbsql_fetch_row(), fbsql_fetch_array(), fbsql_fetch_object()
-	 * @since PHP 4 >= 4.0.6, PHP 5, PHP 7
+	 * @since PHP 4 >= 4.0.6, PHP 5 < 5.3.0
 	 */
 	function fbsql_fetch_assoc($result): array {}
 
@@ -260,7 +260,7 @@ namespace {
 	 * @return object <p>Returns an object containing field information, or <b><code>FALSE</code></b> on errors.</p><p>The properties of the object are:</p><ul> <li>  name - column name  </li> <li>  table - name of the table the column belongs to  </li> <li>  max_length - maximum length of the column  </li> <li>  not_null - 1 if the column cannot be <b><code>NULL</code></b>  </li> <li>  type - the type of the column  </li> </ul>
 	 * @link http://php.net/manual/en/function.fbsql-fetch-field.php
 	 * @see fbsql_field_seek()
-	 * @since PHP 4 >= 4.0.6, PHP 5, PHP 7
+	 * @since PHP 4 >= 4.0.6, PHP 5 < 5.3.0
 	 */
 	function fbsql_fetch_field($result, int $field_offset = NULL): object {}
 
@@ -271,7 +271,7 @@ namespace {
 	 * @return array <p>Returns an array, starting at offset 0, that corresponds to the lengths of each field in the last row fetched by <code>fbsql_fetch_row()</code>, or <b><code>FALSE</code></b> on error.</p>
 	 * @link http://php.net/manual/en/function.fbsql-fetch-lengths.php
 	 * @see fbsql_fetch_row()
-	 * @since PHP 4 >= 4.0.6, PHP 5, PHP 7
+	 * @since PHP 4 >= 4.0.6, PHP 5 < 5.3.0
 	 */
 	function fbsql_fetch_lengths($result): array {}
 
@@ -282,7 +282,7 @@ namespace {
 	 * @return object <p>Returns an object with properties that correspond to the fetched row, or <b><code>FALSE</code></b> if there are no more rows.</p>
 	 * @link http://php.net/manual/en/function.fbsql-fetch-object.php
 	 * @see fbsql_fetch_array(), fbsql_fetch_row(), fbsql_fetch_assoc()
-	 * @since PHP 4 >= 4.0.6, PHP 5, PHP 7
+	 * @since PHP 4 >= 4.0.6, PHP 5 < 5.3.0
 	 */
 	function fbsql_fetch_object($result): object {}
 
@@ -293,7 +293,7 @@ namespace {
 	 * @return array <p>Returns an array that corresponds to the fetched row where each result column is stored in an offset, starting at offset 0, or <b><code>FALSE</code></b> if there are no more rows.</p>
 	 * @link http://php.net/manual/en/function.fbsql-fetch-row.php
 	 * @see fbsql_fetch_array(), fbsql_fetch_assoc(), fbsql_fetch_object(), fbsql_data_seek(), fbsql_fetch_lengths(), fbsql_result()
-	 * @since PHP 4 >= 4.0.6, PHP 5, PHP 7
+	 * @since PHP 4 >= 4.0.6, PHP 5 < 5.3.0
 	 */
 	function fbsql_fetch_row($result): array {}
 
@@ -304,7 +304,7 @@ namespace {
 	 * @param int $field_offset <p>The numerical offset of the field. The field index starts at 0.</p>
 	 * @return string <p>Returns the field flags of the specified field as a single word per flag separated by a single space, so that you can split the returned value using <code>explode()</code>.</p>
 	 * @link http://php.net/manual/en/function.fbsql-field-flags.php
-	 * @since PHP 4 >= 4.0.6, PHP 5, PHP 7
+	 * @since PHP 4 >= 4.0.6, PHP 5 < 5.3.0
 	 */
 	function fbsql_field_flags($result, int $field_offset = NULL): string {}
 
@@ -315,7 +315,7 @@ namespace {
 	 * @param int $field_offset <p>The numerical offset of the field. The field index starts at 0.</p>
 	 * @return int <p>Returns the length of the specified field.</p>
 	 * @link http://php.net/manual/en/function.fbsql-field-len.php
-	 * @since PHP 4 >= 4.0.6, PHP 5, PHP 7
+	 * @since PHP 4 >= 4.0.6, PHP 5 < 5.3.0
 	 */
 	function fbsql_field_len($result, int $field_offset = NULL): int {}
 
@@ -327,7 +327,7 @@ namespace {
 	 * @return string <p>Returns the name as a string, or <b><code>FALSE</code></b> if the field doesn't exist.</p>
 	 * @link http://php.net/manual/en/function.fbsql-field-name.php
 	 * @see fbsql_field_type()
-	 * @since PHP 4 >= 4.0.6, PHP 5, PHP 7
+	 * @since PHP 4 >= 4.0.6, PHP 5 < 5.3.0
 	 */
 	function fbsql_field_name($result, int $field_index = NULL): string {}
 
@@ -339,7 +339,7 @@ namespace {
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
 	 * @link http://php.net/manual/en/function.fbsql-field-seek.php
 	 * @see fbsql_fetch_field()
-	 * @since PHP 4 >= 4.0.6, PHP 5, PHP 7
+	 * @since PHP 4 >= 4.0.6, PHP 5 < 5.3.0
 	 */
 	function fbsql_field_seek($result, int $field_offset = NULL): bool {}
 
@@ -350,7 +350,7 @@ namespace {
 	 * @param int $field_offset <p>The numerical offset of the field. The field index starts at 0.</p>
 	 * @return string <p>Returns the name of the table, as a string.</p>
 	 * @link http://php.net/manual/en/function.fbsql-field-table.php
-	 * @since PHP 4 >= 4.0.6, PHP 5, PHP 7
+	 * @since PHP 4 >= 4.0.6, PHP 5 < 5.3.0
 	 */
 	function fbsql_field_table($result, int $field_offset = NULL): string {}
 
@@ -359,10 +359,10 @@ namespace {
 	 * <p><b>fbsql_field_type()</b> is similar to the <code>fbsql_field_name()</code> function, but the field type is returned instead.</p>
 	 * @param resource $result <p>A result identifier returned by <code>fbsql_query()</code> or <code>fbsql_db_query()</code>.</p>
 	 * @param int $field_offset <p>The numerical offset of the field. The field index starts at 0.</p>
-	 * @return string <p>Returns the field type, as a string.</p><p>This can be one of <i>int</i>, <i>real</i>, <i>string</i>, <i>blob</i>, and others as detailed in the FrontBase documentation.</p>
+	 * @return string <p>Returns the field type, as a string.</p><p>This can be one of <code>int</code>, <code>real</code>, <code>string</code>, <code>blob</code>, and others as detailed in the FrontBase documentation.</p>
 	 * @link http://php.net/manual/en/function.fbsql-field-type.php
 	 * @see fbsql_field_name()
-	 * @since PHP 4 >= 4.0.6, PHP 5, PHP 7
+	 * @since PHP 4 >= 4.0.6, PHP 5 < 5.3.0
 	 */
 	function fbsql_field_type($result, int $field_offset = NULL): string {}
 
@@ -372,7 +372,7 @@ namespace {
 	 * @param resource $result <p>A result identifier returned by <code>fbsql_query()</code> or <code>fbsql_db_query()</code>.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
 	 * @link http://php.net/manual/en/function.fbsql-free-result.php
-	 * @since PHP 4 >= 4.0.6, PHP 5, PHP 7
+	 * @since PHP 4 >= 4.0.6, PHP 5 < 5.3.0
 	 */
 	function fbsql_free_result($result): bool {}
 
@@ -382,7 +382,7 @@ namespace {
 	 * @param resource $link_identifier <p>A FrontBase link identifier returned by <code>fbsql_connect()</code> or <code>fbsql_pconnect()</code>.</p><p>If optional and not specified, the function will try to find an open link to the FrontBase server and if no such link is found it will try to create one as if <code>fbsql_connect()</code> was called with no arguments.</p>
 	 * @return array
 	 * @link http://php.net/manual/en/function.fbsql-get-autostart-info.php
-	 * @since PHP 4 >= 4.0.7, PHP 5, PHP 7
+	 * @since PHP 4 >= 4.0.7, PHP 5 < 5.3.0
 	 */
 	function fbsql_get_autostart_info($link_identifier = NULL): array {}
 
@@ -394,7 +394,7 @@ namespace {
 	 * @return string <p>Returns the current host name used for the connection.</p>
 	 * @link http://php.net/manual/en/function.fbsql-hostname.php
 	 * @see fbsql_username(), fbsql_password()
-	 * @since PHP 4 >= 4.0.6, PHP 5, PHP 7
+	 * @since PHP 4 >= 4.0.6, PHP 5 < 5.3.0
 	 */
 	function fbsql_hostname($link_identifier, string $host_name = NULL): string {}
 
@@ -405,7 +405,7 @@ namespace {
 	 * @return int <p>Returns the ID generated from the previous INSERT query, or 0 if the previous query does not generate an DEFAULT UNIQUE value.</p><p>If you need to save the value for later, be sure to call this function immediately after the query that generates the value.</p>
 	 * @link http://php.net/manual/en/function.fbsql-insert-id.php
 	 * @see fbsql_affected_rows()
-	 * @since PHP 4 >= 4.0.6, PHP 5, PHP 7
+	 * @since PHP 4 >= 4.0.6, PHP 5 < 5.3.0
 	 */
 	function fbsql_insert_id($link_identifier = NULL): int {}
 
@@ -416,7 +416,7 @@ namespace {
 	 * @return resource <p>Returns a result pointer or <b><code>FALSE</code></b> on error.</p>
 	 * @link http://php.net/manual/en/function.fbsql-list-dbs.php
 	 * @see fbsql_list_fields(), fbsql_list_tables()
-	 * @since PHP 4 >= 4.0.6, PHP 5, PHP 7
+	 * @since PHP 4 >= 4.0.6, PHP 5 < 5.3.0
 	 */
 	function fbsql_list_dbs($link_identifier = NULL) {}
 
@@ -426,10 +426,10 @@ namespace {
 	 * @param string $database_name <p>The database name.</p>
 	 * @param string $table_name <p>The table name.</p>
 	 * @param resource $link_identifier <p>A FrontBase link identifier returned by <code>fbsql_connect()</code> or <code>fbsql_pconnect()</code>.</p><p>If optional and not specified, the function will try to find an open link to the FrontBase server and if no such link is found it will try to create one as if <code>fbsql_connect()</code> was called with no arguments.</p>
-	 * @return resource <p>Returns a result pointer which can be used with the <i>fbsql_field_xxx</i> functions, or <b><code>FALSE</code></b> on error.</p>
+	 * @return resource <p>Returns a result pointer which can be used with the <code>fbsql_field_xxx</code> functions, or <b><code>FALSE</code></b> on error.</p>
 	 * @link http://php.net/manual/en/function.fbsql-list-fields.php
 	 * @see fbsql_field_len(), fbsql_field_name(), fbsql_field_type(), fbsql_field_flags()
-	 * @since PHP 4 >= 4.0.6, PHP 5, PHP 7
+	 * @since PHP 4 >= 4.0.6, PHP 5 < 5.3.0
 	 */
 	function fbsql_list_fields(string $database_name, string $table_name, $link_identifier = NULL) {}
 
@@ -441,7 +441,7 @@ namespace {
 	 * @return resource <p>Returns a result pointer which can be used with the <code>fbsql_tablename()</code> function to read the actual table names, or <b><code>FALSE</code></b> on error.</p>
 	 * @link http://php.net/manual/en/function.fbsql-list-tables.php
 	 * @see fbsql_list_fields(), fbsql_list_dbs()
-	 * @since PHP 4 >= 4.0.6, PHP 5, PHP 7
+	 * @since PHP 4 >= 4.0.6, PHP 5 < 5.3.0
 	 */
 	function fbsql_list_tables(string $database, $link_identifier = NULL) {}
 
@@ -451,7 +451,7 @@ namespace {
 	 * @param resource $result <p>A result identifier returned by <code>fbsql_query()</code> or <code>fbsql_db_query()</code>.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> if an additional result set was available or <b><code>FALSE</code></b> otherwise.</p>
 	 * @link http://php.net/manual/en/function.fbsql-next-result.php
-	 * @since PHP 4 >= 4.0.6, PHP 5, PHP 7
+	 * @since PHP 4 >= 4.0.6, PHP 5 < 5.3.0
 	 */
 	function fbsql_next_result($result): bool {}
 
@@ -462,7 +462,7 @@ namespace {
 	 * @return int <p>Returns the number of fields, as an integer.</p>
 	 * @link http://php.net/manual/en/function.fbsql-num-fields.php
 	 * @see fbsql_db_query(), fbsql_query(), fbsql_fetch_field(), fbsql_num_rows()
-	 * @since PHP 4 >= 4.0.6, PHP 5, PHP 7
+	 * @since PHP 4 >= 4.0.6, PHP 5 < 5.3.0
 	 */
 	function fbsql_num_fields($result): int {}
 
@@ -473,7 +473,7 @@ namespace {
 	 * @return int <p>Returns the number of rows returned by the last SELECT statement.</p>
 	 * @link http://php.net/manual/en/function.fbsql-num-rows.php
 	 * @see fbsql_affected_rows(), fbsql_connect(), fbsql_select_db(), fbsql_query()
-	 * @since PHP 4 >= 4.0.6, PHP 5, PHP 7
+	 * @since PHP 4 >= 4.0.6, PHP 5 < 5.3.0
 	 */
 	function fbsql_num_rows($result): int {}
 
@@ -485,7 +485,7 @@ namespace {
 	 * @return string <p>Returns the current password used for the connection.</p>
 	 * @link http://php.net/manual/en/function.fbsql-password.php
 	 * @see fbsql_username(), fbsql_hostname()
-	 * @since PHP 4 >= 4.0.6, PHP 5, PHP 7
+	 * @since PHP 4 >= 4.0.6, PHP 5 < 5.3.0
 	 */
 	function fbsql_password($link_identifier, string $password = NULL): string {}
 
@@ -498,7 +498,7 @@ namespace {
 	 * @return resource <p>Returns a positive FrontBase persistent link identifier on success, or <b><code>FALSE</code></b> on error.</p>
 	 * @link http://php.net/manual/en/function.fbsql-pconnect.php
 	 * @see fbsql_connect()
-	 * @since PHP 4 >= 4.0.6, PHP 5, PHP 7
+	 * @since PHP 4 >= 4.0.6, PHP 5 < 5.3.0
 	 */
 	function fbsql_pconnect(string $hostname = 'ini_get("fbsql.default_host")', string $username = 'ini_get("fbsql.default_user")', string $password = 'ini_get("fbsql.default_password")') {}
 
@@ -511,7 +511,7 @@ namespace {
 	 * @return resource <p><b>fbsql_query()</b> returns <b><code>TRUE</code></b> (non-zero) or <b><code>FALSE</code></b> to indicate whether or not the query succeeded. A return value of <b><code>TRUE</code></b> means that the query was legal and could be executed by the server. It does not indicate anything about the number of rows affected or returned. It is perfectly possible for a query to succeed but affect no rows or return no rows.</p><p>For SELECT statements, <b>fbsql_query()</b> returns a new result identifier that you can pass to <code>fbsql_result()</code>.</p><p><b>fbsql_query()</b> will also fail and return <b><code>FALSE</code></b> if you don't have permission to access the table(s) referenced by the query.</p>
 	 * @link http://php.net/manual/en/function.fbsql-query.php
 	 * @see fbsql_affected_rows(), fbsql_db_query(), fbsql_free_result(), fbsql_result(), fbsql_select_db(), fbsql_connect()
-	 * @since PHP 4 >= 4.0.6, PHP 5, PHP 7
+	 * @since PHP 4 >= 4.0.6, PHP 5 < 5.3.0
 	 */
 	function fbsql_query(string $query, $link_identifier = NULL, int $batch_size = NULL) {}
 
@@ -523,7 +523,7 @@ namespace {
 	 * @return string <p>Returns a string containing the specified BLOB data.</p>
 	 * @link http://php.net/manual/en/function.fbsql-read-blob.php
 	 * @see fbsql_create_blob(), fbsql_read_clob(), fbsql_set_lob_mode()
-	 * @since PHP 4 >= 4.2.0, PHP 5, PHP 7
+	 * @since PHP 4 >= 4.2.0, PHP 5 < 5.3.0
 	 */
 	function fbsql_read_blob(string $blob_handle, $link_identifier = NULL): string {}
 
@@ -535,7 +535,7 @@ namespace {
 	 * @return string <p>Returns a string containing the specified CLOB data.</p>
 	 * @link http://php.net/manual/en/function.fbsql-read-clob.php
 	 * @see fbsql_create_clob(), fbsql_read_blob(), fbsql_set_lob_mode()
-	 * @since PHP 4 >= 4.2.0, PHP 5, PHP 7
+	 * @since PHP 4 >= 4.2.0, PHP 5 < 5.3.0
 	 */
 	function fbsql_read_clob(string $clob_handle, $link_identifier = NULL): string {}
 
@@ -548,7 +548,7 @@ namespace {
 	 * @return mixed
 	 * @link http://php.net/manual/en/function.fbsql-result.php
 	 * @see fbsql_fetch_row(), fbsql_fetch_array(), fbsql_fetch_assoc(), fbsql_fetch_object()
-	 * @since PHP 4 >= 4.0.6, PHP 5, PHP 7
+	 * @since PHP 4 >= 4.0.6, PHP 5 < 5.3.0
 	 */
 	function fbsql_result($result, int $row = NULL, $field = NULL) {}
 
@@ -559,7 +559,7 @@ namespace {
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
 	 * @link http://php.net/manual/en/function.fbsql-rollback.php
 	 * @see fbsql_autocommit(), fbsql_commit()
-	 * @since PHP 4 >= 4.0.6, PHP 5, PHP 7
+	 * @since PHP 4 >= 4.0.6, PHP 5 < 5.3.0
 	 */
 	function fbsql_rollback($link_identifier = NULL): bool {}
 
@@ -569,7 +569,7 @@ namespace {
 	 * @param resource $result <p>A result identifier returned by <code>fbsql_query()</code> or <code>fbsql_db_query()</code>.</p>
 	 * @return int <p>Returns the number of rows, as an integer.</p>
 	 * @link http://php.net/manual/en/function.fbsql-rows-fetched.php
-	 * @since PHP 5 >= 5.1.0, PHP 7
+	 * @since PHP 5 >= 5.1.0 < 5.3.0
 	 */
 	function fbsql_rows_fetched($result): int {}
 
@@ -581,7 +581,7 @@ namespace {
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
 	 * @link http://php.net/manual/en/function.fbsql-select-db.php
 	 * @see fbsql_connect(), fbsql_pconnect(), fbsql_database_password(), fbsql_query()
-	 * @since PHP 4 >= 4.0.6, PHP 5, PHP 7
+	 * @since PHP 4 >= 4.0.6, PHP 5 < 5.3.0
 	 */
 	function fbsql_select_db(string $database_name = NULL, $link_identifier = NULL): bool {}
 
@@ -593,7 +593,7 @@ namespace {
 	 * @param int $in_out_both
 	 * @return void <p>No value is returned.</p>
 	 * @link http://php.net/manual/en/function.fbsql-set-characterset.php
-	 * @since PHP 5 >= 5.1.0, PHP 7
+	 * @since PHP 5 >= 5.1.0 < 5.3.0
 	 */
 	function fbsql_set_characterset($link_identifier, int $characterset, int $in_out_both = NULL): void {}
 
@@ -601,11 +601,11 @@ namespace {
 	 * Set the LOB retrieve mode for a FrontBase result set
 	 * <p>Sets the mode for retrieving LOB data from the database.</p><p>When BLOB and CLOB data is retrieved in FrontBase it can be retrieved direct or indirect. Direct retrieved LOB data will always be fetched no matter the setting of the lob mode. If the LOB data is less than 512 bytes it will always be retrieved directly.</p>
 	 * @param resource $result <p>A result identifier returned by <code>fbsql_query()</code> or <code>fbsql_db_query()</code>.</p>
-	 * @param int $lob_mode <p>Can be one of:</p><ul> <li>  <b><code>FBSQL_LOB_DIRECT</code></b> - LOB data is retrieved directly. When data is fetched from the database with <code>fbsql_fetch_row()</code>, and other fetch functions, all CLOB and BLOB columns will be returned as ordinary columns. This is the default value on a new FrontBase result.  </li> <li>  <b><code>FBSQL_LOB_HANDLE</code></b> - LOB data is retrieved as handles to the data. When data is fetched from the database with <code>fbsql_fetch_row()</code>, and other fetch functions, LOB data will be returned as a handle to the data if the data is stored indirect or the data if it is stored direct. If a handle is returned it will be a 27 byte string formatted as <i>@'000000000000000000000000'</i>.  </li> </ul>
+	 * @param int $lob_mode <p>Can be one of:</p><ul> <li>  <b><code>FBSQL_LOB_DIRECT</code></b> - LOB data is retrieved directly. When data is fetched from the database with <code>fbsql_fetch_row()</code>, and other fetch functions, all CLOB and BLOB columns will be returned as ordinary columns. This is the default value on a new FrontBase result.  </li> <li>  <b><code>FBSQL_LOB_HANDLE</code></b> - LOB data is retrieved as handles to the data. When data is fetched from the database with <code>fbsql_fetch_row()</code>, and other fetch functions, LOB data will be returned as a handle to the data if the data is stored indirect or the data if it is stored direct. If a handle is returned it will be a 27 byte string formatted as <code>@'000000000000000000000000'</code>.  </li> </ul>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
 	 * @link http://php.net/manual/en/function.fbsql-set-lob-mode.php
 	 * @see fbsql_create_blob(), fbsql_create_clob(), fbsql_read_blob(), fbsql_read_clob()
-	 * @since PHP 4 >= 4.2.0, PHP 5, PHP 7
+	 * @since PHP 4 >= 4.2.0, PHP 5 < 5.3.0
 	 */
 	function fbsql_set_lob_mode($result, int $lob_mode): bool {}
 
@@ -618,7 +618,7 @@ namespace {
 	 * @param string $old_password <p>The old password to be replaced.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
 	 * @link http://php.net/manual/en/function.fbsql-set-password.php
-	 * @since PHP 5, PHP 7
+	 * @since PHP 5 < 5.3.0
 	 */
 	function fbsql_set_password($link_identifier, string $user, string $password, string $old_password): bool {}
 
@@ -630,7 +630,7 @@ namespace {
 	 * @param int $isolation <p>The type of isolation to be set. It can be one of the following constants: <b><code>FBSQL_ISO_READ_UNCOMMITTED</code></b>, <b><code>FBSQL_ISO_READ_COMMITTED</code></b>, <b><code>FBSQL_ISO_REPEATABLE_READ</code></b>, <b><code>FBSQL_ISO_SERIALIZABLE</code></b>, or <b><code>FBSQL_ISO_VERSIONED</code></b>.</p>
 	 * @return void <p>No value is returned.</p>
 	 * @link http://php.net/manual/en/function.fbsql-set-transaction.php
-	 * @since PHP 4 >= 4.2.0, PHP 5, PHP 7
+	 * @since PHP 4 >= 4.2.0, PHP 5 < 5.3.0
 	 */
 	function fbsql_set_transaction($link_identifier, int $locking, int $isolation): void {}
 
@@ -643,7 +643,7 @@ namespace {
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
 	 * @link http://php.net/manual/en/function.fbsql-start-db.php
 	 * @see fbsql_db_status(), fbsql_stop_db()
-	 * @since PHP 4 >= 4.0.6, PHP 5, PHP 7
+	 * @since PHP 4 >= 4.0.6, PHP 5 < 5.3.0
 	 */
 	function fbsql_start_db(string $database_name, $link_identifier = NULL, string $database_options = NULL): bool {}
 
@@ -655,7 +655,7 @@ namespace {
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
 	 * @link http://php.net/manual/en/function.fbsql-stop-db.php
 	 * @see fbsql_db_status(), fbsql_start_db()
-	 * @since PHP 4 >= 4.0.6, PHP 5, PHP 7
+	 * @since PHP 4 >= 4.0.6, PHP 5 < 5.3.0
 	 */
 	function fbsql_stop_db(string $database_name, $link_identifier = NULL): bool {}
 
@@ -666,7 +666,7 @@ namespace {
 	 * @param int $index <p>Integer index for the current table.</p>
 	 * @return string <p>Returns the name of the table, as a string.</p>
 	 * @link http://php.net/manual/en/function.fbsql-table-name.php
-	 * @since PHP 4 >= 4.2.0, PHP 5, PHP 7
+	 * @since PHP 4 >= 4.2.0, PHP 5 < 5.3.0
 	 */
 	function fbsql_table_name($result, int $index): string {}
 
@@ -677,7 +677,7 @@ namespace {
 	 * @param int $index <p>Integer index for the current table.</p>
 	 * @return string
 	 * @link http://php.net/manual/en/function.fbsql-tablename.php
-	 * @since PHP 4 >= 4.2.0, PHP 5, PHP 7
+	 * @since PHP 4 >= 4.2.0, PHP 5 < 5.3.0
 	 */
 	function fbsql_tablename($result, int $index): string {}
 
@@ -689,7 +689,7 @@ namespace {
 	 * @return string <p>Returns the current username used with the connection, as a string.</p>
 	 * @link http://php.net/manual/en/function.fbsql-username.php
 	 * @see fbsql_password(), fbsql_hostname()
-	 * @since PHP 4 >= 4.0.6, PHP 5, PHP 7
+	 * @since PHP 4 >= 4.0.6, PHP 5 < 5.3.0
 	 */
 	function fbsql_username($link_identifier, string $username = NULL): string {}
 
@@ -700,7 +700,7 @@ namespace {
 	 * @return bool <p>Returns <b><code>TRUE</code></b> if warnings is turned on, <b><code>FALSE</code></b> otherwise.</p>
 	 * @link http://php.net/manual/en/function.fbsql-warnings.php
 	 * @see fbsql_errno(), fbsql_error()
-	 * @since PHP 4 >= 4.0.6, PHP 5, PHP 7
+	 * @since PHP 4 >= 4.0.6, PHP 5 < 5.3.0
 	 */
 	function fbsql_warnings(bool $OnOff = NULL): bool {}
 

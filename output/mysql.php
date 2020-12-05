@@ -8,7 +8,7 @@ namespace {
 	 * Get number of affected rows in previous MySQL operation
 	 * <p>Get the number of affected rows by the last INSERT, UPDATE, REPLACE or DELETE query associated with <code>link_identifier</code>.</p>
 	 * @param resource $link_identifier <p>The MySQL connection. If the link identifier is not specified, the last link opened by <code>mysql_connect()</code> is assumed. If no such link is found, it will try to create one as if <code>mysql_connect()</code> had been called with no arguments. If no connection is found or established, an <b><code>E_WARNING</code></b> level error is generated.</p>
-	 * @return int <p>Returns the number of affected rows on success, and -1 if the last query failed.</p><p>If the last query was a DELETE query with no WHERE clause, all of the records will have been deleted from the table but this function will return zero with MySQL versions prior to 4.1.2.</p><p>When using UPDATE, MySQL will not update columns where the new value is the same as the old value. This creates the possibility that <b>mysql_affected_rows()</b> may not actually equal the number of rows matched, only the number of rows that were literally affected by the query.</p><p>The REPLACE statement first deletes the record with the same primary key and then inserts the new record. This function returns the number of deleted records plus the number of inserted records.</p><p>In the case of "INSERT ... ON DUPLICATE KEY UPDATE" queries, the return value will be <i>1</i> if an insert was performed, or <i>2</i> for an update of an existing row.</p>
+	 * @return int <p>Returns the number of affected rows on success, and -1 if the last query failed.</p><p>If the last query was a DELETE query with no WHERE clause, all of the records will have been deleted from the table but this function will return zero with MySQL versions prior to 4.1.2.</p><p>When using UPDATE, MySQL will not update columns where the new value is the same as the old value. This creates the possibility that <b>mysql_affected_rows()</b> may not actually equal the number of rows matched, only the number of rows that were literally affected by the query.</p><p>The REPLACE statement first deletes the record with the same primary key and then inserts the new record. This function returns the number of deleted records plus the number of inserted records.</p><p>In the case of "INSERT ... ON DUPLICATE KEY UPDATE" queries, the return value will be <code>1</code> if an insert was performed, or <code>2</code> for an update of an existing row.</p>
 	 * @link http://php.net/manual/en/function.mysql-affected-rows.php
 	 * @see mysql_num_rows(), mysql_info()
 	 * @since PHP 4, PHP 5
@@ -17,7 +17,7 @@ namespace {
 
 	/**
 	 * Returns the name of the character set
-	 * <p>Retrieves the <i>character_set</i> variable from MySQL.</p>
+	 * <p>Retrieves the <code>character_set</code> variable from MySQL.</p>
 	 * @param resource $link_identifier <p>The MySQL connection. If the link identifier is not specified, the last link opened by <code>mysql_connect()</code> is assumed. If no such link is found, it will try to create one as if <code>mysql_connect()</code> had been called with no arguments. If no connection is found or established, an <b><code>E_WARNING</code></b> level error is generated.</p>
 	 * @return string <p>Returns the default character set name for the current connection.</p>
 	 * @link http://php.net/manual/en/function.mysql-client-encoding.php
@@ -44,8 +44,8 @@ namespace {
 	 * @param string $username <p>The username. Default value is defined by mysql.default_user. In SQL safe mode, this parameter is ignored and the name of the user that owns the server process is used.</p>
 	 * @param string $password <p>The password. Default value is defined by mysql.default_password. In SQL safe mode, this parameter is ignored and empty password is used.</p>
 	 * @param bool $new_link <p>If a second call is made to <b>mysql_connect()</b> with the same arguments, no new link will be established, but instead, the link identifier of the already opened link will be returned. The <code>new_link</code> parameter modifies this behavior and makes <b>mysql_connect()</b> always open a new link, even if <b>mysql_connect()</b> was called before with the same parameters. In SQL safe mode, this parameter is ignored.</p>
-	 * @param int $client_flags <p>The <code>client_flags</code> parameter can be a combination of the following constants: 128 (enable <i>LOAD DATA LOCAL</i> handling), <b><code>MYSQL_CLIENT_SSL</code></b>, <b><code>MYSQL_CLIENT_COMPRESS</code></b>, <b><code>MYSQL_CLIENT_IGNORE_SPACE</code></b> or <b><code>MYSQL_CLIENT_INTERACTIVE</code></b>. Read the section about MySQL client constants for further information. In SQL safe mode, this parameter is ignored.</p>
-	 * @return resource <p>Returns a MySQL link identifier on success or <b><code>FALSE</code></b> on failure.</p>
+	 * @param int $client_flags <p>The <code>client_flags</code> parameter can be a combination of the following constants: 128 (enable <code>LOAD DATA LOCAL</code> handling), <b><code>MYSQL_CLIENT_SSL</code></b>, <b><code>MYSQL_CLIENT_COMPRESS</code></b>, <b><code>MYSQL_CLIENT_IGNORE_SPACE</code></b> or <b><code>MYSQL_CLIENT_INTERACTIVE</code></b>. Read the section about MySQL client constants for further information. In SQL safe mode, this parameter is ignored.</p>
+	 * @return resource|false <p>Returns a MySQL link identifier on success or <b><code>FALSE</code></b> on failure.</p>
 	 * @link http://php.net/manual/en/function.mysql-connect.php
 	 * @see mysql_pconnect(), mysql_close()
 	 * @since PHP 4, PHP 5
@@ -66,7 +66,7 @@ namespace {
 
 	/**
 	 * Move internal result pointer
-	 * <p><b>mysql_data_seek()</b> moves the internal row pointer of the MySQL result associated with the specified result identifier to point to the specified row number. The next call to a MySQL fetch function, such as <code>mysql_fetch_assoc()</code>, would return that row.</p><p><code>row_number</code> starts at 0. The <code>row_number</code> should be a value in the range from 0 to <code>mysql_num_rows()</code> - 1. However if the result set is empty (<code>mysql_num_rows()</code> == 0), a seek to 0 will fail with a E_WARNING and <b>mysql_data_seek()</b> will return <b><code>FALSE</code></b>.</p>
+	 * <p><b>mysql_data_seek()</b> moves the internal row pointer of the MySQL result associated with the specified result identifier to point to the specified row number. The next call to a MySQL fetch function, such as <code>mysql_fetch_assoc()</code>, would return that row.</p><p><code>row_number</code> starts at 0. The <code>row_number</code> should be a value in the range from 0 to <code>mysql_num_rows()</code> - 1. However if the result set is empty (<code>mysql_num_rows()</code> == 0), a seek to 0 will fail with an <b><code>E_WARNING</code></b> and <b>mysql_data_seek()</b> will return <b><code>FALSE</code></b>.</p>
 	 * @param resource $result <p>The result <code>resource</code> that is being evaluated. This result comes from a call to <code>mysql_query()</code>.</p>
 	 * @param int $row_number <p>The desired row number of the new result pointer.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
@@ -95,7 +95,7 @@ namespace {
 	 * @param string $database <p>The name of the database that will be selected.</p>
 	 * @param string $query <p>The MySQL query.</p> <p>Data inside the query should be properly escaped.</p>
 	 * @param resource $link_identifier <p>The MySQL connection. If the link identifier is not specified, the last link opened by <code>mysql_connect()</code> is assumed. If no such link is found, it will try to create one as if <code>mysql_connect()</code> had been called with no arguments. If no connection is found or established, an <b><code>E_WARNING</code></b> level error is generated.</p>
-	 * @return resource <p>Returns a positive MySQL result resource to the query result, or <b><code>FALSE</code></b> on error. The function also returns <b><code>TRUE</code></b>/<b><code>FALSE</code></b> for <i>INSERT</i>/<i>UPDATE</i>/<i>DELETE</i> queries to indicate success/failure.</p>
+	 * @return resource|bool <p>Returns a positive MySQL result resource to the query result, or <b><code>FALSE</code></b> on error. The function also returns <b><code>TRUE</code></b>/<b><code>FALSE</code></b> for <code>INSERT</code>/<code>UPDATE</code>/<code>DELETE</code> queries to indicate success/failure.</p>
 	 * @link http://php.net/manual/en/function.mysql-db-query.php
 	 * @see mysql_query(), mysql_select_db()
 	 * @since PHP 4, PHP 5
@@ -104,7 +104,7 @@ namespace {
 
 	/**
 	 * Drop (delete) a MySQL database
-	 * <p><b>mysql_drop_db()</b> attempts to drop (remove) an entire database from the server associated with the specified link identifier. This function is deprecated, it is preferable to use <code>mysql_query()</code> to issue an sql <i>DROP DATABASE</i> statement instead.</p>
+	 * <p><b>mysql_drop_db()</b> attempts to drop (remove) an entire database from the server associated with the specified link identifier. This function is deprecated, it is preferable to use <code>mysql_query()</code> to issue an sql <code>DROP DATABASE</code> statement instead.</p>
 	 * @param string $database_name <p>The name of the database that will be deleted.</p>
 	 * @param resource $link_identifier <p>The MySQL connection. If the link identifier is not specified, the last link opened by <code>mysql_connect()</code> is assumed. If no such link is found, it will try to create one as if <code>mysql_connect()</code> had been called with no arguments. If no connection is found or established, an <b><code>E_WARNING</code></b> level error is generated.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
@@ -118,7 +118,7 @@ namespace {
 	 * Returns the numerical value of the error message from previous MySQL operation
 	 * <p>Returns the error number from the last MySQL function.</p><p>Errors coming back from the MySQL database backend no longer issue warnings. Instead, use <b>mysql_errno()</b> to retrieve the error code. Note that this function only returns the error code from the most recently executed MySQL function (not including <code>mysql_error()</code> and <b>mysql_errno()</b>), so if you want to use it, make sure you check the value before calling another MySQL function.</p>
 	 * @param resource $link_identifier <p>The MySQL connection. If the link identifier is not specified, the last link opened by <code>mysql_connect()</code> is assumed. If no such link is found, it will try to create one as if <code>mysql_connect()</code> had been called with no arguments. If no connection is found or established, an <b><code>E_WARNING</code></b> level error is generated.</p>
-	 * @return int <p>Returns the error number from the last MySQL function, or <i>0</i> (zero) if no error occurred.</p>
+	 * @return int <p>Returns the error number from the last MySQL function, or <code>0</code> (zero) if no error occurred.</p>
 	 * @link http://php.net/manual/en/function.mysql-errno.php
 	 * @see mysql_error()
 	 * @since PHP 4, PHP 5
@@ -129,7 +129,7 @@ namespace {
 	 * Returns the text of the error message from previous MySQL operation
 	 * <p>Returns the error text from the last MySQL function. Errors coming back from the MySQL database backend no longer issue warnings. Instead, use <b>mysql_error()</b> to retrieve the error text. Note that this function only returns the error text from the most recently executed MySQL function (not including <b>mysql_error()</b> and <code>mysql_errno()</code>), so if you want to use it, make sure you check the value before calling another MySQL function.</p>
 	 * @param resource $link_identifier <p>The MySQL connection. If the link identifier is not specified, the last link opened by <code>mysql_connect()</code> is assumed. If no such link is found, it will try to create one as if <code>mysql_connect()</code> had been called with no arguments. If no connection is found or established, an <b><code>E_WARNING</code></b> level error is generated.</p>
-	 * @return string <p>Returns the error text from the last MySQL function, or <i>''</i> (empty string) if no error occurred.</p>
+	 * @return string <p>Returns the error text from the last MySQL function, or <code>''</code> (empty string) if no error occurred.</p>
 	 * @link http://php.net/manual/en/function.mysql-error.php
 	 * @see mysql_errno()
 	 * @since PHP 4, PHP 5
@@ -174,7 +174,7 @@ namespace {
 	 * Get column information from a result and return as an object
 	 * <p>Returns an object containing field information. This function can be used to obtain information about fields in the provided query result.</p>
 	 * @param resource $result <p>The result <code>resource</code> that is being evaluated. This result comes from a call to <code>mysql_query()</code>.</p>
-	 * @param int $field_offset <p>The numerical field offset. If the field offset is not specified, the next field that was not yet retrieved by this function is retrieved. The <code>field_offset</code> starts at <i>0</i>.</p>
+	 * @param int $field_offset <p>The numerical field offset. If the field offset is not specified, the next field that was not yet retrieved by this function is retrieved. The <code>field_offset</code> starts at <code>0</code>.</p>
 	 * @return object <p>Returns an <code>object</code> containing field information. The properties of the object are:</p><ul> <li>  name - column name  </li> <li>  table - name of the table the column belongs to, which is the alias name if one is defined  </li> <li>  max_length - maximum length of the column  </li> <li>  not_null - 1 if the column cannot be <b><code>NULL</code></b>  </li> <li>  primary_key - 1 if the column is a primary key  </li> <li>  unique_key - 1 if the column is a unique key  </li> <li>  multiple_key - 1 if the column is a non-unique key  </li> <li>  numeric - 1 if the column is numeric  </li> <li>  blob - 1 if the column is a BLOB  </li> <li>  type - the type of the column  </li> <li>  unsigned - 1 if the column is unsigned  </li> <li>  zerofill - 1 if the column is zero-filled  </li> </ul>
 	 * @link http://php.net/manual/en/function.mysql-fetch-field.php
 	 * @see mysql_field_seek()
@@ -186,12 +186,12 @@ namespace {
 	 * Get the length of each output in a result
 	 * <p>Returns an array that corresponds to the lengths of each field in the last row fetched by MySQL.</p><p><b>mysql_fetch_lengths()</b> stores the lengths of each result column in the last row returned by <code>mysql_fetch_row()</code>, <code>mysql_fetch_assoc()</code>, <code>mysql_fetch_array()</code>, and <code>mysql_fetch_object()</code> in an array, starting at offset 0.</p>
 	 * @param resource $result <p>The result <code>resource</code> that is being evaluated. This result comes from a call to <code>mysql_query()</code>.</p>
-	 * @return array <p>An <code>array</code> of lengths on success or <b><code>FALSE</code></b> on failure.</p>
+	 * @return array|false <p>An <code>array</code> of lengths on success or <b><code>FALSE</code></b> on failure.</p>
 	 * @link http://php.net/manual/en/function.mysql-fetch-lengths.php
 	 * @see mysql_field_len(), mysql_fetch_row(), strlen()
 	 * @since PHP 4, PHP 5
 	 */
-	function mysql_fetch_lengths($result): array {}
+	function mysql_fetch_lengths($result) {}
 
 	/**
 	 * Fetch a result row as an object
@@ -221,43 +221,43 @@ namespace {
 	 * Get the flags associated with the specified field in a result
 	 * <p><b>mysql_field_flags()</b> returns the field flags of the specified field. The flags are reported as a single word per flag separated by a single space, so that you can split the returned value using <code>explode()</code>.</p>
 	 * @param resource $result <p>The result <code>resource</code> that is being evaluated. This result comes from a call to <code>mysql_query()</code>.</p>
-	 * @param int $field_offset <p>The numerical field offset. The <code>field_offset</code> starts at <i>0</i>. If <code>field_offset</code> does not exist, an error of level <b><code>E_WARNING</code></b> is also issued.</p>
-	 * @return string <p>Returns a string of flags associated with the result or <b><code>FALSE</code></b> on failure.</p><p>The following flags are reported, if your version of MySQL is current enough to support them: <i>"not_null"</i>, <i>"primary_key"</i>, <i>"unique_key"</i>, <i>"multiple_key"</i>, <i>"blob"</i>, <i>"unsigned"</i>, <i>"zerofill"</i>, <i>"binary"</i>, <i>"enum"</i>, <i>"auto_increment"</i> and <i>"timestamp"</i>.</p>
+	 * @param int $field_offset <p>The numerical field offset. The <code>field_offset</code> starts at <code>0</code>. If <code>field_offset</code> does not exist, an error of level <b><code>E_WARNING</code></b> is also issued.</p>
+	 * @return string|false <p>Returns a string of flags associated with the result or <b><code>FALSE</code></b> on failure.</p><p>The following flags are reported, if your version of MySQL is current enough to support them: <code>"not_null"</code>, <code>"primary_key"</code>, <code>"unique_key"</code>, <code>"multiple_key"</code>, <code>"blob"</code>, <code>"unsigned"</code>, <code>"zerofill"</code>, <code>"binary"</code>, <code>"enum"</code>, <code>"auto_increment"</code> and <code>"timestamp"</code>.</p>
 	 * @link http://php.net/manual/en/function.mysql-field-flags.php
 	 * @see mysql_field_type(), mysql_field_len()
 	 * @since PHP 4, PHP 5
 	 */
-	function mysql_field_flags($result, int $field_offset): string {}
+	function mysql_field_flags($result, int $field_offset) {}
 
 	/**
 	 * Returns the length of the specified field
 	 * <p><b>mysql_field_len()</b> returns the length of the specified field.</p>
 	 * @param resource $result <p>The result <code>resource</code> that is being evaluated. This result comes from a call to <code>mysql_query()</code>.</p>
-	 * @param int $field_offset <p>The numerical field offset. The <code>field_offset</code> starts at <i>0</i>. If <code>field_offset</code> does not exist, an error of level <b><code>E_WARNING</code></b> is also issued.</p>
-	 * @return int <p>The length of the specified field index on success or <b><code>FALSE</code></b> on failure.</p>
+	 * @param int $field_offset <p>The numerical field offset. The <code>field_offset</code> starts at <code>0</code>. If <code>field_offset</code> does not exist, an error of level <b><code>E_WARNING</code></b> is also issued.</p>
+	 * @return int|false <p>The length of the specified field index on success or <b><code>FALSE</code></b> on failure.</p>
 	 * @link http://php.net/manual/en/function.mysql-field-len.php
 	 * @see mysql_fetch_lengths(), strlen()
 	 * @since PHP 4, PHP 5
 	 */
-	function mysql_field_len($result, int $field_offset): int {}
+	function mysql_field_len($result, int $field_offset) {}
 
 	/**
 	 * Get the name of the specified field in a result
 	 * <p><b>mysql_field_name()</b> returns the name of the specified field index.</p>
 	 * @param resource $result <p>The result <code>resource</code> that is being evaluated. This result comes from a call to <code>mysql_query()</code>.</p>
-	 * @param int $field_offset <p>The numerical field offset. The <code>field_offset</code> starts at <i>0</i>. If <code>field_offset</code> does not exist, an error of level <b><code>E_WARNING</code></b> is also issued.</p>
-	 * @return string <p>The name of the specified field index on success or <b><code>FALSE</code></b> on failure.</p>
+	 * @param int $field_offset <p>The numerical field offset. The <code>field_offset</code> starts at <code>0</code>. If <code>field_offset</code> does not exist, an error of level <b><code>E_WARNING</code></b> is also issued.</p>
+	 * @return string|false <p>The name of the specified field index on success or <b><code>FALSE</code></b> on failure.</p>
 	 * @link http://php.net/manual/en/function.mysql-field-name.php
 	 * @see mysql_field_type(), mysql_field_len()
 	 * @since PHP 4, PHP 5
 	 */
-	function mysql_field_name($result, int $field_offset): string {}
+	function mysql_field_name($result, int $field_offset) {}
 
 	/**
 	 * Set result pointer to a specified field offset
 	 * <p>Seeks to the specified field offset. If the next call to <code>mysql_fetch_field()</code> doesn't include a field offset, the field offset specified in <b>mysql_field_seek()</b> will be returned.</p>
 	 * @param resource $result <p>The result <code>resource</code> that is being evaluated. This result comes from a call to <code>mysql_query()</code>.</p>
-	 * @param int $field_offset <p>The numerical field offset. The <code>field_offset</code> starts at <i>0</i>. If <code>field_offset</code> does not exist, an error of level <b><code>E_WARNING</code></b> is also issued.</p>
+	 * @param int $field_offset <p>The numerical field offset. The <code>field_offset</code> starts at <code>0</code>. If <code>field_offset</code> does not exist, an error of level <b><code>E_WARNING</code></b> is also issued.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
 	 * @link http://php.net/manual/en/function.mysql-field-seek.php
 	 * @see mysql_fetch_field()
@@ -269,7 +269,7 @@ namespace {
 	 * Get name of the table the specified field is in
 	 * <p>Returns the name of the table that the specified field is in.</p>
 	 * @param resource $result <p>The result <code>resource</code> that is being evaluated. This result comes from a call to <code>mysql_query()</code>.</p>
-	 * @param int $field_offset <p>The numerical field offset. The <code>field_offset</code> starts at <i>0</i>. If <code>field_offset</code> does not exist, an error of level <b><code>E_WARNING</code></b> is also issued.</p>
+	 * @param int $field_offset <p>The numerical field offset. The <code>field_offset</code> starts at <code>0</code>. If <code>field_offset</code> does not exist, an error of level <b><code>E_WARNING</code></b> is also issued.</p>
 	 * @return string <p>The name of the table on success.</p>
 	 * @link http://php.net/manual/en/function.mysql-field-table.php
 	 * @see mysql_list_tables()
@@ -281,8 +281,8 @@ namespace {
 	 * Get the type of the specified field in a result
 	 * <p><b>mysql_field_type()</b> is similar to the <code>mysql_field_name()</code> function. The arguments are identical, but the field type is returned instead.</p>
 	 * @param resource $result <p>The result <code>resource</code> that is being evaluated. This result comes from a call to <code>mysql_query()</code>.</p>
-	 * @param int $field_offset <p>The numerical field offset. The <code>field_offset</code> starts at <i>0</i>. If <code>field_offset</code> does not exist, an error of level <b><code>E_WARNING</code></b> is also issued.</p>
-	 * @return string <p>The returned field type will be one of <i>"int"</i>, <i>"real"</i>, <i>"string"</i>, <i>"blob"</i>, and others as detailed in the MySQL documentation.</p>
+	 * @param int $field_offset <p>The numerical field offset. The <code>field_offset</code> starts at <code>0</code>. If <code>field_offset</code> does not exist, an error of level <b><code>E_WARNING</code></b> is also issued.</p>
+	 * @return string <p>The returned field type will be one of <code>"int"</code>, <code>"real"</code>, <code>"string"</code>, <code>"blob"</code>, and others as detailed in the MySQL documentation.</p>
 	 * @link http://php.net/manual/en/function.mysql-field-type.php
 	 * @see mysql_field_name(), mysql_field_len()
 	 * @since PHP 4, PHP 5
@@ -314,34 +314,34 @@ namespace {
 	 * Get MySQL host info
 	 * <p>Describes the type of connection in use for the connection, including the server host name.</p>
 	 * @param resource $link_identifier <p>The MySQL connection. If the link identifier is not specified, the last link opened by <code>mysql_connect()</code> is assumed. If no such link is found, it will try to create one as if <code>mysql_connect()</code> had been called with no arguments. If no connection is found or established, an <b><code>E_WARNING</code></b> level error is generated.</p>
-	 * @return string <p>Returns a string describing the type of MySQL connection in use for the connection or <b><code>FALSE</code></b> on failure.</p>
+	 * @return string|false <p>Returns a string describing the type of MySQL connection in use for the connection or <b><code>FALSE</code></b> on failure.</p>
 	 * @link http://php.net/manual/en/function.mysql-get-host-info.php
 	 * @see mysql_get_client_info(), mysql_get_proto_info(), mysql_get_server_info()
 	 * @since PHP 4 >= 4.0.5, PHP 5
 	 */
-	function mysql_get_host_info($link_identifier = NULL): string {}
+	function mysql_get_host_info($link_identifier = NULL) {}
 
 	/**
 	 * Get MySQL protocol info
 	 * <p>Retrieves the MySQL protocol.</p>
 	 * @param resource $link_identifier <p>The MySQL connection. If the link identifier is not specified, the last link opened by <code>mysql_connect()</code> is assumed. If no such link is found, it will try to create one as if <code>mysql_connect()</code> had been called with no arguments. If no connection is found or established, an <b><code>E_WARNING</code></b> level error is generated.</p>
-	 * @return int <p>Returns the MySQL protocol on success or <b><code>FALSE</code></b> on failure.</p>
+	 * @return int|false <p>Returns the MySQL protocol on success or <b><code>FALSE</code></b> on failure.</p>
 	 * @link http://php.net/manual/en/function.mysql-get-proto-info.php
 	 * @see mysql_get_client_info(), mysql_get_host_info(), mysql_get_server_info()
 	 * @since PHP 4 >= 4.0.5, PHP 5
 	 */
-	function mysql_get_proto_info($link_identifier = NULL): int {}
+	function mysql_get_proto_info($link_identifier = NULL) {}
 
 	/**
 	 * Get MySQL server info
 	 * <p>Retrieves the MySQL server version.</p>
 	 * @param resource $link_identifier <p>The MySQL connection. If the link identifier is not specified, the last link opened by <code>mysql_connect()</code> is assumed. If no such link is found, it will try to create one as if <code>mysql_connect()</code> had been called with no arguments. If no connection is found or established, an <b><code>E_WARNING</code></b> level error is generated.</p>
-	 * @return string <p>Returns the MySQL server version on success or <b><code>FALSE</code></b> on failure.</p>
+	 * @return string|false <p>Returns the MySQL server version on success or <b><code>FALSE</code></b> on failure.</p>
 	 * @link http://php.net/manual/en/function.mysql-get-server-info.php
 	 * @see mysql_get_client_info(), mysql_get_host_info(), mysql_get_proto_info(), phpversion()
 	 * @since PHP 4 >= 4.0.5, PHP 5
 	 */
-	function mysql_get_server_info($link_identifier = NULL): string {}
+	function mysql_get_server_info($link_identifier = NULL) {}
 
 	/**
 	 * Get information about the most recent query
@@ -358,7 +358,7 @@ namespace {
 	 * Get the ID generated in the last query
 	 * <p>Retrieves the ID generated for an AUTO_INCREMENT column by the previous query (usually INSERT).</p>
 	 * @param resource $link_identifier <p>The MySQL connection. If the link identifier is not specified, the last link opened by <code>mysql_connect()</code> is assumed. If no such link is found, it will try to create one as if <code>mysql_connect()</code> had been called with no arguments. If no connection is found or established, an <b><code>E_WARNING</code></b> level error is generated.</p>
-	 * @return int <p>The ID generated for an AUTO_INCREMENT column by the previous query on success, <i>0</i> if the previous query does not generate an AUTO_INCREMENT value, or <b><code>FALSE</code></b> if no MySQL connection was established.</p>
+	 * @return int <p>The ID generated for an AUTO_INCREMENT column by the previous query on success, <code>0</code> if the previous query does not generate an AUTO_INCREMENT value, or <b><code>FALSE</code></b> if no MySQL connection was established.</p>
 	 * @link http://php.net/manual/en/function.mysql-insert-id.php
 	 * @see mysql_query(), mysql_info()
 	 * @since PHP 4, PHP 5
@@ -378,7 +378,7 @@ namespace {
 
 	/**
 	 * List MySQL table fields
-	 * <p>Retrieves information about the given table name.</p><p>This function is deprecated. It is preferable to use <code>mysql_query()</code> to issue an SQL <i>SHOW COLUMNS FROM table [LIKE 'name']</i> statement instead.</p>
+	 * <p>Retrieves information about the given table name.</p><p>This function is deprecated. It is preferable to use <code>mysql_query()</code> to issue an SQL <code>SHOW COLUMNS FROM table [LIKE 'name']</code> statement instead.</p>
 	 * @param string $database_name <p>The name of the database that's being queried.</p>
 	 * @param string $table_name <p>The name of the table that's being queried.</p>
 	 * @param resource $link_identifier <p>The MySQL connection. If the link identifier is not specified, the last link opened by <code>mysql_connect()</code> is assumed. If no such link is found, it will try to create one as if <code>mysql_connect()</code> had been called with no arguments. If no connection is found or established, an <b><code>E_WARNING</code></b> level error is generated.</p>
@@ -393,7 +393,7 @@ namespace {
 	 * List MySQL processes
 	 * <p>Retrieves the current MySQL server threads.</p>
 	 * @param resource $link_identifier <p>The MySQL connection. If the link identifier is not specified, the last link opened by <code>mysql_connect()</code> is assumed. If no such link is found, it will try to create one as if <code>mysql_connect()</code> had been called with no arguments. If no connection is found or established, an <b><code>E_WARNING</code></b> level error is generated.</p>
-	 * @return resource <p>A result pointer <code>resource</code> on success or <b><code>FALSE</code></b> on failure.</p>
+	 * @return resource|false <p>A result pointer <code>resource</code> on success or <b><code>FALSE</code></b> on failure.</p>
 	 * @link http://php.net/manual/en/function.mysql-list-processes.php
 	 * @see mysql_thread_id(), mysql_stat()
 	 * @since PHP 4 >= 4.3.0, PHP 5
@@ -402,10 +402,10 @@ namespace {
 
 	/**
 	 * List tables in a MySQL database
-	 * <p>Retrieves a list of table names from a MySQL database.</p><p>This function is deprecated. It is preferable to use <code>mysql_query()</code> to issue an SQL <i>SHOW TABLES [FROM db_name] [LIKE 'pattern']</i> statement instead.</p>
+	 * <p>Retrieves a list of table names from a MySQL database.</p><p>This function is deprecated. It is preferable to use <code>mysql_query()</code> to issue an SQL <code>SHOW TABLES [FROM db_name] [LIKE 'pattern']</code> statement instead.</p>
 	 * @param string $database <p>The name of the database</p>
 	 * @param resource $link_identifier <p>The MySQL connection. If the link identifier is not specified, the last link opened by <code>mysql_connect()</code> is assumed. If no such link is found, it will try to create one as if <code>mysql_connect()</code> had been called with no arguments. If no connection is found or established, an <b><code>E_WARNING</code></b> level error is generated.</p>
-	 * @return resource <p>A result pointer <code>resource</code> on success or <b><code>FALSE</code></b> on failure.</p><p>Use the <code>mysql_tablename()</code> function to traverse this result pointer, or any function for result tables, such as <code>mysql_fetch_array()</code>.</p>
+	 * @return resource|false <p>A result pointer <code>resource</code> on success or <b><code>FALSE</code></b> on failure.</p><p>Use the <code>mysql_tablename()</code> function to traverse this result pointer, or any function for result tables, such as <code>mysql_fetch_array()</code>.</p>
 	 * @link http://php.net/manual/en/function.mysql-list-tables.php
 	 * @see mysql_list_dbs(), mysql_tablename()
 	 * @since PHP 4, PHP 5
@@ -416,23 +416,23 @@ namespace {
 	 * Get number of fields in result
 	 * <p>Retrieves the number of fields from a query.</p>
 	 * @param resource $result <p>The result <code>resource</code> that is being evaluated. This result comes from a call to <code>mysql_query()</code>.</p>
-	 * @return int <p>Returns the number of fields in the result set <code>resource</code> on success or <b><code>FALSE</code></b> on failure.</p>
+	 * @return int|false <p>Returns the number of fields in the result set <code>resource</code> on success or <b><code>FALSE</code></b> on failure.</p>
 	 * @link http://php.net/manual/en/function.mysql-num-fields.php
 	 * @see mysql_select_db(), mysql_query(), mysql_fetch_field(), mysql_num_rows()
 	 * @since PHP 4, PHP 5
 	 */
-	function mysql_num_fields($result): int {}
+	function mysql_num_fields($result) {}
 
 	/**
 	 * Get number of rows in result
 	 * <p>Retrieves the number of rows from a result set. This command is only valid for statements like SELECT or SHOW that return an actual result set. To retrieve the number of rows affected by a INSERT, UPDATE, REPLACE or DELETE query, use <code>mysql_affected_rows()</code>.</p>
 	 * @param resource $result <p>The result <code>resource</code> that is being evaluated. This result comes from a call to <code>mysql_query()</code>.</p>
-	 * @return int <p>The number of rows in a result set on success or <b><code>FALSE</code></b> on failure.</p>
+	 * @return int|false <p>The number of rows in a result set on success or <b><code>FALSE</code></b> on failure.</p>
 	 * @link http://php.net/manual/en/function.mysql-num-rows.php
 	 * @see mysql_affected_rows(), mysql_connect(), mysql_data_seek(), mysql_select_db(), mysql_query()
 	 * @since PHP 4, PHP 5
 	 */
-	function mysql_num_rows($result): int {}
+	function mysql_num_rows($result) {}
 
 	/**
 	 * Open a persistent connection to a MySQL server
@@ -440,7 +440,7 @@ namespace {
 	 * @param string $server <p>The MySQL server. It can also include a port number. e.g. "hostname:port" or a path to a local socket e.g. ":/path/to/socket" for the localhost.</p> <p>If the PHP directive  mysql.default_host is undefined (default), then the default value is 'localhost:3306'</p>
 	 * @param string $username <p>The username. Default value is the name of the user that owns the server process.</p>
 	 * @param string $password <p>The password. Default value is an empty password.</p>
-	 * @param int $client_flags <p>The <code>client_flags</code> parameter can be a combination of the following constants: 128 (enable <i>LOAD DATA LOCAL</i> handling), <b><code>MYSQL_CLIENT_SSL</code></b>, <b><code>MYSQL_CLIENT_COMPRESS</code></b>, <b><code>MYSQL_CLIENT_IGNORE_SPACE</code></b> or <b><code>MYSQL_CLIENT_INTERACTIVE</code></b>.</p>
+	 * @param int $client_flags <p>The <code>client_flags</code> parameter can be a combination of the following constants: 128 (enable <code>LOAD DATA LOCAL</code> handling), <b><code>MYSQL_CLIENT_SSL</code></b>, <b><code>MYSQL_CLIENT_COMPRESS</code></b>, <b><code>MYSQL_CLIENT_IGNORE_SPACE</code></b> or <b><code>MYSQL_CLIENT_INTERACTIVE</code></b>.</p>
 	 * @return resource <p>Returns a MySQL persistent link identifier on success, or <b><code>FALSE</code></b> on failure.</p>
 	 * @link http://php.net/manual/en/function.mysql-pconnect.php
 	 * @see mysql_connect()
@@ -473,7 +473,7 @@ namespace {
 
 	/**
 	 * Escapes special characters in a string for use in an SQL statement
-	 * <p>Escapes special characters in the <code>unescaped_string</code>, taking into account the current character set of the connection so that it is safe to place it in a <code>mysql_query()</code>. If binary data is to be inserted, this function must be used.</p><p><b>mysql_real_escape_string()</b> calls MySQL's library function mysql_real_escape_string, which prepends backslashes to the following characters: <i>\x00</i>, <i>\n</i>, <i>\r</i>, <i>\</i>, <i>'</i>, <i>"</i> and <i>\x1a</i>.</p><p>This function must always (with few exceptions) be used to make data safe before sending a query to MySQL.</p><p>The character set must be set either at the server level, or with the API function <code>mysql_set_charset()</code> for it to affect <b>mysql_real_escape_string()</b>. See the concepts section on character sets for more information.</p>
+	 * <p>Escapes special characters in the <code>unescaped_string</code>, taking into account the current character set of the connection so that it is safe to place it in a <code>mysql_query()</code>. If binary data is to be inserted, this function must be used.</p><p><b>mysql_real_escape_string()</b> calls MySQL's library function mysql_real_escape_string, which prepends backslashes to the following characters: <code>\x00</code>, <code>\n</code>, <code>\r</code>, <code>\</code>, <code>'</code>, <code>"</code> and <code>\x1a</code>.</p><p>This function must always (with few exceptions) be used to make data safe before sending a query to MySQL.</p><p>The character set must be set either at the server level, or with the API function <code>mysql_set_charset()</code> for it to affect <b>mysql_real_escape_string()</b>. See the concepts section on character sets for more information.</p>
 	 * @param string $unescaped_string <p>The string that is to be escaped.</p>
 	 * @param resource $link_identifier <p>The MySQL connection. If the link identifier is not specified, the last link opened by <code>mysql_connect()</code> is assumed. If no such link is found, it will try to create one as if <code>mysql_connect()</code> had been called with no arguments. If no connection is found or established, an <b><code>E_WARNING</code></b> level error is generated.</p>
 	 * @return string <p>Returns the escaped string, or <b><code>FALSE</code></b> on error.</p>
@@ -487,7 +487,7 @@ namespace {
 	 * Get result data
 	 * <p>Retrieves the contents of one cell from a MySQL result set.</p><p>When working on large result sets, you should consider using one of the functions that fetch an entire row (specified below). As these functions return the contents of multiple cells in one function call, they're MUCH quicker than <b>mysql_result()</b>. Also, note that specifying a numeric offset for the field argument is much quicker than specifying a fieldname or tablename.fieldname argument.</p>
 	 * @param resource $result <p>The result <code>resource</code> that is being evaluated. This result comes from a call to <code>mysql_query()</code>.</p>
-	 * @param int $row <p>The row number from the result that's being retrieved. Row numbers start at <i>0</i>.</p>
+	 * @param int $row <p>The row number from the result that's being retrieved. Row numbers start at <code>0</code>.</p>
 	 * @param mixed $field <p>The name or offset of the field being retrieved.</p> <p>It can be the field's offset, the field's name, or the field's table dot field name (tablename.fieldname). If the column name has been aliased ('select foo as bar from...'), use the alias instead of the column name. If undefined, the first field is retrieved.</p>
 	 * @return string <p>The contents of one cell from a MySQL result set on success, or <b><code>FALSE</code></b> on failure.</p>
 	 * @link http://php.net/manual/en/function.mysql-result.php
@@ -524,7 +524,7 @@ namespace {
 	 * Get current system status
 	 * <p><b>mysql_stat()</b> returns the current server status.</p>
 	 * @param resource $link_identifier <p>The MySQL connection. If the link identifier is not specified, the last link opened by <code>mysql_connect()</code> is assumed. If no such link is found, it will try to create one as if <code>mysql_connect()</code> had been called with no arguments. If no connection is found or established, an <b><code>E_WARNING</code></b> level error is generated.</p>
-	 * @return string <p>Returns a string with the status for uptime, threads, queries, open tables, flush tables and queries per second. For a complete list of other status variables, you have to use the <i>SHOW STATUS</i> SQL command. If <code>link_identifier</code> is invalid, <b><code>NULL</code></b> is returned.</p>
+	 * @return string <p>Returns a string with the status for uptime, threads, queries, open tables, flush tables and queries per second. For a complete list of other status variables, you have to use the <code>SHOW STATUS</code> SQL command. If <code>link_identifier</code> is invalid, <b><code>NULL</code></b> is returned.</p>
 	 * @link http://php.net/manual/en/function.mysql-stat.php
 	 * @see mysql_get_server_info(), mysql_list_processes()
 	 * @since PHP 4 >= 4.3.0, PHP 5
@@ -533,26 +533,26 @@ namespace {
 
 	/**
 	 * Get table name of field
-	 * <p>Retrieves the table name from a <code>result</code>.</p><p>This function is deprecated. It is preferable to use <code>mysql_query()</code> to issue an SQL <i>SHOW TABLES [FROM db_name] [LIKE 'pattern']</i> statement instead.</p>
+	 * <p>Retrieves the table name from a <code>result</code>.</p><p>This function is deprecated. It is preferable to use <code>mysql_query()</code> to issue an SQL <code>SHOW TABLES [FROM db_name] [LIKE 'pattern']</code> statement instead.</p>
 	 * @param resource $result <p>A result pointer <code>resource</code> that's returned from <code>mysql_list_tables()</code>.</p>
 	 * @param int $i <p>The integer index (row/table number)</p>
-	 * @return string <p>The name of the table on success or <b><code>FALSE</code></b> on failure.</p><p>Use the <b>mysql_tablename()</b> function to traverse this result pointer, or any function for result tables, such as <code>mysql_fetch_array()</code>.</p>
+	 * @return string|false <p>The name of the table on success or <b><code>FALSE</code></b> on failure.</p><p>Use the <b>mysql_tablename()</b> function to traverse this result pointer, or any function for result tables, such as <code>mysql_fetch_array()</code>.</p>
 	 * @link http://php.net/manual/en/function.mysql-tablename.php
 	 * @see mysql_list_tables(), mysql_field_table(), mysql_db_name()
 	 * @since PHP 4, PHP 5
 	 */
-	function mysql_tablename($result, int $i): string {}
+	function mysql_tablename($result, int $i) {}
 
 	/**
 	 * Return the current thread ID
 	 * <p>Retrieves the current thread ID. If the connection is lost, and a reconnect with <code>mysql_ping()</code> is executed, the thread ID will change. This means only retrieve the thread ID when needed.</p>
 	 * @param resource $link_identifier <p>The MySQL connection. If the link identifier is not specified, the last link opened by <code>mysql_connect()</code> is assumed. If no such link is found, it will try to create one as if <code>mysql_connect()</code> had been called with no arguments. If no connection is found or established, an <b><code>E_WARNING</code></b> level error is generated.</p>
-	 * @return int <p>The thread ID on success or <b><code>FALSE</code></b> on failure.</p>
+	 * @return int|false <p>The thread ID on success or <b><code>FALSE</code></b> on failure.</p>
 	 * @link http://php.net/manual/en/function.mysql-thread-id.php
 	 * @see mysql_ping(), mysql_list_processes()
 	 * @since PHP 4 >= 4.3.0, PHP 5
 	 */
-	function mysql_thread_id($link_identifier = NULL): int {}
+	function mysql_thread_id($link_identifier = NULL) {}
 
 	/**
 	 * Send an SQL query to MySQL without fetching and buffering the result rows
@@ -587,7 +587,7 @@ namespace {
 	define('MYSQL_CLIENT_IGNORE_SPACE', null);
 
 	/**
-	 * Allow interactive_timeout seconds (instead of <b>wait_timeout</b> ) of inactivity before closing the connection.
+	 * Allow interactive_timeout seconds (instead of <b>wait_timeout</b>) of inactivity before closing the connection.
 	 */
 	define('MYSQL_CLIENT_INTERACTIVE', null);
 

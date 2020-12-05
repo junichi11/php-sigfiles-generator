@@ -28,8 +28,8 @@ namespace {
 		/**
 		 * Add a memcached server to connection pool
 		 * <p><b>Memcache::addServer()</b> adds a server to the connection pool. You can also use the <b>memcache_add_server()</b> function.</p><p>When using this method (as opposed to <code>Memcache::connect()</code> and <code>Memcache::pconnect()</code>) the network connection is not established until actually needed. Thus there is no overhead in adding a large number of servers to the pool, even though they might not all be used.</p><p>Failover may occur at any stage in any of the methods, as long as other servers are available the request the user won't notice. Any kind of socket or Memcached server level errors (except out-of-memory) may trigger the failover. Normal client errors such as adding an existing key will not trigger a failover.</p><p><b>Note</b>:</p><p>This function has been added to Memcache version 2.0.0.</p>
-		 * @param string $host <p>Point to the host where memcached is listening for connections. This parameter may also specify other transports like <i>unix:///path/to/memcached.sock</i> to use UNIX domain sockets, in this case <code>port</code> must also be set to <i>0</i>.</p>
-		 * @param int $port <p>Point to the port where memcached is listening for connections. Set this parameter to <i>0</i> when using UNIX domain sockets.</p> <p>Please note: <code>port</code> defaults to memcache.default_port if not specified. For this reason it is wise to specify the port explicitly in this method call.</p>
+		 * @param string $host <p>Point to the host where memcached is listening for connections. This parameter may also specify other transports like <code>unix:///path/to/memcached.sock</code> to use UNIX domain sockets, in this case <code>port</code> must also be set to <code>0</code>.</p>
+		 * @param int $port <p>Point to the port where memcached is listening for connections. Set this parameter to <code>0</code> when using UNIX domain sockets.</p> <p>Please note: <code>port</code> defaults to memcache.default_port if not specified. For this reason it is wise to specify the port explicitly in this method call.</p>
 		 * @param bool $persistent <p>Controls the use of a persistent connection. Default to <b><code>TRUE</code></b>.</p>
 		 * @param int $weight <p>Number of buckets to create for this server which in turn control its probability of it being selected. The probability is relative to the total weight of all servers.</p>
 		 * @param int $timeout <p>Value in seconds which will be used for connecting to the daemon. Think twice before changing the default value of 1 second - you can lose all the advantages of caching if your connection is too slow.</p>
@@ -57,8 +57,8 @@ namespace {
 		/**
 		 * Open memcached server connection
 		 * <p><b>Memcache::connect()</b> establishes a connection to the memcached server. The connection, which was opened using <b>Memcache::connect()</b> will be automatically closed at the end of script execution. Also you can close it with <code>Memcache::close()</code>. Also you can use <b>memcache_connect()</b> function.</p>
-		 * @param string $host <p>Point to the host where memcached is listening for connections. This parameter may also specify other transports like <i>unix:///path/to/memcached.sock</i> to use UNIX domain sockets, in this case <code>port</code> must also be set to <i>0</i>.</p>
-		 * @param int $port <p>Point to the port where memcached is listening for connections. Set this parameter to <i>0</i> when using UNIX domain sockets.</p> <p>Please note: <code>port</code> defaults to memcache.default_port if not specified. For this reason it is wise to specify the port explicitly in this method call.</p>
+		 * @param string $host <p>Point to the host where memcached is listening for connections. This parameter may also specify other transports like <code>unix:///path/to/memcached.sock</code> to use UNIX domain sockets, in this case <code>port</code> must also be set to <code>0</code>.</p>
+		 * @param int $port <p>Point to the port where memcached is listening for connections. Set this parameter to <code>0</code> when using UNIX domain sockets.</p> <p>Please note: <code>port</code> defaults to memcache.default_port if not specified. For this reason it is wise to specify the port explicitly in this method call.</p>
 		 * @param int $timeout <p>Value in seconds which will be used for connecting to the daemon. Think twice before changing the default value of 1 second - you can lose all the advantages of caching if your connection is too slow.</p>
 		 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
 		 * @link http://php.net/manual/en/memcache.connect.php
@@ -72,18 +72,18 @@ namespace {
 		 * <p><b>Memcache::decrement()</b> decrements value of the item by <code>value</code>. Similarly to <code>Memcache::increment()</code>, current value of the item is being converted to numerical and after that <code>value</code> is subtracted.</p><p><b>Note</b>:</p><p>New item's value will not be less than zero.</p><p><b>Note</b>:</p><p>Do not use <b>Memcache::decrement()</b> with item, which was stored compressed, because consequent call to <code>Memcache::get()</code> will fail.</p>
 		 * @param string $key <p>Key of the item do decrement.</p>
 		 * @param int $value <p>Decrement the item by <code>value</code>.</p>
-		 * @return int <p>Returns item's new value on success or <b><code>FALSE</code></b> on failure.</p>
+		 * @return int|false <p>Returns item's new value on success or <b><code>FALSE</code></b> on failure.</p>
 		 * @link http://php.net/manual/en/memcache.decrement.php
 		 * @see Memcache::increment(), Memcache::replace()
 		 * @since PECL memcache >= 0.2.0
 		 */
-		public function decrement(string $key, int $value = 1): int {}
+		public function decrement(string $key, int $value = 1) {}
 
 		/**
 		 * Delete item from the server
 		 * <p><b>Memcache::delete()</b> deletes an item with the <code>key</code>.</p>
 		 * @param string $key <p>The key associated with the item to delete.</p>
-		 * @param int $timeout <p>This deprecated parameter is not supported, and defaults to <i>0</i> seconds. Do not use this parameter.</p>
+		 * @param int $timeout <p>This deprecated parameter is not supported, and defaults to <code>0</code> seconds. Do not use this parameter.</p>
 		 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
 		 * @link http://php.net/manual/en/memcache.delete.php
 		 * @see Memcache::set(), Memcache::replace()
@@ -142,40 +142,40 @@ namespace {
 		 * @param string $type <p>The type of statistics to fetch. Valid values are {reset, malloc, maps, cachedump, slabs, items, sizes}. According to the memcached protocol spec these additional arguments "are subject to change for the convenience of memcache developers".</p>
 		 * @param int $slabid <p>Used in conjunction with <code>type</code> set to cachedump to identify the slab to dump from. The cachedump command ties up the server and is strictly to be used for debugging purposes.</p>
 		 * @param int $limit <p>Used in conjunction with <code>type</code> set to cachedump to limit the number of entries to dump.</p>
-		 * @return array <p>Returns an associative array of server statistics or <b><code>FALSE</code></b> on failure.</p>
+		 * @return array|false <p>Returns an associative array of server statistics or <b><code>FALSE</code></b> on failure.</p>
 		 * @link http://php.net/manual/en/memcache.getstats.php
 		 * @see Memcache::getVersion(), Memcache::getExtendedStats()
 		 * @since PECL memcache >= 0.2.0
 		 */
-		public function getStats(string $type = NULL, int $slabid = NULL, int $limit = 100): array {}
+		public function getStats(string $type = NULL, int $slabid = NULL, int $limit = 100) {}
 
 		/**
 		 * Return version of the server
 		 * <p><b>Memcache::getVersion()</b> returns a string with server's version number. Also you can use <b>memcache_get_version()</b> function.</p>
-		 * @return string <p>Returns a string of server version number or <b><code>FALSE</code></b> on failure.</p>
+		 * @return string|false <p>Returns a string of server version number or <b><code>FALSE</code></b> on failure.</p>
 		 * @link http://php.net/manual/en/memcache.getversion.php
 		 * @see Memcache::getExtendedStats(), Memcache::getStats()
 		 * @since PECL memcache >= 0.2.0
 		 */
-		public function getVersion(): string {}
+		public function getVersion() {}
 
 		/**
 		 * Increment item's value
 		 * <p><b>Memcache::increment()</b> increments value of an item by the specified <code>value</code>. If item specified by <code>key</code> was not numeric and cannot be converted to a number, it will change its value to <code>value</code>. <b>Memcache::increment()</b> <i>does not</i> create an item if it doesn't already exist.</p><p><b>Note</b>:</p><p>Do not use <b>Memcache::increment()</b> with items that have been stored compressed because subsequent calls to <code>Memcache::get()</code> will fail.</p>
 		 * @param string $key <p>Key of the item to increment.</p>
 		 * @param int $value <p>Increment the item by <code>value</code>.</p>
-		 * @return int <p>Returns new items value on success or <b><code>FALSE</code></b> on failure.</p>
+		 * @return int|false <p>Returns new items value on success or <b><code>FALSE</code></b> on failure.</p>
 		 * @link http://php.net/manual/en/memcache.increment.php
 		 * @see Memcache::decrement(), Memcache::replace()
 		 * @since PECL memcache >= 0.2.0
 		 */
-		public function increment(string $key, int $value = 1): int {}
+		public function increment(string $key, int $value = 1) {}
 
 		/**
 		 * Open memcached server persistent connection
 		 * <p><b>Memcache::pconnect()</b> is similar to <code>Memcache::connect()</code> with the difference, that the connection it establishes is persistent. This connection is not closed after the end of script execution and by <code>Memcache::close()</code> function. Also you can use <b>memcache_pconnect()</b> function.</p>
-		 * @param string $host <p>Point to the host where memcached is listening for connections. This parameter may also specify other transports like <i>unix:///path/to/memcached.sock</i> to use UNIX domain sockets, in this case <code>port</code> must also be set to <i>0</i>.</p>
-		 * @param int $port <p>Point to the port where memcached is listening for connections. Set this parameter to <i>0</i> when using UNIX domain sockets.</p>
+		 * @param string $host <p>Point to the host where memcached is listening for connections. This parameter may also specify other transports like <code>unix:///path/to/memcached.sock</code> to use UNIX domain sockets, in this case <code>port</code> must also be set to <code>0</code>.</p>
+		 * @param int $port <p>Point to the port where memcached is listening for connections. Set this parameter to <code>0</code> when using UNIX domain sockets.</p>
 		 * @param int $timeout <p>Value in seconds which will be used for connecting to the daemon. Think twice before changing the default value of 1 second - you can lose all the advantages of caching if your connection is too slow.</p>
 		 * @return mixed <p>Returns a Memcache object or <b><code>FALSE</code></b> on failure.</p>
 		 * @link http://php.net/manual/en/memcache.pconnect.php
@@ -253,31 +253,31 @@ namespace {
 	/**
 	 * Used to turn on-the-fly data compression on with <code>Memcache::set()</code>, <code>Memcache::add()</code> and <code>Memcache::replace()</code>.
 	 */
-	define('MEMCACHE_COMPRESSED', 2);
+	define('MEMCACHE_COMPRESSED', null);
 
 	/**
 	 * 1 if this Memcache session handler is available, 0 otherwise.
 	 */
-	define('MEMCACHE_HAVE_SESSION', 1);
+	define('MEMCACHE_HAVE_SESSION', null);
 
 	/**
 	 * Used to turn user-defined application flag on with <code>Memcache::set()</code>, <code>Memcache::add()</code> and <code>Memcache::replace()</code>.
 	 */
-	define('MEMCACHE_USER1', 65536);
+	define('MEMCACHE_USER1', null);
 
 	/**
 	 * Used to turn user-defined application flag on with <code>Memcache::set()</code>, <code>Memcache::add()</code> and <code>Memcache::replace()</code>.
 	 */
-	define('MEMCACHE_USER2', 131072);
+	define('MEMCACHE_USER2', null);
 
 	/**
 	 * Used to turn user-defined application flag on with <code>Memcache::set()</code>, <code>Memcache::add()</code> and <code>Memcache::replace()</code>.
 	 */
-	define('MEMCACHE_USER3', 262144);
+	define('MEMCACHE_USER3', null);
 
 	/**
 	 * Used to turn user-defined application flag on with <code>Memcache::set()</code>, <code>Memcache::add()</code> and <code>Memcache::replace()</code>.
 	 */
-	define('MEMCACHE_USER4', 524288);
+	define('MEMCACHE_USER4', null);
 
 }

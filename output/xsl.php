@@ -13,14 +13,14 @@ namespace {
 		/**
 		 * Get value of a parameter
 		 * <p>Gets a parameter if previously set by <code>XSLTProcessor::setParameter()</code>.</p>
-		 * @param string $namespaceURI <p>The namespace URI of the XSLT parameter.</p>
-		 * @param string $localName <p>The local name of the XSLT parameter.</p>
-		 * @return string <p>The value of the parameter (as a string), or <b><code>FALSE</code></b> if it's not set.</p>
+		 * @param string $namespace <p>The namespace URI of the XSLT parameter.</p>
+		 * @param string $name <p>The local name of the XSLT parameter.</p>
+		 * @return string|false <p>The value of the parameter (as a string), or <b><code>FALSE</code></b> if it's not set.</p>
 		 * @link http://php.net/manual/en/xsltprocessor.getparameter.php
 		 * @see XSLTProcessor::setParameter(), XSLTProcessor::removeParameter()
 		 * @since PHP 5, PHP 7
 		 */
-		public function getParameter(string $namespaceURI, string $localName): string {}
+		public function getParameter(string $namespace, string $name) {}
 
 		/**
 		 * Get security preferences
@@ -53,24 +53,24 @@ namespace {
 		/**
 		 * Enables the ability to use PHP functions as XSLT functions
 		 * <p>This method enables the ability to use PHP functions as XSLT functions within XSL stylesheets.</p>
-		 * @param mixed $restrict <p>Use this parameter to only allow certain functions to be called from XSLT.</p> <p>This parameter can be either a string (a function name) or an array of functions.</p>
+		 * @param array|string|null $functions <p>Use this parameter to only allow certain functions to be called from XSLT.</p> <p>This parameter can be either a string (a function name) or an array of functions.</p>
 		 * @return void <p>No value is returned.</p>
 		 * @link http://php.net/manual/en/xsltprocessor.registerphpfunctions.php
 		 * @since PHP 5 >= 5.0.4, PHP 7
 		 */
-		public function registerPHPFunctions($restrict = NULL): void {}
+		public function registerPHPFunctions($functions = NULL): void {}
 
 		/**
 		 * Remove parameter
 		 * <p>Removes a parameter, if set. This will make the processor use the default value for the parameter as specified in the stylesheet.</p>
-		 * @param string $namespaceURI <p>The namespace URI of the XSLT parameter.</p>
-		 * @param string $localName <p>The local name of the XSLT parameter.</p>
+		 * @param string $namespace <p>The namespace URI of the XSLT parameter.</p>
+		 * @param string $name <p>The local name of the XSLT parameter.</p>
 		 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
 		 * @link http://php.net/manual/en/xsltprocessor.removeparameter.php
 		 * @see XSLTProcessor::setParameter(), XSLTProcessor::getParameter()
 		 * @since PHP 5, PHP 7
 		 */
-		public function removeParameter(string $namespaceURI, string $localName): bool {}
+		public function removeParameter(string $namespace, string $name): bool {}
 
 		/**
 		 * Set value for a parameter
@@ -88,33 +88,34 @@ namespace {
 		/**
 		 * Sets profiling output file
 		 * <p>Sets the file to output profiling information when processing a stylesheet.</p>
-		 * @param string $filename <p>Path to the file to dump profiling information.</p>
+		 * @param string|null $filename <p>Path to the file to dump profiling information.</p>
 		 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
 		 * @link http://php.net/manual/en/xsltprocessor.setprofiling.php
 		 * @since PHP >= 5.3.0
 		 */
-		public function setProfiling(string $filename): bool {}
+		public function setProfiling($filename): bool {}
 
 		/**
 		 * Set security preferences
 		 * <p>Sets the security preferences.</p>
-		 * @param int $securityPrefs <p>The new security preferences. The following constants can be ORed: <b><code>XSL_SECPREF_READ_FILE</code></b>, <b><code>XSL_SECPREF_WRITE_FILE</code></b>, <b><code>XSL_SECPREF_CREATE_DIRECTORY</code></b>, <b><code>XSL_SECPREF_READ_NETWORK</code></b>, <b><code>XSL_SECPREF_WRITE_NETWORK</code></b>. Alternatively, <b><code>XSL_SECPREF_NONE</code></b> or <b><code>XSL_SECPREF_DEFAULT</code></b> can be passed.</p>
+		 * @param int $preferences <p>The new security preferences. The following constants can be ORed: <b><code>XSL_SECPREF_READ_FILE</code></b>, <b><code>XSL_SECPREF_WRITE_FILE</code></b>, <b><code>XSL_SECPREF_CREATE_DIRECTORY</code></b>, <b><code>XSL_SECPREF_READ_NETWORK</code></b>, <b><code>XSL_SECPREF_WRITE_NETWORK</code></b>. Alternatively, <b><code>XSL_SECPREF_NONE</code></b> or <b><code>XSL_SECPREF_DEFAULT</code></b> can be passed.</p>
 		 * @return int <p>Returns the old security preferences.</p>
 		 * @link http://php.net/manual/en/xsltprocessor.setsecurityprefs.php
 		 * @since PHP >= 5.4.0
 		 */
-		public function setSecurityPrefs(int $securityPrefs): int {}
+		public function setSecurityPrefs(int $preferences): int {}
 
 		/**
 		 * Transform to a DOMDocument
 		 * <p>Transforms the source node to a DOMDocument applying the stylesheet given by the <code>XSLTProcessor::importStylesheet()</code> method.</p>
-		 * @param \DOMNode $doc <p>The node to be transformed.</p>
-		 * @return DOMDocument <p>The resulting DOMDocument or <b><code>FALSE</code></b> on error.</p>
+		 * @param object $document <p>The node to be transformed.</p>
+		 * @param string|null $returnClass
+		 * @return DOMDocument|false <p>The resulting DOMDocument or <b><code>FALSE</code></b> on error.</p>
 		 * @link http://php.net/manual/en/xsltprocessor.transformtodoc.php
 		 * @see XSLTProcessor::transformToUri(), XSLTProcessor::transformToXml()
 		 * @since PHP 5, PHP 7
 		 */
-		public function transformToDoc(\DOMNode $doc): \DOMDocument {}
+		public function transformToDoc(object $document, $returnClass = NULL) {}
 
 		/**
 		 * Transform to URI
@@ -131,19 +132,19 @@ namespace {
 		/**
 		 * Transform to XML
 		 * <p>Transforms the source node to a string applying the stylesheet given by the <code>xsltprocessor::importStylesheet()</code> method.</p>
-		 * @param object $doc <p>The <code>DOMDocument</code> or <code>SimpleXMLElement</code> object to be transformed.</p>
-		 * @return string <p>The result of the transformation as a string or <b><code>FALSE</code></b> on error.</p>
+		 * @param object $document <p>The <code>DOMDocument</code> or <code>SimpleXMLElement</code> object to be transformed.</p>
+		 * @return string|false|null <p>The result of the transformation as a string or <b><code>FALSE</code></b> on error.</p>
 		 * @link http://php.net/manual/en/xsltprocessor.transformtoxml.php
 		 * @see XSLTProcessor::transformToDoc(), XSLTProcessor::transformToUri()
 		 * @since PHP 5, PHP 7
 		 */
-		public function transformToXml(object $doc): string {}
+		public function transformToXml(object $document) {}
 	}
 
 	/**
 	 * libexslt version like 1.1.17. Available as of PHP 5.1.2.
 	 */
-	define('LIBEXSLT_DOTTED_VERSION', '1.1.32');
+	define('LIBEXSLT_DOTTED_VERSION', '1.1.34');
 
 	/**
 	 * libexslt version like 813. Available as of PHP 5.1.2.
@@ -153,12 +154,12 @@ namespace {
 	/**
 	 * libxslt version like 1.1.17. Available as of PHP 5.1.2.
 	 */
-	define('LIBXSLT_DOTTED_VERSION', '1.1.32');
+	define('LIBXSLT_DOTTED_VERSION', '1.1.34');
 
 	/**
 	 * libxslt version like 10117. Available as of PHP 5.1.2.
 	 */
-	define('LIBXSLT_VERSION', 10132);
+	define('LIBXSLT_VERSION', 10134);
 
 	define('XSL_CLONE_ALWAYS', 1);
 

@@ -18,9 +18,9 @@ namespace {
 
 	/**
 	 * Handling of binary column data
-	 * <p>Enables handling of binary column data. ODBC SQL types affected are <i>BINARY</i>, <i>VARBINARY</i>, and <i>LONGVARBINARY</i>.</p><p>When binary SQL data is converted to character C data, each byte (8 bits) of source data is represented as two ASCII characters. These characters are the ASCII character representation of the number in its hexadecimal form. For example, a binary <i>00000001</i> is converted to <i>"01"</i> and a binary <i>11111111</i> is converted to <i>"FF"</i>.</p><p>If <code>odbc_fetch_into()</code> is used, passthru means that an empty string is returned for these columns.</p>
-	 * @param resource $result_id <p>The result identifier.</p> <p>If <code>result_id</code> is <i>0</i>, the settings apply as default for new results.</p><p><b>Note</b>:  Default for <i>longreadlen</i> is <i>4096</i> and <code>mode</code> defaults to <i>ODBC_BINMODE_RETURN</i>. Handling of binary long columns is also affected by <code>odbc_longreadlen()</code>. </p>
-	 * @param int $mode <p>Possible values for <code>mode</code> are:</p><ul> <li>  <b><code>ODBC_BINMODE_PASSTHRU</code></b>: Passthru BINARY data  </li> <li>  <b><code>ODBC_BINMODE_RETURN</code></b>: Return as is  </li> <li>  <b><code>ODBC_BINMODE_CONVERT</code></b>: Convert to char and return  </li> </ul>
+	 * <p>Controls handling of binary column data. ODBC SQL types affected are <code>BINARY</code>, <code>VARBINARY</code>, and <code>LONGVARBINARY</code>. The default mode can be set using the uodbc.defaultbinmode php.ini directive.</p><p>When binary SQL data is converted to character C data (<b><code>ODBC_BINMODE_CONVERT</code></b>), each byte (8 bits) of source data is represented as two ASCII characters. These characters are the ASCII character representation of the number in its hexadecimal form. For example, a binary <code>00000001</code> is converted to <code>"01"</code> and a binary <code>11111111</code> is converted to <code>"FF"</code>.</p><p>While the handling of <code>BINARY</code> and <code>VARBINARY</code> columns only depend on the binmode, the handling of <code>LONGVARBINARY</code> columns also depends on the longreadlen as well:</p><p>If <code>odbc_fetch_into()</code> is used, passthru means that an empty string is returned for these columns. If <code>odbc_result()</code> is used, passthru means that the data are sent directly to the client (i.e. printed).</p>
+	 * @param resource $result_id <p>The result identifier.</p> <p>If <code>result_id</code> is <code>0</code>, the settings apply as default for new results.</p>
+	 * @param int $mode <p>Possible values for <code>mode</code> are:</p><ul> <li>  <b><code>ODBC_BINMODE_PASSTHRU</code></b>: Passthru BINARY data  </li> <li>  <b><code>ODBC_BINMODE_RETURN</code></b>: Return as is  </li> <li>  <b><code>ODBC_BINMODE_CONVERT</code></b>: Convert to char and return  </li> </ul> <p><b>Note</b>:  Handling of binary long columns is also affected by <code>odbc_longreadlen()</code>. </p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
 	 * @link http://php.net/manual/en/function.odbc-binmode.php
 	 * @since PHP 4, PHP 5, PHP 7
@@ -50,30 +50,30 @@ namespace {
 	 * Lists columns and associated privileges for the given table
 	 * <p>Lists columns and associated privileges for the given table.</p>
 	 * @param resource $connection_id <p>The ODBC connection identifier, see <code>odbc_connect()</code> for details.</p>
-	 * @param string $qualifier <p>The qualifier.</p>
-	 * @param string $owner <p>The owner.</p>
-	 * @param string $table_name <p>The table name.</p>
-	 * @param string $column_name <p>The column name.</p>
-	 * @return resource <p>Returns an ODBC result identifier or <b><code>FALSE</code></b> on failure. This result identifier can be used to fetch a list of columns and associated privileges.</p><p>The result set has the following columns:</p><ul> <li>TABLE_QUALIFIER</li> <li>TABLE_OWNER</li> <li>TABLE_NAME</li> <li>GRANTOR</li> <li>GRANTEE</li> <li>PRIVILEGE</li> <li>IS_GRANTABLE</li> </ul><p>The result set is ordered by TABLE_QUALIFIER, TABLE_OWNER and TABLE_NAME.</p>
+	 * @param string $catalog <p>The catalog ('qualifier' in ODBC 2 parlance).</p>
+	 * @param string $schema <p>The schema ('owner' in ODBC 2 parlance). This parameter accepts the following search patterns: <code>%</code> to match zero or more characters, and <code>_</code> to match a single character.</p>
+	 * @param string $table_name <p>The table name. This parameter accepts the following search patterns: <code>%</code> to match zero or more characters, and <code>_</code> to match a single character.</p>
+	 * @param string $column_name <p>The column name. This parameter accepts the following search patterns: <code>%</code> to match zero or more characters, and <code>_</code> to match a single character.</p>
+	 * @return resource|false <p>Returns an ODBC result identifier or <b><code>FALSE</code></b> on failure. This result identifier can be used to fetch a list of columns and associated privileges.</p><p>The result set has the following columns:</p><ul> <li><code>TABLE_CAT</code></li> <li><code>TABLE_SCHEM</code></li> <li><code>TABLE_NAME</code></li> <li><code>COLUMN_NAME</code></li> <li><code>GRANTOR</code></li> <li><code>GRANTEE</code></li> <li><code>PRIVILEGE</code></li> <li><code>IS_GRANTABLE</code></li> </ul> Drivers can report additional columns. <p>The result set is ordered by <code>TABLE_CAT</code>, <code>TABLE_SCHEM</code>, <code>TABLE_NAME</code>, <code>COLUMN_NAME</code> and <code>PRIVILEGE</code>.</p>
 	 * @link http://php.net/manual/en/function.odbc-columnprivileges.php
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function odbc_columnprivileges($connection_id, string $qualifier, string $owner, string $table_name, string $column_name) {}
+	function odbc_columnprivileges($connection_id, string $catalog, string $schema, string $table_name, string $column_name) {}
 
 	/**
 	 * Lists the column names in specified tables
 	 * <p>Lists all columns in the requested range.</p>
 	 * @param resource $connection_id <p>The ODBC connection identifier, see <code>odbc_connect()</code> for details.</p>
-	 * @param string $qualifier <p>The qualifier.</p>
-	 * @param string $schema <p>The owner.</p>
-	 * @param string $table_name <p>The table name.</p>
-	 * @param string $column_name <p>The column name.</p>
-	 * @return resource <p>Returns an ODBC result identifier or <b><code>FALSE</code></b> on failure.</p><p>The result set has the following columns:</p><ul> <li>TABLE_QUALIFIER</li> <li>TABLE_SCHEM</li> <li>TABLE_NAME</li> <li>COLUMN_NAME</li> <li>DATA_TYPE</li> <li>TYPE_NAME</li> <li>PRECISION</li> <li>LENGTH</li> <li>SCALE</li> <li>RADIX</li> <li>NULLABLE</li> <li>REMARKS</li> </ul><p>The result set is ordered by TABLE_QUALIFIER, TABLE_SCHEM and TABLE_NAME.</p>
+	 * @param string $catalog <p>The catalog ('qualifier' in ODBC 2 parlance).</p>
+	 * @param string $schema <p>The schema ('owner' in ODBC 2 parlance). This parameter accepts the following search patterns: <code>%</code> to match zero or more characters, and <code>_</code> to match a single character.</p>
+	 * @param string $table_name <p>The table name. This parameter accepts the following search patterns: <code>%</code> to match zero or more characters, and <code>_</code> to match a single character.</p>
+	 * @param string $column_name <p>The column name. This parameter accepts the following search patterns: <code>%</code> to match zero or more characters, and <code>_</code> to match a single character.</p>
+	 * @return resource|false <p>Returns an ODBC result identifier or <b><code>FALSE</code></b> on failure.</p><p>The result set has the following columns:</p><ul> <li><code>TABLE_CAT</code></li> <li><code>TABLE_SCHEM</code></li> <li><code>TABLE_NAME</code></li> <li><code>COLUMN_NAME</code></li> <li><code>DATA_TYPE</code></li> <li><code>TYPE_NAME</code></li> <li><code>COLUMN_SIZE</code></li> <li><code>BUFFER_LENGTH</code></li> <li><code>DECIMAL_DIGITS</code></li> <li><code>NUM_PREC_RADIX</code></li> <li><code>NULLABLE</code></li> <li><code>REMARKS</code></li> <li><code>COLUMN_DEF</code></li> <li><code>SQL_DATA_TYPE</code></li> <li><code>SQL_DATETIME_SUB</code></li> <li><code>CHAR_OCTET_LENGTH</code></li> <li><code>ORDINAL_POSITION</code></li> <li><code>IS_NULLABLE</code></li> </ul> Drivers can report additional columns. <p>The result set is ordered by <code>TABLE_CAT</code>, <code>TABLE_SCHEM</code>, <code>TABLE_NAME</code> and <code>ORDINAL_POSITION</code>.</p>
 	 * @link http://php.net/manual/en/function.odbc-columns.php
-	 * @see odbc_columnprivileges()
+	 * @see odbc_columnprivileges(), odbc_procedurecolumns()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function odbc_columns($connection_id, string $qualifier = NULL, string $schema = NULL, string $table_name = NULL, string $column_name = NULL) {}
+	function odbc_columns($connection_id, string $catalog = NULL, string $schema = NULL, string $table_name = NULL, string $column_name = NULL) {}
 
 	/**
 	 * Commit an ODBC transaction
@@ -110,11 +110,11 @@ namespace {
 	function odbc_cursor($result_id): string {}
 
 	/**
-	 * Returns information about a current connection
+	 * Returns information about available DSNs
 	 * <p>This function will return the list of available DSN (after calling it several times).</p>
 	 * @param resource $connection_id <p>The ODBC connection identifier, see <code>odbc_connect()</code> for details.</p>
 	 * @param int $fetch_type <p>The <code>fetch_type</code> can be one of two constant types: <b><code>SQL_FETCH_FIRST</code></b>, <b><code>SQL_FETCH_NEXT</code></b>. Use <b><code>SQL_FETCH_FIRST</code></b> the first time this function is called, thereafter use the <b><code>SQL_FETCH_NEXT</code></b>.</p>
-	 * @return array <p>Returns <b><code>FALSE</code></b> on error, and an array upon success.</p>
+	 * @return array <p>Returns <b><code>FALSE</code></b> on error, an <code>array</code> upon success, and <b><code>NULL</code></b> after fetching the last available DSN.</p>
 	 * @link http://php.net/manual/en/function.odbc-data-source.php
 	 * @since PHP 4 >= 4.3.0, PHP 5, PHP 7
 	 */
@@ -155,7 +155,7 @@ namespace {
 	function odbc_errormsg($connection_id = NULL): string {}
 
 	/**
-	 * Prepare and execute an SQL statement
+	 * Directly execute an SQL statement
 	 * <p>Sends an SQL statement to the database server.</p>
 	 * @param resource $connection_id <p>The ODBC connection identifier, see <code>odbc_connect()</code> for details.</p>
 	 * @param string $query_string <p>The SQL statement.</p>
@@ -297,17 +297,18 @@ namespace {
 	 * Retrieves a list of foreign keys
 	 * <p>Retrieves a list of foreign keys in the specified table or a list of foreign keys in other tables that refer to the primary key in the specified table</p>
 	 * @param resource $connection_id <p>The ODBC connection identifier, see <code>odbc_connect()</code> for details.</p>
-	 * @param string $pk_qualifier <p>The primary key qualifier.</p>
-	 * @param string $pk_owner <p>The primary key owner.</p>
+	 * @param string $pk_catalog <p>The catalog ('qualifier' in ODBC 2 parlance) of the foreign key table.</p>
+	 * @param string $pk_schema <p>The schema ('owner' in ODBC 2 parlance) of the primary key table.</p>
 	 * @param string $pk_table <p>The primary key table.</p>
-	 * @param string $fk_qualifier <p>The foreign key qualifier.</p>
-	 * @param string $fk_owner <p>The foreign key owner.</p>
+	 * @param string $fk_catalog
+	 * @param string $fk_schema <p>The schema ('owner' in ODBC 2 parlance) of the foreign key table.</p>
 	 * @param string $fk_table <p>The foreign key table.</p>
-	 * @return resource <p>Returns an ODBC result identifier or <b><code>FALSE</code></b> on failure.</p><p>The result set has the following columns:</p><ul> <li>PKTABLE_QUALIFIER</li> <li>PKTABLE_OWNER</li> <li>PKTABLE_NAME</li> <li>PKCOLUMN_NAME</li> <li>FKTABLE_QUALIFIER</li> <li>FKTABLE_OWNER</li> <li>FKTABLE_NAME</li> <li>FKCOLUMN_NAME</li> <li>KEY_SEQ</li> <li>UPDATE_RULE</li> <li>DELETE_RULE</li> <li>FK_NAME</li> <li>PK_NAME</li> </ul><p>If <code>pk_table</code> contains a table name, <b>odbc_foreignkeys()</b> returns a result set containing the primary key of the specified table and all of the foreign keys that refer to it.</p><p>If <code>fk_table</code> contains a table name, <b>odbc_foreignkeys()</b> returns a result set containing all of the foreign keys in the specified table and the primary keys (in other tables) to which they refer.</p><p>If both <code>pk_table</code> and <code>fk_table</code> contain table names, <b>odbc_foreignkeys()</b> returns the foreign keys in the table specified in <code>fk_table</code> that refer to the primary key of the table specified in <code>pk_table</code>. This should be one key at most.</p>
+	 * @return resource|false <p>Returns an ODBC result identifier or <b><code>FALSE</code></b> on failure.</p><p>The result set has the following columns:</p><ul> <li><code>PKTABLE_CAT</code></li> <li><code>PKTABLE_SCHEM</code></li> <li><code>PKTABLE_NAME</code></li> <li><code>PKCOLUMN_NAME</code></li> <li><code>FKTABLE_CAT</code></li> <li><code>FKTABLE_SCHEM</code></li> <li><code>FKTABLE_NAME</code></li> <li><code>FKCOLUMN_NAME</code></li> <li><code>KEY_SEQ</code></li> <li><code>UPDATE_RULE</code></li> <li><code>DELETE_RULE</code></li> <li><code>FK_NAME</code></li> <li><code>PK_NAME</code></li> <li><code>DEFERRABILITY</code></li> </ul> Drivers can report additional columns. <p>If the foreign keys associated with a primary key are requested, the result set is ordered by <code>FKTABLE_CAT</code>, <code>FKTABLE_SCHEM</code>, <code>FKTABLE_NAME</code> and <code>KEY_SEQ</code>. If the primary keys associated with a foreign key are requested, the result set is ordered by <code>PKTABLE_CAT</code>, <code>PKTABLE_SCHEM</code>, <code>PKTABLE_NAME</code> and <code>KEY_SEQ</code>.</p><p>If <code>pk_table</code> contains a table name, <b>odbc_foreignkeys()</b> returns a result set containing the primary key of the specified table and all of the foreign keys that refer to it.</p><p>If <code>fk_table</code> contains a table name, <b>odbc_foreignkeys()</b> returns a result set containing all of the foreign keys in the specified table and the primary keys (in other tables) to which they refer.</p><p>If both <code>pk_table</code> and <code>fk_table</code> contain table names, <b>odbc_foreignkeys()</b> returns the foreign keys in the table specified in <code>fk_table</code> that refer to the primary key of the table specified in <code>pk_table</code>. This should be one key at most.</p>
 	 * @link http://php.net/manual/en/function.odbc-foreignkeys.php
+	 * @see odbc_tables(), odbc_primarykeys()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function odbc_foreignkeys($connection_id, string $pk_qualifier, string $pk_owner, string $pk_table, string $fk_qualifier, string $fk_owner, string $fk_table) {}
+	function odbc_foreignkeys($connection_id, string $pk_catalog, string $pk_schema, string $pk_table, string $fk_catalog, string $fk_schema, string $fk_table) {}
 
 	/**
 	 * Free resources associated with a result
@@ -332,9 +333,9 @@ namespace {
 
 	/**
 	 * Handling of LONG columns
-	 * <p>Enables handling of LONG and LONGVARBINARY columns.</p>
+	 * <p>Controls handling of <code>LONG</code>, <code>LONGVARCHAR</code> and <code>LONGVARBINARY</code> columns. The default length can be set using the uodbc.defaultlrl php.ini directive.</p>
 	 * @param resource $result_id <p>The result identifier.</p>
-	 * @param int $length <p>The number of bytes returned to PHP is controlled by the parameter length. If it is set to 0, Long column data is passed through to the client.</p>
+	 * @param int $length <p>The number of bytes returned to PHP is controlled by the parameter length. If it is set to <code>0</code>, long column data is passed through to the client (i.e. printed) when retrieved with <code>odbc_result()</code>.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
 	 * @link http://php.net/manual/en/function.odbc-longreadlen.php
 	 * @since PHP 4, PHP 5, PHP 7
@@ -363,7 +364,7 @@ namespace {
 
 	/**
 	 * Number of rows in a result
-	 * <p>Gets the number of rows in a result. For INSERT, UPDATE and DELETE statements <b>odbc_num_rows()</b> returns the number of rows affected. For a SELECT clause this <i>can</i> be the number of rows available.</p>
+	 * <p>Gets the number of rows in a result. For INSERT, UPDATE and DELETE statements <b>odbc_num_rows()</b> returns the number of rows affected. For a SELECT clause this <code>can</code> be the number of rows available.</p>
 	 * @param resource $result_id <p>The result identifier returned by <code>odbc_exec()</code>.</p>
 	 * @return int <p>Returns the number of rows in an ODBC result. This function will return -1 on error.</p>
 	 * @link http://php.net/manual/en/function.odbc-num-rows.php
@@ -401,21 +402,23 @@ namespace {
 	 * Gets the primary keys for a table
 	 * <p>Returns a result identifier that can be used to fetch the column names that comprise the primary key for a table.</p>
 	 * @param resource $connection_id <p>The ODBC connection identifier, see <code>odbc_connect()</code> for details.</p>
-	 * @param string $qualifier
-	 * @param string $owner
+	 * @param string $catalog <p>The catalog ('qualifier' in ODBC 2 parlance).</p>
+	 * @param string $schema <p>The schema ('owner' in ODBC 2 parlance).</p>
 	 * @param string $table
-	 * @return resource <p>Returns an ODBC result identifier or <b><code>FALSE</code></b> on failure.</p><p>The result set has the following columns:</p><ul> <li>TABLE_QUALIFIER</li> <li>TABLE_OWNER</li> <li>TABLE_NAME</li> <li>COLUMN_NAME</li> <li>KEY_SEQ</li> <li>PK_NAME</li> </ul>
+	 * @return resource|false <p>Returns an ODBC result identifier or <b><code>FALSE</code></b> on failure.</p><p>The result set has the following columns:</p><ul> <li><code>TABLE_CAT</code></li> <li><code>TABLE_SCHEM</code></li> <li><code>TABLE_NAME</code></li> <li><code>COLUMN_NAME</code></li> <li><code>KEY_SEQ</code></li> <li><code>PK_NAME</code></li> </ul> Drivers can report additional columns. <p>The result set is ordered by <code>TABLE_CAT</code>, <code>TABLE_SCHEM</code>, <code>TABLE_NAME</code> and <code>KEY_SEQ</code>.</p>
 	 * @link http://php.net/manual/en/function.odbc-primarykeys.php
+	 * @see odbc_tables(), odbc_foreignkeys()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function odbc_primarykeys($connection_id, string $qualifier, string $owner, string $table) {}
+	function odbc_primarykeys($connection_id, string $catalog, string $schema, string $table) {}
 
 	/**
 	 * Retrieve information about parameters to procedures
 	 * <p>Retrieve information about parameters to procedures.</p>
 	 * @param resource $connection_id <p>The ODBC connection identifier, see <code>odbc_connect()</code> for details.</p>
-	 * @return resource <p>Returns the list of input and output parameters, as well as the columns that make up the result set for the specified procedures. Returns an ODBC result identifier or <b><code>FALSE</code></b> on failure.</p><p>The result set has the following columns:</p><ul> <li>PROCEDURE_QUALIFIER</li> <li>PROCEDURE_OWNER</li> <li>PROCEDURE_NAME</li> <li>COLUMN_NAME</li> <li>COLUMN_TYPE</li> <li>DATA_TYPE</li> <li>TYPE_NAME</li> <li>PRECISION</li> <li>LENGTH</li> <li>SCALE</li> <li>RADIX</li> <li>NULLABLE</li> <li>REMARKS</li> </ul><p>The result set is ordered by PROCEDURE_QUALIFIER, PROCEDURE_OWNER, PROCEDURE_NAME and COLUMN_TYPE.</p>
+	 * @return resource|false <p>Returns the list of input and output parameters, as well as the columns that make up the result set for the specified procedures. Returns an ODBC result identifier or <b><code>FALSE</code></b> on failure.</p><p>The result set has the following columns:</p><ul> <li><code>PROCEDURE_CAT</code></li> <li><code>PROCEDURE_SCHEM</code></li> <li><code>PROCEDURE_NAME</code></li> <li><code>COLUMN_NAME</code></li> <li><code>COLUMN_TYPE</code></li> <li><code>DATA_TYPE</code></li> <li><code>TYPE_NAME</code></li> <li><code>COLUMN_SIZE</code></li> <li><code>BUFFER_LENGTH</code></li> <li><code>DECIMAL_DIGITS</code></li> <li><code>NUM_PREC_RADIX</code></li> <li><code>NULLABLE</code></li> <li><code>REMARKS</code></li> <li><code>COLUMN_DEF</code></li> <li><code>SQL_DATA_TYPE</code></li> <li><code>SQL_DATETIME_SUB</code></li> <li><code>CHAR_OCTET_LENGTH</code></li> <li><code>ORDINAL_POSITION</code></li> <li><code>IS_NULLABLE</code></li> </ul> Drivers can report additional columns. <p>The result set is ordered by <code>PROCEDURE_CAT</code>, <code>PROCEDURE_SCHEM</code>, <code>PROCEDURE_NAME</code> and <code>COLUMN_TYPE</code>.</p>
 	 * @link http://php.net/manual/en/function.odbc-procedurecolumns.php
+	 * @see odbc_columns()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
 	function odbc_procedurecolumns($connection_id) {}
@@ -424,8 +427,9 @@ namespace {
 	 * Get the list of procedures stored in a specific data source
 	 * <p>Lists all procedures in the requested range.</p>
 	 * @param resource $connection_id <p>The ODBC connection identifier, see <code>odbc_connect()</code> for details.</p>
-	 * @return resource <p>Returns an ODBC result identifier containing the information or <b><code>FALSE</code></b> on failure.</p><p>The result set has the following columns:</p><ul> <li>PROCEDURE_QUALIFIER</li> <li>PROCEDURE_OWNER</li> <li>PROCEDURE_NAME</li> <li>NUM_INPUT_PARAMS</li> <li>NUM_OUTPUT_PARAMS</li> <li>NUM_RESULT_SETS</li> <li>REMARKS</li> <li>PROCEDURE_TYPE</li> </ul>
+	 * @return resource|false <p>Returns an ODBC result identifier containing the information or <b><code>FALSE</code></b> on failure.</p><p>The result set has the following columns:</p><ul> <li><code>PROCEDURE_CAT</code></li> <li><code>PROCEDURE_SCHEM</code></li> <li><code>PROCEDURE_NAME</code></li> <li><code>NUM_INPUT_PARAMS</code></li> <li><code>NUM_OUTPUT_PARAMS</code></li> <li><code>NUM_RESULT_SETS</code></li> <li><code>REMARKS</code></li> <li><code>PROCEDURE_TYPE</code></li> </ul> Drivers can report additional columns. <p>The result set is ordered by <code>PROCEDURE_CAT</code>, <code>PROCEDURE_SCHEMA</code> and <code>PROCEDURE_NAME</code>.</p>
 	 * @link http://php.net/manual/en/function.odbc-procedures.php
+	 * @see odbc_procedurecolumns(), odbc_tables()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
 	function odbc_procedures($connection_id) {}
@@ -443,7 +447,7 @@ namespace {
 
 	/**
 	 * Print result as HTML table
-	 * <p>Prints all rows from a result identifier produced by <code>odbc_exec()</code>. The result is printed in HTML table format.</p>
+	 * <p>Prints all rows from a result identifier produced by <code>odbc_exec()</code>. The result is printed in HTML table format. The data is <i>not</i> escaped.</p><p>This function is not supposed to be used in production environments; it is merely meant for development purposes, to get a result set quickly rendered.</p>
 	 * @param resource $result_id <p>The result identifier.</p>
 	 * @param string $format <p>Additional overall table formatting.</p>
 	 * @return int <p>Returns the number of rows in the result or <b><code>FALSE</code></b> on error.</p>
@@ -480,161 +484,165 @@ namespace {
 	 * <p>Retrieves either the optimal set of columns that uniquely identifies a row in the table, or columns that are automatically updated when any value in the row is updated by a transaction.</p>
 	 * @param resource $connection_id <p>The ODBC connection identifier, see <code>odbc_connect()</code> for details.</p>
 	 * @param int $type When the type argument is <b><code>SQL_BEST_ROWID</code></b>, <b>odbc_specialcolumns()</b> returns the column or columns that uniquely identify each row in the table.   When the type argument is <b><code>SQL_ROWVER</code></b>, <b>odbc_specialcolumns()</b> returns the column or columns in the specified table, if any, that are automatically updated by the data source when any value in the row is updated by any transaction.
-	 * @param string $qualifier <p>The qualifier.</p>
+	 * @param string $catalog <p>The catalog ('qualifier' in ODBC 2 parlance).</p>
+	 * @param string $schema <p>The schema ('owner' in ODBC 2 parlance).</p>
 	 * @param string $table <p>The table.</p>
-	 * @param int $scope <p>The scope, which orders the result set.</p>
-	 * @param int $nullable <p>The nullable option.</p>
-	 * @return resource <p>Returns an ODBC result identifier or <b><code>FALSE</code></b> on failure.</p><p>The result set has the following columns:</p><ul> <li>SCOPE</li> <li>COLUMN_NAME</li> <li>DATA_TYPE</li> <li>TYPE_NAME</li> <li>PRECISION</li> <li>LENGTH</li> <li>SCALE</li> <li>PSEUDO_COLUMN</li> </ul>
+	 * @param int $scope <p>The scope, which orders the result set. One of <b><code>SQL_SCOPE_CURROW</code></b>, <b><code>SQL_SCOPE_TRANSACTION</code></b> or <b><code>SQL_SCOPE_SESSION</code></b>.</p>
+	 * @param int $nullable <p>Determines whether to return special columns that can have a NULL value. One of <b><code>SQL_NO_NULLS</code></b> or <b><code>SQL_NULLABLE </code></b>.</p>
+	 * @return resource <p>Returns an ODBC result identifier or <b><code>FALSE</code></b> on failure.</p><p>The result set has the following columns:</p><ul> <li><code>SCOPE</code></li> <li><code>COLUMN_NAME</code></li> <li><code>DATA_TYPE</code></li> <li><code>TYPE_NAME</code></li> <li><code>COLUMN_SIZE</code></li> <li><code>BUFFER_LENGTH</code></li> <li><code>DECIMAL_DIGITS</code></li> <li><code>PSEUDO_COLUMN</code></li> </ul> Drivers can report additional columns. <p>The result set is ordered by <code>SCOPE</code>.</p>
 	 * @link http://php.net/manual/en/function.odbc-specialcolumns.php
+	 * @see odbc_tables()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function odbc_specialcolumns($connection_id, int $type, string $qualifier, string $table, int $scope, int $nullable) {}
+	function odbc_specialcolumns($connection_id, int $type, string $catalog, string $schema, string $table, int $scope, int $nullable) {}
 
 	/**
 	 * Retrieve statistics about a table
 	 * <p>Get statistics about a table and its indexes.</p>
 	 * @param resource $connection_id <p>The ODBC connection identifier, see <code>odbc_connect()</code> for details.</p>
-	 * @param string $qualifier <p>The qualifier.</p>
-	 * @param string $owner <p>The owner.</p>
+	 * @param string $catalog <p>The catalog ('qualifier' in ODBC 2 parlance).</p>
+	 * @param string $schema <p>The schema ('owner' in ODBC 2 parlance).</p>
 	 * @param string $table_name <p>The table name.</p>
-	 * @param int $unique <p>The unique attribute.</p>
-	 * @param int $accuracy <p>The accuracy.</p>
-	 * @return resource <p>Returns an ODBC result identifier or <b><code>FALSE</code></b> on failure.</p><p>The result set has the following columns:</p><ul> <li>TABLE_QUALIFIER</li> <li>TABLE_OWNER</li> <li>TABLE_NAME</li> <li>NON_UNIQUE</li> <li>INDEX_QUALIFIER</li> <li>INDEX_NAME</li> <li>TYPE</li> <li>SEQ_IN_INDEX</li> <li>COLUMN_NAME</li> <li>COLLATION</li> <li>CARDINALITY</li> <li>PAGES</li> <li>FILTER_CONDITION</li> </ul><p>The result set is ordered by NON_UNIQUE, TYPE, INDEX_QUALIFIER, INDEX_NAME and SEQ_IN_INDEX.</p>
+	 * @param int $unique <p>The type of the index. One of <b><code>SQL_INDEX_UNIQUE</code></b> or <b><code>SQL_INDEX_ALL</code></b>.</p>
+	 * @param int $accuracy <p>One of <b><code>SQL_ENSURE</code></b> or <b><code>SQL_QUICK</code></b>. The latter requests that the driver retrieve the <code>CARDINALITY</code> and <code>PAGES</code> only if they are readily available from the server.</p>
+	 * @return resource|false <p>Returns an ODBC result identifier or <b><code>FALSE</code></b> on failure.</p><p>The result set has the following columns:</p><ul> <li><code>TABLE_CAT</code></li> <li><code>TABLE_SCHEM</code></li> <li><code>TABLE_NAME</code></li> <li><code>NON_UNIQUE</code></li> <li><code>INDEX_QUALIFIER</code></li> <li><code>INDEX_NAME</code></li> <li><code>TYPE</code></li> <li><code>ORDINAL_POSITION</code></li> <li><code>COLUMN_NAME</code></li> <li><code>ASC_OR_DESC</code></li> <li><code>CARDINALITY</code></li> <li><code>PAGES</code></li> <li><code>FILTER_CONDITION</code></li> </ul> Drivers can report additional columns. <p>The result set is ordered by <code>NON_UNIQUE</code>, <code>TYPE</code>, <code>INDEX_QUALIFIER</code>, <code>INDEX_NAME</code> and <code>ORDINAL_POSITION</code>.</p>
 	 * @link http://php.net/manual/en/function.odbc-statistics.php
+	 * @see odbc_tables()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function odbc_statistics($connection_id, string $qualifier, string $owner, string $table_name, int $unique, int $accuracy) {}
+	function odbc_statistics($connection_id, string $catalog, string $schema, string $table_name, int $unique, int $accuracy) {}
 
 	/**
 	 * Lists tables and the privileges associated with each table
 	 * <p>Lists tables in the requested range and the privileges associated with each table.</p>
 	 * @param resource $connection_id <p>The ODBC connection identifier, see <code>odbc_connect()</code> for details.</p>
-	 * @param string $qualifier <p>The qualifier.</p>
-	 * @param string $owner <p>The owner. Accepts the following search patterns: ('%' to match zero or more characters and '_' to match a single character)</p>
-	 * @param string $name <p>The name. Accepts the following search patterns: ('%' to match zero or more characters and '_' to match a single character)</p>
-	 * @return resource <p>An ODBC result identifier or <b><code>FALSE</code></b> on failure.</p><p>The result set has the following columns:</p><ul> <li>TABLE_QUALIFIER</li> <li>TABLE_OWNER</li> <li>TABLE_NAME</li> <li>GRANTOR</li> <li>GRANTEE</li> <li>PRIVILEGE</li> <li>IS_GRANTABLE</li> </ul><p>The result set is ordered by TABLE_QUALIFIER, TABLE_OWNER and TABLE_NAME.</p>
+	 * @param string $catalog <p>The catalog ('qualifier' in ODBC 2 parlance).</p>
+	 * @param string $schema <p>The schema ('owner' in ODBC 2 parlance). This parameter accepts the following search patterns: <code>%</code> to match zero or more characters, and <code>_</code> to match a single character.</p>
+	 * @param string $name <p>The name. This parameter accepts the following search patterns: <code>%</code> to match zero or more characters, and <code>_</code> to match a single character.</p>
+	 * @return resource|false <p>An ODBC result identifier or <b><code>FALSE</code></b> on failure.</p><p>The result set has the following columns:</p><ul> <li><code>TABLE_CAT</code></li> <li><code>TABLE_SCHEM</code></li> <li><code>TABLE_NAME</code></li> <li><code>GRANTOR</code></li> <li><code>GRANTEE</code></li> <li><code>PRIVILEGE</code></li> <li><code>IS_GRANTABLE</code></li> </ul> Drivers can report additional columns. <p>The result set is ordered by <code>TABLE_CAT</code>, <code>TABLE_SCHEM</code>, <code>TABLE_NAME</code>, <code>PRIVILEGE</code> and <code>GRANTEE</code>.</p>
 	 * @link http://php.net/manual/en/function.odbc-tableprivileges.php
+	 * @see odbc_tables()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function odbc_tableprivileges($connection_id, string $qualifier, string $owner, string $name) {}
+	function odbc_tableprivileges($connection_id, string $catalog, string $schema, string $name) {}
 
 	/**
 	 * Get the list of table names stored in a specific data source
-	 * <p>Lists all tables in the requested range.</p><p>To support enumeration of qualifiers, owners, and table types, the following special semantics for the <code>qualifier</code>, <code>owner</code>, <code>name</code>, and <code>table_type</code> are available:</p>
+	 * <p>Lists all tables in the requested range.</p><p>To support enumeration of qualifiers, owners, and table types, the following special semantics for the <code>catalog</code>, <code>schema</code>, <code>name</code>, and <code>table_type</code> are available:</p>
 	 * @param resource $connection_id <p>The ODBC connection identifier, see <code>odbc_connect()</code> for details.</p>
-	 * @param string $qualifier <p>The qualifier.</p>
-	 * @param string $owner <p>The owner. Accepts search patterns ('%' to match zero or more characters and '_' to match a single character).</p>
-	 * @param string $name <p>The name. Accepts search patterns ('%' to match zero or more characters and '_' to match a single character).</p>
-	 * @param string $types <p>If <code>table_type</code> is not an empty string, it must contain a list of comma-separated values for the types of interest; each value may be enclosed in single quotes (') or unquoted. For example, "'TABLE','VIEW'" or "TABLE, VIEW". If the data source does not support a specified table type, <b>odbc_tables()</b> does not return any results for that type.</p>
-	 * @return resource <p>Returns an ODBC result identifier containing the information or <b><code>FALSE</code></b> on failure.</p><p>The result set has the following columns:</p><ul> <li>TABLE_QUALIFIER</li> <li>TABLE_OWNER</li> <li>TABLE_NAME</li> <li>TABLE_TYPE</li> <li>REMARKS</li> </ul><p>The result set is ordered by TABLE_TYPE, TABLE_QUALIFIER, TABLE_OWNER and TABLE_NAME.</p>
+	 * @param string $catalog <p>The catalog ('qualifier' in ODBC 2 parlance).</p>
+	 * @param string $schema <p>The schema ('owner' in ODBC 2 parlance). This parameter accepts the following search patterns: <code>%</code> to match zero or more characters, and <code>_</code> to match a single character.</p>
+	 * @param string $name <p>The name. This parameter accepts the following search patterns: <code>%</code> to match zero or more characters, and <code>_</code> to match a single character.</p>
+	 * @param string $types <p>If <code>table_type</code> is not an empty string, it must contain a list of comma-separated values for the types of interest; each value may be enclosed in single quotes (<code>'</code>) or unquoted. For example, <code>'TABLE','VIEW'</code> or <code>TABLE, VIEW</code>. If the data source does not support a specified table type, <b>odbc_tables()</b> does not return any results for that type.</p>
+	 * @return resource|false <p>Returns an ODBC result identifier containing the information or <b><code>FALSE</code></b> on failure.</p><p>The result set has the following columns:</p><ul> <li><code>TABLE_CAT</code></li> <li><code>TABLE_SCHEM</code></li> <li><code>TABLE_NAME</code></li> <li><code>TABLE_TYPE</code></li> <li><code>REMARKS</code></li> </ul> Drivers can report additional columns. <p>The result set is ordered by <code>TABLE_TYPE</code>, <code>TABLE_CAT</code>, <code>TABLE_SCHEM</code> and <code>TABLE_NAME</code>.</p>
 	 * @link http://php.net/manual/en/function.odbc-tables.php
-	 * @see odbc_tableprivileges()
+	 * @see odbc_tableprivileges(), odbc_columns(), odbc_specialcolumns(), odbc_statistics(), odbc_procedures()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function odbc_tables($connection_id, string $qualifier = NULL, string $owner = NULL, string $name = NULL, string $types = NULL) {}
+	function odbc_tables($connection_id, string $catalog = NULL, string $schema = NULL, string $name = NULL, string $types = NULL) {}
 
-	define('ODBC_BINMODE_CONVERT', 2);
+	define('ODBC_BINMODE_CONVERT', null);
 
-	define('ODBC_BINMODE_PASSTHRU', 0);
+	define('ODBC_BINMODE_PASSTHRU', null);
 
-	define('ODBC_BINMODE_RETURN', 1);
+	define('ODBC_BINMODE_RETURN', null);
 
-	define('ODBC_TYPE', 'unixODBC');
+	define('ODBC_TYPE', null);
 
-	define('SQL_BEST_ROWID', 1);
+	define('SQL_BEST_ROWID', null);
 
-	define('SQL_BIGINT', -5);
+	define('SQL_BIGINT', null);
 
-	define('SQL_BINARY', -2);
+	define('SQL_BINARY', null);
 
-	define('SQL_BIT', -7);
+	define('SQL_BIT', null);
 
-	define('SQL_CHAR', 1);
+	define('SQL_CHAR', null);
 
-	define('SQL_CONCUR_LOCK', 2);
+	define('SQL_CONCUR_LOCK', null);
 
-	define('SQL_CONCUR_READ_ONLY', 1);
+	define('SQL_CONCUR_READ_ONLY', null);
 
-	define('SQL_CONCUR_ROWVER', 3);
+	define('SQL_CONCUR_ROWVER', null);
 
-	define('SQL_CONCUR_VALUES', 4);
+	define('SQL_CONCUR_VALUES', null);
 
-	define('SQL_CONCURRENCY', 7);
+	define('SQL_CONCURRENCY', null);
 
-	define('SQL_CUR_USE_DRIVER', 2);
+	define('SQL_CUR_USE_DRIVER', null);
 
-	define('SQL_CUR_USE_IF_NEEDED', 0);
+	define('SQL_CUR_USE_IF_NEEDED', null);
 
-	define('SQL_CUR_USE_ODBC', 1);
+	define('SQL_CUR_USE_ODBC', null);
 
-	define('SQL_CURSOR_DYNAMIC', 2);
+	define('SQL_CURSOR_DYNAMIC', null);
 
-	define('SQL_CURSOR_FORWARD_ONLY', 0);
+	define('SQL_CURSOR_FORWARD_ONLY', null);
 
-	define('SQL_CURSOR_KEYSET_DRIVEN', 1);
+	define('SQL_CURSOR_KEYSET_DRIVEN', null);
 
-	define('SQL_CURSOR_STATIC', 3);
+	define('SQL_CURSOR_STATIC', null);
 
-	define('SQL_CURSOR_TYPE', 6);
+	define('SQL_CURSOR_TYPE', null);
 
-	define('SQL_DATE', 9);
+	define('SQL_DATE', null);
 
-	define('SQL_DECIMAL', 3);
+	define('SQL_DECIMAL', null);
 
-	define('SQL_DOUBLE', 8);
+	define('SQL_DOUBLE', null);
 
-	define('SQL_ENSURE', 1);
+	define('SQL_ENSURE', null);
 
-	define('SQL_FLOAT', 6);
+	define('SQL_FLOAT', null);
 
-	define('SQL_INDEX_ALL', 1);
+	define('SQL_INDEX_ALL', null);
 
-	define('SQL_INDEX_UNIQUE', 0);
+	define('SQL_INDEX_UNIQUE', null);
 
-	define('SQL_INTEGER', 4);
+	define('SQL_INTEGER', null);
 
-	define('SQL_KEYSET_SIZE', 8);
+	define('SQL_KEYSET_SIZE', null);
 
-	define('SQL_LONGVARBINARY', -4);
+	define('SQL_LONGVARBINARY', null);
 
-	define('SQL_LONGVARCHAR', -1);
+	define('SQL_LONGVARCHAR', null);
 
-	define('SQL_NO_NULLS', 0);
+	define('SQL_NO_NULLS', null);
 
-	define('SQL_NULLABLE', 1);
+	define('SQL_NULLABLE', null);
 
-	define('SQL_NUMERIC', 2);
+	define('SQL_NUMERIC', null);
 
-	define('SQL_ODBC_CURSORS', 110);
+	define('SQL_ODBC_CURSORS', null);
 
-	define('SQL_QUICK', 0);
+	define('SQL_QUICK', null);
 
-	define('SQL_REAL', 7);
+	define('SQL_REAL', null);
 
-	define('SQL_ROWVER', 2);
+	define('SQL_ROWVER', null);
 
-	define('SQL_SCOPE_CURROW', 0);
+	define('SQL_SCOPE_CURROW', null);
 
-	define('SQL_SCOPE_SESSION', 2);
+	define('SQL_SCOPE_SESSION', null);
 
-	define('SQL_SCOPE_TRANSACTION', 1);
+	define('SQL_SCOPE_TRANSACTION', null);
 
-	define('SQL_SMALLINT', 5);
+	define('SQL_SMALLINT', null);
 
-	define('SQL_TIME', 10);
+	define('SQL_TIME', null);
 
-	define('SQL_TIMESTAMP', 11);
+	define('SQL_TIMESTAMP', null);
 
-	define('SQL_TINYINT', -6);
+	define('SQL_TINYINT', null);
 
-	define('SQL_TYPE_DATE', 91);
+	define('SQL_TYPE_DATE', null);
 
-	define('SQL_TYPE_TIME', 92);
+	define('SQL_TYPE_TIME', null);
 
-	define('SQL_TYPE_TIMESTAMP', 93);
+	define('SQL_TYPE_TIMESTAMP', null);
 
-	define('SQL_VARBINARY', -3);
+	define('SQL_VARBINARY', null);
 
-	define('SQL_VARCHAR', 12);
+	define('SQL_VARCHAR', null);
 
 }

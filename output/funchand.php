@@ -8,14 +8,13 @@ namespace {
 	 * Call the callback given by the first parameter
 	 * <p>Calls the <code>callback</code> given by the first parameter and passes the remaining parameters as arguments.</p>
 	 * @param callable $callback <p>The <code>callable</code> to be called.</p>
-	 * @param mixed $parameter <p>Zero or more parameters to be passed to the callback.</p> <p><b>Note</b>:</p><p>Note that the parameters for <b>call_user_func()</b> are not passed by reference.</p> <p><b>Example #1 <b>call_user_func()</b> example and references</b></p>  <code> &lt;&#63;php<br>error_reporting(E_ALL);<br>function&nbsp;increment(&amp;$var)<br>{<br>&nbsp;&nbsp;&nbsp;&nbsp;$var++;<br>}<br><br>$a&nbsp;=&nbsp;0;<br>call_user_func('increment',&nbsp;$a);<br>echo&nbsp;$a."\n";<br><br>//&nbsp;You&nbsp;can&nbsp;use&nbsp;this&nbsp;instead<br>call_user_func_array('increment',&nbsp;array(&amp;$a));<br>echo&nbsp;$a."\n";<br>&#63;&gt;  </code>  <p>The above example will output:</p>  <pre> Warning: Parameter 1 to increment() expected to be a reference, value given in &hellip; 0 1 </pre>
-	 * @param mixed $_
+	 * @param mixed $_$args
 	 * @return mixed <p>Returns the return value of the callback.</p>
 	 * @link http://php.net/manual/en/function.call-user-func.php
 	 * @see call_user_func_array(), is_callable()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function call_user_func(callable $callback, $parameter = NULL, $_ = NULL) {}
+	function call_user_func(callable $callback, $_$args) {}
 
 	/**
 	 * Call a callback with an array of parameters
@@ -44,14 +43,13 @@ namespace {
 	 * Call a static method
 	 * <p>Calls a user defined function or method given by the <code>function</code> parameter, with the following arguments. This function must be called within a method context, it can't be used outside a class. It uses the late static binding.</p>
 	 * @param callable $function <p>The function or method to be called. This parameter may be an array, with the name of the class, and the method, or a string, with a function name.</p>
-	 * @param mixed $parameter <p>Zero or more parameters to be passed to the function.</p>
-	 * @param mixed $_
+	 * @param mixed $_$args
 	 * @return mixed <p>Returns the function result, or <b><code>FALSE</code></b> on error.</p>
 	 * @link http://php.net/manual/en/function.forward-static-call.php
 	 * @see forward_static_call_array(), call_user_func_array(), call_user_func(), is_callable()
 	 * @since PHP 5 >= 5.3.0, PHP 7
 	 */
-	function forward_static_call(callable $function, $parameter = NULL, $_ = NULL) {}
+	function forward_static_call(callable $function, $_$args) {}
 
 	/**
 	 * Call a static method and pass the arguments as array
@@ -122,37 +120,35 @@ namespace {
 	 * Register a function for execution on shutdown
 	 * <p>Registers a <code>callback</code> to be executed after script execution finishes or <code>exit()</code> is called.</p><p>Multiple calls to <b>register_shutdown_function()</b> can be made, and each will be called in the same order as they were registered. If you call <code>exit()</code> within one registered shutdown function, processing will stop completely and no other registered shutdown functions will be called.</p>
 	 * @param callable $callback <p>The shutdown callback to register.</p> <p>The shutdown callbacks are executed as the part of the request, so it's possible to send output from them and access output buffers.</p>
-	 * @param mixed $parameter <p>It is possible to pass parameters to the shutdown function by passing additional parameters.</p>
-	 * @param mixed $_
+	 * @param mixed $_$args
 	 * @return void <p>No value is returned.</p>
 	 * @link http://php.net/manual/en/function.register-shutdown-function.php
 	 * @see exit()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function register_shutdown_function(callable $callback, $parameter = NULL, $_ = NULL): void {}
+	function register_shutdown_function(callable $callback, $_$args): void {}
 
 	/**
 	 * Register a function for execution on each tick
 	 * <p>Registers the given <code>function</code> to be executed when a tick is called.</p>
-	 * @param callable $function <p>The function name as a string, or an array consisting of an object and a method.</p>
-	 * @param mixed $arg
-	 * @param mixed $_
+	 * @param callable $function <p>The function to register.</p>
+	 * @param mixed $_$args
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
 	 * @link http://php.net/manual/en/function.register-tick-function.php
 	 * @see unregister_tick_function()
 	 * @since PHP 4 >= 4.0.3, PHP 5, PHP 7
 	 */
-	function register_tick_function(callable $function, $arg = NULL, $_ = NULL): bool {}
+	function register_tick_function(callable $function, $_$args): bool {}
 
 	/**
 	 * De-register a function for execution on each tick
-	 * <p>De-registers the function named by <code>function_name</code> so it is no longer executed when a tick is called.</p>
-	 * @param string $function_name <p>The function name, as a string.</p>
+	 * <p>De-registers the function <code>function</code> so it is no longer executed when a tick is called.</p>
+	 * @param callable $function <p>The function to de-register.</p>
 	 * @return void <p>No value is returned.</p>
 	 * @link http://php.net/manual/en/function.unregister-tick-function.php
 	 * @see register_tick_function()
 	 * @since PHP 4 >= 4.0.3, PHP 5, PHP 7
 	 */
-	function unregister_tick_function(string $function_name): void {}
+	function unregister_tick_function(callable $function): void {}
 
 }
