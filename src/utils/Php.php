@@ -13,6 +13,7 @@ final class Php {
         'boolean',
         'callable',
         'callback',
+        'false',
         'float',
         'int',
         'integer',
@@ -47,6 +48,7 @@ final class Php {
     public static function sanitizeHtml(string $html, bool $removeProceduralInfos = false): string {
         $replacement = [
             //'%<div class="phpcode">(.+)</div>%is' => '<pre>$1</pre>',
+            '%<span class="type">([^<]+)</span>%i' => '<code>$1</code>',
             '%<([a-z][a-z0-9]*)[^>]*?(/?)>%i' => '<$1$2>',
 
             '%[\n\r]%' => ' ',

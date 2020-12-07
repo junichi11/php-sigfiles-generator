@@ -1,0 +1,41 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Changelog</title>
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="function.wordwrap.html">« wordwrap</a></li>
+      <li style="float: right;"><a href="refs.basic.vartype.html">Variable and Type Related Extensions »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="book.strings.html">Strings</a></li>
+    <li>Changelog</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="changelog.strings" class="appendix">
+ <h1>Changelog</h1>
+
+ <p class="para">The following changes have been made to classes/functions/methods of this extension.</p>
+ <table class='doctable table' rules='groups'><thead><tr><th>Version</th><th>Function</th><th>Description</th></tr></thead><tbody class="gen-changelog v"><tr><td>7.4.0</td><td><a href='function.chr.html'>chr</a></td><td>The function no longer silently accepts unsupported bytevalues,
+       and casts these to 0.</td></tr><tr><td>&nbsp;</td><td><a href='function.implode.html'>implode</a></td><td>Passing the glue after the pieces
+       (i.e. not using the documented order of parameters) has been deprecated.</td></tr><tr><td>&nbsp;</td><td><a href='function.money-format.html'>money_format</a></td><td>This function has been deprecated. Instead, 
+        use NumberFormatter::formatCurrency.</td></tr><tr><td>&nbsp;</td><td><a href='function.str-getcsv.html'>str_getcsv</a></td><td>The escape parameter now interprets an empty
+        string as signal to disable the proprietary escape mechanism. Formerly,
+        an empty string was treated like the default parameter value.</td></tr><tr><td>&nbsp;</td><td><a href='function.strip-tags.html'>strip_tags</a></td><td>The allowable_tags now alternatively accepts an array.</td></tr></tbody><tbody class="gen-changelog v7-4-0"><tr><td>7.3.0</td><td><a href='function.stripos.html'>stripos</a></td><td>Passing an int as needle has been deprecated.</td></tr><tr><td>&nbsp;</td><td><a href='function.stristr.html'>stristr</a></td><td>Passing an int as needle has been deprecated.</td></tr><tr><td>&nbsp;</td><td><a href='function.strpos.html'>strpos</a></td><td>Passing an int as needle has been deprecated.</td></tr><tr><td>&nbsp;</td><td><a href='function.strrchr.html'>strrchr</a></td><td>Passing an int as needle has been deprecated.</td></tr><tr><td>&nbsp;</td><td><a href='function.strripos.html'>strripos</a></td><td>Passing an int as needle has been deprecated.</td></tr><tr><td>&nbsp;</td><td><a href='function.strrpos.html'>strrpos</a></td><td>Passing an int as needle has been deprecated.</td></tr><tr><td>&nbsp;</td><td><a href='function.strstr.html'>strstr</a></td><td>Passing an int as needle has been deprecated.</td></tr></tbody><tbody class="gen-changelog v7-3-0"><tr><td>7.2.18, 7.3.5</td><td><a href='function.substr-compare.html'>substr_compare</a></td><td>offset may now be equal to the length of main_str.</td></tr></tbody><tbody class="gen-changelog v7-2-18, 7-3-5"><tr><td>7.2.0</td><td><a href='function.number-format.html'>number_format</a></td><td>number_format was changed to not being able to return 
+        -0, previously -0 could be returned 
+        for cases like where number would be -0.01.</td></tr><tr><td>&nbsp;</td><td><a href='function.parse-str.html'>parse_str</a></td><td>Usage of parse_str without a second parameter
+        now emits an E_DEPRECATED notice.</td></tr></tbody><tbody class="gen-changelog v7-2-0"><tr><td>7.1.0</td><td><a href='function.str-shuffle.html'>str_shuffle</a></td><td>The internal randomization algorithm has been changed to use the Mersenne Twister Random Number Generator instead of the libc rand function.</td></tr><tr><td>&nbsp;</td><td><a href='function.stripos.html'>stripos</a></td><td>Support for negative offsets has been added.</td></tr><tr><td>&nbsp;</td><td><a href='function.strpos.html'>strpos</a></td><td>Support for negative offsets has been added.</td></tr><tr><td>&nbsp;</td><td><a href='function.substr-count.html'>substr_count</a></td><td>Support for negative offsets and lengths has been added.
+        length may also be 0 now.</td></tr></tbody></table>
+</div>
+</div></div></body></html>

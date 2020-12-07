@@ -1,0 +1,80 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Escaping from HTML</title>
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="language.basic-syntax.phptags.html">« PHP tags</a></li>
+      <li style="float: right;"><a href="language.basic-syntax.instruction-separation.html">Instruction separation »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="language.basic-syntax.html">Basic syntax</a></li>
+    <li>Escaping from HTML</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="language.basic-syntax.phpmode" class="sect1">
+   <h2 class="title">Escaping from HTML</h2>
+   <p class="para">
+    Everything outside of a pair of opening and closing tags is ignored by the
+    PHP parser which allows PHP files to have mixed content.  This allows PHP
+    to be embedded in HTML documents, for example to create templates.
+    <div class="informalexample">
+     <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+&lt;p&gt;This&nbsp;is&nbsp;going&nbsp;to&nbsp;be&nbsp;ignored&nbsp;by&nbsp;PHP&nbsp;and&nbsp;displayed&nbsp;by&nbsp;the&nbsp;browser.&lt;/p&gt;<br /><span style="color: #0000BB">&lt;?php&nbsp;</span><span style="color: #007700">echo&nbsp;</span><span style="color: #DD0000">'While&nbsp;this&nbsp;is&nbsp;going&nbsp;to&nbsp;be&nbsp;parsed.'</span><span style="color: #007700">;&nbsp;</span><span style="color: #0000BB">?&gt;<br /></span>&lt;p&gt;This&nbsp;will&nbsp;also&nbsp;be&nbsp;ignored&nbsp;by&nbsp;PHP&nbsp;and&nbsp;displayed&nbsp;by&nbsp;the&nbsp;browser.&lt;/p&gt;</span>
+</code></div>
+     </div>
+
+    </div>
+    This works as expected, because when the PHP interpreter hits the ?&gt; closing
+    tags, it simply starts outputting whatever it finds (except for the
+    immediately following newline - see
+    <a href="language.basic-syntax.instruction-separation.html" class="link">instruction separation</a>)
+    until it hits another opening tag unless in the middle of a conditional
+    statement in which case the interpreter will determine the outcome of the
+    conditional before making a decision of what to skip over.
+    See the next example.
+   </p>
+   <p class="para">
+    Using structures with conditions
+    <div class="example" id="example-40">
+     <p><strong>Example #1 Advanced escaping using conditions</strong></p>
+     <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php&nbsp;</span><span style="color: #007700">if&nbsp;(</span><span style="color: #0000BB">$expression&nbsp;</span><span style="color: #007700">==&nbsp;</span><span style="color: #0000BB">true</span><span style="color: #007700">):&nbsp;</span><span style="color: #0000BB">?&gt;<br /></span>&nbsp;&nbsp;This&nbsp;will&nbsp;show&nbsp;if&nbsp;the&nbsp;expression&nbsp;is&nbsp;true.<br /><span style="color: #0000BB">&lt;?php&nbsp;</span><span style="color: #007700">else:&nbsp;</span><span style="color: #0000BB">?&gt;<br /></span>&nbsp;&nbsp;Otherwise&nbsp;this&nbsp;will&nbsp;show.<br /><span style="color: #0000BB">&lt;?php&nbsp;</span><span style="color: #007700">endif;&nbsp;</span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+     </div>
+
+    </div>
+    In this example PHP will skip the blocks where the condition is not met, even
+    though they are outside of the PHP open/close tags; PHP skips them according
+    to the condition since the PHP interpreter will jump over blocks contained
+    within a condition that is not met.
+   </p>
+   <p class="para">
+    For outputting large blocks of text, dropping out of PHP parsing mode is
+    generally more efficient than sending all of the text through
+    <span class="function"><a href="function.echo.html" class="function">echo</a></span> or <span class="function"><a href="function.print.html" class="function">print</a></span>.
+   </p>
+   <p class="para">
+    <blockquote class="note"><p><strong class="note">Note</strong>: 
+     <p class="para">
+      If PHP is embeded within XML or XHTML the normal PHP
+      <code class="code">&lt;?php ?&gt;</code> must be used to remain compliant
+      with the standards.
+     </p>
+    </p></blockquote>
+   </p>
+  </div></div></div></body></html>
