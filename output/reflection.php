@@ -2751,16 +2751,6 @@ namespace {
 		public function getName(): string {}
 
 		/**
-		 * Gets parameters
-		 * <p>Get the parameters as an array of <code>ReflectionParameter</code>.</p><p>This function is currently not documented; only its argument list is available.</p>
-		 * @return array <p>The parameters, as a ReflectionParameter object.</p>
-		 * @link http://php.net/manual/en/reflectionfunctionabstract.getparameters.php
-		 * @see func_get_args()
-		 * @since PHP 5 >= 5.2.0, PHP 7
-		 */
-		public function getParameters(): array {}
-
-		/**
 		 * Gets parameter position
 		 * <p>Gets the position of the parameter.</p>
 		 * @return int <p>The position of the parameter, left to right, starting at position #0.</p>

@@ -980,17 +980,6 @@ namespace {
 		public function __construct(\MongoClient $connection, string $ns, array $command = array()) {}
 
 		/**
-		 * Execute an aggregation pipeline command and retrieve results through a cursor
-		 * <p>With this method you can execute Aggregation Framework pipelines and retrieve the results through a cursor, instead of getting just one document back as you would with <code>MongoCollection::aggregate()</code>. This method returns a MongoCommandCursor object. This cursor object implements the Iterator interface just like the MongoCursor objects that are returned by the <code>MongoCollection::find()</code> method.</p><p><b>Note</b>:  The resulting MongoCommandCursor will inherit this collection's read preference. <code>MongoCommandCursor::setReadPreference()</code> may be used to change the read preference before iterating on the cursor. </p>
-		 * @param array $command
-		 * @param array $options <p>Options for the aggregation command. Valid options include:</p> <ul> <li> <p><code>"allowDiskUse"</code></p> <p>Allow aggregation stages to write to temporary files</p> </li> <li> <p><code>"cursor"</code></p> <p>It is possible to configure how many initial documents the server should return with the first result set. The default initial batch size is <code>101</code>. You can change it by adding the <code>batchSize</code> option:</p>  <code> &lt;&#63;php<br>$collection-&gt;aggregateCursor(&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;$pipeline,<br>&nbsp;&nbsp;&nbsp;&nbsp;[&nbsp;"cursor"&nbsp;=&gt;&nbsp;[&nbsp;"batchSize"&nbsp;=&gt;&nbsp;4&nbsp;]&nbsp;]<br>);  </code>  <p>This option only configures the size of the first batch. To configure the size of future batches, please use the <code>MongoCommandCursor::batchSize()</code> method on the returned MongoCommandCursor object.</p> </li> <li> <p><code>"explain"</code></p> <p>Return information on the processing of the pipeline. This option may cause the command to return a result document that is unsuitable for constructing a MongoCommandCursor. If you need to use this option, you should consider using <code>MongoCollection::aggregate()</code>.</p> </li> <li><p><code>"maxTimeMS"</code></p><p>Specifies a cumulative time limit in milliseconds for processing the operation on the server (does not include idle time). If the operation is not completed by the server within the timeout period, a MongoExecutionTimeoutException will be thrown.</p></li> </ul>
-		 * @return MongoCommandCursor <p>Returns a MongoCommandCursor object. Because this implements the Iterator interface you can iterate over each of the results as returned by the command query. The MongoCommandCursor also implements the MongoCursorInterface interface which adds the <code>MongoCommandCursor::batchSize()</code>, <code>MongoCommandCursor::dead()</code>, <code>MongoCommandCursor::info()</code> methods.</p>
-		 * @link http://php.net/manual/en/mongocollection.aggregatecursor.php
-		 * @since PECL mongo >=1.5.0
-		 */
-		public function aggregateCursor(array $command, array $options = NULL): \MongoCommandCursor {}
-
-		/**
 		 * Limits the number of elements returned in one batch
 		 * <p>A cursor typically fetches a batch of result objects and store them locally. This method sets the batchSize value to configure the amount of documents retrieved from the server in one round trip.</p>
 		 * @param int $batchSize <p>The number of results to return per batch. Each batch requires a round-trip to the server.</p> <p>This cannot override MongoDB's limit on the amount of data it will return to the client (i.e., if you set batch size to 1,000,000,000, MongoDB will still only return 4-16MB of results per batch).</p>
@@ -999,18 +988,6 @@ namespace {
 		 * @since PECL mongo >=1.5.0
 		 */
 		public function batchSize(int $batchSize): \MongoCommandCursor {}
-
-		/**
-		 * Execute a database command
-		 * <p>Almost everything that is not a CRUD operation can be done with a database command. Need to know the database version&#63; There's a command for that. Need to do aggregation&#63; There's a command for that. Need to turn up logging&#63; You get the idea.</p><p>This method is identical to:</p>
-		 * @param array $command <p>The query to send.</p>
-		 * @param array $options <p>An array of options for the index creation. Currently available options include:</p><ul> <li><p><code>"socketTimeoutMS"</code></p><p>This option specifies the time limit, in milliseconds, for socket communication. If the server does not respond within the timeout period, a MongoCursorTimeoutException will be thrown and there will be no way to determine if the server actually handled the write or not. A value of <code>-1</code> may be specified to block indefinitely. The default value for MongoClient is <code>30000</code> (30 seconds).</p></li> </ul> <p>The following options are deprecated and should no longer be used:</p><ul> <li><p><code>"timeout"</code></p><p>Deprecated alias for <code>"socketTimeoutMS"</code>.</p></li> </ul>
-		 * @param string $hash <p>Set to the connection hash of the server that executed the command. When the command result is suitable for creating a MongoCommandCursor, the hash is intended to be passed to <code>MongoCommandCursor::createFromDocument()</code>.</p> <p>The hash will also correspond to a connection returned from <code>MongoClient::getConnections()</code>.</p>
-		 * @return array <p>Returns database response. Every database response is always maximum one document, which means that the result of a database command can never exceed 16MB. The resulting document's structure depends on the command, but most results will have the <code>ok</code> field to indicate success or failure and <code>results</code> containing an array of each of the resulting documents.</p>
-		 * @link http://php.net/manual/en/mongodb.command.php
-		 * @since PECL mongo >=0.9.2
-		 */
-		public function command(array $command, array $options = array(), string &$hash = NULL): array {}
 
 		/**
 		 * Create a new command cursor from an existing command response document
@@ -2246,16 +2223,6 @@ namespace {
 		 * @link http://php.net/manual/en/class.exception.php#exception.props.line
 		 */
 		protected $line;
-
-		/**
-		 * Sets a server-side timeout for this query
-		 * <p>Specifies a cumulative time limit in milliseconds to be allowed by the server for processing operations on the cursor.</p>
-		 * @param int $ms <p>Specifies a cumulative time limit in milliseconds to be allowed by the server for processing operations on the cursor.</p>
-		 * @return MongoCursor <p>This cursor.</p>
-		 * @link http://php.net/manual/en/mongocursor.maxtimems.php
-		 * @since PECL mongo >=1.5.0
-		 */
-		public function maxTimeMS(int $ms): \MongoCursor {}
 	}
 
 	/**
@@ -3011,19 +2978,6 @@ namespace {
 		protected $line;
 
 		/**
-		 * Update a document and return it
-		 * <p>The findAndModify command atomically modifies and returns a single document. By default, the returned document does not include the modifications made on the update. To return the document with the modifications made on the update, use the new option.</p>
-		 * @param array $query <p>The query criteria to search for.</p>
-		 * @param array $update <p>The update criteria.</p>
-		 * @param array $fields <p>Optionally only return these fields.</p>
-		 * @param array $options <p>An array of options to apply, such as remove the match document from the DB and return it.</p>   Option Description     sort <code>array</code>  Determines which document the operation will modify if the query selects multiple documents. findAndModify will modify the first document in the sort order specified by this argument.    remove <code>bool</code>  Optional if update field exists. When <b><code>TRUE</code></b>, removes the selected document. The default is <b><code>FALSE</code></b>.    update <code>array</code>  Optional if remove field exists. Performs an update of the selected document.    new <code>bool</code>  Optional. When <b><code>TRUE</code></b>, returns the modified document rather than the original. The findAndModify method ignores the new option for remove operations. The default is <b><code>FALSE</code></b>.    upsert <code>bool</code>  Optional. Used in conjunction with the update field. When <b><code>TRUE</code></b>, the findAndModify command creates a new document if the query returns no documents. The default is false. In MongoDB 2.2, the findAndModify command returns <b><code>NULL</code></b> when upsert is <b><code>TRUE</code></b>.
-		 * @return array <p>Returns the original document, or the modified document when new is set.</p>
-		 * @link http://php.net/manual/en/mongocollection.findandmodify.php
-		 * @since PECL mongo >=1.3.0
-		 */
-		public function findAndModify(array $query, array $update = NULL, array $fields = NULL, array $options = NULL): array {}
-
-		/**
 		 * Retrieve the full result document
 		 * <p>Retrieves the full error result document.</p>
 		 * @return array <p>The full result document as an array, including partial data if available and additional keys.</p>
@@ -3154,17 +3108,6 @@ namespace {
 		 * @since PECL mongo >= 1.5.0
 		 */
 		public function add(array $item): bool {}
-
-		/**
-		 * Inserts multiple documents into this collection
-		 * @param array $a <p>An array of arrays or objects. If any objects are used, they may not have protected or private properties.</p> <p><b>Note</b>:</p><p>If the documents to insert do not have an <code>_id</code> key or property, a new MongoId instance will be created and assigned to it. See <code>MongoCollection::insert()</code> for additional information on this behavior.</p>
-		 * @param array $options <p>An array of options for the batch of insert operations. Currently available options include:</p><ul> <li> <p><code>"continueOnError"</code></p> <p>Boolean, defaults to <b><code>FALSE</code></b>. If set, the database will not stop processing a bulk insert if one fails (eg due to duplicate IDs). This makes bulk insert behave similarly to a series of single inserts, except that calling <code>MongoDB::lastError()</code> will have an error set if any insert fails, not just the last one. If multiple errors occur, only the most recent will be reported by <code>MongoDB::lastError()</code>.</p> <p><b>Note</b>:</p><p>Please note that <code>continueOnError</code> affects errors on the database side only. If you try to insert a document that has errors (for example it contains a key with an empty name), then the document is not even transferred to the database as the driver detects this error and bails out. <code>continueOnError</code> has no effect on errors detected in the documents by the driver.</p>  </li> <li><p><code>"fsync"</code></p><p>Boolean, defaults to <b><code>FALSE</code></b>. If journaling is enabled, it works exactly like <code>"j"</code>. If journaling is not enabled, the write operation blocks until it is synced to database files on disk. If <b><code>TRUE</code></b>, an acknowledged insert is implied and this option will override setting <code>"w"</code> to <code>0</code>.</p><p><b>Note</b>: If journaling is enabled, users are strongly encouraged to use the <code>"j"</code> option instead of <code>"fsync"</code>. Do not use <code>"fsync"</code> and <code>"j"</code> simultaneously, as that will result in an error.</p></li> <li><p><code>"j"</code></p><p>Boolean, defaults to <b><code>FALSE</code></b>. Forces the write operation to block until it is synced to the journal on disk. If <b><code>TRUE</code></b>, an acknowledged write is implied and this option will override setting <code>"w"</code> to <code>0</code>.</p><p><b>Note</b>: If this option is used and journaling is disabled, MongoDB 2.6+ will raise an error and the write will fail; older server versions will simply ignore the option.</p></li> <li><p><code>"socketTimeoutMS"</code></p><p>This option specifies the time limit, in milliseconds, for socket communication. If the server does not respond within the timeout period, a MongoCursorTimeoutException will be thrown and there will be no way to determine if the server actually handled the write or not. A value of <code>-1</code> may be specified to block indefinitely. The default value for MongoClient is <code>30000</code> (30 seconds).</p></li> <li><p><code>"w"</code></p><p>See Write Concerns. The default value for MongoClient is <code>1</code>.</p></li> <li><p><code>"wTimeoutMS"</code></p><p>This option specifies the time limit, in milliseconds, for write concern acknowledgement. It is only applicable when <code>"w"</code> is greater than <code>1</code>, as the timeout pertains to replication. If the write concern is not satisfied within the time limit, a MongoCursorException will be thrown. A value of <code>0</code> may be specified to block indefinitely. The default value for MongoClient is <code>10000</code> (ten seconds).</p></li> </ul> <p>The following options are deprecated and should no longer be used:</p><ul> <li><p><code>"safe"</code></p><p>Deprecated. Please use the write concern <code>"w"</code> option.</p></li> <li><p><code>"timeout"</code></p><p>Deprecated alias for <code>"socketTimeoutMS"</code>.</p></li> <li><p><code>"wtimeout"</code></p><p>Deprecated alias for <code>"wTimeoutMS"</code>.</p></li> </ul>
-		 * @return mixed <p>If the <code>w</code> parameter is set to acknowledge the write, returns an associative array with the status of the inserts ("ok") and any error that may have occurred ("err"). Otherwise, returns <b><code>TRUE</code></b> if the batch insert was successfully sent, <b><code>FALSE</code></b> otherwise.</p>
-		 * @link http://php.net/manual/en/mongocollection.batchinsert.php
-		 * @see MongoCollection::insert(), MongoCollection::update(), MongoCollection::find(), MongoCollection::remove()
-		 * @since PECL mongo >=0.9.0
-		 */
-		public function batchInsert(array $a, array $options = array()) {}
 
 		/**
 		 * Executes a batch of write operations
@@ -4483,19 +4426,6 @@ namespace MongoDB\Driver {
 		public function delete($filter, array $deleteOptions = NULL): void {}
 
 		/**
-		 * Execute one or more write operations
-		 * <p>Executes one or more write operations on the primary server.</p><p>A MongoDB\Driver\BulkWrite can be constructed with one or more write operations of varying types (e.g. updates, deletes, and inserts). The driver will attempt to send operations of the same type to the server in as few requests as possible to optimize round trips.</p>
-		 * @param string $namespace <p>A fully qualified namespace (e.g. <code>"databaseName.collectionName"</code>).</p>
-		 * @param \MongoDB\Driver\BulkWrite $bulk <p>The write(s) to execute.</p>
-		 * @param array $options <p></p> <b>options</b>   Option Type Description     session MongoDB\Driver\Session  <p>A session to associate with the operation.</p>    writeConcern MongoDB\Driver\WriteConcern  <p>A write concern to apply to the operation.</p>
-		 * @return MongoDB\Driver\WriteResult <p>Returns MongoDB\Driver\WriteResult on success.</p>
-		 * @link http://php.net/manual/en/mongodb-driver-manager.executebulkwrite.php
-		 * @see MongoDB\Driver\Server::executeBulkWrite()
-		 * @since mongodb >=1.0.0
-		 */
-		final public function executeBulkWrite(string $namespace, \MongoDB\Driver\BulkWrite $bulk, array $options = array()): \MongoDB\Driver\WriteResult {}
-
-		/**
 		 * Add an insert operation to the bulk
 		 * <p>Adds an insert operation to the MongoDB\Driver\BulkWrite.</p>
 		 * @param array|object $document
@@ -4616,32 +4546,6 @@ namespace MongoDB\Driver {
 		 * @since mongodb >=1.9.0
 		 */
 		public function current() {}
-
-		/**
-		 * Execute a database command
-		 * <p>Selects a server according to the <code>"readPreference"</code> option and executes the command on that server. By default, the read preference from the MongoDB Connection URI will be used.</p><p>This method applies no special logic to the command. Although this method accepts <code>"readConcern"</code> and <code>"writeConcern"</code> options, which will be incorporated into the command document, those options will not default to corresponding values from the MongoDB Connection URI nor will the MongoDB server version be taken into account. Users are therefore encouraged to use specific read and/or write command methods if possible.</p>
-		 * @param string $db <p>The name of the database on which to execute the command.</p>
-		 * @param \MongoDB\Driver\Command $command <p>The command to execute.</p>
-		 * @param array $options <p></p> <b>options</b>   Option Type Description     readConcern MongoDB\Driver\ReadConcern  <p>A read concern to apply to the operation.</p> <p>This option is available in MongoDB 3.2+ and will result in an exception at execution time if specified for an older server version.</p>    readPreference MongoDB\Driver\ReadPreference  <p>A read preference to use for selecting a server for the operation.</p>    session MongoDB\Driver\Session  <p>A session to associate with the operation.</p>    writeConcern MongoDB\Driver\WriteConcern  <p>A write concern to apply to the operation.</p>     <p><b>Warning</b></p> <p>If you are using a <code>"session"</code> which has a transaction in progress, you cannot specify a <code>"readConcern"</code> or <code>"writeConcern"</code> option. This will result in an MongoDB\Driver\Exception\InvalidArgumentException being thrown. Instead, you should set these two options when you create the transaction with <code>MongoDB\Driver\Session::startTransaction()</code>.</p>
-		 * @return MongoDB\Driver\Cursor <p>Returns MongoDB\Driver\Cursor on success.</p>
-		 * @link http://php.net/manual/en/mongodb-driver-manager.executecommand.php
-		 * @see MongoDB\Driver\Manager::executeReadCommand(), MongoDB\Driver\Manager::executeReadWriteCommand(), MongoDB\Driver\Manager::executeWriteCommand(), MongoDB\Driver\Server::executeCommand()
-		 * @since mongodb >=1.0.0
-		 */
-		final public function executeCommand(string $db, \MongoDB\Driver\Command $command, array $options = array()): \MongoDB\Driver\Cursor {}
-
-		/**
-		 * Execute a database query
-		 * <p>Selects a server according to the <code>"readPreference"</code> option and executes the query on that server. By default, the read preference from the MongoDB Connection URI will be used.</p>
-		 * @param string $namespace <p>A fully qualified namespace (e.g. <code>"databaseName.collectionName"</code>).</p>
-		 * @param \MongoDB\Driver\Query $query <p>The query to execute.</p>
-		 * @param array $options <p></p> <b>options</b>   Option Type Description     readPreference MongoDB\Driver\ReadPreference  <p>A read preference to use for selecting a server for the operation.</p>    session MongoDB\Driver\Session  <p>A session to associate with the operation.</p>
-		 * @return MongoDB\Driver\Cursor <p>Returns MongoDB\Driver\Cursor on success.</p>
-		 * @link http://php.net/manual/en/mongodb-driver-manager.executequery.php
-		 * @see MongoDB\Driver\Server::executeQuery()
-		 * @since mongodb >=1.0.0
-		 */
-		final public function executeQuery(string $namespace, \MongoDB\Driver\Query $query, array $options = array()): \MongoDB\Driver\Cursor {}
 
 		/**
 		 * Returns the ID for this cursor
@@ -7761,16 +7665,6 @@ namespace MongoDB\Driver {
 		final public function isInTransaction(): bool {}
 
 		/**
-		 * Start a new client session for use with this client
-		 * <p>Creates a MongoDB\Driver\Session for the given options. The session may then be specified when executing commands, queries, and write operations.</p><p><b>Note</b>:  A MongoDB\Driver\Session can only be used with the MongoDB\Driver\Manager from which it was created. </p>
-		 * @param array $options <p></p> <b>options</b>   Option Type Description Default     causalConsistency <code>bool</code>  <p>Configure causal consistency in a session. If <b><code>TRUE</code></b>, each operation in the session will be causally ordered after the previous read or write operation. Set to <b><code>FALSE</code></b> to disable causal consistency.</p> <p>See Casual Consistency in the MongoDB manual for more information.</p>  <b><code>TRUE</code></b>   defaultTransactionOptions <code>array</code>  <p>Default options to apply to newly created transactions. These options are used unless they are overridden when a transaction is started with different value for each option.</p> <p></p> <b>options</b>   Option Type Description     maxCommitTimeMS integer  <p>The maximum amount of time in milliseconds to allow a single <code>commitTransaction</code> command to run.</p> <p>If specified, <code>maxCommitTimeMS</code> must be a signed 32-bit integer greater than or equal to zero.</p>    readConcern MongoDB\Driver\ReadConcern  <p>A read concern to apply to the operation.</p> <p>This option is available in MongoDB 3.2+ and will result in an exception at execution time if specified for an older server version.</p>    readPreference MongoDB\Driver\ReadPreference  <p>A read preference to use for selecting a server for the operation.</p>    writeConcern MongoDB\Driver\WriteConcern  <p>A write concern to apply to the operation.</p>     <p>This option is available in MongoDB 4.0+.</p>  <code>[]</code>
-		 * @return MongoDB\Driver\Session <p>Returns a MongoDB\Driver\Session.</p>
-		 * @link http://php.net/manual/en/mongodb-driver-manager.startsession.php
-		 * @since mongodb >=1.4.0
-		 */
-		final public function startSession(array $options = NULL): \MongoDB\Driver\Session {}
-
-		/**
 		 * Starts a transaction
 		 * <p>Starts a multi-document transaction associated with the session. At any given time, you can have at most one open transaction for a session. After starting a transaction, the session object must be passed to each operation via the <code>"session"</code> option (e.g. <code>MongoDB\Driver\Manager::executeBulkWrite()</code>) in order to associate that operation with the transaction.</p><p>Transactions can be committed through <code>MongoDB\Driver\Session::commitTransaction()</code>, and aborted with <code>MongoDB\Driver\Session::abortTransaction()</code>. Transactions are also automatically aborted when the session is closed from garbage collection or by explicitly calling <code>MongoDB\Driver\Session::endSession()</code>.</p>
 		 * @param array $options <p>Options can be passed as argument to this method. Each element in this options array overrides the corresponding option from the <code>"defaultTransactionOptions"</code> option, if set when starting the session with <code>MongoDB\Driver\Manager::startSession()</code>.</p> <p></p> <b>options</b>   Option Type Description     maxCommitTimeMS integer  <p>The maximum amount of time in milliseconds to allow a single <code>commitTransaction</code> command to run.</p> <p>If specified, <code>maxCommitTimeMS</code> must be a signed 32-bit integer greater than or equal to zero.</p>    readConcern MongoDB\Driver\ReadConcern  <p>A read concern to apply to the operation.</p> <p>This option is available in MongoDB 3.2+ and will result in an exception at execution time if specified for an older server version.</p>    readPreference MongoDB\Driver\ReadPreference  <p>A read preference to use for selecting a server for the operation.</p>    writeConcern MongoDB\Driver\WriteConcern  <p>A write concern to apply to the operation.</p>
@@ -7897,14 +7791,6 @@ namespace MongoDB\Driver {
 		 * @since mongodb >=1.0.0
 		 */
 		final public function getMessage(): string {}
-
-		/**
-		 * Returns any write concern error that occurred
-		 * @return MongoDB\Driver\WriteConcernError|null <p>Returns a MongoDB\Driver\WriteConcernError if a write concern error was encountered during the write operation, and <b><code>NULL</code></b> otherwise.</p>
-		 * @link http://php.net/manual/en/mongodb-driver-writeresult.getwriteconcernerror.php
-		 * @since mongodb >=1.0.0
-		 */
-		final public function getWriteConcernError() {}
 	}
 
 	/**
@@ -7945,14 +7831,6 @@ namespace MongoDB\Driver {
 		 * @since mongodb >=1.0.0
 		 */
 		final public function getMessage(): string {}
-
-		/**
-		 * Returns any write errors that occurred
-		 * @return array <p>Returns an array of MongoDB\Driver\WriteError objects for any write errors encountered during the write operation. The array will be empty if no write errors occurred.</p>
-		 * @link http://php.net/manual/en/mongodb-driver-writeresult.getwriteerrors.php
-		 * @since mongodb >=1.0.0
-		 */
-		final public function getWriteErrors(): array {}
 	}
 
 	/**
@@ -7961,19 +7839,6 @@ namespace MongoDB\Driver {
 	 * @since mongodb >=1.0.0
 	 */
 	final class WriteResult {
-
-		/**
-		 * Execute one or more write operations
-		 * <p>Executes one or more write operations on the primary server.</p><p>A MongoDB\Driver\BulkWrite can be constructed with one or more write operations of varying types (e.g. updates, deletes, and inserts). The driver will attempt to send operations of the same type to the server in as few requests as possible to optimize round trips.</p>
-		 * @param string $namespace <p>A fully qualified namespace (e.g. <code>"databaseName.collectionName"</code>).</p>
-		 * @param \MongoDB\Driver\BulkWrite $bulk <p>The write(s) to execute.</p>
-		 * @param array $options <p></p> <b>options</b>   Option Type Description     session MongoDB\Driver\Session  <p>A session to associate with the operation.</p>    writeConcern MongoDB\Driver\WriteConcern  <p>A write concern to apply to the operation.</p>
-		 * @return MongoDB\Driver\WriteResult <p>Returns MongoDB\Driver\WriteResult on success.</p>
-		 * @link http://php.net/manual/en/mongodb-driver-manager.executebulkwrite.php
-		 * @see MongoDB\Driver\Server::executeBulkWrite()
-		 * @since mongodb >=1.0.0
-		 */
-		final public function executeBulkWrite(string $namespace, \MongoDB\Driver\BulkWrite $bulk, array $options = array()): \MongoDB\Driver\WriteResult {}
 
 		/**
 		 * Returns the number of documents deleted

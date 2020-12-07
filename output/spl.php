@@ -1860,16 +1860,6 @@ namespace {
 		public function getType(): string {}
 
 		/**
-		 * Returns whether current entry is a directory and not '.' or '..'
-		 * <p>This function is currently not documented; only its argument list is available.</p>
-		 * @param bool $allow_links
-		 * @return bool <p>Returns whether the current entry is a directory, but not '.' or '..'</p>
-		 * @link http://php.net/manual/en/recursivedirectoryiterator.haschildren.php
-		 * @since PHP 5, PHP 7
-		 */
-		public function hasChildren(bool $allow_links = FALSE): bool {}
-
-		/**
 		 * Determine if current DirectoryIterator item is a directory
 		 * <p>Determines if the current DirectoryIterator item is a directory.</p>
 		 * @return bool <p>Returns <b><code>TRUE</code></b> if it is a directory, otherwise <b><code>FALSE</code></b></p>

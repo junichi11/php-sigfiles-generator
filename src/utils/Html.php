@@ -16,7 +16,7 @@ final class Html {
     }
 
     public static function queryNodes(\DOMXPath $xpath, string $expression, \DOMNode $contextNode = null, bool $optional = false): \DOMNodeList {
-        $elements = $xpath->query($expression, $contextNode);
+        $elements = self::query($xpath, $expression, $contextNode);
         if (!$optional && ($elements === false || $elements->length === 0)) {
             Log::error("Expected at least one element but got 0 for '$expression' in '{$xpath->document->documentURI}'", true);
         }
@@ -36,7 +36,7 @@ final class Html {
     }
 
     public static function queryFirstNode(\DOMXPath $xpath, string $expression, \DOMNode $contextNode = null, bool $optional = false): ?\DOMNode {
-        $elements = $xpath->query($expression, $contextNode);
+        $elements = self::query($xpath, $expression, $contextNode);
         if ($elements->length === 0) {
             if (!$optional) {
                 Log::error("Expected at least one element but got 0 for '$expression' in '{$xpath->document->documentURI}'", true);
@@ -55,7 +55,7 @@ final class Html {
     }
 
     public static function querySingleNode(\DOMXPath $xpath, string $expression, \DOMNode $contextNode = null, bool $optional = false): ?\DOMNode {
-        $elements = $xpath->query($expression, $contextNode);
+        $elements = self::query($xpath, $expression, $contextNode);
         if (!$optional && $elements->length !== 1) {
             Log::error("Expected exactly one element but got $elements->length for '$expression' in '{$xpath->document->documentURI}'", true);
         }
@@ -71,6 +71,14 @@ final class Html {
             return null;
         }
         return trim($node->nodeValue);
+    }
+
+    private static function query(\DOMXPath $xpath, string $expression, \DOMNode $contextNode = null): ?\DOMNodeList {
+        if ($contextNode !== null
+                && Strings::startsWith($expression, '//')) {
+            $expression = '.' . $expression;
+        }
+        return $xpath->query($expression, $contextNode);
     }
 
 }
