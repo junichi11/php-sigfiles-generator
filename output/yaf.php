@@ -382,16 +382,6 @@ namespace {
 	 * @since No version information available, might only be in Git
 	 */
 	abstract class Yaf_Bootstrap_Abstract {
-
-		/**
-		 * Call bootstrap
-		 * <p>Run a Bootstrap, all the methods defined in the Bootstrap and named with prefix "_init" will be called according to their declaration order, if the parameter bootstrap is not supplied, Yaf will look for a Bootstrap under application.directory.</p>
-		 * @param \Yaf_Bootstrap_Abstract $bootstrap <p>A Yaf_Bootstrap_Abstract instance</p>
-		 * @return void <p>Yaf_Application instance</p>
-		 * @link http://php.net/manual/en/yaf-application.bootstrap.php
-		 * @since Yaf >=1.0.0
-		 */
-		public function bootstrap(\Yaf_Bootstrap_Abstract $bootstrap = NULL): void {}
 	}
 
 	/**
@@ -899,16 +889,6 @@ namespace {
 		protected function display(string $tpl, array $parameters = NULL): bool {}
 
 		/**
-		 * Action entry point
-		 * <p>user should always define this method for a action, this is the entry point of an action. <b>Yaf_Action_Abstract::execute()</b> may have agruments.</p><p><b>Note</b>:</p><p>The value retrived from the request is not safe. you should do some filtering work before you use it.</p>
-		 * @param mixed $_$args
-		 * @return mixed
-		 * @link http://php.net/manual/en/yaf-action-abstract.execute.php
-		 * @since Yaf >=1.0.0
-		 */
-		abstract public function execute($_$args);
-
-		/**
 		 * Foward to another action
 		 * <p>forward current execution process to other action.</p><p><b>Note</b>:</p><p>this method doesn't switch to the destination action immediately, it will take place after current flow finish.</p>
 		 * @param string $action <p>destination action name</p>
@@ -953,16 +933,6 @@ namespace {
 		 * @since Yaf >=3.2.0
 		 */
 		public function getName(): string {}
-
-		/**
-		 * Retrieve calling parameter
-		 * @param string $name
-		 * @param string $default
-		 * @return mixed
-		 * @link http://php.net/manual/en/yaf-request-abstract.getparam.php
-		 * @since Yaf >=1.0.0
-		 */
-		public function getParam(string $name, string $default = NULL) {}
 
 		/**
 		 * Retrieve current request object
@@ -1915,16 +1885,6 @@ namespace {
 		 * @since Yaf >=1.0.0
 		 */
 		public function preResponse(\Yaf_Request_Abstract $request, \Yaf_Response_Abstract $response): void {}
-
-		/**
-		 * Register a plugin
-		 * <p>Register a plugin(see Yaf_Plugin_Abstract). Generally, we register plugins in Bootstrap(see Yaf_Bootstrap_Abstract).</p>
-		 * @param \Yaf_Plugin_Abstract $plugin
-		 * @return Yaf_Dispatcher
-		 * @link http://php.net/manual/en/yaf-dispatcher.registerplugin.php
-		 * @since Yaf >=1.0.0
-		 */
-		public function registerPlugin(\Yaf_Plugin_Abstract $plugin): \Yaf_Dispatcher {}
 
 		/**
 		 * The routerShutdown purpose
@@ -3353,16 +3313,6 @@ namespace {
 		 * @since Yaf >=1.0.0
 		 */
 		public function route(\Yaf_Request_Abstract $request): bool {}
-
-		/**
-		 * Set base URI
-		 * <p>Set base URI, base URI is used when doing routing, in routing phase request URI is used to route a request, while base URI is used to skip the leadding part(base URI) of request URI. That is, if comes a request with request URI a/b/c, then if you set base URI to "a/b", only "/c" will be used in routing phase.</p><p><b>Note</b>:</p><p>generally, you don't need to set this, Yaf will determine it automatically.</p>
-		 * @param string $uir <p>base URI</p>
-		 * @return bool <p>bool</p>
-		 * @link http://php.net/manual/en/yaf-request-abstract.setbaseuri.php
-		 * @since Yaf >=1.0.0
-		 */
-		public function setBaseUri(string $uir): bool {}
 	}
 
 	/**
@@ -3723,16 +3673,6 @@ namespace {
 		 * @since Yaf >=1.0.0
 		 */
 		public function route(\Yaf_Request_Abstract $request): bool {}
-
-		/**
-		 * Set base URI
-		 * <p>Set base URI, base URI is used when doing routing, in routing phase request URI is used to route a request, while base URI is used to skip the leadding part(base URI) of request URI. That is, if comes a request with request URI a/b/c, then if you set base URI to "a/b", only "/c" will be used in routing phase.</p><p><b>Note</b>:</p><p>generally, you don't need to set this, Yaf will determine it automatically.</p>
-		 * @param string $uir <p>base URI</p>
-		 * @return bool <p>bool</p>
-		 * @link http://php.net/manual/en/yaf-request-abstract.setbaseuri.php
-		 * @since Yaf >=1.0.0
-		 */
-		public function setBaseUri(string $uir): bool {}
 	}
 
 	/**
@@ -4001,16 +3941,6 @@ namespace {
 		 * @since Yaf >=1.0.0
 		 */
 		abstract public function setScriptPath(string $template_dir): void;
-
-		/**
-		 * Set a custom view engine
-		 * <p>This method proviods a solution for that if you want use a custom view engine instead of Yaf_View_Simple</p>
-		 * @param \Yaf_View_Interface $view <p>A Yaf_View_Interface instance</p>
-		 * @return Yaf_Dispatcher
-		 * @link http://php.net/manual/en/yaf-dispatcher.setview.php
-		 * @since Yaf >=1.0.0
-		 */
-		public function setView(\Yaf_View_Interface $view): \Yaf_Dispatcher {}
 	}
 
 	/**

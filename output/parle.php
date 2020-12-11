@@ -28,15 +28,6 @@ namespace Parle {
 		 * @link http://php.net/manual/en/class.parle-errorinfo.php#parle-errorinfo.props.token
 		 */
 		public $token;
-
-		/**
-		 * Retrieve the error information
-		 * <p>Retrieve the error information in case <b>Parle\Parser::action()</b> returned the error action.</p>
-		 * @return Parle\ErrorInfo <p>Returns an instance of Parle\ErrorInfo.</p>
-		 * @link http://php.net/manual/en/parle-parser.errorinfo.php
-		 * @since PECL parle >= 0.5.1
-		 */
-		public function errorInfo(): \Parle\ErrorInfo {}
 	}
 
 	/**

@@ -312,7 +312,7 @@ namespace {
 		const ER_MEMORY = 14;
 
 		/**
-		 * @var int Entry has been changed
+		 * @var string Entry has been changed
 		 * @link http://php.net/manual/en/zip.constants.php
 		 */
 		const ER_CHANGED = 15;
@@ -456,7 +456,7 @@ namespace {
 		const EM_UNKNOWN = null;
 
 		/**
-		 * @var int Zip library version. Available as of PHP 7.4.3 and PECL zip 1.16.0.
+		 * @var string Zip library version. Available as of PHP 7.4.3 and PECL zip 1.16.0.
 		 * @link http://php.net/manual/en/zip.constants.php
 		 */
 		const LIBZIP_VERSION = 1.5.1;

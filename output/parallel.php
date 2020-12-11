@@ -111,15 +111,6 @@ namespace parallel {
 		public function poll() {}
 
 		/**
-		 * Sharing
-		 * <p>Shall recv a value from this channel</p>
-		 * @return mixed
-		 * @link http://php.net/manual/en/parallel-channel.recv.php
-		 * @since 0.9.0
-		 */
-		public function recv() {}
-
-		/**
 		 * Targets
 		 * <p>Shall remove the given <code>target</code></p>
 		 * @param string $target
@@ -128,16 +119,6 @@ namespace parallel {
 		 * @since 0.9.0
 		 */
 		public function remove(string $target): void {}
-
-		/**
-		 * Sharing
-		 * <p>Shall send the given value on this channel</p>
-		 * @param mixed $value
-		 * @return void
-		 * @link http://php.net/manual/en/parallel-channel.send.php
-		 * @since 0.9.0
-		 */
-		public function send($value): void {}
 
 		/**
 		 * Behaviour
@@ -168,15 +149,6 @@ namespace parallel {
 		 * @since 0.9.0
 		 */
 		public function setTimeout(int $timeout): void {}
-
-		/**
-		 * Resolution
-		 * <p>Shall return (and if necessary wait for) return from task</p>
-		 * @return mixed
-		 * @link http://php.net/manual/en/parallel-future.value.php
-		 * @since 0.8.0
-		 */
-		public function value() {}
 	}
 
 }

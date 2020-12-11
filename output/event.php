@@ -883,26 +883,6 @@ namespace {
 		public function getInput(): \EventBuffer {}
 
 		/**
-		 * Returns the most recent socket error number
-		 * <p>Returns the most recent socket error number( <code>errno</code> ).</p>
-		 * @param mixed $socket <p>Socket resource, stream or a file descriptor of a socket.</p>
-		 * @return int <p>Returns the most recent socket error number( <code>errno</code> ).</p>
-		 * @link http://php.net/manual/en/eventutil.getlastsocketerrno.php
-		 * @since PECL event >= 1.2.6-beta
-		 */
-		public static function getLastSocketErrno($socket = NULL): int {}
-
-		/**
-		 * Returns the most recent socket error
-		 * <p>Returns the most recent socket error.</p>
-		 * @param mixed $socket <p>Socket resource, stream or a file descriptor of a socket.</p>
-		 * @return string <p>Returns the most recent socket error.</p>
-		 * @link http://php.net/manual/en/eventutil.getlastsocketerror.php
-		 * @since PECL event >= 1.2.6-beta
-		 */
-		public static function getLastSocketError($socket = NULL): string {}
-
-		/**
 		 * Returns underlying output buffer associated with current buffer event
 		 * <p>Returns underlying output buffer associated with current buffer event. An output buffer is a storage for data to be written.</p><p>Note, there is also <code> output </code> property of EventBufferEvent class.</p>
 		 * @return EventBuffer <p>Returns instance of EventBuffer output buffer associated with current buffer event.</p>

@@ -216,19 +216,6 @@ namespace {
 		const BACKEND_MASK = 65535;
 
 		/**
-		 * Constructs EvSignal watcher object
-		 * <p>Constructs EvSignal watcher object and starts it automatically. For a stopped periodic watcher consider using <code>EvSignal::createStopped()</code> method.</p>
-		 * @param int $signum <p>Signal number. See constants exported by <i>pcntl</i> extension. See also <code>signal(7)</code> man page.</p>
-		 * @param callable $callback <p>See Watcher callbacks .</p>
-		 * @param mixed $data <p>Custom data associated with the watcher.</p>
-		 * @param int $priority <p>Watcher priority</p>
-		 * @return self <p>Returns EvSignal object on success.</p>
-		 * @link http://php.net/manual/en/evsignal.construct.php
-		 * @since PECL ev >= 0.2.0
-		 */
-		public function __construct(int $signum, callable $callback, $data = NULL, int $priority = 0) {}
-
-		/**
 		 * Returns an integer describing the backend used by libev
 		 * <p>Returns an integer describing the backend used by <i>libev</i> . See Backend flags</p>
 		 * @return int <p>Returns an integer(bit mask) describing the backend used by <i>libev</i> .</p>
@@ -236,19 +223,6 @@ namespace {
 		 * @since PECL ev >= 0.2.0
 		 */
 		final public static function backend(): int {}
-
-		/**
-		 * Returns or creates the default event loop
-		 * <p>If the default event loop is not created, <b>EvLoop::defaultLoop()</b> creates it with the specified parameters. Otherwise, it just returns the object representing previously created instance ignoring all the parameters.</p>
-		 * @param int $flags <p>One of the event loop flags</p>
-		 * @param mixed $data <p>Custom data to associate with the loop.</p>
-		 * @param float $io_interval
-		 * @param float $timeout_interval
-		 * @return EvLoop <p>Returns EvLoop object on success.</p>
-		 * @link http://php.net/manual/en/evloop.defaultloop.php
-		 * @since PECL ev >= 0.2.0
-		 */
-		public static function defaultLoop(int $flags = Ev::FLAG_AUTO, $data = NULL, float $io_interval = 0., float $timeout_interval = 0.): \EvLoop {}
 
 		/**
 		 * Returns recursion depth
@@ -269,16 +243,6 @@ namespace {
 		final public static function embeddableBackends(): int {}
 
 		/**
-		 * Feeds the given revents set into the event loop
-		 * <p>Feeds the given revents set into the event loop, as if the specified event had happened for the watcher.</p>
-		 * @param int $revents <p>Bit mask of watcher received events .</p>
-		 * @return void <p>No value is returned.</p>
-		 * @link http://php.net/manual/en/evwatcher.feed.php
-		 * @since PECL ev >= 0.2.0
-		 */
-		public function feed(int $revents): void {}
-
-		/**
 		 * Feed a signal event info Ev
 		 * <p>Simulates a signal receive. It is safe to call this function at any time, from any context, including signal handlers or random threads. Its main use is to customise signal handling in the process.</p><p>Unlike <code>Ev::feedSignalEvent()</code> , this works regardless of which loop has registered the signal.</p>
 		 * @param int $signum <p>Signal number. See <code>signal(7)</code> man page for detals. You can use constants exported by <code>pcntl</code> extension.</p>
@@ -297,18 +261,6 @@ namespace {
 		 * @since No version information available, might only be in Git
 		 */
 		final public static function feedSignalEvent(int $signum): void {}
-
-		/**
-		 * Creates EvFork watcher object associated with the current event loop instance
-		 * <p>Creates EvFork watcher object associated with the current event loop instance</p>
-		 * @param callable $callback
-		 * @param mixed $data
-		 * @param int $priority
-		 * @return EvFork <p>Returns EvFork object on success.</p>
-		 * @link http://php.net/manual/en/evloop.fork.php
-		 * @since PECL ev >= 0.2.0
-		 */
-		final public function fork(callable $callback, $data = NULL, int $priority = 0): \EvFork {}
 
 		/**
 		 * Return the number of times the default event loop has polled for new events
@@ -528,16 +480,6 @@ namespace {
 		 * @since PECL ev >= 0.2.0
 		 */
 		public function keepalive(bool $value = NULL): bool {}
-
-		/**
-		 * Begin checking for events and calling callbacks for the loop
-		 * <p>Begin checking for events and calling callbacks for the current event loop. Returns when a callback calls <code>Ev::stop()</code> method, or the flags are nonzero(in which case the return value is true) or when there are no active watchers which reference the loop( <code>EvWatcher::keepalive()</code> is <b><code>TRUE</code></b>), in which case the return value will be <b><code>FALSE</code></b>. The return value can generally be interpreted as <i>if <b><code>TRUE</code></b>, there is more work left to do</i> .</p>
-		 * @param int $flags <p>Optional parameter <code>flags</code> can be one of the following:</p> <b> List for possible values of <code>flags</code> </b>    <code>flags</code>  Description      <b><code>0</code></b>  The default behavior described above    <b><code>Ev::RUN_ONCE</code></b>  Block at most one(wait, but don't loop)    <b><code>Ev::RUN_NOWAIT</code></b>  Don't block at all(fetch/handle events, but don't wait)    <p>See the run flag constants .</p>
-		 * @return void <p>No value is returned.</p>
-		 * @link http://php.net/manual/en/evloop.run.php
-		 * @since PECL ev >= 0.2.0
-		 */
-		public function run(int $flags = 0): void {}
 
 		/**
 		 * Sets new callback for the watcher
@@ -941,18 +883,6 @@ namespace {
 		 * @since PECL ev >= 0.2.0
 		 */
 		public function feed(int $revents): void {}
-
-		/**
-		 * Creates EvFork watcher object associated with the current event loop instance
-		 * <p>Creates EvFork watcher object associated with the current event loop instance</p>
-		 * @param callable $callback
-		 * @param mixed $data
-		 * @param int $priority
-		 * @return EvFork <p>Returns EvFork object on success.</p>
-		 * @link http://php.net/manual/en/evloop.fork.php
-		 * @since PECL ev >= 0.2.0
-		 */
-		final public function fork(callable $callback, $data = NULL, int $priority = 0): \EvFork {}
 
 		/**
 		 * Returns the loop responsible for the watcher
@@ -1429,15 +1359,6 @@ namespace {
 		public static function defaultLoop(int $flags = Ev::FLAG_AUTO, $data = NULL, float $io_interval = 0., float $timeout_interval = 0.): \EvLoop {}
 
 		/**
-		 * Returns recursion depth
-		 * <p>The number of times <code>Ev::run()</code> was entered minus the number of times <code>Ev::run()</code> was exited normally, in other words, the recursion depth. Outside <code>Ev::run()</code> , this number is <b><code>0</code></b> . In a callback, this number is <b><code>1</code></b> , unless <code>Ev::run()</code> was invoked recursively (or from another thread), in which case it is higher.</p>
-		 * @return int <p><b>ev_depth()</b> returns recursion depth of the default loop.</p>
-		 * @link http://php.net/manual/en/ev.depth.php
-		 * @since PECL ev >= 0.2.0
-		 */
-		final public static function depth(): int {}
-
-		/**
 		 * Creates an instance of EvEmbed watcher associated with the current EvLoop object
 		 * <p>Creates an instance of EvEmbed watcher associated with the current EvLoop object.</p>
 		 * @param string $other
@@ -1496,15 +1417,6 @@ namespace {
 		 * @since PECL ev >= 0.2.0
 		 */
 		final public function io($fd, int $events, callable $callback, $data = NULL, int $priority = 0): \EvIo {}
-
-		/**
-		 * Return the number of times the default event loop has polled for new events
-		 * <p>Return the number of times the event loop has polled for new events. Sometimes useful as a generation counter.</p>
-		 * @return int <p>Returns number of polls of the default event loop.</p>
-		 * @link http://php.net/manual/en/ev.iteration.php
-		 * @since PECL ev >= 0.2.0
-		 */
-		final public static function iteration(): int {}
 
 		/**
 		 * Must be called after a fork
@@ -1791,25 +1703,6 @@ namespace {
 		public function keepalive(bool $value = NULL): bool {}
 
 		/**
-		 * Returns the current "event loop time"
-		 * <p>Returns the current "event loop time", which is the time the event loop received events and started processing them. This timestamp does not change as long as callbacks are being processed, and this is also the base time used for relative timers. You can treat it as the timestamp of the event occurring(or more correctly, libev finding out about it).</p>
-		 * @return float <p>Returns time of the event loop in (fractional) seconds.</p>
-		 * @link http://php.net/manual/en/evloop.now.php
-		 * @since PECL ev >= 0.2.0
-		 */
-		public function now(): float {}
-
-		/**
-		 * Begin checking for events and calling callbacks for the loop
-		 * <p>Begin checking for events and calling callbacks for the current event loop. Returns when a callback calls <code>Ev::stop()</code> method, or the flags are nonzero(in which case the return value is true) or when there are no active watchers which reference the loop( <code>EvWatcher::keepalive()</code> is <b><code>TRUE</code></b>), in which case the return value will be <b><code>FALSE</code></b>. The return value can generally be interpreted as <i>if <b><code>TRUE</code></b>, there is more work left to do</i> .</p>
-		 * @param int $flags <p>Optional parameter <code>flags</code> can be one of the following:</p> <b> List for possible values of <code>flags</code> </b>    <code>flags</code>  Description      <b><code>0</code></b>  The default behavior described above    <b><code>Ev::RUN_ONCE</code></b>  Block at most one(wait, but don't loop)    <b><code>Ev::RUN_NOWAIT</code></b>  Don't block at all(fetch/handle events, but don't wait)    <p>See the run flag constants .</p>
-		 * @return void <p>No value is returned.</p>
-		 * @link http://php.net/manual/en/evloop.run.php
-		 * @since PECL ev >= 0.2.0
-		 */
-		public function run(int $flags = 0): void {}
-
-		/**
 		 * Configures the watcher
 		 * <p>(Re-)Configures EvPeriodic watcher</p>
 		 * @param float $offset <p>The same meaning as for <code>EvPeriodic::__construct()</code> . See Periodic watcher operation modes</p>
@@ -1955,16 +1848,6 @@ namespace {
 		 * @since PECL ev >= 0.2.0
 		 */
 		public function keepalive(bool $value = NULL): bool {}
-
-		/**
-		 * Begin checking for events and calling callbacks for the loop
-		 * <p>Begin checking for events and calling callbacks for the current event loop. Returns when a callback calls <code>Ev::stop()</code> method, or the flags are nonzero(in which case the return value is true) or when there are no active watchers which reference the loop( <code>EvWatcher::keepalive()</code> is <b><code>TRUE</code></b>), in which case the return value will be <b><code>FALSE</code></b>. The return value can generally be interpreted as <i>if <b><code>TRUE</code></b>, there is more work left to do</i> .</p>
-		 * @param int $flags <p>Optional parameter <code>flags</code> can be one of the following:</p> <b> List for possible values of <code>flags</code> </b>    <code>flags</code>  Description      <b><code>0</code></b>  The default behavior described above    <b><code>Ev::RUN_ONCE</code></b>  Block at most one(wait, but don't loop)    <b><code>Ev::RUN_NOWAIT</code></b>  Don't block at all(fetch/handle events, but don't wait)    <p>See the run flag constants .</p>
-		 * @return void <p>No value is returned.</p>
-		 * @link http://php.net/manual/en/evloop.run.php
-		 * @since PECL ev >= 0.2.0
-		 */
-		public function run(int $flags = 0): void {}
 
 		/**
 		 * Sets new callback for the watcher
@@ -2467,16 +2350,6 @@ namespace {
 		 * @since PECL ev >= 0.2.0
 		 */
 		public function keepalive(bool $value = NULL): bool {}
-
-		/**
-		 * Begin checking for events and calling callbacks for the loop
-		 * <p>Begin checking for events and calling callbacks for the current event loop. Returns when a callback calls <code>Ev::stop()</code> method, or the flags are nonzero(in which case the return value is true) or when there are no active watchers which reference the loop( <code>EvWatcher::keepalive()</code> is <b><code>TRUE</code></b>), in which case the return value will be <b><code>FALSE</code></b>. The return value can generally be interpreted as <i>if <b><code>TRUE</code></b>, there is more work left to do</i> .</p>
-		 * @param int $flags <p>Optional parameter <code>flags</code> can be one of the following:</p> <b> List for possible values of <code>flags</code> </b>    <code>flags</code>  Description      <b><code>0</code></b>  The default behavior described above    <b><code>Ev::RUN_ONCE</code></b>  Block at most one(wait, but don't loop)    <b><code>Ev::RUN_NOWAIT</code></b>  Don't block at all(fetch/handle events, but don't wait)    <p>See the run flag constants .</p>
-		 * @return void <p>No value is returned.</p>
-		 * @link http://php.net/manual/en/evloop.run.php
-		 * @since PECL ev >= 0.2.0
-		 */
-		public function run(int $flags = 0): void {}
 
 		/**
 		 * Configures the watcher
