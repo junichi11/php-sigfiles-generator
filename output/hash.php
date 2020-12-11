@@ -5,7 +5,7 @@
 namespace {
 
 	/**
-	 * @link http://php.net/manual/en/class.hashcontext.php
+	 * @link https://php.net/manual/en/class.hashcontext.php
 	 * @since PHP 7 >= 7.2.0
 	 */
 	class HashContext {
@@ -13,7 +13,7 @@ namespace {
 		/**
 		 * Private constructor to disallow direct instantiation
 		 * @return self
-		 * @link http://php.net/manual/en/hashcontext.construct.php
+		 * @link https://php.net/manual/en/hashcontext.construct.php
 		 * @since PHP 7 >= 7.2.0
 		 */
 		private function __construct() {}
@@ -25,7 +25,7 @@ namespace {
 	 * @param string $data <p>Message to be hashed.</p>
 	 * @param bool $binary <p>When set to <b><code>TRUE</code></b>, outputs raw binary data. <b><code>FALSE</code></b> outputs lowercase hexits.</p>
 	 * @return string|false <p>Returns a string containing the calculated message digest as lowercase hexits unless <code>binary</code> is set to true in which case the raw binary representation of the message digest is returned.</p>
-	 * @link http://php.net/manual/en/function.hash.php
+	 * @link https://php.net/manual/en/function.hash.php
 	 * @see hash_file(), hash_hmac(), hash_init(), md5(), sha1()
 	 * @since PHP 5 >= 5.1.2, PHP 7, PECL hash >= 1.1
 	 */
@@ -34,7 +34,7 @@ namespace {
 	/**
 	 * Return a list of registered hashing algorithms
 	 * @return array <p>Returns a numerically indexed array containing the list of supported hashing algorithms.</p>
-	 * @link http://php.net/manual/en/function.hash-algos.php
+	 * @link https://php.net/manual/en/function.hash-algos.php
 	 * @see hash_hmac_algos()
 	 * @since PHP 5 >= 5.1.2, PHP 7, PECL hash >= 1.1
 	 */
@@ -44,7 +44,7 @@ namespace {
 	 * Copy hashing context
 	 * @param \HashContext $context <p>Hashing context returned by <code>hash_init()</code>.</p>
 	 * @return HashContext <p>Returns a copy of Hashing Context.</p>
-	 * @link http://php.net/manual/en/function.hash-copy.php
+	 * @link https://php.net/manual/en/function.hash-copy.php
 	 * @since PHP 5 >= 5.3.0, PHP 7
 	 */
 	function hash_copy(\HashContext $context): \HashContext {}
@@ -55,7 +55,7 @@ namespace {
 	 * @param string $known_string <p>The <code>string</code> of known length to compare against</p>
 	 * @param string $user_string <p>The user-supplied string</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> when the two strings are equal, <b><code>FALSE</code></b> otherwise.</p>
-	 * @link http://php.net/manual/en/function.hash-equals.php
+	 * @link https://php.net/manual/en/function.hash-equals.php
 	 * @since PHP 5 >= 5.6.0, PHP 7
 	 */
 	function hash_equals(string $known_string, string $user_string): bool {}
@@ -66,7 +66,7 @@ namespace {
 	 * @param string $filename <p>URL describing location of file to be hashed; Supports fopen wrappers.</p>
 	 * @param bool $binary <p>When set to <b><code>TRUE</code></b>, outputs raw binary data. <b><code>FALSE</code></b> outputs lowercase hexits.</p>
 	 * @return string|false <p>Returns a string containing the calculated message digest as lowercase hexits unless <code>binary</code> is set to true in which case the raw binary representation of the message digest is returned.</p>
-	 * @link http://php.net/manual/en/function.hash-file.php
+	 * @link https://php.net/manual/en/function.hash-file.php
 	 * @see hash(), hash_hmac_file(), hash_update_file(), md5_file(), sha1_file()
 	 * @since PHP 5 >= 5.1.2, PHP 7, PECL hash >= 1.1
 	 */
@@ -77,7 +77,7 @@ namespace {
 	 * @param \HashContext $context <p>Hashing context returned by <code>hash_init()</code>.</p>
 	 * @param bool $binary <p>When set to <b><code>TRUE</code></b>, outputs raw binary data. <b><code>FALSE</code></b> outputs lowercase hexits.</p>
 	 * @return string <p>Returns a string containing the calculated message digest as lowercase hexits unless <code>binary</code> is set to true in which case the raw binary representation of the message digest is returned.</p>
-	 * @link http://php.net/manual/en/function.hash-final.php
+	 * @link https://php.net/manual/en/function.hash-final.php
 	 * @see hash_init(), hash_update(), hash_update_stream(), hash_update_file()
 	 * @since PHP 5 >= 5.1.2, PHP 7, PECL hash >= 1.1
 	 */
@@ -91,7 +91,7 @@ namespace {
 	 * @param string $info <p>Application/context-specific info string.</p>
 	 * @param string $salt <p>Salt to use during derivation.</p> <p>While optional, adding random salt significantly improves the strength of HKDF.</p>
 	 * @return string <p>Returns a string containing a raw binary representation of the derived key (also known as output keying material - OKM); or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.hash-hkdf.php
+	 * @link https://php.net/manual/en/function.hash-hkdf.php
 	 * @see hash_pbkdf2()
 	 * @since PHP 7 >= 7.1.2
 	 */
@@ -104,7 +104,7 @@ namespace {
 	 * @param string $key <p>Shared secret key used for generating the HMAC variant of the message digest.</p>
 	 * @param bool $binary <p>When set to <b><code>TRUE</code></b>, outputs raw binary data. <b><code>FALSE</code></b> outputs lowercase hexits.</p>
 	 * @return string|false <p>Returns a string containing the calculated message digest as lowercase hexits unless <code>binary</code> is set to true in which case the raw binary representation of the message digest is returned. Returns <b><code>FALSE</code></b> when <code>algo</code> is unknown or is a non-cryptographic hash function.</p>
-	 * @link http://php.net/manual/en/function.hash-hmac.php
+	 * @link https://php.net/manual/en/function.hash-hmac.php
 	 * @see hash(), hash_hmac_algos(), hash_init(), hash_hmac_file()
 	 * @since PHP 5 >= 5.1.2, PHP 7, PECL hash >= 1.1
 	 */
@@ -113,7 +113,7 @@ namespace {
 	/**
 	 * Return a list of registered hashing algorithms suitable for hash_hmac
 	 * @return array <p>Returns a numerically indexed array containing the list of supported hashing algorithms suitable for <code>hash_hmac()</code>.</p>
-	 * @link http://php.net/manual/en/function.hash-hmac-algos.php
+	 * @link https://php.net/manual/en/function.hash-hmac-algos.php
 	 * @see hash_hmac(), hash_algos()
 	 * @since PHP 7 >= 7.2.0
 	 */
@@ -126,7 +126,7 @@ namespace {
 	 * @param string $key <p>Shared secret key used for generating the HMAC variant of the message digest.</p>
 	 * @param bool $binary <p>When set to <b><code>TRUE</code></b>, outputs raw binary data. <b><code>FALSE</code></b> outputs lowercase hexits.</p>
 	 * @return string|false <p>Returns a string containing the calculated message digest as lowercase hexits unless <code>binary</code> is set to true in which case the raw binary representation of the message digest is returned. Returns <b><code>FALSE</code></b> when <code>algo</code> is unknown or is a non-cryptographic hash function, or if the file <code>data</code> cannot be read.</p>
-	 * @link http://php.net/manual/en/function.hash-hmac-file.php
+	 * @link https://php.net/manual/en/function.hash-hmac-file.php
 	 * @see hash_hmac_algos(), hash_hmac(), hash_file()
 	 * @since PHP 5 >= 5.1.2, PHP 7, PECL hash >= 1.1
 	 */
@@ -138,7 +138,7 @@ namespace {
 	 * @param int $flags <p>Optional settings for hash generation, currently supports only one option: <b><code>HASH_HMAC</code></b>. When specified, the <code>key</code> <i>must</i> be specified.</p>
 	 * @param string $key <p>When <b><code>HASH_HMAC</code></b> is specified for <code>flags</code>, a shared secret key to be used with the HMAC hashing method must be supplied in this parameter.</p>
 	 * @return HashContext <p>Returns a Hashing Context for use with <code>hash_update()</code>, <code>hash_update_stream()</code>, <code>hash_update_file()</code>, and <code>hash_final()</code>.</p>
-	 * @link http://php.net/manual/en/function.hash-init.php
+	 * @link https://php.net/manual/en/function.hash-init.php
 	 * @see hash(), hash_algos(), hash_file(), hash_hmac(), hash_hmac_file()
 	 * @since PHP 5 >= 5.1.2, PHP 7, PECL hash >= 1.1
 	 */
@@ -153,7 +153,7 @@ namespace {
 	 * @param int $length <p>The length of the output string. If <code>binary</code> is <b><code>TRUE</code></b> this corresponds to the byte-length of the derived key, if <code>binary</code> is <b><code>FALSE</code></b> this corresponds to twice the byte-length of the derived key (as every byte of the key is returned as two hexits).</p> <p>If <code>0</code> is passed, the entire output of the supplied algorithm is used.</p>
 	 * @param bool $binary <p>When set to <b><code>TRUE</code></b>, outputs raw binary data. <b><code>FALSE</code></b> outputs lowercase hexits.</p>
 	 * @return string <p>Returns a string containing the derived key as lowercase hexits unless <code>binary</code> is set to <b><code>TRUE</code></b> in which case the raw binary representation of the derived key is returned.</p>
-	 * @link http://php.net/manual/en/function.hash-pbkdf2.php
+	 * @link https://php.net/manual/en/function.hash-pbkdf2.php
 	 * @see crypt(), password_hash(), hash(), hash_algos(), hash_init(), hash_hmac(), hash_hmac_file(), openssl_pbkdf2()
 	 * @since PHP 5 >= 5.5.0, PHP 7
 	 */
@@ -164,7 +164,7 @@ namespace {
 	 * @param \HashContext $context <p>Hashing context returned by <code>hash_init()</code>.</p>
 	 * @param string $data <p>Message to be included in the hash digest.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b>.</p>
-	 * @link http://php.net/manual/en/function.hash-update.php
+	 * @link https://php.net/manual/en/function.hash-update.php
 	 * @see hash_init(), hash_update_file(), hash_update_stream(), hash_final()
 	 * @since PHP 5 >= 5.1.2, PHP 7, PECL hash >= 1.1
 	 */
@@ -176,7 +176,7 @@ namespace {
 	 * @param string $filename <p>URL describing location of file to be hashed; Supports fopen wrappers.</p>
 	 * @param resource|null $stream_context <p>Stream context as returned by <code>stream_context_create()</code>.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.hash-update-file.php
+	 * @link https://php.net/manual/en/function.hash-update-file.php
 	 * @see hash_init(), hash_update(), hash_update_stream(), hash_final(), hash(), hash_file()
 	 * @since PHP 5 >= 5.1.2, PHP 7, PECL hash >= 1.1
 	 */
@@ -188,7 +188,7 @@ namespace {
 	 * @param resource $stream <p>Open file handle as returned by any stream creation function.</p>
 	 * @param int $length <p>Maximum number of characters to copy from <code>stream</code> into the hashing context.</p>
 	 * @return int <p>Actual number of bytes added to the hashing context from <code>stream</code>.</p>
-	 * @link http://php.net/manual/en/function.hash-update-stream.php
+	 * @link https://php.net/manual/en/function.hash-update-stream.php
 	 * @see hash_init(), hash_update(), hash_final(), hash(), hash_file()
 	 * @since PHP 5 >= 5.1.2, PHP 7, PECL hash >= 1.1
 	 */

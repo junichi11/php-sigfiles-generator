@@ -5,7 +5,7 @@
 namespace mysql_xdevapi {
 
 	/**
-	 * @link http://php.net/manual/en/class.mysql-xdevapi-baseresult.php
+	 * @link https://php.net/manual/en/class.mysql-xdevapi-baseresult.php
 	 * @since PECL mysql-xdevapi >= 8.0.11
 	 */
 	interface BaseResult {
@@ -13,7 +13,7 @@ namespace mysql_xdevapi {
 
 	/**
 	 * <p>Provides access to the connection pool.</p>
-	 * @link http://php.net/manual/en/class.mysql-xdevapi-client.php
+	 * @link https://php.net/manual/en/class.mysql-xdevapi-client.php
 	 * @since No version information available, might only be in Git
 	 */
 	class Client {
@@ -22,275 +22,275 @@ namespace mysql_xdevapi {
 		 * Close client
 		 * <p>Close all client connections with the server.</p>
 		 * @return bool <p><b><code>TRUE</code></b> if connections are closed.</p>
-		 * @link http://php.net/manual/en/mysql-xdevapi-client.close.php
+		 * @link https://php.net/manual/en/mysql-xdevapi-client.close.php
 		 * @since No version information available, might only be in Git
 		 */
 		public function close(): bool {}
 	}
 
 	/**
-	 * @link http://php.net/manual/en/class.mysql-xdevapi-collection.php
+	 * @link https://php.net/manual/en/class.mysql-xdevapi-collection.php
 	 * @since PECL mysql-xdevapi >= 8.0.11
 	 */
 	class Collection implements \mysql_xdevapi\SchemaObject {
 
 		/**
 		 * @var mixed
-		 * @link http://php.net/manual/en/class.mysql-xdevapi-collection.php#mysql-xdevapi-collection.props.name
+		 * @link https://php.net/manual/en/class.mysql-xdevapi-collection.php#mysql-xdevapi-collection.props.name
 		 */
 		public $name;
 	}
 
 	/**
-	 * @link http://php.net/manual/en/class.mysql-xdevapi-collectionadd.php
+	 * @link https://php.net/manual/en/class.mysql-xdevapi-collectionadd.php
 	 * @since PECL mysql-xdevapi >= 8.0.11
 	 */
 	class CollectionAdd implements \mysql_xdevapi\Executable {
 	}
 
 	/**
-	 * @link http://php.net/manual/en/class.mysql-xdevapi-collectionfind.php
+	 * @link https://php.net/manual/en/class.mysql-xdevapi-collectionfind.php
 	 * @since PECL mysql-xdevapi >= 8.0.11
 	 */
 	class CollectionFind implements \mysql_xdevapi\Executable, \mysql_xdevapi\CrudOperationBindable, \mysql_xdevapi\CrudOperationLimitable, \mysql_xdevapi\CrudOperationSortable {
 	}
 
 	/**
-	 * @link http://php.net/manual/en/class.mysql-xdevapi-collectionmodify.php
+	 * @link https://php.net/manual/en/class.mysql-xdevapi-collectionmodify.php
 	 * @since PECL mysql-xdevapi >= 8.0.11
 	 */
 	class CollectionModify implements \mysql_xdevapi\Executable, \mysql_xdevapi\CrudOperationBindable, \mysql_xdevapi\CrudOperationLimitable, \mysql_xdevapi\CrudOperationSkippable, \mysql_xdevapi\CrudOperationSortable {
 	}
 
 	/**
-	 * @link http://php.net/manual/en/class.mysql-xdevapi-collectionremove.php
+	 * @link https://php.net/manual/en/class.mysql-xdevapi-collectionremove.php
 	 * @since PECL mysql-xdevapi >= 8.0.11
 	 */
 	class CollectionRemove implements \mysql_xdevapi\Executable, \mysql_xdevapi\CrudOperationBindable, \mysql_xdevapi\CrudOperationLimitable, \mysql_xdevapi\CrudOperationSortable {
 	}
 
 	/**
-	 * @link http://php.net/manual/en/class.mysql-xdevapi-columnresult.php
+	 * @link https://php.net/manual/en/class.mysql-xdevapi-columnresult.php
 	 * @since PECL mysql-xdevapi >= 8.0.11
 	 */
 	class ColumnResult {
 	}
 
 	/**
-	 * @link http://php.net/manual/en/class.mysql-xdevapi-crudoperationbindable.php
+	 * @link https://php.net/manual/en/class.mysql-xdevapi-crudoperationbindable.php
 	 * @since PECL mysql-xdevapi >= 8.0.11
 	 */
 	interface CrudOperationBindable {
 	}
 
 	/**
-	 * @link http://php.net/manual/en/class.mysql-xdevapi-crudoperationlimitable.php
+	 * @link https://php.net/manual/en/class.mysql-xdevapi-crudoperationlimitable.php
 	 * @since PECL mysql-xdevapi >= 8.0.11
 	 */
 	interface CrudOperationLimitable {
 	}
 
 	/**
-	 * @link http://php.net/manual/en/class.mysql-xdevapi-crudoperationskippable.php
+	 * @link https://php.net/manual/en/class.mysql-xdevapi-crudoperationskippable.php
 	 * @since PECL mysql-xdevapi >= 8.0.11
 	 */
 	interface CrudOperationSkippable {
 	}
 
 	/**
-	 * @link http://php.net/manual/en/class.mysql-xdevapi-crudoperationsortable.php
+	 * @link https://php.net/manual/en/class.mysql-xdevapi-crudoperationsortable.php
 	 * @since PECL mysql-xdevapi >= 8.0.11
 	 */
 	interface CrudOperationSortable {
 	}
 
 	/**
-	 * @link http://php.net/manual/en/class.mysql-xdevapi-databaseobject.php
+	 * @link https://php.net/manual/en/class.mysql-xdevapi-databaseobject.php
 	 * @since PECL mysql-xdevapi >= 8.0.11
 	 */
 	interface DatabaseObject {
 	}
 
 	/**
-	 * @link http://php.net/manual/en/class.mysql-xdevapi-docresult.php
+	 * @link https://php.net/manual/en/class.mysql-xdevapi-docresult.php
 	 * @since PECL mysql-xdevapi >= 8.0.11
 	 */
 	class DocResult implements \mysql_xdevapi\BaseResult, \Traversable {
 	}
 
 	/**
-	 * @link http://php.net/manual/en/class.mysql-xdevapi-exception.php
+	 * @link https://php.net/manual/en/class.mysql-xdevapi-exception.php
 	 * @since PECL mysql-xdevapi >= 8.0.11
 	 */
 	class Exception extends \RuntimeException implements \Throwable {
 	}
 
 	/**
-	 * @link http://php.net/manual/en/class.mysql-xdevapi-executable.php
+	 * @link https://php.net/manual/en/class.mysql-xdevapi-executable.php
 	 * @since PECL mysql-xdevapi >= 8.0.11
 	 */
 	interface Executable {
 	}
 
 	/**
-	 * @link http://php.net/manual/en/class.mysql-xdevapi-executionstatus.php
+	 * @link https://php.net/manual/en/class.mysql-xdevapi-executionstatus.php
 	 * @since PECL mysql-xdevapi >= 8.0.11
 	 */
 	class ExecutionStatus {
 
 		/**
 		 * @var mixed
-		 * @link http://php.net/manual/en/class.mysql-xdevapi-executionstatus.php#mysql-xdevapi-executionstatus.props.affecteditems
+		 * @link https://php.net/manual/en/class.mysql-xdevapi-executionstatus.php#mysql-xdevapi-executionstatus.props.affecteditems
 		 */
 		public $affectedItems;
 
 		/**
 		 * @var mixed
-		 * @link http://php.net/manual/en/class.mysql-xdevapi-executionstatus.php#mysql-xdevapi-executionstatus.props.matcheditems
+		 * @link https://php.net/manual/en/class.mysql-xdevapi-executionstatus.php#mysql-xdevapi-executionstatus.props.matcheditems
 		 */
 		public $matchedItems;
 
 		/**
 		 * @var mixed
-		 * @link http://php.net/manual/en/class.mysql-xdevapi-executionstatus.php#mysql-xdevapi-executionstatus.props.founditems
+		 * @link https://php.net/manual/en/class.mysql-xdevapi-executionstatus.php#mysql-xdevapi-executionstatus.props.founditems
 		 */
 		public $foundItems;
 
 		/**
 		 * @var mixed
-		 * @link http://php.net/manual/en/class.mysql-xdevapi-executionstatus.php#mysql-xdevapi-executionstatus.props.lastinsertid
+		 * @link https://php.net/manual/en/class.mysql-xdevapi-executionstatus.php#mysql-xdevapi-executionstatus.props.lastinsertid
 		 */
 		public $lastInsertId;
 
 		/**
 		 * @var mixed
-		 * @link http://php.net/manual/en/class.mysql-xdevapi-executionstatus.php#mysql-xdevapi-executionstatus.props.lastdocumentid
+		 * @link https://php.net/manual/en/class.mysql-xdevapi-executionstatus.php#mysql-xdevapi-executionstatus.props.lastdocumentid
 		 */
 		public $lastDocumentId;
 	}
 
 	/**
-	 * @link http://php.net/manual/en/class.mysql-xdevapi-expression.php
+	 * @link https://php.net/manual/en/class.mysql-xdevapi-expression.php
 	 * @since PECL mysql-xdevapi >= 8.0.11
 	 */
 	class Expression {
 
 		/**
 		 * @var mixed
-		 * @link http://php.net/manual/en/class.mysql-xdevapi-expression.php#mysql-xdevapi-expression.props.name
+		 * @link https://php.net/manual/en/class.mysql-xdevapi-expression.php#mysql-xdevapi-expression.props.name
 		 */
 		public $name;
 	}
 
 	/**
-	 * @link http://php.net/manual/en/class.mysql-xdevapi-result.php
+	 * @link https://php.net/manual/en/class.mysql-xdevapi-result.php
 	 * @since PECL mysql-xdevapi >= 8.0.11
 	 */
 	class Result implements \mysql_xdevapi\BaseResult, \Traversable {
 	}
 
 	/**
-	 * @link http://php.net/manual/en/class.mysql-xdevapi-rowresult.php
+	 * @link https://php.net/manual/en/class.mysql-xdevapi-rowresult.php
 	 * @since PECL mysql-xdevapi >= 8.0.11
 	 */
 	class RowResult implements \mysql_xdevapi\BaseResult, \Traversable {
 	}
 
 	/**
-	 * @link http://php.net/manual/en/class.mysql-xdevapi-schema.php
+	 * @link https://php.net/manual/en/class.mysql-xdevapi-schema.php
 	 * @since PECL mysql-xdevapi >= 8.0.11
 	 */
 	class Schema implements \mysql_xdevapi\DatabaseObject {
 
 		/**
 		 * @var mixed
-		 * @link http://php.net/manual/en/class.mysql-xdevapi-schema.php#mysql-xdevapi-schema.props.name
+		 * @link https://php.net/manual/en/class.mysql-xdevapi-schema.php#mysql-xdevapi-schema.props.name
 		 */
 		public $name;
 	}
 
 	/**
-	 * @link http://php.net/manual/en/class.mysql-xdevapi-schemaobject.php
+	 * @link https://php.net/manual/en/class.mysql-xdevapi-schemaobject.php
 	 * @since PECL mysql-xdevapi >= 8.0.11
 	 */
 	interface SchemaObject {
 	}
 
 	/**
-	 * @link http://php.net/manual/en/class.mysql-xdevapi-session.php
+	 * @link https://php.net/manual/en/class.mysql-xdevapi-session.php
 	 * @since PECL mysql-xdevapi >= 8.0.11
 	 */
 	class Session {
 	}
 
 	/**
-	 * @link http://php.net/manual/en/class.mysql-xdevapi-sqlstatement.php
+	 * @link https://php.net/manual/en/class.mysql-xdevapi-sqlstatement.php
 	 * @since PECL mysql-xdevapi >= 8.0.11
 	 */
 	class SqlStatement {
 
 		/**
 		 * @var int
-		 * @link http://php.net/manual/en/class.mysql-xdevapi-sqlstatement.php
+		 * @link https://php.net/manual/en/class.mysql-xdevapi-sqlstatement.php
 		 */
 		const EXECUTE_ASYNC = 1;
 
 		/**
 		 * @var int
-		 * @link http://php.net/manual/en/class.mysql-xdevapi-sqlstatement.php
+		 * @link https://php.net/manual/en/class.mysql-xdevapi-sqlstatement.php
 		 */
 		const BUFFERED = 2;
 
 		/**
 		 * @var mixed
-		 * @link http://php.net/manual/en/class.mysql-xdevapi-sqlstatement.php#mysql-xdevapi-sqlstatement.props.statement
+		 * @link https://php.net/manual/en/class.mysql-xdevapi-sqlstatement.php#mysql-xdevapi-sqlstatement.props.statement
 		 */
 		public $statement;
 	}
 
 	/**
-	 * @link http://php.net/manual/en/class.mysql-xdevapi-sqlstatementresult.php
+	 * @link https://php.net/manual/en/class.mysql-xdevapi-sqlstatementresult.php
 	 * @since PECL mysql-xdevapi >= 8.0.11
 	 */
 	class SqlStatementResult implements \mysql_xdevapi\BaseResult, \Traversable {
 	}
 
 	/**
-	 * @link http://php.net/manual/en/class.mysql-xdevapi-statement.php
+	 * @link https://php.net/manual/en/class.mysql-xdevapi-statement.php
 	 * @since PECL mysql-xdevapi >= 8.0.11
 	 */
 	class Statement {
 
 		/**
 		 * @var int
-		 * @link http://php.net/manual/en/class.mysql-xdevapi-statement.php
+		 * @link https://php.net/manual/en/class.mysql-xdevapi-statement.php
 		 */
 		const EXECUTE_ASYNC = 1;
 
 		/**
 		 * @var int
-		 * @link http://php.net/manual/en/class.mysql-xdevapi-statement.php
+		 * @link https://php.net/manual/en/class.mysql-xdevapi-statement.php
 		 */
 		const BUFFERED = 2;
 	}
 
 	/**
 	 * <p>Provides access to the table through INSERT/SELECT/UPDATE/DELETE statements.</p>
-	 * @link http://php.net/manual/en/class.mysql-xdevapi-table.php
+	 * @link https://php.net/manual/en/class.mysql-xdevapi-table.php
 	 * @since PECL mysql-xdevapi >= 8.0.11
 	 */
 	class Table implements \mysql_xdevapi\SchemaObject {
 
 		/**
 		 * @var mixed
-		 * @link http://php.net/manual/en/class.mysql-xdevapi-table.php#mysql-xdevapi-table.props.name
+		 * @link https://php.net/manual/en/class.mysql-xdevapi-table.php#mysql-xdevapi-table.props.name
 		 */
 		public $name;
 	}
 
 	/**
 	 * <p>A statement for delete operations on Table.</p>
-	 * @link http://php.net/manual/en/class.mysql-xdevapi-tabledelete.php
+	 * @link https://php.net/manual/en/class.mysql-xdevapi-tabledelete.php
 	 * @since PECL mysql-xdevapi >= 8.0.11
 	 */
 	class TableDelete implements \mysql_xdevapi\Executable {
@@ -298,7 +298,7 @@ namespace mysql_xdevapi {
 
 	/**
 	 * <p>A statement for insert operations on Table.</p>
-	 * @link http://php.net/manual/en/class.mysql-xdevapi-tableinsert.php
+	 * @link https://php.net/manual/en/class.mysql-xdevapi-tableinsert.php
 	 * @since PECL mysql-xdevapi >= 8.0.11
 	 */
 	class TableInsert implements \mysql_xdevapi\Executable {
@@ -306,7 +306,7 @@ namespace mysql_xdevapi {
 
 	/**
 	 * <p>A statement for record retrieval operations on a Table.</p>
-	 * @link http://php.net/manual/en/class.mysql-xdevapi-tableselect.php
+	 * @link https://php.net/manual/en/class.mysql-xdevapi-tableselect.php
 	 * @since PECL mysql-xdevapi >= 8.0.11
 	 */
 	class TableSelect implements \mysql_xdevapi\Executable {
@@ -314,33 +314,33 @@ namespace mysql_xdevapi {
 
 	/**
 	 * <p>A statement for record update operations on a Table.</p>
-	 * @link http://php.net/manual/en/class.mysql-xdevapi-tableupdate.php
+	 * @link https://php.net/manual/en/class.mysql-xdevapi-tableupdate.php
 	 * @since PECL mysql-xdevapi >= 8.0.11
 	 */
 	class TableUpdate implements \mysql_xdevapi\Executable {
 	}
 
 	/**
-	 * @link http://php.net/manual/en/class.mysql-xdevapi-warning.php
+	 * @link https://php.net/manual/en/class.mysql-xdevapi-warning.php
 	 * @since PECL mysql-xdevapi >= 8.0.11
 	 */
 	class Warning {
 
 		/**
 		 * @var mixed
-		 * @link http://php.net/manual/en/class.mysql-xdevapi-warning.php#mysql-xdevapi-warning.props.message
+		 * @link https://php.net/manual/en/class.mysql-xdevapi-warning.php#mysql-xdevapi-warning.props.message
 		 */
 		public $message;
 
 		/**
 		 * @var mixed
-		 * @link http://php.net/manual/en/class.mysql-xdevapi-warning.php#mysql-xdevapi-warning.props.level
+		 * @link https://php.net/manual/en/class.mysql-xdevapi-warning.php#mysql-xdevapi-warning.props.level
 		 */
 		public $level;
 
 		/**
 		 * @var mixed
-		 * @link http://php.net/manual/en/class.mysql-xdevapi-warning.php#mysql-xdevapi-warning.props.code
+		 * @link https://php.net/manual/en/class.mysql-xdevapi-warning.php#mysql-xdevapi-warning.props.code
 		 */
 		public $code;
 	}

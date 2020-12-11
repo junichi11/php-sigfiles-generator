@@ -11,7 +11,7 @@ namespace {
 	 * @param string $script_name <p>The script name.</p>
 	 * @param string $script_code <p>The script code. It is strongly suggested to use <code>\r</code> for linebreaks within the script code.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.fdf-add-doc-javascript.php
+	 * @link https://php.net/manual/en/function.fdf-add-doc-javascript.php
 	 * @since PHP 4 >= 4.3.0, PHP 5 < 5.3.0, PECL fdf SVN
 	 */
 	function fdf_add_doc_javascript($fdf_document, string $script_name, string $script_code): bool {}
@@ -25,7 +25,7 @@ namespace {
 	 * @param string $template
 	 * @param int $rename
 	 * @return bool
-	 * @link http://php.net/manual/en/function.fdf-add-template.php
+	 * @link https://php.net/manual/en/function.fdf-add-template.php
 	 * @since PHP 4, PHP 5 < 5.3.0, PECL fdf SVN
 	 */
 	function fdf_add_template($fdf_document, int $newpage, string $filename, string $template, int $rename): bool {}
@@ -35,7 +35,7 @@ namespace {
 	 * <p>Closes the FDF document.</p>
 	 * @param resource $fdf_document <p>The FDF document handle, returned by <code>fdf_create()</code>, <code>fdf_open()</code> or <code>fdf_open_string()</code>.</p>
 	 * @return void <p>No value is returned.</p>
-	 * @link http://php.net/manual/en/function.fdf-close.php
+	 * @link https://php.net/manual/en/function.fdf-close.php
 	 * @see fdf_open()
 	 * @since PHP 4, PHP 5 < 5.3.0, PECL fdf SVN
 	 */
@@ -45,7 +45,7 @@ namespace {
 	 * Create a new FDF document
 	 * <p>Creates a new FDF document.</p><p>This function is needed if one would like to populate input fields in a PDF document with data.</p>
 	 * @return resource <p>Returns a FDF document handle, or <b><code>FALSE</code></b> on error.</p>
-	 * @link http://php.net/manual/en/function.fdf-create.php
+	 * @link https://php.net/manual/en/function.fdf-create.php
 	 * @see fdf_close(), fdf_save(), fdf_open()
 	 * @since PHP 4, PHP 5 < 5.3.0, PECL fdf SVN
 	 */
@@ -58,7 +58,7 @@ namespace {
 	 * @param callable $function
 	 * @param mixed $userdata
 	 * @return bool
-	 * @link http://php.net/manual/en/function.fdf-enum-values.php
+	 * @link https://php.net/manual/en/function.fdf-enum-values.php
 	 * @since PHP 4 >= 4.3.0, PHP 5 < 5.3.0, PECL fdf SVN
 	 */
 	function fdf_enum_values($fdf_document, callable $function, $userdata = NULL): bool {}
@@ -67,7 +67,7 @@ namespace {
 	 * Return error code for last fdf operation
 	 * <p>Gets the error code set by the last FDF function call.</p><p>A textual description of the error may be obtained using with <code>fdf_error()</code>.</p>
 	 * @return int <p>Returns the error code as an integer, or zero if there was no errors.</p>
-	 * @link http://php.net/manual/en/function.fdf-errno.php
+	 * @link https://php.net/manual/en/function.fdf-errno.php
 	 * @see fdf_error()
 	 * @since PHP 4 >= 4.3.0, PHP 5 < 5.3.0, PECL fdf SVN
 	 */
@@ -78,7 +78,7 @@ namespace {
 	 * <p>Gets a textual description for the FDF error code given in <code>error_code</code>.</p>
 	 * @param int $error_code <p>An error code obtained with <code>fdf_errno()</code>. If not provided, this function uses the internal error code set by the last operation.</p>
 	 * @return string <p>Returns the error message as a string, or the string <code>no error</code> if nothing went wrong.</p>
-	 * @link http://php.net/manual/en/function.fdf-error.php
+	 * @link https://php.net/manual/en/function.fdf-error.php
 	 * @see fdf_errno()
 	 * @since PHP 4 >= 4.3.0, PHP 5 < 5.3.0, PECL fdf SVN
 	 */
@@ -92,7 +92,7 @@ namespace {
 	 * @param int $face <p>The possible values are <b><code>FDFNormalAP</code></b>, <b><code>FDFRolloverAP</code></b> and <b><code>FDFDownAP</code></b>.</p>
 	 * @param string $filename <p>The appearance will be stored in this parameter.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.fdf-get-ap.php
+	 * @link https://php.net/manual/en/function.fdf-get-ap.php
 	 * @since PHP 4 >= 4.3.0, PHP 5 < 5.3.0, PECL fdf SVN
 	 */
 	function fdf_get_ap($fdf_document, string $field, int $face, string $filename): bool {}
@@ -104,7 +104,7 @@ namespace {
 	 * @param string $fieldname
 	 * @param string $savepath <p>May be the name of a plain file or an existing directory in which the file is to be created under its original name. Any existing file under the same name will be overwritten.</p> <p><b>Note</b>:</p><p>There seems to be no other way to find out the original filename but to store the file using a directory as <code>savepath</code> and check for the basename it was stored under.</p>
 	 * @return array <p>The returned array contains the following fields:</p><ul> <li> <code>path</code> - path were the file got stored </li> <li> <code>size</code> - size of the stored file in bytes </li> <li> <code>type</code> - mimetype if given in the FDF </li> </ul>
-	 * @link http://php.net/manual/en/function.fdf-get-attachment.php
+	 * @link https://php.net/manual/en/function.fdf-get-attachment.php
 	 * @since PHP 4 >= 4.3.0, PHP 5 < 5.3.0, PECL fdf SVN
 	 */
 	function fdf_get_attachment($fdf_document, string $fieldname, string $savepath): array {}
@@ -114,7 +114,7 @@ namespace {
 	 * <p>Gets the value of the <code>/Encoding</code> key.</p>
 	 * @param resource $fdf_document <p>The FDF document handle, returned by <code>fdf_create()</code>, <code>fdf_open()</code> or <code>fdf_open_string()</code>.</p>
 	 * @return string <p>Returns the encoding as a string. An empty string is returned if the default <code>PDFDocEncoding/Unicode</code> scheme is used.</p>
-	 * @link http://php.net/manual/en/function.fdf-get-encoding.php
+	 * @link https://php.net/manual/en/function.fdf-get-encoding.php
 	 * @see fdf_set_encoding()
 	 * @since PHP 4 >= 4.3.0, PHP 5 < 5.3.0, PECL fdf SVN
 	 */
@@ -125,7 +125,7 @@ namespace {
 	 * <p>Gets the value of the <code>/F</code> key.</p>
 	 * @param resource $fdf_document <p>The FDF document handle, returned by <code>fdf_create()</code>, <code>fdf_open()</code> or <code>fdf_open_string()</code>.</p>
 	 * @return string <p>Returns the key value, as a string.</p>
-	 * @link http://php.net/manual/en/function.fdf-get-file.php
+	 * @link https://php.net/manual/en/function.fdf-get-file.php
 	 * @see fdf_set_file()
 	 * @since PHP 4, PHP 5 < 5.3.0, PECL fdf SVN
 	 */
@@ -138,7 +138,7 @@ namespace {
 	 * @param string $fieldname
 	 * @param int $whichflags
 	 * @return int
-	 * @link http://php.net/manual/en/function.fdf-get-flags.php
+	 * @link https://php.net/manual/en/function.fdf-get-flags.php
 	 * @since PHP 4 >= 4.3.0, PHP 5 < 5.3.0, PECL fdf SVN
 	 */
 	function fdf_get_flags($fdf_document, string $fieldname, int $whichflags): int {}
@@ -150,7 +150,7 @@ namespace {
 	 * @param string $fieldname
 	 * @param int $element
 	 * @return mixed
-	 * @link http://php.net/manual/en/function.fdf-get-opt.php
+	 * @link https://php.net/manual/en/function.fdf-get-opt.php
 	 * @since PHP 4 >= 4.3.0, PHP 5 < 5.3.0, PECLv
 	 */
 	function fdf_get_opt($fdf_document, string $fieldname, int $element = -1) {}
@@ -160,7 +160,7 @@ namespace {
 	 * <p>Gets the value of the <code>/STATUS</code> key.</p>
 	 * @param resource $fdf_document <p>The FDF document handle, returned by <code>fdf_create()</code>, <code>fdf_open()</code> or <code>fdf_open_string()</code>.</p>
 	 * @return string <p>Returns the key value, as a string.</p>
-	 * @link http://php.net/manual/en/function.fdf-get-status.php
+	 * @link https://php.net/manual/en/function.fdf-get-status.php
 	 * @see fdf_set_status()
 	 * @since PHP 4, PHP 5 < 5.3.0, PECL fdf SVN
 	 */
@@ -173,7 +173,7 @@ namespace {
 	 * @param string $fieldname <p>Name of the FDF field, as a string.</p>
 	 * @param int $which <p>Elements of an array field can be retrieved by passing this optional parameter, starting at zero. For non-array fields, this parameter will be ignored.</p>
 	 * @return mixed <p>Returns the field value.</p>
-	 * @link http://php.net/manual/en/function.fdf-get-value.php
+	 * @link https://php.net/manual/en/function.fdf-get-value.php
 	 * @see fdf_set_value()
 	 * @since PHP 4, PHP 5 < 5.3.0, PECL fdf SVN
 	 */
@@ -184,7 +184,7 @@ namespace {
 	 * <p>Return the FDF version for the given document, or the toolkit API version number if no parameter is given.</p>
 	 * @param resource $fdf_document <p>The FDF document handle, returned by <code>fdf_create()</code>, <code>fdf_open()</code> or <code>fdf_open_string()</code>.</p>
 	 * @return string <p>Returns the version as a string. For the current FDF toolkit 5.0 the API version number is <code>5.0</code> and the document version number is either <code>1.2</code>, <code>1.3</code> or <code>1.4</code>.</p>
-	 * @link http://php.net/manual/en/function.fdf-get-version.php
+	 * @link https://php.net/manual/en/function.fdf-get-version.php
 	 * @see fdf_set_version()
 	 * @since PHP 4 >= 4.3.0, PHP 5 < 5.3.0, PECL fdf SVN
 	 */
@@ -194,7 +194,7 @@ namespace {
 	 * Sets FDF-specific output headers
 	 * <p>This is a convenience function to set appropriate HTTP headers for FDF output. It sets the <code>Content-type:</code> to <code>application/vnd.fdf</code>.</p>
 	 * @return void <p>No value is returned.</p>
-	 * @link http://php.net/manual/en/function.fdf-header.php
+	 * @link https://php.net/manual/en/function.fdf-header.php
 	 * @since PHP 4 >= 4.3.0, PHP 5 < 5.3.0, PECL fdf SVNf
 	 */
 	function fdf_header(): void {}
@@ -205,7 +205,7 @@ namespace {
 	 * @param resource $fdf_document <p>The FDF document handle, returned by <code>fdf_create()</code>, <code>fdf_open()</code> or <code>fdf_open_string()</code>.</p>
 	 * @param string $fieldname <p>Name of the FDF field, as a string. If not given, the first field will be assumed.</p>
 	 * @return string <p>Returns the field name as a string.</p>
-	 * @link http://php.net/manual/en/function.fdf-next-field-name.php
+	 * @link https://php.net/manual/en/function.fdf-next-field-name.php
 	 * @see fdf_get_value()
 	 * @since PHP 4, PHP 5 < 5.3.0, PECL fdf SVN
 	 */
@@ -216,7 +216,7 @@ namespace {
 	 * <p>Opens a file with form data.</p><p>You can also use <code>fdf_open_string()</code> to process the results of a PDF form POST request.</p>
 	 * @param string $filename <p>Path to the FDF file. This file must contain the data as returned from a PDF form or created using <code>fdf_create()</code> and <code>fdf_save()</code>.</p>
 	 * @return resource <p>Returns a FDF document handle, or <b><code>FALSE</code></b> on error.</p>
-	 * @link http://php.net/manual/en/function.fdf-open.php
+	 * @link https://php.net/manual/en/function.fdf-open.php
 	 * @see fdf_open_string(), fdf_close(), fdf_create(), fdf_save()
 	 * @since PHP 4, PHP 5 < 5.3.0, PECL fdf SVN
 	 */
@@ -227,7 +227,7 @@ namespace {
 	 * <p>Reads form data from a string.</p><p>You can use <b>fdf_open_string()</b> together with $HTTP_FDF_DATA to process FDF form input from a remote client.</p>
 	 * @param string $fdf_data <p>The data as returned from a PDF form or created using <code>fdf_create()</code> and <code>fdf_save_string()</code>.</p>
 	 * @return resource <p>Returns a FDF document handle, or <b><code>FALSE</code></b> on error.</p>
-	 * @link http://php.net/manual/en/function.fdf-open-string.php
+	 * @link https://php.net/manual/en/function.fdf-open-string.php
 	 * @see fdf_open(), fdf_close(), fdf_create(), fdf_save_string()
 	 * @since PHP 4 >= 4.3.0, PHP 5 < 5.3.0, PECL fdf SVN
 	 */
@@ -240,7 +240,7 @@ namespace {
 	 * @param string $fieldname
 	 * @param int $item
 	 * @return bool
-	 * @link http://php.net/manual/en/function.fdf-remove-item.php
+	 * @link https://php.net/manual/en/function.fdf-remove-item.php
 	 * @since PHP 4 >= 4.3.0, PHP 5 < 5.3.0, PECL fdf SVN
 	 */
 	function fdf_remove_item($fdf_document, string $fieldname, int $item): bool {}
@@ -251,7 +251,7 @@ namespace {
 	 * @param resource $fdf_document <p>The FDF document handle, returned by <code>fdf_create()</code>, <code>fdf_open()</code> or <code>fdf_open_string()</code>.</p>
 	 * @param string $filename <p>If provided, the resulting FDF will be written in this parameter. Otherwise, this function will write the FDF to the default PHP output stream.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.fdf-save.php
+	 * @link https://php.net/manual/en/function.fdf-save.php
 	 * @see fdf_close(), fdf_create(), fdf_save_string()
 	 * @since PHP 4, PHP 5 < 5.3.0, PECL fdf SVN
 	 */
@@ -262,7 +262,7 @@ namespace {
 	 * <p>Returns the FDF document as a string.</p>
 	 * @param resource $fdf_document <p>The FDF document handle, returned by <code>fdf_create()</code>, <code>fdf_open()</code> or <code>fdf_open_string()</code>.</p>
 	 * @return string <p>Returns the document as a string, or <b><code>FALSE</code></b> on error.</p>
-	 * @link http://php.net/manual/en/function.fdf-save-string.php
+	 * @link https://php.net/manual/en/function.fdf-save-string.php
 	 * @see fdf_open_string(), fdf_close(), fdf_create(), fdf_save()
 	 * @since PHP 4 >= 4.3.0, PHP 5 < 5.3.0, PECL fdf SVN
 	 */
@@ -277,7 +277,7 @@ namespace {
 	 * @param string $filename
 	 * @param int $page_number
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.fdf-set-ap.php
+	 * @link https://php.net/manual/en/function.fdf-set-ap.php
 	 * @since PHP 4, PHP 5 < 5.3.0, PECL fdf SVN
 	 */
 	function fdf_set_ap($fdf_document, string $field_name, int $face, string $filename, int $page_number): bool {}
@@ -288,7 +288,7 @@ namespace {
 	 * @param resource $fdf_document <p>The FDF document handle, returned by <code>fdf_create()</code>, <code>fdf_open()</code> or <code>fdf_open_string()</code>.</p>
 	 * @param string $encoding <p>The encoding name. The following values are supported: "<code>Shift-JIS</code>", "<code>UHC</code>", "<code>GBK</code>" and "<code>BigFive</code>".</p> <p>An empty string resets the encoding to the default <code>PDFDocEncoding/Unicode</code> scheme.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.fdf-set-encoding.php
+	 * @link https://php.net/manual/en/function.fdf-set-encoding.php
 	 * @since PHP 4 >= 4.0.7, PHP 5 < 5.3.0, PECL fdf SVN
 	 */
 	function fdf_set_encoding($fdf_document, string $encoding): bool {}
@@ -300,7 +300,7 @@ namespace {
 	 * @param string $url <p>Should be given as an absolute URL.</p>
 	 * @param string $target_frame <p>Use this parameter to specify the frame in which the document will be displayed. You can also set the default value for this parameter using <code>fdf_set_target_frame()</code>.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.fdf-set-file.php
+	 * @link https://php.net/manual/en/function.fdf-set-file.php
 	 * @see fdf_get_file(), fdf_set_target_frame()
 	 * @since PHP 4, PHP 5 < 5.3.0, PECL fdf SVN
 	 */
@@ -314,7 +314,7 @@ namespace {
 	 * @param int $whichFlags
 	 * @param int $newFlags
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.fdf-set-flags.php
+	 * @link https://php.net/manual/en/function.fdf-set-flags.php
 	 * @see fdf_set_opt()
 	 * @since PHP 4 >= 4.0.2, PHP 5 < 5.3.0, PECL fdf SVN
 	 */
@@ -328,7 +328,7 @@ namespace {
 	 * @param int $trigger
 	 * @param string $script
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.fdf-set-javascript-action.php
+	 * @link https://php.net/manual/en/function.fdf-set-javascript-action.php
 	 * @see fdf_set_submit_form_action()
 	 * @since PHP 4 >= 4.0.2, PHP 5 < 5.3.0, PECL fdf SVN
 	 */
@@ -341,7 +341,7 @@ namespace {
 	 * @param string $script
 	 * @param bool $before_data_import
 	 * @return bool
-	 * @link http://php.net/manual/en/function.fdf-set-on-import-javascript.php
+	 * @link https://php.net/manual/en/function.fdf-set-on-import-javascript.php
 	 * @see fdf_add_doc_javascript(), fdf_set_javascript_action()
 	 * @since PHP 4 >= 4.3.0, PHP 5 < 5.3.0, PECL fdf SVN
 	 */
@@ -356,7 +356,7 @@ namespace {
 	 * @param string $str1
 	 * @param string $str2
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.fdf-set-opt.php
+	 * @link https://php.net/manual/en/function.fdf-set-opt.php
 	 * @see fdf_set_flags()
 	 * @since PHP 4 >= 4.0.2, PHP 5 < 5.3.0, PECL fdf SVN
 	 */
@@ -368,7 +368,7 @@ namespace {
 	 * @param resource $fdf_document <p>The FDF document handle, returned by <code>fdf_create()</code>, <code>fdf_open()</code> or <code>fdf_open_string()</code>.</p>
 	 * @param string $status
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.fdf-set-status.php
+	 * @link https://php.net/manual/en/function.fdf-set-status.php
 	 * @see fdf_get_status()
 	 * @since PHP 4, PHP 5 < 5.3.0, PECL fdf SVN
 	 */
@@ -383,7 +383,7 @@ namespace {
 	 * @param string $script
 	 * @param int $flags
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.fdf-set-submit-form-action.php
+	 * @link https://php.net/manual/en/function.fdf-set-submit-form-action.php
 	 * @see fdf_set_javascript_action()
 	 * @since PHP 4 >= 4.0.2, PHP 5 < 5.3.0, PECL fdf SVN
 	 */
@@ -395,7 +395,7 @@ namespace {
 	 * @param resource $fdf_document <p>The FDF document handle, returned by <code>fdf_create()</code>, <code>fdf_open()</code> or <code>fdf_open_string()</code>.</p>
 	 * @param string $frame_name <p>The frame name, as a string.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.fdf-set-target-frame.php
+	 * @link https://php.net/manual/en/function.fdf-set-target-frame.php
 	 * @since PHP 4 >= 4.3.0, PHP 5 < 5.3.0, PECL fdf SVN
 	 */
 	function fdf_set_target_frame($fdf_document, string $frame_name): bool {}
@@ -408,7 +408,7 @@ namespace {
 	 * @param mixed $value <p>This parameter will be stored as a string unless it is an array. In this case all array elements will be stored as a value array.</p>
 	 * @param int $isName <p><b>Note</b>:</p><p>In older versions of the FDF toolkit last parameter determined if the field value was to be converted to a PDF Name (= 1) or set to a PDF String (= 0).</p> <p>The value is no longer used in the current toolkit version 5.0. For compatibility reasons it is still supported as an optional parameter beginning with PHP 4.3, but ignored internally.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.fdf-set-value.php
+	 * @link https://php.net/manual/en/function.fdf-set-value.php
 	 * @see fdf_get_value(), fdf_remove_item()
 	 * @since PHP 4, PHP 5 < 5.3.0, PECL fdf SVN
 	 */
@@ -420,7 +420,7 @@ namespace {
 	 * @param resource $fdf_document <p>The FDF document handle, returned by <code>fdf_create()</code>, <code>fdf_open()</code> or <code>fdf_open_string()</code>.</p>
 	 * @param string $version <p>The version number. For the current FDF toolkit 5.0, this may be either <code>1.2</code>, <code>1.3</code> or <code>1.4</code>.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.fdf-set-version.php
+	 * @link https://php.net/manual/en/function.fdf-set-version.php
 	 * @see fdf_get_version()
 	 * @since PHP 4 >= 4.3.0, PHP 5 < 5.3.0, PECL fdf SVN
 	 */

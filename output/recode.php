@@ -10,7 +10,7 @@ namespace {
 	 * @param string $request <p>The desired recode request type</p>
 	 * @param string $string <p>The <code>string</code> to be recoded</p>
 	 * @return string
-	 * @link http://php.net/manual/en/function.recode.php
+	 * @link https://php.net/manual/en/function.recode.php
 	 * @since PHP 4, PHP 5, PHP 7 < 7.4.0
 	 */
 	function recode(string $request, string $string): string {}
@@ -22,7 +22,7 @@ namespace {
 	 * @param resource $input <p>A local file handle <code>resource</code> for the <code>input</code></p>
 	 * @param resource $output <p>A local file handle <code>resource</code> for the <code>output</code></p>
 	 * @return bool <p>Returns <b><code>FALSE</code></b>, if unable to comply, <b><code>TRUE</code></b> otherwise.</p>
-	 * @link http://php.net/manual/en/function.recode-file.php
+	 * @link https://php.net/manual/en/function.recode-file.php
 	 * @see fopen()
 	 * @since PHP 4, PHP 5, PHP 7 < 7.4.0
 	 */
@@ -34,7 +34,7 @@ namespace {
 	 * @param string $request <p>The desired recode request type</p>
 	 * @param string $string <p>The <code>string</code> to be recoded</p>
 	 * @return string <p>Returns the recoded <code>string</code> or <b><code>FALSE</code></b>, if unable to perform the recode request.</p>
-	 * @link http://php.net/manual/en/function.recode-string.php
+	 * @link https://php.net/manual/en/function.recode-string.php
 	 * @since PHP 4, PHP 5, PHP 7 < 7.4.0
 	 */
 	function recode_string(string $request, string $string): string {}

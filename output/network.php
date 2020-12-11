@@ -10,7 +10,7 @@ namespace {
 	 * @param string $host <p><code>host</code> may either be the IP address in dotted-quad notation or the host name.</p>
 	 * @param string $type <p><code>type</code> may be any one of: A, MX, NS, SOA, PTR, CNAME, AAAA, A6, SRV, NAPTR, TXT or ANY.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> if any records are found; returns <b><code>FALSE</code></b> if no records were found or if an error occurred.</p>
-	 * @link http://php.net/manual/en/function.checkdnsrr.php
+	 * @link https://php.net/manual/en/function.checkdnsrr.php
 	 * @see dns_get_record(), getmxrr(), gethostbyaddr(), gethostbyname(), gethostbynamel()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
@@ -20,7 +20,7 @@ namespace {
 	 * Close connection to system logger
 	 * <p><b>closelog()</b> closes the descriptor being used to write to the system logger. The use of <b>closelog()</b> is optional.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.closelog.php
+	 * @link https://php.net/manual/en/function.closelog.php
 	 * @see syslog(), openlog()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
@@ -30,7 +30,7 @@ namespace {
 	 * Initializes all syslog related variables
 	 * <p>Initializes all variables used in the syslog functions.</p>
 	 * @return void <p>No value is returned.</p> <b>Syslog variables</b>   Variable Constant equal Meaning Notes     $LOG_EMERG <b><code>LOG_EMERG</code></b> System is unusable &nbsp;   $LOG_ALERT <b><code>LOG_ALERT</code></b> Immediate action required &nbsp;   $LOG_CRIT <b><code>LOG_CRIT</code></b> Critical conditions &nbsp;   $LOG_ERR <b><code>LOG_ERR</code></b> &nbsp; &nbsp;   $LOG_WARNING <b><code>LOG_WARNING</code></b> &nbsp; &nbsp;   $LOG_NOTICE <b><code>LOG_NOTICE</code></b> &nbsp; &nbsp;   $LOG_INFO <b><code>LOG_INFO</code></b> &nbsp; &nbsp;   $LOG_DEBUG <b><code>LOG_DEBUG</code></b> &nbsp; &nbsp;   $LOG_KERN <b><code>LOG_KERN</code></b> &nbsp; &nbsp;   $LOG_USER <b><code>LOG_USER</code></b> Genetic user level &nbsp;   $LOG_MAIL <b><code>LOG_MAIL</code></b> Log to email &nbsp;   $LOG_DAEMON <b><code>LOG_DAEMON</code></b> Other system daemons &nbsp;   $LOG_AUTH <b><code>LOG_AUTH</code></b> &nbsp; &nbsp;   $LOG_SYSLOG <b><code>LOG_SYSLOG</code></b> &nbsp; Not available on Netware   $LOG_LPR <b><code>LOG_LPR</code></b> &nbsp; &nbsp;   $LOG_NEWS <b><code>LOG_NEWS</code></b> Usenet new Not available on HP-UX   $LOG_CRON <b><code>LOG_CRON</code></b> &nbsp; Not available on all platforms   $LOG_AUTHPRIV <b><code>LOG_AUTHPRIV</code></b> &nbsp; Not available on AIX   $LOG_LOCAL0 <b><code>LOG_LOCAL0</code></b> &nbsp; Not available on Windows and Netware   $LOG_LOCAL1 <b><code>LOG_LOCAL1</code></b> &nbsp; Not available on Windows and Netware   $LOG_LOCAL2 <b><code>LOG_LOCAL2</code></b> &nbsp; Not available on Windows and Netware   $LOG_LOCAL3 <b><code>LOG_LOCAL3</code></b> &nbsp; Not available on Windows and Netware   $LOG_LOCAL4 <b><code>LOG_LOCAL4</code></b> &nbsp; Not available on Windows and Netware   $LOG_LOCAL5 <b><code>LOG_LOCAL5</code></b> &nbsp; Not available on Windows and Netware   $LOG_LOCAL6 <b><code>LOG_LOCAL6</code></b> &nbsp; Not available on Windows and Netware   $LOG_LOCAL7 <b><code>LOG_LOCAL7</code></b> &nbsp; Not available on Windows and Netware   $LOG_PID <b><code>LOG_PID</code></b> &nbsp; &nbsp;   $LOG_CONS <b><code>LOG_CONS</code></b> &nbsp; &nbsp;   $LOG_ODELAY <b><code>LOG_ODELAY</code></b> &nbsp; &nbsp;   $LOG_NDELAY <b><code>LOG_NDELAY</code></b> &nbsp; &nbsp;   $LOG_NOWAIT <b><code>LOG_NOWAIT</code></b> &nbsp; Not available on BeOS   $LOG_PERROR <b><code>LOG_PERROR</code></b> &nbsp; Not available on AIX   <p><b>Warning</b></p><p>This function has been <i>DEPRECATED</i> as of PHP 5.3.0 and <i>REMOVED</i> as of PHP 5.4.0.</p>
-	 * @link http://php.net/manual/en/function.define-syslog-variables.php
+	 * @link https://php.net/manual/en/function.define-syslog-variables.php
 	 * @see openlog(), syslog(), closelog()
 	 * @since PHP 4, PHP 5 < 5.4.0
 	 */
@@ -42,7 +42,7 @@ namespace {
 	 * @param string $host <p><code>host</code> may either be the IP address in dotted-quad notation or the host name.</p>
 	 * @param string $type <p><code>type</code> may be any one of: A, MX, NS, SOA, PTR, CNAME, AAAA, A6, SRV, NAPTR, TXT or ANY.</p>
 	 * @return bool
-	 * @link http://php.net/manual/en/function.dns-check-record.php
+	 * @link https://php.net/manual/en/function.dns-check-record.php
 	 * @since PHP 5, PHP 7
 	 */
 	function dns_check_record(string $host, string $type = "MX"): bool {}
@@ -54,7 +54,7 @@ namespace {
 	 * @param array $mxhosts <p>A list of the MX records found is placed into the array <code>mxhosts</code>.</p>
 	 * @param array $weight <p>If the <code>weight</code> array is given, it will be filled with the weight information gathered.</p>
 	 * @return bool
-	 * @link http://php.net/manual/en/function.dns-get-mx.php
+	 * @link https://php.net/manual/en/function.dns-get-mx.php
 	 * @since PHP 5, PHP 7
 	 */
 	function dns_get_mx(string $hostname, array &$mxhosts, array &$weight = NULL): bool {}
@@ -68,7 +68,7 @@ namespace {
 	 * @param array $addtl <p>Passed by reference and, if given, will be populated with any <i>Additional Records</i>.</p>
 	 * @param bool $raw <p>The <code>type</code> will be interpreted as a raw DNS type ID (the <code>DNS_&#42;</code> constants cannot be used). The return value will contain a <code>data</code> key, which needs to be manually parsed.</p>
 	 * @return array|false <p>This function returns an array of associative arrays, or <b><code>FALSE</code></b> on failure. Each associative array contains <i>at minimum</i> the following keys:</p> <b>Basic DNS attributes</b>   Attribute Meaning     host  The record in the DNS namespace to which the rest of the associated data refers.    class  <b>dns_get_record()</b> only returns Internet class records and as such this parameter will always return <code>IN</code>.    type  String containing the record type. Additional attributes will also be contained in the resulting array dependant on the value of type. See table below.    ttl  <code>"Time To Live"</code> remaining for this record. This will <i>not</i> equal the record's original ttl, but will rather equal the original ttl minus whatever length of time has passed since the authoritative name server was queried.     <b>Other keys in associative arrays dependant on 'type'</b>   Type Extra Columns     <code>A</code>  <code>ip</code>: An IPv4 addresses in dotted decimal notation.    <code>MX</code>  <code>pri</code>: Priority of mail exchanger. Lower numbers indicate greater priority. <code>target</code>: FQDN of the mail exchanger. See also <code>dns_get_mx()</code>.    <code>CNAME</code>  <code>target</code>: FQDN of location in DNS namespace to which the record is aliased.    <code>NS</code>  <code>target</code>: FQDN of the name server which is authoritative for this hostname.    <code>PTR</code>  <code>target</code>: Location within the DNS namespace to which this record points.    <code>TXT</code>  <code>txt</code>: Arbitrary string data associated with this record.    <code>HINFO</code>  <code>cpu</code>: IANA number designating the CPU of the machine referenced by this record. <code>os</code>: IANA number designating the Operating System on the machine referenced by this record. See IANA's <code>Operating System Names</code> for the meaning of these values.    <code>CAA</code>  <code>flags</code>: A one-byte bitfield; currently only bit 0 is defined, meaning 'critical'; other bits are reserved and should be ignored. <code>tag</code>: The CAA tag name (alphanumeric ASCII string). <code>value</code>: The CAA tag value (binary string, may use subformats). For additional information see: RFC 6844    <code>SOA</code>  <code>mname</code>: FQDN of the machine from which the resource records originated. <code>rname</code>: Email address of the administrative contact for this domain. <code>serial</code>: Serial # of this revision of the requested domain. <code>refresh</code>: Refresh interval (seconds) secondary name servers should use when updating remote copies of this domain. <code>retry</code>: Length of time (seconds) to wait after a failed refresh before making a second attempt. <code>expire</code>: Maximum length of time (seconds) a secondary DNS server should retain remote copies of the zone data without a successful refresh before discarding. <code>minimum-ttl</code>: Minimum length of time (seconds) a client can continue to use a DNS resolution before it should request a new resolution from the server. Can be overridden by individual resource records.    <code>AAAA</code>  <code>ipv6</code>: IPv6 address    <code>A6</code>(PHP &gt;= 5.1.0)  <code>masklen</code>: Length (in bits) to inherit from the target specified by <code>chain</code>. <code>ipv6</code>: Address for this specific record to merge with <code>chain</code>. <code>chain</code>: Parent record to merge with <code>ipv6</code> data.    <code>SRV</code>  <code>pri</code>: (Priority) lowest priorities should be used first. <code>weight</code>: Ranking to weight which of commonly prioritized <code>targets</code> should be chosen at random. <code>target</code> and <code>port</code>: hostname and port where the requested service can be found. For additional information see: RFC 2782    <code>NAPTR</code>  <code>order</code> and <code>pref</code>: Equivalent to <code>pri</code> and <code>weight</code> above. <code>flags</code>, <code>services</code>, <code>regex</code>, and <code>replacement</code>: Parameters as defined by RFC 2915.
-	 * @link http://php.net/manual/en/function.dns-get-record.php
+	 * @link https://php.net/manual/en/function.dns-get-record.php
 	 * @see dns_get_mx(), dns_check_record()
 	 * @since PHP 5, PHP 7
 	 */
@@ -83,7 +83,7 @@ namespace {
 	 * @param string $errstr <p>The error message as a string.</p>
 	 * @param float $timeout <p>The connection timeout, in seconds.</p> <p><b>Note</b>:</p><p>If you need to set a timeout for reading/writing data over the socket, use <code>stream_set_timeout()</code>, as the <code>timeout</code> parameter to <b>fsockopen()</b> only applies while connecting the socket.</p>
 	 * @return resource <p><b>fsockopen()</b> returns a file pointer which may be used together with the other file functions (such as <code>fgets()</code>, <code>fgetss()</code>, <code>fwrite()</code>, <code>fclose()</code>, and <code>feof()</code>). If the call fails, it will return <b><code>FALSE</code></b></p>
-	 * @link http://php.net/manual/en/function.fsockopen.php
+	 * @link https://php.net/manual/en/function.fsockopen.php
 	 * @see pfsockopen(), stream_socket_client(), stream_set_blocking(), stream_set_timeout(), fgets(), fgetss(), fwrite(), fclose(), feof(), socket_connect()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
@@ -94,7 +94,7 @@ namespace {
 	 * <p>Returns the host name of the Internet host specified by <code>ip_address</code>.</p>
 	 * @param string $ip_address <p>The host IP address.</p>
 	 * @return string <p>Returns the host name on success, the unmodified <code>ip_address</code> on failure, or <b><code>FALSE</code></b> on malformed input.</p>
-	 * @link http://php.net/manual/en/function.gethostbyaddr.php
+	 * @link https://php.net/manual/en/function.gethostbyaddr.php
 	 * @see gethostbyname(), gethostbynamel()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
@@ -105,7 +105,7 @@ namespace {
 	 * <p>Returns the IPv4 address of the Internet host specified by <code>hostname</code>.</p>
 	 * @param string $hostname <p>The host name.</p>
 	 * @return string <p>Returns the IPv4 address or a string containing the unmodified <code>hostname</code> on failure.</p>
-	 * @link http://php.net/manual/en/function.gethostbyname.php
+	 * @link https://php.net/manual/en/function.gethostbyname.php
 	 * @see gethostbyaddr(), gethostbynamel(), inet_pton(), inet_ntop()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
@@ -116,7 +116,7 @@ namespace {
 	 * <p>Returns a list of IPv4 addresses to which the Internet host specified by <code>hostname</code> resolves.</p>
 	 * @param string $hostname <p>The host name.</p>
 	 * @return array <p>Returns an array of IPv4 addresses or <b><code>FALSE</code></b> if <code>hostname</code> could not be resolved.</p>
-	 * @link http://php.net/manual/en/function.gethostbynamel.php
+	 * @link https://php.net/manual/en/function.gethostbynamel.php
 	 * @see gethostbyname(), gethostbyaddr(), checkdnsrr(), getmxrr()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
@@ -126,7 +126,7 @@ namespace {
 	 * Gets the host name
 	 * <p><b>gethostname()</b> gets the standard host name for the local machine.</p>
 	 * @return string <p>Returns a string with the hostname on success, otherwise <b><code>FALSE</code></b> is returned.</p>
-	 * @link http://php.net/manual/en/function.gethostname.php
+	 * @link https://php.net/manual/en/function.gethostname.php
 	 * @see gethostbyname(), gethostbyaddr(), php_uname()
 	 * @since PHP 5 >= 5.3.0, PHP 7
 	 */
@@ -139,7 +139,7 @@ namespace {
 	 * @param array $mxhosts <p>A list of the MX records found is placed into the array <code>mxhosts</code>.</p>
 	 * @param array $weight <p>If the <code>weight</code> array is given, it will be filled with the weight information gathered.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> if any records are found; returns <b><code>FALSE</code></b> if no records were found or if an error occurred.</p>
-	 * @link http://php.net/manual/en/function.getmxrr.php
+	 * @link https://php.net/manual/en/function.getmxrr.php
 	 * @see checkdnsrr(), dns_get_record(), gethostbyname(), gethostbynamel(), gethostbyaddr()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
@@ -150,7 +150,7 @@ namespace {
 	 * <p><b>getprotobyname()</b> returns the protocol number associated with the protocol <code>name</code> as per /etc/protocols.</p>
 	 * @param string $name <p>The protocol name.</p>
 	 * @return int|false <p>Returns the protocol number, or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.getprotobyname.php
+	 * @link https://php.net/manual/en/function.getprotobyname.php
 	 * @see getprotobynumber()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
@@ -161,7 +161,7 @@ namespace {
 	 * <p><b>getprotobynumber()</b> returns the protocol name associated with protocol <code>number</code> as per /etc/protocols.</p>
 	 * @param int $number <p>The protocol number.</p>
 	 * @return string|false <p>Returns the protocol name as a string, or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.getprotobynumber.php
+	 * @link https://php.net/manual/en/function.getprotobynumber.php
 	 * @see getprotobyname()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
@@ -173,7 +173,7 @@ namespace {
 	 * @param string $service <p>The Internet service name, as a string.</p>
 	 * @param string $protocol <p><code>protocol</code> is either <code>"tcp"</code> or <code>"udp"</code> (in lowercase).</p>
 	 * @return int <p>Returns the port number, or <b><code>FALSE</code></b> if <code>service</code> or <code>protocol</code> is not found.</p>
-	 * @link http://php.net/manual/en/function.getservbyname.php
+	 * @link https://php.net/manual/en/function.getservbyname.php
 	 * @see getservbyport()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
@@ -185,7 +185,7 @@ namespace {
 	 * @param int $port <p>The port number.</p>
 	 * @param string $protocol <p><code>protocol</code> is either <code>"tcp"</code> or <code>"udp"</code> (in lowercase).</p>
 	 * @return string <p>Returns the Internet service name as a string.</p>
-	 * @link http://php.net/manual/en/function.getservbyport.php
+	 * @link https://php.net/manual/en/function.getservbyport.php
 	 * @see getservbyname()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
@@ -198,7 +198,7 @@ namespace {
 	 * @param bool $replace <p>The optional <code>replace</code> parameter indicates whether the header should replace a previous similar header, or add a second header of the same type. By default it will replace, but if you pass in <b><code>FALSE</code></b> as the second argument you can force multiple headers of the same type. For example:</p> <p></p>  <code> &lt;&#63;php<br>header('WWW-Authenticate:&nbsp;Negotiate');<br>header('WWW-Authenticate:&nbsp;NTLM',&nbsp;false);<br>&#63;&gt;  </code>
 	 * @param int $http_response_code <p>Forces the HTTP response code to the specified value. Note that this parameter only has an effect if the <code>header</code> is not empty.</p>
 	 * @return void <p>No value is returned.</p>
-	 * @link http://php.net/manual/en/function.header.php
+	 * @link https://php.net/manual/en/function.header.php
 	 * @see headers_sent(), setcookie(), http_response_code(), header_remove()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
@@ -209,7 +209,7 @@ namespace {
 	 * <p>Registers a function that will be called when PHP starts sending output.</p><p>The <code>callback</code> is executed just after PHP prepares all headers to be sent, and before any other output is sent, creating a window to manipulate the outgoing headers before being sent.</p>
 	 * @param callable $callback <p>Function called just before the headers are sent. It gets no parameters and the return value is ignored.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.header-register-callback.php
+	 * @link https://php.net/manual/en/function.header-register-callback.php
 	 * @see headers_list(), header_remove(), header()
 	 * @since PHP 5 >= 5.4.0, PHP 7
 	 */
@@ -220,7 +220,7 @@ namespace {
 	 * <p>Removes an HTTP header previously set using <code>header()</code>.</p>
 	 * @param string $name <p>The header name to be removed.</p> <p><b>Note</b>:  This parameter is case-insensitive. </p>
 	 * @return void <p>No value is returned.</p>
-	 * @link http://php.net/manual/en/function.header-remove.php
+	 * @link https://php.net/manual/en/function.header-remove.php
 	 * @see header(), headers_sent()
 	 * @since PHP 5 >= 5.3.0, PHP 7
 	 */
@@ -230,7 +230,7 @@ namespace {
 	 * Returns a list of response headers sent (or ready to send)
 	 * <p><b>headers_list()</b> will return a list of headers to be sent to the browser / client. To determine whether or not these headers have been sent yet, use <code>headers_sent()</code>.</p>
 	 * @return array <p>Returns a numerically indexed array of headers.</p>
-	 * @link http://php.net/manual/en/function.headers-list.php
+	 * @link https://php.net/manual/en/function.headers-list.php
 	 * @see headers_sent(), header(), setcookie(), apache_response_headers(), http_response_code()
 	 * @since PHP 5, PHP 7
 	 */
@@ -242,7 +242,7 @@ namespace {
 	 * @param string $file <p>If the optional <code>file</code> and <code>line</code> parameters are set, <b>headers_sent()</b> will put the PHP source file name and line number where output started in the <code>file</code> and <code>line</code> variables.</p>
 	 * @param int $line <p>The line number where the output started.</p>
 	 * @return bool <p><b>headers_sent()</b> will return <b><code>FALSE</code></b> if no HTTP headers have already been sent or <b><code>TRUE</code></b> otherwise.</p>
-	 * @link http://php.net/manual/en/function.headers-sent.php
+	 * @link https://php.net/manual/en/function.headers-sent.php
 	 * @see ob_start(), trigger_error(), headers_list(), header()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
@@ -253,7 +253,7 @@ namespace {
 	 * <p>Gets or sets the HTTP response status code.</p>
 	 * @param int $response_code <p>The optional <code>response_code</code> will set the response code.</p>
 	 * @return mixed <p>If <code>response_code</code> is provided, then the previous status code will be returned. If <code>response_code</code> is not provided, then the current status code will be returned. Both of these values will default to a <code>200</code> status code if used in a web server environment.</p><p><b><code>FALSE</code></b> will be returned if <code>response_code</code> is not provided and it is not invoked in a web server environment (such as from a CLI application). <b><code>TRUE</code></b> will be returned if <code>response_code</code> is provided and it is not invoked in a web server environment (but only when no previous response status has been set).</p>
-	 * @link http://php.net/manual/en/function.http-response-code.php
+	 * @link https://php.net/manual/en/function.http-response-code.php
 	 * @see header(), headers_list()
 	 * @since PHP 5 >= 5.4.0, PHP 7
 	 */
@@ -264,7 +264,7 @@ namespace {
 	 * <p>This function converts a 32bit IPv4, or 128bit IPv6 address (if PHP was built with IPv6 support enabled) into an address family appropriate string representation.</p>
 	 * @param string $in_addr <p>A 32bit IPv4, or 128bit IPv6 address.</p>
 	 * @return string|false <p>Returns a string representation of the address or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.inet-ntop.php
+	 * @link https://php.net/manual/en/function.inet-ntop.php
 	 * @see long2ip(), ip2long(), inet_pton()
 	 * @since PHP 5 >= 5.1.0, PHP 7
 	 */
@@ -275,7 +275,7 @@ namespace {
 	 * <p>This function converts a human readable IPv4 or IPv6 address (if PHP was built with IPv6 support enabled) into an address family appropriate 32bit or 128bit binary structure.</p>
 	 * @param string $address <p>A human readable IPv4 or IPv6 address.</p>
 	 * @return string <p>Returns the <code>in_addr</code> representation of the given <code>address</code>, or <b><code>FALSE</code></b> if a syntactically invalid <code>address</code> is given (for example, an IPv4 address without dots or an IPv6 address without colons).</p>
-	 * @link http://php.net/manual/en/function.inet-pton.php
+	 * @link https://php.net/manual/en/function.inet-pton.php
 	 * @see ip2long(), long2ip(), inet_ntop()
 	 * @since PHP 5 >= 5.1.0, PHP 7
 	 */
@@ -286,7 +286,7 @@ namespace {
 	 * <p>The function <b>ip2long()</b> generates a long integer representation of IPv4 Internet network address from its Internet standard format (dotted string) representation.</p><p><b>ip2long()</b> will also work with non-complete IP addresses. Read http://publibn.boulder.ibm.com/doc_link/en_US/a_doc_lib/libs/commtrf2/inet_addr.htm for more info.</p>
 	 * @param string $ip_address <p>A standard format address.</p>
 	 * @return int <p>Returns the long integer or <b><code>FALSE</code></b> if <code>ip_address</code> is invalid.</p>
-	 * @link http://php.net/manual/en/function.ip2long.php
+	 * @link https://php.net/manual/en/function.ip2long.php
 	 * @see long2ip(), sprintf()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
@@ -297,7 +297,7 @@ namespace {
 	 * <p>The function <b>long2ip()</b> generates an Internet address in dotted format (i.e.: aaa.bbb.ccc.ddd) from the long integer representation.</p>
 	 * @param int $proper_address <p>A proper address representation in long integer.</p>
 	 * @return string <p>Returns the Internet IP address as a string.</p>
-	 * @link http://php.net/manual/en/function.long2ip.php
+	 * @link https://php.net/manual/en/function.long2ip.php
 	 * @see ip2long()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
@@ -310,7 +310,7 @@ namespace {
 	 * @param int $option <p>The <code>option</code> argument is used to indicate what logging options will be used when generating a log message.</p> <b><b>openlog()</b> Options</b>   Constant Description     <b><code>LOG_CONS</code></b>  if there is an error while sending data to the system logger, write directly to the system console    <b><code>LOG_NDELAY</code></b>  open the connection to the logger immediately    <b><code>LOG_ODELAY</code></b>  (default) delay opening the connection until the first message is logged    <b><code>LOG_PERROR</code></b> print log message also to standard error   <b><code>LOG_PID</code></b> include PID with each message    You can use one or more of these options. When using multiple options you need to <code>OR</code> them, i.e. to open the connection immediately, write to the console and include the PID in each message, you will use: <code>LOG_CONS | LOG_NDELAY | LOG_PID</code>
 	 * @param int $facility <p>The <code>facility</code> argument is used to specify what type of program is logging the message. This allows you to specify (in your machine's syslog configuration) how messages coming from different facilities will be handled.</p> <b><b>openlog()</b> Facilities</b>   Constant Description     <b><code>LOG_AUTH</code></b>  security/authorization messages (use <b><code>LOG_AUTHPRIV</code></b> instead in systems where that constant is defined)    <b><code>LOG_AUTHPRIV</code></b> security/authorization messages (private)   <b><code>LOG_CRON</code></b> clock daemon (cron and at)   <b><code>LOG_DAEMON</code></b> other system daemons   <b><code>LOG_KERN</code></b> kernel messages   <b><code>LOG_LOCAL0</code></b> ... <b><code>LOG_LOCAL7</code></b> reserved for local use, these are not available in Windows   <b><code>LOG_LPR</code></b> line printer subsystem   <b><code>LOG_MAIL</code></b> mail subsystem   <b><code>LOG_NEWS</code></b> USENET news subsystem   <b><code>LOG_SYSLOG</code></b> messages generated internally by syslogd   <b><code>LOG_USER</code></b> generic user-level messages   <b><code>LOG_UUCP</code></b> UUCP subsystem    <p><b>Note</b>:</p><p><b><code>LOG_USER</code></b> is the only valid log type under Windows operating systems</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.openlog.php
+	 * @link https://php.net/manual/en/function.openlog.php
 	 * @see syslog(), closelog()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
@@ -325,7 +325,7 @@ namespace {
 	 * @param string $errstr
 	 * @param float $timeout
 	 * @return resource
-	 * @link http://php.net/manual/en/function.pfsockopen.php
+	 * @link https://php.net/manual/en/function.pfsockopen.php
 	 * @see fsockopen()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
@@ -342,7 +342,7 @@ namespace {
 	 * @param bool $secure <p>Indicates that the cookie should only be transmitted over a secure HTTPS connection from the client. When set to <b><code>TRUE</code></b>, the cookie will only be set if a secure connection exists. On the server-side, it's on the programmer to send this kind of cookie only on secure connection (e.g. with respect to $_SERVER["HTTPS"]).</p>
 	 * @param bool $httponly <p>When <b><code>TRUE</code></b> the cookie will be made accessible only through the HTTP protocol. This means that the cookie won't be accessible by scripting languages, such as JavaScript. It has been suggested that this setting can effectively help to reduce identity theft through XSS attacks (although it is not supported by all browsers), but that claim is often disputed. <b><code>TRUE</code></b> or <b><code>FALSE</code></b></p>
 	 * @return bool <p>If output exists prior to calling this function, <b>setcookie()</b> will fail and return <b><code>FALSE</code></b>. If <b>setcookie()</b> successfully runs, it will return <b><code>TRUE</code></b>. This does not indicate whether the user accepted the cookie.</p>
-	 * @link http://php.net/manual/en/function.setcookie.php
+	 * @link https://php.net/manual/en/function.setcookie.php
 	 * @see header(), setrawcookie()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
@@ -359,7 +359,7 @@ namespace {
 	 * @param bool $secure
 	 * @param bool $httponly
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.setrawcookie.php
+	 * @link https://php.net/manual/en/function.setrawcookie.php
 	 * @see setcookie()
 	 * @since PHP 5, PHP 7
 	 */
@@ -370,7 +370,7 @@ namespace {
 	 * <p>This function is an alias of: <code>stream_get_meta_data()</code>.</p>
 	 * @param resource $stream <p>The stream can be any stream created by <code>fopen()</code>, <code>fsockopen()</code> and <code>pfsockopen()</code>.</p>
 	 * @return array
-	 * @link http://php.net/manual/en/function.socket-get-status.php
+	 * @link https://php.net/manual/en/function.socket-get-status.php
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
 	function socket_get_status($stream): array {}
@@ -381,7 +381,7 @@ namespace {
 	 * @param resource $stream <p>The stream.</p>
 	 * @param bool $mode <p>If <code>mode</code> is <b><code>FALSE</code></b>, the given stream will be switched to non-blocking mode, and if <b><code>TRUE</code></b>, it will be switched to blocking mode. This affects calls like <code>fgets()</code> and <code>fread()</code> that read from the stream. In non-blocking mode an <code>fgets()</code> call will always return right away while in blocking mode it will wait for data to become available on the stream.</p>
 	 * @return bool
-	 * @link http://php.net/manual/en/function.socket-set-blocking.php
+	 * @link https://php.net/manual/en/function.socket-set-blocking.php
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
 	function socket_set_blocking($stream, bool $mode): bool {}
@@ -393,7 +393,7 @@ namespace {
 	 * @param int $seconds <p>The seconds part of the timeout to be set.</p>
 	 * @param int $microseconds <p>The microseconds part of the timeout to be set.</p>
 	 * @return bool
-	 * @link http://php.net/manual/en/function.socket-set-timeout.php
+	 * @link https://php.net/manual/en/function.socket-set-timeout.php
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
 	function socket_set_timeout($stream, int $seconds, int $microseconds = 0): bool {}
@@ -404,7 +404,7 @@ namespace {
 	 * @param int $priority <p><code>priority</code> is a combination of the facility and the level. Possible values are:</p> <b><b>syslog()</b> Priorities (in descending order)</b>   Constant Description     <b><code>LOG_EMERG</code></b> system is unusable   <b><code>LOG_ALERT</code></b> action must be taken immediately   <b><code>LOG_CRIT</code></b> critical conditions   <b><code>LOG_ERR</code></b> error conditions   <b><code>LOG_WARNING</code></b> warning conditions   <b><code>LOG_NOTICE</code></b> normal, but significant, condition   <b><code>LOG_INFO</code></b> informational message   <b><code>LOG_DEBUG</code></b> debug-level message
 	 * @param string $message <p>The message to send, except that the two characters <code>%m</code> will be replaced by the error message string (strerror) corresponding to the present value of errno.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.syslog.php
+	 * @link https://php.net/manual/en/function.syslog.php
 	 * @see openlog(), closelog()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */

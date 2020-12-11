@@ -10,7 +10,7 @@ namespace {
 	 * @param string $file <p>The name of the file.</p>
 	 * @param int $line <p>The line number.</p>
 	 * @return void <p>No value is returned.</p>
-	 * @link http://php.net/manual/en/function.phpdbg-break-file.php
+	 * @link https://php.net/manual/en/function.phpdbg-break-file.php
 	 * @see phpdbg_break_function(), phpdbg_break_method(), phpdbg_break_next(), phpdbg_clear()
 	 * @since PHP 5 >= 5.6.3, PHP 7
 	 */
@@ -21,7 +21,7 @@ namespace {
 	 * <p>Insert a breakpoint at the entry to the given <code>function</code>.</p>
 	 * @param string $function <p>The name of the function.</p>
 	 * @return void <p>No value is returned.</p>
-	 * @link http://php.net/manual/en/function.phpdbg-break-function.php
+	 * @link https://php.net/manual/en/function.phpdbg-break-function.php
 	 * @see phpdbg_break_file(), phpdbg_break_method(), phpdbg_break_next(), phpdbg_clear()
 	 * @since PHP 5 >= 5.6.3, PHP 7
 	 */
@@ -33,7 +33,7 @@ namespace {
 	 * @param string $class <p>The name of the class.</p>
 	 * @param string $method <p>The name of the method.</p>
 	 * @return void <p>No value is returned.</p>
-	 * @link http://php.net/manual/en/function.phpdbg-break-method.php
+	 * @link https://php.net/manual/en/function.phpdbg-break-method.php
 	 * @see phpdbg_break_file(), phpdbg_break_function(), phpdbg_break_next(), phpdbg_clear()
 	 * @since PHP 5 >= 5.6.3, PHP 7
 	 */
@@ -43,7 +43,7 @@ namespace {
 	 * Inserts a breakpoint at the next opcode
 	 * <p>Insert a breakpoint at the next opcode.</p>
 	 * @return void <p>No value is returned.</p>
-	 * @link http://php.net/manual/en/function.phpdbg-break-next.php
+	 * @link https://php.net/manual/en/function.phpdbg-break-next.php
 	 * @see phpdbg_break_file(), phpdbg_break_function(), phpdbg_break_method(), phpdbg_clear()
 	 * @since PHP 5 >= 5.6.3, PHP 7
 	 */
@@ -53,7 +53,7 @@ namespace {
 	 * Clears all breakpoints
 	 * <p>Clear all breakpoints that have been set, either via one of the <b>phpdbg_break_&#42;()</b> functions or interactively in the console.</p><p>This function is currently not documented; only its argument list is available.</p>
 	 * @return void <p>No value is returned.</p>
-	 * @link http://php.net/manual/en/function.phpdbg-clear.php
+	 * @link https://php.net/manual/en/function.phpdbg-clear.php
 	 * @see phpdbg_break_file(), phpdbg_break_function(), phpdbg_break_method(), phpdbg_break_next()
 	 * @since PHP 5 >= 5.6.0, PHP 7
 	 */
@@ -65,7 +65,7 @@ namespace {
 	 * @param int $element <p>One of the <b><code>PHPDBG_COLOR_&#42;</code></b> constants.</p>
 	 * @param string $color <p>The name of the color. One of <code>white</code>, <code>red</code>, <code>green</code>, <code>yellow</code>, <code>blue</code>, <code>purple</code>, <code>cyan</code> or <code>black</code>, optionally with either a trailing <code>-bold</code> or <code>-underline</code>, for instance, <code>white-bold</code> or <code>green-underline</code>.</p>
 	 * @return void <p>No value is returned.</p>
-	 * @link http://php.net/manual/en/function.phpdbg-color.php
+	 * @link https://php.net/manual/en/function.phpdbg-color.php
 	 * @see phpdbg_prompt()
 	 * @since PHP 5 >= 5.6.0, PHP 7
 	 */
@@ -76,7 +76,7 @@ namespace {
 	 * <p></p><p>This function is currently not documented; only its argument list is available.</p>
 	 * @param array $options
 	 * @return array
-	 * @link http://php.net/manual/en/function.phpdbg-end-oplog.php
+	 * @link https://php.net/manual/en/function.phpdbg-end-oplog.php
 	 * @since PHP 7
 	 */
 	function phpdbg_end_oplog(array $options = NULL): array {}
@@ -86,7 +86,7 @@ namespace {
 	 * <p></p><p>This function is currently not documented; only its argument list is available.</p>
 	 * @param string $context
 	 * @return mixed <p>If the execution context was set previously it is returned. If the execution context was not set previously <b><code>TRUE</code></b> is returned. If the request to set the context fails, <b><code>FALSE</code></b> is returned, and an <b><code>E_WARNING</code></b> raised.</p>
-	 * @link http://php.net/manual/en/function.phpdbg-exec.php
+	 * @link https://php.net/manual/en/function.phpdbg-exec.php
 	 * @since PHP 5 >= 5.6.0, PHP 7
 	 */
 	function phpdbg_exec(string $context = NULL) {}
@@ -96,7 +96,7 @@ namespace {
 	 * <p></p><p>This function is currently not documented; only its argument list is available.</p>
 	 * @param array $options
 	 * @return array
-	 * @link http://php.net/manual/en/function.phpdbg-get-executable.php
+	 * @link https://php.net/manual/en/function.phpdbg-get-executable.php
 	 * @since PHP 7
 	 */
 	function phpdbg_get_executable(array $options = NULL): array {}
@@ -106,7 +106,7 @@ namespace {
 	 * <p>Set the command prompt to the given <code>string</code>.</p>
 	 * @param string $string <p>The string to use as command prompt.</p>
 	 * @return void <p>No value is returned.</p>
-	 * @link http://php.net/manual/en/function.phpdbg-prompt.php
+	 * @link https://php.net/manual/en/function.phpdbg-prompt.php
 	 * @see phpdbg_color()
 	 * @since PHP 5 >= 5.6.0, PHP 7
 	 */
@@ -116,7 +116,7 @@ namespace {
 	 * 
 	 * <p></p><p>This function is currently not documented; only its argument list is available.</p>
 	 * @return void <p>No value is returned.</p>
-	 * @link http://php.net/manual/en/function.phpdbg-start-oplog.php
+	 * @link https://php.net/manual/en/function.phpdbg-start-oplog.php
 	 * @since PHP 7
 	 */
 	function phpdbg_start_oplog(): void {}

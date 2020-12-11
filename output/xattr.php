@@ -11,7 +11,7 @@ namespace {
 	 * @param string $name <p>The name of the attribute.</p>
 	 * @param int $flags <p></p> <b>Supported xattr flags</b>   <b><code>XATTR_DONTFOLLOW</code></b> Do not follow the symbolic link but operate on symbolic link itself.   <b><code>XATTR_ROOT</code></b> Set attribute in root (trusted) namespace. Requires root privileges.
 	 * @return string <p>Returns a string containing the value or <b><code>FALSE</code></b> if the attribute doesn't exist.</p>
-	 * @link http://php.net/manual/en/function.xattr-get.php
+	 * @link https://php.net/manual/en/function.xattr-get.php
 	 * @see xattr_list(), xattr_set(), xattr_remove()
 	 * @since PECL xattr >= 0.9.0
 	 */
@@ -23,7 +23,7 @@ namespace {
 	 * @param string $filename <p>The path of the file.</p>
 	 * @param int $flags <p></p> <b>Supported xattr flags</b>   <b><code>XATTR_DONTFOLLOW</code></b> Do not follow the symbolic link but operate on symbolic link itself.   <b><code>XATTR_ROOT</code></b> Set attribute in root (trusted) namespace. Requires root privileges.
 	 * @return array <p>This function returns an array with names of extended attributes.</p>
-	 * @link http://php.net/manual/en/function.xattr-list.php
+	 * @link https://php.net/manual/en/function.xattr-list.php
 	 * @see xattr_get()
 	 * @since PECL xattr >= 0.9.0
 	 */
@@ -36,7 +36,7 @@ namespace {
 	 * @param string $name <p>The name of the attribute to remove.</p>
 	 * @param int $flags <p></p> <b>Supported xattr flags</b>   <b><code>XATTR_DONTFOLLOW</code></b> Do not follow the symbolic link but operate on symbolic link itself.   <b><code>XATTR_ROOT</code></b> Set attribute in root (trusted) namespace. Requires root privileges.
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.xattr-remove.php
+	 * @link https://php.net/manual/en/function.xattr-remove.php
 	 * @see xattr_list(), xattr_set(), xattr_get()
 	 * @since PECL xattr >= 0.9.0
 	 */
@@ -50,7 +50,7 @@ namespace {
 	 * @param string $value <p>The value of the attribute.</p>
 	 * @param int $flags <p></p> <b>Supported xattr flags</b>   <b><code>XATTR_CREATE</code></b> Function will fail if extended attribute already exists.   <b><code>XATTR_REPLACE</code></b> Function will fail if extended attribute doesn't exist.   <b><code>XATTR_DONTFOLLOW</code></b> Do not follow the symbolic link but operate on symbolic link itself.   <b><code>XATTR_ROOT</code></b> Set attribute in root (trusted) namespace. Requires root privileges.
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.xattr-set.php
+	 * @link https://php.net/manual/en/function.xattr-set.php
 	 * @see xattr_get(), xattr_remove()
 	 * @since PECL xattr >= 0.9.0
 	 */
@@ -62,7 +62,7 @@ namespace {
 	 * @param string $filename <p>The path of the tested file.</p>
 	 * @param int $flags <p></p> <b>Supported xattr flags</b>   <b><code>XATTR_DONTFOLLOW</code></b> Do not follow the symbolic link but operate on symbolic link itself.
 	 * @return bool <p>This function returns <b><code>TRUE</code></b> if filesystem supports extended attributes, <b><code>FALSE</code></b> if it doesn't and <b><code>NULL</code></b> if it can't be determined (for example wrong path or lack of permissions to file).</p>
-	 * @link http://php.net/manual/en/function.xattr-supported.php
+	 * @link https://php.net/manual/en/function.xattr-supported.php
 	 * @see xattr_get(), xattr_list()
 	 * @since PECL xattr >= 1.0.0
 	 */

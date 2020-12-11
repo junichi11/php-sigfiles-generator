@@ -15,7 +15,7 @@ namespace {
 	 * @param int $rights
 	 * @param int $start_server
 	 * @return int
-	 * @link http://php.net/manual/en/function.iis-add-server.php
+	 * @link https://php.net/manual/en/function.iis-add-server.php
 	 * @since PECL iisfunc SVN
 	 */
 	function iis_add_server(string $path, string $comment, string $server_ip, int $port, string $host_name, int $rights, int $start_server): int {}
@@ -26,7 +26,7 @@ namespace {
 	 * @param int $server_instance
 	 * @param string $virtual_path
 	 * @return int
-	 * @link http://php.net/manual/en/function.iis-get-dir-security.php
+	 * @link https://php.net/manual/en/function.iis-get-dir-security.php
 	 * @since PECL iisfunc SVN
 	 */
 	function iis_get_dir_security(int $server_instance, string $virtual_path): int {}
@@ -38,7 +38,7 @@ namespace {
 	 * @param string $virtual_path
 	 * @param string $script_extension
 	 * @return string
-	 * @link http://php.net/manual/en/function.iis-get-script-map.php
+	 * @link https://php.net/manual/en/function.iis-get-script-map.php
 	 * @since PECL iisfunc SVN
 	 */
 	function iis_get_script_map(int $server_instance, string $virtual_path, string $script_extension): string {}
@@ -48,7 +48,7 @@ namespace {
 	 * <p>This function is currently not documented; only its argument list is available.</p>
 	 * @param string $comment
 	 * @return int
-	 * @link http://php.net/manual/en/function.iis-get-server-by-comment.php
+	 * @link https://php.net/manual/en/function.iis-get-server-by-comment.php
 	 * @since PECL iisfunc SVN
 	 */
 	function iis_get_server_by_comment(string $comment): int {}
@@ -58,7 +58,7 @@ namespace {
 	 * <p>Each virtual server in IIS is associated with an instance number. <b>iis_get_server_by_path()</b> finds the instance number from the actual path to the root directory.</p>
 	 * @param string $path <p>The path to the root directory</p>
 	 * @return int <p>Returns the server instance number.</p>
-	 * @link http://php.net/manual/en/function.iis-get-server-by-path.php
+	 * @link https://php.net/manual/en/function.iis-get-server-by-path.php
 	 * @since PECL iisfunc SVN
 	 */
 	function iis_get_server_by_path(string $path): int {}
@@ -69,7 +69,7 @@ namespace {
 	 * @param int $server_instance
 	 * @param string $virtual_path
 	 * @return int
-	 * @link http://php.net/manual/en/function.iis-get-server-rights.php
+	 * @link https://php.net/manual/en/function.iis-get-server-rights.php
 	 * @since PECL iisfunc SVN
 	 */
 	function iis_get_server_rights(int $server_instance, string $virtual_path): int {}
@@ -79,7 +79,7 @@ namespace {
 	 * <p>This function is currently not documented; only its argument list is available.</p>
 	 * @param string $service_id
 	 * @return int
-	 * @link http://php.net/manual/en/function.iis-get-service-state.php
+	 * @link https://php.net/manual/en/function.iis-get-service-state.php
 	 * @since PECL iisfunc SVN
 	 */
 	function iis_get_service_state(string $service_id): int {}
@@ -89,7 +89,7 @@ namespace {
 	 * <p>This function is currently not documented; only its argument list is available.</p>
 	 * @param int $server_instance
 	 * @return int
-	 * @link http://php.net/manual/en/function.iis-remove-server.php
+	 * @link https://php.net/manual/en/function.iis-remove-server.php
 	 * @since PECL iisfunc SVN
 	 */
 	function iis_remove_server(int $server_instance): int {}
@@ -101,7 +101,7 @@ namespace {
 	 * @param string $virtual_path
 	 * @param string $application_scope
 	 * @return int
-	 * @link http://php.net/manual/en/function.iis-set-app-settings.php
+	 * @link https://php.net/manual/en/function.iis-set-app-settings.php
 	 * @since PECL iisfunc SVN
 	 */
 	function iis_set_app_settings(int $server_instance, string $virtual_path, string $application_scope): int {}
@@ -113,7 +113,7 @@ namespace {
 	 * @param string $virtual_path
 	 * @param int $directory_flags
 	 * @return int
-	 * @link http://php.net/manual/en/function.iis-set-dir-security.php
+	 * @link https://php.net/manual/en/function.iis-set-dir-security.php
 	 * @since PECL iisfunc SVN
 	 */
 	function iis_set_dir_security(int $server_instance, string $virtual_path, int $directory_flags): int {}
@@ -127,7 +127,7 @@ namespace {
 	 * @param string $engine_path
 	 * @param int $allow_scripting
 	 * @return int
-	 * @link http://php.net/manual/en/function.iis-set-script-map.php
+	 * @link https://php.net/manual/en/function.iis-set-script-map.php
 	 * @since PECL iisfunc SVN
 	 */
 	function iis_set_script_map(int $server_instance, string $virtual_path, string $script_extension, string $engine_path, int $allow_scripting): int {}
@@ -139,7 +139,7 @@ namespace {
 	 * @param string $virtual_path
 	 * @param int $directory_flags
 	 * @return int
-	 * @link http://php.net/manual/en/function.iis-set-server-rights.php
+	 * @link https://php.net/manual/en/function.iis-set-server-rights.php
 	 * @since PECL iisfunc SVN
 	 */
 	function iis_set_server_rights(int $server_instance, string $virtual_path, int $directory_flags): int {}
@@ -149,7 +149,7 @@ namespace {
 	 * <p>This function is currently not documented; only its argument list is available.</p>
 	 * @param int $server_instance
 	 * @return int
-	 * @link http://php.net/manual/en/function.iis-start-server.php
+	 * @link https://php.net/manual/en/function.iis-start-server.php
 	 * @since PECL iisfunc SVN
 	 */
 	function iis_start_server(int $server_instance): int {}
@@ -159,7 +159,7 @@ namespace {
 	 * <p>This function is currently not documented; only its argument list is available.</p>
 	 * @param string $service_id
 	 * @return int
-	 * @link http://php.net/manual/en/function.iis-start-service.php
+	 * @link https://php.net/manual/en/function.iis-start-service.php
 	 * @since PECL iisfunc SVN
 	 */
 	function iis_start_service(string $service_id): int {}
@@ -169,7 +169,7 @@ namespace {
 	 * <p>This function is currently not documented; only its argument list is available.</p>
 	 * @param int $server_instance
 	 * @return int
-	 * @link http://php.net/manual/en/function.iis-stop-server.php
+	 * @link https://php.net/manual/en/function.iis-stop-server.php
 	 * @since PECL iisfunc SVN
 	 */
 	function iis_stop_server(int $server_instance): int {}
@@ -179,7 +179,7 @@ namespace {
 	 * <p>This function is currently not documented; only its argument list is available.</p>
 	 * @param string $service_id
 	 * @return int
-	 * @link http://php.net/manual/en/function.iis-stop-service.php
+	 * @link https://php.net/manual/en/function.iis-stop-service.php
 	 * @since PECL iisfunc SVN
 	 */
 	function iis_stop_service(string $service_id): int {}

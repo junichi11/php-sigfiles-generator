@@ -9,7 +9,7 @@ namespace {
 	 * <p>This function is <i>EXPERIMENTAL</i>. The behaviour of this function, its name, and surrounding documentation may change without notice in a future release of PHP. This function should be used at your own risk.</p><p>This function is currently not documented; only its argument list is available.</p>
 	 * @param int $ch
 	 * @return int
-	 * @link http://php.net/manual/en/function.ncurses-addch.php
+	 * @link https://php.net/manual/en/function.ncurses-addch.php
 	 * @since PHP 4 >= 4.0.7, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
 	 */
 	function ncurses_addch(int $ch): int {}
@@ -20,7 +20,7 @@ namespace {
 	 * @param string $s
 	 * @param int $n
 	 * @return int
-	 * @link http://php.net/manual/en/function.ncurses-addchnstr.php
+	 * @link https://php.net/manual/en/function.ncurses-addchnstr.php
 	 * @since PHP 4 >= 4.2.0, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
 	 */
 	function ncurses_addchnstr(string $s, int $n): int {}
@@ -30,7 +30,7 @@ namespace {
 	 * <p>This function is <i>EXPERIMENTAL</i>. The behaviour of this function, its name, and surrounding documentation may change without notice in a future release of PHP. This function should be used at your own risk.</p><p>This function is currently not documented; only its argument list is available.</p>
 	 * @param string $s
 	 * @return int
-	 * @link http://php.net/manual/en/function.ncurses-addchstr.php
+	 * @link https://php.net/manual/en/function.ncurses-addchstr.php
 	 * @since PHP 4 >= 4.2.0, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
 	 */
 	function ncurses_addchstr(string $s): int {}
@@ -41,7 +41,7 @@ namespace {
 	 * @param string $s
 	 * @param int $n
 	 * @return int
-	 * @link http://php.net/manual/en/function.ncurses-addnstr.php
+	 * @link https://php.net/manual/en/function.ncurses-addnstr.php
 	 * @since PHP 4 >= 4.2.0, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
 	 */
 	function ncurses_addnstr(string $s, int $n): int {}
@@ -51,7 +51,7 @@ namespace {
 	 * <p>This function is <i>EXPERIMENTAL</i>. The behaviour of this function, its name, and surrounding documentation may change without notice in a future release of PHP. This function should be used at your own risk.</p><p>This function is currently not documented; only its argument list is available.</p>
 	 * @param string $text
 	 * @return int
-	 * @link http://php.net/manual/en/function.ncurses-addstr.php
+	 * @link https://php.net/manual/en/function.ncurses-addstr.php
 	 * @since PHP 4 >= 4.2.0, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
 	 */
 	function ncurses_addstr(string $text): int {}
@@ -62,7 +62,7 @@ namespace {
 	 * @param int $fg
 	 * @param int $bg
 	 * @return int
-	 * @link http://php.net/manual/en/function.ncurses-assume-default-colors.php
+	 * @link https://php.net/manual/en/function.ncurses-assume-default-colors.php
 	 * @since PHP 4 >= 4.2.0, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
 	 */
 	function ncurses_assume_default_colors(int $fg, int $bg): int {}
@@ -72,7 +72,7 @@ namespace {
 	 * <p>This function is <i>EXPERIMENTAL</i>. The behaviour of this function, its name, and surrounding documentation may change without notice in a future release of PHP. This function should be used at your own risk.</p><p>This function is currently not documented; only its argument list is available.</p>
 	 * @param int $attributes
 	 * @return int
-	 * @link http://php.net/manual/en/function.ncurses-attroff.php
+	 * @link https://php.net/manual/en/function.ncurses-attroff.php
 	 * @since PHP 4 >= 4.0.7, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
 	 */
 	function ncurses_attroff(int $attributes): int {}
@@ -82,7 +82,7 @@ namespace {
 	 * <p>This function is <i>EXPERIMENTAL</i>. The behaviour of this function, its name, and surrounding documentation may change without notice in a future release of PHP. This function should be used at your own risk.</p><p>This function is currently not documented; only its argument list is available.</p>
 	 * @param int $attributes
 	 * @return int
-	 * @link http://php.net/manual/en/function.ncurses-attron.php
+	 * @link https://php.net/manual/en/function.ncurses-attron.php
 	 * @since PHP 4 >= 4.0.7, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
 	 */
 	function ncurses_attron(int $attributes): int {}
@@ -92,7 +92,7 @@ namespace {
 	 * <p>This function is <i>EXPERIMENTAL</i>. The behaviour of this function, its name, and surrounding documentation may change without notice in a future release of PHP. This function should be used at your own risk.</p><p>This function is currently not documented; only its argument list is available.</p>
 	 * @param int $attributes
 	 * @return int
-	 * @link http://php.net/manual/en/function.ncurses-attrset.php
+	 * @link https://php.net/manual/en/function.ncurses-attrset.php
 	 * @since PHP 4 >= 4.0.7, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
 	 */
 	function ncurses_attrset(int $attributes): int {}
@@ -101,7 +101,7 @@ namespace {
 	 * Returns baudrate of terminal
 	 * <p>This function is <i>EXPERIMENTAL</i>. The behaviour of this function, its name, and surrounding documentation may change without notice in a future release of PHP. This function should be used at your own risk.</p><p>This function is currently not documented; only its argument list is available.</p>
 	 * @return int
-	 * @link http://php.net/manual/en/function.ncurses-baudrate.php
+	 * @link https://php.net/manual/en/function.ncurses-baudrate.php
 	 * @since PHP 4 >= 4.0.7, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
 	 */
 	function ncurses_baudrate(): int {}
@@ -110,7 +110,7 @@ namespace {
 	 * Let the terminal beep
 	 * <p>This function is <i>EXPERIMENTAL</i>. The behaviour of this function, its name, and surrounding documentation may change without notice in a future release of PHP. This function should be used at your own risk.</p><p><b>ncurses_beep()</b> sends an audible alert (bell) and if its not possible flashes the screen.</p>
 	 * @return int
-	 * @link http://php.net/manual/en/function.ncurses-beep.php
+	 * @link https://php.net/manual/en/function.ncurses-beep.php
 	 * @see ncurses_flash()
 	 * @since PHP 4 >= 4.0.7, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
 	 */
@@ -121,7 +121,7 @@ namespace {
 	 * <p>This function is <i>EXPERIMENTAL</i>. The behaviour of this function, its name, and surrounding documentation may change without notice in a future release of PHP. This function should be used at your own risk.</p><p>This function is currently not documented; only its argument list is available.</p>
 	 * @param int $attrchar
 	 * @return int
-	 * @link http://php.net/manual/en/function.ncurses-bkgd.php
+	 * @link https://php.net/manual/en/function.ncurses-bkgd.php
 	 * @since PHP 4 >= 4.0.7, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
 	 */
 	function ncurses_bkgd(int $attrchar): int {}
@@ -131,7 +131,7 @@ namespace {
 	 * <p>This function is <i>EXPERIMENTAL</i>. The behaviour of this function, its name, and surrounding documentation may change without notice in a future release of PHP. This function should be used at your own risk.</p><p>This function is currently not documented; only its argument list is available.</p>
 	 * @param int $attrchar
 	 * @return void
-	 * @link http://php.net/manual/en/function.ncurses-bkgdset.php
+	 * @link https://php.net/manual/en/function.ncurses-bkgdset.php
 	 * @since PHP 4 >= 4.0.7, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
 	 */
 	function ncurses_bkgdset(int $attrchar): void {}
@@ -148,7 +148,7 @@ namespace {
 	 * @param int $bl_corner <p>Bottom left corner</p>
 	 * @param int $br_corner <p>Bottom right corner</p>
 	 * @return int
-	 * @link http://php.net/manual/en/function.ncurses-border.php
+	 * @link https://php.net/manual/en/function.ncurses-border.php
 	 * @see ncurses_wborder()
 	 * @since PHP 4 >= 4.2.0, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
 	 */
@@ -159,7 +159,7 @@ namespace {
 	 * <p>This function is currently not documented; only its argument list is available.</p>
 	 * @param resource $panel
 	 * @return int
-	 * @link http://php.net/manual/en/function.ncurses-bottom-panel.php
+	 * @link https://php.net/manual/en/function.ncurses-bottom-panel.php
 	 * @since PHP 4 >= 4.3.0, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
 	 */
 	function ncurses_bottom_panel($panel): int {}
@@ -168,7 +168,7 @@ namespace {
 	 * Checks if terminal color definitions can be changed
 	 * <p>Checks whether the terminal has color capabilities and whether the programmer can change color definitions using <code>ncurses_init_color()</code>. ncurses must be initialized using <code>ncurses_init()</code> before calling this function.</p>
 	 * @return bool <p>Return <b><code>TRUE</code></b> if the programmer can change color definitions, <b><code>FALSE</code></b> otherwise.</p>
-	 * @link http://php.net/manual/en/function.ncurses-can-change-color.php
+	 * @link https://php.net/manual/en/function.ncurses-can-change-color.php
 	 * @see ncurses_has_colors(), ncurses_init_color(), ncurses_start_color()
 	 * @since PHP 4 >= 4.0.7, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
 	 */
@@ -178,7 +178,7 @@ namespace {
 	 * Switch off input buffering
 	 * <p>This function is <i>EXPERIMENTAL</i>. The behaviour of this function, its name, and surrounding documentation may change without notice in a future release of PHP. This function should be used at your own risk.</p><p>Disables line buffering and character processing (interrupt and flow control characters are unaffected), making characters typed by the user immediately available to the program.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> or <b><code>NCURSES_ERR</code></b> if any error occurred.</p>
-	 * @link http://php.net/manual/en/function.ncurses-cbreak.php
+	 * @link https://php.net/manual/en/function.ncurses-cbreak.php
 	 * @see ncurses_nocbreak()
 	 * @since PHP 4 >= 4.0.7, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
 	 */
@@ -188,7 +188,7 @@ namespace {
 	 * Clear screen
 	 * <p>This function is <i>EXPERIMENTAL</i>. The behaviour of this function, its name, and surrounding documentation may change without notice in a future release of PHP. This function should be used at your own risk.</p><p>Clears the screen completely without setting blanks.</p><p>Note: <b>ncurses_clear()</b> clears the screen without setting blanks, which have the current background rendition. To clear screen with blanks, use <code>ncurses_erase()</code>.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.ncurses-clear.php
+	 * @link https://php.net/manual/en/function.ncurses-clear.php
 	 * @see ncurses_erase()
 	 * @since PHP 4 >= 4.0.7, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
 	 */
@@ -198,7 +198,7 @@ namespace {
 	 * Clear screen from current position to bottom
 	 * <p>This function is <i>EXPERIMENTAL</i>. The behaviour of this function, its name, and surrounding documentation may change without notice in a future release of PHP. This function should be used at your own risk.</p><p>Erases all lines from cursor to end of screen and creates blanks. Blanks created by <b>ncurses_clrtobot()</b> have the current background rendition.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.ncurses-clrtobot.php
+	 * @link https://php.net/manual/en/function.ncurses-clrtobot.php
 	 * @see ncurses_clear(), ncurses_clrtoeol()
 	 * @since PHP 4 >= 4.0.7, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
 	 */
@@ -208,7 +208,7 @@ namespace {
 	 * Clear screen from current position to end of line
 	 * <p>This function is <i>EXPERIMENTAL</i>. The behaviour of this function, its name, and surrounding documentation may change without notice in a future release of PHP. This function should be used at your own risk.</p><p>Erases the current line from cursor position to the end. Blanks created by <b>ncurses_clrtoeol()</b> have the current background rendition.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.ncurses-clrtoeol.php
+	 * @link https://php.net/manual/en/function.ncurses-clrtoeol.php
 	 * @see ncurses_clear(), ncurses_clrtobot()
 	 * @since PHP 4 >= 4.0.7, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
 	 */
@@ -222,7 +222,7 @@ namespace {
 	 * @param int $g <p>A reference to which to return the green component of the color. The value returned to the reference will be between 0 and 1000.</p>
 	 * @param int $b <p>A reference to which to return the blue component of the color. The value returned to the reference will be between 0 and 1000.</p>
 	 * @return int <p>Returns <code>-1</code> if the function was successful, and <code>0</code> if ncurses or terminal color capabilities have not been initialized.</p>
-	 * @link http://php.net/manual/en/function.ncurses-color-content.php
+	 * @link https://php.net/manual/en/function.ncurses-color-content.php
 	 * @see ncurses_init_color(), ncurses_start_color()
 	 * @since PHP 4 >= 4.3.0, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
 	 */
@@ -233,7 +233,7 @@ namespace {
 	 * <p>Sets the active foreground and background colors. Any characters written after this function is invoked will have these colors. This function requires terminal colors to be supported and initialized using <code>ncurses_start_color()</code> beforehand.</p><p>ncurses uses color pairs to specify both foreground and background colors. Use <code>ncurses_init_pair()</code> to define a color pair.</p>
 	 * @param int $pair <p>The color pair from which to get the foreground and background colors to set as the active colors.</p>
 	 * @return int <p>Returns <code>-1</code> on success, and <code>0</code> on failure.</p>
-	 * @link http://php.net/manual/en/function.ncurses-color-set.php
+	 * @link https://php.net/manual/en/function.ncurses-color-set.php
 	 * @see ncurses_init_pair(), ncurses_start_color()
 	 * @since PHP 4 >= 4.0.7, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
 	 */
@@ -244,7 +244,7 @@ namespace {
 	 * <p>This function is <i>EXPERIMENTAL</i>. The behaviour of this function, its name, and surrounding documentation may change without notice in a future release of PHP. This function should be used at your own risk.</p><p>This function is currently not documented; only its argument list is available.</p>
 	 * @param int $visibility
 	 * @return int
-	 * @link http://php.net/manual/en/function.ncurses-curs-set.php
+	 * @link https://php.net/manual/en/function.ncurses-curs-set.php
 	 * @since PHP 4 >= 4.0.7, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
 	 */
 	function ncurses_curs_set(int $visibility): int {}
@@ -253,7 +253,7 @@ namespace {
 	 * Saves terminals (program) mode
 	 * <p>This function is <i>EXPERIMENTAL</i>. The behaviour of this function, its name, and surrounding documentation may change without notice in a future release of PHP. This function should be used at your own risk.</p><p>Saves the current terminal modes for program (in curses) for use by <code>ncurses_reset_prog_mode()</code>.</p>
 	 * @return bool <p>Returns <b><code>FALSE</code></b> on success, otherwise <b><code>TRUE</code></b>.</p>
-	 * @link http://php.net/manual/en/function.ncurses-def-prog-mode.php
+	 * @link https://php.net/manual/en/function.ncurses-def-prog-mode.php
 	 * @see ncurses_reset_prog_mode()
 	 * @since PHP 4 >= 4.0.7, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
 	 */
@@ -263,7 +263,7 @@ namespace {
 	 * Saves terminals (shell) mode
 	 * <p>This function is <i>EXPERIMENTAL</i>. The behaviour of this function, its name, and surrounding documentation may change without notice in a future release of PHP. This function should be used at your own risk.</p><p>Saves the current terminal modes for shell (not in curses) for use by <code>ncurses_reset_shell_mode()</code>.</p>
 	 * @return bool <p>Returns <b><code>FALSE</code></b> on success, <b><code>TRUE</code></b> otherwise.</p>
-	 * @link http://php.net/manual/en/function.ncurses-def-shell-mode.php
+	 * @link https://php.net/manual/en/function.ncurses-def-shell-mode.php
 	 * @see ncurses_reset_shell_mode()
 	 * @since PHP 4 >= 4.0.7, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
 	 */
@@ -275,7 +275,7 @@ namespace {
 	 * @param string $definition
 	 * @param int $keycode
 	 * @return int
-	 * @link http://php.net/manual/en/function.ncurses-define-key.php
+	 * @link https://php.net/manual/en/function.ncurses-define-key.php
 	 * @since PHP 4 >= 4.2.0, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
 	 */
 	function ncurses_define_key(string $definition, int $keycode): int {}
@@ -285,7 +285,7 @@ namespace {
 	 * <p>This function is currently not documented; only its argument list is available.</p>
 	 * @param resource $panel
 	 * @return bool
-	 * @link http://php.net/manual/en/function.ncurses-del-panel.php
+	 * @link https://php.net/manual/en/function.ncurses-del-panel.php
 	 * @since PHP 4 >= 4.3.0, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
 	 */
 	function ncurses_del_panel($panel): bool {}
@@ -295,7 +295,7 @@ namespace {
 	 * <p>This function is <i>EXPERIMENTAL</i>. The behaviour of this function, its name, and surrounding documentation may change without notice in a future release of PHP. This function should be used at your own risk.</p><p>This function is currently not documented; only its argument list is available.</p>
 	 * @param int $milliseconds
 	 * @return int
-	 * @link http://php.net/manual/en/function.ncurses-delay-output.php
+	 * @link https://php.net/manual/en/function.ncurses-delay-output.php
 	 * @since PHP 4 >= 4.0.7, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
 	 */
 	function ncurses_delay_output(int $milliseconds): int {}
@@ -304,7 +304,7 @@ namespace {
 	 * Delete character at current position, move rest of line left
 	 * <p>This function is <i>EXPERIMENTAL</i>. The behaviour of this function, its name, and surrounding documentation may change without notice in a future release of PHP. This function should be used at your own risk.</p><p>Deletes the character under the cursor. All characters to the right of the cursor on the same line are moved to the left one position and the last character on the line is filled with a blank. The cursor position does not change.</p>
 	 * @return bool <p>Returns <b><code>FALSE</code></b> on success, <b><code>TRUE</code></b> otherwise.</p>
-	 * @link http://php.net/manual/en/function.ncurses-delch.php
+	 * @link https://php.net/manual/en/function.ncurses-delch.php
 	 * @see ncurses_deleteln()
 	 * @since PHP 4 >= 4.0.7, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
 	 */
@@ -314,7 +314,7 @@ namespace {
 	 * Delete line at current position, move rest of screen up
 	 * <p>This function is <i>EXPERIMENTAL</i>. The behaviour of this function, its name, and surrounding documentation may change without notice in a future release of PHP. This function should be used at your own risk.</p><p>Deletes the current line under cursor position. All lines below the current line are moved up one line. The bottom line of window is cleared. Cursor position does not change.</p>
 	 * @return bool <p>Returns <b><code>FALSE</code></b> on success, otherwise <b><code>TRUE</code></b>.</p>
-	 * @link http://php.net/manual/en/function.ncurses-deleteln.php
+	 * @link https://php.net/manual/en/function.ncurses-deleteln.php
 	 * @see ncurses_delch()
 	 * @since PHP 4 >= 4.0.7, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
 	 */
@@ -325,7 +325,7 @@ namespace {
 	 * <p>This function is <i>EXPERIMENTAL</i>. The behaviour of this function, its name, and surrounding documentation may change without notice in a future release of PHP. This function should be used at your own risk.</p><p>This function is currently not documented; only its argument list is available.</p>
 	 * @param resource $window
 	 * @return bool
-	 * @link http://php.net/manual/en/function.ncurses-delwin.php
+	 * @link https://php.net/manual/en/function.ncurses-delwin.php
 	 * @since PHP 4 >= 4.0.7, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
 	 */
 	function ncurses_delwin($window): bool {}
@@ -334,7 +334,7 @@ namespace {
 	 * Write all prepared refreshes to terminal
 	 * <p>This function is <i>EXPERIMENTAL</i>. The behaviour of this function, its name, and surrounding documentation may change without notice in a future release of PHP. This function should be used at your own risk.</p><p>Compares the virtual screen to the physical screen and updates the physical screen. This way is more effective than using multiple refresh calls.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.ncurses-doupdate.php
+	 * @link https://php.net/manual/en/function.ncurses-doupdate.php
 	 * @since PHP 4 >= 4.0.7, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
 	 */
 	function ncurses_doupdate(): bool {}
@@ -343,7 +343,7 @@ namespace {
 	 * Activate keyboard input echo
 	 * <p>This function is <i>EXPERIMENTAL</i>. The behaviour of this function, its name, and surrounding documentation may change without notice in a future release of PHP. This function should be used at your own risk.</p><p>Enables echo mode. All characters typed by user are echoed by <code>ncurses_getch()</code>.</p>
 	 * @return bool <p>Returns <b><code>FALSE</code></b> on success, <b><code>TRUE</code></b> if any error occurred.</p>
-	 * @link http://php.net/manual/en/function.ncurses-echo.php
+	 * @link https://php.net/manual/en/function.ncurses-echo.php
 	 * @see ncurses_noecho()
 	 * @since PHP 4 >= 4.0.7, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
 	 */
@@ -354,7 +354,7 @@ namespace {
 	 * <p>This function is <i>EXPERIMENTAL</i>. The behaviour of this function, its name, and surrounding documentation may change without notice in a future release of PHP. This function should be used at your own risk.</p><p>This function is currently not documented; only its argument list is available.</p>
 	 * @param int $character
 	 * @return int
-	 * @link http://php.net/manual/en/function.ncurses-echochar.php
+	 * @link https://php.net/manual/en/function.ncurses-echochar.php
 	 * @since PHP 4 >= 4.0.7, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
 	 */
 	function ncurses_echochar(int $character): int {}
@@ -363,7 +363,7 @@ namespace {
 	 * Stop using ncurses, clean up the screen
 	 * <p>This function is <i>EXPERIMENTAL</i>. The behaviour of this function, its name, and surrounding documentation may change without notice in a future release of PHP. This function should be used at your own risk.</p><p>This function is currently not documented; only its argument list is available.</p>
 	 * @return int
-	 * @link http://php.net/manual/en/function.ncurses-end.php
+	 * @link https://php.net/manual/en/function.ncurses-end.php
 	 * @since PHP 4 >= 4.0.7, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
 	 */
 	function ncurses_end(): int {}
@@ -372,7 +372,7 @@ namespace {
 	 * Erase terminal screen
 	 * <p>This function is <i>EXPERIMENTAL</i>. The behaviour of this function, its name, and surrounding documentation may change without notice in a future release of PHP. This function should be used at your own risk.</p><p>Fills the terminal screen with blanks.</p><p>Created blanks have the current background rendition, set by <code>ncurses_bkgd()</code>.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.ncurses-erase.php
+	 * @link https://php.net/manual/en/function.ncurses-erase.php
 	 * @see ncurses_bkgd(), ncurses_clear()
 	 * @since PHP 4 >= 4.0.7, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
 	 */
@@ -382,7 +382,7 @@ namespace {
 	 * Returns current erase character
 	 * <p>This function is <i>EXPERIMENTAL</i>. The behaviour of this function, its name, and surrounding documentation may change without notice in a future release of PHP. This function should be used at your own risk.</p><p>Returns the current erase character.</p>
 	 * @return string <p>The current erase char, as a string.</p>
-	 * @link http://php.net/manual/en/function.ncurses-erasechar.php
+	 * @link https://php.net/manual/en/function.ncurses-erasechar.php
 	 * @see ncurses_killchar()
 	 * @since PHP 4 >= 4.0.7, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
 	 */
@@ -392,7 +392,7 @@ namespace {
 	 * Set LINES for iniscr() and newterm() to 1
 	 * <p>This function is <i>EXPERIMENTAL</i>. The behaviour of this function, its name, and surrounding documentation may change without notice in a future release of PHP. This function should be used at your own risk.</p><p>This function is currently not documented; only its argument list is available.</p>
 	 * @return void
-	 * @link http://php.net/manual/en/function.ncurses-filter.php
+	 * @link https://php.net/manual/en/function.ncurses-filter.php
 	 * @since PHP 4 >= 4.0.7, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
 	 */
 	function ncurses_filter(): void {}
@@ -401,7 +401,7 @@ namespace {
 	 * Flash terminal screen (visual bell)
 	 * <p>This function is <i>EXPERIMENTAL</i>. The behaviour of this function, its name, and surrounding documentation may change without notice in a future release of PHP. This function should be used at your own risk.</p><p>Flashes the screen, and if its not possible, sends an audible alert (bell).</p>
 	 * @return bool <p>Returns <b><code>FALSE</code></b> on success, otherwise <b><code>TRUE</code></b>.</p>
-	 * @link http://php.net/manual/en/function.ncurses-flash.php
+	 * @link https://php.net/manual/en/function.ncurses-flash.php
 	 * @see ncurses_beep()
 	 * @since PHP 4 >= 4.0.7, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
 	 */
@@ -411,7 +411,7 @@ namespace {
 	 * Flush keyboard input buffer
 	 * <p>This function is <i>EXPERIMENTAL</i>. The behaviour of this function, its name, and surrounding documentation may change without notice in a future release of PHP. This function should be used at your own risk.</p><p>Throws away any typeahead that has been typed and has not yet been read by your program.</p>
 	 * @return bool <p>Returns <b><code>FALSE</code></b> on success, otherwise <b><code>TRUE</code></b>.</p>
-	 * @link http://php.net/manual/en/function.ncurses-flushinp.php
+	 * @link https://php.net/manual/en/function.ncurses-flushinp.php
 	 * @since PHP 4 >= 4.0.7, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
 	 */
 	function ncurses_flushinp(): bool {}
@@ -420,7 +420,7 @@ namespace {
 	 * Read a character from keyboard
 	 * <p>This function is <i>EXPERIMENTAL</i>. The behaviour of this function, its name, and surrounding documentation may change without notice in a future release of PHP. This function should be used at your own risk.</p><p>This function is currently not documented; only its argument list is available.</p>
 	 * @return int
-	 * @link http://php.net/manual/en/function.ncurses-getch.php
+	 * @link https://php.net/manual/en/function.ncurses-getch.php
 	 * @since PHP 4 >= 4.0.7, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
 	 */
 	function ncurses_getch(): int {}
@@ -432,7 +432,7 @@ namespace {
 	 * @param int $y <p>This will be set to the window height</p>
 	 * @param int $x <p>This will be set to the window width</p>
 	 * @return void <p>No value is returned.</p>
-	 * @link http://php.net/manual/en/function.ncurses-getmaxyx.php
+	 * @link https://php.net/manual/en/function.ncurses-getmaxyx.php
 	 * @since PHP 4 >= 4.3.0, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
 	 */
 	function ncurses_getmaxyx($window, int &$y, int &$x): void {}
@@ -442,7 +442,7 @@ namespace {
 	 * <p>This function is <i>EXPERIMENTAL</i>. The behaviour of this function, its name, and surrounding documentation may change without notice in a future release of PHP. This function should be used at your own risk.</p><p><b>ncurses_getmouse()</b> reads mouse event out of queue.</p>
 	 * @param array $mevent <p>Event options will be delivered in this parameter which has to be an array, passed by reference (see example below).</p> <p>On success an associative array with following keys will be delivered:</p><ul> <li> <p>"id" : Id to distinguish multiple devices</p> </li> <li> <p>"x" : screen relative x-position in character cells</p> </li> <li> <p>"y" : screen relative y-position in character cells</p> </li> <li> <p>"z" : currently not supported</p> </li> <li> <p>"mmask" : Mouse action</p> </li> </ul>
 	 * @return bool <p>Returns <b><code>FALSE</code></b> if a mouse event is actually visible in the given window, otherwise returns <b><code>TRUE</code></b>.</p>
-	 * @link http://php.net/manual/en/function.ncurses-getmouse.php
+	 * @link https://php.net/manual/en/function.ncurses-getmouse.php
 	 * @see ncurses_ungetmouse()
 	 * @since PHP 4 >= 4.2.0, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
 	 */
@@ -455,7 +455,7 @@ namespace {
 	 * @param int $y
 	 * @param int $x
 	 * @return void
-	 * @link http://php.net/manual/en/function.ncurses-getyx.php
+	 * @link https://php.net/manual/en/function.ncurses-getyx.php
 	 * @since PHP 4 >= 4.3.0, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
 	 */
 	function ncurses_getyx($window, int &$y, int &$x): void {}
@@ -465,7 +465,7 @@ namespace {
 	 * <p>This function is <i>EXPERIMENTAL</i>. The behaviour of this function, its name, and surrounding documentation may change without notice in a future release of PHP. This function should be used at your own risk.</p><p>This function is currently not documented; only its argument list is available.</p>
 	 * @param int $tenth
 	 * @return int
-	 * @link http://php.net/manual/en/function.ncurses-halfdelay.php
+	 * @link https://php.net/manual/en/function.ncurses-halfdelay.php
 	 * @since PHP 4 >= 4.0.7, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
 	 */
 	function ncurses_halfdelay(int $tenth): int {}
@@ -474,7 +474,7 @@ namespace {
 	 * Checks if terminal has color capabilities
 	 * <p>Checks whether the terminal has color capabilities. This function can be used to write terminal-independent programs. ncurses must be initialized using <code>ncurses_init()</code> before calling this function.</p>
 	 * @return bool <p>Return <b><code>TRUE</code></b> if the terminal has color capabilities, <b><code>FALSE</code></b> otherwise.</p>
-	 * @link http://php.net/manual/en/function.ncurses-has-colors.php
+	 * @link https://php.net/manual/en/function.ncurses-has-colors.php
 	 * @see ncurses_can_change_color(), ncurses_start_color()
 	 * @since PHP 4 >= 4.0.7, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
 	 */
@@ -484,7 +484,7 @@ namespace {
 	 * Check for insert- and delete-capabilities
 	 * <p>This function is <i>EXPERIMENTAL</i>. The behaviour of this function, its name, and surrounding documentation may change without notice in a future release of PHP. This function should be used at your own risk.</p><p>Checks whether the terminal has insert and delete capabilities.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> if the terminal has insert/delete-capabilities, <b><code>FALSE</code></b> otherwise.</p>
-	 * @link http://php.net/manual/en/function.ncurses-has-ic.php
+	 * @link https://php.net/manual/en/function.ncurses-has-ic.php
 	 * @see ncurses_has_il()
 	 * @since PHP 4 >= 4.0.7, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
 	 */
@@ -494,7 +494,7 @@ namespace {
 	 * Check for line insert- and delete-capabilities
 	 * <p>This function is <i>EXPERIMENTAL</i>. The behaviour of this function, its name, and surrounding documentation may change without notice in a future release of PHP. This function should be used at your own risk.</p><p>Checks whether the terminal has insert- and delete-line-capabilities.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> if the terminal has insert/delete-line capabilities, <b><code>FALSE</code></b> otherwise.</p>
-	 * @link http://php.net/manual/en/function.ncurses-has-il.php
+	 * @link https://php.net/manual/en/function.ncurses-has-il.php
 	 * @see ncurses_has_ic()
 	 * @since PHP 4 >= 4.0.7, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
 	 */
@@ -505,7 +505,7 @@ namespace {
 	 * <p>This function is <i>EXPERIMENTAL</i>. The behaviour of this function, its name, and surrounding documentation may change without notice in a future release of PHP. This function should be used at your own risk.</p><p>This function is currently not documented; only its argument list is available.</p>
 	 * @param int $keycode
 	 * @return int
-	 * @link http://php.net/manual/en/function.ncurses-has-key.php
+	 * @link https://php.net/manual/en/function.ncurses-has-key.php
 	 * @since PHP 4 >= 4.0.7, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
 	 */
 	function ncurses_has_key(int $keycode): int {}
@@ -515,7 +515,7 @@ namespace {
 	 * <p>This function is currently not documented; only its argument list is available.</p>
 	 * @param resource $panel
 	 * @return int
-	 * @link http://php.net/manual/en/function.ncurses-hide-panel.php
+	 * @link https://php.net/manual/en/function.ncurses-hide-panel.php
 	 * @since PHP 4 >= 4.3.0, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
 	 */
 	function ncurses_hide_panel($panel): int {}
@@ -526,7 +526,7 @@ namespace {
 	 * @param int $charattr
 	 * @param int $n
 	 * @return int
-	 * @link http://php.net/manual/en/function.ncurses-hline.php
+	 * @link https://php.net/manual/en/function.ncurses-hline.php
 	 * @since PHP 4 >= 4.2.0, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
 	 */
 	function ncurses_hline(int $charattr, int $n): int {}
@@ -535,7 +535,7 @@ namespace {
 	 * Get character and attribute at current position
 	 * <p>This function is <i>EXPERIMENTAL</i>. The behaviour of this function, its name, and surrounding documentation may change without notice in a future release of PHP. This function should be used at your own risk.</p><p>Returns the character from the current position.</p>
 	 * @return string <p>Returns the character, as a string.</p>
-	 * @link http://php.net/manual/en/function.ncurses-inch.php
+	 * @link https://php.net/manual/en/function.ncurses-inch.php
 	 * @since PHP 4 >= 4.0.7, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
 	 */
 	function ncurses_inch(): string {}
@@ -544,7 +544,7 @@ namespace {
 	 * Initialize ncurses
 	 * <p>Initializes the ncurses interface. This function must be used before any other ncurses function call.</p><p>Note that <code>ncurses_end()</code> must be called before exiting from the program, or the terminal will not be restored to its proper non-visual mode.</p>
 	 * @return void <p>No value is returned.</p>
-	 * @link http://php.net/manual/en/function.ncurses-init.php
+	 * @link https://php.net/manual/en/function.ncurses-init.php
 	 * @see ncurses_end()
 	 * @since PHP 4 >= 4.0.7, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
 	 */
@@ -558,7 +558,7 @@ namespace {
 	 * @param int $g <p>A color value, between 0 and 1000, for the green component.</p>
 	 * @param int $b <p>A color value, between 0 and 1000, for the blue component.</p>
 	 * @return int <p>Returns <code>-1</code> if the function was successful, and <code>0</code> if ncurses or terminal color capabilities have not been initialized or the terminal does not have color changing capabilities.</p>
-	 * @link http://php.net/manual/en/function.ncurses-init-color.php
+	 * @link https://php.net/manual/en/function.ncurses-init-color.php
 	 * @see ncurses_color_content(), ncurses_start_color()
 	 * @since PHP 4 >= 4.2.0, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
 	 */
@@ -571,7 +571,7 @@ namespace {
 	 * @param int $fg <p>The foreground color for the color pair. May be one of the pre-defined colors or one defined by <code>ncurses_init_color()</code> if the terminal has color changing capabilities.</p>
 	 * @param int $bg <p>The background color for the color pair. May be one of the pre-defined colors or one defined by <code>ncurses_init_color()</code> if the terminal has color changing capabilities.</p>
 	 * @return int <p>Returns <code>-1</code> if the function was successful, and <code>0</code> if ncurses or color support were not initialized.</p>
-	 * @link http://php.net/manual/en/function.ncurses-init-pair.php
+	 * @link https://php.net/manual/en/function.ncurses-init-pair.php
 	 * @see ncurses_pair_content(), ncurses_start_color()
 	 * @since PHP 4 >= 4.0.7, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
 	 */
@@ -582,7 +582,7 @@ namespace {
 	 * <p>This function is <i>EXPERIMENTAL</i>. The behaviour of this function, its name, and surrounding documentation may change without notice in a future release of PHP. This function should be used at your own risk.</p><p>This function is currently not documented; only its argument list is available.</p>
 	 * @param int $character
 	 * @return int
-	 * @link http://php.net/manual/en/function.ncurses-insch.php
+	 * @link https://php.net/manual/en/function.ncurses-insch.php
 	 * @since PHP 4 >= 4.0.7, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
 	 */
 	function ncurses_insch(int $character): int {}
@@ -592,7 +592,7 @@ namespace {
 	 * <p>This function is <i>EXPERIMENTAL</i>. The behaviour of this function, its name, and surrounding documentation may change without notice in a future release of PHP. This function should be used at your own risk.</p><p>This function is currently not documented; only its argument list is available.</p>
 	 * @param int $count
 	 * @return int
-	 * @link http://php.net/manual/en/function.ncurses-insdelln.php
+	 * @link https://php.net/manual/en/function.ncurses-insdelln.php
 	 * @since PHP 4 >= 4.0.7, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
 	 */
 	function ncurses_insdelln(int $count): int {}
@@ -601,7 +601,7 @@ namespace {
 	 * Insert a line, move rest of screen down
 	 * <p>This function is <i>EXPERIMENTAL</i>. The behaviour of this function, its name, and surrounding documentation may change without notice in a future release of PHP. This function should be used at your own risk.</p><p>Inserts a new line above the current line. The bottom line will be lost.</p>
 	 * @return int
-	 * @link http://php.net/manual/en/function.ncurses-insertln.php
+	 * @link https://php.net/manual/en/function.ncurses-insertln.php
 	 * @since PHP 4 >= 4.0.7, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
 	 */
 	function ncurses_insertln(): int {}
@@ -611,7 +611,7 @@ namespace {
 	 * <p>This function is <i>EXPERIMENTAL</i>. The behaviour of this function, its name, and surrounding documentation may change without notice in a future release of PHP. This function should be used at your own risk.</p><p>This function is currently not documented; only its argument list is available.</p>
 	 * @param string $text
 	 * @return int
-	 * @link http://php.net/manual/en/function.ncurses-insstr.php
+	 * @link https://php.net/manual/en/function.ncurses-insstr.php
 	 * @since PHP 4 >= 4.2.0, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
 	 */
 	function ncurses_insstr(string $text): int {}
@@ -621,7 +621,7 @@ namespace {
 	 * <p>This function is <i>EXPERIMENTAL</i>. The behaviour of this function, its name, and surrounding documentation may change without notice in a future release of PHP. This function should be used at your own risk.</p><p>Reads a string from the terminal screen and returns the number of characters read from the current character position until end of line.</p>
 	 * @param string $buffer <p>The characters. Attributes will be stripped.</p>
 	 * @return int <p>Returns the number of characters.</p>
-	 * @link http://php.net/manual/en/function.ncurses-instr.php
+	 * @link https://php.net/manual/en/function.ncurses-instr.php
 	 * @since PHP 4 >= 4.2.0, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
 	 */
 	function ncurses_instr(string &$buffer): int {}
@@ -630,7 +630,7 @@ namespace {
 	 * Ncurses is in endwin mode, normal screen output may be performed
 	 * <p>This function is <i>EXPERIMENTAL</i>. The behaviour of this function, its name, and surrounding documentation may change without notice in a future release of PHP. This function should be used at your own risk.</p><p>Checks if ncurses is in endwin mode.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b>, if <code>ncurses_end()</code> has been called without any subsequent calls to <code>ncurses_wrefresh()</code>, <b><code>FALSE</code></b> otherwise.</p>
-	 * @link http://php.net/manual/en/function.ncurses-isendwin.php
+	 * @link https://php.net/manual/en/function.ncurses-isendwin.php
 	 * @see ncurses_end(), ncurses_wrefresh()
 	 * @since PHP 4 >= 4.0.7, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
 	 */
@@ -642,7 +642,7 @@ namespace {
 	 * @param int $keycode
 	 * @param bool $enable
 	 * @return int
-	 * @link http://php.net/manual/en/function.ncurses-keyok.php
+	 * @link https://php.net/manual/en/function.ncurses-keyok.php
 	 * @since PHP 4 >= 4.2.0, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
 	 */
 	function ncurses_keyok(int $keycode, bool $enable): int {}
@@ -653,7 +653,7 @@ namespace {
 	 * @param resource $window
 	 * @param bool $bf
 	 * @return int
-	 * @link http://php.net/manual/en/function.ncurses-keypad.php
+	 * @link https://php.net/manual/en/function.ncurses-keypad.php
 	 * @since PHP 4 >= 4.2.0, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
 	 */
 	function ncurses_keypad($window, bool $bf): int {}
@@ -662,7 +662,7 @@ namespace {
 	 * Returns current line kill character
 	 * <p>This function is <i>EXPERIMENTAL</i>. The behaviour of this function, its name, and surrounding documentation may change without notice in a future release of PHP. This function should be used at your own risk.</p><p>Returns the current line kill character.</p>
 	 * @return string <p>Returns the kill character, as a string.</p>
-	 * @link http://php.net/manual/en/function.ncurses-killchar.php
+	 * @link https://php.net/manual/en/function.ncurses-killchar.php
 	 * @see ncurses_erasechar()
 	 * @since PHP 4 >= 4.0.7, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
 	 */
@@ -672,7 +672,7 @@ namespace {
 	 * Returns terminals description
 	 * <p>This function is <i>EXPERIMENTAL</i>. The behaviour of this function, its name, and surrounding documentation may change without notice in a future release of PHP. This function should be used at your own risk.</p><p>Returns a verbose description of the terminal.</p>
 	 * @return string <p>Returns the description, as a string truncated to 128 characters. On errors, returns <b><code>NULL</code></b>.</p>
-	 * @link http://php.net/manual/en/function.ncurses-longname.php
+	 * @link https://php.net/manual/en/function.ncurses-longname.php
 	 * @see ncurses_termname()
 	 * @since PHP 4 >= 4.2.0, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
 	 */
@@ -684,7 +684,7 @@ namespace {
 	 * @param resource $window
 	 * @param bool $_8bit
 	 * @return int
-	 * @link http://php.net/manual/en/function.ncurses-meta.php
+	 * @link https://php.net/manual/en/function.ncurses-meta.php
 	 * @since PHP 4 >= 4.3.0, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
 	 */
 	function ncurses_meta($window, bool $_8bit): int {}
@@ -696,7 +696,7 @@ namespace {
 	 * @param int $x
 	 * @param bool $toscreen
 	 * @return bool
-	 * @link http://php.net/manual/en/function.ncurses-mouse-trafo.php
+	 * @link https://php.net/manual/en/function.ncurses-mouse-trafo.php
 	 * @since PHP 4 >= 4.2.0, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
 	 */
 	function ncurses_mouse_trafo(int &$y, int &$x, bool $toscreen): bool {}
@@ -706,7 +706,7 @@ namespace {
 	 * <p>This function is <i>EXPERIMENTAL</i>. The behaviour of this function, its name, and surrounding documentation may change without notice in a future release of PHP. This function should be used at your own risk.</p><p>This function is currently not documented; only its argument list is available.</p>
 	 * @param int $milliseconds
 	 * @return int
-	 * @link http://php.net/manual/en/function.ncurses-mouseinterval.php
+	 * @link https://php.net/manual/en/function.ncurses-mouseinterval.php
 	 * @since PHP 4 >= 4.0.7, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
 	 */
 	function ncurses_mouseinterval(int $milliseconds): int {}
@@ -717,7 +717,7 @@ namespace {
 	 * @param int $newmask <p>Mouse mask options can be set with the following predefined constants:</p><ul> <li><p>NCURSES_BUTTON1_PRESSED</p></li> <li><p>NCURSES_BUTTON1_RELEASED</p></li> <li><p>NCURSES_BUTTON1_CLICKED</p></li> <li><p>NCURSES_BUTTON1_DOUBLE_CLICKED</p></li> <li><p>NCURSES_BUTTON1_TRIPLE_CLICKED</p></li> <li><p>NCURSES_BUTTON2_PRESSED</p></li> <li><p>NCURSES_BUTTON2_RELEASED</p></li> <li><p>NCURSES_BUTTON2_CLICKED</p></li> <li><p>NCURSES_BUTTON2_DOUBLE_CLICKED</p></li> <li><p>NCURSES_BUTTON2_TRIPLE_CLICKED</p></li> <li><p>NCURSES_BUTTON3_PRESSED</p></li> <li><p>NCURSES_BUTTON3_RELEASED</p></li> <li><p>NCURSES_BUTTON3_CLICKED</p></li> <li><p>NCURSES_BUTTON3_DOUBLE_CLICKED</p></li> <li><p>NCURSES_BUTTON3_TRIPLE_CLICKED</p></li> <li><p>NCURSES_BUTTON4_PRESSED</p></li> <li><p>NCURSES_BUTTON4_RELEASED</p></li> <li><p>NCURSES_BUTTON4_CLICKED</p></li> <li><p>NCURSES_BUTTON4_DOUBLE_CLICKED</p></li> <li><p>NCURSES_BUTTON4_TRIPLE_CLICKED</p></li> <li><p>NCURSES_BUTTON_SHIFT&gt;</p></li> <li><p>NCURSES_BUTTON_CTRL</p></li> <li><p>NCURSES_BUTTON_ALT</p></li> <li><p>NCURSES_ALL_MOUSE_EVENTS</p></li> <li><p>NCURSES_REPORT_MOUSE_POSITION</p></li> </ul> <p>As a side effect, setting a zero mousemask in <code>newmask</code> turns off the mouse pointer. Setting a non zero value turns mouse pointer on.</p>
 	 * @param int $oldmask <p>This will be set to the previous value of the mouse event mask.</p>
 	 * @return int <p>Returns the mask of reportable events. On complete failure, it returns <code>0</code>.</p>
-	 * @link http://php.net/manual/en/function.ncurses-mousemask.php
+	 * @link https://php.net/manual/en/function.ncurses-mousemask.php
 	 * @see ncurses_getch(), ncurses_getmouse(), ncurses_ungetmouse()
 	 * @since PHP 4 >= 4.2.0, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
 	 */
@@ -729,7 +729,7 @@ namespace {
 	 * @param int $y
 	 * @param int $x
 	 * @return int
-	 * @link http://php.net/manual/en/function.ncurses-move.php
+	 * @link https://php.net/manual/en/function.ncurses-move.php
 	 * @since PHP 4 >= 4.0.7, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
 	 */
 	function ncurses_move(int $y, int $x): int {}
@@ -741,7 +741,7 @@ namespace {
 	 * @param int $startx
 	 * @param int $starty
 	 * @return int
-	 * @link http://php.net/manual/en/function.ncurses-move-panel.php
+	 * @link https://php.net/manual/en/function.ncurses-move-panel.php
 	 * @since PHP 4 >= 4.3.0, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
 	 */
 	function ncurses_move_panel($panel, int $startx, int $starty): int {}
@@ -753,7 +753,7 @@ namespace {
 	 * @param int $x
 	 * @param int $c
 	 * @return int
-	 * @link http://php.net/manual/en/function.ncurses-mvaddch.php
+	 * @link https://php.net/manual/en/function.ncurses-mvaddch.php
 	 * @since PHP 4 >= 4.2.0, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
 	 */
 	function ncurses_mvaddch(int $y, int $x, int $c): int {}
@@ -766,7 +766,7 @@ namespace {
 	 * @param string $s
 	 * @param int $n
 	 * @return int
-	 * @link http://php.net/manual/en/function.ncurses-mvaddchnstr.php
+	 * @link https://php.net/manual/en/function.ncurses-mvaddchnstr.php
 	 * @since PHP 4 >= 4.2.0, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
 	 */
 	function ncurses_mvaddchnstr(int $y, int $x, string $s, int $n): int {}
@@ -778,7 +778,7 @@ namespace {
 	 * @param int $x
 	 * @param string $s
 	 * @return int
-	 * @link http://php.net/manual/en/function.ncurses-mvaddchstr.php
+	 * @link https://php.net/manual/en/function.ncurses-mvaddchstr.php
 	 * @since PHP 4 >= 4.2.0, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
 	 */
 	function ncurses_mvaddchstr(int $y, int $x, string $s): int {}
@@ -791,7 +791,7 @@ namespace {
 	 * @param string $s
 	 * @param int $n
 	 * @return int
-	 * @link http://php.net/manual/en/function.ncurses-mvaddnstr.php
+	 * @link https://php.net/manual/en/function.ncurses-mvaddnstr.php
 	 * @since PHP 4 >= 4.2.0, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
 	 */
 	function ncurses_mvaddnstr(int $y, int $x, string $s, int $n): int {}
@@ -803,7 +803,7 @@ namespace {
 	 * @param int $x
 	 * @param string $s
 	 * @return int
-	 * @link http://php.net/manual/en/function.ncurses-mvaddstr.php
+	 * @link https://php.net/manual/en/function.ncurses-mvaddstr.php
 	 * @since PHP 4 >= 4.2.0, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
 	 */
 	function ncurses_mvaddstr(int $y, int $x, string $s): int {}
@@ -816,7 +816,7 @@ namespace {
 	 * @param int $new_y
 	 * @param int $new_x
 	 * @return int
-	 * @link http://php.net/manual/en/function.ncurses-mvcur.php
+	 * @link https://php.net/manual/en/function.ncurses-mvcur.php
 	 * @since PHP 4 >= 4.2.0, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
 	 */
 	function ncurses_mvcur(int $old_y, int $old_x, int $new_y, int $new_x): int {}
@@ -827,7 +827,7 @@ namespace {
 	 * @param int $y
 	 * @param int $x
 	 * @return int
-	 * @link http://php.net/manual/en/function.ncurses-mvdelch.php
+	 * @link https://php.net/manual/en/function.ncurses-mvdelch.php
 	 * @since PHP 4 >= 4.2.0, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
 	 */
 	function ncurses_mvdelch(int $y, int $x): int {}
@@ -838,7 +838,7 @@ namespace {
 	 * @param int $y
 	 * @param int $x
 	 * @return int
-	 * @link http://php.net/manual/en/function.ncurses-mvgetch.php
+	 * @link https://php.net/manual/en/function.ncurses-mvgetch.php
 	 * @since PHP 4 >= 4.2.0, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
 	 */
 	function ncurses_mvgetch(int $y, int $x): int {}
@@ -851,7 +851,7 @@ namespace {
 	 * @param int $attrchar
 	 * @param int $n
 	 * @return int
-	 * @link http://php.net/manual/en/function.ncurses-mvhline.php
+	 * @link https://php.net/manual/en/function.ncurses-mvhline.php
 	 * @since PHP 4 >= 4.2.0, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
 	 */
 	function ncurses_mvhline(int $y, int $x, int $attrchar, int $n): int {}
@@ -862,7 +862,7 @@ namespace {
 	 * @param int $y
 	 * @param int $x
 	 * @return int
-	 * @link http://php.net/manual/en/function.ncurses-mvinch.php
+	 * @link https://php.net/manual/en/function.ncurses-mvinch.php
 	 * @since PHP 4 >= 4.2.0, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
 	 */
 	function ncurses_mvinch(int $y, int $x): int {}
@@ -875,7 +875,7 @@ namespace {
 	 * @param int $attrchar
 	 * @param int $n
 	 * @return int
-	 * @link http://php.net/manual/en/function.ncurses-mvvline.php
+	 * @link https://php.net/manual/en/function.ncurses-mvvline.php
 	 * @since PHP 4 >= 4.2.0, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
 	 */
 	function ncurses_mvvline(int $y, int $x, int $attrchar, int $n): int {}
@@ -888,7 +888,7 @@ namespace {
 	 * @param int $x
 	 * @param string $text
 	 * @return int
-	 * @link http://php.net/manual/en/function.ncurses-mvwaddstr.php
+	 * @link https://php.net/manual/en/function.ncurses-mvwaddstr.php
 	 * @since PHP 4 >= 4.2.0, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
 	 */
 	function ncurses_mvwaddstr($window, int $y, int $x, string $text): int {}
@@ -898,7 +898,7 @@ namespace {
 	 * <p>This function is <i>EXPERIMENTAL</i>. The behaviour of this function, its name, and surrounding documentation may change without notice in a future release of PHP. This function should be used at your own risk.</p><p>This function is currently not documented; only its argument list is available.</p>
 	 * @param int $milliseconds
 	 * @return int
-	 * @link http://php.net/manual/en/function.ncurses-napms.php
+	 * @link https://php.net/manual/en/function.ncurses-napms.php
 	 * @since PHP 4 >= 4.0.7, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
 	 */
 	function ncurses_napms(int $milliseconds): int {}
@@ -908,7 +908,7 @@ namespace {
 	 * <p>This function is currently not documented; only its argument list is available.</p>
 	 * @param resource $window
 	 * @return resource
-	 * @link http://php.net/manual/en/function.ncurses-new-panel.php
+	 * @link https://php.net/manual/en/function.ncurses-new-panel.php
 	 * @since PHP 4 >= 4.3.0, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
 	 */
 	function ncurses_new_panel($window) {}
@@ -919,7 +919,7 @@ namespace {
 	 * @param int $rows
 	 * @param int $cols
 	 * @return resource
-	 * @link http://php.net/manual/en/function.ncurses-newpad.php
+	 * @link https://php.net/manual/en/function.ncurses-newpad.php
 	 * @since PHP 4 >= 4.3.0, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
 	 */
 	function ncurses_newpad(int $rows, int $cols) {}
@@ -932,7 +932,7 @@ namespace {
 	 * @param int $y <p>y-coordinate of the origin</p>
 	 * @param int $x <p>x-coordinate of the origin</p>
 	 * @return resource <p>Returns a resource ID for the new window.</p>
-	 * @link http://php.net/manual/en/function.ncurses-newwin.php
+	 * @link https://php.net/manual/en/function.ncurses-newwin.php
 	 * @since PHP 4 >= 4.0.7, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
 	 */
 	function ncurses_newwin(int $rows, int $cols, int $y, int $x) {}
@@ -941,7 +941,7 @@ namespace {
 	 * Translate newline and carriage return / line feed
 	 * <p>This function is <i>EXPERIMENTAL</i>. The behaviour of this function, its name, and surrounding documentation may change without notice in a future release of PHP. This function should be used at your own risk.</p><p>This function is currently not documented; only its argument list is available.</p>
 	 * @return bool
-	 * @link http://php.net/manual/en/function.ncurses-nl.php
+	 * @link https://php.net/manual/en/function.ncurses-nl.php
 	 * @since PHP 4 >= 4.0.7, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
 	 */
 	function ncurses_nl(): bool {}
@@ -950,7 +950,7 @@ namespace {
 	 * Switch terminal to cooked mode
 	 * <p>This function is <i>EXPERIMENTAL</i>. The behaviour of this function, its name, and surrounding documentation may change without notice in a future release of PHP. This function should be used at your own risk.</p><p>Returns terminal to normal (cooked) mode. Initially the terminal may or may not be in cbreak mode as the mode is inherited. Therefore a program should call <code>ncurses_cbreak()</code> and <b>ncurses_nocbreak()</b> explicitly.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> if any error occurred, otherwise <b><code>FALSE</code></b>.</p>
-	 * @link http://php.net/manual/en/function.ncurses-nocbreak.php
+	 * @link https://php.net/manual/en/function.ncurses-nocbreak.php
 	 * @see ncurses_cbreak()
 	 * @since PHP 4 >= 4.0.7, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
 	 */
@@ -960,7 +960,7 @@ namespace {
 	 * Switch off keyboard input echo
 	 * <p>This function is <i>EXPERIMENTAL</i>. The behaviour of this function, its name, and surrounding documentation may change without notice in a future release of PHP. This function should be used at your own risk.</p><p>Prevents echoing of user typed characters.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> if any error occurred, <b><code>FALSE</code></b> otherwise.</p>
-	 * @link http://php.net/manual/en/function.ncurses-noecho.php
+	 * @link https://php.net/manual/en/function.ncurses-noecho.php
 	 * @see ncurses_echo(), ncurses_getch()
 	 * @since PHP 4 >= 4.0.7, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
 	 */
@@ -970,7 +970,7 @@ namespace {
 	 * Do not translate newline and carriage return / line feed
 	 * <p>This function is <i>EXPERIMENTAL</i>. The behaviour of this function, its name, and surrounding documentation may change without notice in a future release of PHP. This function should be used at your own risk.</p><p>This function is currently not documented; only its argument list is available.</p>
 	 * @return bool
-	 * @link http://php.net/manual/en/function.ncurses-nonl.php
+	 * @link https://php.net/manual/en/function.ncurses-nonl.php
 	 * @since PHP 4 >= 4.0.7, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
 	 */
 	function ncurses_nonl(): bool {}
@@ -979,7 +979,7 @@ namespace {
 	 * Do not flush on signal characters
 	 * <p>This function is <i>EXPERIMENTAL</i>. The behaviour of this function, its name, and surrounding documentation may change without notice in a future release of PHP. This function should be used at your own risk.</p><p>This function is currently not documented; only its argument list is available.</p>
 	 * @return void
-	 * @link http://php.net/manual/en/function.ncurses-noqiflush.php
+	 * @link https://php.net/manual/en/function.ncurses-noqiflush.php
 	 * @since PHP 4 >= 4.0.7, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
 	 */
 	function ncurses_noqiflush(): void {}
@@ -988,7 +988,7 @@ namespace {
 	 * Switch terminal out of raw mode
 	 * <p>This function is <i>EXPERIMENTAL</i>. The behaviour of this function, its name, and surrounding documentation may change without notice in a future release of PHP. This function should be used at your own risk.</p><p>Switches the terminal out of raw mode. Raw mode is similar to cbreak mode, in that characters typed are immediately passed through to the user program. The difference is that in raw mode, the interrupt, quit, suspend and flow control characters are all passed through uninterpreted, instead of generating a signal.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> if any error occurred, otherwise <b><code>FALSE</code></b>.</p>
-	 * @link http://php.net/manual/en/function.ncurses-noraw.php
+	 * @link https://php.net/manual/en/function.ncurses-noraw.php
 	 * @see ncurses_raw(), ncurses_cbreak(), ncurses_nocbreak()
 	 * @since PHP 4 >= 4.0.7, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
 	 */
@@ -1001,7 +1001,7 @@ namespace {
 	 * @param int $f <p>A reference to which to return the foreground color of the color pair. The information returned will be a color number referring to one of the pre-defined colors or a color defined previously by <code>ncurses_init_color()</code> if the terminal supports color changing.</p>
 	 * @param int $b <p>A reference to which to return the background color of the color pair. The information returned will be a color number referring to one of the pre-defined colors or a color defined previously by <code>ncurses_init_color()</code> if the terminal supports color changing.</p>
 	 * @return int <p>Returns <code>-1</code> if the function was successful, and <code>0</code> if ncurses or terminal color capabilities have not been initialized.</p>
-	 * @link http://php.net/manual/en/function.ncurses-pair-content.php
+	 * @link https://php.net/manual/en/function.ncurses-pair-content.php
 	 * @see ncurses_init_pair(), ncurses_start_color()
 	 * @since PHP 4 >= 4.3.0, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
 	 */
@@ -1012,7 +1012,7 @@ namespace {
 	 * <p>This function is currently not documented; only its argument list is available.</p>
 	 * @param resource $panel
 	 * @return resource <p>If panel is null, returns the bottom panel in the stack.</p>
-	 * @link http://php.net/manual/en/function.ncurses-panel-above.php
+	 * @link https://php.net/manual/en/function.ncurses-panel-above.php
 	 * @since PHP 4 >= 4.3.0, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
 	 */
 	function ncurses_panel_above($panel) {}
@@ -1022,7 +1022,7 @@ namespace {
 	 * <p>This function is currently not documented; only its argument list is available.</p>
 	 * @param resource $panel
 	 * @return resource
-	 * @link http://php.net/manual/en/function.ncurses-panel-below.php
+	 * @link https://php.net/manual/en/function.ncurses-panel-below.php
 	 * @since PHP 4 >= 4.3.0, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
 	 */
 	function ncurses_panel_below($panel) {}
@@ -1032,7 +1032,7 @@ namespace {
 	 * <p>This function is currently not documented; only its argument list is available.</p>
 	 * @param resource $panel
 	 * @return resource
-	 * @link http://php.net/manual/en/function.ncurses-panel-window.php
+	 * @link https://php.net/manual/en/function.ncurses-panel-window.php
 	 * @since PHP 4 >= 4.3.0, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
 	 */
 	function ncurses_panel_window($panel) {}
@@ -1048,7 +1048,7 @@ namespace {
 	 * @param int $smaxrow
 	 * @param int $smaxcol
 	 * @return int
-	 * @link http://php.net/manual/en/function.ncurses-pnoutrefresh.php
+	 * @link https://php.net/manual/en/function.ncurses-pnoutrefresh.php
 	 * @since PHP 4 >= 4.3.0, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
 	 */
 	function ncurses_pnoutrefresh($pad, int $pminrow, int $pmincol, int $sminrow, int $smincol, int $smaxrow, int $smaxcol): int {}
@@ -1064,7 +1064,7 @@ namespace {
 	 * @param int $smaxrow
 	 * @param int $smaxcol
 	 * @return int
-	 * @link http://php.net/manual/en/function.ncurses-prefresh.php
+	 * @link https://php.net/manual/en/function.ncurses-prefresh.php
 	 * @since PHP 4 >= 4.3.0, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
 	 */
 	function ncurses_prefresh($pad, int $pminrow, int $pmincol, int $sminrow, int $smincol, int $smaxrow, int $smaxcol): int {}
@@ -1074,7 +1074,7 @@ namespace {
 	 * <p>This function is <i>EXPERIMENTAL</i>. The behaviour of this function, its name, and surrounding documentation may change without notice in a future release of PHP. This function should be used at your own risk.</p><p>This function is currently not documented; only its argument list is available.</p>
 	 * @param string $text
 	 * @return int
-	 * @link http://php.net/manual/en/function.ncurses-putp.php
+	 * @link https://php.net/manual/en/function.ncurses-putp.php
 	 * @since PHP 4 >= 4.2.0, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
 	 */
 	function ncurses_putp(string $text): int {}
@@ -1083,7 +1083,7 @@ namespace {
 	 * Flush on signal characters
 	 * <p>This function is <i>EXPERIMENTAL</i>. The behaviour of this function, its name, and surrounding documentation may change without notice in a future release of PHP. This function should be used at your own risk.</p><p>This function is currently not documented; only its argument list is available.</p>
 	 * @return void
-	 * @link http://php.net/manual/en/function.ncurses-qiflush.php
+	 * @link https://php.net/manual/en/function.ncurses-qiflush.php
 	 * @since PHP 4 >= 4.0.7, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
 	 */
 	function ncurses_qiflush(): void {}
@@ -1092,7 +1092,7 @@ namespace {
 	 * Switch terminal into raw mode
 	 * <p>This function is <i>EXPERIMENTAL</i>. The behaviour of this function, its name, and surrounding documentation may change without notice in a future release of PHP. This function should be used at your own risk.</p><p>Places the terminal in raw mode. Raw mode is similar to cbreak mode, in that characters typed are immediately passed through to the user program. The difference is that in raw mode, the interrupt, quit, suspend and flow control characters are all passed through uninterpreted, instead of generating a signal.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> if any error occurred, otherwise <b><code>FALSE</code></b>.</p>
-	 * @link http://php.net/manual/en/function.ncurses-raw.php
+	 * @link https://php.net/manual/en/function.ncurses-raw.php
 	 * @see ncurses_noraw(), ncurses_cbreak(), ncurses_nocbreak()
 	 * @since PHP 4 >= 4.0.7, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
 	 */
@@ -1103,7 +1103,7 @@ namespace {
 	 * <p>This function is <i>EXPERIMENTAL</i>. The behaviour of this function, its name, and surrounding documentation may change without notice in a future release of PHP. This function should be used at your own risk.</p><p>This function is currently not documented; only its argument list is available.</p>
 	 * @param int $ch
 	 * @return int
-	 * @link http://php.net/manual/en/function.ncurses-refresh.php
+	 * @link https://php.net/manual/en/function.ncurses-refresh.php
 	 * @since PHP 4 >= 4.0.7, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
 	 */
 	function ncurses_refresh(int $ch): int {}
@@ -1114,7 +1114,7 @@ namespace {
 	 * @param resource $panel
 	 * @param resource $window
 	 * @return int
-	 * @link http://php.net/manual/en/function.ncurses-replace-panel.php
+	 * @link https://php.net/manual/en/function.ncurses-replace-panel.php
 	 * @since PHP 4 >= 4.3.0, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
 	 */
 	function ncurses_replace_panel($panel, $window): int {}
@@ -1123,7 +1123,7 @@ namespace {
 	 * Resets the prog mode saved by def_prog_mode
 	 * <p>This function is currently not documented; only its argument list is available.</p>
 	 * @return int
-	 * @link http://php.net/manual/en/function.ncurses-reset-prog-mode.php
+	 * @link https://php.net/manual/en/function.ncurses-reset-prog-mode.php
 	 * @since PHP 4 >= 4.3.0, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
 	 */
 	function ncurses_reset_prog_mode(): int {}
@@ -1132,7 +1132,7 @@ namespace {
 	 * Resets the shell mode saved by def_shell_mode
 	 * <p>This function is currently not documented; only its argument list is available.</p>
 	 * @return int
-	 * @link http://php.net/manual/en/function.ncurses-reset-shell-mode.php
+	 * @link https://php.net/manual/en/function.ncurses-reset-shell-mode.php
 	 * @since PHP 4 >= 4.3.0, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
 	 */
 	function ncurses_reset_shell_mode(): int {}
@@ -1141,7 +1141,7 @@ namespace {
 	 * Restores saved terminal state
 	 * <p>This function is <i>EXPERIMENTAL</i>. The behaviour of this function, its name, and surrounding documentation may change without notice in a future release of PHP. This function should be used at your own risk.</p><p>Restores the terminal state, which was previously saved by calling <code>ncurses_savetty()</code>.</p>
 	 * @return bool <p>Always returns <b><code>FALSE</code></b>.</p>
-	 * @link http://php.net/manual/en/function.ncurses-resetty.php
+	 * @link https://php.net/manual/en/function.ncurses-resetty.php
 	 * @see ncurses_savetty()
 	 * @since PHP 4 >= 4.0.7, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
 	 */
@@ -1151,7 +1151,7 @@ namespace {
 	 * Saves terminal state
 	 * <p>This function is <i>EXPERIMENTAL</i>. The behaviour of this function, its name, and surrounding documentation may change without notice in a future release of PHP. This function should be used at your own risk.</p><p>Saves the current terminal state. The saved terminal state can be restored with <code>ncurses_resetty()</code>.</p>
 	 * @return bool <p>Always returns <b><code>FALSE</code></b>.</p>
-	 * @link http://php.net/manual/en/function.ncurses-savetty.php
+	 * @link https://php.net/manual/en/function.ncurses-savetty.php
 	 * @see ncurses_resetty()
 	 * @since PHP 4 >= 4.0.7, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
 	 */
@@ -1162,7 +1162,7 @@ namespace {
 	 * <p>This function is <i>EXPERIMENTAL</i>. The behaviour of this function, its name, and surrounding documentation may change without notice in a future release of PHP. This function should be used at your own risk.</p><p>This function is currently not documented; only its argument list is available.</p>
 	 * @param string $filename
 	 * @return int
-	 * @link http://php.net/manual/en/function.ncurses-scr-dump.php
+	 * @link https://php.net/manual/en/function.ncurses-scr-dump.php
 	 * @since PHP 4 >= 4.2.0, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
 	 */
 	function ncurses_scr_dump(string $filename): int {}
@@ -1172,7 +1172,7 @@ namespace {
 	 * <p>This function is <i>EXPERIMENTAL</i>. The behaviour of this function, its name, and surrounding documentation may change without notice in a future release of PHP. This function should be used at your own risk.</p><p>This function is currently not documented; only its argument list is available.</p>
 	 * @param string $filename
 	 * @return int
-	 * @link http://php.net/manual/en/function.ncurses-scr-init.php
+	 * @link https://php.net/manual/en/function.ncurses-scr-init.php
 	 * @since PHP 4 >= 4.2.0, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
 	 */
 	function ncurses_scr_init(string $filename): int {}
@@ -1182,7 +1182,7 @@ namespace {
 	 * <p>This function is <i>EXPERIMENTAL</i>. The behaviour of this function, its name, and surrounding documentation may change without notice in a future release of PHP. This function should be used at your own risk.</p><p>This function is currently not documented; only its argument list is available.</p>
 	 * @param string $filename
 	 * @return int
-	 * @link http://php.net/manual/en/function.ncurses-scr-restore.php
+	 * @link https://php.net/manual/en/function.ncurses-scr-restore.php
 	 * @since PHP 4 >= 4.2.0, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
 	 */
 	function ncurses_scr_restore(string $filename): int {}
@@ -1192,7 +1192,7 @@ namespace {
 	 * <p>This function is <i>EXPERIMENTAL</i>. The behaviour of this function, its name, and surrounding documentation may change without notice in a future release of PHP. This function should be used at your own risk.</p><p>This function is currently not documented; only its argument list is available.</p>
 	 * @param string $filename
 	 * @return int
-	 * @link http://php.net/manual/en/function.ncurses-scr-set.php
+	 * @link https://php.net/manual/en/function.ncurses-scr-set.php
 	 * @since PHP 4 >= 4.2.0, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
 	 */
 	function ncurses_scr_set(string $filename): int {}
@@ -1202,7 +1202,7 @@ namespace {
 	 * <p>This function is <i>EXPERIMENTAL</i>. The behaviour of this function, its name, and surrounding documentation may change without notice in a future release of PHP. This function should be used at your own risk.</p><p>This function is currently not documented; only its argument list is available.</p>
 	 * @param int $count
 	 * @return int
-	 * @link http://php.net/manual/en/function.ncurses-scrl.php
+	 * @link https://php.net/manual/en/function.ncurses-scrl.php
 	 * @since PHP 4 >= 4.0.7, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
 	 */
 	function ncurses_scrl(int $count): int {}
@@ -1212,7 +1212,7 @@ namespace {
 	 * <p>This function is currently not documented; only its argument list is available.</p>
 	 * @param resource $panel
 	 * @return int
-	 * @link http://php.net/manual/en/function.ncurses-show-panel.php
+	 * @link https://php.net/manual/en/function.ncurses-show-panel.php
 	 * @since PHP 4 >= 4.3.0, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
 	 */
 	function ncurses_show_panel($panel): int {}
@@ -1221,7 +1221,7 @@ namespace {
 	 * Returns current soft label key attribute
 	 * <p>This function is <i>EXPERIMENTAL</i>. The behaviour of this function, its name, and surrounding documentation may change without notice in a future release of PHP. This function should be used at your own risk.</p><p>Returns the current soft label key attribute.</p>
 	 * @return int <p>The attribute, as an integer.</p>
-	 * @link http://php.net/manual/en/function.ncurses-slk-attr.php
+	 * @link https://php.net/manual/en/function.ncurses-slk-attr.php
 	 * @since PHP 4 >= 4.0.7, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
 	 */
 	function ncurses_slk_attr(): int {}
@@ -1231,7 +1231,7 @@ namespace {
 	 * <p>This function is <i>EXPERIMENTAL</i>. The behaviour of this function, its name, and surrounding documentation may change without notice in a future release of PHP. This function should be used at your own risk.</p><p>This function is currently not documented; only its argument list is available.</p>
 	 * @param int $intarg
 	 * @return int
-	 * @link http://php.net/manual/en/function.ncurses-slk-attroff.php
+	 * @link https://php.net/manual/en/function.ncurses-slk-attroff.php
 	 * @since PHP 4 >= 4.0.7, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
 	 */
 	function ncurses_slk_attroff(int $intarg): int {}
@@ -1241,7 +1241,7 @@ namespace {
 	 * <p>This function is <i>EXPERIMENTAL</i>. The behaviour of this function, its name, and surrounding documentation may change without notice in a future release of PHP. This function should be used at your own risk.</p><p>This function is currently not documented; only its argument list is available.</p>
 	 * @param int $intarg
 	 * @return int
-	 * @link http://php.net/manual/en/function.ncurses-slk-attron.php
+	 * @link https://php.net/manual/en/function.ncurses-slk-attron.php
 	 * @since PHP 4 >= 4.0.7, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
 	 */
 	function ncurses_slk_attron(int $intarg): int {}
@@ -1251,7 +1251,7 @@ namespace {
 	 * <p>This function is <i>EXPERIMENTAL</i>. The behaviour of this function, its name, and surrounding documentation may change without notice in a future release of PHP. This function should be used at your own risk.</p><p>This function is currently not documented; only its argument list is available.</p>
 	 * @param int $intarg
 	 * @return int
-	 * @link http://php.net/manual/en/function.ncurses-slk-attrset.php
+	 * @link https://php.net/manual/en/function.ncurses-slk-attrset.php
 	 * @since PHP 4 >= 4.0.7, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
 	 */
 	function ncurses_slk_attrset(int $intarg): int {}
@@ -1260,7 +1260,7 @@ namespace {
 	 * Clears soft labels from screen
 	 * <p>This function is <i>EXPERIMENTAL</i>. The behaviour of this function, its name, and surrounding documentation may change without notice in a future release of PHP. This function should be used at your own risk.</p><p>The function <b>ncurses_slk_clear()</b> clears soft label keys from screen.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on errors, <b><code>FALSE</code></b> otherwise.</p>
-	 * @link http://php.net/manual/en/function.ncurses-slk-clear.php
+	 * @link https://php.net/manual/en/function.ncurses-slk-clear.php
 	 * @since PHP 4 >= 4.0.7, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
 	 */
 	function ncurses_slk_clear(): bool {}
@@ -1270,7 +1270,7 @@ namespace {
 	 * <p>This function is <i>EXPERIMENTAL</i>. The behaviour of this function, its name, and surrounding documentation may change without notice in a future release of PHP. This function should be used at your own risk.</p><p>This function is currently not documented; only its argument list is available.</p>
 	 * @param int $intarg
 	 * @return int
-	 * @link http://php.net/manual/en/function.ncurses-slk-color.php
+	 * @link https://php.net/manual/en/function.ncurses-slk-color.php
 	 * @since PHP 4 >= 4.0.7, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
 	 */
 	function ncurses_slk_color(int $intarg): int {}
@@ -1280,7 +1280,7 @@ namespace {
 	 * <p>This function is <i>EXPERIMENTAL</i>. The behaviour of this function, its name, and surrounding documentation may change without notice in a future release of PHP. This function should be used at your own risk.</p><p>Initializes soft label key functions</p><p>This function must be called before <code>ncurses_init()</code> or <code>ncurses_newwin()</code> is called.</p>
 	 * @param int $format <p>If <code>ncurses_init()</code> eventually uses a line from stdscr to emulate the soft labels, then this parameter determines how the labels are arranged of the screen.</p> <p>0 indicates a 3-2-3 arrangement of the labels, 1 indicates a 4-4 arrangement and 2 indicates the PC like 4-4-4 mode, but in addition an index line will be created.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.ncurses-slk-init.php
+	 * @link https://php.net/manual/en/function.ncurses-slk-init.php
 	 * @since PHP 4 >= 4.0.7, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
 	 */
 	function ncurses_slk_init(int $format): bool {}
@@ -1289,7 +1289,7 @@ namespace {
 	 * Copies soft label keys to virtual screen
 	 * <p>This function is <i>EXPERIMENTAL</i>. The behaviour of this function, its name, and surrounding documentation may change without notice in a future release of PHP. This function should be used at your own risk.</p><p>This function is currently not documented; only its argument list is available.</p>
 	 * @return bool
-	 * @link http://php.net/manual/en/function.ncurses-slk-noutrefresh.php
+	 * @link https://php.net/manual/en/function.ncurses-slk-noutrefresh.php
 	 * @since PHP 4 >= 4.0.7, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
 	 */
 	function ncurses_slk_noutrefresh(): bool {}
@@ -1298,7 +1298,7 @@ namespace {
 	 * Copies soft label keys to screen
 	 * <p>This function is <i>EXPERIMENTAL</i>. The behaviour of this function, its name, and surrounding documentation may change without notice in a future release of PHP. This function should be used at your own risk.</p><p>Copies soft label keys from virtual screen to physical screen.</p>
 	 * @return int
-	 * @link http://php.net/manual/en/function.ncurses-slk-refresh.php
+	 * @link https://php.net/manual/en/function.ncurses-slk-refresh.php
 	 * @since PHP 4 >= 4.0.7, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
 	 */
 	function ncurses_slk_refresh(): int {}
@@ -1307,7 +1307,7 @@ namespace {
 	 * Restores soft label keys
 	 * <p>This function is <i>EXPERIMENTAL</i>. The behaviour of this function, its name, and surrounding documentation may change without notice in a future release of PHP. This function should be used at your own risk.</p><p>Restores the soft label keys after <code>ncurses_slk_clear()</code> has been performed.</p>
 	 * @return int
-	 * @link http://php.net/manual/en/function.ncurses-slk-restore.php
+	 * @link https://php.net/manual/en/function.ncurses-slk-restore.php
 	 * @since PHP 4 >= 4.0.7, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
 	 */
 	function ncurses_slk_restore(): int {}
@@ -1319,7 +1319,7 @@ namespace {
 	 * @param string $label
 	 * @param int $format
 	 * @return bool
-	 * @link http://php.net/manual/en/function.ncurses-slk-set.php
+	 * @link https://php.net/manual/en/function.ncurses-slk-set.php
 	 * @since PHP 4 >= 4.2.0, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
 	 */
 	function ncurses_slk_set(int $labelnr, string $label, int $format): bool {}
@@ -1328,7 +1328,7 @@ namespace {
 	 * Forces output when ncurses_slk_noutrefresh is performed
 	 * <p>This function is <i>EXPERIMENTAL</i>. The behaviour of this function, its name, and surrounding documentation may change without notice in a future release of PHP. This function should be used at your own risk.</p><p>Forces all the soft labels to be output the next time a <code>ncurses_slk_noutrefresh()</code> is performed.</p>
 	 * @return int
-	 * @link http://php.net/manual/en/function.ncurses-slk-touch.php
+	 * @link https://php.net/manual/en/function.ncurses-slk-touch.php
 	 * @since PHP 4 >= 4.0.7, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
 	 */
 	function ncurses_slk_touch(): int {}
@@ -1337,7 +1337,7 @@ namespace {
 	 * Stop using 'standout' attribute
 	 * <p>This function is <i>EXPERIMENTAL</i>. The behaviour of this function, its name, and surrounding documentation may change without notice in a future release of PHP. This function should be used at your own risk.</p><p>This function is currently not documented; only its argument list is available.</p>
 	 * @return int
-	 * @link http://php.net/manual/en/function.ncurses-standend.php
+	 * @link https://php.net/manual/en/function.ncurses-standend.php
 	 * @since PHP 4 >= 4.0.7, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
 	 */
 	function ncurses_standend(): int {}
@@ -1346,7 +1346,7 @@ namespace {
 	 * Start using 'standout' attribute
 	 * <p>This function is <i>EXPERIMENTAL</i>. The behaviour of this function, its name, and surrounding documentation may change without notice in a future release of PHP. This function should be used at your own risk.</p><p>This function is currently not documented; only its argument list is available.</p>
 	 * @return int
-	 * @link http://php.net/manual/en/function.ncurses-standout.php
+	 * @link https://php.net/manual/en/function.ncurses-standout.php
 	 * @since PHP 4 >= 4.0.7, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
 	 */
 	function ncurses_standout(): int {}
@@ -1355,7 +1355,7 @@ namespace {
 	 * Initializes color functionality
 	 * <p>Initializes color functionality in ncurses. This function must be called before any color manipulation functions are called and after <code>ncurses_init()</code> is called. It is good practice to call this function right after <code>ncurses_init()</code>.</p>
 	 * @return int <p>Returns <code>0</code> on success, or <code>-1</code> if the color table could not be allocated or ncurses was not initialized.</p>
-	 * @link http://php.net/manual/en/function.ncurses-start-color.php
+	 * @link https://php.net/manual/en/function.ncurses-start-color.php
 	 * @see ncurses_can_change_color(), ncurses_has_colors()
 	 * @since PHP 4 >= 4.0.7, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
 	 */
@@ -1365,7 +1365,7 @@ namespace {
 	 * Returns a logical OR of all attribute flags supported by terminal
 	 * <p>This function is <i>EXPERIMENTAL</i>. The behaviour of this function, its name, and surrounding documentation may change without notice in a future release of PHP. This function should be used at your own risk.</p><p>This function is currently not documented; only its argument list is available.</p>
 	 * @return bool
-	 * @link http://php.net/manual/en/function.ncurses-termattrs.php
+	 * @link https://php.net/manual/en/function.ncurses-termattrs.php
 	 * @since PHP 4 >= 4.0.7, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
 	 */
 	function ncurses_termattrs(): bool {}
@@ -1374,7 +1374,7 @@ namespace {
 	 * Returns terminals (short)-name
 	 * <p>This function is <i>EXPERIMENTAL</i>. The behaviour of this function, its name, and surrounding documentation may change without notice in a future release of PHP. This function should be used at your own risk.</p><p>Returns terminals shortname.</p>
 	 * @return string <p>Returns the shortname of the terminal, truncated to 14 characters. On errors, returns <b><code>NULL</code></b>.</p>
-	 * @link http://php.net/manual/en/function.ncurses-termname.php
+	 * @link https://php.net/manual/en/function.ncurses-termname.php
 	 * @see ncurses_longname()
 	 * @since PHP 4 >= 4.2.0, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
 	 */
@@ -1385,7 +1385,7 @@ namespace {
 	 * <p>This function is <i>EXPERIMENTAL</i>. The behaviour of this function, its name, and surrounding documentation may change without notice in a future release of PHP. This function should be used at your own risk.</p><p>This function is currently not documented; only its argument list is available.</p>
 	 * @param int $millisec
 	 * @return void
-	 * @link http://php.net/manual/en/function.ncurses-timeout.php
+	 * @link https://php.net/manual/en/function.ncurses-timeout.php
 	 * @since PHP 4 >= 4.0.7, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
 	 */
 	function ncurses_timeout(int $millisec): void {}
@@ -1395,7 +1395,7 @@ namespace {
 	 * <p>This function is currently not documented; only its argument list is available.</p>
 	 * @param resource $panel
 	 * @return int
-	 * @link http://php.net/manual/en/function.ncurses-top-panel.php
+	 * @link https://php.net/manual/en/function.ncurses-top-panel.php
 	 * @since PHP 4 >= 4.3.0, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
 	 */
 	function ncurses_top_panel($panel): int {}
@@ -1405,7 +1405,7 @@ namespace {
 	 * <p>This function is <i>EXPERIMENTAL</i>. The behaviour of this function, its name, and surrounding documentation may change without notice in a future release of PHP. This function should be used at your own risk.</p><p>This function is currently not documented; only its argument list is available.</p>
 	 * @param int $fd
 	 * @return int
-	 * @link http://php.net/manual/en/function.ncurses-typeahead.php
+	 * @link https://php.net/manual/en/function.ncurses-typeahead.php
 	 * @since PHP 4 >= 4.0.7, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
 	 */
 	function ncurses_typeahead(int $fd): int {}
@@ -1415,7 +1415,7 @@ namespace {
 	 * <p>This function is <i>EXPERIMENTAL</i>. The behaviour of this function, its name, and surrounding documentation may change without notice in a future release of PHP. This function should be used at your own risk.</p><p>This function is currently not documented; only its argument list is available.</p>
 	 * @param int $keycode
 	 * @return int
-	 * @link http://php.net/manual/en/function.ncurses-ungetch.php
+	 * @link https://php.net/manual/en/function.ncurses-ungetch.php
 	 * @since PHP 4 >= 4.0.7, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
 	 */
 	function ncurses_ungetch(int $keycode): int {}
@@ -1425,7 +1425,7 @@ namespace {
 	 * <p>This function is <i>EXPERIMENTAL</i>. The behaviour of this function, its name, and surrounding documentation may change without notice in a future release of PHP. This function should be used at your own risk.</p><p>Pushes a KEY_MOUSE event onto the input queue and associates with this event the given state data and screen-relative character cell coordinates, specified in <code>mevent</code>.</p>
 	 * @param array $mevent <p>An associative array specifying the event options:</p><ul> <li> <p>"id" : Id to distinguish multiple devices</p> </li> <li> <p>"x" : screen relative x-position in character cells</p> </li> <li> <p>"y" : screen relative y-position in character cells</p> </li> <li> <p>"z" : currently not supported</p> </li> <li> <p>"mmask" : Mouse action</p> </li> </ul>
 	 * @return bool <p>Returns <b><code>FALSE</code></b> on success, <b><code>TRUE</code></b> otherwise.</p>
-	 * @link http://php.net/manual/en/function.ncurses-ungetmouse.php
+	 * @link https://php.net/manual/en/function.ncurses-ungetmouse.php
 	 * @see ncurses_getmouse()
 	 * @since PHP 4 >= 4.2.0, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
 	 */
@@ -1435,7 +1435,7 @@ namespace {
 	 * Refreshes the virtual screen to reflect the relations between panels in the stack
 	 * <p>This function is currently not documented; only its argument list is available.</p>
 	 * @return void
-	 * @link http://php.net/manual/en/function.ncurses-update-panels.php
+	 * @link https://php.net/manual/en/function.ncurses-update-panels.php
 	 * @since PHP 4 >= 4.3.0, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
 	 */
 	function ncurses_update_panels(): void {}
@@ -1444,7 +1444,7 @@ namespace {
 	 * Assign terminal default colors to color id -1
 	 * <p>This function is <i>EXPERIMENTAL</i>. The behaviour of this function, its name, and surrounding documentation may change without notice in a future release of PHP. This function should be used at your own risk.</p><p>This function is currently not documented; only its argument list is available.</p>
 	 * @return bool
-	 * @link http://php.net/manual/en/function.ncurses-use-default-colors.php
+	 * @link https://php.net/manual/en/function.ncurses-use-default-colors.php
 	 * @since PHP 4 >= 4.0.7, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
 	 */
 	function ncurses_use_default_colors(): bool {}
@@ -1454,7 +1454,7 @@ namespace {
 	 * <p>This function is <i>EXPERIMENTAL</i>. The behaviour of this function, its name, and surrounding documentation may change without notice in a future release of PHP. This function should be used at your own risk.</p><p>This function is currently not documented; only its argument list is available.</p>
 	 * @param bool $flag
 	 * @return void
-	 * @link http://php.net/manual/en/function.ncurses-use-env.php
+	 * @link https://php.net/manual/en/function.ncurses-use-env.php
 	 * @since PHP 4 >= 4.0.7, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
 	 */
 	function ncurses_use_env(bool $flag): void {}
@@ -1464,7 +1464,7 @@ namespace {
 	 * <p>This function is <i>EXPERIMENTAL</i>. The behaviour of this function, its name, and surrounding documentation may change without notice in a future release of PHP. This function should be used at your own risk.</p><p>This function is currently not documented; only its argument list is available.</p>
 	 * @param bool $flag
 	 * @return int
-	 * @link http://php.net/manual/en/function.ncurses-use-extended-names.php
+	 * @link https://php.net/manual/en/function.ncurses-use-extended-names.php
 	 * @since PHP 4 >= 4.0.7, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
 	 */
 	function ncurses_use_extended_names(bool $flag): int {}
@@ -1474,7 +1474,7 @@ namespace {
 	 * <p>This function is <i>EXPERIMENTAL</i>. The behaviour of this function, its name, and surrounding documentation may change without notice in a future release of PHP. This function should be used at your own risk.</p><p>This function is currently not documented; only its argument list is available.</p>
 	 * @param int $intarg
 	 * @return int
-	 * @link http://php.net/manual/en/function.ncurses-vidattr.php
+	 * @link https://php.net/manual/en/function.ncurses-vidattr.php
 	 * @since PHP 4 >= 4.0.7, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
 	 */
 	function ncurses_vidattr(int $intarg): int {}
@@ -1485,7 +1485,7 @@ namespace {
 	 * @param int $charattr
 	 * @param int $n
 	 * @return int
-	 * @link http://php.net/manual/en/function.ncurses-vline.php
+	 * @link https://php.net/manual/en/function.ncurses-vline.php
 	 * @since PHP 4 >= 4.2.0, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
 	 */
 	function ncurses_vline(int $charattr, int $n): int {}
@@ -1496,7 +1496,7 @@ namespace {
 	 * @param resource $window
 	 * @param int $ch
 	 * @return int
-	 * @link http://php.net/manual/en/function.ncurses-waddch.php
+	 * @link https://php.net/manual/en/function.ncurses-waddch.php
 	 * @since PHP 4 >= 4.3.0, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
 	 */
 	function ncurses_waddch($window, int $ch): int {}
@@ -1508,7 +1508,7 @@ namespace {
 	 * @param string $str
 	 * @param int $n
 	 * @return int
-	 * @link http://php.net/manual/en/function.ncurses-waddstr.php
+	 * @link https://php.net/manual/en/function.ncurses-waddstr.php
 	 * @since PHP 4 >= 4.2.0, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
 	 */
 	function ncurses_waddstr($window, string $str, int $n = NULL): int {}
@@ -1519,7 +1519,7 @@ namespace {
 	 * @param resource $window
 	 * @param int $attrs
 	 * @return int
-	 * @link http://php.net/manual/en/function.ncurses-wattroff.php
+	 * @link https://php.net/manual/en/function.ncurses-wattroff.php
 	 * @since PHP 4 >= 4.3.0, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
 	 */
 	function ncurses_wattroff($window, int $attrs): int {}
@@ -1530,7 +1530,7 @@ namespace {
 	 * @param resource $window
 	 * @param int $attrs
 	 * @return int
-	 * @link http://php.net/manual/en/function.ncurses-wattron.php
+	 * @link https://php.net/manual/en/function.ncurses-wattron.php
 	 * @since PHP 4 >= 4.3.0, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
 	 */
 	function ncurses_wattron($window, int $attrs): int {}
@@ -1541,7 +1541,7 @@ namespace {
 	 * @param resource $window
 	 * @param int $attrs
 	 * @return int
-	 * @link http://php.net/manual/en/function.ncurses-wattrset.php
+	 * @link https://php.net/manual/en/function.ncurses-wattrset.php
 	 * @since PHP 4 >= 4.3.0, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
 	 */
 	function ncurses_wattrset($window, int $attrs): int {}
@@ -1559,7 +1559,7 @@ namespace {
 	 * @param int $bl_corner <p>Bottom left corner</p>
 	 * @param int $br_corner <p>Bottom right corner</p>
 	 * @return int
-	 * @link http://php.net/manual/en/function.ncurses-wborder.php
+	 * @link https://php.net/manual/en/function.ncurses-wborder.php
 	 * @see ncurses_border()
 	 * @since PHP 4 >= 4.3.0, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
 	 */
@@ -1570,7 +1570,7 @@ namespace {
 	 * <p>This function is currently not documented; only its argument list is available.</p>
 	 * @param resource $window
 	 * @return int
-	 * @link http://php.net/manual/en/function.ncurses-wclear.php
+	 * @link https://php.net/manual/en/function.ncurses-wclear.php
 	 * @since PHP 4 >= 4.2.0, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
 	 */
 	function ncurses_wclear($window): int {}
@@ -1581,7 +1581,7 @@ namespace {
 	 * @param resource $window
 	 * @param int $color_pair
 	 * @return int
-	 * @link http://php.net/manual/en/function.ncurses-wcolor-set.php
+	 * @link https://php.net/manual/en/function.ncurses-wcolor-set.php
 	 * @since PHP 4 >= 4.2.0, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
 	 */
 	function ncurses_wcolor_set($window, int $color_pair): int {}
@@ -1591,7 +1591,7 @@ namespace {
 	 * <p>This function is currently not documented; only its argument list is available.</p>
 	 * @param resource $window
 	 * @return int
-	 * @link http://php.net/manual/en/function.ncurses-werase.php
+	 * @link https://php.net/manual/en/function.ncurses-werase.php
 	 * @since PHP 4 >= 4.3.0, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
 	 */
 	function ncurses_werase($window): int {}
@@ -1601,7 +1601,7 @@ namespace {
 	 * <p>This function is currently not documented; only its argument list is available.</p>
 	 * @param resource $window
 	 * @return int
-	 * @link http://php.net/manual/en/function.ncurses-wgetch.php
+	 * @link https://php.net/manual/en/function.ncurses-wgetch.php
 	 * @since PHP 4 >= 4.2.0, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
 	 */
 	function ncurses_wgetch($window): int {}
@@ -1613,7 +1613,7 @@ namespace {
 	 * @param int $charattr
 	 * @param int $n
 	 * @return int
-	 * @link http://php.net/manual/en/function.ncurses-whline.php
+	 * @link https://php.net/manual/en/function.ncurses-whline.php
 	 * @since PHP 4 >= 4.3.0, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
 	 */
 	function ncurses_whline($window, int $charattr, int $n): int {}
@@ -1626,7 +1626,7 @@ namespace {
 	 * @param int $x
 	 * @param bool $toscreen
 	 * @return bool
-	 * @link http://php.net/manual/en/function.ncurses-wmouse-trafo.php
+	 * @link https://php.net/manual/en/function.ncurses-wmouse-trafo.php
 	 * @since PHP 4 >= 4.2.0, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
 	 */
 	function ncurses_wmouse_trafo($window, int &$y, int &$x, bool $toscreen): bool {}
@@ -1638,7 +1638,7 @@ namespace {
 	 * @param int $y
 	 * @param int $x
 	 * @return int
-	 * @link http://php.net/manual/en/function.ncurses-wmove.php
+	 * @link https://php.net/manual/en/function.ncurses-wmove.php
 	 * @since PHP 4 >= 4.2.0, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
 	 */
 	function ncurses_wmove($window, int $y, int $x): int {}
@@ -1648,7 +1648,7 @@ namespace {
 	 * <p>This function is currently not documented; only its argument list is available.</p>
 	 * @param resource $window
 	 * @return int
-	 * @link http://php.net/manual/en/function.ncurses-wnoutrefresh.php
+	 * @link https://php.net/manual/en/function.ncurses-wnoutrefresh.php
 	 * @since PHP 4 >= 4.2.0, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
 	 */
 	function ncurses_wnoutrefresh($window): int {}
@@ -1658,7 +1658,7 @@ namespace {
 	 * <p>This function is <i>EXPERIMENTAL</i>. The behaviour of this function, its name, and surrounding documentation may change without notice in a future release of PHP. This function should be used at your own risk.</p><p>This function is currently not documented; only its argument list is available.</p>
 	 * @param resource $window
 	 * @return int
-	 * @link http://php.net/manual/en/function.ncurses-wrefresh.php
+	 * @link https://php.net/manual/en/function.ncurses-wrefresh.php
 	 * @since PHP 4 >= 4.2.0, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
 	 */
 	function ncurses_wrefresh($window): int {}
@@ -1668,7 +1668,7 @@ namespace {
 	 * <p>This function is currently not documented; only its argument list is available.</p>
 	 * @param resource $window
 	 * @return int
-	 * @link http://php.net/manual/en/function.ncurses-wstandend.php
+	 * @link https://php.net/manual/en/function.ncurses-wstandend.php
 	 * @since PHP 4 >= 4.3.0, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
 	 */
 	function ncurses_wstandend($window): int {}
@@ -1678,7 +1678,7 @@ namespace {
 	 * <p>This function is currently not documented; only its argument list is available.</p>
 	 * @param resource $window
 	 * @return int
-	 * @link http://php.net/manual/en/function.ncurses-wstandout.php
+	 * @link https://php.net/manual/en/function.ncurses-wstandout.php
 	 * @since PHP 4 >= 4.3.0, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
 	 */
 	function ncurses_wstandout($window): int {}
@@ -1690,7 +1690,7 @@ namespace {
 	 * @param int $charattr
 	 * @param int $n
 	 * @return int
-	 * @link http://php.net/manual/en/function.ncurses-wvline.php
+	 * @link https://php.net/manual/en/function.ncurses-wvline.php
 	 * @since PHP 4 >= 4.3.0, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
 	 */
 	function ncurses_wvline($window, int $charattr, int $n): int {}

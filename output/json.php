@@ -6,32 +6,32 @@ namespace {
 
 	/**
 	 * <p>Exception thrown if <b><code>JSON_THROW_ON_ERROR</code></b> option is set for <code>json_encode()</code> or <code>json_decode()</code>. code contains the error type, for possible values see <code>json_last_error()</code>.</p>
-	 * @link http://php.net/manual/en/class.jsonexception.php
+	 * @link https://php.net/manual/en/class.jsonexception.php
 	 * @since PHP 7 >= 7.3.0
 	 */
 	class JsonException extends \Exception {
 
 		/**
 		 * @var string <p>The exception message</p>
-		 * @link http://php.net/manual/en/class.exception.php#exception.props.message
+		 * @link https://php.net/manual/en/class.exception.php#exception.props.message
 		 */
 		protected $message;
 
 		/**
 		 * @var int <p>The exception code</p>
-		 * @link http://php.net/manual/en/class.exception.php#exception.props.code
+		 * @link https://php.net/manual/en/class.exception.php#exception.props.code
 		 */
 		protected $code;
 
 		/**
 		 * @var string <p>The filename where the exception was created</p>
-		 * @link http://php.net/manual/en/class.exception.php#exception.props.file
+		 * @link https://php.net/manual/en/class.exception.php#exception.props.file
 		 */
 		protected $file;
 
 		/**
 		 * @var int <p>The line where the exception was created</p>
-		 * @link http://php.net/manual/en/class.exception.php#exception.props.line
+		 * @link https://php.net/manual/en/class.exception.php#exception.props.line
 		 */
 		protected $line;
 
@@ -39,7 +39,7 @@ namespace {
 		 * Clone the exception
 		 * <p>Tries to clone the Exception, which results in Fatal error.</p>
 		 * @return void <p>No value is returned.</p>
-		 * @link http://php.net/manual/en/exception.clone.php
+		 * @link https://php.net/manual/en/exception.clone.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final private function __clone() {}
@@ -48,7 +48,7 @@ namespace {
 		 * String representation of the exception
 		 * <p>Returns the <code>string</code> representation of the exception.</p>
 		 * @return string <p>Returns the <code>string</code> representation of the exception.</p>
-		 * @link http://php.net/manual/en/exception.tostring.php
+		 * @link https://php.net/manual/en/exception.tostring.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		public function __toString(): string {}
@@ -57,7 +57,7 @@ namespace {
 		 * Gets the Exception code
 		 * <p>Returns the Exception code.</p>
 		 * @return mixed <p>Returns the exception code as <code>int</code> in Exception but possibly as other type in Exception descendants (for example as <code>string</code> in PDOException).</p>
-		 * @link http://php.net/manual/en/exception.getcode.php
+		 * @link https://php.net/manual/en/exception.getcode.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getCode() {}
@@ -66,7 +66,7 @@ namespace {
 		 * Gets the file in which the exception was created
 		 * <p>Get the name of the file in which the exception was created.</p>
 		 * @return string <p>Returns the filename in which the exception was created.</p>
-		 * @link http://php.net/manual/en/exception.getfile.php
+		 * @link https://php.net/manual/en/exception.getfile.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getFile(): string {}
@@ -75,7 +75,7 @@ namespace {
 		 * Gets the line in which the exception was created
 		 * <p>Get line number where the exception was created.</p>
 		 * @return int <p>Returns the line number where the exception was created.</p>
-		 * @link http://php.net/manual/en/exception.getline.php
+		 * @link https://php.net/manual/en/exception.getline.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getLine(): int {}
@@ -84,7 +84,7 @@ namespace {
 		 * Gets the Exception message
 		 * <p>Returns the Exception message.</p>
 		 * @return string <p>Returns the Exception message as a string.</p>
-		 * @link http://php.net/manual/en/exception.getmessage.php
+		 * @link https://php.net/manual/en/exception.getmessage.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getMessage(): string {}
@@ -93,7 +93,7 @@ namespace {
 		 * Returns previous Exception
 		 * <p>Returns previous exception (the third parameter of <code>Exception::__construct()</code>).</p>
 		 * @return Throwable <p>Returns the previous Throwable if available or <b><code>NULL</code></b> otherwise.</p>
-		 * @link http://php.net/manual/en/exception.getprevious.php
+		 * @link https://php.net/manual/en/exception.getprevious.php
 		 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8
 		 */
 		final public function getPrevious(): \Throwable {}
@@ -102,7 +102,7 @@ namespace {
 		 * Gets the stack trace
 		 * <p>Returns the Exception stack trace.</p>
 		 * @return array <p>Returns the Exception stack trace as an <code>array</code>.</p>
-		 * @link http://php.net/manual/en/exception.gettrace.php
+		 * @link https://php.net/manual/en/exception.gettrace.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getTrace(): array {}
@@ -111,7 +111,7 @@ namespace {
 		 * Gets the stack trace as a string
 		 * <p>Returns the Exception stack trace as a string.</p>
 		 * @return string <p>Returns the Exception stack trace as a string.</p>
-		 * @link http://php.net/manual/en/exception.gettraceasstring.php
+		 * @link https://php.net/manual/en/exception.gettraceasstring.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getTraceAsString(): string {}
@@ -119,7 +119,7 @@ namespace {
 
 	/**
 	 * <p>Objects implementing <b>JsonSerializable</b> can customize their JSON representation when encoded with <code>json_encode()</code>.</p>
-	 * @link http://php.net/manual/en/class.jsonserializable.php
+	 * @link https://php.net/manual/en/class.jsonserializable.php
 	 * @since PHP 5 >= 5.4.0, PHP 7
 	 */
 	interface JsonSerializable {
@@ -128,7 +128,7 @@ namespace {
 		 * Specify data which should be serialized to JSON
 		 * <p>Serializes the object to a value that can be serialized natively by <code>json_encode()</code>.</p>
 		 * @return mixed <p>Returns data which can be serialized by <code>json_encode()</code>, which is a value of any type other than a resource.</p>
-		 * @link http://php.net/manual/en/jsonserializable.jsonserialize.php
+		 * @link https://php.net/manual/en/jsonserializable.jsonserialize.php
 		 * @since PHP 5 >= 5.4.0, PHP 7
 		 */
 		public function jsonSerialize();
@@ -142,7 +142,7 @@ namespace {
 	 * @param int $depth <p>User specified recursion depth.</p>
 	 * @param int $flags <p>Bitmask of <b><code>JSON_BIGINT_AS_STRING</code></b>, <b><code>JSON_INVALID_UTF8_IGNORE</code></b>, <b><code>JSON_INVALID_UTF8_SUBSTITUTE</code></b>, <b><code>JSON_OBJECT_AS_ARRAY</code></b>, <b><code>JSON_THROW_ON_ERROR</code></b>. The behaviour of these constants is described on the JSON constants page.</p>
 	 * @return mixed <p>Returns the value encoded in <code>json</code> in appropriate PHP type. Values <code>true</code>, <code>false</code> and <code>null</code> are returned as <b><code>TRUE</code></b>, <b><code>FALSE</code></b> and <b><code>NULL</code></b> respectively. <b><code>NULL</code></b> is returned if the <code>json</code> cannot be decoded or if the encoded data is deeper than the recursion limit.</p>
-	 * @link http://php.net/manual/en/function.json-decode.php
+	 * @link https://php.net/manual/en/function.json-decode.php
 	 * @see json_encode(), json_last_error()
 	 * @since PHP 5 >= 5.2.0, PHP 7, PECL json >= 1.2.0
 	 */
@@ -155,7 +155,7 @@ namespace {
 	 * @param int $flags <p>Bitmask consisting of <b><code>JSON_FORCE_OBJECT</code></b>, <b><code>JSON_HEX_QUOT</code></b>, <b><code>JSON_HEX_TAG</code></b>, <b><code>JSON_HEX_AMP</code></b>, <b><code>JSON_HEX_APOS</code></b>, <b><code>JSON_INVALID_UTF8_IGNORE</code></b>, <b><code>JSON_INVALID_UTF8_SUBSTITUTE</code></b>, <b><code>JSON_NUMERIC_CHECK</code></b>, <b><code>JSON_PARTIAL_OUTPUT_ON_ERROR</code></b>, <b><code>JSON_PRESERVE_ZERO_FRACTION</code></b>, <b><code>JSON_PRETTY_PRINT</code></b>, <b><code>JSON_UNESCAPED_LINE_TERMINATORS</code></b>, <b><code>JSON_UNESCAPED_SLASHES</code></b>, <b><code>JSON_UNESCAPED_UNICODE</code></b>, <b><code>JSON_THROW_ON_ERROR</code></b>. The behaviour of these constants is described on the JSON constants page.</p>
 	 * @param int $depth <p>Set the maximum depth. Must be greater than zero.</p>
 	 * @return string|false <p>Returns a JSON encoded <code>string</code> on success or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.json-encode.php
+	 * @link https://php.net/manual/en/function.json-encode.php
 	 * @see json_decode(), json_last_error(), serialize()
 	 * @since PHP 5 >= 5.2.0, PHP 7, PECL json >= 1.2.0
 	 */
@@ -165,7 +165,7 @@ namespace {
 	 * Returns the last error occurred
 	 * <p>Returns the last error (if any) occurred during the last JSON encoding/decoding, which did not specify <b><code>JSON_THROW_ON_ERROR</code></b>.</p>
 	 * @return int <p>Returns an integer, the value can be one of the following constants:</p> <b>JSON error codes</b>   Constant Meaning Availability     <b><code>JSON_ERROR_NONE</code></b> No error has occurred &nbsp;   <b><code>JSON_ERROR_DEPTH</code></b> The maximum stack depth has been exceeded &nbsp;   <b><code>JSON_ERROR_STATE_MISMATCH</code></b> Invalid or malformed JSON &nbsp;   <b><code>JSON_ERROR_CTRL_CHAR</code></b> Control character error, possibly incorrectly encoded &nbsp;   <b><code>JSON_ERROR_SYNTAX</code></b> Syntax error &nbsp;   <b><code>JSON_ERROR_UTF8</code></b> Malformed UTF-8 characters, possibly incorrectly encoded PHP 5.3.3   <b><code>JSON_ERROR_RECURSION</code></b> One or more recursive references in the value to be encoded PHP 5.5.0   <b><code>JSON_ERROR_INF_OR_NAN</code></b>  One or more <b><code>NAN</code></b> or <b><code>INF</code></b> values in the value to be encoded  PHP 5.5.0   <b><code>JSON_ERROR_UNSUPPORTED_TYPE</code></b> A value of a type that cannot be encoded was given PHP 5.5.0   <b><code>JSON_ERROR_INVALID_PROPERTY_NAME</code></b> A property name that cannot be encoded was given PHP 7.0.0   <b><code>JSON_ERROR_UTF16</code></b> Malformed UTF-16 characters, possibly incorrectly encoded PHP 7.0.0
-	 * @link http://php.net/manual/en/function.json-last-error.php
+	 * @link https://php.net/manual/en/function.json-last-error.php
 	 * @see json_last_error_msg(), json_decode(), json_encode()
 	 * @since PHP 5 >= 5.3.0, PHP 7
 	 */
@@ -175,7 +175,7 @@ namespace {
 	 * Returns the error string of the last json_encode() or json_decode() call
 	 * <p>Returns the error string of the last <code>json_encode()</code> or <code>json_decode()</code> call, which did not specify <b><code>JSON_THROW_ON_ERROR</code></b>.</p>
 	 * @return string <p>Returns the error message on success, or <code>"No error"</code> if no error has occurred.</p>
-	 * @link http://php.net/manual/en/function.json-last-error-msg.php
+	 * @link https://php.net/manual/en/function.json-last-error-msg.php
 	 * @see json_last_error()
 	 * @since PHP 5 >= 5.5.0, PHP 7
 	 */

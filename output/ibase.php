@@ -14,7 +14,7 @@ namespace {
 	 * @param string $middle_name <p>The middle name of the new database user.</p>
 	 * @param string $last_name <p>The last name of the new database user.</p>
 	 * @return bool
-	 * @link http://php.net/manual/en/function.fbird-add-user.php
+	 * @link https://php.net/manual/en/function.fbird-add-user.php
 	 * @since PHP 5, PHP 7 < 7.4.0
 	 */
 	function fbird_add_user($service_handle, string $user_name, string $password, string $first_name = NULL, string $middle_name = NULL, string $last_name = NULL): bool {}
@@ -24,7 +24,7 @@ namespace {
 	 * <p>This function is an alias of: <code>ibase_affected_rows()</code>.</p>
 	 * @param resource $link_identifier <p>A transaction context. If <code>link_identifier</code> is a connection resource, its default transaction is used.</p>
 	 * @return int
-	 * @link http://php.net/manual/en/function.fbird-affected-rows.php
+	 * @link https://php.net/manual/en/function.fbird-affected-rows.php
 	 * @since PHP 5, PHP 7 < 7.4.0
 	 */
 	function fbird_affected_rows($link_identifier = NULL): int {}
@@ -38,7 +38,7 @@ namespace {
 	 * @param int $options <p>Additional options to pass to the database server for backup. The <code>options</code> parameter can be a combination of the following constants: <b><code>IBASE_BKP_IGNORE_CHECKSUMS</code></b>, <b><code>IBASE_BKP_IGNORE_LIMBO</code></b>, <b><code>IBASE_BKP_METADATA_ONLY</code></b>, <b><code>IBASE_BKP_NO_GARBAGE_COLLECT</code></b>, <b><code>IBASE_BKP_OLD_DESCRIPTIONS</code></b>, <b><code>IBASE_BKP_NON_TRANSPORTABLE</code></b> or <b><code>IBASE_BKP_CONVERT</code></b>. Read the section about Predefined Constants for further information.</p>
 	 * @param bool $verbose <p>Since the backup process is done on the database server, you don't have any chance to get its output. This argument is useless.</p>
 	 * @return mixed
-	 * @link http://php.net/manual/en/function.fbird-backup.php
+	 * @link https://php.net/manual/en/function.fbird-backup.php
 	 * @since PHP 5, PHP 7 < 7.4.0
 	 */
 	function fbird_backup($service_handle, string $source_db, string $dest_file, int $options = 0, bool $verbose = FALSE) {}
@@ -49,7 +49,7 @@ namespace {
 	 * @param resource $blob_handle <p>A blob handle opened with <code>ibase_blob_create()</code>.</p>
 	 * @param string $data <p>The data to be added.</p>
 	 * @return void
-	 * @link http://php.net/manual/en/function.fbird-blob-add.php
+	 * @link https://php.net/manual/en/function.fbird-blob-add.php
 	 * @since PHP 5, PHP 7 < 7.4.0
 	 */
 	function fbird_blob_add($blob_handle, string $data): void {}
@@ -59,7 +59,7 @@ namespace {
 	 * <p>This function will discard a BLOB if it has not yet been closed by <code>fbird_blob_close()</code>.</p>
 	 * @param resource $blob_handle <p>A BLOB handle opened with <code>fbird_blob_create()</code>.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.fbird-blob-cancel.php
+	 * @link https://php.net/manual/en/function.fbird-blob-cancel.php
 	 * @see fbird_blob_close(), fbird_blob_create(), fbird_blob_import()
 	 * @since PHP 5, PHP 7 < 7.4.0
 	 */
@@ -70,7 +70,7 @@ namespace {
 	 * <p>This function is an alias of: <code>ibase_blob_close()</code>.</p>
 	 * @param resource $blob_handle <p>A BLOB handle opened with <code>ibase_blob_create()</code> or <code>ibase_blob_open()</code>.</p>
 	 * @return mixed
-	 * @link http://php.net/manual/en/function.fbird-blob-close.php
+	 * @link https://php.net/manual/en/function.fbird-blob-close.php
 	 * @since PHP 5, PHP 7 < 7.4.0
 	 */
 	function fbird_blob_close($blob_handle) {}
@@ -80,7 +80,7 @@ namespace {
 	 * <p>This function is an alias of: <code>ibase_blob_create()</code>.</p>
 	 * @param resource $link_identifier <p>An InterBase link identifier. If omitted, the last opened link is assumed.</p>
 	 * @return resource|false
-	 * @link http://php.net/manual/en/function.fbird-blob-create.php
+	 * @link https://php.net/manual/en/function.fbird-blob-create.php
 	 * @since PHP 5, PHP 7 < 7.4.0
 	 */
 	function fbird_blob_create($link_identifier = NULL) {}
@@ -90,7 +90,7 @@ namespace {
 	 * <p>This function is an alias of: <code>ibase_blob_echo()</code>.</p>
 	 * @param string $blob_id
 	 * @return bool
-	 * @link http://php.net/manual/en/function.fbird-blob-echo.php
+	 * @link https://php.net/manual/en/function.fbird-blob-echo.php
 	 * @since PHP 5, PHP 7 < 7.4.0
 	 */
 	function fbird_blob_echo(string $blob_id): bool {}
@@ -101,7 +101,7 @@ namespace {
 	 * @param resource $blob_handle <p>A BLOB handle opened with <code>ibase_blob_open()</code>.</p>
 	 * @param int $len <p>Size of returned data.</p>
 	 * @return string
-	 * @link http://php.net/manual/en/function.fbird-blob-get.php
+	 * @link https://php.net/manual/en/function.fbird-blob-get.php
 	 * @since PHP 5, PHP 7 < 7.4.0
 	 */
 	function fbird_blob_get($blob_handle, int $len): string {}
@@ -112,7 +112,7 @@ namespace {
 	 * @param resource $link_identifier <p>An InterBase link identifier. If omitted, the last opened link is assumed.</p>
 	 * @param resource $file_handle <p>The file handle is a handle returned by <code>fopen()</code>.</p>
 	 * @return string
-	 * @link http://php.net/manual/en/function.fbird-blob-import.php
+	 * @link https://php.net/manual/en/function.fbird-blob-import.php
 	 * @since PHP 5, PHP 7 < 7.4.0
 	 */
 	function fbird_blob_import($link_identifier, $file_handle): string {}
@@ -123,7 +123,7 @@ namespace {
 	 * @param resource $link_identifier <p>An InterBase link identifier. If omitted, the last opened link is assumed.</p>
 	 * @param string $blob_id <p>A BLOB id.</p>
 	 * @return array
-	 * @link http://php.net/manual/en/function.fbird-blob-info.php
+	 * @link https://php.net/manual/en/function.fbird-blob-info.php
 	 * @since PHP 5, PHP 7 < 7.4.0
 	 */
 	function fbird_blob_info($link_identifier, string $blob_id): array {}
@@ -134,7 +134,7 @@ namespace {
 	 * @param resource $link_identifier <p>An InterBase link identifier. If omitted, the last opened link is assumed.</p>
 	 * @param string $blob_id <p>A BLOB id.</p>
 	 * @return resource|false
-	 * @link http://php.net/manual/en/function.fbird-blob-open.php
+	 * @link https://php.net/manual/en/function.fbird-blob-open.php
 	 * @since PHP 5, PHP 7 < 7.4.0
 	 */
 	function fbird_blob_open($link_identifier, string $blob_id) {}
@@ -144,7 +144,7 @@ namespace {
 	 * <p>This function is an alias of: <code>ibase_close()</code>.</p>
 	 * @param resource $connection_id <p>An InterBase link identifier returned from <code>ibase_connect()</code>. If omitted, the last opened link is assumed.</p>
 	 * @return bool
-	 * @link http://php.net/manual/en/function.fbird-close.php
+	 * @link https://php.net/manual/en/function.fbird-close.php
 	 * @since PHP 5, PHP 7 < 7.4.0
 	 */
 	function fbird_close($connection_id = NULL): bool {}
@@ -154,7 +154,7 @@ namespace {
 	 * <p>This function is an alias of: <code>ibase_commit()</code>.</p>
 	 * @param resource $link_or_trans_identifier <p>If called without an argument, this function commits the default transaction of the default link. If the argument is a connection identifier, the default transaction of the corresponding connection will be committed. If the argument is a transaction identifier, the corresponding transaction will be committed.</p>
 	 * @return bool
-	 * @link http://php.net/manual/en/function.fbird-commit.php
+	 * @link https://php.net/manual/en/function.fbird-commit.php
 	 * @since PHP 5, PHP 7 < 7.4.0
 	 */
 	function fbird_commit($link_or_trans_identifier = NULL): bool {}
@@ -164,7 +164,7 @@ namespace {
 	 * <p>This function is an alias of: <code>ibase_commit_ret()</code>.</p>
 	 * @param resource $link_or_trans_identifier <p>If called without an argument, this function commits the default transaction of the default link. If the argument is a connection identifier, the default transaction of the corresponding connection will be committed. If the argument is a transaction identifier, the corresponding transaction will be committed. The transaction context will be retained, so statements executed from within this transaction will not be invalidated.</p>
 	 * @return bool
-	 * @link http://php.net/manual/en/function.fbird-commit-ret.php
+	 * @link https://php.net/manual/en/function.fbird-commit-ret.php
 	 * @since PHP 5, PHP 7 < 7.4.0
 	 */
 	function fbird_commit_ret($link_or_trans_identifier = NULL): bool {}
@@ -181,7 +181,7 @@ namespace {
 	 * @param string $role <p>Functional only with InterBase 5 and up.</p>
 	 * @param int $sync
 	 * @return resource
-	 * @link http://php.net/manual/en/function.fbird-connect.php
+	 * @link https://php.net/manual/en/function.fbird-connect.php
 	 * @since PHP 5, PHP 7 < 7.4.0
 	 */
 	function fbird_connect(string $database = NULL, string $username = NULL, string $password = NULL, string $charset = NULL, int $buffers = NULL, int $dialect = NULL, string $role = NULL, int $sync = NULL) {}
@@ -194,7 +194,7 @@ namespace {
 	 * @param int $action
 	 * @param int $argument
 	 * @return string
-	 * @link http://php.net/manual/en/function.fbird-db-info.php
+	 * @link https://php.net/manual/en/function.fbird-db-info.php
 	 * @since PHP 5, PHP 7 < 7.4.0
 	 */
 	function fbird_db_info($service_handle, string $db, int $action, int $argument = 0): string {}
@@ -205,7 +205,7 @@ namespace {
 	 * @param resource $service_handle <p>The handle on the database server service.</p>
 	 * @param string $user_name <p>The login name of the user you want to delete from the database.</p>
 	 * @return bool
-	 * @link http://php.net/manual/en/function.fbird-delete-user.php
+	 * @link https://php.net/manual/en/function.fbird-delete-user.php
 	 * @since PHP 5, PHP 7 < 7.4.0
 	 */
 	function fbird_delete_user($service_handle, string $user_name): bool {}
@@ -215,7 +215,7 @@ namespace {
 	 * <p>This function is an alias of: <code>ibase_drop_db()</code>.</p>
 	 * @param resource $connection <p>An InterBase link identifier. If omitted, the last opened link is assumed.</p>
 	 * @return bool
-	 * @link http://php.net/manual/en/function.fbird-drop-db.php
+	 * @link https://php.net/manual/en/function.fbird-drop-db.php
 	 * @since PHP 5, PHP 7 < 7.4.0
 	 */
 	function fbird_drop_db($connection = NULL): bool {}
@@ -224,7 +224,7 @@ namespace {
 	 * Alias of ibase_errcode()
 	 * <p>This function is an alias of: <code>ibase_errcode()</code>.</p>
 	 * @return int
-	 * @link http://php.net/manual/en/function.fbird-errcode.php
+	 * @link https://php.net/manual/en/function.fbird-errcode.php
 	 * @since PHP 5, PHP 7 < 7.4.0
 	 */
 	function fbird_errcode(): int {}
@@ -233,7 +233,7 @@ namespace {
 	 * Alias of ibase_errmsg()
 	 * <p>This function is an alias of: <code>ibase_errmsg()</code>.</p>
 	 * @return string
-	 * @link http://php.net/manual/en/function.fbird-errmsg.php
+	 * @link https://php.net/manual/en/function.fbird-errmsg.php
 	 * @since PHP 5, PHP 7 < 7.4.0
 	 */
 	function fbird_errmsg(): string {}
@@ -244,7 +244,7 @@ namespace {
 	 * @param resource $query <p>An InterBase query prepared by <code>ibase_prepare()</code>.</p>
 	 * @param mixed $_$values
 	 * @return resource
-	 * @link http://php.net/manual/en/function.fbird-execute.php
+	 * @link https://php.net/manual/en/function.fbird-execute.php
 	 * @since PHP 5, PHP 7 < 7.4.0
 	 */
 	function fbird_execute($query, $_$values) {}
@@ -255,7 +255,7 @@ namespace {
 	 * @param resource $result <p>The result handle.</p>
 	 * @param int $fetch_flag <p><code>fetch_flag</code> is a combination of the constants <b><code>IBASE_TEXT</code></b> and <b><code>IBASE_UNIXTIME</code></b> ORed together. Passing <b><code>IBASE_TEXT</code></b> will cause this function to return BLOB contents instead of BLOB ids. Passing <b><code>IBASE_UNIXTIME</code></b> will cause this function to return date/time values as Unix timestamps instead of as formatted strings.</p>
 	 * @return array
-	 * @link http://php.net/manual/en/function.fbird-fetch-assoc.php
+	 * @link https://php.net/manual/en/function.fbird-fetch-assoc.php
 	 * @since PHP 5, PHP 7 < 7.4.0
 	 */
 	function fbird_fetch_assoc($result, int $fetch_flag = 0): array {}
@@ -266,7 +266,7 @@ namespace {
 	 * @param resource $result_id <p>An InterBase result identifier obtained either by <code>ibase_query()</code> or <code>ibase_execute()</code>.</p>
 	 * @param int $fetch_flag <p><code>fetch_flag</code> is a combination of the constants <b><code>IBASE_TEXT</code></b> and <b><code>IBASE_UNIXTIME</code></b> ORed together. Passing <b><code>IBASE_TEXT</code></b> will cause this function to return BLOB contents instead of BLOB ids. Passing <b><code>IBASE_UNIXTIME</code></b> will cause this function to return date/time values as Unix timestamps instead of as formatted strings.</p>
 	 * @return object
-	 * @link http://php.net/manual/en/function.fbird-fetch-object.php
+	 * @link https://php.net/manual/en/function.fbird-fetch-object.php
 	 * @since PHP 5, PHP 7 < 7.4.0
 	 */
 	function fbird_fetch_object($result_id, int $fetch_flag = 0): object {}
@@ -277,7 +277,7 @@ namespace {
 	 * @param resource $result_identifier <p>An InterBase result identifier.</p>
 	 * @param int $fetch_flag <p><code>fetch_flag</code> is a combination of the constants <b><code>IBASE_TEXT</code></b> and <b><code>IBASE_UNIXTIME</code></b> ORed together. Passing <b><code>IBASE_TEXT</code></b> will cause this function to return BLOB contents instead of BLOB ids. Passing <b><code>IBASE_UNIXTIME</code></b> will cause this function to return date/time values as Unix timestamps instead of as formatted strings.</p>
 	 * @return array
-	 * @link http://php.net/manual/en/function.fbird-fetch-row.php
+	 * @link https://php.net/manual/en/function.fbird-fetch-row.php
 	 * @since PHP 5, PHP 7 < 7.4.0
 	 */
 	function fbird_fetch_row($result_identifier, int $fetch_flag = 0): array {}
@@ -288,7 +288,7 @@ namespace {
 	 * @param resource $result <p>An InterBase result identifier.</p>
 	 * @param int $field_number <p>Field offset.</p>
 	 * @return array
-	 * @link http://php.net/manual/en/function.fbird-field-info.php
+	 * @link https://php.net/manual/en/function.fbird-field-info.php
 	 * @since PHP 5, PHP 7 < 7.4.0
 	 */
 	function fbird_field_info($result, int $field_number): array {}
@@ -298,7 +298,7 @@ namespace {
 	 * <p>This function is an alias of: <code>ibase_free_event_handler()</code>.</p>
 	 * @param resource $event <p>An event resource, created by <code>ibase_set_event_handler()</code>.</p>
 	 * @return bool
-	 * @link http://php.net/manual/en/function.fbird-free-event-handler.php
+	 * @link https://php.net/manual/en/function.fbird-free-event-handler.php
 	 * @since PHP 5, PHP 7 < 7.4.0
 	 */
 	function fbird_free_event_handler($event): bool {}
@@ -308,7 +308,7 @@ namespace {
 	 * <p>This function is an alias of: <code>ibase_free_query()</code>.</p>
 	 * @param resource $query <p>A query prepared with <code>ibase_prepare()</code>.</p>
 	 * @return bool
-	 * @link http://php.net/manual/en/function.fbird-free-query.php
+	 * @link https://php.net/manual/en/function.fbird-free-query.php
 	 * @since PHP 5, PHP 7 < 7.4.0
 	 */
 	function fbird_free_query($query): bool {}
@@ -318,7 +318,7 @@ namespace {
 	 * <p>This function is an alias of: <code>ibase_free_result()</code>.</p>
 	 * @param resource $result_identifier <p>A result set created by <code>ibase_query()</code> or <code>ibase_execute()</code>.</p>
 	 * @return bool
-	 * @link http://php.net/manual/en/function.fbird-free-result.php
+	 * @link https://php.net/manual/en/function.fbird-free-result.php
 	 * @since PHP 5, PHP 7 < 7.4.0
 	 */
 	function fbird_free_result($result_identifier): bool {}
@@ -330,7 +330,7 @@ namespace {
 	 * @param int $increment
 	 * @param resource $link_identifier
 	 * @return mixed
-	 * @link http://php.net/manual/en/function.fbird-gen-id.php
+	 * @link https://php.net/manual/en/function.fbird-gen-id.php
 	 * @since PHP 5, PHP 7 < 7.4.0
 	 */
 	function fbird_gen_id(string $generator, int $increment = 1, $link_identifier = NULL) {}
@@ -343,7 +343,7 @@ namespace {
 	 * @param int $action
 	 * @param int $argument
 	 * @return bool
-	 * @link http://php.net/manual/en/function.fbird-maintain-db.php
+	 * @link https://php.net/manual/en/function.fbird-maintain-db.php
 	 * @since PHP 5, PHP 7 < 7.4.0
 	 */
 	function fbird_maintain_db($service_handle, string $db, int $action, int $argument = 0): bool {}
@@ -358,7 +358,7 @@ namespace {
 	 * @param string $middle_name <p>The user's new middle name.</p>
 	 * @param string $last_name <p>The user's new last name.</p>
 	 * @return bool
-	 * @link http://php.net/manual/en/function.fbird-modify-user.php
+	 * @link https://php.net/manual/en/function.fbird-modify-user.php
 	 * @since PHP 5, PHP 7 < 7.4.0
 	 */
 	function fbird_modify_user($service_handle, string $user_name, string $password, string $first_name = NULL, string $middle_name = NULL, string $last_name = NULL): bool {}
@@ -369,7 +369,7 @@ namespace {
 	 * @param resource $result <p>An InterBase result set.</p>
 	 * @param string $name <p>The name to be assigned.</p>
 	 * @return bool
-	 * @link http://php.net/manual/en/function.fbird-name-result.php
+	 * @link https://php.net/manual/en/function.fbird-name-result.php
 	 * @since PHP 5, PHP 7 < 7.4.0
 	 */
 	function fbird_name_result($result, string $name): bool {}
@@ -379,7 +379,7 @@ namespace {
 	 * <p>This function is an alias of: <code>ibase_num_fields()</code>.</p>
 	 * @param resource $result_id <p>An InterBase result identifier.</p>
 	 * @return int
-	 * @link http://php.net/manual/en/function.fbird-num-fields.php
+	 * @link https://php.net/manual/en/function.fbird-num-fields.php
 	 * @since PHP 5, PHP 7 < 7.4.0
 	 */
 	function fbird_num_fields($result_id): int {}
@@ -389,7 +389,7 @@ namespace {
 	 * <p>This function is an alias of: <code>ibase_num_params()</code>.</p>
 	 * @param resource $query <p>The prepared query handle.</p>
 	 * @return int
-	 * @link http://php.net/manual/en/function.fbird-num-params.php
+	 * @link https://php.net/manual/en/function.fbird-num-params.php
 	 * @since PHP 5, PHP 7 < 7.4.0
 	 */
 	function fbird_num_params($query): int {}
@@ -400,7 +400,7 @@ namespace {
 	 * @param resource $query <p>An InterBase prepared query handle.</p>
 	 * @param int $param_number <p>Parameter offset.</p>
 	 * @return array
-	 * @link http://php.net/manual/en/function.fbird-param-info.php
+	 * @link https://php.net/manual/en/function.fbird-param-info.php
 	 * @since PHP 5, PHP 7 < 7.4.0
 	 */
 	function fbird_param_info($query, int $param_number): array {}
@@ -417,7 +417,7 @@ namespace {
 	 * @param string $role <p>Functional only with InterBase 5 and up.</p>
 	 * @param int $sync
 	 * @return resource
-	 * @link http://php.net/manual/en/function.fbird-pconnect.php
+	 * @link https://php.net/manual/en/function.fbird-pconnect.php
 	 * @since PHP 5, PHP 7 < 7.4.0
 	 */
 	function fbird_pconnect(string $database = NULL, string $username = NULL, string $password = NULL, string $charset = NULL, int $buffers = NULL, int $dialect = NULL, string $role = NULL, int $sync = NULL) {}
@@ -427,7 +427,7 @@ namespace {
 	 * <p>This function is an alias of: <code>ibase_prepare()</code>.</p>
 	 * @param string $query <p>An InterBase query.</p>
 	 * @return resource
-	 * @link http://php.net/manual/en/function.fbird-prepare.php
+	 * @link https://php.net/manual/en/function.fbird-prepare.php
 	 * @since PHP 5, PHP 7 < 7.4.0
 	 */
 	function fbird_prepare(string $query) {}
@@ -439,7 +439,7 @@ namespace {
 	 * @param string $query <p>An InterBase query.</p>
 	 * @param int $bind_args
 	 * @return resource
-	 * @link http://php.net/manual/en/function.fbird-query.php
+	 * @link https://php.net/manual/en/function.fbird-query.php
 	 * @since PHP 5, PHP 7 < 7.4.0
 	 */
 	function fbird_query($link_identifier = NULL, string $query, int $bind_args = NULL) {}
@@ -453,7 +453,7 @@ namespace {
 	 * @param int $options <p>Additional options to pass to the database server for restore. The <code>options</code> parameter can be a combination of the following constants: <b><code>IBASE_RES_DEACTIVATE_IDX</code></b>, <b><code>IBASE_RES_NO_SHADOW</code></b>, <b><code>IBASE_RES_NO_VALIDITY</code></b>, <b><code>IBASE_RES_ONE_AT_A_TIME</code></b>, <b><code>IBASE_RES_REPLACE</code></b>, <b><code>IBASE_RES_CREATE</code></b>, <b><code>IBASE_RES_USE_ALL_SPACE</code></b>, <b><code>IBASE_PRP_PAGE_BUFFERS</code></b>, <b><code>IBASE_PRP_SWEEP_INTERVAL</code></b>, <b><code>IBASE_RES_CREATE</code></b>. Read the section about Predefined Constants for further information.</p>
 	 * @param bool $verbose <p>Since the restore process is done on the database server, you don't have any chance to get its output. This argument is useless.</p>
 	 * @return mixed
-	 * @link http://php.net/manual/en/function.fbird-restore.php
+	 * @link https://php.net/manual/en/function.fbird-restore.php
 	 * @since PHP 5, PHP 7 < 7.4.0
 	 */
 	function fbird_restore($service_handle, string $source_file, string $dest_db, int $options = 0, bool $verbose = FALSE) {}
@@ -463,7 +463,7 @@ namespace {
 	 * <p>This function is an alias of: <code>ibase_rollback()</code>.</p>
 	 * @param resource $link_or_trans_identifier <p>If called without an argument, this function rolls back the default transaction of the default link. If the argument is a connection identifier, the default transaction of the corresponding connection will be rolled back. If the argument is a transaction identifier, the corresponding transaction will be rolled back.</p>
 	 * @return bool
-	 * @link http://php.net/manual/en/function.fbird-rollback.php
+	 * @link https://php.net/manual/en/function.fbird-rollback.php
 	 * @since PHP 5, PHP 7 < 7.4.0
 	 */
 	function fbird_rollback($link_or_trans_identifier = NULL): bool {}
@@ -473,7 +473,7 @@ namespace {
 	 * <p>This function is an alias of: <code>ibase_rollback_ret()</code>.</p>
 	 * @param resource $link_or_trans_identifier <p>If called without an argument, this function rolls back the default transaction of the default link. If the argument is a connection identifier, the default transaction of the corresponding connection will be rolled back. If the argument is a transaction identifier, the corresponding transaction will be rolled back. The transaction context will be retained, so statements executed from within this transaction will not be invalidated.</p>
 	 * @return bool
-	 * @link http://php.net/manual/en/function.fbird-rollback-ret.php
+	 * @link https://php.net/manual/en/function.fbird-rollback-ret.php
 	 * @since PHP 5, PHP 7 < 7.4.0
 	 */
 	function fbird_rollback_ret($link_or_trans_identifier = NULL): bool {}
@@ -484,7 +484,7 @@ namespace {
 	 * @param resource $service_handle <p>A previously created connection to the database server.</p>
 	 * @param int $action <p>A valid constant.</p>
 	 * @return string
-	 * @link http://php.net/manual/en/function.fbird-server-info.php
+	 * @link https://php.net/manual/en/function.fbird-server-info.php
 	 * @since PHP 5, PHP 7 < 7.4.0
 	 */
 	function fbird_server_info($service_handle, int $action): string {}
@@ -496,7 +496,7 @@ namespace {
 	 * @param string $dba_username <p>The name of any valid user.</p>
 	 * @param string $dba_password <p>The user's password.</p>
 	 * @return resource|false
-	 * @link http://php.net/manual/en/function.fbird-service-attach.php
+	 * @link https://php.net/manual/en/function.fbird-service-attach.php
 	 * @since PHP 5, PHP 7 < 7.4.0
 	 */
 	function fbird_service_attach(string $host, string $dba_username, string $dba_password) {}
@@ -506,7 +506,7 @@ namespace {
 	 * <p>This function is an alias of: <code>ibase_service_detach()</code>.</p>
 	 * @param resource $service_handle <p>A previously created connection to the database server.</p>
 	 * @return bool
-	 * @link http://php.net/manual/en/function.fbird-service-detach.php
+	 * @link https://php.net/manual/en/function.fbird-service-detach.php
 	 * @since PHP 5, PHP 7 < 7.4.0
 	 */
 	function fbird_service_detach($service_handle): bool {}
@@ -518,7 +518,7 @@ namespace {
 	 * @param string $event_name <p>An event name.</p>
 	 * @param string $_$even_names
 	 * @return resource
-	 * @link http://php.net/manual/en/function.fbird-set-event-handler.php
+	 * @link https://php.net/manual/en/function.fbird-set-event-handler.php
 	 * @since PHP 5, PHP 7 < 7.4.0
 	 */
 	function fbird_set_event_handler(callable $event_handler, string $event_name, string $_$even_names) {}
@@ -529,7 +529,7 @@ namespace {
 	 * @param int $trans_args <p><code>trans_args</code> can be a combination of <b><code>IBASE_READ</code></b>, <b><code>IBASE_WRITE</code></b>, <b><code>IBASE_COMMITTED</code></b>, <b><code>IBASE_CONSISTENCY</code></b>, <b><code>IBASE_CONCURRENCY</code></b>, <b><code>IBASE_REC_VERSION</code></b>, <b><code>IBASE_REC_NO_VERSION</code></b>, <b><code>IBASE_WAIT</code></b> and <b><code>IBASE_NOWAIT</code></b>.</p>
 	 * @param resource $link_identifier <p>An InterBase link identifier. If omitted, the last opened link is assumed.</p>
 	 * @return resource
-	 * @link http://php.net/manual/en/function.fbird-trans.php
+	 * @link https://php.net/manual/en/function.fbird-trans.php
 	 * @since PHP 5, PHP 7 < 7.4.0
 	 */
 	function fbird_trans(int $trans_args = NULL, $link_identifier = NULL) {}
@@ -540,7 +540,7 @@ namespace {
 	 * @param string $event_name <p>The event name.</p>
 	 * @param string $_$event_names
 	 * @return string
-	 * @link http://php.net/manual/en/function.fbird-wait-event.php
+	 * @link https://php.net/manual/en/function.fbird-wait-event.php
 	 * @since PHP 5, PHP 7 < 7.4.0
 	 */
 	function fbird_wait_event(string $event_name, string $_$event_names): string {}
@@ -554,7 +554,7 @@ namespace {
 	 * @param string $middle_name <p>The middle name of the new database user.</p>
 	 * @param string $last_name <p>The last name of the new database user.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.ibase-add-user.php
+	 * @link https://php.net/manual/en/function.ibase-add-user.php
 	 * @see ibase_modify_user(), ibase_delete_user()
 	 * @since PHP 5, PHP 7 < 7.4.0
 	 */
@@ -565,7 +565,7 @@ namespace {
 	 * <p>This function returns the number of rows that were affected by the previous query (INSERT, UPDATE or DELETE) that was executed from within the specified transaction context.</p>
 	 * @param resource $link_identifier <p>A transaction context. If <code>link_identifier</code> is a connection resource, its default transaction is used.</p>
 	 * @return int <p>Returns the number of rows as an integer.</p>
-	 * @link http://php.net/manual/en/function.ibase-affected-rows.php
+	 * @link https://php.net/manual/en/function.ibase-affected-rows.php
 	 * @see ibase_query(), ibase_execute()
 	 * @since PHP 5, PHP 7 < 7.4.0
 	 */
@@ -580,7 +580,7 @@ namespace {
 	 * @param int $options <p>Additional options to pass to the database server for backup. The <code>options</code> parameter can be a combination of the following constants: <b><code>IBASE_BKP_IGNORE_CHECKSUMS</code></b>, <b><code>IBASE_BKP_IGNORE_LIMBO</code></b>, <b><code>IBASE_BKP_METADATA_ONLY</code></b>, <b><code>IBASE_BKP_NO_GARBAGE_COLLECT</code></b>, <b><code>IBASE_BKP_OLD_DESCRIPTIONS</code></b>, <b><code>IBASE_BKP_NON_TRANSPORTABLE</code></b> or <b><code>IBASE_BKP_CONVERT</code></b>. Read the section about Predefined Constants for further information.</p>
 	 * @param bool $verbose <p>Since the backup process is done on the database server, you don't have any chance to get its output. This argument is useless.</p>
 	 * @return mixed <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p><p>Since the backup process is done on the (remote) server, this function just passes the arguments to it. While the arguments are legal, you won't get <b><code>FALSE</code></b>.</p>
-	 * @link http://php.net/manual/en/function.ibase-backup.php
+	 * @link https://php.net/manual/en/function.ibase-backup.php
 	 * @see ibase_restore()
 	 * @since PHP 5, PHP 7 < 7.4.0
 	 */
@@ -592,7 +592,7 @@ namespace {
 	 * @param resource $blob_handle <p>A blob handle opened with <code>ibase_blob_create()</code>.</p>
 	 * @param string $data <p>The data to be added.</p>
 	 * @return void <p>No value is returned.</p>
-	 * @link http://php.net/manual/en/function.ibase-blob-add.php
+	 * @link https://php.net/manual/en/function.ibase-blob-add.php
 	 * @see ibase_blob_cancel(), ibase_blob_close(), ibase_blob_create(), ibase_blob_import()
 	 * @since PHP 5, PHP 7 < 7.4.0
 	 */
@@ -603,7 +603,7 @@ namespace {
 	 * <p>This function will discard a BLOB if it has not yet been closed by <code>ibase_blob_close()</code>.</p>
 	 * @param resource $blob_handle <p>A BLOB handle opened with <code>ibase_blob_create()</code>.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.ibase-blob-cancel.php
+	 * @link https://php.net/manual/en/function.ibase-blob-cancel.php
 	 * @see ibase_blob_close(), ibase_blob_create(), ibase_blob_import()
 	 * @since PHP 5, PHP 7 < 7.4.0
 	 */
@@ -614,7 +614,7 @@ namespace {
 	 * <p>This function closes a BLOB that has either been opened for reading by <code>ibase_blob_open()</code> or has been opened for writing by <code>ibase_blob_create()</code>.</p>
 	 * @param resource $blob_handle <p>A BLOB handle opened with <code>ibase_blob_create()</code> or <code>ibase_blob_open()</code>.</p>
 	 * @return mixed <p>If the BLOB was being read, this function returns <b><code>TRUE</code></b> on success, if the BLOB was being written to, this function returns a string containing the BLOB id that has been assigned to it by the database. On failure, this function returns <b><code>FALSE</code></b>.</p>
-	 * @link http://php.net/manual/en/function.ibase-blob-close.php
+	 * @link https://php.net/manual/en/function.ibase-blob-close.php
 	 * @see ibase_blob_cancel(), ibase_blob_open()
 	 * @since PHP 5, PHP 7 < 7.4.0
 	 */
@@ -625,7 +625,7 @@ namespace {
 	 * <p><b>ibase_blob_create()</b> creates a new BLOB for filling with data.</p>
 	 * @param resource $link_identifier <p>An InterBase link identifier. If omitted, the last opened link is assumed.</p>
 	 * @return resource|false <p>Returns a BLOB handle for later use with <code>ibase_blob_add()</code> or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.ibase-blob-create.php
+	 * @link https://php.net/manual/en/function.ibase-blob-create.php
 	 * @see ibase_blob_add(), ibase_blob_cancel(), ibase_blob_close(), ibase_blob_import()
 	 * @since PHP 5, PHP 7 < 7.4.0
 	 */
@@ -636,7 +636,7 @@ namespace {
 	 * <p>This function opens a BLOB for reading and sends its contents directly to standard output (the browser, in most cases).</p>
 	 * @param string $blob_id
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.ibase-blob-echo.php
+	 * @link https://php.net/manual/en/function.ibase-blob-echo.php
 	 * @see ibase_blob_open(), ibase_blob_close(), ibase_blob_get()
 	 * @since PHP 5, PHP 7 < 7.4.0
 	 */
@@ -648,7 +648,7 @@ namespace {
 	 * @param resource $blob_handle <p>A BLOB handle opened with <code>ibase_blob_open()</code>.</p>
 	 * @param int $len <p>Size of returned data.</p>
 	 * @return string <p>Returns at most <code>len</code> bytes from the BLOB, or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.ibase-blob-get.php
+	 * @link https://php.net/manual/en/function.ibase-blob-get.php
 	 * @see ibase_blob_open(), ibase_blob_close(), ibase_blob_echo()
 	 * @since PHP 5, PHP 7 < 7.4.0
 	 */
@@ -660,7 +660,7 @@ namespace {
 	 * @param resource $link_identifier <p>An InterBase link identifier. If omitted, the last opened link is assumed.</p>
 	 * @param resource $file_handle <p>The file handle is a handle returned by <code>fopen()</code>.</p>
 	 * @return string <p>Returns the BLOB id on success, or <b><code>FALSE</code></b> on error.</p>
-	 * @link http://php.net/manual/en/function.ibase-blob-import.php
+	 * @link https://php.net/manual/en/function.ibase-blob-import.php
 	 * @see ibase_blob_add(), ibase_blob_cancel(), ibase_blob_close(), ibase_blob_create()
 	 * @since PHP 5, PHP 7 < 7.4.0
 	 */
@@ -672,7 +672,7 @@ namespace {
 	 * @param resource $link_identifier <p>An InterBase link identifier. If omitted, the last opened link is assumed.</p>
 	 * @param string $blob_id <p>A BLOB id.</p>
 	 * @return array <p>Returns an array containing information about a BLOB. The information returned consists of the length of the BLOB, the number of segments it contains, the size of the largest segment, and whether it is a stream BLOB or a segmented BLOB.</p>
-	 * @link http://php.net/manual/en/function.ibase-blob-info.php
+	 * @link https://php.net/manual/en/function.ibase-blob-info.php
 	 * @since PHP 5, PHP 7 < 7.4.0
 	 */
 	function ibase_blob_info($link_identifier, string $blob_id): array {}
@@ -683,7 +683,7 @@ namespace {
 	 * @param resource $link_identifier <p>An InterBase link identifier. If omitted, the last opened link is assumed.</p>
 	 * @param string $blob_id <p>A BLOB id.</p>
 	 * @return resource|false <p>Returns a BLOB handle for later use with <code>ibase_blob_get()</code> or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.ibase-blob-open.php
+	 * @link https://php.net/manual/en/function.ibase-blob-open.php
 	 * @see ibase_blob_close(), ibase_blob_echo(), ibase_blob_get()
 	 * @since PHP 5, PHP 7 < 7.4.0
 	 */
@@ -694,7 +694,7 @@ namespace {
 	 * <p>Closes the link to an InterBase database that's associated with a connection id returned from <code>ibase_connect()</code>. Default transaction on link is committed, other transactions are rolled back.</p>
 	 * @param resource $connection_id <p>An InterBase link identifier returned from <code>ibase_connect()</code>. If omitted, the last opened link is assumed.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.ibase-close.php
+	 * @link https://php.net/manual/en/function.ibase-close.php
 	 * @see ibase_connect(), ibase_pconnect()
 	 * @since PHP 5, PHP 7 < 7.4.0
 	 */
@@ -705,7 +705,7 @@ namespace {
 	 * <p>Commits a transaction.</p>
 	 * @param resource $link_or_trans_identifier <p>If called without an argument, this function commits the default transaction of the default link. If the argument is a connection identifier, the default transaction of the corresponding connection will be committed. If the argument is a transaction identifier, the corresponding transaction will be committed.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.ibase-commit.php
+	 * @link https://php.net/manual/en/function.ibase-commit.php
 	 * @since PHP 5, PHP 7 < 7.4.0
 	 */
 	function ibase_commit($link_or_trans_identifier = NULL): bool {}
@@ -715,7 +715,7 @@ namespace {
 	 * <p>Commits a transaction without closing it.</p>
 	 * @param resource $link_or_trans_identifier <p>If called without an argument, this function commits the default transaction of the default link. If the argument is a connection identifier, the default transaction of the corresponding connection will be committed. If the argument is a transaction identifier, the corresponding transaction will be committed. The transaction context will be retained, so statements executed from within this transaction will not be invalidated.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.ibase-commit-ret.php
+	 * @link https://php.net/manual/en/function.ibase-commit-ret.php
 	 * @since PHP 5, PHP 7 < 7.4.0
 	 */
 	function ibase_commit_ret($link_or_trans_identifier = NULL): bool {}
@@ -732,7 +732,7 @@ namespace {
 	 * @param string $role <p>Functional only with InterBase 5 and up.</p>
 	 * @param int $sync
 	 * @return resource <p>Returns an Firebird/InterBase link identifier on success, or <b><code>FALSE</code></b> on error.</p>
-	 * @link http://php.net/manual/en/function.ibase-connect.php
+	 * @link https://php.net/manual/en/function.ibase-connect.php
 	 * @see ibase_pconnect(), ibase_close()
 	 * @since PHP 5, PHP 7 < 7.4.0
 	 */
@@ -746,7 +746,7 @@ namespace {
 	 * @param int $action
 	 * @param int $argument
 	 * @return string
-	 * @link http://php.net/manual/en/function.ibase-db-info.php
+	 * @link https://php.net/manual/en/function.ibase-db-info.php
 	 * @since PHP 5, PHP 7 < 7.4.0
 	 */
 	function ibase_db_info($service_handle, string $db, int $action, int $argument = 0): string {}
@@ -756,7 +756,7 @@ namespace {
 	 * @param resource $service_handle <p>The handle on the database server service.</p>
 	 * @param string $user_name <p>The login name of the user you want to delete from the database.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.ibase-delete-user.php
+	 * @link https://php.net/manual/en/function.ibase-delete-user.php
 	 * @see ibase_add_user(), ibase_modify_user()
 	 * @since PHP 5, PHP 7 < 7.4.0
 	 */
@@ -767,7 +767,7 @@ namespace {
 	 * <p>This functions drops a database that was opened by either <code>ibase_connect()</code> or <code>ibase_pconnect()</code>. The database is closed and deleted from the server.</p>
 	 * @param resource $connection <p>An InterBase link identifier. If omitted, the last opened link is assumed.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.ibase-drop-db.php
+	 * @link https://php.net/manual/en/function.ibase-drop-db.php
 	 * @see ibase_connect(), ibase_pconnect()
 	 * @since PHP 5, PHP 7 < 7.4.0
 	 */
@@ -777,7 +777,7 @@ namespace {
 	 * Return an error code
 	 * <p>Returns the error code that resulted from the most recent InterBase function call.</p>
 	 * @return int <p>Returns the error code as an integer, or <b><code>FALSE</code></b> if no error occurred.</p>
-	 * @link http://php.net/manual/en/function.ibase-errcode.php
+	 * @link https://php.net/manual/en/function.ibase-errcode.php
 	 * @see ibase_errmsg()
 	 * @since PHP 5, PHP 7 < 7.4.0
 	 */
@@ -787,7 +787,7 @@ namespace {
 	 * Return error messages
 	 * <p>Returns the error message that resulted from the most recent InterBase function call.</p>
 	 * @return string <p>Returns the error message as a string, or <b><code>FALSE</code></b> if no error occurred.</p>
-	 * @link http://php.net/manual/en/function.ibase-errmsg.php
+	 * @link https://php.net/manual/en/function.ibase-errmsg.php
 	 * @see ibase_errcode()
 	 * @since PHP 5, PHP 7 < 7.4.0
 	 */
@@ -799,7 +799,7 @@ namespace {
 	 * @param resource $query <p>An InterBase query prepared by <code>ibase_prepare()</code>.</p>
 	 * @param mixed $_$values
 	 * @return resource <p>If the query raises an error, returns <b><code>FALSE</code></b>. If it is successful and there is a (possibly empty) result set (such as with a SELECT query), returns a result identifier. If the query was successful and there were no results, returns <b><code>TRUE</code></b>.</p><p><b>Note</b>:</p><p>This function returns the number of rows affected by the query (if &gt; 0 and applicable to the statement type). A query that succeeded, but did not affect any rows (e.g. an UPDATE of a non-existent record) will return <b><code>TRUE</code></b>.</p>
-	 * @link http://php.net/manual/en/function.ibase-execute.php
+	 * @link https://php.net/manual/en/function.ibase-execute.php
 	 * @see ibase_query()
 	 * @since PHP 5, PHP 7 < 7.4.0
 	 */
@@ -811,7 +811,7 @@ namespace {
 	 * @param resource $result <p>The result handle.</p>
 	 * @param int $fetch_flag <p><code>fetch_flag</code> is a combination of the constants <b><code>IBASE_TEXT</code></b> and <b><code>IBASE_UNIXTIME</code></b> ORed together. Passing <b><code>IBASE_TEXT</code></b> will cause this function to return BLOB contents instead of BLOB ids. Passing <b><code>IBASE_UNIXTIME</code></b> will cause this function to return date/time values as Unix timestamps instead of as formatted strings.</p>
 	 * @return array <p>Returns an associative array that corresponds to the fetched row. Subsequent calls will return the next row in the result set, or <b><code>FALSE</code></b> if there are no more rows.</p>
-	 * @link http://php.net/manual/en/function.ibase-fetch-assoc.php
+	 * @link https://php.net/manual/en/function.ibase-fetch-assoc.php
 	 * @see ibase_fetch_row(), ibase_fetch_object()
 	 * @since PHP 5, PHP 7 < 7.4.0
 	 */
@@ -823,7 +823,7 @@ namespace {
 	 * @param resource $result_id <p>An InterBase result identifier obtained either by <code>ibase_query()</code> or <code>ibase_execute()</code>.</p>
 	 * @param int $fetch_flag <p><code>fetch_flag</code> is a combination of the constants <b><code>IBASE_TEXT</code></b> and <b><code>IBASE_UNIXTIME</code></b> ORed together. Passing <b><code>IBASE_TEXT</code></b> will cause this function to return BLOB contents instead of BLOB ids. Passing <b><code>IBASE_UNIXTIME</code></b> will cause this function to return date/time values as Unix timestamps instead of as formatted strings.</p>
 	 * @return object <p>Returns an object with the next row information, or <b><code>FALSE</code></b> if there are no more rows.</p>
-	 * @link http://php.net/manual/en/function.ibase-fetch-object.php
+	 * @link https://php.net/manual/en/function.ibase-fetch-object.php
 	 * @see ibase_fetch_row(), ibase_fetch_assoc()
 	 * @since PHP 5, PHP 7 < 7.4.0
 	 */
@@ -835,7 +835,7 @@ namespace {
 	 * @param resource $result_identifier <p>An InterBase result identifier.</p>
 	 * @param int $fetch_flag <p><code>fetch_flag</code> is a combination of the constants <b><code>IBASE_TEXT</code></b> and <b><code>IBASE_UNIXTIME</code></b> ORed together. Passing <b><code>IBASE_TEXT</code></b> will cause this function to return BLOB contents instead of BLOB ids. Passing <b><code>IBASE_UNIXTIME</code></b> will cause this function to return date/time values as Unix timestamps instead of as formatted strings.</p>
 	 * @return array <p>Returns an array that corresponds to the fetched row, or <b><code>FALSE</code></b> if there are no more rows. Each result column is stored in an array offset, starting at offset 0.</p>
-	 * @link http://php.net/manual/en/function.ibase-fetch-row.php
+	 * @link https://php.net/manual/en/function.ibase-fetch-row.php
 	 * @see ibase_fetch_assoc(), ibase_fetch_object()
 	 * @since PHP 5, PHP 7 < 7.4.0
 	 */
@@ -847,7 +847,7 @@ namespace {
 	 * @param resource $result <p>An InterBase result identifier.</p>
 	 * @param int $field_number <p>Field offset.</p>
 	 * @return array <p>Returns an array with the following keys: <code>name</code>, <code>alias</code>, <code>relation</code>, <code>length</code> and <code>type</code>.</p>
-	 * @link http://php.net/manual/en/function.ibase-field-info.php
+	 * @link https://php.net/manual/en/function.ibase-field-info.php
 	 * @see ibase_num_fields()
 	 * @since PHP 5, PHP 7 < 7.4.0
 	 */
@@ -858,7 +858,7 @@ namespace {
 	 * <p>This function causes the registered event handler specified by <code>event</code> to be cancelled. The callback function will no longer be called for the events it was registered to handle.</p>
 	 * @param resource $event <p>An event resource, created by <code>ibase_set_event_handler()</code>.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.ibase-free-event-handler.php
+	 * @link https://php.net/manual/en/function.ibase-free-event-handler.php
 	 * @see ibase_set_event_handler()
 	 * @since PHP 5, PHP 7 < 7.4.0
 	 */
@@ -869,7 +869,7 @@ namespace {
 	 * <p>Frees a prepared query.</p>
 	 * @param resource $query <p>A query prepared with <code>ibase_prepare()</code>.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.ibase-free-query.php
+	 * @link https://php.net/manual/en/function.ibase-free-query.php
 	 * @since PHP 5, PHP 7 < 7.4.0
 	 */
 	function ibase_free_query($query): bool {}
@@ -879,7 +879,7 @@ namespace {
 	 * <p>Frees a result set.</p>
 	 * @param resource $result_identifier <p>A result set created by <code>ibase_query()</code> or <code>ibase_execute()</code>.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.ibase-free-result.php
+	 * @link https://php.net/manual/en/function.ibase-free-result.php
 	 * @since PHP 5, PHP 7 < 7.4.0
 	 */
 	function ibase_free_result($result_identifier): bool {}
@@ -891,7 +891,7 @@ namespace {
 	 * @param int $increment
 	 * @param resource $link_identifier
 	 * @return mixed <p>Returns new generator value as integer, or as string if the value is too big.</p>
-	 * @link http://php.net/manual/en/function.ibase-gen-id.php
+	 * @link https://php.net/manual/en/function.ibase-gen-id.php
 	 * @since PHP 5, PHP 7 < 7.4.0
 	 */
 	function ibase_gen_id(string $generator, int $increment = 1, $link_identifier = NULL) {}
@@ -904,7 +904,7 @@ namespace {
 	 * @param int $action
 	 * @param int $argument
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.ibase-maintain-db.php
+	 * @link https://php.net/manual/en/function.ibase-maintain-db.php
 	 * @since PHP 5, PHP 7 < 7.4.0
 	 */
 	function ibase_maintain_db($service_handle, string $db, int $action, int $argument = 0): bool {}
@@ -918,7 +918,7 @@ namespace {
 	 * @param string $middle_name <p>The user's new middle name.</p>
 	 * @param string $last_name <p>The user's new last name.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.ibase-modify-user.php
+	 * @link https://php.net/manual/en/function.ibase-modify-user.php
 	 * @see ibase_add_user(), ibase_delete_user()
 	 * @since PHP 5, PHP 7 < 7.4.0
 	 */
@@ -930,7 +930,7 @@ namespace {
 	 * @param resource $result <p>An InterBase result set.</p>
 	 * @param string $name <p>The name to be assigned.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.ibase-name-result.php
+	 * @link https://php.net/manual/en/function.ibase-name-result.php
 	 * @see ibase_prepare(), ibase_execute()
 	 * @since PHP 5, PHP 7 < 7.4.0
 	 */
@@ -941,7 +941,7 @@ namespace {
 	 * <p>Get the number of fields in a result set.</p>
 	 * @param resource $result_id <p>An InterBase result identifier.</p>
 	 * @return int <p>Returns the number of fields as an integer.</p>
-	 * @link http://php.net/manual/en/function.ibase-num-fields.php
+	 * @link https://php.net/manual/en/function.ibase-num-fields.php
 	 * @see ibase_field_info()
 	 * @since PHP 5, PHP 7 < 7.4.0
 	 */
@@ -952,7 +952,7 @@ namespace {
 	 * <p>This function returns the number of parameters in the prepared query specified by <code>query</code>. This is the number of binding arguments that must be present when calling <code>ibase_execute()</code>.</p>
 	 * @param resource $query <p>The prepared query handle.</p>
 	 * @return int <p>Returns the number of parameters as an integer.</p>
-	 * @link http://php.net/manual/en/function.ibase-num-params.php
+	 * @link https://php.net/manual/en/function.ibase-num-params.php
 	 * @see ibase_prepare(), ibase_param_info()
 	 * @since PHP 5, PHP 7 < 7.4.0
 	 */
@@ -964,7 +964,7 @@ namespace {
 	 * @param resource $query <p>An InterBase prepared query handle.</p>
 	 * @param int $param_number <p>Parameter offset.</p>
 	 * @return array <p>Returns an array with the following keys: <code>name</code>, <code>alias</code>, <code>relation</code>, <code>length</code> and <code>type</code>.</p>
-	 * @link http://php.net/manual/en/function.ibase-param-info.php
+	 * @link https://php.net/manual/en/function.ibase-param-info.php
 	 * @see ibase_field_info(), ibase_num_params()
 	 * @since PHP 5, PHP 7 < 7.4.0
 	 */
@@ -982,7 +982,7 @@ namespace {
 	 * @param string $role <p>Functional only with InterBase 5 and up.</p>
 	 * @param int $sync
 	 * @return resource <p>Returns an InterBase link identifier on success, or <b><code>FALSE</code></b> on error.</p>
-	 * @link http://php.net/manual/en/function.ibase-pconnect.php
+	 * @link https://php.net/manual/en/function.ibase-pconnect.php
 	 * @see ibase_close(), ibase_connect()
 	 * @since PHP 5, PHP 7 < 7.4.0
 	 */
@@ -993,7 +993,7 @@ namespace {
 	 * <p>Prepare a query for later binding of parameter placeholders and execution (via <code>ibase_execute()</code>).</p>
 	 * @param string $query <p>An InterBase query.</p>
 	 * @return resource <p>Returns a prepared query handle, or <b><code>FALSE</code></b> on error.</p>
-	 * @link http://php.net/manual/en/function.ibase-prepare.php
+	 * @link https://php.net/manual/en/function.ibase-prepare.php
 	 * @since PHP 5, PHP 7 < 7.4.0
 	 */
 	function ibase_prepare(string $query) {}
@@ -1005,7 +1005,7 @@ namespace {
 	 * @param string $query <p>An InterBase query.</p>
 	 * @param int $bind_args
 	 * @return resource <p>If the query raises an error, returns <b><code>FALSE</code></b>. If it is successful and there is a (possibly empty) result set (such as with a SELECT query), returns a result identifier. If the query was successful and there were no results, returns <b><code>TRUE</code></b>.</p><p><b>Note</b>:</p><p>In PHP 5.0.0 and up, this function will return the number of rows affected by the query for INSERT, UPDATE and DELETE statements. In order to retain backward compatibility, it will return <b><code>TRUE</code></b> for these statements if the query succeeded without affecting any rows.</p>
-	 * @link http://php.net/manual/en/function.ibase-query.php
+	 * @link https://php.net/manual/en/function.ibase-query.php
 	 * @see ibase_errmsg(), ibase_fetch_row(), ibase_fetch_object(), ibase_free_result()
 	 * @since PHP 5, PHP 7 < 7.4.0
 	 */
@@ -1020,7 +1020,7 @@ namespace {
 	 * @param int $options <p>Additional options to pass to the database server for restore. The <code>options</code> parameter can be a combination of the following constants: <b><code>IBASE_RES_DEACTIVATE_IDX</code></b>, <b><code>IBASE_RES_NO_SHADOW</code></b>, <b><code>IBASE_RES_NO_VALIDITY</code></b>, <b><code>IBASE_RES_ONE_AT_A_TIME</code></b>, <b><code>IBASE_RES_REPLACE</code></b>, <b><code>IBASE_RES_CREATE</code></b>, <b><code>IBASE_RES_USE_ALL_SPACE</code></b>, <b><code>IBASE_PRP_PAGE_BUFFERS</code></b>, <b><code>IBASE_PRP_SWEEP_INTERVAL</code></b>, <b><code>IBASE_RES_CREATE</code></b>. Read the section about Predefined Constants for further information.</p>
 	 * @param bool $verbose <p>Since the restore process is done on the database server, you don't have any chance to get its output. This argument is useless.</p>
 	 * @return mixed <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p><p>Since the restore process is done on the (remote) server, this function just passes the arguments to it. While the arguments are legal, you won't get <b><code>FALSE</code></b>.</p>
-	 * @link http://php.net/manual/en/function.ibase-restore.php
+	 * @link https://php.net/manual/en/function.ibase-restore.php
 	 * @see ibase_backup()
 	 * @since PHP 5, PHP 7 < 7.4.0
 	 */
@@ -1031,7 +1031,7 @@ namespace {
 	 * <p>Rolls back a transaction.</p>
 	 * @param resource $link_or_trans_identifier <p>If called without an argument, this function rolls back the default transaction of the default link. If the argument is a connection identifier, the default transaction of the corresponding connection will be rolled back. If the argument is a transaction identifier, the corresponding transaction will be rolled back.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.ibase-rollback.php
+	 * @link https://php.net/manual/en/function.ibase-rollback.php
 	 * @since PHP 5, PHP 7 < 7.4.0
 	 */
 	function ibase_rollback($link_or_trans_identifier = NULL): bool {}
@@ -1041,7 +1041,7 @@ namespace {
 	 * <p>Rolls back a transaction without closing it.</p>
 	 * @param resource $link_or_trans_identifier <p>If called without an argument, this function rolls back the default transaction of the default link. If the argument is a connection identifier, the default transaction of the corresponding connection will be rolled back. If the argument is a transaction identifier, the corresponding transaction will be rolled back. The transaction context will be retained, so statements executed from within this transaction will not be invalidated.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.ibase-rollback-ret.php
+	 * @link https://php.net/manual/en/function.ibase-rollback-ret.php
 	 * @since PHP 5, PHP 7 < 7.4.0
 	 */
 	function ibase_rollback_ret($link_or_trans_identifier = NULL): bool {}
@@ -1051,7 +1051,7 @@ namespace {
 	 * @param resource $service_handle <p>A previously created connection to the database server.</p>
 	 * @param int $action <p>A valid constant.</p>
 	 * @return string <p>Returns mixed types depending on context.</p>
-	 * @link http://php.net/manual/en/function.ibase-server-info.php
+	 * @link https://php.net/manual/en/function.ibase-server-info.php
 	 * @since PHP 5, PHP 7 < 7.4.0
 	 */
 	function ibase_server_info($service_handle, int $action): string {}
@@ -1062,7 +1062,7 @@ namespace {
 	 * @param string $dba_username <p>The name of any valid user.</p>
 	 * @param string $dba_password <p>The user's password.</p>
 	 * @return resource|false <p>Returns a Interbase / Firebird link identifier on success or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.ibase-service-attach.php
+	 * @link https://php.net/manual/en/function.ibase-service-attach.php
 	 * @see ibase_service_detach()
 	 * @since PHP 5, PHP 7 < 7.4.0
 	 */
@@ -1072,7 +1072,7 @@ namespace {
 	 * Disconnect from the service manager
 	 * @param resource $service_handle <p>A previously created connection to the database server.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.ibase-service-detach.php
+	 * @link https://php.net/manual/en/function.ibase-service-detach.php
 	 * @since PHP 5, PHP 7 < 7.4.0
 	 */
 	function ibase_service_detach($service_handle): bool {}
@@ -1084,7 +1084,7 @@ namespace {
 	 * @param string $event_name <p>An event name.</p>
 	 * @param string $_$even_names
 	 * @return resource <p>The return value is an event resource. This resource can be used to free the event handler using <code>ibase_free_event_handler()</code>.</p>
-	 * @link http://php.net/manual/en/function.ibase-set-event-handler.php
+	 * @link https://php.net/manual/en/function.ibase-set-event-handler.php
 	 * @see ibase_free_event_handler(), ibase_wait_event()
 	 * @since PHP 5, PHP 7 < 7.4.0
 	 */
@@ -1096,7 +1096,7 @@ namespace {
 	 * @param int $trans_args <p><code>trans_args</code> can be a combination of <b><code>IBASE_READ</code></b>, <b><code>IBASE_WRITE</code></b>, <b><code>IBASE_COMMITTED</code></b>, <b><code>IBASE_CONSISTENCY</code></b>, <b><code>IBASE_CONCURRENCY</code></b>, <b><code>IBASE_REC_VERSION</code></b>, <b><code>IBASE_REC_NO_VERSION</code></b>, <b><code>IBASE_WAIT</code></b> and <b><code>IBASE_NOWAIT</code></b>.</p>
 	 * @param resource $link_identifier <p>An InterBase link identifier. If omitted, the last opened link is assumed.</p>
 	 * @return resource <p>Returns a transaction handle, or <b><code>FALSE</code></b> on error.</p>
-	 * @link http://php.net/manual/en/function.ibase-trans.php
+	 * @link https://php.net/manual/en/function.ibase-trans.php
 	 * @since PHP 5, PHP 7 < 7.4.0
 	 */
 	function ibase_trans(int $trans_args = NULL, $link_identifier = NULL) {}
@@ -1107,7 +1107,7 @@ namespace {
 	 * @param string $event_name <p>The event name.</p>
 	 * @param string $_$event_names
 	 * @return string <p>Returns the name of the event that was posted.</p>
-	 * @link http://php.net/manual/en/function.ibase-wait-event.php
+	 * @link https://php.net/manual/en/function.ibase-wait-event.php
 	 * @see ibase_set_event_handler(), ibase_free_event_handler()
 	 * @since PHP 5, PHP 7 < 7.4.0
 	 */

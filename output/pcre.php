@@ -13,7 +13,7 @@ namespace {
 	 * @param int $limit
 	 * @param int $count
 	 * @return string|array|null <p>Returns an <code>array</code> if the <code>subject</code> parameter is an <code>array</code>, or a <code>string</code> otherwise.</p><p>If no matches are found or an error occurred, an empty <code>array</code> is returned when <code>subject</code> is an <code>array</code> or <b><code>NULL</code></b> otherwise.</p>
-	 * @link http://php.net/manual/en/function.preg-filter.php
+	 * @link https://php.net/manual/en/function.preg-filter.php
 	 * @see preg_quote(), preg_replace(), preg_replace_callback(), preg_grep(), preg_last_error()
 	 * @since PHP 5 >= 5.3.0, PHP 7
 	 */
@@ -26,7 +26,7 @@ namespace {
 	 * @param array $array <p>The input array.</p>
 	 * @param int $flags <p>If set to <b><code>PREG_GREP_INVERT</code></b>, this function returns the elements of the input array that do <i>not</i> match the given <code>pattern</code>.</p>
 	 * @return array|false <p>Returns an array indexed using the keys from the <code>array</code> array.</p>
-	 * @link http://php.net/manual/en/function.preg-grep.php
+	 * @link https://php.net/manual/en/function.preg-grep.php
 	 * @see preg_quote(), preg_match_all(), preg_filter(), preg_last_error()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
@@ -36,7 +36,7 @@ namespace {
 	 * Returns the error code of the last PCRE regex execution
 	 * <p>Returns the error code of the last PCRE regex execution.</p><p></p><p><b>Example #1 <b>preg_last_error()</b> example</b></p><p>The above example will output:</p>
 	 * @return int <p>Returns one of the following constants (explained on their own page):</p><ul> <li><b><code>PREG_NO_ERROR</code></b></li> <li><b><code>PREG_INTERNAL_ERROR</code></b></li> <li><b><code>PREG_BACKTRACK_LIMIT_ERROR</code></b> (see also pcre.backtrack_limit)</li> <li><b><code>PREG_RECURSION_LIMIT_ERROR</code></b> (see also pcre.recursion_limit)</li> <li><b><code>PREG_BAD_UTF8_ERROR</code></b></li> <li><b><code>PREG_BAD_UTF8_OFFSET_ERROR</code></b> (since PHP 5.3.0)</li> <li><b><code>PREG_JIT_STACKLIMIT_ERROR</code></b> (since PHP 7.0.0)</li> </ul>
-	 * @link http://php.net/manual/en/function.preg-last-error.php
+	 * @link https://php.net/manual/en/function.preg-last-error.php
 	 * @see preg_last_error_msg()
 	 * @since PHP 5 >= 5.2.0, PHP 7
 	 */
@@ -46,7 +46,7 @@ namespace {
 	 * Returns the error message of the last PCRE regex execution
 	 * <p>Returns the error message of the last PCRE regex execution.</p>
 	 * @return string <p>Returns the error message on success, or <code>"No error"</code> if no error has occurred.</p>
-	 * @link http://php.net/manual/en/function.preg-last-error-msg.php
+	 * @link https://php.net/manual/en/function.preg-last-error-msg.php
 	 * @see preg_last_error()
 	 * @since PHP 8
 	 */
@@ -61,7 +61,7 @@ namespace {
 	 * @param int $flags <p><code>flags</code> can be a combination of the following flags:</p>  <b><code>PREG_OFFSET_CAPTURE</code></b>  <p>If this flag is passed, for every occurring match the appendant string offset (in bytes) will also be returned. Note that this changes the value of <code>matches</code> into an array where every element is an array consisting of the matched string at offset <code>0</code> and its string offset into <code>subject</code> at offset <code>1</code>.</p>  <code> &lt;&#63;php<br>preg_match('/(foo)(bar)(baz)/',&nbsp;'foobarbaz',&nbsp;$matches,&nbsp;PREG_OFFSET_CAPTURE);<br>print_r($matches);<br>&#63;&gt;  </code>  <p>The above example will output:</p>  <pre> Array ( [0] =&gt; Array ( [0] =&gt; foobarbaz [1] =&gt; 0 ) [1] =&gt; Array ( [0] =&gt; foo [1] =&gt; 0 ) [2] =&gt; Array ( [0] =&gt; bar [1] =&gt; 3 ) [3] =&gt; Array ( [0] =&gt; baz [1] =&gt; 6 ) ) </pre>     <b><code>PREG_UNMATCHED_AS_NULL</code></b>  <p>If this flag is passed, unmatched subpatterns are reported as <b><code>NULL</code></b>; otherwise they are reported as an empty <code>string</code>.</p>  <code> &lt;&#63;php<br>preg_match('/(a)(b)&#42;(c)/',&nbsp;'ac',&nbsp;$matches);<br>var_dump($matches);<br>preg_match('/(a)(b)&#42;(c)/',&nbsp;'ac',&nbsp;$matches,&nbsp;PREG_UNMATCHED_AS_NULL);<br>var_dump($matches);<br>&#63;&gt;  </code>  <p>The above example will output:</p>  <pre> array(4) { [0]=&gt; string(2) "ac" [1]=&gt; string(1) "a" [2]=&gt; string(0) "" [3]=&gt; string(1) "c" } array(4) { [0]=&gt; string(2) "ac" [1]=&gt; string(1) "a" [2]=&gt; NULL [3]=&gt; string(1) "c" } </pre>
 	 * @param int $offset <p>Normally, the search starts from the beginning of the subject string. The optional parameter <code>offset</code> can be used to specify the alternate place from which to start the search (in bytes).</p> <p><b>Note</b>:</p><p>Using <code>offset</code> is not equivalent to passing <code>substr($subject, $offset)</code> to <b>preg_match()</b> in place of the subject string, because <code>pattern</code> can contain assertions such as <i>^</i>, <i>$</i> or <i>(&#63;&lt;=x)</i>. Compare:</p>  <code> &lt;&#63;php<br>$subject&nbsp;=&nbsp;"abcdef";<br>$pattern&nbsp;=&nbsp;'/^def/';<br>preg_match($pattern,&nbsp;$subject,&nbsp;$matches,&nbsp;PREG_OFFSET_CAPTURE,&nbsp;3);<br>print_r($matches);<br>&#63;&gt;  </code>  <p>The above example will output:</p>  <pre> Array ( ) </pre>  <p>while this example</p>  <code> &lt;&#63;php<br>$subject&nbsp;=&nbsp;"abcdef";<br>$pattern&nbsp;=&nbsp;'/^def/';<br>preg_match($pattern,&nbsp;substr($subject,3),&nbsp;$matches,&nbsp;PREG_OFFSET_CAPTURE);<br>print_r($matches);<br>&#63;&gt;  </code>  <p>will produce</p>  <pre> Array ( [0] =&gt; Array ( [0] =&gt; def [1] =&gt; 0 ) ) </pre>  <p>Alternatively, to avoid using <code>substr()</code>, use the <code>\G</code> assertion rather than the <code>^</code> anchor, or the <code>A</code> modifier instead, both of which work with the <code>offset</code> parameter.</p>
 	 * @return int|false <p><b>preg_match()</b> returns 1 if the <code>pattern</code> matches given <code>subject</code>, 0 if it does not, or <b><code>FALSE</code></b> if an error occurred.</p><p><b>Warning</b></p><p>This function may return Boolean <b><code>FALSE</code></b>, but may also return a non-Boolean value which evaluates to <b><code>FALSE</code></b>. Please read the section on Booleans for more information. Use the === operator for testing the return value of this function.</p>
-	 * @link http://php.net/manual/en/function.preg-match.php
+	 * @link https://php.net/manual/en/function.preg-match.php
 	 * @see preg_quote(), preg_match_all(), preg_replace(), preg_split(), preg_last_error(), preg_last_error_msg()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
@@ -76,7 +76,7 @@ namespace {
 	 * @param int $flags <p>Can be a combination of the following flags (note that it doesn't make sense to use <b><code>PREG_PATTERN_ORDER</code></b> together with <b><code>PREG_SET_ORDER</code></b>):</p>  <b><code>PREG_PATTERN_ORDER</code></b>  <p>Orders results so that $matches[0] is an array of full pattern matches, $matches[1] is an array of strings matched by the first parenthesized subpattern, and so on.</p> <p></p>  <code> &lt;&#63;php<br>preg_match_all("|&lt;[^&gt;]+&gt;(.&#42;)&lt;/[^&gt;]+&gt;|U",<br>&nbsp;&nbsp;&nbsp;&nbsp;"&lt;b&gt;example:&nbsp;&lt;/b&gt;&lt;div&nbsp;align=left&gt;this&nbsp;is&nbsp;a&nbsp;test&lt;/div&gt;",<br>&nbsp;&nbsp;&nbsp;&nbsp;$out,&nbsp;PREG_PATTERN_ORDER);<br>echo&nbsp;$out[0][0]&nbsp;.&nbsp;",&nbsp;"&nbsp;.&nbsp;$out[0][1]&nbsp;.&nbsp;"\n";<br>echo&nbsp;$out[1][0]&nbsp;.&nbsp;",&nbsp;"&nbsp;.&nbsp;$out[1][1]&nbsp;.&nbsp;"\n";<br>&#63;&gt;  </code>  <p>The above example will output:</p>  <pre> &lt;b&gt;example: &lt;/b&gt;, &lt;div align=left&gt;this is a test&lt;/div&gt; example: , this is a test </pre>  <p>So, $out[0] contains array of strings that matched full pattern, and $out[1] contains array of strings enclosed by tags.</p>  <p>If the pattern contains named subpatterns, $matches additionally contains entries for keys with the subpattern name.</p> <p>If the pattern contains duplicate named subpatterns, only the rightmost subpattern is stored in $matches[NAME].</p>  <code> &lt;&#63;php<br>preg_match_all(<br>&nbsp;&nbsp;&nbsp;&nbsp;'/(&#63;J)(&#63;&lt;match&gt;foo)|(&#63;&lt;match&gt;bar)/',<br>&nbsp;&nbsp;&nbsp;&nbsp;'foo&nbsp;bar',<br>&nbsp;&nbsp;&nbsp;&nbsp;$matches,<br>&nbsp;&nbsp;&nbsp;&nbsp;PREG_PATTERN_ORDER<br>);<br>print_r($matches['match']);<br>&#63;&gt;  </code>  <p>The above example will output:</p>  <pre> Array ( [0] =&gt; [1] =&gt; bar ) </pre>     <b><code>PREG_SET_ORDER</code></b>  <p>Orders results so that $matches[0] is an array of first set of matches, $matches[1] is an array of second set of matches, and so on.</p>  <code> &lt;&#63;php<br>preg_match_all("|&lt;[^&gt;]+&gt;(.&#42;)&lt;/[^&gt;]+&gt;|U",<br>&nbsp;&nbsp;&nbsp;&nbsp;"&lt;b&gt;example:&nbsp;&lt;/b&gt;&lt;div&nbsp;align=\"left\"&gt;this&nbsp;is&nbsp;a&nbsp;test&lt;/div&gt;",<br>&nbsp;&nbsp;&nbsp;&nbsp;$out,&nbsp;PREG_SET_ORDER);<br>echo&nbsp;$out[0][0]&nbsp;.&nbsp;",&nbsp;"&nbsp;.&nbsp;$out[0][1]&nbsp;.&nbsp;"\n";<br>echo&nbsp;$out[1][0]&nbsp;.&nbsp;",&nbsp;"&nbsp;.&nbsp;$out[1][1]&nbsp;.&nbsp;"\n";<br>&#63;&gt;  </code>  <p>The above example will output:</p>  <pre> &lt;b&gt;example: &lt;/b&gt;, example: &lt;div align="left"&gt;this is a test&lt;/div&gt;, this is a test </pre>     <b><code>PREG_OFFSET_CAPTURE</code></b>  <p>If this flag is passed, for every occurring match the appendant string offset (in bytes) will also be returned. Note that this changes the value of <code>matches</code> into an array of arrays where every element is an array consisting of the matched string at offset <code>0</code> and its string offset into <code>subject</code> at offset <code>1</code>.</p>  <code> &lt;&#63;php<br>preg_match_all('/(foo)(bar)(baz)/',&nbsp;'foobarbaz',&nbsp;$matches,&nbsp;PREG_OFFSET_CAPTURE);<br>print_r($matches);<br>&#63;&gt;  </code>  <p>The above example will output:</p>  <pre> Array ( [0] =&gt; Array ( [0] =&gt; Array ( [0] =&gt; foobarbaz [1] =&gt; 0 ) ) [1] =&gt; Array ( [0] =&gt; Array ( [0] =&gt; foo [1] =&gt; 0 ) ) [2] =&gt; Array ( [0] =&gt; Array ( [0] =&gt; bar [1] =&gt; 3 ) ) [3] =&gt; Array ( [0] =&gt; Array ( [0] =&gt; baz [1] =&gt; 6 ) ) ) </pre>     <b><code>PREG_UNMATCHED_AS_NULL</code></b>  <p>If this flag is passed, unmatched subpatterns are reported as <b><code>NULL</code></b>; otherwise they are reported as an empty <code>string</code>.</p>   <p>If no order flag is given, <b><code>PREG_PATTERN_ORDER</code></b> is assumed.</p>
 	 * @param int $offset <p>Normally, the search starts from the beginning of the subject string. The optional parameter <code>offset</code> can be used to specify the alternate place from which to start the search (in bytes).</p> <p><b>Note</b>:</p><p>Using <code>offset</code> is not equivalent to passing <code>substr($subject, $offset)</code> to <b>preg_match_all()</b> in place of the subject string, because <code>pattern</code> can contain assertions such as <i>^</i>, <i>$</i> or <i>(&#63;&lt;=x)</i>. See <code>preg_match()</code> for examples.</p>
 	 * @return int|false|null <p>Returns the number of full pattern matches (which might be zero), or <b><code>FALSE</code></b> if an error occurred.</p>
-	 * @link http://php.net/manual/en/function.preg-match-all.php
+	 * @link https://php.net/manual/en/function.preg-match-all.php
 	 * @see preg_quote(), preg_match(), preg_replace(), preg_split(), preg_last_error()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
@@ -88,7 +88,7 @@ namespace {
 	 * @param string $str <p>The input string.</p>
 	 * @param string|null $delimiter <p>If the optional <code>delimiter</code> is specified, it will also be escaped. This is useful for escaping the delimiter that is required by the PCRE functions. The <code>/</code> is the most commonly used delimiter.</p>
 	 * @return string <p>Returns the quoted (escaped) string.</p>
-	 * @link http://php.net/manual/en/function.preg-quote.php
+	 * @link https://php.net/manual/en/function.preg-quote.php
 	 * @see escapeshellcmd()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
@@ -103,7 +103,7 @@ namespace {
 	 * @param int $limit <p>The maximum possible replacements for each pattern in each <code>subject</code> string. Defaults to <code>-1</code> (no limit).</p>
 	 * @param int $count <p>If specified, this variable will be filled with the number of replacements done.</p>
 	 * @return string|array|null <p><b>preg_replace()</b> returns an array if the <code>subject</code> parameter is an array, or a string otherwise.</p><p>If matches are found, the new <code>subject</code> will be returned, otherwise <code>subject</code> will be returned unchanged or <b><code>NULL</code></b> if an error occurred.</p>
-	 * @link http://php.net/manual/en/function.preg-replace.php
+	 * @link https://php.net/manual/en/function.preg-replace.php
 	 * @see preg_quote(), preg_filter(), preg_match(), preg_replace_callback(), preg_split(), preg_last_error()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
@@ -119,7 +119,7 @@ namespace {
 	 * @param int $count <p>If specified, this variable will be filled with the number of replacements done.</p>
 	 * @param int $flags <p><code>flags</code> can be a combination of the <b><code>PREG_OFFSET_CAPTURE</code></b> and <b><code>PREG_UNMATCHED_AS_NULL</code></b> flags, which influence the format of the matches array. See the description in <code>preg_match()</code> for more details.</p>
 	 * @return string|array|null <p><b>preg_replace_callback()</b> returns an array if the <code>subject</code> parameter is an array, or a string otherwise. On errors the return value is <b><code>NULL</code></b></p><p>If matches are found, the new subject will be returned, otherwise <code>subject</code> will be returned unchanged.</p>
-	 * @link http://php.net/manual/en/function.preg-replace-callback.php
+	 * @link https://php.net/manual/en/function.preg-replace-callback.php
 	 * @see preg_replace_callback_array(), preg_quote(), preg_replace(), preg_last_error()
 	 * @since PHP 4 >= 4.0.5, PHP 5, PHP 7
 	 */
@@ -134,7 +134,7 @@ namespace {
 	 * @param int $count <p>If specified, this variable will be filled with the number of replacements done.</p>
 	 * @param int $flags <p><code>flags</code> can be a combination of the <b><code>PREG_OFFSET_CAPTURE</code></b> and <b><code>PREG_UNMATCHED_AS_NULL</code></b> flags, which influence the format of the matches array. See the description in <code>preg_match()</code> for more details.</p>
 	 * @return string|array|null <p><b>preg_replace_callback_array()</b> returns an array if the <code>subject</code> parameter is an array, or a string otherwise. On errors the return value is <b><code>NULL</code></b></p><p>If matches are found, the new subject will be returned, otherwise <code>subject</code> will be returned unchanged.</p>
-	 * @link http://php.net/manual/en/function.preg-replace-callback-array.php
+	 * @link https://php.net/manual/en/function.preg-replace-callback-array.php
 	 * @see preg_replace_callback(), preg_quote(), preg_replace(), preg_last_error()
 	 * @since PHP 7
 	 */
@@ -148,7 +148,7 @@ namespace {
 	 * @param int $limit <p>If specified, then only substrings up to <code>limit</code> are returned with the rest of the string being placed in the last substring. A <code>limit</code> of -1 or 0 means "no limit".</p>
 	 * @param int $flags <p><code>flags</code> can be any combination of the following flags (combined with the <code>|</code> bitwise operator):</p>  <b><code>PREG_SPLIT_NO_EMPTY</code></b>   If this flag is set, only non-empty pieces will be returned by <b>preg_split()</b>.    <b><code>PREG_SPLIT_DELIM_CAPTURE</code></b>   If this flag is set, parenthesized expression in the delimiter pattern will be captured and returned as well.    <b><code>PREG_SPLIT_OFFSET_CAPTURE</code></b>  <p>If this flag is set, for every occurring match the appendant string offset will also be returned. Note that this changes the return value in an array where every element is an array consisting of the matched string at offset <code>0</code> and its string offset into <code>subject</code> at offset <code>1</code>.</p>
 	 * @return array|false <p>Returns an array containing substrings of <code>subject</code> split along boundaries matched by <code>pattern</code>, or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.preg-split.php
+	 * @link https://php.net/manual/en/function.preg-split.php
 	 * @see preg_quote(), implode(), preg_match(), preg_match_all(), preg_replace(), preg_last_error()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */

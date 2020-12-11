@@ -6,7 +6,7 @@ namespace {
 
 	/**
 	 * <p>Represents a connection to a set of memcache servers.</p>
-	 * @link http://php.net/manual/en/class.memcache.php
+	 * @link https://php.net/manual/en/class.memcache.php
 	 * @since PECL memcache >= 0.2.0
 	 */
 	class Memcache {
@@ -19,7 +19,7 @@ namespace {
 		 * @param int $flag <p>Use <b><code>MEMCACHE_COMPRESSED</code></b> to store the item compressed (uses zlib).</p>
 		 * @param int $expire <p>Expiration time of the item. If it's equal to zero, the item will never expire. You can also use Unix timestamp or a number of seconds starting from current time, but in the latter case the number of seconds may not exceed 2592000 (30 days).</p>
 		 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure. Returns <b><code>FALSE</code></b> if such key already exist. For the rest <b>Memcache::add()</b> behaves similarly to <code>Memcache::set()</code>.</p>
-		 * @link http://php.net/manual/en/memcache.add.php
+		 * @link https://php.net/manual/en/memcache.add.php
 		 * @see Memcache::set(), Memcache::replace()
 		 * @since PECL memcache >= 0.2.0
 		 */
@@ -38,7 +38,7 @@ namespace {
 		 * @param callable $failure_callback <p>Allows the user to specify a callback function to run upon encountering an error. The callback is run before failover is attempted. The function takes two parameters, the hostname and port of the failed server.</p>
 		 * @param int $timeoutms
 		 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-		 * @link http://php.net/manual/en/memcache.addserver.php
+		 * @link https://php.net/manual/en/memcache.addserver.php
 		 * @see Memcache::connect(), Memcache::pconnect(), Memcache::close(), Memcache::setServerParams(), Memcache::getServerStatus()
 		 * @since PECL memcache >= 2.0.0
 		 */
@@ -48,7 +48,7 @@ namespace {
 		 * Close memcached server connection
 		 * <p><b>Memcache::close()</b> closes connection to memcached server. This function doesn't close persistent connections, which are closed only during web-server shutdown/restart. Also you can use <b>memcache_close()</b> function.</p>
 		 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-		 * @link http://php.net/manual/en/memcache.close.php
+		 * @link https://php.net/manual/en/memcache.close.php
 		 * @see Memcache::connect(), Memcache::pconnect()
 		 * @since PECL memcache >= 0.4.0
 		 */
@@ -61,7 +61,7 @@ namespace {
 		 * @param int $port <p>Point to the port where memcached is listening for connections. Set this parameter to <code>0</code> when using UNIX domain sockets.</p> <p>Please note: <code>port</code> defaults to memcache.default_port if not specified. For this reason it is wise to specify the port explicitly in this method call.</p>
 		 * @param int $timeout <p>Value in seconds which will be used for connecting to the daemon. Think twice before changing the default value of 1 second - you can lose all the advantages of caching if your connection is too slow.</p>
 		 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-		 * @link http://php.net/manual/en/memcache.connect.php
+		 * @link https://php.net/manual/en/memcache.connect.php
 		 * @see Memcache::pconnect(), Memcache::close()
 		 * @since PECL memcache >= 0.2.0
 		 */
@@ -73,7 +73,7 @@ namespace {
 		 * @param string $key <p>Key of the item do decrement.</p>
 		 * @param int $value <p>Decrement the item by <code>value</code>.</p>
 		 * @return int|false <p>Returns item's new value on success or <b><code>FALSE</code></b> on failure.</p>
-		 * @link http://php.net/manual/en/memcache.decrement.php
+		 * @link https://php.net/manual/en/memcache.decrement.php
 		 * @see Memcache::increment(), Memcache::replace()
 		 * @since PECL memcache >= 0.2.0
 		 */
@@ -85,7 +85,7 @@ namespace {
 		 * @param string $key <p>The key associated with the item to delete.</p>
 		 * @param int $timeout <p>This deprecated parameter is not supported, and defaults to <code>0</code> seconds. Do not use this parameter.</p>
 		 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-		 * @link http://php.net/manual/en/memcache.delete.php
+		 * @link https://php.net/manual/en/memcache.delete.php
 		 * @see Memcache::set(), Memcache::replace()
 		 * @since PECL memcache >= 0.2.0
 		 */
@@ -95,7 +95,7 @@ namespace {
 		 * Flush all existing items at the server
 		 * <p><b>Memcache::flush()</b> immediately invalidates all existing items. <b>Memcache::flush()</b> doesn't actually free any resources, it only marks all the items as expired, so occupied memory will be overwritten by new items. Also you can use <b>memcache_flush()</b> function.</p>
 		 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-		 * @link http://php.net/manual/en/memcache.flush.php
+		 * @link https://php.net/manual/en/memcache.flush.php
 		 * @since PECL memcache >= 1.0.0
 		 */
 		public function flush(): bool {}
@@ -106,7 +106,7 @@ namespace {
 		 * @param string $key <p>The key or array of keys to fetch.</p>
 		 * @param int $flags <p>If present, flags fetched along with the values will be written to this parameter. These flags are the same as the ones given to for example <code>Memcache::set()</code>. The lowest byte of the int is reserved for pecl/memcache internal usage (e.g. to indicate compression and serialization status).</p>
 		 * @return string <p>Returns the value associated with the <code>key</code> or an array of found key-value pairs when <code>key</code> is an <code>array</code>. Returns <b><code>FALSE</code></b> on failure, <code>key</code> is not found or <code>key</code> is an empty <code>array</code>.</p>
-		 * @link http://php.net/manual/en/memcache.get.php
+		 * @link https://php.net/manual/en/memcache.get.php
 		 * @since PECL memcache >= 0.2.0
 		 */
 		public function get(string $key, int &$flags = NULL): string {}
@@ -118,7 +118,7 @@ namespace {
 		 * @param int $slabid <p>Used in conjunction with <code>type</code> set to cachedump to identify the slab to dump from. The cachedump command ties up the server and is strictly to be used for debugging purposes.</p>
 		 * @param int $limit <p>Used in conjunction with <code>type</code> set to cachedump to limit the number of entries to dump.</p>
 		 * @return array <p>Returns a two-dimensional associative array of server statistics or <b><code>FALSE</code></b> on failure.</p>
-		 * @link http://php.net/manual/en/memcache.getextendedstats.php
+		 * @link https://php.net/manual/en/memcache.getextendedstats.php
 		 * @see Memcache::getVersion(), Memcache::getStats()
 		 * @since PECL memcache >= 2.0.0
 		 */
@@ -130,7 +130,7 @@ namespace {
 		 * @param string $host <p>Point to the host where memcached is listening for connections.</p>
 		 * @param int $port <p>Point to the port where memcached is listening for connections.</p>
 		 * @return int <p>Returns a the servers status. 0 if server is failed, non-zero otherwise</p>
-		 * @link http://php.net/manual/en/memcache.getserverstatus.php
+		 * @link https://php.net/manual/en/memcache.getserverstatus.php
 		 * @see Memcache::addServer(), Memcache::setServerParams()
 		 * @since PECL memcache >= 2.1.0
 		 */
@@ -143,7 +143,7 @@ namespace {
 		 * @param int $slabid <p>Used in conjunction with <code>type</code> set to cachedump to identify the slab to dump from. The cachedump command ties up the server and is strictly to be used for debugging purposes.</p>
 		 * @param int $limit <p>Used in conjunction with <code>type</code> set to cachedump to limit the number of entries to dump.</p>
 		 * @return array|false <p>Returns an associative array of server statistics or <b><code>FALSE</code></b> on failure.</p>
-		 * @link http://php.net/manual/en/memcache.getstats.php
+		 * @link https://php.net/manual/en/memcache.getstats.php
 		 * @see Memcache::getVersion(), Memcache::getExtendedStats()
 		 * @since PECL memcache >= 0.2.0
 		 */
@@ -153,7 +153,7 @@ namespace {
 		 * Return version of the server
 		 * <p><b>Memcache::getVersion()</b> returns a string with server's version number. Also you can use <b>memcache_get_version()</b> function.</p>
 		 * @return string|false <p>Returns a string of server version number or <b><code>FALSE</code></b> on failure.</p>
-		 * @link http://php.net/manual/en/memcache.getversion.php
+		 * @link https://php.net/manual/en/memcache.getversion.php
 		 * @see Memcache::getExtendedStats(), Memcache::getStats()
 		 * @since PECL memcache >= 0.2.0
 		 */
@@ -165,7 +165,7 @@ namespace {
 		 * @param string $key <p>Key of the item to increment.</p>
 		 * @param int $value <p>Increment the item by <code>value</code>.</p>
 		 * @return int|false <p>Returns new items value on success or <b><code>FALSE</code></b> on failure.</p>
-		 * @link http://php.net/manual/en/memcache.increment.php
+		 * @link https://php.net/manual/en/memcache.increment.php
 		 * @see Memcache::decrement(), Memcache::replace()
 		 * @since PECL memcache >= 0.2.0
 		 */
@@ -178,7 +178,7 @@ namespace {
 		 * @param int $port <p>Point to the port where memcached is listening for connections. Set this parameter to <code>0</code> when using UNIX domain sockets.</p>
 		 * @param int $timeout <p>Value in seconds which will be used for connecting to the daemon. Think twice before changing the default value of 1 second - you can lose all the advantages of caching if your connection is too slow.</p>
 		 * @return mixed <p>Returns a Memcache object or <b><code>FALSE</code></b> on failure.</p>
-		 * @link http://php.net/manual/en/memcache.pconnect.php
+		 * @link https://php.net/manual/en/memcache.pconnect.php
 		 * @see Memcache::connect()
 		 * @since PECL memcache >= 0.4.0
 		 */
@@ -192,7 +192,7 @@ namespace {
 		 * @param int $flag <p>Use <b><code>MEMCACHE_COMPRESSED</code></b> to store the item compressed (uses zlib).</p>
 		 * @param int $expire <p>Expiration time of the item. If it's equal to zero, the item will never expire. You can also use Unix timestamp or a number of seconds starting from current time, but in the latter case the number of seconds may not exceed 2592000 (30 days).</p>
 		 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-		 * @link http://php.net/manual/en/memcache.replace.php
+		 * @link https://php.net/manual/en/memcache.replace.php
 		 * @see Memcache::set(), Memcache::add()
 		 * @since PECL memcache >= 0.2.0
 		 */
@@ -206,7 +206,7 @@ namespace {
 		 * @param int $flag <p>Use <b><code>MEMCACHE_COMPRESSED</code></b> to store the item compressed (uses zlib).</p>
 		 * @param int $expire <p>Expiration time of the item. If it's equal to zero, the item will never expire. You can also use Unix timestamp or a number of seconds starting from current time, but in the latter case the number of seconds may not exceed 2592000 (30 days).</p>
 		 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-		 * @link http://php.net/manual/en/memcache.set.php
+		 * @link https://php.net/manual/en/memcache.set.php
 		 * @see Memcache::add(), Memcache::replace()
 		 * @since PECL memcache >= 0.2.0
 		 */
@@ -218,7 +218,7 @@ namespace {
 		 * @param int $threshold <p>Controls the minimum value length before attempting to compress automatically.</p>
 		 * @param float $min_savings
 		 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-		 * @link http://php.net/manual/en/memcache.setcompressthreshold.php
+		 * @link https://php.net/manual/en/memcache.setcompressthreshold.php
 		 * @since PECL memcache >= 2.0.0
 		 */
 		public function setCompressThreshold(int $threshold, float $min_savings = NULL): bool {}
@@ -233,7 +233,7 @@ namespace {
 		 * @param bool $status <p>Controls if the server should be flagged as online. Setting this parameter to <b><code>FALSE</code></b> and <code>retry_interval</code> to -1 allows a failed server to be kept in the pool so as not to affect the key distribution algorithm. Requests for this server will then failover or fail immediately depending on the <code>memcache.allow_failover</code> setting. Default to <b><code>TRUE</code></b>, meaning the server should be considered online.</p>
 		 * @param callable $failure_callback <p>Allows the user to specify a callback function to run upon encountering an error. The callback is run before failover is attempted. The function takes two parameters, the hostname and port of the failed server.</p>
 		 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-		 * @link http://php.net/manual/en/memcache.setserverparams.php
+		 * @link https://php.net/manual/en/memcache.setserverparams.php
 		 * @see Memcache::addServer(), Memcache::getServerStatus()
 		 * @since PECL memcache >= 2.1.0
 		 */
@@ -245,7 +245,7 @@ namespace {
 	 * <p><b>memcache_debug()</b> turns on debug output if parameter <code>on_off</code> is equal to <b><code>TRUE</code></b> and turns off if it's <b><code>FALSE</code></b>.</p><p><b>Note</b>:</p><p><b>memcache_debug()</b> is accessible only if PHP was built with --enable-debug option and always returns <b><code>TRUE</code></b> in this case. Otherwise, this function has no effect and always returns <b><code>FALSE</code></b>.</p>
 	 * @param bool $on_off <p>Turns debug output on if equals to <b><code>TRUE</code></b>. Turns debug output off if equals to <b><code>FALSE</code></b>.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> if PHP was built with --enable-debug option, otherwise returns <b><code>FALSE</code></b>.</p>
-	 * @link http://php.net/manual/en/function.memcache-debug.php
+	 * @link https://php.net/manual/en/function.memcache-debug.php
 	 * @since PECL memcache >= 0.2.0
 	 */
 	function memcache_debug(bool $on_off): bool {}

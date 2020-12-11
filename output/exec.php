@@ -9,7 +9,7 @@ namespace {
 	 * <p><b>escapeshellarg()</b> adds single quotes around a string and quotes/escapes any existing single quotes allowing you to pass a string directly to a shell function and having it be treated as a single safe argument. This function should be used to escape individual arguments to shell functions coming from user input. The shell functions include <code>exec()</code>, <code>system()</code> and the backtick operator.</p><p>On Windows, <b>escapeshellarg()</b> instead replaces percent signs, exclamation marks (delayed variable substitution) and double quotes with spaces and adds double quotes around the string.</p>
 	 * @param string $arg <p>The argument that will be escaped.</p>
 	 * @return string <p>The escaped string.</p>
-	 * @link http://php.net/manual/en/function.escapeshellarg.php
+	 * @link https://php.net/manual/en/function.escapeshellarg.php
 	 * @see escapeshellcmd(), exec(), popen(), system()
 	 * @since PHP 4 >= 4.0.3, PHP 5, PHP 7
 	 */
@@ -20,7 +20,7 @@ namespace {
 	 * <p><b>escapeshellcmd()</b> escapes any characters in a string that might be used to trick a shell command into executing arbitrary commands. This function should be used to make sure that any data coming from user input is escaped before this data is passed to the <code>exec()</code> or <code>system()</code> functions, or to the backtick operator.</p><p>Following characters are preceded by a backslash: <code>&amp;#;`|&#42;&#63;~&lt;&gt;^()[]{}$\</code>, <code>\x0A</code> and <code>\xFF</code>. <code>'</code> and <code>"</code> are escaped only if they are not paired. On Windows, all these characters plus <code>%</code> and <code>!</code> are preceded by a caret (<code>^</code>).</p>
 	 * @param string $command <p>The command that will be escaped.</p>
 	 * @return string <p>The escaped string.</p>
-	 * @link http://php.net/manual/en/function.escapeshellcmd.php
+	 * @link https://php.net/manual/en/function.escapeshellcmd.php
 	 * @see escapeshellarg(), exec(), popen(), system()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
@@ -33,7 +33,7 @@ namespace {
 	 * @param array $output <p>If the <code>output</code> argument is present, then the specified array will be filled with every line of output from the command. Trailing whitespace, such as <code>\n</code>, is not included in this array. Note that if the array already contains some elements, <b>exec()</b> will append to the end of the array. If you do not want the function to append elements, call <code>unset()</code> on the array before passing it to <b>exec()</b>.</p>
 	 * @param int $return_var <p>If the <code>return_var</code> argument is present along with the <code>output</code> argument, then the return status of the executed command will be written to this variable.</p>
 	 * @return string <p>The last line from the result of the command. If you need to execute a command and have all the data from the command passed directly back without any interference, use the <code>passthru()</code> function.</p><p>To get the output of the executed command, be sure to set and use the <code>output</code> parameter.</p>
-	 * @link http://php.net/manual/en/function.exec.php
+	 * @link https://php.net/manual/en/function.exec.php
 	 * @see system(), passthru(), escapeshellcmd(), pcntl_exec()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
@@ -45,7 +45,7 @@ namespace {
 	 * @param string $command <p>The command that will be executed.</p>
 	 * @param int $return_var <p>If the <code>return_var</code> argument is present, the return status of the Unix command will be placed here.</p>
 	 * @return void <p>No value is returned.</p>
-	 * @link http://php.net/manual/en/function.passthru.php
+	 * @link https://php.net/manual/en/function.passthru.php
 	 * @see exec(), system(), popen(), escapeshellcmd()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
@@ -56,7 +56,7 @@ namespace {
 	 * <p><b>proc_close()</b> is similar to <code>pclose()</code> except that it only works on processes opened by <code>proc_open()</code>. <b>proc_close()</b> waits for the process to terminate, and returns its exit code. Open pipes to that process are closed when this function is called, in order to avoid a deadlock - the child process may not be able to exit while the pipes are open.</p>
 	 * @param resource $process <p>The <code>proc_open()</code> <code>resource</code> that will be closed.</p>
 	 * @return int <p>Returns the termination status of the process that was run. In case of an error then <code>-1</code> is returned.</p><p><b>Note</b>:</p><p>If PHP has been compiled with --enable-sigchild, the return value of this function is undefined.</p>
-	 * @link http://php.net/manual/en/function.proc-close.php
+	 * @link https://php.net/manual/en/function.proc-close.php
 	 * @since PHP 4 >= 4.3.0, PHP 5, PHP 7
 	 */
 	function proc_close($process): int {}
@@ -66,7 +66,7 @@ namespace {
 	 * <p><b>proc_get_status()</b> fetches data about a process opened using <code>proc_open()</code>.</p>
 	 * @param resource $process <p>The <code>proc_open()</code> <code>resource</code> that will be evaluated.</p>
 	 * @return array <p>An <code>array</code> of collected information on success, and <b><code>FALSE</code></b> on failure. The returned array contains the following elements:</p>  elementtypedescription    command <code>string</code>  The command string that was passed to <code>proc_open()</code>.    pid <code>int</code> process id   running <code>bool</code>  <b><code>TRUE</code></b> if the process is still running, <b><code>FALSE</code></b> if it has terminated.    signaled <code>bool</code>  <b><code>TRUE</code></b> if the child process has been terminated by an uncaught signal. Always set to <b><code>FALSE</code></b> on Windows.    stopped <code>bool</code>  <b><code>TRUE</code></b> if the child process has been stopped by a signal. Always set to <b><code>FALSE</code></b> on Windows.    exitcode <code>int</code>  The exit code returned by the process (which is only meaningful if <code>running</code> is <b><code>FALSE</code></b>). Only first call of this function return real value, next calls return <code>-1</code>.    termsig <code>int</code>  The number of the signal that caused the child process to terminate its execution (only meaningful if <code>signaled</code> is <b><code>TRUE</code></b>).    stopsig <code>int</code>  The number of the signal that caused the child process to stop its execution (only meaningful if <code>stopped</code> is <b><code>TRUE</code></b>).
-	 * @link http://php.net/manual/en/function.proc-get-status.php
+	 * @link https://php.net/manual/en/function.proc-get-status.php
 	 * @see proc_open()
 	 * @since PHP 5, PHP 7
 	 */
@@ -77,7 +77,7 @@ namespace {
 	 * <p><b>proc_nice()</b> changes the priority of the current process by the amount specified in <code>increment</code>. A positive <code>increment</code> will lower the priority of the current process, whereas a negative <code>increment</code> will raise the priority.</p><p><b>proc_nice()</b> is not related to <code>proc_open()</code> and its associated functions in any way.</p>
 	 * @param int $increment <p>The new priority value, the value of this may differ on platforms.</p> <p>On Unix, a low value, such as <code>-20</code> means high priority wheras a positive value have a lower priority.</p> <p>For Windows the <code>increment</code> parameter have the following meanings:</p>    Priority class Possible values     High priority  <code>increment</code> <code>&lt; -9</code>    Above normal priority  <code>increment</code> <code>&lt; -4</code>    Normal priority  <code>increment</code> <code>&lt; 5</code> &amp; <code>increment</code> <code>&gt; -5</code>    Below normal priority  <code>increment</code> <code>&gt; 5</code>    Idle priority  <code>increment</code> <code>&gt; 9</code>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure. If an error occurs, like the user lacks permission to change the priority, an error of level <b><code>E_WARNING</code></b> is also generated.</p>
-	 * @link http://php.net/manual/en/function.proc-nice.php
+	 * @link https://php.net/manual/en/function.proc-nice.php
 	 * @since PHP 5, PHP 7
 	 */
 	function proc_nice(int $increment): bool {}
@@ -92,7 +92,7 @@ namespace {
 	 * @param array $env <p>An array with the environment variables for the command that will be run, or <b><code>NULL</code></b> to use the same environment as the current PHP process</p>
 	 * @param array $other_options <p>Allows you to specify additional options. Currently supported options include:</p><ul> <li> <code>suppress_errors</code> (windows only): suppresses errors generated by this function when it's set to <b><code>TRUE</code></b> </li> <li> <code>bypass_shell</code> (windows only): bypass <code>cmd.exe</code> shell when set to <b><code>TRUE</code></b> </li> <li> <code>blocking_pipes</code> (windows only): force blocking pipes when set to <b><code>TRUE</code></b> </li> <li> <code>create_process_group</code> (windows only): allow the child process to handle <code>CTRL</code> events when set to <b><code>TRUE</code></b> </li> <li> <code>create_new_console</code> (windows only): the new process has a new console, instead of inheriting its parent's console </li> </ul>
 	 * @return resource <p>Returns a resource representing the process, which should be freed using <code>proc_close()</code> when you are finished with it. On failure returns <b><code>FALSE</code></b>.</p>
-	 * @link http://php.net/manual/en/function.proc-open.php
+	 * @link https://php.net/manual/en/function.proc-open.php
 	 * @see popen(), exec(), system(), passthru(), stream_select()
 	 * @since PHP 4 >= 4.3.0, PHP 5, PHP 7
 	 */
@@ -104,7 +104,7 @@ namespace {
 	 * @param resource $process <p>The <code>proc_open()</code> <code>resource</code> that will be closed.</p>
 	 * @param int $signal <p>This optional parameter is only useful on POSIX operating systems; you may specify a signal to send to the process using the <code>kill(2)</code> system call. The default is <code>SIGTERM</code>.</p>
 	 * @return bool <p>Returns the termination status of the process that was run.</p>
-	 * @link http://php.net/manual/en/function.proc-terminate.php
+	 * @link https://php.net/manual/en/function.proc-terminate.php
 	 * @see proc_open(), proc_close(), proc_get_status()
 	 * @since PHP 5, PHP 7
 	 */
@@ -115,7 +115,7 @@ namespace {
 	 * <p>This function is identical to the backtick operator.</p><p><b>Note</b>:</p><p>On Windows, the underlying pipe is opened in text mode which can cause the function to fail for binary output. Consider to use <code>popen()</code> instead for such cases.</p>
 	 * @param string $cmd <p>The command that will be executed.</p>
 	 * @return string <p>The output from the executed command or <b><code>NULL</code></b> if an error occurred or the command produces no output.</p><p><b>Note</b>:</p><p>This function can return <b><code>NULL</code></b> both when an error occurs or the program produces no output. It is not possible to detect execution failures using this function. <code>exec()</code> should be used when access to the program exit code is required.</p>
-	 * @link http://php.net/manual/en/function.shell-exec.php
+	 * @link https://php.net/manual/en/function.shell-exec.php
 	 * @see exec(), escapeshellcmd()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
@@ -127,7 +127,7 @@ namespace {
 	 * @param string $command <p>The command that will be executed.</p>
 	 * @param int $return_var <p>If the <code>return_var</code> argument is present, then the return status of the executed command will be written to this variable.</p>
 	 * @return string <p>Returns the last line of the command output on success, and <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.system.php
+	 * @link https://php.net/manual/en/function.system.php
 	 * @see exec(), passthru(), popen(), escapeshellcmd(), pcntl_exec()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */

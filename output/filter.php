@@ -9,7 +9,7 @@ namespace {
 	 * @param int $input_type <p>One of <b><code>INPUT_GET</code></b>, <b><code>INPUT_POST</code></b>, <b><code>INPUT_COOKIE</code></b>, <b><code>INPUT_SERVER</code></b>, or <b><code>INPUT_ENV</code></b>.</p>
 	 * @param string $var_name <p>Name of a variable to check.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.filter-has-var.php
+	 * @link https://php.net/manual/en/function.filter-has-var.php
 	 * @since PHP 5 >= 5.2.0, PHP 7
 	 */
 	function filter_has_var(int $input_type, string $var_name): bool {}
@@ -18,7 +18,7 @@ namespace {
 	 * Returns the filter ID belonging to a named filter
 	 * @param string $name <p>Name of a filter to get.</p>
 	 * @return int|false <p>ID of a filter on success or <b><code>FALSE</code></b> if filter doesn't exist.</p>
-	 * @link http://php.net/manual/en/function.filter-id.php
+	 * @link https://php.net/manual/en/function.filter-id.php
 	 * @see filter_list()
 	 * @since PHP 5 >= 5.2.0, PHP 7
 	 */
@@ -31,7 +31,7 @@ namespace {
 	 * @param int $filter <p>The ID of the filter to apply. The Types of filters manual page lists the available filters.</p> <p>If omitted, <b><code>FILTER_DEFAULT</code></b> will be used, which is equivalent to <b><code>FILTER_UNSAFE_RAW</code></b>. This will result in no filtering taking place by default.</p>
 	 * @param array|int $options <p>Associative array of options or bitwise disjunction of flags. If filter accepts options, flags can be provided in "flags" field of array.</p>
 	 * @return mixed <p>Value of the requested variable on success, <b><code>FALSE</code></b> if the filter fails, or <b><code>NULL</code></b> if the <code>var_name</code> variable is not set. If the flag <b><code>FILTER_NULL_ON_FAILURE</code></b> is used, it returns <b><code>FALSE</code></b> if the variable is not set and <b><code>NULL</code></b> if the filter fails.</p>
-	 * @link http://php.net/manual/en/function.filter-input.php
+	 * @link https://php.net/manual/en/function.filter-input.php
 	 * @see filter_var(), filter_input_array(), filter_var_array()
 	 * @since PHP 5 >= 5.2.0, PHP 7
 	 */
@@ -44,7 +44,7 @@ namespace {
 	 * @param array|int $options <p>An array defining the arguments. A valid key is a <code>string</code> containing a variable name and a valid value is either a filter type, or an <code>array</code> optionally specifying the filter, flags and options. If the value is an array, valid keys are <code>filter</code> which specifies the filter type, <code>flags</code> which specifies any flags that apply to the filter, and <code>options</code> which specifies any options that apply to the filter. See the example below for a better understanding.</p> <p>This parameter can be also an integer holding a filter constant. Then all values in the input array are filtered by this filter.</p>
 	 * @param bool $add_empty <p>Add missing keys as <b><code>NULL</code></b> to the return value.</p>
 	 * @return array|false|null <p>An array containing the values of the requested variables on success. If the input array designated by <code>type</code> is not populated, the function returns <b><code>NULL</code></b> if the <b><code>FILTER_NULL_ON_FAILURE</code></b> flag is not given, or <b><code>FALSE</code></b> otherwise. For other failures, <b><code>FALSE</code></b> is returned.</p><p>An array value will be <b><code>FALSE</code></b> if the filter fails, or <b><code>NULL</code></b> if the variable is not set. Or if the flag <b><code>FILTER_NULL_ON_FAILURE</code></b> is used, it returns <b><code>FALSE</code></b> if the variable is not set and <b><code>NULL</code></b> if the filter fails. If the <code>add_empty</code> parameter is <b><code>FALSE</code></b>, no array element will be added for unset variables.</p>
-	 * @link http://php.net/manual/en/function.filter-input-array.php
+	 * @link https://php.net/manual/en/function.filter-input-array.php
 	 * @see filter_input(), filter_var_array()
 	 * @since PHP 5 >= 5.2.0, PHP 7
 	 */
@@ -53,7 +53,7 @@ namespace {
 	/**
 	 * Returns a list of all supported filters
 	 * @return array <p>Returns an array of names of all supported filters, empty array if there are no such filters. Indexes of this array are not filter IDs, they can be obtained with <code>filter_id()</code> from a name instead.</p>
-	 * @link http://php.net/manual/en/function.filter-list.php
+	 * @link https://php.net/manual/en/function.filter-list.php
 	 * @since PHP 5 >= 5.2.0, PHP 7
 	 */
 	function filter_list(): array {}
@@ -64,7 +64,7 @@ namespace {
 	 * @param int $filter <p>The ID of the filter to apply. The Types of filters manual page lists the available filters.</p> <p>If omitted, <b><code>FILTER_DEFAULT</code></b> will be used, which is equivalent to <b><code>FILTER_UNSAFE_RAW</code></b>. This will result in no filtering taking place by default.</p>
 	 * @param array|int $options <p>Associative array of options or bitwise disjunction of flags. If filter accepts options, flags can be provided in "flags" field of array. For the "callback" filter, <code>callable</code> type should be passed. The callback must accept one argument, the value to be filtered, and return the value after filtering/sanitizing it.</p> <p></p> <code> &lt;&#63;php<br>//&nbsp;for&nbsp;filters&nbsp;that&nbsp;accept&nbsp;options,&nbsp;use&nbsp;this&nbsp;format<br>$options&nbsp;=&nbsp;array(<br>&nbsp;&nbsp;&nbsp;&nbsp;'options'&nbsp;=&gt;&nbsp;array(<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'default'&nbsp;=&gt;&nbsp;3,&nbsp;//&nbsp;value&nbsp;to&nbsp;return&nbsp;if&nbsp;the&nbsp;filter&nbsp;fails<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;other&nbsp;options&nbsp;here<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'min_range'&nbsp;=&gt;&nbsp;0<br>&nbsp;&nbsp;&nbsp;&nbsp;),<br>&nbsp;&nbsp;&nbsp;&nbsp;'flags'&nbsp;=&gt;&nbsp;FILTER_FLAG_ALLOW_OCTAL,<br>);<br>$var&nbsp;=&nbsp;filter_var('0755',&nbsp;FILTER_VALIDATE_INT,&nbsp;$options);<br><br>//&nbsp;for&nbsp;filters&nbsp;that&nbsp;only&nbsp;accept&nbsp;flags,&nbsp;you&nbsp;can&nbsp;pass&nbsp;them&nbsp;directly<br>$var&nbsp;=&nbsp;filter_var('oops',&nbsp;FILTER_VALIDATE_BOOLEAN,&nbsp;FILTER_NULL_ON_FAILURE);<br><br>//&nbsp;for&nbsp;filters&nbsp;that&nbsp;only&nbsp;accept&nbsp;flags,&nbsp;you&nbsp;can&nbsp;also&nbsp;pass&nbsp;as&nbsp;an&nbsp;array<br>$var&nbsp;=&nbsp;filter_var('oops',&nbsp;FILTER_VALIDATE_BOOLEAN,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;array('flags'&nbsp;=&gt;&nbsp;FILTER_NULL_ON_FAILURE));<br><br>//&nbsp;callback&nbsp;validate&nbsp;filter<br>function&nbsp;foo($value)<br>{<br>&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;Expected&nbsp;format:&nbsp;Surname,&nbsp;GivenNames<br>&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(strpos($value,&nbsp;",&nbsp;")&nbsp;===&nbsp;false)&nbsp;return&nbsp;false;<br>&nbsp;&nbsp;&nbsp;&nbsp;list($surname,&nbsp;$givennames)&nbsp;=&nbsp;explode(",&nbsp;",&nbsp;$value,&nbsp;2);<br>&nbsp;&nbsp;&nbsp;&nbsp;$empty&nbsp;=&nbsp;(empty($surname)&nbsp;||&nbsp;empty($givennames));<br>&nbsp;&nbsp;&nbsp;&nbsp;$notstrings&nbsp;=&nbsp;(!is_string($surname)&nbsp;||&nbsp;!is_string($givennames));<br>&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;($empty&nbsp;||&nbsp;$notstrings)&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;false;<br>&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;else&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;$value;<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>}<br>$var&nbsp;=&nbsp;filter_var('Doe,&nbsp;Jane&nbsp;Sue',&nbsp;FILTER_CALLBACK,&nbsp;array('options'&nbsp;=&gt;&nbsp;'foo'));<br>&#63;&gt;  </code>
 	 * @return mixed <p>Returns the filtered data, or <b><code>FALSE</code></b> if the filter fails.</p>
-	 * @link http://php.net/manual/en/function.filter-var.php
+	 * @link https://php.net/manual/en/function.filter-var.php
 	 * @see filter_var_array(), filter_input(), filter_input_array()
 	 * @since PHP 5 >= 5.2.0, PHP 7
 	 */
@@ -77,7 +77,7 @@ namespace {
 	 * @param array|int $options <p>An array defining the arguments. A valid key is a <code>string</code> containing a variable name and a valid value is either a filter type, or an <code>array</code> optionally specifying the filter, flags and options. If the value is an array, valid keys are <code>filter</code> which specifies the filter type, <code>flags</code> which specifies any flags that apply to the filter, and <code>options</code> which specifies any options that apply to the filter. See the example below for a better understanding.</p> <p>This parameter can be also an integer holding a filter constant. Then all values in the input array are filtered by this filter.</p>
 	 * @param bool $add_empty <p>Add missing keys as <b><code>NULL</code></b> to the return value.</p>
 	 * @return array|false|null <p>An array containing the values of the requested variables on success, or <b><code>FALSE</code></b> on failure. An array value will be <b><code>FALSE</code></b> if the filter fails, or <b><code>NULL</code></b> if the variable is not set.</p>
-	 * @link http://php.net/manual/en/function.filter-var-array.php
+	 * @link https://php.net/manual/en/function.filter-var-array.php
 	 * @see filter_input_array(), filter_var(), filter_input()
 	 * @since PHP 5 >= 5.2.0, PHP 7
 	 */

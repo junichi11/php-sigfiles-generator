@@ -10,7 +10,7 @@ namespace {
 	 * @param string $servicename <p>The short name of the service.</p>
 	 * @param string $machine <p>Optional machine name. If omitted, the local machine is used.</p>
 	 * @return int <p>Returns <b><code>WIN32_NO_ERROR</code></b> on success, <b><code>FALSE</code></b> if there is a problem with the parameters or a Win32 Error Code on failure.</p>
-	 * @link http://php.net/manual/en/function.win32-continue-service.php
+	 * @link https://php.net/manual/en/function.win32-continue-service.php
 	 * @see win32_start_service(), win32_stop_service(), win32_pause_service(), win32_send_custom_control()
 	 * @since PECL win32service >=0.1.0
 	 */
@@ -22,7 +22,7 @@ namespace {
 	 * @param array $details <p>An array of service details:</p>  <code>service</code>  <p>The short name of the service. This is the name that you will use to control the service using the <code>net</code> command. The service must be unique (no two services can share the same name), and, ideally, should avoid having spaces in the name.</p>   <code>display</code>  <p>The display name of the service. This is the name that you will see in the Services Applet.</p>   <code>description</code>  <p>The long description of the service. This is the description that you will see in the Services Applet.</p>   <code>user</code>  <p>The name of the user account under which you want the service to run. If omitted, the service will run as the LocalSystem account. If the username is specified, you must also provide a password.</p>   <code>password</code>  <p>The password that corresponds to the <code>user</code>.</p>   <code>path</code>  <p>The full path to the executable module that will be launched when the service is started. If omitted, the path to the current PHP process will be used.</p>   <code>params</code>  <p>Command line parameters to pass to the service when it starts. If you want to run a PHP script as the service, then the first parameter should be the full path to the PHP script that you intend to run. If the script name or path contains spaces, then wrap the full path to the PHP script with <code>"</code>.</p>   <code>load_order</code>  <p>Controls the load_order. This is not yet fully supported.</p>   <code>svc_type</code>  <p>Sets the service type. If omitted, the default value is <b><code>WIN32_SERVICE_WIN32_OWN_PROCESS</code></b>. Don't change this unless you know what you're doing.</p>   <code>start_type</code>  <p>Specifies how the service should be started. The default is <b><code>WIN32_SERVICE_AUTO_START</code></b> which means the service will be launched when the machine starts up.</p>   <code>error_control</code>  <p>Informs the SCM what it should do when it detects a problem with the service. The default is <b><code>WIN32_SERVER_ERROR_IGNORE</code></b>. Changing this value is not yet fully supported.</p>   <code>delayed_start</code>  <p>If <code>delayed_start</code> is set to <b><code>TRUE</code></b>, then this will inform the SCM that this service should be started after other auto-start services are started plus a short delay.</p> <p>Any service can be marked as a delayed auto-start service; however, this setting has no effect unless the service's <code>start_type</code> is <b><code>WIN32_SERVICE_AUTO_START</code></b>.</p> <p>This setting is only applicable on Windows Vista and Windows Server 2008 or greater.</p>   <code>base_priority</code>  <p>To reduce the impact on processor utilisation, it may be necessary to set a base priority lower than normal.</p> <p>The <code>base_priority</code> can be set to one of the constants define in Win32 Base Priority Classes.</p>   <code>dependencies</code>  <p>To define the dependencies for your service, it may be necessary to set this parameter to the list of the services names in an array.</p>   <code>recovery_delay</code>  <p>This parameter defines the delay between the fail and the execution of recovery action. The value is in milliseconds.</p> <p>The default value is 60000.</p>   <code>recovery_action_1</code>  <p>The action will be executed on first failure. The default value is <b><code>WIN32_SC_ACTION_NONE</code></b>.</p> <p>The <code>recovery_action_1</code> can be set to one of the constants defined in Win32 Recovery action.</p>   <code>recovery_action_2</code>  <p>The action will be executed on second failure. The default value is <b><code>WIN32_SC_ACTION_NONE</code></b>.</p> <p>The <code>recovery_action_2</code> can be set to one of the constants defined in Win32 Recovery action.</p>   <code>recovery_action_3</code>  <p>The action will be executed on next failures. The default value is <b><code>WIN32_SC_ACTION_NONE</code></b>.</p> <p>The <code>recovery_action_3</code> can be set to one of the constants defined in Win32 Recovery action.</p>   <code>recovery_reset_period</code>  <p>The failure count will be reset after the delay defined in the parameter. The delay is expirement in seconds.</p> <p>The default value is <code>86400</code>.</p>   <code>recovery_enabled</code>  <p>Set this parameter at <b><code>TRUE</code></b> to enable the recovery settings, <b><code>FALSE</code></b> to disable.</p> <p>The default value is <b><code>FALSE</code></b></p>   <code>recovery_reboot_msg</code>  <p>Set this parameter to define the message saved into the Windows Event Log before the reboot. Used only if one action is set to <b><code>WIN32_SC_ACTION_REBOOT</code></b>.</p>   <code>recovery_command</code>  <p>Set this parameter to define the command executed when one action is defined on <b><code>WIN32_SC_ACTION_RUN_COMMAND</code></b>.</p>
 	 * @param string $machine <p>The optional machine name on which you want to create a service. If omitted, it will use the local machine.</p>
 	 * @return mixed <p>Returns <b><code>WIN32_NO_ERROR</code></b> on success, <b><code>FALSE</code></b> if there is a problem with the parameters or a Win32 Error Code on failure.</p>
-	 * @link http://php.net/manual/en/function.win32-create-service.php
+	 * @link https://php.net/manual/en/function.win32-create-service.php
 	 * @see win32_delete_service()
 	 * @since PECL win32service >=0.1.0
 	 */
@@ -34,7 +34,7 @@ namespace {
 	 * @param string $servicename <p>The short name of the service.</p>
 	 * @param string $machine <p>The optional machine name. If omitted, the local machine will be used.</p>
 	 * @return mixed <p>Returns <b><code>WIN32_NO_ERROR</code></b> on success, <b><code>FALSE</code></b> if there is a problem with the parameters or a Win32 Error Code on failure.</p>
-	 * @link http://php.net/manual/en/function.win32-delete-service.php
+	 * @link https://php.net/manual/en/function.win32-delete-service.php
 	 * @see win32_create_service()
 	 * @since PECL win32service >=0.1.0
 	 */
@@ -44,7 +44,7 @@ namespace {
 	 * Returns the last control message that was sent to this service
 	 * <p>Returns the control code that was last sent to this service process. When running as a service you should periodically check this to determine if your service needs to stop running.</p><p>Since version 0.2.0, this function work only in "cli" SAPI. On other SAPI this function is disabled.</p>
 	 * @return int <p>Returns a control constant which will be one of the Win32Service Service Control Message Constants: <b><code>WIN32_SERVICE_CONTROL_CONTINUE</code></b>, <b><code>WIN32_SERVICE_CONTROL_INTERROGATE</code></b>, <b><code>WIN32_SERVICE_CONTROL_PAUSE</code></b>, <b><code>WIN32_SERVICE_CONTROL_PRESHUTDOWN</code></b>, <b><code>WIN32_SERVICE_CONTROL_SHUTDOWN</code></b>, <b><code>WIN32_SERVICE_CONTROL_STOP</code></b>.</p>
-	 * @link http://php.net/manual/en/function.win32-get-last-control-message.php
+	 * @link https://php.net/manual/en/function.win32-get-last-control-message.php
 	 * @see win32_start_service_ctrl_dispatcher(), win32_set_service_status(), win32_set_service_exit_mode(), win32_set_service_exit_code()
 	 * @since PECL win32service >=0.1.0
 	 */
@@ -56,7 +56,7 @@ namespace {
 	 * @param string $servicename <p>The short name of the service.</p>
 	 * @param string $machine <p>Optional machine name. If omitted, the local machine is used.</p>
 	 * @return int <p>Returns <b><code>WIN32_NO_ERROR</code></b> on success, <b><code>FALSE</code></b> if there is a problem with the parameters or a Win32 Error Code on failure.</p>
-	 * @link http://php.net/manual/en/function.win32-pause-service.php
+	 * @link https://php.net/manual/en/function.win32-pause-service.php
 	 * @see win32_start_service(), win32_stop_service(), win32_continue_service(), win32_send_custom_control()
 	 * @since PECL win32service >=0.1.0
 	 */
@@ -68,7 +68,7 @@ namespace {
 	 * @param string $servicename <p>The short name of the service.</p>
 	 * @param string $machine <p>The optional machine name. If omitted, the local machine will be used.</p>
 	 * @return mixed <p>Returns an array consisting of the following information on success, <b><code>FALSE</code></b> if there is a problem with the parameters or a Win32 Error Code on failure.</p>  <code>ServiceType</code>  <p>The dwServiceType. See Win32Service Service Type Bitmasks.</p>   <code>CurrentState</code>  <p>The dwCurrentState. See Win32Service Service Status Constants.</p>   <code>ControlsAccepted</code>  <p>Which service controls are accepted by the service. See Win32Service Service Control Message Accepted Bitmasks.</p>   <code>Win32ExitCode</code>  <p>If the service exited, the return code from the process. This value is equal to <b><code>WIN32_ERROR_SERVICE_SPECIFIC_ERROR</code></b> if the exit mode is not gracefuly. See Win32Service error codes and <code>win32_set_service_exit_mode()</code></p>   <code>ServiceSpecificExitCode</code>  <p>If the service exited with an error condition, the service specific code that is logged in the event log is visible here. This value is equal to the value defined by <code>win32_set_service_exit_code()</code></p>   <code>CheckPoint</code>  <p>If the service is shutting down, holds the current check point number. This is used by the SCM as a kind of heart-beat to detect a wedged service process. The value of the check point is best interpreted in conjunction with the WaitHint value.</p>   <code>WaitHint</code>  <p>If the service is shutting down it will set WaitHint to a checkpoint value that will indicate 100% completion. This can be used to implement a progress indicator.</p>   <code>ProcessId</code>  <p>The Windows process identifier. If 0, the process is not running.</p>   <code>ServiceFlags</code>  <p>The dwServiceFlags. See Win32Service Service Service Flag Constants.</p>
-	 * @link http://php.net/manual/en/function.win32-query-service-status.php
+	 * @link https://php.net/manual/en/function.win32-query-service-status.php
 	 * @since PECL win32service >=0.1.0
 	 */
 	function win32_query_service_status(string $servicename, string $machine = NULL) {}
@@ -80,7 +80,7 @@ namespace {
 	 * @param int $control <p>The custom contole value between 128 and 255.</p>
 	 * @param string $machine <p>Optional machine name. If omitted, the local machine is used.</p>
 	 * @return int <p>Returns <b><code>WIN32_NO_ERROR</code></b> on success, <b><code>FALSE</code></b> if there is a problem with the parameters or a Win32 Error Code on failure.</p>
-	 * @link http://php.net/manual/en/function.win32-send-custom-control.php
+	 * @link https://php.net/manual/en/function.win32-send-custom-control.php
 	 * @see win32_start_service(), win32_stop_service(), win32_pause_service(), win32_continue_service()
 	 * @since PECL win32service >=0.4.0
 	 */
@@ -91,7 +91,7 @@ namespace {
 	 * <p>Change or return the exit code. The exit code is used only if the exit mode is not graceful. If the value is not zero, the recovery configuration can be used after service fail. See Microsoft system error codes for more details</p><p>This function work only in "cli" SAPI. On other SAPI this function is disabled.</p>
 	 * @param int $exitCode <p>The return code used on exit.</p>
 	 * @return int <p>Return the current or old exit code.</p>
-	 * @link http://php.net/manual/en/function.win32-set-service-exit-code.php
+	 * @link https://php.net/manual/en/function.win32-set-service-exit-code.php
 	 * @see win32_start_service_ctrl_dispatcher(), win32_set_service_status(), win32_set_service_exit_mode()
 	 * @since PECL win32service >=0.4.0
 	 */
@@ -102,7 +102,7 @@ namespace {
 	 * <p>If <code>gracefulMode</code> parameter is provided, the exit mode is changed. When the exit mode is not gracefuly, the exit code used can be set with the <code>win32_set_service_exit_code()</code> function.</p><p>This function work only in "cli" SAPI. On other SAPI this function is disabled.</p>
 	 * @param bool $gracefulMode <p><b><code>TRUE</code></b> for exit graceful. <b><code>FALSE</code></b> for exit with error.</p>
 	 * @return bool <p>Return the current or old exit mode.</p>
-	 * @link http://php.net/manual/en/function.win32-set-service-exit-mode.php
+	 * @link https://php.net/manual/en/function.win32-set-service-exit-mode.php
 	 * @see win32_start_service_ctrl_dispatcher(), win32_set_service_status(), win32_set_service_exit_code()
 	 * @since PECL win32service >=0.4.0
 	 */
@@ -114,7 +114,7 @@ namespace {
 	 * @param int $status <p>The service status code, one of <b><code>WIN32_SERVICE_RUNNING</code></b>, <b><code>WIN32_SERVICE_STOPPED</code></b>, <b><code>WIN32_SERVICE_STOP_PENDING</code></b>, <b><code>WIN32_SERVICE_START_PENDING</code></b>, <b><code>WIN32_SERVICE_CONTINUE_PENDING</code></b>, <b><code>WIN32_SERVICE_PAUSE_PENDING</code></b>, <b><code>WIN32_SERVICE_PAUSED</code></b>.</p>
 	 * @param int $checkpoint <p>The checkpoint value the service increments periodically to report its progress during a lengthy start, stop, pause, or continue operation. For example, the service should increment this value as it completes each step of its initialization when it is starting up.</p> <p>The <code>checkpoint</code> is only valid when the <code>status</code> is one of <b><code>WIN32_SERVICE_STOP_PENDING</code></b>, <b><code>WIN32_SERVICE_START_PENDING</code></b>, <b><code>WIN32_SERVICE_CONTINUE_PENDING</code></b> or <b><code>WIN32_SERVICE_PAUSE_PENDING</code></b>.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success, <b><code>FALSE</code></b> if there is a problem with the parameters or a Win32 Error Code on failure.</p>
-	 * @link http://php.net/manual/en/function.win32-set-service-status.php
+	 * @link https://php.net/manual/en/function.win32-set-service-status.php
 	 * @see win32_start_service_ctrl_dispatcher(), win32_get_last_control_message(), win32_set_service_exit_mode(), win32_set_service_exit_code()
 	 * @since PECL win32service >=0.1.0
 	 */
@@ -126,7 +126,7 @@ namespace {
 	 * @param string $servicename <p>The short name of the service.</p>
 	 * @param string $machine <p>Optional machine name. If omitted, the local machine is used.</p>
 	 * @return int <p>Returns <b><code>WIN32_NO_ERROR</code></b> on success, <b><code>FALSE</code></b> if there is a problem with the parameters or a Win32 Error Code on failure.</p>
-	 * @link http://php.net/manual/en/function.win32-start-service.php
+	 * @link https://php.net/manual/en/function.win32-start-service.php
 	 * @see win32_stop_service(), win32_pause_service(), win32_continue_service(), win32_send_custom_control()
 	 * @since PECL win32service >=0.1.0
 	 */
@@ -138,7 +138,7 @@ namespace {
 	 * @param string $name <p>The short-name of the service, as registered by <code>win32_create_service()</code>.</p>
 	 * @param bool $gracefulMode <p><b><code>TRUE</code></b> for exit graceful. <b><code>FALSE</code></b> for exit with error. See <code>win32_set_service_exit_mode()</code> for more details.</p>
 	 * @return mixed <p>Returns <b><code>TRUE</code></b> on success, <b><code>FALSE</code></b> if there is a problem with the parameters or a Win32 Error Code on failure.</p>
-	 * @link http://php.net/manual/en/function.win32-start-service-ctrl-dispatcher.php
+	 * @link https://php.net/manual/en/function.win32-start-service-ctrl-dispatcher.php
 	 * @see win32_set_service_status(), win32_get_last_control_message(), win32_set_service_exit_mode(), win32_set_service_exit_code()
 	 * @since PECL win32service >=0.1.0
 	 */
@@ -150,7 +150,7 @@ namespace {
 	 * @param string $servicename <p>The short name of the service.</p>
 	 * @param string $machine <p>Optional machine name. If omitted, the local machine is used.</p>
 	 * @return int <p>Returns <b><code>WIN32_NO_ERROR</code></b> on success, <b><code>FALSE</code></b> if there is a problem with the parameters or a Win32 Error Code on failure.</p>
-	 * @link http://php.net/manual/en/function.win32-stop-service.php
+	 * @link https://php.net/manual/en/function.win32-stop-service.php
 	 * @see win32_start_service(), win32_pause_service(), win32_continue_service(), win32_send_custom_control()
 	 * @since PECL win32service >=0.1.0
 	 */

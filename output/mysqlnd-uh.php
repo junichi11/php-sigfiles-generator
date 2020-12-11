@@ -5,7 +5,7 @@
 namespace {
 
 	/**
-	 * @link http://php.net/manual/en/class.mysqlnduhconnection.php
+	 * @link https://php.net/manual/en/class.mysqlnduhconnection.php
 	 * @since PECL mysqlnd-uh >= 1.0.0-alpha
 	 */
 	class MysqlndUhConnection {
@@ -14,7 +14,7 @@ namespace {
 		 * The __construct purpose
 		 * <p></p><p>This function is currently not documented; only its argument list is available.</p>
 		 * @return self
-		 * @link http://php.net/manual/en/mysqlnduhconnection.construct.php
+		 * @link https://php.net/manual/en/mysqlnduhconnection.construct.php
 		 * @since PECL mysqlnd-uh >= 1.0.0-alpha
 		 */
 		public function __construct() {}
@@ -29,7 +29,7 @@ namespace {
 		 * @param bool $silent <p>Controls if mysqlnd is allowed to emit errors or not.</p>
 		 * @param int $passwd_len <p>Length of the MySQL password.</p>
 		 * @return bool <p>Returns <b><code>TRUE</code></b> on success. Otherwise, returns <b><code>FALSE</code></b></p>
-		 * @link http://php.net/manual/en/mysqlnduhconnection.changeuser.php
+		 * @link https://php.net/manual/en/mysqlnduhconnection.changeuser.php
 		 * @see mysqlnd_uh_set_connection_proxy(), mysqli_change_user()
 		 * @since PECL mysqlnd-uh >= 1.0.0-alpha
 		 */
@@ -40,7 +40,7 @@ namespace {
 		 * <p>Returns the default character set for the database connection.</p>
 		 * @param \mysqlnd_connection $connection <p>Mysqlnd connection handle. Do not modify!</p>
 		 * @return string <p>The default character set.</p>
-		 * @link http://php.net/manual/en/mysqlnduhconnection.charsetname.php
+		 * @link https://php.net/manual/en/mysqlnduhconnection.charsetname.php
 		 * @see mysqlnd_uh_set_connection_proxy(), mysqli_character_set_name()
 		 * @since PECL mysqlnd-uh >= 1.0.0-alpha
 		 */
@@ -52,7 +52,7 @@ namespace {
 		 * @param \mysqlnd_connection $connection <p>The connection to be closed. Do not modify!</p>
 		 * @param int $close_type <p>Why the connection is to be closed. The value of <code>close_type</code> is one of <b><code>MYSQLND_UH_MYSQLND_CLOSE_EXPLICIT</code></b>, <b><code>MYSQLND_UH_MYSQLND_CLOSE_IMPLICIT</code></b>, <b><code>MYSQLND_UH_MYSQLND_CLOSE_DISCONNECTED</code></b> or <b><code>MYSQLND_UH_MYSQLND_CLOSE_LAST</code></b>. The latter should never be seen, unless the default behaviour of the <code>mysqlnd</code> library has been changed by a plugin.</p>
 		 * @return bool <p>Returns <b><code>TRUE</code></b> on success. Otherwise, returns <b><code>FALSE</code></b></p>
-		 * @link http://php.net/manual/en/mysqlnduhconnection.close.php
+		 * @link https://php.net/manual/en/mysqlnduhconnection.close.php
 		 * @see mysqlnd_uh_set_connection_proxy(), mysqli_close(), mysql_close()
 		 * @since PECL mysqlnd-uh >= 1.0.0-alpha
 		 */
@@ -70,7 +70,7 @@ namespace {
 		 * @param string $socket <p>Specifies the socket or named pipe that should be used. If <b><code>NULL</code></b>, mysqlnd will default to <code>/tmp/mysql.sock</code>.</p>
 		 * @param int $mysql_flags <p>Connection options.</p>
 		 * @return bool <p>Returns <b><code>TRUE</code></b> on success. Otherwise, returns <b><code>FALSE</code></b></p>
-		 * @link http://php.net/manual/en/mysqlnduhconnection.connect.php
+		 * @link https://php.net/manual/en/mysqlnduhconnection.connect.php
 		 * @see mysqlnd_uh_set_connection_proxy(), mysqli_connect(), mysql_connect()
 		 * @since PECL mysqlnd-uh >= 1.0.0-alpha
 		 */
@@ -81,7 +81,7 @@ namespace {
 		 * <p>End a persistent connection</p><p>This function is currently not documented; only its argument list is available.</p>
 		 * @param \mysqlnd_connection $connection <p>Mysqlnd connection handle. Do not modify!</p>
 		 * @return bool <p>Returns <b><code>TRUE</code></b> on success. Otherwise, returns <b><code>FALSE</code></b></p>
-		 * @link http://php.net/manual/en/mysqlnduhconnection.endpsession.php
+		 * @link https://php.net/manual/en/mysqlnduhconnection.endpsession.php
 		 * @see mysqlnd_uh_set_connection_proxy()
 		 * @since PECL mysqlnd-uh >= 1.0.0-alpha
 		 */
@@ -93,7 +93,7 @@ namespace {
 		 * @param \mysqlnd_connection $connection
 		 * @param string $escape_string <p>The string to be escaped.</p>
 		 * @return string <p>The escaped string.</p>
-		 * @link http://php.net/manual/en/mysqlnduhconnection.escapestring.php
+		 * @link https://php.net/manual/en/mysqlnduhconnection.escapestring.php
 		 * @see mysqlnd_uh_set_connection_proxy(), mysqli_real_escape_string(), mysql_real_escape_string()
 		 * @since PECL mysqlnd-uh >= 1.0.0-alpha
 		 */
@@ -104,7 +104,7 @@ namespace {
 		 * <p>Gets the number of affected rows in a previous MySQL operation.</p>
 		 * @param \mysqlnd_connection $connection <p>Mysqlnd connection handle. Do not modify!</p>
 		 * @return int <p>Number of affected rows.</p>
-		 * @link http://php.net/manual/en/mysqlnduhconnection.getaffectedrows.php
+		 * @link https://php.net/manual/en/mysqlnduhconnection.getaffectedrows.php
 		 * @see mysqlnd_uh_set_connection_proxy(), mysqli_affected_rows(), mysql_affected_rows()
 		 * @since PECL mysqlnd-uh >= 1.0.0-alpha
 		 */
@@ -115,7 +115,7 @@ namespace {
 		 * <p>Returns the error code for the most recent function call.</p>
 		 * @param \mysqlnd_connection $connection <p>Mysqlnd connection handle. Do not modify!</p>
 		 * @return int <p>Error code for the most recent function call.</p>
-		 * @link http://php.net/manual/en/mysqlnduhconnection.geterrornumber.php
+		 * @link https://php.net/manual/en/mysqlnduhconnection.geterrornumber.php
 		 * @see mysqlnd_uh_set_connection_proxy(), MysqlndUhConnection::getErrorString(), mysqli_errno(), mysql_errno()
 		 * @since PECL mysqlnd-uh >= 1.0.0-alpha
 		 */
@@ -126,7 +126,7 @@ namespace {
 		 * <p>Returns a string description of the last error.</p>
 		 * @param \mysqlnd_connection $connection <p>Mysqlnd connection handle. Do not modify!</p>
 		 * @return string <p>Error string for the most recent function call.</p>
-		 * @link http://php.net/manual/en/mysqlnduhconnection.geterrorstring.php
+		 * @link https://php.net/manual/en/mysqlnduhconnection.geterrorstring.php
 		 * @see mysqlnd_uh_set_connection_proxy(), MysqlndUhConnection::getErrorNumber(), mysqli_error(), mysql_error()
 		 * @since PECL mysqlnd-uh >= 1.0.0-alpha
 		 */
@@ -137,7 +137,7 @@ namespace {
 		 * <p>Returns the number of columns for the most recent query.</p>
 		 * @param \mysqlnd_connection $connection <p>Mysqlnd connection handle. Do not modify!</p>
 		 * @return int <p>Number of columns.</p>
-		 * @link http://php.net/manual/en/mysqlnduhconnection.getfieldcount.php
+		 * @link https://php.net/manual/en/mysqlnduhconnection.getfieldcount.php
 		 * @see mysqlnd_uh_set_connection_proxy(), mysqli_field_count()
 		 * @since PECL mysqlnd-uh >= 1.0.0-alpha
 		 */
@@ -148,7 +148,7 @@ namespace {
 		 * <p>Returns a string representing the type of connection used.</p>
 		 * @param \mysqlnd_connection $connection <p>Mysqlnd connection handle. Do not modify!</p>
 		 * @return string <p>Connection description.</p>
-		 * @link http://php.net/manual/en/mysqlnduhconnection.gethostinformation.php
+		 * @link https://php.net/manual/en/mysqlnduhconnection.gethostinformation.php
 		 * @see mysqlnd_uh_set_connection_proxy(), mysqli_get_host_info(), mysql_get_host_info()
 		 * @since PECL mysqlnd-uh >= 1.0.0-alpha
 		 */
@@ -159,7 +159,7 @@ namespace {
 		 * <p>Returns the auto generated id used in the last query.</p>
 		 * @param \mysqlnd_connection $connection <p>Mysqlnd connection handle. Do not modify!</p>
 		 * @return int <p>Last insert id.</p>
-		 * @link http://php.net/manual/en/mysqlnduhconnection.getlastinsertid.php
+		 * @link https://php.net/manual/en/mysqlnduhconnection.getlastinsertid.php
 		 * @see mysqlnd_uh_set_connection_proxy(), mysqli_insert_id(), mysql_insert_id()
 		 * @since PECL mysqlnd-uh >= 1.0.0-alpha
 		 */
@@ -170,7 +170,7 @@ namespace {
 		 * <p>Retrieves information about the most recently executed query.</p>
 		 * @param \mysqlnd_connection $connection <p>Mysqlnd connection handle. Do not modify!</p>
 		 * @return void <p>Last message. Trying to return a string longer than 511 bytes will cause an error of the type <code>E_WARNING</code> and result in the string being truncated.</p>
-		 * @link http://php.net/manual/en/mysqlnduhconnection.getlastmessage.php
+		 * @link https://php.net/manual/en/mysqlnduhconnection.getlastmessage.php
 		 * @see mysqlnd_uh_set_connection_proxy(), mysqli_info(), mysql_info()
 		 * @since PECL mysqlnd-uh >= 1.0.0-alpha
 		 */
@@ -181,7 +181,7 @@ namespace {
 		 * <p>Returns the version of the MySQL protocol used.</p>
 		 * @param \mysqlnd_connection $connection <p>Mysqlnd connection handle. Do not modify!</p>
 		 * @return string <p>The protocol version.</p>
-		 * @link http://php.net/manual/en/mysqlnduhconnection.getprotocolinformation.php
+		 * @link https://php.net/manual/en/mysqlnduhconnection.getprotocolinformation.php
 		 * @see mysqlnd_uh_set_connection_proxy(), mysqli_get_proto_info(), mysql_get_proto_info()
 		 * @since PECL mysqlnd-uh >= 1.0.0-alpha
 		 */
@@ -192,7 +192,7 @@ namespace {
 		 * <p>Returns the version of the MySQL server.</p>
 		 * @param \mysqlnd_connection $connection <p>Mysqlnd connection handle. Do not modify!</p>
 		 * @return string <p>The server version.</p>
-		 * @link http://php.net/manual/en/mysqlnduhconnection.getserverinformation.php
+		 * @link https://php.net/manual/en/mysqlnduhconnection.getserverinformation.php
 		 * @see mysqlnd_uh_set_connection_proxy(), mysqli_get_server_info(), mysql_get_server_info()
 		 * @since PECL mysqlnd-uh >= 1.0.0-alpha
 		 */
@@ -203,7 +203,7 @@ namespace {
 		 * <p>Gets the current system status.</p>
 		 * @param \mysqlnd_connection $connection <p>Mysqlnd connection handle. Do not modify!</p>
 		 * @return string <p>The system status message.</p>
-		 * @link http://php.net/manual/en/mysqlnduhconnection.getserverstatistics.php
+		 * @link https://php.net/manual/en/mysqlnduhconnection.getserverstatistics.php
 		 * @see mysqlnd_uh_set_connection_proxy(), mysqli_stat(), mysql_stat()
 		 * @since PECL mysqlnd-uh >= 1.0.0-alpha
 		 */
@@ -214,7 +214,7 @@ namespace {
 		 * <p>Returns the version of the MySQL server as an integer.</p>
 		 * @param \mysqlnd_connection $connection <p>Mysqlnd connection handle. Do not modify!</p>
 		 * @return int <p>The MySQL version.</p>
-		 * @link http://php.net/manual/en/mysqlnduhconnection.getserverversion.php
+		 * @link https://php.net/manual/en/mysqlnduhconnection.getserverversion.php
 		 * @see mysqlnd_uh_set_connection_proxy(), mysqli_get_server_version()
 		 * @since PECL mysqlnd-uh >= 1.0.0-alpha
 		 */
@@ -225,7 +225,7 @@ namespace {
 		 * <p>Returns the SQLSTATE error from previous MySQL operation.</p>
 		 * @param \mysqlnd_connection $connection <p>Mysqlnd connection handle. Do not modify!</p>
 		 * @return string <p>The SQLSTATE code.</p>
-		 * @link http://php.net/manual/en/mysqlnduhconnection.getsqlstate.php
+		 * @link https://php.net/manual/en/mysqlnduhconnection.getsqlstate.php
 		 * @see mysqlnd_uh_set_connection_proxy()
 		 * @since PECL mysqlnd-uh >= 1.0.0-alpha
 		 */
@@ -236,7 +236,7 @@ namespace {
 		 * <p>Returns statistics about the client connection.</p><p>This function is currently not documented; only its argument list is available.</p>
 		 * @param \mysqlnd_connection $connection <p>Mysqlnd connection handle. Do not modify!</p>
 		 * @return array <p>Connection statistics collected by mysqlnd.</p>
-		 * @link http://php.net/manual/en/mysqlnduhconnection.getstatistics.php
+		 * @link https://php.net/manual/en/mysqlnduhconnection.getstatistics.php
 		 * @see mysqlnd_uh_set_connection_proxy(), mysqli_get_connection_stats()
 		 * @since PECL mysqlnd-uh >= 1.0.0-alpha
 		 */
@@ -247,7 +247,7 @@ namespace {
 		 * <p>Returns the thread ID for the current connection.</p>
 		 * @param \mysqlnd_connection $connection <p>Mysqlnd connection handle. Do not modify!</p>
 		 * @return int <p>Connection thread id.</p>
-		 * @link http://php.net/manual/en/mysqlnduhconnection.getthreadid.php
+		 * @link https://php.net/manual/en/mysqlnduhconnection.getthreadid.php
 		 * @see mysqlnd_uh_set_connection_proxy(), mysqli_thread_id(), mysql_thread_id()
 		 * @since PECL mysqlnd-uh >= 1.0.0-alpha
 		 */
@@ -258,7 +258,7 @@ namespace {
 		 * <p>Returns the number of warnings from the last query for the given link.</p>
 		 * @param \mysqlnd_connection $connection <p>Mysqlnd connection handle. Do not modify!</p>
 		 * @return int <p>Number of warnings.</p>
-		 * @link http://php.net/manual/en/mysqlnduhconnection.getwarningcount.php
+		 * @link https://php.net/manual/en/mysqlnduhconnection.getwarningcount.php
 		 * @see mysqlnd_uh_set_connection_proxy(), mysqli_warning_count()
 		 * @since PECL mysqlnd-uh >= 1.0.0-alpha
 		 */
@@ -269,7 +269,7 @@ namespace {
 		 * <p>Initialize mysqlnd connection. This is an mysqlnd internal call to initialize the connection object.</p><p><b>Note</b>:</p><p>Failing to call the parent implementation may cause memory leaks or crash PHP. This is not considered a bug. Please, keep in mind that the <code>mysqlnd</code> library functions have never been designed to be exposed to the user space.</p>
 		 * @param \mysqlnd_connection $connection <p>Mysqlnd connection handle. Do not modify!</p>
 		 * @return bool <p>Returns <b><code>TRUE</code></b> on success. Otherwise, returns <b><code>FALSE</code></b></p>
-		 * @link http://php.net/manual/en/mysqlnduhconnection.init.php
+		 * @link https://php.net/manual/en/mysqlnduhconnection.init.php
 		 * @see mysqlnd_uh_set_connection_proxy()
 		 * @since PECL mysqlnd-uh >= 1.0.0-alpha
 		 */
@@ -281,7 +281,7 @@ namespace {
 		 * @param \mysqlnd_connection $connection <p>Mysqlnd connection handle. Do not modify!</p>
 		 * @param int $pid <p>Thread Id of the connection to be killed.</p>
 		 * @return bool <p>Returns <b><code>TRUE</code></b> on success. Otherwise, returns <b><code>FALSE</code></b></p>
-		 * @link http://php.net/manual/en/mysqlnduhconnection.killconnection.php
+		 * @link https://php.net/manual/en/mysqlnduhconnection.killconnection.php
 		 * @see mysqlnd_uh_set_connection_proxy(), mysqli_kill()
 		 * @since PECL mysqlnd-uh >= 1.0.0-alpha
 		 */
@@ -294,7 +294,7 @@ namespace {
 		 * @param string $table <p>The name of the table that's being queried.</p>
 		 * @param string $achtung_wild
 		 * @return array
-		 * @link http://php.net/manual/en/mysqlnduhconnection.listfields.php
+		 * @link https://php.net/manual/en/mysqlnduhconnection.listfields.php
 		 * @see mysqlnd_uh_set_connection_proxy(), mysql_list_fields()
 		 * @since PECL mysqlnd-uh >= 1.0.0-alpha
 		 */
@@ -308,7 +308,7 @@ namespace {
 		 * @param string $achtung_wild
 		 * @param string $par1
 		 * @return void
-		 * @link http://php.net/manual/en/mysqlnduhconnection.listmethod.php
+		 * @link https://php.net/manual/en/mysqlnduhconnection.listmethod.php
 		 * @see mysqlnd_uh_set_connection_proxy(), mysql_list_dbs()
 		 * @since PECL mysqlnd-uh >= 1.0.0-alpha
 		 */
@@ -319,7 +319,7 @@ namespace {
 		 * <p>Check if there are any more query results from a multi query.</p>
 		 * @param \mysqlnd_connection $connection <p>Mysqlnd connection handle. Do not modify!</p>
 		 * @return bool <p>Returns <b><code>TRUE</code></b> on success. Otherwise, returns <b><code>FALSE</code></b></p>
-		 * @link http://php.net/manual/en/mysqlnduhconnection.moreresults.php
+		 * @link https://php.net/manual/en/mysqlnduhconnection.moreresults.php
 		 * @see mysqlnd_uh_set_connection_proxy(), mysqli_more_results()
 		 * @since PECL mysqlnd-uh >= 1.0.0-alpha
 		 */
@@ -330,7 +330,7 @@ namespace {
 		 * <p>Prepare next result from multi_query.</p>
 		 * @param \mysqlnd_connection $connection <p>Mysqlnd connection handle. Do not modify!</p>
 		 * @return bool <p>Returns <b><code>TRUE</code></b> on success. Otherwise, returns <b><code>FALSE</code></b></p>
-		 * @link http://php.net/manual/en/mysqlnduhconnection.nextresult.php
+		 * @link https://php.net/manual/en/mysqlnduhconnection.nextresult.php
 		 * @see mysqlnd_uh_set_connection_proxy(), mysqli_next_result()
 		 * @since PECL mysqlnd-uh >= 1.0.0-alpha
 		 */
@@ -341,7 +341,7 @@ namespace {
 		 * <p>Pings a server connection, or tries to reconnect if the connection has gone down.</p>
 		 * @param \mysqlnd_connection $connection <p>Mysqlnd connection handle. Do not modify!</p>
 		 * @return bool <p>Returns <b><code>TRUE</code></b> on success. Otherwise, returns <b><code>FALSE</code></b></p>
-		 * @link http://php.net/manual/en/mysqlnduhconnection.ping.php
+		 * @link https://php.net/manual/en/mysqlnduhconnection.ping.php
 		 * @see mysqlnd_uh_set_connection_proxy(), mysqli_ping(), mysql_ping()
 		 * @since PECL mysqlnd-uh >= 1.0.0-alpha
 		 */
@@ -353,7 +353,7 @@ namespace {
 		 * @param \mysqlnd_connection $connection <p>Mysqlnd connection handle. Do not modify!</p>
 		 * @param string $query <p>The query string.</p>
 		 * @return bool <p>Returns <b><code>TRUE</code></b> on success. Otherwise, returns <b><code>FALSE</code></b></p>
-		 * @link http://php.net/manual/en/mysqlnduhconnection.query.php
+		 * @link https://php.net/manual/en/mysqlnduhconnection.query.php
 		 * @see mysqlnd_uh_set_connection_proxy(), mysqli_query(), mysql_query()
 		 * @since PECL mysqlnd-uh >= 1.0.0-alpha
 		 */
@@ -365,7 +365,7 @@ namespace {
 		 * @param \mysqlnd_connection $connection <p>Mysqlnd connection handle. Do not modify!</p>
 		 * @param \mysqlnd_statement $mysqlnd_stmt <p>Mysqlnd statement handle. Do not modify! Set to <b><code>NULL</code></b>, if function is not used in the context of a prepared statement.</p>
 		 * @return bool <p>Returns <b><code>TRUE</code></b> on success. Otherwise, returns <b><code>FALSE</code></b></p>
-		 * @link http://php.net/manual/en/mysqlnduhconnection.queryreadresultsetheader.php
+		 * @link https://php.net/manual/en/mysqlnduhconnection.queryreadresultsetheader.php
 		 * @see mysqlnd_uh_set_connection_proxy()
 		 * @since PECL mysqlnd-uh >= 1.0.0-alpha
 		 */
@@ -376,7 +376,7 @@ namespace {
 		 * <p>Get result from async query.</p>
 		 * @param \mysqlnd_connection $connection <p>Mysqlnd connection handle. Do not modify!</p>
 		 * @return bool <p>Returns <b><code>TRUE</code></b> on success. Otherwise, returns <b><code>FALSE</code></b></p>
-		 * @link http://php.net/manual/en/mysqlnduhconnection.reapquery.php
+		 * @link https://php.net/manual/en/mysqlnduhconnection.reapquery.php
 		 * @see mysqlnd_uh_set_connection_proxy()
 		 * @since PECL mysqlnd-uh >= 1.0.0-alpha
 		 */
@@ -388,7 +388,7 @@ namespace {
 		 * @param \mysqlnd_connection $connection <p>Mysqlnd connection handle. Do not modify!</p>
 		 * @param int $options <p>What to refresh.</p>
 		 * @return bool <p>Returns <b><code>TRUE</code></b> on success. Otherwise, returns <b><code>FALSE</code></b></p>
-		 * @link http://php.net/manual/en/mysqlnduhconnection.refreshserver.php
+		 * @link https://php.net/manual/en/mysqlnduhconnection.refreshserver.php
 		 * @see mysqlnd_uh_set_connection_proxy()
 		 * @since PECL mysqlnd-uh >= 1.0.0-alpha
 		 */
@@ -399,7 +399,7 @@ namespace {
 		 * <p>Restart a persistent mysqlnd connection.</p>
 		 * @param \mysqlnd_connection $connection <p>Mysqlnd connection handle. Do not modify!</p>
 		 * @return bool <p>Returns <b><code>TRUE</code></b> on success. Otherwise, returns <b><code>FALSE</code></b></p>
-		 * @link http://php.net/manual/en/mysqlnduhconnection.restartpsession.php
+		 * @link https://php.net/manual/en/mysqlnduhconnection.restartpsession.php
 		 * @see mysqlnd_uh_set_connection_proxy()
 		 * @since PECL mysqlnd-uh >= 1.0.0-alpha
 		 */
@@ -411,7 +411,7 @@ namespace {
 		 * @param \mysqlnd_connection $connection <p>Mysqlnd connection handle. Do not modify!</p>
 		 * @param string $database <p>The database name.</p>
 		 * @return bool <p>Returns <b><code>TRUE</code></b> on success. Otherwise, returns <b><code>FALSE</code></b></p>
-		 * @link http://php.net/manual/en/mysqlnduhconnection.selectdb.php
+		 * @link https://php.net/manual/en/mysqlnduhconnection.selectdb.php
 		 * @see mysqlnd_uh_set_connection_proxy(), mysqli_select_db(), mysql_select_db()
 		 * @since PECL mysqlnd-uh >= 1.0.0-alpha
 		 */
@@ -422,7 +422,7 @@ namespace {
 		 * <p>Sends a close command to MySQL.</p>
 		 * @param \mysqlnd_connection $connection <p>Mysqlnd connection handle. Do not modify!</p>
 		 * @return bool <p>Returns <b><code>TRUE</code></b> on success. Otherwise, returns <b><code>FALSE</code></b></p>
-		 * @link http://php.net/manual/en/mysqlnduhconnection.sendclose.php
+		 * @link https://php.net/manual/en/mysqlnduhconnection.sendclose.php
 		 * @see mysqlnd_uh_set_connection_proxy()
 		 * @since PECL mysqlnd-uh >= 1.0.0-alpha
 		 */
@@ -434,7 +434,7 @@ namespace {
 		 * @param \mysqlnd_connection $connection <p>Mysqlnd connection handle. Do not modify!</p>
 		 * @param string $query <p>The query string.</p>
 		 * @return bool <p>Returns <b><code>TRUE</code></b> on success. Otherwise, returns <b><code>FALSE</code></b></p>
-		 * @link http://php.net/manual/en/mysqlnduhconnection.sendquery.php
+		 * @link https://php.net/manual/en/mysqlnduhconnection.sendquery.php
 		 * @see mysqlnd_uh_set_connection_proxy()
 		 * @since PECL mysqlnd-uh >= 1.0.0-alpha
 		 */
@@ -445,7 +445,7 @@ namespace {
 		 * <p>Dump debugging information into the log for the MySQL server.</p>
 		 * @param \mysqlnd_connection $connection <p>Mysqlnd connection handle. Do not modify!</p>
 		 * @return bool <p>Returns <b><code>TRUE</code></b> on success. Otherwise, returns <b><code>FALSE</code></b></p>
-		 * @link http://php.net/manual/en/mysqlnduhconnection.serverdumpdebuginformation.php
+		 * @link https://php.net/manual/en/mysqlnduhconnection.serverdumpdebuginformation.php
 		 * @see mysqlnd_uh_set_connection_proxy(), mysqli_dump_debug_info()
 		 * @since PECL mysqlnd-uh >= 1.0.0-alpha
 		 */
@@ -457,7 +457,7 @@ namespace {
 		 * @param \mysqlnd_connection $connection <p>Mysqlnd connection handle. Do not modify!</p>
 		 * @param int $mode <p>Whether to turn on auto-commit or not.</p>
 		 * @return bool <p>Returns <b><code>TRUE</code></b> on success. Otherwise, returns <b><code>FALSE</code></b></p>
-		 * @link http://php.net/manual/en/mysqlnduhconnection.setautocommit.php
+		 * @link https://php.net/manual/en/mysqlnduhconnection.setautocommit.php
 		 * @see mysqlnd_uh_set_connection_proxy(), mysqli_autocommit()
 		 * @since PECL mysqlnd-uh >= 1.0.1-alpha
 		 */
@@ -469,7 +469,7 @@ namespace {
 		 * @param \mysqlnd_connection $connection <p>Mysqlnd connection handle. Do not modify!</p>
 		 * @param string $charset <p>The charset to be set as default.</p>
 		 * @return bool <p>Returns <b><code>TRUE</code></b> on success. Otherwise, returns <b><code>FALSE</code></b></p>
-		 * @link http://php.net/manual/en/mysqlnduhconnection.setcharset.php
+		 * @link https://php.net/manual/en/mysqlnduhconnection.setcharset.php
 		 * @see mysqlnd_uh_set_connection_proxy(), mysqli_set_charset()
 		 * @since PECL mysqlnd-uh >= 1.0.0-alpha
 		 */
@@ -482,7 +482,7 @@ namespace {
 		 * @param int $option <p>The option to be set.</p>
 		 * @param int $value <p>Optional option value, if required.</p>
 		 * @return bool <p>Returns <b><code>TRUE</code></b> on success. Otherwise, returns <b><code>FALSE</code></b></p>
-		 * @link http://php.net/manual/en/mysqlnduhconnection.setclientoption.php
+		 * @link https://php.net/manual/en/mysqlnduhconnection.setclientoption.php
 		 * @see mysqlnd_uh_set_connection_proxy(), mysqli_real_connect(), mysqli_options()
 		 * @since PECL mysqlnd-uh >= 1.0.0-alpha
 		 */
@@ -494,7 +494,7 @@ namespace {
 		 * @param \mysqlnd_connection $connection <p>Mysqlnd connection handle. Do not modify!</p>
 		 * @param int $option <p>The option to be set.</p>
 		 * @return void <p>Returns <b><code>TRUE</code></b> on success. Otherwise, returns <b><code>FALSE</code></b></p>
-		 * @link http://php.net/manual/en/mysqlnduhconnection.setserveroption.php
+		 * @link https://php.net/manual/en/mysqlnduhconnection.setserveroption.php
 		 * @see mysqlnd_uh_set_connection_proxy(), mysqli_real_connect(), mysqli_options(), mysqli_multi_query()
 		 * @since PECL mysqlnd-uh >= 1.0.0-alpha
 		 */
@@ -506,7 +506,7 @@ namespace {
 		 * @param string $MYSQLND_UH_RES_MYSQLND_NAME
 		 * @param string $level
 		 * @return void
-		 * @link http://php.net/manual/en/mysqlnduhconnection.shutdownserver.php
+		 * @link https://php.net/manual/en/mysqlnduhconnection.shutdownserver.php
 		 * @since PECL mysqlnd-uh >= 1.0.0-alpha
 		 */
 		public function shutdownServer(string $MYSQLND_UH_RES_MYSQLND_NAME, string $level): void {}
@@ -521,7 +521,7 @@ namespace {
 		 * @param bool $silent <p>Whether mysqlnd may emit errors.</p>
 		 * @param bool $ignore_upsert_status <p>Whether to ignore <code>UPDATE</code>/<code>INSERT</code> status.</p>
 		 * @return bool <p>Returns <b><code>TRUE</code></b> on success. Otherwise, returns <b><code>FALSE</code></b></p>
-		 * @link http://php.net/manual/en/mysqlnduhconnection.simplecommand.php
+		 * @link https://php.net/manual/en/mysqlnduhconnection.simplecommand.php
 		 * @see mysqlnd_uh_set_connection_proxy()
 		 * @since PECL mysqlnd-uh >= 1.0.0-alpha
 		 */
@@ -536,7 +536,7 @@ namespace {
 		 * @param int $command <p>The COM command to process results from.</p>
 		 * @param bool $ignore_upsert_status <p>Whether to ignore <code>UPDATE</code>/<code>INSERT</code> status.</p>
 		 * @return bool <p>Returns <b><code>TRUE</code></b> on success. Otherwise, returns <b><code>FALSE</code></b></p>
-		 * @link http://php.net/manual/en/mysqlnduhconnection.simplecommandhandleresponse.php
+		 * @link https://php.net/manual/en/mysqlnduhconnection.simplecommandhandleresponse.php
 		 * @see mysqlnd_uh_set_connection_proxy()
 		 * @since PECL mysqlnd-uh >= 1.0.0-alpha
 		 */
@@ -552,7 +552,7 @@ namespace {
 		 * @param string $capath <p>The pathname to a directory that contains trusted SSL CA certificates in PEM format.</p>
 		 * @param string $cipher <p>A list of allowable ciphers to use for SSL encryption.</p>
 		 * @return bool <p>Returns <b><code>TRUE</code></b> on success. Otherwise, returns <b><code>FALSE</code></b></p>
-		 * @link http://php.net/manual/en/mysqlnduhconnection.sslset.php
+		 * @link https://php.net/manual/en/mysqlnduhconnection.sslset.php
 		 * @see mysqlnd_uh_set_connection_proxy(), mysqli_ssl_set()
 		 * @since PECL mysqlnd-uh >= 1.0.0-alpha
 		 */
@@ -563,7 +563,7 @@ namespace {
 		 * <p>Initializes a statement and returns a resource for use with mysqli_statement::prepare.</p>
 		 * @param \mysqlnd_connection $connection <p>Mysqlnd connection handle. Do not modify!</p>
 		 * @return resource <p>Resource of type <code>Mysqlnd Prepared Statement (internal only - you must not modify it!)</code>. The documentation may also refer to such resources using the alias name <code>mysqlnd_prepared_statement</code>.</p>
-		 * @link http://php.net/manual/en/mysqlnduhconnection.stmtinit.php
+		 * @link https://php.net/manual/en/mysqlnduhconnection.stmtinit.php
 		 * @see mysqlnd_uh_set_connection_proxy(), mysqli_stmt_init()
 		 * @since PECL mysqlnd-uh >= 1.0.0-alpha
 		 */
@@ -574,7 +574,7 @@ namespace {
 		 * <p>Transfers a result set from the last query.</p>
 		 * @param \mysqlnd_connection $connection <p>Mysqlnd connection handle. Do not modify!</p>
 		 * @return resource <p>Resource of type <code>Mysqlnd Resultset (internal only - you must not modify it!)</code>. The documentation may also refer to such resources using the alias name <code>mysqlnd_resultset</code>.</p>
-		 * @link http://php.net/manual/en/mysqlnduhconnection.storeresult.php
+		 * @link https://php.net/manual/en/mysqlnduhconnection.storeresult.php
 		 * @see mysqlnd_uh_set_connection_proxy(), mysqli_store_result(), mysqli_real_query()
 		 * @since PECL mysqlnd-uh >= 1.0.0-alpha
 		 */
@@ -585,7 +585,7 @@ namespace {
 		 * <p>Commits the current transaction.</p>
 		 * @param \mysqlnd_connection $connection <p>Mysqlnd connection handle. Do not modify!</p>
 		 * @return bool <p>Returns <b><code>TRUE</code></b> on success. Otherwise, returns <b><code>FALSE</code></b></p>
-		 * @link http://php.net/manual/en/mysqlnduhconnection.txcommit.php
+		 * @link https://php.net/manual/en/mysqlnduhconnection.txcommit.php
 		 * @see mysqlnd_uh_set_connection_proxy(), mysqli_commit()
 		 * @since PECL mysqlnd-uh >= 1.0.1-alpha
 		 */
@@ -596,7 +596,7 @@ namespace {
 		 * <p>Rolls back current transaction.</p>
 		 * @param \mysqlnd_connection $connection <p>Mysqlnd connection handle. Do not modify!</p>
 		 * @return bool <p>Returns <b><code>TRUE</code></b> on success. Otherwise, returns <b><code>FALSE</code></b></p>
-		 * @link http://php.net/manual/en/mysqlnduhconnection.txrollback.php
+		 * @link https://php.net/manual/en/mysqlnduhconnection.txrollback.php
 		 * @see mysqlnd_uh_set_connection_proxy(), mysqli_commit()
 		 * @since PECL mysqlnd-uh >= 1.0.1-alpha
 		 */
@@ -607,7 +607,7 @@ namespace {
 		 * <p>Initiate a result set retrieval.</p>
 		 * @param \mysqlnd_connection $connection <p>Mysqlnd connection handle. Do not modify!</p>
 		 * @return resource <p>Resource of type <code>Mysqlnd Resultset (internal only - you must not modify it!)</code>. The documentation may also refer to such resources using the alias name <code>mysqlnd_resultset</code>.</p>
-		 * @link http://php.net/manual/en/mysqlnduhconnection.useresult.php
+		 * @link https://php.net/manual/en/mysqlnduhconnection.useresult.php
 		 * @see mysqlnd_uh_set_connection_proxy(), mysqli_use_result(), mysqli_real_query()
 		 * @since PECL mysqlnd-uh >= 1.0.0-alpha
 		 */
@@ -615,7 +615,7 @@ namespace {
 	}
 
 	/**
-	 * @link http://php.net/manual/en/class.mysqlnduhpreparedstatement.php
+	 * @link https://php.net/manual/en/class.mysqlnduhpreparedstatement.php
 	 * @since PECL mysqlnd-uh >= 1.0.0-alpha
 	 */
 	class MysqlndUhPreparedStatement {
@@ -624,7 +624,7 @@ namespace {
 		 * The __construct purpose
 		 * <p></p><p>This function is currently not documented; only its argument list is available.</p>
 		 * @return self
-		 * @link http://php.net/manual/en/mysqlnduhpreparedstatement.construct.php
+		 * @link https://php.net/manual/en/mysqlnduhpreparedstatement.construct.php
 		 * @since PECL mysqlnd-uh >= 1.0.0-alpha
 		 */
 		public function __construct() {}
@@ -634,7 +634,7 @@ namespace {
 		 * <p>Executes a prepared Query.</p>
 		 * @param \mysqlnd_prepared_statement $statement <p>Mysqlnd prepared statement handle. Do not modify! Resource of type <code>Mysqlnd Prepared Statement (internal only - you must not modify it!)</code>.</p>
 		 * @return bool <p>Returns <b><code>TRUE</code></b> on success. Otherwise, returns <b><code>FALSE</code></b></p>
-		 * @link http://php.net/manual/en/mysqlnduhpreparedstatement.execute.php
+		 * @link https://php.net/manual/en/mysqlnduhpreparedstatement.execute.php
 		 * @see mysqlnd_uh_set_statement_proxy(), mysqli_stmt_execute()
 		 * @since PECL mysqlnd-uh >= 1.0.0-alpha
 		 */
@@ -646,7 +646,7 @@ namespace {
 		 * @param \mysqlnd_prepared_statement $statement <p>Mysqlnd prepared statement handle. Do not modify! Resource of type <code>Mysqlnd Prepared Statement (internal only - you must not modify it!)</code>.</p>
 		 * @param string $query <p>The query to be prepared.</p>
 		 * @return bool <p>Returns <b><code>TRUE</code></b> on success. Otherwise, returns <b><code>FALSE</code></b></p>
-		 * @link http://php.net/manual/en/mysqlnduhpreparedstatement.prepare.php
+		 * @link https://php.net/manual/en/mysqlnduhpreparedstatement.prepare.php
 		 * @see mysqlnd_uh_set_statement_proxy(), mysqli_stmt_prepare(), mysqli_prepare()
 		 * @since PECL mysqlnd-uh >= 1.0.0-alpha
 		 */
@@ -658,7 +658,7 @@ namespace {
 	 * <p>Converts a MySQL connection handle into a mysqlnd connection handle. After conversion you can execute mysqlnd library calls on the connection handle. This can be used to access mysqlnd functionality not made available through user space API calls.</p><p>The function can be disabled with <code>mysqlnd_uh.enable</code>. If <code>mysqlnd_uh.enable</code> is set to <b><code>FALSE</code></b> the function will not install the proxy and always return <b><code>TRUE</code></b>. Additionally, an error of the type <code>E_WARNING</code> may be emitted. The error message may read like <code>PHP Warning: mysqlnd_uh_convert_to_mysqlnd(): (Mysqlnd User Handler) The plugin has been disabled by setting the configuration parameter mysqlnd_uh.enable = false. You are not allowed to call this function [...]</code>.</p>
 	 * @param \mysqli $mysql_connection
 	 * @return resource <p>A mysqlnd connection handle.</p>
-	 * @link http://php.net/manual/en/function.mysqlnd-uh-convert-to-mysqlnd.php
+	 * @link https://php.net/manual/en/function.mysqlnd-uh-convert-to-mysqlnd.php
 	 * @since PECL mysqlnd-uh >= 1.0.0-alpha
 	 */
 	function mysqlnd_uh_convert_to_mysqlnd(\mysqli &$mysql_connection) {}
@@ -669,7 +669,7 @@ namespace {
 	 * @param \MysqlndUhConnection $connection_proxy <p>A proxy object of type MysqlndUhConnection.</p>
 	 * @param \mysqli $mysqli_connection <p>Object of type <code>mysqli</code>. If given, the proxy will be set for this particular connection only.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success. Otherwise, returns <b><code>FALSE</code></b></p>
-	 * @link http://php.net/manual/en/function.mysqlnd-uh-set-connection-proxy.php
+	 * @link https://php.net/manual/en/function.mysqlnd-uh-set-connection-proxy.php
 	 * @see mysqlnd_uh_set_statement_proxy()
 	 * @since PECL mysqlnd-uh >= 1.0.0-alpha
 	 */
@@ -680,7 +680,7 @@ namespace {
 	 * <p>Installs a proxy for mysqlnd statements. The proxy object will be used for all mysqlnd prepared statement objects, regardless which PHP MySQL extension (mysqli, mysql, PDO_MYSQL) has created them as long as the extension is compiled to use the mysqlnd library.</p><p>The function can be disabled with <code>mysqlnd_uh.enable</code>. If <code>mysqlnd_uh.enable</code> is set to <b><code>FALSE</code></b> the function will not install the proxy and always return <b><code>TRUE</code></b>. Additionally, an error of the type <code>E_WARNING</code> may be emitted. The error message may read like <code>PHP Warning: mysqlnd_uh_set_statement_proxy(): (Mysqlnd User Handler) The plugin has been disabled by setting the configuration parameter mysqlnd_uh.enable = false. The proxy has not been installed [...]</code>.</p>
 	 * @param \MysqlndUhStatement $statement_proxy <p>The mysqlnd statement proxy object of type <code>MysqlndUhStatement</code></p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success. Otherwise, returns <b><code>FALSE</code></b></p>
-	 * @link http://php.net/manual/en/function.mysqlnd-uh-set-statement-proxy.php
+	 * @link https://php.net/manual/en/function.mysqlnd-uh-set-statement-proxy.php
 	 * @see mysqlnd_uh_set_connection_proxy()
 	 * @since PECL mysqlnd-uh >= 1.0.0-alpha
 	 */

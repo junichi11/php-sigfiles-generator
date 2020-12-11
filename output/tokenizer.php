@@ -10,7 +10,7 @@ namespace {
 	 * @param string $code <p>The PHP source to parse.</p>
 	 * @param int $flags <p>Valid flags:</p><ul> <li>  <b><code>TOKEN_PARSE</code></b> - Recognises the ability to use reserved words in specific contexts.  </li> </ul>
 	 * @return array <p>An array of token identifiers. Each individual token identifier is either a single character (i.e.: <code>;</code>, <code>.</code>, <code>&gt;</code>, <code>!</code>, etc...), or a three element array containing the token index in element 0, the string content of the original token in element 1 and the line number in element 2.</p>
-	 * @link http://php.net/manual/en/function.token-get-all.php
+	 * @link https://php.net/manual/en/function.token-get-all.php
 	 * @see token_name()
 	 * @since PHP 4 >= 4.2.0, PHP 5, PHP 7
 	 */
@@ -21,7 +21,7 @@ namespace {
 	 * <p><b>token_name()</b> gets the symbolic name for a PHP <code>id</code> value.</p>
 	 * @param int $id <p>The token value.</p>
 	 * @return string <p>The symbolic name of the given <code>id</code>.</p>
-	 * @link http://php.net/manual/en/function.token-name.php
+	 * @link https://php.net/manual/en/function.token-name.php
 	 * @since PHP 4 >= 4.2.0, PHP 5, PHP 7
 	 */
 	function token_name(int $id): string {}

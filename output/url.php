@@ -10,7 +10,7 @@ namespace {
 	 * @param string $data <p>The encoded data.</p>
 	 * @param bool $strict <p>If the <code>strict</code> parameter is set to <b><code>TRUE</code></b> then the <b>base64_decode()</b> function will return <b><code>FALSE</code></b> if the input contains character from outside the base64 alphabet. Otherwise invalid characters will be silently discarded.</p>
 	 * @return string|false <p>Returns the decoded data or <b><code>FALSE</code></b> on failure. The returned data may be binary.</p>
-	 * @link http://php.net/manual/en/function.base64-decode.php
+	 * @link https://php.net/manual/en/function.base64-decode.php
 	 * @see base64_encode()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
@@ -21,7 +21,7 @@ namespace {
 	 * <p>Encodes the given <code>data</code> with base64.</p><p>This encoding is designed to make binary data survive transport through transport layers that are not 8-bit clean, such as mail bodies.</p><p>Base64-encoded data takes about 33% more space than the original data.</p>
 	 * @param string $data <p>The data to encode.</p>
 	 * @return string <p>The encoded data, as a string.</p>
-	 * @link http://php.net/manual/en/function.base64-encode.php
+	 * @link https://php.net/manual/en/function.base64-encode.php
 	 * @see base64_decode(), chunk_split(), convert_uuencode()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
@@ -34,7 +34,7 @@ namespace {
 	 * @param int $format <p>If the optional <code>format</code> parameter is set to non-zero, <b>get_headers()</b> parses the response and sets the array's keys.</p>
 	 * @param resource $context <p>A valid context resource created with <code>stream_context_create()</code>.</p>
 	 * @return array <p>Returns an indexed or associative array with the headers, or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.get-headers.php
+	 * @link https://php.net/manual/en/function.get-headers.php
 	 * @see apache_request_headers()
 	 * @since PHP 5, PHP 7
 	 */
@@ -46,7 +46,7 @@ namespace {
 	 * @param string $filename <p>The path to the HTML file, as a string. This can be a local file or an URL.</p> <p></p> <p><b>Example #1 What <b>get_meta_tags()</b> parses</b></p>  <pre>&lt;meta name="author" content="name"&gt; &lt;meta name="keywords" content="php documentation"&gt; &lt;meta name="DESCRIPTION" content="a php manual"&gt; &lt;meta name="geo.position" content="49.33;-86.59"&gt; &lt;/head&gt; &lt;!-- parsing stops here --&gt;</pre>    (pay attention to line endings - PHP uses a native function to parse the input, so a Mac file won't work on Unix).
 	 * @param bool $use_include_path <p>Setting <code>use_include_path</code> to <b><code>TRUE</code></b> will result in PHP trying to open the file along the standard include path as per the include_path directive. This is used for local files, not URLs.</p>
 	 * @return array <p>Returns an array with all the parsed meta tags.</p><p>The value of the name property becomes the key, the value of the content property becomes the value of the returned array, so you can easily use standard array functions to traverse it or access single values. Special characters in the value of the name property are substituted with '_', the rest is converted to lower case. If two meta tags have the same name, only the last one is returned.</p>
-	 * @link http://php.net/manual/en/function.get-meta-tags.php
+	 * @link https://php.net/manual/en/function.get-meta-tags.php
 	 * @see htmlentities(), urlencode()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
@@ -60,7 +60,7 @@ namespace {
 	 * @param string $arg_separator <p>arg_separator.output is used to separate arguments but may be overridden by specifying this parameter.</p>
 	 * @param int $enc_type <p>By default, <b><code>PHP_QUERY_RFC1738</code></b>.</p> <p>If <code>enc_type</code> is <b><code>PHP_QUERY_RFC1738</code></b>, then encoding is performed per RFC 1738 and the <code>application/x-www-form-urlencoded</code> media type, which implies that spaces are encoded as plus (<code>+</code>) signs.</p> <p>If <code>enc_type</code> is <b><code>PHP_QUERY_RFC3986</code></b>, then encoding is performed according to RFC 3986, and spaces will be percent encoded (<code>%20</code>).</p>
 	 * @return string <p>Returns a URL-encoded string.</p>
-	 * @link http://php.net/manual/en/function.http-build-query.php
+	 * @link https://php.net/manual/en/function.http-build-query.php
 	 * @see parse_str(), parse_url(), urlencode(), array_walk()
 	 * @since PHP 5, PHP 7
 	 */
@@ -72,7 +72,7 @@ namespace {
 	 * @param string $url <p>The URL to parse. Invalid characters are replaced by <code>_</code>.</p>
 	 * @param int $component
 	 * @return mixed <p>On seriously malformed URLs, <b>parse_url()</b> may return <b><code>FALSE</code></b>.</p><p>If the <code>component</code> parameter is omitted, an associative <code>array</code> is returned. At least one element will be present within the array. Potential keys within this array are:</p><ul> <li>  scheme - e.g. http  </li> <li>  host  </li> <li>  port  </li> <li>  user  </li> <li>  pass  </li> <li>  path  </li> <li>  query - after the question mark <code>&#63;</code>  </li> <li>  fragment - after the hashmark <code>#</code>  </li> </ul><p>If the <code>component</code> parameter is specified, <b>parse_url()</b> returns a <code>string</code> (or an <code>int</code>, in the case of <b><code>PHP_URL_PORT</code></b>) instead of an <code>array</code>. If the requested component doesn't exist within the given URL, <b><code>NULL</code></b> will be returned.</p>
-	 * @link http://php.net/manual/en/function.parse-url.php
+	 * @link https://php.net/manual/en/function.parse-url.php
 	 * @see pathinfo(), parse_str(), http_build_query(), dirname(), basename()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
@@ -83,7 +83,7 @@ namespace {
 	 * <p>Returns a string in which the sequences with percent (<code>%</code>) signs followed by two hex digits have been replaced with literal characters.</p>
 	 * @param string $str <p>The URL to be decoded.</p>
 	 * @return string <p>Returns the decoded URL, as a string.</p>
-	 * @link http://php.net/manual/en/function.rawurldecode.php
+	 * @link https://php.net/manual/en/function.rawurldecode.php
 	 * @see rawurlencode(), urldecode(), urlencode()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
@@ -94,7 +94,7 @@ namespace {
 	 * <p>Encodes the given string according to RFC 3986.</p>
 	 * @param string $str <p>The URL to be encoded.</p>
 	 * @return string <p>Returns a string in which all non-alphanumeric characters except <code>-_.~</code> have been replaced with a percent (<code>%</code>) sign followed by two hex digits. This is the encoding described in RFC 3986 for protecting literal characters from being interpreted as special URL delimiters, and for protecting URLs from being mangled by transmission media with character conversions (like some email systems).</p><p><b>Note</b>:</p><p>Prior to PHP 5.3.0, rawurlencode encoded tildes (<code>~</code>) as per RFC 1738.</p>
-	 * @link http://php.net/manual/en/function.rawurlencode.php
+	 * @link https://php.net/manual/en/function.rawurlencode.php
 	 * @see rawurldecode(), urldecode(), urlencode()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
@@ -105,7 +105,7 @@ namespace {
 	 * <p>Decodes any <code>%##</code> encoding in the given string. Plus symbols ('<code>+</code>') are decoded to a space character.</p>
 	 * @param string $str <p>The string to be decoded.</p>
 	 * @return string <p>Returns the decoded string.</p>
-	 * @link http://php.net/manual/en/function.urldecode.php
+	 * @link https://php.net/manual/en/function.urldecode.php
 	 * @see urlencode(), rawurlencode(), rawurldecode()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
@@ -116,7 +116,7 @@ namespace {
 	 * <p>This function is convenient when encoding a string to be used in a query part of a URL, as a convenient way to pass variables to the next page.</p>
 	 * @param string $str <p>The string to be encoded.</p>
 	 * @return string <p>Returns a string in which all non-alphanumeric characters except <code>-_.</code> have been replaced with a percent (<code>%</code>) sign followed by two hex digits and spaces encoded as plus (<code>+</code>) signs. It is encoded the same way that the posted data from a WWW form is encoded, that is the same way as in <code>application/x-www-form-urlencoded</code> media type. This differs from the RFC 3986 encoding (see <code>rawurlencode()</code>) in that for historical reasons, spaces are encoded as plus (+) signs.</p>
-	 * @link http://php.net/manual/en/function.urlencode.php
+	 * @link https://php.net/manual/en/function.urlencode.php
 	 * @see urldecode(), htmlentities(), rawurlencode(), rawurldecode()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */

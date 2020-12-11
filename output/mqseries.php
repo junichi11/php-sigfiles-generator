@@ -11,7 +11,7 @@ namespace {
 	 * @param resource $compCode <p>Completion code.</p>
 	 * @param resource $reason <p>Reason code qualifying the compCode.</p>
 	 * @return void <p>No value is returned.</p>
-	 * @link http://php.net/manual/en/function.mqseries-back.php
+	 * @link https://php.net/manual/en/function.mqseries-back.php
 	 * @see mqseries_conn(), mqseries_connx(), mqseries_begin()
 	 * @since PECL mqseries >= 0.10.0
 	 */
@@ -25,7 +25,7 @@ namespace {
 	 * @param resource $compCode <p>Completion code.</p>
 	 * @param resource $reason <p>Reason code qualifying the compCode.</p>
 	 * @return void <p>No value is returned.</p>
-	 * @link http://php.net/manual/en/function.mqseries-begin.php
+	 * @link https://php.net/manual/en/function.mqseries-begin.php
 	 * @see mqseries_conn(), mqseries_connx(), mqseries_back(), mqseries_cmit()
 	 * @since PECL mqseries >= 0.10.0
 	 */
@@ -40,7 +40,7 @@ namespace {
 	 * @param resource $compCode <p>Completion code.</p>
 	 * @param resource $reason <p>Reason code qualifying the compCode.</p>
 	 * @return void <p>No value is returned.</p>
-	 * @link http://php.net/manual/en/function.mqseries-close.php
+	 * @link https://php.net/manual/en/function.mqseries-close.php
 	 * @see mqseries_open(), mqseries_conn(), mqseries_connx()
 	 * @since PECL mqseries >= 0.10.0
 	 */
@@ -53,7 +53,7 @@ namespace {
 	 * @param resource $compCode <p>Completion code.</p>
 	 * @param resource $reason <p>Reason code qualifying the compCode.</p>
 	 * @return void <p>No value is returned.</p>
-	 * @link http://php.net/manual/en/function.mqseries-cmit.php
+	 * @link https://php.net/manual/en/function.mqseries-cmit.php
 	 * @see mqseries_begin(), mqseries_back(), mqseries_conn(), mqseries_connx()
 	 * @since PECL mqseries >= 0.10.0
 	 */
@@ -67,7 +67,7 @@ namespace {
 	 * @param resource $compCode <p>Completion code.</p>
 	 * @param resource $reason <p>Reason code qualifying the compCode.</p>
 	 * @return void <p>No value is returned.</p>
-	 * @link http://php.net/manual/en/function.mqseries-conn.php
+	 * @link https://php.net/manual/en/function.mqseries-conn.php
 	 * @see mqseries_disc()
 	 * @since PECL mqseries >= 0.10.0
 	 */
@@ -82,7 +82,7 @@ namespace {
 	 * @param resource $compCode <p>Completion code.</p>
 	 * @param resource $reason <p>Reason code qualifying the compCode.</p>
 	 * @return void <p>No value is returned.</p>
-	 * @link http://php.net/manual/en/function.mqseries-connx.php
+	 * @link https://php.net/manual/en/function.mqseries-connx.php
 	 * @see mqseries_disc()
 	 * @since PECL mqseries >= 0.10.0
 	 */
@@ -95,7 +95,7 @@ namespace {
 	 * @param resource $compCode <p>Completion code.</p>
 	 * @param resource $reason <p>Reason code qualifying the compCode.</p>
 	 * @return void <p>No value is returned.</p>
-	 * @link http://php.net/manual/en/function.mqseries-disc.php
+	 * @link https://php.net/manual/en/function.mqseries-disc.php
 	 * @see mqseries_conn(), mqseries_connx()
 	 * @since PECL mqseries >= 0.10.0
 	 */
@@ -114,7 +114,7 @@ namespace {
 	 * @param resource $compCode <p>Completion code.</p>
 	 * @param resource $reason <p>Reason code qualifying the compCode.</p>
 	 * @return void <p>No value is returned.</p>
-	 * @link http://php.net/manual/en/function.mqseries-get.php
+	 * @link https://php.net/manual/en/function.mqseries-get.php
 	 * @see mqseries_conn(), mqseries_connx(), mqseries_open(), mqseries_put()
 	 * @since PECL mqseries >= 0.10.0
 	 */
@@ -134,7 +134,7 @@ namespace {
 	 * @param resource $compCode <p>Completion code.</p>
 	 * @param resource $reason <p>Reason code qualifying the compCode.</p>
 	 * @return void <p>No value is returned.</p>
-	 * @link http://php.net/manual/en/function.mqseries-inq.php
+	 * @link https://php.net/manual/en/function.mqseries-inq.php
 	 * @see mqseries_conn(), mqseries_connx(), mqseries_open()
 	 * @since PECL mqseries >= 0.10.0
 	 */
@@ -150,7 +150,7 @@ namespace {
 	 * @param resource $compCode <p>Completion code.</p>
 	 * @param resource $reason <p>Reason code qualifying the compCode.</p>
 	 * @return void <p>No value is returned.</p>
-	 * @link http://php.net/manual/en/function.mqseries-open.php
+	 * @link https://php.net/manual/en/function.mqseries-open.php
 	 * @see mqseries_close()
 	 * @since PECL mqseries >= 0.10.0
 	 */
@@ -167,7 +167,7 @@ namespace {
 	 * @param resource $compCode <p>Completion code.</p>
 	 * @param resource $reason <p>Reason code qualifying the compCode.</p>
 	 * @return void <p>No value is returned.</p>
-	 * @link http://php.net/manual/en/function.mqseries-put.php
+	 * @link https://php.net/manual/en/function.mqseries-put.php
 	 * @see mqseries_conn(), mqseries_connx(), mqseries_open(), mqseries_get()
 	 * @since PECL mqseries >= 0.10.0
 	 */
@@ -184,7 +184,7 @@ namespace {
 	 * @param resource $compCode <p>Completion code.</p>
 	 * @param resource $reason <p>Reason code qualifying the compCode.</p>
 	 * @return void <p>No value is returned.</p>
-	 * @link http://php.net/manual/en/function.mqseries-put1.php
+	 * @link https://php.net/manual/en/function.mqseries-put1.php
 	 * @see mqseries_conn(), mqseries_connx(), mqseries_open(), mqseries_get()
 	 * @since PECL mqseries >= 0.10.0
 	 */
@@ -204,7 +204,7 @@ namespace {
 	 * @param resource $compCode <p>Completion code.</p>
 	 * @param resource $reason <p>Reason code qualifying the compCode.</p>
 	 * @return void <p>No value is returned.</p>
-	 * @link http://php.net/manual/en/function.mqseries-set.php
+	 * @link https://php.net/manual/en/function.mqseries-set.php
 	 * @see mqseries_inq()
 	 * @since PECL mqseries >= 0.10.0
 	 */
@@ -215,7 +215,7 @@ namespace {
 	 * <p><b>mqseries_strerror()</b> returns the message that correspond to the reason result code.</p>
 	 * @param int $reason <p>Reason code qualifying the compCode.</p>
 	 * @return string <p>string representation of the reason code message.</p>
-	 * @link http://php.net/manual/en/function.mqseries-strerror.php
+	 * @link https://php.net/manual/en/function.mqseries-strerror.php
 	 * @since PECL mqseries >= 0.10.0
 	 */
 	function mqseries_strerror(int $reason): string {}

@@ -12,7 +12,7 @@ namespace {
 	 * @param string $user <p>An optional user name.</p>
 	 * @param bool $nodns <p>If <code>address</code> looks like domain name then DNS is used to resolve it to IP address; set <code>nodns</code> to <b><code>TRUE</code></b> to avoid this.</p>
 	 * @return bool <p>This function returns <b><code>TRUE</code></b> if access should be granted, <b><code>FALSE</code></b> otherwise.</p>
-	 * @link http://php.net/manual/en/function.tcpwrap-check.php
+	 * @link https://php.net/manual/en/function.tcpwrap-check.php
 	 * @since PECL tcpwrap >= 0.1.0
 	 */
 	function tcpwrap_check(string $daemon, string $address, string $user = NULL, bool $nodns = FALSE): bool {}

@@ -10,7 +10,7 @@ namespace {
 	 * @param int $dictionary_link
 	 * @param string $word <p>The added word.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.pspell-add-to-personal.php
+	 * @link https://php.net/manual/en/function.pspell-add-to-personal.php
 	 * @since PHP 4 >= 4.0.2, PHP 5, PHP 7
 	 */
 	function pspell_add_to_personal(int $dictionary_link, string $word): bool {}
@@ -21,7 +21,7 @@ namespace {
 	 * @param int $dictionary_link
 	 * @param string $word <p>The added word.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.pspell-add-to-session.php
+	 * @link https://php.net/manual/en/function.pspell-add-to-session.php
 	 * @since PHP 4 >= 4.0.2, PHP 5, PHP 7
 	 */
 	function pspell_add_to_session(int $dictionary_link, string $word): bool {}
@@ -32,7 +32,7 @@ namespace {
 	 * @param int $dictionary_link
 	 * @param string $word <p>The tested word.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> if the spelling is correct, <b><code>FALSE</code></b> if not.</p>
-	 * @link http://php.net/manual/en/function.pspell-check.php
+	 * @link https://php.net/manual/en/function.pspell-check.php
 	 * @since PHP 4 >= 4.0.2, PHP 5, PHP 7
 	 */
 	function pspell_check(int $dictionary_link, string $word): bool {}
@@ -42,7 +42,7 @@ namespace {
 	 * <p><b>pspell_clear_session()</b> clears the current session. The current wordlist becomes blank, and, for example, if you try to save it with <code>pspell_save_wordlist()</code>, nothing happens.</p>
 	 * @param int $dictionary_link
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.pspell-clear-session.php
+	 * @link https://php.net/manual/en/function.pspell-clear-session.php
 	 * @since PHP 4 >= 4.0.2, PHP 5, PHP 7
 	 */
 	function pspell_clear_session(int $dictionary_link): bool {}
@@ -55,7 +55,7 @@ namespace {
 	 * @param string $jargon <p>The jargon parameter contains extra information to distinguish two different words lists that have the same language and spelling parameters.</p>
 	 * @param string $encoding <p>The encoding parameter is the encoding that words are expected to be in. Valid values are 'utf-8', 'iso8859-&#42;', 'koi8-r', 'viscii', 'cp1252', 'machine unsigned 16', 'machine unsigned 32'. This parameter is largely untested, so be careful when using.</p>
 	 * @return int <p>Returns a pspell config identifier, or <b><code>FALSE</code></b> on error.</p>
-	 * @link http://php.net/manual/en/function.pspell-config-create.php
+	 * @link https://php.net/manual/en/function.pspell-config-create.php
 	 * @since PHP 4 >= 4.0.2, PHP 5, PHP 7
 	 */
 	function pspell_config_create(string $language, string $spelling = NULL, string $jargon = NULL, string $encoding = NULL): int {}
@@ -66,7 +66,7 @@ namespace {
 	 * @param int $conf
 	 * @param string $directory
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.pspell-config-data-dir.php
+	 * @link https://php.net/manual/en/function.pspell-config-data-dir.php
 	 * @since PHP 5, PHP 7
 	 */
 	function pspell_config_data_dir(int $conf, string $directory): bool {}
@@ -77,7 +77,7 @@ namespace {
 	 * @param int $conf
 	 * @param string $directory
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.pspell-config-dict-dir.php
+	 * @link https://php.net/manual/en/function.pspell-config-dict-dir.php
 	 * @since PHP 5, PHP 7
 	 */
 	function pspell_config_dict_dir(int $conf, string $directory): bool {}
@@ -88,7 +88,7 @@ namespace {
 	 * @param int $dictionary_link
 	 * @param int $n <p>Words less than <code>n</code> characters will be skipped.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.pspell-config-ignore.php
+	 * @link https://php.net/manual/en/function.pspell-config-ignore.php
 	 * @since PHP 4 >= 4.0.2, PHP 5, PHP 7
 	 */
 	function pspell_config_ignore(int $dictionary_link, int $n): bool {}
@@ -99,7 +99,7 @@ namespace {
 	 * @param int $dictionary_link
 	 * @param int $mode <p>The mode parameter is the mode in which spellchecker will work. There are several modes available:</p><ul> <li>  <b><code>PSPELL_FAST</code></b> - Fast mode (least number of suggestions)  </li> <li>  <b><code>PSPELL_NORMAL</code></b> - Normal mode (more suggestions)  </li> <li>  <b><code>PSPELL_BAD_SPELLERS</code></b> - Slow mode (a lot of suggestions)  </li> </ul>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.pspell-config-mode.php
+	 * @link https://php.net/manual/en/function.pspell-config-mode.php
 	 * @since PHP 4 >= 4.0.2, PHP 5, PHP 7
 	 */
 	function pspell_config_mode(int $dictionary_link, int $mode): bool {}
@@ -110,7 +110,7 @@ namespace {
 	 * @param int $dictionary_link
 	 * @param string $file <p>The personal wordlist. If the file does not exist, it will be created. The file should be writable by whoever PHP runs as (e.g. nobody).</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.pspell-config-personal.php
+	 * @link https://php.net/manual/en/function.pspell-config-personal.php
 	 * @since PHP 4 >= 4.0.2, PHP 5, PHP 7
 	 */
 	function pspell_config_personal(int $dictionary_link, string $file): bool {}
@@ -121,7 +121,7 @@ namespace {
 	 * @param int $dictionary_link
 	 * @param string $file <p>The file should be writable by whoever PHP runs as (e.g. nobody).</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.pspell-config-repl.php
+	 * @link https://php.net/manual/en/function.pspell-config-repl.php
 	 * @since PHP 4 >= 4.0.2, PHP 5, PHP 7
 	 */
 	function pspell_config_repl(int $dictionary_link, string $file): bool {}
@@ -132,7 +132,7 @@ namespace {
 	 * @param int $dictionary_link
 	 * @param bool $flag <p><b><code>TRUE</code></b> if run-together words should be treated as legal compounds, <b><code>FALSE</code></b> otherwise.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.pspell-config-runtogether.php
+	 * @link https://php.net/manual/en/function.pspell-config-runtogether.php
 	 * @since PHP 4 >= 4.0.2, PHP 5, PHP 7
 	 */
 	function pspell_config_runtogether(int $dictionary_link, bool $flag): bool {}
@@ -143,7 +143,7 @@ namespace {
 	 * @param int $dictionary_link
 	 * @param bool $flag <p><b><code>TRUE</code></b> if replacement pairs should be saved, <b><code>FALSE</code></b> otherwise.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.pspell-config-save-repl.php
+	 * @link https://php.net/manual/en/function.pspell-config-save-repl.php
 	 * @since PHP 4 >= 4.0.2, PHP 5, PHP 7
 	 */
 	function pspell_config_save_repl(int $dictionary_link, bool $flag): bool {}
@@ -157,7 +157,7 @@ namespace {
 	 * @param string $encoding <p>The encoding parameter is the encoding that words are expected to be in. Valid values are 'utf-8', 'iso8859-&#42;', 'koi8-r', 'viscii', 'cp1252', 'machine unsigned 16', 'machine unsigned 32'. This parameter is largely untested, so be careful when using.</p>
 	 * @param int $mode <p>The mode parameter is the mode in which spellchecker will work. There are several modes available:</p><ul> <li>  <b><code>PSPELL_FAST</code></b> - Fast mode (least number of suggestions)  </li> <li>  <b><code>PSPELL_NORMAL</code></b> - Normal mode (more suggestions)  </li> <li>  <b><code>PSPELL_BAD_SPELLERS</code></b> - Slow mode (a lot of suggestions)  </li> <li>  <b><code>PSPELL_RUN_TOGETHER</code></b> - Consider run-together words as legal compounds. That is, "thecat" will be a legal compound, although there should be a space between the two words. Changing this setting only affects the results returned by <code>pspell_check()</code>; <code>pspell_suggest()</code> will still return suggestions.  </li> </ul> Mode is a bitmask constructed from different constants listed above. However, <b><code>PSPELL_FAST</code></b>, <b><code>PSPELL_NORMAL</code></b> and <b><code>PSPELL_BAD_SPELLERS</code></b> are mutually exclusive, so you should select only one of them.
 	 * @return int|false <p>Returns the dictionary link identifier on success or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.pspell-new.php
+	 * @link https://php.net/manual/en/function.pspell-new.php
 	 * @since PHP 4 >= 4.0.2, PHP 5, PHP 7
 	 */
 	function pspell_new(string $language, string $spelling = NULL, string $jargon = NULL, string $encoding = NULL, int $mode = 0) {}
@@ -167,7 +167,7 @@ namespace {
 	 * <p><b>pspell_new_config()</b> opens up a new dictionary with settings specified in a config, created with <code>pspell_config_create()</code> and modified with <b>pspell_config_&#42;()</b> functions. This method provides you with the most flexibility and has all the functionality provided by <code>pspell_new()</code> and <code>pspell_new_personal()</code>.</p>
 	 * @param int $config <p>The <code>config</code> parameter is the one returned by <code>pspell_config_create()</code> when the config was created.</p>
 	 * @return int|false <p>Returns a dictionary link identifier on success, or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.pspell-new-config.php
+	 * @link https://php.net/manual/en/function.pspell-new-config.php
 	 * @since PHP 4 >= 4.0.2, PHP 5, PHP 7
 	 */
 	function pspell_new_config(int $config) {}
@@ -182,7 +182,7 @@ namespace {
 	 * @param string $encoding <p>The encoding that words are expected to be in. Valid values are <code>utf-8</code>, <code>iso8859-&#42;</code>, <code>koi8-r</code>, <code>viscii</code>, <code>cp1252</code>, <code>machine unsigned 16</code>, <code>machine unsigned 32</code>.</p>
 	 * @param int $mode <p>The mode in which spellchecker will work. There are several modes available:</p><ul> <li>  <b><code>PSPELL_FAST</code></b> - Fast mode (least number of suggestions)  </li> <li>  <b><code>PSPELL_NORMAL</code></b> - Normal mode (more suggestions)  </li> <li>  <b><code>PSPELL_BAD_SPELLERS</code></b> - Slow mode (a lot of suggestions)  </li> <li>  <b><code>PSPELL_RUN_TOGETHER</code></b> - Consider run-together words as legal compounds. That is, "thecat" will be a legal compound, although there should be a space between the two words. Changing this setting only affects the results returned by <code>pspell_check()</code>; <code>pspell_suggest()</code> will still return suggestions.  </li> </ul> Mode is a bitmask constructed from different constants listed above. However, <b><code>PSPELL_FAST</code></b>, <b><code>PSPELL_NORMAL</code></b> and <b><code>PSPELL_BAD_SPELLERS</code></b> are mutually exclusive, so you should select only one of them.
 	 * @return int <p>Returns the dictionary link identifier for use in other pspell functions.</p>
-	 * @link http://php.net/manual/en/function.pspell-new-personal.php
+	 * @link https://php.net/manual/en/function.pspell-new-personal.php
 	 * @since PHP 4 >= 4.0.2, PHP 5, PHP 7
 	 */
 	function pspell_new_personal(string $personal, string $language, string $spelling = NULL, string $jargon = NULL, string $encoding = NULL, int $mode = 0): int {}
@@ -192,7 +192,7 @@ namespace {
 	 * <p><b>pspell_save_wordlist()</b> saves the personal wordlist from the current session. The location of files to be saved specified with <code>pspell_config_personal()</code> and (optionally) <code>pspell_config_repl()</code>.</p>
 	 * @param int $dictionary_link <p>A dictionary link identifier opened with <code>pspell_new_personal()</code>.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.pspell-save-wordlist.php
+	 * @link https://php.net/manual/en/function.pspell-save-wordlist.php
 	 * @since PHP 4 >= 4.0.2, PHP 5, PHP 7
 	 */
 	function pspell_save_wordlist(int $dictionary_link): bool {}
@@ -204,7 +204,7 @@ namespace {
 	 * @param string $misspelled <p>The misspelled word.</p>
 	 * @param string $correct <p>The fixed spelling for the <code>misspelled</code> word.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.pspell-store-replacement.php
+	 * @link https://php.net/manual/en/function.pspell-store-replacement.php
 	 * @since PHP 4 >= 4.0.2, PHP 5, PHP 7
 	 */
 	function pspell_store_replacement(int $dictionary_link, string $misspelled, string $correct): bool {}
@@ -215,7 +215,7 @@ namespace {
 	 * @param int $dictionary_link
 	 * @param string $word <p>The tested word.</p>
 	 * @return array <p>Returns an array of possible spellings.</p>
-	 * @link http://php.net/manual/en/function.pspell-suggest.php
+	 * @link https://php.net/manual/en/function.pspell-suggest.php
 	 * @since PHP 4 >= 4.0.2, PHP 5, PHP 7
 	 */
 	function pspell_suggest(int $dictionary_link, string $word): array {}
