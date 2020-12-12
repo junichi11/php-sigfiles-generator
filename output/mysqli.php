@@ -1083,25 +1083,25 @@ namespace {
 		 * <p>Bind variables for the parameter markers in the SQL statement that was passed to <code>mysqli_prepare()</code>.</p><p><b>Note</b>:</p><p>If data size of a variable exceeds max. allowed packet size (max_allowed_packet), you have to specify <code>b</code> in <code>types</code> and use <code>mysqli_stmt_send_long_data()</code> to send the data in packets.</p><p><b>Note</b>:</p><p>Care must be taken when using <b>mysqli_stmt_bind_param()</b> in conjunction with <code>call_user_func_array()</code>. Note that <b>mysqli_stmt_bind_param()</b> requires parameters to be passed by reference, whereas <code>call_user_func_array()</code> can accept as a parameter a list of variables that can represent references or values.</p>
 		 * @param string $types <p>A string that contains one or more characters which specify the types for the corresponding bind variables:</p> <b>Type specification chars</b>   Character Description     i corresponding variable has type integer   d corresponding variable has type double   s corresponding variable has type string   b corresponding variable is a blob and will be sent in packets
 		 * @param mixed $var
-		 * @param mixed $_$vars
+		 * @param mixed $vars <p>The number of variables and length of string <code>types</code> must match the parameters in the statement.</p>
 		 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/mysqli-stmt.bind-param.php
 		 * @see mysqli_stmt_bind_result(), mysqli_stmt_execute(), mysqli_stmt_fetch(), mysqli_prepare(), mysqli_stmt_send_long_data(), mysqli_stmt_errno(), mysqli_stmt_error()
 		 * @since PHP 5, PHP 7
 		 */
-		public function bind_param(string $types, &$var, &$_$vars): bool {}
+		public function bind_param(string $types, &$var, &...$vars): bool {}
 
 		/**
 		 * Binds variables to a prepared statement for result storage
 		 * <p>Binds columns in the result set to variables.</p><p>When <code>mysqli_stmt_fetch()</code> is called to fetch data, the MySQL client/server protocol places the data for the bound columns into the specified variables <code>var</code>/<code>vars</code>.</p><p><b>Note</b>:</p><p>Note that all columns must be bound after <code>mysqli_stmt_execute()</code> and prior to calling <code>mysqli_stmt_fetch()</code>. Depending on column types bound variables can silently change to the corresponding PHP type.</p><p>A column can be bound or rebound at any time, even after a result set has been partially retrieved. The new binding takes effect the next time <code>mysqli_stmt_fetch()</code> is called.</p>
 		 * @param mixed $var <p>The first variable to be bound.</p>
-		 * @param mixed $_$vars
+		 * @param mixed $vars <p>Further variables to be bound.</p>
 		 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/mysqli-stmt.bind-result.php
 		 * @see mysqli_stmt_get_result(), mysqli_stmt_bind_param(), mysqli_stmt_execute(), mysqli_stmt_fetch(), mysqli_prepare(), mysqli_stmt_prepare(), mysqli_stmt_init(), mysqli_stmt_errno(), mysqli_stmt_error()
 		 * @since PHP 5, PHP 7
 		 */
-		public function bind_result(&$var, &$_$vars): bool {}
+		public function bind_result(&$var, &...$vars): bool {}
 
 		/**
 		 * Closes a prepared statement
@@ -2168,26 +2168,26 @@ namespace {
 	 * @param \mysqli_stmt $stmt <p>A statement identifier returned by <code>mysqli_stmt_init()</code>.</p>
 	 * @param string $types <p>A string that contains one or more characters which specify the types for the corresponding bind variables:</p> <b>Type specification chars</b>   Character Description     i corresponding variable has type integer   d corresponding variable has type double   s corresponding variable has type string   b corresponding variable is a blob and will be sent in packets
 	 * @param mixed $var
-	 * @param mixed $_$vars
+	 * @param mixed $vars <p>The number of variables and length of string <code>types</code> must match the parameters in the statement.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/mysqli-stmt.bind-param.php
 	 * @see mysqli_stmt_bind_result(), mysqli_stmt_execute(), mysqli_stmt_fetch(), mysqli_prepare(), mysqli_stmt_send_long_data(), mysqli_stmt_errno(), mysqli_stmt_error()
 	 * @since PHP 5, PHP 7
 	 */
-	function mysqli_stmt_bind_param(\mysqli_stmt $stmt, string $types, &$var, &$_$vars): bool {}
+	function mysqli_stmt_bind_param(\mysqli_stmt $stmt, string $types, &$var, &...$vars): bool {}
 
 	/**
 	 * Binds variables to a prepared statement for result storage
 	 * <p>Binds columns in the result set to variables.</p><p>When <code>mysqli_stmt_fetch()</code> is called to fetch data, the MySQL client/server protocol places the data for the bound columns into the specified variables <code>var</code>/<code>vars</code>.</p><p><b>Note</b>:</p><p>Note that all columns must be bound after <code>mysqli_stmt_execute()</code> and prior to calling <code>mysqli_stmt_fetch()</code>. Depending on column types bound variables can silently change to the corresponding PHP type.</p><p>A column can be bound or rebound at any time, even after a result set has been partially retrieved. The new binding takes effect the next time <code>mysqli_stmt_fetch()</code> is called.</p>
 	 * @param \mysqli_stmt $stmt <p>A statement identifier returned by <code>mysqli_stmt_init()</code>.</p>
 	 * @param mixed $var <p>The first variable to be bound.</p>
-	 * @param mixed $_$vars
+	 * @param mixed $vars <p>Further variables to be bound.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/mysqli-stmt.bind-result.php
 	 * @see mysqli_stmt_get_result(), mysqli_stmt_bind_param(), mysqli_stmt_execute(), mysqli_stmt_fetch(), mysqli_prepare(), mysqli_stmt_prepare(), mysqli_stmt_init(), mysqli_stmt_errno(), mysqli_stmt_error()
 	 * @since PHP 5, PHP 7
 	 */
-	function mysqli_stmt_bind_result(\mysqli_stmt $stmt, &$var, &$_$vars): bool {}
+	function mysqli_stmt_bind_result(\mysqli_stmt $stmt, &$var, &...$vars): bool {}
 
 	/**
 	 * Closes a prepared statement

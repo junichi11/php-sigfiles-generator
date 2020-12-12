@@ -71,12 +71,12 @@ namespace {
 	 * @param string $to_encoding <p>The encoding that the <code>string</code> is being converted to.</p>
 	 * @param mixed $from_encoding <p><code>from_encoding</code> is specified as an <code>array</code> or comma separated <code>string</code>, it tries to detect encoding from <code>from-coding</code>. When <code>from_encoding</code> is omitted, <code>detect_order</code> is used.</p>
 	 * @param mixed $var <p><code>var</code> is the reference to the variable being converted. String, Array and Object are accepted. <b>mb_convert_variables()</b> assumes all parameters have the same encoding.</p>
-	 * @param mixed $_$vars
+	 * @param mixed $vars <p>Additional <code>var</code>s.</p>
 	 * @return string <p>The character encoding before conversion for success, or <b><code>FALSE</code></b> for failure.</p>
 	 * @link https://php.net/manual/en/function.mb-convert-variables.php
 	 * @since PHP 4 >= 4.0.6, PHP 5, PHP 7
 	 */
-	function mb_convert_variables(string $to_encoding, $from_encoding, &$var, &$_$vars): string {}
+	function mb_convert_variables(string $to_encoding, $from_encoding, &$var, &...$vars): string {}
 
 	/**
 	 * Decode string in MIME header field

@@ -712,12 +712,12 @@ namespace Swoole {
 		 * Call a callback given by the first parameter
 		 * <p>Calls the <code>callback</code> given by the first parameter and passes the remaining parameters as arguments.</p>
 		 * @param callable $callback <p>The <code>callable</code> to be called.</p>
-		 * @param mixed $_$args
+		 * @param mixed $args <p>Zero or more parameters to be passed to the callback.</p>
 		 * @return mixed
 		 * @link https://php.net/manual/en/swoole-coroutine.call-user-func.php
 		 * @since PECL swoole >= 2.0.0
 		 */
-		public static function call_user_func(callable $callback, $_$args) {}
+		public static function call_user_func(callable $callback, ...$args) {}
 
 		/**
 		 * Call a callback with an array of parameters

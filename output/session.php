@@ -365,13 +365,13 @@ namespace {
 	 * Register one or more global variables with the current session
 	 * <p><b>session_register()</b> accepts a variable number of arguments, any of which can be either a string holding the name of a variable or an array consisting of variable names or other arrays. For each name, <b>session_register()</b> registers the global variable with that name in the current session.</p><p>You can also create a session variable by simply setting the appropriate member of the $_SESSION array.</p><p>If <code>session_start()</code> was not called before this function is called, an implicit call to <code>session_start()</code> with no parameters will be made. $_SESSION does not mimic this behavior and requires <code>session_start()</code> before use.</p><p>This function has been <i>DEPRECATED</i> as of PHP 5.3.0 and <i>REMOVED</i> as of PHP 5.4.0.</p>
 	 * @param mixed $name <p>A string holding the name of a variable or an array consisting of variable names or other arrays.</p>
-	 * @param mixed $_$names
+	 * @param mixed $names
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.session-register.php
 	 * @see session_is_registered(), session_unregister()
 	 * @since PHP 4, PHP 5 < 5.4.0
 	 */
-	function session_register($name, $_$names): bool {}
+	function session_register($name, ...$names): bool {}
 
 	/**
 	 * Session shutdown function

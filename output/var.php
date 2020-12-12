@@ -19,13 +19,13 @@ namespace {
 	 * Dumps a string representation of an internal zend value to output
 	 * <p>Dumps a string representation of an internal zend value to output.</p>
 	 * @param mixed $variable <p>The variable to dump.</p>
-	 * @param mixed $_$variables
+	 * @param mixed $variables <p>Further variables to dump.</p>
 	 * @return void <p>No value is returned.</p>
 	 * @link https://php.net/manual/en/function.debug-zval-dump.php
 	 * @see var_dump(), debug_backtrace()
 	 * @since PHP 4 >= 4.2.0, PHP 5, PHP 7
 	 */
-	function debug_zval_dump($variable, $_$variables): void {}
+	function debug_zval_dump($variable, ...$variables): void {}
 
 	/**
 	 * Alias of floatval()
@@ -350,13 +350,13 @@ namespace {
 	 * Dumps information about a variable
 	 * <p>This function displays structured information about one or more expressions that includes its type and value. Arrays and objects are explored recursively with values indented to show structure.</p><p>All public, private and protected properties of objects will be returned in the output unless the object implements a __debugInfo() method (implemented in PHP 5.6.0).</p><p>As with anything that outputs its result directly to the browser, the output-control functions can be used to capture the output of this function, and save it in a <code>string</code> (for example).</p>
 	 * @param mixed $expression <p>The expression to dump.</p>
-	 * @param mixed $_$expressions
+	 * @param mixed $expressions <p>Further expressions to dump.</p>
 	 * @return void <p>No value is returned.</p>
 	 * @link https://php.net/manual/en/function.var-dump.php
 	 * @see print_r(), debug_zval_dump(), var_export()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function var_dump($expression, $_$expressions): void {}
+	function var_dump($expression, ...$expressions): void {}
 
 	/**
 	 * Outputs or returns a parsable string representation of a variable

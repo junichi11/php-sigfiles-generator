@@ -205,34 +205,34 @@ namespace pht {
 		 * Class threading
 		 * <p>Adds a new class task to a pht\Threads internal task queue.</p>
 		 * @param string $className <p>The name of the class to be threaded. This class must implement the <code>pht\Runnable</code> interface.</p>
-		 * @param mixed $_$ctorArgs
+		 * @param mixed $ctorArgs <p>An optional list of arguments for the threaded class' constructor. These arguments will be serialised (since they are being passed to another thread).</p>
 		 * @return void <p>No return value.</p>
 		 * @link https://php.net/manual/en/pht-thread.addClassTask.php
 		 * @since PECL pht >= 0.0.1
 		 */
-		public function addClassTask(string $className, $_$ctorArgs): void {}
+		public function addClassTask(string $className, ...$ctorArgs): void {}
 
 		/**
 		 * File threading
 		 * <p>Adds a new file task to a pht\Threads internal task queue.</p>
 		 * @param string $fileName
-		 * @param mixed $_$globals
+		 * @param mixed $globals <p>An optional list of arguments for the file. These arguments will be placed into a <code>$_THREAD</code> superglobal, which will be made available inside of the threaded file. All arguments will be serialised (since they are being passed to another thread).</p>
 		 * @return void <p>No return value.</p>
 		 * @link https://php.net/manual/en/pht-thread.addFileTask.php
 		 * @since PECL pht >= 0.0.1
 		 */
-		public function addFileTask(string $fileName, $_$globals): void {}
+		public function addFileTask(string $fileName, ...$globals): void {}
 
 		/**
 		 * Function threading
 		 * <p>Adds a new function task to a pht\Threads internal task queue.</p>
 		 * @param callable $func <p>The function to be threaded. If it is bound to an instance, then <code>$this</code> will become <b><code>NULL</code></b>.</p>
-		 * @param mixed $_$funcArgs
+		 * @param mixed $funcArgs <p>An optional list of arguments for the function. These arguments will be serialised (since they are being passed to another thread).</p>
 		 * @return void <p>No return value.</p>
 		 * @link https://php.net/manual/en/pht-thread.addFunctionTask.php
 		 * @since PECL pht >= 0.0.1
 		 */
-		public function addFunctionTask(callable $func, $_$funcArgs): void {}
+		public function addFunctionTask(callable $func, ...$funcArgs): void {}
 
 		/**
 		 * Joins a thread

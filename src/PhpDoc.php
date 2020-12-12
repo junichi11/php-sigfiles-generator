@@ -182,7 +182,12 @@ final class PhpDoc {
             $out .= Strings::indent($indent, ' * ' . $description);
         }
         foreach ($this->parameters->getParameters() as $parameter) {
-            $out .= Strings::indent($indent, ' * @param ' . trim(Php::sanitizeType($parameter->getType(), true) . ' ' . $parameter->getName() . ' ' . $parameter->getPhpDoc()));
+            $name = $parameter->getName();
+            if (Strings::startsWith($name, '...')) {
+                // #18 - vararg
+                $name = substr($name, 3);
+            }
+            $out .= Strings::indent($indent, ' * @param ' . trim(Php::sanitizeType($parameter->getType(), true) . ' ' . $name . ' ' . $parameter->getPhpDoc()));
         }
         $out .= Strings::indent($indent, ' * @return ' . trim($this->requiredType() . ' ' . $this->return));
         $out .= Strings::indent($indent, ' * @link ' . $this->link);
@@ -338,6 +343,10 @@ final class PhpDoc {
                         $newDoc->appendChild($newDoc->importNode($child, true));
                     }
                     $parameter = $this->parameters->getParameter($param);
+                    if ($parameter === null) {
+                        // #18 - try vararg
+                        $parameter = $this->parameters->getParameter('...' . $param);
+                    }
                     if ($parameter !== null) {
                         // different set of parameters, see e.g. function.apc-add.html
                         $parameter->setPhpDoc(Php::sanitizeHtml($newDoc->saveHTML(), true));

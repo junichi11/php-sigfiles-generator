@@ -134,7 +134,8 @@ final class Php {
             $nameParts = explode('|', $name);
             $name = $nameParts[count($nameParts) - 1];
         }
-        if (!Strings::startsWith($name, '$')) {
+        if (!Strings::startsWith($name, '$')
+                && !Strings::startsWith($name, '...')) {
             $name = '$' . $name;
         }
         if (Strings::startsWith($name, '$...')) {

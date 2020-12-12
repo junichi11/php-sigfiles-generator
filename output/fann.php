@@ -147,13 +147,13 @@ namespace {
 	 * @param int $num_layers <p>The total number of layers including the input and the output layer.</p>
 	 * @param int $num_neurons1 <p>Number of neurons in the first layer.</p>
 	 * @param int $num_neurons2 <p>Number of neurons in the second layer.</p>
-	 * @param int $_$num_neuronsN
+	 * @param int $num_neuronsN <p>Number of neurons in other layers.</p>
 	 * @return resource <p>Returns a neural network resource on success, or <b><code>FALSE</code></b> on error.</p>
 	 * @link https://php.net/manual/en/function.fann-create-shortcut.php
 	 * @see fann_create_shortcut_array(), fann_create_sparse(), fann_create_standard()
 	 * @since PECL fann >= 1.0.0
 	 */
-	function fann_create_shortcut(int $num_layers, int $num_neurons1, int $num_neurons2, int $_$num_neuronsN) {}
+	function fann_create_shortcut(int $num_layers, int $num_neurons1, int $num_neurons2, int ...$num_neuronsN) {}
 
 	/**
 	 * Creates a standard backpropagation neural network which is not fully connectected and has shortcut connections
@@ -174,13 +174,13 @@ namespace {
 	 * @param int $num_layers <p>The total number of layers including the input and the output layer.</p>
 	 * @param int $num_neurons1 <p>Number of neurons in the first layer.</p>
 	 * @param int $num_neurons2 <p>Number of neurons in the second layer.</p>
-	 * @param int $_$num_neuronsN
+	 * @param int $num_neuronsN <p>Number of neurons in other layers.</p>
 	 * @return resource <p>Returns a neural network resource on success, or <b><code>FALSE</code></b> on error.</p>
 	 * @link https://php.net/manual/en/function.fann-create-sparse.php
 	 * @see fann_create_sparse_array(), fann_create_standard(), fann_create_shortcut()
 	 * @since PECL fann >= 1.0.0
 	 */
-	function fann_create_sparse(float $connection_rate, int $num_layers, int $num_neurons1, int $num_neurons2, int $_$num_neuronsN) {}
+	function fann_create_sparse(float $connection_rate, int $num_layers, int $num_neurons1, int $num_neurons2, int ...$num_neuronsN) {}
 
 	/**
 	 * Creates a standard backpropagation neural network, which is not fully connected using an array of layer sizes
@@ -201,13 +201,13 @@ namespace {
 	 * @param int $num_layers <p>The total number of layers including the input and the output layer.</p>
 	 * @param int $num_neurons1 <p>Number of neurons in the first layer.</p>
 	 * @param int $num_neurons2 <p>Number of neurons in the second layer.</p>
-	 * @param int $_$num_neuronsN
+	 * @param int $num_neuronsN <p>Number of neurons in other layers.</p>
 	 * @return resource <p>Returns a neural network resource on success, or <b><code>FALSE</code></b> on error.</p>
 	 * @link https://php.net/manual/en/function.fann-create-standard.php
 	 * @see fann_create_standard_array(), fann_create_sparse(), fann_create_shortcut()
 	 * @since PECL fann >= 1.0.0
 	 */
-	function fann_create_standard(int $num_layers, int $num_neurons1, int $num_neurons2, int $_$num_neuronsN) {}
+	function fann_create_standard(int $num_layers, int $num_neurons1, int $num_neurons2, int ...$num_neuronsN) {}
 
 	/**
 	 * Creates a standard fully connected backpropagation neural network using an array of layer sizes
