@@ -67,63 +67,63 @@ namespace {
 	 * Computes the difference of arrays
 	 * <p>Compares <code>array</code> against one or more other arrays and returns the values in <code>array</code> that are not present in any of the other arrays.</p>
 	 * @param array $array <p>The array to compare from</p>
-	 * @param array $_$arrays
+	 * @param array $arrays <p>Arrays to compare against</p>
 	 * @return array <p>Returns an <code>array</code> containing all the entries from <code>array</code> that are not present in any of the other arrays. Keys in the <code>array</code> array are preserved.</p>
 	 * @link https://php.net/manual/en/function.array-diff.php
 	 * @see array_diff_assoc(), array_udiff(), array_intersect(), array_intersect_assoc()
 	 * @since PHP 4 >= 4.0.1, PHP 5, PHP 7
 	 */
-	function array_diff(array $array, array $_$arrays): array {}
+	function array_diff(array $array, array ...$arrays): array {}
 
 	/**
 	 * Computes the difference of arrays with additional index check
 	 * <p>Compares <code>array</code> against <code>arrays</code> and returns the difference. Unlike <code>array_diff()</code> the array keys are also used in the comparison.</p>
 	 * @param array $array <p>The array to compare from</p>
-	 * @param array $_$arrays
+	 * @param array $arrays <p>Arrays to compare against</p>
 	 * @return array <p>Returns an <code>array</code> containing all the values from <code>array</code> that are not present in any of the other arrays.</p>
 	 * @link https://php.net/manual/en/function.array-diff-assoc.php
 	 * @see array_diff(), array_diff_uassoc(), array_udiff_assoc(), array_udiff_uassoc(), array_intersect(), array_intersect_assoc()
 	 * @since PHP 4 >= 4.3.0, PHP 5, PHP 7
 	 */
-	function array_diff_assoc(array $array, array $_$arrays): array {}
+	function array_diff_assoc(array $array, array ...$arrays): array {}
 
 	/**
 	 * Computes the difference of arrays using keys for comparison
 	 * <p>Compares the keys from <code>array</code> against the keys from <code>arrays</code> and returns the difference. This function is like <code>array_diff()</code> except the comparison is done on the keys instead of the values.</p>
 	 * @param array $array <p>The array to compare from</p>
-	 * @param array $_$arrays
+	 * @param array $arrays <p>Arrays to compare against</p>
 	 * @return array <p>Returns an <code>array</code> containing all the entries from <code>array</code> whose keys are absent from all of the other arrays.</p>
 	 * @link https://php.net/manual/en/function.array-diff-key.php
 	 * @see array_diff(), array_udiff(), array_diff_assoc(), array_diff_uassoc(), array_udiff_assoc(), array_udiff_uassoc(), array_diff_ukey(), array_intersect(), array_intersect_assoc(), array_intersect_uassoc(), array_intersect_key(), array_intersect_ukey()
 	 * @since PHP 5 >= 5.1.0, PHP 7
 	 */
-	function array_diff_key(array $array, array $_$arrays): array {}
+	function array_diff_key(array $array, array ...$arrays): array {}
 
 	/**
 	 * Computes the difference of arrays with additional index check which is performed by a user supplied callback function
 	 * <p>Compares <code>array</code> against <code>arrays</code> and returns the difference. Unlike <code>array_diff()</code> the array keys are used in the comparison.</p><p>Unlike <code>array_diff_assoc()</code> a user supplied callback function is used for the indices comparison, not internal function.</p>
 	 * @param array $array <p>The array to compare from</p>
-	 * @param array $_$arrays
+	 * @param array $arrays <p>Arrays to compare against</p>
 	 * @param callable $key_compare_func <p>The comparison function must return an integer less than, equal to, or greater than zero if the first argument is considered to be respectively less than, equal to, or greater than the second.</p> callback ( <code>mixed</code> <code>$a</code>, <code>mixed</code> <code>$b</code> ) : <code>int</code>
 	 * @return array <p>Returns an <code>array</code> containing all the entries from <code>array</code> that are not present in any of the other arrays.</p>
 	 * @link https://php.net/manual/en/function.array-diff-uassoc.php
 	 * @see array_diff(), array_diff_assoc(), array_udiff(), array_udiff_assoc(), array_udiff_uassoc(), array_intersect(), array_intersect_assoc(), array_uintersect(), array_uintersect_assoc(), array_uintersect_uassoc()
 	 * @since PHP 5, PHP 7
 	 */
-	function array_diff_uassoc(array $array, array $_$arrays, callable $key_compare_func): array {}
+	function array_diff_uassoc(array $array, array ...$arrays, callable $key_compare_func): array {}
 
 	/**
 	 * Computes the difference of arrays using a callback function on the keys for comparison
 	 * <p>Compares the keys from <code>array</code> against the keys from <code>arrays</code> and returns the difference. This function is like <code>array_diff()</code> except the comparison is done on the keys instead of the values.</p><p>Unlike <code>array_diff_key()</code> a user supplied callback function is used for the indices comparison, not internal function.</p>
 	 * @param array $array <p>The array to compare from</p>
-	 * @param array $_$arrays
+	 * @param array $arrays <p>Arrays to compare against</p>
 	 * @param callable $key_compare_func <p>The comparison function must return an integer less than, equal to, or greater than zero if the first argument is considered to be respectively less than, equal to, or greater than the second.</p> callback ( <code>mixed</code> <code>$a</code>, <code>mixed</code> <code>$b</code> ) : <code>int</code>
 	 * @return array <p>Returns an <code>array</code> containing all the entries from <code>array</code> that are not present in any of the other arrays.</p>
 	 * @link https://php.net/manual/en/function.array-diff-ukey.php
 	 * @see array_diff(), array_udiff(), array_diff_assoc(), array_diff_uassoc(), array_udiff_assoc(), array_udiff_uassoc(), array_diff_key(), array_intersect(), array_intersect_assoc(), array_intersect_uassoc(), array_intersect_key(), array_intersect_ukey()
 	 * @since PHP 5 >= 5.1.0, PHP 7
 	 */
-	function array_diff_ukey(array $array, array $_$arrays, callable $key_compare_func): array {}
+	function array_diff_ukey(array $array, array ...$arrays, callable $key_compare_func): array {}
 
 	/**
 	 * Fill an array with values
@@ -178,63 +178,63 @@ namespace {
 	 * Computes the intersection of arrays
 	 * <p><b>array_intersect()</b> returns an array containing all the values of <code>array</code> that are present in all the arguments. Note that keys are preserved.</p>
 	 * @param array $array <p>The array with master values to check.</p>
-	 * @param array $_$arrays
+	 * @param array $arrays <p>Arrays to compare values against.</p>
 	 * @return array <p>Returns an array containing all of the values in <code>array</code> whose values exist in all of the parameters.</p>
 	 * @link https://php.net/manual/en/function.array-intersect.php
 	 * @see array_intersect_assoc(), array_diff(), array_diff_assoc()
 	 * @since PHP 4 >= 4.0.1, PHP 5, PHP 7
 	 */
-	function array_intersect(array $array, array $_$arrays): array {}
+	function array_intersect(array $array, array ...$arrays): array {}
 
 	/**
 	 * Computes the intersection of arrays with additional index check
 	 * <p><b>array_intersect_assoc()</b> returns an array containing all the values of <code>array</code> that are present in all the arguments. Note that the keys are also used in the comparison unlike in <code>array_intersect()</code>.</p>
 	 * @param array $array <p>The array with master values to check.</p>
-	 * @param array $_$arrays
+	 * @param array $arrays <p>Arrays to compare values against.</p>
 	 * @return array <p>Returns an associative array containing all the values in <code>array</code> that are present in all of the arguments.</p>
 	 * @link https://php.net/manual/en/function.array-intersect-assoc.php
 	 * @see array_intersect(), array_uintersect_assoc(), array_intersect_uassoc(), array_uintersect_uassoc(), array_diff(), array_diff_assoc()
 	 * @since PHP 4 >= 4.3.0, PHP 5, PHP 7
 	 */
-	function array_intersect_assoc(array $array, array $_$arrays): array {}
+	function array_intersect_assoc(array $array, array ...$arrays): array {}
 
 	/**
 	 * Computes the intersection of arrays using keys for comparison
 	 * <p><b>array_intersect_key()</b> returns an array containing all the entries of <code>array</code> which have keys that are present in all the arguments.</p>
 	 * @param array $array <p>The array with master keys to check.</p>
-	 * @param array $_$arrays
+	 * @param array $arrays <p>Arrays to compare keys against.</p>
 	 * @return array <p>Returns an associative array containing all the entries of <code>array</code> which have keys that are present in all arguments.</p>
 	 * @link https://php.net/manual/en/function.array-intersect-key.php
 	 * @see array_diff(), array_udiff(), array_diff_assoc(), array_diff_uassoc(), array_udiff_assoc(), array_udiff_uassoc(), array_diff_key(), array_diff_ukey(), array_intersect(), array_intersect_assoc(), array_intersect_uassoc(), array_intersect_ukey()
 	 * @since PHP 5 >= 5.1.0, PHP 7
 	 */
-	function array_intersect_key(array $array, array $_$arrays): array {}
+	function array_intersect_key(array $array, array ...$arrays): array {}
 
 	/**
 	 * Computes the intersection of arrays with additional index check, compares indexes by a callback function
 	 * <p><b>array_intersect_uassoc()</b> returns an array containing all the values of <code>array</code> that are present in all the arguments. Note that the keys are used in the comparison unlike in <code>array_intersect()</code>.</p>
 	 * @param array $array <p>Initial array for comparison of the arrays.</p>
-	 * @param array $_$arrays
+	 * @param array $arrays <p>Arrays to compare keys against.</p>
 	 * @param callable $key_compare_func <p>The comparison function must return an integer less than, equal to, or greater than zero if the first argument is considered to be respectively less than, equal to, or greater than the second.</p> callback ( <code>mixed</code> <code>$a</code>, <code>mixed</code> <code>$b</code> ) : <code>int</code>
 	 * @return array <p>Returns the values of <code>array</code> whose values exist in all of the arguments.</p>
 	 * @link https://php.net/manual/en/function.array-intersect-uassoc.php
 	 * @see array_intersect(), array_intersect_assoc(), array_uintersect_assoc(), array_uintersect_uassoc(), array_intersect_key(), array_intersect_ukey()
 	 * @since PHP 5, PHP 7
 	 */
-	function array_intersect_uassoc(array $array, array $_$arrays, callable $key_compare_func): array {}
+	function array_intersect_uassoc(array $array, array ...$arrays, callable $key_compare_func): array {}
 
 	/**
 	 * Computes the intersection of arrays using a callback function on the keys for comparison
 	 * <p><b>array_intersect_ukey()</b> returns an array containing all the values of <code>array</code> which have matching keys that are present in all the arguments.</p>
 	 * @param array $array <p>Initial array for comparison of the arrays.</p>
-	 * @param array $_$arrays
+	 * @param array $arrays <p>Arrays to compare keys against.</p>
 	 * @param callable $key_compare_func <p>The comparison function must return an integer less than, equal to, or greater than zero if the first argument is considered to be respectively less than, equal to, or greater than the second.</p> callback ( <code>mixed</code> <code>$a</code>, <code>mixed</code> <code>$b</code> ) : <code>int</code>
 	 * @return array <p>Returns the values of <code>array</code> whose keys exist in all the arguments.</p>
 	 * @link https://php.net/manual/en/function.array-intersect-ukey.php
 	 * @see array_diff(), array_udiff(), array_diff_assoc(), array_diff_uassoc(), array_udiff_assoc(), array_udiff_uassoc(), array_diff_key(), array_diff_ukey(), array_intersect(), array_intersect_assoc(), array_intersect_uassoc(), array_intersect_key()
 	 * @since PHP 5 >= 5.1.0, PHP 7
 	 */
-	function array_intersect_ukey(array $array, array $_$arrays, callable $key_compare_func): array {}
+	function array_intersect_ukey(array $array, array ...$arrays, callable $key_compare_func): array {}
 
 	/**
 	 * Checks if the given key or index exists in the array
@@ -286,35 +286,35 @@ namespace {
 	 * <p><b>array_map()</b> returns an <code>array</code> containing the results of applying the <code>callback</code> to the corresponding index of <code>array</code> (and <code>arrays</code> if more arrays are provided) used as arguments for the callback. The number of parameters that the <code>callback</code> function accepts should match the number of arrays passed to <b>array_map()</b>.</p>
 	 * @param callable $callback <p>A <code>callable</code> to run for each element in each array.</p> <p><b><code>NULL</code></b> can be passed as a value to <code>callback</code> to perform a zip operation on multiple arrays. If only <code>array</code> is provided, <b>array_map()</b> will return the input array.</p>
 	 * @param array $array <p>An array to run through the <code>callback</code> function.</p>
-	 * @param array $_$arrays
+	 * @param array $arrays <p>Supplementary variable list of array arguments to run through the <code>callback</code> function.</p>
 	 * @return array <p>Returns an array containing the results of applying the <code>callback</code> function to the corresponding index of <code>array</code> (and <code>arrays</code> if more arrays are provided) used as arguments for the callback.</p><p>The returned array will preserve the keys of the array argument if and only if exactly one array is passed. If more than one array is passed, the returned array will have sequential integer keys.</p>
 	 * @link https://php.net/manual/en/function.array-map.php
 	 * @see array_filter(), array_reduce(), array_walk()
 	 * @since PHP 4 >= 4.0.6, PHP 5, PHP 7
 	 */
-	function array_map(callable $callback, array $array, array $_$arrays): array {}
+	function array_map(callable $callback, array $array, array ...$arrays): array {}
 
 	/**
 	 * Merge one or more arrays
 	 * <p>Merges the elements of one or more arrays together so that the values of one are appended to the end of the previous one. It returns the resulting array.</p><p>If the input arrays have the same string keys, then the later value for that key will overwrite the previous one. If, however, the arrays contain numeric keys, the later value will <i>not</i> overwrite the original value, but will be appended.</p><p>Values in the input arrays with numeric keys will be renumbered with incrementing keys starting from zero in the result array.</p>
-	 * @param array $_$arrays
+	 * @param array $arrays <p>Variable list of arrays to merge.</p>
 	 * @return array <p>Returns the resulting array. If called without any arguments, returns an empty <code>array</code>.</p>
 	 * @link https://php.net/manual/en/function.array-merge.php
 	 * @see array_merge_recursive(), array_replace(), array_combine()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function array_merge(array $_$arrays): array {}
+	function array_merge(array ...$arrays): array {}
 
 	/**
 	 * Merge one or more arrays recursively
 	 * <p><b>array_merge_recursive()</b> merges the elements of one or more arrays together so that the values of one are appended to the end of the previous one. It returns the resulting array.</p><p>If the input arrays have the same string keys, then the values for these keys are merged together into an array, and this is done recursively, so that if one of the values is an array itself, the function will merge it with a corresponding entry in another array too. If, however, the arrays have the same numeric key, the later value will not overwrite the original value, but will be appended.</p>
-	 * @param array $_$arrays
+	 * @param array $arrays <p>Variable list of arrays to recursively merge.</p>
 	 * @return array <p>An array of values resulted from merging the arguments together. If called without any arguments, returns an empty <code>array</code>.</p>
 	 * @link https://php.net/manual/en/function.array-merge-recursive.php
 	 * @see array_merge(), array_replace_recursive()
 	 * @since PHP 4 >= 4.0.1, PHP 5, PHP 7
 	 */
-	function array_merge_recursive(array $_$arrays): array {}
+	function array_merge_recursive(array ...$arrays): array {}
 
 	/**
 	 * Sort multiple or multi-dimensional arrays
@@ -322,13 +322,13 @@ namespace {
 	 * @param array $array1 <p>An <code>array</code> being sorted.</p>
 	 * @param mixed $array1_sort_order <p>The order used to sort the previous <code>array</code> argument. Either <b><code>SORT_ASC</code></b> to sort ascendingly or <b><code>SORT_DESC</code></b> to sort descendingly.</p> <p>This argument can be swapped with <code>array1_sort_flags</code> or omitted entirely, in which case <b><code>SORT_ASC</code></b> is assumed.</p>
 	 * @param mixed $array1_sort_flags <p>Sort options for the previous <code>array</code> argument:</p> <p>Sorting type flags:</p><ul> <li> <b><code>SORT_REGULAR</code></b> - compare items normally (don't change types) </li> <li> <b><code>SORT_NUMERIC</code></b> - compare items numerically </li> <li> <b><code>SORT_STRING</code></b> - compare items as strings </li> <li>  <b><code>SORT_LOCALE_STRING</code></b> - compare items as strings, based on the current locale. It uses the locale, which can be changed using <code>setlocale()</code>  </li> <li>  <b><code>SORT_NATURAL</code></b> - compare items as strings using "natural ordering" like <code>natsort()</code>  </li> <li>  <b><code>SORT_FLAG_CASE</code></b> - can be combined (bitwise OR) with <b><code>SORT_STRING</code></b> or <b><code>SORT_NATURAL</code></b> to sort strings case-insensitively  </li> </ul> <p>This argument can be swapped with <code>array1_sort_order</code> or omitted entirely, in which case <b><code>SORT_REGULAR</code></b> is assumed.</p>
-	 * @param mixed $_$rest
+	 * @param mixed $rest <p>More arrays, optionally followed by sort order and flags. Only elements corresponding to equivalent elements in previous arrays are compared. In other words, the sort is lexicographical.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.array-multisort.php
 	 * @see usort()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function array_multisort(array &$array1, $array1_sort_order = SORT_ASC, $array1_sort_flags = SORT_REGULAR, $_$rest): bool {}
+	function array_multisort(array &$array1, $array1_sort_order = SORT_ASC, $array1_sort_flags = SORT_REGULAR, ...$rest): bool {}
 
 	/**
 	 * Pad array to the specified length with a value
@@ -368,13 +368,13 @@ namespace {
 	 * Push one or more elements onto the end of array
 	 * <p><b>array_push()</b> treats <code>array</code> as a stack, and pushes the passed variables onto the end of <code>array</code>. The length of <code>array</code> increases by the number of variables pushed. Has the same effect as:</p><p><b>Note</b>:  If you use <b>array_push()</b> to add one element to the array, it's better to use <code>$array[] = </code> because in that way there is no overhead of calling a function. </p><p><b>Note</b>:  <b>array_push()</b> will raise a warning if the first argument is not an array. This differs from the <code>$var[]</code> behaviour where a new array is created. </p>
 	 * @param array $array <p>The input array.</p>
-	 * @param mixed $_$values
+	 * @param mixed $values <p>The values to push onto the end of the <code>array</code>.</p>
 	 * @return int <p>Returns the new number of elements in the array.</p>
 	 * @link https://php.net/manual/en/function.array-push.php
 	 * @see array_pop(), array_shift(), array_unshift()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function array_push(array &$array, $_$values): int {}
+	function array_push(array &$array, ...$values): int {}
 
 	/**
 	 * Pick one or more random keys out of an array
@@ -503,33 +503,33 @@ namespace {
 	 * Computes the difference of arrays by using a callback function for data comparison
 	 * <p>Computes the difference of arrays by using a callback function for data comparison. This is unlike <code>array_diff()</code> which uses an internal function for comparing the data.</p>
 	 * @param array $array <p>The first array.</p>
-	 * @param array $_$arrays
+	 * @param array $arrays <p>Arrays to compare against.</p>
 	 * @param callable $value_compare_func <p>The callback comparison function.</p> <p>The comparison function must return an integer less than, equal to, or greater than zero if the first argument is considered to be respectively less than, equal to, or greater than the second.</p> callback ( <code>mixed</code> <code>$a</code>, <code>mixed</code> <code>$b</code> ) : <code>int</code>
 	 * @return array <p>Returns an array containing all the values of <code>array</code> that are not present in any of the other arguments.</p>
 	 * @link https://php.net/manual/en/function.array-udiff.php
 	 * @see array_diff(), array_diff_assoc(), array_diff_uassoc(), array_udiff_assoc(), array_udiff_uassoc(), array_intersect(), array_intersect_assoc(), array_uintersect(), array_uintersect_assoc(), array_uintersect_uassoc()
 	 * @since PHP 5, PHP 7
 	 */
-	function array_udiff(array $array, array $_$arrays, callable $value_compare_func): array {}
+	function array_udiff(array $array, array ...$arrays, callable $value_compare_func): array {}
 
 	/**
 	 * Computes the difference of arrays with additional index check, compares data by a callback function
 	 * <p>Computes the difference of arrays with additional index check, compares data by a callback function.</p><p><b>Note</b>:  Please note that this function only checks one dimension of a n-dimensional array. Of course you can check deeper dimensions by using, for example, <code>array_udiff_assoc($array1[0], $array2[0], "some_comparison_func");</code>. </p>
 	 * @param array $array <p>The first array.</p>
-	 * @param array $_$arrays
+	 * @param array $arrays <p>Arrays to compare against.</p>
 	 * @param callable $value_compare_func <p>The comparison function must return an integer less than, equal to, or greater than zero if the first argument is considered to be respectively less than, equal to, or greater than the second.</p> callback ( <code>mixed</code> <code>$a</code>, <code>mixed</code> <code>$b</code> ) : <code>int</code>
 	 * @return array <p><b>array_udiff_assoc()</b> returns an <code>array</code> containing all the values from <code>array</code> that are not present in any of the other arguments. Note that the keys are used in the comparison unlike <code>array_diff()</code> and <code>array_udiff()</code>. The comparison of arrays' data is performed by using an user-supplied callback. In this aspect the behaviour is opposite to the behaviour of <code>array_diff_assoc()</code> which uses internal function for comparison.</p>
 	 * @link https://php.net/manual/en/function.array-udiff-assoc.php
 	 * @see array_diff(), array_diff_assoc(), array_diff_uassoc(), array_udiff(), array_udiff_uassoc(), array_intersect(), array_intersect_assoc(), array_uintersect(), array_uintersect_assoc(), array_uintersect_uassoc()
 	 * @since PHP 5, PHP 7
 	 */
-	function array_udiff_assoc(array $array, array $_$arrays, callable $value_compare_func): array {}
+	function array_udiff_assoc(array $array, array ...$arrays, callable $value_compare_func): array {}
 
 	/**
 	 * Computes the difference of arrays with additional index check, compares data and indexes by a callback function
 	 * <p>Computes the difference of arrays with additional index check, compares data and indexes by a callback function.</p><p>Note that the keys are used in the comparison unlike <code>array_diff()</code> and <code>array_udiff()</code>.</p>
 	 * @param array $array <p>The first array.</p>
-	 * @param array $_$arrays
+	 * @param array $arrays <p>Arrays to compare against.</p>
 	 * @param callable $value_compare_func <p>The comparison function must return an integer less than, equal to, or greater than zero if the first argument is considered to be respectively less than, equal to, or greater than the second.</p> callback ( <code>mixed</code> <code>$a</code>, <code>mixed</code> <code>$b</code> ) : <code>int</code>
 	 * @param callable $key_compare_func <p>The comparison of keys (indices) is done also by the callback function <code>key_compare_func</code>. This behaviour is unlike what <code>array_udiff_assoc()</code> does, since the latter compares the indices by using an internal function.</p>
 	 * @return array <p>Returns an <code>array</code> containing all the values from <code>array</code> that are not present in any of the other arguments.</p>
@@ -537,39 +537,39 @@ namespace {
 	 * @see array_diff(), array_diff_assoc(), array_udiff(), array_udiff_assoc(), array_intersect(), array_intersect_assoc(), array_uintersect(), array_uintersect_assoc(), array_uintersect_uassoc()
 	 * @since PHP 5, PHP 7
 	 */
-	function array_udiff_uassoc(array $array, array $_$arrays, callable $value_compare_func, callable $key_compare_func): array {}
+	function array_udiff_uassoc(array $array, array ...$arrays, callable $value_compare_func, callable $key_compare_func): array {}
 
 	/**
 	 * Computes the intersection of arrays, compares data by a callback function
 	 * <p>Computes the intersection of arrays, compares data by a callback function.</p>
 	 * @param array $array <p>The first array.</p>
-	 * @param array $_$arrays
+	 * @param array $arrays <p>Arrays to compare against.</p>
 	 * @param callable $value_compare_func <p>The comparison function must return an integer less than, equal to, or greater than zero if the first argument is considered to be respectively less than, equal to, or greater than the second.</p> callback ( <code>mixed</code> <code>$a</code>, <code>mixed</code> <code>$b</code> ) : <code>int</code>
 	 * @return array <p>Returns an array containing all the values of <code>array</code> that are present in all the arguments.</p>
 	 * @link https://php.net/manual/en/function.array-uintersect.php
 	 * @see array_intersect(), array_intersect_assoc(), array_uintersect_assoc(), array_uintersect_uassoc()
 	 * @since PHP 5, PHP 7
 	 */
-	function array_uintersect(array $array, array $_$arrays, callable $value_compare_func): array {}
+	function array_uintersect(array $array, array ...$arrays, callable $value_compare_func): array {}
 
 	/**
 	 * Computes the intersection of arrays with additional index check, compares data by a callback function
 	 * <p>Computes the intersection of arrays with additional index check, compares data by a callback function.</p><p>Note that the keys are used in the comparison unlike in <code>array_uintersect()</code>. The data is compared by using a callback function.</p>
 	 * @param array $array <p>The first array.</p>
-	 * @param array $_$arrays
+	 * @param array $arrays <p>Arrays to compare against.</p>
 	 * @param callable $value_compare_func <p>The comparison function must return an integer less than, equal to, or greater than zero if the first argument is considered to be respectively less than, equal to, or greater than the second.</p> callback ( <code>mixed</code> <code>$a</code>, <code>mixed</code> <code>$b</code> ) : <code>int</code>
 	 * @return array <p>Returns an array containing all the values of <code>array</code> that are present in all the arguments.</p>
 	 * @link https://php.net/manual/en/function.array-uintersect-assoc.php
 	 * @see array_uintersect(), array_intersect_assoc(), array_intersect_uassoc(), array_uintersect_uassoc()
 	 * @since PHP 5, PHP 7
 	 */
-	function array_uintersect_assoc(array $array, array $_$arrays, callable $value_compare_func): array {}
+	function array_uintersect_assoc(array $array, array ...$arrays, callable $value_compare_func): array {}
 
 	/**
 	 * Computes the intersection of arrays with additional index check, compares data and indexes by separate callback functions
 	 * <p>Computes the intersection of arrays with additional index check, compares data and indexes by separate callback functions.</p>
 	 * @param array $array1 <p>The first array.</p>
-	 * @param array $_$arrays
+	 * @param array $arrays <p>Further arrays.</p>
 	 * @param callable $value_compare_func <p>The comparison function must return an integer less than, equal to, or greater than zero if the first argument is considered to be respectively less than, equal to, or greater than the second.</p> callback ( <code>mixed</code> <code>$a</code>, <code>mixed</code> <code>$b</code> ) : <code>int</code>
 	 * @param callable $key_compare_func <p>Key comparison callback function.</p>
 	 * @return array <p>Returns an array containing all the values of <code>array1</code> that are present in all the arguments.</p>
@@ -577,7 +577,7 @@ namespace {
 	 * @see array_uintersect(), array_intersect_assoc(), array_intersect_uassoc(), array_uintersect_assoc()
 	 * @since PHP 5, PHP 7
 	 */
-	function array_uintersect_uassoc(array $array1, array $_$arrays, callable $value_compare_func, callable $key_compare_func): array {}
+	function array_uintersect_uassoc(array $array1, array ...$arrays, callable $value_compare_func, callable $key_compare_func): array {}
 
 	/**
 	 * Removes duplicate values from an array
@@ -595,13 +595,13 @@ namespace {
 	 * Prepend one or more elements to the beginning of an array
 	 * <p><b>array_unshift()</b> prepends passed elements to the front of the <code>array</code>. Note that the list of elements is prepended as a whole, so that the prepended elements stay in the same order. All numerical array keys will be modified to start counting from zero while literal keys won't be changed.</p>
 	 * @param array $array <p>The input array.</p>
-	 * @param mixed $_$values
+	 * @param mixed $values <p>The values to prepend.</p>
 	 * @return int <p>Returns the new number of elements in the <code>array</code>.</p>
 	 * @link https://php.net/manual/en/function.array-unshift.php
 	 * @see array_shift(), array_push(), array_pop()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function array_unshift(array &$array, $_$values): int {}
+	function array_unshift(array &$array, ...$values): int {}
 
 	/**
 	 * Return all the values of an array
@@ -668,13 +668,13 @@ namespace {
 	 * Create array containing variables and their values
 	 * <p>Creates an array containing variables and their values.</p><p>For each of these, <b>compact()</b> looks for a variable with that name in the current symbol table and adds it to the output array such that the variable name becomes the key and the contents of the variable become the value for that key. In short, it does the opposite of <code>extract()</code>.</p><p><b>Note</b>:</p><p>Before PHP 7.3, any strings that are not set will silently be skipped.</p>
 	 * @param mixed $var_name
-	 * @param mixed $_$var_names
+	 * @param mixed $var_names <p><b>compact()</b> takes a variable number of parameters. Each parameter can be either a string containing the name of the variable, or an array of variable names. The array can contain other arrays of variable names inside it; <b>compact()</b> handles it recursively.</p>
 	 * @return array <p>Returns the output array with all the variables added to it.</p>
 	 * @link https://php.net/manual/en/function.compact.php
 	 * @see extract()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function compact($var_name, $_$var_names): array {}
+	function compact($var_name, ...$var_names): array {}
 
 	/**
 	 * Count all elements in an array, or something in an object

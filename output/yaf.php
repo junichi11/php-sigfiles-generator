@@ -40,12 +40,12 @@ namespace {
 		/**
 		 * Action entry point
 		 * <p>user should always define this method for a action, this is the entry point of an action. <b>Yaf_Action_Abstract::execute()</b> may have agruments.</p><p><b>Note</b>:</p><p>The value retrived from the request is not safe. you should do some filtering work before you use it.</p>
-		 * @param mixed $_$args
+		 * @param mixed $args
 		 * @return mixed
 		 * @link https://php.net/manual/en/yaf-action-abstract.execute.php
 		 * @since Yaf >=1.0.0
 		 */
-		abstract public function execute($_$args);
+		abstract public function execute(...$args);
 
 		/**
 		 * Foward to another action
@@ -299,12 +299,12 @@ namespace {
 		 * Execute a callback
 		 * <p>This method is typically used to run Yaf_Application in a crontab work. Make the crontab work can also use the autoloader and Bootstrap mechanism.</p>
 		 * @param callable $entry <p>a valid callback</p>
-		 * @param string $_$args
+		 * @param string $args <p>parameters will pass to the callback</p>
 		 * @return void
 		 * @link https://php.net/manual/en/yaf-application.execute.php
 		 * @since Yaf >=1.0.0
 		 */
-		public function execute(callable $entry, string $_$args): void {}
+		public function execute(callable $entry, string ...$args): void {}
 
 		/**
 		 * Get the application directory

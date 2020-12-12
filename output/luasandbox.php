@@ -33,12 +33,12 @@ namespace {
 		 * Call a function in a Lua global variable
 		 * <p>Calls a function in a Lua global variable.</p><p>If the name contains "." characters, the function is located via recursive table accesses, as if the name were a Lua expression.</p><p>If the variable does not exist, or is not a function, false will be returned and a warning issued.</p><p>For more information about calling Lua functions and the return values, see <code>LuaSandboxFunction::call()</code>.</p>
 		 * @param string $name <p>Lua variable name.</p>
-		 * @param mixed $_$args
+		 * @param mixed $args <p>Arguments to the function.</p>
 		 * @return array|bool <p>Returns an <code>array</code> of values returned by the Lua function, which may be empty, or <code>false</code> in case of failure.</p>
 		 * @link https://php.net/manual/en/luasandbox.callfunction.php
 		 * @since PECL luasandbox >= 1.0.0
 		 */
-		public function callFunction(string $name, $_$args) {}
+		public function callFunction(string $name, ...$args) {}
 
 		/**
 		 * Disable the profiler
@@ -562,12 +562,12 @@ namespace {
 		/**
 		 * Call a Lua function
 		 * <p>Calls a Lua function.</p><p>Errors considered to be the fault of the PHP code will result in the function returning <code>false</code> and <b><code>E_WARNING</code></b> being raised, for example, a <code>resource</code> type being used as an argument. Lua errors will result in a LuaSandboxRuntimeError exception being thrown.</p><p>PHP and Lua types are converted as follows:</p><p></p><p>PHP <b><code>NULL</code></b> is Lua <code>nil</code>, and vice versa.</p><p>PHP <code>int</code>s and <code>float</code>s are converted to Lua numbers. Infinity and <b><code>NAN</code></b> are supported.</p><p>Lua numbers without a fractional part between approximately <code>-2&#42;&#42;53</code> and <code>2&#42;&#42;53</code> are converted to PHP <code>int</code>s, with others being converted to PHP <code>float</code>s.</p><p>PHP <code>bool</code>s are Lua booleans, and vice versa.</p><p>PHP <code>string</code>s are Lua strings, and vice versa.</p><p>Lua functions are PHP LuaSandboxFunction objects, and vice versa. General PHP <code>callable</code>s are not supported.</p><p>PHP <code>array</code>s are converted to Lua tables, and vice versa.</p><p></p><p>Note that Lua typically indexes arrays from 1, while PHP indexes arrays from 0. No adjustment is made for these differing conventions.</p><p>Self-referential arrays are not supported in either direction.</p><p>PHP references are dereferenced.</p><p>Lua <code>__pairs</code> and <code>__ipairs</code> are processed. <code>__index</code> is ignored.</p><p>When converting from PHP to Lua, integer keys between <code>-2&#42;&#42;53</code> and <code>2&#42;&#42;53</code> are represented as Lua numbers. All other keys are represented as Lua strings.</p><p>When converting from Lua to PHP, keys other than strings and numbers will result in an error, as will collisions when converting numbers to strings or vice versa (since PHP considers things like <code>$a[0]</code> and <code>$a["0"]</code> as being equivalent).</p><p>All other types are unsupported and will raise an error/exception, including general PHP <code>object</code>s and Lua userdata and thread types.</p><p>Lua functions inherently return a list of results. So on success, this method returns an <code>array</code> containing all of the values returned by Lua, with <code>int</code> keys starting from zero. Lua may return no results, in which case an empty array is returned.</p>
-		 * @param string $_$args
+		 * @param string $args <p>Arguments passed to the function.</p>
 		 * @return array|bool <p>Returns an <code>array</code> of values returned by the function, which may be empty, or <code>false</code> on error.</p>
 		 * @link https://php.net/manual/en/luasandboxfunction.call.php
 		 * @since PECL luasandbox >= 1.0.0
 		 */
-		public function call(string $_$args) {}
+		public function call(string ...$args) {}
 
 		/**
 		 * Dump the function as a binary blob

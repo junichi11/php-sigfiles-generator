@@ -242,12 +242,12 @@ namespace {
 	 * Alias of ibase_execute()
 	 * <p>This function is an alias of: <code>ibase_execute()</code>.</p>
 	 * @param resource $query <p>An InterBase query prepared by <code>ibase_prepare()</code>.</p>
-	 * @param mixed $_$values
+	 * @param mixed ...$values
 	 * @return resource
 	 * @link https://php.net/manual/en/function.fbird-execute.php
 	 * @since PHP 5, PHP 7 < 7.4.0
 	 */
-	function fbird_execute($query, $_$values) {}
+	function fbird_execute($query, ...$values) {}
 
 	/**
 	 * Alias of ibase_fetch_assoc()
@@ -516,12 +516,12 @@ namespace {
 	 * <p>This function is an alias of: <code>ibase_set_event_handler()</code>.</p>
 	 * @param callable $event_handler <p>The callback is called with the event name and the link resource as arguments whenever one of the specified events is posted by the database.</p> <p>The callback must return <b><code>FALSE</code></b> if the event handler should be canceled. Any other return value is ignored. This function accepts up to 15 event arguments.</p>
 	 * @param string $event_name <p>An event name.</p>
-	 * @param string $_$even_names
+	 * @param string ...$even_names
 	 * @return resource
 	 * @link https://php.net/manual/en/function.fbird-set-event-handler.php
 	 * @since PHP 5, PHP 7 < 7.4.0
 	 */
-	function fbird_set_event_handler(callable $event_handler, string $event_name, string $_$even_names) {}
+	function fbird_set_event_handler(callable $event_handler, string $event_name, string ...$even_names) {}
 
 	/**
 	 * Alias of ibase_trans()
@@ -538,12 +538,12 @@ namespace {
 	 * Alias of ibase_wait_event()
 	 * <p>This function is an alias of: <code>ibase_wait_event()</code>.</p>
 	 * @param string $event_name <p>The event name.</p>
-	 * @param string $_$event_names
+	 * @param string ...$event_names
 	 * @return string
 	 * @link https://php.net/manual/en/function.fbird-wait-event.php
 	 * @since PHP 5, PHP 7 < 7.4.0
 	 */
-	function fbird_wait_event(string $event_name, string $_$event_names): string {}
+	function fbird_wait_event(string $event_name, string ...$event_names): string {}
 
 	/**
 	 * Add a user to a security database
@@ -797,13 +797,13 @@ namespace {
 	 * Execute a previously prepared query
 	 * <p>Execute a query prepared by <code>ibase_prepare()</code>.</p><p>This is a lot more effective than using <code>ibase_query()</code> if you are repeating a same kind of query several times with only some parameters changing.</p>
 	 * @param resource $query <p>An InterBase query prepared by <code>ibase_prepare()</code>.</p>
-	 * @param mixed $_$values
+	 * @param mixed $values
 	 * @return resource <p>If the query raises an error, returns <b><code>FALSE</code></b>. If it is successful and there is a (possibly empty) result set (such as with a SELECT query), returns a result identifier. If the query was successful and there were no results, returns <b><code>TRUE</code></b>.</p><p><b>Note</b>:</p><p>This function returns the number of rows affected by the query (if &gt; 0 and applicable to the statement type). A query that succeeded, but did not affect any rows (e.g. an UPDATE of a non-existent record) will return <b><code>TRUE</code></b>.</p>
 	 * @link https://php.net/manual/en/function.ibase-execute.php
 	 * @see ibase_query()
 	 * @since PHP 5, PHP 7 < 7.4.0
 	 */
-	function ibase_execute($query, $_$values) {}
+	function ibase_execute($query, ...$values) {}
 
 	/**
 	 * Fetch a result row from a query as an associative array
@@ -1082,13 +1082,13 @@ namespace {
 	 * <p>This function registers a PHP user function as event handler for the specified events.</p>
 	 * @param callable $event_handler <p>The callback is called with the event name and the link resource as arguments whenever one of the specified events is posted by the database.</p> <p>The callback must return <b><code>FALSE</code></b> if the event handler should be canceled. Any other return value is ignored. This function accepts up to 15 event arguments.</p>
 	 * @param string $event_name <p>An event name.</p>
-	 * @param string $_$even_names
+	 * @param string $even_names
 	 * @return resource <p>The return value is an event resource. This resource can be used to free the event handler using <code>ibase_free_event_handler()</code>.</p>
 	 * @link https://php.net/manual/en/function.ibase-set-event-handler.php
 	 * @see ibase_free_event_handler(), ibase_wait_event()
 	 * @since PHP 5, PHP 7 < 7.4.0
 	 */
-	function ibase_set_event_handler(callable $event_handler, string $event_name, string $_$even_names) {}
+	function ibase_set_event_handler(callable $event_handler, string $event_name, string ...$even_names) {}
 
 	/**
 	 * Begin a transaction
@@ -1105,13 +1105,13 @@ namespace {
 	 * Wait for an event to be posted by the database
 	 * <p>This function suspends execution of the script until one of the specified events is posted by the database. The name of the event that was posted is returned. This function accepts up to 15 event arguments.</p>
 	 * @param string $event_name <p>The event name.</p>
-	 * @param string $_$event_names
+	 * @param string $event_names
 	 * @return string <p>Returns the name of the event that was posted.</p>
 	 * @link https://php.net/manual/en/function.ibase-wait-event.php
 	 * @see ibase_set_event_handler(), ibase_free_event_handler()
 	 * @since PHP 5, PHP 7 < 7.4.0
 	 */
-	function ibase_wait_event(string $event_name, string $_$event_names): string {}
+	function ibase_wait_event(string $event_name, string ...$event_names): string {}
 
 	/**
 	 * Options to <code>ibase_backup()</code>

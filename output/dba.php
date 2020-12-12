@@ -122,13 +122,13 @@ namespace {
 	 * @param string $path <p>Commonly a regular path in your filesystem.</p>
 	 * @param string $mode <p>It is <code>r</code> for read access, <code>w</code> for read/write access to an already existing database, <code>c</code> for read/write access and database creation if it doesn't currently exist, and <code>n</code> for create, truncate and read/write access. The database is created in BTree mode, other modes (like Hash or Queue) are not supported.</p> <p>Additionally you can set the database lock method with the next char. Use <code>l</code> to lock the database with a .lck file or <code>d</code> to lock the databasefile itself. It is important that all of your applications do this consistently.</p> <p>If you want to test the access and do not want to wait for the lock you can add <code>t</code> as third character. When you are absolutely sure that you do not require database locking you can do so by using <code>-</code> instead of <code>l</code> or <code>d</code>. When none of <code>d</code>, <code>l</code> or <code>-</code> is used, dba will lock on the database file as it would with <code>d</code>.</p> <p><b>Note</b>:</p><p>There can only be one writer for one database file. When you use dba on a web server and more than one request requires write operations they can only be done one after another. Also read during write is not allowed. The dba extension uses locks to prevent this. See the following table:</p> <b>DBA locking</b>   already open <code>mode</code> = "rl" <code>mode</code> = "rlt" <code>mode</code> = "wl" <code>mode</code> = "wlt" <code>mode</code> = "rd" <code>mode</code> = "rdt" <code>mode</code> = "wd" <code>mode</code> = "wdt"     not open ok ok ok ok ok ok ok ok   <code>mode</code> = "rl" ok ok wait false illegal illegal illegal illegal   <code>mode</code> = "wl" wait false wait false illegal illegal illegal illegal   <code>mode</code> = "rd" illegal illegal illegal illegal ok ok wait false   <code>mode</code> = "wd" illegal illegal illegal illegal wait false wait false    <ul> <li>ok: the second call will be successfull.</li> <li>wait: the second call waits until <code>dba_close()</code> is called for the first.</li> <li>false: the second call returns false.</li> <li>illegal: you must not mix <code>"l"</code> and <code>"d"</code> modifiers for <code>mode</code> parameter.</li> </ul>
 	 * @param string $handler <p>The name of the handler which shall be used for accessing <code>path</code>. It is passed all optional parameters given to <b>dba_open()</b> and can act on behalf of them.</p>
-	 * @param string $_$args
+	 * @param string $args <p>Optional <code>string</code> parameters which are passed to the driver.</p> <p>The <code>cdb</code>, <code>cdb_make</code>, <code>flatfile</code>, <code>inifile</code>, <code>qdbm</code> and <code>tcadb</code> drivers do not support additional parameters.</p> <p>The <code>db1</code>, <code>db2</code>, <code>db3</code>, <code>db4</code>, <code>dbm</code>, <code>gdbm</code>, and <code>ndbm</code> drivers supports a single additional parameter <code>$filemode</code>, which has the same meaning as the <code>$mode</code> parameter of <code>chmod()</code>, and defaults to <code>0644</code>.</p> <p>The <code>lmdb</code> driver accepts two additional parameters. The first allows to specify the <code>$filemode</code> (see description above), and the second to specify the <code>$mapsize</code>, where the value should be a multiple of the page size of the OS, or zero, to use the default mapsize. The <code>$mapsize</code> parameter is supported as of PHP 7.3.14 and 7.4.2, respectively.</p>
 	 * @return resource|false <p>Returns a positive handle on success or <b><code>FALSE</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.dba-open.php
 	 * @see dba_popen(), dba_close()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function dba_open(string $path, string $mode, string $handler = NULL, string $_$args) {}
+	function dba_open(string $path, string $mode, string $handler = NULL, string ...$args) {}
 
 	/**
 	 * Optimize database
@@ -147,13 +147,13 @@ namespace {
 	 * @param string $path <p>Commonly a regular path in your filesystem.</p>
 	 * @param string $mode <p>It is <code>r</code> for read access, <code>w</code> for read/write access to an already existing database, <code>c</code> for read/write access and database creation if it doesn't currently exist, and <code>n</code> for create, truncate and read/write access.</p>
 	 * @param string $handler <p>The name of the handler which shall be used for accessing <code>path</code>. It is passed all optional parameters given to <b>dba_popen()</b> and can act on behalf of them.</p>
-	 * @param mixed $_$args
+	 * @param mixed $args <p>Optional <code>string</code> parameters which are passed to the driver.</p> <p>The <code>cdb</code>, <code>cdb_make</code>, <code>flatfile</code>, <code>inifile</code>, <code>qdbm</code> and <code>tcadb</code> drivers do not support additional parameters.</p> <p>The <code>db1</code>, <code>db2</code>, <code>db3</code>, <code>db4</code>, <code>dbm</code>, <code>gdbm</code>, and <code>ndbm</code> drivers supports a single additional parameter <code>$filemode</code>, which has the same meaning as the <code>$mode</code> parameter of <code>chmod()</code>, and defaults to <code>0644</code>.</p> <p>The <code>lmdb</code> driver accepts two additional parameters. The first allows to specify the <code>$filemode</code> (see description above), and the second to specify the <code>$mapsize</code>, where the value should be a multiple of the page size of the OS, or zero, to use the default mapsize. The <code>$mapsize</code> parameter is supported as of PHP 7.3.14 and 7.4.2, respectively.</p>
 	 * @return resource|false <p>Returns a positive handle on success or <b><code>FALSE</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.dba-popen.php
 	 * @see dba_open(), dba_close()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function dba_popen(string $path, string $mode, string $handler = NULL, $_$args) {}
+	function dba_popen(string $path, string $mode, string $handler = NULL, ...$args) {}
 
 	/**
 	 * Replace or insert entry

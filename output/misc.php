@@ -120,13 +120,13 @@ namespace {
 	 * Pack data into binary string
 	 * <p>Pack given arguments into a binary string according to <code>format</code>.</p><p>The idea for this function was taken from Perl and all formatting codes work the same as in Perl. However, there are some formatting codes that are missing such as Perl's "u" format code.</p><p>Note that the distinction between signed and unsigned values only affects the function <code>unpack()</code>, where as function <b>pack()</b> gives the same result for signed and unsigned format codes.</p>
 	 * @param string $format <p>The <code>format</code> string consists of format codes followed by an optional repeater argument. The repeater argument can be either an integer value or <code>&#42;</code> for repeating to the end of the input data. For a, A, h, H the repeat count specifies how many characters of one data argument are taken, for @ it is the absolute position where to put the next data, for everything else the repeat count specifies how many data arguments are consumed and packed into the resulting binary string.</p> <p>Currently implemented formats are:</p> <b><b>pack()</b> format characters</b>   Code Description     a NUL-padded string   A SPACE-padded string  h Hex string, low nibble first  H Hex string, high nibble first csigned char  C unsigned char  s signed short (always 16 bit, machine byte order)   S unsigned short (always 16 bit, machine byte order)   n unsigned short (always 16 bit, big endian byte order)   v unsigned short (always 16 bit, little endian byte order)   i signed integer (machine dependent size and byte order)   I unsigned integer (machine dependent size and byte order)   l signed long (always 32 bit, machine byte order)   L unsigned long (always 32 bit, machine byte order)   N unsigned long (always 32 bit, big endian byte order)   V unsigned long (always 32 bit, little endian byte order)   q signed long long (always 64 bit, machine byte order)   Q unsigned long long (always 64 bit, machine byte order)   J unsigned long long (always 64 bit, big endian byte order)   P unsigned long long (always 64 bit, little endian byte order)   f float (machine dependent size and representation)   g float (machine dependent size, little endian byte order)   G float (machine dependent size, big endian byte order)   d double (machine dependent size and representation)   e double (machine dependent size, little endian byte order)   E double (machine dependent size, big endian byte order)   x NUL byte   X Back up one byte   Z NUL-padded string (new in PHP 5.5)   @ NUL-fill to absolute position
-	 * @param mixed $_$values
+	 * @param mixed $values
 	 * @return string|false <p>Returns a binary string containing data, or <b><code>FALSE</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.pack.php
 	 * @see unpack()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function pack(string $format, $_$values) {}
+	function pack(string $format, ...$values) {}
 
 	/**
 	 * Return source with stripped comments and whitespace

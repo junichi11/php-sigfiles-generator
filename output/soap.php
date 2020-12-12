@@ -442,12 +442,12 @@ namespace {
 		 * Sets the class which handles SOAP requests
 		 * <p>Exports all methods from specified class.</p><p>The object can be made persistent across request for a given PHP session with the <code>SoapServer::setPersistence()</code> method.</p>
 		 * @param string $class_name <p>The name of the exported class.</p>
-		 * @param mixed $_$args
+		 * @param mixed $args <p>These optional parameters will be passed to the default class constructor during object creation.</p>
 		 * @return void <p>No value is returned.</p>
 		 * @link https://php.net/manual/en/soapserver.setclass.php
 		 * @since PHP 5, PHP 7
 		 */
-		public function setClass(string $class_name, $_$args): void {}
+		public function setClass(string $class_name, ...$args): void {}
 
 		/**
 		 * Sets the object which will be used to handle SOAP requests

@@ -112,12 +112,12 @@ namespace {
 		/**
 		 * Invoke luaclosure
 		 * <p></p><p>This function is currently not documented; only its argument list is available.</p>
-		 * @param mixed $_$args
+		 * @param mixed $args
 		 * @return void
 		 * @link https://php.net/manual/en/luaclosure.invoke.php
 		 * @since PECL lua >=0.9.0
 		 */
-		public function __invoke($_$args): void {}
+		public function __invoke(...$args): void {}
 	}
 
 }

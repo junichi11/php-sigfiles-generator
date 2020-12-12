@@ -507,12 +507,12 @@ namespace {
 		 * Synchronization
 		 * <p>Executes the block while retaining the referenced objects synchronization lock for the calling context</p>
 		 * @param \Closure $block <p>The block of code to execute</p>
-		 * @param mixed $_$args
+		 * @param mixed $args <p>Variable length list of arguments to use as function arguments to the block</p>
 		 * @return mixed <p>The return value from the block</p>
 		 * @link https://php.net/manual/en/threaded.synchronized.php
 		 * @since PECL pthreads >= 2.0.0
 		 */
-		public function synchronized(\Closure $block, $_$args) {}
+		public function synchronized(\Closure $block, ...$args) {}
 
 		/**
 		 * Synchronization
@@ -689,12 +689,12 @@ namespace {
 		 * Synchronization
 		 * <p>Executes the block while retaining the referenced objects synchronization lock for the calling context</p>
 		 * @param \Closure $block <p>The block of code to execute</p>
-		 * @param mixed $_$args
+		 * @param mixed $args <p>Variable length list of arguments to use as function arguments to the block</p>
 		 * @return mixed <p>The return value from the block</p>
 		 * @link https://php.net/manual/en/threaded.synchronized.php
 		 * @since PECL pthreads >= 2.0.0
 		 */
-		public function synchronized(\Closure $block, $_$args) {}
+		public function synchronized(\Closure $block, ...$args) {}
 
 		/**
 		 * Synchronization
@@ -870,12 +870,12 @@ namespace {
 		 * Synchronization
 		 * <p>Executes the block while retaining the referenced objects synchronization lock for the calling context</p>
 		 * @param \Closure $block <p>The block of code to execute</p>
-		 * @param mixed $_$args
+		 * @param mixed $args <p>Variable length list of arguments to use as function arguments to the block</p>
 		 * @return mixed <p>The return value from the block</p>
 		 * @link https://php.net/manual/en/threaded.synchronized.php
 		 * @since PECL pthreads >= 2.0.0
 		 */
-		public function synchronized(\Closure $block, $_$args) {}
+		public function synchronized(\Closure $block, ...$args) {}
 
 		/**
 		 * Synchronization

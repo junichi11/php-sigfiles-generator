@@ -49,12 +49,12 @@ namespace {
 		 * Binds and calls the closure
 		 * <p>Temporarily binds the closure to <code>newthis</code>, and calls it with any given parameters.</p>
 		 * @param object $newthis <p>The <code>object</code> to bind the closure to for the duration of the call.</p>
-		 * @param mixed $_$values
+		 * @param mixed $values <p>Zero or more parameters, which will be given as parameters to the closure.</p>
 		 * @return mixed <p>Returns the return value of the closure.</p>
 		 * @link https://php.net/manual/en/closure.call.php
 		 * @since PHP 7, PHP 8
 		 */
-		public function call(object $newthis, $_$values) {}
+		public function call(object $newthis, ...$values) {}
 
 		/**
 		 * Converts a callable into a closure

@@ -18,22 +18,22 @@ namespace {
 	 * Taint a string
 	 * <p>Make a string tainted. This is used for testing purpose only.</p>
 	 * @param string $string
-	 * @param string $_$strings
+	 * @param string $strings
 	 * @return bool <p>Return TRUE if the transformation is done. Always return TRUE if the taint extension is not enabled.</p>
 	 * @link https://php.net/manual/en/function.taint.php
 	 * @since PECL taint >=0.1.0
 	 */
-	function taint(string &$string, string $_$strings): bool {}
+	function taint(string &$string, string ...$strings): bool {}
 
 	/**
 	 * Untaint strings
 	 * <p>Untaint strings</p>
 	 * @param string $string
-	 * @param string $_$strings
+	 * @param string $strings
 	 * @return bool
 	 * @link https://php.net/manual/en/function.untaint.php
 	 * @since PECL taint >=0.1.0
 	 */
-	function untaint(string &$string, string $_$strings): bool {}
+	function untaint(string &$string, string ...$strings): bool {}
 
 }

@@ -520,12 +520,12 @@ namespace {
 		/**
 		 * Creates a new class instance from given arguments
 		 * <p>Creates a new instance of the class. The given arguments are passed to the class constructor.</p>
-		 * @param mixed $_$args
+		 * @param mixed $args <p>Accepts a variable number of arguments which are passed to the class constructor, much like <code>call_user_func()</code>.</p>
 		 * @return object
 		 * @link https://php.net/manual/en/reflectionclass.newinstance.php
 		 * @since PHP 5, PHP 7
 		 */
-		public function newInstance($_$args): object {}
+		public function newInstance(...$args): object {}
 
 		/**
 		 * Creates a new class instance from given arguments
@@ -1183,13 +1183,13 @@ namespace {
 		/**
 		 * Invokes function
 		 * <p>Invokes a reflected function.</p>
-		 * @param mixed $_$args
+		 * @param mixed $args <p>The passed in argument list. It accepts a variable number of arguments which are passed to the function much like <code>call_user_func()</code> is.</p>
 		 * @return mixed <p>Returns the result of the invoked function call.</p>
 		 * @link https://php.net/manual/en/reflectionfunction.invoke.php
 		 * @see call_user_func()
 		 * @since PHP 5, PHP 7
 		 */
-		public function invoke($_$args) {}
+		public function invoke(...$args) {}
 
 		/**
 		 * Invokes function args
@@ -1908,13 +1908,13 @@ namespace {
 		 * Invoke
 		 * <p>Invokes a reflected method.</p>
 		 * @param object $object <p>The object to invoke the method on. For static methods, pass <code>null</code> to this parameter.</p>
-		 * @param mixed $_$args
+		 * @param mixed $args <p>Zero or more parameters to be passed to the method. It accepts a variable number of parameters which are passed to the method.</p>
 		 * @return mixed <p>Returns the method result.</p>
 		 * @link https://php.net/manual/en/reflectionmethod.invoke.php
 		 * @see call_user_func()
 		 * @since PHP 5, PHP 7
 		 */
-		public function invoke(object $object, $_$args) {}
+		public function invoke(object $object, ...$args) {}
 
 		/**
 		 * Invoke args
@@ -2585,12 +2585,12 @@ namespace {
 		/**
 		 * Creates a new class instance from given arguments
 		 * <p>Creates a new instance of the class. The given arguments are passed to the class constructor.</p>
-		 * @param mixed $_$args
+		 * @param mixed $args <p>Accepts a variable number of arguments which are passed to the class constructor, much like <code>call_user_func()</code>.</p>
 		 * @return object
 		 * @link https://php.net/manual/en/reflectionclass.newinstance.php
 		 * @since PHP 5, PHP 7
 		 */
-		public function newInstance($_$args): object {}
+		public function newInstance(...$args): object {}
 
 		/**
 		 * Creates a new class instance from given arguments

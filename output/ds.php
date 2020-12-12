@@ -104,12 +104,12 @@ namespace Ds {
 		/**
 		 * Determines if the deque contains given values
 		 * <p>Determines if the deque contains all values.</p>
-		 * @param mixed $_$values
+		 * @param mixed $values <p>Values to check.</p>
 		 * @return bool <p><b><code>FALSE</code></b> if any of the provided <code>values</code> are not in the deque, <b><code>TRUE</code></b> otherwise.</p>
 		 * @link https://php.net/manual/en/ds-deque.contains.php
 		 * @since PECL ds >= 1.0.0
 		 */
-		public function contains($_$values): bool {}
+		public function contains(...$values): bool {}
 
 		/**
 		 * Returns a shallow copy of the deque
@@ -163,12 +163,12 @@ namespace Ds {
 		 * Inserts values at a given index
 		 * <p>Inserts values into the deque at a given index.</p>
 		 * @param int $index <p>The index at which to insert. <code>0 &lt;= index &lt;= count</code></p> <p><b>Note</b>:</p><p>You can insert at the index equal to the number of values.</p>
-		 * @param mixed $_$values
+		 * @param mixed $values <p>The value or values to insert.</p>
 		 * @return void <p>No value is returned.</p>
 		 * @link https://php.net/manual/en/ds-deque.insert.php
 		 * @since PECL ds >= 1.0.0
 		 */
-		public function insert(int $index, $_$values): void {}
+		public function insert(int $index, ...$values): void {}
 
 		/**
 		 * Returns whether the deque is empty
@@ -230,12 +230,12 @@ namespace Ds {
 		/**
 		 * Adds values to the end of the deque
 		 * <p>Adds values to the end of the deque.</p>
-		 * @param mixed $_$values
+		 * @param mixed $values <p>The values to add.</p>
 		 * @return void <p>No value is returned.</p>
 		 * @link https://php.net/manual/en/ds-deque.push.php
 		 * @since PECL ds >= 1.0.0
 		 */
-		public function push($_$values): void {}
+		public function push(...$values): void {}
 
 		/**
 		 * Reduces the deque to a single value using a callback function
@@ -989,12 +989,12 @@ namespace Ds {
 		/**
 		 * Pushes values into the queue
 		 * <p>Pushes <code>values</code> into the queue.</p>
-		 * @param mixed $_$values
+		 * @param mixed $values <p>The values to push into the queue.</p>
 		 * @return void <p>No value is returned.</p>
 		 * @link https://php.net/manual/en/ds-queue.push.php
 		 * @since PECL ds >= 1.0.0
 		 */
-		public function push($_$values): void {}
+		public function push(...$values): void {}
 
 		/**
 		 * Converts the queue to an array
@@ -1046,12 +1046,12 @@ namespace Ds {
 		/**
 		 * Determines if the sequence contains given values
 		 * <p>Determines if the sequence contains all values.</p>
-		 * @param mixed $_$values
+		 * @param mixed $values <p>Values to check.</p>
 		 * @return bool <p><b><code>FALSE</code></b> if any of the provided <code>values</code> are not in the sequence, <b><code>TRUE</code></b> otherwise.</p>
 		 * @link https://php.net/manual/en/ds-sequence.contains.php
 		 * @since PECL ds >= 1.0.0
 		 */
-		public function contains($_$values): bool;
+		public function contains(...$values): bool;
 
 		/**
 		 * Creates a new sequence using a callable to determine which values to include
@@ -1096,12 +1096,12 @@ namespace Ds {
 		 * Inserts values at a given index
 		 * <p>Inserts values into the sequence at a given index.</p>
 		 * @param int $index <p>The index at which to insert. <code>0 &lt;= index &lt;= count</code></p> <p><b>Note</b>:</p><p>You can insert at the index equal to the number of values.</p>
-		 * @param mixed $_$values
+		 * @param mixed $values <p>The value or values to insert.</p>
 		 * @return void <p>No value is returned.</p>
 		 * @link https://php.net/manual/en/ds-sequence.insert.php
 		 * @since PECL ds >= 1.0.0
 		 */
-		public function insert(int $index, $_$values): void;
+		public function insert(int $index, ...$values): void;
 
 		/**
 		 * Joins all values together as a string
@@ -1154,12 +1154,12 @@ namespace Ds {
 		/**
 		 * Adds values to the end of the sequence
 		 * <p>Adds values to the end of the sequence.</p>
-		 * @param mixed $_$values
+		 * @param mixed $values <p>The values to add.</p>
 		 * @return void <p>No value is returned.</p>
 		 * @link https://php.net/manual/en/ds-sequence.push.php
 		 * @since PECL ds >= 1.0.0
 		 */
-		public function push($_$values): void;
+		public function push(...$values): void;
 
 		/**
 		 * Reduces the sequence to a single value using a callback function
@@ -1297,12 +1297,12 @@ namespace Ds {
 		/**
 		 * Adds values to the set
 		 * <p>Adds all given values to the set that haven't already been added.</p><p><b>Note</b>:</p><p>Values of type <code>object</code> are supported. If an object implements <b>Ds\Hashable</b>, equality will be determined by the object's <code>equals</code> function. If an object does not implement <b>Ds\Hashable</b>, objects must be references to the same instance to be considered equal.</p><p>All comparisons are strict (type and value).</p>
-		 * @param mixed $_$values
+		 * @param mixed $values <p>Values to add to the set.</p>
 		 * @return void <p>No value is returned.</p>
 		 * @link https://php.net/manual/en/ds-set.add.php
 		 * @since PECL ds >= 1.0.0
 		 */
-		public function add($_$values): void {}
+		public function add(...$values): void {}
 
 		/**
 		 * Allocates enough memory for a required capacity
@@ -1335,12 +1335,12 @@ namespace Ds {
 		/**
 		 * Determines if the set contains all values
 		 * <p>Determines if the set contains all values.</p><p><b>Note</b>:</p><p>Values of type <code>object</code> are supported. If an object implements <b>Ds\Hashable</b>, equality will be determined by the object's <code>equals</code> function. If an object does not implement <b>Ds\Hashable</b>, objects must be references to the same instance to be considered equal.</p><p>All comparisons are strict (type and value).</p>
-		 * @param mixed $_$values
+		 * @param mixed $values <p>Values to check.</p>
 		 * @return bool <p><b><code>FALSE</code></b> if any of the provided <code>values</code> are not in the set, <b><code>TRUE</code></b> otherwise.</p>
 		 * @link https://php.net/manual/en/ds-set.contains.php
 		 * @since PECL ds >= 1.0.0
 		 */
-		public function contains($_$values): bool {}
+		public function contains(...$values): bool {}
 
 		/**
 		 * Returns a shallow copy of the set
@@ -1452,12 +1452,12 @@ namespace Ds {
 		/**
 		 * Removes all given values from the set
 		 * <p>Removes all given <code>values</code> from the set, ignoring any that are not in the set.</p>
-		 * @param mixed $_$values
+		 * @param mixed $values <p>The values to remove.</p>
 		 * @return void <p>No value is returned.</p>
 		 * @link https://php.net/manual/en/ds-set.remove.php
 		 * @since PECL ds >= 1.0.0
 		 */
-		public function remove($_$values): void {}
+		public function remove(...$values): void {}
 
 		/**
 		 * Reverses the set in-place
@@ -1622,12 +1622,12 @@ namespace Ds {
 		/**
 		 * Pushes values onto the stack
 		 * <p>Pushes <code>values</code> onto the stack.</p>
-		 * @param mixed $_$values
+		 * @param mixed $values <p>The values to push onto the stack.</p>
 		 * @return void <p>No value is returned.</p>
 		 * @link https://php.net/manual/en/ds-stack.push.php
 		 * @since PECL ds >= 1.0.0
 		 */
-		public function push($_$values): void {}
+		public function push(...$values): void {}
 
 		/**
 		 * Converts the stack to an array
@@ -1693,12 +1693,12 @@ namespace Ds {
 		/**
 		 * Determines if the vector contains given values
 		 * <p>Determines if the vector contains all values.</p>
-		 * @param mixed $_$values
+		 * @param mixed $values <p>Values to check.</p>
 		 * @return bool <p><b><code>FALSE</code></b> if any of the provided <code>values</code> are not in the vector, <b><code>TRUE</code></b> otherwise.</p>
 		 * @link https://php.net/manual/en/ds-vector.contains.php
 		 * @since PECL ds >= 1.0.0
 		 */
-		public function contains($_$values): bool {}
+		public function contains(...$values): bool {}
 
 		/**
 		 * Returns a shallow copy of the vector
@@ -1752,12 +1752,12 @@ namespace Ds {
 		 * Inserts values at a given index
 		 * <p>Inserts values into the vector at a given index.</p>
 		 * @param int $index <p>The index at which to insert. <code>0 &lt;= index &lt;= count</code></p> <p><b>Note</b>:</p><p>You can insert at the index equal to the number of values.</p>
-		 * @param mixed $_$values
+		 * @param mixed $values <p>The value or values to insert.</p>
 		 * @return void <p>No value is returned.</p>
 		 * @link https://php.net/manual/en/ds-vector.insert.php
 		 * @since PECL ds >= 1.0.0
 		 */
-		public function insert(int $index, $_$values): void {}
+		public function insert(int $index, ...$values): void {}
 
 		/**
 		 * Returns whether the vector is empty
@@ -1819,12 +1819,12 @@ namespace Ds {
 		/**
 		 * Adds values to the end of the vector
 		 * <p>Adds values to the end of the vector.</p>
-		 * @param mixed $_$values
+		 * @param mixed $values <p>The values to add.</p>
 		 * @return void <p>No value is returned.</p>
 		 * @link https://php.net/manual/en/ds-vector.push.php
 		 * @since PECL ds >= 1.0.0
 		 */
-		public function push($_$values): void {}
+		public function push(...$values): void {}
 
 		/**
 		 * Reduces the vector to a single value using a callback function
