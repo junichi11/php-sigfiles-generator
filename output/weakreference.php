@@ -40,7 +40,7 @@ namespace {
 		 * @link https://php.net/manual/en/weakreference.get.php
 		 * @since PHP 7 >= 7.4.0
 		 */
-		public function get() {}
+		public function get(): object|null {}
 	}
 
 }

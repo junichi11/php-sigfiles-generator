@@ -148,7 +148,7 @@ namespace {
 		 * @link https://php.net/manual/en/domnode.c14n.php
 		 * @since PHP 5 >= 5.2.0, PHP 7
 		 */
-		public function C14N(bool $exclusive = NULL, bool $with_comments = NULL, array $xpath = NULL, array $ns_prefixes = NULL) {}
+		public function C14N(bool $exclusive = NULL, bool $with_comments = NULL, array $xpath = NULL, array $ns_prefixes = NULL): string|false {}
 
 		/**
 		 * Canonicalize nodes to a file
@@ -162,7 +162,7 @@ namespace {
 		 * @link https://php.net/manual/en/domnode.c14nfile.php
 		 * @since PHP 5 >= 5.2.0, PHP 7
 		 */
-		public function C14NFile(string $uri, bool $exclusive = FALSE, bool $with_comments = FALSE, array $xpath = NULL, array $ns_prefixes = NULL) {}
+		public function C14NFile(string $uri, bool $exclusive = FALSE, bool $with_comments = FALSE, array $xpath = NULL, array $ns_prefixes = NULL): int|false {}
 
 		/**
 		 * Creates a new DOMAttr object
@@ -465,7 +465,7 @@ namespace {
 		 * @link https://php.net/manual/en/domnode.c14n.php
 		 * @since PHP 5 >= 5.2.0, PHP 7
 		 */
-		public function C14N(bool $exclusive = NULL, bool $with_comments = NULL, array $xpath = NULL, array $ns_prefixes = NULL) {}
+		public function C14N(bool $exclusive = NULL, bool $with_comments = NULL, array $xpath = NULL, array $ns_prefixes = NULL): string|false {}
 
 		/**
 		 * Canonicalize nodes to a file
@@ -479,7 +479,7 @@ namespace {
 		 * @link https://php.net/manual/en/domnode.c14nfile.php
 		 * @since PHP 5 >= 5.2.0, PHP 7
 		 */
-		public function C14NFile(string $uri, bool $exclusive = FALSE, bool $with_comments = FALSE, array $xpath = NULL, array $ns_prefixes = NULL) {}
+		public function C14NFile(string $uri, bool $exclusive = FALSE, bool $with_comments = FALSE, array $xpath = NULL, array $ns_prefixes = NULL): int|false {}
 
 		/**
 		 * Constructs a new DOMCdataSection object
@@ -848,7 +848,7 @@ namespace {
 		 * @link https://php.net/manual/en/domnode.c14n.php
 		 * @since PHP 5 >= 5.2.0, PHP 7
 		 */
-		public function C14N(bool $exclusive = NULL, bool $with_comments = NULL, array $xpath = NULL, array $ns_prefixes = NULL) {}
+		public function C14N(bool $exclusive = NULL, bool $with_comments = NULL, array $xpath = NULL, array $ns_prefixes = NULL): string|false {}
 
 		/**
 		 * Canonicalize nodes to a file
@@ -862,7 +862,7 @@ namespace {
 		 * @link https://php.net/manual/en/domnode.c14nfile.php
 		 * @since PHP 5 >= 5.2.0, PHP 7
 		 */
-		public function C14NFile(string $uri, bool $exclusive = FALSE, bool $with_comments = FALSE, array $xpath = NULL, array $ns_prefixes = NULL) {}
+		public function C14NFile(string $uri, bool $exclusive = FALSE, bool $with_comments = FALSE, array $xpath = NULL, array $ns_prefixes = NULL): int|false {}
 
 		/**
 		 * Adds new child at the end of the children
@@ -1194,7 +1194,7 @@ namespace {
 		 * @link https://php.net/manual/en/domnode.c14n.php
 		 * @since PHP 5 >= 5.2.0, PHP 7
 		 */
-		public function C14N(bool $exclusive = NULL, bool $with_comments = NULL, array $xpath = NULL, array $ns_prefixes = NULL) {}
+		public function C14N(bool $exclusive = NULL, bool $with_comments = NULL, array $xpath = NULL, array $ns_prefixes = NULL): string|false {}
 
 		/**
 		 * Canonicalize nodes to a file
@@ -1208,7 +1208,7 @@ namespace {
 		 * @link https://php.net/manual/en/domnode.c14nfile.php
 		 * @since PHP 5 >= 5.2.0, PHP 7
 		 */
-		public function C14NFile(string $uri, bool $exclusive = FALSE, bool $with_comments = FALSE, array $xpath = NULL, array $ns_prefixes = NULL) {}
+		public function C14NFile(string $uri, bool $exclusive = FALSE, bool $with_comments = FALSE, array $xpath = NULL, array $ns_prefixes = NULL): int|false {}
 
 		/**
 		 * Creates a new DOMComment object
@@ -1652,7 +1652,7 @@ namespace {
 		 * @link https://php.net/manual/en/domnode.c14n.php
 		 * @since PHP 5 >= 5.2.0, PHP 7
 		 */
-		public function C14N(bool $exclusive = NULL, bool $with_comments = NULL, array $xpath = NULL, array $ns_prefixes = NULL) {}
+		public function C14N(bool $exclusive = NULL, bool $with_comments = NULL, array $xpath = NULL, array $ns_prefixes = NULL): string|false {}
 
 		/**
 		 * Canonicalize nodes to a file
@@ -1666,7 +1666,7 @@ namespace {
 		 * @link https://php.net/manual/en/domnode.c14nfile.php
 		 * @since PHP 5 >= 5.2.0, PHP 7
 		 */
-		public function C14NFile(string $uri, bool $exclusive = FALSE, bool $with_comments = FALSE, array $xpath = NULL, array $ns_prefixes = NULL) {}
+		public function C14NFile(string $uri, bool $exclusive = FALSE, bool $with_comments = FALSE, array $xpath = NULL, array $ns_prefixes = NULL): int|false {}
 
 		/**
 		 * Creates a new DOMDocument object
@@ -1932,7 +1932,7 @@ namespace {
 		 * @link https://php.net/manual/en/domdocument.load.php
 		 * @since PHP 5, PHP 7
 		 */
-		public function load(string $filename, int $options = 0) {}
+		public function load(string $filename, int $options = 0): mixed {}
 
 		/**
 		 * Load HTML from a string
@@ -1965,7 +1965,7 @@ namespace {
 		 * @link https://php.net/manual/en/domdocument.loadxml.php
 		 * @since PHP 5, PHP 7
 		 */
-		public function loadXML(string $source, int $options = 0) {}
+		public function loadXML(string $source, int $options = 0): mixed {}
 
 		/**
 		 * Gets the namespace URI of the node based on the prefix
@@ -2254,7 +2254,7 @@ namespace {
 		 * @link https://php.net/manual/en/domnode.c14n.php
 		 * @since PHP 5 >= 5.2.0, PHP 7
 		 */
-		public function C14N(bool $exclusive = NULL, bool $with_comments = NULL, array $xpath = NULL, array $ns_prefixes = NULL) {}
+		public function C14N(bool $exclusive = NULL, bool $with_comments = NULL, array $xpath = NULL, array $ns_prefixes = NULL): string|false {}
 
 		/**
 		 * Canonicalize nodes to a file
@@ -2268,7 +2268,7 @@ namespace {
 		 * @link https://php.net/manual/en/domnode.c14nfile.php
 		 * @since PHP 5 >= 5.2.0, PHP 7
 		 */
-		public function C14NFile(string $uri, bool $exclusive = FALSE, bool $with_comments = FALSE, array $xpath = NULL, array $ns_prefixes = NULL) {}
+		public function C14NFile(string $uri, bool $exclusive = FALSE, bool $with_comments = FALSE, array $xpath = NULL, array $ns_prefixes = NULL): int|false {}
 
 		/**
 		 * Adds new child at the end of the children
@@ -2579,7 +2579,7 @@ namespace {
 		 * @link https://php.net/manual/en/domnode.c14n.php
 		 * @since PHP 5 >= 5.2.0, PHP 7
 		 */
-		public function C14N(bool $exclusive = NULL, bool $with_comments = NULL, array $xpath = NULL, array $ns_prefixes = NULL) {}
+		public function C14N(bool $exclusive = NULL, bool $with_comments = NULL, array $xpath = NULL, array $ns_prefixes = NULL): string|false {}
 
 		/**
 		 * Canonicalize nodes to a file
@@ -2593,7 +2593,7 @@ namespace {
 		 * @link https://php.net/manual/en/domnode.c14nfile.php
 		 * @since PHP 5 >= 5.2.0, PHP 7
 		 */
-		public function C14NFile(string $uri, bool $exclusive = FALSE, bool $with_comments = FALSE, array $xpath = NULL, array $ns_prefixes = NULL) {}
+		public function C14NFile(string $uri, bool $exclusive = FALSE, bool $with_comments = FALSE, array $xpath = NULL, array $ns_prefixes = NULL): int|false {}
 
 		/**
 		 * Adds new child at the end of the children
@@ -2869,7 +2869,7 @@ namespace {
 		 * @link https://php.net/manual/en/domnode.c14n.php
 		 * @since PHP 5 >= 5.2.0, PHP 7
 		 */
-		public function C14N(bool $exclusive = NULL, bool $with_comments = NULL, array $xpath = NULL, array $ns_prefixes = NULL) {}
+		public function C14N(bool $exclusive = NULL, bool $with_comments = NULL, array $xpath = NULL, array $ns_prefixes = NULL): string|false {}
 
 		/**
 		 * Canonicalize nodes to a file
@@ -2883,7 +2883,7 @@ namespace {
 		 * @link https://php.net/manual/en/domnode.c14nfile.php
 		 * @since PHP 5 >= 5.2.0, PHP 7
 		 */
-		public function C14NFile(string $uri, bool $exclusive = FALSE, bool $with_comments = FALSE, array $xpath = NULL, array $ns_prefixes = NULL) {}
+		public function C14NFile(string $uri, bool $exclusive = FALSE, bool $with_comments = FALSE, array $xpath = NULL, array $ns_prefixes = NULL): int|false {}
 
 		/**
 		 * Creates a new DOMElement object
@@ -3388,7 +3388,7 @@ namespace {
 		 * @link https://php.net/manual/en/domnode.c14n.php
 		 * @since PHP 5 >= 5.2.0, PHP 7
 		 */
-		public function C14N(bool $exclusive = NULL, bool $with_comments = NULL, array $xpath = NULL, array $ns_prefixes = NULL) {}
+		public function C14N(bool $exclusive = NULL, bool $with_comments = NULL, array $xpath = NULL, array $ns_prefixes = NULL): string|false {}
 
 		/**
 		 * Canonicalize nodes to a file
@@ -3402,7 +3402,7 @@ namespace {
 		 * @link https://php.net/manual/en/domnode.c14nfile.php
 		 * @since PHP 5 >= 5.2.0, PHP 7
 		 */
-		public function C14NFile(string $uri, bool $exclusive = FALSE, bool $with_comments = FALSE, array $xpath = NULL, array $ns_prefixes = NULL) {}
+		public function C14NFile(string $uri, bool $exclusive = FALSE, bool $with_comments = FALSE, array $xpath = NULL, array $ns_prefixes = NULL): int|false {}
 
 		/**
 		 * Adds new child at the end of the children
@@ -3666,7 +3666,7 @@ namespace {
 		 * @link https://php.net/manual/en/domnode.c14n.php
 		 * @since PHP 5 >= 5.2.0, PHP 7
 		 */
-		public function C14N(bool $exclusive = NULL, bool $with_comments = NULL, array $xpath = NULL, array $ns_prefixes = NULL) {}
+		public function C14N(bool $exclusive = NULL, bool $with_comments = NULL, array $xpath = NULL, array $ns_prefixes = NULL): string|false {}
 
 		/**
 		 * Canonicalize nodes to a file
@@ -3680,7 +3680,7 @@ namespace {
 		 * @link https://php.net/manual/en/domnode.c14nfile.php
 		 * @since PHP 5 >= 5.2.0, PHP 7
 		 */
-		public function C14NFile(string $uri, bool $exclusive = FALSE, bool $with_comments = FALSE, array $xpath = NULL, array $ns_prefixes = NULL) {}
+		public function C14NFile(string $uri, bool $exclusive = FALSE, bool $with_comments = FALSE, array $xpath = NULL, array $ns_prefixes = NULL): int|false {}
 
 		/**
 		 * Creates a new DOMEntityReference object
@@ -3898,7 +3898,7 @@ namespace {
 		 * @link https://php.net/manual/en/exception.getcode.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
-		final public function getCode() {}
+		final public function getCode(): mixed {}
 
 		/**
 		 * Gets the file in which the exception was created
@@ -4173,7 +4173,7 @@ namespace {
 		 * @link https://php.net/manual/en/domnode.c14n.php
 		 * @since PHP 5 >= 5.2.0, PHP 7
 		 */
-		public function C14N(bool $exclusive = NULL, bool $with_comments = NULL, array $xpath = NULL, array $ns_prefixes = NULL) {}
+		public function C14N(bool $exclusive = NULL, bool $with_comments = NULL, array $xpath = NULL, array $ns_prefixes = NULL): string|false {}
 
 		/**
 		 * Canonicalize nodes to a file
@@ -4187,7 +4187,7 @@ namespace {
 		 * @link https://php.net/manual/en/domnode.c14nfile.php
 		 * @since PHP 5 >= 5.2.0, PHP 7
 		 */
-		public function C14NFile(string $uri, bool $exclusive = FALSE, bool $with_comments = FALSE, array $xpath = NULL, array $ns_prefixes = NULL) {}
+		public function C14NFile(string $uri, bool $exclusive = FALSE, bool $with_comments = FALSE, array $xpath = NULL, array $ns_prefixes = NULL): int|false {}
 
 		/**
 		 * Adds new child at the end of the children
@@ -4495,7 +4495,7 @@ namespace {
 		 * @link https://php.net/manual/en/domnode.c14n.php
 		 * @since PHP 5 >= 5.2.0, PHP 7
 		 */
-		public function C14N(bool $exclusive = NULL, bool $with_comments = NULL, array $xpath = NULL, array $ns_prefixes = NULL) {}
+		public function C14N(bool $exclusive = NULL, bool $with_comments = NULL, array $xpath = NULL, array $ns_prefixes = NULL): string|false {}
 
 		/**
 		 * Canonicalize nodes to a file
@@ -4509,7 +4509,7 @@ namespace {
 		 * @link https://php.net/manual/en/domnode.c14nfile.php
 		 * @since PHP 5 >= 5.2.0, PHP 7
 		 */
-		public function C14NFile(string $uri, bool $exclusive = FALSE, bool $with_comments = FALSE, array $xpath = NULL, array $ns_prefixes = NULL) {}
+		public function C14NFile(string $uri, bool $exclusive = FALSE, bool $with_comments = FALSE, array $xpath = NULL, array $ns_prefixes = NULL): int|false {}
 
 		/**
 		 * Adds new child at the end of the children
@@ -4785,7 +4785,7 @@ namespace {
 		 * @link https://php.net/manual/en/domnode.c14n.php
 		 * @since PHP 5 >= 5.2.0, PHP 7
 		 */
-		public function C14N(bool $exclusive = NULL, bool $with_comments = NULL, array $xpath = NULL, array $ns_prefixes = NULL) {}
+		public function C14N(bool $exclusive = NULL, bool $with_comments = NULL, array $xpath = NULL, array $ns_prefixes = NULL): string|false {}
 
 		/**
 		 * Canonicalize nodes to a file
@@ -4799,7 +4799,7 @@ namespace {
 		 * @link https://php.net/manual/en/domnode.c14nfile.php
 		 * @since PHP 5 >= 5.2.0, PHP 7
 		 */
-		public function C14NFile(string $uri, bool $exclusive = FALSE, bool $with_comments = FALSE, array $xpath = NULL, array $ns_prefixes = NULL) {}
+		public function C14NFile(string $uri, bool $exclusive = FALSE, bool $with_comments = FALSE, array $xpath = NULL, array $ns_prefixes = NULL): int|false {}
 
 		/**
 		 * Creates a new DOMProcessingInstruction object
@@ -5093,7 +5093,7 @@ namespace {
 		 * @link https://php.net/manual/en/domnode.c14n.php
 		 * @since PHP 5 >= 5.2.0, PHP 7
 		 */
-		public function C14N(bool $exclusive = NULL, bool $with_comments = NULL, array $xpath = NULL, array $ns_prefixes = NULL) {}
+		public function C14N(bool $exclusive = NULL, bool $with_comments = NULL, array $xpath = NULL, array $ns_prefixes = NULL): string|false {}
 
 		/**
 		 * Canonicalize nodes to a file
@@ -5107,7 +5107,7 @@ namespace {
 		 * @link https://php.net/manual/en/domnode.c14nfile.php
 		 * @since PHP 5 >= 5.2.0, PHP 7
 		 */
-		public function C14NFile(string $uri, bool $exclusive = FALSE, bool $with_comments = FALSE, array $xpath = NULL, array $ns_prefixes = NULL) {}
+		public function C14NFile(string $uri, bool $exclusive = FALSE, bool $with_comments = FALSE, array $xpath = NULL, array $ns_prefixes = NULL): int|false {}
 
 		/**
 		 * Creates a new DOMText object
@@ -5383,7 +5383,7 @@ namespace {
 		 * @link https://php.net/manual/en/domxpath.evaluate.php
 		 * @since PHP 5 >= 5.1.0, PHP 7
 		 */
-		public function evaluate(string $expression, \DOMNode $contextnode = NULL, bool $registerNodeNS = TRUE) {}
+		public function evaluate(string $expression, \DOMNode $contextnode = NULL, bool $registerNodeNS = TRUE): mixed {}
 
 		/**
 		 * Evaluates the given XPath expression
@@ -5416,7 +5416,7 @@ namespace {
 		 * @link https://php.net/manual/en/domxpath.registerphpfunctions.php
 		 * @since PHP 5 >= 5.3.0, PHP 7
 		 */
-		public function registerPhpFunctions($restrict = NULL): void {}
+		public function registerPhpFunctions(mixed $restrict = NULL): void {}
 	}
 
 	/**

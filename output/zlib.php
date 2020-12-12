@@ -15,7 +15,7 @@ namespace {
 	 * @see deflate_init()
 	 * @since PHP 7
 	 */
-	function deflate_add(\DeflateContext $context, string $data, int $flush_mode = ZLIB_SYNC_FLUSH) {}
+	function deflate_add(\DeflateContext $context, string $data, int $flush_mode = ZLIB_SYNC_FLUSH): string|false {}
 
 	/**
 	 * Initialize an incremental deflate context
@@ -27,7 +27,7 @@ namespace {
 	 * @see deflate_add(), inflate_init()
 	 * @since PHP 7
 	 */
-	function deflate_init(int $encoding, array $options = []) {}
+	function deflate_init(int $encoding, array $options = []): \DeflateContext|false {}
 
 	/**
 	 * Close an open gz-file pointer
@@ -51,7 +51,7 @@ namespace {
 	 * @see gzdeflate(), gzinflate(), gzuncompress(), gzencode()
 	 * @since PHP 4 >= 4.0.1, PHP 5, PHP 7
 	 */
-	function gzcompress(string $data, int $level = -1, int $encoding = ZLIB_ENCODING_DEFLATE) {}
+	function gzcompress(string $data, int $level = -1, int $encoding = ZLIB_ENCODING_DEFLATE): string|false {}
 
 	/**
 	 * Decodes a gzip compressed string
@@ -63,7 +63,7 @@ namespace {
 	 * @see gzencode()
 	 * @since PHP 5 >= 5.4.0, PHP 7
 	 */
-	function gzdecode(string $data, int $max_length = 0) {}
+	function gzdecode(string $data, int $max_length = 0): string|false {}
 
 	/**
 	 * Deflate a string
@@ -76,7 +76,7 @@ namespace {
 	 * @see gzinflate(), gzcompress(), gzuncompress(), gzencode()
 	 * @since PHP 4 >= 4.0.4, PHP 5, PHP 7
 	 */
-	function gzdeflate(string $data, int $level = -1, int $encoding = ZLIB_ENCODING_RAW) {}
+	function gzdeflate(string $data, int $level = -1, int $encoding = ZLIB_ENCODING_RAW): string|false {}
 
 	/**
 	 * Create a gzip compressed string
@@ -89,7 +89,7 @@ namespace {
 	 * @see gzdecode(), gzdeflate(), gzinflate(), gzuncompress(), gzcompress()
 	 * @since PHP 4 >= 4.0.4, PHP 5, PHP 7
 	 */
-	function gzencode(string $data, int $level = -1, int $encoding = ZLIB_ENCODING_GZIP) {}
+	function gzencode(string $data, int $level = -1, int $encoding = ZLIB_ENCODING_GZIP): string|false {}
 
 	/**
 	 * Test for EOF on a gz-file pointer
@@ -111,7 +111,7 @@ namespace {
 	 * @see readgzfile(), gzopen()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function gzfile(string $filename, int $use_include_path = 0) {}
+	function gzfile(string $filename, int $use_include_path = 0): array|false {}
 
 	/**
 	 * Get character from gz-file pointer
@@ -122,7 +122,7 @@ namespace {
 	 * @see gzopen(), gzgets()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function gzgetc($stream) {}
+	function gzgetc($stream): string|false {}
 
 	/**
 	 * Get line from file pointer
@@ -134,7 +134,7 @@ namespace {
 	 * @see gzopen(), gzgetc(), gzwrite()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function gzgets($stream, int $length = 1024) {}
+	function gzgets($stream, int $length = 1024): string|false {}
 
 	/**
 	 * Get line from gz-file pointer and strip HTML tags
@@ -159,7 +159,7 @@ namespace {
 	 * @see gzdeflate(), gzcompress(), gzuncompress(), gzencode()
 	 * @since PHP 4 >= 4.0.4, PHP 5, PHP 7
 	 */
-	function gzinflate(string $data, int $max_length = 0) {}
+	function gzinflate(string $data, int $max_length = 0): string|false {}
 
 	/**
 	 * Open gz-file
@@ -172,7 +172,7 @@ namespace {
 	 * @see gzclose()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function gzopen(string $filename, string $mode, int $use_include_path = 0) {}
+	function gzopen(string $filename, string $mode, int $use_include_path = 0): resource|false {}
 
 	/**
 	 * Output all remaining data on a gz-file pointer
@@ -194,7 +194,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.gzputs.php
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function gzputs($stream, string $data, $length = NULL) {}
+	function gzputs($stream, string $data, int|null $length = NULL): int|false {}
 
 	/**
 	 * Binary-safe gz-file read
@@ -206,7 +206,7 @@ namespace {
 	 * @see gzwrite(), gzopen(), gzgets(), gzgetss(), gzfile(), gzpassthru()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function gzread($stream, int $length) {}
+	function gzread($stream, int $length): string|false {}
 
 	/**
 	 * Rewind the position of a gz-file pointer
@@ -241,7 +241,7 @@ namespace {
 	 * @see gzopen(), gzseek(), gzrewind()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function gztell($stream) {}
+	function gztell($stream): int|false {}
 
 	/**
 	 * Uncompress a compressed string
@@ -253,7 +253,7 @@ namespace {
 	 * @see gzcompress(), gzinflate(), gzdeflate(), gzencode()
 	 * @since PHP 4 >= 4.0.1, PHP 5, PHP 7
 	 */
-	function gzuncompress(string $data, int $max_length = 0) {}
+	function gzuncompress(string $data, int $max_length = 0): string|false {}
 
 	/**
 	 * Binary-safe gz-file write
@@ -266,7 +266,7 @@ namespace {
 	 * @see gzread(), gzopen()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function gzwrite($stream, string $data, $length = NULL) {}
+	function gzwrite($stream, string $data, int|null $length = NULL): int|false {}
 
 	/**
 	 * Incrementally inflate encoded data
@@ -279,7 +279,7 @@ namespace {
 	 * @see inflate_init()
 	 * @since PHP 7
 	 */
-	function inflate_add(\InflateContext $context, string $data, int $flush_mode = ZLIB_SYNC_FLUSH) {}
+	function inflate_add(\InflateContext $context, string $data, int $flush_mode = ZLIB_SYNC_FLUSH): string|false {}
 
 	/**
 	 * Get number of bytes read so far
@@ -311,7 +311,7 @@ namespace {
 	 * @see inflate_add(), deflate_init()
 	 * @since PHP 7
 	 */
-	function inflate_init(int $encoding, array $options = []) {}
+	function inflate_init(int $encoding, array $options = []): \InflateContext|false {}
 
 	/**
 	 * Output a gz-file
@@ -323,7 +323,7 @@ namespace {
 	 * @see gzpassthru(), gzfile(), gzopen()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function readgzfile(string $filename, int $use_include_path = 0) {}
+	function readgzfile(string $filename, int $use_include_path = 0): int|false {}
 
 	/**
 	 * Uncompress any raw/gzip/zlib encoded data
@@ -335,7 +335,7 @@ namespace {
 	 * @see zlib_encode()
 	 * @since PHP 5 >= 5.4.0, PHP 7
 	 */
-	function zlib_decode(string $data, int $max_length = 0) {}
+	function zlib_decode(string $data, int $max_length = 0): string|false {}
 
 	/**
 	 * Compress data with the specified encoding
@@ -348,7 +348,7 @@ namespace {
 	 * @see zlib_decode()
 	 * @since PHP 5 >= 5.4.0, PHP 7
 	 */
-	function zlib_encode(string $data, int $encoding, int $level = -1) {}
+	function zlib_encode(string $data, int $encoding, int $level = -1): string|false {}
 
 	/**
 	 * Returns the coding type used for output compression
@@ -357,7 +357,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.zlib-get-coding-type.php
 	 * @since PHP 4 >= 4.3.2, PHP 5, PHP 7
 	 */
-	function zlib_get_coding_type() {}
+	function zlib_get_coding_type(): string|false {}
 
 	define('FORCE_DEFLATE', 15);
 

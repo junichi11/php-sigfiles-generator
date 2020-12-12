@@ -18,7 +18,7 @@ namespace {
 		 * @link https://php.net/manual/en/oci-collection.append.php
 		 * @since PHP 5, PHP 7, PECL OCI8 >= 1.1.0
 		 */
-		public function append($value): bool {}
+		public function append(mixed $value): bool {}
 
 		/**
 		 * Assigns a value to the collection from another existing collection
@@ -39,7 +39,7 @@ namespace {
 		 * @link https://php.net/manual/en/oci-collection.assignelem.php
 		 * @since PHP 5, PHP 7, PECL OCI8 >= 1.1.0
 		 */
-		public function assignElem(int $index, $value): bool {}
+		public function assignElem(int $index, mixed $value): bool {}
 
 		/**
 		 * Frees the resources associated with the collection object
@@ -58,7 +58,7 @@ namespace {
 		 * @link https://php.net/manual/en/oci-collection.getelem.php
 		 * @since PHP 5, PHP 7, PECL OCI8 >= 1.1.0
 		 */
-		public function getElem(int $index) {}
+		public function getElem(int $index): mixed {}
 
 		/**
 		 * Returns the maximum number of elements in the collection

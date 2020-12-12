@@ -16,7 +16,7 @@ namespace {
 	 * @see eio_nop()
 	 * @since PECL eio >= 0.0.1dev
 	 */
-	function eio_busy(int $delay, int $pri = EIO_PRI_DEFAULT, callable $callback = NULL, $data = NULL) {}
+	function eio_busy(int $delay, int $pri = EIO_PRI_DEFAULT, callable $callback = NULL, mixed $data = NULL) {}
 
 	/**
 	 * Cancels a request
@@ -42,7 +42,7 @@ namespace {
 	 * @see eio_chown()
 	 * @since PECL eio >= 0.0.1dev
 	 */
-	function eio_chmod(string $path, int $mode, int $pri = EIO_PRI_DEFAULT, callable $callback = NULL, $data = NULL) {}
+	function eio_chmod(string $path, int $mode, int $pri = EIO_PRI_DEFAULT, callable $callback = NULL, mixed $data = NULL) {}
 
 	/**
 	 * Change file/directory permissions
@@ -58,7 +58,7 @@ namespace {
 	 * @see eio_chmod()
 	 * @since PECL eio >= 0.0.1dev
 	 */
-	function eio_chown(string $path, int $uid, int $gid = -1, int $pri = EIO_PRI_DEFAULT, callable $callback = NULL, $data = NULL) {}
+	function eio_chown(string $path, int $uid, int $gid = -1, int $pri = EIO_PRI_DEFAULT, callable $callback = NULL, mixed $data = NULL) {}
 
 	/**
 	 * Close file
@@ -72,7 +72,7 @@ namespace {
 	 * @see eio_open()
 	 * @since PECL eio >= 0.0.1dev
 	 */
-	function eio_close($fd, int $pri = EIO_PRI_DEFAULT, callable $callback = NULL, $data = NULL) {}
+	function eio_close(mixed $fd, int $pri = EIO_PRI_DEFAULT, callable $callback = NULL, mixed $data = NULL) {}
 
 	/**
 	 * Execute custom request like any other eio_&#42; call
@@ -85,7 +85,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.eio-custom.php
 	 * @since PECL eio >= 0.0.1dev
 	 */
-	function eio_custom(callable $execute, int $pri, callable $callback, $data = NULL) {}
+	function eio_custom(callable $execute, int $pri, callable $callback, mixed $data = NULL) {}
 
 	/**
 	 * Duplicate a file descriptor
@@ -99,7 +99,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.eio-dup2.php
 	 * @since PECL eio >= 0.0.1dev
 	 */
-	function eio_dup2($fd, $fd2, int $pri = EIO_PRI_DEFAULT, callable $callback = NULL, $data = NULL) {}
+	function eio_dup2(mixed $fd, mixed $fd2, int $pri = EIO_PRI_DEFAULT, callable $callback = NULL, mixed $data = NULL) {}
 
 	/**
 	 * Polls libeio until all requests proceeded
@@ -125,7 +125,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.eio-fallocate.php
 	 * @since PECL eio >= 0.0.1dev
 	 */
-	function eio_fallocate($fd, int $mode, int $offset, int $length, int $pri = EIO_PRI_DEFAULT, callable $callback = NULL, $data = NULL) {}
+	function eio_fallocate(mixed $fd, int $mode, int $offset, int $length, int $pri = EIO_PRI_DEFAULT, callable $callback = NULL, mixed $data = NULL) {}
 
 	/**
 	 * Change file permissions
@@ -140,7 +140,7 @@ namespace {
 	 * @see eio_fchown()
 	 * @since PECL eio >= 0.0.1dev
 	 */
-	function eio_fchmod($fd, int $mode, int $pri = EIO_PRI_DEFAULT, callable $callback = NULL, $data = NULL) {}
+	function eio_fchmod(mixed $fd, int $mode, int $pri = EIO_PRI_DEFAULT, callable $callback = NULL, mixed $data = NULL) {}
 
 	/**
 	 * Change file ownership
@@ -156,7 +156,7 @@ namespace {
 	 * @see eio_fchmod()
 	 * @since PECL eio >= 0.0.1dev
 	 */
-	function eio_fchown($fd, int $uid, int $gid = -1, int $pri = EIO_PRI_DEFAULT, callable $callback = NULL, $data = NULL) {}
+	function eio_fchown(mixed $fd, int $uid, int $gid = -1, int $pri = EIO_PRI_DEFAULT, callable $callback = NULL, mixed $data = NULL) {}
 
 	/**
 	 * Synchronize a file's in-core state with storage device
@@ -169,7 +169,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.eio-fdatasync.php
 	 * @since PECL eio >= 0.0.1dev
 	 */
-	function eio_fdatasync($fd, int $pri = EIO_PRI_DEFAULT, callable $callback = NULL, $data = NULL) {}
+	function eio_fdatasync(mixed $fd, int $pri = EIO_PRI_DEFAULT, callable $callback = NULL, mixed $data = NULL) {}
 
 	/**
 	 * Get file status
@@ -183,7 +183,7 @@ namespace {
 	 * @see eio_lstat(), eio_stat()
 	 * @since PECL eio >= 0.0.1dev
 	 */
-	function eio_fstat($fd, int $pri, callable $callback, $data = NULL) {}
+	function eio_fstat(mixed $fd, int $pri, callable $callback, mixed $data = NULL) {}
 
 	/**
 	 * Get file system statistics
@@ -197,7 +197,7 @@ namespace {
 	 * @see eio_statvfs()
 	 * @since PECL eio >= 0.0.1dev
 	 */
-	function eio_fstatvfs($fd, int $pri, callable $callback, $data = NULL) {}
+	function eio_fstatvfs(mixed $fd, int $pri, callable $callback, mixed $data = NULL) {}
 
 	/**
 	 * Synchronize a file's in-core state with storage device
@@ -211,7 +211,7 @@ namespace {
 	 * @see eio_sync()
 	 * @since PECL eio >= 0.0.1dev
 	 */
-	function eio_fsync($fd, int $pri = EIO_PRI_DEFAULT, callable $callback = NULL, $data = NULL) {}
+	function eio_fsync(mixed $fd, int $pri = EIO_PRI_DEFAULT, callable $callback = NULL, mixed $data = NULL) {}
 
 	/**
 	 * Truncate a file
@@ -226,7 +226,7 @@ namespace {
 	 * @see eio_truncate()
 	 * @since PECL eio >= 0.0.1dev
 	 */
-	function eio_ftruncate($fd, int $offset = 0, int $pri = EIO_PRI_DEFAULT, callable $callback = NULL, $data = NULL) {}
+	function eio_ftruncate(mixed $fd, int $offset = 0, int $pri = EIO_PRI_DEFAULT, callable $callback = NULL, mixed $data = NULL) {}
 
 	/**
 	 * Change file last access and modification times
@@ -242,7 +242,7 @@ namespace {
 	 * @see eio_utime()
 	 * @since PECL eio >= 0.0.1dev
 	 */
-	function eio_futime($fd, float $atime, float $mtime, int $pri = EIO_PRI_DEFAULT, callable $callback = NULL, $data = NULL) {}
+	function eio_futime(mixed $fd, float $atime, float $mtime, int $pri = EIO_PRI_DEFAULT, callable $callback = NULL, mixed $data = NULL) {}
 
 	/**
 	 * Get stream representing a variable used in internal communications with libeio
@@ -251,7 +251,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.eio-get-event-stream.php
 	 * @since PECL eio >= 0.3.1b
 	 */
-	function eio_get_event_stream() {}
+	function eio_get_event_stream(): mixed {}
 
 	/**
 	 * Returns string describing the last error associated with a request resource
@@ -332,7 +332,7 @@ namespace {
 	 * @see eio_symlink()
 	 * @since PECL eio >= 0.0.1dev
 	 */
-	function eio_link(string $path, string $new_path, int $pri = EIO_PRI_DEFAULT, callable $callback = NULL, $data = NULL) {}
+	function eio_link(string $path, string $new_path, int $pri = EIO_PRI_DEFAULT, callable $callback = NULL, mixed $data = NULL) {}
 
 	/**
 	 * Get file status
@@ -346,7 +346,7 @@ namespace {
 	 * @see eio_stat(), eio_fstat()
 	 * @since PECL eio >= 0.0.1dev
 	 */
-	function eio_lstat(string $path, int $pri, callable $callback, $data = NULL) {}
+	function eio_lstat(string $path, int $pri, callable $callback, mixed $data = NULL) {}
 
 	/**
 	 * Create directory
@@ -361,7 +361,7 @@ namespace {
 	 * @see eio_rmdir()
 	 * @since PECL eio >= 0.0.1dev
 	 */
-	function eio_mkdir(string $path, int $mode, int $pri = EIO_PRI_DEFAULT, callable $callback = NULL, $data = NULL) {}
+	function eio_mkdir(string $path, int $mode, int $pri = EIO_PRI_DEFAULT, callable $callback = NULL, mixed $data = NULL) {}
 
 	/**
 	 * Create a special or ordinary file
@@ -377,7 +377,7 @@ namespace {
 	 * @see eio_open()
 	 * @since PECL eio >= 0.0.1dev
 	 */
-	function eio_mknod(string $path, int $mode, int $dev, int $pri = EIO_PRI_DEFAULT, callable $callback = NULL, $data = NULL) {}
+	function eio_mknod(string $path, int $mode, int $dev, int $pri = EIO_PRI_DEFAULT, callable $callback = NULL, mixed $data = NULL) {}
 
 	/**
 	 * Does nothing, except go through the whole request cycle
@@ -390,7 +390,7 @@ namespace {
 	 * @see eio_busy()
 	 * @since PECL eio >= 0.0.1dev
 	 */
-	function eio_nop(int $pri = EIO_PRI_DEFAULT, callable $callback = NULL, $data = NULL) {}
+	function eio_nop(int $pri = EIO_PRI_DEFAULT, callable $callback = NULL, mixed $data = NULL) {}
 
 	/**
 	 * Returns number of finished, but unhandled requests
@@ -444,7 +444,7 @@ namespace {
 	 * @see eio_mknod()
 	 * @since PECL eio >= 0.0.1dev
 	 */
-	function eio_open(string $path, int $flags, int $mode, int $pri, callable $callback, $data = NULL) {}
+	function eio_open(string $path, int $flags, int $mode, int $pri, callable $callback, mixed $data = NULL) {}
 
 	/**
 	 * Can be to be called whenever there are pending requests that need finishing
@@ -470,7 +470,7 @@ namespace {
 	 * @see eio_open(), eio_write(), eio_close(), eio_event_loop()
 	 * @since PECL eio >= 0.0.1dev
 	 */
-	function eio_read($fd, int $length, int $offset, int $pri, callable $callback, $data = NULL) {}
+	function eio_read(mixed $fd, int $length, int $offset, int $pri, callable $callback, mixed $data = NULL) {}
 
 	/**
 	 * Perform file readahead into page cache
@@ -485,7 +485,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.eio-readahead.php
 	 * @since PECL eio >= 0.0.1dev
 	 */
-	function eio_readahead($fd, int $offset, int $length, int $pri = EIO_PRI_DEFAULT, callable $callback = NULL, $data = NULL) {}
+	function eio_readahead(mixed $fd, int $offset, int $length, int $pri = EIO_PRI_DEFAULT, callable $callback = NULL, mixed $data = NULL) {}
 
 	/**
 	 * Reads through a whole directory
@@ -539,7 +539,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.eio-rename.php
 	 * @since PECL eio >= 0.0.1dev
 	 */
-	function eio_rename(string $path, string $new_path, int $pri = EIO_PRI_DEFAULT, callable $callback = NULL, $data = NULL) {}
+	function eio_rename(string $path, string $new_path, int $pri = EIO_PRI_DEFAULT, callable $callback = NULL, mixed $data = NULL) {}
 
 	/**
 	 * Remove a directory
@@ -553,7 +553,7 @@ namespace {
 	 * @see eio_mkdir()
 	 * @since PECL eio >= 0.0.1dev
 	 */
-	function eio_rmdir(string $path, int $pri = EIO_PRI_DEFAULT, callable $callback = NULL, $data = NULL) {}
+	function eio_rmdir(string $path, int $pri = EIO_PRI_DEFAULT, callable $callback = NULL, mixed $data = NULL) {}
 
 	/**
 	 * Repositions the offset of the open file associated with the fd argument to the argument offset according to the directive whence
@@ -568,7 +568,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.eio-seek.php
 	 * @since PECL eio >= 0.5.0b
 	 */
-	function eio_seek($fd, int $offset, int $whence, int $pri = EIO_PRI_DEFAULT, callable $callback = NULL, $data = NULL) {}
+	function eio_seek(mixed $fd, int $offset, int $whence, int $pri = EIO_PRI_DEFAULT, callable $callback = NULL, mixed $data = NULL) {}
 
 	/**
 	 * Transfer data between file descriptors
@@ -584,7 +584,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.eio-sendfile.php
 	 * @since PECL eio >= 0.0.1dev
 	 */
-	function eio_sendfile($out_fd, $in_fd, int $offset, int $length, int $pri = NULL, callable $callback = NULL, string $data = NULL) {}
+	function eio_sendfile(mixed $out_fd, mixed $in_fd, int $offset, int $length, int $pri = NULL, callable $callback = NULL, string $data = NULL) {}
 
 	/**
 	 * Set maximum number of idle threads
@@ -647,7 +647,7 @@ namespace {
 	 * @see eio_lstat(), eio_fstat()
 	 * @since PECL eio >= 0.0.1dev
 	 */
-	function eio_stat(string $path, int $pri, callable $callback, $data = NULL) {}
+	function eio_stat(string $path, int $pri, callable $callback, mixed $data = NULL) {}
 
 	/**
 	 * Get file system statistics
@@ -660,7 +660,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.eio-statvfs.php
 	 * @since PECL eio >= 0.0.1dev
 	 */
-	function eio_statvfs(string $path, int $pri, callable $callback, $data = NULL) {}
+	function eio_statvfs(string $path, int $pri, callable $callback, mixed $data = NULL) {}
 
 	/**
 	 * Create a symbolic link
@@ -675,7 +675,7 @@ namespace {
 	 * @see eio_link()
 	 * @since PECL eio >= 0.0.1dev
 	 */
-	function eio_symlink(string $path, string $new_path, int $pri = EIO_PRI_DEFAULT, callable $callback = NULL, $data = NULL) {}
+	function eio_symlink(string $path, string $new_path, int $pri = EIO_PRI_DEFAULT, callable $callback = NULL, mixed $data = NULL) {}
 
 	/**
 	 * Commit buffer cache to disk
@@ -686,7 +686,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.eio-sync.php
 	 * @since PECL eio >= 0.0.1dev
 	 */
-	function eio_sync(int $pri = EIO_PRI_DEFAULT, callable $callback = NULL, $data = NULL) {}
+	function eio_sync(int $pri = EIO_PRI_DEFAULT, callable $callback = NULL, mixed $data = NULL) {}
 
 	/**
 	 * Sync a file segment with disk
@@ -702,7 +702,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.eio-sync-file-range.php
 	 * @since PECL eio >= 0.0.1dev
 	 */
-	function eio_sync_file_range($fd, int $offset, int $nbytes, int $flags, int $pri = EIO_PRI_DEFAULT, callable $callback = NULL, $data = NULL) {}
+	function eio_sync_file_range(mixed $fd, int $offset, int $nbytes, int $flags, int $pri = EIO_PRI_DEFAULT, callable $callback = NULL, mixed $data = NULL) {}
 
 	/**
 	 * Calls Linux' syncfs syscall, if available
@@ -714,7 +714,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.eio-syncfs.php
 	 * @since PECL eio >= 0.0.1dev
 	 */
-	function eio_syncfs($fd, int $pri = EIO_PRI_DEFAULT, callable $callback = NULL, $data = NULL) {}
+	function eio_syncfs(mixed $fd, int $pri = EIO_PRI_DEFAULT, callable $callback = NULL, mixed $data = NULL) {}
 
 	/**
 	 * Truncate a file
@@ -729,7 +729,7 @@ namespace {
 	 * @see eio_ftruncate()
 	 * @since PECL eio >= 0.0.1dev
 	 */
-	function eio_truncate(string $path, int $offset = 0, int $pri = EIO_PRI_DEFAULT, callable $callback = NULL, $data = NULL) {}
+	function eio_truncate(string $path, int $offset = 0, int $pri = EIO_PRI_DEFAULT, callable $callback = NULL, mixed $data = NULL) {}
 
 	/**
 	 * Delete a name and possibly the file it refers to
@@ -742,7 +742,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.eio-unlink.php
 	 * @since PECL eio >= 0.0.1dev
 	 */
-	function eio_unlink(string $path, int $pri = EIO_PRI_DEFAULT, callable $callback = NULL, $data = NULL) {}
+	function eio_unlink(string $path, int $pri = EIO_PRI_DEFAULT, callable $callback = NULL, mixed $data = NULL) {}
 
 	/**
 	 * Change file last access and modification times
@@ -757,7 +757,7 @@ namespace {
 	 * @see eio_futime()
 	 * @since PECL eio >= 0.0.1dev
 	 */
-	function eio_utime(string $path, float $atime, float $mtime, int $pri = EIO_PRI_DEFAULT, callable $callback = NULL, $data = NULL) {}
+	function eio_utime(string $path, float $atime, float $mtime, int $pri = EIO_PRI_DEFAULT, callable $callback = NULL, mixed $data = NULL) {}
 
 	/**
 	 * Write to file
@@ -774,7 +774,7 @@ namespace {
 	 * @see eio_open()
 	 * @since PECL eio >= 0.0.1dev
 	 */
-	function eio_write($fd, string $str, int $length = 0, int $offset = 0, int $pri = EIO_PRI_DEFAULT, callable $callback = NULL, $data = NULL) {}
+	function eio_write(mixed $fd, string $str, int $length = 0, int $offset = 0, int $pri = EIO_PRI_DEFAULT, callable $callback = NULL, mixed $data = NULL) {}
 
 	/**
 	 * Node type

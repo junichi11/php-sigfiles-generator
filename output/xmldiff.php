@@ -30,7 +30,7 @@ namespace XMLDiff {
 		 * @link https://php.net/manual/en/xmldiff-base.diff.php
 		 * @since PECL xmldiff >= 0.8.0
 		 */
-		abstract public function diff($from, $to);
+		abstract public function diff(mixed $from, mixed $to): mixed;
 
 		/**
 		 * Produce new XML document based on diff
@@ -41,7 +41,7 @@ namespace XMLDiff {
 		 * @link https://php.net/manual/en/xmldiff-base.merge.php
 		 * @since PECL xmldiff >= 0.8.0
 		 */
-		abstract public function merge($src, $diff);
+		abstract public function merge(mixed $src, mixed $diff): mixed;
 	}
 
 	/**

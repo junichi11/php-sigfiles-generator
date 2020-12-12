@@ -91,7 +91,7 @@ namespace {
 		 * @link https://php.net/manual/en/judy.first.php
 		 * @since PECL judy >= 0.1.1
 		 */
-		public function first($index = NULL) {}
+		public function first(mixed $index = NULL): mixed {}
 
 		/**
 		 * Search for the first absent index in the Judy array
@@ -101,7 +101,7 @@ namespace {
 		 * @link https://php.net/manual/en/judy.firstempty.php
 		 * @since PECL judy >= 0.1.1
 		 */
-		public function firstEmpty($index = 0): int {}
+		public function firstEmpty(mixed $index = 0): int {}
 
 		/**
 		 * Free the entire Judy array
@@ -158,7 +158,7 @@ namespace {
 		 * @link https://php.net/manual/en/judy.next.php
 		 * @since PECL judy >= 0.1.1
 		 */
-		public function next($index) {}
+		public function next(mixed $index): mixed {}
 
 		/**
 		 * Search for the next absent index in the Judy array
@@ -178,7 +178,7 @@ namespace {
 		 * @link https://php.net/manual/en/judy.offsetexists.php
 		 * @since PECL judy >= 0.1.1
 		 */
-		public function offsetExists($offset): bool {}
+		public function offsetExists(mixed $offset): bool {}
 
 		/**
 		 * Offset to retrieve
@@ -188,7 +188,7 @@ namespace {
 		 * @link https://php.net/manual/en/judy.offsetget.php
 		 * @since PECL judy >= 0.1.1
 		 */
-		public function offsetGet($offset) {}
+		public function offsetGet(mixed $offset): mixed {}
 
 		/**
 		 * Offset to set
@@ -199,7 +199,7 @@ namespace {
 		 * @link https://php.net/manual/en/judy.offsetset.php
 		 * @since PECL judy >= 0.1.1
 		 */
-		public function offsetSet($offset, $value): bool {}
+		public function offsetSet(mixed $offset, mixed $value): bool {}
 
 		/**
 		 * Offset to unset
@@ -209,7 +209,7 @@ namespace {
 		 * @link https://php.net/manual/en/judy.offsetunset.php
 		 * @since PECL judy >= 0.1.1
 		 */
-		public function offsetUnset($offset): bool {}
+		public function offsetUnset(mixed $offset): bool {}
 
 		/**
 		 * Search for the previous index in the Judy array
@@ -219,7 +219,7 @@ namespace {
 		 * @link https://php.net/manual/en/judy.prev.php
 		 * @since PECL judy >= 0.1.1
 		 */
-		public function prev($index) {}
+		public function prev(mixed $index): mixed {}
 
 		/**
 		 * Search for the previous absent index in the Judy array
@@ -229,7 +229,7 @@ namespace {
 		 * @link https://php.net/manual/en/judy.prevempty.php
 		 * @since PECL judy >= 0.1.1
 		 */
-		public function prevEmpty($index): int {}
+		public function prevEmpty(mixed $index): int {}
 
 		/**
 		 * Return the size of the current Judy array

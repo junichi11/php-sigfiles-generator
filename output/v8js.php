@@ -53,7 +53,7 @@ namespace {
 		 * @link https://php.net/manual/en/v8js.executestring.php
 		 * @since PECL v8js >= 0.1.0
 		 */
-		public function executeString(string $script, string $identifier = "V8Js::executeString()", int $flags = V8Js::FLAG_NONE) {}
+		public function executeString(string $script, string $identifier = "V8Js::executeString()", int $flags = V8Js::FLAG_NONE): mixed {}
 
 		/**
 		 * Return an array of registered extensions
@@ -166,7 +166,7 @@ namespace {
 		 * @link https://php.net/manual/en/exception.getcode.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
-		final public function getCode() {}
+		final public function getCode(): mixed {}
 
 		/**
 		 * Gets the file in which the exception was created

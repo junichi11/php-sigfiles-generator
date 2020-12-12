@@ -27,7 +27,7 @@ namespace {
 		 * @link https://php.net/manual/en/generator.current.php
 		 * @since PHP 5 >= 5.5.0, PHP 7, PHP 8
 		 */
-		public function current() {}
+		public function current(): mixed {}
 
 		/**
 		 * Get the return value of a generator
@@ -35,7 +35,7 @@ namespace {
 		 * @link https://php.net/manual/en/generator.getreturn.php
 		 * @since PHP 7, PHP 8
 		 */
-		public function getReturn() {}
+		public function getReturn(): mixed {}
 
 		/**
 		 * Get the yielded key
@@ -44,7 +44,7 @@ namespace {
 		 * @link https://php.net/manual/en/generator.key.php
 		 * @since PHP 5 >= 5.5.0, PHP 7, PHP 8
 		 */
-		public function key() {}
+		public function key(): mixed {}
 
 		/**
 		 * Resume execution of the generator
@@ -72,7 +72,7 @@ namespace {
 		 * @link https://php.net/manual/en/generator.send.php
 		 * @since PHP 5 >= 5.5.0, PHP 7, PHP 8
 		 */
-		public function send($value) {}
+		public function send(mixed $value): mixed {}
 
 		/**
 		 * Throw an exception into the generator
@@ -82,7 +82,7 @@ namespace {
 		 * @link https://php.net/manual/en/generator.throw.php
 		 * @since PHP 5 >= 5.5.0, PHP 7, PHP 8
 		 */
-		public function throw(\Throwable $exception) {}
+		public function throw(\Throwable $exception): mixed {}
 
 		/**
 		 * Check if the iterator has been closed

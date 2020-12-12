@@ -37,7 +37,7 @@ namespace {
 		 * @link https://php.net/manual/en/appenditerator.current.php
 		 * @since PHP 5 >= 5.1.0, PHP 7
 		 */
-		public function current() {}
+		public function current(): mixed {}
 
 		/**
 		 * Gets the ArrayIterator
@@ -132,7 +132,7 @@ namespace {
 		 * @link https://php.net/manual/en/arrayiterator.construct.php
 		 * @since PHP 5, PHP 7
 		 */
-		public function __construct($array = array(), int $flags = 0) {}
+		public function __construct(mixed $array = array(), int $flags = 0) {}
 
 		/**
 		 * Append an element
@@ -142,7 +142,7 @@ namespace {
 		 * @link https://php.net/manual/en/arrayiterator.append.php
 		 * @since PHP 5, PHP 7
 		 */
-		public function append($value): void {}
+		public function append(mixed $value): void {}
 
 		/**
 		 * Sort array by values
@@ -169,7 +169,7 @@ namespace {
 		 * @link https://php.net/manual/en/arrayiterator.current.php
 		 * @since PHP 5, PHP 7
 		 */
-		public function current() {}
+		public function current(): mixed {}
 
 		/**
 		 * Get array copy
@@ -196,7 +196,7 @@ namespace {
 		 * @link https://php.net/manual/en/arrayiterator.key.php
 		 * @since PHP 5, PHP 7
 		 */
-		public function key() {}
+		public function key(): mixed {}
 
 		/**
 		 * Sort array by keys
@@ -244,7 +244,7 @@ namespace {
 		 * @link https://php.net/manual/en/arrayiterator.offsetexists.php
 		 * @since PHP 5, PHP 7
 		 */
-		public function offsetExists($index): bool {}
+		public function offsetExists(mixed $index): bool {}
 
 		/**
 		 * Get value for an offset
@@ -254,7 +254,7 @@ namespace {
 		 * @link https://php.net/manual/en/arrayiterator.offsetget.php
 		 * @since PHP 5, PHP 7
 		 */
-		public function offsetGet($index) {}
+		public function offsetGet(mixed $index): mixed {}
 
 		/**
 		 * Set value for an offset
@@ -265,7 +265,7 @@ namespace {
 		 * @link https://php.net/manual/en/arrayiterator.offsetset.php
 		 * @since PHP 5, PHP 7
 		 */
-		public function offsetSet($index, $newval): void {}
+		public function offsetSet(mixed $index, mixed $newval): void {}
 
 		/**
 		 * Unset value for an offset
@@ -275,7 +275,7 @@ namespace {
 		 * @link https://php.net/manual/en/arrayiterator.offsetunset.php
 		 * @since PHP 5, PHP 7
 		 */
-		public function offsetUnset($index): void {}
+		public function offsetUnset(mixed $index): void {}
 
 		/**
 		 * Rewind array back to the start
@@ -386,7 +386,7 @@ namespace {
 		 * @link https://php.net/manual/en/arrayobject.construct.php
 		 * @since PHP 5, PHP 7
 		 */
-		public function __construct($input = array(), int $flags = 0, string $iterator_class = "ArrayIterator") {}
+		public function __construct(mixed $input = array(), int $flags = 0, string $iterator_class = "ArrayIterator") {}
 
 		/**
 		 * Appends the value
@@ -396,7 +396,7 @@ namespace {
 		 * @link https://php.net/manual/en/arrayobject.append.php
 		 * @since PHP 5, PHP 7
 		 */
-		public function append($value): void {}
+		public function append(mixed $value): void {}
 
 		/**
 		 * Sort the entries by value
@@ -424,7 +424,7 @@ namespace {
 		 * @link https://php.net/manual/en/arrayobject.exchangearray.php
 		 * @since PHP 5 >= 5.1.0, PHP 7
 		 */
-		public function exchangeArray($input): array {}
+		public function exchangeArray(mixed $input): array {}
 
 		/**
 		 * Creates a copy of the ArrayObject
@@ -496,7 +496,7 @@ namespace {
 		 * @link https://php.net/manual/en/arrayobject.offsetexists.php
 		 * @since PHP 5, PHP 7
 		 */
-		public function offsetExists($index): bool {}
+		public function offsetExists(mixed $index): bool {}
 
 		/**
 		 * Returns the value at the specified index
@@ -505,7 +505,7 @@ namespace {
 		 * @link https://php.net/manual/en/arrayobject.offsetget.php
 		 * @since PHP 5, PHP 7
 		 */
-		public function offsetGet($index) {}
+		public function offsetGet(mixed $index): mixed {}
 
 		/**
 		 * Sets the value at the specified index to newval
@@ -516,7 +516,7 @@ namespace {
 		 * @link https://php.net/manual/en/arrayobject.offsetset.php
 		 * @since PHP 5, PHP 7
 		 */
-		public function offsetSet($index, $newval): void {}
+		public function offsetSet(mixed $index, mixed $newval): void {}
 
 		/**
 		 * Unsets the value at the specified index
@@ -526,7 +526,7 @@ namespace {
 		 * @link https://php.net/manual/en/arrayobject.offsetunset.php
 		 * @since PHP 5, PHP 7
 		 */
-		public function offsetUnset($index): void {}
+		public function offsetUnset(mixed $index): void {}
 
 		/**
 		 * Serialize an ArrayObject
@@ -658,7 +658,7 @@ namespace {
 		 * @link https://php.net/manual/en/exception.getcode.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
-		final public function getCode() {}
+		final public function getCode(): mixed {}
 
 		/**
 		 * Gets the file in which the exception was created
@@ -783,7 +783,7 @@ namespace {
 		 * @link https://php.net/manual/en/exception.getcode.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
-		final public function getCode() {}
+		final public function getCode(): mixed {}
 
 		/**
 		 * Gets the file in which the exception was created
@@ -919,7 +919,7 @@ namespace {
 		 * @link https://php.net/manual/en/cachingiterator.current.php
 		 * @since PHP 5, PHP 7
 		 */
-		public function current() {}
+		public function current(): mixed {}
 
 		/**
 		 * Retrieve the contents of the cache
@@ -983,7 +983,7 @@ namespace {
 		 * @link https://php.net/manual/en/cachingiterator.offsetexists.php
 		 * @since PHP 5 >= 5.2.0, PHP 7
 		 */
-		public function offsetExists($index): void {}
+		public function offsetExists(mixed $index): void {}
 
 		/**
 		 * The offsetGet purpose
@@ -1004,7 +1004,7 @@ namespace {
 		 * @link https://php.net/manual/en/cachingiterator.offsetset.php
 		 * @since PHP 5 >= 5.2.0, PHP 7
 		 */
-		public function offsetSet($index, $newval): void {}
+		public function offsetSet(mixed $index, mixed $newval): void {}
 
 		/**
 		 * The offsetUnset purpose
@@ -1079,7 +1079,7 @@ namespace {
 		 * @see FilterIterator::key(), FilterIterator::next()
 		 * @since PHP 5 >= 5.1.0, PHP 7
 		 */
-		public function current() {}
+		public function current(): mixed {}
 
 		/**
 		 * Get the inner iterator
@@ -1098,7 +1098,7 @@ namespace {
 		 * @see FilterIterator::next(), FilterIterator::current()
 		 * @since PHP 5 >= 5.1.0, PHP 7
 		 */
-		public function key() {}
+		public function key(): mixed {}
 
 		/**
 		 * Move the iterator forward
@@ -1499,7 +1499,7 @@ namespace {
 		 * @link https://php.net/manual/en/exception.getcode.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
-		final public function getCode() {}
+		final public function getCode(): mixed {}
 
 		/**
 		 * Gets the file in which the exception was created
@@ -1570,7 +1570,7 @@ namespace {
 		 * @link https://php.net/manual/en/emptyiterator.current.php
 		 * @since PHP 5 >= 5.1.0, PHP 7
 		 */
-		public function current() {}
+		public function current(): mixed {}
 
 		/**
 		 * The key() method
@@ -1709,7 +1709,7 @@ namespace {
 		 * @link https://php.net/manual/en/filesystemiterator.current.php
 		 * @since PHP 5 >= 5.3.0, PHP 7
 		 */
-		public function current() {}
+		public function current(): mixed {}
 
 		/**
 		 * Get last access time of the current DirectoryIterator item
@@ -2012,7 +2012,7 @@ namespace {
 		 * @see FilterIterator::key(), FilterIterator::next()
 		 * @since PHP 5 >= 5.1.0, PHP 7
 		 */
-		public function current() {}
+		public function current(): mixed {}
 
 		/**
 		 * Get the inner iterator
@@ -2031,7 +2031,7 @@ namespace {
 		 * @see FilterIterator::next(), FilterIterator::current()
 		 * @since PHP 5 >= 5.1.0, PHP 7
 		 */
-		public function key() {}
+		public function key(): mixed {}
 
 		/**
 		 * Move the iterator forward
@@ -2099,7 +2099,7 @@ namespace {
 		 * @link https://php.net/manual/en/filesystemiterator.current.php
 		 * @since PHP 5 >= 5.3.0, PHP 7
 		 */
-		public function current() {}
+		public function current(): mixed {}
 
 		/**
 		 * Get the handling flags
@@ -2171,7 +2171,7 @@ namespace {
 		 * @link https://php.net/manual/en/iteratoriterator.current.php
 		 * @since PHP 5 >= 5.1.0, PHP 7
 		 */
-		public function current() {}
+		public function current(): mixed {}
 
 		/**
 		 * Get the inner iterator
@@ -2189,7 +2189,7 @@ namespace {
 		 * @link https://php.net/manual/en/iteratoriterator.key.php
 		 * @since PHP 5 >= 5.1.0, PHP 7
 		 */
-		public function key() {}
+		public function key(): mixed {}
 
 		/**
 		 * Moves the inner Iterator forward or rewinds it
@@ -2288,7 +2288,7 @@ namespace {
 		 * @link https://php.net/manual/en/exception.getcode.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
-		final public function getCode() {}
+		final public function getCode(): mixed {}
 
 		/**
 		 * Gets the file in which the exception was created
@@ -2369,7 +2369,7 @@ namespace {
 		 * @link https://php.net/manual/en/iteratoriterator.current.php
 		 * @since PHP 5 >= 5.1.0, PHP 7
 		 */
-		public function current() {}
+		public function current(): mixed {}
 
 		/**
 		 * Get the inner iterator
@@ -2387,7 +2387,7 @@ namespace {
 		 * @link https://php.net/manual/en/iteratoriterator.key.php
 		 * @since PHP 5 >= 5.1.0, PHP 7
 		 */
-		public function key() {}
+		public function key(): mixed {}
 
 		/**
 		 * Forward to the next element
@@ -2486,7 +2486,7 @@ namespace {
 		 * @link https://php.net/manual/en/exception.getcode.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
-		final public function getCode() {}
+		final public function getCode(): mixed {}
 
 		/**
 		 * Gets the file in which the exception was created
@@ -2569,7 +2569,7 @@ namespace {
 		 * @link https://php.net/manual/en/limititerator.current.php
 		 * @since PHP 5 >= 5.1.0, PHP 7
 		 */
-		public function current() {}
+		public function current(): mixed {}
 
 		/**
 		 * Get inner iterator
@@ -2596,7 +2596,7 @@ namespace {
 		 * @link https://php.net/manual/en/limititerator.key.php
 		 * @since PHP 5 >= 5.1.0, PHP 7
 		 */
-		public function key() {}
+		public function key(): mixed {}
 
 		/**
 		 * Move the iterator forward
@@ -2704,7 +2704,7 @@ namespace {
 		 * @link https://php.net/manual/en/exception.getcode.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
-		final public function getCode() {}
+		final public function getCode(): mixed {}
 
 		/**
 		 * Gets the file in which the exception was created
@@ -2931,7 +2931,7 @@ namespace {
 		 * @link https://php.net/manual/en/norewinditerator.current.php
 		 * @since PHP 5 >= 5.1.0, PHP 7
 		 */
-		public function current() {}
+		public function current(): mixed {}
 
 		/**
 		 * Get the inner iterator
@@ -2949,7 +2949,7 @@ namespace {
 		 * @link https://php.net/manual/en/norewinditerator.key.php
 		 * @since PHP 5 >= 5.1.0, PHP 7
 		 */
-		public function key() {}
+		public function key(): mixed {}
 
 		/**
 		 * Forward to the next element
@@ -2993,7 +2993,7 @@ namespace {
 		 * @link https://php.net/manual/en/iterator.current.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
-		public function current();
+		public function current(): mixed;
 
 		/**
 		 * Returns the inner iterator for the current entry
@@ -3109,7 +3109,7 @@ namespace {
 		 * @link https://php.net/manual/en/exception.getcode.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
-		final public function getCode() {}
+		final public function getCode(): mixed {}
 
 		/**
 		 * Gets the file in which the exception was created
@@ -3234,7 +3234,7 @@ namespace {
 		 * @link https://php.net/manual/en/exception.getcode.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
-		final public function getCode() {}
+		final public function getCode(): mixed {}
 
 		/**
 		 * Gets the file in which the exception was created
@@ -3359,7 +3359,7 @@ namespace {
 		 * @link https://php.net/manual/en/exception.getcode.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
-		final public function getCode() {}
+		final public function getCode(): mixed {}
 
 		/**
 		 * Gets the file in which the exception was created
@@ -3556,7 +3556,7 @@ namespace {
 		 * @link https://php.net/manual/en/exception.getcode.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
-		final public function getCode() {}
+		final public function getCode(): mixed {}
 
 		/**
 		 * Gets the file in which the exception was created
@@ -3635,7 +3635,7 @@ namespace {
 		 * @link https://php.net/manual/en/arrayiterator.construct.php
 		 * @since PHP 5, PHP 7
 		 */
-		public function __construct($array = array(), int $flags = 0) {}
+		public function __construct(mixed $array = array(), int $flags = 0) {}
 
 		/**
 		 * Append an element
@@ -3645,7 +3645,7 @@ namespace {
 		 * @link https://php.net/manual/en/arrayiterator.append.php
 		 * @since PHP 5, PHP 7
 		 */
-		public function append($value): void {}
+		public function append(mixed $value): void {}
 
 		/**
 		 * Sort array by values
@@ -3672,7 +3672,7 @@ namespace {
 		 * @link https://php.net/manual/en/arrayiterator.current.php
 		 * @since PHP 5, PHP 7
 		 */
-		public function current() {}
+		public function current(): mixed {}
 
 		/**
 		 * Get array copy
@@ -3719,7 +3719,7 @@ namespace {
 		 * @link https://php.net/manual/en/arrayiterator.key.php
 		 * @since PHP 5, PHP 7
 		 */
-		public function key() {}
+		public function key(): mixed {}
 
 		/**
 		 * Sort array by keys
@@ -3767,7 +3767,7 @@ namespace {
 		 * @link https://php.net/manual/en/arrayiterator.offsetexists.php
 		 * @since PHP 5, PHP 7
 		 */
-		public function offsetExists($index): bool {}
+		public function offsetExists(mixed $index): bool {}
 
 		/**
 		 * Get value for an offset
@@ -3777,7 +3777,7 @@ namespace {
 		 * @link https://php.net/manual/en/arrayiterator.offsetget.php
 		 * @since PHP 5, PHP 7
 		 */
-		public function offsetGet($index) {}
+		public function offsetGet(mixed $index): mixed {}
 
 		/**
 		 * Set value for an offset
@@ -3788,7 +3788,7 @@ namespace {
 		 * @link https://php.net/manual/en/arrayiterator.offsetset.php
 		 * @since PHP 5, PHP 7
 		 */
-		public function offsetSet($index, $newval): void {}
+		public function offsetSet(mixed $index, mixed $newval): void {}
 
 		/**
 		 * Unset value for an offset
@@ -3798,7 +3798,7 @@ namespace {
 		 * @link https://php.net/manual/en/arrayiterator.offsetunset.php
 		 * @since PHP 5, PHP 7
 		 */
-		public function offsetUnset($index): void {}
+		public function offsetUnset(mixed $index): void {}
 
 		/**
 		 * Rewind array back to the start
@@ -3923,7 +3923,7 @@ namespace {
 		 * @link https://php.net/manual/en/cachingiterator.current.php
 		 * @since PHP 5, PHP 7
 		 */
-		public function current() {}
+		public function current(): mixed {}
 
 		/**
 		 * Retrieve the contents of the cache
@@ -4005,7 +4005,7 @@ namespace {
 		 * @link https://php.net/manual/en/cachingiterator.offsetexists.php
 		 * @since PHP 5 >= 5.2.0, PHP 7
 		 */
-		public function offsetExists($index): void {}
+		public function offsetExists(mixed $index): void {}
 
 		/**
 		 * The offsetGet purpose
@@ -4026,7 +4026,7 @@ namespace {
 		 * @link https://php.net/manual/en/cachingiterator.offsetset.php
 		 * @since PHP 5 >= 5.2.0, PHP 7
 		 */
-		public function offsetSet($index, $newval): void {}
+		public function offsetSet(mixed $index, mixed $newval): void {}
 
 		/**
 		 * The offsetUnset purpose
@@ -4137,7 +4137,7 @@ namespace {
 		 * @link https://php.net/manual/en/filesystemiterator.current.php
 		 * @since PHP 5 >= 5.3.0, PHP 7
 		 */
-		public function current() {}
+		public function current(): mixed {}
 
 		/**
 		 * Returns an iterator for the current entry if it is a directory
@@ -4146,7 +4146,7 @@ namespace {
 		 * @link https://php.net/manual/en/recursivedirectoryiterator.getchildren.php
 		 * @since PHP 5 >= 5.1.0, PHP 7
 		 */
-		public function getChildren() {}
+		public function getChildren(): mixed {}
 
 		/**
 		 * Get the handling flags
@@ -4257,7 +4257,7 @@ namespace {
 		 * @see FilterIterator::key(), FilterIterator::next()
 		 * @since PHP 5 >= 5.1.0, PHP 7
 		 */
-		public function current() {}
+		public function current(): mixed {}
 
 		/**
 		 * Return the inner iterator's children contained in a RecursiveFilterIterator
@@ -4294,7 +4294,7 @@ namespace {
 		 * @see FilterIterator::next(), FilterIterator::current()
 		 * @since PHP 5 >= 5.1.0, PHP 7
 		 */
-		public function key() {}
+		public function key(): mixed {}
 
 		/**
 		 * Move the iterator forward
@@ -4340,7 +4340,7 @@ namespace {
 		 * @link https://php.net/manual/en/iterator.current.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
-		public function current();
+		public function current(): mixed;
 
 		/**
 		 * Returns an iterator for the current entry
@@ -4485,7 +4485,7 @@ namespace {
 		 * @link https://php.net/manual/en/recursiveiteratoriterator.current.php
 		 * @since PHP 5, PHP 7
 		 */
-		public function current() {}
+		public function current(): mixed {}
 
 		/**
 		 * End children
@@ -4530,7 +4530,7 @@ namespace {
 		 * @link https://php.net/manual/en/recursiveiteratoriterator.getmaxdepth.php
 		 * @since PHP 5 >= 5.1.0, PHP 7
 		 */
-		public function getMaxDepth() {}
+		public function getMaxDepth(): mixed {}
 
 		/**
 		 * The current active sub iterator
@@ -4549,7 +4549,7 @@ namespace {
 		 * @link https://php.net/manual/en/recursiveiteratoriterator.key.php
 		 * @since PHP 5, PHP 7
 		 */
-		public function key() {}
+		public function key(): mixed {}
 
 		/**
 		 * Move forward to the next element
@@ -4782,7 +4782,7 @@ namespace {
 		 * @link https://php.net/manual/en/recursivetreeiterator.construct.php
 		 * @since PHP 5 >= 5.3.0, PHP 7
 		 */
-		public function __construct($it, int $flags = RecursiveTreeIterator::BYPASS_KEY, int $cit_flags = CachingIterator::CATCH_GET_CHILD, int $mode = RecursiveIteratorIterator::SELF_FIRST) {}
+		public function __construct(\RecursiveIterator|\IteratorAggregate $it, int $flags = RecursiveTreeIterator::BYPASS_KEY, int $cit_flags = CachingIterator::CATCH_GET_CHILD, int $mode = RecursiveIteratorIterator::SELF_FIRST) {}
 
 		/**
 		 * Begin children
@@ -4881,7 +4881,7 @@ namespace {
 		 * @link https://php.net/manual/en/recursiveiteratoriterator.getmaxdepth.php
 		 * @since PHP 5 >= 5.1.0, PHP 7
 		 */
-		public function getMaxDepth() {}
+		public function getMaxDepth(): mixed {}
 
 		/**
 		 * Get the postfix
@@ -5063,7 +5063,7 @@ namespace {
 		 * @see FilterIterator::key(), FilterIterator::next()
 		 * @since PHP 5 >= 5.1.0, PHP 7
 		 */
-		public function current() {}
+		public function current(): mixed {}
 
 		/**
 		 * Get flags
@@ -5118,7 +5118,7 @@ namespace {
 		 * @see FilterIterator::next(), FilterIterator::current()
 		 * @since PHP 5 >= 5.1.0, PHP 7
 		 */
-		public function key() {}
+		public function key(): mixed {}
 
 		/**
 		 * Move the iterator forward
@@ -5248,7 +5248,7 @@ namespace {
 		 * @link https://php.net/manual/en/exception.getcode.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
-		final public function getCode() {}
+		final public function getCode(): mixed {}
 
 		/**
 		 * Gets the file in which the exception was created
@@ -5319,7 +5319,7 @@ namespace {
 		 * @link https://php.net/manual/en/iterator.current.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
-		public function current();
+		public function current(): mixed;
 
 		/**
 		 * Return the key of the current element
@@ -5417,7 +5417,7 @@ namespace {
 		 * @link https://php.net/manual/en/spldoublylinkedlist.add.php
 		 * @since PHP 5 >= 5.5.0, PHP 7
 		 */
-		public function add($index, $newval): void {}
+		public function add(mixed $index, mixed $newval): void {}
 
 		/**
 		 * Peeks at the node from the beginning of the doubly linked list
@@ -5425,7 +5425,7 @@ namespace {
 		 * @link https://php.net/manual/en/spldoublylinkedlist.bottom.php
 		 * @since PHP 5 >= 5.3.0, PHP 7
 		 */
-		public function bottom() {}
+		public function bottom(): mixed {}
 
 		/**
 		 * Counts the number of elements in the doubly linked list
@@ -5442,7 +5442,7 @@ namespace {
 		 * @link https://php.net/manual/en/spldoublylinkedlist.current.php
 		 * @since PHP 5 >= 5.3.0, PHP 7
 		 */
-		public function current() {}
+		public function current(): mixed {}
 
 		/**
 		 * Returns the mode of iteration
@@ -5467,7 +5467,7 @@ namespace {
 		 * @link https://php.net/manual/en/spldoublylinkedlist.key.php
 		 * @since PHP 5 >= 5.3.0, PHP 7
 		 */
-		public function key() {}
+		public function key(): mixed {}
 
 		/**
 		 * Move to next entry
@@ -5485,7 +5485,7 @@ namespace {
 		 * @link https://php.net/manual/en/spldoublylinkedlist.offsetexists.php
 		 * @since PHP 5 >= 5.3.0, PHP 7
 		 */
-		public function offsetExists($index): bool {}
+		public function offsetExists(mixed $index): bool {}
 
 		/**
 		 * Returns the value at the specified $index
@@ -5494,7 +5494,7 @@ namespace {
 		 * @link https://php.net/manual/en/spldoublylinkedlist.offsetget.php
 		 * @since PHP 5 >= 5.3.0, PHP 7
 		 */
-		public function offsetGet($index) {}
+		public function offsetGet(mixed $index): mixed {}
 
 		/**
 		 * Sets the value at the specified $index to $newval
@@ -5505,7 +5505,7 @@ namespace {
 		 * @link https://php.net/manual/en/spldoublylinkedlist.offsetset.php
 		 * @since PHP 5 >= 5.3.0, PHP 7
 		 */
-		public function offsetSet($index, $newval): void {}
+		public function offsetSet(mixed $index, mixed $newval): void {}
 
 		/**
 		 * Unsets the value at the specified $index
@@ -5515,7 +5515,7 @@ namespace {
 		 * @link https://php.net/manual/en/spldoublylinkedlist.offsetunset.php
 		 * @since PHP 5 >= 5.3.0, PHP 7
 		 */
-		public function offsetUnset($index): void {}
+		public function offsetUnset(mixed $index): void {}
 
 		/**
 		 * Pops a node from the end of the doubly linked list
@@ -5523,7 +5523,7 @@ namespace {
 		 * @link https://php.net/manual/en/spldoublylinkedlist.pop.php
 		 * @since PHP 5 >= 5.3.0, PHP 7
 		 */
-		public function pop() {}
+		public function pop(): mixed {}
 
 		/**
 		 * Move to previous entry
@@ -5542,7 +5542,7 @@ namespace {
 		 * @link https://php.net/manual/en/spldoublylinkedlist.push.php
 		 * @since PHP 5 >= 5.3.0, PHP 7
 		 */
-		public function push($value): void {}
+		public function push(mixed $value): void {}
 
 		/**
 		 * Rewind iterator back to the start
@@ -5577,7 +5577,7 @@ namespace {
 		 * @link https://php.net/manual/en/spldoublylinkedlist.shift.php
 		 * @since PHP 5 >= 5.3.0, PHP 7
 		 */
-		public function shift() {}
+		public function shift(): mixed {}
 
 		/**
 		 * Peeks at the node from the end of the doubly linked list
@@ -5585,7 +5585,7 @@ namespace {
 		 * @link https://php.net/manual/en/spldoublylinkedlist.top.php
 		 * @since PHP 5 >= 5.3.0, PHP 7
 		 */
-		public function top() {}
+		public function top(): mixed {}
 
 		/**
 		 * Unserializes the storage
@@ -5605,7 +5605,7 @@ namespace {
 		 * @link https://php.net/manual/en/spldoublylinkedlist.unshift.php
 		 * @since PHP 5 >= 5.3.0, PHP 7
 		 */
-		public function unshift($value): void {}
+		public function unshift(mixed $value): void {}
 
 		/**
 		 * Check whether the doubly linked list contains more nodes
@@ -5965,7 +5965,7 @@ namespace {
 		 * @link https://php.net/manual/en/splfileobject.current.php
 		 * @since PHP 5 >= 5.1.0, PHP 7
 		 */
-		public function current() {}
+		public function current(): string|array {}
 
 		/**
 		 * Reached end of file
@@ -6062,7 +6062,7 @@ namespace {
 		 * @see fputcsv()
 		 * @since PHP 5 >= 5.4.0, PHP 7
 		 */
-		public function fputcsv(array $fields, string $delimiter = ",", string $enclosure = '"', string $escape = "\\") {}
+		public function fputcsv(array $fields, string $delimiter = ",", string $enclosure = '"', string $escape = "\\"): int|false {}
 
 		/**
 		 * Read from file
@@ -6073,7 +6073,7 @@ namespace {
 		 * @see fread()
 		 * @since PHP 5 >= 5.5.11, PHP 7
 		 */
-		public function fread(int $length) {}
+		public function fread(int $length): string|false {}
 
 		/**
 		 * Parses input from file according to a format
@@ -6085,7 +6085,7 @@ namespace {
 		 * @see fscanf(), sscanf(), printf(), sprintf()
 		 * @since PHP 5 >= 5.1.0, PHP 7
 		 */
-		public function fscanf(string $format, &...$vars) {}
+		public function fscanf(string $format, mixed &...$vars): mixed {}
 
 		/**
 		 * Seek to a position
@@ -6568,7 +6568,7 @@ namespace {
 		 * @link https://php.net/manual/en/splfixedarray.current.php
 		 * @since PHP 5 >= 5.3.0, PHP 7
 		 */
-		public function current() {}
+		public function current(): mixed {}
 
 		/**
 		 * Import a PHP array in a SplFixedArray instance
@@ -6626,7 +6626,7 @@ namespace {
 		 * @link https://php.net/manual/en/splfixedarray.offsetget.php
 		 * @since PHP 5 >= 5.3.0, PHP 7
 		 */
-		public function offsetGet(int $index) {}
+		public function offsetGet(int $index): mixed {}
 
 		/**
 		 * Sets a new value at a specified index
@@ -6637,7 +6637,7 @@ namespace {
 		 * @link https://php.net/manual/en/splfixedarray.offsetset.php
 		 * @since PHP 5 >= 5.3.0, PHP 7
 		 */
-		public function offsetSet(int $index, $newval): void {}
+		public function offsetSet(int $index, mixed $newval): void {}
 
 		/**
 		 * Unsets the value at the specified $index
@@ -6712,7 +6712,7 @@ namespace {
 		 * @link https://php.net/manual/en/splheap.compare.php
 		 * @since PHP 5 >= 5.3.0, PHP 7
 		 */
-		abstract protected function compare($value1, $value2): int;
+		abstract protected function compare(mixed $value1, mixed $value2): int;
 
 		/**
 		 * Counts the number of elements in the heap
@@ -6729,7 +6729,7 @@ namespace {
 		 * @link https://php.net/manual/en/splheap.current.php
 		 * @since PHP 5 >= 5.3.0, PHP 7
 		 */
-		public function current() {}
+		public function current(): mixed {}
 
 		/**
 		 * Extracts a node from top of the heap and sift up
@@ -6737,7 +6737,7 @@ namespace {
 		 * @link https://php.net/manual/en/splheap.extract.php
 		 * @since PHP 5 >= 5.3.0, PHP 7
 		 */
-		public function extract() {}
+		public function extract(): mixed {}
 
 		/**
 		 * Inserts an element in the heap by sifting it up
@@ -6747,7 +6747,7 @@ namespace {
 		 * @link https://php.net/manual/en/splheap.insert.php
 		 * @since PHP 5 >= 5.3.0, PHP 7
 		 */
-		public function insert($value): void {}
+		public function insert(mixed $value): void {}
 
 		/**
 		 * Tells if the heap is in a corrupted state
@@ -6772,7 +6772,7 @@ namespace {
 		 * @link https://php.net/manual/en/splheap.key.php
 		 * @since PHP 5 >= 5.3.0, PHP 7
 		 */
-		public function key() {}
+		public function key(): mixed {}
 
 		/**
 		 * Move to the next node
@@ -6806,7 +6806,7 @@ namespace {
 		 * @link https://php.net/manual/en/splheap.top.php
 		 * @since PHP 5 >= 5.3.0, PHP 7
 		 */
-		public function top() {}
+		public function top(): mixed {}
 
 		/**
 		 * Check whether the heap contains more nodes
@@ -6834,7 +6834,7 @@ namespace {
 		 * @link https://php.net/manual/en/splmaxheap.compare.php
 		 * @since PHP 5 >= 5.3.0, PHP 7
 		 */
-		protected function compare($value1, $value2): int {}
+		protected function compare(mixed $value1, mixed $value2): int {}
 
 		/**
 		 * Counts the number of elements in the heap
@@ -6851,7 +6851,7 @@ namespace {
 		 * @link https://php.net/manual/en/splheap.current.php
 		 * @since PHP 5 >= 5.3.0, PHP 7
 		 */
-		public function current() {}
+		public function current(): mixed {}
 
 		/**
 		 * Extracts a node from top of the heap and sift up
@@ -6859,7 +6859,7 @@ namespace {
 		 * @link https://php.net/manual/en/splheap.extract.php
 		 * @since PHP 5 >= 5.3.0, PHP 7
 		 */
-		public function extract() {}
+		public function extract(): mixed {}
 
 		/**
 		 * Inserts an element in the heap by sifting it up
@@ -6869,7 +6869,7 @@ namespace {
 		 * @link https://php.net/manual/en/splheap.insert.php
 		 * @since PHP 5 >= 5.3.0, PHP 7
 		 */
-		public function insert($value): void {}
+		public function insert(mixed $value): void {}
 
 		/**
 		 * Tells if the heap is in a corrupted state
@@ -6894,7 +6894,7 @@ namespace {
 		 * @link https://php.net/manual/en/splheap.key.php
 		 * @since PHP 5 >= 5.3.0, PHP 7
 		 */
-		public function key() {}
+		public function key(): mixed {}
 
 		/**
 		 * Move to the next node
@@ -6928,7 +6928,7 @@ namespace {
 		 * @link https://php.net/manual/en/splheap.top.php
 		 * @since PHP 5 >= 5.3.0, PHP 7
 		 */
-		public function top() {}
+		public function top(): mixed {}
 
 		/**
 		 * Check whether the heap contains more nodes
@@ -6956,7 +6956,7 @@ namespace {
 		 * @link https://php.net/manual/en/splminheap.compare.php
 		 * @since PHP 5 >= 5.3.0, PHP 7
 		 */
-		protected function compare($value1, $value2): int {}
+		protected function compare(mixed $value1, mixed $value2): int {}
 
 		/**
 		 * Counts the number of elements in the heap
@@ -6973,7 +6973,7 @@ namespace {
 		 * @link https://php.net/manual/en/splheap.current.php
 		 * @since PHP 5 >= 5.3.0, PHP 7
 		 */
-		public function current() {}
+		public function current(): mixed {}
 
 		/**
 		 * Extracts a node from top of the heap and sift up
@@ -6981,7 +6981,7 @@ namespace {
 		 * @link https://php.net/manual/en/splheap.extract.php
 		 * @since PHP 5 >= 5.3.0, PHP 7
 		 */
-		public function extract() {}
+		public function extract(): mixed {}
 
 		/**
 		 * Inserts an element in the heap by sifting it up
@@ -6991,7 +6991,7 @@ namespace {
 		 * @link https://php.net/manual/en/splheap.insert.php
 		 * @since PHP 5 >= 5.3.0, PHP 7
 		 */
-		public function insert($value): void {}
+		public function insert(mixed $value): void {}
 
 		/**
 		 * Tells if the heap is in a corrupted state
@@ -7016,7 +7016,7 @@ namespace {
 		 * @link https://php.net/manual/en/splheap.key.php
 		 * @since PHP 5 >= 5.3.0, PHP 7
 		 */
-		public function key() {}
+		public function key(): mixed {}
 
 		/**
 		 * Move to the next node
@@ -7050,7 +7050,7 @@ namespace {
 		 * @link https://php.net/manual/en/splheap.top.php
 		 * @since PHP 5 >= 5.3.0, PHP 7
 		 */
-		public function top() {}
+		public function top(): mixed {}
 
 		/**
 		 * Check whether the heap contains more nodes
@@ -7088,7 +7088,7 @@ namespace {
 		 * @link https://php.net/manual/en/splobjectstorage.attach.php
 		 * @since PHP 5 >= 5.1.0, PHP 7
 		 */
-		public function attach(object $object, $data = NULL): void {}
+		public function attach(object $object, mixed $data = NULL): void {}
 
 		/**
 		 * Checks if the storage contains a specific object
@@ -7146,7 +7146,7 @@ namespace {
 		 * @link https://php.net/manual/en/splobjectstorage.getinfo.php
 		 * @since PHP 5 >= 5.3.0, PHP 7
 		 */
-		public function getInfo() {}
+		public function getInfo(): mixed {}
 
 		/**
 		 * Returns the index at which the iterator currently is
@@ -7184,7 +7184,7 @@ namespace {
 		 * @link https://php.net/manual/en/splobjectstorage.offsetget.php
 		 * @since PHP 5 >= 5.3.0, PHP 7
 		 */
-		public function offsetGet(object $object) {}
+		public function offsetGet(object $object): mixed {}
 
 		/**
 		 * Associates data to an object in the storage
@@ -7195,7 +7195,7 @@ namespace {
 		 * @link https://php.net/manual/en/splobjectstorage.offsetset.php
 		 * @since PHP 5 >= 5.3.0, PHP 7
 		 */
-		public function offsetSet(object $object, $data = NULL): void {}
+		public function offsetSet(object $object, mixed $data = NULL): void {}
 
 		/**
 		 * Removes an object from the storage
@@ -7253,7 +7253,7 @@ namespace {
 		 * @link https://php.net/manual/en/splobjectstorage.setinfo.php
 		 * @since PHP 5 >= 5.3.0, PHP 7
 		 */
-		public function setInfo($data): void {}
+		public function setInfo(mixed $data): void {}
 
 		/**
 		 * Unserializes a storage from its string representation
@@ -7319,7 +7319,7 @@ namespace {
 		 * @link https://php.net/manual/en/splpriorityqueue.compare.php
 		 * @since PHP 5 >= 5.3.0, PHP 7
 		 */
-		public function compare($priority1, $priority2): int {}
+		public function compare(mixed $priority1, mixed $priority2): int {}
 
 		/**
 		 * Counts the number of elements in the queue
@@ -7336,7 +7336,7 @@ namespace {
 		 * @link https://php.net/manual/en/splpriorityqueue.current.php
 		 * @since PHP 5 >= 5.3.0, PHP 7
 		 */
-		public function current() {}
+		public function current(): mixed {}
 
 		/**
 		 * Extracts a node from top of the heap and sift up
@@ -7344,7 +7344,7 @@ namespace {
 		 * @link https://php.net/manual/en/splpriorityqueue.extract.php
 		 * @since PHP 5 >= 5.3.0, PHP 7
 		 */
-		public function extract() {}
+		public function extract(): mixed {}
 
 		/**
 		 * Get the flags of extraction
@@ -7364,7 +7364,7 @@ namespace {
 		 * @link https://php.net/manual/en/splpriorityqueue.insert.php
 		 * @since PHP 5 >= 5.3.0, PHP 7
 		 */
-		public function insert($value, $priority): bool {}
+		public function insert(mixed $value, mixed $priority): bool {}
 
 		/**
 		 * Tells if the priority queue is in a corrupted state
@@ -7389,7 +7389,7 @@ namespace {
 		 * @link https://php.net/manual/en/splpriorityqueue.key.php
 		 * @since PHP 5 >= 5.3.0, PHP 7
 		 */
-		public function key() {}
+		public function key(): mixed {}
 
 		/**
 		 * Move to the next node
@@ -7432,7 +7432,7 @@ namespace {
 		 * @link https://php.net/manual/en/splpriorityqueue.top.php
 		 * @since PHP 5 >= 5.3.0, PHP 7
 		 */
-		public function top() {}
+		public function top(): mixed {}
 
 		/**
 		 * Check whether the queue contains more nodes
@@ -7469,7 +7469,7 @@ namespace {
 		 * @link https://php.net/manual/en/spldoublylinkedlist.add.php
 		 * @since PHP 5 >= 5.5.0, PHP 7
 		 */
-		public function add($index, $newval): void {}
+		public function add(mixed $index, mixed $newval): void {}
 
 		/**
 		 * Peeks at the node from the beginning of the doubly linked list
@@ -7477,7 +7477,7 @@ namespace {
 		 * @link https://php.net/manual/en/spldoublylinkedlist.bottom.php
 		 * @since PHP 5 >= 5.3.0, PHP 7
 		 */
-		public function bottom() {}
+		public function bottom(): mixed {}
 
 		/**
 		 * Counts the number of elements in the doubly linked list
@@ -7494,7 +7494,7 @@ namespace {
 		 * @link https://php.net/manual/en/spldoublylinkedlist.current.php
 		 * @since PHP 5 >= 5.3.0, PHP 7
 		 */
-		public function current() {}
+		public function current(): mixed {}
 
 		/**
 		 * Dequeues a node from the queue
@@ -7503,7 +7503,7 @@ namespace {
 		 * @link https://php.net/manual/en/splqueue.dequeue.php
 		 * @since PHP 5 >= 5.3.0, PHP 7
 		 */
-		public function dequeue() {}
+		public function dequeue(): mixed {}
 
 		/**
 		 * Adds an element to the queue
@@ -7513,7 +7513,7 @@ namespace {
 		 * @link https://php.net/manual/en/splqueue.enqueue.php
 		 * @since PHP 5 >= 5.3.0, PHP 7
 		 */
-		public function enqueue($value): void {}
+		public function enqueue(mixed $value): void {}
 
 		/**
 		 * Returns the mode of iteration
@@ -7538,7 +7538,7 @@ namespace {
 		 * @link https://php.net/manual/en/spldoublylinkedlist.key.php
 		 * @since PHP 5 >= 5.3.0, PHP 7
 		 */
-		public function key() {}
+		public function key(): mixed {}
 
 		/**
 		 * Move to next entry
@@ -7556,7 +7556,7 @@ namespace {
 		 * @link https://php.net/manual/en/spldoublylinkedlist.offsetexists.php
 		 * @since PHP 5 >= 5.3.0, PHP 7
 		 */
-		public function offsetExists($index): bool {}
+		public function offsetExists(mixed $index): bool {}
 
 		/**
 		 * Returns the value at the specified $index
@@ -7565,7 +7565,7 @@ namespace {
 		 * @link https://php.net/manual/en/spldoublylinkedlist.offsetget.php
 		 * @since PHP 5 >= 5.3.0, PHP 7
 		 */
-		public function offsetGet($index) {}
+		public function offsetGet(mixed $index): mixed {}
 
 		/**
 		 * Sets the value at the specified $index to $newval
@@ -7576,7 +7576,7 @@ namespace {
 		 * @link https://php.net/manual/en/spldoublylinkedlist.offsetset.php
 		 * @since PHP 5 >= 5.3.0, PHP 7
 		 */
-		public function offsetSet($index, $newval): void {}
+		public function offsetSet(mixed $index, mixed $newval): void {}
 
 		/**
 		 * Unsets the value at the specified $index
@@ -7586,7 +7586,7 @@ namespace {
 		 * @link https://php.net/manual/en/spldoublylinkedlist.offsetunset.php
 		 * @since PHP 5 >= 5.3.0, PHP 7
 		 */
-		public function offsetUnset($index): void {}
+		public function offsetUnset(mixed $index): void {}
 
 		/**
 		 * Pops a node from the end of the doubly linked list
@@ -7594,7 +7594,7 @@ namespace {
 		 * @link https://php.net/manual/en/spldoublylinkedlist.pop.php
 		 * @since PHP 5 >= 5.3.0, PHP 7
 		 */
-		public function pop() {}
+		public function pop(): mixed {}
 
 		/**
 		 * Move to previous entry
@@ -7613,7 +7613,7 @@ namespace {
 		 * @link https://php.net/manual/en/spldoublylinkedlist.push.php
 		 * @since PHP 5 >= 5.3.0, PHP 7
 		 */
-		public function push($value): void {}
+		public function push(mixed $value): void {}
 
 		/**
 		 * Rewind iterator back to the start
@@ -7648,7 +7648,7 @@ namespace {
 		 * @link https://php.net/manual/en/spldoublylinkedlist.shift.php
 		 * @since PHP 5 >= 5.3.0, PHP 7
 		 */
-		public function shift() {}
+		public function shift(): mixed {}
 
 		/**
 		 * Peeks at the node from the end of the doubly linked list
@@ -7656,7 +7656,7 @@ namespace {
 		 * @link https://php.net/manual/en/spldoublylinkedlist.top.php
 		 * @since PHP 5 >= 5.3.0, PHP 7
 		 */
-		public function top() {}
+		public function top(): mixed {}
 
 		/**
 		 * Unserializes the storage
@@ -7676,7 +7676,7 @@ namespace {
 		 * @link https://php.net/manual/en/spldoublylinkedlist.unshift.php
 		 * @since PHP 5 >= 5.3.0, PHP 7
 		 */
-		public function unshift($value): void {}
+		public function unshift(mixed $value): void {}
 
 		/**
 		 * Check whether the doubly linked list contains more nodes
@@ -7713,7 +7713,7 @@ namespace {
 		 * @link https://php.net/manual/en/spldoublylinkedlist.add.php
 		 * @since PHP 5 >= 5.5.0, PHP 7
 		 */
-		public function add($index, $newval): void {}
+		public function add(mixed $index, mixed $newval): void {}
 
 		/**
 		 * Peeks at the node from the beginning of the doubly linked list
@@ -7721,7 +7721,7 @@ namespace {
 		 * @link https://php.net/manual/en/spldoublylinkedlist.bottom.php
 		 * @since PHP 5 >= 5.3.0, PHP 7
 		 */
-		public function bottom() {}
+		public function bottom(): mixed {}
 
 		/**
 		 * Counts the number of elements in the doubly linked list
@@ -7738,7 +7738,7 @@ namespace {
 		 * @link https://php.net/manual/en/spldoublylinkedlist.current.php
 		 * @since PHP 5 >= 5.3.0, PHP 7
 		 */
-		public function current() {}
+		public function current(): mixed {}
 
 		/**
 		 * Returns the mode of iteration
@@ -7763,7 +7763,7 @@ namespace {
 		 * @link https://php.net/manual/en/spldoublylinkedlist.key.php
 		 * @since PHP 5 >= 5.3.0, PHP 7
 		 */
-		public function key() {}
+		public function key(): mixed {}
 
 		/**
 		 * Move to next entry
@@ -7781,7 +7781,7 @@ namespace {
 		 * @link https://php.net/manual/en/spldoublylinkedlist.offsetexists.php
 		 * @since PHP 5 >= 5.3.0, PHP 7
 		 */
-		public function offsetExists($index): bool {}
+		public function offsetExists(mixed $index): bool {}
 
 		/**
 		 * Returns the value at the specified $index
@@ -7790,7 +7790,7 @@ namespace {
 		 * @link https://php.net/manual/en/spldoublylinkedlist.offsetget.php
 		 * @since PHP 5 >= 5.3.0, PHP 7
 		 */
-		public function offsetGet($index) {}
+		public function offsetGet(mixed $index): mixed {}
 
 		/**
 		 * Sets the value at the specified $index to $newval
@@ -7801,7 +7801,7 @@ namespace {
 		 * @link https://php.net/manual/en/spldoublylinkedlist.offsetset.php
 		 * @since PHP 5 >= 5.3.0, PHP 7
 		 */
-		public function offsetSet($index, $newval): void {}
+		public function offsetSet(mixed $index, mixed $newval): void {}
 
 		/**
 		 * Unsets the value at the specified $index
@@ -7811,7 +7811,7 @@ namespace {
 		 * @link https://php.net/manual/en/spldoublylinkedlist.offsetunset.php
 		 * @since PHP 5 >= 5.3.0, PHP 7
 		 */
-		public function offsetUnset($index): void {}
+		public function offsetUnset(mixed $index): void {}
 
 		/**
 		 * Pops a node from the end of the doubly linked list
@@ -7819,7 +7819,7 @@ namespace {
 		 * @link https://php.net/manual/en/spldoublylinkedlist.pop.php
 		 * @since PHP 5 >= 5.3.0, PHP 7
 		 */
-		public function pop() {}
+		public function pop(): mixed {}
 
 		/**
 		 * Move to previous entry
@@ -7838,7 +7838,7 @@ namespace {
 		 * @link https://php.net/manual/en/spldoublylinkedlist.push.php
 		 * @since PHP 5 >= 5.3.0, PHP 7
 		 */
-		public function push($value): void {}
+		public function push(mixed $value): void {}
 
 		/**
 		 * Rewind iterator back to the start
@@ -7873,7 +7873,7 @@ namespace {
 		 * @link https://php.net/manual/en/spldoublylinkedlist.shift.php
 		 * @since PHP 5 >= 5.3.0, PHP 7
 		 */
-		public function shift() {}
+		public function shift(): mixed {}
 
 		/**
 		 * Peeks at the node from the end of the doubly linked list
@@ -7881,7 +7881,7 @@ namespace {
 		 * @link https://php.net/manual/en/spldoublylinkedlist.top.php
 		 * @since PHP 5 >= 5.3.0, PHP 7
 		 */
-		public function top() {}
+		public function top(): mixed {}
 
 		/**
 		 * Unserializes the storage
@@ -7901,7 +7901,7 @@ namespace {
 		 * @link https://php.net/manual/en/spldoublylinkedlist.unshift.php
 		 * @since PHP 5 >= 5.3.0, PHP 7
 		 */
-		public function unshift($value): void {}
+		public function unshift(mixed $value): void {}
 
 		/**
 		 * Check whether the doubly linked list contains more nodes
@@ -7974,7 +7974,7 @@ namespace {
 		 * @link https://php.net/manual/en/splfileobject.current.php
 		 * @since PHP 5 >= 5.1.0, PHP 7
 		 */
-		public function current() {}
+		public function current(): string|array {}
 
 		/**
 		 * Reached end of file
@@ -8071,7 +8071,7 @@ namespace {
 		 * @see fputcsv()
 		 * @since PHP 5 >= 5.4.0, PHP 7
 		 */
-		public function fputcsv(array $fields, string $delimiter = ",", string $enclosure = '"', string $escape = "\\") {}
+		public function fputcsv(array $fields, string $delimiter = ",", string $enclosure = '"', string $escape = "\\"): int|false {}
 
 		/**
 		 * Read from file
@@ -8082,7 +8082,7 @@ namespace {
 		 * @see fread()
 		 * @since PHP 5 >= 5.5.11, PHP 7
 		 */
-		public function fread(int $length) {}
+		public function fread(int $length): string|false {}
 
 		/**
 		 * Parses input from file according to a format
@@ -8094,7 +8094,7 @@ namespace {
 		 * @see fscanf(), sscanf(), printf(), sprintf()
 		 * @since PHP 5 >= 5.1.0, PHP 7
 		 */
-		public function fscanf(string $format, &...$vars) {}
+		public function fscanf(string $format, mixed &...$vars): mixed {}
 
 		/**
 		 * Seek to a position
@@ -8343,7 +8343,7 @@ namespace {
 		 * @link https://php.net/manual/en/exception.getcode.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
-		final public function getCode() {}
+		final public function getCode(): mixed {}
 
 		/**
 		 * Gets the file in which the exception was created
@@ -8468,7 +8468,7 @@ namespace {
 		 * @link https://php.net/manual/en/exception.getcode.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
-		final public function getCode() {}
+		final public function getCode(): mixed {}
 
 		/**
 		 * Gets the file in which the exception was created
@@ -8535,7 +8535,7 @@ namespace {
 	 * @see class_parents(), get_declared_interfaces()
 	 * @since PHP 5, PHP 7
 	 */
-	function class_implements($class, bool $autoload = TRUE): array {}
+	function class_implements(mixed $class, bool $autoload = TRUE): array {}
 
 	/**
 	 * Return the parent classes of the given class
@@ -8547,7 +8547,7 @@ namespace {
 	 * @see class_implements()
 	 * @since PHP 5, PHP 7
 	 */
-	function class_parents($class, bool $autoload = TRUE): array {}
+	function class_parents(mixed $class, bool $autoload = TRUE): array {}
 
 	/**
 	 * Return the traits used by the given class
@@ -8559,7 +8559,7 @@ namespace {
 	 * @see class_parents(), get_declared_traits()
 	 * @since PHP 5 >= 5.4.0, PHP 7
 	 */
-	function class_uses($class, bool $autoload = TRUE): array {}
+	function class_uses(mixed $class, bool $autoload = TRUE): array {}
 
 	/**
 	 * Call a function for every element in an iterator
@@ -8656,7 +8656,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.spl-autoload-unregister.php
 	 * @since PHP 5 >= 5.1.0, PHP 7
 	 */
-	function spl_autoload_unregister($autoload_function): bool {}
+	function spl_autoload_unregister(mixed $autoload_function): bool {}
 
 	/**
 	 * Return available SPL classes

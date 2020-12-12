@@ -34,7 +34,7 @@ namespace {
 		 * @link https://php.net/manual/en/yac.getter.php
 		 * @since PECL yac >= 1.0.0
 		 */
-		public function __get(string $key) {}
+		public function __get(string $key): mixed {}
 
 		/**
 		 * Setter
@@ -45,7 +45,7 @@ namespace {
 		 * @link https://php.net/manual/en/yac.setter.php
 		 * @since PECL yac >= 1.0.0
 		 */
-		public function __set(string $keys, $value) {}
+		public function __set(string $keys, mixed $value): mixed {}
 
 		/**
 		 * Store into cache
@@ -57,7 +57,7 @@ namespace {
 		 * @link https://php.net/manual/en/yac.add.php
 		 * @since PECL yac >= 1.0.0
 		 */
-		public function add(string $keys, $value, int $ttl = 0): bool {}
+		public function add(string $keys, mixed $value, int $ttl = 0): bool {}
 
 		/**
 		 * Remove items from cache
@@ -68,7 +68,7 @@ namespace {
 		 * @link https://php.net/manual/en/yac.delete.php
 		 * @since PECL yac >= 1.0.0
 		 */
-		public function delete($keys, int $ttl = NULL): bool {}
+		public function delete(string|array $keys, int $ttl = NULL): bool {}
 
 		/**
 		 * Dump cache
@@ -78,7 +78,7 @@ namespace {
 		 * @link https://php.net/manual/en/yac.dump.php
 		 * @since PECL yac >= 1.0.0
 		 */
-		public function dump(int $num) {}
+		public function dump(int $num): mixed {}
 
 		/**
 		 * Flush the cache
@@ -98,7 +98,7 @@ namespace {
 		 * @link https://php.net/manual/en/yac.get.php
 		 * @since PECL yac >= 1.0.0
 		 */
-		public function get($key, int &$cas = NULL) {}
+		public function get(string|array $key, int &$cas = NULL): mixed {}
 
 		/**
 		 * Status of cache
@@ -119,7 +119,7 @@ namespace {
 		 * @link https://php.net/manual/en/yac.set.php
 		 * @since PECL yac >= 1.0.0
 		 */
-		public function set(string $keys, $value, int $ttl = 0): bool {}
+		public function set(string $keys, mixed $value, int $ttl = 0): bool {}
 	}
 
 	/**

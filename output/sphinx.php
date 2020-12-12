@@ -43,7 +43,7 @@ namespace {
 		 * @link https://php.net/manual/en/sphinxclient.buildexcerpts.php
 		 * @since PECL sphinx >= 0.1.0
 		 */
-		public function buildExcerpts(array $docs, string $index, string $words, array $opts = NULL) {}
+		public function buildExcerpts(array $docs, string $index, string $words, array $opts = NULL): array|false {}
 
 		/**
 		 * Extract keywords from query

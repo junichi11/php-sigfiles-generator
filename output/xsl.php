@@ -20,7 +20,7 @@ namespace {
 		 * @see XSLTProcessor::setParameter(), XSLTProcessor::removeParameter()
 		 * @since PHP 5, PHP 7
 		 */
-		public function getParameter(string $namespace, string $name) {}
+		public function getParameter(string $namespace, string $name): string|false {}
 
 		/**
 		 * Get security preferences
@@ -58,7 +58,7 @@ namespace {
 		 * @link https://php.net/manual/en/xsltprocessor.registerphpfunctions.php
 		 * @since PHP 5 >= 5.0.4, PHP 7
 		 */
-		public function registerPHPFunctions($functions = NULL): void {}
+		public function registerPHPFunctions(array|string|null $functions = NULL): void {}
 
 		/**
 		 * Remove parameter
@@ -93,7 +93,7 @@ namespace {
 		 * @link https://php.net/manual/en/xsltprocessor.setprofiling.php
 		 * @since PHP >= 5.3.0
 		 */
-		public function setProfiling($filename): bool {}
+		public function setProfiling(string|null $filename): bool {}
 
 		/**
 		 * Set security preferences
@@ -115,7 +115,7 @@ namespace {
 		 * @see XSLTProcessor::transformToUri(), XSLTProcessor::transformToXml()
 		 * @since PHP 5, PHP 7
 		 */
-		public function transformToDoc(object $document, $returnClass = NULL) {}
+		public function transformToDoc(object $document, string|null $returnClass = NULL): \DOMDocument|false {}
 
 		/**
 		 * Transform to URI
@@ -138,7 +138,7 @@ namespace {
 		 * @see XSLTProcessor::transformToDoc(), XSLTProcessor::transformToUri()
 		 * @since PHP 5, PHP 7
 		 */
-		public function transformToXml(object $document) {}
+		public function transformToXml(object $document): string|false|null {}
 	}
 
 	/**

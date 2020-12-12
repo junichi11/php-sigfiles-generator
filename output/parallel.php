@@ -61,7 +61,7 @@ namespace parallel {
 		 * @link https://php.net/manual/en/parallel-channel.recv.php
 		 * @since 0.9.0
 		 */
-		public function recv() {}
+		public function recv(): mixed {}
 
 		/**
 		 * Sharing
@@ -71,7 +71,7 @@ namespace parallel {
 		 * @link https://php.net/manual/en/parallel-channel.send.php
 		 * @since 0.9.0
 		 */
-		public function send($value): void {}
+		public function send(mixed $value): void {}
 	}
 
 	/**
@@ -108,7 +108,7 @@ namespace parallel {
 		 * @link https://php.net/manual/en/parallel-events.poll.php
 		 * @since 0.9.0
 		 */
-		public function poll() {}
+		public function poll(): \Event|null {}
 
 		/**
 		 * Targets
@@ -236,7 +236,7 @@ namespace parallel\Events {
 		 * @link https://php.net/manual/en/parallel-events-input.add.php
 		 * @since 0.9.0
 		 */
-		public function add(string $target, $value): void {}
+		public function add(string $target, mixed $value): void {}
 
 		/**
 		 * Inputs
@@ -302,7 +302,7 @@ namespace parallel {
 		 * @link https://php.net/manual/en/parallel-future.value.php
 		 * @since 0.8.0
 		 */
-		public function value() {}
+		public function value(): mixed {}
 	}
 
 	/**
@@ -346,7 +346,7 @@ namespace parallel {
 		 * @link https://php.net/manual/en/parallel-runtime.run.php
 		 * @since 0.8.0
 		 */
-		public function run(\Closure $task) {}
+		public function run(\Closure $task): \Future|null {}
 	}
 
 	/**

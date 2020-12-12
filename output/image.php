@@ -83,7 +83,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.imageaffine.php
 	 * @since PHP 5 >= 5.5.0, PHP 7
 	 */
-	function imageaffine($image, array $affine, array $clip = NULL) {}
+	function imageaffine($image, array $affine, array $clip = NULL): resource|false {}
 
 	/**
 	 * Concatenate two affine transformation matrices
@@ -95,7 +95,7 @@ namespace {
 	 * @see imageaffine(), imageaffinematrixget()
 	 * @since PHP 5 >= 5.5.0, PHP 7
 	 */
-	function imageaffinematrixconcat(array $m1, array $m2) {}
+	function imageaffinematrixconcat(array $m1, array $m2): array|false {}
 
 	/**
 	 * Get an affine transformation matrix
@@ -107,7 +107,7 @@ namespace {
 	 * @see imageaffine(), imageaffinematrixconcat()
 	 * @since PHP 5 >= 5.5.0, PHP 7
 	 */
-	function imageaffinematrixget(int $type, $options = NULL) {}
+	function imageaffinematrixget(int $type, mixed $options = NULL): array|false {}
 
 	/**
 	 * Set the blending mode for an image
@@ -160,7 +160,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.imagebmp.php
 	 * @since PHP 7 >= 7.2.0
 	 */
-	function imagebmp($image, $to = NULL, bool $compressed = TRUE): bool {}
+	function imagebmp($image, mixed $to = NULL, bool $compressed = TRUE): bool {}
 
 	/**
 	 * Draw a character horizontally
@@ -234,7 +234,7 @@ namespace {
 	 * @see imagecolorset(), imagecolorsforindex(), imagesetpixel()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function imagecolorat($image, int $x, int $y) {}
+	function imagecolorat($image, int $x, int $y): int|false {}
 
 	/**
 	 * Get the index of the closest color to the specified color
@@ -677,7 +677,7 @@ namespace {
 	 * @see imagecropauto()
 	 * @since PHP 5 >= 5.5.0, PHP 7
 	 */
-	function imagecrop($image, array $rect) {}
+	function imagecrop($image, array $rect): resource|false {}
 
 	/**
 	 * Crop an image automatically using one of the available modes
@@ -691,7 +691,7 @@ namespace {
 	 * @see imagecrop()
 	 * @since PHP 5 >= 5.5.0, PHP 7
 	 */
-	function imagecropauto($image, int $mode = IMG_CROP_DEFAULT, float $threshold = .5, int $color = -1) {}
+	function imagecropauto($image, int $mode = IMG_CROP_DEFAULT, float $threshold = .5, int $color = -1): resource|false {}
 
 	/**
 	 * Draw a dashed line
@@ -931,7 +931,7 @@ namespace {
 	 * @see imagegd2()
 	 * @since PHP 4 >= 4.0.7, PHP 5, PHP 7
 	 */
-	function imagegd($image, $to = NULL): bool {}
+	function imagegd($image, mixed $to = NULL): bool {}
 
 	/**
 	 * Output GD2 image to browser or file
@@ -945,7 +945,7 @@ namespace {
 	 * @see imagegd()
 	 * @since PHP 4 >= 4.0.7, PHP 5, PHP 7
 	 */
-	function imagegd2($image, $to = NULL, int $chunk_size = 128, int $type = IMG_GD2_RAW): bool {}
+	function imagegd2($image, mixed $to = NULL, int $chunk_size = 128, int $type = IMG_GD2_RAW): bool {}
 
 	/**
 	 * Get the clipping rectangle
@@ -979,7 +979,7 @@ namespace {
 	 * @see imagepng(), imagewbmp(), imagejpeg(), imagetypes()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function imagegif($image, $to = NULL): bool {}
+	function imagegif($image, mixed $to = NULL): bool {}
 
 	/**
 	 * Captures the whole screen
@@ -1036,7 +1036,7 @@ namespace {
 	 * @see imagepng(), imagegif(), imagewbmp(), imageinterlace(), imagetypes()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function imagejpeg($image, $to = NULL, int $quality = -1): bool {}
+	function imagejpeg($image, mixed $to = NULL, int $quality = -1): bool {}
 
 	/**
 	 * Set the alpha blending flag to use layering effects
@@ -1124,7 +1124,7 @@ namespace {
 	 * @see imagegif(), imagewbmp(), imagejpeg(), imagetypes(), imagesavealpha()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function imagepng($image, $to = NULL, int $quality = -1, int $filters = -1): bool {}
+	function imagepng($image, mixed $to = NULL, int $quality = -1, int $filters = -1): bool {}
 
 	/**
 	 * Draws a polygon
@@ -1163,7 +1163,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.imageresolution.php
 	 * @since PHP 7 >= 7.2.0
 	 */
-	function imageresolution($image) {}
+	function imageresolution($image): mixed {}
 
 	/**
 	 * Rotate an image with a given angle
@@ -1177,7 +1177,7 @@ namespace {
 	 * @see imagesetinterpolation()
 	 * @since PHP 4 >= 4.3.0, PHP 5, PHP 7
 	 */
-	function imagerotate($image, float $angle, int $bgd_color, int $dummy = 0) {}
+	function imagerotate($image, float $angle, int $bgd_color, int $dummy = 0): resource|false {}
 
 	/**
 	 * Whether to retain full alpha channel information when saving PNG images
@@ -1203,7 +1203,7 @@ namespace {
 	 * @see imagecopyresized(), imagecopyresampled()
 	 * @since PHP 5 >= 5.5.0, PHP 7
 	 */
-	function imagescale($image, int $new_width, int $new_height = -1, int $mode = IMG_BILINEAR_FIXED) {}
+	function imagescale($image, int $new_width, int $new_height = -1, int $mode = IMG_BILINEAR_FIXED): resource|false {}
 
 	/**
 	 * Set the brush image for line drawing
@@ -1410,7 +1410,7 @@ namespace {
 	 * @see image2wbmp(), imagepng(), imagegif(), imagejpeg(), imagetypes()
 	 * @since PHP 4 >= 4.0.1, PHP 5, PHP 7
 	 */
-	function imagewbmp($image, $to = NULL, int $foreground = NULL): bool {}
+	function imagewbmp($image, mixed $to = NULL, int $foreground = NULL): bool {}
 
 	/**
 	 * Output a WebP image to browser or file
@@ -1422,7 +1422,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.imagewebp.php
 	 * @since PHP 5 >= 5.4.0, PHP 7
 	 */
-	function imagewebp($image, $to = NULL, int $quality = 80): bool {}
+	function imagewebp($image, mixed $to = NULL, int $quality = 80): bool {}
 
 	/**
 	 * Output an XBM image to browser or file
@@ -1434,7 +1434,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.imagexbm.php
 	 * @since PHP 5, PHP 7
 	 */
-	function imagexbm($image, $filename, int $foreground = NULL): bool {}
+	function imagexbm($image, mixed $filename, int $foreground = NULL): bool {}
 
 	/**
 	 * Embeds binary IPTC data into a JPEG image
@@ -1446,7 +1446,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.iptcembed.php
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function iptcembed(string $iptcdata, string $jpeg_file_name, int $spool = 0) {}
+	function iptcembed(string $iptcdata, string $jpeg_file_name, int $spool = 0): mixed {}
 
 	/**
 	 * Parse a binary IPTC block into single tags

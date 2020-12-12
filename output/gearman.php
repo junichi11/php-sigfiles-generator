@@ -62,7 +62,7 @@ namespace {
 		 * @link https://php.net/manual/en/gearmanclient.addtask.php
 		 * @since PECL gearman >= 0.5.0
 		 */
-		public function addTask(string $function_name, string $workload, &$context = NULL, string $unique = NULL): \GearmanTask {}
+		public function addTask(string $function_name, string $workload, mixed &$context = NULL, string $unique = NULL): \GearmanTask {}
 
 		/**
 		 * Add a background task to be run in parallel
@@ -75,7 +75,7 @@ namespace {
 		 * @link https://php.net/manual/en/gearmanclient.addtaskbackground.php
 		 * @since PECL gearman >= 0.5.0
 		 */
-		public function addTaskBackground(string $function_name, string $workload, &$context = NULL, string $unique = NULL): \GearmanTask {}
+		public function addTaskBackground(string $function_name, string $workload, mixed &$context = NULL, string $unique = NULL): \GearmanTask {}
 
 		/**
 		 * Add a high priority task to run in parallel
@@ -88,7 +88,7 @@ namespace {
 		 * @link https://php.net/manual/en/gearmanclient.addtaskhigh.php
 		 * @since PECL gearman >= 0.5.0
 		 */
-		public function addTaskHigh(string $function_name, string $workload, &$context = NULL, string $unique = NULL): \GearmanTask {}
+		public function addTaskHigh(string $function_name, string $workload, mixed &$context = NULL, string $unique = NULL): \GearmanTask {}
 
 		/**
 		 * Add a high priority background task to be run in parallel
@@ -101,7 +101,7 @@ namespace {
 		 * @link https://php.net/manual/en/gearmanclient.addtaskhighbackground.php
 		 * @since PECL gearman >= 0.5.0
 		 */
-		public function addTaskHighBackground(string $function_name, string $workload, &$context = NULL, string $unique = NULL): \GearmanTask {}
+		public function addTaskHighBackground(string $function_name, string $workload, mixed &$context = NULL, string $unique = NULL): \GearmanTask {}
 
 		/**
 		 * Add a low priority task to run in parallel
@@ -114,7 +114,7 @@ namespace {
 		 * @link https://php.net/manual/en/gearmanclient.addtasklow.php
 		 * @since PECL gearman >= 0.5.0
 		 */
-		public function addTaskLow(string $function_name, string $workload, &$context = NULL, string $unique = NULL): \GearmanTask {}
+		public function addTaskLow(string $function_name, string $workload, mixed &$context = NULL, string $unique = NULL): \GearmanTask {}
 
 		/**
 		 * Add a low priority background task to be run in parallel
@@ -127,7 +127,7 @@ namespace {
 		 * @link https://php.net/manual/en/gearmanclient.addtasklowbackground.php
 		 * @since PECL gearman >= 0.5.0
 		 */
-		public function addTaskLowBackground(string $function_name, string $workload, &$context = NULL, string $unique = NULL): \GearmanTask {}
+		public function addTaskLowBackground(string $function_name, string $workload, mixed &$context = NULL, string $unique = NULL): \GearmanTask {}
 
 		/**
 		 * Add a task to get status
@@ -549,7 +549,7 @@ namespace {
 		 * @link https://php.net/manual/en/exception.getcode.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
-		final public function getCode() {}
+		final public function getCode(): mixed {}
 
 		/**
 		 * Gets the file in which the exception was created
@@ -828,7 +828,7 @@ namespace {
 		 * @link https://php.net/manual/en/gearmantask.create.php
 		 * @since PECL gearman <= 0.5.0
 		 */
-		public function create() {}
+		public function create(): \GearmanTask|false {}
 
 		/**
 		 * Get data returned for a task
@@ -995,7 +995,7 @@ namespace {
 		 * @link https://php.net/manual/en/gearmanworker.addfunction.php
 		 * @since PECL gearman >= 0.5.0
 		 */
-		public function addFunction(string $function_name, callable $function, &$context = NULL, int $timeout = NULL): bool {}
+		public function addFunction(string $function_name, callable $function, mixed &$context = NULL, int $timeout = NULL): bool {}
 
 		/**
 		 * Add worker options

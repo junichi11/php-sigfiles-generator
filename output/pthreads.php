@@ -363,7 +363,7 @@ namespace {
 		 * @link https://php.net/manual/en/thread.globally.php
 		 * @since PECL pthreads < 3.0.0
 		 */
-		public static function globally() {}
+		public static function globally(): mixed {}
 
 		/**
 		 * State Detection
@@ -446,7 +446,7 @@ namespace {
 		 * @link https://php.net/manual/en/threaded.merge.php
 		 * @since PECL pthreads >= 2.0.0
 		 */
-		public function merge($from, bool $overwrite = NULL): bool {}
+		public function merge(mixed $from, bool $overwrite = NULL): bool {}
 
 		/**
 		 * Synchronization
@@ -491,7 +491,7 @@ namespace {
 		 * @link https://php.net/manual/en/threaded.shift.php
 		 * @since PECL pthreads >= 2.0.0
 		 */
-		public function shift() {}
+		public function shift(): mixed {}
 
 		/**
 		 * Execution
@@ -512,7 +512,7 @@ namespace {
 		 * @link https://php.net/manual/en/threaded.synchronized.php
 		 * @since PECL pthreads >= 2.0.0
 		 */
-		public function synchronized(\Closure $block, ...$args) {}
+		public function synchronized(\Closure $block, mixed ...$args): mixed {}
 
 		/**
 		 * Synchronization
@@ -638,7 +638,7 @@ namespace {
 		 * @link https://php.net/manual/en/threaded.merge.php
 		 * @since PECL pthreads >= 2.0.0
 		 */
-		public function merge($from, bool $overwrite = NULL): bool {}
+		public function merge(mixed $from, bool $overwrite = NULL): bool {}
 
 		/**
 		 * Synchronization
@@ -683,7 +683,7 @@ namespace {
 		 * @link https://php.net/manual/en/threaded.shift.php
 		 * @since PECL pthreads >= 2.0.0
 		 */
-		public function shift() {}
+		public function shift(): mixed {}
 
 		/**
 		 * Synchronization
@@ -694,7 +694,7 @@ namespace {
 		 * @link https://php.net/manual/en/threaded.synchronized.php
 		 * @since PECL pthreads >= 2.0.0
 		 */
-		public function synchronized(\Closure $block, ...$args) {}
+		public function synchronized(\Closure $block, mixed ...$args): mixed {}
 
 		/**
 		 * Synchronization
@@ -819,7 +819,7 @@ namespace {
 		 * @link https://php.net/manual/en/threaded.merge.php
 		 * @since PECL pthreads >= 2.0.0
 		 */
-		public function merge($from, bool $overwrite = NULL): bool {}
+		public function merge(mixed $from, bool $overwrite = NULL): bool {}
 
 		/**
 		 * Synchronization
@@ -864,7 +864,7 @@ namespace {
 		 * @link https://php.net/manual/en/threaded.shift.php
 		 * @since PECL pthreads >= 2.0.0
 		 */
-		public function shift() {}
+		public function shift(): mixed {}
 
 		/**
 		 * Synchronization
@@ -875,7 +875,7 @@ namespace {
 		 * @link https://php.net/manual/en/threaded.synchronized.php
 		 * @since PECL pthreads >= 2.0.0
 		 */
-		public function synchronized(\Closure $block, ...$args) {}
+		public function synchronized(\Closure $block, mixed ...$args): mixed {}
 
 		/**
 		 * Synchronization
@@ -980,7 +980,7 @@ namespace {
 		 * @link https://php.net/manual/en/thread.globally.php
 		 * @since PECL pthreads < 3.0.0
 		 */
-		public static function globally() {}
+		public static function globally(): mixed {}
 
 		/**
 		 * State Detection

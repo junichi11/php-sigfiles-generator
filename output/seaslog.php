@@ -41,7 +41,7 @@ namespace {
 		 * @link https://php.net/manual/en/seaslog.analyzercount.php
 		 * @since PECL seaslog >=1.1.6
 		 */
-		public static function analyzerCount(string $level, string $log_path = NULL, string $key_word = NULL) {}
+		public static function analyzerCount(string $level, string $log_path = NULL, string $key_word = NULL): mixed {}
 
 		/**
 		 * Get log detail by level, log_path, key_word, start, limit, order
@@ -56,7 +56,7 @@ namespace {
 		 * @link https://php.net/manual/en/seaslog.analyzerdetail.php
 		 * @since PECL seaslog >=1.1.6
 		 */
-		public static function analyzerDetail(string $level, string $log_path = NULL, string $key_word = NULL, int $start = NULL, int $limit = NULL, int $order = NULL) {}
+		public static function analyzerDetail(string $level, string $log_path = NULL, string $key_word = NULL, int $start = NULL, int $limit = NULL, int $order = NULL): mixed {}
 
 		/**
 		 * Manually release stream flow from logger

@@ -16,7 +16,7 @@ namespace {
 	 * @see yaml_emit_file(), yaml_parse()
 	 * @since PECL yaml >= 0.5.0
 	 */
-	function yaml_emit($data, int $encoding = YAML_ANY_ENCODING, int $linebreak = YAML_ANY_BREAK, array $callbacks = NULL): string {}
+	function yaml_emit(mixed $data, int $encoding = YAML_ANY_ENCODING, int $linebreak = YAML_ANY_BREAK, array $callbacks = NULL): string {}
 
 	/**
 	 * Send the YAML representation of a value to a file
@@ -31,7 +31,7 @@ namespace {
 	 * @see yaml_emit(), yaml_parse()
 	 * @since PECL yaml >= 0.5.0
 	 */
-	function yaml_emit_file(string $filename, $data, int $encoding = YAML_ANY_ENCODING, int $linebreak = YAML_ANY_BREAK, array $callbacks = NULL): bool {}
+	function yaml_emit_file(string $filename, mixed $data, int $encoding = YAML_ANY_ENCODING, int $linebreak = YAML_ANY_BREAK, array $callbacks = NULL): bool {}
 
 	/**
 	 * Parse a YAML stream
@@ -45,7 +45,7 @@ namespace {
 	 * @see yaml_parse_file(), yaml_parse_url(), yaml_emit()
 	 * @since PECL yaml >= 0.4.0
 	 */
-	function yaml_parse(string $input, int $pos = 0, int &$ndocs = NULL, array $callbacks = NULL) {}
+	function yaml_parse(string $input, int $pos = 0, int &$ndocs = NULL, array $callbacks = NULL): mixed {}
 
 	/**
 	 * Parse a YAML stream from a file
@@ -59,7 +59,7 @@ namespace {
 	 * @see yaml_parse(), yaml_parse_url(), yaml_emit()
 	 * @since PECL yaml >= 0.4.0
 	 */
-	function yaml_parse_file(string $filename, int $pos = 0, int &$ndocs = NULL, array $callbacks = NULL) {}
+	function yaml_parse_file(string $filename, int $pos = 0, int &$ndocs = NULL, array $callbacks = NULL): mixed {}
 
 	/**
 	 * Parse a Yaml stream from a URL
@@ -73,7 +73,7 @@ namespace {
 	 * @see yaml_parse(), yaml_parse_file(), yaml_emit()
 	 * @since PECL yaml >= 0.4.0
 	 */
-	function yaml_parse_url(string $url, int $pos = 0, int &$ndocs = NULL, array $callbacks = NULL) {}
+	function yaml_parse_url(string $url, int $pos = 0, int &$ndocs = NULL, array $callbacks = NULL): mixed {}
 
 	/**
 	 * Let emitter choose linebreak character.

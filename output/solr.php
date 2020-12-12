@@ -380,7 +380,7 @@ namespace {
 		 * @link https://php.net/manual/en/exception.getcode.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
-		final public function getCode() {}
+		final public function getCode(): mixed {}
 
 		/**
 		 * Gets the file in which the exception was created
@@ -3258,7 +3258,7 @@ namespace {
 		 * @link https://php.net/manual/en/exception.getcode.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
-		final public function getCode() {}
+		final public function getCode(): mixed {}
 
 		/**
 		 * Gets the file in which the exception was created
@@ -3596,7 +3596,7 @@ namespace {
 		 * @link https://php.net/manual/en/exception.getcode.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
-		final public function getCode() {}
+		final public function getCode(): mixed {}
 
 		/**
 		 * Gets the file in which the exception was created
@@ -3736,7 +3736,7 @@ namespace {
 		 * @link https://php.net/manual/en/exception.getcode.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
-		final public function getCode() {}
+		final public function getCode(): mixed {}
 
 		/**
 		 * Gets the file in which the exception was created
@@ -3987,7 +3987,7 @@ namespace {
 		 * @link https://php.net/manual/en/solrinputdocument.getfieldcount.php
 		 * @since PECL solr >= 0.9.2
 		 */
-		public function getFieldCount() {}
+		public function getFieldCount(): int|false {}
 
 		/**
 		 * Returns an array containing all the fields in the document
@@ -4141,7 +4141,7 @@ namespace {
 		 * @link https://php.net/manual/en/exception.getcode.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
-		final public function getCode() {}
+		final public function getCode(): mixed {}
 
 		/**
 		 * Gets the file in which the exception was created
@@ -4262,7 +4262,7 @@ namespace {
 		 * @link https://php.net/manual/en/solrparams.get.php
 		 * @since PECL solr >= 0.9.2
 		 */
-		final public function get(string $param_name) {}
+		final public function get(string $param_name): mixed {}
 
 		/**
 		 * Returns a parameter value
@@ -4272,7 +4272,7 @@ namespace {
 		 * @link https://php.net/manual/en/solrparams.getparam.php
 		 * @since PECL solr >= 0.9.2
 		 */
-		final public function getParam(string $param_name = NULL) {}
+		final public function getParam(string $param_name = NULL): mixed {}
 
 		/**
 		 * Returns an array of non URL-encoded parameters
@@ -4396,7 +4396,7 @@ namespace {
 		 * @link https://php.net/manual/en/solrobject.offsetget.php
 		 * @since PECL solr >= 0.9.2
 		 */
-		public function offsetGet(string $property_name) {}
+		public function offsetGet(string $property_name): mixed {}
 
 		/**
 		 * Sets the value for a property
@@ -4457,7 +4457,7 @@ namespace {
 		 * @link https://php.net/manual/en/solrparams.get.php
 		 * @since PECL solr >= 0.9.2
 		 */
-		final public function get(string $param_name) {}
+		final public function get(string $param_name): mixed {}
 
 		/**
 		 * Returns a parameter value
@@ -4467,7 +4467,7 @@ namespace {
 		 * @link https://php.net/manual/en/solrparams.getparam.php
 		 * @since PECL solr >= 0.9.2
 		 */
-		final public function getParam(string $param_name = NULL) {}
+		final public function getParam(string $param_name = NULL): mixed {}
 
 		/**
 		 * Returns an array of non URL-encoded parameters
@@ -7065,7 +7065,7 @@ namespace {
 		 * @link https://php.net/manual/en/exception.getcode.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
-		final public function getCode() {}
+		final public function getCode(): mixed {}
 
 		/**
 		 * Gets the file in which the exception was created
@@ -7356,7 +7356,7 @@ namespace {
 		 * @link https://php.net/manual/en/solrutils.escapequerychars.php
 		 * @since PECL solr >= 0.9.2
 		 */
-		public static function escapeQueryChars(string $str) {}
+		public static function escapeQueryChars(string $str): string|false {}
 
 		/**
 		 * Returns the current version of the Solr extension

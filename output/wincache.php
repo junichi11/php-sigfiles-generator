@@ -13,7 +13,7 @@ namespace {
 	 * @see wincache_fcache_meminfo(), wincache_ocache_fileinfo(), wincache_ocache_meminfo(), wincache_rplist_fileinfo(), wincache_rplist_meminfo(), wincache_refresh_if_changed(), wincache_ucache_meminfo(), wincache_ucache_info(), wincache_scache_info(), wincache_scache_meminfo()
 	 * @since PECL wincache >= 1.0.0
 	 */
-	function wincache_fcache_fileinfo(bool $summaryonly = FALSE) {}
+	function wincache_fcache_fileinfo(bool $summaryonly = FALSE): array|false {}
 
 	/**
 	 * Retrieves information about file cache memory usage
@@ -23,7 +23,7 @@ namespace {
 	 * @see wincache_fcache_fileinfo(), wincache_ocache_fileinfo(), wincache_ocache_meminfo(), wincache_rplist_fileinfo(), wincache_rplist_meminfo(), wincache_refresh_if_changed(), wincache_ucache_meminfo(), wincache_ucache_info(), wincache_scache_info(), wincache_scache_meminfo()
 	 * @since PECL wincache >= 1.0.0
 	 */
-	function wincache_fcache_meminfo() {}
+	function wincache_fcache_meminfo(): array|false {}
 
 	/**
 	 * Acquires an exclusive lock on a given key
@@ -46,7 +46,7 @@ namespace {
 	 * @see wincache_fcache_fileinfo(), wincache_fcache_meminfo(), wincache_ocache_meminfo(), wincache_rplist_fileinfo(), wincache_rplist_meminfo(), wincache_refresh_if_changed(), wincache_ucache_meminfo(), wincache_ucache_info(), wincache_scache_info(), wincache_scache_meminfo()
 	 * @since PECL wincache >= 1.0.0
 	 */
-	function wincache_ocache_fileinfo(bool $summaryonly = FALSE) {}
+	function wincache_ocache_fileinfo(bool $summaryonly = FALSE): array|false {}
 
 	/**
 	 * Retrieves information about opcode cache memory usage
@@ -56,7 +56,7 @@ namespace {
 	 * @see wincache_fcache_fileinfo(), wincache_fcache_meminfo(), wincache_ocache_fileinfo(), wincache_rplist_fileinfo(), wincache_rplist_meminfo(), wincache_refresh_if_changed(), wincache_ucache_meminfo(), wincache_ucache_info(), wincache_scache_info(), wincache_scache_meminfo()
 	 * @since PECL wincache >= 1.0.0
 	 */
-	function wincache_ocache_meminfo() {}
+	function wincache_ocache_meminfo(): array|false {}
 
 	/**
 	 * Refreshes the cache entries for the cached files
@@ -78,7 +78,7 @@ namespace {
 	 * @see wincache_fcache_meminfo(), wincache_fcache_fileinfo(), wincache_ocache_fileinfo(), wincache_ocache_meminfo(), wincache_rplist_meminfo(), wincache_refresh_if_changed(), wincache_ucache_meminfo(), wincache_ucache_info(), wincache_scache_info(), wincache_scache_meminfo()
 	 * @since PECL wincache >= 1.0.0
 	 */
-	function wincache_rplist_fileinfo(bool $summaryonly = FALSE) {}
+	function wincache_rplist_fileinfo(bool $summaryonly = FALSE): array|false {}
 
 	/**
 	 * Retrieves information about memory usage by the resolve file path cache
@@ -88,7 +88,7 @@ namespace {
 	 * @see wincache_fcache_fileinfo(), wincache_fcache_meminfo(), wincache_ocache_fileinfo(), wincache_ocache_meminfo(), wincache_rplist_fileinfo(), wincache_refresh_if_changed(), wincache_ucache_meminfo(), wincache_ucache_info(), wincache_scache_info(), wincache_scache_meminfo()
 	 * @since PECL wincache >= 1.0.0
 	 */
-	function wincache_rplist_meminfo() {}
+	function wincache_rplist_meminfo(): array|false {}
 
 	/**
 	 * Retrieves information about files cached in the session cache
@@ -99,7 +99,7 @@ namespace {
 	 * @see wincache_fcache_fileinfo(), wincache_fcache_meminfo(), wincache_ocache_meminfo(), wincache_rplist_fileinfo(), wincache_rplist_meminfo(), wincache_refresh_if_changed(), wincache_ucache_meminfo(), wincache_ucache_info(), wincache_scache_meminfo()
 	 * @since PECL wincache >= 1.1.0
 	 */
-	function wincache_scache_info(bool $summaryonly = FALSE) {}
+	function wincache_scache_info(bool $summaryonly = FALSE): array|false {}
 
 	/**
 	 * Retrieves information about session cache memory usage
@@ -109,7 +109,7 @@ namespace {
 	 * @see wincache_fcache_fileinfo(), wincache_fcache_meminfo(), wincache_ocache_fileinfo(), wincache_rplist_fileinfo(), wincache_rplist_meminfo(), wincache_refresh_if_changed(), wincache_ucache_info(), wincache_scache_info()
 	 * @since PECL wincache >= 1.1.0
 	 */
-	function wincache_scache_meminfo() {}
+	function wincache_scache_meminfo(): array|false {}
 
 	/**
 	 * Adds a variable in user cache only if variable does not already exist in the cache
@@ -122,7 +122,7 @@ namespace {
 	 * @see wincache_ucache_set(), wincache_ucache_get(), wincache_ucache_delete(), wincache_ucache_clear(), wincache_ucache_exists(), wincache_ucache_meminfo(), wincache_ucache_info()
 	 * @since PECL wincache >= 1.1.0
 	 */
-	function wincache_ucache_add(string $key, $value, int $ttl = 0): bool {}
+	function wincache_ucache_add(string $key, mixed $value, int $ttl = 0): bool {}
 
 	/**
 	 * Compares the variable with old value and assigns new value to it
@@ -158,7 +158,7 @@ namespace {
 	 * @see wincache_ucache_inc(), wincache_ucache_cas()
 	 * @since PECL wincache >= 1.1.0
 	 */
-	function wincache_ucache_dec(string $key, int $dec_by = 1, bool &$success = NULL) {}
+	function wincache_ucache_dec(string $key, int $dec_by = 1, bool &$success = NULL): mixed {}
 
 	/**
 	 * Deletes variables from the user cache
@@ -169,7 +169,7 @@ namespace {
 	 * @see wincache_ucache_set(), wincache_ucache_add(), wincache_ucache_get(), wincache_ucache_clear(), wincache_ucache_exists(), wincache_ucache_meminfo(), wincache_ucache_info()
 	 * @since PECL wincache >= 1.1.0
 	 */
-	function wincache_ucache_delete($key): bool {}
+	function wincache_ucache_delete(mixed $key): bool {}
 
 	/**
 	 * Checks if a variable exists in the user cache
@@ -192,7 +192,7 @@ namespace {
 	 * @see wincache_ucache_add(), wincache_ucache_set(), wincache_ucache_delete(), wincache_ucache_clear(), wincache_ucache_exists(), wincache_ucache_meminfo(), wincache_ucache_info()
 	 * @since PECL wincache >= 1.1.0
 	 */
-	function wincache_ucache_get($key, bool &$success = NULL) {}
+	function wincache_ucache_get(mixed $key, bool &$success = NULL): mixed {}
 
 	/**
 	 * Increments the value associated with the key
@@ -205,7 +205,7 @@ namespace {
 	 * @see wincache_ucache_dec(), wincache_ucache_cas()
 	 * @since PECL wincache >= 1.1.0
 	 */
-	function wincache_ucache_inc(string $key, int $inc_by = 1, bool &$success = NULL) {}
+	function wincache_ucache_inc(string $key, int $inc_by = 1, bool &$success = NULL): mixed {}
 
 	/**
 	 * Retrieves information about data stored in the user cache
@@ -217,7 +217,7 @@ namespace {
 	 * @see wincache_fcache_meminfo(), wincache_ocache_fileinfo(), wincache_ocache_meminfo(), wincache_rplist_meminfo(), wincache_rplist_fileinfo(), wincache_refresh_if_changed(), wincache_ucache_meminfo(), wincache_scache_info(), wincache_scache_meminfo()
 	 * @since PECL wincache >= 1.1.0
 	 */
-	function wincache_ucache_info(bool $summaryonly = FALSE, string $key = NULL) {}
+	function wincache_ucache_info(bool $summaryonly = FALSE, string $key = NULL): array|false {}
 
 	/**
 	 * Retrieves information about user cache memory usage
@@ -227,7 +227,7 @@ namespace {
 	 * @see wincache_fcache_fileinfo(), wincache_fcache_meminfo(), wincache_ocache_fileinfo(), wincache_rplist_fileinfo(), wincache_rplist_meminfo(), wincache_refresh_if_changed(), wincache_ucache_info(), wincache_scache_info(), wincache_scache_meminfo()
 	 * @since PECL wincache >= 1.1.0
 	 */
-	function wincache_ucache_meminfo() {}
+	function wincache_ucache_meminfo(): array|false {}
 
 	/**
 	 * Adds a variable in user cache and overwrites a variable if it already exists in the cache
@@ -240,7 +240,7 @@ namespace {
 	 * @see wincache_ucache_add(), wincache_ucache_get(), wincache_ucache_delete(), wincache_ucache_clear(), wincache_ucache_exists(), wincache_ucache_meminfo(), wincache_ucache_info()
 	 * @since PECL wincache >= 1.1.0
 	 */
-	function wincache_ucache_set($key, $value, int $ttl = 0): bool {}
+	function wincache_ucache_set(mixed $key, mixed $value, int $ttl = 0): bool {}
 
 	/**
 	 * Releases an exclusive lock on a given key

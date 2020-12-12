@@ -60,7 +60,7 @@ namespace {
 		 * @link https://php.net/manual/en/exception.getcode.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
-		final public function getCode() {}
+		final public function getCode(): mixed {}
 
 		/**
 		 * Gets the file in which the exception was created
@@ -131,7 +131,7 @@ namespace {
 		 * @link https://php.net/manual/en/jsonserializable.jsonserialize.php
 		 * @since PHP 5 >= 5.4.0, PHP 7
 		 */
-		public function jsonSerialize();
+		public function jsonSerialize(): mixed;
 	}
 
 	/**
@@ -146,7 +146,7 @@ namespace {
 	 * @see json_encode(), json_last_error()
 	 * @since PHP 5 >= 5.2.0, PHP 7, PECL json >= 1.2.0
 	 */
-	function json_decode(string $json, $associative = NULL, int $depth = 512, int $flags = 0) {}
+	function json_decode(string $json, bool|null $associative = NULL, int $depth = 512, int $flags = 0): mixed {}
 
 	/**
 	 * Returns the JSON representation of a value
@@ -159,7 +159,7 @@ namespace {
 	 * @see json_decode(), json_last_error(), serialize()
 	 * @since PHP 5 >= 5.2.0, PHP 7, PECL json >= 1.2.0
 	 */
-	function json_encode($value, int $flags = 0, int $depth = 512) {}
+	function json_encode(mixed $value, int $flags = 0, int $depth = 512): string|false {}
 
 	/**
 	 * Returns the last error occurred

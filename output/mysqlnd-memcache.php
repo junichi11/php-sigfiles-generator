@@ -12,7 +12,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.mysqlnd-memcache-get-config.php
 	 * @since PECL mysqlnd_memcache >= 1.0.0
 	 */
-	function mysqlnd_memcache_get_config($connection): array {}
+	function mysqlnd_memcache_get_config(mixed $connection): array {}
 
 	/**
 	 * Associate a MySQL connection with a Memcache connection
@@ -26,7 +26,7 @@ namespace {
 	 * @see mysqlnd_memcache_get_config()
 	 * @since PECL mysqlnd_memcache >= 1.0.0
 	 */
-	function mysqlnd_memcache_set($mysql_connection, \Memcached $memcache_connection = NULL, string $pattern = NULL, callable $callback = NULL): bool {}
+	function mysqlnd_memcache_set(mixed $mysql_connection, \Memcached $memcache_connection = NULL, string $pattern = NULL, callable $callback = NULL): bool {}
 
 	/**
 	 * Default regular expression (PCRE style) used for matching <code>SELECT</code> statements that will be mapped into a MySQL Memcache Plugin access point, if possible.   It is also possible to use <code>mysqlnd_memcache_set()</code>, but the default approach is using this regular expression for pattern matching.

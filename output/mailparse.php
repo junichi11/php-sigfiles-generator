@@ -48,7 +48,7 @@ namespace {
 	 * @see mailparse_msg_extract_part(), mailparse_msg_extract_whole_part_file()
 	 * @since PECL mailparse >= 0.9.0
 	 */
-	function mailparse_msg_extract_part_file($mimemail, $filename, callable $callbackfunc = NULL): string {}
+	function mailparse_msg_extract_part_file($mimemail, mixed $filename, callable $callbackfunc = NULL): string {}
 
 	/**
 	 * Extracts a message section including headers without decoding the transfer encoding

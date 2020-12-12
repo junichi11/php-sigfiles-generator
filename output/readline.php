@@ -12,7 +12,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.readline.php
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function readline($prompt = NULL) {}
+	function readline(string|null $prompt = NULL): string|false {}
 
 	/**
 	 * Adds a line to the history
@@ -84,7 +84,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.readline-info.php
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function readline_info($var_name = NULL, $value = NULL) {}
+	function readline_info(string|null $var_name = NULL, int|string|bool|null $value = NULL): mixed {}
 
 	/**
 	 * Lists the history
@@ -112,7 +112,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.readline-read-history.php
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function readline_read_history($filename = NULL): bool {}
+	function readline_read_history(string|null $filename = NULL): bool {}
 
 	/**
 	 * Redraws the display
@@ -131,7 +131,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.readline-write-history.php
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function readline_write_history($filename = NULL): bool {}
+	function readline_write_history(string|null $filename = NULL): bool {}
 
 	/**
 	 * The library which is used for readline support; currently either <code>readline</code> or <code>libedit</code>. Available as of PHP 5.5.0.

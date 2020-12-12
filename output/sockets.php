@@ -169,7 +169,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.socket-export-stream.php
 	 * @since PHP 7 >= 7.0.7
 	 */
-	function socket_export_stream($socket) {}
+	function socket_export_stream($socket): resource|false {}
 
 	/**
 	 * Gets socket options for the socket
@@ -182,7 +182,7 @@ namespace {
 	 * @see socket_create_listen(), socket_set_option()
 	 * @since PHP 4 >= 4.3.0, PHP 5, PHP 7
 	 */
-	function socket_get_option($socket, int $level, int $optname) {}
+	function socket_get_option($socket, int $level, int $optname): mixed {}
 
 	/**
 	 * Alias of socket_get_option()
@@ -194,7 +194,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.socket-getopt.php
 	 * @since PHP 4 >= 4.1.0, PHP 5, PHP 7
 	 */
-	function socket_getopt($socket, int $level, int $optname) {}
+	function socket_getopt($socket, int $level, int $optname): mixed {}
 
 	/**
 	 * Queries the remote side of the given socket which may either result in host/port or in a Unix filesystem path, dependent on its type
@@ -350,7 +350,7 @@ namespace {
 	 * @see socket_recvmsg(), socket_cmsg_space()
 	 * @since PHP 5 >= 5.5.0, PHP 7
 	 */
-	function socket_sendmsg($socket, array $message, int $flags = 0) {}
+	function socket_sendmsg($socket, array $message, int $flags = 0): int|false {}
 
 	/**
 	 * Sends a message to a socket, whether it is connected or not
@@ -402,7 +402,7 @@ namespace {
 	 * @see socket_create(), socket_bind(), socket_strerror(), socket_last_error(), socket_get_option()
 	 * @since PHP 4 >= 4.3.0, PHP 5, PHP 7
 	 */
-	function socket_set_option($socket, int $level, int $optname, $optval): bool {}
+	function socket_set_option($socket, int $level, int $optname, mixed $optval): bool {}
 
 	/**
 	 * Alias of socket_set_option()
@@ -415,7 +415,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.socket-setopt.php
 	 * @since PHP 4 >= 4.1.0, PHP 5, PHP 7
 	 */
-	function socket_setopt($socket, int $level, int $optname, $optval): bool {}
+	function socket_setopt($socket, int $level, int $optname, mixed $optval): bool {}
 
 	/**
 	 * Shuts down a socket for receiving, sending, or both
@@ -450,7 +450,7 @@ namespace {
 	 * @see socket_accept(), socket_bind(), socket_connect(), socket_listen(), socket_read(), socket_strerror()
 	 * @since PHP 4 >= 4.1.0, PHP 5, PHP 7
 	 */
-	function socket_write($socket, string $buffer, int $length = 0) {}
+	function socket_write($socket, string $buffer, int $length = 0): int|false {}
 
 	/**
 	 * Exports the WSAPROTOCOL_INFO Structure
@@ -462,7 +462,7 @@ namespace {
 	 * @see socket_wsaprotocol_info_import(), socket_wsaprotocol_info_release()
 	 * @since PHP 7 >= 7.3.0
 	 */
-	function socket_wsaprotocol_info_export($socket, int $target_pid) {}
+	function socket_wsaprotocol_info_export($socket, int $target_pid): string|false {}
 
 	/**
 	 * Imports a Socket from another Process
@@ -473,7 +473,7 @@ namespace {
 	 * @see socket_wsaprotocol_info_export()
 	 * @since PHP 7 >= 7.3.0
 	 */
-	function socket_wsaprotocol_info_import(string $info_id) {}
+	function socket_wsaprotocol_info_import(string $info_id): resource|false {}
 
 	/**
 	 * Releases an exported WSAPROTOCOL_INFO Structure

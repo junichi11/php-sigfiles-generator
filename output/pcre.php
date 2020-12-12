@@ -17,7 +17,7 @@ namespace {
 	 * @see preg_quote(), preg_replace(), preg_replace_callback(), preg_grep(), preg_last_error()
 	 * @since PHP 5 >= 5.3.0, PHP 7
 	 */
-	function preg_filter($pattern, $replacement, $subject, int $limit = -1, int &$count = NULL) {}
+	function preg_filter(string|array $pattern, string|array $replacement, string|array $subject, int $limit = -1, int &$count = NULL): string|array|null {}
 
 	/**
 	 * Return array entries that match the pattern
@@ -30,7 +30,7 @@ namespace {
 	 * @see preg_quote(), preg_match_all(), preg_filter(), preg_last_error()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function preg_grep(string $pattern, array $array, int $flags = 0) {}
+	function preg_grep(string $pattern, array $array, int $flags = 0): array|false {}
 
 	/**
 	 * Returns the error code of the last PCRE regex execution
@@ -65,7 +65,7 @@ namespace {
 	 * @see preg_quote(), preg_match_all(), preg_replace(), preg_split(), preg_last_error(), preg_last_error_msg()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function preg_match(string $pattern, string $subject, array &$matches = NULL, int $flags = 0, int $offset = 0) {}
+	function preg_match(string $pattern, string $subject, array &$matches = NULL, int $flags = 0, int $offset = 0): int|false {}
 
 	/**
 	 * Perform a global regular expression match
@@ -80,7 +80,7 @@ namespace {
 	 * @see preg_quote(), preg_match(), preg_replace(), preg_split(), preg_last_error()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function preg_match_all(string $pattern, string $subject, array &$matches = NULL, int $flags = PREG_PATTERN_ORDER, int $offset = 0) {}
+	function preg_match_all(string $pattern, string $subject, array &$matches = NULL, int $flags = PREG_PATTERN_ORDER, int $offset = 0): int|false|null {}
 
 	/**
 	 * Quote regular expression characters
@@ -92,7 +92,7 @@ namespace {
 	 * @see escapeshellcmd()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function preg_quote(string $str, $delimiter = NULL): string {}
+	function preg_quote(string $str, string|null $delimiter = NULL): string {}
 
 	/**
 	 * Perform a regular expression search and replace
@@ -107,7 +107,7 @@ namespace {
 	 * @see preg_quote(), preg_filter(), preg_match(), preg_replace_callback(), preg_split(), preg_last_error()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function preg_replace($pattern, $replacement, $subject, int $limit = -1, int &$count = NULL) {}
+	function preg_replace(string|array $pattern, string|array $replacement, string|array $subject, int $limit = -1, int &$count = NULL): string|array|null {}
 
 	/**
 	 * Perform a regular expression search and replace using a callback
@@ -123,7 +123,7 @@ namespace {
 	 * @see preg_replace_callback_array(), preg_quote(), preg_replace(), preg_last_error()
 	 * @since PHP 4 >= 4.0.5, PHP 5, PHP 7
 	 */
-	function preg_replace_callback($pattern, callable $callback, $subject, int $limit = -1, int &$count = NULL, int $flags = 0) {}
+	function preg_replace_callback(string|array $pattern, callable $callback, string|array $subject, int $limit = -1, int &$count = NULL, int $flags = 0): string|array|null {}
 
 	/**
 	 * Perform a regular expression search and replace using callbacks
@@ -138,7 +138,7 @@ namespace {
 	 * @see preg_replace_callback(), preg_quote(), preg_replace(), preg_last_error()
 	 * @since PHP 7
 	 */
-	function preg_replace_callback_array(array $pattern, $subject, int $limit = -1, int &$count = NULL, int $flags = 0) {}
+	function preg_replace_callback_array(array $pattern, string|array $subject, int $limit = -1, int &$count = NULL, int $flags = 0): string|array|null {}
 
 	/**
 	 * Split string by a regular expression
@@ -152,7 +152,7 @@ namespace {
 	 * @see preg_quote(), implode(), preg_match(), preg_match_all(), preg_replace(), preg_last_error()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function preg_split(string $pattern, string $subject, int $limit = -1, int $flags = 0) {}
+	function preg_split(string $pattern, string $subject, int $limit = -1, int $flags = 0): array|false {}
 
 	/**
 	 * 5.2.4

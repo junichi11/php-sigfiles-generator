@@ -550,7 +550,7 @@ namespace {
 	 * @see fbsql_fetch_row(), fbsql_fetch_array(), fbsql_fetch_assoc(), fbsql_fetch_object()
 	 * @since PHP 4 >= 4.0.6, PHP 5 < 5.3.0
 	 */
-	function fbsql_result($result, int $row = NULL, $field = NULL) {}
+	function fbsql_result($result, int $row = NULL, mixed $field = NULL): mixed {}
 
 	/**
 	 * Rollback a transaction to the database

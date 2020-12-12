@@ -371,7 +371,7 @@ namespace {
 	 * @see session_is_registered(), session_unregister()
 	 * @since PHP 4, PHP 5 < 5.4.0
 	 */
-	function session_register($name, ...$names): bool {}
+	function session_register(mixed $name, mixed ...$names): bool {}
 
 	/**
 	 * Session shutdown function

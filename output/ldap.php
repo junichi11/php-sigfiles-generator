@@ -92,7 +92,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.ldap-compare.php
 	 * @since PHP 4 >= 4.0.2, PHP 5, PHP 7
 	 */
-	function ldap_compare($link_identifier, string $dn, string $attribute, string $value, array $serverctrls = array()) {}
+	function ldap_compare($link_identifier, string $dn, string $attribute, string $value, array $serverctrls = array()): mixed {}
 
 	/**
 	 * Connect to an LDAP server
@@ -239,7 +239,7 @@ namespace {
 	 * @see ldap_parse_result(), ldap_parse_exop(), ldap_exop_whoami(), ldap_exop_refresh(), ldap_exop_passwd()
 	 * @since PHP 7 >= 7.2.0
 	 */
-	function ldap_exop($link, string $reqoid, string $reqdata = NULL, array $serverctrls = NULL, string &$retdata = NULL, string &$retoid = NULL) {}
+	function ldap_exop($link, string $reqoid, string $reqdata = NULL, array $serverctrls = NULL, string &$retdata = NULL, string &$retoid = NULL): mixed {}
 
 	/**
 	 * PASSWD extended operation helper
@@ -254,7 +254,7 @@ namespace {
 	 * @see ldap_exop(), ldap_parse_exop()
 	 * @since PHP 7 >= 7.2.0
 	 */
-	function ldap_exop_passwd($link, string $user = "", string $oldpw = "", string $newpw = "", array &$serverctrls = NULL) {}
+	function ldap_exop_passwd($link, string $user = "", string $oldpw = "", string $newpw = "", array &$serverctrls = NULL): mixed {}
 
 	/**
 	 * Refresh extended operation helper
@@ -289,7 +289,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.ldap-explode-dn.php
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function ldap_explode_dn(string $dn, int $with_attrib) {}
+	function ldap_explode_dn(string $dn, int $with_attrib): array|false {}
 
 	/**
 	 * Return first attribute
@@ -382,7 +382,7 @@ namespace {
 	 * @see ldap_set_option()
 	 * @since PHP 4 >= 4.0.4, PHP 5, PHP 7
 	 */
-	function ldap_get_option($link_identifier, int $option, &$retval): bool {}
+	function ldap_get_option($link_identifier, int $option, mixed &$retval): bool {}
 
 	/**
 	 * Get all values from a result entry
@@ -712,7 +712,7 @@ namespace {
 	 * @see ldap_get_option()
 	 * @since PHP 4 >= 4.0.4, PHP 5, PHP 7
 	 */
-	function ldap_set_option($link_identifier, int $option, $newval): bool {}
+	function ldap_set_option($link_identifier, int $option, mixed $newval): bool {}
 
 	/**
 	 * Set a callback function to do re-binds on referral chasing

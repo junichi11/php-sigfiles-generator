@@ -68,7 +68,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.sqlsrv-configure.php
 	 * @since No version information available, might only be in Git
 	 */
-	function sqlsrv_configure(string $setting, $value): bool {}
+	function sqlsrv_configure(string $setting, mixed $value): bool {}
 
 	/**
 	 * Opens a connection to a Microsoft SQL Server database
@@ -91,7 +91,7 @@ namespace {
 	 * @see sqlsrv_configure()
 	 * @since No version information available, might only be in Git
 	 */
-	function sqlsrv_errors(int $errorsOrWarnings = NULL) {}
+	function sqlsrv_errors(int $errorsOrWarnings = NULL): mixed {}
 
 	/**
 	 * Executes a statement prepared with sqlsrv_prepare()
@@ -115,7 +115,7 @@ namespace {
 	 * @see sqlsrv_get_field(), sqlsrv_fetch_array(), sqlsrv_fetch_object()
 	 * @since No version information available, might only be in Git
 	 */
-	function sqlsrv_fetch($stmt, int $row = NULL, int $offset = NULL) {}
+	function sqlsrv_fetch($stmt, int $row = NULL, int $offset = NULL): mixed {}
 
 	/**
 	 * Returns a row as an array
@@ -144,7 +144,7 @@ namespace {
 	 * @see sqlsrv_fetch(), sqlsrv_fetch_array()
 	 * @since No version information available, might only be in Git
 	 */
-	function sqlsrv_fetch_object($stmt, string $className = NULL, array $ctorParams = NULL, int $row = NULL, int $offset = NULL) {}
+	function sqlsrv_fetch_object($stmt, string $className = NULL, array $ctorParams = NULL, int $row = NULL, int $offset = NULL): mixed {}
 
 	/**
 	 * Retrieves metadata for the fields of a statement prepared by sqlsrv_prepare() or sqlsrv_query()
@@ -155,7 +155,7 @@ namespace {
 	 * @see sqlsrv_client_info()
 	 * @since No version information available, might only be in Git
 	 */
-	function sqlsrv_field_metadata($stmt) {}
+	function sqlsrv_field_metadata($stmt): mixed {}
 
 	/**
 	 * Frees all resources for the specified statement
@@ -177,7 +177,7 @@ namespace {
 	 * @see sqlsrv_configure()
 	 * @since No version information available, might only be in Git
 	 */
-	function sqlsrv_get_config(string $setting) {}
+	function sqlsrv_get_config(string $setting): mixed {}
 
 	/**
 	 * Gets field data from the currently selected row
@@ -190,7 +190,7 @@ namespace {
 	 * @see sqlsrv_fetch(), sqlsrv_fetch_array(), sqlsrv_fetch_object()
 	 * @since No version information available, might only be in Git
 	 */
-	function sqlsrv_get_field($stmt, int $fieldIndex, int $getAsType = NULL) {}
+	function sqlsrv_get_field($stmt, int $fieldIndex, int $getAsType = NULL): mixed {}
 
 	/**
 	 * Indicates whether the specified statement has rows
@@ -212,7 +212,7 @@ namespace {
 	 * @see sqlsrv_query(), sqlsrv_fetch_array(), sqlsrv_rows_affected()
 	 * @since No version information available, might only be in Git
 	 */
-	function sqlsrv_next_result($stmt) {}
+	function sqlsrv_next_result($stmt): mixed {}
 
 	/**
 	 * Retrieves the number of fields (columns) on a statement
@@ -223,7 +223,7 @@ namespace {
 	 * @see sqlsrv_field_metadata(), sqlsrv_fetch(), sqlsrv_get_field()
 	 * @since No version information available, might only be in Git
 	 */
-	function sqlsrv_num_fields($stmt) {}
+	function sqlsrv_num_fields($stmt): mixed {}
 
 	/**
 	 * Retrieves the number of rows in a result set
@@ -234,7 +234,7 @@ namespace {
 	 * @see sqlsrv_has_rows(), sqlsrv_rows_affected()
 	 * @since No version information available, might only be in Git
 	 */
-	function sqlsrv_num_rows($stmt) {}
+	function sqlsrv_num_rows($stmt): mixed {}
 
 	/**
 	 * Prepares a query for execution
@@ -248,7 +248,7 @@ namespace {
 	 * @see sqlsrv_execute(), sqlsrv_query()
 	 * @since No version information available, might only be in Git
 	 */
-	function sqlsrv_prepare($conn, string $sql, array $params = NULL, array $options = NULL) {}
+	function sqlsrv_prepare($conn, string $sql, array $params = NULL, array $options = NULL): mixed {}
 
 	/**
 	 * Prepares and executes a query
@@ -262,7 +262,7 @@ namespace {
 	 * @see sqlsrv_prepare(), sqlsrv_execute()
 	 * @since No version information available, might only be in Git
 	 */
-	function sqlsrv_query($conn, string $sql, array $params = NULL, array $options = NULL) {}
+	function sqlsrv_query($conn, string $sql, array $params = NULL, array $options = NULL): mixed {}
 
 	/**
 	 * Rolls back a transaction that was begun with sqlsrv_begin_transaction()

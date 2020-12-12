@@ -70,7 +70,7 @@ namespace {
 	 * @see get_class(), get_class_vars(), get_object_vars()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function get_class_methods($class_name): array {}
+	function get_class_methods(mixed $class_name): array {}
 
 	/**
 	 * Get the default properties of the class
@@ -132,7 +132,7 @@ namespace {
 	 * @see get_class(), is_subclass_of(), class_parents()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function get_parent_class($object = NULL): string {}
+	function get_parent_class(mixed $object = NULL): string {}
 
 	/**
 	 * Checks if the interface has been defined
@@ -157,7 +157,7 @@ namespace {
 	 * @see get_class(), get_parent_class(), is_subclass_of()
 	 * @since PHP 4 >= 4.2.0, PHP 5, PHP 7
 	 */
-	function is_a($object, string $class_name, bool $allow_string = FALSE): bool {}
+	function is_a(mixed $object, string $class_name, bool $allow_string = FALSE): bool {}
 
 	/**
 	 * Checks if the object has this class as one of its parents or implements it
@@ -170,7 +170,7 @@ namespace {
 	 * @see get_class(), get_parent_class(), is_a(), class_parents()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function is_subclass_of($object, string $class_name, bool $allow_string = TRUE): bool {}
+	function is_subclass_of(mixed $object, string $class_name, bool $allow_string = TRUE): bool {}
 
 	/**
 	 * Checks if the class method exists
@@ -182,7 +182,7 @@ namespace {
 	 * @see function_exists(), is_callable(), class_exists()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function method_exists($object, string $method_name): bool {}
+	function method_exists(string|object $object, string $method_name): bool {}
 
 	/**
 	 * Checks if the object or class has a property
@@ -194,7 +194,7 @@ namespace {
 	 * @see method_exists()
 	 * @since PHP 5 >= 5.1.0, PHP 7
 	 */
-	function property_exists($class, string $property): bool {}
+	function property_exists(mixed $class, string $property): bool {}
 
 	/**
 	 * Checks if the trait exists

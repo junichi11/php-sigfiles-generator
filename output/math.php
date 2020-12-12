@@ -13,7 +13,7 @@ namespace {
 	 * @see gmp_abs(), gmp_sign()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function abs($number) {}
+	function abs(mixed $number): int|float {}
 
 	/**
 	 * Arc cosine
@@ -115,7 +115,7 @@ namespace {
 	 * @see decbin(), octdec(), hexdec(), base_convert()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function bindec(string $binary_string) {}
+	function bindec(string $binary_string): int|float {}
 
 	/**
 	 * Round fractions up
@@ -258,7 +258,7 @@ namespace {
 	 * @see dechex(), bindec(), octdec(), base_convert()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function hexdec(string $hex_string) {}
+	function hexdec(string $hex_string): int|float {}
 
 	/**
 	 * Calculate the length of the hypotenuse of a right-angle triangle
@@ -369,7 +369,7 @@ namespace {
 	 * @see min(), count()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function max(array $value_array) {}
+	function max(array $value_array): mixed {}
 
 	/**
 	 * Find lowest value
@@ -380,7 +380,7 @@ namespace {
 	 * @see max(), count()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function min(array $value_array) {}
+	function min(array $value_array): mixed {}
 
 	/**
 	 * Show largest possible random value
@@ -423,7 +423,7 @@ namespace {
 	 * @see decoct(), bindec(), hexdec(), base_convert()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function octdec(string $octal_string) {}
+	function octdec(string $octal_string): int|float {}
 
 	/**
 	 * Get value of pi
@@ -444,7 +444,7 @@ namespace {
 	 * @see exp(), sqrt(), bcpow(), gmp_pow()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function pow($base, $exp) {}
+	function pow(int|float $base, int|float $exp): int|float {}
 
 	/**
 	 * Converts the radian number to the equivalent number in degrees

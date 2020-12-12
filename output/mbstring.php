@@ -13,7 +13,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.mb-check-encoding.php
 	 * @since PHP 4 >= 4.4.3, PHP 5 >= 5.1.3, PHP 7
 	 */
-	function mb_check_encoding($var = NULL, string $encoding = 'mb_internal_encoding()'): bool {}
+	function mb_check_encoding(mixed $var = NULL, string $encoding = 'mb_internal_encoding()'): bool {}
 
 	/**
 	 * Get a specific character
@@ -25,7 +25,7 @@ namespace {
 	 * @see mb_ord(), chr()
 	 * @since PHP 7 >= 7.2.0
 	 */
-	function mb_chr(int $cp, string $encoding = NULL) {}
+	function mb_chr(int $cp, string $encoding = NULL): string|false {}
 
 	/**
 	 * Perform case folding on a string
@@ -51,7 +51,7 @@ namespace {
 	 * @see mb_detect_order()
 	 * @since PHP 4 >= 4.0.6, PHP 5, PHP 7
 	 */
-	function mb_convert_encoding($val, string $to_encoding, $from_encoding  = 'mb_internal_encoding()') {}
+	function mb_convert_encoding(mixed $val, string $to_encoding, mixed $from_encoding  = 'mb_internal_encoding()'): mixed {}
 
 	/**
 	 * Convert "kana" one from another ("zen-kaku", "han-kaku" and more)
@@ -76,7 +76,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.mb-convert-variables.php
 	 * @since PHP 4 >= 4.0.6, PHP 5, PHP 7
 	 */
-	function mb_convert_variables(string $to_encoding, $from_encoding, &$var, &...$vars): string {}
+	function mb_convert_variables(string $to_encoding, mixed $from_encoding, mixed &$var, mixed &...$vars): string {}
 
 	/**
 	 * Decode string in MIME header field
@@ -114,7 +114,7 @@ namespace {
 	 * @see mb_detect_order()
 	 * @since PHP 4 >= 4.0.6, PHP 5, PHP 7
 	 */
-	function mb_detect_encoding(string $str, $encoding_list  = 'mb_detect_order()', bool $strict = FALSE): string {}
+	function mb_detect_encoding(string $str, mixed $encoding_list  = 'mb_detect_order()', bool $strict = FALSE): string {}
 
 	/**
 	 * Set/Get character encoding detection order
@@ -125,7 +125,7 @@ namespace {
 	 * @see mb_internal_encoding(), mb_http_input(), mb_http_output(), mb_send_mail()
 	 * @since PHP 4 >= 4.0.6, PHP 5, PHP 7
 	 */
-	function mb_detect_order($encoding_list  = 'mb_detect_order()') {}
+	function mb_detect_order(mixed $encoding_list  = 'mb_detect_order()'): mixed {}
 
 	/**
 	 * Encode string for MIME header
@@ -165,7 +165,7 @@ namespace {
 	 * @see mb_list_encodings()
 	 * @since PHP 5 >= 5.3.0, PHP 7
 	 */
-	function mb_encoding_aliases(string $encoding) {}
+	function mb_encoding_aliases(string $encoding): array|false {}
 
 	/**
 	 * Regular expression match with multibyte support
@@ -337,7 +337,7 @@ namespace {
 	 * @see mb_regex_encoding(), mb_http_output()
 	 * @since PHP 4 >= 4.2.0, PHP 5, PHP 7
 	 */
-	function mb_get_info(string $type = "all") {}
+	function mb_get_info(string $type = "all"): mixed {}
 
 	/**
 	 * Detect HTTP input character encoding
@@ -348,7 +348,7 @@ namespace {
 	 * @see mb_internal_encoding(), mb_http_output(), mb_detect_order()
 	 * @since PHP 4 >= 4.0.6, PHP 5, PHP 7
 	 */
-	function mb_http_input(string $type = "") {}
+	function mb_http_input(string $type = ""): mixed {}
 
 	/**
 	 * Set/Get HTTP output character encoding
@@ -359,7 +359,7 @@ namespace {
 	 * @see mb_internal_encoding(), mb_http_input(), mb_detect_order()
 	 * @since PHP 4 >= 4.0.6, PHP 5, PHP 7
 	 */
-	function mb_http_output(string $encoding = 'mb_http_output()') {}
+	function mb_http_output(string $encoding = 'mb_http_output()'): mixed {}
 
 	/**
 	 * Set/Get internal character encoding
@@ -370,7 +370,7 @@ namespace {
 	 * @see mb_http_input(), mb_http_output(), mb_detect_order(), mb_regex_encoding()
 	 * @since PHP 4 >= 4.0.6, PHP 5, PHP 7
 	 */
-	function mb_internal_encoding(string $encoding = 'mb_internal_encoding()') {}
+	function mb_internal_encoding(string $encoding = 'mb_internal_encoding()'): mixed {}
 
 	/**
 	 * Set/Get current language
@@ -402,7 +402,7 @@ namespace {
 	 * @see mb_chr(), ord()
 	 * @since PHP 7 >= 7.2.0
 	 */
-	function mb_ord(string $str, string $encoding = NULL) {}
+	function mb_ord(string $str, string $encoding = NULL): int|false {}
 
 	/**
 	 * Callback function converts character encoding in output buffer
@@ -447,7 +447,7 @@ namespace {
 	 * @see mb_internal_encoding(), mb_ereg()
 	 * @since PHP 4 >= 4.2.0, PHP 5, PHP 7
 	 */
-	function mb_regex_encoding(string $encoding = 'mb_regex_encoding()') {}
+	function mb_regex_encoding(string $encoding = 'mb_regex_encoding()'): mixed {}
 
 	/**
 	 * Set/Get the default options for mbregex functions
@@ -484,7 +484,7 @@ namespace {
 	 * @see mail(), mb_encode_mimeheader(), mb_language()
 	 * @since PHP 4 >= 4.0.6, PHP 5, PHP 7
 	 */
-	function mb_send_mail(string $to, string $subject, string $message, $additional_headers = NULL, string $additional_parameter = NULL): bool {}
+	function mb_send_mail(string $to, string $subject, string $message, mixed $additional_headers = NULL, string $additional_parameter = NULL): bool {}
 
 	/**
 	 * Split multibyte string using regular expression
@@ -497,7 +497,7 @@ namespace {
 	 * @see mb_regex_encoding(), mb_ereg()
 	 * @since PHP 4 >= 4.2.0, PHP 5, PHP 7
 	 */
-	function mb_split(string $pattern, string $string, int $limit = -1) {}
+	function mb_split(string $pattern, string $string, int $limit = -1): array|false {}
 
 	/**
 	 * Given a multibyte string, return an array of its characters
@@ -510,7 +510,7 @@ namespace {
 	 * @see str_split()
 	 * @since PHP 7 >= 7.4.0
 	 */
-	function mb_str_split(string $string, int $split_length = 1, string $encoding = 'mb_internal_encoding()') {}
+	function mb_str_split(string $string, int $split_length = 1, string $encoding = 'mb_internal_encoding()'): array|false {}
 
 	/**
 	 * Get part of string
@@ -593,7 +593,7 @@ namespace {
 	 * @see mb_internal_encoding(), strpos()
 	 * @since PHP 4 >= 4.0.6, PHP 5, PHP 7
 	 */
-	function mb_strpos(string $haystack, string $needle, int $offset = 0, string $encoding = 'mb_internal_encoding()') {}
+	function mb_strpos(string $haystack, string $needle, int $offset = 0, string $encoding = 'mb_internal_encoding()'): int|false {}
 
 	/**
 	 * Finds the last occurrence of a character in a string within another
@@ -709,7 +709,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.mb-substitute-character.php
 	 * @since PHP 4 >= 4.0.6, PHP 5, PHP 7
 	 */
-	function mb_substitute_character($substchar  = 'mb_substitute_character()') {}
+	function mb_substitute_character(mixed $substchar  = 'mb_substitute_character()'): mixed {}
 
 	/**
 	 * Get part of string

@@ -53,7 +53,7 @@ namespace {
 		 * @link https://php.net/manual/en/stomp.ack.php
 		 * @since PECL stomp >= 0.1.0
 		 */
-		public function ack($msg, array $headers = NULL): bool {}
+		public function ack(mixed $msg, array $headers = NULL): bool {}
 
 		/**
 		 * Starts a transaction
@@ -102,7 +102,7 @@ namespace {
 		 * @link https://php.net/manual/en/stomp.getsessionid.php
 		 * @since PECL stomp >= 0.1.0
 		 */
-		public function getSessionId() {}
+		public function getSessionId(): string|false {}
 
 		/**
 		 * Indicates whether or not there is a frame ready to read
@@ -133,7 +133,7 @@ namespace {
 		 * @link https://php.net/manual/en/stomp.send.php
 		 * @since PECL stomp >= 0.1.0
 		 */
-		public function send(string $destination, $msg, array $headers = NULL): bool {}
+		public function send(string $destination, mixed $msg, array $headers = NULL): bool {}
 
 		/**
 		 * Sets read timeout
@@ -201,7 +201,7 @@ namespace {
 		 * @link https://php.net/manual/en/exception.getcode.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
-		final public function getCode() {}
+		final public function getCode(): mixed {}
 
 		/**
 		 * Get exception details
@@ -327,7 +327,7 @@ namespace {
 	 * @link https://php.net/manual/en/stomp.ack.php
 	 * @since PECL stomp >= 0.1.0
 	 */
-	function stomp_ack($link, $msg, array $headers = NULL): bool {}
+	function stomp_ack($link, mixed $msg, array $headers = NULL): bool {}
 
 	/**
 	 * Starts a transaction
@@ -413,7 +413,7 @@ namespace {
 	 * @link https://php.net/manual/en/stomp.getsessionid.php
 	 * @since PECL stomp >= 0.1.0
 	 */
-	function stomp_get_session_id($link) {}
+	function stomp_get_session_id($link): string|false {}
 
 	/**
 	 * Indicates whether or not there is a frame ready to read
@@ -446,7 +446,7 @@ namespace {
 	 * @link https://php.net/manual/en/stomp.send.php
 	 * @since PECL stomp >= 0.1.0
 	 */
-	function stomp_send($link, string $destination, $msg, array $headers = NULL): bool {}
+	function stomp_send($link, string $destination, mixed $msg, array $headers = NULL): bool {}
 
 	/**
 	 * Sets read timeout

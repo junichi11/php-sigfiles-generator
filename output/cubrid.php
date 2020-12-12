@@ -16,7 +16,7 @@ namespace {
 	 * @see cubrid_execute(), cubrid_prepare()
 	 * @since PECL CUBRID >= 8.3.0
 	 */
-	function cubrid_bind($req_identifier, int $bind_index, $bind_value, string $bind_value_type = NULL): bool {}
+	function cubrid_bind($req_identifier, int $bind_index, mixed $bind_value, string $bind_value_type = NULL): bool {}
 
 	/**
 	 * Close the request handle
@@ -214,7 +214,7 @@ namespace {
 	 * @see cubrid_execute(), cubrid_fetch_array(), cubrid_fetch_row(), cubrid_fetch_assoc(), cubrid_fetch_object()
 	 * @since PECL CUBRID >= 8.3.0
 	 */
-	function cubrid_fetch($result, int $type = CUBRID_BOTH) {}
+	function cubrid_fetch($result, int $type = CUBRID_BOTH): mixed {}
 
 	/**
 	 * Free the memory occupied by the result data
@@ -237,7 +237,7 @@ namespace {
 	 * @see cubrid_put()
 	 * @since PECL CUBRID >= 8.3.0
 	 */
-	function cubrid_get($conn_identifier, string $oid, $attr = NULL) {}
+	function cubrid_get($conn_identifier, string $oid, mixed $attr = NULL): mixed {}
 
 	/**
 	 * Get auto-commit mode of the connection
@@ -348,7 +348,7 @@ namespace {
 	 * @see cubrid_lob2_new(), cubrid_lob2_close()
 	 * @since PECL CUBRID >= 8.4.1
 	 */
-	function cubrid_lob2_bind($req_identifier, int $bind_index, $bind_value, string $bind_value_type = NULL): bool {}
+	function cubrid_lob2_bind($req_identifier, int $bind_index, mixed $bind_value, string $bind_value_type = NULL): bool {}
 
 	/**
 	 * Close LOB object
@@ -673,7 +673,7 @@ namespace {
 	 * @see cubrid_get(), cubrid_set_add(), cubrid_set_drop(), cubrid_seq_insert(), cubrid_seq_drop(), cubrid_seq_put()
 	 * @since PECL CUBRID >= 8.3.0
 	 */
-	function cubrid_put($conn_identifier, string $oid, string $attr = NULL, $value): bool {}
+	function cubrid_put($conn_identifier, string $oid, string $attr = NULL, mixed $value): bool {}
 
 	/**
 	 * Roll back a transaction

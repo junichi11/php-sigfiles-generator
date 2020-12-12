@@ -66,7 +66,7 @@ namespace {
 		 * @link https://php.net/manual/en/event.construct.php
 		 * @since PECL event >= 1.2.6-beta
 		 */
-		public function __construct(\EventBase $base, $fd, int $what, callable $cb, $arg = NULL) {}
+		public function __construct(\EventBase $base, mixed $fd, int $what, callable $cb, mixed $arg = NULL) {}
 
 		/**
 		 * Makes event pending
@@ -165,7 +165,7 @@ namespace {
 		 * @link https://php.net/manual/en/event.set.php
 		 * @since PECL event >= 1.2.6-beta
 		 */
-		public function set(\EventBase $base, $fd, int $what = NULL, callable $cb = NULL, $arg = NULL): bool {}
+		public function set(\EventBase $base, mixed $fd, int $what = NULL, callable $cb = NULL, mixed $arg = NULL): bool {}
 
 		/**
 		 * Set event priority
@@ -187,7 +187,7 @@ namespace {
 		 * @link https://php.net/manual/en/event.settimer.php
 		 * @since PECL event >= 1.2.6-beta
 		 */
-		public function setTimer(\EventBase $base, callable $cb, $arg = NULL): bool {}
+		public function setTimer(\EventBase $base, callable $cb, mixed $arg = NULL): bool {}
 
 		/**
 		 * Constructs signal event object
@@ -200,7 +200,7 @@ namespace {
 		 * @link https://php.net/manual/en/event.signal.php
 		 * @since PECL event >= 1.2.6-beta
 		 */
-		public static function signal(\EventBase $base, int $signum, callable $cb, $arg = NULL): \Event {}
+		public static function signal(\EventBase $base, int $signum, callable $cb, mixed $arg = NULL): \Event {}
 
 		/**
 		 * Constructs timer event object
@@ -212,7 +212,7 @@ namespace {
 		 * @link https://php.net/manual/en/event.timer.php
 		 * @since PECL event >= 1.2.6-beta
 		 */
-		public static function timer(\EventBase $base, callable $cb, $arg = NULL): \Event {}
+		public static function timer(\EventBase $base, callable $cb, mixed $arg = NULL): \Event {}
 	}
 
 	/**
@@ -597,7 +597,7 @@ namespace {
 		 * @link https://php.net/manual/en/eventbuffer.search.php
 		 * @since PECL event >= 1.2.6-beta
 		 */
-		public function search(string $what, int $start = -1, int $end = -1) {}
+		public function search(string $what, int $start = -1, int $end = -1): mixed {}
 
 		/**
 		 * Scans the buffer for an occurrence of an end of line
@@ -609,7 +609,7 @@ namespace {
 		 * @since PECL event >= 1.5.0
 		 */
 		public function searchEol(int $start = -1, int $eol_style = 
-     EventBuffer::EOL_ANY) {}
+     EventBuffer::EOL_ANY): mixed {}
 
 		/**
 		 * Substracts a portion of the buffer data
@@ -650,7 +650,7 @@ namespace {
 		 * @link https://php.net/manual/en/eventbuffer.write.php
 		 * @since PECL event >= 1.6.0
 		 */
-		public function write($fd, int $howmuch = NULL): int {}
+		public function write(mixed $fd, int $howmuch = NULL): int {}
 	}
 
 	/**
@@ -781,7 +781,7 @@ namespace {
 		 * @link https://php.net/manual/en/eventbufferevent.construct.php
 		 * @since PECL event >= 1.2.6-beta
 		 */
-		public function __construct(\EventBase $base, $socket = NULL, int $options = 0, callable $readcb = NULL, callable $writecb = NULL, callable $eventcb = NULL) {}
+		public function __construct(\EventBase $base, mixed $socket = NULL, int $options = 0, callable $readcb = NULL, callable $writecb = NULL, callable $eventcb = NULL) {}
 
 		/**
 		 * Closes file descriptor associated with the current buffer event
@@ -1037,7 +1037,7 @@ namespace {
 		 * @link https://php.net/manual/en/eventbufferevent.sslsocket.php
 		 * @since PECL event >= 1.2.6-beta
 		 */
-		public static function sslSocket(\EventBase $base, $socket, \EventSslContext $ctx, int $state, int $options = NULL): \EventBufferEvent {}
+		public static function sslSocket(\EventBase $base, mixed $socket, \EventSslContext $ctx, int $state, int $options = NULL): \EventBufferEvent {}
 
 		/**
 		 * Adds data to a buffer event's output buffer
@@ -1282,7 +1282,7 @@ namespace {
 		 * @link https://php.net/manual/en/eventhttp.accept.php
 		 * @since PECL event >= 1.2.6-beta
 		 */
-		public function accept($socket): bool {}
+		public function accept(mixed $socket): bool {}
 
 		/**
 		 * Adds a server alias to the HTTP server object
@@ -1441,7 +1441,7 @@ namespace {
 		 * @link https://php.net/manual/en/eventhttpconnection.setclosecallback.php
 		 * @since PECL event >= 1.8.0
 		 */
-		public function setCloseCallback(callable $callback, $data = NULL): void {}
+		public function setCloseCallback(callable $callback, mixed $data = NULL): void {}
 
 		/**
 		 * Sets the IP address from which HTTP connections are made
@@ -1586,7 +1586,7 @@ namespace {
 		 * @link https://php.net/manual/en/eventhttprequest.construct.php
 		 * @since PECL event >= 1.4.0-beta
 		 */
-		public function __construct(callable $callback, $data = NULL) {}
+		public function __construct(callable $callback, mixed $data = NULL) {}
 
 		/**
 		 * Adds an HTTP header to the headers of the request
@@ -1840,7 +1840,7 @@ namespace {
 		 * @link https://php.net/manual/en/eventlistener.construct.php
 		 * @since PECL event >= 1.2.6-beta
 		 */
-		public function __construct(\EventBase $base, callable $cb, $data, int $flags, int $backlog, $target) {}
+		public function __construct(\EventBase $base, callable $cb, mixed $data, int $flags, int $backlog, mixed $target) {}
 
 		/**
 		 * Disables an event connect listener object
@@ -1878,7 +1878,7 @@ namespace {
 		 * @link https://php.net/manual/en/eventlistener.getsocketname.php
 		 * @since PECL event >= 1.5.0
 		 */
-		public static function getSocketName(string &$address, &$port = NULL): bool {}
+		public static function getSocketName(string &$address, mixed &$port = NULL): bool {}
 
 		/**
 		 * The setCallback purpose
@@ -1889,7 +1889,7 @@ namespace {
 		 * @link https://php.net/manual/en/eventlistener.setcallback.php
 		 * @since PECL event >= 1.2.6-beta
 		 */
-		public function setCallback(callable $cb, $arg = NULL): void {}
+		public function setCallback(callable $cb, mixed $arg = NULL): void {}
 
 		/**
 		 * Set event listener's error callback
@@ -2203,7 +2203,7 @@ namespace {
 		 * @link https://php.net/manual/en/eventutil.getlastsocketerrno.php
 		 * @since PECL event >= 1.2.6-beta
 		 */
-		public static function getLastSocketErrno($socket = NULL): int {}
+		public static function getLastSocketErrno(mixed $socket = NULL): int {}
 
 		/**
 		 * Returns the most recent socket error
@@ -2213,7 +2213,7 @@ namespace {
 		 * @link https://php.net/manual/en/eventutil.getlastsocketerror.php
 		 * @since PECL event >= 1.2.6-beta
 		 */
-		public static function getLastSocketError($socket = NULL): string {}
+		public static function getLastSocketError(mixed $socket = NULL): string {}
 
 		/**
 		 * Returns numeric file descriptor of a socket, or stream
@@ -2223,7 +2223,7 @@ namespace {
 		 * @link https://php.net/manual/en/eventutil.getsocketfd.php
 		 * @since PECL event >= 1.7.0
 		 */
-		public static function getSocketFd($socket): int {}
+		public static function getSocketFd(mixed $socket): int {}
 
 		/**
 		 * Retreives the current address to which the socket is bound
@@ -2235,7 +2235,7 @@ namespace {
 		 * @link https://php.net/manual/en/eventutil.getsocketname.php
 		 * @since PECL event >= 1.5.0
 		 */
-		public static function getSocketName($socket, string &$address, &$port = NULL): bool {}
+		public static function getSocketName(mixed $socket, string &$address, mixed &$port = NULL): bool {}
 
 		/**
 		 * Sets socket options
@@ -2249,7 +2249,7 @@ namespace {
 		 * @see socket_get_option(), socket_set_option()
 		 * @since PECL event >= 1.6.0
 		 */
-		public static function setSocketOption($socket, int $level, int $optname, $optval): bool {}
+		public static function setSocketOption(mixed $socket, int $level, int $optname, mixed $optval): bool {}
 
 		/**
 		 * Generates entropy by means of OpenSSL's RAND_poll()

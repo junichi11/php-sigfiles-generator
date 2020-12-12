@@ -96,7 +96,7 @@ namespace {
 	 * @see popen(), exec(), system(), passthru(), stream_select()
 	 * @since PHP 4 >= 4.3.0, PHP 5, PHP 7
 	 */
-	function proc_open($cmd, array $descriptorspec, array &$pipes, string $cwd = NULL, array $env = NULL, array $other_options = NULL) {}
+	function proc_open(mixed $cmd, array $descriptorspec, array &$pipes, string $cwd = NULL, array $env = NULL, array $other_options = NULL) {}
 
 	/**
 	 * Kills a process opened by proc_open

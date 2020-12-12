@@ -74,7 +74,7 @@ namespace {
 		 * @link https://php.net/manual/en/sqlite3.createaggregate.php
 		 * @since PHP 5 >= 5.3.0, PHP 7
 		 */
-		public function createAggregate(string $name, $step_callback, $final_callback, int $argument_count = -1): bool {}
+		public function createAggregate(string $name, mixed $step_callback, mixed $final_callback, int $argument_count = -1): bool {}
 
 		/**
 		 * Registers a PHP function for use as an SQL collating function
@@ -98,7 +98,7 @@ namespace {
 		 * @link https://php.net/manual/en/sqlite3.createfunction.php
 		 * @since PHP 5 >= 5.3.0, PHP 7
 		 */
-		public function createFunction(string $name, $callback, int $argument_count = -1, int $flags = 0): bool {}
+		public function createFunction(string $name, mixed $callback, int $argument_count = -1, int $flags = 0): bool {}
 
 		/**
 		 * Enable throwing exceptions
@@ -191,7 +191,7 @@ namespace {
 		 * @link https://php.net/manual/en/sqlite3.openblob.php
 		 * @since PHP 5 >= 5.3.0, PHP 7
 		 */
-		public function openBlob(string $table, string $column, int $rowid, string $dbname = "main", int $flags = SQLITE3_OPEN_READONLY) {}
+		public function openBlob(string $table, string $column, int $rowid, string $dbname = "main", int $flags = SQLITE3_OPEN_READONLY): resource|false {}
 
 		/**
 		 * Prepares an SQL statement for execution
@@ -201,7 +201,7 @@ namespace {
 		 * @link https://php.net/manual/en/sqlite3.prepare.php
 		 * @since PHP 5 >= 5.3.0, PHP 7
 		 */
-		public function prepare(string $query) {}
+		public function prepare(string $query): \SQLite3Stmt|false {}
 
 		/**
 		 * Executes an SQL query
@@ -211,7 +211,7 @@ namespace {
 		 * @link https://php.net/manual/en/sqlite3.query.php
 		 * @since PHP 5 >= 5.3.0, PHP 7
 		 */
-		public function query(string $query) {}
+		public function query(string $query): \SQLite3Result|false {}
 
 		/**
 		 * Executes a query and returns a single result
@@ -222,7 +222,7 @@ namespace {
 		 * @link https://php.net/manual/en/sqlite3.querysingle.php
 		 * @since PHP 5 >= 5.3.0, PHP 7
 		 */
-		public function querySingle(string $query, bool $entire_row = FALSE) {}
+		public function querySingle(string $query, bool $entire_row = FALSE): mixed {}
 
 		/**
 		 * Configures a callback to be used as an authorizer to limit what a statement can do
@@ -232,7 +232,7 @@ namespace {
 		 * @link https://php.net/manual/en/sqlite3.setauthorizer.php
 		 * @since PHP 8
 		 */
-		public function setAuthorizer($callback): bool {}
+		public function setAuthorizer(callable|null $callback): bool {}
 
 		/**
 		 * Returns the SQLite3 library version as a string constant and as a number
@@ -326,7 +326,7 @@ namespace {
 		 * @link https://php.net/manual/en/sqlite3stmt.bindparam.php
 		 * @since PHP 5 >= 5.3.0, PHP 7
 		 */
-		public function bindParam($sql_param, &$param, int $type = NULL): bool {}
+		public function bindParam(mixed $sql_param, mixed &$param, int $type = NULL): bool {}
 
 		/**
 		 * Binds the value of a parameter to a statement variable
@@ -338,7 +338,7 @@ namespace {
 		 * @link https://php.net/manual/en/sqlite3stmt.bindvalue.php
 		 * @since PHP 5 >= 5.3.0, PHP 7
 		 */
-		public function bindValue($sql_param, $value, int $type = NULL): bool {}
+		public function bindValue(mixed $sql_param, mixed $value, int $type = NULL): bool {}
 
 		/**
 		 * Clears all current bound parameters
@@ -375,7 +375,7 @@ namespace {
 		 * @link https://php.net/manual/en/sqlite3stmt.getsql.php
 		 * @since PHP 7 >= 7.4.0
 		 */
-		public function getSQL(bool $expanded = FALSE) {}
+		public function getSQL(bool $expanded = FALSE): string|false {}
 
 		/**
 		 * Returns the number of parameters within the prepared statement

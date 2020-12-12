@@ -116,7 +116,7 @@ namespace {
 		 * @link https://php.net/manual/en/oauth.fetch.php
 		 * @since PECL OAuth >= 0.99.1
 		 */
-		public function fetch(string $protected_resource_url, array $extra_parameters = NULL, string $http_method = NULL, array $http_headers = NULL) {}
+		public function fetch(string $protected_resource_url, array $extra_parameters = NULL, string $http_method = NULL, array $http_headers = NULL): mixed {}
 
 		/**
 		 * Generate a signature
@@ -128,7 +128,7 @@ namespace {
 		 * @link https://php.net/manual/en/oauth.generatesignature.php
 		 * @since No version information available, might only be in Git
 		 */
-		public function generateSignature(string $http_method, string $url, $extra_parameters = NULL) {}
+		public function generateSignature(string $http_method, string $url, mixed $extra_parameters = NULL): string|false {}
 
 		/**
 		 * Fetch an access token
@@ -168,7 +168,7 @@ namespace {
 		 * @link https://php.net/manual/en/oauth.getlastresponseheaders.php
 		 * @since No version information available, might only be in Git
 		 */
-		public function getLastResponseHeaders() {}
+		public function getLastResponseHeaders(): string|false {}
 
 		/**
 		 * Get HTTP information about the last response
@@ -189,7 +189,7 @@ namespace {
 		 * @link https://php.net/manual/en/oauth.getrequestheader.php
 		 * @since No version information available, might only be in Git
 		 */
-		public function getRequestHeader(string $http_method, string $url, $extra_parameters = NULL) {}
+		public function getRequestHeader(string $http_method, string $url, mixed $extra_parameters = NULL): string|false {}
 
 		/**
 		 * Fetch a request token
@@ -222,7 +222,7 @@ namespace {
 		 * @link https://php.net/manual/en/oauth.setcapath.php
 		 * @since PECL OAuth >= 0.99.8
 		 */
-		public function setCAPath(string $ca_path = NULL, string $ca_info = NULL) {}
+		public function setCAPath(string $ca_path = NULL, string $ca_info = NULL): mixed {}
 
 		/**
 		 * Set the nonce for subsequent requests
@@ -232,7 +232,7 @@ namespace {
 		 * @link https://php.net/manual/en/oauth.setnonce.php
 		 * @since PECL OAuth >= 0.99.1
 		 */
-		public function setNonce(string $nonce) {}
+		public function setNonce(string $nonce): mixed {}
 
 		/**
 		 * Set the RSA certificate
@@ -242,7 +242,7 @@ namespace {
 		 * @link https://php.net/manual/en/oauth.setrsacertificate.php
 		 * @since PECL OAuth >= 1.0.0
 		 */
-		public function setRSACertificate(string $cert) {}
+		public function setRSACertificate(string $cert): mixed {}
 
 		/**
 		 * The setRequestEngine purpose
@@ -272,7 +272,7 @@ namespace {
 		 * @link https://php.net/manual/en/oauth.settimestamp.php
 		 * @since PECL OAuth >= 1.0.0
 		 */
-		public function setTimestamp(string $timestamp) {}
+		public function setTimestamp(string $timestamp): mixed {}
 
 		/**
 		 * Sets the token and secret
@@ -364,7 +364,7 @@ namespace {
 		 * @link https://php.net/manual/en/exception.getcode.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
-		final public function getCode() {}
+		final public function getCode(): mixed {}
 
 		/**
 		 * Gets the file in which the exception was created
@@ -517,7 +517,7 @@ namespace {
 		 * @link https://php.net/manual/en/oauthprovider.is2leggedendpoint.php
 		 * @since PECL OAuth >= 1.0.0
 		 */
-		public function is2LeggedEndpoint($params_array): void {}
+		public function is2LeggedEndpoint(mixed $params_array): void {}
 
 		/**
 		 * Sets isRequestTokenEndpoint
@@ -559,7 +559,7 @@ namespace {
 		 * @link https://php.net/manual/en/oauthprovider.setparam.php
 		 * @since PECL OAuth >= 1.0.0
 		 */
-		final public function setParam(string $param_key, $param_val = NULL): bool {}
+		final public function setParam(string $param_key, mixed $param_val = NULL): bool {}
 
 		/**
 		 * Set request token path

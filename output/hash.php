@@ -29,7 +29,7 @@ namespace {
 	 * @see hash_file(), hash_hmac(), hash_init(), md5(), sha1()
 	 * @since PHP 5 >= 5.1.2, PHP 7, PECL hash >= 1.1
 	 */
-	function hash(string $algo, string $data, bool $binary = FALSE) {}
+	function hash(string $algo, string $data, bool $binary = FALSE): string|false {}
 
 	/**
 	 * Return a list of registered hashing algorithms
@@ -70,7 +70,7 @@ namespace {
 	 * @see hash(), hash_hmac_file(), hash_update_file(), md5_file(), sha1_file()
 	 * @since PHP 5 >= 5.1.2, PHP 7, PECL hash >= 1.1
 	 */
-	function hash_file(string $algo, string $filename, bool $binary = FALSE) {}
+	function hash_file(string $algo, string $filename, bool $binary = FALSE): string|false {}
 
 	/**
 	 * Finalize an incremental hash and return resulting digest
@@ -108,7 +108,7 @@ namespace {
 	 * @see hash(), hash_hmac_algos(), hash_init(), hash_hmac_file()
 	 * @since PHP 5 >= 5.1.2, PHP 7, PECL hash >= 1.1
 	 */
-	function hash_hmac(string $algo, string $data, string $key, bool $binary = FALSE) {}
+	function hash_hmac(string $algo, string $data, string $key, bool $binary = FALSE): string|false {}
 
 	/**
 	 * Return a list of registered hashing algorithms suitable for hash_hmac
@@ -130,7 +130,7 @@ namespace {
 	 * @see hash_hmac_algos(), hash_hmac(), hash_file()
 	 * @since PHP 5 >= 5.1.2, PHP 7, PECL hash >= 1.1
 	 */
-	function hash_hmac_file(string $algo, string $data, string $key, bool $binary = FALSE) {}
+	function hash_hmac_file(string $algo, string $data, string $key, bool $binary = FALSE): string|false {}
 
 	/**
 	 * Initialize an incremental hashing context
@@ -180,7 +180,7 @@ namespace {
 	 * @see hash_init(), hash_update(), hash_update_stream(), hash_final(), hash(), hash_file()
 	 * @since PHP 5 >= 5.1.2, PHP 7, PECL hash >= 1.1
 	 */
-	function hash_update_file(\HashContext $context, string $filename, $stream_context = NULL): bool {}
+	function hash_update_file(\HashContext $context, string $filename, resource|null $stream_context = NULL): bool {}
 
 	/**
 	 * Pump data into an active hashing context from an open stream

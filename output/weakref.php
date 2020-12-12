@@ -35,7 +35,7 @@ namespace {
 		 * @link https://php.net/manual/en/weakmap.current.php
 		 * @since PECL weakref >= 0.2.0
 		 */
-		public function current() {}
+		public function current(): mixed {}
 
 		/**
 		 * Returns the current key under iteration
@@ -73,7 +73,7 @@ namespace {
 		 * @link https://php.net/manual/en/weakmap.offsetget.php
 		 * @since PECL weakref >= 0.2.0
 		 */
-		public function offsetGet(object $object) {}
+		public function offsetGet(object $object): mixed {}
 
 		/**
 		 * Updates the map with a new key-value pair
@@ -84,7 +84,7 @@ namespace {
 		 * @link https://php.net/manual/en/weakmap.offsetset.php
 		 * @since PECL weakref >= 0.2.0
 		 */
-		public function offsetSet(object $object, $value): void {}
+		public function offsetSet(object $object, mixed $value): void {}
 
 		/**
 		 * Removes an entry from the map

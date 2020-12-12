@@ -46,7 +46,7 @@ namespace {
 		 * @link https://php.net/manual/en/rararchive.getentries.php
 		 * @since PECL rar >= 2.0.0
 		 */
-		public function getEntries() {}
+		public function getEntries(): array|false {}
 
 		/**
 		 * Get entry object from the RAR archive
@@ -56,7 +56,7 @@ namespace {
 		 * @link https://php.net/manual/en/rararchive.getentry.php
 		 * @since PECL rar >= 2.0.0
 		 */
-		public function getEntry(string $entryname) {}
+		public function getEntry(string $entryname): \RarEntry|false {}
 
 		/**
 		 * Test whether an archive is broken (incomplete)
@@ -86,7 +86,7 @@ namespace {
 		 * @link https://php.net/manual/en/rararchive.open.php
 		 * @since PECL rar >= 2.0.0
 		 */
-		public static function open(string $filename, string $password = NULL, callable $volume_callback = NULL) {}
+		public static function open(string $filename, string $password = NULL, callable $volume_callback = NULL): \RarArchive|false {}
 
 		/**
 		 * Whether opening broken archives is allowed
@@ -445,7 +445,7 @@ namespace {
 		 * @link https://php.net/manual/en/rarentry.getstream.php
 		 * @since PECL rar >= 2.0.0
 		 */
-		public function getStream(string $password = NULL) {}
+		public function getStream(string $password = NULL): resource|false {}
 
 		/**
 		 * Get unpacked size of the entry
@@ -517,7 +517,7 @@ namespace {
 		 * @link https://php.net/manual/en/exception.getcode.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
-		final public function getCode() {}
+		final public function getCode(): mixed {}
 
 		/**
 		 * Gets the file in which the exception was created
@@ -632,7 +632,7 @@ namespace {
 	 * @link https://php.net/manual/en/rararchive.getentry.php
 	 * @since PECL rar >= 2.0.0
 	 */
-	function rar_entry_get(\RarArchive $rarfile, string $entryname) {}
+	function rar_entry_get(\RarArchive $rarfile, string $entryname): \RarEntry|false {}
 
 	/**
 	 * Get full list of entries from the RAR archive
@@ -642,7 +642,7 @@ namespace {
 	 * @link https://php.net/manual/en/rararchive.getentries.php
 	 * @since PECL rar >= 2.0.0
 	 */
-	function rar_list(\RarArchive $rarfile) {}
+	function rar_list(\RarArchive $rarfile): array|false {}
 
 	/**
 	 * Open RAR archive
@@ -654,7 +654,7 @@ namespace {
 	 * @link https://php.net/manual/en/rararchive.open.php
 	 * @since PECL rar >= 2.0.0
 	 */
-	function rar_open(string $filename, string $password = NULL, callable $volume_callback = NULL) {}
+	function rar_open(string $filename, string $password = NULL, callable $volume_callback = NULL): \RarArchive|false {}
 
 	/**
 	 * Check whether the RAR archive is solid

@@ -50,7 +50,7 @@ namespace {
 	 * @see mysql_pconnect(), mysql_close()
 	 * @since PHP 4, PHP 5
 	 */
-	function mysql_connect(string $server = 'ini_get("mysql.default_host")', string $username = 'ini_get("mysql.default_user")', string $password = 'ini_get("mysql.default_password")', bool $new_link = FALSE, int $client_flags = 0) {}
+	function mysql_connect(string $server = 'ini_get("mysql.default_host")', string $username = 'ini_get("mysql.default_user")', string $password = 'ini_get("mysql.default_password")', bool $new_link = FALSE, int $client_flags = 0): resource|false {}
 
 	/**
 	 * Create a MySQL database
@@ -87,7 +87,7 @@ namespace {
 	 * @see mysql_list_dbs(), mysql_tablename()
 	 * @since PHP 4, PHP 5
 	 */
-	function mysql_db_name($result, int $row, $field = NULL): string {}
+	function mysql_db_name($result, int $row, mixed $field = NULL): string {}
 
 	/**
 	 * Selects a database and executes a query on it
@@ -100,7 +100,7 @@ namespace {
 	 * @see mysql_query(), mysql_select_db()
 	 * @since PHP 4, PHP 5
 	 */
-	function mysql_db_query(string $database, string $query, $link_identifier = NULL) {}
+	function mysql_db_query(string $database, string $query, $link_identifier = NULL): resource|bool {}
 
 	/**
 	 * Drop (delete) a MySQL database
@@ -191,7 +191,7 @@ namespace {
 	 * @see mysql_field_len(), mysql_fetch_row(), strlen()
 	 * @since PHP 4, PHP 5
 	 */
-	function mysql_fetch_lengths($result) {}
+	function mysql_fetch_lengths($result): array|false {}
 
 	/**
 	 * Fetch a result row as an object
@@ -227,7 +227,7 @@ namespace {
 	 * @see mysql_field_type(), mysql_field_len()
 	 * @since PHP 4, PHP 5
 	 */
-	function mysql_field_flags($result, int $field_offset) {}
+	function mysql_field_flags($result, int $field_offset): string|false {}
 
 	/**
 	 * Returns the length of the specified field
@@ -239,7 +239,7 @@ namespace {
 	 * @see mysql_fetch_lengths(), strlen()
 	 * @since PHP 4, PHP 5
 	 */
-	function mysql_field_len($result, int $field_offset) {}
+	function mysql_field_len($result, int $field_offset): int|false {}
 
 	/**
 	 * Get the name of the specified field in a result
@@ -251,7 +251,7 @@ namespace {
 	 * @see mysql_field_type(), mysql_field_len()
 	 * @since PHP 4, PHP 5
 	 */
-	function mysql_field_name($result, int $field_offset) {}
+	function mysql_field_name($result, int $field_offset): string|false {}
 
 	/**
 	 * Set result pointer to a specified field offset
@@ -319,7 +319,7 @@ namespace {
 	 * @see mysql_get_client_info(), mysql_get_proto_info(), mysql_get_server_info()
 	 * @since PHP 4 >= 4.0.5, PHP 5
 	 */
-	function mysql_get_host_info($link_identifier = NULL) {}
+	function mysql_get_host_info($link_identifier = NULL): string|false {}
 
 	/**
 	 * Get MySQL protocol info
@@ -330,7 +330,7 @@ namespace {
 	 * @see mysql_get_client_info(), mysql_get_host_info(), mysql_get_server_info()
 	 * @since PHP 4 >= 4.0.5, PHP 5
 	 */
-	function mysql_get_proto_info($link_identifier = NULL) {}
+	function mysql_get_proto_info($link_identifier = NULL): int|false {}
 
 	/**
 	 * Get MySQL server info
@@ -341,7 +341,7 @@ namespace {
 	 * @see mysql_get_client_info(), mysql_get_host_info(), mysql_get_proto_info(), phpversion()
 	 * @since PHP 4 >= 4.0.5, PHP 5
 	 */
-	function mysql_get_server_info($link_identifier = NULL) {}
+	function mysql_get_server_info($link_identifier = NULL): string|false {}
 
 	/**
 	 * Get information about the most recent query
@@ -398,7 +398,7 @@ namespace {
 	 * @see mysql_thread_id(), mysql_stat()
 	 * @since PHP 4 >= 4.3.0, PHP 5
 	 */
-	function mysql_list_processes($link_identifier = NULL) {}
+	function mysql_list_processes($link_identifier = NULL): resource|false {}
 
 	/**
 	 * List tables in a MySQL database
@@ -410,7 +410,7 @@ namespace {
 	 * @see mysql_list_dbs(), mysql_tablename()
 	 * @since PHP 4, PHP 5
 	 */
-	function mysql_list_tables(string $database, $link_identifier = NULL) {}
+	function mysql_list_tables(string $database, $link_identifier = NULL): resource|false {}
 
 	/**
 	 * Get number of fields in result
@@ -421,7 +421,7 @@ namespace {
 	 * @see mysql_select_db(), mysql_query(), mysql_fetch_field(), mysql_num_rows()
 	 * @since PHP 4, PHP 5
 	 */
-	function mysql_num_fields($result) {}
+	function mysql_num_fields($result): int|false {}
 
 	/**
 	 * Get number of rows in result
@@ -432,7 +432,7 @@ namespace {
 	 * @see mysql_affected_rows(), mysql_connect(), mysql_data_seek(), mysql_select_db(), mysql_query()
 	 * @since PHP 4, PHP 5
 	 */
-	function mysql_num_rows($result) {}
+	function mysql_num_rows($result): int|false {}
 
 	/**
 	 * Open a persistent connection to a MySQL server
@@ -469,7 +469,7 @@ namespace {
 	 * @see mysql_connect(), mysql_error(), mysql_real_escape_string(), mysql_result(), mysql_fetch_assoc(), mysql_unbuffered_query()
 	 * @since PHP 4, PHP 5
 	 */
-	function mysql_query(string $query, $link_identifier = NULL) {}
+	function mysql_query(string $query, $link_identifier = NULL): mixed {}
 
 	/**
 	 * Escapes special characters in a string for use in an SQL statement
@@ -494,7 +494,7 @@ namespace {
 	 * @see mysql_fetch_row(), mysql_fetch_array(), mysql_fetch_assoc(), mysql_fetch_object()
 	 * @since PHP 4, PHP 5
 	 */
-	function mysql_result($result, int $row, $field = 0): string {}
+	function mysql_result($result, int $row, mixed $field = 0): string {}
 
 	/**
 	 * Select a MySQL database
@@ -541,7 +541,7 @@ namespace {
 	 * @see mysql_list_tables(), mysql_field_table(), mysql_db_name()
 	 * @since PHP 4, PHP 5
 	 */
-	function mysql_tablename($result, int $i) {}
+	function mysql_tablename($result, int $i): string|false {}
 
 	/**
 	 * Return the current thread ID
@@ -552,7 +552,7 @@ namespace {
 	 * @see mysql_ping(), mysql_list_processes()
 	 * @since PHP 4 >= 4.3.0, PHP 5
 	 */
-	function mysql_thread_id($link_identifier = NULL) {}
+	function mysql_thread_id($link_identifier = NULL): int|false {}
 
 	/**
 	 * Send an SQL query to MySQL without fetching and buffering the result rows

@@ -13,7 +13,7 @@ namespace {
 	 * @see floatval(), intval(), strval(), settype(), is_bool()
 	 * @since PHP 5 >= 5.5.0, PHP 7
 	 */
-	function boolval($var): bool {}
+	function boolval(mixed $var): bool {}
 
 	/**
 	 * Dumps a string representation of an internal zend value to output
@@ -25,7 +25,7 @@ namespace {
 	 * @see var_dump(), debug_backtrace()
 	 * @since PHP 4 >= 4.2.0, PHP 5, PHP 7
 	 */
-	function debug_zval_dump($variable, ...$variables): void {}
+	function debug_zval_dump(mixed $variable, mixed ...$variables): void {}
 
 	/**
 	 * Alias of floatval()
@@ -35,7 +35,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.doubleval.php
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function doubleval($var): float {}
+	function doubleval(mixed $var): float {}
 
 	/**
 	 * Get float value of a variable
@@ -46,7 +46,7 @@ namespace {
 	 * @see boolval(), intval(), strval(), settype()
 	 * @since PHP 4 >= 4.2.0, PHP 5, PHP 7
 	 */
-	function floatval($var): float {}
+	function floatval(mixed $var): float {}
 
 	/**
 	 * Returns an array of all defined variables
@@ -89,7 +89,7 @@ namespace {
 	 * @see settype(), get_class(), is_array(), is_bool(), is_callable(), is_float(), is_int(), is_null(), is_numeric(), is_object(), is_resource(), is_scalar(), is_string(), function_exists(), method_exists()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function gettype($var): string {}
+	function gettype(mixed $var): string {}
 
 	/**
 	 * Get the integer value of a variable
@@ -101,7 +101,7 @@ namespace {
 	 * @see boolval(), floatval(), strval(), settype(), is_numeric()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function intval($var, int $base = 10): int {}
+	function intval(mixed $var, int $base = 10): int {}
 
 	/**
 	 * Finds whether a variable is an array
@@ -112,7 +112,7 @@ namespace {
 	 * @see is_float(), is_int(), is_string(), is_object()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function is_array($var): bool {}
+	function is_array(mixed $var): bool {}
 
 	/**
 	 * Finds out whether a variable is a boolean
@@ -123,7 +123,7 @@ namespace {
 	 * @see is_float(), is_int(), is_string(), is_object(), is_array()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function is_bool($var): bool {}
+	function is_bool(mixed $var): bool {}
 
 	/**
 	 * Verify that the contents of a variable can be called as a function
@@ -136,7 +136,7 @@ namespace {
 	 * @see function_exists(), method_exists()
 	 * @since PHP 4 >= 4.0.6, PHP 5, PHP 7
 	 */
-	function is_callable($var, bool $syntax_only = FALSE, string &$callable_name = NULL): bool {}
+	function is_callable(mixed $var, bool $syntax_only = FALSE, string &$callable_name = NULL): bool {}
 
 	/**
 	 * Verify that the contents of a variable is a countable value
@@ -147,7 +147,7 @@ namespace {
 	 * @see is_array(), is_object(), is_iterable(), is_bool()
 	 * @since PHP 7 >= 7.3.0
 	 */
-	function is_countable($var): bool {}
+	function is_countable(mixed $var): bool {}
 
 	/**
 	 * Alias of is_float()
@@ -157,7 +157,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.is-double.php
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function is_double($var): bool {}
+	function is_double(mixed $var): bool {}
 
 	/**
 	 * Finds whether the type of a variable is float
@@ -168,7 +168,7 @@ namespace {
 	 * @see is_bool(), is_int(), is_numeric(), is_string(), is_array(), is_object()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function is_float($var): bool {}
+	function is_float(mixed $var): bool {}
 
 	/**
 	 * Find whether the type of a variable is integer
@@ -179,7 +179,7 @@ namespace {
 	 * @see is_bool(), is_float(), is_numeric(), is_string(), is_array(), is_object()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function is_int($var): bool {}
+	function is_int(mixed $var): bool {}
 
 	/**
 	 * Alias of is_int()
@@ -189,7 +189,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.is-integer.php
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function is_integer($var): bool {}
+	function is_integer(mixed $var): bool {}
 
 	/**
 	 * Verify that the contents of a variable is an iterable value
@@ -200,7 +200,7 @@ namespace {
 	 * @see is_array()
 	 * @since PHP 7 >= 7.1.0
 	 */
-	function is_iterable($var): bool {}
+	function is_iterable(mixed $var): bool {}
 
 	/**
 	 * Alias of is_int()
@@ -210,7 +210,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.is-long.php
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function is_long($var): bool {}
+	function is_long(mixed $var): bool {}
 
 	/**
 	 * Finds whether a variable is NULL
@@ -221,7 +221,7 @@ namespace {
 	 * @see isset(), is_bool(), is_numeric(), is_float(), is_int(), is_string(), is_object(), is_array()
 	 * @since PHP 4 >= 4.0.4, PHP 5, PHP 7
 	 */
-	function is_null($var): bool {}
+	function is_null(mixed $var): bool {}
 
 	/**
 	 * Finds whether a variable is a number or a numeric string
@@ -232,7 +232,7 @@ namespace {
 	 * @see ctype_digit(), is_bool(), is_null(), is_float(), is_int(), is_string(), is_object(), is_array()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function is_numeric($var): bool {}
+	function is_numeric(mixed $var): bool {}
 
 	/**
 	 * Finds whether a variable is an object
@@ -243,7 +243,7 @@ namespace {
 	 * @see is_bool(), is_int(), is_float(), is_string(), is_array()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function is_object($var): bool {}
+	function is_object(mixed $var): bool {}
 
 	/**
 	 * Alias of is_float()
@@ -253,7 +253,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.is-real.php
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function is_real($var): bool {}
+	function is_real(mixed $var): bool {}
 
 	/**
 	 * Finds whether a variable is a resource
@@ -264,7 +264,7 @@ namespace {
 	 * @see get_resource_type()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function is_resource($var): bool {}
+	function is_resource(mixed $var): bool {}
 
 	/**
 	 * Finds whether a variable is a scalar
@@ -275,7 +275,7 @@ namespace {
 	 * @see is_float(), is_int(), is_numeric(), is_real(), is_string(), is_bool(), is_object(), is_array()
 	 * @since PHP 4 >= 4.0.5, PHP 5, PHP 7
 	 */
-	function is_scalar($var): bool {}
+	function is_scalar(mixed $var): bool {}
 
 	/**
 	 * Find whether the type of a variable is string
@@ -286,7 +286,7 @@ namespace {
 	 * @see is_float(), is_int(), is_bool(), is_object(), is_array()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function is_string($var): bool {}
+	function is_string(mixed $var): bool {}
 
 	/**
 	 * Prints human-readable information about a variable
@@ -298,7 +298,7 @@ namespace {
 	 * @see ob_start(), var_dump(), var_export()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function print_r($expression, bool $return = FALSE) {}
+	function print_r(mixed $expression, bool $return = FALSE): mixed {}
 
 	/**
 	 * Generates a storable representation of a value
@@ -309,7 +309,7 @@ namespace {
 	 * @see unserialize(), var_export(), json_encode()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function serialize($value): string {}
+	function serialize(mixed $value): string {}
 
 	/**
 	 * Set the type of a variable
@@ -321,7 +321,7 @@ namespace {
 	 * @see gettype()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function settype(&$var, string $type): bool {}
+	function settype(mixed &$var, string $type): bool {}
 
 	/**
 	 * Get string value of a variable
@@ -332,7 +332,7 @@ namespace {
 	 * @see boolval(), floatval(), intval(), settype(), sprintf(), number_format()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function strval($var): string {}
+	function strval(mixed $var): string {}
 
 	/**
 	 * Creates a PHP value from a stored representation
@@ -344,7 +344,7 @@ namespace {
 	 * @see json_encode(), json_decode(), hash_hmac(), serialize()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function unserialize(string $str, array $options = NULL) {}
+	function unserialize(string $str, array $options = NULL): mixed {}
 
 	/**
 	 * Dumps information about a variable
@@ -356,7 +356,7 @@ namespace {
 	 * @see print_r(), debug_zval_dump(), var_export()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function var_dump($expression, ...$expressions): void {}
+	function var_dump(mixed $expression, mixed ...$expressions): void {}
 
 	/**
 	 * Outputs or returns a parsable string representation of a variable
@@ -368,6 +368,6 @@ namespace {
 	 * @see print_r(), serialize(), var_dump()
 	 * @since PHP 4 >= 4.2.0, PHP 5, PHP 7
 	 */
-	function var_export($expression, bool $return = FALSE) {}
+	function var_export(mixed $expression, bool $return = FALSE): mixed {}
 
 }

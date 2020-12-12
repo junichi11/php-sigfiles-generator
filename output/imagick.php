@@ -2322,7 +2322,7 @@ namespace {
 		 * @link https://php.net/manual/en/imagick.construct.php
 		 * @since PECL imagick 2.0.0
 		 */
-		public function __construct($files = NULL) {}
+		public function __construct(mixed $files = NULL) {}
 
 		/**
 		 * Returns the image as a string
@@ -2479,7 +2479,7 @@ namespace {
 		 * @link https://php.net/manual/en/imagick.blackthresholdimage.php
 		 * @since PECL imagick 2.0.0
 		 */
-		public function blackThresholdImage($threshold): bool {}
+		public function blackThresholdImage(mixed $threshold): bool {}
 
 		/**
 		 * Description
@@ -2514,7 +2514,7 @@ namespace {
 		 * @link https://php.net/manual/en/imagick.borderimage.php
 		 * @since PECL imagick 2.0.0
 		 */
-		public function borderImage($bordercolor, int $width, int $height): bool {}
+		public function borderImage(mixed $bordercolor, int $width, int $height): bool {}
 
 		/**
 		 * Description
@@ -2645,7 +2645,7 @@ namespace {
 		 * @link https://php.net/manual/en/imagick.colorfloodfillimage.php
 		 * @since PECL imagick 2.0.0
 		 */
-		public function colorFloodfillImage($fill, float $fuzz, $bordercolor, int $x, int $y): bool {}
+		public function colorFloodfillImage(mixed $fill, float $fuzz, mixed $bordercolor, int $x, int $y): bool {}
 
 		/**
 		 * Description
@@ -2667,7 +2667,7 @@ namespace {
 		 * @link https://php.net/manual/en/imagick.colorizeimage.php
 		 * @since PECL imagick 2.0.0
 		 */
-		public function colorizeImage($colorize, $opacity, bool $legacy = FALSE): bool {}
+		public function colorizeImage(mixed $colorize, mixed $opacity, bool $legacy = FALSE): bool {}
 
 		/**
 		 * Combines one or more images into a single image
@@ -3071,7 +3071,7 @@ namespace {
 		 * @link https://php.net/manual/en/imagick.floodfillpaintimage.php
 		 * @since No version information available, might only be in Git
 		 */
-		public function floodFillPaintImage($fill, float $fuzz, $target, int $x, int $y, bool $invert, int $channel = Imagick::CHANNEL_DEFAULT): bool {}
+		public function floodFillPaintImage(mixed $fill, float $fuzz, mixed $target, int $x, int $y, bool $invert, int $channel = Imagick::CHANNEL_DEFAULT): bool {}
 
 		/**
 		 * Creates a vertical mirror image
@@ -3104,7 +3104,7 @@ namespace {
 		 * @link https://php.net/manual/en/imagick.frameimage.php
 		 * @since PECL imagick 2.0.0
 		 */
-		public function frameImage($matte_color, int $width, int $height, int $inner_bevel, int $outer_bevel): bool {}
+		public function frameImage(mixed $matte_color, int $width, int $height, int $inner_bevel, int $outer_bevel): bool {}
 
 		/**
 		 * Applies a function on the image
@@ -4094,7 +4094,7 @@ namespace {
 		 * @link https://php.net/manual/en/imagick.identifyformat.php
 		 * @since No version information available, might only be in Git
 		 */
-		public function identifyFormat(string $embedText) {}
+		public function identifyFormat(string $embedText): string|false {}
 
 		/**
 		 * Identifies an image and fetches attributes
@@ -4231,7 +4231,7 @@ namespace {
 		 * @link https://php.net/manual/en/imagick.mattefloodfillimage.php
 		 * @since PECL imagick 2.0.0
 		 */
-		public function matteFloodfillImage(float $alpha, float $fuzz, $bordercolor, int $x, int $y): bool {}
+		public function matteFloodfillImage(float $alpha, float $fuzz, mixed $bordercolor, int $x, int $y): bool {}
 
 		/**
 		 * Applies a digital filter
@@ -4356,7 +4356,7 @@ namespace {
 		 * @link https://php.net/manual/en/imagick.newimage.php
 		 * @since PECL imagick 2.0.0
 		 */
-		public function newImage(int $cols, int $rows, $background, string $format = NULL): bool {}
+		public function newImage(int $cols, int $rows, mixed $background, string $format = NULL): bool {}
 
 		/**
 		 * Creates a new image
@@ -4411,7 +4411,7 @@ namespace {
 		 * @link https://php.net/manual/en/imagick.opaquepaintimage.php
 		 * @since No version information available, might only be in Git
 		 */
-		public function opaquePaintImage($target, $fill, float $fuzz, bool $invert, int $channel = Imagick::CHANNEL_DEFAULT): bool {}
+		public function opaquePaintImage(mixed $target, mixed $fill, float $fuzz, bool $invert, int $channel = Imagick::CHANNEL_DEFAULT): bool {}
 
 		/**
 		 * Removes repeated portions of images to optimize
@@ -4447,7 +4447,7 @@ namespace {
 		 * @link https://php.net/manual/en/imagick.paintfloodfillimage.php
 		 * @since PECL imagick 2.1.0
 		 */
-		public function paintFloodfillImage($fill, float $fuzz, $bordercolor, int $x, int $y, int $channel = Imagick::CHANNEL_DEFAULT): bool {}
+		public function paintFloodfillImage(mixed $fill, float $fuzz, mixed $bordercolor, int $x, int $y, int $channel = Imagick::CHANNEL_DEFAULT): bool {}
 
 		/**
 		 * Change any pixel that matches color
@@ -4460,7 +4460,7 @@ namespace {
 		 * @link https://php.net/manual/en/imagick.paintopaqueimage.php
 		 * @since PECL imagick 2.0.0
 		 */
-		public function paintOpaqueImage($target, $fill, float $fuzz, int $channel = Imagick::CHANNEL_DEFAULT): bool {}
+		public function paintOpaqueImage(mixed $target, mixed $fill, float $fuzz, int $channel = Imagick::CHANNEL_DEFAULT): bool {}
 
 		/**
 		 * Changes any pixel that matches color with the color defined by fill
@@ -4472,7 +4472,7 @@ namespace {
 		 * @link https://php.net/manual/en/imagick.painttransparentimage.php
 		 * @since PECL imagick 2.0.0
 		 */
-		public function paintTransparentImage($target, float $alpha, float $fuzz): bool {}
+		public function paintTransparentImage(mixed $target, float $alpha, float $fuzz): bool {}
 
 		/**
 		 * Fetch basic attributes about the image
@@ -4814,7 +4814,7 @@ namespace {
 		 * @link https://php.net/manual/en/imagick.rotateimage.php
 		 * @since PECL imagick 2.0.0
 		 */
-		public function rotateImage($background, float $degrees): bool {}
+		public function rotateImage(mixed $background, float $degrees): bool {}
 
 		/**
 		 * Description
@@ -4919,7 +4919,7 @@ namespace {
 		 * @link https://php.net/manual/en/imagick.setbackgroundcolor.php
 		 * @since PECL imagick 2.0.0
 		 */
-		public function setBackgroundColor($background): bool {}
+		public function setBackgroundColor(mixed $background): bool {}
 
 		/**
 		 * Set colorspace
@@ -5053,7 +5053,7 @@ namespace {
 		 * @link https://php.net/manual/en/imagick.setimagebackgroundcolor.php
 		 * @since PECL imagick 2.0.0
 		 */
-		public function setImageBackgroundColor($background): bool {}
+		public function setImageBackgroundColor(mixed $background): bool {}
 
 		/**
 		 * Sets the image bias for any method that convolves an image
@@ -5094,7 +5094,7 @@ namespace {
 		 * @link https://php.net/manual/en/imagick.setimagebordercolor.php
 		 * @since PECL imagick 2.0.0
 		 */
-		public function setImageBorderColor($border): bool {}
+		public function setImageBorderColor(mixed $border): bool {}
 
 		/**
 		 * Sets the depth of a particular image channel
@@ -5317,7 +5317,7 @@ namespace {
 		 * @link https://php.net/manual/en/imagick.setimagemattecolor.php
 		 * @since PECL imagick 2.0.0
 		 */
-		public function setImageMatteColor($matte): bool {}
+		public function setImageMatteColor(mixed $matte): bool {}
 
 		/**
 		 * Sets the image opacity level
@@ -5677,7 +5677,7 @@ namespace {
 		 * @link https://php.net/manual/en/imagick.shearimage.php
 		 * @since PECL imagick 2.0.0
 		 */
-		public function shearImage($background, float $x_shear, float $y_shear): bool {}
+		public function shearImage(mixed $background, float $x_shear, float $y_shear): bool {}
 
 		/**
 		 * Adjusts the contrast of an image
@@ -5870,7 +5870,7 @@ namespace {
 		 * @link https://php.net/manual/en/imagick.tintimage.php
 		 * @since PECL imagick 2.0.0
 		 */
-		public function tintImage($tint, $opacity, bool $legacy = FALSE): bool {}
+		public function tintImage(mixed $tint, mixed $opacity, bool $legacy = FALSE): bool {}
 
 		/**
 		 * Convenience method for setting crop size and the image geometry
@@ -5905,7 +5905,7 @@ namespace {
 		 * @link https://php.net/manual/en/imagick.transparentpaintimage.php
 		 * @since No version information available, might only be in Git
 		 */
-		public function transparentPaintImage($target, float $alpha, float $fuzz, bool $invert): bool {}
+		public function transparentPaintImage(mixed $target, float $alpha, float $fuzz, bool $invert): bool {}
 
 		/**
 		 * Creates a vertical mirror image
@@ -6004,7 +6004,7 @@ namespace {
 		 * @link https://php.net/manual/en/imagick.whitethresholdimage.php
 		 * @since PECL imagick 2.0.0
 		 */
-		public function whiteThresholdImage($threshold): bool {}
+		public function whiteThresholdImage(mixed $threshold): bool {}
 
 		/**
 		 * Writes an image to the specified filename
@@ -7504,7 +7504,7 @@ namespace {
 		 * @link https://php.net/manual/en/imagickpixel.getcolorvaluequantum.php
 		 * @since No version information available, might only be in Git
 		 */
-		public function getColorValueQuantum(int $color) {}
+		public function getColorValueQuantum(int $color): int|float {}
 
 		/**
 		 * Returns the normalized HSL color of the ImagickPixel object
@@ -7597,7 +7597,7 @@ namespace {
 		 * @link https://php.net/manual/en/imagickpixel.setcolorvaluequantum.php
 		 * @since No version information available, might only be in Git
 		 */
-		public function setColorValueQuantum(int $color, $value): bool {}
+		public function setColorValueQuantum(int $color, int|float $value): bool {}
 
 		/**
 		 * Sets the normalized HSL color

@@ -109,7 +109,7 @@ namespace Ds {
 		 * @link https://php.net/manual/en/ds-deque.contains.php
 		 * @since PECL ds >= 1.0.0
 		 */
-		public function contains(...$values): bool {}
+		public function contains(mixed ...$values): bool {}
 
 		/**
 		 * Returns a shallow copy of the deque
@@ -138,7 +138,7 @@ namespace Ds {
 		 * @link https://php.net/manual/en/ds-deque.find.php
 		 * @since PECL ds >= 1.0.0
 		 */
-		public function find($value) {}
+		public function find(mixed $value): mixed {}
 
 		/**
 		 * Returns the first value in the deque
@@ -147,7 +147,7 @@ namespace Ds {
 		 * @link https://php.net/manual/en/ds-deque.first.php
 		 * @since PECL ds >= 1.0.0
 		 */
-		public function first() {}
+		public function first(): mixed {}
 
 		/**
 		 * Returns the value at a given index
@@ -157,7 +157,7 @@ namespace Ds {
 		 * @link https://php.net/manual/en/ds-deque.get.php
 		 * @since PECL ds >= 1.0.0
 		 */
-		public function get(int $index) {}
+		public function get(int $index): mixed {}
 
 		/**
 		 * Inserts values at a given index
@@ -168,7 +168,7 @@ namespace Ds {
 		 * @link https://php.net/manual/en/ds-deque.insert.php
 		 * @since PECL ds >= 1.0.0
 		 */
-		public function insert(int $index, ...$values): void {}
+		public function insert(int $index, mixed ...$values): void {}
 
 		/**
 		 * Returns whether the deque is empty
@@ -196,7 +196,7 @@ namespace Ds {
 		 * @link https://php.net/manual/en/ds-deque.last.php
 		 * @since PECL ds >= 1.0.0
 		 */
-		public function last() {}
+		public function last(): mixed {}
 
 		/**
 		 * Returns the result of applying a callback to each value
@@ -216,7 +216,7 @@ namespace Ds {
 		 * @link https://php.net/manual/en/ds-deque.merge.php
 		 * @since PECL ds >= 1.0.0
 		 */
-		public function merge($values): \Ds\Deque {}
+		public function merge(mixed $values): \Ds\Deque {}
 
 		/**
 		 * Removes and returns the last value
@@ -225,7 +225,7 @@ namespace Ds {
 		 * @link https://php.net/manual/en/ds-deque.pop.php
 		 * @since PECL ds >= 1.0.0
 		 */
-		public function pop() {}
+		public function pop(): mixed {}
 
 		/**
 		 * Adds values to the end of the deque
@@ -235,7 +235,7 @@ namespace Ds {
 		 * @link https://php.net/manual/en/ds-deque.push.php
 		 * @since PECL ds >= 1.0.0
 		 */
-		public function push(...$values): void {}
+		public function push(mixed ...$values): void {}
 
 		/**
 		 * Reduces the deque to a single value using a callback function
@@ -246,7 +246,7 @@ namespace Ds {
 		 * @link https://php.net/manual/en/ds-deque.reduce.php
 		 * @since PECL ds >= 1.0.0
 		 */
-		public function reduce(callable $callback, $initial = NULL) {}
+		public function reduce(callable $callback, mixed $initial = NULL): mixed {}
 
 		/**
 		 * Removes and returns a value by index
@@ -256,7 +256,7 @@ namespace Ds {
 		 * @link https://php.net/manual/en/ds-deque.remove.php
 		 * @since PECL ds >= 1.0.0
 		 */
-		public function remove(int $index) {}
+		public function remove(int $index): mixed {}
 
 		/**
 		 * Reverses the deque in-place
@@ -295,7 +295,7 @@ namespace Ds {
 		 * @link https://php.net/manual/en/ds-deque.set.php
 		 * @since PECL ds >= 1.0.0
 		 */
-		public function set(int $index, $value): void {}
+		public function set(int $index, mixed $value): void {}
 
 		/**
 		 * Removes and returns the first value
@@ -304,7 +304,7 @@ namespace Ds {
 		 * @link https://php.net/manual/en/ds-deque.shift.php
 		 * @since PECL ds >= 1.0.0
 		 */
-		public function shift() {}
+		public function shift(): mixed {}
 
 		/**
 		 * Returns a sub-deque of a given range
@@ -344,7 +344,7 @@ namespace Ds {
 		 * @link https://php.net/manual/en/ds-deque.sum.php
 		 * @since PECL ds >= 1.0.0
 		 */
-		public function sum() {}
+		public function sum(): int|float {}
 
 		/**
 		 * Converts the deque to an array
@@ -363,7 +363,7 @@ namespace Ds {
 		 * @link https://php.net/manual/en/ds-deque.unshift.php
 		 * @since PECL ds >= 1.0.0
 		 */
-		public function unshift($values = NULL): void {}
+		public function unshift(mixed $values = NULL): void {}
 	}
 
 	/**
@@ -392,7 +392,7 @@ namespace Ds {
 		 * @link https://php.net/manual/en/ds-hashable.hash.php
 		 * @since PECL ds >= 1.0.0
 		 */
-		public function hash();
+		public function hash(): mixed;
 	}
 
 	/**
@@ -493,7 +493,7 @@ namespace Ds {
 		 * @link https://php.net/manual/en/ds-map.get.php
 		 * @since PECL ds >= 1.0.0
 		 */
-		public function get($key, $default = NULL) {}
+		public function get(mixed $key, mixed $default = NULL): mixed {}
 
 		/**
 		 * Determines whether the map contains a given key
@@ -503,7 +503,7 @@ namespace Ds {
 		 * @link https://php.net/manual/en/ds-map.haskey.php
 		 * @since PECL ds >= 1.0.0
 		 */
-		public function hasKey($key): bool {}
+		public function hasKey(mixed $key): bool {}
 
 		/**
 		 * Determines whether the map contains a given value
@@ -513,7 +513,7 @@ namespace Ds {
 		 * @link https://php.net/manual/en/ds-map.hasvalue.php
 		 * @since PECL ds >= 1.0.0
 		 */
-		public function hasValue($value): bool {}
+		public function hasValue(mixed $value): bool {}
 
 		/**
 		 * Creates a new map by intersecting keys with another map
@@ -590,7 +590,7 @@ namespace Ds {
 		 * @link https://php.net/manual/en/ds-map.merge.php
 		 * @since PECL ds >= 1.0.0
 		 */
-		public function merge($values): \Ds\Map {}
+		public function merge(mixed $values): \Ds\Map {}
 
 		/**
 		 * Returns a sequence containing all the pairs of the map
@@ -610,7 +610,7 @@ namespace Ds {
 		 * @link https://php.net/manual/en/ds-map.put.php
 		 * @since PECL ds >= 1.0.0
 		 */
-		public function put($key, $value): void {}
+		public function put(mixed $key, mixed $value): void {}
 
 		/**
 		 * Associates all key-value pairs of a traversable object or array
@@ -620,7 +620,7 @@ namespace Ds {
 		 * @link https://php.net/manual/en/ds-map.putall.php
 		 * @since PECL ds >= 1.0.2
 		 */
-		public function putAll($pairs): void {}
+		public function putAll(mixed $pairs): void {}
 
 		/**
 		 * Reduces the map to a single value using a callback function
@@ -631,7 +631,7 @@ namespace Ds {
 		 * @link https://php.net/manual/en/ds-map.reduce.php
 		 * @since PECL ds >= 1.0.0
 		 */
-		public function reduce(callable $callback, $initial = NULL) {}
+		public function reduce(callable $callback, mixed $initial = NULL): mixed {}
 
 		/**
 		 * Removes and returns a value by key
@@ -642,7 +642,7 @@ namespace Ds {
 		 * @link https://php.net/manual/en/ds-map.remove.php
 		 * @since PECL ds >= 1.0.0
 		 */
-		public function remove($key, $default = NULL) {}
+		public function remove(mixed $key, mixed $default = NULL): mixed {}
 
 		/**
 		 * Reverses the map in-place
@@ -710,7 +710,7 @@ namespace Ds {
 		 * @link https://php.net/manual/en/ds-map.sum.php
 		 * @since No version information available, might only be in Git
 		 */
-		public function sum() {}
+		public function sum(): int|float {}
 
 		/**
 		 * Converts the map to an array
@@ -767,7 +767,7 @@ namespace Ds {
 		 * @link https://php.net/manual/en/ds-pair.construct.php
 		 * @since PECL ds >= 1.0.0
 		 */
-		public function __construct($key = NULL, $value = NULL) {}
+		public function __construct(mixed $key = NULL, mixed $value = NULL) {}
 
 		/**
 		 * Removes all values
@@ -877,7 +877,7 @@ namespace Ds {
 		 * @link https://php.net/manual/en/ds-priorityqueue.peek.php
 		 * @since PECL ds >= 1.0.0
 		 */
-		public function peek() {}
+		public function peek(): mixed {}
 
 		/**
 		 * Removes and returns the value with the highest priority
@@ -886,7 +886,7 @@ namespace Ds {
 		 * @link https://php.net/manual/en/ds-priorityqueue.pop.php
 		 * @since PECL ds >= 1.0.0
 		 */
-		public function pop() {}
+		public function pop(): mixed {}
 
 		/**
 		 * Pushes values into the queue
@@ -897,7 +897,7 @@ namespace Ds {
 		 * @link https://php.net/manual/en/ds-priorityqueue.push.php
 		 * @since PECL ds >= 1.0.0
 		 */
-		public function push($value, int $priority): void {}
+		public function push(mixed $value, int $priority): void {}
 
 		/**
 		 * Converts the queue to an array
@@ -975,7 +975,7 @@ namespace Ds {
 		 * @link https://php.net/manual/en/ds-queue.peek.php
 		 * @since PECL ds >= 1.0.0
 		 */
-		public function peek() {}
+		public function peek(): mixed {}
 
 		/**
 		 * Removes and returns the value at the front of the queue
@@ -984,7 +984,7 @@ namespace Ds {
 		 * @link https://php.net/manual/en/ds-queue.pop.php
 		 * @since PECL ds >= 1.0.0
 		 */
-		public function pop() {}
+		public function pop(): mixed {}
 
 		/**
 		 * Pushes values into the queue
@@ -994,7 +994,7 @@ namespace Ds {
 		 * @link https://php.net/manual/en/ds-queue.push.php
 		 * @since PECL ds >= 1.0.0
 		 */
-		public function push(...$values): void {}
+		public function push(mixed ...$values): void {}
 
 		/**
 		 * Converts the queue to an array
@@ -1051,7 +1051,7 @@ namespace Ds {
 		 * @link https://php.net/manual/en/ds-sequence.contains.php
 		 * @since PECL ds >= 1.0.0
 		 */
-		public function contains(...$values): bool;
+		public function contains(mixed ...$values): bool;
 
 		/**
 		 * Creates a new sequence using a callable to determine which values to include
@@ -1071,7 +1071,7 @@ namespace Ds {
 		 * @link https://php.net/manual/en/ds-sequence.find.php
 		 * @since PECL ds >= 1.0.0
 		 */
-		public function find($value);
+		public function find(mixed $value): mixed;
 
 		/**
 		 * Returns the first value in the sequence
@@ -1080,7 +1080,7 @@ namespace Ds {
 		 * @link https://php.net/manual/en/ds-sequence.first.php
 		 * @since PECL ds >= 1.0.0
 		 */
-		public function first();
+		public function first(): mixed;
 
 		/**
 		 * Returns the value at a given index
@@ -1090,7 +1090,7 @@ namespace Ds {
 		 * @link https://php.net/manual/en/ds-sequence.get.php
 		 * @since PECL ds >= 1.0.0
 		 */
-		public function get(int $index);
+		public function get(int $index): mixed;
 
 		/**
 		 * Inserts values at a given index
@@ -1101,7 +1101,7 @@ namespace Ds {
 		 * @link https://php.net/manual/en/ds-sequence.insert.php
 		 * @since PECL ds >= 1.0.0
 		 */
-		public function insert(int $index, ...$values): void;
+		public function insert(int $index, mixed ...$values): void;
 
 		/**
 		 * Joins all values together as a string
@@ -1120,7 +1120,7 @@ namespace Ds {
 		 * @link https://php.net/manual/en/ds-sequence.last.php
 		 * @since PECL ds >= 1.0.0
 		 */
-		public function last();
+		public function last(): mixed;
 
 		/**
 		 * Returns the result of applying a callback to each value
@@ -1140,7 +1140,7 @@ namespace Ds {
 		 * @link https://php.net/manual/en/ds-sequence.merge.php
 		 * @since PECL ds >= 1.0.0
 		 */
-		public function merge($values): \Ds\Sequence;
+		public function merge(mixed $values): \Ds\Sequence;
 
 		/**
 		 * Removes and returns the last value
@@ -1149,7 +1149,7 @@ namespace Ds {
 		 * @link https://php.net/manual/en/ds-sequence.pop.php
 		 * @since PECL ds >= 1.0.0
 		 */
-		public function pop();
+		public function pop(): mixed;
 
 		/**
 		 * Adds values to the end of the sequence
@@ -1159,7 +1159,7 @@ namespace Ds {
 		 * @link https://php.net/manual/en/ds-sequence.push.php
 		 * @since PECL ds >= 1.0.0
 		 */
-		public function push(...$values): void;
+		public function push(mixed ...$values): void;
 
 		/**
 		 * Reduces the sequence to a single value using a callback function
@@ -1170,7 +1170,7 @@ namespace Ds {
 		 * @link https://php.net/manual/en/ds-sequence.reduce.php
 		 * @since PECL ds >= 1.0.0
 		 */
-		public function reduce(callable $callback, $initial = NULL);
+		public function reduce(callable $callback, mixed $initial = NULL): mixed;
 
 		/**
 		 * Removes and returns a value by index
@@ -1180,7 +1180,7 @@ namespace Ds {
 		 * @link https://php.net/manual/en/ds-sequence.remove.php
 		 * @since PECL ds >= 1.0.0
 		 */
-		public function remove(int $index);
+		public function remove(int $index): mixed;
 
 		/**
 		 * Reverses the sequence in-place
@@ -1219,7 +1219,7 @@ namespace Ds {
 		 * @link https://php.net/manual/en/ds-sequence.set.php
 		 * @since PECL ds >= 1.0.0
 		 */
-		public function set(int $index, $value): void;
+		public function set(int $index, mixed $value): void;
 
 		/**
 		 * Removes and returns the first value
@@ -1228,7 +1228,7 @@ namespace Ds {
 		 * @link https://php.net/manual/en/ds-sequence.shift.php
 		 * @since PECL ds >= 1.0.0
 		 */
-		public function shift();
+		public function shift(): mixed;
 
 		/**
 		 * Returns a sub-sequence of a given range
@@ -1268,7 +1268,7 @@ namespace Ds {
 		 * @link https://php.net/manual/en/ds-sequence.sum.php
 		 * @since PECL ds >= 1.0.0
 		 */
-		public function sum();
+		public function sum(): int|float;
 
 		/**
 		 * Adds values to the front of the sequence
@@ -1278,7 +1278,7 @@ namespace Ds {
 		 * @link https://php.net/manual/en/ds-sequence.unshift.php
 		 * @since PECL ds >= 1.0.0
 		 */
-		public function unshift($values = NULL): void;
+		public function unshift(mixed $values = NULL): void;
 	}
 
 	/**
@@ -1302,7 +1302,7 @@ namespace Ds {
 		 * @link https://php.net/manual/en/ds-set.add.php
 		 * @since PECL ds >= 1.0.0
 		 */
-		public function add(...$values): void {}
+		public function add(mixed ...$values): void {}
 
 		/**
 		 * Allocates enough memory for a required capacity
@@ -1340,7 +1340,7 @@ namespace Ds {
 		 * @link https://php.net/manual/en/ds-set.contains.php
 		 * @since PECL ds >= 1.0.0
 		 */
-		public function contains(...$values): bool {}
+		public function contains(mixed ...$values): bool {}
 
 		/**
 		 * Returns a shallow copy of the set
@@ -1378,7 +1378,7 @@ namespace Ds {
 		 * @link https://php.net/manual/en/ds-set.first.php
 		 * @since PECL ds >= 1.0.0
 		 */
-		public function first() {}
+		public function first(): mixed {}
 
 		/**
 		 * Returns the value at a given index
@@ -1388,7 +1388,7 @@ namespace Ds {
 		 * @link https://php.net/manual/en/ds-set.get.php
 		 * @since PECL ds >= 1.0.0
 		 */
-		public function get(int $index) {}
+		public function get(int $index): mixed {}
 
 		/**
 		 * Creates a new set by intersecting values with another set
@@ -1426,7 +1426,7 @@ namespace Ds {
 		 * @link https://php.net/manual/en/ds-set.last.php
 		 * @since PECL ds >= 1.0.0
 		 */
-		public function last() {}
+		public function last(): mixed {}
 
 		/**
 		 * Returns the result of adding all given values to the set
@@ -1436,7 +1436,7 @@ namespace Ds {
 		 * @link https://php.net/manual/en/ds-set.merge.php
 		 * @since PECL ds >= 1.0.3
 		 */
-		public function merge($values): \Ds\Set {}
+		public function merge(mixed $values): \Ds\Set {}
 
 		/**
 		 * Reduces the set to a single value using a callback function
@@ -1447,7 +1447,7 @@ namespace Ds {
 		 * @link https://php.net/manual/en/ds-set.reduce.php
 		 * @since PECL ds >= 1.0.0
 		 */
-		public function reduce(callable $callback, $initial = NULL) {}
+		public function reduce(callable $callback, mixed $initial = NULL): mixed {}
 
 		/**
 		 * Removes all given values from the set
@@ -1457,7 +1457,7 @@ namespace Ds {
 		 * @link https://php.net/manual/en/ds-set.remove.php
 		 * @since PECL ds >= 1.0.0
 		 */
-		public function remove(...$values): void {}
+		public function remove(mixed ...$values): void {}
 
 		/**
 		 * Reverses the set in-place
@@ -1515,7 +1515,7 @@ namespace Ds {
 		 * @link https://php.net/manual/en/ds-set.sum.php
 		 * @since PECL ds >= 1.0.0
 		 */
-		public function sum() {}
+		public function sum(): int|float {}
 
 		/**
 		 * Converts the set to an array
@@ -1608,7 +1608,7 @@ namespace Ds {
 		 * @link https://php.net/manual/en/ds-stack.peek.php
 		 * @since PECL ds >= 1.0.0
 		 */
-		public function peek() {}
+		public function peek(): mixed {}
 
 		/**
 		 * Removes and returns the value at the top of the stack
@@ -1617,7 +1617,7 @@ namespace Ds {
 		 * @link https://php.net/manual/en/ds-stack.pop.php
 		 * @since PECL ds >= 1.0.0
 		 */
-		public function pop() {}
+		public function pop(): mixed {}
 
 		/**
 		 * Pushes values onto the stack
@@ -1627,7 +1627,7 @@ namespace Ds {
 		 * @link https://php.net/manual/en/ds-stack.push.php
 		 * @since PECL ds >= 1.0.0
 		 */
-		public function push(...$values): void {}
+		public function push(mixed ...$values): void {}
 
 		/**
 		 * Converts the stack to an array
@@ -1698,7 +1698,7 @@ namespace Ds {
 		 * @link https://php.net/manual/en/ds-vector.contains.php
 		 * @since PECL ds >= 1.0.0
 		 */
-		public function contains(...$values): bool {}
+		public function contains(mixed ...$values): bool {}
 
 		/**
 		 * Returns a shallow copy of the vector
@@ -1727,7 +1727,7 @@ namespace Ds {
 		 * @link https://php.net/manual/en/ds-vector.find.php
 		 * @since PECL ds >= 1.0.0
 		 */
-		public function find($value) {}
+		public function find(mixed $value): mixed {}
 
 		/**
 		 * Returns the first value in the vector
@@ -1736,7 +1736,7 @@ namespace Ds {
 		 * @link https://php.net/manual/en/ds-vector.first.php
 		 * @since PECL ds >= 1.0.0
 		 */
-		public function first() {}
+		public function first(): mixed {}
 
 		/**
 		 * Returns the value at a given index
@@ -1746,7 +1746,7 @@ namespace Ds {
 		 * @link https://php.net/manual/en/ds-vector.get.php
 		 * @since PECL ds >= 1.0.0
 		 */
-		public function get(int $index) {}
+		public function get(int $index): mixed {}
 
 		/**
 		 * Inserts values at a given index
@@ -1757,7 +1757,7 @@ namespace Ds {
 		 * @link https://php.net/manual/en/ds-vector.insert.php
 		 * @since PECL ds >= 1.0.0
 		 */
-		public function insert(int $index, ...$values): void {}
+		public function insert(int $index, mixed ...$values): void {}
 
 		/**
 		 * Returns whether the vector is empty
@@ -1785,7 +1785,7 @@ namespace Ds {
 		 * @link https://php.net/manual/en/ds-vector.last.php
 		 * @since PECL ds >= 1.0.0
 		 */
-		public function last() {}
+		public function last(): mixed {}
 
 		/**
 		 * Returns the result of applying a callback to each value
@@ -1805,7 +1805,7 @@ namespace Ds {
 		 * @link https://php.net/manual/en/ds-vector.merge.php
 		 * @since PECL ds >= 1.0.0
 		 */
-		public function merge($values): \Ds\Vector {}
+		public function merge(mixed $values): \Ds\Vector {}
 
 		/**
 		 * Removes and returns the last value
@@ -1814,7 +1814,7 @@ namespace Ds {
 		 * @link https://php.net/manual/en/ds-vector.pop.php
 		 * @since PECL ds >= 1.0.0
 		 */
-		public function pop() {}
+		public function pop(): mixed {}
 
 		/**
 		 * Adds values to the end of the vector
@@ -1824,7 +1824,7 @@ namespace Ds {
 		 * @link https://php.net/manual/en/ds-vector.push.php
 		 * @since PECL ds >= 1.0.0
 		 */
-		public function push(...$values): void {}
+		public function push(mixed ...$values): void {}
 
 		/**
 		 * Reduces the vector to a single value using a callback function
@@ -1835,7 +1835,7 @@ namespace Ds {
 		 * @link https://php.net/manual/en/ds-vector.reduce.php
 		 * @since PECL ds >= 1.0.0
 		 */
-		public function reduce(callable $callback, $initial = NULL) {}
+		public function reduce(callable $callback, mixed $initial = NULL): mixed {}
 
 		/**
 		 * Removes and returns a value by index
@@ -1845,7 +1845,7 @@ namespace Ds {
 		 * @link https://php.net/manual/en/ds-vector.remove.php
 		 * @since PECL ds >= 1.0.0
 		 */
-		public function remove(int $index) {}
+		public function remove(int $index): mixed {}
 
 		/**
 		 * Reverses the vector in-place
@@ -1884,7 +1884,7 @@ namespace Ds {
 		 * @link https://php.net/manual/en/ds-vector.set.php
 		 * @since PECL ds >= 1.0.0
 		 */
-		public function set(int $index, $value): void {}
+		public function set(int $index, mixed $value): void {}
 
 		/**
 		 * Removes and returns the first value
@@ -1893,7 +1893,7 @@ namespace Ds {
 		 * @link https://php.net/manual/en/ds-vector.shift.php
 		 * @since PECL ds >= 1.0.0
 		 */
-		public function shift() {}
+		public function shift(): mixed {}
 
 		/**
 		 * Returns a sub-vector of a given range
@@ -1933,7 +1933,7 @@ namespace Ds {
 		 * @link https://php.net/manual/en/ds-vector.sum.php
 		 * @since PECL ds >= 1.0.0
 		 */
-		public function sum() {}
+		public function sum(): int|float {}
 
 		/**
 		 * Converts the vector to an array
@@ -1952,7 +1952,7 @@ namespace Ds {
 		 * @link https://php.net/manual/en/ds-vector.unshift.php
 		 * @since PECL ds >= 1.0.0
 		 */
-		public function unshift($values = NULL): void {}
+		public function unshift(mixed $values = NULL): void {}
 	}
 
 }

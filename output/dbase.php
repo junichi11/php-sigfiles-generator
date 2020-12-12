@@ -118,7 +118,7 @@ namespace {
 	 * @see dbase_create(), dbase_close()
 	 * @since PHP 5 < 5.3.0, dbase 5, dbase 7
 	 */
-	function dbase_open(string $path, int $mode) {}
+	function dbase_open(string $path, int $mode): resource|false {}
 
 	/**
 	 * Packs a database

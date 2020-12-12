@@ -38,7 +38,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.array-column.php
 	 * @since PHP 5 >= 5.5.0, PHP 7
 	 */
-	function array_column(array $input, $column_key, $index_key = NULL): array {}
+	function array_column(array $input, mixed $column_key, mixed $index_key = NULL): array {}
 
 	/**
 	 * Creates an array by using one array for keys and another for its values
@@ -136,7 +136,7 @@ namespace {
 	 * @see array_fill_keys(), str_repeat(), range()
 	 * @since PHP 4 >= 4.2.0, PHP 5, PHP 7
 	 */
-	function array_fill(int $start_index, int $num, $value): array {}
+	function array_fill(int $start_index, int $num, mixed $value): array {}
 
 	/**
 	 * Fill an array with values, specifying keys
@@ -148,7 +148,7 @@ namespace {
 	 * @see array_fill(), array_combine()
 	 * @since PHP 5 >= 5.2.0, PHP 7
 	 */
-	function array_fill_keys(array $keys, $value): array {}
+	function array_fill_keys(array $keys, mixed $value): array {}
 
 	/**
 	 * Filters elements of an array using a callback function
@@ -246,7 +246,7 @@ namespace {
 	 * @see isset(), array_keys(), in_array(), property_exists()
 	 * @since PHP 4 >= 4.0.7, PHP 5, PHP 7
 	 */
-	function array_key_exists($key, array $array): bool {}
+	function array_key_exists(mixed $key, array $array): bool {}
 
 	/**
 	 * Gets the first key of an array
@@ -257,7 +257,7 @@ namespace {
 	 * @see array_key_last(), reset()
 	 * @since PHP 7 >= 7.3.0
 	 */
-	function array_key_first(array $array) {}
+	function array_key_first(array $array): mixed {}
 
 	/**
 	 * Gets the last key of an array
@@ -268,7 +268,7 @@ namespace {
 	 * @see array_key_first(), end()
 	 * @since PHP 7 >= 7.3.0
 	 */
-	function array_key_last(array $array) {}
+	function array_key_last(array $array): mixed {}
 
 	/**
 	 * Return all the keys or a subset of the keys of an array
@@ -328,7 +328,7 @@ namespace {
 	 * @see usort()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function array_multisort(array &$array1, $array1_sort_order = SORT_ASC, $array1_sort_flags = SORT_REGULAR, ...$rest): bool {}
+	function array_multisort(array &$array1, mixed $array1_sort_order = SORT_ASC, mixed $array1_sort_flags = SORT_REGULAR, mixed ...$rest): bool {}
 
 	/**
 	 * Pad array to the specified length with a value
@@ -341,7 +341,7 @@ namespace {
 	 * @see array_fill(), range()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function array_pad(array $array, int $size, $value): array {}
+	function array_pad(array $array, int $size, mixed $value): array {}
 
 	/**
 	 * Pop the element off the end of array
@@ -352,7 +352,7 @@ namespace {
 	 * @see array_push(), array_shift(), array_unshift()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function array_pop(array &$array) {}
+	function array_pop(array &$array): mixed {}
 
 	/**
 	 * Calculate the product of values in an array
@@ -362,7 +362,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.array-product.php
 	 * @since PHP 5 >= 5.1.0, PHP 7
 	 */
-	function array_product(array $array) {}
+	function array_product(array $array): int|float {}
 
 	/**
 	 * Push one or more elements onto the end of array
@@ -374,7 +374,7 @@ namespace {
 	 * @see array_pop(), array_shift(), array_unshift()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function array_push(array &$array, ...$values): int {}
+	function array_push(array &$array, mixed ...$values): int {}
 
 	/**
 	 * Pick one or more random keys out of an array
@@ -386,7 +386,7 @@ namespace {
 	 * @see shuffle()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function array_rand(array $array, int $num = 1) {}
+	function array_rand(array $array, int $num = 1): mixed {}
 
 	/**
 	 * Iteratively reduce the array to a single value using a callback function
@@ -399,7 +399,7 @@ namespace {
 	 * @see array_filter(), array_map(), array_unique(), array_count_values()
 	 * @since PHP 4 >= 4.0.5, PHP 5, PHP 7
 	 */
-	function array_reduce(array $array, callable $callback, $initial = NULL) {}
+	function array_reduce(array $array, callable $callback, mixed $initial = NULL): mixed {}
 
 	/**
 	 * Replaces elements from passed arrays into the first array
@@ -448,7 +448,7 @@ namespace {
 	 * @see array_keys(), array_values(), array_key_exists(), in_array()
 	 * @since PHP 4 >= 4.0.5, PHP 5, PHP 7
 	 */
-	function array_search($needle, array $haystack, bool $strict = FALSE) {}
+	function array_search(mixed $needle, array $haystack, bool $strict = FALSE): mixed {}
 
 	/**
 	 * Shift an element off the beginning of array
@@ -459,7 +459,7 @@ namespace {
 	 * @see array_unshift(), array_push(), array_pop()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function array_shift(array &$array) {}
+	function array_shift(array &$array): mixed {}
 
 	/**
 	 * Extract a slice of the array
@@ -487,7 +487,7 @@ namespace {
 	 * @see array_merge(), array_slice(), unset()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function array_splice(array &$input, int $offset, int $length  = 'count($input)', $replacement = array()): array {}
+	function array_splice(array &$input, int $offset, int $length  = 'count($input)', mixed $replacement = array()): array {}
 
 	/**
 	 * Calculate the sum of values in an array
@@ -497,7 +497,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.array-sum.php
 	 * @since PHP 4 >= 4.0.4, PHP 5, PHP 7
 	 */
-	function array_sum(array $array) {}
+	function array_sum(array $array): int|float {}
 
 	/**
 	 * Computes the difference of arrays by using a callback function for data comparison
@@ -601,7 +601,7 @@ namespace {
 	 * @see array_shift(), array_push(), array_pop()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function array_unshift(array &$array, ...$values): int {}
+	function array_unshift(array &$array, mixed ...$values): int {}
 
 	/**
 	 * Return all the values of an array
@@ -625,7 +625,7 @@ namespace {
 	 * @see array_walk_recursive(), iterator_apply(), list(), each(), call_user_func_array(), array_map()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function array_walk(array &$array, callable $callback, $userdata = NULL): bool {}
+	function array_walk(array &$array, callable $callback, mixed $userdata = NULL): bool {}
 
 	/**
 	 * Apply a user function recursively to every member of an array
@@ -638,7 +638,7 @@ namespace {
 	 * @see array_walk()
 	 * @since PHP 5, PHP 7
 	 */
-	function array_walk_recursive(array &$array, callable $callback, $userdata = NULL): bool {}
+	function array_walk_recursive(array &$array, callable $callback, mixed $userdata = NULL): bool {}
 
 	/**
 	 * Sort an array in reverse order and maintain index association
@@ -674,7 +674,7 @@ namespace {
 	 * @see extract()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function compact($var_name, ...$var_names): array {}
+	function compact(mixed $var_name, mixed ...$var_names): array {}
 
 	/**
 	 * Count all elements in an array, or something in an object
@@ -686,7 +686,7 @@ namespace {
 	 * @see is_array(), isset(), empty(), strlen(), is_countable()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function count($array_or_countable, int $mode = COUNT_NORMAL): int {}
+	function count(mixed $array_or_countable, int $mode = COUNT_NORMAL): int {}
 
 	/**
 	 * Return the current element in an array
@@ -697,7 +697,7 @@ namespace {
 	 * @see end(), key(), each(), prev(), reset(), next()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function current(array $array) {}
+	function current(array $array): mixed {}
 
 	/**
 	 * Return the current key and value pair from an array and advance the array cursor
@@ -719,7 +719,7 @@ namespace {
 	 * @see current(), each(), prev(), reset(), next(), array_key_last()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function end(array &$array) {}
+	function end(array &$array): mixed {}
 
 	/**
 	 * Import variables into the current symbol table from an array
@@ -745,7 +745,7 @@ namespace {
 	 * @see array_search(), isset(), array_key_exists()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function in_array($needle, array $haystack, bool $strict = FALSE): bool {}
+	function in_array(mixed $needle, array $haystack, bool $strict = FALSE): bool {}
 
 	/**
 	 * Fetch a key from an array
@@ -756,7 +756,7 @@ namespace {
 	 * @see current(), next()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function key(array $array) {}
+	function key(array $array): mixed {}
 
 	/**
 	 * Alias of array_key_exists()
@@ -767,7 +767,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.key-exists.php
 	 * @since PHP 4 >= 4.0.6, PHP 5, PHP 7
 	 */
-	function key_exists($key, array $array): bool {}
+	function key_exists(mixed $key, array $array): bool {}
 
 	/**
 	 * Sort an array by key in reverse order
@@ -824,7 +824,7 @@ namespace {
 	 * @see current(), end(), prev(), reset(), each()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function next(array &$array) {}
+	function next(array &$array): mixed {}
 
 	/**
 	 * Alias of current()
@@ -834,7 +834,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.pos.php
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function pos(array $array) {}
+	function pos(array $array): mixed {}
 
 	/**
 	 * Rewind the internal array pointer
@@ -845,7 +845,7 @@ namespace {
 	 * @see current(), end(), next(), reset(), each()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function prev(array &$array) {}
+	function prev(array &$array): mixed {}
 
 	/**
 	 * Create an array containing a range of elements
@@ -858,7 +858,7 @@ namespace {
 	 * @see shuffle(), array_fill()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function range($start, $end, $step = 1): array {}
+	function range(mixed $start, mixed $end, int|float $step = 1): array {}
 
 	/**
 	 * Set the internal pointer of an array to its first element
@@ -869,7 +869,7 @@ namespace {
 	 * @see current(), each(), end(), next(), prev(), array_key_first()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function reset(array &$array) {}
+	function reset(array &$array): mixed {}
 
 	/**
 	 * Sort an array in reverse order
@@ -903,7 +903,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.sizeof.php
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function sizeof($array_or_countable, int $mode = COUNT_NORMAL): int {}
+	function sizeof(mixed $array_or_countable, int $mode = COUNT_NORMAL): int {}
 
 	/**
 	 * Sort an array

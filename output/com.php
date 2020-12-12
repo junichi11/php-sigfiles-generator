@@ -59,7 +59,7 @@ namespace {
 		 * @link https://php.net/manual/en/exception.getcode.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
-		final public function getCode() {}
+		final public function getCode(): mixed {}
 
 		/**
 		 * Gets the file in which the exception was created
@@ -130,7 +130,7 @@ namespace {
 		 * @link https://php.net/manual/en/compersisthelper.getcurfilename.php
 		 * @since PHP 5, PHP 7
 		 */
-		public function GetCurFileName() {}
+		public function GetCurFileName(): string|false {}
 
 		/**
 		 * Get maximum stream size
@@ -180,7 +180,7 @@ namespace {
 		 * @link https://php.net/manual/en/compersisthelper.savetofile.php
 		 * @since PHP 5, PHP 7
 		 */
-		public function SaveToFile($filename, bool $remember = TRUE): bool {}
+		public function SaveToFile(string|null $filename, bool $remember = TRUE): bool {}
 
 		/**
 		 * Save object to stream
@@ -200,7 +200,7 @@ namespace {
 		 * @link https://php.net/manual/en/compersisthelper.construct.php
 		 * @since PHP 5, PHP 7
 		 */
-		public function __construct($variant = NULL) {}
+		public function __construct(\variant|null $variant = NULL) {}
 	}
 
 	/**
@@ -210,7 +210,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.com-create-guid.php
 	 * @since PHP 5, PHP 7
 	 */
-	function com_create_guid() {}
+	function com_create_guid(): string|false {}
 
 	/**
 	 * Connect events from a COM object to a PHP object
@@ -223,7 +223,7 @@ namespace {
 	 * @see com_print_typeinfo(), com_message_pump()
 	 * @since PHP 4 >= 4.2.0, PHP 5, PHP 7
 	 */
-	function com_event_sink(\variant $variant, object $sink_object, $sink_interface = NULL): bool {}
+	function com_event_sink(\variant $variant, object $sink_object, array|string|null $sink_interface = NULL): bool {}
 
 	/**
 	 * Returns a handle to an already running instance of a COM object
@@ -234,7 +234,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.com-get-active-object.php
 	 * @since PHP 5, PHP 7
 	 */
-	function com_get_active_object(string $prog_id, $codepage = NULL): \variant {}
+	function com_get_active_object(string $prog_id, int|null $codepage = NULL): \variant {}
 
 	/**
 	 * Loads a Typelib
@@ -268,7 +268,7 @@ namespace {
 	 * @see com_event_sink(), com_load_typelib()
 	 * @since PHP 4 >= 4.2.0, PHP 5, PHP 7
 	 */
-	function com_print_typeinfo($variant, $dispatch_interface = NULL, bool $display_sink = FALSE): bool {}
+	function com_print_typeinfo(\variant|string $variant, string|null $dispatch_interface = NULL, bool $display_sink = FALSE): bool {}
 
 	/**
 	 * Returns the absolute value of a variant
@@ -279,7 +279,7 @@ namespace {
 	 * @see abs()
 	 * @since PHP 5, PHP 7
 	 */
-	function variant_abs($value): \variant {}
+	function variant_abs(mixed $value): \variant {}
 
 	/**
 	 * "Adds" two variant values together and returns the result
@@ -291,7 +291,7 @@ namespace {
 	 * @see variant_sub()
 	 * @since PHP 5, PHP 7
 	 */
-	function variant_add($left, $right): \variant {}
+	function variant_add(mixed $left, mixed $right): \variant {}
 
 	/**
 	 * Performs a bitwise AND operation between two variants
@@ -303,7 +303,7 @@ namespace {
 	 * @see variant_or()
 	 * @since PHP 5, PHP 7
 	 */
-	function variant_and($left, $right): \variant {}
+	function variant_and(mixed $left, mixed $right): \variant {}
 
 	/**
 	 * Convert a variant into a new variant object of another type
@@ -326,7 +326,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.variant-cat.php
 	 * @since PHP 5, PHP 7
 	 */
-	function variant_cat($left, $right): \variant {}
+	function variant_cat(mixed $left, mixed $right): \variant {}
 
 	/**
 	 * Compares two variants
@@ -339,7 +339,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.variant-cmp.php
 	 * @since PHP 5, PHP 7
 	 */
-	function variant_cmp($left, $right, int $locale_id = LOCALE_SYSTEM_DEFAULT, int $flags = 0): int {}
+	function variant_cmp(mixed $left, mixed $right, int $locale_id = LOCALE_SYSTEM_DEFAULT, int $flags = 0): int {}
 
 	/**
 	 * Returns a variant date representation of a Unix timestamp
@@ -361,7 +361,7 @@ namespace {
 	 * @see variant_date_from_timestamp(), date(), strftime()
 	 * @since PHP 5, PHP 7
 	 */
-	function variant_date_to_timestamp(\variant $variant) {}
+	function variant_date_to_timestamp(\variant $variant): int|null {}
 
 	/**
 	 * Returns the result from dividing two variants
@@ -373,7 +373,7 @@ namespace {
 	 * @see variant_idiv()
 	 * @since PHP 5, PHP 7
 	 */
-	function variant_div($left, $right): \variant {}
+	function variant_div(mixed $left, mixed $right): \variant {}
 
 	/**
 	 * Performs a bitwise equivalence on two variants
@@ -384,7 +384,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.variant-eqv.php
 	 * @since PHP 5, PHP 7
 	 */
-	function variant_eqv($left, $right): \variant {}
+	function variant_eqv(mixed $left, mixed $right): \variant {}
 
 	/**
 	 * Returns the integer portion of a variant
@@ -395,7 +395,7 @@ namespace {
 	 * @see variant_int(), variant_round(), floor(), ceil(), round()
 	 * @since PHP 5, PHP 7
 	 */
-	function variant_fix($value): \variant {}
+	function variant_fix(mixed $value): \variant {}
 
 	/**
 	 * Returns the type of a variant object
@@ -418,7 +418,7 @@ namespace {
 	 * @see variant_div()
 	 * @since PHP 5, PHP 7
 	 */
-	function variant_idiv($left, $right): \variant {}
+	function variant_idiv(mixed $left, mixed $right): \variant {}
 
 	/**
 	 * Performs a bitwise implication on two variants
@@ -429,7 +429,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.variant-imp.php
 	 * @since PHP 5, PHP 7
 	 */
-	function variant_imp($left, $right): \variant {}
+	function variant_imp(mixed $left, mixed $right): \variant {}
 
 	/**
 	 * Returns the integer portion of a variant
@@ -440,7 +440,7 @@ namespace {
 	 * @see variant_fix(), variant_round(), floor(), ceil(), round()
 	 * @since PHP 5, PHP 7
 	 */
-	function variant_int($value): \variant {}
+	function variant_int(mixed $value): \variant {}
 
 	/**
 	 * Divides two variants and returns only the remainder
@@ -452,7 +452,7 @@ namespace {
 	 * @see variant_div(), variant_idiv()
 	 * @since PHP 5, PHP 7
 	 */
-	function variant_mod($left, $right): \variant {}
+	function variant_mod(mixed $left, mixed $right): \variant {}
 
 	/**
 	 * Multiplies the values of the two variants
@@ -464,7 +464,7 @@ namespace {
 	 * @see variant_div(), variant_idiv()
 	 * @since PHP 5, PHP 7
 	 */
-	function variant_mul($left, $right): \variant {}
+	function variant_mul(mixed $left, mixed $right): \variant {}
 
 	/**
 	 * Performs logical negation on a variant
@@ -474,7 +474,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.variant-neg.php
 	 * @since PHP 5, PHP 7
 	 */
-	function variant_neg($value): \variant {}
+	function variant_neg(mixed $value): \variant {}
 
 	/**
 	 * Performs bitwise not negation on a variant
@@ -484,7 +484,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.variant-not.php
 	 * @since PHP 5, PHP 7
 	 */
-	function variant_not($value): \variant {}
+	function variant_not(mixed $value): \variant {}
 
 	/**
 	 * Performs a logical disjunction on two variants
@@ -496,7 +496,7 @@ namespace {
 	 * @see variant_and(), variant_xor()
 	 * @since PHP 5, PHP 7
 	 */
-	function variant_or($left, $right): \variant {}
+	function variant_or(mixed $left, mixed $right): \variant {}
 
 	/**
 	 * Returns the result of performing the power function with two variants
@@ -508,7 +508,7 @@ namespace {
 	 * @see pow()
 	 * @since PHP 5, PHP 7
 	 */
-	function variant_pow($left, $right): \variant {}
+	function variant_pow(mixed $left, mixed $right): \variant {}
 
 	/**
 	 * Rounds a variant to the specified number of decimal places
@@ -520,7 +520,7 @@ namespace {
 	 * @see round()
 	 * @since PHP 5, PHP 7
 	 */
-	function variant_round($value, int $decimals) {}
+	function variant_round(mixed $value, int $decimals): \variant|null {}
 
 	/**
 	 * Assigns a new value for a variant object
@@ -531,7 +531,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.variant-set.php
 	 * @since PHP 5, PHP 7
 	 */
-	function variant_set(\variant $variant, $value): void {}
+	function variant_set(\variant $variant, mixed $value): void {}
 
 	/**
 	 * Convert a variant into another type "in-place"
@@ -555,7 +555,7 @@ namespace {
 	 * @see variant_add()
 	 * @since PHP 5, PHP 7
 	 */
-	function variant_sub($left, $right): \variant {}
+	function variant_sub(mixed $left, mixed $right): \variant {}
 
 	/**
 	 * Performs a logical exclusion on two variants
@@ -567,7 +567,7 @@ namespace {
 	 * @see variant_or(), variant_and()
 	 * @since PHP 5, PHP 7
 	 */
-	function variant_xor($left, $right): \variant {}
+	function variant_xor(mixed $left, mixed $right): \variant {}
 
 	/**
 	 * Indicates all class contexts. This definition ORs <b><code>CLSCTX_INPROC_HANDLER</code></b> and <b><code>CLSCTX_SERVER</code></b>.

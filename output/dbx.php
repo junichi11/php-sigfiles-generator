@@ -42,7 +42,7 @@ namespace {
 	 * @see dbx_close()
 	 * @since PHP 4 >= 4.0.6, PHP 5 < 5.1.0, PECL dbx >= 1.1.0
 	 */
-	function dbx_connect($module, string $host, string $database, string $username, string $password, int $persistent = NULL): object {}
+	function dbx_connect(mixed $module, string $host, string $database, string $username, string $password, int $persistent = NULL): object {}
 
 	/**
 	 * Report the error message of the latest function call in the module
@@ -75,7 +75,7 @@ namespace {
 	 * @see dbx_query()
 	 * @since PHP 5 < 5.1.0, PECL dbx >= 1.1.0
 	 */
-	function dbx_fetch_row(object $result_identifier) {}
+	function dbx_fetch_row(object $result_identifier): mixed {}
 
 	/**
 	 * Send a query and fetch all results (if any)
@@ -88,7 +88,7 @@ namespace {
 	 * @see dbx_escape_string(), dbx_fetch_row(), dbx_connect()
 	 * @since PHP 4 >= 4.0.6, PHP 5 < 5.1.0, PECL dbx >= 1.1.0
 	 */
-	function dbx_query(object $link_identifier, string $sql_statement, int $flags = NULL) {}
+	function dbx_query(object $link_identifier, string $sql_statement, int $flags = NULL): mixed {}
 
 	/**
 	 * Sort a result from a dbx_query by a custom sort function

@@ -255,7 +255,7 @@ namespace {
 	 * @see imap_fetchbody(), imap_bodystruct()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function imap_fetchstructure($imap_stream, int $msg_number, int $options = 0) {}
+	function imap_fetchstructure($imap_stream, int $msg_number, int $options = 0): object|false {}
 
 	/**
 	 * Alias of imap_body()
@@ -480,7 +480,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.imap-mail-compose.php
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function imap_mail_compose(array $envelope, array $body) {}
+	function imap_mail_compose(array $envelope, array $body): string|false {}
 
 	/**
 	 * Copy specified messages to a mailbox
@@ -552,7 +552,7 @@ namespace {
 	 * @see imap_utf8_to_mutf7()
 	 * @since PHP 5 >= 5.3.0, PHP 7
 	 */
-	function imap_mutf7_to_utf8(string $in) {}
+	function imap_mutf7_to_utf8(string $in): string|false {}
 
 	/**
 	 * Gets the number of messages in the current mailbox
@@ -700,7 +700,7 @@ namespace {
 	 * @see imap_fetchbody()
 	 * @since PHP 5 >= 5.1.3, PHP 7
 	 */
-	function imap_savebody($imap_stream, $file, int $msg_number, string $part_number = "", int $options = 0): bool {}
+	function imap_savebody($imap_stream, mixed $file, int $msg_number, string $part_number = "", int $options = 0): bool {}
 
 	/**
 	 * Alias of imap_listscan()
@@ -796,7 +796,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.imap-sort.php
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function imap_sort($imap_stream, int $criteria, int $reverse, int $options = 0, string $search_criteria = NULL, string $charset = NULL) {}
+	function imap_sort($imap_stream, int $criteria, int $reverse, int $options = 0, string $search_criteria = NULL, string $charset = NULL): array|false {}
 
 	/**
 	 * Returns status information on a mailbox
@@ -842,7 +842,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.imap-timeout.php
 	 * @since PHP 4 >= 4.3.3, PHP 5, PHP 7
 	 */
-	function imap_timeout(int $timeout_type, int $timeout = -1) {}
+	function imap_timeout(int $timeout_type, int $timeout = -1): mixed {}
 
 	/**
 	 * This function returns the UID for the given message sequence number
@@ -923,7 +923,7 @@ namespace {
 	 * @see imap_mutf7_to_utf8()
 	 * @since PHP 5 >= 5.3.0, PHP 7
 	 */
-	function imap_utf8_to_mutf7(string $in) {}
+	function imap_utf8_to_mutf7(string $in): string|false {}
 
 	/**
 	 * silently expunge the mailbox before closing when calling <code>imap_close()</code>

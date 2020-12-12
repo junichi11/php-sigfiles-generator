@@ -496,7 +496,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.sodium-crypto-pwhash.php
 	 * @since PHP 7 >= 7.2.0
 	 */
-	function sodium_crypto_pwhash(int $length, string $password, string $salt, int $opslimit, int $memlimit, int $alg = NULL) {}
+	function sodium_crypto_pwhash(int $length, string $password, string $salt, int $opslimit, int $memlimit, int $alg = NULL): string|false {}
 
 	/**
 	 * Derives a key from a password
@@ -546,7 +546,7 @@ namespace {
 	 * @see sodium_crypto_pwhash_str_verify(), sodium_crypto_pwhash(), password_hash(), password_verify()
 	 * @since PHP 7 >= 7.2.0
 	 */
-	function sodium_crypto_pwhash_str(string $password, int $opslimit, int $memlimit) {}
+	function sodium_crypto_pwhash_str(string $password, int $opslimit, int $memlimit): string|false {}
 
 	/**
 	 * Description

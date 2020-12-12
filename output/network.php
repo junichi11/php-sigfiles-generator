@@ -72,7 +72,7 @@ namespace {
 	 * @see dns_get_mx(), dns_check_record()
 	 * @since PHP 5, PHP 7
 	 */
-	function dns_get_record(string $hostname, int $type = DNS_ANY, array &$authns = NULL, array &$addtl = NULL, bool $raw = FALSE) {}
+	function dns_get_record(string $hostname, int $type = DNS_ANY, array &$authns = NULL, array &$addtl = NULL, bool $raw = FALSE): array|false {}
 
 	/**
 	 * Open Internet or Unix domain socket connection
@@ -154,7 +154,7 @@ namespace {
 	 * @see getprotobynumber()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function getprotobyname(string $name) {}
+	function getprotobyname(string $name): int|false {}
 
 	/**
 	 * Get protocol name associated with protocol number
@@ -165,7 +165,7 @@ namespace {
 	 * @see getprotobyname()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function getprotobynumber(int $number) {}
+	function getprotobynumber(int $number): string|false {}
 
 	/**
 	 * Get port number associated with an Internet service and protocol
@@ -257,7 +257,7 @@ namespace {
 	 * @see header(), headers_list()
 	 * @since PHP 5 >= 5.4.0, PHP 7
 	 */
-	function http_response_code(int $response_code = NULL) {}
+	function http_response_code(int $response_code = NULL): mixed {}
 
 	/**
 	 * Converts a packed internet address to a human readable representation
@@ -268,7 +268,7 @@ namespace {
 	 * @see long2ip(), ip2long(), inet_pton()
 	 * @since PHP 5 >= 5.1.0, PHP 7
 	 */
-	function inet_ntop(string $in_addr) {}
+	function inet_ntop(string $in_addr): string|false {}
 
 	/**
 	 * Converts a human readable IP address to its packed in_addr representation

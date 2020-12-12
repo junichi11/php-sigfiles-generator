@@ -27,6 +27,6 @@ namespace {
 	 * @see mb_send_mail(), imap_mail()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function mail(string $to, string $subject, string $message, $additional_headers = NULL, string $additional_parameters = NULL): bool {}
+	function mail(string $to, string $subject, string $message, mixed $additional_headers = NULL, string $additional_parameters = NULL): bool {}
 
 }

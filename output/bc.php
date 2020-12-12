@@ -15,7 +15,7 @@ namespace {
 	 * @see bcsub()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function bcadd(string $num1, string $num2, $scale = NULL): string {}
+	function bcadd(string $num1, string $num2, int|null $scale = NULL): string {}
 
 	/**
 	 * Compare two arbitrary precision numbers
@@ -27,7 +27,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.bccomp.php
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function bccomp(string $num1, string $num2, $scale = NULL): int {}
+	function bccomp(string $num1, string $num2, int|null $scale = NULL): int {}
 
 	/**
 	 * Divide two arbitrary precision numbers
@@ -40,7 +40,7 @@ namespace {
 	 * @see bcmul()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function bcdiv(string $num1, string $num2, $scale = NULL): string {}
+	function bcdiv(string $num1, string $num2, int|null $scale = NULL): string {}
 
 	/**
 	 * Get modulus of an arbitrary precision number
@@ -53,7 +53,7 @@ namespace {
 	 * @see bcdiv()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function bcmod(string $num1, string $num2, $scale = NULL): string {}
+	function bcmod(string $num1, string $num2, int|null $scale = NULL): string {}
 
 	/**
 	 * Multiply two arbitrary precision numbers
@@ -66,7 +66,7 @@ namespace {
 	 * @see bcdiv()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function bcmul(string $num1, string $num2, $scale = NULL): string {}
+	function bcmul(string $num1, string $num2, int|null $scale = NULL): string {}
 
 	/**
 	 * Raise an arbitrary precision number to another
@@ -79,7 +79,7 @@ namespace {
 	 * @see bcpowmod(), bcsqrt()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function bcpow(string $num, string $exponent, $scale = NULL): string {}
+	function bcpow(string $num, string $exponent, int|null $scale = NULL): string {}
 
 	/**
 	 * Raise an arbitrary precision number to another, reduced by a specified modulus
@@ -93,7 +93,7 @@ namespace {
 	 * @see bcpow(), bcmod()
 	 * @since PHP 5, PHP 7
 	 */
-	function bcpowmod(string $num, string $exponent, string $modulus, $scale = NULL): string {}
+	function bcpowmod(string $num, string $exponent, string $modulus, int|null $scale = NULL): string {}
 
 	/**
 	 * Set or get default scale parameter for all bc math functions
@@ -115,7 +115,7 @@ namespace {
 	 * @see bcpow()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function bcsqrt(string $num, $scale = NULL): string {}
+	function bcsqrt(string $num, int|null $scale = NULL): string {}
 
 	/**
 	 * Subtract one arbitrary precision number from another
@@ -128,6 +128,6 @@ namespace {
 	 * @see bcadd()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function bcsub(string $num1, string $num2, $scale = NULL): string {}
+	function bcsub(string $num1, string $num2, int|null $scale = NULL): string {}
 
 }

@@ -25,7 +25,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.dio-fcntl.php
 	 * @since PHP 4 >= 4.2.0, PHP 5 < 5.1.0
 	 */
-	function dio_fcntl($fd, int $cmd, $args = NULL) {}
+	function dio_fcntl($fd, int $cmd, mixed $args = NULL): mixed {}
 
 	/**
 	 * Opens a file (creating it if necessary) at a lower level than the C library input/ouput stream functions allow

@@ -279,7 +279,7 @@ namespace {
 		 * @link https://php.net/manual/en/tokyotyrant.add.php
 		 * @since PECL tokyo_tyrant >= 0.1.0
 		 */
-		public function add(string $key, $increment, int $type = 0) {}
+		public function add(string $key, int|float $increment, int $type = 0): int|float {}
 
 		/**
 		 * Connect to a database
@@ -345,7 +345,7 @@ namespace {
 		 * @link https://php.net/manual/en/tokyotyrant.get.php
 		 * @since PECL tokyo_tyrant >= 0.1.0
 		 */
-		public function get($keys) {}
+		public function get(mixed $keys): mixed {}
 
 		/**
 		 * Get an iterator
@@ -373,7 +373,7 @@ namespace {
 		 * @link https://php.net/manual/en/tokyotyrant.out.php
 		 * @since PECL tokyo_tyrant >= 0.1.0
 		 */
-		public function out($keys): \TokyoTyrant {}
+		public function out(mixed $keys): \TokyoTyrant {}
 
 		/**
 		 * Puts values
@@ -384,7 +384,7 @@ namespace {
 		 * @link https://php.net/manual/en/tokyotyrant.put.php
 		 * @since PECL tokyo_tyrant >= 0.1.0
 		 */
-		public function put($keys, string $value = NULL): \TokyoTyrant {}
+		public function put(mixed $keys, string $value = NULL): \TokyoTyrant {}
 
 		/**
 		 * Concatenates to a record
@@ -395,7 +395,7 @@ namespace {
 		 * @link https://php.net/manual/en/tokyotyrant.putcat.php
 		 * @since PECL tokyo_tyrant >= 0.1.0
 		 */
-		public function putCat($keys, string $value = NULL): \TokyoTyrant {}
+		public function putCat(mixed $keys, string $value = NULL): \TokyoTyrant {}
 
 		/**
 		 * Puts a record
@@ -406,7 +406,7 @@ namespace {
 		 * @link https://php.net/manual/en/tokyotyrant.putkeep.php
 		 * @since PECL tokyo_tyrant >= 0.1.0
 		 */
-		public function putKeep($keys, string $value = NULL): \TokyoTyrant {}
+		public function putKeep(mixed $keys, string $value = NULL): \TokyoTyrant {}
 
 		/**
 		 * Puts value
@@ -417,7 +417,7 @@ namespace {
 		 * @link https://php.net/manual/en/tokyotyrant.putnr.php
 		 * @since PECL tokyo_tyrant >= 0.1.0
 		 */
-		public function putNr($keys, string $value = NULL): \TokyoTyrant {}
+		public function putNr(mixed $keys, string $value = NULL): \TokyoTyrant {}
 
 		/**
 		 * Concatenates to a record
@@ -429,7 +429,7 @@ namespace {
 		 * @link https://php.net/manual/en/tokyotyrant.putshl.php
 		 * @since PECL tokyo_tyrant >= 0.1.0
 		 */
-		public function putShl(string $key, string $value, int $width) {}
+		public function putShl(string $key, string $value, int $width): mixed {}
 
 		/**
 		 * Restore the database
@@ -441,7 +441,7 @@ namespace {
 		 * @link https://php.net/manual/en/tokyotyrant.restore.php
 		 * @since PECL tokyo_tyrant >= 0.1.0
 		 */
-		public function restore(string $log_dir, int $timestamp, bool $check_consistency = TRUE) {}
+		public function restore(string $log_dir, int $timestamp, bool $check_consistency = TRUE): mixed {}
 
 		/**
 		 * Set the replication master
@@ -454,7 +454,7 @@ namespace {
 		 * @link https://php.net/manual/en/tokyotyrant.setmaster.php
 		 * @since PECL tokyo_tyrant >= 0.1.0
 		 */
-		public function setMaster(string $host, int $port, int $timestamp, bool $check_consistency = TRUE) {}
+		public function setMaster(string $host, int $port, int $timestamp, bool $check_consistency = TRUE): mixed {}
 
 		/**
 		 * Returns the size of the value
@@ -482,7 +482,7 @@ namespace {
 		 * @link https://php.net/manual/en/tokyotyrant.sync.php
 		 * @since PECL tokyo_tyrant >= 0.1.0
 		 */
-		public function sync() {}
+		public function sync(): mixed {}
 
 		/**
 		 * Tunes connection values
@@ -502,7 +502,7 @@ namespace {
 		 * @link https://php.net/manual/en/tokyotyrant.vanish.php
 		 * @since PECL tokyo_tyrant >= 0.1.0
 		 */
-		public function vanish() {}
+		public function vanish(): mixed {}
 	}
 
 	/**
@@ -561,7 +561,7 @@ namespace {
 		 * @link https://php.net/manual/en/exception.getcode.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
-		final public function getCode() {}
+		final public function getCode(): mixed {}
 
 		/**
 		 * Gets the file in which the exception was created
@@ -633,7 +633,7 @@ namespace {
 		 * @link https://php.net/manual/en/tokyotyrantiterator.construct.php
 		 * @since PECL tokyo_tyrant >= 0.2.0
 		 */
-		public function __construct($object) {}
+		public function __construct(mixed $object) {}
 
 		/**
 		 * Adds to a numeric key
@@ -645,7 +645,7 @@ namespace {
 		 * @link https://php.net/manual/en/tokyotyrant.add.php
 		 * @since PECL tokyo_tyrant >= 0.1.0
 		 */
-		public function add(string $key, $increment, int $type = 0) {}
+		public function add(string $key, int|float $increment, int $type = 0): int|float {}
 
 		/**
 		 * Connect to a database
@@ -686,7 +686,7 @@ namespace {
 		 * @link https://php.net/manual/en/tokyotyrantiterator.current.php
 		 * @since PECL tokyo_tyrant >= 0.2.0
 		 */
-		public function current() {}
+		public function current(): mixed {}
 
 		/**
 		 * Execute a remote script
@@ -720,7 +720,7 @@ namespace {
 		 * @link https://php.net/manual/en/tokyotyrant.get.php
 		 * @since PECL tokyo_tyrant >= 0.1.0
 		 */
-		public function get($keys) {}
+		public function get(mixed $keys): mixed {}
 
 		/**
 		 * Get an iterator
@@ -738,7 +738,7 @@ namespace {
 		 * @link https://php.net/manual/en/tokyotyrantiterator.key.php
 		 * @since PECL tokyo_tyrant >= 0.2.0
 		 */
-		public function key() {}
+		public function key(): mixed {}
 
 		/**
 		 * Move to next key
@@ -747,7 +747,7 @@ namespace {
 		 * @link https://php.net/manual/en/tokyotyrantiterator.next.php
 		 * @since PECL tokyo_tyrant >= 0.2.0
 		 */
-		public function next() {}
+		public function next(): mixed {}
 
 		/**
 		 * Number of records in the database
@@ -766,7 +766,7 @@ namespace {
 		 * @link https://php.net/manual/en/tokyotyrant.out.php
 		 * @since PECL tokyo_tyrant >= 0.1.0
 		 */
-		public function out($keys): \TokyoTyrant {}
+		public function out(mixed $keys): \TokyoTyrant {}
 
 		/**
 		 * Puts values
@@ -777,7 +777,7 @@ namespace {
 		 * @link https://php.net/manual/en/tokyotyrant.put.php
 		 * @since PECL tokyo_tyrant >= 0.1.0
 		 */
-		public function put($keys, string $value = NULL): \TokyoTyrant {}
+		public function put(mixed $keys, string $value = NULL): \TokyoTyrant {}
 
 		/**
 		 * Concatenates to a record
@@ -788,7 +788,7 @@ namespace {
 		 * @link https://php.net/manual/en/tokyotyrant.putcat.php
 		 * @since PECL tokyo_tyrant >= 0.1.0
 		 */
-		public function putCat($keys, string $value = NULL): \TokyoTyrant {}
+		public function putCat(mixed $keys, string $value = NULL): \TokyoTyrant {}
 
 		/**
 		 * Puts a record
@@ -799,7 +799,7 @@ namespace {
 		 * @link https://php.net/manual/en/tokyotyrant.putkeep.php
 		 * @since PECL tokyo_tyrant >= 0.1.0
 		 */
-		public function putKeep($keys, string $value = NULL): \TokyoTyrant {}
+		public function putKeep(mixed $keys, string $value = NULL): \TokyoTyrant {}
 
 		/**
 		 * Puts value
@@ -810,7 +810,7 @@ namespace {
 		 * @link https://php.net/manual/en/tokyotyrant.putnr.php
 		 * @since PECL tokyo_tyrant >= 0.1.0
 		 */
-		public function putNr($keys, string $value = NULL): \TokyoTyrant {}
+		public function putNr(mixed $keys, string $value = NULL): \TokyoTyrant {}
 
 		/**
 		 * Concatenates to a record
@@ -822,7 +822,7 @@ namespace {
 		 * @link https://php.net/manual/en/tokyotyrant.putshl.php
 		 * @since PECL tokyo_tyrant >= 0.1.0
 		 */
-		public function putShl(string $key, string $value, int $width) {}
+		public function putShl(string $key, string $value, int $width): mixed {}
 
 		/**
 		 * Restore the database
@@ -834,7 +834,7 @@ namespace {
 		 * @link https://php.net/manual/en/tokyotyrant.restore.php
 		 * @since PECL tokyo_tyrant >= 0.1.0
 		 */
-		public function restore(string $log_dir, int $timestamp, bool $check_consistency = TRUE) {}
+		public function restore(string $log_dir, int $timestamp, bool $check_consistency = TRUE): mixed {}
 
 		/**
 		 * Rewinds the iterator
@@ -856,7 +856,7 @@ namespace {
 		 * @link https://php.net/manual/en/tokyotyrant.setmaster.php
 		 * @since PECL tokyo_tyrant >= 0.1.0
 		 */
-		public function setMaster(string $host, int $port, int $timestamp, bool $check_consistency = TRUE) {}
+		public function setMaster(string $host, int $port, int $timestamp, bool $check_consistency = TRUE): mixed {}
 
 		/**
 		 * Returns the size of the value
@@ -884,7 +884,7 @@ namespace {
 		 * @link https://php.net/manual/en/tokyotyrant.sync.php
 		 * @since PECL tokyo_tyrant >= 0.1.0
 		 */
-		public function sync() {}
+		public function sync(): mixed {}
 
 		/**
 		 * Tunes connection values
@@ -913,7 +913,7 @@ namespace {
 		 * @link https://php.net/manual/en/tokyotyrant.vanish.php
 		 * @since PECL tokyo_tyrant >= 0.1.0
 		 */
-		public function vanish() {}
+		public function vanish(): mixed {}
 	}
 
 	/**
@@ -943,7 +943,7 @@ namespace {
 		 * @link https://php.net/manual/en/tokyotyrantquery.addcond.php
 		 * @since PECL tokyo_tyrant >= 0.1.0
 		 */
-		public function addCond(string $name, int $op, string $expr) {}
+		public function addCond(string $name, int $op, string $expr): mixed {}
 
 		/**
 		 * Counts records
@@ -1037,7 +1037,7 @@ namespace {
 		 * @link https://php.net/manual/en/tokyotyrantquery.setlimit.php
 		 * @since PECL tokyo_tyrant >= 0.1.0
 		 */
-		public function setLimit(int $max = NULL, int $skip = NULL) {}
+		public function setLimit(int $max = NULL, int $skip = NULL): mixed {}
 
 		/**
 		 * Orders results
@@ -1048,7 +1048,7 @@ namespace {
 		 * @link https://php.net/manual/en/tokyotyrantquery.setorder.php
 		 * @since PECL tokyo_tyrant >= 0.1.0
 		 */
-		public function setOrder(string $name, int $type) {}
+		public function setOrder(string $name, int $type): mixed {}
 
 		/**
 		 * Checks the validity of current item
@@ -1089,7 +1089,7 @@ namespace {
 		 * @link https://php.net/manual/en/tokyotyranttable.add.php
 		 * @since PECL tokyo_tyrant >= 0.1.0
 		 */
-		public function add(string $key, $increment, string $type = NULL): void {}
+		public function add(string $key, mixed $increment, string $type = NULL): void {}
 
 		/**
 		 * Connect to a database
@@ -1164,7 +1164,7 @@ namespace {
 		 * @link https://php.net/manual/en/tokyotyranttable.get.php
 		 * @since PECL tokyo_tyrant >= 0.1.0
 		 */
-		public function get($keys): array {}
+		public function get(mixed $keys): array {}
 
 		/**
 		 * Get an iterator
@@ -1201,7 +1201,7 @@ namespace {
 		 * @link https://php.net/manual/en/tokyotyranttable.out.php
 		 * @since PECL tokyo_tyrant >= 0.1.0
 		 */
-		public function out($keys): void {}
+		public function out(mixed $keys): void {}
 
 		/**
 		 * Store a row
@@ -1245,7 +1245,7 @@ namespace {
 		 * @link https://php.net/manual/en/tokyotyranttable.putnr.php
 		 * @since PECL tokyo_tyrant >= 0.1.0
 		 */
-		public function putNr($keys, string $value = NULL): void {}
+		public function putNr(mixed $keys, string $value = NULL): void {}
 
 		/**
 		 * Concatenates to a record
@@ -1269,7 +1269,7 @@ namespace {
 		 * @link https://php.net/manual/en/tokyotyrant.restore.php
 		 * @since PECL tokyo_tyrant >= 0.1.0
 		 */
-		public function restore(string $log_dir, int $timestamp, bool $check_consistency = TRUE) {}
+		public function restore(string $log_dir, int $timestamp, bool $check_consistency = TRUE): mixed {}
 
 		/**
 		 * Sets index
@@ -1280,7 +1280,7 @@ namespace {
 		 * @link https://php.net/manual/en/tokyotyranttable.setindex.php
 		 * @since PECL tokyo_tyrant >= 0.1.0
 		 */
-		public function setIndex(string $column, int $type) {}
+		public function setIndex(string $column, int $type): mixed {}
 
 		/**
 		 * Set the replication master
@@ -1293,7 +1293,7 @@ namespace {
 		 * @link https://php.net/manual/en/tokyotyrant.setmaster.php
 		 * @since PECL tokyo_tyrant >= 0.1.0
 		 */
-		public function setMaster(string $host, int $port, int $timestamp, bool $check_consistency = TRUE) {}
+		public function setMaster(string $host, int $port, int $timestamp, bool $check_consistency = TRUE): mixed {}
 
 		/**
 		 * Returns the size of the value
@@ -1321,7 +1321,7 @@ namespace {
 		 * @link https://php.net/manual/en/tokyotyrant.sync.php
 		 * @since PECL tokyo_tyrant >= 0.1.0
 		 */
-		public function sync() {}
+		public function sync(): mixed {}
 
 		/**
 		 * Tunes connection values
@@ -1341,7 +1341,7 @@ namespace {
 		 * @link https://php.net/manual/en/tokyotyrant.vanish.php
 		 * @since PECL tokyo_tyrant >= 0.1.0
 		 */
-		public function vanish() {}
+		public function vanish(): mixed {}
 	}
 
 }

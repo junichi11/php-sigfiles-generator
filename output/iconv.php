@@ -14,7 +14,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.iconv.php
 	 * @since PHP 4 >= 4.0.5, PHP 5, PHP 7
 	 */
-	function iconv(string $from_encoding, string $to_encoding, string $string) {}
+	function iconv(string $from_encoding, string $to_encoding, string $string): string|false {}
 
 	/**
 	 * Retrieve internal configuration variables of iconv extension
@@ -25,7 +25,7 @@ namespace {
 	 * @see iconv_set_encoding(), ob_iconv_handler()
 	 * @since PHP 4 >= 4.0.5, PHP 5, PHP 7
 	 */
-	function iconv_get_encoding(string $type = "all") {}
+	function iconv_get_encoding(string $type = "all"): array|string|false {}
 
 	/**
 	 * Decodes a MIME header field
@@ -38,7 +38,7 @@ namespace {
 	 * @see iconv_mime_decode_headers(), mb_decode_mimeheader(), imap_mime_header_decode(), imap_base64(), imap_qprint()
 	 * @since PHP 5, PHP 7
 	 */
-	function iconv_mime_decode(string $string, int $mode = 0, $encoding = NULL) {}
+	function iconv_mime_decode(string $string, int $mode = 0, string|null $encoding = NULL): string|false {}
 
 	/**
 	 * Decodes multiple MIME header fields at once
@@ -51,7 +51,7 @@ namespace {
 	 * @see iconv_mime_decode(), mb_decode_mimeheader(), imap_mime_header_decode(), imap_base64(), imap_qprint()
 	 * @since PHP 5, PHP 7
 	 */
-	function iconv_mime_decode_headers(string $headers, int $mode = 0, $encoding = NULL) {}
+	function iconv_mime_decode_headers(string $headers, int $mode = 0, string|null $encoding = NULL): array|false {}
 
 	/**
 	 * Composes a MIME header field
@@ -64,7 +64,7 @@ namespace {
 	 * @see imap_binary(), mb_encode_mimeheader(), imap_8bit(), quoted_printable_encode()
 	 * @since PHP 5, PHP 7
 	 */
-	function iconv_mime_encode(string $field_name, string $field_value, array $options = []) {}
+	function iconv_mime_encode(string $field_name, string $field_value, array $options = []): string|false {}
 
 	/**
 	 * Set current setting for character encoding conversion
@@ -88,7 +88,7 @@ namespace {
 	 * @see grapheme_strlen(), mb_strlen(), strlen()
 	 * @since PHP 5, PHP 7
 	 */
-	function iconv_strlen(string $string, $encoding = NULL) {}
+	function iconv_strlen(string $string, string|null $encoding = NULL): int|false {}
 
 	/**
 	 * Finds position of first occurrence of a needle within a haystack
@@ -102,7 +102,7 @@ namespace {
 	 * @see strpos(), iconv_strrpos(), mb_strpos()
 	 * @since PHP 5, PHP 7
 	 */
-	function iconv_strpos(string $haystack, string $needle, int $offset = 0, $encoding = NULL) {}
+	function iconv_strpos(string $haystack, string $needle, int $offset = 0, string|null $encoding = NULL): int|false {}
 
 	/**
 	 * Finds the last occurrence of a needle within a haystack
@@ -115,7 +115,7 @@ namespace {
 	 * @see strrpos(), iconv_strpos(), mb_strrpos()
 	 * @since PHP 5, PHP 7
 	 */
-	function iconv_strrpos(string $haystack, string $needle, $encoding = NULL) {}
+	function iconv_strrpos(string $haystack, string $needle, string|null $encoding = NULL): int|false {}
 
 	/**
 	 * Cut out part of a string
@@ -129,7 +129,7 @@ namespace {
 	 * @see substr(), mb_substr(), mb_strcut()
 	 * @since PHP 5, PHP 7
 	 */
-	function iconv_substr(string $string, int $offset, $length = NULL, $encoding = NULL) {}
+	function iconv_substr(string $string, int $offset, int|null $length = NULL, string|null $encoding = NULL): string|false {}
 
 	/**
 	 * Convert character encoding as output buffer handler

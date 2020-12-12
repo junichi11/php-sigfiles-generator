@@ -14,7 +14,7 @@ namespace {
 	 * @see base64_encode()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function base64_decode(string $data, bool $strict = FALSE) {}
+	function base64_decode(string $data, bool $strict = FALSE): string|false {}
 
 	/**
 	 * Encodes data with MIME base64
@@ -64,7 +64,7 @@ namespace {
 	 * @see parse_str(), parse_url(), urlencode(), array_walk()
 	 * @since PHP 5, PHP 7
 	 */
-	function http_build_query($query_data, string $numeric_prefix = NULL, string $arg_separator = NULL, int $enc_type = PHP_QUERY_RFC1738): string {}
+	function http_build_query(mixed $query_data, string $numeric_prefix = NULL, string $arg_separator = NULL, int $enc_type = PHP_QUERY_RFC1738): string {}
 
 	/**
 	 * Parse a URL and return its components
@@ -76,7 +76,7 @@ namespace {
 	 * @see pathinfo(), parse_str(), http_build_query(), dirname(), basename()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function parse_url(string $url, int $component = -1) {}
+	function parse_url(string $url, int $component = -1): mixed {}
 
 	/**
 	 * Decode URL-encoded strings

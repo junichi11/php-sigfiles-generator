@@ -26,7 +26,7 @@ namespace {
 	 * @see msg_remove_queue(), msg_receive(), msg_send(), msg_stat_queue(), msg_set_queue()
 	 * @since PHP 4 >= 4.3.0, PHP 5, PHP 7
 	 */
-	function msg_get_queue(int $key, int $permissions = 0666) {}
+	function msg_get_queue(int $key, int $permissions = 0666): \SysvMessageQueue|false {}
 
 	/**
 	 * Check whether a message queue exists
@@ -55,7 +55,7 @@ namespace {
 	 * @see msg_remove_queue(), msg_send(), msg_stat_queue(), msg_set_queue()
 	 * @since PHP 4 >= 4.3.0, PHP 5, PHP 7
 	 */
-	function msg_receive(\SysvMessageQueue $queue, int $desired_message_type, int &$received_message_type, int $max_message_size, &$message, bool $unserialize = TRUE, int $flags = 0, int &$error_code = NULL): bool {}
+	function msg_receive(\SysvMessageQueue $queue, int $desired_message_type, int &$received_message_type, int $max_message_size, mixed &$message, bool $unserialize = TRUE, int $flags = 0, int &$error_code = NULL): bool {}
 
 	/**
 	 * Destroy a message queue
@@ -82,7 +82,7 @@ namespace {
 	 * @see msg_remove_queue(), msg_receive(), msg_stat_queue(), msg_set_queue()
 	 * @since PHP 4 >= 4.3.0, PHP 5, PHP 7
 	 */
-	function msg_send(\SysvMessageQueue $queue, int $message_type, $message, bool $serialize = TRUE, bool $blocking = TRUE, int &$error_code = NULL): bool {}
+	function msg_send(\SysvMessageQueue $queue, int $message_type, string|int|float|bool $message, bool $serialize = TRUE, bool $blocking = TRUE, int &$error_code = NULL): bool {}
 
 	/**
 	 * Set information in the message queue data structure
@@ -105,7 +105,7 @@ namespace {
 	 * @see msg_remove_queue(), msg_receive(), msg_get_queue(), msg_set_queue()
 	 * @since PHP 4 >= 4.3.0, PHP 5, PHP 7
 	 */
-	function msg_stat_queue(\SysvMessageQueue $queue) {}
+	function msg_stat_queue(\SysvMessageQueue $queue): array|false {}
 
 	/**
 	 * Acquire a semaphore
@@ -131,7 +131,7 @@ namespace {
 	 * @see sem_acquire(), sem_release(), ftok()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function sem_get(int $key, int $max_acquire = 1, int $permissions = 0666, bool $auto_release = TRUE) {}
+	function sem_get(int $key, int $max_acquire = 1, int $permissions = 0666, bool $auto_release = TRUE): \SysvSemaphore|false {}
 
 	/**
 	 * Release a semaphore
@@ -166,7 +166,7 @@ namespace {
 	 * @see shm_detach(), ftok()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function shm_attach(int $key, $size = NULL, int $permissions = 0666) {}
+	function shm_attach(int $key, int|null $size = NULL, int $permissions = 0666): \SysvSharedMemory|false {}
 
 	/**
 	 * Disconnects from shared memory segment
@@ -189,7 +189,7 @@ namespace {
 	 * @see shm_has_var(), shm_put_var()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function shm_get_var(\SysvSharedMemory $shm, int $key) {}
+	function shm_get_var(\SysvSharedMemory $shm, int $key): mixed {}
 
 	/**
 	 * Check whether a specific entry exists
@@ -214,7 +214,7 @@ namespace {
 	 * @see shm_get_var(), shm_has_var()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function shm_put_var(\SysvSharedMemory $shm, int $key, $value): bool {}
+	function shm_put_var(\SysvSharedMemory $shm, int $key, mixed $value): bool {}
 
 	/**
 	 * Removes shared memory from Unix systems

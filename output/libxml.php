@@ -87,7 +87,7 @@ namespace {
 	 * @see libxml_get_errors(), libxml_clear_errors()
 	 * @since PHP 5 >= 5.1.0, PHP 7
 	 */
-	function libxml_get_last_error() {}
+	function libxml_get_last_error(): \LibXMLError|false {}
 
 	/**
 	 * Changes the default external entity loader
@@ -98,7 +98,7 @@ namespace {
 	 * @see libxml_disable_entity_loader()
 	 * @since PHP 5 >= 5.4.0, PHP 7
 	 */
-	function libxml_set_external_entity_loader($resolver_function): bool {}
+	function libxml_set_external_entity_loader(callable|null $resolver_function): bool {}
 
 	/**
 	 * Set the streams context for the next libxml document load or write
@@ -120,7 +120,7 @@ namespace {
 	 * @see libxml_clear_errors(), libxml_get_errors()
 	 * @since PHP 5 >= 5.1.0, PHP 7
 	 */
-	function libxml_use_internal_errors($use_errors = NULL): bool {}
+	function libxml_use_internal_errors(bool|null $use_errors = NULL): bool {}
 
 	/**
 	 * Allows line numbers greater than 65535 to be reported correctly.  <p><b>Note</b>:</p><p>Only available as of PHP 7.0.0 with Libxml &gt;= 2.9.0</p>

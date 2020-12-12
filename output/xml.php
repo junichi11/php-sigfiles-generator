@@ -35,7 +35,7 @@ namespace {
 	 * @see xml_get_error_code()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function xml_error_string(int $error_code) {}
+	function xml_error_string(int $error_code): string|null {}
 
 	/**
 	 * Get current byte index for an XML parser
@@ -115,7 +115,7 @@ namespace {
 	 * @see xml_parser_create_ns(), xml_parser_free()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function xml_parser_create($encoding = NULL): \XmlParser {}
+	function xml_parser_create(string|null $encoding = NULL): \XmlParser {}
 
 	/**
 	 * Create an XML parser with namespace support
@@ -127,7 +127,7 @@ namespace {
 	 * @see xml_parser_create(), xml_parser_free()
 	 * @since PHP 4 >= 4.0.5, PHP 5, PHP 7
 	 */
-	function xml_parser_create_ns($encoding = NULL, string $separator = ":"): \XmlParser {}
+	function xml_parser_create_ns(string|null $encoding = NULL, string $separator = ":"): \XmlParser {}
 
 	/**
 	 * Free an XML parser
@@ -148,7 +148,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.xml-parser-get-option.php
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function xml_parser_get_option(\XmlParser $parser, int $option) {}
+	function xml_parser_get_option(\XmlParser $parser, int $option): string|int {}
 
 	/**
 	 * Set options in an XML parser
@@ -160,7 +160,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.xml-parser-set-option.php
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function xml_parser_set_option(\XmlParser $parser, int $option, $value): bool {}
+	function xml_parser_set_option(\XmlParser $parser, int $option, string|int $value): bool {}
 
 	/**
 	 * Set up character data handler

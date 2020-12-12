@@ -76,7 +76,7 @@ namespace {
 	 * @see xdiff_string_merge3()
 	 * @since PECL xdiff >= 0.2.0
 	 */
-	function xdiff_file_merge3(string $old_file, string $new_file1, string $new_file2, string $dest) {}
+	function xdiff_file_merge3(string $old_file, string $new_file1, string $new_file2, string $dest): mixed {}
 
 	/**
 	 * Patch a file with an unified diff
@@ -90,7 +90,7 @@ namespace {
 	 * @see xdiff_file_diff()
 	 * @since PECL xdiff >= 0.2.0
 	 */
-	function xdiff_file_patch(string $file, string $patch, string $dest, int $flags = DIFF_PATCH_NORMAL) {}
+	function xdiff_file_patch(string $file, string $patch, string $dest, int $flags = DIFF_PATCH_NORMAL): mixed {}
 
 	/**
 	 * Alias of xdiff_file_bpatch
@@ -182,7 +182,7 @@ namespace {
 	 * @see xdiff_file_merge3()
 	 * @since PECL xdiff >= 0.2.0
 	 */
-	function xdiff_string_merge3(string $old_data, string $new_data1, string $new_data2, string &$error = NULL) {}
+	function xdiff_string_merge3(string $old_data, string $new_data1, string $new_data2, string &$error = NULL): mixed {}
 
 	/**
 	 * Patch a string with an unified diff

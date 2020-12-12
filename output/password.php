@@ -34,7 +34,7 @@ namespace {
 	 * @see password_verify(), crypt(), sodium_crypto_pwhash_str()
 	 * @since PHP 5 >= 5.5.0, PHP 7
 	 */
-	function password_hash(string $password, $algo, array $options = NULL) {}
+	function password_hash(string $password, mixed $algo, array $options = NULL): string|false {}
 
 	/**
 	 * Checks if the given hash matches the given options
@@ -46,7 +46,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.password-needs-rehash.php
 	 * @since PHP 5 >= 5.5.0, PHP 7
 	 */
-	function password_needs_rehash(string $hash, $algo, array $options = NULL): bool {}
+	function password_needs_rehash(string $hash, mixed $algo, array $options = NULL): bool {}
 
 	/**
 	 * Verifies that a password matches a hash

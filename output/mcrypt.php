@@ -57,7 +57,7 @@ namespace {
 	 * @see mcrypt_encrypt()
 	 * @since PHP 4 >= 4.0.2, PHP 5, PHP 7 < 7.2.0, PECL mcrypt >= 1.0.0
 	 */
-	function mcrypt_decrypt(string $cipher, string $key, string $data, string $mode, string $iv = NULL) {}
+	function mcrypt_decrypt(string $cipher, string $key, string $data, string $mode, string $iv = NULL): string|false {}
 
 	/**
 	 * Deprecated: Encrypts/decrypts data in ECB mode
@@ -185,7 +185,7 @@ namespace {
 	 * @see mcrypt_decrypt(), mcrypt_module_open()
 	 * @since PHP 4 >= 4.0.2, PHP 5, PHP 7 < 7.2.0, PECL mcrypt >= 1.0.0
 	 */
-	function mcrypt_encrypt(string $cipher, string $key, string $data, string $mode, string $iv = NULL) {}
+	function mcrypt_encrypt(string $cipher, string $key, string $data, string $mode, string $iv = NULL): string|false {}
 
 	/**
 	 * This function encrypts data
@@ -242,7 +242,7 @@ namespace {
 	 * @see mcrypt_get_key_size(), mcrypt_enc_get_block_size(), mcrypt_encrypt()
 	 * @since PHP 4, PHP 5, PHP 7 < 7.2.0, PECL mcrypt >= 1.0.0
 	 */
-	function mcrypt_get_block_size(int $cipher) {}
+	function mcrypt_get_block_size(int $cipher): int|false {}
 
 	/**
 	 * Gets the name of the specified cipher
@@ -275,7 +275,7 @@ namespace {
 	 * @see mcrypt_get_block_size(), mcrypt_enc_get_key_size(), mcrypt_encrypt()
 	 * @since PHP 4, PHP 5, PHP 7 < 7.2.0, PECL mcrypt >= 1.0.0
 	 */
-	function mcrypt_get_key_size(int $cipher) {}
+	function mcrypt_get_key_size(int $cipher): int|false {}
 
 	/**
 	 * Gets an array of all supported ciphers

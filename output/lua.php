@@ -26,7 +26,7 @@ namespace {
 		 * @link https://php.net/manual/en/lua.call.php
 		 * @since PECL lua >=0.9.0
 		 */
-		public function __call(callable $lua_func, array $args = NULL, int $use_self = 0) {}
+		public function __call(callable $lua_func, array $args = NULL, int $use_self = 0): mixed {}
 
 		/**
 		 * Lua constructor
@@ -47,7 +47,7 @@ namespace {
 		 * @link https://php.net/manual/en/lua.assign.php
 		 * @since PECL lua >=0.9.0
 		 */
-		public function assign(string $name, string $value) {}
+		public function assign(string $name, string $value): mixed {}
 
 		/**
 		 * Call Lua functions
@@ -59,7 +59,7 @@ namespace {
 		 * @link https://php.net/manual/en/lua.call.php
 		 * @since PECL lua >=0.9.0
 		 */
-		public function call(callable $lua_func, array $args = NULL, int $use_self = 0) {}
+		public function call(callable $lua_func, array $args = NULL, int $use_self = 0): mixed {}
 
 		/**
 		 * Evaluate a string as Lua code
@@ -69,7 +69,7 @@ namespace {
 		 * @link https://php.net/manual/en/lua.eval.php
 		 * @since PECL lua >=0.9.0
 		 */
-		public function eval(string $statements) {}
+		public function eval(string $statements): mixed {}
 
 		/**
 		 * The getversion purpose
@@ -88,7 +88,7 @@ namespace {
 		 * @link https://php.net/manual/en/lua.include.php
 		 * @since PECL lua >=0.9.0
 		 */
-		public function include(string $file) {}
+		public function include(string $file): mixed {}
 
 		/**
 		 * Register a PHP function to Lua
@@ -99,7 +99,7 @@ namespace {
 		 * @link https://php.net/manual/en/lua.registercallback.php
 		 * @since No version information available, might only be in Git
 		 */
-		public function registerCallback(string $name, callable $function) {}
+		public function registerCallback(string $name, callable $function): mixed {}
 	}
 
 	/**
@@ -117,7 +117,7 @@ namespace {
 		 * @link https://php.net/manual/en/luaclosure.invoke.php
 		 * @since PECL lua >=0.9.0
 		 */
-		public function __invoke(...$args): void {}
+		public function __invoke(mixed ...$args): void {}
 	}
 
 }

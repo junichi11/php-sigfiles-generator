@@ -100,7 +100,7 @@ namespace {
 	 * @see error_reporting(), restore_error_handler(), trigger_error()
 	 * @since PHP 4 >= 4.0.1, PHP 5, PHP 7
 	 */
-	function set_error_handler(callable $error_handler, int $error_types = E_ALL | E_STRICT) {}
+	function set_error_handler(callable $error_handler, int $error_types = E_ALL | E_STRICT): mixed {}
 
 	/**
 	 * Sets a user-defined exception handler function

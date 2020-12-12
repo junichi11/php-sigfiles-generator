@@ -13,7 +13,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.bind-textdomain-codeset.php
 	 * @since PHP 4 >= 4.2.0, PHP 5, PHP 7
 	 */
-	function bind_textdomain_codeset(string $domain, string $codeset) {}
+	function bind_textdomain_codeset(string $domain, string $codeset): string|false {}
 
 	/**
 	 * Sets the path for a domain
@@ -24,7 +24,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.bindtextdomain.php
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function bindtextdomain(string $domain, string $directory) {}
+	function bindtextdomain(string $domain, string $directory): string|false {}
 
 	/**
 	 * Overrides the domain for a single lookup
@@ -111,6 +111,6 @@ namespace {
 	 * @link https://php.net/manual/en/function.textdomain.php
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function textdomain($domain): string {}
+	function textdomain(string|null $domain): string {}
 
 }

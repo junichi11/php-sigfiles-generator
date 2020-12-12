@@ -14,7 +14,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.wddx-add-vars.php
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function wddx_add_vars($packet_id, $var_name, ...$var_names): bool {}
+	function wddx_add_vars($packet_id, mixed $var_name, mixed ...$var_names): bool {}
 
 	/**
 	 * Unserializes a WDDX packet
@@ -24,7 +24,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.wddx-deserialize.php
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function wddx_deserialize(string $packet) {}
+	function wddx_deserialize(string $packet): mixed {}
 
 	/**
 	 * Ends a WDDX packet with the specified ID
@@ -55,7 +55,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.wddx-serialize-value.php
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function wddx_serialize_value($var, string $comment = NULL): string {}
+	function wddx_serialize_value(mixed $var, string $comment = NULL): string {}
 
 	/**
 	 * Serialize variables into a WDDX packet
@@ -66,6 +66,6 @@ namespace {
 	 * @link https://php.net/manual/en/function.wddx-serialize-vars.php
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function wddx_serialize_vars($var_name, ...$var_names): string {}
+	function wddx_serialize_vars(mixed $var_name, mixed ...$var_names): string {}
 
 }

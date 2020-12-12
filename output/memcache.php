@@ -23,7 +23,7 @@ namespace {
 		 * @see Memcache::set(), Memcache::replace()
 		 * @since PECL memcache >= 0.2.0
 		 */
-		public function add(string $key, $var, int $flag = NULL, int $expire = NULL): bool {}
+		public function add(string $key, mixed $var, int $flag = NULL, int $expire = NULL): bool {}
 
 		/**
 		 * Add a memcached server to connection pool
@@ -77,7 +77,7 @@ namespace {
 		 * @see Memcache::increment(), Memcache::replace()
 		 * @since PECL memcache >= 0.2.0
 		 */
-		public function decrement(string $key, int $value = 1) {}
+		public function decrement(string $key, int $value = 1): int|false {}
 
 		/**
 		 * Delete item from the server
@@ -147,7 +147,7 @@ namespace {
 		 * @see Memcache::getVersion(), Memcache::getExtendedStats()
 		 * @since PECL memcache >= 0.2.0
 		 */
-		public function getStats(string $type = NULL, int $slabid = NULL, int $limit = 100) {}
+		public function getStats(string $type = NULL, int $slabid = NULL, int $limit = 100): array|false {}
 
 		/**
 		 * Return version of the server
@@ -157,7 +157,7 @@ namespace {
 		 * @see Memcache::getExtendedStats(), Memcache::getStats()
 		 * @since PECL memcache >= 0.2.0
 		 */
-		public function getVersion() {}
+		public function getVersion(): string|false {}
 
 		/**
 		 * Increment item's value
@@ -169,7 +169,7 @@ namespace {
 		 * @see Memcache::decrement(), Memcache::replace()
 		 * @since PECL memcache >= 0.2.0
 		 */
-		public function increment(string $key, int $value = 1) {}
+		public function increment(string $key, int $value = 1): int|false {}
 
 		/**
 		 * Open memcached server persistent connection
@@ -182,7 +182,7 @@ namespace {
 		 * @see Memcache::connect()
 		 * @since PECL memcache >= 0.4.0
 		 */
-		public function pconnect(string $host, int $port = NULL, int $timeout = NULL) {}
+		public function pconnect(string $host, int $port = NULL, int $timeout = NULL): mixed {}
 
 		/**
 		 * Replace value of the existing item
@@ -196,7 +196,7 @@ namespace {
 		 * @see Memcache::set(), Memcache::add()
 		 * @since PECL memcache >= 0.2.0
 		 */
-		public function replace(string $key, $var, int $flag = NULL, int $expire = NULL): bool {}
+		public function replace(string $key, mixed $var, int $flag = NULL, int $expire = NULL): bool {}
 
 		/**
 		 * Store data at the server
@@ -210,7 +210,7 @@ namespace {
 		 * @see Memcache::add(), Memcache::replace()
 		 * @since PECL memcache >= 0.2.0
 		 */
-		public function set(string $key, $var, int $flag = NULL, int $expire = NULL): bool {}
+		public function set(string $key, mixed $var, int $flag = NULL, int $expire = NULL): bool {}
 
 		/**
 		 * Enable automatic compression of large values

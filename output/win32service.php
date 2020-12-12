@@ -26,7 +26,7 @@ namespace {
 	 * @see win32_delete_service()
 	 * @since PECL win32service >=0.1.0
 	 */
-	function win32_create_service(array $details, string $machine = NULL) {}
+	function win32_create_service(array $details, string $machine = NULL): mixed {}
 
 	/**
 	 * Deletes a service entry from the SCM database
@@ -38,7 +38,7 @@ namespace {
 	 * @see win32_create_service()
 	 * @since PECL win32service >=0.1.0
 	 */
-	function win32_delete_service(string $servicename, string $machine = NULL) {}
+	function win32_delete_service(string $servicename, string $machine = NULL): mixed {}
 
 	/**
 	 * Returns the last control message that was sent to this service
@@ -71,7 +71,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.win32-query-service-status.php
 	 * @since PECL win32service >=0.1.0
 	 */
-	function win32_query_service_status(string $servicename, string $machine = NULL) {}
+	function win32_query_service_status(string $servicename, string $machine = NULL): mixed {}
 
 	/**
 	 * Send a custom control to the service
@@ -142,7 +142,7 @@ namespace {
 	 * @see win32_set_service_status(), win32_get_last_control_message(), win32_set_service_exit_mode(), win32_set_service_exit_code()
 	 * @since PECL win32service >=0.1.0
 	 */
-	function win32_start_service_ctrl_dispatcher(string $name, bool $gracefulMode = true) {}
+	function win32_start_service_ctrl_dispatcher(string $name, bool $gracefulMode = true): mixed {}
 
 	/**
 	 * Stops a service

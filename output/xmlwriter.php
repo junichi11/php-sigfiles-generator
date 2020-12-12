@@ -113,7 +113,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.xmlwriter-flush.php
 	 * @since PHP 5 >= 5.1.2, PHP 7, PECL xmlwriter >= 1.0.0
 	 */
-	function xmlwriter_flush(\XMLWriter $writer, bool $empty = TRUE) {}
+	function xmlwriter_flush(\XMLWriter $writer, bool $empty = TRUE): string|int {}
 
 	/**
 	 * End current element
@@ -132,7 +132,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.xmlwriter-open-memory.php
 	 * @since PHP 5 >= 5.1.2, PHP 7, PECL xmlwriter >= 0.1.0
 	 */
-	function xmlwriter_open_memory() {}
+	function xmlwriter_open_memory(): \XMLWriter|false {}
 
 	/**
 	 * Create new xmlwriter using source uri for output
@@ -142,7 +142,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.xmlwriter-open-uri.php
 	 * @since PHP 5 >= 5.1.2, PHP 7, PECL xmlwriter >= 0.1.0
 	 */
-	function xmlwriter_open_uri(string $uri) {}
+	function xmlwriter_open_uri(string $uri): \XMLWriter|false {}
 
 	/**
 	 * Returns current buffer
@@ -199,7 +199,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.xmlwriter-start-attribute-ns.php
 	 * @since PHP 5 >= 5.1.2, PHP 7, PECL xmlwriter >= 0.1.0
 	 */
-	function xmlwriter_start_attribute_ns(\XMLWriter $writer, $prefix, string $name, $namespace): bool {}
+	function xmlwriter_start_attribute_ns(\XMLWriter $writer, string|null $prefix, string $name, string|null $namespace): bool {}
 
 	/**
 	 * Create start CDATA tag
@@ -232,7 +232,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.xmlwriter-start-document.php
 	 * @since PHP 5 >= 5.1.2, PHP 7, PECL xmlwriter >= 0.1.0
 	 */
-	function xmlwriter_start_document(\XMLWriter $writer, $version = "1.0", $encoding = NULL, $standalone = NULL): bool {}
+	function xmlwriter_start_document(\XMLWriter $writer, string|null $version = "1.0", string|null $encoding = NULL, string|null $standalone = NULL): bool {}
 
 	/**
 	 * Create start DTD tag
@@ -245,7 +245,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.xmlwriter-start-dtd.php
 	 * @since PHP 5 >= 5.1.2, PHP 7, PECL xmlwriter >= 0.1.0
 	 */
-	function xmlwriter_start_dtd(\XMLWriter $writer, string $qualifiedName, $publicId = NULL, $systemId = NULL): bool {}
+	function xmlwriter_start_dtd(\XMLWriter $writer, string $qualifiedName, string|null $publicId = NULL, string|null $systemId = NULL): bool {}
 
 	/**
 	 * Create start DTD AttList
@@ -303,7 +303,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.xmlwriter-start-element-ns.php
 	 * @since PHP 5 >= 5.1.2, PHP 7, PECL xmlwriter >= 0.1.0
 	 */
-	function xmlwriter_start_element_ns(\XMLWriter $writer, $prefix, string $name, $namespace): bool {}
+	function xmlwriter_start_element_ns(\XMLWriter $writer, string|null $prefix, string $name, string|null $namespace): bool {}
 
 	/**
 	 * Create start PI tag
@@ -351,7 +351,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.xmlwriter-write-attribute-ns.php
 	 * @since PHP 5 >= 5.1.2, PHP 7, PECL xmlwriter >= 0.1.0
 	 */
-	function xmlwriter_write_attribute_ns(\XMLWriter $writer, $prefix, string $name, $namespace, string $value): bool {}
+	function xmlwriter_write_attribute_ns(\XMLWriter $writer, string|null $prefix, string $name, string|null $namespace, string $value): bool {}
 
 	/**
 	 * Write full CDATA tag
@@ -387,7 +387,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.xmlwriter-write-dtd.php
 	 * @since PHP 5 >= 5.1.2, PHP 7, PECL xmlwriter >= 0.1.0
 	 */
-	function xmlwriter_write_dtd(\XMLWriter $writer, string $name, $publicId = NULL, $systemId = NULL, $content = NULL): bool {}
+	function xmlwriter_write_dtd(\XMLWriter $writer, string $name, string|null $publicId = NULL, string|null $systemId = NULL, string|null $content = NULL): bool {}
 
 	/**
 	 * Write full DTD AttList tag
@@ -427,7 +427,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.xmlwriter-write-dtd-entity.php
 	 * @since PHP 5 >= 5.2.1, PHP 7, PECL xmlwriter >= 0.1.0
 	 */
-	function xmlwriter_write_dtd_entity(\XMLWriter $writer, string $name, string $content, bool $isParam = FALSE, $publicId = NULL, $systemId = NULL, $notationData = NULL): bool {}
+	function xmlwriter_write_dtd_entity(\XMLWriter $writer, string $name, string $content, bool $isParam = FALSE, string|null $publicId = NULL, string|null $systemId = NULL, string|null $notationData = NULL): bool {}
 
 	/**
 	 * Write full element tag
@@ -439,7 +439,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.xmlwriter-write-element.php
 	 * @since PHP 5 >= 5.1.2, PHP 7, PECL xmlwriter >= 0.1.0
 	 */
-	function xmlwriter_write_element(\XMLWriter $writer, string $name, $content = NULL): bool {}
+	function xmlwriter_write_element(\XMLWriter $writer, string $name, string|null $content = NULL): bool {}
 
 	/**
 	 * Write full namespaced element tag
@@ -453,7 +453,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.xmlwriter-write-element-ns.php
 	 * @since PHP 5 >= 5.1.2, PHP 7, PECL xmlwriter >= 0.1.0
 	 */
-	function xmlwriter_write_element_ns(\XMLWriter $writer, $prefix, string $name, $namespace, $content = NULL): bool {}
+	function xmlwriter_write_element_ns(\XMLWriter $writer, string|null $prefix, string $name, string|null $namespace, string|null $content = NULL): bool {}
 
 	/**
 	 * Writes a PI

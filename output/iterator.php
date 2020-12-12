@@ -18,7 +18,7 @@ namespace {
 		 * @link https://php.net/manual/en/iterator.current.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
-		public function current();
+		public function current(): mixed;
 
 		/**
 		 * Return the key of the current element

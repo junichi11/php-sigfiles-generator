@@ -439,7 +439,7 @@ namespace {
 		 * @link https://php.net/manual/en/memcached.add.php
 		 * @since PECL memcached >= 0.1.0
 		 */
-		public function add(string $key, $value, int $expiration = NULL): bool {}
+		public function add(string $key, mixed $value, int $expiration = NULL): bool {}
 
 		/**
 		 * Add an item under a new key on a specific server
@@ -452,7 +452,7 @@ namespace {
 		 * @link https://php.net/manual/en/memcached.addbykey.php
 		 * @since PECL memcached >= 0.1.0
 		 */
-		public function addByKey(string $server_key, string $key, $value, int $expiration = NULL): bool {}
+		public function addByKey(string $server_key, string $key, mixed $value, int $expiration = NULL): bool {}
 
 		/**
 		 * Add a server to the server pool
@@ -510,7 +510,7 @@ namespace {
 		 * @link https://php.net/manual/en/memcached.cas.php
 		 * @since PECL memcached >= 0.1.0
 		 */
-		public function cas(float $cas_token, string $key, $value, int $expiration = NULL): bool {}
+		public function cas(float $cas_token, string $key, mixed $value, int $expiration = NULL): bool {}
 
 		/**
 		 * Compare and swap an item on a specific server
@@ -524,7 +524,7 @@ namespace {
 		 * @link https://php.net/manual/en/memcached.casbykey.php
 		 * @since PECL memcached >= 0.1.0
 		 */
-		public function casByKey(float $cas_token, string $server_key, string $key, $value, int $expiration = NULL): bool {}
+		public function casByKey(float $cas_token, string $server_key, string $key, mixed $value, int $expiration = NULL): bool {}
 
 		/**
 		 * Decrement numeric item's value
@@ -537,7 +537,7 @@ namespace {
 		 * @link https://php.net/manual/en/memcached.decrement.php
 		 * @since PECL memcached >= 0.1.0
 		 */
-		public function decrement(string $key, int $offset = 1, int $initial_value = 0, int $expiry = 0) {}
+		public function decrement(string $key, int $offset = 1, int $initial_value = 0, int $expiry = 0): int|false {}
 
 		/**
 		 * Decrement numeric item's value, stored on a specific server
@@ -551,7 +551,7 @@ namespace {
 		 * @link https://php.net/manual/en/memcached.decrementbykey.php
 		 * @since PECL memcached >= 2.0.0
 		 */
-		public function decrementByKey(string $server_key, string $key, int $offset = 1, int $initial_value = 0, int $expiry = 0) {}
+		public function decrementByKey(string $server_key, string $key, int $offset = 1, int $initial_value = 0, int $expiry = 0): int|false {}
 
 		/**
 		 * Delete an item
@@ -615,7 +615,7 @@ namespace {
 		 * @link https://php.net/manual/en/memcached.fetchall.php
 		 * @since PECL memcached >= 0.1.0
 		 */
-		public function fetchAll() {}
+		public function fetchAll(): array|false {}
 
 		/**
 		 * Invalidate all items in the cache
@@ -637,7 +637,7 @@ namespace {
 		 * @link https://php.net/manual/en/memcached.get.php
 		 * @since PECL memcached >= 0.1.0
 		 */
-		public function get(string $key, callable $cache_cb = NULL, int $flags = NULL) {}
+		public function get(string $key, callable $cache_cb = NULL, int $flags = NULL): mixed {}
 
 		/**
 		 * Gets the keys stored on all the servers
@@ -646,7 +646,7 @@ namespace {
 		 * @link https://php.net/manual/en/memcached.getallkeys.php
 		 * @since PECL memcached >= 2.0.0
 		 */
-		public function getAllKeys() {}
+		public function getAllKeys(): array|false {}
 
 		/**
 		 * Retrieve an item from a specific server
@@ -659,7 +659,7 @@ namespace {
 		 * @link https://php.net/manual/en/memcached.getbykey.php
 		 * @since PECL memcached >= 0.1.0
 		 */
-		public function getByKey(string $server_key, string $key, callable $cache_cb = NULL, int $flags = NULL) {}
+		public function getByKey(string $server_key, string $key, callable $cache_cb = NULL, int $flags = NULL): mixed {}
 
 		/**
 		 * Request multiple items
@@ -695,7 +695,7 @@ namespace {
 		 * @link https://php.net/manual/en/memcached.getmulti.php
 		 * @since PECL memcached >= 0.1.0
 		 */
-		public function getMulti(array $keys, int $flags = NULL) {}
+		public function getMulti(array $keys, int $flags = NULL): mixed {}
 
 		/**
 		 * Retrieve multiple items from a specific server
@@ -707,7 +707,7 @@ namespace {
 		 * @link https://php.net/manual/en/memcached.getmultibykey.php
 		 * @since PECL memcached >= 0.1.0
 		 */
-		public function getMultiByKey(string $server_key, array $keys, int $flags = NULL) {}
+		public function getMultiByKey(string $server_key, array $keys, int $flags = NULL): array|false {}
 
 		/**
 		 * Retrieve a Memcached option value
@@ -717,7 +717,7 @@ namespace {
 		 * @link https://php.net/manual/en/memcached.getoption.php
 		 * @since PECL memcached >= 0.1.0
 		 */
-		public function getOption(int $option) {}
+		public function getOption(int $option): mixed {}
 
 		/**
 		 * Return the result code of the last operation
@@ -763,7 +763,7 @@ namespace {
 		 * @link https://php.net/manual/en/memcached.getstats.php
 		 * @since PECL memcached >= 0.1.0
 		 */
-		public function getStats() {}
+		public function getStats(): array|false {}
 
 		/**
 		 * Get server pool version info
@@ -785,7 +785,7 @@ namespace {
 		 * @link https://php.net/manual/en/memcached.increment.php
 		 * @since PECL memcached >= 0.1.0
 		 */
-		public function increment(string $key, int $offset = 1, int $initial_value = 0, int $expiry = 0) {}
+		public function increment(string $key, int $offset = 1, int $initial_value = 0, int $expiry = 0): int|false {}
 
 		/**
 		 * Increment numeric item's value, stored on a specific server
@@ -799,7 +799,7 @@ namespace {
 		 * @link https://php.net/manual/en/memcached.incrementbykey.php
 		 * @since PECL memcached >= 2.0.0
 		 */
-		public function incrementByKey(string $server_key, string $key, int $offset = 1, int $initial_value = 0, int $expiry = 0) {}
+		public function incrementByKey(string $server_key, string $key, int $offset = 1, int $initial_value = 0, int $expiry = 0): int|false {}
 
 		/**
 		 * Check if a persitent connection to memcache is being used
@@ -861,7 +861,7 @@ namespace {
 		 * @link https://php.net/manual/en/memcached.replace.php
 		 * @since PECL memcached >= 0.1.0
 		 */
-		public function replace(string $key, $value, int $expiration = NULL): bool {}
+		public function replace(string $key, mixed $value, int $expiration = NULL): bool {}
 
 		/**
 		 * Replace the item under an existing key on a specific server
@@ -874,7 +874,7 @@ namespace {
 		 * @link https://php.net/manual/en/memcached.replacebykey.php
 		 * @since PECL memcached >= 0.1.0
 		 */
-		public function replaceByKey(string $server_key, string $key, $value, int $expiration = NULL): bool {}
+		public function replaceByKey(string $server_key, string $key, mixed $value, int $expiration = NULL): bool {}
 
 		/**
 		 * Clears all servers from the server list
@@ -895,7 +895,7 @@ namespace {
 		 * @link https://php.net/manual/en/memcached.set.php
 		 * @since PECL memcached >= 0.1.0
 		 */
-		public function set(string $key, $value, int $expiration = NULL): bool {}
+		public function set(string $key, mixed $value, int $expiration = NULL): bool {}
 
 		/**
 		 * Store an item on a specific server
@@ -908,7 +908,7 @@ namespace {
 		 * @link https://php.net/manual/en/memcached.setbykey.php
 		 * @since PECL memcached >= 0.1.0
 		 */
-		public function setByKey(string $server_key, string $key, $value, int $expiration = NULL): bool {}
+		public function setByKey(string $server_key, string $key, mixed $value, int $expiration = NULL): bool {}
 
 		/**
 		 * Store multiple items
@@ -942,7 +942,7 @@ namespace {
 		 * @link https://php.net/manual/en/memcached.setoption.php
 		 * @since PECL memcached >= 0.1.0
 		 */
-		public function setOption(int $option, $value): bool {}
+		public function setOption(int $option, mixed $value): bool {}
 
 		/**
 		 * Set Memcached options
@@ -1044,7 +1044,7 @@ namespace {
 		 * @link https://php.net/manual/en/exception.getcode.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
-		final public function getCode() {}
+		final public function getCode(): mixed {}
 
 		/**
 		 * Gets the file in which the exception was created

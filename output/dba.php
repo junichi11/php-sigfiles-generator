@@ -60,7 +60,7 @@ namespace {
 	 * @see dba_nextkey(), dba_key_split()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function dba_firstkey($handle) {}
+	function dba_firstkey($handle): string|false {}
 
 	/**
 	 * List all the handlers available
@@ -94,7 +94,7 @@ namespace {
 	 * @see dba_firstkey(), dba_nextkey(), dba_fetch()
 	 * @since PHP 5, PHP 7
 	 */
-	function dba_key_split($key) {}
+	function dba_key_split(mixed $key): mixed {}
 
 	/**
 	 * List all open database files
@@ -114,7 +114,7 @@ namespace {
 	 * @see dba_firstkey(), dba_key_split()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function dba_nextkey($handle) {}
+	function dba_nextkey($handle): string|false {}
 
 	/**
 	 * Open database
@@ -128,7 +128,7 @@ namespace {
 	 * @see dba_popen(), dba_close()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function dba_open(string $path, string $mode, string $handler = NULL, string ...$args) {}
+	function dba_open(string $path, string $mode, string $handler = NULL, string ...$args): resource|false {}
 
 	/**
 	 * Optimize database
@@ -153,7 +153,7 @@ namespace {
 	 * @see dba_open(), dba_close()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function dba_popen(string $path, string $mode, string $handler = NULL, ...$args) {}
+	function dba_popen(string $path, string $mode, string $handler = NULL, mixed ...$args): resource|false {}
 
 	/**
 	 * Replace or insert entry

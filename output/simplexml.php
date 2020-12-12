@@ -67,7 +67,7 @@ namespace {
 		 * @link https://php.net/manual/en/simplexmlelement.asxml.php
 		 * @since PHP 5, PHP 7
 		 */
-		public function asXML(string $filename = NULL) {}
+		public function asXML(string $filename = NULL): mixed {}
 
 		/**
 		 * Identifies an element's attributes
@@ -216,7 +216,7 @@ namespace {
 		 * @link https://php.net/manual/en/simplexmlelement.asxml.php
 		 * @since PHP 5, PHP 7
 		 */
-		public function asXML(string $filename = NULL) {}
+		public function asXML(string $filename = NULL): mixed {}
 
 		/**
 		 * Identifies an element's attributes
@@ -257,7 +257,7 @@ namespace {
 		 * @link https://php.net/manual/en/simplexmliterator.current.php
 		 * @since PHP 5, PHP 7
 		 */
-		public function current() {}
+		public function current(): mixed {}
 
 		/**
 		 * Returns the sub-elements of the current element
@@ -314,7 +314,7 @@ namespace {
 		 * @link https://php.net/manual/en/simplexmliterator.key.php
 		 * @since PHP 5, PHP 7
 		 */
-		public function key() {}
+		public function key(): mixed {}
 
 		/**
 		 * Move to next element
@@ -375,7 +375,7 @@ namespace {
 	 * @see dom_import_simplexml()
 	 * @since PHP 5, PHP 7
 	 */
-	function simplexml_import_dom(\DOMNode $node, string $class_name = "SimpleXMLElement") {}
+	function simplexml_import_dom(\DOMNode $node, string $class_name = "SimpleXMLElement"): \SimpleXMLElement|false {}
 
 	/**
 	 * Interprets an XML file into an object
@@ -390,7 +390,7 @@ namespace {
 	 * @see simplexml_load_string(), libxml_use_internal_errors()
 	 * @since PHP 5, PHP 7
 	 */
-	function simplexml_load_file(string $filename, string $class_name = "SimpleXMLElement", int $options = 0, string $ns = "", bool $is_prefix = FALSE) {}
+	function simplexml_load_file(string $filename, string $class_name = "SimpleXMLElement", int $options = 0, string $ns = "", bool $is_prefix = FALSE): \SimpleXMLElement|false {}
 
 	/**
 	 * Interprets a string of XML into an object
@@ -405,6 +405,6 @@ namespace {
 	 * @see simplexml_load_file(), libxml_use_internal_errors()
 	 * @since PHP 5, PHP 7
 	 */
-	function simplexml_load_string(string $data, string $class_name = "SimpleXMLElement", int $options = 0, string $ns = "", bool $is_prefix = FALSE) {}
+	function simplexml_load_string(string $data, string $class_name = "SimpleXMLElement", int $options = 0, string $ns = "", bool $is_prefix = FALSE): \SimpleXMLElement|false {}
 
 }

@@ -41,7 +41,7 @@ namespace {
 		 * @see MongoClient::getConnections()
 		 * @since PECL mongo >=1.3.0
 		 */
-		public function close($connection = NULL): bool {}
+		public function close(bool|string $connection = NULL): bool {}
 
 		/**
 		 * Connects to a database server
@@ -68,7 +68,7 @@ namespace {
 		 * @link https://php.net/manual/en/mongoclient.dropdb.php
 		 * @since PECL mongo >=1.3.0
 		 */
-		public function dropDB($db): array {}
+		public function dropDB(mixed $db): array {}
 
 		/**
 		 * Return info about all open connections
@@ -145,7 +145,7 @@ namespace {
 		 * @link https://php.net/manual/en/mongoclient.killcursor.php
 		 * @since PECL mongo >=1.5.0
 		 */
-		public function killCursor(string $server_hash, $id): bool {}
+		public function killCursor(string $server_hash, int|\MongoInt64 $id): bool {}
 
 		/**
 		 * Lists all of the databases available
@@ -224,7 +224,7 @@ namespace {
 		 * @see MongoClient::getWriteConcern()
 		 * @since PECL mongo >=1.5.0
 		 */
-		public function setWriteConcern($w, int $wtimeout = NULL): bool {}
+		public function setWriteConcern(mixed $w, int $wtimeout = NULL): bool {}
 
 		/**
 		 * Choose a new secondary for slaveOkay reads
@@ -425,7 +425,7 @@ namespace {
 		 * @see MongoClient::getConnections()
 		 * @since PECL mongo >=1.3.0
 		 */
-		public function close($connection = NULL): bool {}
+		public function close(bool|string $connection = NULL): bool {}
 
 		/**
 		 * Connects to a database server
@@ -443,7 +443,7 @@ namespace {
 		 * @link https://php.net/manual/en/mongoclient.dropdb.php
 		 * @since PECL mongo >=1.3.0
 		 */
-		public function dropDB($db): array {}
+		public function dropDB(mixed $db): array {}
 
 		/**
 		 * Return info about all open connections
@@ -491,7 +491,7 @@ namespace {
 		 * @link https://php.net/manual/en/mongoclient.killcursor.php
 		 * @since PECL mongo >=1.5.0
 		 */
-		public function killCursor(string $server_hash, $id): bool {}
+		public function killCursor(string $server_hash, int|\MongoInt64 $id): bool {}
 
 		/**
 		 * Lists all of the databases available
@@ -540,7 +540,7 @@ namespace {
 		 * @see MongoClient::getWriteConcern()
 		 * @since PECL mongo >=1.5.0
 		 */
-		public function setWriteConcern($w, int $wtimeout = NULL): bool {}
+		public function setWriteConcern(mixed $w, int $wtimeout = NULL): bool {}
 	}
 
 	/**
@@ -668,7 +668,7 @@ namespace {
 		 * @see MongoCollection::insert(), MongoCollection::update(), MongoCollection::find(), MongoCollection::remove()
 		 * @since PECL mongo >=0.9.0
 		 */
-		public function batchInsert(array $a, array $options = array()) {}
+		public function batchInsert(array $a, array $options = array()): mixed {}
 
 		/**
 		 * Counts the number of documents in this collection
@@ -687,7 +687,7 @@ namespace {
 		 * @link https://php.net/manual/en/mongocollection.createdbref.php
 		 * @since PECL mongo >=0.9.0
 		 */
-		public function createDBRef($document_or_id): array {}
+		public function createDBRef(mixed $document_or_id): array {}
 
 		/**
 		 * Creates an index on the specified field(s) if it does not already exist
@@ -708,7 +708,7 @@ namespace {
 		 * @link https://php.net/manual/en/mongocollection.deleteindex.php
 		 * @since PECL mongo >=0.9.0
 		 */
-		public function deleteIndex($keys): array {}
+		public function deleteIndex(string|array $keys): array {}
 
 		/**
 		 * Delete all indices for this collection
@@ -727,7 +727,7 @@ namespace {
 		 * @link https://php.net/manual/en/mongocollection.distinct.php
 		 * @since PECL mongo >=1.2.11
 		 */
-		public function distinct(string $key, array $query = NULL) {}
+		public function distinct(string $key, array $query = NULL): array|false {}
 
 		/**
 		 * Drops this collection
@@ -747,7 +747,7 @@ namespace {
 		 * @link https://php.net/manual/en/mongocollection.ensureindex.php
 		 * @since PECL mongo >=0.9.0
 		 */
-		public function ensureIndex($keys, array $options = array()): bool {}
+		public function ensureIndex(string|array $keys, array $options = array()): bool {}
 
 		/**
 		 * Queries this collection, returning a MongoCursor for the result set
@@ -848,7 +848,7 @@ namespace {
 		 * @link https://php.net/manual/en/mongocollection.group.php
 		 * @since PECL mongo >=0.9.2
 		 */
-		public function group($keys, array $initial, \MongoCode $reduce, array $options = array()): array {}
+		public function group(mixed $keys, array $initial, \MongoCode $reduce, array $options = array()): array {}
 
 		/**
 		 * Inserts a document into the collection
@@ -860,7 +860,7 @@ namespace {
 		 * @see MongoCollection::batchInsert(), MongoCollection::update(), MongoCollection::find(), MongoCollection::remove()
 		 * @since PECL mongo >=0.9.0
 		 */
-		public function insert($document, array $options = array()) {}
+		public function insert(array|object $document, array $options = array()): bool|array {}
 
 		/**
 		 * Returns an array of cursors to iterator over a full collection in parallel
@@ -881,7 +881,7 @@ namespace {
 		 * @see MongoCollection::insert(), MongoCollection::update()
 		 * @since PECL mongo >=0.9.0
 		 */
-		public function remove(array $criteria = array(), array $options = array()) {}
+		public function remove(array $criteria = array(), array $options = array()): bool|array {}
 
 		/**
 		 * Saves a document to this collection
@@ -892,7 +892,7 @@ namespace {
 		 * @link https://php.net/manual/en/mongocollection.save.php
 		 * @since PECL mongo >=0.9.0
 		 */
-		public function save($document, array $options = array()) {}
+		public function save(array|object $document, array $options = array()): mixed {}
 
 		/**
 		 * Set the read preference for this collection
@@ -924,7 +924,7 @@ namespace {
 		 * @see MongoCollection::getWriteConcern()
 		 * @since PECL mongo >=1.5.0
 		 */
-		public function setWriteConcern($w, int $wtimeout = NULL): bool {}
+		public function setWriteConcern(mixed $w, int $wtimeout = NULL): bool {}
 
 		/**
 		 * Converts keys specifying an index to its identifying string
@@ -934,7 +934,7 @@ namespace {
 		 * @link https://php.net/manual/en/mongocollection.toindexstring.php
 		 * @since PECL mongo >=0.9.0
 		 */
-		static protected function toIndexString($keys): string {}
+		static protected function toIndexString(mixed $keys): string {}
 
 		/**
 		 * Update records based on a given criteria
@@ -945,7 +945,7 @@ namespace {
 		 * @link https://php.net/manual/en/mongocollection.update.php
 		 * @since PECL mongo >=0.9.0
 		 */
-		public function update(array $criteria, array $new_object, array $options = array()) {}
+		public function update(array $criteria, array $new_object, array $options = array()): bool|array {}
 
 		/**
 		 * Validates this collection
@@ -1168,7 +1168,7 @@ namespace {
 		 * @link https://php.net/manual/en/mongocursor.addoption.php
 		 * @since PECL mongo >=1.0.4
 		 */
-		public function addOption(string $key, $value): \MongoCursor {}
+		public function addOption(string $key, mixed $value): \MongoCursor {}
 
 		/**
 		 * Sets whether this cursor will wait for a while for a tailable cursor to return more data
@@ -1280,7 +1280,7 @@ namespace {
 		 * @link https://php.net/manual/en/mongocursor.hint.php
 		 * @since PECL mongo >=0.9.0
 		 */
-		public function hint($index): \MongoCursor {}
+		public function hint(mixed $index): \MongoCursor {}
 
 		/**
 		 * Sets whether this cursor will timeout
@@ -1307,7 +1307,7 @@ namespace {
 		 * @link https://php.net/manual/en/mongocursor.key.php
 		 * @since PECL mongo >=0.9.0
 		 */
-		public function key() {}
+		public function key(): string|int {}
 
 		/**
 		 * Limits the number of results returned
@@ -1543,7 +1543,7 @@ namespace {
 		 * @link https://php.net/manual/en/iterator.current.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
-		public function current();
+		public function current(): mixed;
 
 		/**
 		 * Checks if there are results that have not yet been sent from the database
@@ -1794,7 +1794,7 @@ namespace {
 		 * @link https://php.net/manual/en/mongodb.createdbref.php
 		 * @since PECL mongo >=0.9.0
 		 */
-		public function createDBRef(string $collection, $document_or_id): array {}
+		public function createDBRef(string $collection, mixed $document_or_id): array {}
 
 		/**
 		 * Drops this database
@@ -1813,7 +1813,7 @@ namespace {
 		 * @link https://php.net/manual/en/mongodb.dropcollection.php
 		 * @since PECL mongo >=0.9.0
 		 */
-		public function dropCollection($coll): array {}
+		public function dropCollection(mixed $coll): array {}
 
 		/**
 		 * Runs JavaScript code on the database server [deprecated]
@@ -1824,7 +1824,7 @@ namespace {
 		 * @link https://php.net/manual/en/mongodb.execute.php
 		 * @since PECL mongo >=0.9.3
 		 */
-		public function execute($code, array $args = array()): array {}
+		public function execute(mixed $code, array $args = array()): array {}
 
 		/**
 		 * Creates a database error
@@ -2009,7 +2009,7 @@ namespace {
 		 * @see MongoDB::getWriteConcern()
 		 * @since PECL mongo >=1.5.0
 		 */
-		public function setWriteConcern($w, int $wtimeout = NULL): bool {}
+		public function setWriteConcern(mixed $w, int $wtimeout = NULL): bool {}
 	}
 
 	/**
@@ -2037,7 +2037,7 @@ namespace {
 		 * @link https://php.net/manual/en/mongodbref.create.php
 		 * @since PECL mongo >= 0.9.0
 		 */
-		public static function create(string $collection, $id, string $database = NULL): array {}
+		public static function create(string $collection, mixed $id, string $database = NULL): array {}
 
 		/**
 		 * Fetches the object pointed to by a reference
@@ -2057,7 +2057,7 @@ namespace {
 		 * @link https://php.net/manual/en/mongodbref.isref.php
 		 * @since PECL mongo >= 0.9.0
 		 */
-		public static function isRef($ref): bool {}
+		public static function isRef(mixed $ref): bool {}
 	}
 
 	/**
@@ -2251,7 +2251,7 @@ namespace {
 		 * @link https://php.net/manual/en/mongogridfs.construct.php
 		 * @since PECL mongo >=0.9.0
 		 */
-		public function __construct(\MongoDB $db, string $prefix = "fs", $chunks = "fs") {}
+		public function __construct(\MongoDB $db, string $prefix = "fs", mixed $chunks = "fs") {}
 
 		/**
 		 * Remove a file and its chunks from the database
@@ -2261,7 +2261,7 @@ namespace {
 		 * @link https://php.net/manual/en/mongogridfs.delete.php
 		 * @since PECL mongo >=1.0.8
 		 */
-		public function delete($id) {}
+		public function delete(mixed $id): bool|array {}
 
 		/**
 		 * Drops the files and chunks collections
@@ -2289,7 +2289,7 @@ namespace {
 		 * @link https://php.net/manual/en/mongogridfs.findone.php
 		 * @since PECL mongo >=0.9.0
 		 */
-		public function findOne($query = array(), $fields = array()): \MongoGridFSFile {}
+		public function findOne(mixed $query = array(), mixed $fields = array()): \MongoGridFSFile {}
 
 		/**
 		 * Retrieve a file from the database
@@ -2298,7 +2298,7 @@ namespace {
 		 * @link https://php.net/manual/en/mongogridfs.get.php
 		 * @since PECL mongo >=1.0.8
 		 */
-		public function get($id): \MongoGridFSFile {}
+		public function get(mixed $id): \MongoGridFSFile {}
 
 		/**
 		 * Stores a file in the database
@@ -2311,7 +2311,7 @@ namespace {
 		 * @see MongoGridFS::storeBytes(), MongoGridFS::storeFile(), MongoGridFS::storeUpload()
 		 * @since PECL mongo >=1.0.8
 		 */
-		public function put(string $filename, array $metadata = array(), array $options = array()) {}
+		public function put(string $filename, array $metadata = array(), array $options = array()): mixed {}
 
 		/**
 		 * Remove files and their chunks from the database
@@ -2321,7 +2321,7 @@ namespace {
 		 * @link https://php.net/manual/en/mongogridfs.remove.php
 		 * @since PECL mongo >=0.9.0
 		 */
-		public function remove(array $criteria = array(), array $options = array()) {}
+		public function remove(array $criteria = array(), array $options = array()): bool|array {}
 
 		/**
 		 * Stores a string of bytes in the database
@@ -2333,7 +2333,7 @@ namespace {
 		 * @see MongoGridFS::put(), MongoGridFS::storeFile(), MongoGridFS::storeUpload()
 		 * @since PECL mongo >=0.9.2
 		 */
-		public function storeBytes(string $bytes, array $metadata = array(), array $options = array()) {}
+		public function storeBytes(string $bytes, array $metadata = array(), array $options = array()): mixed {}
 
 		/**
 		 * Stores a file in the database
@@ -2345,7 +2345,7 @@ namespace {
 		 * @see MongoGridFS::put(), MongoGridFS::storeBytes(), MongoGridFS::storeUpload()
 		 * @since PECL mongo >=0.9.0
 		 */
-		public function storeFile($filename, array $metadata = array(), array $options = array()) {}
+		public function storeFile(string|resource $filename, array $metadata = array(), array $options = array()): mixed {}
 
 		/**
 		 * Stores an uploaded file in the database
@@ -2356,7 +2356,7 @@ namespace {
 		 * @see MongoGridFS::put(), MongoGridFS::storeBytes(), MongoGridFS::storeFile()
 		 * @since PECL mongo >=0.9.0
 		 */
-		public function storeUpload(string $name, array $metadata = NULL) {}
+		public function storeUpload(string $name, array $metadata = NULL): mixed {}
 	}
 
 	/**
@@ -2502,7 +2502,7 @@ namespace {
 		 * @link https://php.net/manual/en/mongoid.construct.php
 		 * @since PECL mongo >= 0.8.0
 		 */
-		public function __construct($id = NULL) {}
+		public function __construct(string|\MongoId $id = NULL) {}
 
 		/**
 		 * Create a dummy MongoId
@@ -2565,7 +2565,7 @@ namespace {
 		 * @link https://php.net/manual/en/mongoid.isvalid.php
 		 * @since PECL mongo >= 1.5.0
 		 */
-		public static function isValid($value): bool {}
+		public static function isValid(mixed $value): bool {}
 	}
 
 	/**
@@ -3189,7 +3189,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.bson-encode.php
 	 * @since PECL mongo >=1.0.1
 	 */
-	function bson_encode($anything): string {}
+	function bson_encode(mixed $anything): string {}
 
 	define('MONGO_STREAM_NOTIFY_IO_COMPLETED', null);
 
@@ -3375,7 +3375,7 @@ namespace MongoDB\BSON {
 		 * @see json_encode(), MongoDB\BSON\toCanonicalExtendedJSON(), MongoDB\BSON\toRelaxedExtendedJSON()
 		 * @since mongodb >=1.2.0
 		 */
-		final public function jsonSerialize() {}
+		final public function jsonSerialize(): mixed {}
 
 		/**
 		 * Serialize a Binary
@@ -3461,7 +3461,7 @@ namespace MongoDB\BSON {
 		 * @see json_encode(), MongoDB\BSON\toCanonicalExtendedJSON(), MongoDB\BSON\toRelaxedExtendedJSON()
 		 * @since mongodb >=1.4.0
 		 */
-		final public function jsonSerialize() {}
+		final public function jsonSerialize(): mixed {}
 
 		/**
 		 * Serialize a DBPointer
@@ -3517,7 +3517,7 @@ namespace MongoDB\BSON {
 		 * @see json_encode(), MongoDB\BSON\toCanonicalExtendedJSON(), MongoDB\BSON\toRelaxedExtendedJSON()
 		 * @since mongodb >=1.2.0
 		 */
-		final public function jsonSerialize() {}
+		final public function jsonSerialize(): mixed {}
 
 		/**
 		 * Serialize a Decimal128
@@ -3588,7 +3588,7 @@ namespace MongoDB\BSON {
 		 * @see json_encode(), MongoDB\BSON\toCanonicalExtendedJSON(), MongoDB\BSON\toRelaxedExtendedJSON()
 		 * @since mongodb >=1.5.0
 		 */
-		final public function jsonSerialize() {}
+		final public function jsonSerialize(): mixed {}
 
 		/**
 		 * Serialize an Int64
@@ -3626,7 +3626,7 @@ namespace MongoDB\BSON {
 		 * @link https://php.net/manual/en/mongodb-bson-javascript.construct.php
 		 * @since mongodb >=1.0.0
 		 */
-		final public function __construct(string $code, $scope = NULL) {}
+		final public function __construct(string $code, array|object $scope = NULL) {}
 
 		/**
 		 * Returns the Javascript's code
@@ -3651,7 +3651,7 @@ namespace MongoDB\BSON {
 		 * @link https://php.net/manual/en/mongodb-bson-javascript.getscope.php
 		 * @since mongodb >=1.2.0
 		 */
-		final public function getScope() {}
+		final public function getScope(): object|null {}
 
 		/**
 		 * Returns a representation that can be converted to JSON
@@ -3660,7 +3660,7 @@ namespace MongoDB\BSON {
 		 * @see json_encode(), MongoDB\BSON\toCanonicalExtendedJSON(), MongoDB\BSON\toRelaxedExtendedJSON()
 		 * @since mongodb >=1.2.0
 		 */
-		final public function jsonSerialize() {}
+		final public function jsonSerialize(): mixed {}
 
 		/**
 		 * Serialize a Javascript
@@ -3712,7 +3712,7 @@ namespace MongoDB\BSON {
 		 * @link https://php.net/manual/en/mongodb-bson-javascriptinterface.getscope.php
 		 * @since mongodb >=1.3.0
 		 */
-		public function getScope();
+		public function getScope(): object|null;
 	}
 
 	/**
@@ -3738,7 +3738,7 @@ namespace MongoDB\BSON {
 		 * @see json_encode(), MongoDB\BSON\toCanonicalExtendedJSON(), MongoDB\BSON\toRelaxedExtendedJSON()
 		 * @since mongodb >=1.2.0
 		 */
-		final public function jsonSerialize() {}
+		final public function jsonSerialize(): mixed {}
 
 		/**
 		 * Serialize a MaxKey
@@ -3791,7 +3791,7 @@ namespace MongoDB\BSON {
 		 * @see json_encode(), MongoDB\BSON\toCanonicalExtendedJSON(), MongoDB\BSON\toRelaxedExtendedJSON()
 		 * @since mongodb >=1.2.0
 		 */
-		final public function jsonSerialize() {}
+		final public function jsonSerialize(): mixed {}
 
 		/**
 		 * Serialize a MinKey
@@ -3863,7 +3863,7 @@ namespace MongoDB\BSON {
 		 * @see json_encode(), MongoDB\BSON\toCanonicalExtendedJSON(), MongoDB\BSON\toRelaxedExtendedJSON()
 		 * @since mongodb >=1.2.0
 		 */
-		final public function jsonSerialize() {}
+		final public function jsonSerialize(): mixed {}
 
 		/**
 		 * Serialize an ObjectId
@@ -3925,7 +3925,7 @@ namespace MongoDB\BSON {
 		 * @see MongoDB\BSON\Unserializable::bsonUnserialize()
 		 * @since mongodb >=1.0.0
 		 */
-		public function bsonSerialize();
+		public function bsonSerialize(): array|object;
 
 		/**
 		 * Constructs the object from a BSON array or document
@@ -3988,7 +3988,7 @@ namespace MongoDB\BSON {
 		 * @see json_encode(), MongoDB\BSON\toCanonicalExtendedJSON(), MongoDB\BSON\toRelaxedExtendedJSON()
 		 * @since mongodb >=1.2.0
 		 */
-		final public function jsonSerialize() {}
+		final public function jsonSerialize(): mixed {}
 
 		/**
 		 * Serialize a Regex
@@ -4057,7 +4057,7 @@ namespace MongoDB\BSON {
 		 * @see MongoDB\BSON\Unserializable::bsonUnserialize()
 		 * @since mongodb >=1.0.0
 		 */
-		public function bsonSerialize();
+		public function bsonSerialize(): array|object;
 	}
 
 	/**
@@ -4091,7 +4091,7 @@ namespace MongoDB\BSON {
 		 * @see json_encode(), MongoDB\BSON\toCanonicalExtendedJSON(), MongoDB\BSON\toRelaxedExtendedJSON()
 		 * @since mongodb >=1.4.0
 		 */
-		final public function jsonSerialize() {}
+		final public function jsonSerialize(): mixed {}
 
 		/**
 		 * Serialize a Symbol
@@ -4164,7 +4164,7 @@ namespace MongoDB\BSON {
 		 * @see json_encode(), MongoDB\BSON\toCanonicalExtendedJSON(), MongoDB\BSON\toRelaxedExtendedJSON()
 		 * @since mongodb >=1.2.0
 		 */
-		final public function jsonSerialize() {}
+		final public function jsonSerialize(): mixed {}
 
 		/**
 		 * Serialize a Timestamp
@@ -4257,7 +4257,7 @@ namespace MongoDB\BSON {
 		 * @see json_encode(), MongoDB\BSON\toCanonicalExtendedJSON(), MongoDB\BSON\toRelaxedExtendedJSON()
 		 * @since mongodb >=1.4.0
 		 */
-		final public function jsonSerialize() {}
+		final public function jsonSerialize(): mixed {}
 
 		/**
 		 * Serialize a Undefined
@@ -4312,7 +4312,7 @@ namespace MongoDB\BSON {
 		 * @link https://php.net/manual/en/mongodb-bson-utcdatetime.construct.php
 		 * @since mongodb >=1.0.0
 		 */
-		final public function __construct($milliseconds = NULL) {}
+		final public function __construct(int|float|string|\DateTimeInterface $milliseconds = NULL) {}
 
 		/**
 		 * Returns the string representation of this UTCDateTime
@@ -4329,7 +4329,7 @@ namespace MongoDB\BSON {
 		 * @see json_encode(), MongoDB\BSON\toCanonicalExtendedJSON(), MongoDB\BSON\toRelaxedExtendedJSON()
 		 * @since mongodb >=1.2.0
 		 */
-		final public function jsonSerialize() {}
+		final public function jsonSerialize(): mixed {}
 
 		/**
 		 * Serialize a UTCDateTime
@@ -4423,7 +4423,7 @@ namespace MongoDB\Driver {
 		 * @link https://php.net/manual/en/mongodb-driver-bulkwrite.delete.php
 		 * @since mongodb >=1.0.0
 		 */
-		public function delete($filter, array $deleteOptions = NULL): void {}
+		public function delete(array|object $filter, array $deleteOptions = NULL): void {}
 
 		/**
 		 * Add an insert operation to the bulk
@@ -4433,7 +4433,7 @@ namespace MongoDB\Driver {
 		 * @link https://php.net/manual/en/mongodb-driver-bulkwrite.insert.php
 		 * @since mongodb >=1.0.0
 		 */
-		public function insert($document) {}
+		public function insert(array|object $document): mixed {}
 
 		/**
 		 * Add an update operation to the bulk
@@ -4445,7 +4445,7 @@ namespace MongoDB\Driver {
 		 * @link https://php.net/manual/en/mongodb-driver-bulkwrite.update.php
 		 * @since mongodb >=1.0.0
 		 */
-		public function update($filter, $newObj, array $updateOptions = NULL): void {}
+		public function update(array|object $filter, array|object $newObj, array $updateOptions = NULL): void {}
 	}
 
 	/**
@@ -4487,7 +4487,7 @@ namespace MongoDB\Driver {
 		 * @see MongoDB\Driver\ClientEncryption::encrypt()
 		 * @since mongodb >=1.7.0
 		 */
-		final public function decrypt(\MongoDB\BSON\Binary $value) {}
+		final public function decrypt(\MongoDB\BSON\Binary $value): mixed {}
 
 		/**
 		 * Encrypt a value
@@ -4499,7 +4499,7 @@ namespace MongoDB\Driver {
 		 * @see MongoDB\Driver\ClientEncryption::decrypt()
 		 * @since mongodb >=1.7.0
 		 */
-		final public function encrypt($value, array $options = NULL): \MongoDB\BSON\Binary {}
+		final public function encrypt(mixed $value, array $options = NULL): \MongoDB\BSON\Binary {}
 	}
 
 	/**
@@ -4519,7 +4519,7 @@ namespace MongoDB\Driver {
 		 * @link https://php.net/manual/en/mongodb-driver-command.construct.php
 		 * @since mongodb >=1.0.0
 		 */
-		final public function __construct($document, array $commandOptions = NULL) {}
+		final public function __construct(array|object $document, array $commandOptions = NULL) {}
 	}
 
 	/**
@@ -4545,7 +4545,7 @@ namespace MongoDB\Driver {
 		 * @link https://php.net/manual/en/mongodb-driver-cursor.current.php
 		 * @since mongodb >=1.9.0
 		 */
-		public function current() {}
+		public function current(): array|object {}
 
 		/**
 		 * Returns the ID for this cursor
@@ -4798,7 +4798,7 @@ namespace MongoDB\Driver\Exception {
 		 * @link https://php.net/manual/en/exception.getcode.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
-		final public function getCode() {}
+		final public function getCode(): mixed {}
 
 		/**
 		 * Gets the file in which the exception was created
@@ -4934,7 +4934,7 @@ namespace MongoDB\Driver\Exception {
 		 * @link https://php.net/manual/en/exception.getcode.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
-		final public function getCode() {}
+		final public function getCode(): mixed {}
 
 		/**
 		 * Gets the file in which the exception was created
@@ -5080,7 +5080,7 @@ namespace MongoDB\Driver\Exception {
 		 * @link https://php.net/manual/en/exception.getcode.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
-		final public function getCode() {}
+		final public function getCode(): mixed {}
 
 		/**
 		 * Gets the file in which the exception was created
@@ -5220,7 +5220,7 @@ namespace MongoDB\Driver\Exception {
 		 * @link https://php.net/manual/en/exception.getcode.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
-		final public function getCode() {}
+		final public function getCode(): mixed {}
 
 		/**
 		 * Gets the file in which the exception was created
@@ -5350,7 +5350,7 @@ namespace MongoDB\Driver\Exception {
 		 * @link https://php.net/manual/en/exception.getcode.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
-		final public function getCode() {}
+		final public function getCode(): mixed {}
 
 		/**
 		 * Gets the file in which the exception was created
@@ -5480,7 +5480,7 @@ namespace MongoDB\Driver\Exception {
 		 * @link https://php.net/manual/en/exception.getcode.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
-		final public function getCode() {}
+		final public function getCode(): mixed {}
 
 		/**
 		 * Gets the file in which the exception was created
@@ -5618,7 +5618,7 @@ namespace MongoDB\Driver\Exception {
 		 * @link https://php.net/manual/en/exception.getcode.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
-		final public function getCode() {}
+		final public function getCode(): mixed {}
 
 		/**
 		 * Gets the file in which the exception was created
@@ -5742,7 +5742,7 @@ namespace MongoDB\Driver\Exception {
 		 * @link https://php.net/manual/en/exception.getcode.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
-		final public function getCode() {}
+		final public function getCode(): mixed {}
 
 		/**
 		 * Gets the file in which the exception was created
@@ -5855,7 +5855,7 @@ namespace MongoDB\Driver\Exception {
 		 * @link https://php.net/manual/en/exception.getcode.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
-		final public function getCode() {}
+		final public function getCode(): mixed {}
 
 		/**
 		 * Gets the file in which the exception was created
@@ -5974,7 +5974,7 @@ namespace MongoDB\Driver\Exception {
 		 * @link https://php.net/manual/en/exception.getcode.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
-		final public function getCode() {}
+		final public function getCode(): mixed {}
 
 		/**
 		 * Gets the file in which the exception was created
@@ -6104,7 +6104,7 @@ namespace MongoDB\Driver\Exception {
 		 * @link https://php.net/manual/en/exception.getcode.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
-		final public function getCode() {}
+		final public function getCode(): mixed {}
 
 		/**
 		 * Gets the file in which the exception was created
@@ -6234,7 +6234,7 @@ namespace MongoDB\Driver\Exception {
 		 * @link https://php.net/manual/en/exception.getcode.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
-		final public function getCode() {}
+		final public function getCode(): mixed {}
 
 		/**
 		 * Gets the file in which the exception was created
@@ -6358,7 +6358,7 @@ namespace MongoDB\Driver\Exception {
 		 * @link https://php.net/manual/en/exception.getcode.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
-		final public function getCode() {}
+		final public function getCode(): mixed {}
 
 		/**
 		 * Gets the file in which the exception was created
@@ -6483,7 +6483,7 @@ namespace MongoDB\Driver\Exception {
 		 * @link https://php.net/manual/en/exception.getcode.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
-		final public function getCode() {}
+		final public function getCode(): mixed {}
 
 		/**
 		 * Gets the file in which the exception was created
@@ -7002,7 +7002,7 @@ namespace MongoDB\Driver {
 		 * @link https://php.net/manual/en/mongodb-driver-query.construct.php
 		 * @since mongodb >=1.0.0
 		 */
-		final public function __construct($filter, array $queryOptions = NULL) {}
+		final public function __construct(array|object $filter, array $queryOptions = NULL) {}
 	}
 
 	/**
@@ -7060,7 +7060,7 @@ namespace MongoDB\Driver {
 		 * @link https://php.net/manual/en/mongodb-driver-readconcern.getlevel.php
 		 * @since mongodb >=1.0.0
 		 */
-		final public function getLevel() {}
+		final public function getLevel(): string|null {}
 
 		/**
 		 * Checks if this is the default read concern
@@ -7179,7 +7179,7 @@ namespace MongoDB\Driver {
 		 * @link https://php.net/manual/en/mongodb-driver-readpreference.construct.php
 		 * @since mongodb >=1.0.0
 		 */
-		final public function __construct($mode, array $tagSets = NULL, array $options = array()) {}
+		final public function __construct(string|int $mode, array $tagSets = NULL, array $options = array()) {}
 
 		/**
 		 * Returns an object for BSON serialization
@@ -7195,7 +7195,7 @@ namespace MongoDB\Driver {
 		 * @link https://php.net/manual/en/mongodb-driver-readpreference.gethedge.php
 		 * @since mongodb >=1.8.0
 		 */
-		final public function getHedge() {}
+		final public function getHedge(): object|null {}
 
 		/**
 		 * Returns the ReadPreference's "maxStalenessSeconds" option
@@ -7571,7 +7571,7 @@ namespace MongoDB\Driver {
 		 * @link https://php.net/manual/en/mongodb-driver-session.advanceclustertime.php
 		 * @since mongodb >=1.4.0
 		 */
-		final public function advanceClusterTime($clusterTime): void {}
+		final public function advanceClusterTime(array|object $clusterTime): void {}
 
 		/**
 		 * Advances the operation time for this session
@@ -7608,7 +7608,7 @@ namespace MongoDB\Driver {
 		 * @link https://php.net/manual/en/mongodb-driver-session.getclustertime.php
 		 * @since mongodb >=1.4.0
 		 */
-		final public function getClusterTime() {}
+		final public function getClusterTime(): object|null {}
 
 		/**
 		 * Returns the logical session ID for this session
@@ -7626,7 +7626,7 @@ namespace MongoDB\Driver {
 		 * @link https://php.net/manual/en/mongodb-driver-session.getoperationtime.php
 		 * @since mongodb >=1.4.0
 		 */
-		final public function getOperationTime() {}
+		final public function getOperationTime(): \MongoDB\BSON\Timestamp|null {}
 
 		/**
 		 * Returns the server to which this session is pinned
@@ -7635,7 +7635,7 @@ namespace MongoDB\Driver {
 		 * @link https://php.net/manual/en/mongodb-driver-session.getserver.php
 		 * @since mongodb >=1.6.0
 		 */
-		final public function getServer() {}
+		final public function getServer(): \MongoDB\Driver\Server|null {}
 
 		/**
 		 * Returns options for the currently running transaction
@@ -7644,7 +7644,7 @@ namespace MongoDB\Driver {
 		 * @link https://php.net/manual/en/mongodb-driver-session.gettransactionoptions.php
 		 * @since mongodb >=1.7.0
 		 */
-		final public function getTransactionOptions() {}
+		final public function getTransactionOptions(): array|null {}
 
 		/**
 		 * Returns the current transaction state for this session
@@ -7698,7 +7698,7 @@ namespace MongoDB\Driver {
 		 * @link https://php.net/manual/en/mongodb-driver-writeconcern.construct.php
 		 * @since mongodb >=1.0.0
 		 */
-		final public function __construct($w, int $wtimeout = NULL, bool $journal = NULL) {}
+		final public function __construct(string|int $w, int $wtimeout = NULL, bool $journal = NULL) {}
 
 		/**
 		 * Returns an object for BSON serialization
@@ -7714,7 +7714,7 @@ namespace MongoDB\Driver {
 		 * @link https://php.net/manual/en/mongodb-driver-writeconcern.getjournal.php
 		 * @since mongodb >=1.0.0
 		 */
-		final public function getJournal() {}
+		final public function getJournal(): bool|null {}
 
 		/**
 		 * Returns the WriteConcern's "w" option
@@ -7722,7 +7722,7 @@ namespace MongoDB\Driver {
 		 * @link https://php.net/manual/en/mongodb-driver-writeconcern.getw.php
 		 * @since mongodb >=1.0.0
 		 */
-		final public function getW() {}
+		final public function getW(): string|int|null {}
 
 		/**
 		 * Returns the WriteConcern's "wtimeout" option
@@ -7730,7 +7730,7 @@ namespace MongoDB\Driver {
 		 * @link https://php.net/manual/en/mongodb-driver-writeconcern.getwtimeout.php
 		 * @since mongodb >=1.0.0
 		 */
-		final public function getWtimeout() {}
+		final public function getWtimeout(): int|\MongoDB\BSON\Int64 {}
 
 		/**
 		 * Checks if this is the default write concern
@@ -7782,7 +7782,7 @@ namespace MongoDB\Driver {
 		 * @link https://php.net/manual/en/mongodb-driver-writeconcernerror.getinfo.php
 		 * @since mongodb >=1.0.0
 		 */
-		final public function getInfo() {}
+		final public function getInfo(): object|null {}
 
 		/**
 		 * Returns the WriteConcernError's error message
@@ -7822,7 +7822,7 @@ namespace MongoDB\Driver {
 		 * @link https://php.net/manual/en/mongodb-driver-writeerror.getinfo.php
 		 * @since mongodb >=1.0.0
 		 */
-		final public function getInfo() {}
+		final public function getInfo(): object|null {}
 
 		/**
 		 * Returns the WriteError's error message
@@ -7846,7 +7846,7 @@ namespace MongoDB\Driver {
 		 * @link https://php.net/manual/en/mongodb-driver-writeresult.getdeletedcount.php
 		 * @since mongodb >=1.0.0
 		 */
-		final public function getDeletedCount() {}
+		final public function getDeletedCount(): int|null {}
 
 		/**
 		 * Returns the number of documents inserted (excluding upserts)
@@ -7854,7 +7854,7 @@ namespace MongoDB\Driver {
 		 * @link https://php.net/manual/en/mongodb-driver-writeresult.getinsertedcount.php
 		 * @since mongodb >=1.0.0
 		 */
-		final public function getInsertedCount() {}
+		final public function getInsertedCount(): int|null {}
 
 		/**
 		 * Returns the number of documents selected for update
@@ -7863,7 +7863,7 @@ namespace MongoDB\Driver {
 		 * @link https://php.net/manual/en/mongodb-driver-writeresult.getmatchedcount.php
 		 * @since mongodb >=1.0.0
 		 */
-		final public function getMatchedCount() {}
+		final public function getMatchedCount(): int|null {}
 
 		/**
 		 * Returns the number of existing documents updated
@@ -7872,7 +7872,7 @@ namespace MongoDB\Driver {
 		 * @link https://php.net/manual/en/mongodb-driver-writeresult.getmodifiedcount.php
 		 * @since mongodb >=1.0.0
 		 */
-		final public function getModifiedCount() {}
+		final public function getModifiedCount(): int|null {}
 
 		/**
 		 * Returns the server associated with this write result
@@ -7889,7 +7889,7 @@ namespace MongoDB\Driver {
 		 * @link https://php.net/manual/en/mongodb-driver-writeresult.getupsertedcount.php
 		 * @since mongodb >=1.0.0
 		 */
-		final public function getUpsertedCount() {}
+		final public function getUpsertedCount(): int|null {}
 
 		/**
 		 * Returns an array of identifiers for upserted documents
@@ -7905,7 +7905,7 @@ namespace MongoDB\Driver {
 		 * @link https://php.net/manual/en/mongodb-driver-writeresult.getwriteconcernerror.php
 		 * @since mongodb >=1.0.0
 		 */
-		final public function getWriteConcernError() {}
+		final public function getWriteConcernError(): \MongoDB\Driver\WriteConcernError|null {}
 
 		/**
 		 * Returns any write errors that occurred
@@ -7949,7 +7949,7 @@ namespace MongoDB\BSON {
 	 * @see MongoDB\BSON\toPHP()
 	 * @since mongodb >=1.0.0
 	 */
-	function fromPHP($value): string {}
+	function fromPHP(array|object $value): string {}
 
 	/**
 	 * Returns the Canonical Extended JSON representation of a BSON value
@@ -7983,7 +7983,7 @@ namespace MongoDB\BSON {
 	 * @see MongoDB\BSON\fromPHP()
 	 * @since mongodb >=1.0.0
 	 */
-	function toPHP(string $bson, array $typeMap = array()) {}
+	function toPHP(string $bson, array $typeMap = array()): array|object {}
 
 	/**
 	 * Returns the Relaxed Extended JSON representation of a BSON value
