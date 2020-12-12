@@ -93,7 +93,7 @@ abstract class PhpType extends SigFileElement {
             $field->setName($name);
             $initializer = Html::querySingleValue($this->xpath(), './*[@class="initializer"]', $fieldNode, true);
             if ($initializer) {
-                $field->setInitializer(php::sanitizeInitializer($initializer, $type));
+                $field->setInitializer(Php::sanitizeInitializer($initializer, $type));
             }
             if ($field->isConstant()) {
                 $docLink = Html::querySingleNode($this->xpath(), './var[@class="fieldsynopsis_varname"]/a', $fieldNode, true);
@@ -170,14 +170,21 @@ abstract class PhpType extends SigFileElement {
                 }
                 $initializer = $classExists && defined($constant) ? constant($constant) : null;
                 $constType = $constantPhpDoc->getConstantType($constant);
-                if (!$constType && $initializer) {
+                if ($constType === null && $initializer !== null) {
                     $constType = gettype($initializer);
+                }
+                if ($initializer !== null) {
+                    if ($constType !== null) {
+                        $initializer = Php::sanitizeInitializer($initializer, $constType);
+                    } else {
+                        $initializer = '= ' . $initializer;
+                    }
                 }
                 $field = new PhpField();
                 $field->setConstant(true)
                         ->addModifier('const')
                         ->setName($constName)
-                        ->setInitializer($initializer === null ? null : '= ' . $initializer)
+                        ->setInitializer($initializer)
                         ->setType($constType ?: 'mixed')
                         ->setExtraConstantKey($constant)
                         ->setPhpDoc($constantPhpDoc);

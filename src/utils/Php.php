@@ -184,6 +184,9 @@ final class Php {
         if ($initializer === '=') {
             return '= null';
         }
+        if (!Strings::startsWith($initializer, '= ')) {
+            $initializer = '= ' . $initializer;
+        }
         switch ($type) {
             case 'string':
                 if (strtolower($initializer) !== '= null'
