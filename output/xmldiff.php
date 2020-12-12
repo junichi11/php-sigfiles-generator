@@ -6,7 +6,7 @@ namespace XMLDiff {
 
 	/**
 	 * <p>Base abstract class for all the comparsion classes in the extension.</p>
-	 * @link http://php.net/manual/en/class.xmldiff-base.php
+	 * @link https://php.net/manual/en/class.xmldiff-base.php
 	 * @since PECL xmldiff >= 0.8.0
 	 */
 	class Base {
@@ -16,7 +16,7 @@ namespace XMLDiff {
 		 * <p>Base constructor for all the worker classes in the xmldiff extension.</p>
 		 * @param string $nsname <p>Custom namespace name for the diff document. The default namespace is http://www.locus.cz/diffmark and that's enough to avoid namespace conflicts. Use this parameter if you want to change it for some reason.</p>
 		 * @return self
-		 * @link http://php.net/manual/en/xmldiff-base.construct.php
+		 * @link https://php.net/manual/en/xmldiff-base.construct.php
 		 * @since PECL xmldiff >= 0.8.0
 		 */
 		public function __construct(string $nsname) {}
@@ -27,7 +27,7 @@ namespace XMLDiff {
 		 * @param mixed $from <p>Source XML document.</p>
 		 * @param mixed $to <p>Target XML document.</p>
 		 * @return mixed <p>Implementation dependent.</p>
-		 * @link http://php.net/manual/en/xmldiff-base.diff.php
+		 * @link https://php.net/manual/en/xmldiff-base.diff.php
 		 * @since PECL xmldiff >= 0.8.0
 		 */
 		abstract public function diff($from, $to);
@@ -38,14 +38,14 @@ namespace XMLDiff {
 		 * @param mixed $src <p>Source XML document.</p>
 		 * @param mixed $diff <p>Document produced by the diff method.</p>
 		 * @return mixed <p>Implementation dependent.</p>
-		 * @link http://php.net/manual/en/xmldiff-base.merge.php
+		 * @link https://php.net/manual/en/xmldiff-base.merge.php
 		 * @since PECL xmldiff >= 0.8.0
 		 */
 		abstract public function merge($src, $diff);
 	}
 
 	/**
-	 * @link http://php.net/manual/en/class.xmldiff-dom.php
+	 * @link https://php.net/manual/en/class.xmldiff-dom.php
 	 * @since PECL xmldiff >= 0.8.0
 	 */
 	class DOM extends \XMLDiff\Base {
@@ -55,7 +55,7 @@ namespace XMLDiff {
 		 * <p>Base constructor for all the worker classes in the xmldiff extension.</p>
 		 * @param string $nsname <p>Custom namespace name for the diff document. The default namespace is http://www.locus.cz/diffmark and that's enough to avoid namespace conflicts. Use this parameter if you want to change it for some reason.</p>
 		 * @return self
-		 * @link http://php.net/manual/en/xmldiff-base.construct.php
+		 * @link https://php.net/manual/en/xmldiff-base.construct.php
 		 * @since PECL xmldiff >= 0.8.0
 		 */
 		public function __construct(string $nsname) {}
@@ -66,7 +66,7 @@ namespace XMLDiff {
 		 * @param \DOMDocument $from <p>Source DOMDocument object.</p>
 		 * @param \DOMDocument $to <p>Target DOMDocument object.</p>
 		 * @return DOMDocument <p>DOMDocument with the diff information or NULL.</p>
-		 * @link http://php.net/manual/en/xmldiff-dom.diff.php
+		 * @link https://php.net/manual/en/xmldiff-dom.diff.php
 		 * @since PECL xmldiff >= 0.8.0
 		 */
 		public function diff(\DOMDocument $from, \DOMDocument $to): \DOMDocument {}
@@ -77,14 +77,14 @@ namespace XMLDiff {
 		 * @param \DOMDocument $src <p>Source DOMDocument object.</p>
 		 * @param \DOMDocument $diff <p>DOMDocument object containing the diff information.</p>
 		 * @return DOMDocument <p>Merged DOMDocument or NULL.</p>
-		 * @link http://php.net/manual/en/xmldiff-dom.merge.php
+		 * @link https://php.net/manual/en/xmldiff-dom.merge.php
 		 * @since PECL xmldiff >= 0.8.0
 		 */
 		public function merge(\DOMDocument $src, \DOMDocument $diff): \DOMDocument {}
 	}
 
 	/**
-	 * @link http://php.net/manual/en/class.xmldiff-file.php
+	 * @link https://php.net/manual/en/class.xmldiff-file.php
 	 * @since PECL xmldiff >= 0.8.0
 	 */
 	class File extends \XMLDiff\Base {
@@ -94,7 +94,7 @@ namespace XMLDiff {
 		 * <p>Base constructor for all the worker classes in the xmldiff extension.</p>
 		 * @param string $nsname <p>Custom namespace name for the diff document. The default namespace is http://www.locus.cz/diffmark and that's enough to avoid namespace conflicts. Use this parameter if you want to change it for some reason.</p>
 		 * @return self
-		 * @link http://php.net/manual/en/xmldiff-base.construct.php
+		 * @link https://php.net/manual/en/xmldiff-base.construct.php
 		 * @since PECL xmldiff >= 0.8.0
 		 */
 		public function __construct(string $nsname) {}
@@ -105,7 +105,7 @@ namespace XMLDiff {
 		 * @param string $from <p>Path to the source document.</p>
 		 * @param string $to <p>Path to the target document.</p>
 		 * @return string <p>String with the XML document containing the diff information or NULL.</p>
-		 * @link http://php.net/manual/en/xmldiff-file.diff.php
+		 * @link https://php.net/manual/en/xmldiff-file.diff.php
 		 * @since PECL xmldiff >= 0.8.0
 		 */
 		public function diff(string $from, string $to): string {}
@@ -116,14 +116,14 @@ namespace XMLDiff {
 		 * @param string $src <p>Path to the source XML document.</p>
 		 * @param string $diff <p>Path to the XML document with the diff information.</p>
 		 * @return string <p>String with the new XML document or NULL.</p>
-		 * @link http://php.net/manual/en/xmldiff-file.merge.php
+		 * @link https://php.net/manual/en/xmldiff-file.merge.php
 		 * @since PECL xmldiff >= 0.8.0
 		 */
 		public function merge(string $src, string $diff): string {}
 	}
 
 	/**
-	 * @link http://php.net/manual/en/class.xmldiff-memory.php
+	 * @link https://php.net/manual/en/class.xmldiff-memory.php
 	 * @since PECL xmldiff >= 0.8.0
 	 */
 	class Memory extends \XMLDiff\Base {
@@ -133,7 +133,7 @@ namespace XMLDiff {
 		 * <p>Base constructor for all the worker classes in the xmldiff extension.</p>
 		 * @param string $nsname <p>Custom namespace name for the diff document. The default namespace is http://www.locus.cz/diffmark and that's enough to avoid namespace conflicts. Use this parameter if you want to change it for some reason.</p>
 		 * @return self
-		 * @link http://php.net/manual/en/xmldiff-base.construct.php
+		 * @link https://php.net/manual/en/xmldiff-base.construct.php
 		 * @since PECL xmldiff >= 0.8.0
 		 */
 		public function __construct(string $nsname) {}
@@ -144,7 +144,7 @@ namespace XMLDiff {
 		 * @param string $from <p>Source XML document.</p>
 		 * @param string $to <p>Target XML document.</p>
 		 * @return string <p>String with the XML document containing the diff information or NULL.</p>
-		 * @link http://php.net/manual/en/xmldiff-memory.diff.php
+		 * @link https://php.net/manual/en/xmldiff-memory.diff.php
 		 * @since PECL xmldiff >= 0.8.0
 		 */
 		public function diff(string $from, string $to): string {}
@@ -155,7 +155,7 @@ namespace XMLDiff {
 		 * @param string $src <p>Source XML document.</p>
 		 * @param string $diff <p>XML document containing diff information.</p>
 		 * @return string <p>String with the new XML document or NULL.</p>
-		 * @link http://php.net/manual/en/xmldiff-memory.merge.php
+		 * @link https://php.net/manual/en/xmldiff-memory.merge.php
 		 * @since PECL xmldiff >= 0.8.0
 		 */
 		public function merge(string $src, string $diff): string {}

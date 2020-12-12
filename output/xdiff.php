@@ -11,7 +11,7 @@ namespace {
 	 * @param string $new_file <p>Path to the second file. This file acts as "new" file.</p>
 	 * @param string $dest <p>Path of the resulting patch file. Resulting file contains differences between "old" and "new" files. It is in binary format and is human-unreadable.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.xdiff-file-bdiff.php
+	 * @link https://php.net/manual/en/function.xdiff-file-bdiff.php
 	 * @see xdiff_file_bpatch()
 	 * @since PECL xdiff >= 1.5.0
 	 */
@@ -22,7 +22,7 @@ namespace {
 	 * <p>Returns a size of a result file that would be created after applying binary patch from file <code>file</code> to the original file.</p>
 	 * @param string $file <p>The path to the binary patch created by <code>xdiff_string_bdiff()</code> or <code>xdiff_string_rabdiff()</code> function.</p>
 	 * @return int <p>Returns the size of file that would be created.</p>
-	 * @link http://php.net/manual/en/function.xdiff-file-bdiff-size.php
+	 * @link https://php.net/manual/en/function.xdiff-file-bdiff-size.php
 	 * @see xdiff_file_bdiff(), xdiff_file_rabdiff(), xdiff_file_bpatch()
 	 * @since PECL xdiff >= 1.5.0
 	 */
@@ -35,7 +35,7 @@ namespace {
 	 * @param string $patch <p>The binary patch file.</p>
 	 * @param string $dest <p>Path of the resulting file.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.xdiff-file-bpatch.php
+	 * @link https://php.net/manual/en/function.xdiff-file-bpatch.php
 	 * @see xdiff_file_bdiff(), xdiff_file_rabdiff()
 	 * @since PECL xdiff >= 1.5.0
 	 */
@@ -50,7 +50,7 @@ namespace {
 	 * @param int $context <p>Indicates how many lines of context you want to include in diff result.</p>
 	 * @param bool $minimal <p>Set this parameter to <b><code>TRUE</code></b> if you want to minimalize size of the result (can take a long time).</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.xdiff-file-diff.php
+	 * @link https://php.net/manual/en/function.xdiff-file-diff.php
 	 * @see xdiff_file_patch()
 	 * @since PECL xdiff >= 0.2.0
 	 */
@@ -59,7 +59,7 @@ namespace {
 	/**
 	 * Alias of xdiff_file_bdiff
 	 * <p>Makes a binary diff of two files and stores the result in a patch file. This function works with both text and binary files. Resulting patch file can be later applied using <code>xdiff_file_bpatch()</code>.</p><p>Starting with version 1.5.0 this function is an alias of <code>xdiff_file_bdiff()</code>.</p>
-	 * @link http://php.net/manual/en/function.xdiff-file-diff-binary.php
+	 * @link https://php.net/manual/en/function.xdiff-file-diff-binary.php
 	 * @since PECL xdiff >= 0.2.0
 	 */
 	function xdiff_file_diff_binary() {}
@@ -72,7 +72,7 @@ namespace {
 	 * @param string $new_file2 <p>Path to the third file. It acts as modified version of <code>old_file</code>.</p>
 	 * @param string $dest <p>Path of the resulting file, containing merged changed from both <code>new_file1</code> and <code>new_file2</code>.</p>
 	 * @return mixed <p>Returns <b><code>TRUE</code></b> if merge was successful, string with rejected chunks if it was not or <b><code>FALSE</code></b> if an internal error happened.</p>
-	 * @link http://php.net/manual/en/function.xdiff-file-merge3.php
+	 * @link https://php.net/manual/en/function.xdiff-file-merge3.php
 	 * @see xdiff_string_merge3()
 	 * @since PECL xdiff >= 0.2.0
 	 */
@@ -86,7 +86,7 @@ namespace {
 	 * @param string $dest <p>Path of the resulting file.</p>
 	 * @param int $flags <p>Can be either <b><code>XDIFF_PATCH_NORMAL</code></b> (default mode, normal patch) or <b><code>XDIFF_PATCH_REVERSE</code></b> (reversed patch).</p> <p>Starting from version 1.5.0, you can also use binary OR to enable <b><code>XDIFF_PATCH_IGNORESPACE</code></b> flag.</p>
 	 * @return mixed <p>Returns <b><code>FALSE</code></b> if an internal error happened, string with rejected chunks if patch couldn't be applied or <b><code>TRUE</code></b> if patch has been successfully applied.</p>
-	 * @link http://php.net/manual/en/function.xdiff-file-patch.php
+	 * @link https://php.net/manual/en/function.xdiff-file-patch.php
 	 * @see xdiff_file_diff()
 	 * @since PECL xdiff >= 0.2.0
 	 */
@@ -95,7 +95,7 @@ namespace {
 	/**
 	 * Alias of xdiff_file_bpatch
 	 * <p>Patches a <code>file</code> with a binary <code>patch</code> and stores the result in a file <code>dest</code>. This function accepts patches created both via <code>xdiff_file_bdiff()</code> or <code>xdiff_file_rabdiff()</code> functions or their string counterparts.</p><p>Starting with version 1.5.0 this function is an alias of <code>xdiff_file_bpatch()</code>.</p>
-	 * @link http://php.net/manual/en/function.xdiff-file-patch-binary.php
+	 * @link https://php.net/manual/en/function.xdiff-file-patch-binary.php
 	 * @since PECL xdiff >= 0.2.0
 	 */
 	function xdiff_file_patch_binary() {}
@@ -107,7 +107,7 @@ namespace {
 	 * @param string $new_file <p>Path to the second file. This file acts as "new" file.</p>
 	 * @param string $dest <p>Path of the resulting patch file. Resulting file contains differences between "old" and "new" files. It is in binary format and is human-unreadable.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.xdiff-file-rabdiff.php
+	 * @link https://php.net/manual/en/function.xdiff-file-rabdiff.php
 	 * @see xdiff_file_bpatch()
 	 * @since PECL xdiff >= 1.5.0
 	 */
@@ -119,7 +119,7 @@ namespace {
 	 * @param string $old_data <p>First string with binary data. It acts as "old" data.</p>
 	 * @param string $new_data <p>Second string with binary data. It acts as "new" data.</p>
 	 * @return string <p>Returns string with binary diff containing differences between "old" and "new" data or <b><code>FALSE</code></b> if an internal error occurred.</p>
-	 * @link http://php.net/manual/en/function.xdiff-string-bdiff.php
+	 * @link https://php.net/manual/en/function.xdiff-string-bdiff.php
 	 * @see xdiff_string_bpatch()
 	 * @since PECL xdiff >= 1.5.0
 	 */
@@ -130,7 +130,7 @@ namespace {
 	 * <p>Returns a size of a result file that would be created after applying binary <code>patch</code> to the original file.</p>
 	 * @param string $patch <p>The binary patch created by <code>xdiff_string_bdiff()</code> or <code>xdiff_string_rabdiff()</code> function.</p>
 	 * @return int <p>Returns the size of file that would be created.</p>
-	 * @link http://php.net/manual/en/function.xdiff-string-bdiff-size.php
+	 * @link https://php.net/manual/en/function.xdiff-string-bdiff-size.php
 	 * @see xdiff_string_bdiff(), xdiff_string_rabdiff(), xdiff_string_bpatch()
 	 * @since PECL xdiff >= 1.5.0
 	 */
@@ -142,7 +142,7 @@ namespace {
 	 * @param string $str <p>The original binary string.</p>
 	 * @param string $patch <p>The binary patch string.</p>
 	 * @return string <p>Returns the patched string, or <b><code>FALSE</code></b> on error.</p>
-	 * @link http://php.net/manual/en/function.xdiff-string-bpatch.php
+	 * @link https://php.net/manual/en/function.xdiff-string-bpatch.php
 	 * @see xdiff_string_bdiff(), xdiff_string_rabdiff()
 	 * @since PECL xdiff >= 1.5.0
 	 */
@@ -156,7 +156,7 @@ namespace {
 	 * @param int $context <p>Indicates how many lines of context you want to include in the diff result.</p>
 	 * @param bool $minimal <p>Set this parameter to <b><code>TRUE</code></b> if you want to minimalize the size of the result (can take a long time).</p>
 	 * @return string <p>Returns string with resulting diff or <b><code>FALSE</code></b> if an internal error happened.</p>
-	 * @link http://php.net/manual/en/function.xdiff-string-diff.php
+	 * @link https://php.net/manual/en/function.xdiff-string-diff.php
 	 * @see xdiff_string_patch()
 	 * @since PECL xdiff >= 0.2.0
 	 */
@@ -165,7 +165,7 @@ namespace {
 	/**
 	 * Alias of xdiff_string_bdiff
 	 * <p>Makes a binary diff of two strings and returns the result. This function works with both text and binary data. Resulting patch can be later applied using <code>xdiff_string_bpatch()</code>/<code>xdiff_file_bpatch()</code>.</p><p>Starting with version 1.5.0 this function is an alias of <code>xdiff_string_bdiff()</code>.</p>
-	 * @link http://php.net/manual/en/function.xdiff-string-diff-binary.php
+	 * @link https://php.net/manual/en/function.xdiff-string-diff-binary.php
 	 * @since PECL xdiff >= 0.2.0
 	 */
 	function xdiff_string_diff_binary() {}
@@ -178,7 +178,7 @@ namespace {
 	 * @param string $new_data2 <p>Third string with data. It acts as modified version of <code>old_data</code>.</p>
 	 * @param string $error <p>If provided then rejected parts are stored inside this variable.</p>
 	 * @return mixed <p>Returns the merged string, <b><code>FALSE</code></b> if an internal error happened, or <b><code>TRUE</code></b> if merged string is empty.</p>
-	 * @link http://php.net/manual/en/function.xdiff-string-merge3.php
+	 * @link https://php.net/manual/en/function.xdiff-string-merge3.php
 	 * @see xdiff_file_merge3()
 	 * @since PECL xdiff >= 0.2.0
 	 */
@@ -192,7 +192,7 @@ namespace {
 	 * @param int $flags <p><code>flags</code> can be either <b><code>XDIFF_PATCH_NORMAL</code></b> (default mode, normal patch) or <b><code>XDIFF_PATCH_REVERSE</code></b> (reversed patch).</p> <p>Starting from version 1.5.0, you can also use binary OR to enable <b><code>XDIFF_PATCH_IGNORESPACE</code></b> flag.</p>
 	 * @param string $error <p>If provided then rejected parts are stored inside this variable.</p>
 	 * @return string <p>Returns the patched string, or <b><code>FALSE</code></b> on error.</p>
-	 * @link http://php.net/manual/en/function.xdiff-string-patch.php
+	 * @link https://php.net/manual/en/function.xdiff-string-patch.php
 	 * @see xdiff_string_diff()
 	 * @since PECL xdiff >= 0.2.0
 	 */
@@ -201,7 +201,7 @@ namespace {
 	/**
 	 * Alias of xdiff_string_bpatch
 	 * <p>Patches a string <code>str</code> with a binary <code>patch</code>. This function accepts patches created both via <code>xdiff_string_bdiff()</code> and <code>xdiff_string_rabdiff()</code> functions or their file counterparts.</p><p>Starting with version 1.5.0 this function is an alias of <code>xdiff_string_bpatch()</code>.</p>
-	 * @link http://php.net/manual/en/function.xdiff-string-patch-binary.php
+	 * @link https://php.net/manual/en/function.xdiff-string-patch-binary.php
 	 * @since PECL xdiff >= 0.2.0
 	 */
 	function xdiff_string_patch_binary() {}
@@ -212,7 +212,7 @@ namespace {
 	 * @param string $old_data <p>First string with binary data. It acts as "old" data.</p>
 	 * @param string $new_data <p>Second string with binary data. It acts as "new" data.</p>
 	 * @return string <p>Returns string with binary diff containing differences between "old" and "new" data or <b><code>FALSE</code></b> if an internal error occurred.</p>
-	 * @link http://php.net/manual/en/function.xdiff-string-rabdiff.php
+	 * @link https://php.net/manual/en/function.xdiff-string-rabdiff.php
 	 * @see xdiff_string_bpatch()
 	 * @since PECL xdiff >= 1.5.0
 	 */

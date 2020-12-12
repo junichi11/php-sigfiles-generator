@@ -10,7 +10,7 @@ namespace {
 	 * @param int $options <p>As of 5.3.6, this parameter is a bitmask for the following options:</p> <b><b>debug_backtrace()</b> options</b>   DEBUG_BACKTRACE_PROVIDE_OBJECT  Whether or not to populate the "object" index.    DEBUG_BACKTRACE_IGNORE_ARGS  Whether or not to omit the "args" index, and thus all the function/method arguments, to save memory.     Before 5.3.6, the only values recognized are <b><code>TRUE</code></b> or <b><code>FALSE</code></b>, which are the same as setting or not setting the <b><code>DEBUG_BACKTRACE_PROVIDE_OBJECT</code></b> option respectively.
 	 * @param int $limit <p>As of 5.4.0, this parameter can be used to limit the number of stack frames returned. By default (<code>limit</code>=<code>0</code>) it returns all stack frames.</p>
 	 * @return array <p>Returns an array of associative <code>array</code>s. The possible returned elements are as follows:</p> <b>Possible returned elements from <b>debug_backtrace()</b></b>   Name Type Description     function <code>string</code>  The current function name. See also __FUNCTION__.    line <code>int</code>  The current line number. See also __LINE__.    file <code>string</code>  The current file name. See also __FILE__.    class <code>string</code>  The current class name. See also __CLASS__    object <code>object</code>  The current object.    type <code>string</code>  The current call type. If a method call, "-&gt;" is returned. If a static method call, "::" is returned. If a function call, nothing is returned.    args <code>array</code>  If inside a function, this lists the functions arguments. If inside an included file, this lists the included file name(s).
-	 * @link http://php.net/manual/en/function.debug-backtrace.php
+	 * @link https://php.net/manual/en/function.debug-backtrace.php
 	 * @see trigger_error(), debug_print_backtrace()
 	 * @since PHP 4 >= 4.3.0, PHP 5, PHP 7
 	 */
@@ -22,7 +22,7 @@ namespace {
 	 * @param int $options <p>As of 5.3.6, this parameter is a bitmask for the following options:</p> <b><b>debug_print_backtrace()</b> options</b>   DEBUG_BACKTRACE_IGNORE_ARGS  Whether or not to omit the "args" index, and thus all the function/method arguments, to save memory.
 	 * @param int $limit <p>As of 5.4.0, this parameter can be used to limit the number of stack frames printed. By default (<code>limit</code>=<code>0</code>) it prints all stack frames.</p>
 	 * @return void <p>No value is returned.</p>
-	 * @link http://php.net/manual/en/function.debug-print-backtrace.php
+	 * @link https://php.net/manual/en/function.debug-print-backtrace.php
 	 * @see debug_backtrace()
 	 * @since PHP 5, PHP 7
 	 */
@@ -31,7 +31,7 @@ namespace {
 	/**
 	 * Clear the most recent error
 	 * @return void <p>Clears the most recent errors, making it unable to be retrieved with <code>error_get_last()</code>.</p>
-	 * @link http://php.net/manual/en/function.error-clear-last.php
+	 * @link https://php.net/manual/en/function.error-clear-last.php
 	 * @since PHP 7
 	 */
 	function error_clear_last(): void {}
@@ -40,7 +40,7 @@ namespace {
 	 * Get the last occurred error
 	 * <p>Gets information about the last error that occurred.</p>
 	 * @return array <p>Returns an associative array describing the last error with keys "type", "message", "file" and "line". If the error has been caused by a PHP internal function then the "message" begins with its name. Returns <b><code>NULL</code></b> if there hasn't been an error yet.</p>
-	 * @link http://php.net/manual/en/function.error-get-last.php
+	 * @link https://php.net/manual/en/function.error-get-last.php
 	 * @see error_clear_last()
 	 * @since PHP 5 >= 5.2.0, PHP 7
 	 */
@@ -54,7 +54,7 @@ namespace {
 	 * @param string $destination <p>The destination. Its meaning depends on the <code>message_type</code> parameter as described above.</p>
 	 * @param string $extra_headers <p>The extra headers. It's used when the <code>message_type</code> parameter is set to <code>1</code>. This message type uses the same internal function as <code>mail()</code> does.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.error-log.php
+	 * @link https://php.net/manual/en/function.error-log.php
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
 	function error_log(string $message, int $message_type = 0, string $destination = NULL, string $extra_headers = NULL): bool {}
@@ -64,7 +64,7 @@ namespace {
 	 * <p>The <b>error_reporting()</b> function sets the error_reporting directive at runtime. PHP has many levels of errors, using this function sets that level for the duration (runtime) of your script. If the optional <code>level</code> is not set, <b>error_reporting()</b> will just return the current error reporting level.</p>
 	 * @param int $level <p>The new error_reporting level. It takes on either a bitmask, or named constants. Using named constants is strongly encouraged to ensure compatibility for future versions. As error levels are added, the range of integers increases, so older integer-based error levels will not always behave as expected.</p> <p>The available error level constants and the actual meanings of these error levels are described in the predefined constants.</p>
 	 * @return int <p>Returns the old error_reporting level or the current level if no <code>level</code> parameter is given.</p>
-	 * @link http://php.net/manual/en/function.error-reporting.php
+	 * @link https://php.net/manual/en/function.error-reporting.php
 	 * @see ini_set()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
@@ -74,7 +74,7 @@ namespace {
 	 * Restores the previous error handler function
 	 * <p>Used after changing the error handler function using <code>set_error_handler()</code>, to revert to the previous error handler (which could be the built-in or a user defined function).</p>
 	 * @return bool <p>This function always returns <b><code>TRUE</code></b>.</p>
-	 * @link http://php.net/manual/en/function.restore-error-handler.php
+	 * @link https://php.net/manual/en/function.restore-error-handler.php
 	 * @see error_reporting(), set_error_handler(), restore_exception_handler(), trigger_error()
 	 * @since PHP 4 >= 4.0.1, PHP 5, PHP 7
 	 */
@@ -84,7 +84,7 @@ namespace {
 	 * Restores the previously defined exception handler function
 	 * <p>Used after changing the exception handler function using <code>set_exception_handler()</code>, to revert to the previous exception handler (which could be the built-in or a user defined function).</p>
 	 * @return bool <p>This function always returns <b><code>TRUE</code></b>.</p>
-	 * @link http://php.net/manual/en/function.restore-exception-handler.php
+	 * @link https://php.net/manual/en/function.restore-exception-handler.php
 	 * @see set_exception_handler(), set_error_handler(), restore_error_handler(), error_reporting()
 	 * @since PHP 5, PHP 7
 	 */
@@ -96,7 +96,7 @@ namespace {
 	 * @param callable $error_handler <p>A callback with the following signature. <b><code>NULL</code></b> may be passed instead, to reset this handler to its default state. Instead of a function name, an array containing an object reference and a method name can also be supplied.</p> <p></p> handler ( <code>int</code> <code>$errno</code> , <code>string</code> <code>$errstr</code> [, <code>string</code> <code>$errfile</code> [, <code>int</code> <code>$errline</code> [, <code>array</code> <code>$errcontext</code> ]]] ) : <code>bool</code>   <code>errno</code>   The first parameter, <code>errno</code>, contains the level of the error raised, as an integer.    <code>errstr</code>   The second parameter, <code>errstr</code>, contains the error message, as a string.    <code>errfile</code>   The third parameter is optional, <code>errfile</code>, which contains the filename that the error was raised in, as a string.    <code>errline</code>   The fourth parameter is optional, <code>errline</code>, which contains the line number the error was raised at, as an integer.    <code>errcontext</code>   The fifth parameter is optional, <code>errcontext</code>, which is an array that points to the active symbol table at the point the error occurred. In other words, <code>errcontext</code> will contain an array of every variable that existed in the scope the error was triggered in. User error handler must not modify error context.  <p><b>Warning</b></p> <p>This parameter has been <i>DEPRECATED</i> as of PHP 7.2.0. Relying on it is highly discouraged.</p>    <p>If the function returns <b><code>FALSE</code></b> then the normal error handler continues.</p>
 	 * @param int $error_types <p>Can be used to mask the triggering of the <code>error_handler</code> function just like the error_reporting ini setting controls which errors are shown. Without this mask set the <code>error_handler</code> will be called for every error regardless to the setting of the error_reporting setting.</p>
 	 * @return mixed <p>Returns a string containing the previously defined error handler (if any). If the built-in error handler is used <b><code>NULL</code></b> is returned. <b><code>NULL</code></b> is also returned in case of an error such as an invalid callback. If the previous error handler was a class method, this function will return an indexed array with the class and the method name.</p>
-	 * @link http://php.net/manual/en/function.set-error-handler.php
+	 * @link https://php.net/manual/en/function.set-error-handler.php
 	 * @see error_reporting(), restore_error_handler(), trigger_error()
 	 * @since PHP 4 >= 4.0.1, PHP 5, PHP 7
 	 */
@@ -107,7 +107,7 @@ namespace {
 	 * <p>Sets the default exception handler if an exception is not caught within a try/catch block. Execution will stop after the <code>exception_handler</code> is called.</p>
 	 * @param callable $exception_handler <p>Name of the function to be called when an uncaught exception occurs. This handler function needs to accept one parameter, which will be the exception object that was thrown. This is the handler signature before PHP 7:</p> <p></p> handler ( <code>Exception</code> <code>$ex</code> ) : void <p>Since PHP 7, most errors are reported by throwing Error exceptions, which will be caught by the handler as well. Both Error and Exception implements the Throwable interface. This is the handler signature since PHP 7:</p> <p></p> handler ( <code>Throwable</code> <code>$ex</code> ) : void <p><b><code>NULL</code></b> may be passed instead, to reset this handler to its default state.</p> <b>Caution</b> <p>Note that providing an explicit Exception type hint for the <code>ex</code> parameter in your callback will cause issues with the changed exception hierarchy in PHP 7.</p>
 	 * @return callable <p>Returns the name of the previously defined exception handler, or <b><code>NULL</code></b> on error. If no previous handler was defined, <b><code>NULL</code></b> is also returned.</p>
-	 * @link http://php.net/manual/en/function.set-exception-handler.php
+	 * @link https://php.net/manual/en/function.set-exception-handler.php
 	 * @see restore_exception_handler(), restore_error_handler(), error_reporting()
 	 * @since PHP 5, PHP 7
 	 */
@@ -119,7 +119,7 @@ namespace {
 	 * @param string $error_msg <p>The designated error message for this error. It's limited to 1024 bytes in length. Any additional characters beyond 1024 bytes will be truncated.</p>
 	 * @param int $error_type <p>The designated error type for this error. It only works with the E_USER family of constants, and will default to <b><code>E_USER_NOTICE</code></b>.</p>
 	 * @return bool <p>This function returns <b><code>FALSE</code></b> if wrong <code>error_type</code> is specified, <b><code>TRUE</code></b> otherwise.</p>
-	 * @link http://php.net/manual/en/function.trigger-error.php
+	 * @link https://php.net/manual/en/function.trigger-error.php
 	 * @see error_reporting(), set_error_handler(), restore_error_handler()
 	 * @since PHP 4 >= 4.0.1, PHP 5, PHP 7
 	 */
@@ -131,7 +131,7 @@ namespace {
 	 * @param string $error_msg <p>The designated error message for this error. It's limited to 1024 bytes in length. Any additional characters beyond 1024 bytes will be truncated.</p>
 	 * @param int $error_type <p>The designated error type for this error. It only works with the E_USER family of constants, and will default to <b><code>E_USER_NOTICE</code></b>.</p>
 	 * @return bool
-	 * @link http://php.net/manual/en/function.user-error.php
+	 * @link https://php.net/manual/en/function.user-error.php
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
 	function user_error(string $error_msg, int $error_type = E_USER_NOTICE): bool {}

@@ -9,7 +9,7 @@ namespace {
 	 * @param string $hostname <p>The host name.</p>
 	 * @param callable $callback callback ( <code>string</code> <code>$hostname</code> , <code>string</code> <code>$ip</code> ) : <code>mixed</code>   <code>hostname</code>  <p>The host name.</p>   <code>IP</code>  <p>The IP address.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.swoole-async-dns-lookup.php
+	 * @link https://php.net/manual/en/function.swoole-async-dns-lookup.php
 	 * @since PECL swoole >= 1.9.0
 	 */
 	function swoole_async_dns_lookup(string $hostname, callable $callback): bool {}
@@ -21,7 +21,7 @@ namespace {
 	 * @param int $chunk_size <p>The chunk length.</p>
 	 * @param int $offset <p>The offset.</p>
 	 * @return bool <p>Whether the read is succeed.</p>
-	 * @link http://php.net/manual/en/function.swoole-async-read.php
+	 * @link https://php.net/manual/en/function.swoole-async-read.php
 	 * @since PECL swoole >= 1.9.0
 	 */
 	function swoole_async_read(string $filename, callable $callback, int $chunk_size = 65536, int $offset = 0): bool {}
@@ -31,7 +31,7 @@ namespace {
 	 * @param string $filename <p>The filename of the file being read.</p>
 	 * @param callable $callback callback ( <code>string</code> <code>$filename</code> , <code>string</code> <code>$content</code> ) : <code>mixed</code>   <code>filename</code>  <p>The name of the file.</p>   <code>content</code>  <p>The content readed from the file.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.swoole-async-readfile.php
+	 * @link https://php.net/manual/en/function.swoole-async-readfile.php
 	 * @since PECL swoole >= 1.9.0
 	 */
 	function swoole_async_readfile(string $filename, callable $callback): bool {}
@@ -40,7 +40,7 @@ namespace {
 	 * Update the async I/O options
 	 * @param array $settings
 	 * @return void
-	 * @link http://php.net/manual/en/function.swoole-async-set.php
+	 * @link https://php.net/manual/en/function.swoole-async-set.php
 	 * @since PECL swoole >= 1.9.0
 	 */
 	function swoole_async_set(array $settings): void {}
@@ -52,7 +52,7 @@ namespace {
 	 * @param int $offset <p>The offset.</p>
 	 * @param callable $callback
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.swoole-async-write.php
+	 * @link https://php.net/manual/en/function.swoole-async-write.php
 	 * @since PECL swoole >= 1.9.0
 	 */
 	function swoole_async_write(string $filename, string $content, int $offset = NULL, callable $callback = NULL): bool {}
@@ -64,7 +64,7 @@ namespace {
 	 * @param callable $callback
 	 * @param int $flags
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.swoole-async-writefile.php
+	 * @link https://php.net/manual/en/function.swoole-async-writefile.php
 	 * @since PECL swoole >= 1.9.0
 	 */
 	function swoole_async_writefile(string $filename, string $content, callable $callback = NULL, int $flags = 0): bool {}
@@ -76,7 +76,7 @@ namespace {
 	 * @param array $error_array
 	 * @param float $timeout
 	 * @return int
-	 * @link http://php.net/manual/en/function.swoole-client-select.php
+	 * @link https://php.net/manual/en/function.swoole-client-select.php
 	 * @since PECL swoole >= 1.9.0
 	 */
 	function swoole_client_select(array &$read_array, array &$write_array, array &$error_array, float $timeout = 0.5): int {}
@@ -84,7 +84,7 @@ namespace {
 	/**
 	 * Get the number of CPU
 	 * @return int <p>The number of CPU.</p>
-	 * @link http://php.net/manual/en/function.swoole-cpu-num.php
+	 * @link https://php.net/manual/en/function.swoole-cpu-num.php
 	 * @since PECL swoole >= 1.9.0
 	 */
 	function swoole_cpu_num(): int {}
@@ -92,7 +92,7 @@ namespace {
 	/**
 	 * Get the error code of the latest system call
 	 * @return int
-	 * @link http://php.net/manual/en/function.swoole-errno.php
+	 * @link https://php.net/manual/en/function.swoole-errno.php
 	 * @since PECL swoole >= 1.9.0
 	 */
 	function swoole_errno(): int {}
@@ -104,7 +104,7 @@ namespace {
 	 * @param callable $write_callback
 	 * @param int $events
 	 * @return int
-	 * @link http://php.net/manual/en/function.swoole-event-add.php
+	 * @link https://php.net/manual/en/function.swoole-event-add.php
 	 * @since PECL swoole >= 1.9.0
 	 */
 	function swoole_event_add(int $fd, callable $read_callback = NULL, callable $write_callback = NULL, int $events = 0): int {}
@@ -113,7 +113,7 @@ namespace {
 	 * Add callback function to the next event loop
 	 * @param callable $callback
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.swoole-event-defer.php
+	 * @link https://php.net/manual/en/function.swoole-event-defer.php
 	 * @since PECL swoole >= 1.9.0
 	 */
 	function swoole_event_defer(callable $callback): bool {}
@@ -122,7 +122,7 @@ namespace {
 	 * Remove all event callback functions of a socket
 	 * @param int $fd
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.swoole-event-del.php
+	 * @link https://php.net/manual/en/function.swoole-event-del.php
 	 * @since PECL swoole >= 1.9.0
 	 */
 	function swoole_event_del(int $fd): bool {}
@@ -130,7 +130,7 @@ namespace {
 	/**
 	 * Exit the eventloop, only available at the client side
 	 * @return void
-	 * @link http://php.net/manual/en/function.swoole-event-exit.php
+	 * @link https://php.net/manual/en/function.swoole-event-exit.php
 	 * @since PECL swoole >= 1.9.0
 	 */
 	function swoole_event_exit(): void {}
@@ -142,7 +142,7 @@ namespace {
 	 * @param callable $write_callback
 	 * @param int $events
 	 * @return bool
-	 * @link http://php.net/manual/en/function.swoole-event-set.php
+	 * @link https://php.net/manual/en/function.swoole-event-set.php
 	 * @since PECL swoole >= 1.9.0
 	 */
 	function swoole_event_set(int $fd, callable $read_callback = NULL, callable $write_callback = NULL, int $events = 0): bool {}
@@ -150,7 +150,7 @@ namespace {
 	/**
 	 * Start the event loop
 	 * @return void
-	 * @link http://php.net/manual/en/function.swoole-event-wait.php
+	 * @link https://php.net/manual/en/function.swoole-event-wait.php
 	 * @since PECL swoole >= 1.9.0
 	 */
 	function swoole_event_wait(): void {}
@@ -160,7 +160,7 @@ namespace {
 	 * @param int $fd
 	 * @param string $data
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.swoole-event-write.php
+	 * @link https://php.net/manual/en/function.swoole-event-write.php
 	 * @since PECL swoole >= 1.9.0
 	 */
 	function swoole_event_write(int $fd, string $data): bool {}
@@ -168,7 +168,7 @@ namespace {
 	/**
 	 * Get the IPv4 IP addresses of each NIC on the machine
 	 * @return array
-	 * @link http://php.net/manual/en/function.swoole-get-local-ip.php
+	 * @link https://php.net/manual/en/function.swoole-get-local-ip.php
 	 * @since PECL swoole >= 1.9.0
 	 */
 	function swoole_get_local_ip(): array {}
@@ -176,7 +176,7 @@ namespace {
 	/**
 	 * Get the lastest error message
 	 * @return int
-	 * @link http://php.net/manual/en/function.swoole-last-error.php
+	 * @link https://php.net/manual/en/function.swoole-last-error.php
 	 * @since PECL swoole >= 1.9.0
 	 */
 	function swoole_last_error(): int {}
@@ -185,7 +185,7 @@ namespace {
 	 * Load a swoole extension
 	 * @param string $filename
 	 * @return mixed
-	 * @link http://php.net/manual/en/function.swoole-load-module.php
+	 * @link https://php.net/manual/en/function.swoole-load-module.php
 	 * @since PECL swoole >= 1.9.0
 	 */
 	function swoole_load_module(string $filename) {}
@@ -197,7 +197,7 @@ namespace {
 	 * @param array $error_array
 	 * @param float $timeout
 	 * @return int
-	 * @link http://php.net/manual/en/function.swoole-select.php
+	 * @link https://php.net/manual/en/function.swoole-select.php
 	 * @since PECL swoole >= 1.9.0
 	 */
 	function swoole_select(array &$read_array, array &$write_array, array &$error_array, float $timeout = NULL): int {}
@@ -207,7 +207,7 @@ namespace {
 	 * @param string $process_name
 	 * @param int $size
 	 * @return void
-	 * @link http://php.net/manual/en/function.swoole-set-process-name.php
+	 * @link https://php.net/manual/en/function.swoole-set-process-name.php
 	 * @since PECL swoole >= 1.9.0
 	 */
 	function swoole_set_process_name(string $process_name, int $size = 128): void {}
@@ -217,7 +217,7 @@ namespace {
 	 * @param int $errno
 	 * @param int $error_type
 	 * @return string
-	 * @link http://php.net/manual/en/function.swoole-strerror.php
+	 * @link https://php.net/manual/en/function.swoole-strerror.php
 	 * @since PECL swoole >= 1.9.0
 	 */
 	function swoole_strerror(int $errno, int $error_type = 0): string {}
@@ -228,7 +228,7 @@ namespace {
 	 * @param callable $callback
 	 * @param mixed $param
 	 * @return int
-	 * @link http://php.net/manual/en/function.swoole-timer-after.php
+	 * @link https://php.net/manual/en/function.swoole-timer-after.php
 	 * @since PECL swoole >= 1.9.0
 	 */
 	function swoole_timer_after(int $ms, callable $callback, $param = NULL): int {}
@@ -237,7 +237,7 @@ namespace {
 	 * Check if a timer callback function is existed
 	 * @param int $timer_id
 	 * @return bool
-	 * @link http://php.net/manual/en/function.swoole-timer-exists.php
+	 * @link https://php.net/manual/en/function.swoole-timer-exists.php
 	 * @since PECL swoole >= 1.9.0
 	 */
 	function swoole_timer_exists(int $timer_id): bool {}
@@ -248,7 +248,7 @@ namespace {
 	 * @param callable $callback
 	 * @param mixed $param
 	 * @return int
-	 * @link http://php.net/manual/en/function.swoole-timer-tick.php
+	 * @link https://php.net/manual/en/function.swoole-timer-tick.php
 	 * @since PECL swoole >= 1.9.0
 	 */
 	function swoole_timer_tick(int $ms, callable $callback, $param = NULL): int {}
@@ -256,7 +256,7 @@ namespace {
 	/**
 	 * Get the version of Swoole
 	 * @return string <p>The version of Swoole.</p>
-	 * @link http://php.net/manual/en/function.swoole-version.php
+	 * @link https://php.net/manual/en/function.swoole-version.php
 	 * @since PECL swoole >= 1.9.0
 	 */
 	function swoole_version(): string {}

@@ -10,7 +10,7 @@ namespace {
 	 * @param string $domain <p>The domain</p>
 	 * @param string $codeset <p>The code set</p>
 	 * @return string|false <p>A <code>string</code> on success.</p>
-	 * @link http://php.net/manual/en/function.bind-textdomain-codeset.php
+	 * @link https://php.net/manual/en/function.bind-textdomain-codeset.php
 	 * @since PHP 4 >= 4.2.0, PHP 5, PHP 7
 	 */
 	function bind_textdomain_codeset(string $domain, string $codeset) {}
@@ -21,7 +21,7 @@ namespace {
 	 * @param string $domain <p>The domain</p>
 	 * @param string $directory <p>The directory path</p>
 	 * @return string|false <p>The full pathname for the <code>domain</code> currently being set.</p>
-	 * @link http://php.net/manual/en/function.bindtextdomain.php
+	 * @link https://php.net/manual/en/function.bindtextdomain.php
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
 	function bindtextdomain(string $domain, string $directory) {}
@@ -33,7 +33,7 @@ namespace {
 	 * @param string $message <p>The message</p>
 	 * @param int $category <p>The category</p>
 	 * @return string <p>A <code>string</code> on success.</p>
-	 * @link http://php.net/manual/en/function.dcgettext.php
+	 * @link https://php.net/manual/en/function.dcgettext.php
 	 * @see gettext()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
@@ -48,7 +48,7 @@ namespace {
 	 * @param int $count
 	 * @param int $category
 	 * @return string <p>A <code>string</code> on success.</p>
-	 * @link http://php.net/manual/en/function.dcngettext.php
+	 * @link https://php.net/manual/en/function.dcngettext.php
 	 * @see ngettext()
 	 * @since PHP 4 >= 4.2.0, PHP 5, PHP 7
 	 */
@@ -60,7 +60,7 @@ namespace {
 	 * @param string $domain <p>The domain</p>
 	 * @param string $message <p>The message</p>
 	 * @return string <p>A <code>string</code> on success.</p>
-	 * @link http://php.net/manual/en/function.dgettext.php
+	 * @link https://php.net/manual/en/function.dgettext.php
 	 * @see gettext()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
@@ -74,7 +74,7 @@ namespace {
 	 * @param string $plural
 	 * @param int $count
 	 * @return string <p>A <code>string</code> on success.</p>
-	 * @link http://php.net/manual/en/function.dngettext.php
+	 * @link https://php.net/manual/en/function.dngettext.php
 	 * @see ngettext()
 	 * @since PHP 4 >= 4.2.0, PHP 5, PHP 7
 	 */
@@ -85,7 +85,7 @@ namespace {
 	 * <p>Looks up a message in the current domain.</p>
 	 * @param string $message <p>The message being translated.</p>
 	 * @return string <p>Returns a translated <code>string</code> if one is found in the translation table, or the submitted message if not found.</p>
-	 * @link http://php.net/manual/en/function.gettext.php
+	 * @link https://php.net/manual/en/function.gettext.php
 	 * @see setlocale()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
@@ -98,7 +98,7 @@ namespace {
 	 * @param string $plural <p>The plural message ID.</p>
 	 * @param int $count <p>The number (e.g. item count) to determine the translation for the respective grammatical number.</p>
 	 * @return string <p>Returns correct plural form of message identified by <code>singular</code> and <code>plural</code> for count <code>count</code>.</p>
-	 * @link http://php.net/manual/en/function.ngettext.php
+	 * @link https://php.net/manual/en/function.ngettext.php
 	 * @since PHP 4 >= 4.2.0, PHP 5, PHP 7
 	 */
 	function ngettext(string $singular, string $plural, int $count): string {}
@@ -108,7 +108,7 @@ namespace {
 	 * <p>This function sets the domain to search within when calls are made to <code>gettext()</code>, usually the named after an application.</p>
 	 * @param string|null $domain <p>The new message domain, or <b><code>NULL</code></b> to get the current setting without changing it</p>
 	 * @return string <p>If successful, this function returns the current message domain, after possibly changing it.</p>
-	 * @link http://php.net/manual/en/function.textdomain.php
+	 * @link https://php.net/manual/en/function.textdomain.php
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
 	function textdomain($domain): string {}

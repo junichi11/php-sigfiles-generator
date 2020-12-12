@@ -9,7 +9,7 @@ namespace {
 	 * <p><b>dba_close()</b> closes the established database and frees all resources of the specified database handle.</p>
 	 * @param resource $handle <p>The database handler, returned by <code>dba_open()</code> or <code>dba_popen()</code>.</p>
 	 * @return void <p>No value is returned.</p>
-	 * @link http://php.net/manual/en/function.dba-close.php
+	 * @link https://php.net/manual/en/function.dba-close.php
 	 * @see dba_open(), dba_popen()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
@@ -21,7 +21,7 @@ namespace {
 	 * @param string $key <p>The key of the entry which is deleted.</p>
 	 * @param resource $handle <p>The database handler, returned by <code>dba_open()</code> or <code>dba_popen()</code>.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.dba-delete.php
+	 * @link https://php.net/manual/en/function.dba-delete.php
 	 * @see dba_exists(), dba_fetch(), dba_insert(), dba_replace()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
@@ -33,7 +33,7 @@ namespace {
 	 * @param string $key <p>The key the check is performed for.</p>
 	 * @param resource $handle <p>The database handler, returned by <code>dba_open()</code> or <code>dba_popen()</code>.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> if the key exists, <b><code>FALSE</code></b> otherwise.</p>
-	 * @link http://php.net/manual/en/function.dba-exists.php
+	 * @link https://php.net/manual/en/function.dba-exists.php
 	 * @see dba_delete(), dba_fetch(), dba_insert(), dba_replace()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
@@ -45,7 +45,7 @@ namespace {
 	 * @param string $key <p>The key the data is specified by.</p> <p><b>Note</b>:</p><p>When working with inifiles this function accepts arrays as keys where index 0 is the group and index 1 is the value name. See: <code>dba_key_split()</code>.</p>
 	 * @param resource $handle <p>The database handler, returned by <code>dba_open()</code> or <code>dba_popen()</code>.</p>
 	 * @return string <p>Returns the associated string if the key/data pair is found, <b><code>FALSE</code></b> otherwise.</p>
-	 * @link http://php.net/manual/en/function.dba-fetch.php
+	 * @link https://php.net/manual/en/function.dba-fetch.php
 	 * @see dba_exists(), dba_delete(), dba_insert(), dba_replace(), dba_key_split()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
@@ -56,7 +56,7 @@ namespace {
 	 * <p><b>dba_firstkey()</b> returns the first key of the database and resets the internal key pointer. This permits a linear search through the whole database.</p>
 	 * @param resource $handle <p>The database handler, returned by <code>dba_open()</code> or <code>dba_popen()</code>.</p>
 	 * @return string|false <p>Returns the key on success or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.dba-firstkey.php
+	 * @link https://php.net/manual/en/function.dba-firstkey.php
 	 * @see dba_nextkey(), dba_key_split()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
@@ -67,7 +67,7 @@ namespace {
 	 * <p><b>dba_handlers()</b> list all the handlers supported by this extension.</p>
 	 * @param bool $full_info <p>Turns on/off full information display in the result.</p>
 	 * @return array <p>Returns an array of database handlers. If <code>full_info</code> is set to <b><code>TRUE</code></b>, the array will be associative with the handlers names as keys, and their version information as value. Otherwise, the result will be an indexed array of handlers names.</p><p><b>Note</b>:</p><p>When the internal cdb library is used you will see <code>cdb</code> and <code>cdb_make</code>.</p>
-	 * @link http://php.net/manual/en/function.dba-handlers.php
+	 * @link https://php.net/manual/en/function.dba-handlers.php
 	 * @since PHP 4 >= 4.3.0, PHP 5, PHP 7
 	 */
 	function dba_handlers(bool $full_info = FALSE): array {}
@@ -79,7 +79,7 @@ namespace {
 	 * @param string $value <p>The value to be inserted.</p>
 	 * @param resource $handle <p>The database handler, returned by <code>dba_open()</code> or <code>dba_popen()</code>.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.dba-insert.php
+	 * @link https://php.net/manual/en/function.dba-insert.php
 	 * @see dba_exists(), dba_delete(), dba_fetch(), dba_replace()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
@@ -90,7 +90,7 @@ namespace {
 	 * <p><b>dba_key_split()</b> splits a key (string representation) into an array representation.</p>
 	 * @param mixed $key <p>The key in string representation.</p>
 	 * @return mixed <p>Returns an array of the form <code>array(0 =&gt; group, 1 =&gt; value_name)</code>. This function will return <b><code>FALSE</code></b> if <code>key</code> is <b><code>NULL</code></b> or <b><code>FALSE</code></b>.</p>
-	 * @link http://php.net/manual/en/function.dba-key-split.php
+	 * @link https://php.net/manual/en/function.dba-key-split.php
 	 * @see dba_firstkey(), dba_nextkey(), dba_fetch()
 	 * @since PHP 5, PHP 7
 	 */
@@ -100,7 +100,7 @@ namespace {
 	 * List all open database files
 	 * <p><b>dba_list()</b> list all open database files.</p>
 	 * @return array <p>An associative array, in the form <code>resourceid =&gt; filename</code>.</p>
-	 * @link http://php.net/manual/en/function.dba-list.php
+	 * @link https://php.net/manual/en/function.dba-list.php
 	 * @since PHP 4 >= 4.3.0, PHP 5, PHP 7
 	 */
 	function dba_list(): array {}
@@ -110,7 +110,7 @@ namespace {
 	 * <p><b>dba_nextkey()</b> returns the next key of the database and advances the internal key pointer.</p>
 	 * @param resource $handle <p>The database handler, returned by <code>dba_open()</code> or <code>dba_popen()</code>.</p>
 	 * @return string|false <p>Returns the key on success or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.dba-nextkey.php
+	 * @link https://php.net/manual/en/function.dba-nextkey.php
 	 * @see dba_firstkey(), dba_key_split()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
@@ -124,7 +124,7 @@ namespace {
 	 * @param string $handler <p>The name of the handler which shall be used for accessing <code>path</code>. It is passed all optional parameters given to <b>dba_open()</b> and can act on behalf of them.</p>
 	 * @param string $_$args
 	 * @return resource|false <p>Returns a positive handle on success or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.dba-open.php
+	 * @link https://php.net/manual/en/function.dba-open.php
 	 * @see dba_popen(), dba_close()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
@@ -135,7 +135,7 @@ namespace {
 	 * <p><b>dba_optimize()</b> optimizes the underlying database.</p>
 	 * @param resource $handle <p>The database handler, returned by <code>dba_open()</code> or <code>dba_popen()</code>.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.dba-optimize.php
+	 * @link https://php.net/manual/en/function.dba-optimize.php
 	 * @see dba_sync()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
@@ -149,7 +149,7 @@ namespace {
 	 * @param string $handler <p>The name of the handler which shall be used for accessing <code>path</code>. It is passed all optional parameters given to <b>dba_popen()</b> and can act on behalf of them.</p>
 	 * @param mixed $_$args
 	 * @return resource|false <p>Returns a positive handle on success or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.dba-popen.php
+	 * @link https://php.net/manual/en/function.dba-popen.php
 	 * @see dba_open(), dba_close()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
@@ -162,7 +162,7 @@ namespace {
 	 * @param string $value <p>The value to be replaced.</p>
 	 * @param resource $handle <p>The database handler, returned by <code>dba_open()</code> or <code>dba_popen()</code>.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.dba-replace.php
+	 * @link https://php.net/manual/en/function.dba-replace.php
 	 * @see dba_exists(), dba_delete(), dba_fetch(), dba_insert()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
@@ -173,7 +173,7 @@ namespace {
 	 * <p><b>dba_sync()</b> synchronizes the database. This will probably trigger a physical write to the disk, if supported.</p>
 	 * @param resource $handle <p>The database handler, returned by <code>dba_open()</code> or <code>dba_popen()</code>.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.dba-sync.php
+	 * @link https://php.net/manual/en/function.dba-sync.php
 	 * @see dba_optimize()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */

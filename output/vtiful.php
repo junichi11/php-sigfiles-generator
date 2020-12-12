@@ -6,7 +6,7 @@ namespace Vtiful\Kernel {
 
 	/**
 	 * <p>Create xlsx files and set cells and output xlsx files</p>
-	 * @link http://php.net/manual/en/class.vtiful-kernel-excel.php
+	 * @link https://php.net/manual/en/class.vtiful-kernel-excel.php
 	 * @since PECL xlswriter >= 1.2.1
 	 */
 	class Excel {
@@ -16,7 +16,7 @@ namespace Vtiful\Kernel {
 		 * <p>Vtiful\Kernel\Excel constructor, create a class object.</p>
 		 * @param array $config <p>XLSX file export configuration</p>
 		 * @return self <p>Vtiful\Kernel\Excel instance</p>
-		 * @link http://php.net/manual/en/vtiful-kernel-excel.construct.php
+		 * @link https://php.net/manual/en/vtiful-kernel-excel.construct.php
 		 * @since PECL xlswriter >= 1.2.1
 		 */
 		public function __construct(array $config) {}
@@ -26,7 +26,7 @@ namespace Vtiful\Kernel {
 		 * <p>Create a new worksheet in the xlsx file.</p>
 		 * @param string $sheetName <p>Worksheet name</p>
 		 * @return self <p>Vtiful\Kernel\Excel instance</p>
-		 * @link http://php.net/manual/en/vtiful-kernel-excel.addSheet.php
+		 * @link https://php.net/manual/en/vtiful-kernel-excel.addSheet.php
 		 * @since PECL xlswriter >= 1.2.1
 		 */
 		public function addSheet(string $sheetName) {}
@@ -36,7 +36,7 @@ namespace Vtiful\Kernel {
 		 * <p>Add autofilter to a worksheet.</p>
 		 * @param string $scope <p>Cell start and end coordinate string.</p>
 		 * @return self <p>Vtiful\Kernel\Excel instance</p>
-		 * @link http://php.net/manual/en/vtiful-kernel-excel.autoFilter.php
+		 * @link https://php.net/manual/en/vtiful-kernel-excel.autoFilter.php
 		 * @since PECL xlswriter >= 1.2.1
 		 */
 		public function autoFilter(string $scope) {}
@@ -47,7 +47,7 @@ namespace Vtiful\Kernel {
 		 * @param string $fileName <p>XLSX file name</p>
 		 * @param string $sheetName <p>Worksheet name</p>
 		 * @return self <p>Vtiful\Kernel\Excel instance</p>
-		 * @link http://php.net/manual/en/vtiful-kernel-excel.constMemory.php
+		 * @link https://php.net/manual/en/vtiful-kernel-excel.constMemory.php
 		 * @since PECL xlswriter >= 1.2.1
 		 */
 		public function constMemory(string $fileName, string $sheetName = NULL) {}
@@ -57,7 +57,7 @@ namespace Vtiful\Kernel {
 		 * <p>Write a data in the worksheet.</p>
 		 * @param array $data <p>worksheet data</p>
 		 * @return self <p>Vtiful\Kernel\Excel instance</p>
-		 * @link http://php.net/manual/en/vtiful-kernel-excel.data.php
+		 * @link https://php.net/manual/en/vtiful-kernel-excel.data.php
 		 * @since PECL xlswriter >= 1.2.1
 		 */
 		public function data(array $data) {}
@@ -68,7 +68,7 @@ namespace Vtiful\Kernel {
 		 * @param string $fileName <p>XLSX file name</p>
 		 * @param string $sheetName <p>Worksheet name</p>
 		 * @return self <p>Vtiful\Kernel\Excel instance</p>
-		 * @link http://php.net/manual/en/vtiful-kernel-excel.filename.php
+		 * @link https://php.net/manual/en/vtiful-kernel-excel.filename.php
 		 * @since PECL xlswriter >= 1.2.1
 		 */
 		public function fileName(string $fileName, string $sheetName = NULL) {}
@@ -77,7 +77,7 @@ namespace Vtiful\Kernel {
 		 * Vtiful\Kernel\Excel getHandle
 		 * <p>Get the xlsx text resource handle.</p>
 		 * @return self <p>Resource</p>
-		 * @link http://php.net/manual/en/vtiful-kernel-excel.getHandle.php
+		 * @link https://php.net/manual/en/vtiful-kernel-excel.getHandle.php
 		 * @since PECL xlswriter >= 1.2.1
 		 */
 		public function getHandle() {}
@@ -87,7 +87,7 @@ namespace Vtiful\Kernel {
 		 * <p>Write a header in the worksheet.</p>
 		 * @param array $headerData <p>worksheet header data</p>
 		 * @return self <p>Vtiful\Kernel\Excel instance</p>
-		 * @link http://php.net/manual/en/vtiful-kernel-excel.header.php
+		 * @link https://php.net/manual/en/vtiful-kernel-excel.header.php
 		 * @since PECL xlswriter >= 1.2.1
 		 */
 		public function header(array $headerData) {}
@@ -99,7 +99,7 @@ namespace Vtiful\Kernel {
 		 * @param int $column <p>cell column</p>
 		 * @param string $formula <p>formula string</p>
 		 * @return self <p>Vtiful\Kernel\Excel instance</p>
-		 * @link http://php.net/manual/en/vtiful-kernel-excel.insertFormula.php
+		 * @link https://php.net/manual/en/vtiful-kernel-excel.insertFormula.php
 		 * @since PECL xlswriter >= 1.2.1
 		 */
 		public function insertFormula(int $row, int $column, string $formula) {}
@@ -111,7 +111,7 @@ namespace Vtiful\Kernel {
 		 * @param int $column <p>cell column</p>
 		 * @param string $localImagePath <p>local image path</p>
 		 * @return self <p>Vtiful\Kernel\Excel instance</p>
-		 * @link http://php.net/manual/en/vtiful-kernel-excel.insertImage.php
+		 * @link https://php.net/manual/en/vtiful-kernel-excel.insertImage.php
 		 * @since PECL xlswriter >= 1.2.1
 		 */
 		public function insertImage(int $row, int $column, string $localImagePath) {}
@@ -124,7 +124,7 @@ namespace Vtiful\Kernel {
 		 * @param string $data <p>data to be written</p>
 		 * @param string $format <p>String format</p>
 		 * @return self <p>Vtiful\Kernel\Excel instance</p>
-		 * @link http://php.net/manual/en/vtiful-kernel-excel.insertText.php
+		 * @link https://php.net/manual/en/vtiful-kernel-excel.insertText.php
 		 * @since PECL xlswriter >= 1.2.1
 		 */
 		public function insertText(int $row, int $column, string $data, string $format = NULL) {}
@@ -135,7 +135,7 @@ namespace Vtiful\Kernel {
 		 * @param string $scope <p>cell start and end coordinate strings</p>
 		 * @param string $data <p>string data</p>
 		 * @return self <p>Vtiful\Kernel\Excel instance</p>
-		 * @link http://php.net/manual/en/vtiful-kernel-excel.mergeCells.php
+		 * @link https://php.net/manual/en/vtiful-kernel-excel.mergeCells.php
 		 * @since PECL xlswriter >= 1.2.1
 		 */
 		public function mergeCells(string $scope, string $data) {}
@@ -144,7 +144,7 @@ namespace Vtiful\Kernel {
 		 * Vtiful\Kernel\Excel output
 		 * <p>Output xlsx file to disk.</p>
 		 * @return self <p>XLSX file path;</p>
-		 * @link http://php.net/manual/en/vtiful-kernel-excel.output.php
+		 * @link https://php.net/manual/en/vtiful-kernel-excel.output.php
 		 * @since PECL xlswriter >= 1.2.1
 		 */
 		public function output() {}
@@ -156,7 +156,7 @@ namespace Vtiful\Kernel {
 		 * @param float $width <p>column width</p>
 		 * @param resource $format <p>cell format resource</p>
 		 * @return self <p>Vtiful\Kernel\Excel instance</p>
-		 * @link http://php.net/manual/en/vtiful-kernel-excel.setColumn.php
+		 * @link https://php.net/manual/en/vtiful-kernel-excel.setColumn.php
 		 * @since PECL xlswriter >= 1.2.1
 		 */
 		public function setColumn(string $range, float $width, $format = NULL) {}
@@ -168,7 +168,7 @@ namespace Vtiful\Kernel {
 		 * @param float $height <p>row height</p>
 		 * @param resource $format <p>cell format resource</p>
 		 * @return self <p>Vtiful\Kernel\Excel instance</p>
-		 * @link http://php.net/manual/en/vtiful-kernel-excel.setRow.php
+		 * @link https://php.net/manual/en/vtiful-kernel-excel.setRow.php
 		 * @since PECL xlswriter >= 1.2.1
 		 */
 		public function setRow(string $range, float $height, $format = NULL) {}
@@ -176,104 +176,104 @@ namespace Vtiful\Kernel {
 
 	/**
 	 * <p>Create a cell format object</p>
-	 * @link http://php.net/manual/en/class.vtiful-kernel-format.php
+	 * @link https://php.net/manual/en/class.vtiful-kernel-format.php
 	 * @since PECL xlswriter >= 1.2.1
 	 */
 	class Format {
 
 		/**
 		 * @var int
-		 * @link http://php.net/manual/en/class.vtiful-kernel-format.php
+		 * @link https://php.net/manual/en/class.vtiful-kernel-format.php
 		 */
 		const FORMAT_ALIGN_LEFT = 1;
 
 		/**
 		 * @var int
-		 * @link http://php.net/manual/en/class.vtiful-kernel-format.php
+		 * @link https://php.net/manual/en/class.vtiful-kernel-format.php
 		 */
 		const FORMAT_ALIGN_CENTER = 2;
 
 		/**
 		 * @var int
-		 * @link http://php.net/manual/en/class.vtiful-kernel-format.php
+		 * @link https://php.net/manual/en/class.vtiful-kernel-format.php
 		 */
 		const FORMAT_ALIGN_RIGHT = 3;
 
 		/**
 		 * @var int
-		 * @link http://php.net/manual/en/class.vtiful-kernel-format.php
+		 * @link https://php.net/manual/en/class.vtiful-kernel-format.php
 		 */
 		const FORMAT_ALIGN_FILL = 4;
 
 		/**
 		 * @var int
-		 * @link http://php.net/manual/en/class.vtiful-kernel-format.php
+		 * @link https://php.net/manual/en/class.vtiful-kernel-format.php
 		 */
 		const FORMAT_ALIGN_JUSTIFY = 5;
 
 		/**
 		 * @var int
-		 * @link http://php.net/manual/en/class.vtiful-kernel-format.php
+		 * @link https://php.net/manual/en/class.vtiful-kernel-format.php
 		 */
 		const FORMAT_ALIGN_CENTER_ACROSS = 6;
 
 		/**
 		 * @var int
-		 * @link http://php.net/manual/en/class.vtiful-kernel-format.php
+		 * @link https://php.net/manual/en/class.vtiful-kernel-format.php
 		 */
 		const FORMAT_ALIGN_DISTRIBUTED = 7;
 
 		/**
 		 * @var int
-		 * @link http://php.net/manual/en/class.vtiful-kernel-format.php
+		 * @link https://php.net/manual/en/class.vtiful-kernel-format.php
 		 */
 		const FORMAT_ALIGN_VERTICAL_TOP = 8;
 
 		/**
 		 * @var int
-		 * @link http://php.net/manual/en/class.vtiful-kernel-format.php
+		 * @link https://php.net/manual/en/class.vtiful-kernel-format.php
 		 */
 		const FORMAT_ALIGN_VERTICAL_BOTTOM = 9;
 
 		/**
 		 * @var int
-		 * @link http://php.net/manual/en/class.vtiful-kernel-format.php
+		 * @link https://php.net/manual/en/class.vtiful-kernel-format.php
 		 */
 		const FORMAT_ALIGN_VERTICAL_CENTER = 10;
 
 		/**
 		 * @var int
-		 * @link http://php.net/manual/en/class.vtiful-kernel-format.php
+		 * @link https://php.net/manual/en/class.vtiful-kernel-format.php
 		 */
 		const FORMAT_ALIGN_VERTICAL_JUSTIFY = 11;
 
 		/**
 		 * @var int
-		 * @link http://php.net/manual/en/class.vtiful-kernel-format.php
+		 * @link https://php.net/manual/en/class.vtiful-kernel-format.php
 		 */
 		const FORMAT_ALIGN_VERTICAL_DISTRIBUTED = 12;
 
 		/**
 		 * @var int
-		 * @link http://php.net/manual/en/class.vtiful-kernel-format.php
+		 * @link https://php.net/manual/en/class.vtiful-kernel-format.php
 		 */
 		const UNDERLINE_SINGLE = 1;
 
 		/**
 		 * @var int
-		 * @link http://php.net/manual/en/class.vtiful-kernel-format.php
+		 * @link https://php.net/manual/en/class.vtiful-kernel-format.php
 		 */
 		const UNDERLINE_DOUBLE = 2;
 
 		/**
 		 * @var int
-		 * @link http://php.net/manual/en/class.vtiful-kernel-format.php
+		 * @link https://php.net/manual/en/class.vtiful-kernel-format.php
 		 */
 		const UNDERLINE_SINGLE_ACCOUNTING = 3;
 
 		/**
 		 * @var int
-		 * @link http://php.net/manual/en/class.vtiful-kernel-format.php
+		 * @link https://php.net/manual/en/class.vtiful-kernel-format.php
 		 */
 		const UNDERLINE_DOUBLE_ACCOUNTING = 4;
 
@@ -283,7 +283,7 @@ namespace Vtiful\Kernel {
 		 * @param resource $handle <p>xlsx file handle</p>
 		 * @param int $style <p>Vtiful\Kernel\Format constant</p>
 		 * @return resource <p>Resource</p>
-		 * @link http://php.net/manual/en/vtiful-kernel-format.align.php
+		 * @link https://php.net/manual/en/vtiful-kernel-format.align.php
 		 * @since PECL xlswriter >= 1.2.1
 		 */
 		public function align($handle, int $style) {}
@@ -293,7 +293,7 @@ namespace Vtiful\Kernel {
 		 * <p>Vtiful\Kernel\Format bold format</p>
 		 * @param resource $handle <p>xlsx file handle</p>
 		 * @return resource <p>Resource</p>
-		 * @link http://php.net/manual/en/vtiful-kernel-format.bold.php
+		 * @link https://php.net/manual/en/vtiful-kernel-format.bold.php
 		 * @since PECL xlswriter >= 1.2.1
 		 */
 		public function bold($handle) {}
@@ -303,7 +303,7 @@ namespace Vtiful\Kernel {
 		 * <p>Vtiful\Kernel\Format italic format</p>
 		 * @param resource $handle <p>xlsx file handle</p>
 		 * @return resource <p>Resource</p>
-		 * @link http://php.net/manual/en/vtiful-kernel-format.italic.php
+		 * @link https://php.net/manual/en/vtiful-kernel-format.italic.php
 		 * @since PECL xlswriter >= 1.2.1
 		 */
 		public function italic($handle) {}
@@ -314,7 +314,7 @@ namespace Vtiful\Kernel {
 		 * @param resource $handle <p>xlsx file handle</p>
 		 * @param int $style <p>Vtiful\Kernel\Format constant</p>
 		 * @return resource <p>Resource</p>
-		 * @link http://php.net/manual/en/vtiful-kernel-format.underline.php
+		 * @link https://php.net/manual/en/vtiful-kernel-format.underline.php
 		 * @since PECL xlswriter >= 1.2.1
 		 */
 		public function underline($handle, int $style) {}

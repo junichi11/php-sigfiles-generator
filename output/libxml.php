@@ -6,44 +6,44 @@ namespace {
 
 	/**
 	 * <p>Contains various information about errors thrown by libxml. The error codes are described within the official xmlError API documentation.</p>
-	 * @link http://php.net/manual/en/class.libxmlerror.php
+	 * @link https://php.net/manual/en/class.libxmlerror.php
 	 * @since PHP 5 >= 5.1.0, PHP 7
 	 */
 	class libXMLError {
 
 		/**
 		 * @var int <p>the severity of the error (one of the following constants: <b><code>LIBXML_ERR_WARNING</code></b>, <b><code>LIBXML_ERR_ERROR</code></b> or <b><code>LIBXML_ERR_FATAL</code></b>)</p>
-		 * @link http://php.net/manual/en/class.libxmlerror.php#libxmlerror.props.level
+		 * @link https://php.net/manual/en/class.libxmlerror.php#libxmlerror.props.level
 		 */
 		public $level;
 
 		/**
 		 * @var int <p>The error's code.</p>
-		 * @link http://php.net/manual/en/class.libxmlerror.php#libxmlerror.props.code
+		 * @link https://php.net/manual/en/class.libxmlerror.php#libxmlerror.props.code
 		 */
 		public $code;
 
 		/**
 		 * @var int <p>The column where the error occurred.</p> <p><b>Note</b>:</p><p>This property isn't entirely implemented in libxml and therefore <code>0</code> is often returned.</p>
-		 * @link http://php.net/manual/en/class.libxmlerror.php#libxmlerror.props.column
+		 * @link https://php.net/manual/en/class.libxmlerror.php#libxmlerror.props.column
 		 */
 		public $column;
 
 		/**
 		 * @var string <p>The error message, if any.</p>
-		 * @link http://php.net/manual/en/class.libxmlerror.php#libxmlerror.props.message
+		 * @link https://php.net/manual/en/class.libxmlerror.php#libxmlerror.props.message
 		 */
 		public $message;
 
 		/**
 		 * @var string <p>The filename, or empty if the XML was loaded from a string.</p>
-		 * @link http://php.net/manual/en/class.libxmlerror.php#libxmlerror.props.file
+		 * @link https://php.net/manual/en/class.libxmlerror.php#libxmlerror.props.file
 		 */
 		public $file;
 
 		/**
 		 * @var int <p>The line where the error occurred.</p>
-		 * @link http://php.net/manual/en/class.libxmlerror.php#libxmlerror.props.line
+		 * @link https://php.net/manual/en/class.libxmlerror.php#libxmlerror.props.line
 		 */
 		public $line;
 	}
@@ -52,7 +52,7 @@ namespace {
 	 * Clear libxml error buffer
 	 * <p><b>libxml_clear_errors()</b> clears the libxml error buffer.</p>
 	 * @return void <p>No value is returned.</p>
-	 * @link http://php.net/manual/en/function.libxml-clear-errors.php
+	 * @link https://php.net/manual/en/function.libxml-clear-errors.php
 	 * @see libxml_get_errors(), libxml_get_last_error()
 	 * @since PHP 5 >= 5.1.0, PHP 7
 	 */
@@ -63,7 +63,7 @@ namespace {
 	 * <p>Disable/enable the ability to load external entities. Note that disabling the loading of external entities may cause general issues with loading XML documents. However, as of libxml 2.9.0 entity substitution is disabled by default, so there is no need to disable the loading of external entities.</p>
 	 * @param bool $disable <p>Disable (<b><code>TRUE</code></b>) or enable (<b><code>FALSE</code></b>) libxml extensions (such as DOM, XMLWriter and XMLReader) to load external entities.</p>
 	 * @return bool <p>Returns the previous value.</p>
-	 * @link http://php.net/manual/en/function.libxml-disable-entity-loader.php
+	 * @link https://php.net/manual/en/function.libxml-disable-entity-loader.php
 	 * @see libxml_use_internal_errors()
 	 * @since PHP 5 >= 5.2.11, PHP 7
 	 */
@@ -73,7 +73,7 @@ namespace {
 	 * Retrieve array of errors
 	 * <p>Retrieve array of errors.</p>
 	 * @return array <p>Returns an array with <code>LibXMLError</code> objects if there are any errors in the buffer, or an empty array otherwise.</p>
-	 * @link http://php.net/manual/en/function.libxml-get-errors.php
+	 * @link https://php.net/manual/en/function.libxml-get-errors.php
 	 * @see libxml_get_last_error(), libxml_clear_errors()
 	 * @since PHP 5 >= 5.1.0, PHP 7
 	 */
@@ -83,7 +83,7 @@ namespace {
 	 * Retrieve last error from libxml
 	 * <p>Retrieve last error from libxml.</p>
 	 * @return LibXMLError|false <p>Returns a <code>LibXMLError</code> object if there is any error in the buffer, <b><code>FALSE</code></b> otherwise.</p>
-	 * @link http://php.net/manual/en/function.libxml-get-last-error.php
+	 * @link https://php.net/manual/en/function.libxml-get-last-error.php
 	 * @see libxml_get_errors(), libxml_clear_errors()
 	 * @since PHP 5 >= 5.1.0, PHP 7
 	 */
@@ -94,7 +94,7 @@ namespace {
 	 * <p>Changes the default external entity loader.</p>
 	 * @param callable|null $resolver_function <p>A <code>callable</code> that takes three arguments. Two strings, a public id and system id, and a context (an array with four keys) as the third argument. This callback should return a resource, a string from which a resource can be opened, or <b><code>NULL</code></b>.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.libxml-set-external-entity-loader.php
+	 * @link https://php.net/manual/en/function.libxml-set-external-entity-loader.php
 	 * @see libxml_disable_entity_loader()
 	 * @since PHP 5 >= 5.4.0, PHP 7
 	 */
@@ -105,7 +105,7 @@ namespace {
 	 * <p>Sets the streams context for the next libxml document load or write.</p>
 	 * @param resource $context <p>The stream context resource (created with <code>stream_context_create()</code>)</p>
 	 * @return void <p>No value is returned.</p>
-	 * @link http://php.net/manual/en/function.libxml-set-streams-context.php
+	 * @link https://php.net/manual/en/function.libxml-set-streams-context.php
 	 * @see stream_context_create()
 	 * @since PHP 5, PHP 7
 	 */
@@ -116,7 +116,7 @@ namespace {
 	 * <p><b>libxml_use_internal_errors()</b> allows you to disable standard libxml errors and enable user error handling.</p>
 	 * @param bool|null $use_errors <p>Enable (<b><code>TRUE</code></b>) user error handling or disable (<b><code>FALSE</code></b>) user error handling. Disabling will also clear any existing libxml errors.</p>
 	 * @return bool <p>This function returns the previous value of <code>use_errors</code>.</p>
-	 * @link http://php.net/manual/en/function.libxml-use-internal-errors.php
+	 * @link https://php.net/manual/en/function.libxml-use-internal-errors.php
 	 * @see libxml_clear_errors(), libxml_get_errors()
 	 * @since PHP 5 >= 5.1.0, PHP 7
 	 */

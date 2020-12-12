@@ -12,7 +12,7 @@ namespace {
 	 * @param int $parent <p>A bookmark previously created by this function which is used as the parent of the new bookmark.</p>
 	 * @param int $open <p>If <code>open</code> is unequal to zero the bookmark will be shown open by the pdf viewer.</p>
 	 * @return int <p>The returned value is a reference for the bookmark. It is only used if the bookmark shall be used as a parent. The value is greater zero if the function succeeds. In case of an error zero will be returned.</p>
-	 * @link http://php.net/manual/en/function.ps-add-bookmark.php
+	 * @link https://php.net/manual/en/function.ps-add-bookmark.php
 	 * @see ps_add_launchlink(), ps_add_pdflink(), ps_add_weblink()
 	 * @since PECL ps >= 1.1.0
 	 */
@@ -28,7 +28,7 @@ namespace {
 	 * @param float $ury <p>The y-coordinate of the upper right corner.</p>
 	 * @param string $filename <p>The path of the program to be started, when the link is clicked on.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.ps-add-launchlink.php
+	 * @link https://php.net/manual/en/function.ps-add-launchlink.php
 	 * @see ps_add_locallink(), ps_add_pdflink(), ps_add_weblink()
 	 * @since PECL ps >= 1.1.0
 	 */
@@ -45,7 +45,7 @@ namespace {
 	 * @param int $page <p>The number of the page displayed when clicking on the link.</p>
 	 * @param string $dest <p>The parameter <code>dest</code> determines how the document is being viewed. It can be <code>fitpage</code>, <code>fitwidth</code>, <code>fitheight</code>, or <code>fitbbox</code>.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.ps-add-locallink.php
+	 * @link https://php.net/manual/en/function.ps-add-locallink.php
 	 * @see ps_add_launchlink(), ps_add_pdflink(), ps_add_weblink()
 	 * @since PECL ps >= 1.1.0
 	 */
@@ -64,7 +64,7 @@ namespace {
 	 * @param string $icon <p>The icon shown if the note is folded. This parameter can be set to <code>comment</code>, <code>insert</code>, <code>note</code>, <code>paragraph</code>, <code>newparagraph</code>, <code>key</code>, or <code>help</code>.</p>
 	 * @param int $open <p>If <code>open</code> is unequal to zero the note will be shown unfolded after opening the document with a pdf viewer.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.ps-add-note.php
+	 * @link https://php.net/manual/en/function.ps-add-note.php
 	 * @see ps_add_pdflink(), ps_add_launchlink(), ps_add_locallink(), ps_add_weblink()
 	 * @since PECL ps >= 1.1.0
 	 */
@@ -82,7 +82,7 @@ namespace {
 	 * @param int $page <p>The page number of the destination pdf document</p>
 	 * @param string $dest <p>The parameter <code>dest</code> determines how the document is being viewed. It can be <code>fitpage</code>, <code>fitwidth</code>, <code>fitheight</code>, or <code>fitbbox</code>.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.ps-add-pdflink.php
+	 * @link https://php.net/manual/en/function.ps-add-pdflink.php
 	 * @see ps_add_launchlink(), ps_add_locallink(), ps_add_weblink()
 	 * @since PECL ps >= 1.1.0
 	 */
@@ -98,7 +98,7 @@ namespace {
 	 * @param float $ury <p>The y-coordinate of the upper right corner.</p>
 	 * @param string $url <p>The url of the hyperlink to be opened when clicking on this link, e.g. <code>http://www.php.net</code>.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.ps-add-weblink.php
+	 * @link https://php.net/manual/en/function.ps-add-weblink.php
 	 * @see ps_add_launchlink(), ps_add_locallink(), ps_add_pdflink()
 	 * @since PECL ps >= 1.1.0
 	 */
@@ -114,7 +114,7 @@ namespace {
 	 * @param float $alpha <p>The start angle given in degrees.</p>
 	 * @param float $beta <p>The end angle given in degrees.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.ps-arc.php
+	 * @link https://php.net/manual/en/function.ps-arc.php
 	 * @see ps_arcn()
 	 * @since PECL ps >= 1.1.0
 	 */
@@ -130,7 +130,7 @@ namespace {
 	 * @param float $alpha <p>The starting angle given in degrees.</p>
 	 * @param float $beta <p>The end angle given in degrees.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.ps-arcn.php
+	 * @link https://php.net/manual/en/function.ps-arcn.php
 	 * @see ps_arc()
 	 * @since PECL ps >= 1.1.0
 	 */
@@ -143,7 +143,7 @@ namespace {
 	 * @param float $width <p>The width of the page in pixel, e.g. 596 for A4 format.</p>
 	 * @param float $height <p>The height of the page in pixel, e.g. 842 for A4 format.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.ps-begin-page.php
+	 * @link https://php.net/manual/en/function.ps-begin-page.php
 	 * @see ps_end_page(), ps_findfont(), ps_set_info()
 	 * @since PECL ps >= 1.1.0
 	 */
@@ -159,7 +159,7 @@ namespace {
 	 * @param float $ystep
 	 * @param int $painttype <p>Must be 1 or 2.</p>
 	 * @return int|false <p>The identifier of the pattern or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.ps-begin-pattern.php
+	 * @link https://php.net/manual/en/function.ps-begin-pattern.php
 	 * @see ps_end_pattern(), ps_setcolor(), ps_shading_pattern()
 	 * @since PECL ps >= 1.2.0
 	 */
@@ -172,7 +172,7 @@ namespace {
 	 * @param float $width <p>The width of the template in pixel.</p>
 	 * @param float $height <p>The height of the template in pixel.</p>
 	 * @return int <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.ps-begin-template.php
+	 * @link https://php.net/manual/en/function.ps-begin-template.php
 	 * @see ps_end_template()
 	 * @since PECL ps >= 1.2.0
 	 */
@@ -186,7 +186,7 @@ namespace {
 	 * @param float $y <p>The y-coordinate of the circle's middle point.</p>
 	 * @param float $radius <p>The radius of the circle</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.ps-circle.php
+	 * @link https://php.net/manual/en/function.ps-circle.php
 	 * @see ps_arc(), ps_arcn()
 	 * @since PECL ps >= 1.1.0
 	 */
@@ -197,7 +197,7 @@ namespace {
 	 * <p>Takes the current path and uses it to define the border of a clipping area. Everything drawn outside of that area will not be visible.</p>
 	 * @param resource $psdoc <p>Resource identifier of the postscript file as returned by <code>ps_new()</code>.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.ps-clip.php
+	 * @link https://php.net/manual/en/function.ps-clip.php
 	 * @see ps_closepath()
 	 * @since PECL ps >= 1.1.0
 	 */
@@ -208,7 +208,7 @@ namespace {
 	 * <p>Closes the PostScript document.</p><p>This function writes the trailer of the PostScript document. It also writes the bookmark tree. <b>ps_close()</b> does not free any resources, which is done by <code>ps_delete()</code>.</p><p>This function is also called by <code>ps_delete()</code> if it has not been called before.</p>
 	 * @param resource $psdoc <p>Resource identifier of the postscript file as returned by <code>ps_new()</code>.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.ps-close.php
+	 * @link https://php.net/manual/en/function.ps-close.php
 	 * @see ps_open_file(), ps_delete()
 	 * @since PECL ps >= 1.1.0
 	 */
@@ -220,7 +220,7 @@ namespace {
 	 * @param resource $psdoc <p>Resource identifier of the postscript file as returned by <code>ps_new()</code>.</p>
 	 * @param int $imageid <p>Resource identifier of the image as returned by <code>ps_open_image()</code> or <code>ps_open_image_file()</code>.</p>
 	 * @return void|false <p>Returns <b><code>NULL</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.ps-close-image.php
+	 * @link https://php.net/manual/en/function.ps-close-image.php
 	 * @see ps_open_image(), ps_open_image_file()
 	 * @since PECL ps >= 1.1.0
 	 */
@@ -231,7 +231,7 @@ namespace {
 	 * <p>Connects the last point with the first point of a path. The resulting path can be used for stroking, filling, clipping, etc..</p>
 	 * @param resource $psdoc <p>Resource identifier of the postscript file as returned by <code>ps_new()</code>.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.ps-closepath.php
+	 * @link https://php.net/manual/en/function.ps-closepath.php
 	 * @see ps_clip(), ps_closepath_stroke()
 	 * @since PECL ps >= 1.1.0
 	 */
@@ -242,7 +242,7 @@ namespace {
 	 * <p>Connects the last point with first point of a path and draws the resulting closed line.</p>
 	 * @param resource $psdoc <p>Resource identifier of the postscript file as returned by <code>ps_new()</code>.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.ps-closepath-stroke.php
+	 * @link https://php.net/manual/en/function.ps-closepath-stroke.php
 	 * @see ps_closepath()
 	 * @since PECL ps >= 1.1.0
 	 */
@@ -254,7 +254,7 @@ namespace {
 	 * @param resource $psdoc <p>Resource identifier of the postscript file as returned by <code>ps_new()</code>.</p>
 	 * @param string $text <p>The text to output.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.ps-continue-text.php
+	 * @link https://php.net/manual/en/function.ps-continue-text.php
 	 * @see ps_show(), ps_show_xy(), ps_show_boxed()
 	 * @since PECL ps >= 1.1.0
 	 */
@@ -271,7 +271,7 @@ namespace {
 	 * @param float $x3 <p>x-coordinate of third control point.</p>
 	 * @param float $y3 <p>y-coordinate of third control point.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.ps-curveto.php
+	 * @link https://php.net/manual/en/function.ps-curveto.php
 	 * @see ps_lineto()
 	 * @since PECL ps >= 1.1.0
 	 */
@@ -282,7 +282,7 @@ namespace {
 	 * <p>Mainly frees memory used by the document. Also closes a file, if it was not closed before with <code>ps_close()</code>. You should in any case close the file with <code>ps_close()</code> before, because <code>ps_close()</code> not just closes the file but also outputs a trailor containing PostScript comments like the number of pages in the document and adding the bookmark hierarchy.</p>
 	 * @param resource $psdoc <p>Resource identifier of the postscript file as returned by <code>ps_new()</code>.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.ps-delete.php
+	 * @link https://php.net/manual/en/function.ps-delete.php
 	 * @see ps_close()
 	 * @since PECL ps >= 1.1.0
 	 */
@@ -293,7 +293,7 @@ namespace {
 	 * <p>Ends a page which was started with <code>ps_begin_page()</code>. Ending a page will leave the current drawing context, which e.g. requires to reload fonts if they were loading within the page, and to set many other drawing parameters like the line width, or color..</p>
 	 * @param resource $psdoc <p>Resource identifier of the postscript file as returned by <code>ps_new()</code>.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.ps-end-page.php
+	 * @link https://php.net/manual/en/function.ps-end-page.php
 	 * @see ps_begin_page()
 	 * @since PECL ps >= 1.1.0
 	 */
@@ -304,7 +304,7 @@ namespace {
 	 * <p>Ends a pattern which was started with <code>ps_begin_pattern()</code>. Once a pattern has been ended, it can be used like a color to fill areas.</p>
 	 * @param resource $psdoc <p>Resource identifier of the postscript file as returned by <code>ps_new()</code>.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.ps-end-pattern.php
+	 * @link https://php.net/manual/en/function.ps-end-pattern.php
 	 * @see ps_begin_pattern()
 	 * @since PECL ps >= 1.2.0
 	 */
@@ -315,7 +315,7 @@ namespace {
 	 * <p>Ends a template which was started with <code>ps_begin_template()</code>. Once a template has been ended, it can be used like an image.</p>
 	 * @param resource $psdoc <p>Resource identifier of the postscript file as returned by <code>ps_new()</code>.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.ps-end-template.php
+	 * @link https://php.net/manual/en/function.ps-end-template.php
 	 * @see ps_begin_template()
 	 * @since PECL ps >= 1.2.0
 	 */
@@ -326,7 +326,7 @@ namespace {
 	 * <p>Fills the path constructed with previously called drawing functions like <code>ps_lineto()</code>.</p>
 	 * @param resource $psdoc <p>Resource identifier of the postscript file as returned by <code>ps_new()</code>.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.ps-fill.php
+	 * @link https://php.net/manual/en/function.ps-fill.php
 	 * @see ps_fill_stroke(), ps_stroke()
 	 * @since PECL ps >= 1.1.0
 	 */
@@ -337,7 +337,7 @@ namespace {
 	 * <p>Fills and draws the path constructed with previously called drawing functions like <code>ps_lineto()</code>.</p>
 	 * @param resource $psdoc <p>Resource identifier of the postscript file as returned by <code>ps_new()</code>.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.ps-fill-stroke.php
+	 * @link https://php.net/manual/en/function.ps-fill-stroke.php
 	 * @see ps_fill(), ps_stroke()
 	 * @since PECL ps >= 1.1.0
 	 */
@@ -351,7 +351,7 @@ namespace {
 	 * @param string $encoding <p><b>ps_findfont()</b> will try to load the file passed in the parameter <code>encoding</code>. Encoding files are of the same syntax as those used by <b>dvips(1)</b>. They contain a font encoding vector (which is currently not used but must be present) and a list of extra ligatures to extend the list of ligatures derived from the afm file.</p> <p><code>encoding</code> can be <b><code>NULL</code></b> or the empty string if the default encoding (TeXBase1) shall be used.</p> <p>If the encoding is set to <code>builtin</code> then there will be no reencoding and the font specific encoding will be used. This is very useful with symbol fonts.</p>
 	 * @param bool $embed <p>If set to a value &gt;0 the font will be embedded into the document. This requires the font outline (.pfb file) to be present.</p>
 	 * @return int <p>Returns the identifier of the font or zero in case of an error. The identifier is a positive number.</p>
-	 * @link http://php.net/manual/en/function.ps-findfont.php
+	 * @link https://php.net/manual/en/function.ps-findfont.php
 	 * @see ps_begin_page(), ps_setfont()
 	 * @since PECL ps >= 1.1.0
 	 */
@@ -362,7 +362,7 @@ namespace {
 	 * <p>This function is not implemented yet. It will always return an empty string. The idea for a later implementation is to write the contents of the postscript file into an internal buffer if in memory creation is requested, and retrieve the buffer content with this function. Currently, documents created in memory are send to the browser without buffering.</p><p>This function is currently not documented; only its argument list is available.</p>
 	 * @param resource $psdoc <p>Resource identifier of the postscript file as returned by <code>ps_new()</code>.</p>
 	 * @return string
-	 * @link http://php.net/manual/en/function.ps-get-buffer.php
+	 * @link https://php.net/manual/en/function.ps-get-buffer.php
 	 * @see ps_open_file()
 	 * @since PECL ps >= 1.1.0
 	 */
@@ -375,7 +375,7 @@ namespace {
 	 * @param string $name <p>Name of the parameter.</p>
 	 * @param float $modifier <p>An identifier needed if a parameter of a resource is requested, e.g. the size of an image. In such a case the resource id is passed.</p>
 	 * @return string|false <p>Returns the value of the parameter or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.ps-get-parameter.php
+	 * @link https://php.net/manual/en/function.ps-get-parameter.php
 	 * @see ps_set_parameter()
 	 * @since PECL ps >= 1.1.0
 	 */
@@ -388,7 +388,7 @@ namespace {
 	 * @param string $name <p>Name of the value.</p>
 	 * @param float $modifier <p>The parameter <code>modifier</code> specifies the resource for which the value is to be retrieved. This can be the id of a font or an image.</p>
 	 * @return float <p>Returns the value of the parameter or <b><code>FALSE</code></b>.</p>
-	 * @link http://php.net/manual/en/function.ps-get-value.php
+	 * @link https://php.net/manual/en/function.ps-get-value.php
 	 * @see ps_set_value()
 	 * @since PECL ps >= 1.1.0
 	 */
@@ -400,7 +400,7 @@ namespace {
 	 * @param resource $psdoc <p>Resource identifier of the postscript file as returned by <code>ps_new()</code>.</p>
 	 * @param string $text <p><code>text</code> should not contain any non alpha characters. Possible positions for breaks are returned in an array of interger numbers. Each number is the position of the char in <code>text</code> after which a hyphenation can take place.</p>
 	 * @return array|false <p>An array of integers indicating the position of possible breaks in the text or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.ps-hyphenate.php
+	 * @link https://php.net/manual/en/function.ps-hyphenate.php
 	 * @see ps_show_boxed()
 	 * @since PECL ps >= 1.1.1
 	 */
@@ -412,7 +412,7 @@ namespace {
 	 * @param resource $psdoc <p>Resource identifier of the postscript file as returned by <code>ps_new()</code>.</p>
 	 * @param string $file
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.ps-include-file.php
+	 * @link https://php.net/manual/en/function.ps-include-file.php
 	 * @since PECL ps >= 1.3.4
 	 */
 	function ps_include_file($psdoc, string $file): bool {}
@@ -424,7 +424,7 @@ namespace {
 	 * @param float $x <p>x-coordinate of the end point of the line.</p>
 	 * @param float $y <p>y-coordinate of the end point of the line.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.ps-lineto.php
+	 * @link https://php.net/manual/en/function.ps-lineto.php
 	 * @see ps_moveto()
 	 * @since PECL ps >= 1.1.0
 	 */
@@ -437,7 +437,7 @@ namespace {
 	 * @param string $name <p>Name of the spot color, e.g. Pantone 5565.</p>
 	 * @param int $reserved
 	 * @return int <p>The id of the new spot color or 0 in case of an error.</p>
-	 * @link http://php.net/manual/en/function.ps-makespotcolor.php
+	 * @link https://php.net/manual/en/function.ps-makespotcolor.php
 	 * @see ps_setcolor()
 	 * @since PECL ps >= 1.1.0
 	 */
@@ -450,7 +450,7 @@ namespace {
 	 * @param float $x <p>x-coordinate of the point to move to.</p>
 	 * @param float $y <p>y-coordinate of the point to move to.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.ps-moveto.php
+	 * @link https://php.net/manual/en/function.ps-moveto.php
 	 * @see ps_lineto()
 	 * @since PECL ps >= 1.1.0
 	 */
@@ -460,7 +460,7 @@ namespace {
 	 * Creates a new PostScript document object
 	 * <p>Creates a new document instance. It does not create the file on disk or in memory, it just sets up everything. <b>ps_new()</b> is usually followed by a call of <code>ps_open_file()</code> to actually create the postscript document.</p>
 	 * @return resource|false <p>Resource of PostScript document or <b><code>FALSE</code></b> on failure. The return value is passed to all other functions as the first argument.</p>
-	 * @link http://php.net/manual/en/function.ps-new.php
+	 * @link https://php.net/manual/en/function.ps-new.php
 	 * @see ps_delete()
 	 * @since PECL ps >= 1.1.0
 	 */
@@ -472,7 +472,7 @@ namespace {
 	 * @param resource $psdoc <p>Resource identifier of the postscript file as returned by <code>ps_new()</code>.</p>
 	 * @param string $filename <p>The name of the postscript file. If <code>filename</code> is not passed the document will be created in memory and all output will go straight to the browser.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.ps-open-file.php
+	 * @link https://php.net/manual/en/function.ps-open-file.php
 	 * @see ps_close()
 	 * @since PECL ps >= 1.1.0
 	 */
@@ -492,7 +492,7 @@ namespace {
 	 * @param int $bpc <p>Number of bits per component (quite often 8).</p>
 	 * @param string $params
 	 * @return int <p>Returns identifier of image or zero in case of an error. The identifier is a positive number greater than 0.</p>
-	 * @link http://php.net/manual/en/function.ps-open-image.php
+	 * @link https://php.net/manual/en/function.ps-open-image.php
 	 * @see ps_open_image_file(), ps_place_image(), ps_close_image()
 	 * @since PECL ps >= 1.1.0
 	 */
@@ -507,7 +507,7 @@ namespace {
 	 * @param string $stringparam <p>Not used.</p>
 	 * @param int $intparam <p>Not used.</p>
 	 * @return int <p>Returns identifier of image or zero in case of an error. The identifier is a positive number greater than 0.</p>
-	 * @link http://php.net/manual/en/function.ps-open-image-file.php
+	 * @link https://php.net/manual/en/function.ps-open-image-file.php
 	 * @see ps_open_image(), ps_place_image(), ps_close_image()
 	 * @since PECL ps >= 1.1.0
 	 */
@@ -519,7 +519,7 @@ namespace {
 	 * @param resource $psdoc <p>Resource identifier of the postscript file as returned by <code>ps_new()</code>.</p>
 	 * @param int $gd
 	 * @return int
-	 * @link http://php.net/manual/en/function.ps-open-memory-image.php
+	 * @link https://php.net/manual/en/function.ps-open-memory-image.php
 	 * @since PECL ps >= 1.1.0
 	 */
 	function ps_open_memory_image($psdoc, int $gd): int {}
@@ -533,7 +533,7 @@ namespace {
 	 * @param float $y <p>y-coordinate of the lower left corner of the image.</p>
 	 * @param float $scale <p>The scaling factor for the image. A scale of 1.0 will result in a resolution of 72 dpi, because each pixel is equivalent to 1 point.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.ps-place-image.php
+	 * @link https://php.net/manual/en/function.ps-place-image.php
 	 * @see ps_open_image(), ps_open_image_file()
 	 * @since PECL ps >= 1.1.0
 	 */
@@ -548,7 +548,7 @@ namespace {
 	 * @param float $width <p>The width of the image.</p>
 	 * @param float $height <p>The height of the image.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.ps-rect.php
+	 * @link https://php.net/manual/en/function.ps-rect.php
 	 * @see ps_arc(), ps_lineto()
 	 * @since PECL ps >= 1.1.0
 	 */
@@ -559,7 +559,7 @@ namespace {
 	 * <p>Restores a previously saved graphics context. Any call of <code>ps_save()</code> must be accompanied by a call to <b>ps_restore()</b>. All coordinate transformations, line style settings, color settings, etc. are being restored to the state before the call of <code>ps_save()</code>.</p>
 	 * @param resource $psdoc <p>Resource identifier of the postscript file as returned by <code>ps_new()</code>.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.ps-restore.php
+	 * @link https://php.net/manual/en/function.ps-restore.php
 	 * @see ps_save()
 	 * @since PECL ps >= 1.1.0
 	 */
@@ -571,7 +571,7 @@ namespace {
 	 * @param resource $psdoc <p>Resource identifier of the postscript file as returned by <code>ps_new()</code>.</p>
 	 * @param float $rot <p>Angle of rotation in degree.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.ps-rotate.php
+	 * @link https://php.net/manual/en/function.ps-rotate.php
 	 * @see ps_scale(), ps_translate()
 	 * @since PECL ps >= 1.1.0
 	 */
@@ -582,7 +582,7 @@ namespace {
 	 * <p>Saves the current graphics context, containing colors, translation and rotation settings and some more. A saved context can be restored with <code>ps_restore()</code>.</p>
 	 * @param resource $psdoc <p>Resource identifier of the postscript file as returned by <code>ps_new()</code>.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.ps-save.php
+	 * @link https://php.net/manual/en/function.ps-save.php
 	 * @see ps_restore()
 	 * @since PECL ps >= 1.1.0
 	 */
@@ -595,7 +595,7 @@ namespace {
 	 * @param float $x <p>Scaling factor in horizontal direction.</p>
 	 * @param float $y <p>Scaling factor in vertical direction.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.ps-scale.php
+	 * @link https://php.net/manual/en/function.ps-scale.php
 	 * @see ps_rotate(), ps_translate()
 	 * @since PECL ps >= 1.1.0
 	 */
@@ -609,7 +609,7 @@ namespace {
 	 * @param float $green <p>The green component of the border color.</p>
 	 * @param float $blue <p>The blue component of the border color.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.ps-set-border-color.php
+	 * @link https://php.net/manual/en/function.ps-set-border-color.php
 	 * @see ps_set_border_dash(), ps_set_border_style()
 	 * @since PECL ps >= 1.1.0
 	 */
@@ -622,7 +622,7 @@ namespace {
 	 * @param float $black <p>The length of the dash.</p>
 	 * @param float $white <p>The length of the gap between dashes.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.ps-set-border-dash.php
+	 * @link https://php.net/manual/en/function.ps-set-border-dash.php
 	 * @see ps_set_border_color(), ps_set_border_style()
 	 * @since PECL ps >= 1.1.0
 	 */
@@ -635,7 +635,7 @@ namespace {
 	 * @param string $style <p><code>style</code> can be <code>solid</code> or <code>dashed</code>.</p>
 	 * @param float $width <p>The line width of the border.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.ps-set-border-style.php
+	 * @link https://php.net/manual/en/function.ps-set-border-style.php
 	 * @see ps_set_border_color(), ps_set_border_dash()
 	 * @since PECL ps >= 1.1.0
 	 */
@@ -648,7 +648,7 @@ namespace {
 	 * @param string $key <p>The name of the information field to set. The values which can be set are <code>Keywords</code>, <code>Subject</code>, <code>Title</code>, <code>Creator</code>, <code>Author</code>, <code>BoundingBox</code>, and <code>Orientation</code>. Be aware that some of them has a meaning to PostScript viewers.</p>
 	 * @param string $val
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.ps-set-info.php
+	 * @link https://php.net/manual/en/function.ps-set-info.php
 	 * @see ps_findfont(), ps_begin_page()
 	 * @since PECL ps >= 1.1.0
 	 */
@@ -661,7 +661,7 @@ namespace {
 	 * @param string $name <p>For a list of possible names see <code>ps_get_parameter()</code>.</p>
 	 * @param string $value <p>The value of the parameter.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.ps-set-parameter.php
+	 * @link https://php.net/manual/en/function.ps-set-parameter.php
 	 * @see ps_set_value()
 	 * @since PECL ps >= 1.1.0
 	 */
@@ -674,7 +674,7 @@ namespace {
 	 * @param float $x <p>x-coordinate of the new text position.</p>
 	 * @param float $y <p>y-coordinate of the new text position.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.ps-set-text-pos.php
+	 * @link https://php.net/manual/en/function.ps-set-text-pos.php
 	 * @see ps_set_value(), ps_show()
 	 * @since PECL ps >= 1.1.0
 	 */
@@ -687,7 +687,7 @@ namespace {
 	 * @param string $name <p>The <code>name</code> can be one of the following:</p>  textrendering  <p>The way how text is shown.</p>   textx  <p>The x coordinate for text output.</p>   texty  <p>The y coordinate for text output.</p>   wordspacing  <p>The distance between words relative to the width of a space.</p>   leading  <p>The distance between lines in pixels.</p>
 	 * @param float $value <p>The value of the parameter.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.ps-set-value.php
+	 * @link https://php.net/manual/en/function.ps-set-value.php
 	 * @see ps_get_value(), ps_set_parameter()
 	 * @since PECL ps >= 1.1.0
 	 */
@@ -704,7 +704,7 @@ namespace {
 	 * @param float $c3 <p>Depending on the colorspace this is either the blue component (rgb), the yellow component (cmyk).</p>
 	 * @param float $c4 <p>This must only be set in cmyk colorspace and specifies the black component.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.ps-setcolor.php
+	 * @link https://php.net/manual/en/function.ps-setcolor.php
 	 * @since PECL ps >= 1.1.0
 	 */
 	function ps_setcolor($psdoc, string $type, string $colorspace, float $c1, float $c2, float $c3, float $c4): bool {}
@@ -716,7 +716,7 @@ namespace {
 	 * @param float $on <p>The length of the dash.</p>
 	 * @param float $off <p>The length of the gap between dashes.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.ps-setdash.php
+	 * @link https://php.net/manual/en/function.ps-setdash.php
 	 * @see ps_setpolydash()
 	 * @since PECL ps >= 1.1.0
 	 */
@@ -728,7 +728,7 @@ namespace {
 	 * @param resource $psdoc <p>Resource identifier of the postscript file as returned by <code>ps_new()</code>.</p>
 	 * @param float $value <p>The <code>value</code> must be between 0.2 and 1.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.ps-setflat.php
+	 * @link https://php.net/manual/en/function.ps-setflat.php
 	 * @since PECL ps >= 1.1.0
 	 */
 	function ps_setflat($psdoc, float $value): bool {}
@@ -740,7 +740,7 @@ namespace {
 	 * @param int $fontid <p>The font identifier as returned by <code>ps_findfont()</code>.</p>
 	 * @param float $size <p>The size of the font.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.ps-setfont.php
+	 * @link https://php.net/manual/en/function.ps-setfont.php
 	 * @see ps_findfont(), ps_set_text_pos()
 	 * @since PECL ps >= 1.1.0
 	 */
@@ -752,7 +752,7 @@ namespace {
 	 * @param resource $psdoc <p>Resource identifier of the postscript file as returned by <code>ps_new()</code>.</p>
 	 * @param float $gray <p>The value must be between 0 (white) and 1 (black).</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.ps-setgray.php
+	 * @link https://php.net/manual/en/function.ps-setgray.php
 	 * @see ps_setcolor()
 	 * @since PECL ps >= 1.1.0
 	 */
@@ -764,7 +764,7 @@ namespace {
 	 * @param resource $psdoc <p>Resource identifier of the postscript file as returned by <code>ps_new()</code>.</p>
 	 * @param int $type <p>The type of line ends. Possible values are <code>PS_LINECAP_BUTT</code>, <code>PS_LINECAP_ROUND</code>, or <code>PS_LINECAP_SQUARED</code>.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.ps-setlinecap.php
+	 * @link https://php.net/manual/en/function.ps-setlinecap.php
 	 * @see ps_setlinejoin(), ps_setlinewidth(), ps_setmiterlimit()
 	 * @since PECL ps >= 1.1.0
 	 */
@@ -776,7 +776,7 @@ namespace {
 	 * @param resource $psdoc <p>Resource identifier of the postscript file as returned by <code>ps_new()</code>.</p>
 	 * @param int $type <p>The way lines are joined. Possible values are <code>PS_LINEJOIN_MITER</code>, <code>PS_LINEJOIN_ROUND</code>, or <code>PS_LINEJOIN_BEVEL</code>.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.ps-setlinejoin.php
+	 * @link https://php.net/manual/en/function.ps-setlinejoin.php
 	 * @see ps_setlinecap(), ps_setlinewidth(), ps_setmiterlimit()
 	 * @since PECL ps >= 1.1.0
 	 */
@@ -788,7 +788,7 @@ namespace {
 	 * @param resource $psdoc <p>Resource identifier of the postscript file as returned by <code>ps_new()</code>.</p>
 	 * @param float $width <p>The width of lines in points.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.ps-setlinewidth.php
+	 * @link https://php.net/manual/en/function.ps-setlinewidth.php
 	 * @see ps_setlinecap(), ps_setlinejoin(), ps_setmiterlimit()
 	 * @since PECL ps >= 1.1.0
 	 */
@@ -800,7 +800,7 @@ namespace {
 	 * @param resource $psdoc <p>Resource identifier of the postscript file as returned by <code>ps_new()</code>.</p>
 	 * @param float $value <p>The maximum ratio between the miter length and the line width. Larger values (&gt; 10) will result in very long spikes when two lines meet in a small angle. Keep the default unless you know what you are doing.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.ps-setmiterlimit.php
+	 * @link https://php.net/manual/en/function.ps-setmiterlimit.php
 	 * @see ps_setlinecap(), ps_setlinejoin(), ps_setlinewidth()
 	 * @since PECL ps >= 1.1.0
 	 */
@@ -812,7 +812,7 @@ namespace {
 	 * @param resource $psdoc <p>Resource identifier of the postscript file as returned by <code>ps_new()</code>.</p>
 	 * @param int $mode
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.ps-setoverprintmode.php
+	 * @link https://php.net/manual/en/function.ps-setoverprintmode.php
 	 * @since PECL ps >= 1.3.0
 	 */
 	function ps_setoverprintmode($psdoc, int $mode): bool {}
@@ -823,7 +823,7 @@ namespace {
 	 * @param resource $psdoc <p>Resource identifier of the postscript file as returned by <code>ps_new()</code>.</p>
 	 * @param float $arr <p><code>arr</code> is a list of length elements alternately for the black and white portion.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.ps-setpolydash.php
+	 * @link https://php.net/manual/en/function.ps-setpolydash.php
 	 * @see ps_setdash()
 	 * @since PECL ps >= 1.1.0
 	 */
@@ -844,7 +844,7 @@ namespace {
 	 * @param float $c4
 	 * @param string $optlist <p>If the shading is of type <code>radial</code> the <code>optlist</code> must also contain the parameters <code>r0</code> and <code>r1</code> with the radius of the start and end circle.</p>
 	 * @return int|false <p>Returns the identifier of the pattern or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.ps-shading.php
+	 * @link https://php.net/manual/en/function.ps-shading.php
 	 * @see ps_shading_pattern(), ps_shfill()
 	 * @since PECL ps >= 1.3.0
 	 */
@@ -857,7 +857,7 @@ namespace {
 	 * @param int $shadingid <p>The identifier of a shading previously created with <code>ps_shading()</code>.</p>
 	 * @param string $optlist <p>This argument is not currently used.</p>
 	 * @return int|false <p>The identifier of the pattern or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.ps-shading-pattern.php
+	 * @link https://php.net/manual/en/function.ps-shading-pattern.php
 	 * @see ps_shading(), ps_shfill()
 	 * @since PECL ps >= 1.3.0
 	 */
@@ -869,7 +869,7 @@ namespace {
 	 * @param resource $psdoc <p>Resource identifier of the postscript file as returned by <code>ps_new()</code>.</p>
 	 * @param int $shadingid <p>The identifier of a shading previously created with <code>ps_shading()</code>.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.ps-shfill.php
+	 * @link https://php.net/manual/en/function.ps-shfill.php
 	 * @see ps_shading(), ps_shading_pattern()
 	 * @since PECL ps >= 1.3.0
 	 */
@@ -881,7 +881,7 @@ namespace {
 	 * @param resource $psdoc <p>Resource identifier of the postscript file as returned by <code>ps_new()</code>.</p>
 	 * @param string $text <p>The text to be output.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.ps-show.php
+	 * @link https://php.net/manual/en/function.ps-show.php
 	 * @see ps_continue_text(), ps_show_xy(), ps_setfont()
 	 * @since PECL ps >= 1.1.0
 	 */
@@ -894,7 +894,7 @@ namespace {
 	 * @param string $text <p>The text to be output.</p>
 	 * @param int $len <p>The maximum number of characters to print.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.ps-show2.php
+	 * @link https://php.net/manual/en/function.ps-show2.php
 	 * @since PECL ps >= 1.1.0
 	 */
 	function ps_show2($psdoc, string $text, int $len): bool {}
@@ -911,7 +911,7 @@ namespace {
 	 * @param string $hmode <p>The parameter <code>hmode</code> can be "justify", "fulljustify", "right", "left", or "center". The difference of "justify" and "fulljustify" just affects the last line of the box. In fulljustify mode the last line will be left and right justified unless this is also the last line of paragraph. In justify mode it will always be left justified.</p>
 	 * @param string $feature
 	 * @return int <p>Number of characters that could not be written.</p>
-	 * @link http://php.net/manual/en/function.ps-show-boxed.php
+	 * @link https://php.net/manual/en/function.ps-show-boxed.php
 	 * @see ps_continue_text()
 	 * @since PECL ps >= 1.1.0
 	 */
@@ -925,7 +925,7 @@ namespace {
 	 * @param float $x <p>x-coordinate of the lower left corner of the box surrounding the text.</p>
 	 * @param float $y <p>y-coordinate of the lower left corner of the box surrounding the text.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.ps-show-xy.php
+	 * @link https://php.net/manual/en/function.ps-show-xy.php
 	 * @see ps_continue_text(), ps_show()
 	 * @since PECL ps >= 1.1.0
 	 */
@@ -940,7 +940,7 @@ namespace {
 	 * @param float $xcoor
 	 * @param float $ycoor
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.ps-show-xy2.php
+	 * @link https://php.net/manual/en/function.ps-show-xy2.php
 	 * @since PECL ps >= 1.1.0
 	 */
 	function ps_show_xy2($psdoc, string $text, int $len, float $xcoor, float $ycoor): bool {}
@@ -953,7 +953,7 @@ namespace {
 	 * @param int $fontid <p>The identifier of the font to be used. If not font is specified the current font will be used.</p>
 	 * @param float $size <p>The size of the font. If no size is specified the current size is used.</p>
 	 * @return array <p>An array of the dimensions of a string. The element 'width' contains the width of the string as returned by <code>ps_stringwidth()</code>. The element 'descender' contains the maximum descender and 'ascender' the maximum ascender of the string.</p>
-	 * @link http://php.net/manual/en/function.ps-string-geometry.php
+	 * @link https://php.net/manual/en/function.ps-string-geometry.php
 	 * @see ps_continue_text(), ps_stringwidth()
 	 * @since PECL ps >= 1.2.0
 	 */
@@ -967,7 +967,7 @@ namespace {
 	 * @param int $fontid <p>The identifier of the font to be used. If not font is specified the current font will be used.</p>
 	 * @param float $size <p>The size of the font. If no size is specified the current size is used.</p>
 	 * @return float <p>Width of a string in points.</p>
-	 * @link http://php.net/manual/en/function.ps-stringwidth.php
+	 * @link https://php.net/manual/en/function.ps-stringwidth.php
 	 * @see ps_string_geometry()
 	 * @since PECL ps >= 1.1.0
 	 */
@@ -978,7 +978,7 @@ namespace {
 	 * <p>Draws the path constructed with previously called drawing functions like <code>ps_lineto()</code>.</p>
 	 * @param resource $psdoc <p>Resource identifier of the postscript file as returned by <code>ps_new()</code>.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.ps-stroke.php
+	 * @link https://php.net/manual/en/function.ps-stroke.php
 	 * @see ps_closepath_stroke(), ps_fill(), ps_fill_stroke()
 	 * @since PECL ps >= 1.1.0
 	 */
@@ -990,7 +990,7 @@ namespace {
 	 * @param resource $psdoc <p>Resource identifier of the postscript file as returned by <code>ps_new()</code>.</p>
 	 * @param int $ord <p>The position of the glyph in the font encoding vector.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.ps-symbol.php
+	 * @link https://php.net/manual/en/function.ps-symbol.php
 	 * @see ps_symbol_name(), ps_symbol_width()
 	 * @since PECL ps >= 1.2.0
 	 */
@@ -1003,7 +1003,7 @@ namespace {
 	 * @param int $ord <p>The parameter <code>ord</code> is the position of the glyph in the font encoding vector.</p>
 	 * @param int $fontid <p>The identifier of the font to be used. If not font is specified the current font will be used.</p>
 	 * @return string <p>The name of a glyph in the given font.</p>
-	 * @link http://php.net/manual/en/function.ps-symbol-name.php
+	 * @link https://php.net/manual/en/function.ps-symbol-name.php
 	 * @see ps_symbol(), ps_symbol_width()
 	 * @since PECL ps >= 1.2.0
 	 */
@@ -1017,7 +1017,7 @@ namespace {
 	 * @param int $fontid <p>The identifier of the font to be used. If not font is specified the current font will be used.</p>
 	 * @param float $size <p>The size of the font. If no size is specified the current size is used.</p>
 	 * @return float <p>The width of a glyph in points.</p>
-	 * @link http://php.net/manual/en/function.ps-symbol-width.php
+	 * @link https://php.net/manual/en/function.ps-symbol-width.php
 	 * @see ps_symbol(), ps_symbol_name()
 	 * @since PECL ps >= 1.2.0
 	 */
@@ -1030,7 +1030,7 @@ namespace {
 	 * @param float $x <p>x-coordinate of the origin of the translated coordinate system.</p>
 	 * @param float $y <p>y-coordinate of the origin of the translated coordinate system.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.ps-translate.php
+	 * @link https://php.net/manual/en/function.ps-translate.php
 	 * @see ps_scale(), ps_rotate()
 	 * @since PECL ps >= 1.1.0
 	 */

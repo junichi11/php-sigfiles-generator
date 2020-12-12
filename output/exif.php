@@ -9,7 +9,7 @@ namespace {
 	 * <p><b>exif_imagetype()</b> reads the first bytes of an image and checks its signature.</p><p><b>exif_imagetype()</b> can be used to avoid calls to other exif functions with unsupported file types or in conjunction with $_SERVER['HTTP_ACCEPT'] to check whether or not the viewer is able to see a specific image in the browser.</p>
 	 * @param string $filename The image being checked.
 	 * @return int|false <p>When a correct signature is found, the appropriate constant value will be returned otherwise the return value is <b><code>FALSE</code></b>. The return value is the same value that <code>getimagesize()</code> returns in index 2 but <b>exif_imagetype()</b> is much faster.</p><p><b>Note</b>:</p><p><b>exif_imagetype()</b> will emit an <b><code>E_NOTICE</code></b> and return <b><code>FALSE</code></b> if it is unable to read enough bytes from the file to determine the image type.</p>
-	 * @link http://php.net/manual/en/function.exif-imagetype.php
+	 * @link https://php.net/manual/en/function.exif-imagetype.php
 	 * @see image_type_to_mime_type(), getimagesize()
 	 * @since PHP 4 >= 4.3.0, PHP 5, PHP 7
 	 */
@@ -23,7 +23,7 @@ namespace {
 	 * @param bool $as_arrays <p>Specifies whether or not each section becomes an array. The <code>required_sections</code> <code>COMPUTED</code>, <code>THUMBNAIL</code>, and <code>COMMENT</code> always become arrays as they may contain values whose names conflict with other sections.</p>
 	 * @param bool $read_thumbnail <p>When set to <b><code>TRUE</code></b> the thumbnail itself is read. Otherwise, only the tagged data is read.</p>
 	 * @return array|false <p>It returns an associative <code>array</code> where the array indexes are the header names and the array values are the values associated with those headers. If no data can be returned, <b>exif_read_data()</b> will return <b><code>FALSE</code></b>.</p>
-	 * @link http://php.net/manual/en/function.exif-read-data.php
+	 * @link https://php.net/manual/en/function.exif-read-data.php
 	 * @see exif_thumbnail(), getimagesize()
 	 * @since PHP 4 >= 4.2.0, PHP 5, PHP 7
 	 */
@@ -33,7 +33,7 @@ namespace {
 	 * Get the header name for an index
 	 * @param int $index <p>The Tag ID for which a Tag Name will be looked up.</p>
 	 * @return string|false <p>Returns the header name, or <b><code>FALSE</code></b> if <code>index</code> is not a defined EXIF tag id.</p>
-	 * @link http://php.net/manual/en/function.exif-tagname.php
+	 * @link https://php.net/manual/en/function.exif-tagname.php
 	 * @see exif_imagetype()
 	 * @since PHP 4 >= 4.2.0, PHP 5, PHP 7
 	 */
@@ -47,7 +47,7 @@ namespace {
 	 * @param int $height <p>The returned height of the returned thumbnail.</p>
 	 * @param int $image_type <p>The returned image type of the returned thumbnail. This is either TIFF or JPEG.</p>
 	 * @return string|false <p>Returns the embedded thumbnail, or <b><code>FALSE</code></b> if the image contains no thumbnail.</p>
-	 * @link http://php.net/manual/en/function.exif-thumbnail.php
+	 * @link https://php.net/manual/en/function.exif-thumbnail.php
 	 * @see exif_read_data(), image_type_to_mime_type()
 	 * @since PHP 4 >= 4.2.0, PHP 5, PHP 7
 	 */
@@ -61,7 +61,7 @@ namespace {
 	 * @param bool $as_arrays <p>Specifies whether or not each section becomes an array. The <code>required_sections</code> <code>COMPUTED</code>, <code>THUMBNAIL</code>, and <code>COMMENT</code> always become arrays as they may contain values whose names conflict with other sections.</p>
 	 * @param bool $read_thumbnail <p>When set to <b><code>TRUE</code></b> the thumbnail itself is read. Otherwise, only the tagged data is read.</p>
 	 * @return array|false
-	 * @link http://php.net/manual/en/function.read-exif-data.php
+	 * @link https://php.net/manual/en/function.read-exif-data.php
 	 * @since PHP 4 >= 4.0.1, PHP 5, PHP 7
 	 */
 	function read_exif_data($file, $required_sections = NULL, bool $as_arrays = FALSE, bool $read_thumbnail = FALSE) {}

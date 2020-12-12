@@ -9,7 +9,7 @@ namespace {
 	 * <p><b>pg_affected_rows()</b> returns the number of tuples (instances/records/rows) affected by <code>INSERT</code>, <code>UPDATE</code>, and <code>DELETE</code> queries.</p><p>Since PostgreSQL 9.0 and above, the server returns the number of SELECTed rows. Older PostgreSQL return 0 for SELECT.</p><p><b>Note</b>:</p><p>This function used to be called <b>pg_cmdtuples()</b>.</p>
 	 * @param resource $result <p>PostgreSQL query result resource, returned by <code>pg_query()</code>, <code>pg_query_params()</code> or <code>pg_execute()</code> (among others).</p>
 	 * @return int <p>The number of rows affected by the query. If no tuple is affected, it will return 0.</p>
-	 * @link http://php.net/manual/en/function.pg-affected-rows.php
+	 * @link https://php.net/manual/en/function.pg-affected-rows.php
 	 * @see pg_query(), pg_query_params(), pg_execute(), pg_num_rows()
 	 * @since PHP 4 >= 4.2.0, PHP 5, PHP 7
 	 */
@@ -20,7 +20,7 @@ namespace {
 	 * <p><b>pg_cancel_query()</b> cancels an asynchronous query sent with <code>pg_send_query()</code>, <code>pg_send_query_params()</code> or <code>pg_send_execute()</code>. You cannot cancel a query executed using <code>pg_query()</code>.</p>
 	 * @param resource $connection <p>PostgreSQL database connection resource.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.pg-cancel-query.php
+	 * @link https://php.net/manual/en/function.pg-cancel-query.php
 	 * @see pg_send_query(), pg_connection_busy()
 	 * @since PHP 4 >= 4.2.0, PHP 5, PHP 7
 	 */
@@ -31,7 +31,7 @@ namespace {
 	 * <p>PostgreSQL supports automatic character set conversion between server and client for certain character sets. <b>pg_client_encoding()</b> returns the client encoding as a string. The returned string will be one of the standard PostgreSQL encoding identifiers.</p><p><b>Note</b>:</p><p>This function requires PHP 4.0.3 or higher and PostgreSQL 7.0 or higher. If libpq is compiled without multibyte encoding support, <b>pg_client_encoding()</b> always returns <code>SQL_ASCII</code>. Supported encoding depends on PostgreSQL version. Refer to the PostgreSQL Documentation supported encodings.</p><p>The function used to be called <b>pg_clientencoding()</b>.</p>
 	 * @param resource $connection <p>PostgreSQL database connection resource. When <code>connection</code> is not present, the default connection is used. The default connection is the last connection made by <code>pg_connect()</code> or <code>pg_pconnect()</code>.</p>
 	 * @return string <p>The client encoding, or <b><code>FALSE</code></b> on error.</p>
-	 * @link http://php.net/manual/en/function.pg-client-encoding.php
+	 * @link https://php.net/manual/en/function.pg-client-encoding.php
 	 * @see pg_set_client_encoding()
 	 * @since PHP 4 >= 4.0.3, PHP 5, PHP 7
 	 */
@@ -42,7 +42,7 @@ namespace {
 	 * <p><b>pg_close()</b> closes the non-persistent connection to a PostgreSQL database associated with the given <code>connection</code> resource.</p><p><b>Note</b>:</p><p>Using <b>pg_close()</b> is not usually necessary, as non-persistent open connections are automatically closed at the end of the script.</p><p>If there is open large object resource on the connection, do not close the connection before closing all large object resources.</p>
 	 * @param resource $connection <p>PostgreSQL database connection resource. When <code>connection</code> is not present, the default connection is used. The default connection is the last connection made by <code>pg_connect()</code> or <code>pg_pconnect()</code>.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.pg-close.php
+	 * @link https://php.net/manual/en/function.pg-close.php
 	 * @see pg_connect()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
@@ -54,7 +54,7 @@ namespace {
 	 * @param string $connection_string <p>The <code>connection_string</code> can be empty to use all default parameters, or it can contain one or more parameter settings separated by whitespace. Each parameter setting is in the form <code>keyword = value</code>. Spaces around the equal sign are optional. To write an empty value or a value containing spaces, surround it with single quotes, e.g., <code>keyword = 'a value'</code>. Single quotes and backslashes within the value must be escaped with a backslash, i.e., \' and \\.</p> <p>The currently recognized parameter keywords are: <code>host</code>, <code>hostaddr</code>, <code>port</code>, <code>dbname</code> (defaults to value of <code>user</code>), <code>user</code>, <code>password</code>, <code>connect_timeout</code>, <code>options</code>, <code>tty</code> (ignored), <code>sslmode</code>, <code>requiressl</code> (deprecated in favor of <code>sslmode</code>), and <code>service</code>. Which of these arguments exist depends on your PostgreSQL version.</p> <p>The <code>options</code> parameter can be used to set command line parameters to be invoked by the server.</p>
 	 * @param int $connect_type <p>If <b><code>PGSQL_CONNECT_FORCE_NEW</code></b> is passed, then a new connection is created, even if the <code>connection_string</code> is identical to an existing connection.</p> <p>If <b><code>PGSQL_CONNECT_ASYNC</code></b> is given, then the connection is established asynchronously. The state of the connection can then be checked via <code>pg_connect_poll()</code> or <code>pg_connection_status()</code>.</p>
 	 * @return resource <p>PostgreSQL connection resource on success, <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.pg-connect.php
+	 * @link https://php.net/manual/en/function.pg-connect.php
 	 * @see pg_pconnect(), pg_close(), pg_host(), pg_port(), pg_tty(), pg_options(), pg_dbname()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
@@ -65,7 +65,7 @@ namespace {
 	 * <p><b>pg_connect_poll()</b> polls the status of a PostgreSQL connection created by calling <code>pg_connect()</code> with the <b><code>PGSQL_CONNECT_ASYNC</code></b> option.</p>
 	 * @param resource $connection <p>PostgreSQL database connection resource.</p>
 	 * @return int <p>Returns <b><code>PGSQL_POLLING_FAILED</code></b>, <b><code>PGSQL_POLLING_READING</code></b>, <b><code>PGSQL_POLLING_WRITING</code></b>, <b><code>PGSQL_POLLING_OK</code></b>, or <b><code>PGSQL_POLLING_ACTIVE</code></b>.</p>
-	 * @link http://php.net/manual/en/function.pg-connect-poll.php
+	 * @link https://php.net/manual/en/function.pg-connect-poll.php
 	 * @since PHP 5 >= 5.6.0, PHP 7
 	 */
 	function pg_connect_poll($connection): int {}
@@ -75,7 +75,7 @@ namespace {
 	 * <p><b>pg_connection_busy()</b> determines whether or not a connection is busy. If it is busy, a previous query is still executing. If <code>pg_get_result()</code> is used on the connection, it will be blocked.</p>
 	 * @param resource $connection <p>PostgreSQL database connection resource.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> if the connection is busy, <b><code>FALSE</code></b> otherwise.</p>
-	 * @link http://php.net/manual/en/function.pg-connection-busy.php
+	 * @link https://php.net/manual/en/function.pg-connection-busy.php
 	 * @see pg_connection_status(), pg_get_result()
 	 * @since PHP 4 >= 4.2.0, PHP 5, PHP 7
 	 */
@@ -86,7 +86,7 @@ namespace {
 	 * <p><b>pg_connection_reset()</b> resets the connection. It is useful for error recovery.</p>
 	 * @param resource $connection <p>PostgreSQL database connection resource.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.pg-connection-reset.php
+	 * @link https://php.net/manual/en/function.pg-connection-reset.php
 	 * @see pg_connect(), pg_pconnect(), pg_connection_status()
 	 * @since PHP 4 >= 4.2.0, PHP 5, PHP 7
 	 */
@@ -97,7 +97,7 @@ namespace {
 	 * <p><b>pg_connection_status()</b> returns the status of the specified <code>connection</code>.</p>
 	 * @param resource $connection <p>PostgreSQL database connection resource.</p>
 	 * @return int <p><b><code>PGSQL_CONNECTION_OK</code></b> or <b><code>PGSQL_CONNECTION_BAD</code></b>.</p>
-	 * @link http://php.net/manual/en/function.pg-connection-status.php
+	 * @link https://php.net/manual/en/function.pg-connection-status.php
 	 * @see pg_connection_busy()
 	 * @since PHP 4 >= 4.2.0, PHP 5, PHP 7
 	 */
@@ -108,7 +108,7 @@ namespace {
 	 * <p><b>pg_consume_input()</b> consumes any input waiting to be read from the database server.</p>
 	 * @param resource $connection <p>PostgreSQL database connection resource.</p>
 	 * @return bool <p><b><code>TRUE</code></b> if no error occurred, or <b><code>FALSE</code></b> if there was an error. Note that <b><code>TRUE</code></b> does not necessarily indicate that input was waiting to be read.</p>
-	 * @link http://php.net/manual/en/function.pg-consume-input.php
+	 * @link https://php.net/manual/en/function.pg-consume-input.php
 	 * @since PHP 5 >= 5.6.0, PHP 7
 	 */
 	function pg_consume_input($connection): bool {}
@@ -121,7 +121,7 @@ namespace {
 	 * @param array $assoc_array <p>Data to be converted.</p>
 	 * @param int $options <p>Any number of <b><code>PGSQL_CONV_IGNORE_DEFAULT</code></b>, <b><code>PGSQL_CONV_FORCE_NULL</code></b> or <b><code>PGSQL_CONV_IGNORE_NOT_NULL</code></b>, combined.</p>
 	 * @return array <p>An <code>array</code> of converted values, or <b><code>FALSE</code></b> on error.</p>
-	 * @link http://php.net/manual/en/function.pg-convert.php
+	 * @link https://php.net/manual/en/function.pg-convert.php
 	 * @see pg_meta_data(), pg_insert(), pg_select(), pg_update(), pg_delete()
 	 * @since PHP 4 >= 4.3.0, PHP 5, PHP 7
 	 */
@@ -136,7 +136,7 @@ namespace {
 	 * @param string $delimiter <p>The token that separates values for each field in each element of <code>rows</code>. Default is <code>TAB</code>.</p>
 	 * @param string $null_as <p>How SQL <code>NULL</code> values are represented in the <code>rows</code>. Default is \N ("\\N").</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.pg-copy-from.php
+	 * @link https://php.net/manual/en/function.pg-copy-from.php
 	 * @see pg_copy_to()
 	 * @since PHP 4 >= 4.2.0, PHP 5, PHP 7
 	 */
@@ -150,7 +150,7 @@ namespace {
 	 * @param string $delimiter <p>The token that separates values for each field in each element of <code>rows</code>. Default is <code>TAB</code>.</p>
 	 * @param string $null_as <p>How SQL <code>NULL</code> values are represented in the <code>rows</code>. Default is \N ("\\N").</p>
 	 * @return array <p>An <code>array</code> with one element for each line of <code>COPY</code> data. It returns <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.pg-copy-to.php
+	 * @link https://php.net/manual/en/function.pg-copy-to.php
 	 * @see pg_copy_from()
 	 * @since PHP 4 >= 4.2.0, PHP 5, PHP 7
 	 */
@@ -161,7 +161,7 @@ namespace {
 	 * <p><b>pg_dbname()</b> returns the name of the database that the given PostgreSQL <code>connection</code> resource.</p>
 	 * @param resource $connection <p>PostgreSQL database connection resource. When <code>connection</code> is not present, the default connection is used. The default connection is the last connection made by <code>pg_connect()</code> or <code>pg_pconnect()</code>.</p>
 	 * @return string <p>A <code>string</code> containing the name of the database the <code>connection</code> is to, or <b><code>FALSE</code></b> on error.</p>
-	 * @link http://php.net/manual/en/function.pg-dbname.php
+	 * @link https://php.net/manual/en/function.pg-dbname.php
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
 	function pg_dbname($connection = NULL): string {}
@@ -174,7 +174,7 @@ namespace {
 	 * @param array $assoc_array <p>An <code>array</code> whose keys are field names in the table <code>table_name</code>, and whose values are the values of those fields that are to be deleted.</p>
 	 * @param int $options <p>Any number of <b><code>PGSQL_CONV_FORCE_NULL</code></b>, <b><code>PGSQL_DML_NO_CONV</code></b>, <b><code>PGSQL_DML_ESCAPE</code></b>, <b><code>PGSQL_DML_EXEC</code></b>, <b><code>PGSQL_DML_ASYNC</code></b> or <b><code>PGSQL_DML_STRING</code></b> combined. If <b><code>PGSQL_DML_STRING</code></b> is part of the <code>options</code> then query string is returned. When <b><code>PGSQL_DML_NO_CONV</code></b> or <b><code>PGSQL_DML_ESCAPE</code></b> is set, it does not call <code>pg_convert()</code> internally.</p>
 	 * @return mixed <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure. Returns <code>string</code> if <b><code>PGSQL_DML_STRING</code></b> is passed via <code>options</code>.</p>
-	 * @link http://php.net/manual/en/function.pg-delete.php
+	 * @link https://php.net/manual/en/function.pg-delete.php
 	 * @see pg_convert()
 	 * @since PHP 4 >= 4.3.0, PHP 5, PHP 7
 	 */
@@ -185,7 +185,7 @@ namespace {
 	 * <p><b>pg_end_copy()</b> syncs the PostgreSQL frontend (usually a web server process) with the PostgreSQL server after doing a copy operation performed by <code>pg_put_line()</code>. <b>pg_end_copy()</b> must be issued, otherwise the PostgreSQL server may get out of sync with the frontend and will report an error.</p>
 	 * @param resource $connection <p>PostgreSQL database connection resource. When <code>connection</code> is not present, the default connection is used. The default connection is the last connection made by <code>pg_connect()</code> or <code>pg_pconnect()</code>.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.pg-end-copy.php
+	 * @link https://php.net/manual/en/function.pg-end-copy.php
 	 * @see pg_put_line()
 	 * @since PHP 4 >= 4.0.3, PHP 5, PHP 7
 	 */
@@ -197,7 +197,7 @@ namespace {
 	 * @param resource $connection <p>PostgreSQL database connection resource. When <code>connection</code> is not present, the default connection is used. The default connection is the last connection made by <code>pg_connect()</code> or <code>pg_pconnect()</code>.</p>
 	 * @param string $data <p>A <code>string</code> containing text or binary data to be inserted into a bytea column.</p>
 	 * @return string <p>A <code>string</code> containing the escaped data.</p>
-	 * @link http://php.net/manual/en/function.pg-escape-bytea.php
+	 * @link https://php.net/manual/en/function.pg-escape-bytea.php
 	 * @see pg_unescape_bytea(), pg_escape_string()
 	 * @since PHP 4 >= 4.2.0, PHP 5, PHP 7
 	 */
@@ -209,7 +209,7 @@ namespace {
 	 * @param resource $connection <p>PostgreSQL database connection resource. When <code>connection</code> is not present, the default connection is used. The default connection is the last connection made by <code>pg_connect()</code> or <code>pg_pconnect()</code>.</p>
 	 * @param string $data <p>A <code>string</code> containing text to be escaped.</p>
 	 * @return string <p>A <code>string</code> containing the escaped data.</p>
-	 * @link http://php.net/manual/en/function.pg-escape-identifier.php
+	 * @link https://php.net/manual/en/function.pg-escape-identifier.php
 	 * @see pg_escape_literal(), pg_escape_bytea(), pg_escape_string()
 	 * @since PHP 5 >= 5.4.4, PHP 7
 	 */
@@ -221,7 +221,7 @@ namespace {
 	 * @param resource $connection <p>PostgreSQL database connection resource. When <code>connection</code> is not present, the default connection is used. The default connection is the last connection made by <code>pg_connect()</code> or <code>pg_pconnect()</code>. When there is no default connection, it raises <code>E_WARNING</code> and returns <b><code>FALSE</code></b>.</p>
 	 * @param string $data <p>A <code>string</code> containing text to be escaped.</p>
 	 * @return string <p>A <code>string</code> containing the escaped data.</p>
-	 * @link http://php.net/manual/en/function.pg-escape-literal.php
+	 * @link https://php.net/manual/en/function.pg-escape-literal.php
 	 * @see pg_escape_identifier(), pg_escape_bytea(), pg_escape_string()
 	 * @since PHP 5 >= 5.4.4, PHP 7
 	 */
@@ -233,7 +233,7 @@ namespace {
 	 * @param resource $connection <p>PostgreSQL database connection resource. When <code>connection</code> is not present, the default connection is used. The default connection is the last connection made by <code>pg_connect()</code> or <code>pg_pconnect()</code>.</p>
 	 * @param string $data <p>A <code>string</code> containing text to be escaped.</p>
 	 * @return string <p>A <code>string</code> containing the escaped data.</p>
-	 * @link http://php.net/manual/en/function.pg-escape-string.php
+	 * @link https://php.net/manual/en/function.pg-escape-string.php
 	 * @see pg_escape_bytea()
 	 * @since PHP 4 >= 4.2.0, PHP 5, PHP 7
 	 */
@@ -246,7 +246,7 @@ namespace {
 	 * @param string $stmtname <p>The name of the prepared statement to execute. if "" is specified, then the unnamed statement is executed. The name must have been previously prepared using <code>pg_prepare()</code>, <code>pg_send_prepare()</code> or a <code>PREPARE</code> SQL command.</p>
 	 * @param array $params <p>An array of parameter values to substitute for the $1, $2, etc. placeholders in the original prepared query string. The number of elements in the array must match the number of placeholders.</p> <p><b>Warning</b></p> <p>Elements are converted to strings by calling this function.</p>
 	 * @return resource|false <p>A query result resource on success or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.pg-execute.php
+	 * @link https://php.net/manual/en/function.pg-execute.php
 	 * @see pg_prepare(), pg_send_prepare(), pg_query_params()
 	 * @since PHP 5 >= 5.1.0, PHP 7
 	 */
@@ -258,7 +258,7 @@ namespace {
 	 * @param resource $result <p>PostgreSQL query result resource, returned by <code>pg_query()</code>, <code>pg_query_params()</code> or <code>pg_execute()</code> (among others).</p>
 	 * @param int $result_type
 	 * @return array <p>An <code>array</code> with all rows in the result. Each row is an array of field values indexed by field name.</p><p><b><code>FALSE</code></b> is returned if there are no rows in the result, or on any other error.</p>
-	 * @link http://php.net/manual/en/function.pg-fetch-all.php
+	 * @link https://php.net/manual/en/function.pg-fetch-all.php
 	 * @see pg_fetch_row(), pg_fetch_array(), pg_fetch_object(), pg_fetch_result()
 	 * @since PHP 4 >= 4.3.0, PHP 5, PHP 7
 	 */
@@ -270,7 +270,7 @@ namespace {
 	 * @param resource $result <p>PostgreSQL query result resource, returned by <code>pg_query()</code>, <code>pg_query_params()</code> or <code>pg_execute()</code> (among others).</p>
 	 * @param int $column <p>Column number, zero-based, to be retrieved from the result resource. Defaults to the first column if not specified.</p>
 	 * @return array <p>An <code>array</code> with all values in the result column.</p><p><b><code>FALSE</code></b> is returned if <code>column</code> is larger than the number of columns in the result, or on any other error.</p>
-	 * @link http://php.net/manual/en/function.pg-fetch-all-columns.php
+	 * @link https://php.net/manual/en/function.pg-fetch-all-columns.php
 	 * @see pg_fetch_all()
 	 * @since PHP 5 >= 5.1.0, PHP 7
 	 */
@@ -283,7 +283,7 @@ namespace {
 	 * @param int $row <p>Row number in result to fetch. Rows are numbered from 0 upwards. If omitted or <b><code>NULL</code></b>, the next row is fetched.</p>
 	 * @param int $result_type <p>An optional parameter that controls how the returned <code>array</code> is indexed. <code>result_type</code> is a constant and can take the following values: <b><code>PGSQL_ASSOC</code></b>, <b><code>PGSQL_NUM</code></b> and <b><code>PGSQL_BOTH</code></b>. Using <b><code>PGSQL_NUM</code></b>, <b>pg_fetch_array()</b> will return an array with numerical indices, using <b><code>PGSQL_ASSOC</code></b> it will return only associative indices while <b><code>PGSQL_BOTH</code></b>, the default, will return both numerical and associative indices.</p>
 	 * @return array <p>An <code>array</code> indexed numerically (beginning with 0) or associatively (indexed by field name), or both. Each value in the <code>array</code> is represented as a <code>string</code>. Database <code>NULL</code> values are returned as <b><code>NULL</code></b>.</p><p><b><code>FALSE</code></b> is returned if <code>row</code> exceeds the number of rows in the set, there are no more rows, or on any other error.</p>
-	 * @link http://php.net/manual/en/function.pg-fetch-array.php
+	 * @link https://php.net/manual/en/function.pg-fetch-array.php
 	 * @see pg_fetch_row(), pg_fetch_object(), pg_fetch_result()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
@@ -295,7 +295,7 @@ namespace {
 	 * @param resource $result <p>PostgreSQL query result resource, returned by <code>pg_query()</code>, <code>pg_query_params()</code> or <code>pg_execute()</code> (among others).</p>
 	 * @param int $row <p>Row number in result to fetch. Rows are numbered from 0 upwards. If omitted or <b><code>NULL</code></b>, the next row is fetched.</p>
 	 * @return array <p>An <code>array</code> indexed associatively (by field name). Each value in the <code>array</code> is represented as a <code>string</code>. Database <code>NULL</code> values are returned as <b><code>NULL</code></b>.</p><p><b><code>FALSE</code></b> is returned if <code>row</code> exceeds the number of rows in the set, there are no more rows, or on any other error.</p>
-	 * @link http://php.net/manual/en/function.pg-fetch-assoc.php
+	 * @link https://php.net/manual/en/function.pg-fetch-assoc.php
 	 * @see pg_fetch_row(), pg_fetch_array(), pg_fetch_object(), pg_fetch_result()
 	 * @since PHP 4 >= 4.3.0, PHP 5, PHP 7
 	 */
@@ -308,7 +308,7 @@ namespace {
 	 * @param int $row <p>Row number in result to fetch. Rows are numbered from 0 upwards. If omitted or <b><code>NULL</code></b>, the next row is fetched.</p>
 	 * @param int $result_type <p>Ignored and deprecated.</p>
 	 * @return object <p>An <code>object</code> with one attribute for each field name in the result. Database <code>NULL</code> values are returned as <b><code>NULL</code></b>.</p><p><b><code>FALSE</code></b> is returned if <code>row</code> exceeds the number of rows in the set, there are no more rows, or on any other error.</p>
-	 * @link http://php.net/manual/en/function.pg-fetch-object.php
+	 * @link https://php.net/manual/en/function.pg-fetch-object.php
 	 * @see pg_query(), pg_fetch_array(), pg_fetch_assoc(), pg_fetch_row(), pg_fetch_result()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
@@ -321,7 +321,7 @@ namespace {
 	 * @param int $row <p>Row number in result to fetch. Rows are numbered from 0 upwards. If omitted, next row is fetched.</p>
 	 * @param mixed $field <p>A <code>string</code> representing the name of the field (column) to fetch, otherwise an <code>int</code> representing the field number to fetch. Fields are numbered from 0 upwards.</p>
 	 * @return string <p>Boolean is returned as "t" or "f". All other types, including arrays are returned as strings formatted in the same default PostgreSQL manner that you would see in the <b>psql</b> program. Database <code>NULL</code> values are returned as <b><code>NULL</code></b>.</p><p><b><code>FALSE</code></b> is returned if <code>row</code> exceeds the number of rows in the set, or on any other error.</p>
-	 * @link http://php.net/manual/en/function.pg-fetch-result.php
+	 * @link https://php.net/manual/en/function.pg-fetch-result.php
 	 * @see pg_query(), pg_fetch_array()
 	 * @since PHP 4 >= 4.2.0, PHP 5, PHP 7
 	 */
@@ -333,7 +333,7 @@ namespace {
 	 * @param resource $result <p>PostgreSQL query result resource, returned by <code>pg_query()</code>, <code>pg_query_params()</code> or <code>pg_execute()</code> (among others).</p>
 	 * @param int $row <p>Row number in result to fetch. Rows are numbered from 0 upwards. If omitted or <b><code>NULL</code></b>, the next row is fetched.</p>
 	 * @return array <p>An <code>array</code>, indexed from 0 upwards, with each value represented as a <code>string</code>. Database <code>NULL</code> values are returned as <b><code>NULL</code></b>.</p><p><b><code>FALSE</code></b> is returned if <code>row</code> exceeds the number of rows in the set, there are no more rows, or on any other error.</p>
-	 * @link http://php.net/manual/en/function.pg-fetch-row.php
+	 * @link https://php.net/manual/en/function.pg-fetch-row.php
 	 * @see pg_query(), pg_fetch_array(), pg_fetch_object(), pg_fetch_result()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
@@ -346,7 +346,7 @@ namespace {
 	 * @param int $row <p>Row number in result to fetch. Rows are numbered from 0 upwards. If omitted, current row is fetched.</p>
 	 * @param mixed $field <p>Field number (starting from 0) as an <code>int</code> or the field name as a <code>string</code>.</p>
 	 * @return int <p>Returns <code>1</code> if the field in the given row is SQL <code>NULL</code>, <code>0</code> if not. <b><code>FALSE</code></b> is returned if the row is out of range, or upon any other error.</p>
-	 * @link http://php.net/manual/en/function.pg-field-is-null.php
+	 * @link https://php.net/manual/en/function.pg-field-is-null.php
 	 * @since PHP 4 >= 4.2.0, PHP 5, PHP 7
 	 */
 	function pg_field_is_null($result, int $row, $field): int {}
@@ -357,7 +357,7 @@ namespace {
 	 * @param resource $result <p>PostgreSQL query result resource, returned by <code>pg_query()</code>, <code>pg_query_params()</code> or <code>pg_execute()</code> (among others).</p>
 	 * @param int $field_number <p>Field number, starting from 0.</p>
 	 * @return string <p>The field name, or <b><code>FALSE</code></b> on error.</p>
-	 * @link http://php.net/manual/en/function.pg-field-name.php
+	 * @link https://php.net/manual/en/function.pg-field-name.php
 	 * @see pg_field_num()
 	 * @since PHP 4 >= 4.2.0, PHP 5, PHP 7
 	 */
@@ -369,7 +369,7 @@ namespace {
 	 * @param resource $result <p>PostgreSQL query result resource, returned by <code>pg_query()</code>, <code>pg_query_params()</code> or <code>pg_execute()</code> (among others).</p>
 	 * @param string $field_name <p>The name of the field.</p>
 	 * @return int <p>The field number (numbered from 0), or -1 on error.</p>
-	 * @link http://php.net/manual/en/function.pg-field-num.php
+	 * @link https://php.net/manual/en/function.pg-field-num.php
 	 * @see pg_field_name()
 	 * @since PHP 4 >= 4.2.0, PHP 5, PHP 7
 	 */
@@ -382,7 +382,7 @@ namespace {
 	 * @param int $row_number
 	 * @param mixed $field_name_or_number
 	 * @return int <p>The field printed length, or <b><code>FALSE</code></b> on error.</p>
-	 * @link http://php.net/manual/en/function.pg-field-prtlen.php
+	 * @link https://php.net/manual/en/function.pg-field-prtlen.php
 	 * @see pg_field_size()
 	 * @since PHP 4 >= 4.2.0, PHP 5, PHP 7
 	 */
@@ -394,7 +394,7 @@ namespace {
 	 * @param resource $result <p>PostgreSQL query result resource, returned by <code>pg_query()</code>, <code>pg_query_params()</code> or <code>pg_execute()</code> (among others).</p>
 	 * @param int $field_number <p>Field number, starting from 0.</p>
 	 * @return int <p>The internal field storage size (in bytes). -1 indicates a variable length field. <b><code>FALSE</code></b> is returned on error.</p>
-	 * @link http://php.net/manual/en/function.pg-field-size.php
+	 * @link https://php.net/manual/en/function.pg-field-size.php
 	 * @see pg_field_prtlen(), pg_field_type()
 	 * @since PHP 4 >= 4.2.0, PHP 5, PHP 7
 	 */
@@ -407,7 +407,7 @@ namespace {
 	 * @param int $field_number <p>Field number, starting from 0.</p>
 	 * @param bool $oid_only <p>By default the tables name that field belongs to is returned but if <code>oid_only</code> is set to <b><code>TRUE</code></b>, then the oid will instead be returned.</p>
 	 * @return mixed <p>On success either the fields table name or oid. Or, <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.pg-field-table.php
+	 * @link https://php.net/manual/en/function.pg-field-table.php
 	 * @see pg_field_name(), pg_field_type()
 	 * @since PHP 5 >= 5.2.0, PHP 7
 	 */
@@ -419,7 +419,7 @@ namespace {
 	 * @param resource $result <p>PostgreSQL query result resource, returned by <code>pg_query()</code>, <code>pg_query_params()</code> or <code>pg_execute()</code> (among others).</p>
 	 * @param int $field_number <p>Field number, starting from 0.</p>
 	 * @return string <p>A <code>string</code> containing the base name of the field's type, or <b><code>FALSE</code></b> on error.</p>
-	 * @link http://php.net/manual/en/function.pg-field-type.php
+	 * @link https://php.net/manual/en/function.pg-field-type.php
 	 * @see pg_field_prtlen(), pg_field_name(), pg_field_type_oid()
 	 * @since PHP 4 >= 4.2.0, PHP 5, PHP 7
 	 */
@@ -431,7 +431,7 @@ namespace {
 	 * @param resource $result <p>PostgreSQL query result resource, returned by <code>pg_query()</code>, <code>pg_query_params()</code> or <code>pg_execute()</code> (among others).</p>
 	 * @param int $field_number <p>Field number, starting from 0.</p>
 	 * @return int <p>The OID of the field's base type. <b><code>FALSE</code></b> is returned on error.</p>
-	 * @link http://php.net/manual/en/function.pg-field-type-oid.php
+	 * @link https://php.net/manual/en/function.pg-field-type-oid.php
 	 * @see pg_field_type(), pg_field_prtlen(), pg_field_name()
 	 * @since PHP 5 >= 5.1.0, PHP 7
 	 */
@@ -442,7 +442,7 @@ namespace {
 	 * <p><b>pg_flush()</b> flushes any outbound query data waiting to be sent on the connection.</p>
 	 * @param resource $connection <p>PostgreSQL database connection resource.</p>
 	 * @return mixed <p>Returns <b><code>TRUE</code></b> if the flush was successful or no data was waiting to be flushed, <code>0</code> if part of the pending data was flushed but more remains or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.pg-flush.php
+	 * @link https://php.net/manual/en/function.pg-flush.php
 	 * @since PHP 5 >= 5.6.0, PHP 7
 	 */
 	function pg_flush($connection) {}
@@ -452,7 +452,7 @@ namespace {
 	 * <p><b>pg_free_result()</b> frees the memory and data associated with the specified PostgreSQL query result <code>resource</code>.</p><p>This function need only be called if memory consumption during script execution is a problem. Otherwise, all result memory will be automatically freed when the script ends.</p><p><b>Note</b>:</p><p>This function used to be called <b>pg_freeresult()</b>.</p>
 	 * @param resource $result <p>PostgreSQL query result resource, returned by <code>pg_query()</code>, <code>pg_query_params()</code> or <code>pg_execute()</code> (among others).</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.pg-free-result.php
+	 * @link https://php.net/manual/en/function.pg-free-result.php
 	 * @see pg_query(), pg_query_params(), pg_execute()
 	 * @since PHP 4 >= 4.2.0, PHP 5, PHP 7
 	 */
@@ -464,7 +464,7 @@ namespace {
 	 * @param resource $connection <p>PostgreSQL database connection resource.</p>
 	 * @param int $result_type <p>An optional parameter that controls how the returned <code>array</code> is indexed. <code>result_type</code> is a constant and can take the following values: <b><code>PGSQL_ASSOC</code></b>, <b><code>PGSQL_NUM</code></b> and <b><code>PGSQL_BOTH</code></b>. Using <b><code>PGSQL_NUM</code></b>, <b>pg_get_notify()</b> will return an array with numerical indices, using <b><code>PGSQL_ASSOC</code></b> it will return only associative indices while <b><code>PGSQL_BOTH</code></b>, the default, will return both numerical and associative indices.</p>
 	 * @return array <p>An <code>array</code> containing the <code>NOTIFY</code> message name and backend PID. As of PHP 5.4.0 and if supported by the server, the array also contains the server version and the payload. Otherwise if no <code>NOTIFY</code> is waiting, then <b><code>FALSE</code></b> is returned.</p>
-	 * @link http://php.net/manual/en/function.pg-get-notify.php
+	 * @link https://php.net/manual/en/function.pg-get-notify.php
 	 * @see pg_get_pid()
 	 * @since PHP 4 >= 4.3.0, PHP 5, PHP 7
 	 */
@@ -475,7 +475,7 @@ namespace {
 	 * <p><b>pg_get_pid()</b> gets the backend's (database server process) PID. The PID is useful to determine whether or not a <code>NOTIFY</code> message received via <code>pg_get_notify()</code> is sent from another process or not.</p>
 	 * @param resource $connection <p>PostgreSQL database connection resource.</p>
 	 * @return int <p>The backend database process ID.</p>
-	 * @link http://php.net/manual/en/function.pg-get-pid.php
+	 * @link https://php.net/manual/en/function.pg-get-pid.php
 	 * @see pg_get_notify()
 	 * @since PHP 4 >= 4.3.0, PHP 5, PHP 7
 	 */
@@ -486,7 +486,7 @@ namespace {
 	 * <p><b>pg_get_result()</b> gets the result resource from an asynchronous query executed by <code>pg_send_query()</code>, <code>pg_send_query_params()</code> or <code>pg_send_execute()</code>.</p><p><code>pg_send_query()</code> and the other asynchronous query functions can send multiple queries to a PostgreSQL server and <b>pg_get_result()</b> is used to get each query's results, one by one.</p>
 	 * @param resource $connection <p>PostgreSQL database connection resource.</p>
 	 * @return resource <p>The result <code>resource</code>, or <b><code>FALSE</code></b> if no more results are available.</p>
-	 * @link http://php.net/manual/en/function.pg-get-result.php
+	 * @link https://php.net/manual/en/function.pg-get-result.php
 	 * @see pg_send_query()
 	 * @since PHP 4 >= 4.2.0, PHP 5, PHP 7
 	 */
@@ -497,7 +497,7 @@ namespace {
 	 * <p><b>pg_host()</b> returns the host name of the given PostgreSQL <code>connection</code> resource is connected to.</p>
 	 * @param resource $connection <p>PostgreSQL database connection resource. When <code>connection</code> is not present, the default connection is used. The default connection is the last connection made by <code>pg_connect()</code> or <code>pg_pconnect()</code>.</p>
 	 * @return string <p>A <code>string</code> containing the name of the host the <code>connection</code> is to, or <b><code>FALSE</code></b> on error.</p>
-	 * @link http://php.net/manual/en/function.pg-host.php
+	 * @link https://php.net/manual/en/function.pg-host.php
 	 * @see pg_connect(), pg_pconnect()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
@@ -511,7 +511,7 @@ namespace {
 	 * @param array $assoc_array <p>An <code>array</code> whose keys are field names in the table <code>table_name</code>, and whose values are the values of those fields that are to be inserted.</p>
 	 * @param int $options <p>Any number of <b><code>PGSQL_CONV_OPTS</code></b>, <b><code>PGSQL_DML_NO_CONV</code></b>, <b><code>PGSQL_DML_ESCAPE</code></b>, <b><code>PGSQL_DML_EXEC</code></b>, <b><code>PGSQL_DML_ASYNC</code></b> or <b><code>PGSQL_DML_STRING</code></b> combined. If <b><code>PGSQL_DML_STRING</code></b> is part of the <code>options</code> then query string is returned. When <b><code>PGSQL_DML_NO_CONV</code></b> or <b><code>PGSQL_DML_ESCAPE</code></b> is set, it does not call <code>pg_convert()</code> internally.</p>
 	 * @return mixed <p>Returns the connection resource on success, or <b><code>FALSE</code></b> on failure. Returns <code>string</code> if <b><code>PGSQL_DML_STRING</code></b> is passed via <code>options</code>.</p>
-	 * @link http://php.net/manual/en/function.pg-insert.php
+	 * @link https://php.net/manual/en/function.pg-insert.php
 	 * @see pg_convert()
 	 * @since PHP 4 >= 4.3.0, PHP 5, PHP 7
 	 */
@@ -522,7 +522,7 @@ namespace {
 	 * <p><b>pg_last_error()</b> returns the last error message for a given <code>connection</code>.</p><p>Error messages may be overwritten by internal PostgreSQL (libpq) function calls. It may not return an appropriate error message if multiple errors occur inside a PostgreSQL module function.</p><p>Use <code>pg_result_error()</code>, <code>pg_result_error_field()</code>, <code>pg_result_status()</code> and <code>pg_connection_status()</code> for better error handling.</p><p><b>Note</b>:</p><p>This function used to be called <b>pg_errormessage()</b>.</p>
 	 * @param resource $connection <p>PostgreSQL database connection resource. When <code>connection</code> is not present, the default connection is used. The default connection is the last connection made by <code>pg_connect()</code> or <code>pg_pconnect()</code>.</p>
 	 * @return string <p>A <code>string</code> containing the last error message on the given <code>connection</code>, or <b><code>FALSE</code></b> on error.</p>
-	 * @link http://php.net/manual/en/function.pg-last-error.php
+	 * @link https://php.net/manual/en/function.pg-last-error.php
 	 * @see pg_result_error(), pg_result_error_field()
 	 * @since PHP 4 >= 4.2.0, PHP 5, PHP 7
 	 */
@@ -534,7 +534,7 @@ namespace {
 	 * @param resource $connection <p>PostgreSQL database connection resource.</p>
 	 * @param int $option <p>One of <b><code>PGSQL_NOTICE_LAST</code></b> (to return last notice), <b><code>PGSQL_NOTICE_ALL</code></b> (to return all notices), or <b><code>PGSQL_NOTICE_CLEAR</code></b> (to clear notices).</p>
 	 * @return mixed <p>A <code>string</code> containing the last notice on the given <code>connection</code> with <b><code>PGSQL_NOTICE_LAST</code></b>, an <code>array</code> with <b><code>PGSQL_NOTICE_ALL</code></b>, a <code>bool</code> with <b><code>PGSQL_NOTICE_CLEAR</code></b>, or <b><code>FALSE</code></b> on error.</p>
-	 * @link http://php.net/manual/en/function.pg-last-notice.php
+	 * @link https://php.net/manual/en/function.pg-last-notice.php
 	 * @see pg_query(), pg_last_error()
 	 * @since PHP 4 >= 4.0.6, PHP 5, PHP 7
 	 */
@@ -545,7 +545,7 @@ namespace {
 	 * <p><b>pg_last_oid()</b> is used to retrieve the OID assigned to an inserted row.</p><p>OID field became an optional field from PostgreSQL 7.2 and will not be present by default in PostgreSQL 8.1. When the OID field is not present in a table, the programmer must use <code>pg_result_status()</code> to check for successful insertion.</p><p>To get the value of a <code>SERIAL</code> field in an inserted row, it is necessary to use the PostgreSQL <code>CURRVAL</code> function, naming the sequence whose last value is required. If the name of the sequence is unknown, the <code>pg_get_serial_sequence</code> PostgreSQL 8.0 function is necessary.</p><p>PostgreSQL 8.1 has a function <code>LASTVAL</code> that returns the value of the most recently used sequence in the session. This avoids the need for naming the sequence, table or column altogether.</p><p><b>Note</b>:</p><p>This function used to be called <b>pg_getlastoid()</b>.</p>
 	 * @param resource $result <p>PostgreSQL query result resource, returned by <code>pg_query()</code>, <code>pg_query_params()</code> or <code>pg_execute()</code> (among others).</p>
 	 * @return string <p>A <code>string</code> containing the OID assigned to the most recently inserted row in the specified <code>connection</code>, or <b><code>FALSE</code></b> on error or no available OID.</p>
-	 * @link http://php.net/manual/en/function.pg-last-oid.php
+	 * @link https://php.net/manual/en/function.pg-last-oid.php
 	 * @see pg_query(), pg_result_status()
 	 * @since PHP 4 >= 4.2.0, PHP 5, PHP 7
 	 */
@@ -556,7 +556,7 @@ namespace {
 	 * <p><b>pg_lo_close()</b> closes a large object. <code>large_object</code> is a resource for the large object from <code>pg_lo_open()</code>.</p><p>To use the large object interface, it is necessary to enclose it within a transaction block.</p><p><b>Note</b>:</p><p>This function used to be called <b>pg_loclose()</b>.</p>
 	 * @param resource $large_object
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.pg-lo-close.php
+	 * @link https://php.net/manual/en/function.pg-lo-close.php
 	 * @see pg_lo_open(), pg_lo_create(), pg_lo_import()
 	 * @since PHP 4 >= 4.2.0, PHP 5, PHP 7
 	 */
@@ -568,7 +568,7 @@ namespace {
 	 * @param resource $connection <p>PostgreSQL database connection resource. When <code>connection</code> is not present, the default connection is used. The default connection is the last connection made by <code>pg_connect()</code> or <code>pg_pconnect()</code>.</p>
 	 * @param mixed $object_id <p>If an <code>object_id</code> is given the function will try to create a large object with this id, else a free object id is assigned by the server. The parameter was added in PHP 5.3 and relies on functionality that first appeared in PostgreSQL 8.1.</p>
 	 * @return int <p>A large object OID or <b><code>FALSE</code></b> on error.</p>
-	 * @link http://php.net/manual/en/function.pg-lo-create.php
+	 * @link https://php.net/manual/en/function.pg-lo-create.php
 	 * @since PHP 4 >= 4.2.0, PHP 5, PHP 7
 	 */
 	function pg_lo_create($connection = NULL, $object_id = NULL): int {}
@@ -580,7 +580,7 @@ namespace {
 	 * @param int $oid <p>The OID of the large object in the database.</p>
 	 * @param string $pathname <p>The full path and file name of the file in which to write the large object on the client filesystem.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.pg-lo-export.php
+	 * @link https://php.net/manual/en/function.pg-lo-export.php
 	 * @see pg_lo_import()
 	 * @since PHP 4 >= 4.2.0, PHP 5, PHP 7
 	 */
@@ -593,7 +593,7 @@ namespace {
 	 * @param string $pathname <p>The full path and file name of the file on the client filesystem from which to read the large object data.</p>
 	 * @param mixed $object_id <p>If an <code>object_id</code> is given the function will try to create a large object with this id, else a free object id is assigned by the server. The parameter was added in PHP 5.3 and relies on functionality that first appeared in PostgreSQL 8.1.</p>
 	 * @return int <p>The OID of the newly created large object, or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.pg-lo-import.php
+	 * @link https://php.net/manual/en/function.pg-lo-import.php
 	 * @see pg_lo_export(), pg_lo_open()
 	 * @since PHP 4 >= 4.2.0, PHP 5, PHP 7
 	 */
@@ -606,7 +606,7 @@ namespace {
 	 * @param int $oid <p>The OID of the large object in the database.</p>
 	 * @param string $mode <p>Can be either "r" for read-only, "w" for write only or "rw" for read and write.</p>
 	 * @return resource <p>A large object resource or <b><code>FALSE</code></b> on error.</p>
-	 * @link http://php.net/manual/en/function.pg-lo-open.php
+	 * @link https://php.net/manual/en/function.pg-lo-open.php
 	 * @see pg_lo_close(), pg_lo_create()
 	 * @since PHP 4 >= 4.2.0, PHP 5, PHP 7
 	 */
@@ -618,7 +618,7 @@ namespace {
 	 * @param resource $large_object <p>PostgreSQL large object (LOB) resource, returned by <code>pg_lo_open()</code>.</p>
 	 * @param int $len <p>An optional maximum number of bytes to return.</p>
 	 * @return string <p>A <code>string</code> containing <code>len</code> bytes from the large object, or <b><code>FALSE</code></b> on error.</p>
-	 * @link http://php.net/manual/en/function.pg-lo-read.php
+	 * @link https://php.net/manual/en/function.pg-lo-read.php
 	 * @see pg_lo_read_all()
 	 * @since PHP 4 >= 4.2.0, PHP 5, PHP 7
 	 */
@@ -629,7 +629,7 @@ namespace {
 	 * <p><b>pg_lo_read_all()</b> reads a large object and passes it straight through to the browser after sending all pending headers. Mainly intended for sending binary data like images or sound.</p><p>To use the large object interface, it is necessary to enclose it within a transaction block.</p><p><b>Note</b>:</p><p>This function used to be called <b>pg_loreadall()</b>.</p>
 	 * @param resource $large_object <p>PostgreSQL large object (LOB) resource, returned by <code>pg_lo_open()</code>.</p>
 	 * @return int <p>Number of bytes read or <b><code>FALSE</code></b> on error.</p>
-	 * @link http://php.net/manual/en/function.pg-lo-read-all.php
+	 * @link https://php.net/manual/en/function.pg-lo-read-all.php
 	 * @see pg_lo_read()
 	 * @since PHP 4 >= 4.2.0, PHP 5, PHP 7
 	 */
@@ -642,7 +642,7 @@ namespace {
 	 * @param int $offset <p>The number of bytes to seek.</p>
 	 * @param int $whence <p>One of the constants <b><code>PGSQL_SEEK_SET</code></b> (seek from object start), <b><code>PGSQL_SEEK_CUR</code></b> (seek from current position) or <b><code>PGSQL_SEEK_END</code></b> (seek from object end) .</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.pg-lo-seek.php
+	 * @link https://php.net/manual/en/function.pg-lo-seek.php
 	 * @see pg_lo_tell()
 	 * @since PHP 4 >= 4.2.0, PHP 5, PHP 7
 	 */
@@ -653,7 +653,7 @@ namespace {
 	 * <p><b>pg_lo_tell()</b> returns the current position (offset from the beginning) of a large object.</p><p>To use the large object interface, it is necessary to enclose it within a transaction block.</p>
 	 * @param resource $large_object <p>PostgreSQL large object (LOB) resource, returned by <code>pg_lo_open()</code>.</p>
 	 * @return int <p>The current seek offset (in number of bytes) from the beginning of the large object. If there is an error, the return value is negative.</p>
-	 * @link http://php.net/manual/en/function.pg-lo-tell.php
+	 * @link https://php.net/manual/en/function.pg-lo-tell.php
 	 * @see pg_lo_seek()
 	 * @since PHP 4 >= 4.2.0, PHP 5, PHP 7
 	 */
@@ -665,7 +665,7 @@ namespace {
 	 * @param resource $large_object <p>PostgreSQL large object (LOB) resource, returned by <code>pg_lo_open()</code>.</p>
 	 * @param int $size <p>The number of bytes to truncate.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.pg-lo-truncate.php
+	 * @link https://php.net/manual/en/function.pg-lo-truncate.php
 	 * @see pg_lo_tell()
 	 * @since PHP 5 >= 5.6.0, PHP 7
 	 */
@@ -677,7 +677,7 @@ namespace {
 	 * @param resource $connection <p>PostgreSQL database connection resource. When <code>connection</code> is not present, the default connection is used. The default connection is the last connection made by <code>pg_connect()</code> or <code>pg_pconnect()</code>.</p>
 	 * @param int $oid <p>The OID of the large object in the database.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.pg-lo-unlink.php
+	 * @link https://php.net/manual/en/function.pg-lo-unlink.php
 	 * @see pg_lo_create(), pg_lo_import()
 	 * @since PHP 4 >= 4.2.0, PHP 5, PHP 7
 	 */
@@ -690,7 +690,7 @@ namespace {
 	 * @param string $data <p>The data to be written to the large object. If <code>len</code> is specified and is less than the length of <code>data</code>, only <code>len</code> bytes will be written.</p>
 	 * @param int $len <p>An optional maximum number of bytes to write. Must be greater than zero and no greater than the length of <code>data</code>. Defaults to the length of <code>data</code>.</p>
 	 * @return int <p>The number of bytes written to the large object, or <b><code>FALSE</code></b> on error.</p>
-	 * @link http://php.net/manual/en/function.pg-lo-write.php
+	 * @link https://php.net/manual/en/function.pg-lo-write.php
 	 * @see pg_lo_create(), pg_lo_open()
 	 * @since PHP 4 >= 4.2.0, PHP 5, PHP 7
 	 */
@@ -703,7 +703,7 @@ namespace {
 	 * @param string $table_name <p>The name of the table.</p>
 	 * @param bool $extended <p>Flag for returning extended meta data. Default to <b><code>FALSE</code></b>.</p>
 	 * @return array <p>An <code>array</code> of the table definition, or <b><code>FALSE</code></b> on error.</p>
-	 * @link http://php.net/manual/en/function.pg-meta-data.php
+	 * @link https://php.net/manual/en/function.pg-meta-data.php
 	 * @see pg_convert()
 	 * @since PHP 4 >= 4.3.0, PHP 5, PHP 7
 	 */
@@ -714,7 +714,7 @@ namespace {
 	 * <p><b>pg_num_fields()</b> returns the number of fields (columns) in a PostgreSQL result resource.</p><p><b>Note</b>:</p><p>This function used to be called <b>pg_numfields()</b>.</p>
 	 * @param resource $result <p>PostgreSQL query result resource, returned by <code>pg_query()</code>, <code>pg_query_params()</code> or <code>pg_execute()</code> (among others).</p>
 	 * @return int <p>The number of fields (columns) in the result. On error, -1 is returned.</p>
-	 * @link http://php.net/manual/en/function.pg-num-fields.php
+	 * @link https://php.net/manual/en/function.pg-num-fields.php
 	 * @see pg_num_rows(), pg_affected_rows()
 	 * @since PHP 4 >= 4.2.0, PHP 5, PHP 7
 	 */
@@ -725,7 +725,7 @@ namespace {
 	 * <p><b>pg_num_rows()</b> will return the number of rows in a PostgreSQL result resource.</p><p><b>Note</b>:</p><p>This function used to be called <b>pg_numrows()</b>.</p>
 	 * @param resource $result <p>PostgreSQL query result resource, returned by <code>pg_query()</code>, <code>pg_query_params()</code> or <code>pg_execute()</code> (among others).</p>
 	 * @return int <p>The number of rows in the result. On error, -1 is returned.</p>
-	 * @link http://php.net/manual/en/function.pg-num-rows.php
+	 * @link https://php.net/manual/en/function.pg-num-rows.php
 	 * @see pg_num_fields(), pg_affected_rows()
 	 * @since PHP 4 >= 4.2.0, PHP 5, PHP 7
 	 */
@@ -736,7 +736,7 @@ namespace {
 	 * <p><b>pg_options()</b> will return a string containing the options specified on the given PostgreSQL <code>connection</code> resource.</p>
 	 * @param resource $connection <p>PostgreSQL database connection resource. When <code>connection</code> is not present, the default connection is used. The default connection is the last connection made by <code>pg_connect()</code> or <code>pg_pconnect()</code>.</p>
 	 * @return string <p>A <code>string</code> containing the <code>connection</code> options, or <b><code>FALSE</code></b> on error.</p>
-	 * @link http://php.net/manual/en/function.pg-options.php
+	 * @link https://php.net/manual/en/function.pg-options.php
 	 * @see pg_connect()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
@@ -748,7 +748,7 @@ namespace {
 	 * @param resource $connection <p>PostgreSQL database connection resource. When <code>connection</code> is not present, the default connection is used. The default connection is the last connection made by <code>pg_connect()</code> or <code>pg_pconnect()</code>.</p>
 	 * @param string $param_name <p>Possible <code>param_name</code> values include <code>server_version</code>, <code>server_encoding</code>, <code>client_encoding</code>, <code>is_superuser</code>, <code>session_authorization</code>, <code>DateStyle</code>, <code>TimeZone</code>, and <code>integer_datetimes</code>. Note that this value is case-sensitive.</p>
 	 * @return string <p>A <code>string</code> containing the value of the parameter, <b><code>FALSE</code></b> on failure or invalid <code>param_name</code>.</p>
-	 * @link http://php.net/manual/en/function.pg-parameter-status.php
+	 * @link https://php.net/manual/en/function.pg-parameter-status.php
 	 * @since PHP 5, PHP 7
 	 */
 	function pg_parameter_status($connection = NULL, string $param_name): string {}
@@ -759,7 +759,7 @@ namespace {
 	 * @param string $connection_string <p>The <code>connection_string</code> can be empty to use all default parameters, or it can contain one or more parameter settings separated by whitespace. Each parameter setting is in the form <code>keyword = value</code>. Spaces around the equal sign are optional. To write an empty value or a value containing spaces, surround it with single quotes, e.g., <code>keyword = 'a value'</code>. Single quotes and backslashes within the value must be escaped with a backslash, i.e., \' and \\.</p> <p>The currently recognized parameter keywords are: <code>host</code>, <code>hostaddr</code>, <code>port</code>, <code>dbname</code>, <code>user</code>, <code>password</code>, <code>connect_timeout</code>, <code>options</code>, <code>tty</code> (ignored), <code>sslmode</code>, <code>requiressl</code> (deprecated in favor of <code>sslmode</code>), and <code>service</code>. Which of these arguments exist depends on your PostgreSQL version.</p>
 	 * @param int $connect_type <p>If <b><code>PGSQL_CONNECT_FORCE_NEW</code></b> is passed, then a new connection is created, even if the <code>connection_string</code> is identical to an existing connection.</p>
 	 * @return resource <p>PostgreSQL connection resource on success, <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.pg-pconnect.php
+	 * @link https://php.net/manual/en/function.pg-pconnect.php
 	 * @see pg_connect()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
@@ -770,7 +770,7 @@ namespace {
 	 * <p><b>pg_ping()</b> pings a database connection and tries to reconnect it if it is broken.</p>
 	 * @param resource $connection <p>PostgreSQL database connection resource. When <code>connection</code> is not present, the default connection is used. The default connection is the last connection made by <code>pg_connect()</code> or <code>pg_pconnect()</code>.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.pg-ping.php
+	 * @link https://php.net/manual/en/function.pg-ping.php
 	 * @see pg_connection_status(), pg_connection_reset()
 	 * @since PHP 4 >= 4.3.0, PHP 5, PHP 7
 	 */
@@ -781,7 +781,7 @@ namespace {
 	 * <p><b>pg_port()</b> returns the port number that the given PostgreSQL <code>connection</code> resource is connected to.</p>
 	 * @param resource $connection <p>PostgreSQL database connection resource. When <code>connection</code> is not present, the default connection is used. The default connection is the last connection made by <code>pg_connect()</code> or <code>pg_pconnect()</code>.</p>
 	 * @return int <p>An <code>int</code> containing the port number of the database server the <code>connection</code> is to, or <b><code>FALSE</code></b> on error.</p>
-	 * @link http://php.net/manual/en/function.pg-port.php
+	 * @link https://php.net/manual/en/function.pg-port.php
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
 	function pg_port($connection = NULL): int {}
@@ -793,7 +793,7 @@ namespace {
 	 * @param string $stmtname <p>The name to give the prepared statement. Must be unique per-connection. If "" is specified, then an unnamed statement is created, overwriting any previously defined unnamed statement.</p>
 	 * @param string $query <p>The parameterized SQL statement. Must contain only a single statement. (multiple statements separated by semi-colons are not allowed.) If any parameters are used, they are referred to as $1, $2, etc.</p>
 	 * @return resource|false <p>A query result resource on success or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.pg-prepare.php
+	 * @link https://php.net/manual/en/function.pg-prepare.php
 	 * @see pg_execute(), pg_send_execute()
 	 * @since PHP 5 >= 5.1.0, PHP 7
 	 */
@@ -805,7 +805,7 @@ namespace {
 	 * @param resource $connection <p>PostgreSQL database connection resource. When <code>connection</code> is not present, the default connection is used. The default connection is the last connection made by <code>pg_connect()</code> or <code>pg_pconnect()</code>.</p>
 	 * @param string $data <p>A line of text to be sent directly to the PostgreSQL backend. A <code>NULL</code> terminator is added automatically.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.pg-put-line.php
+	 * @link https://php.net/manual/en/function.pg-put-line.php
 	 * @see pg_end_copy()
 	 * @since PHP 4 >= 4.0.3, PHP 5, PHP 7
 	 */
@@ -817,7 +817,7 @@ namespace {
 	 * @param resource $connection <p>PostgreSQL database connection resource. When <code>connection</code> is not present, the default connection is used. The default connection is the last connection made by <code>pg_connect()</code> or <code>pg_pconnect()</code>.</p>
 	 * @param string $query <p>The SQL statement or statements to be executed. When multiple statements are passed to the function, they are automatically executed as one transaction, unless there are explicit BEGIN/COMMIT commands included in the query string. However, using multiple transactions in one function call is not recommended.</p> <p><b>Warning</b></p> <p>String interpolation of user-supplied data is extremely dangerous and is likely to lead to SQL injection vulnerabilities. In most cases <code>pg_query_params()</code> should be preferred, passing user-supplied values as parameters rather than substituting them into the query string.</p> <p>Any user-supplied data substituted directly into a query string should be properly escaped.</p>
 	 * @return resource|false <p>A query result resource on success or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.pg-query.php
+	 * @link https://php.net/manual/en/function.pg-query.php
 	 * @see pg_connect(), pg_pconnect(), pg_fetch_array(), pg_fetch_object(), pg_num_rows(), pg_affected_rows()
 	 * @since PHP 4 >= 4.2.0, PHP 5, PHP 7
 	 */
@@ -830,7 +830,7 @@ namespace {
 	 * @param string $query <p>The parameterized SQL statement. Must contain only a single statement. (multiple statements separated by semi-colons are not allowed.) If any parameters are used, they are referred to as $1, $2, etc.</p> <p>User-supplied values should always be passed as parameters, not interpolated into the query string, where they form possible  SQL injection attack vectors and introduce bugs when handling data containing quotes. If for some reason you cannot use a parameter, ensure that interpolated values are properly escaped.</p>
 	 * @param array $params <p>An array of parameter values to substitute for the $1, $2, etc. placeholders in the original prepared query string. The number of elements in the array must match the number of placeholders.</p> <p>Values intended for <code>bytea</code> fields are not supported as parameters. Use <code>pg_escape_bytea()</code> instead, or use the large object functions.</p>
 	 * @return resource|false <p>A query result resource on success or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.pg-query-params.php
+	 * @link https://php.net/manual/en/function.pg-query-params.php
 	 * @see pg_query()
 	 * @since PHP 5 >= 5.1.0, PHP 7
 	 */
@@ -841,7 +841,7 @@ namespace {
 	 * <p><b>pg_result_error()</b> returns any error message associated with the <code>result</code> resource. Therefore, the user has a better chance of getting the correct error message than with <code>pg_last_error()</code>.</p><p>The function <code>pg_result_error_field()</code> can give much greater detail on result errors than <b>pg_result_error()</b>.</p><p>Because <code>pg_query()</code> returns <b><code>FALSE</code></b> if the query fails, you must use <code>pg_send_query()</code> and <code>pg_get_result()</code> to get the result handle.</p>
 	 * @param resource $result <p>PostgreSQL query result resource, returned by <code>pg_query()</code>, <code>pg_query_params()</code> or <code>pg_execute()</code> (among others).</p>
 	 * @return string <p>Returns a <code>string</code>. Returns empty string if there is no error. If there is an error associated with the <code>result</code> parameter, returns <b><code>FALSE</code></b>.</p>
-	 * @link http://php.net/manual/en/function.pg-result-error.php
+	 * @link https://php.net/manual/en/function.pg-result-error.php
 	 * @see pg_result_error_field(), pg_query(), pg_send_query(), pg_get_result(), pg_last_error(), pg_last_notice()
 	 * @since PHP 4 >= 4.2.0, PHP 5, PHP 7
 	 */
@@ -853,7 +853,7 @@ namespace {
 	 * @param resource $result <p>A PostgreSQL query result resource from a previously executed statement.</p>
 	 * @param int $fieldcode <p>Possible <code>fieldcode</code> values are: <b><code>PGSQL_DIAG_SEVERITY</code></b>, <b><code>PGSQL_DIAG_SQLSTATE</code></b>, <b><code>PGSQL_DIAG_MESSAGE_PRIMARY</code></b>, <b><code>PGSQL_DIAG_MESSAGE_DETAIL</code></b>, <b><code>PGSQL_DIAG_MESSAGE_HINT</code></b>, <b><code>PGSQL_DIAG_STATEMENT_POSITION</code></b>, <b><code>PGSQL_DIAG_INTERNAL_POSITION</code></b> (PostgreSQL 8.0+ only), <b><code>PGSQL_DIAG_INTERNAL_QUERY</code></b> (PostgreSQL 8.0+ only), <b><code>PGSQL_DIAG_CONTEXT</code></b>, <b><code>PGSQL_DIAG_SOURCE_FILE</code></b>, <b><code>PGSQL_DIAG_SOURCE_LINE</code></b> or <b><code>PGSQL_DIAG_SOURCE_FUNCTION</code></b>.</p>
 	 * @return string <p>A <code>string</code> containing the contents of the error field, <b><code>NULL</code></b> if the field does not exist or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.pg-result-error-field.php
+	 * @link https://php.net/manual/en/function.pg-result-error-field.php
 	 * @see pg_result_error()
 	 * @since PHP 5 >= 5.1.0, PHP 7
 	 */
@@ -865,7 +865,7 @@ namespace {
 	 * @param resource $result <p>PostgreSQL query result resource, returned by <code>pg_query()</code>, <code>pg_query_params()</code> or <code>pg_execute()</code> (among others).</p>
 	 * @param int $offset <p>Row to move the internal offset to in the <code>result</code> resource. Rows are numbered starting from zero.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.pg-result-seek.php
+	 * @link https://php.net/manual/en/function.pg-result-seek.php
 	 * @see pg_fetch_row(), pg_fetch_assoc(), pg_fetch_array(), pg_fetch_object(), pg_fetch_result()
 	 * @since PHP 4 >= 4.3.0, PHP 5, PHP 7
 	 */
@@ -877,7 +877,7 @@ namespace {
 	 * @param resource $result <p>PostgreSQL query result resource, returned by <code>pg_query()</code>, <code>pg_query_params()</code> or <code>pg_execute()</code> (among others).</p>
 	 * @param int $type <p>Either <b><code>PGSQL_STATUS_LONG</code></b> to return the numeric status of the <code>result</code>, or <b><code>PGSQL_STATUS_STRING</code></b> to return the command tag of the <code>result</code>. If not specified, <b><code>PGSQL_STATUS_LONG</code></b> is the default.</p>
 	 * @return mixed <p>Possible return values are <b><code>PGSQL_EMPTY_QUERY</code></b>, <b><code>PGSQL_COMMAND_OK</code></b>, <b><code>PGSQL_TUPLES_OK</code></b>, <b><code>PGSQL_COPY_OUT</code></b>, <b><code>PGSQL_COPY_IN</code></b>, <b><code>PGSQL_BAD_RESPONSE</code></b>, <b><code>PGSQL_NONFATAL_ERROR</code></b> and <b><code>PGSQL_FATAL_ERROR</code></b> if <b><code>PGSQL_STATUS_LONG</code></b> is specified. Otherwise, a <code>string</code> containing the PostgreSQL command tag is returned.</p>
-	 * @link http://php.net/manual/en/function.pg-result-status.php
+	 * @link https://php.net/manual/en/function.pg-result-status.php
 	 * @see pg_connection_status()
 	 * @since PHP 4 >= 4.2.0, PHP 5, PHP 7
 	 */
@@ -892,7 +892,7 @@ namespace {
 	 * @param int $options <p>Any number of <b><code>PGSQL_CONV_FORCE_NULL</code></b>, <b><code>PGSQL_DML_NO_CONV</code></b>, <b><code>PGSQL_DML_ESCAPE</code></b>, <b><code>PGSQL_DML_EXEC</code></b>, <b><code>PGSQL_DML_ASYNC</code></b> or <b><code>PGSQL_DML_STRING</code></b> combined. If <b><code>PGSQL_DML_STRING</code></b> is part of the <code>options</code> then query string is returned. When <b><code>PGSQL_DML_NO_CONV</code></b> or <b><code>PGSQL_DML_ESCAPE</code></b> is set, it does not call <code>pg_convert()</code> internally.</p>
 	 * @param int $result_type
 	 * @return mixed <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure. Returns <code>string</code> if <b><code>PGSQL_DML_STRING</code></b> is passed via <code>options</code>.</p>
-	 * @link http://php.net/manual/en/function.pg-select.php
+	 * @link https://php.net/manual/en/function.pg-select.php
 	 * @see pg_convert()
 	 * @since PHP 4 >= 4.3.0, PHP 5, PHP 7
 	 */
@@ -905,7 +905,7 @@ namespace {
 	 * @param string $stmtname <p>The name of the prepared statement to execute. if "" is specified, then the unnamed statement is executed. The name must have been previously prepared using <code>pg_prepare()</code>, <code>pg_send_prepare()</code> or a <code>PREPARE</code> SQL command.</p>
 	 * @param array $params <p>An array of parameter values to substitute for the $1, $2, etc. placeholders in the original prepared query string. The number of elements in the array must match the number of placeholders.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success, <b><code>FALSE</code></b> on failure. Use <code>pg_get_result()</code> to determine the query result.</p>
-	 * @link http://php.net/manual/en/function.pg-send-execute.php
+	 * @link https://php.net/manual/en/function.pg-send-execute.php
 	 * @see pg_prepare(), pg_send_prepare(), pg_execute()
 	 * @since PHP 5 >= 5.1.0, PHP 7
 	 */
@@ -918,7 +918,7 @@ namespace {
 	 * @param string $stmtname <p>The name to give the prepared statement. Must be unique per-connection. If "" is specified, then an unnamed statement is created, overwriting any previously defined unnamed statement.</p>
 	 * @param string $query <p>The parameterized SQL statement. Must contain only a single statement. (multiple statements separated by semi-colons are not allowed.) If any parameters are used, they are referred to as $1, $2, etc.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success, <b><code>FALSE</code></b> on failure. Use <code>pg_get_result()</code> to determine the query result.</p>
-	 * @link http://php.net/manual/en/function.pg-send-prepare.php
+	 * @link https://php.net/manual/en/function.pg-send-prepare.php
 	 * @see pg_connect(), pg_pconnect(), pg_execute(), pg_send_execute(), pg_send_query_params()
 	 * @since PHP 5 >= 5.1.0, PHP 7
 	 */
@@ -930,7 +930,7 @@ namespace {
 	 * @param resource $connection <p>PostgreSQL database connection resource.</p>
 	 * @param string $query <p>The SQL statement or statements to be executed.</p> <p>Data inside the query should be properly escaped.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p><p>Use <code>pg_get_result()</code> to determine the query result.</p>
-	 * @link http://php.net/manual/en/function.pg-send-query.php
+	 * @link https://php.net/manual/en/function.pg-send-query.php
 	 * @see pg_query(), pg_cancel_query(), pg_get_result(), pg_connection_busy()
 	 * @since PHP 4 >= 4.2.0, PHP 5, PHP 7
 	 */
@@ -943,7 +943,7 @@ namespace {
 	 * @param string $query <p>The parameterized SQL statement. Must contain only a single statement. (multiple statements separated by semi-colons are not allowed.) If any parameters are used, they are referred to as $1, $2, etc.</p>
 	 * @param array $params <p>An array of parameter values to substitute for the $1, $2, etc. placeholders in the original prepared query string. The number of elements in the array must match the number of placeholders.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p><p>Use <code>pg_get_result()</code> to determine the query result.</p>
-	 * @link http://php.net/manual/en/function.pg-send-query-params.php
+	 * @link https://php.net/manual/en/function.pg-send-query-params.php
 	 * @see pg_send_query()
 	 * @since PHP 5 >= 5.1.0, PHP 7
 	 */
@@ -955,7 +955,7 @@ namespace {
 	 * @param resource $connection <p>PostgreSQL database connection resource. When <code>connection</code> is not present, the default connection is used. The default connection is the last connection made by <code>pg_connect()</code> or <code>pg_pconnect()</code>.</p>
 	 * @param string $encoding <p>The required client encoding. One of <code>SQL_ASCII</code>, <code>EUC_JP</code>, <code>EUC_CN</code>, <code>EUC_KR</code>, <code>EUC_TW</code>, <code>UNICODE</code>, <code>MULE_INTERNAL</code>, <code>LATINX</code> (X=1...9), <code>KOI8</code>, <code>WIN</code>, <code>ALT</code>, <code>SJIS</code>, <code>BIG5</code> or <code>WIN1250</code>.</p> <p>The exact list of available encodings depends on your PostgreSQL version, so check your PostgreSQL manual for a more specific list.</p>
 	 * @return int <p>Returns 0 on success or -1 on error.</p>
-	 * @link http://php.net/manual/en/function.pg-set-client-encoding.php
+	 * @link https://php.net/manual/en/function.pg-set-client-encoding.php
 	 * @see pg_client_encoding()
 	 * @since PHP 4 >= 4.0.3, PHP 5, PHP 7
 	 */
@@ -967,7 +967,7 @@ namespace {
 	 * @param resource $connection <p>PostgreSQL database connection resource. When <code>connection</code> is not present, the default connection is used. The default connection is the last connection made by <code>pg_connect()</code> or <code>pg_pconnect()</code>.</p>
 	 * @param int $verbosity <p>The required verbosity: <b><code>PGSQL_ERRORS_TERSE</code></b>, <b><code>PGSQL_ERRORS_DEFAULT</code></b> or <b><code>PGSQL_ERRORS_VERBOSE</code></b>.</p>
 	 * @return int <p>The previous verbosity level: <b><code>PGSQL_ERRORS_TERSE</code></b>, <b><code>PGSQL_ERRORS_DEFAULT</code></b> or <b><code>PGSQL_ERRORS_VERBOSE</code></b>.</p>
-	 * @link http://php.net/manual/en/function.pg-set-error-verbosity.php
+	 * @link https://php.net/manual/en/function.pg-set-error-verbosity.php
 	 * @see pg_last_error(), pg_result_error()
 	 * @since PHP 5 >= 5.1.0, PHP 7
 	 */
@@ -978,7 +978,7 @@ namespace {
 	 * <p><b>pg_socket()</b> returns a read only <code>resource</code> corresponding to the socket underlying the given PostgreSQL connection.</p><p>This function is currently not documented; only its argument list is available.</p>
 	 * @param resource $connection <p>PostgreSQL database connection resource.</p>
 	 * @return resource|false <p>A socket resource on success or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.pg-socket.php
+	 * @link https://php.net/manual/en/function.pg-socket.php
 	 * @since PHP 5 >= 5.6.0, PHP 7
 	 */
 	function pg_socket($connection) {}
@@ -990,7 +990,7 @@ namespace {
 	 * @param string $mode <p>An optional file access mode, same as for <code>fopen()</code>.</p>
 	 * @param resource $connection <p>PostgreSQL database connection resource. When <code>connection</code> is not present, the default connection is used. The default connection is the last connection made by <code>pg_connect()</code> or <code>pg_pconnect()</code>.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.pg-trace.php
+	 * @link https://php.net/manual/en/function.pg-trace.php
 	 * @see fopen(), pg_untrace()
 	 * @since PHP 4 >= 4.0.1, PHP 5, PHP 7
 	 */
@@ -1001,7 +1001,7 @@ namespace {
 	 * <p>Returns the current in-transaction status of the server.</p><p><b>pg_transaction_status()</b> will give incorrect results when using a PostgreSQL 7.3 server that has the parameter <code>autocommit</code> set to off. The server-side autocommit feature has been deprecated and does not exist in later server versions.</p>
 	 * @param resource $connection <p>PostgreSQL database connection resource.</p>
 	 * @return int <p>The status can be <b><code>PGSQL_TRANSACTION_IDLE</code></b> (currently idle), <b><code>PGSQL_TRANSACTION_ACTIVE</code></b> (a command is in progress), <b><code>PGSQL_TRANSACTION_INTRANS</code></b> (idle, in a valid transaction block), or <b><code>PGSQL_TRANSACTION_INERROR</code></b> (idle, in a failed transaction block). <b><code>PGSQL_TRANSACTION_UNKNOWN</code></b> is reported if the connection is bad. <b><code>PGSQL_TRANSACTION_ACTIVE</code></b> is reported only when a query has been sent to the server and not yet completed.</p>
-	 * @link http://php.net/manual/en/function.pg-transaction-status.php
+	 * @link https://php.net/manual/en/function.pg-transaction-status.php
 	 * @since PHP 5 >= 5.1.0, PHP 7
 	 */
 	function pg_transaction_status($connection): int {}
@@ -1011,7 +1011,7 @@ namespace {
 	 * <p><b>pg_tty()</b> returns the TTY name that server side debugging output is sent to on the given PostgreSQL <code>connection</code> resource.</p><p><b>Note</b>:</p><p><b>pg_tty()</b> is obsolete, since the server no longer pays attention to the TTY setting, but the function remains for backwards compatibility.</p>
 	 * @param resource $connection <p>PostgreSQL database connection resource. When <code>connection</code> is not present, the default connection is used. The default connection is the last connection made by <code>pg_connect()</code> or <code>pg_pconnect()</code>.</p>
 	 * @return string <p>A <code>string</code> containing the debug TTY of the <code>connection</code>, or <b><code>FALSE</code></b> on error.</p>
-	 * @link http://php.net/manual/en/function.pg-tty.php
+	 * @link https://php.net/manual/en/function.pg-tty.php
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
 	function pg_tty($connection = NULL): string {}
@@ -1021,7 +1021,7 @@ namespace {
 	 * <p><b>pg_unescape_bytea()</b> unescapes PostgreSQL bytea data values. It returns the unescaped string, possibly containing binary data.</p><p><b>Note</b>:</p><p>When you <code>SELECT</code> a bytea type, PostgreSQL returns octal byte values prefixed with '\' (e.g. \032). Users are supposed to convert back to binary format manually.</p><p>This function requires PostgreSQL 7.2 or later. With PostgreSQL 7.2.0 and 7.2.1, bytea values must be cast when you enable multi-byte support. i.e. <code>INSERT INTO test_table (image) VALUES ('$image_escaped'::bytea);</code> PostgreSQL 7.2.2 or later does not need a cast. The exception is when the client and backend character encoding does not match, and there may be multi-byte stream error. User must then cast to bytea to avoid this error.</p>
 	 * @param string $data <p>A <code>string</code> containing PostgreSQL bytea data to be converted into a PHP binary string.</p>
 	 * @return string <p>A <code>string</code> containing the unescaped data.</p>
-	 * @link http://php.net/manual/en/function.pg-unescape-bytea.php
+	 * @link https://php.net/manual/en/function.pg-unescape-bytea.php
 	 * @see pg_escape_bytea(), pg_escape_string()
 	 * @since PHP 4 >= 4.3.0, PHP 5, PHP 7
 	 */
@@ -1032,7 +1032,7 @@ namespace {
 	 * <p>Stop tracing started by <code>pg_trace()</code>.</p>
 	 * @param resource $connection <p>PostgreSQL database connection resource. When <code>connection</code> is not present, the default connection is used. The default connection is the last connection made by <code>pg_connect()</code> or <code>pg_pconnect()</code>.</p>
 	 * @return bool <p>Always returns <b><code>TRUE</code></b>.</p>
-	 * @link http://php.net/manual/en/function.pg-untrace.php
+	 * @link https://php.net/manual/en/function.pg-untrace.php
 	 * @see pg_trace()
 	 * @since PHP 4 >= 4.0.1, PHP 5, PHP 7
 	 */
@@ -1047,7 +1047,7 @@ namespace {
 	 * @param array $condition <p>An <code>array</code> whose keys are field names in the table <code>table_name</code>, and whose values are the conditions that a row must meet to be updated.</p>
 	 * @param int $options <p>Any number of <b><code>PGSQL_CONV_FORCE_NULL</code></b>, <b><code>PGSQL_DML_NO_CONV</code></b>, <b><code>PGSQL_DML_ESCAPE</code></b>, <b><code>PGSQL_DML_EXEC</code></b>, <b><code>PGSQL_DML_ASYNC</code></b> or <b><code>PGSQL_DML_STRING</code></b> combined. If <b><code>PGSQL_DML_STRING</code></b> is part of the <code>options</code> then query string is returned. When <b><code>PGSQL_DML_NO_CONV</code></b> or <b><code>PGSQL_DML_ESCAPE</code></b> is set, it does not call <code>pg_convert()</code> internally.</p>
 	 * @return mixed <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure. Returns <code>string</code> if <b><code>PGSQL_DML_STRING</code></b> is passed via <code>options</code>.</p>
-	 * @link http://php.net/manual/en/function.pg-update.php
+	 * @link https://php.net/manual/en/function.pg-update.php
 	 * @see pg_convert()
 	 * @since PHP 4 >= 4.3.0, PHP 5, PHP 7
 	 */
@@ -1058,7 +1058,7 @@ namespace {
 	 * <p><b>pg_version()</b> returns an array with the client, protocol and server version. Protocol and server versions are only available if PHP was compiled with PostgreSQL 7.4 or later.</p><p>For more detailed server information, use <code>pg_parameter_status()</code>.</p>
 	 * @param resource $connection <p>PostgreSQL database connection resource. When <code>connection</code> is not present, the default connection is used. The default connection is the last connection made by <code>pg_connect()</code> or <code>pg_pconnect()</code>.</p>
 	 * @return array <p>Returns an array with <code>client</code>, <code>protocol</code> and <code>server</code> keys and values (if available). Returns <b><code>FALSE</code></b> on error or invalid connection.</p>
-	 * @link http://php.net/manual/en/function.pg-version.php
+	 * @link https://php.net/manual/en/function.pg-version.php
 	 * @see pg_parameter_status()
 	 * @since PHP 5, PHP 7
 	 */

@@ -6,92 +6,92 @@ namespace {
 
 	/**
 	 * <p>The Phar class provides a high-level interface to accessing and creating phar archives.</p>
-	 * @link http://php.net/manual/en/class.phar.php
+	 * @link https://php.net/manual/en/class.phar.php
 	 * @since PHP 5 >= 5.3.0, PHP 7, PECL phar >= 1.0.0
 	 */
 	class Phar extends \RecursiveDirectoryIterator implements \Countable, \ArrayAccess {
 
 		/**
 		 * @var int no compression
-		 * @link http://php.net/manual/en/phar.constants.php
+		 * @link https://php.net/manual/en/phar.constants.php
 		 */
 		const NONE = 0;
 
 		/**
 		 * @var int bitmask that can be used with file flags to determine if any compression is present
-		 * @link http://php.net/manual/en/phar.constants.php
+		 * @link https://php.net/manual/en/phar.constants.php
 		 */
 		const COMPRESSED = 61440;
 
 		/**
 		 * @var int zlib (gzip) compression
-		 * @link http://php.net/manual/en/phar.constants.php
+		 * @link https://php.net/manual/en/phar.constants.php
 		 */
 		const GZ = 4096;
 
 		/**
 		 * @var int bzip2 compression
-		 * @link http://php.net/manual/en/phar.constants.php
+		 * @link https://php.net/manual/en/phar.constants.php
 		 */
 		const BZ2 = 8192;
 
 		/**
 		 * @var int phar file format
-		 * @link http://php.net/manual/en/phar.constants.php
+		 * @link https://php.net/manual/en/phar.constants.php
 		 */
 		const PHAR = 1;
 
 		/**
 		 * @var int tar file format
-		 * @link http://php.net/manual/en/phar.constants.php
+		 * @link https://php.net/manual/en/phar.constants.php
 		 */
 		const TAR = 2;
 
 		/**
 		 * @var int zip file format
-		 * @link http://php.net/manual/en/phar.constants.php
+		 * @link https://php.net/manual/en/phar.constants.php
 		 */
 		const ZIP = 3;
 
 		/**
 		 * @var int signature with md5 hash algorithm
-		 * @link http://php.net/manual/en/phar.constants.php
+		 * @link https://php.net/manual/en/phar.constants.php
 		 */
 		const MD5 = 1;
 
 		/**
 		 * @var int signature with sha1 hash algorithm
-		 * @link http://php.net/manual/en/phar.constants.php
+		 * @link https://php.net/manual/en/phar.constants.php
 		 */
 		const SHA1 = 2;
 
 		/**
 		 * @var int signature with sha256 hash algorithm (requires hash extension)
-		 * @link http://php.net/manual/en/phar.constants.php
+		 * @link https://php.net/manual/en/phar.constants.php
 		 */
 		const SHA256 = 3;
 
 		/**
 		 * @var int signature with sha512 hash algorithm (requires hash extension)
-		 * @link http://php.net/manual/en/phar.constants.php
+		 * @link https://php.net/manual/en/phar.constants.php
 		 */
 		const SHA512 = 4;
 
 		/**
 		 * @var int signature with OpenSSL public/private key pair. This is a true, asymmetric key signature.
-		 * @link http://php.net/manual/en/phar.constants.php
+		 * @link https://php.net/manual/en/phar.constants.php
 		 */
 		const OPENSSL = 16;
 
 		/**
 		 * @var int used to instruct the mimeoverrides parameter of <code>Phar::webPhar()</code> that the extension should be parsed as a PHP file
-		 * @link http://php.net/manual/en/phar.constants.php
+		 * @link https://php.net/manual/en/phar.constants.php
 		 */
 		const PHP = 0;
 
 		/**
 		 * @var int used to instruct the mimeoverrides parameter of <code>Phar::webPhar()</code> that the extension should be parsed as a PHP source file through <code>highlight_file()</code>
-		 * @link http://php.net/manual/en/phar.constants.php
+		 * @link https://php.net/manual/en/phar.constants.php
 		 */
 		const PHPS = 1;
 
@@ -101,7 +101,7 @@ namespace {
 		 * @param int $flags <p>Flags to pass to parent class RecursiveDirectoryIterator.</p>
 		 * @param string $alias <p>Alias with which this Phar archive should be referred to in calls to stream functionality.</p>
 		 * @return self
-		 * @link http://php.net/manual/en/phar.construct.php
+		 * @link https://php.net/manual/en/phar.construct.php
 		 * @since PHP 5 >= 5.3.0, PHP 7, PECL phar >= 1.0.0
 		 */
 		public function __construct(string $fname, int $flags = NULL, string $alias = NULL) {}
@@ -111,7 +111,7 @@ namespace {
 		 * <p><b>Note</b>:</p><p>This method requires the php.ini setting <code>phar.readonly</code> to be set to <code>0</code> in order to work for Phar objects. Otherwise, a PharException will be thrown.</p><p>With this method, an empty directory is created with path <code>dirname</code>. This method is similar to <code>ZipArchive::addEmptyDir()</code>.</p>
 		 * @param string $dirname <p>The name of the empty directory to create in the phar archive</p>
 		 * @return void <p>no return value, exception is thrown on failure.</p>
-		 * @link http://php.net/manual/en/phar.addemptydir.php
+		 * @link https://php.net/manual/en/phar.addemptydir.php
 		 * @see PharData::addEmptyDir(), Phar::addFile(), Phar::addFromString()
 		 * @since PHP 5 >= 5.3.0, PHP 7, PECL phar >= 2.0.0
 		 */
@@ -123,7 +123,7 @@ namespace {
 		 * @param string $file <p>Full or relative path to a file on disk to be added to the phar archive.</p>
 		 * @param string $localname <p>Path that the file will be stored in the archive.</p>
 		 * @return void <p>no return value, exception is thrown on failure.</p>
-		 * @link http://php.net/manual/en/phar.addfile.php
+		 * @link https://php.net/manual/en/phar.addfile.php
 		 * @see Phar::offsetSet(), PharData::addFile(), Phar::addFromString(), Phar::addEmptyDir()
 		 * @since PHP 5 >= 5.3.0, PHP 7, PECL phar >= 2.0.0
 		 */
@@ -135,7 +135,7 @@ namespace {
 		 * @param string $localname <p>Path that the file will be stored in the archive.</p>
 		 * @param string $contents <p>The file contents to store</p>
 		 * @return void <p>no return value, exception is thrown on failure.</p>
-		 * @link http://php.net/manual/en/phar.addfromstring.php
+		 * @link https://php.net/manual/en/phar.addfromstring.php
 		 * @see Phar::offsetSet(), PharData::addFromString(), Phar::addFile(), Phar::addEmptyDir()
 		 * @since PHP 5 >= 5.3.0, PHP 7, PECL phar >= 2.0.0
 		 */
@@ -145,7 +145,7 @@ namespace {
 		 * Returns the api version
 		 * <p>Return the API version of the phar file format that will be used when creating phars. The Phar extension supports reading API version 1.0.0 or newer. API version 1.1.0 is required for SHA-256 and SHA-512 hash, and API version 1.1.1 is required to store empty directories.</p>
 		 * @return string <p>The API version string as in <code>"1.0.0"</code>.</p>
-		 * @link http://php.net/manual/en/phar.apiversion.php
+		 * @link https://php.net/manual/en/phar.apiversion.php
 		 * @since PHP 5 >= 5.3.0, PHP 7, PECL phar >= 1.0.0
 		 */
 		final public static function apiVersion(): string {}
@@ -156,7 +156,7 @@ namespace {
 		 * @param string $base_dir <p>The full or relative path to the directory that contains all files to add to the archive.</p>
 		 * @param string $regex <p>An optional pcre regular expression that is used to filter the list of files. Only file paths matching the regular expression will be included in the archive.</p>
 		 * @return array <p><b>Phar::buildFromDirectory()</b> returns an associative array mapping internal path of file to the full path of the file on the filesystem.</p>
-		 * @link http://php.net/manual/en/phar.buildfromdirectory.php
+		 * @link https://php.net/manual/en/phar.buildfromdirectory.php
 		 * @see Phar::buildFromIterator()
 		 * @since PHP 5 >= 5.3.0, PHP 7, PECL phar >= 2.0.0
 		 */
@@ -168,7 +168,7 @@ namespace {
 		 * @param \Iterator $iter <p>Any iterator that either associatively maps phar file to location or returns SplFileInfo objects</p>
 		 * @param string $base_directory <p>For iterators that return SplFileInfo objects, the portion of each file's full path to remove when adding to the phar archive</p>
 		 * @return array <p><b>Phar::buildFromIterator()</b> returns an associative array mapping internal path of file to the full path of the file on the filesystem.</p>
-		 * @link http://php.net/manual/en/phar.buildfromiterator.php
+		 * @link https://php.net/manual/en/phar.buildfromiterator.php
 		 * @see Phar::buildFromDirectory()
 		 * @since PHP 5 >= 5.3.0, PHP 7, PECL phar >= 2.0.0
 		 */
@@ -179,7 +179,7 @@ namespace {
 		 * <p>This should be used to test whether compression is possible prior to loading a phar archive containing compressed files.</p>
 		 * @param int $type <p>Either <code>Phar::GZ</code> or <code>Phar::BZ2</code> can be used to test whether compression is possible with a specific compression algorithm (zlib or bzip2).</p>
 		 * @return bool <p><b><code>TRUE</code></b> if compression/decompression is available, <b><code>FALSE</code></b> if not.</p>
-		 * @link http://php.net/manual/en/phar.cancompress.php
+		 * @link https://php.net/manual/en/phar.cancompress.php
 		 * @see PharFileInfo::getCompressedSize(), PharFileInfo::isCompressed(), PharFileInfo::compress(), PharFileInfo::decompress(), Phar::isCompressed(), Phar::compressFiles(), Phar::decompressFiles(), Phar::getSupportedCompression(), Phar::convertToExecutable(), Phar::convertToData()
 		 * @since PHP 5 >= 5.3.0, PHP 7, PECL phar >= 1.0.0
 		 */
@@ -189,7 +189,7 @@ namespace {
 		 * Returns whether phar extension supports writing and creating phars
 		 * <p>This static method determines whether write access has been disabled in the system php.ini via the phar.readonly ini variable.</p>
 		 * @return bool <p><b><code>TRUE</code></b> if write access is enabled, <b><code>FALSE</code></b> if it is disabled.</p>
-		 * @link http://php.net/manual/en/phar.canwrite.php
+		 * @link https://php.net/manual/en/phar.canwrite.php
 		 * @see Phar::isWritable()
 		 * @since PHP 5 >= 5.3.0, PHP 7, PECL phar >= 1.0.0
 		 */
@@ -201,7 +201,7 @@ namespace {
 		 * @param int $compression <p>Compression must be one of <code>Phar::GZ</code>, <code>Phar::BZ2</code> to add compression, or <code>Phar::NONE</code> to remove compression.</p>
 		 * @param string $extension <p>By default, the extension is <code>.phar.gz</code> or <code>.phar.bz2</code> for compressing phar archives, and <code>.phar.tar.gz</code> or <code>.phar.tar.bz2</code> for compressing tar archives. For decompressing, the default file extensions are <code>.phar</code> and <code>.phar.tar</code>.</p>
 		 * @return Phar <p>Returns a Phar object.</p>
-		 * @link http://php.net/manual/en/phar.compress.php
+		 * @link https://php.net/manual/en/phar.compress.php
 		 * @see PharFileInfo::getCompressedSize(), PharFileInfo::isCompressed(), PharFileInfo::compress(), PharFileInfo::decompress(), PharData::compress(), Phar::canCompress(), Phar::isCompressed(), Phar::decompress(), Phar::getSupportedCompression(), Phar::compressFiles(), Phar::decompressFiles()
 		 * @since PHP 5 >= 5.3.0, PHP 7, PECL phar >= 2.0.0
 		 */
@@ -212,7 +212,7 @@ namespace {
 		 * <p><b>Note</b>:</p><p>This method requires the php.ini setting <code>phar.readonly</code> to be set to <code>0</code> in order to work for Phar objects. Otherwise, a PharException will be thrown.</p><p>For tar-based phar archives, this method throws a BadMethodCallException, as compression of individual files within a tar archive is not supported by the file format. Use <code>Phar::compress()</code> to compress an entire tar-based phar archive.</p><p>For Zip-based and phar-based phar archives, this method compresses all files in the Phar archive using the specified compression. The zlib or bzip2 extensions must be enabled to take advantage of this feature. In addition, if any files are already compressed using bzip2/zlib compression, the respective extension must be enabled in order to decompress the files prior to re-compressing. As with all functionality that modifies the contents of a phar, the phar.readonly INI variable must be off in order to succeed.</p>
 		 * @param int $compression <p>Compression must be one of <code>Phar::GZ</code>, <code>Phar::BZ2</code> to add compression, or <code>Phar::NONE</code> to remove compression.</p>
 		 * @return void <p>No value is returned.</p>
-		 * @link http://php.net/manual/en/phar.compressfiles.php
+		 * @link https://php.net/manual/en/phar.compressfiles.php
 		 * @see PharFileInfo::getCompressedSize(), PharFileInfo::isCompressed(), PharFileInfo::compress(), PharFileInfo::decompress(), Phar::canCompress(), Phar::isCompressed(), Phar::decompressFiles(), Phar::getSupportedCompression(), Phar::compress(), Phar::decompress()
 		 * @since PHP 5 >= 5.3.0, PHP 7, PECL phar >= 2.0.0
 		 */
@@ -225,7 +225,7 @@ namespace {
 		 * @param int $compression <p>This should be one of <code>Phar::NONE</code> for no whole-archive compression, <code>Phar::GZ</code> for zlib-based compression, and <code>Phar::BZ2</code> for bzip-based compression.</p>
 		 * @param string $extension <p>This parameter is used to override the default file extension for a converted archive. Note that <code>.phar</code> cannot be used anywhere in the filename for a non-executable tar or zip archive.</p> <p>If converting to a tar-based phar archive, the default extensions are <code>.tar</code>, <code>.tar.gz</code>, and <code>.tar.bz2</code> depending on specified compression. For zip-based archives, the default extension is <code>.zip</code>.</p>
 		 * @return PharData <p>The method returns a PharData object on success and throws an exception on failure.</p>
-		 * @link http://php.net/manual/en/phar.converttodata.php
+		 * @link https://php.net/manual/en/phar.converttodata.php
 		 * @see Phar::convertToExecutable(), PharData::convertToExecutable(), PharData::convertToData()
 		 * @since PHP 5 >= 5.3.0, PHP 7, PECL phar >= 2.0.0
 		 */
@@ -238,7 +238,7 @@ namespace {
 		 * @param int $compression <p>This should be one of <code>Phar::NONE</code> for no whole-archive compression, <code>Phar::GZ</code> for zlib-based compression, and <code>Phar::BZ2</code> for bzip-based compression.</p>
 		 * @param string $extension <p>This parameter is used to override the default file extension for a converted archive. Note that all zip- and tar-based phar archives must contain <code>.phar</code> in their file extension in order to be processed as a phar archive.</p> <p>If converting to a phar-based archive, the default extensions are <code>.phar</code>, <code>.phar.gz</code>, or <code>.phar.bz2</code> depending on the specified compression. For tar-based phar archives, the default extensions are <code>.phar.tar</code>, <code>.phar.tar.gz</code>, and <code>.phar.tar.bz2</code>. For zip-based phar archives, the default extension is <code>.phar.zip</code>.</p>
 		 * @return Phar <p>The method returns a Phar object on success and throws an exception on failure.</p>
-		 * @link http://php.net/manual/en/phar.converttoexecutable.php
+		 * @link https://php.net/manual/en/phar.converttoexecutable.php
 		 * @see Phar::convertToData(), PharData::convertToExecutable(), PharData::convertToData()
 		 * @since PHP 5 >= 5.3.0, PHP 7, PECL phar >= 2.0.0
 		 */
@@ -250,7 +250,7 @@ namespace {
 		 * @param string $oldfile
 		 * @param string $newfile
 		 * @return bool <p>returns <b><code>TRUE</code></b> on success, but it is safer to encase method call in a try/catch block and assume success if no exception is thrown.</p>
-		 * @link http://php.net/manual/en/phar.copy.php
+		 * @link https://php.net/manual/en/phar.copy.php
 		 * @since PHP 5 >= 5.3.0, PHP 7, PECL phar >= 2.0.0
 		 */
 		public function copy(string $oldfile, string $newfile): bool {}
@@ -258,7 +258,7 @@ namespace {
 		/**
 		 * Returns the number of entries (files) in the Phar archive
 		 * @return int <p>The number of files contained within this phar, or <code>0</code> (the number zero) if none.</p>
-		 * @link http://php.net/manual/en/phar.count.php
+		 * @link https://php.net/manual/en/phar.count.php
 		 * @since PHP 5 >= 5.3.0, PHP 7, PECL phar >= 1.0.0
 		 */
 		public function count(): int {}
@@ -269,7 +269,7 @@ namespace {
 		 * @param string $indexfile
 		 * @param string $webindexfile
 		 * @return string <p>Returns a string containing the contents of a customized bootstrap loader (stub) that allows the created Phar archive to work with or without the Phar extension enabled.</p>
-		 * @link http://php.net/manual/en/phar.createdefaultstub.php
+		 * @link https://php.net/manual/en/phar.createdefaultstub.php
 		 * @see Phar::setStub(), Phar::getStub()
 		 * @since PHP 5 >= 5.3.0, PHP 7, PECL phar >= 2.0.0
 		 */
@@ -280,7 +280,7 @@ namespace {
 		 * <p><b>Note</b>:</p><p>This method requires the php.ini setting <code>phar.readonly</code> to be set to <code>0</code> in order to work for Phar objects. Otherwise, a PharException will be thrown.</p><p>For tar-based and phar-based phar archives, this method decompresses the entire archive.</p><p>For Zip-based phar archives, this method fails with an exception. The zlib extension must be enabled to decompress an archive compressed with gzip compression, and the bzip2 extension must be enabled in order to decompress an archive compressed with bzip2 compression. As with all functionality that modifies the contents of a phar, the phar.readonly INI variable must be off in order to succeed.</p><p>In addition, this method automatically changes the file extension of the archive, <code>.phar</code> by default for phar archives, or <code>.phar.tar</code> for tar-based phar archives. Alternatively, a file extension may be specified with the second parameter.</p>
 		 * @param string $extension <p>For decompressing, the default file extensions are <code>.phar</code> and <code>.phar.tar</code>. Use this parameter to specify another file extension. Be aware that all executable phar archives must contain <code>.phar</code> in their filename.</p>
 		 * @return Phar <p>A Phar object is returned.</p>
-		 * @link http://php.net/manual/en/phar.decompress.php
+		 * @link https://php.net/manual/en/phar.decompress.php
 		 * @see PharFileInfo::getCompressedSize(), PharFileInfo::isCompressed(), PharFileInfo::compress(), PharFileInfo::decompress(), PharData::compress(), Phar::canCompress(), Phar::isCompressed(), Phar::compress(), Phar::getSupportedCompression(), Phar::compressFiles(), Phar::decompressFiles()
 		 * @since PHP 5 >= 5.3.0, PHP 7, PECL phar >= 2.0.0
 		 */
@@ -290,7 +290,7 @@ namespace {
 		 * Decompresses all files in the current Phar archive
 		 * <p><b>Note</b>:</p><p>This method requires the php.ini setting <code>phar.readonly</code> to be set to <code>0</code> in order to work for Phar objects. Otherwise, a PharException will be thrown.</p><p>For tar-based phar archives, this method throws a BadMethodCallException, as compression of individual files within a tar archive is not supported by the file format. Use <code>Phar::compress()</code> to compress an entire tar-based phar archive.</p><p>For Zip-based and phar-based phar archives, this method decompresses all files in the Phar archive. The zlib or bzip2 extensions must be enabled to take advantage of this feature if any files are compressed using bzip2/zlib compression. As with all functionality that modifies the contents of a phar, the phar.readonly INI variable must be off in order to succeed.</p>
 		 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-		 * @link http://php.net/manual/en/phar.decompressfiles.php
+		 * @link https://php.net/manual/en/phar.decompressfiles.php
 		 * @see PharFileInfo::getCompressedSize(), PharFileInfo::isCompressed(), PharFileInfo::compress(), PharFileInfo::decompress(), Phar::canCompress(), Phar::isCompressed(), Phar::compressFiles(), Phar::getSupportedCompression(), Phar::compress(), Phar::decompress()
 		 * @since PHP 5 >= 5.3.0, PHP 7, PECL phar >= 2.0.0
 		 */
@@ -300,7 +300,7 @@ namespace {
 		 * Deletes the global metadata of the phar
 		 * <p><b>Note</b>:</p><p>This method requires the php.ini setting <code>phar.readonly</code> to be set to <code>0</code> in order to work for Phar objects. Otherwise, a PharException will be thrown.</p><p>Deletes the global metadata of the phar</p>
 		 * @return bool <p>returns <b><code>TRUE</code></b> on success, but it is better to check for thrown exception, and assume success if none is thrown.</p>
-		 * @link http://php.net/manual/en/phar.delmetadata.php
+		 * @link https://php.net/manual/en/phar.delmetadata.php
 		 * @see Phar::getMetadata(), Phar::setMetadata(), Phar::hasMetadata()
 		 * @since PHP 5 >= 5.3.0, PHP 7, PECL phar >= 1.2.0
 		 */
@@ -311,7 +311,7 @@ namespace {
 		 * <p><b>Note</b>:</p><p>This method requires the php.ini setting <code>phar.readonly</code> to be set to <code>0</code> in order to work for Phar objects. Otherwise, a PharException will be thrown.</p><p>Delete a file within an archive. This is the functional equivalent of calling <code>unlink()</code> on the stream wrapper equivalent, as shown in the example below.</p>
 		 * @param string $entry <p>Path within an archive to the file to delete.</p>
 		 * @return bool <p>returns <b><code>TRUE</code></b> on success, but it is better to check for thrown exception, and assume success if none is thrown.</p>
-		 * @link http://php.net/manual/en/phar.delete.php
+		 * @link https://php.net/manual/en/phar.delete.php
 		 * @see PharData::delete(), Phar::unlinkArchive()
 		 * @since PHP 5 >= 5.3.0, PHP 7, PECL phar >= 2.0.0
 		 */
@@ -324,7 +324,7 @@ namespace {
 		 * @param string|array|null $files <p>The name of a file or directory to extract, or an array of files/directories to extract, <b><code>NULL</code></b> to skip this param</p>
 		 * @param bool $overwrite <p>Set to <b><code>TRUE</code></b> to enable overwriting existing files</p>
 		 * @return bool <p>returns <b><code>TRUE</code></b> on success, but it is better to check for thrown exception, and assume success if none is thrown.</p>
-		 * @link http://php.net/manual/en/phar.extractto.php
+		 * @link https://php.net/manual/en/phar.extractto.php
 		 * @see PharData::extractTo()
 		 * @since PHP 5 >= 5.3.0, PHP 7, PECL phar >= 2.0.0
 		 */
@@ -334,7 +334,7 @@ namespace {
 		 * Get the alias for Phar
 		 * <p></p><p>This function is currently not documented; only its argument list is available.</p>
 		 * @return string <p>Returns the alias or <b><code>NULL</code></b> if there's no alias.</p>
-		 * @link http://php.net/manual/en/phar.getalias.php
+		 * @link https://php.net/manual/en/phar.getalias.php
 		 * @since PHP 5 >= 5.3.0, PHP 7, PECL phar >= 1.2.1
 		 */
 		public function getAlias(): string {}
@@ -343,7 +343,7 @@ namespace {
 		 * Returns phar archive meta-data
 		 * <p>Retrieve archive meta-data. Meta-data can be any PHP variable that can be serialized.</p>
 		 * @return mixed <p>any PHP variable that can be serialized and is stored as meta-data for the Phar archive, or <b><code>NULL</code></b> if no meta-data is stored.</p>
-		 * @link http://php.net/manual/en/phar.getmetadata.php
+		 * @link https://php.net/manual/en/phar.getmetadata.php
 		 * @see Phar::setMetadata(), Phar::delMetadata(), Phar::hasMetadata()
 		 * @since PHP 5 >= 5.3.0, PHP 7, PECL phar >= 1.0.0
 		 */
@@ -353,7 +353,7 @@ namespace {
 		 * Return whether phar was modified
 		 * <p>This method can be used to determine whether a phar has either had an internal file deleted, or contents of a file changed in some way.</p>
 		 * @return bool <p><b><code>TRUE</code></b> if the phar has been modified since opened, <b><code>FALSE</code></b> if not.</p>
-		 * @link http://php.net/manual/en/phar.getmodified.php
+		 * @link https://php.net/manual/en/phar.getmodified.php
 		 * @since PHP 5 >= 5.3.0, PHP 7, PECL phar >= 1.0.0
 		 */
 		public function getModified(): bool {}
@@ -362,7 +362,7 @@ namespace {
 		 * Get the real path to the Phar archive on disk
 		 * <p></p><p>This function is currently not documented; only its argument list is available.</p>
 		 * @return string
-		 * @link http://php.net/manual/en/phar.getpath.php
+		 * @link https://php.net/manual/en/phar.getpath.php
 		 * @since PHP 5 >= 5.3.0, PHP 7
 		 */
 		public function getPath(): string {}
@@ -371,7 +371,7 @@ namespace {
 		 * Return MD5/SHA1/SHA256/SHA512/OpenSSL signature of a Phar archive
 		 * <p>Returns the verification signature of a phar archive in a hexadecimal string.</p>
 		 * @return array <p>Array with the opened archive's signature in <code>hash</code> key and <code>MD5</code>, <code>SHA-1</code>, <code>SHA-256</code>, <code>SHA-512</code>, or <code>OpenSSL</code> in <code>hash_type</code>. This signature is a hash calculated on the entire phar's contents, and may be used to verify the integrity of the archive. A valid signature is absolutely required of all executable phar archives if the phar.require_hash INI variable is set to true.</p>
-		 * @link http://php.net/manual/en/phar.getsignature.php
+		 * @link https://php.net/manual/en/phar.getsignature.php
 		 * @since PHP 5 >= 5.3.0, PHP 7, PECL phar >= 1.0.0
 		 */
 		public function getSignature(): array {}
@@ -380,7 +380,7 @@ namespace {
 		 * Return the PHP loader or bootstrap stub of a Phar archive
 		 * <p>Phar archives contain a bootstrap loader, or <code>stub</code> written in PHP that is executed when the archive is executed in PHP either via include:</p>
 		 * @return string <p>Returns a string containing the contents of the bootstrap loader (stub) of the current Phar archive.</p>
-		 * @link http://php.net/manual/en/phar.getstub.php
+		 * @link https://php.net/manual/en/phar.getstub.php
 		 * @see Phar::setStub(), Phar::createDefaultStub()
 		 * @since PHP 5 >= 5.3.0, PHP 7, PECL phar >= 1.0.0
 		 */
@@ -389,7 +389,7 @@ namespace {
 		/**
 		 * Return array of supported compression algorithms
 		 * @return array <p>Returns an array containing any of <code>Phar::GZ</code> or <code>Phar::BZ2</code>, depending on the availability of the zlib extension or the bz2 extension.</p>
-		 * @link http://php.net/manual/en/phar.getsupportedcompression.php
+		 * @link https://php.net/manual/en/phar.getsupportedcompression.php
 		 * @see PharFileInfo::getCompressedSize(), PharFileInfo::isCompressed(), PharFileInfo::compress(), PharFileInfo::decompress(), Phar::compress(), Phar::decompress(), Phar::canCompress(), Phar::isCompressed(), Phar::compressFiles(), Phar::decompressFiles()
 		 * @since PHP 5 >= 5.3.0, PHP 7, PECL phar >= 1.2.0
 		 */
@@ -399,7 +399,7 @@ namespace {
 		 * Return array of supported signature types
 		 * <p>Return array of supported signature types</p>
 		 * @return array <p>Returns an array containing any of <code>MD5</code>, <code>SHA-1</code>, <code>SHA-256</code>, <code>SHA-512</code>, or <code>OpenSSL</code>.</p>
-		 * @link http://php.net/manual/en/phar.getsupportedsignatures.php
+		 * @link https://php.net/manual/en/phar.getsupportedsignatures.php
 		 * @see Phar::getSignature(), Phar::setSignatureAlgorithm()
 		 * @since PHP 5 >= 5.3.0, PHP 7, PECL phar >= 1.1.0
 		 */
@@ -409,7 +409,7 @@ namespace {
 		 * Return version info of Phar archive
 		 * <p>Returns the API version of an opened Phar archive.</p>
 		 * @return string <p>The opened archive's API version. This is not to be confused with the API version that the loaded phar extension will use to create new phars. Each Phar archive has the API version hard-coded into its manifest. See Phar file format documentation for more information.</p>
-		 * @link http://php.net/manual/en/phar.getversion.php
+		 * @link https://php.net/manual/en/phar.getversion.php
 		 * @see Phar::apiVersion()
 		 * @since PHP 5 >= 5.3.0, PHP 7, PECL phar >= 1.0.0
 		 */
@@ -419,7 +419,7 @@ namespace {
 		 * Returns whether phar has global meta-data
 		 * <p>Returns whether phar has global meta-data set.</p>
 		 * @return bool <p>Returns <b><code>TRUE</code></b> if meta-data has been set, and <b><code>FALSE</code></b> if not.</p>
-		 * @link http://php.net/manual/en/phar.hasmetadata.php
+		 * @link https://php.net/manual/en/phar.hasmetadata.php
 		 * @see Phar::getMetadata(), Phar::setMetadata(), Phar::delMetadata()
 		 * @since PHP 5 >= 5.3.0, PHP 7, PECL phar >= 1.2.0
 		 */
@@ -429,7 +429,7 @@ namespace {
 		 * Instructs phar to intercept fopen, file_get_contents, opendir, and all of the stat-related functions
 		 * <p>instructs phar to intercept <code>fopen()</code>, <code>readfile()</code>, <code>file_get_contents()</code>, <code>opendir()</code>, and all of the stat-related functions. If any of these functions is called from within a phar archive with a relative path, the call is modified to access a file within the phar archive. Absolute paths are assumed to be attempts to load external files from the filesystem.</p><p>This function makes it possible to run PHP applications designed to run off of a hard disk as a phar application.</p>
 		 * @return void
-		 * @link http://php.net/manual/en/phar.interceptfilefuncs.php
+		 * @link https://php.net/manual/en/phar.interceptfilefuncs.php
 		 * @since PHP 5 >= 5.3.0, PHP 7, PECL phar >= 2.0.0
 		 */
 		final public static function interceptFileFuncs(): void {}
@@ -438,7 +438,7 @@ namespace {
 		 * Used to determine whether Phar write operations are being buffered, or are flushing directly to disk
 		 * <p>This method can be used to determine whether a Phar will save changes to disk immediately, or whether a call to <code>Phar::stopBuffering()</code> is needed to enable saving changes.</p><p>Phar write buffering is per-archive, buffering active for the <code>foo.phar</code> Phar archive does not affect changes to the <code>bar.phar</code> Phar archive.</p>
 		 * @return bool <p>Returns <b><code>TRUE</code></b> if the write operations are being buffer, <b><code>FALSE</code></b> otherwise.</p>
-		 * @link http://php.net/manual/en/phar.isbuffering.php
+		 * @link https://php.net/manual/en/phar.isbuffering.php
 		 * @see Phar::startBuffering(), Phar::stopBuffering()
 		 * @since PHP 5 >= 5.3.0, PHP 7, PECL phar >= 1.0.0
 		 */
@@ -448,7 +448,7 @@ namespace {
 		 * Returns Phar::GZ or PHAR::BZ2 if the entire phar archive is compressed (.tar.gz/tar.bz and so on)
 		 * <p><b>Note</b>:</p><p>This method requires the php.ini setting <code>phar.readonly</code> to be set to <code>0</code> in order to work for Phar objects. Otherwise, a PharException will be thrown.</p><p>Returns Phar::GZ or PHAR::BZ2 if the entire phar archive is compressed (.tar.gz/tar.bz and so on). Zip-based phar archives cannot be compressed as a file, and so this method will always return <b><code>FALSE</code></b> if a zip-based phar archive is queried.</p>
 		 * @return mixed <p><code>Phar::GZ</code>, <code>Phar::BZ2</code> or <b><code>FALSE</code></b></p>
-		 * @link http://php.net/manual/en/phar.iscompressed.php
+		 * @link https://php.net/manual/en/phar.iscompressed.php
 		 * @see PharFileInfo::getCompressedSize(), PharFileInfo::isCompressed(), PharFileInfo::decompress(), PharFileInfo::compress(), Phar::decompress(), Phar::compress(), Phar::canCompress(), Phar::compressFiles(), Phar::decompressFiles(), Phar::getSupportedCompression()
 		 * @since PHP 5 >= 5.3.0, PHP 7, PECL phar >= 2.0.0
 		 */
@@ -458,7 +458,7 @@ namespace {
 		 * Returns true if the phar archive is based on the tar/phar/zip file format depending on the parameter
 		 * @param int $format <p>Either <code>Phar::PHAR</code>, <code>Phar::TAR</code>, or <code>Phar::ZIP</code> to test for the format of the archive.</p>
 		 * @return bool <p>Returns <b><code>TRUE</code></b> if the phar archive matches the file format requested by the parameter</p>
-		 * @link http://php.net/manual/en/phar.isfileformat.php
+		 * @link https://php.net/manual/en/phar.isfileformat.php
 		 * @see Phar::convertToExecutable(), Phar::convertToData()
 		 * @since PHP 5 >= 5.3.0, PHP 7, PECL phar >= 2.0.0
 		 */
@@ -470,7 +470,7 @@ namespace {
 		 * @param string $filename <p>The name or full path to a phar archive not yet created</p>
 		 * @param bool $executable <p>This parameter determines whether the filename should be treated as a phar executable archive, or a data non-executable archive</p>
 		 * @return bool <p>Returns <b><code>TRUE</code></b> if the filename is valid, <b><code>FALSE</code></b> if not.</p>
-		 * @link http://php.net/manual/en/phar.isvalidpharfilename.php
+		 * @link https://php.net/manual/en/phar.isvalidpharfilename.php
 		 * @since PHP 5 >= 5.3.0, PHP 7, PECL phar >= 1.2.0
 		 */
 		final public static function isValidPharFilename(string $filename, bool $executable = TRUE): bool {}
@@ -479,7 +479,7 @@ namespace {
 		 * Returns true if the phar archive can be modified
 		 * <p>This method returns <b><code>TRUE</code></b> if <code>phar.readonly</code> is <code>0</code>, and the actual phar archive on disk is not read-only.</p>
 		 * @return bool <p>Returns <b><code>TRUE</code></b> if the phar archive can be modified</p>
-		 * @link http://php.net/manual/en/phar.iswritable.php
+		 * @link https://php.net/manual/en/phar.iswritable.php
 		 * @see Phar::canWrite(), PharData::isWritable()
 		 * @since PHP 5 >= 5.3.0, PHP 7, PECL phar >= 2.0.0
 		 */
@@ -491,7 +491,7 @@ namespace {
 		 * @param string $filename <p>the full or relative path to the phar archive to open</p>
 		 * @param string $alias <p>The alias that may be used to refer to the phar archive. Note that many phar archives specify an explicit alias inside the phar archive, and a PharException will be thrown if a new alias is specified in this case.</p>
 		 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-		 * @link http://php.net/manual/en/phar.loadphar.php
+		 * @link https://php.net/manual/en/phar.loadphar.php
 		 * @see Phar::mapPhar()
 		 * @since PHP 5 >= 5.3.0, PHP 7, PECL phar >= 1.0.0
 		 */
@@ -503,7 +503,7 @@ namespace {
 		 * @param string $alias <p>The alias that can be used in <code>phar://</code> URLs to refer to this archive, rather than its full path.</p>
 		 * @param int $dataoffset <p>Unused variable, here for compatibility with PEAR's PHP_Archive.</p>
 		 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-		 * @link http://php.net/manual/en/phar.mapphar.php
+		 * @link https://php.net/manual/en/phar.mapphar.php
 		 * @see Phar::loadPhar()
 		 * @since PHP 5 >= 5.3.0, PHP 7, PECL phar >= 1.0.0
 		 */
@@ -515,7 +515,7 @@ namespace {
 		 * @param string $pharpath <p>The internal path within the phar archive to use as the mounted path location. This must be a relative path within the phar archive, and must not already exist.</p>
 		 * @param string $externalpath <p>A path or URL to an external file or directory to mount within the phar archive</p>
 		 * @return void <p>No return. PharException is thrown on failure.</p>
-		 * @link http://php.net/manual/en/phar.mount.php
+		 * @link https://php.net/manual/en/phar.mount.php
 		 * @since PHP 5 >= 5.3.0, PHP 7, PECL phar >= 2.0.0
 		 */
 		final public static function mount(string $pharpath, string $externalpath): void {}
@@ -525,7 +525,7 @@ namespace {
 		 * <p><b>Phar::mungServer()</b> should only be called within the stub of a phar archive.</p><p>Defines a list of up to 4 $_SERVER variables that should be modified for execution. Variables that can be modified to remove traces of phar execution are <code>REQUEST_URI</code>, <code>PHP_SELF</code>, <code>SCRIPT_NAME</code> and <code>SCRIPT_FILENAME</code>.</p><p>On its own, this method does nothing. Only when combined with <code>Phar::webPhar()</code> does it take effect, and only when the requested file is a PHP file to be parsed. Note that the <code>PATH_INFO</code> and <code>PATH_TRANSLATED</code> variables are always modified.</p><p>The original values of variables that are modified are stored in the SERVER array with <code>PHAR_</code> prepended, so for instance <code>SCRIPT_NAME</code> would be saved as <code>PHAR_SCRIPT_NAME</code>.</p>
 		 * @param array $munglist <p>an array containing as string indices any of <code>REQUEST_URI</code>, <code>PHP_SELF</code>, <code>SCRIPT_NAME</code> and <code>SCRIPT_FILENAME</code>. Other values trigger an exception, and <b>Phar::mungServer()</b> is case-sensitive.</p>
 		 * @return void <p>No return.</p>
-		 * @link http://php.net/manual/en/phar.mungserver.php
+		 * @link https://php.net/manual/en/phar.mungserver.php
 		 * @see Phar::webPhar(), Phar::setStub()
 		 * @since PHP 5 >= 5.3.0, PHP 7, PECL phar >= 2.0.0
 		 */
@@ -536,7 +536,7 @@ namespace {
 		 * <p>This is an implementation of the <code>ArrayAccess</code> interface allowing direct manipulation of the contents of a Phar archive using array access brackets.</p><p>offsetExists() is called whenever <code>isset()</code> is called.</p>
 		 * @param string $offset <p>The filename (relative path) to look for in a Phar.</p>
 		 * @return bool <p>Returns <b><code>TRUE</code></b> if the file exists within the phar, or <b><code>FALSE</code></b> if not.</p>
-		 * @link http://php.net/manual/en/phar.offsetexists.php
+		 * @link https://php.net/manual/en/phar.offsetexists.php
 		 * @see Phar::offsetGet(), Phar::offsetSet(), Phar::offsetUnset()
 		 * @since PHP 5 >= 5.3.0, PHP 7, PECL phar >= 1.0.0
 		 */
@@ -547,7 +547,7 @@ namespace {
 		 * <p>This is an implementation of the <code>ArrayAccess</code> interface allowing direct manipulation of the contents of a Phar archive using array access brackets. <b>Phar::offsetGet()</b> is used for retrieving files from a Phar archive.</p>
 		 * @param string $offset <p>The filename (relative path) to look for in a Phar.</p>
 		 * @return PharFileInfo <p>A PharFileInfo object is returned that can be used to iterate over a file's contents or to retrieve information about the current file.</p>
-		 * @link http://php.net/manual/en/phar.offsetget.php
+		 * @link https://php.net/manual/en/phar.offsetget.php
 		 * @see Phar::offsetExists(), Phar::offsetSet(), Phar::offsetUnset()
 		 * @since PHP 5 >= 5.3.0, PHP 7, PECL phar >= 1.0.0
 		 */
@@ -559,7 +559,7 @@ namespace {
 		 * @param string $offset <p>The filename (relative path) to modify in a Phar.</p>
 		 * @param string $value <p>Content of the file.</p>
 		 * @return void <p>No return values.</p>
-		 * @link http://php.net/manual/en/phar.offsetset.php
+		 * @link https://php.net/manual/en/phar.offsetset.php
 		 * @see Phar::offsetExists(), Phar::offsetGet(), Phar::offsetUnset()
 		 * @since PHP 5 >= 5.3.0, PHP 7, PECL phar >= 1.0.0
 		 */
@@ -570,7 +570,7 @@ namespace {
 		 * <p><b>Note</b>:</p><p>This method requires the php.ini setting <code>phar.readonly</code> to be set to <code>0</code> in order to work for Phar objects. Otherwise, a PharException will be thrown.</p><p>This is an implementation of the <code>ArrayAccess</code> interface allowing direct manipulation of the contents of a Phar archive using array access brackets. offsetUnset is used for deleting an existing file, and is called by the <code>unset()</code> language construct.</p>
 		 * @param string $offset <p>The filename (relative path) to modify in a Phar.</p>
 		 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-		 * @link http://php.net/manual/en/phar.offsetunset.php
+		 * @link https://php.net/manual/en/phar.offsetunset.php
 		 * @see Phar::offsetExists(), Phar::offsetGet(), Phar::offsetSet(), Phar::unlinkArchive(), Phar::delete()
 		 * @since PHP 5 >= 5.3.0, PHP 7, PECL phar >= 1.0.0
 		 */
@@ -581,7 +581,7 @@ namespace {
 		 * <p>Returns the full path to the running phar archive. This is intended for use much like the <code>__FILE__</code> magic constant, and only has effect inside an executing phar archive.</p><p>Inside the stub of an archive, <b>Phar::running()</b> returns <code>""</code>. Simply use <b><code>__FILE__</code></b> to access the current running phar inside a stub.</p>
 		 * @param bool $retphar <p>If <b><code>FALSE</code></b>, the full path on disk to the phar archive is returned. If <b><code>TRUE</code></b>, a full phar URL is returned.</p>
 		 * @return string <p>Returns the filename if valid, empty string otherwise.</p>
-		 * @link http://php.net/manual/en/phar.running.php
+		 * @link https://php.net/manual/en/phar.running.php
 		 * @since PHP 5 >= 5.3.0, PHP 7, PECL phar >= 2.0.0
 		 */
 		final public static function running(bool $retphar = TRUE): string {}
@@ -591,7 +591,7 @@ namespace {
 		 * <p><b>Note</b>:</p><p>This method requires the php.ini setting <code>phar.readonly</code> to be set to <code>0</code> in order to work for Phar objects. Otherwise, a PharException will be thrown.</p><p>Set the alias for the Phar archive, and write it as the permanent alias for this phar archive. An alias can be used internally to a phar archive to ensure that use of the <code>phar</code> stream wrapper to access internal files always works regardless of the location of the phar archive on the filesystem. Another alternative is to rely upon Phar's interception of <code>include</code> or to use <code>Phar::interceptFileFuncs()</code> and use relative paths.</p>
 		 * @param string $alias <p>A shorthand string that this archive can be referred to in <code>phar</code> stream wrapper access.</p>
 		 * @return bool
-		 * @link http://php.net/manual/en/phar.setalias.php
+		 * @link https://php.net/manual/en/phar.setalias.php
 		 * @see Phar::__construct(), Phar::interceptFileFuncs()
 		 * @since PHP 5 >= 5.3.0, PHP 7, PECL phar >= 1.2.1
 		 */
@@ -603,7 +603,7 @@ namespace {
 		 * @param string $index <p>Relative path within the phar archive to run if accessed on the command-line</p>
 		 * @param string $webindex <p>Relative path within the phar archive to run if accessed through a web browser</p>
 		 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-		 * @link http://php.net/manual/en/phar.setdefaultstub.php
+		 * @link https://php.net/manual/en/phar.setdefaultstub.php
 		 * @see Phar::setStub(), Phar::createDefaultStub()
 		 * @since PHP 5 >= 5.3.0, PHP 7, PECL phar >= 2.0.0
 		 */
@@ -614,7 +614,7 @@ namespace {
 		 * <p><b>Note</b>:</p><p>This method requires the php.ini setting <code>phar.readonly</code> to be set to <code>0</code> in order to work for Phar objects. Otherwise, a PharException will be thrown.</p><p><b>Phar::setMetadata()</b> should be used to store customized data that describes something about the phar archive as a complete entity. <code>PharFileInfo::setMetadata()</code> should be used for file-specific meta-data. Meta-data can slow down the performance of loading a phar archive if the data is large.</p><p>Some possible uses for meta-data include specifying which file within the archive should be used to bootstrap the archive, or the location of a file manifest like PEAR's package.xml file. However, any useful data that describes the phar archive may be stored.</p>
 		 * @param mixed $metadata <p>Any PHP variable containing information to store that describes the phar archive</p>
 		 * @return void <p>No value is returned.</p>
-		 * @link http://php.net/manual/en/phardata.setmetadata.php
+		 * @link https://php.net/manual/en/phardata.setmetadata.php
 		 * @see Phar::getMetadata(), Phar::delMetadata(), Phar::hasMetadata()
 		 * @since PHP 5 >= 5.3.0, PHP 7, PECL phar >= 1.0.0
 		 */
@@ -625,7 +625,7 @@ namespace {
 		 * <p><b>Note</b>:</p><p>This method requires the php.ini setting <code>phar.readonly</code> to be set to <code>0</code> in order to work for Phar objects. Otherwise, a PharException will be thrown.</p><p>Set the signature algorithm for a phar and apply it. The signature algorithm must be one of <code>Phar::MD5</code>, <code>Phar::SHA1</code>, <code>Phar::SHA256</code>, <code>Phar::SHA512</code>, or <code>Phar::PGP</code> (pgp not yet supported and falls back to SHA-1).</p>
 		 * @param int $sigtype <p>One of <code>Phar::MD5</code>, <code>Phar::SHA1</code>, <code>Phar::SHA256</code>, <code>Phar::SHA512</code>, or <code>Phar::PGP</code></p>
 		 * @return void <p>No value is returned.</p>
-		 * @link http://php.net/manual/en/phardata.setsignaturealgorithm.php
+		 * @link https://php.net/manual/en/phardata.setsignaturealgorithm.php
 		 * @see Phar::getSupportedSignatures(), Phar::getSignature()
 		 * @since PHP 5 >= 5.3.0, PHP 7, PECL phar >= 1.1.0
 		 */
@@ -637,7 +637,7 @@ namespace {
 		 * @param string $stub <p>A string or an open stream handle to use as the executable stub for this phar archive.</p>
 		 * @param int $len
 		 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-		 * @link http://php.net/manual/en/phar.setstub.php
+		 * @link https://php.net/manual/en/phar.setstub.php
 		 * @see Phar::getStub(), Phar::createDefaultStub()
 		 * @since PHP 5 >= 5.3.0, PHP 7, PECL phar >= 1.0.0
 		 */
@@ -647,7 +647,7 @@ namespace {
 		 * Start buffering Phar write operations, do not modify the Phar object on disk
 		 * <p>Although technically unnecessary, the <b>Phar::startBuffering()</b> method can provide a significant performance boost when creating or modifying a Phar archive with a large number of files. Ordinarily, every time a file within a Phar archive is created or modified in any way, the entire Phar archive will be recreated with the changes. In this way, the archive will be up-to-date with the activity performed on it.</p><p>However, this can be unnecessary when simply creating a new Phar archive, when it would make more sense to write the entire archive out at once. Similarly, it is often necessary to make a series of changes and to ensure that they all are possible before making any changes on disk, similar to the relational database concept of transactions. the <b>Phar::startBuffering()</b>/<code>Phar::stopBuffering()</code> pair of methods is provided for this purpose.</p><p>Phar write buffering is per-archive, buffering active for the <code>foo.phar</code> Phar archive does not affect changes to the <code>bar.phar</code> Phar archive.</p>
 		 * @return void <p>No value is returned.</p>
-		 * @link http://php.net/manual/en/phar.startbuffering.php
+		 * @link https://php.net/manual/en/phar.startbuffering.php
 		 * @see Phar::stopBuffering(), Phar::isBuffering()
 		 * @since PHP 5 >= 5.3.0, PHP 7, PECL phar >= 1.0.0
 		 */
@@ -657,7 +657,7 @@ namespace {
 		 * Stop buffering write requests to the Phar archive, and save changes to disk
 		 * <p><b>Phar::stopBuffering()</b> is used in conjunction with the <code>Phar::startBuffering()</code> method. <code>Phar::startBuffering()</code> can provide a significant performance boost when creating or modifying a Phar archive with a large number of files. Ordinarily, every time a file within a Phar archive is created or modified in any way, the entire Phar archive will be recreated with the changes. In this way, the archive will be up-to-date with the activity performed on it.</p><p>However, this can be unnecessary when simply creating a new Phar archive, when it would make more sense to write the entire archive out at once. Similarly, it is often necessary to make a series of changes and to ensure that they all are possible before making any changes on disk, similar to the relational database concept of transactions. The <code>Phar::startBuffering()</code>/<b>Phar::stopBuffering()</b> pair of methods is provided for this purpose.</p><p>Phar write buffering is per-archive, buffering active for the <code>foo.phar</code> Phar archive does not affect changes to the <code>bar.phar</code> Phar archive.</p>
 		 * @return void <p>No value is returned.</p>
-		 * @link http://php.net/manual/en/phar.stopbuffering.php
+		 * @link https://php.net/manual/en/phar.stopbuffering.php
 		 * @see Phar::startBuffering(), Phar::isBuffering()
 		 * @since PHP 5 >= 5.3.0, PHP 7, PECL phar >= 1.0.0
 		 */
@@ -668,7 +668,7 @@ namespace {
 		 * <p>Removes a phar archive from disk and memory.</p>
 		 * @param string $archive <p>The path on disk to the phar archive.</p>
 		 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-		 * @link http://php.net/manual/en/phar.unlinkarchive.php
+		 * @link https://php.net/manual/en/phar.unlinkarchive.php
 		 * @see Phar::delete(), Phar::offsetUnset()
 		 * @since PHP 5 >= 5.3.0, PHP 7, PECL phar >= 2.0.0
 		 */
@@ -683,7 +683,7 @@ namespace {
 		 * @param array $mimetypes <p>An array mapping additional file extensions to MIME type. If the default mapping is sufficient, pass an empty array. By default, these extensions are mapped to these MIME types:</p> <code> &lt;&#63;php<br>$mimes&nbsp;=&nbsp;array(<br>&nbsp;&nbsp;&nbsp;&nbsp;'phps'&nbsp;=&gt;&nbsp;Phar::PHPS,&nbsp;//&nbsp;pass&nbsp;to&nbsp;highlight_file()<br>&nbsp;&nbsp;&nbsp;&nbsp;'c'&nbsp;=&gt;&nbsp;'text/plain',<br>&nbsp;&nbsp;&nbsp;&nbsp;'cc'&nbsp;=&gt;&nbsp;'text/plain',<br>&nbsp;&nbsp;&nbsp;&nbsp;'cpp'&nbsp;=&gt;&nbsp;'text/plain',<br>&nbsp;&nbsp;&nbsp;&nbsp;'c++'&nbsp;=&gt;&nbsp;'text/plain',<br>&nbsp;&nbsp;&nbsp;&nbsp;'dtd'&nbsp;=&gt;&nbsp;'text/plain',<br>&nbsp;&nbsp;&nbsp;&nbsp;'h'&nbsp;=&gt;&nbsp;'text/plain',<br>&nbsp;&nbsp;&nbsp;&nbsp;'log'&nbsp;=&gt;&nbsp;'text/plain',<br>&nbsp;&nbsp;&nbsp;&nbsp;'rng'&nbsp;=&gt;&nbsp;'text/plain',<br>&nbsp;&nbsp;&nbsp;&nbsp;'txt'&nbsp;=&gt;&nbsp;'text/plain',<br>&nbsp;&nbsp;&nbsp;&nbsp;'xsd'&nbsp;=&gt;&nbsp;'text/plain',<br>&nbsp;&nbsp;&nbsp;&nbsp;'php'&nbsp;=&gt;&nbsp;Phar::PHP,&nbsp;//&nbsp;parse&nbsp;as&nbsp;PHP<br>&nbsp;&nbsp;&nbsp;&nbsp;'inc'&nbsp;=&gt;&nbsp;Phar::PHP,&nbsp;//&nbsp;parse&nbsp;as&nbsp;PHP<br>&nbsp;&nbsp;&nbsp;&nbsp;'avi'&nbsp;=&gt;&nbsp;'video/avi',<br>&nbsp;&nbsp;&nbsp;&nbsp;'bmp'&nbsp;=&gt;&nbsp;'image/bmp',<br>&nbsp;&nbsp;&nbsp;&nbsp;'css'&nbsp;=&gt;&nbsp;'text/css',<br>&nbsp;&nbsp;&nbsp;&nbsp;'gif'&nbsp;=&gt;&nbsp;'image/gif',<br>&nbsp;&nbsp;&nbsp;&nbsp;'htm'&nbsp;=&gt;&nbsp;'text/html',<br>&nbsp;&nbsp;&nbsp;&nbsp;'html'&nbsp;=&gt;&nbsp;'text/html',<br>&nbsp;&nbsp;&nbsp;&nbsp;'htmls'&nbsp;=&gt;&nbsp;'text/html',<br>&nbsp;&nbsp;&nbsp;&nbsp;'ico'&nbsp;=&gt;&nbsp;'image/x-ico',<br>&nbsp;&nbsp;&nbsp;&nbsp;'jpe'&nbsp;=&gt;&nbsp;'image/jpeg',<br>&nbsp;&nbsp;&nbsp;&nbsp;'jpg'&nbsp;=&gt;&nbsp;'image/jpeg',<br>&nbsp;&nbsp;&nbsp;&nbsp;'jpeg'&nbsp;=&gt;&nbsp;'image/jpeg',<br>&nbsp;&nbsp;&nbsp;&nbsp;'js'&nbsp;=&gt;&nbsp;'application/x-javascript',<br>&nbsp;&nbsp;&nbsp;&nbsp;'midi'&nbsp;=&gt;&nbsp;'audio/midi',<br>&nbsp;&nbsp;&nbsp;&nbsp;'mid'&nbsp;=&gt;&nbsp;'audio/midi',<br>&nbsp;&nbsp;&nbsp;&nbsp;'mod'&nbsp;=&gt;&nbsp;'audio/mod',<br>&nbsp;&nbsp;&nbsp;&nbsp;'mov'&nbsp;=&gt;&nbsp;'movie/quicktime',<br>&nbsp;&nbsp;&nbsp;&nbsp;'mp3'&nbsp;=&gt;&nbsp;'audio/mp3',<br>&nbsp;&nbsp;&nbsp;&nbsp;'mpg'&nbsp;=&gt;&nbsp;'video/mpeg',<br>&nbsp;&nbsp;&nbsp;&nbsp;'mpeg'&nbsp;=&gt;&nbsp;'video/mpeg',<br>&nbsp;&nbsp;&nbsp;&nbsp;'pdf'&nbsp;=&gt;&nbsp;'application/pdf',<br>&nbsp;&nbsp;&nbsp;&nbsp;'png'&nbsp;=&gt;&nbsp;'image/png',<br>&nbsp;&nbsp;&nbsp;&nbsp;'swf'&nbsp;=&gt;&nbsp;'application/shockwave-flash',<br>&nbsp;&nbsp;&nbsp;&nbsp;'tif'&nbsp;=&gt;&nbsp;'image/tiff',<br>&nbsp;&nbsp;&nbsp;&nbsp;'tiff'&nbsp;=&gt;&nbsp;'image/tiff',<br>&nbsp;&nbsp;&nbsp;&nbsp;'wav'&nbsp;=&gt;&nbsp;'audio/wav',<br>&nbsp;&nbsp;&nbsp;&nbsp;'xbm'&nbsp;=&gt;&nbsp;'image/xbm',<br>&nbsp;&nbsp;&nbsp;&nbsp;'xml'&nbsp;=&gt;&nbsp;'text/xml',<br>);<br>&#63;&gt;  </code>
 		 * @param callable $rewrites <p>The rewrites function is passed a string as its only parameter and must return a <code>string</code> or <b><code>FALSE</code></b>.</p> <p>If you are using fast-cgi or cgi then the parameter passed to the function is the value of the $_SERVER['PATH_INFO'] variable. Otherwise, the parameter passed to the function is the value of the $_SERVER['REQUEST_URI'] variable.</p> <p>If a string is returned it is used as the internal file path. If <b><code>FALSE</code></b> is returned then webPhar() will send a HTTP 403 Denied Code.</p>
 		 * @return void <p>No value is returned.</p>
-		 * @link http://php.net/manual/en/phar.webphar.php
+		 * @link https://php.net/manual/en/phar.webphar.php
 		 * @see Phar::mungServer(), Phar::interceptFileFuncs()
 		 * @since PHP 5 >= 5.3.0, PHP 7, PECL phar >= 2.0.0
 		 */
@@ -692,7 +692,7 @@ namespace {
 
 	/**
 	 * <p>The PharData class provides a high-level interface to accessing and creating non-executable tar and zip archives. Because these archives do not contain a stub and cannot be executed by the phar extension, it is possible to create and manipulate regular zip and tar files using the PharData class even if <code>phar.readonly</code> php.ini setting is <code>1</code>.</p>
-	 * @link http://php.net/manual/en/class.phardata.php
+	 * @link https://php.net/manual/en/class.phardata.php
 	 * @since PHP 5 >= 5.3.0, PHP 7, PECL phar >= 2.0.0
 	 */
 	class PharData extends \RecursiveDirectoryIterator {
@@ -704,7 +704,7 @@ namespace {
 		 * @param string $alias <p>Alias with which this Phar archive should be referred to in calls to stream functionality.</p>
 		 * @param int $format <p>One of the file format constants available within the Phar class.</p>
 		 * @return self
-		 * @link http://php.net/manual/en/phardata.construct.php
+		 * @link https://php.net/manual/en/phardata.construct.php
 		 * @since PHP 5 >= 5.3.0, PHP 7, PECL phar >= 2.0.0
 		 */
 		public function __construct(string $fname, int $flags = NULL, string $alias = NULL, int $format = Phar::TAR) {}
@@ -714,7 +714,7 @@ namespace {
 		 * <p>With this method, an empty directory is created with path <code>dirname</code>. This method is similar to <code>ZipArchive::addEmptyDir()</code>.</p>
 		 * @param string $dirname <p>The name of the empty directory to create in the phar archive</p>
 		 * @return void <p>no return value, exception is thrown on failure.</p>
-		 * @link http://php.net/manual/en/phardata.addemptydir.php
+		 * @link https://php.net/manual/en/phardata.addemptydir.php
 		 * @see Phar::addEmptyDir(), PharData::addFile(), PharData::addFromString()
 		 * @since PHP 5 >= 5.3.0, PHP 7, PECL phar >= 2.0.0
 		 */
@@ -726,7 +726,7 @@ namespace {
 		 * @param string $file <p>Full or relative path to a file on disk to be added to the phar archive.</p>
 		 * @param string $localname <p>Path that the file will be stored in the archive.</p>
 		 * @return void <p>no return value, exception is thrown on failure.</p>
-		 * @link http://php.net/manual/en/phar.addfile.php
+		 * @link https://php.net/manual/en/phar.addfile.php
 		 * @see Phar::offsetSet(), PharData::addFile(), Phar::addFromString(), Phar::addEmptyDir()
 		 * @since PHP 5 >= 5.3.0, PHP 7, PECL phar >= 2.0.0
 		 */
@@ -738,7 +738,7 @@ namespace {
 		 * @param string $localname <p>Path that the file will be stored in the archive.</p>
 		 * @param string $contents <p>The file contents to store</p>
 		 * @return void <p>no return value, exception is thrown on failure.</p>
-		 * @link http://php.net/manual/en/phardata.addfromstring.php
+		 * @link https://php.net/manual/en/phardata.addfromstring.php
 		 * @see PharData::offsetSet(), Phar::addFromString(), PharData::addFile(), PharData::addEmptyDir()
 		 * @since PHP 5 >= 5.3.0, PHP 7, PECL phar >= 2.0.0
 		 */
@@ -748,7 +748,7 @@ namespace {
 		 * Returns the api version
 		 * <p>Return the API version of the phar file format that will be used when creating phars. The Phar extension supports reading API version 1.0.0 or newer. API version 1.1.0 is required for SHA-256 and SHA-512 hash, and API version 1.1.1 is required to store empty directories.</p>
 		 * @return string <p>The API version string as in <code>"1.0.0"</code>.</p>
-		 * @link http://php.net/manual/en/phar.apiversion.php
+		 * @link https://php.net/manual/en/phar.apiversion.php
 		 * @since PHP 5 >= 5.3.0, PHP 7, PECL phar >= 1.0.0
 		 */
 		final public static function apiVersion(): string {}
@@ -759,7 +759,7 @@ namespace {
 		 * @param string $base_dir <p>The full or relative path to the directory that contains all files to add to the archive.</p>
 		 * @param string $regex <p>An optional pcre regular expression that is used to filter the list of files. Only file paths matching the regular expression will be included in the archive.</p>
 		 * @return array <p><b>Phar::buildFromDirectory()</b> returns an associative array mapping internal path of file to the full path of the file on the filesystem.</p>
-		 * @link http://php.net/manual/en/phar.buildfromdirectory.php
+		 * @link https://php.net/manual/en/phar.buildfromdirectory.php
 		 * @see Phar::buildFromIterator()
 		 * @since PHP 5 >= 5.3.0, PHP 7, PECL phar >= 2.0.0
 		 */
@@ -771,7 +771,7 @@ namespace {
 		 * @param \Iterator $iter <p>Any iterator that either associatively maps tar/zip file to location or returns SplFileInfo objects</p>
 		 * @param string $base_directory <p>For iterators that return SplFileInfo objects, the portion of each file's full path to remove when adding to the tar/zip archive</p>
 		 * @return array <p><b>PharData::buildFromIterator()</b> returns an associative array mapping internal path of file to the full path of the file on the filesystem.</p>
-		 * @link http://php.net/manual/en/phardata.buildfromiterator.php
+		 * @link https://php.net/manual/en/phardata.buildfromiterator.php
 		 * @see Phar::buildFromIterator()
 		 * @since PHP 5 >= 5.3.0, PHP 7, PECL phar >= 2.0.0
 		 */
@@ -782,7 +782,7 @@ namespace {
 		 * <p>This should be used to test whether compression is possible prior to loading a phar archive containing compressed files.</p>
 		 * @param int $type <p>Either <code>Phar::GZ</code> or <code>Phar::BZ2</code> can be used to test whether compression is possible with a specific compression algorithm (zlib or bzip2).</p>
 		 * @return bool <p><b><code>TRUE</code></b> if compression/decompression is available, <b><code>FALSE</code></b> if not.</p>
-		 * @link http://php.net/manual/en/phar.cancompress.php
+		 * @link https://php.net/manual/en/phar.cancompress.php
 		 * @see PharFileInfo::getCompressedSize(), PharFileInfo::isCompressed(), PharFileInfo::compress(), PharFileInfo::decompress(), Phar::isCompressed(), Phar::compressFiles(), Phar::decompressFiles(), Phar::getSupportedCompression(), Phar::convertToExecutable(), Phar::convertToData()
 		 * @since PHP 5 >= 5.3.0, PHP 7, PECL phar >= 1.0.0
 		 */
@@ -792,7 +792,7 @@ namespace {
 		 * Returns whether phar extension supports writing and creating phars
 		 * <p>This static method determines whether write access has been disabled in the system php.ini via the phar.readonly ini variable.</p>
 		 * @return bool <p><b><code>TRUE</code></b> if write access is enabled, <b><code>FALSE</code></b> if it is disabled.</p>
-		 * @link http://php.net/manual/en/phar.canwrite.php
+		 * @link https://php.net/manual/en/phar.canwrite.php
 		 * @see Phar::isWritable()
 		 * @since PHP 5 >= 5.3.0, PHP 7, PECL phar >= 1.0.0
 		 */
@@ -804,7 +804,7 @@ namespace {
 		 * @param int $compression <p>Compression must be one of <code>Phar::GZ</code>, <code>Phar::BZ2</code> to add compression, or <code>Phar::NONE</code> to remove compression.</p>
 		 * @param string $extension <p>By default, the extension is <code>.tar.gz</code> or <code>.tar.bz2</code> for compressing a tar, and <code>.tar</code> for decompressing.</p>
 		 * @return PharData <p>A PharData object is returned.</p>
-		 * @link http://php.net/manual/en/phardata.compress.php
+		 * @link https://php.net/manual/en/phardata.compress.php
 		 * @see Phar::compress()
 		 * @since PHP 5 >= 5.3.0, PHP 7, PECL phar >= 2.0.0
 		 */
@@ -815,7 +815,7 @@ namespace {
 		 * <p>For tar-based archives, this method throws a BadMethodCallException, as compression of individual files within a tar archive is not supported by the file format. Use <code>PharData::compress()</code> to compress an entire tar-based archive.</p><p>For Zip-based archives, this method compresses all files in the archive using the specified compression. The zlib or bzip2 extensions must be enabled to take advantage of this feature. In addition, if any files are already compressed using bzip2/zlib compression, the respective extension must be enabled in order to decompress the files prior to re-compressing.</p>
 		 * @param int $compression <p>Compression must be one of <code>Phar::GZ</code>, <code>Phar::BZ2</code> to add compression, or <code>Phar::NONE</code> to remove compression.</p>
 		 * @return void <p>No value is returned.</p>
-		 * @link http://php.net/manual/en/phardata.compressfiles.php
+		 * @link https://php.net/manual/en/phardata.compressfiles.php
 		 * @see PharFileInfo::getCompressedSize(), PharFileInfo::isCompressed(), PharFileInfo::compress(), PharFileInfo::decompress(), Phar::canCompress(), Phar::isCompressed(), PharData::decompressFiles(), Phar::getSupportedCompression(), PharData::compress(), PharData::decompress()
 		 * @since PHP 5 >= 5.3.0, PHP 7, PECL phar >= 2.0.0
 		 */
@@ -828,7 +828,7 @@ namespace {
 		 * @param int $compression <p>This should be one of <code>Phar::NONE</code> for no whole-archive compression, <code>Phar::GZ</code> for zlib-based compression, and <code>Phar::BZ2</code> for bzip-based compression.</p>
 		 * @param string $extension <p>This parameter is used to override the default file extension for a converted archive. Note that <code>.phar</code> cannot be used anywhere in the filename for a non-executable tar or zip archive.</p> <p>If converting to a tar-based phar archive, the default extensions are <code>.tar</code>, <code>.tar.gz</code>, and <code>.tar.bz2</code> depending on specified compression. For zip-based archives, the default extension is <code>.zip</code>.</p>
 		 * @return PharData <p>The method returns a PharData object on success and throws an exception on failure.</p>
-		 * @link http://php.net/manual/en/phardata.converttodata.php
+		 * @link https://php.net/manual/en/phardata.converttodata.php
 		 * @see Phar::convertToExecutable(), Phar::convertToData(), PharData::convertToExecutable()
 		 * @since PHP 5 >= 5.3.0, PHP 7, PECL phar >= 2.0.0
 		 */
@@ -841,7 +841,7 @@ namespace {
 		 * @param int $compression <p>This should be one of <code>Phar::NONE</code> for no whole-archive compression, <code>Phar::GZ</code> for zlib-based compression, and <code>Phar::BZ2</code> for bzip-based compression.</p>
 		 * @param string $extension <p>This parameter is used to override the default file extension for a converted archive. Note that all zip- and tar-based phar archives must contain <code>.phar</code> in their file extension in order to be processed as a phar archive.</p> <p>If converting to a phar-based archive, the default extensions are <code>.phar</code>, <code>.phar.gz</code>, or <code>.phar.bz2</code> depending on the specified compression. For tar-based phar archives, the default extensions are <code>.phar.tar</code>, <code>.phar.tar.gz</code>, and <code>.phar.tar.bz2</code>. For zip-based phar archives, the default extension is <code>.phar.zip</code>.</p>
 		 * @return Phar <p>The method returns a Phar object on success and throws an exception on failure.</p>
-		 * @link http://php.net/manual/en/phardata.converttoexecutable.php
+		 * @link https://php.net/manual/en/phardata.converttoexecutable.php
 		 * @see Phar::convertToExecutable(), Phar::convertToData(), PharData::convertToData()
 		 * @since PHP 5 >= 5.3.0, PHP 7, PECL phar >= 2.0.0
 		 */
@@ -853,7 +853,7 @@ namespace {
 		 * @param string $oldfile
 		 * @param string $newfile
 		 * @return bool <p>returns <b><code>TRUE</code></b> on success, but it is safer to encase method call in a try/catch block and assume success if no exception is thrown.</p>
-		 * @link http://php.net/manual/en/phardata.copy.php
+		 * @link https://php.net/manual/en/phardata.copy.php
 		 * @since PHP 5 >= 5.3.0, PHP 7, PECL phar >= 2.0.0
 		 */
 		public function copy(string $oldfile, string $newfile): bool {}
@@ -861,7 +861,7 @@ namespace {
 		/**
 		 * Returns the number of entries (files) in the Phar archive
 		 * @return int <p>The number of files contained within this phar, or <code>0</code> (the number zero) if none.</p>
-		 * @link http://php.net/manual/en/phar.count.php
+		 * @link https://php.net/manual/en/phar.count.php
 		 * @since PHP 5 >= 5.3.0, PHP 7, PECL phar >= 1.0.0
 		 */
 		public function count(): int {}
@@ -872,7 +872,7 @@ namespace {
 		 * @param string $indexfile
 		 * @param string $webindexfile
 		 * @return string <p>Returns a string containing the contents of a customized bootstrap loader (stub) that allows the created Phar archive to work with or without the Phar extension enabled.</p>
-		 * @link http://php.net/manual/en/phar.createdefaultstub.php
+		 * @link https://php.net/manual/en/phar.createdefaultstub.php
 		 * @see Phar::setStub(), Phar::getStub()
 		 * @since PHP 5 >= 5.3.0, PHP 7, PECL phar >= 2.0.0
 		 */
@@ -883,7 +883,7 @@ namespace {
 		 * <p>For tar-based archives, this method decompresses the entire archive.</p><p>For Zip-based archives, this method fails with an exception. The zlib extension must be enabled to decompress an archive compressed with gzip compression, and the bzip2 extension must be enabled in order to decompress an archive compressed with bzip2 compression.</p><p>In addition, this method automatically renames the file extension of the archive, <code>.tar</code> by default. Alternatively, a file extension may be specified with the <code>extension</code> parameter.</p>
 		 * @param string $extension <p>For decompressing, the default file extension is <code>.tar</code>. Use this parameter to specify another file extension. Be aware that only executable archives can contain <code>.phar</code> in their filename.</p>
 		 * @return PharData <p>A PharData object is returned.</p>
-		 * @link http://php.net/manual/en/phardata.decompress.php
+		 * @link https://php.net/manual/en/phardata.decompress.php
 		 * @see PharFileInfo::getCompressedSize(), PharFileInfo::isCompressed(), PharFileInfo::compress(), PharFileInfo::decompress(), PharData::compress(), Phar::canCompress(), Phar::isCompressed(), PharData::compress(), Phar::getSupportedCompression(), PharData::compressFiles(), PharData::decompressFiles()
 		 * @since PHP 5 >= 5.3.0, PHP 7, PECL phar >= 2.0.0
 		 */
@@ -893,7 +893,7 @@ namespace {
 		 * Decompresses all files in the current zip archive
 		 * <p><b>Note</b>:</p><p>This method requires the php.ini setting <code>phar.readonly</code> to be set to <code>0</code> in order to work for Phar objects. Otherwise, a PharException will be thrown.</p><p>For tar-based archives, this method throws a BadMethodCallException, as compression of individual files within a tar archive is not supported by the file format. Use <code>PharData::compress()</code> to compress an entire tar-based archive.</p><p>For Zip-based archives, this method decompresses all files in the archive. The zlib or bzip2 extensions must be enabled to take advantage of this feature if any files are compressed using bzip2/zlib compression.</p>
 		 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-		 * @link http://php.net/manual/en/phardata.decompressfiles.php
+		 * @link https://php.net/manual/en/phardata.decompressfiles.php
 		 * @see PharFileInfo::getCompressedSize(), PharFileInfo::isCompressed(), PharFileInfo::compress(), PharFileInfo::decompress(), Phar::canCompress(), Phar::isCompressed(), PharData::compressFiles(), Phar::getSupportedCompression(), PharData::compress(), PharData::decompress()
 		 * @since PHP 5 >= 5.3.0, PHP 7, PECL phar >= 2.0.0
 		 */
@@ -903,7 +903,7 @@ namespace {
 		 * Deletes the global metadata of a zip archive
 		 * <p><b>Note</b>:</p><p>This method requires the php.ini setting <code>phar.readonly</code> to be set to <code>0</code> in order to work for Phar objects. Otherwise, a PharException will be thrown.</p><p>Deletes the global metadata of the zip archive</p>
 		 * @return bool <p>returns <b><code>TRUE</code></b> on success, but it is better to check for thrown exception, and assume success if none is thrown.</p>
-		 * @link http://php.net/manual/en/phardata.delmetadata.php
+		 * @link https://php.net/manual/en/phardata.delmetadata.php
 		 * @see Phar::delMetadata()
 		 * @since PHP 5 >= 5.3.0, PHP 7, PECL phar >= 2.0.0
 		 */
@@ -914,7 +914,7 @@ namespace {
 		 * <p>Delete a file within an archive. This is the functional equivalent of calling <code>unlink()</code> on the stream wrapper equivalent, as shown in the example below.</p>
 		 * @param string $entry <p>Path within an archive to the file to delete.</p>
 		 * @return bool <p>returns <b><code>TRUE</code></b> on success, but it is better to check for thrown exception, and assume success if none is thrown.</p>
-		 * @link http://php.net/manual/en/phardata.delete.php
+		 * @link https://php.net/manual/en/phardata.delete.php
 		 * @see Phar::delete()
 		 * @since PHP 5 >= 5.3.0, PHP 7, PECL phar >= 2.0.0
 		 */
@@ -927,7 +927,7 @@ namespace {
 		 * @param string|array|null $files <p>The name of a file or directory to extract, or an array of files/directories to extract</p>
 		 * @param bool $overwrite <p>Set to <b><code>TRUE</code></b> to enable overwriting existing files</p>
 		 * @return bool <p>returns <b><code>TRUE</code></b> on success, but it is better to check for thrown exception, and assume success if none is thrown.</p>
-		 * @link http://php.net/manual/en/phardata.extractto.php
+		 * @link https://php.net/manual/en/phardata.extractto.php
 		 * @see Phar::extractTo()
 		 * @since PHP 5 >= 5.3.0, PHP 7, PECL phar >= 2.0.0
 		 */
@@ -937,7 +937,7 @@ namespace {
 		 * Get the alias for Phar
 		 * <p></p><p>This function is currently not documented; only its argument list is available.</p>
 		 * @return string <p>Returns the alias or <b><code>NULL</code></b> if there's no alias.</p>
-		 * @link http://php.net/manual/en/phar.getalias.php
+		 * @link https://php.net/manual/en/phar.getalias.php
 		 * @since PHP 5 >= 5.3.0, PHP 7, PECL phar >= 1.2.1
 		 */
 		public function getAlias(): string {}
@@ -946,7 +946,7 @@ namespace {
 		 * Returns phar archive meta-data
 		 * <p>Retrieve archive meta-data. Meta-data can be any PHP variable that can be serialized.</p>
 		 * @return mixed <p>any PHP variable that can be serialized and is stored as meta-data for the Phar archive, or <b><code>NULL</code></b> if no meta-data is stored.</p>
-		 * @link http://php.net/manual/en/phar.getmetadata.php
+		 * @link https://php.net/manual/en/phar.getmetadata.php
 		 * @see Phar::setMetadata(), Phar::delMetadata(), Phar::hasMetadata()
 		 * @since PHP 5 >= 5.3.0, PHP 7, PECL phar >= 1.0.0
 		 */
@@ -956,7 +956,7 @@ namespace {
 		 * Return whether phar was modified
 		 * <p>This method can be used to determine whether a phar has either had an internal file deleted, or contents of a file changed in some way.</p>
 		 * @return bool <p><b><code>TRUE</code></b> if the phar has been modified since opened, <b><code>FALSE</code></b> if not.</p>
-		 * @link http://php.net/manual/en/phar.getmodified.php
+		 * @link https://php.net/manual/en/phar.getmodified.php
 		 * @since PHP 5 >= 5.3.0, PHP 7, PECL phar >= 1.0.0
 		 */
 		public function getModified(): bool {}
@@ -965,7 +965,7 @@ namespace {
 		 * Get the real path to the Phar archive on disk
 		 * <p></p><p>This function is currently not documented; only its argument list is available.</p>
 		 * @return string
-		 * @link http://php.net/manual/en/phar.getpath.php
+		 * @link https://php.net/manual/en/phar.getpath.php
 		 * @since PHP 5 >= 5.3.0, PHP 7
 		 */
 		public function getPath(): string {}
@@ -974,7 +974,7 @@ namespace {
 		 * Return MD5/SHA1/SHA256/SHA512/OpenSSL signature of a Phar archive
 		 * <p>Returns the verification signature of a phar archive in a hexadecimal string.</p>
 		 * @return array <p>Array with the opened archive's signature in <code>hash</code> key and <code>MD5</code>, <code>SHA-1</code>, <code>SHA-256</code>, <code>SHA-512</code>, or <code>OpenSSL</code> in <code>hash_type</code>. This signature is a hash calculated on the entire phar's contents, and may be used to verify the integrity of the archive. A valid signature is absolutely required of all executable phar archives if the phar.require_hash INI variable is set to true.</p>
-		 * @link http://php.net/manual/en/phar.getsignature.php
+		 * @link https://php.net/manual/en/phar.getsignature.php
 		 * @since PHP 5 >= 5.3.0, PHP 7, PECL phar >= 1.0.0
 		 */
 		public function getSignature(): array {}
@@ -983,7 +983,7 @@ namespace {
 		 * Return the PHP loader or bootstrap stub of a Phar archive
 		 * <p>Phar archives contain a bootstrap loader, or <code>stub</code> written in PHP that is executed when the archive is executed in PHP either via include:</p>
 		 * @return string <p>Returns a string containing the contents of the bootstrap loader (stub) of the current Phar archive.</p>
-		 * @link http://php.net/manual/en/phar.getstub.php
+		 * @link https://php.net/manual/en/phar.getstub.php
 		 * @see Phar::setStub(), Phar::createDefaultStub()
 		 * @since PHP 5 >= 5.3.0, PHP 7, PECL phar >= 1.0.0
 		 */
@@ -992,7 +992,7 @@ namespace {
 		/**
 		 * Return array of supported compression algorithms
 		 * @return array <p>Returns an array containing any of <code>Phar::GZ</code> or <code>Phar::BZ2</code>, depending on the availability of the zlib extension or the bz2 extension.</p>
-		 * @link http://php.net/manual/en/phar.getsupportedcompression.php
+		 * @link https://php.net/manual/en/phar.getsupportedcompression.php
 		 * @see PharFileInfo::getCompressedSize(), PharFileInfo::isCompressed(), PharFileInfo::compress(), PharFileInfo::decompress(), Phar::compress(), Phar::decompress(), Phar::canCompress(), Phar::isCompressed(), Phar::compressFiles(), Phar::decompressFiles()
 		 * @since PHP 5 >= 5.3.0, PHP 7, PECL phar >= 1.2.0
 		 */
@@ -1002,7 +1002,7 @@ namespace {
 		 * Return array of supported signature types
 		 * <p>Return array of supported signature types</p>
 		 * @return array <p>Returns an array containing any of <code>MD5</code>, <code>SHA-1</code>, <code>SHA-256</code>, <code>SHA-512</code>, or <code>OpenSSL</code>.</p>
-		 * @link http://php.net/manual/en/phar.getsupportedsignatures.php
+		 * @link https://php.net/manual/en/phar.getsupportedsignatures.php
 		 * @see Phar::getSignature(), Phar::setSignatureAlgorithm()
 		 * @since PHP 5 >= 5.3.0, PHP 7, PECL phar >= 1.1.0
 		 */
@@ -1012,7 +1012,7 @@ namespace {
 		 * Return version info of Phar archive
 		 * <p>Returns the API version of an opened Phar archive.</p>
 		 * @return string <p>The opened archive's API version. This is not to be confused with the API version that the loaded phar extension will use to create new phars. Each Phar archive has the API version hard-coded into its manifest. See Phar file format documentation for more information.</p>
-		 * @link http://php.net/manual/en/phar.getversion.php
+		 * @link https://php.net/manual/en/phar.getversion.php
 		 * @see Phar::apiVersion()
 		 * @since PHP 5 >= 5.3.0, PHP 7, PECL phar >= 1.0.0
 		 */
@@ -1022,7 +1022,7 @@ namespace {
 		 * Returns whether phar has global meta-data
 		 * <p>Returns whether phar has global meta-data set.</p>
 		 * @return bool <p>Returns <b><code>TRUE</code></b> if meta-data has been set, and <b><code>FALSE</code></b> if not.</p>
-		 * @link http://php.net/manual/en/phar.hasmetadata.php
+		 * @link https://php.net/manual/en/phar.hasmetadata.php
 		 * @see Phar::getMetadata(), Phar::setMetadata(), Phar::delMetadata()
 		 * @since PHP 5 >= 5.3.0, PHP 7, PECL phar >= 1.2.0
 		 */
@@ -1032,7 +1032,7 @@ namespace {
 		 * Instructs phar to intercept fopen, file_get_contents, opendir, and all of the stat-related functions
 		 * <p>instructs phar to intercept <code>fopen()</code>, <code>readfile()</code>, <code>file_get_contents()</code>, <code>opendir()</code>, and all of the stat-related functions. If any of these functions is called from within a phar archive with a relative path, the call is modified to access a file within the phar archive. Absolute paths are assumed to be attempts to load external files from the filesystem.</p><p>This function makes it possible to run PHP applications designed to run off of a hard disk as a phar application.</p>
 		 * @return void
-		 * @link http://php.net/manual/en/phar.interceptfilefuncs.php
+		 * @link https://php.net/manual/en/phar.interceptfilefuncs.php
 		 * @since PHP 5 >= 5.3.0, PHP 7, PECL phar >= 2.0.0
 		 */
 		final public static function interceptFileFuncs(): void {}
@@ -1041,7 +1041,7 @@ namespace {
 		 * Used to determine whether Phar write operations are being buffered, or are flushing directly to disk
 		 * <p>This method can be used to determine whether a Phar will save changes to disk immediately, or whether a call to <code>Phar::stopBuffering()</code> is needed to enable saving changes.</p><p>Phar write buffering is per-archive, buffering active for the <code>foo.phar</code> Phar archive does not affect changes to the <code>bar.phar</code> Phar archive.</p>
 		 * @return bool <p>Returns <b><code>TRUE</code></b> if the write operations are being buffer, <b><code>FALSE</code></b> otherwise.</p>
-		 * @link http://php.net/manual/en/phar.isbuffering.php
+		 * @link https://php.net/manual/en/phar.isbuffering.php
 		 * @see Phar::startBuffering(), Phar::stopBuffering()
 		 * @since PHP 5 >= 5.3.0, PHP 7, PECL phar >= 1.0.0
 		 */
@@ -1051,7 +1051,7 @@ namespace {
 		 * Returns Phar::GZ or PHAR::BZ2 if the entire phar archive is compressed (.tar.gz/tar.bz and so on)
 		 * <p><b>Note</b>:</p><p>This method requires the php.ini setting <code>phar.readonly</code> to be set to <code>0</code> in order to work for Phar objects. Otherwise, a PharException will be thrown.</p><p>Returns Phar::GZ or PHAR::BZ2 if the entire phar archive is compressed (.tar.gz/tar.bz and so on). Zip-based phar archives cannot be compressed as a file, and so this method will always return <b><code>FALSE</code></b> if a zip-based phar archive is queried.</p>
 		 * @return mixed <p><code>Phar::GZ</code>, <code>Phar::BZ2</code> or <b><code>FALSE</code></b></p>
-		 * @link http://php.net/manual/en/phar.iscompressed.php
+		 * @link https://php.net/manual/en/phar.iscompressed.php
 		 * @see PharFileInfo::getCompressedSize(), PharFileInfo::isCompressed(), PharFileInfo::decompress(), PharFileInfo::compress(), Phar::decompress(), Phar::compress(), Phar::canCompress(), Phar::compressFiles(), Phar::decompressFiles(), Phar::getSupportedCompression()
 		 * @since PHP 5 >= 5.3.0, PHP 7, PECL phar >= 2.0.0
 		 */
@@ -1061,7 +1061,7 @@ namespace {
 		 * Returns true if the phar archive is based on the tar/phar/zip file format depending on the parameter
 		 * @param int $format <p>Either <code>Phar::PHAR</code>, <code>Phar::TAR</code>, or <code>Phar::ZIP</code> to test for the format of the archive.</p>
 		 * @return bool <p>Returns <b><code>TRUE</code></b> if the phar archive matches the file format requested by the parameter</p>
-		 * @link http://php.net/manual/en/phar.isfileformat.php
+		 * @link https://php.net/manual/en/phar.isfileformat.php
 		 * @see Phar::convertToExecutable(), Phar::convertToData()
 		 * @since PHP 5 >= 5.3.0, PHP 7, PECL phar >= 2.0.0
 		 */
@@ -1073,7 +1073,7 @@ namespace {
 		 * @param string $filename <p>The name or full path to a phar archive not yet created</p>
 		 * @param bool $executable <p>This parameter determines whether the filename should be treated as a phar executable archive, or a data non-executable archive</p>
 		 * @return bool <p>Returns <b><code>TRUE</code></b> if the filename is valid, <b><code>FALSE</code></b> if not.</p>
-		 * @link http://php.net/manual/en/phar.isvalidpharfilename.php
+		 * @link https://php.net/manual/en/phar.isvalidpharfilename.php
 		 * @since PHP 5 >= 5.3.0, PHP 7, PECL phar >= 1.2.0
 		 */
 		final public static function isValidPharFilename(string $filename, bool $executable = TRUE): bool {}
@@ -1082,7 +1082,7 @@ namespace {
 		 * Returns true if the tar/zip archive can be modified
 		 * <p>This method returns <b><code>TRUE</code></b> if the tar/zip archive on disk is not read-only. Unlike <code>Phar::isWritable()</code>, data-only tar/zip archives can be modified even if <code>phar.readonly</code> is set to <code>1</code>.</p>
 		 * @return bool <p>Returns <b><code>TRUE</code></b> if the tar/zip archive can be modified</p>
-		 * @link http://php.net/manual/en/phardata.iswritable.php
+		 * @link https://php.net/manual/en/phardata.iswritable.php
 		 * @see Phar::canWrite(), Phar::isWritable()
 		 * @since PHP 5 >= 5.3.0, PHP 7, PECL phar >= 2.0.0
 		 */
@@ -1094,7 +1094,7 @@ namespace {
 		 * @param string $filename <p>the full or relative path to the phar archive to open</p>
 		 * @param string $alias <p>The alias that may be used to refer to the phar archive. Note that many phar archives specify an explicit alias inside the phar archive, and a PharException will be thrown if a new alias is specified in this case.</p>
 		 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-		 * @link http://php.net/manual/en/phar.loadphar.php
+		 * @link https://php.net/manual/en/phar.loadphar.php
 		 * @see Phar::mapPhar()
 		 * @since PHP 5 >= 5.3.0, PHP 7, PECL phar >= 1.0.0
 		 */
@@ -1106,7 +1106,7 @@ namespace {
 		 * @param string $alias <p>The alias that can be used in <code>phar://</code> URLs to refer to this archive, rather than its full path.</p>
 		 * @param int $dataoffset <p>Unused variable, here for compatibility with PEAR's PHP_Archive.</p>
 		 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-		 * @link http://php.net/manual/en/phar.mapphar.php
+		 * @link https://php.net/manual/en/phar.mapphar.php
 		 * @see Phar::loadPhar()
 		 * @since PHP 5 >= 5.3.0, PHP 7, PECL phar >= 1.0.0
 		 */
@@ -1118,7 +1118,7 @@ namespace {
 		 * @param string $pharpath <p>The internal path within the phar archive to use as the mounted path location. This must be a relative path within the phar archive, and must not already exist.</p>
 		 * @param string $externalpath <p>A path or URL to an external file or directory to mount within the phar archive</p>
 		 * @return void <p>No return. PharException is thrown on failure.</p>
-		 * @link http://php.net/manual/en/phar.mount.php
+		 * @link https://php.net/manual/en/phar.mount.php
 		 * @since PHP 5 >= 5.3.0, PHP 7, PECL phar >= 2.0.0
 		 */
 		final public static function mount(string $pharpath, string $externalpath): void {}
@@ -1128,7 +1128,7 @@ namespace {
 		 * <p><b>Phar::mungServer()</b> should only be called within the stub of a phar archive.</p><p>Defines a list of up to 4 $_SERVER variables that should be modified for execution. Variables that can be modified to remove traces of phar execution are <code>REQUEST_URI</code>, <code>PHP_SELF</code>, <code>SCRIPT_NAME</code> and <code>SCRIPT_FILENAME</code>.</p><p>On its own, this method does nothing. Only when combined with <code>Phar::webPhar()</code> does it take effect, and only when the requested file is a PHP file to be parsed. Note that the <code>PATH_INFO</code> and <code>PATH_TRANSLATED</code> variables are always modified.</p><p>The original values of variables that are modified are stored in the SERVER array with <code>PHAR_</code> prepended, so for instance <code>SCRIPT_NAME</code> would be saved as <code>PHAR_SCRIPT_NAME</code>.</p>
 		 * @param array $munglist <p>an array containing as string indices any of <code>REQUEST_URI</code>, <code>PHP_SELF</code>, <code>SCRIPT_NAME</code> and <code>SCRIPT_FILENAME</code>. Other values trigger an exception, and <b>Phar::mungServer()</b> is case-sensitive.</p>
 		 * @return void <p>No return.</p>
-		 * @link http://php.net/manual/en/phar.mungserver.php
+		 * @link https://php.net/manual/en/phar.mungserver.php
 		 * @see Phar::webPhar(), Phar::setStub()
 		 * @since PHP 5 >= 5.3.0, PHP 7, PECL phar >= 2.0.0
 		 */
@@ -1139,7 +1139,7 @@ namespace {
 		 * <p>This is an implementation of the <code>ArrayAccess</code> interface allowing direct manipulation of the contents of a Phar archive using array access brackets.</p><p>offsetExists() is called whenever <code>isset()</code> is called.</p>
 		 * @param string $offset <p>The filename (relative path) to look for in a Phar.</p>
 		 * @return bool <p>Returns <b><code>TRUE</code></b> if the file exists within the phar, or <b><code>FALSE</code></b> if not.</p>
-		 * @link http://php.net/manual/en/phar.offsetexists.php
+		 * @link https://php.net/manual/en/phar.offsetexists.php
 		 * @see Phar::offsetGet(), Phar::offsetSet(), Phar::offsetUnset()
 		 * @since PHP 5 >= 5.3.0, PHP 7, PECL phar >= 1.0.0
 		 */
@@ -1150,7 +1150,7 @@ namespace {
 		 * <p>This is an implementation of the <code>ArrayAccess</code> interface allowing direct manipulation of the contents of a Phar archive using array access brackets. <b>Phar::offsetGet()</b> is used for retrieving files from a Phar archive.</p>
 		 * @param string $offset <p>The filename (relative path) to look for in a Phar.</p>
 		 * @return PharFileInfo <p>A PharFileInfo object is returned that can be used to iterate over a file's contents or to retrieve information about the current file.</p>
-		 * @link http://php.net/manual/en/phar.offsetget.php
+		 * @link https://php.net/manual/en/phar.offsetget.php
 		 * @see Phar::offsetExists(), Phar::offsetSet(), Phar::offsetUnset()
 		 * @since PHP 5 >= 5.3.0, PHP 7, PECL phar >= 1.0.0
 		 */
@@ -1162,7 +1162,7 @@ namespace {
 		 * @param string $offset <p>The filename (relative path) to modify in a tar or zip archive.</p>
 		 * @param string $value <p>Content of the file.</p>
 		 * @return void <p>No return values.</p>
-		 * @link http://php.net/manual/en/phardata.offsetset.php
+		 * @link https://php.net/manual/en/phardata.offsetset.php
 		 * @see Phar::offsetSet()
 		 * @since PHP 5 >= 5.3.0, PHP 7, PECL phar >= 2.0.0
 		 */
@@ -1173,7 +1173,7 @@ namespace {
 		 * <p>This is an implementation of the <code>ArrayAccess</code> interface allowing direct manipulation of the contents of a tar/zip archive using array access brackets. offsetUnset is used for deleting an existing file, and is called by the <code>unset()</code> language construct.</p>
 		 * @param string $offset <p>The filename (relative path) to modify in the tar/zip archive.</p>
 		 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-		 * @link http://php.net/manual/en/phardata.offsetunset.php
+		 * @link https://php.net/manual/en/phardata.offsetunset.php
 		 * @see Phar::offsetUnset()
 		 * @since PHP 5 >= 5.3.0, PHP 7, PECL phar >= 2.0.0
 		 */
@@ -1184,7 +1184,7 @@ namespace {
 		 * <p>Returns the full path to the running phar archive. This is intended for use much like the <code>__FILE__</code> magic constant, and only has effect inside an executing phar archive.</p><p>Inside the stub of an archive, <b>Phar::running()</b> returns <code>""</code>. Simply use <b><code>__FILE__</code></b> to access the current running phar inside a stub.</p>
 		 * @param bool $retphar <p>If <b><code>FALSE</code></b>, the full path on disk to the phar archive is returned. If <b><code>TRUE</code></b>, a full phar URL is returned.</p>
 		 * @return string <p>Returns the filename if valid, empty string otherwise.</p>
-		 * @link http://php.net/manual/en/phar.running.php
+		 * @link https://php.net/manual/en/phar.running.php
 		 * @since PHP 5 >= 5.3.0, PHP 7, PECL phar >= 2.0.0
 		 */
 		final public static function running(bool $retphar = TRUE): string {}
@@ -1194,7 +1194,7 @@ namespace {
 		 * <p>Non-executable tar/zip archives cannot have an alias, so this method simply throws an exception.</p>
 		 * @param string $alias <p>A shorthand string that this archive can be referred to in <code>phar</code> stream wrapper access. This parameter is ignored.</p>
 		 * @return bool
-		 * @link http://php.net/manual/en/phardata.setalias.php
+		 * @link https://php.net/manual/en/phardata.setalias.php
 		 * @see Phar::setAlias()
 		 * @since PHP 5 >= 5.3.0, PHP 7, PECL phar >= 2.0.0
 		 */
@@ -1206,7 +1206,7 @@ namespace {
 		 * @param string $index <p>Relative path within the phar archive to run if accessed on the command-line</p>
 		 * @param string $webindex <p>Relative path within the phar archive to run if accessed through a web browser</p>
 		 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-		 * @link http://php.net/manual/en/phardata.setdefaultstub.php
+		 * @link https://php.net/manual/en/phardata.setdefaultstub.php
 		 * @see Phar::setDefaultStub()
 		 * @since PHP 5 >= 5.3.0, PHP 7, PECL phar >= 2.0.0
 		 */
@@ -1217,7 +1217,7 @@ namespace {
 		 * <p><b>Note</b>:</p><p>This method requires the php.ini setting <code>phar.readonly</code> to be set to <code>0</code> in order to work for Phar objects. Otherwise, a PharException will be thrown.</p><p><b>Phar::setMetadata()</b> should be used to store customized data that describes something about the phar archive as a complete entity. <code>PharFileInfo::setMetadata()</code> should be used for file-specific meta-data. Meta-data can slow down the performance of loading a phar archive if the data is large.</p><p>Some possible uses for meta-data include specifying which file within the archive should be used to bootstrap the archive, or the location of a file manifest like PEAR's package.xml file. However, any useful data that describes the phar archive may be stored.</p>
 		 * @param mixed $metadata <p>Any PHP variable containing information to store that describes the phar archive</p>
 		 * @return void <p>No value is returned.</p>
-		 * @link http://php.net/manual/en/phardata.setmetadata.php
+		 * @link https://php.net/manual/en/phardata.setmetadata.php
 		 * @see Phar::getMetadata(), Phar::delMetadata(), Phar::hasMetadata()
 		 * @since PHP 5 >= 5.3.0, PHP 7, PECL phar >= 1.0.0
 		 */
@@ -1228,7 +1228,7 @@ namespace {
 		 * <p><b>Note</b>:</p><p>This method requires the php.ini setting <code>phar.readonly</code> to be set to <code>0</code> in order to work for Phar objects. Otherwise, a PharException will be thrown.</p><p>Set the signature algorithm for a phar and apply it. The signature algorithm must be one of <code>Phar::MD5</code>, <code>Phar::SHA1</code>, <code>Phar::SHA256</code>, <code>Phar::SHA512</code>, or <code>Phar::PGP</code> (pgp not yet supported and falls back to SHA-1).</p>
 		 * @param int $sigtype <p>One of <code>Phar::MD5</code>, <code>Phar::SHA1</code>, <code>Phar::SHA256</code>, <code>Phar::SHA512</code>, or <code>Phar::PGP</code></p>
 		 * @return void <p>No value is returned.</p>
-		 * @link http://php.net/manual/en/phardata.setsignaturealgorithm.php
+		 * @link https://php.net/manual/en/phardata.setsignaturealgorithm.php
 		 * @see Phar::getSupportedSignatures(), Phar::getSignature()
 		 * @since PHP 5 >= 5.3.0, PHP 7, PECL phar >= 1.1.0
 		 */
@@ -1240,7 +1240,7 @@ namespace {
 		 * @param string $stub <p>A string or an open stream handle to use as the executable stub for this phar archive. This parameter is ignored.</p>
 		 * @param int $len
 		 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-		 * @link http://php.net/manual/en/phardata.setstub.php
+		 * @link https://php.net/manual/en/phardata.setstub.php
 		 * @see Phar::setStub()
 		 * @since PHP 5 >= 5.3.0, PHP 7, PECL phar >= 2.0.0
 		 */
@@ -1250,7 +1250,7 @@ namespace {
 		 * Start buffering Phar write operations, do not modify the Phar object on disk
 		 * <p>Although technically unnecessary, the <b>Phar::startBuffering()</b> method can provide a significant performance boost when creating or modifying a Phar archive with a large number of files. Ordinarily, every time a file within a Phar archive is created or modified in any way, the entire Phar archive will be recreated with the changes. In this way, the archive will be up-to-date with the activity performed on it.</p><p>However, this can be unnecessary when simply creating a new Phar archive, when it would make more sense to write the entire archive out at once. Similarly, it is often necessary to make a series of changes and to ensure that they all are possible before making any changes on disk, similar to the relational database concept of transactions. the <b>Phar::startBuffering()</b>/<code>Phar::stopBuffering()</code> pair of methods is provided for this purpose.</p><p>Phar write buffering is per-archive, buffering active for the <code>foo.phar</code> Phar archive does not affect changes to the <code>bar.phar</code> Phar archive.</p>
 		 * @return void <p>No value is returned.</p>
-		 * @link http://php.net/manual/en/phar.startbuffering.php
+		 * @link https://php.net/manual/en/phar.startbuffering.php
 		 * @see Phar::stopBuffering(), Phar::isBuffering()
 		 * @since PHP 5 >= 5.3.0, PHP 7, PECL phar >= 1.0.0
 		 */
@@ -1260,7 +1260,7 @@ namespace {
 		 * Stop buffering write requests to the Phar archive, and save changes to disk
 		 * <p><b>Phar::stopBuffering()</b> is used in conjunction with the <code>Phar::startBuffering()</code> method. <code>Phar::startBuffering()</code> can provide a significant performance boost when creating or modifying a Phar archive with a large number of files. Ordinarily, every time a file within a Phar archive is created or modified in any way, the entire Phar archive will be recreated with the changes. In this way, the archive will be up-to-date with the activity performed on it.</p><p>However, this can be unnecessary when simply creating a new Phar archive, when it would make more sense to write the entire archive out at once. Similarly, it is often necessary to make a series of changes and to ensure that they all are possible before making any changes on disk, similar to the relational database concept of transactions. The <code>Phar::startBuffering()</code>/<b>Phar::stopBuffering()</b> pair of methods is provided for this purpose.</p><p>Phar write buffering is per-archive, buffering active for the <code>foo.phar</code> Phar archive does not affect changes to the <code>bar.phar</code> Phar archive.</p>
 		 * @return void <p>No value is returned.</p>
-		 * @link http://php.net/manual/en/phar.stopbuffering.php
+		 * @link https://php.net/manual/en/phar.stopbuffering.php
 		 * @see Phar::startBuffering(), Phar::isBuffering()
 		 * @since PHP 5 >= 5.3.0, PHP 7, PECL phar >= 1.0.0
 		 */
@@ -1271,7 +1271,7 @@ namespace {
 		 * <p>Removes a phar archive from disk and memory.</p>
 		 * @param string $archive <p>The path on disk to the phar archive.</p>
 		 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-		 * @link http://php.net/manual/en/phar.unlinkarchive.php
+		 * @link https://php.net/manual/en/phar.unlinkarchive.php
 		 * @see Phar::delete(), Phar::offsetUnset()
 		 * @since PHP 5 >= 5.3.0, PHP 7, PECL phar >= 2.0.0
 		 */
@@ -1286,7 +1286,7 @@ namespace {
 		 * @param array $mimetypes <p>An array mapping additional file extensions to MIME type. If the default mapping is sufficient, pass an empty array. By default, these extensions are mapped to these MIME types:</p> <code> &lt;&#63;php<br>$mimes&nbsp;=&nbsp;array(<br>&nbsp;&nbsp;&nbsp;&nbsp;'phps'&nbsp;=&gt;&nbsp;Phar::PHPS,&nbsp;//&nbsp;pass&nbsp;to&nbsp;highlight_file()<br>&nbsp;&nbsp;&nbsp;&nbsp;'c'&nbsp;=&gt;&nbsp;'text/plain',<br>&nbsp;&nbsp;&nbsp;&nbsp;'cc'&nbsp;=&gt;&nbsp;'text/plain',<br>&nbsp;&nbsp;&nbsp;&nbsp;'cpp'&nbsp;=&gt;&nbsp;'text/plain',<br>&nbsp;&nbsp;&nbsp;&nbsp;'c++'&nbsp;=&gt;&nbsp;'text/plain',<br>&nbsp;&nbsp;&nbsp;&nbsp;'dtd'&nbsp;=&gt;&nbsp;'text/plain',<br>&nbsp;&nbsp;&nbsp;&nbsp;'h'&nbsp;=&gt;&nbsp;'text/plain',<br>&nbsp;&nbsp;&nbsp;&nbsp;'log'&nbsp;=&gt;&nbsp;'text/plain',<br>&nbsp;&nbsp;&nbsp;&nbsp;'rng'&nbsp;=&gt;&nbsp;'text/plain',<br>&nbsp;&nbsp;&nbsp;&nbsp;'txt'&nbsp;=&gt;&nbsp;'text/plain',<br>&nbsp;&nbsp;&nbsp;&nbsp;'xsd'&nbsp;=&gt;&nbsp;'text/plain',<br>&nbsp;&nbsp;&nbsp;&nbsp;'php'&nbsp;=&gt;&nbsp;Phar::PHP,&nbsp;//&nbsp;parse&nbsp;as&nbsp;PHP<br>&nbsp;&nbsp;&nbsp;&nbsp;'inc'&nbsp;=&gt;&nbsp;Phar::PHP,&nbsp;//&nbsp;parse&nbsp;as&nbsp;PHP<br>&nbsp;&nbsp;&nbsp;&nbsp;'avi'&nbsp;=&gt;&nbsp;'video/avi',<br>&nbsp;&nbsp;&nbsp;&nbsp;'bmp'&nbsp;=&gt;&nbsp;'image/bmp',<br>&nbsp;&nbsp;&nbsp;&nbsp;'css'&nbsp;=&gt;&nbsp;'text/css',<br>&nbsp;&nbsp;&nbsp;&nbsp;'gif'&nbsp;=&gt;&nbsp;'image/gif',<br>&nbsp;&nbsp;&nbsp;&nbsp;'htm'&nbsp;=&gt;&nbsp;'text/html',<br>&nbsp;&nbsp;&nbsp;&nbsp;'html'&nbsp;=&gt;&nbsp;'text/html',<br>&nbsp;&nbsp;&nbsp;&nbsp;'htmls'&nbsp;=&gt;&nbsp;'text/html',<br>&nbsp;&nbsp;&nbsp;&nbsp;'ico'&nbsp;=&gt;&nbsp;'image/x-ico',<br>&nbsp;&nbsp;&nbsp;&nbsp;'jpe'&nbsp;=&gt;&nbsp;'image/jpeg',<br>&nbsp;&nbsp;&nbsp;&nbsp;'jpg'&nbsp;=&gt;&nbsp;'image/jpeg',<br>&nbsp;&nbsp;&nbsp;&nbsp;'jpeg'&nbsp;=&gt;&nbsp;'image/jpeg',<br>&nbsp;&nbsp;&nbsp;&nbsp;'js'&nbsp;=&gt;&nbsp;'application/x-javascript',<br>&nbsp;&nbsp;&nbsp;&nbsp;'midi'&nbsp;=&gt;&nbsp;'audio/midi',<br>&nbsp;&nbsp;&nbsp;&nbsp;'mid'&nbsp;=&gt;&nbsp;'audio/midi',<br>&nbsp;&nbsp;&nbsp;&nbsp;'mod'&nbsp;=&gt;&nbsp;'audio/mod',<br>&nbsp;&nbsp;&nbsp;&nbsp;'mov'&nbsp;=&gt;&nbsp;'movie/quicktime',<br>&nbsp;&nbsp;&nbsp;&nbsp;'mp3'&nbsp;=&gt;&nbsp;'audio/mp3',<br>&nbsp;&nbsp;&nbsp;&nbsp;'mpg'&nbsp;=&gt;&nbsp;'video/mpeg',<br>&nbsp;&nbsp;&nbsp;&nbsp;'mpeg'&nbsp;=&gt;&nbsp;'video/mpeg',<br>&nbsp;&nbsp;&nbsp;&nbsp;'pdf'&nbsp;=&gt;&nbsp;'application/pdf',<br>&nbsp;&nbsp;&nbsp;&nbsp;'png'&nbsp;=&gt;&nbsp;'image/png',<br>&nbsp;&nbsp;&nbsp;&nbsp;'swf'&nbsp;=&gt;&nbsp;'application/shockwave-flash',<br>&nbsp;&nbsp;&nbsp;&nbsp;'tif'&nbsp;=&gt;&nbsp;'image/tiff',<br>&nbsp;&nbsp;&nbsp;&nbsp;'tiff'&nbsp;=&gt;&nbsp;'image/tiff',<br>&nbsp;&nbsp;&nbsp;&nbsp;'wav'&nbsp;=&gt;&nbsp;'audio/wav',<br>&nbsp;&nbsp;&nbsp;&nbsp;'xbm'&nbsp;=&gt;&nbsp;'image/xbm',<br>&nbsp;&nbsp;&nbsp;&nbsp;'xml'&nbsp;=&gt;&nbsp;'text/xml',<br>);<br>&#63;&gt;  </code>
 		 * @param callable $rewrites <p>The rewrites function is passed a string as its only parameter and must return a <code>string</code> or <b><code>FALSE</code></b>.</p> <p>If you are using fast-cgi or cgi then the parameter passed to the function is the value of the $_SERVER['PATH_INFO'] variable. Otherwise, the parameter passed to the function is the value of the $_SERVER['REQUEST_URI'] variable.</p> <p>If a string is returned it is used as the internal file path. If <b><code>FALSE</code></b> is returned then webPhar() will send a HTTP 403 Denied Code.</p>
 		 * @return void <p>No value is returned.</p>
-		 * @link http://php.net/manual/en/phar.webphar.php
+		 * @link https://php.net/manual/en/phar.webphar.php
 		 * @see Phar::mungServer(), Phar::interceptFileFuncs()
 		 * @since PHP 5 >= 5.3.0, PHP 7, PECL phar >= 2.0.0
 		 */
@@ -1295,32 +1295,32 @@ namespace {
 
 	/**
 	 * <p>The PharException class provides a phar-specific exception class for try/catch blocks.</p>
-	 * @link http://php.net/manual/en/class.pharexception.php
+	 * @link https://php.net/manual/en/class.pharexception.php
 	 * @since PHP 5 >= 5.3.0, PHP 7, PECL phar >= 1.0.0
 	 */
 	class PharException extends \Exception {
 
 		/**
 		 * @var string <p>The exception message</p>
-		 * @link http://php.net/manual/en/class.exception.php#exception.props.message
+		 * @link https://php.net/manual/en/class.exception.php#exception.props.message
 		 */
 		protected $message;
 
 		/**
 		 * @var int <p>The exception code</p>
-		 * @link http://php.net/manual/en/class.exception.php#exception.props.code
+		 * @link https://php.net/manual/en/class.exception.php#exception.props.code
 		 */
 		protected $code;
 
 		/**
 		 * @var string <p>The filename where the exception was created</p>
-		 * @link http://php.net/manual/en/class.exception.php#exception.props.file
+		 * @link https://php.net/manual/en/class.exception.php#exception.props.file
 		 */
 		protected $file;
 
 		/**
 		 * @var int <p>The line where the exception was created</p>
-		 * @link http://php.net/manual/en/class.exception.php#exception.props.line
+		 * @link https://php.net/manual/en/class.exception.php#exception.props.line
 		 */
 		protected $line;
 
@@ -1328,7 +1328,7 @@ namespace {
 		 * Clone the exception
 		 * <p>Tries to clone the Exception, which results in Fatal error.</p>
 		 * @return void <p>No value is returned.</p>
-		 * @link http://php.net/manual/en/exception.clone.php
+		 * @link https://php.net/manual/en/exception.clone.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final private function __clone() {}
@@ -1337,7 +1337,7 @@ namespace {
 		 * String representation of the exception
 		 * <p>Returns the <code>string</code> representation of the exception.</p>
 		 * @return string <p>Returns the <code>string</code> representation of the exception.</p>
-		 * @link http://php.net/manual/en/exception.tostring.php
+		 * @link https://php.net/manual/en/exception.tostring.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		public function __toString(): string {}
@@ -1346,7 +1346,7 @@ namespace {
 		 * Gets the Exception code
 		 * <p>Returns the Exception code.</p>
 		 * @return mixed <p>Returns the exception code as <code>int</code> in Exception but possibly as other type in Exception descendants (for example as <code>string</code> in PDOException).</p>
-		 * @link http://php.net/manual/en/exception.getcode.php
+		 * @link https://php.net/manual/en/exception.getcode.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getCode() {}
@@ -1355,7 +1355,7 @@ namespace {
 		 * Gets the file in which the exception was created
 		 * <p>Get the name of the file in which the exception was created.</p>
 		 * @return string <p>Returns the filename in which the exception was created.</p>
-		 * @link http://php.net/manual/en/exception.getfile.php
+		 * @link https://php.net/manual/en/exception.getfile.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getFile(): string {}
@@ -1364,7 +1364,7 @@ namespace {
 		 * Gets the line in which the exception was created
 		 * <p>Get line number where the exception was created.</p>
 		 * @return int <p>Returns the line number where the exception was created.</p>
-		 * @link http://php.net/manual/en/exception.getline.php
+		 * @link https://php.net/manual/en/exception.getline.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getLine(): int {}
@@ -1373,7 +1373,7 @@ namespace {
 		 * Gets the Exception message
 		 * <p>Returns the Exception message.</p>
 		 * @return string <p>Returns the Exception message as a string.</p>
-		 * @link http://php.net/manual/en/exception.getmessage.php
+		 * @link https://php.net/manual/en/exception.getmessage.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getMessage(): string {}
@@ -1382,7 +1382,7 @@ namespace {
 		 * Returns previous Exception
 		 * <p>Returns previous exception (the third parameter of <code>Exception::__construct()</code>).</p>
 		 * @return Throwable <p>Returns the previous Throwable if available or <b><code>NULL</code></b> otherwise.</p>
-		 * @link http://php.net/manual/en/exception.getprevious.php
+		 * @link https://php.net/manual/en/exception.getprevious.php
 		 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8
 		 */
 		final public function getPrevious(): \Throwable {}
@@ -1391,7 +1391,7 @@ namespace {
 		 * Gets the stack trace
 		 * <p>Returns the Exception stack trace.</p>
 		 * @return array <p>Returns the Exception stack trace as an <code>array</code>.</p>
-		 * @link http://php.net/manual/en/exception.gettrace.php
+		 * @link https://php.net/manual/en/exception.gettrace.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getTrace(): array {}
@@ -1400,7 +1400,7 @@ namespace {
 		 * Gets the stack trace as a string
 		 * <p>Returns the Exception stack trace as a string.</p>
 		 * @return string <p>Returns the Exception stack trace as a string.</p>
-		 * @link http://php.net/manual/en/exception.gettraceasstring.php
+		 * @link https://php.net/manual/en/exception.gettraceasstring.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getTraceAsString(): string {}
@@ -1408,7 +1408,7 @@ namespace {
 
 	/**
 	 * <p>The PharFileInfo class provides a high-level interface to the contents and attributes of a single file within a phar archive.</p>
-	 * @link http://php.net/manual/en/class.pharfileinfo.php
+	 * @link https://php.net/manual/en/class.pharfileinfo.php
 	 * @since PHP 5 >= 5.3.0, PHP 7, PECL phar >= 1.0.0
 	 */
 	class PharFileInfo extends \SplFileInfo {
@@ -1418,7 +1418,7 @@ namespace {
 		 * <p>This should not be called directly. Instead, a PharFileInfo object is initialized by calling <code>Phar::offsetGet()</code> through array access.</p>
 		 * @param string $entry <p>The full url to retrieve a file. If you wish to retrieve the information for the file <code>my/file.php</code> from the phar <code>boo.phar</code>, the entry should be <code>phar://boo.phar/my/file.php</code>.</p>
 		 * @return self
-		 * @link http://php.net/manual/en/pharfileinfo.construct.php
+		 * @link https://php.net/manual/en/pharfileinfo.construct.php
 		 * @since PHP 5 >= 5.3.0, PHP 7, PECL phar >= 1.0.0
 		 */
 		public function __construct(string $entry) {}
@@ -1428,7 +1428,7 @@ namespace {
 		 * <p><b>PharFileInfo::chmod()</b> allows setting of the executable file permissions bit, as well as read-only bits. Writeable bits are ignored, and set at runtime based on the phar.readonly INI variable. As with all functionality that modifies the contents of a phar, the phar.readonly INI variable must be off in order to succeed if the file is within a Phar archive. Files within PharData archives do not have this restriction.</p>
 		 * @param int $permissions <p>permissions (see <code>chmod()</code>)</p>
 		 * @return void <p>No value is returned.</p>
-		 * @link http://php.net/manual/en/pharfileinfo.chmod.php
+		 * @link https://php.net/manual/en/pharfileinfo.chmod.php
 		 * @since PHP 5 >= 5.3.0, PHP 7, PECL phar >= 1.0.0
 		 */
 		public function chmod(int $permissions): void {}
@@ -1438,7 +1438,7 @@ namespace {
 		 * <p>This method compresses the file inside the Phar archive using either bzip2 compression or zlib compression. The bzip2 or zlib extension must be enabled to take advantage of this feature. In addition, if the file is already compressed, the respective extension must be enabled in order to decompress the file. As with all functionality that modifies the contents of a phar, the phar.readonly INI variable must be off in order to succeed if the file is within a Phar archive. Files within PharData archives do not have this restriction.</p>
 		 * @param int $compression
 		 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-		 * @link http://php.net/manual/en/pharfileinfo.compress.php
+		 * @link https://php.net/manual/en/pharfileinfo.compress.php
 		 * @see PharFileInfo::getCompressedSize(), PharFileInfo::isCompressed(), PharFileInfo::decompress(), Phar::canCompress(), Phar::isCompressed(), Phar::compressFiles(), Phar::decompressFiles(), Phar::compress(), Phar::decompress(), Phar::getSupportedCompression()
 		 * @since PHP 5 >= 5.3.0, PHP 7, PECL phar >= 2.0.0
 		 */
@@ -1448,7 +1448,7 @@ namespace {
 		 * Decompresses the current Phar entry within the phar
 		 * <p>This method decompresses the file inside the Phar archive. Depending on how the file is compressed, the bzip2 or zlib extensions must be enabled to take advantage of this feature. As with all functionality that modifies the contents of a phar, the phar.readonly INI variable must be off in order to succeed if the file is within a Phar archive. Files within PharData archives do not have this restriction.</p>
 		 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-		 * @link http://php.net/manual/en/pharfileinfo.decompress.php
+		 * @link https://php.net/manual/en/pharfileinfo.decompress.php
 		 * @see PharFileInfo::getCompressedSize(), PharFileInfo::isCompressed(), PharFileInfo::compress(), Phar::canCompress(), Phar::isCompressed(), Phar::compressFiles(), Phar::decompressFiles(), Phar::compress(), Phar::decompress(), Phar::getSupportedCompression()
 		 * @since PHP 5 >= 5.3.0, PHP 7, PECL phar >= 2.0.0
 		 */
@@ -1458,7 +1458,7 @@ namespace {
 		 * Deletes the metadata of the entry
 		 * <p>Deletes the metadata of the entry, if any.</p>
 		 * @return bool <p>Returns <b><code>TRUE</code></b> if successful, <b><code>FALSE</code></b> if the entry had no metadata. As with all functionality that modifies the contents of a phar, the phar.readonly INI variable must be off in order to succeed if the file is within a Phar archive. Files within PharData archives do not have this restriction.</p>
-		 * @link http://php.net/manual/en/pharfileinfo.delmetadata.php
+		 * @link https://php.net/manual/en/pharfileinfo.delmetadata.php
 		 * @see PharFileInfo::setMetadata(), PharFileInfo::hasMetadata(), PharFileInfo::getMetadata(), Phar::setMetadata(), Phar::hasMetadata(), Phar::getMetadata()
 		 * @since PHP 5 >= 5.3.0, PHP 7, PECL phar >= 1.2.0
 		 */
@@ -1468,7 +1468,7 @@ namespace {
 		 * Returns CRC32 code or throws an exception if CRC has not been verified
 		 * <p>This returns the <code>crc32()</code> checksum of the file within the Phar archive.</p>
 		 * @return int <p>The <code>crc32()</code> checksum of the file within the Phar archive.</p>
-		 * @link http://php.net/manual/en/pharfileinfo.getcrc32.php
+		 * @link https://php.net/manual/en/pharfileinfo.getcrc32.php
 		 * @since PHP 5 >= 5.3.0, PHP 7, PECL phar >= 1.0.0
 		 */
 		public function getCRC32(): int {}
@@ -1477,7 +1477,7 @@ namespace {
 		 * Returns the actual size of the file (with compression) inside the Phar archive
 		 * <p>This returns the size of the file within the Phar archive. Uncompressed files will return the same value for getCompressedSize as they will with <code>filesize()</code></p>
 		 * @return int <p>The size in bytes of the file within the Phar archive on disk.</p>
-		 * @link http://php.net/manual/en/pharfileinfo.getcompressedsize.php
+		 * @link https://php.net/manual/en/pharfileinfo.getcompressedsize.php
 		 * @see PharFileInfo::isCompressed(), PharFileInfo::decompress(), PharFileInfo::compress(), Phar::canCompress(), Phar::isCompressed(), Phar::compress(), Phar::decompress(), Phar::getSupportedCompression(), Phar::decompressFiles(), Phar::compressFiles()
 		 * @since PHP 5 >= 5.3.0, PHP 7, PECL phar >= 1.0.0
 		 */
@@ -1487,7 +1487,7 @@ namespace {
 		 * Get the complete file contents of the entry
 		 * <p>This function behaves like <code>file_get_contents()</code> but for Phar.</p>
 		 * @return string <p>Returns the file contents.</p>
-		 * @link http://php.net/manual/en/pharfileinfo.getcontent.php
+		 * @link https://php.net/manual/en/pharfileinfo.getcontent.php
 		 * @since PHP 5 >= 5.3.0, PHP 7
 		 */
 		public function getContent(): string {}
@@ -1496,7 +1496,7 @@ namespace {
 		 * Returns file-specific meta-data saved with a file
 		 * <p>Return meta-data that was saved in the Phar archive's manifest for this file.</p>
 		 * @return mixed <p>any PHP variable that can be serialized and is stored as meta-data for the file, or <b><code>NULL</code></b> if no meta-data is stored.</p>
-		 * @link http://php.net/manual/en/pharfileinfo.getmetadata.php
+		 * @link https://php.net/manual/en/pharfileinfo.getmetadata.php
 		 * @see PharFileInfo::setMetadata(), PharFileInfo::hasMetadata(), PharFileInfo::delMetadata(), Phar::setMetadata(), Phar::hasMetadata(), Phar::getMetadata()
 		 * @since PHP 5 >= 5.3.0, PHP 7, PECL phar >= 1.0.0
 		 */
@@ -1506,7 +1506,7 @@ namespace {
 		 * Returns the Phar file entry flags
 		 * <p>This returns the flags set in the manifest for a Phar. This will always return <code>0</code> in the current implementation.</p>
 		 * @return int <p>The Phar flags (always <code>0</code> in the current implementation)</p>
-		 * @link http://php.net/manual/en/pharfileinfo.getpharflags.php
+		 * @link https://php.net/manual/en/pharfileinfo.getpharflags.php
 		 * @since PHP 5 >= 5.3.0, PHP 7, PECL phar >= 1.0.0
 		 */
 		public function getPharFlags(): int {}
@@ -1515,7 +1515,7 @@ namespace {
 		 * Returns the metadata of the entry
 		 * <p>Returns the metadata of a file within a phar archive.</p>
 		 * @return bool <p>Returns <b><code>FALSE</code></b> if no metadata is set or is <b><code>NULL</code></b>, <b><code>TRUE</code></b> if metadata is not <b><code>NULL</code></b></p>
-		 * @link http://php.net/manual/en/pharfileinfo.hasmetadata.php
+		 * @link https://php.net/manual/en/pharfileinfo.hasmetadata.php
 		 * @see PharFileInfo::setMetadata(), PharFileInfo::getMetadata(), PharFileInfo::delMetadata(), Phar::setMetadata(), Phar::hasMetadata(), Phar::getMetadata()
 		 * @since PHP 5 >= 5.3.0, PHP 7, PECL phar >= 1.2.0
 		 */
@@ -1525,7 +1525,7 @@ namespace {
 		 * Returns whether file entry has had its CRC verified
 		 * <p>This returns whether a file within a Phar archive has had its CRC verified.</p>
 		 * @return bool <p><b><code>TRUE</code></b> if the file has had its CRC verified, <b><code>FALSE</code></b> if not.</p>
-		 * @link http://php.net/manual/en/pharfileinfo.iscrcchecked.php
+		 * @link https://php.net/manual/en/pharfileinfo.iscrcchecked.php
 		 * @since PHP 5 >= 5.3.0, PHP 7, PECL phar >= 1.0.0
 		 */
 		public function isCRCChecked(): bool {}
@@ -1535,7 +1535,7 @@ namespace {
 		 * <p>This returns whether a file is compressed within a Phar archive with either Gzip or Bzip2 compression.</p>
 		 * @param int $compression_type <p>One of <b><code>Phar::GZ</code></b> or <b><code>Phar::BZ2</code></b>, defaults to any compression.</p>
 		 * @return bool <p><b><code>TRUE</code></b> if the file is compressed within the Phar archive, <b><code>FALSE</code></b> if not.</p>
-		 * @link http://php.net/manual/en/pharfileinfo.iscompressed.php
+		 * @link https://php.net/manual/en/pharfileinfo.iscompressed.php
 		 * @see PharFileInfo::getCompressedSize(), PharFileInfo::decompress(), PharFileInfo::compress(), Phar::decompress(), Phar::compress(), Phar::canCompress(), Phar::isCompressed(), Phar::getSupportedCompression(), Phar::decompressFiles(), Phar::compressFiles()
 		 * @since PHP 5 >= 5.3.0, PHP 7, PECL phar >= 1.0.0
 		 */
@@ -1546,7 +1546,7 @@ namespace {
 		 * <p><b>PharFileInfo::setMetadata()</b> should only be used to store customized data in a file that cannot be represented with existing information stored with a file. Meta-data can significantly slow down the performance of loading a phar archive if the data is large, or if there are many files containing meta-data. It is important to note that file permissions are natively supported inside a phar; it is possible to set them with the <code>PharFileInfo::chmod()</code> method. As with all functionality that modifies the contents of a phar, the phar.readonly INI variable must be off in order to succeed if the file is within a Phar archive. Files within PharData archives do not have this restriction.</p><p>Some possible uses for meta-data include passing a user/group that should be set when a file is extracted from the phar to disk. Other uses could include explicitly specifying a MIME type to return. However, any useful data that describes a file, but should not be contained inside of it may be stored.</p>
 		 * @param mixed $metadata <p>Any PHP variable containing information to store alongside a file</p>
 		 * @return void <p>No value is returned.</p>
-		 * @link http://php.net/manual/en/pharfileinfo.setmetadata.php
+		 * @link https://php.net/manual/en/pharfileinfo.setmetadata.php
 		 * @see PharFileInfo::hasMetadata(), PharFileInfo::getMetadata(), PharFileInfo::delMetadata(), Phar::setMetadata(), Phar::hasMetadata(), Phar::getMetadata()
 		 * @since PHP 5 >= 5.3.0, PHP 7, PECL phar >= 1.0.0
 		 */

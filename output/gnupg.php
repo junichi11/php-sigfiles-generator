@@ -10,7 +10,7 @@ namespace {
 	 * @param string $fingerprint <p>The fingerprint key.</p>
 	 * @param string $passphrase <p>The pass phrase.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.gnupg-adddecryptkey.php
+	 * @link https://php.net/manual/en/function.gnupg-adddecryptkey.php
 	 * @since PECL gnupg >= 0.5
 	 */
 	function gnupg_adddecryptkey($identifier, string $fingerprint, string $passphrase): bool {}
@@ -20,7 +20,7 @@ namespace {
 	 * @param resource $identifier <p>The gnupg identifier, from a call to <code>gnupg_init()</code> or <b>gnupg</b>.</p>
 	 * @param string $fingerprint <p>The fingerprint key.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.gnupg-addencryptkey.php
+	 * @link https://php.net/manual/en/function.gnupg-addencryptkey.php
 	 * @since PECL gnupg >= 0.5
 	 */
 	function gnupg_addencryptkey($identifier, string $fingerprint): bool {}
@@ -31,7 +31,7 @@ namespace {
 	 * @param string $fingerprint <p>The fingerprint key.</p>
 	 * @param string $passphrase <p>The pass phrase.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.gnupg-addsignkey.php
+	 * @link https://php.net/manual/en/function.gnupg-addsignkey.php
 	 * @since PECL gnupg >= 0.5
 	 */
 	function gnupg_addsignkey($identifier, string $fingerprint, string $passphrase = NULL): bool {}
@@ -40,7 +40,7 @@ namespace {
 	 * Removes all keys which were set for decryption before
 	 * @param resource $identifier <p>The gnupg identifier, from a call to <code>gnupg_init()</code> or <b>gnupg</b>.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.gnupg-cleardecryptkeys.php
+	 * @link https://php.net/manual/en/function.gnupg-cleardecryptkeys.php
 	 * @since PECL gnupg >= 0.5
 	 */
 	function gnupg_cleardecryptkeys($identifier): bool {}
@@ -49,7 +49,7 @@ namespace {
 	 * Removes all keys which were set for encryption before
 	 * @param resource $identifier <p>The gnupg identifier, from a call to <code>gnupg_init()</code> or <b>gnupg</b>.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.gnupg-clearencryptkeys.php
+	 * @link https://php.net/manual/en/function.gnupg-clearencryptkeys.php
 	 * @since PECL gnupg >= 0.5
 	 */
 	function gnupg_clearencryptkeys($identifier): bool {}
@@ -58,7 +58,7 @@ namespace {
 	 * Removes all keys which were set for signing before
 	 * @param resource $identifier <p>The gnupg identifier, from a call to <code>gnupg_init()</code> or <b>gnupg</b>.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.gnupg-clearsignkeys.php
+	 * @link https://php.net/manual/en/function.gnupg-clearsignkeys.php
 	 * @since PECL gnupg >= 0.5
 	 */
 	function gnupg_clearsignkeys($identifier): bool {}
@@ -69,7 +69,7 @@ namespace {
 	 * @param resource $identifier <p>The gnupg identifier, from a call to <code>gnupg_init()</code> or <b>gnupg</b>.</p>
 	 * @param string $text <p>The text being decrypted.</p>
 	 * @return string <p>On success, this function returns the decrypted text. On failure, this function returns <b><code>FALSE</code></b>.</p>
-	 * @link http://php.net/manual/en/function.gnupg-decrypt.php
+	 * @link https://php.net/manual/en/function.gnupg-decrypt.php
 	 * @since PECL gnupg >= 0.1
 	 */
 	function gnupg_decrypt($identifier, string $text): string {}
@@ -81,7 +81,7 @@ namespace {
 	 * @param string $text <p>The text being decrypted.</p>
 	 * @param string $plaintext <p>The parameter <code>plaintext</code> gets filled with the decrypted text.</p>
 	 * @return array <p>On success, this function returns information about the signature and fills the <code>plaintext</code> parameter with the decrypted text. On failure, this function returns <b><code>FALSE</code></b>.</p>
-	 * @link http://php.net/manual/en/function.gnupg-decryptverify.php
+	 * @link https://php.net/manual/en/function.gnupg-decryptverify.php
 	 * @since PECL gnupg >= 0.2
 	 */
 	function gnupg_decryptverify($identifier, string $text, string &$plaintext): array {}
@@ -92,7 +92,7 @@ namespace {
 	 * @param resource $identifier <p>The gnupg identifier, from a call to <code>gnupg_init()</code> or <b>gnupg</b>.</p>
 	 * @param string $plaintext <p>The text being encrypted.</p>
 	 * @return string <p>On success, this function returns the encrypted text. On failure, this function returns <b><code>FALSE</code></b>.</p>
-	 * @link http://php.net/manual/en/function.gnupg-encrypt.php
+	 * @link https://php.net/manual/en/function.gnupg-encrypt.php
 	 * @since PECL gnupg >= 0.1
 	 */
 	function gnupg_encrypt($identifier, string $plaintext): string {}
@@ -103,7 +103,7 @@ namespace {
 	 * @param resource $identifier <p>The gnupg identifier, from a call to <code>gnupg_init()</code> or <b>gnupg</b>.</p>
 	 * @param string $plaintext <p>The text being encrypted.</p>
 	 * @return string <p>On success, this function returns the encrypted and signed text. On failure, this function returns <b><code>FALSE</code></b>.</p>
-	 * @link http://php.net/manual/en/function.gnupg-encryptsign.php
+	 * @link https://php.net/manual/en/function.gnupg-encryptsign.php
 	 * @since PECL gnupg >= 0.2
 	 */
 	function gnupg_encryptsign($identifier, string $plaintext): string {}
@@ -114,7 +114,7 @@ namespace {
 	 * @param resource $identifier <p>The gnupg identifier, from a call to <code>gnupg_init()</code> or <b>gnupg</b>.</p>
 	 * @param string $fingerprint <p>The fingerprint key.</p>
 	 * @return string <p>On success, this function returns the keydata. On failure, this function returns <b><code>FALSE</code></b>.</p>
-	 * @link http://php.net/manual/en/function.gnupg-export.php
+	 * @link https://php.net/manual/en/function.gnupg-export.php
 	 * @since PECL gnupg >= 0.1
 	 */
 	function gnupg_export($identifier, string $fingerprint): string {}
@@ -123,7 +123,7 @@ namespace {
 	 * Returns the errortext, if a function fails
 	 * @param resource $identifier <p>The gnupg identifier, from a call to <code>gnupg_init()</code> or <b>gnupg</b>.</p>
 	 * @return string <p>Returns an errortext, if an error has occurred, otherwise <b><code>FALSE</code></b>.</p>
-	 * @link http://php.net/manual/en/function.gnupg-geterror.php
+	 * @link https://php.net/manual/en/function.gnupg-geterror.php
 	 * @since PECL gnupg >= 0.1
 	 */
 	function gnupg_geterror($identifier): string {}
@@ -132,7 +132,7 @@ namespace {
 	 * Returns the currently active protocol for all operations
 	 * @param resource $identifier <p>The gnupg identifier, from a call to <code>gnupg_init()</code> or <b>gnupg</b>.</p>
 	 * @return int <p>Returns the currently active protocol, which can be one of <b><code>GNUPG_PROTOCOL_OpenPGP</code></b> or <b><code>GNUPG_PROTOCOL_CMS</code></b>.</p>
-	 * @link http://php.net/manual/en/function.gnupg-getprotocol.php
+	 * @link https://php.net/manual/en/function.gnupg-getprotocol.php
 	 * @since PECL gnupg >= 0.1
 	 */
 	function gnupg_getprotocol($identifier): int {}
@@ -143,7 +143,7 @@ namespace {
 	 * @param resource $identifier <p>The gnupg identifier, from a call to <code>gnupg_init()</code> or <b>gnupg</b>.</p>
 	 * @param string $keydata <p>The data key that is being imported.</p>
 	 * @return array <p>On success, this function returns and info-array about the importprocess. On failure, this function returns <b><code>FALSE</code></b>.</p>
-	 * @link http://php.net/manual/en/function.gnupg-import.php
+	 * @link https://php.net/manual/en/function.gnupg-import.php
 	 * @since PECL gnupg >= 0.3
 	 */
 	function gnupg_import($identifier, string $keydata): array {}
@@ -151,7 +151,7 @@ namespace {
 	/**
 	 * Initialize a connection
 	 * @return resource <p>A GnuPG <code>resource</code> connection used by other GnuPG functions.</p>
-	 * @link http://php.net/manual/en/function.gnupg-init.php
+	 * @link https://php.net/manual/en/function.gnupg-init.php
 	 * @since PECL gnupg >= 0.4
 	 */
 	function gnupg_init() {}
@@ -161,7 +161,7 @@ namespace {
 	 * @param resource $identifier <p>The gnupg identifier, from a call to <code>gnupg_init()</code> or <b>gnupg</b>.</p>
 	 * @param string $pattern <p>The pattern being checked against the keys.</p>
 	 * @return array <p>Returns an array with information about all keys that matches the given pattern or <b><code>FALSE</code></b>, if an error has occurred.</p>
-	 * @link http://php.net/manual/en/function.gnupg-keyinfo.php
+	 * @link https://php.net/manual/en/function.gnupg-keyinfo.php
 	 * @since PECL gnupg >= 0.1
 	 */
 	function gnupg_keyinfo($identifier, string $pattern): array {}
@@ -172,7 +172,7 @@ namespace {
 	 * @param resource $identifier <p>The gnupg identifier, from a call to <code>gnupg_init()</code> or <b>gnupg</b>.</p>
 	 * @param int $armor <p>Pass a non-zero integer-value to this function to enable armored-output (default). Pass 0 to disable armored output.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.gnupg-setarmor.php
+	 * @link https://php.net/manual/en/function.gnupg-setarmor.php
 	 * @since PECL gnupg >= 0.1
 	 */
 	function gnupg_setarmor($identifier, int $armor): bool {}
@@ -183,7 +183,7 @@ namespace {
 	 * @param resource $identifier <p>The gnupg identifier, from a call to <code>gnupg_init()</code> or <b>gnupg</b>.</p>
 	 * @param int $errormode <p>The error mode.</p> <p><code>errormode</code> takes a constant indicating what type of error_reporting should be used. The possible values are <b><code>GNUPG_ERROR_WARNING</code></b>, <b><code>GNUPG_ERROR_EXCEPTION</code></b> and <b><code>GNUPG_ERROR_SILENT</code></b>. By default <b><code>GNUPG_ERROR_SILENT</code></b> is used.</p>
 	 * @return void <p>No value is returned.</p>
-	 * @link http://php.net/manual/en/function.gnupg-seterrormode.php
+	 * @link https://php.net/manual/en/function.gnupg-seterrormode.php
 	 * @since PECL gnupg >= 0.6
 	 */
 	function gnupg_seterrormode($identifier, int $errormode): void {}
@@ -194,7 +194,7 @@ namespace {
 	 * @param resource $identifier <p>The gnupg identifier, from a call to <code>gnupg_init()</code> or <b>gnupg</b>.</p>
 	 * @param int $signmode
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.gnupg-setsignmode.php
+	 * @link https://php.net/manual/en/function.gnupg-setsignmode.php
 	 * @since PECL gnupg >= 0.1
 	 */
 	function gnupg_setsignmode($identifier, int $signmode): bool {}
@@ -205,7 +205,7 @@ namespace {
 	 * @param resource $identifier <p>The gnupg identifier, from a call to <code>gnupg_init()</code> or <b>gnupg</b>.</p>
 	 * @param string $plaintext <p>The plain text being signed.</p>
 	 * @return string <p>On success, this function returns the signed text or the signature. On failure, this function returns <b><code>FALSE</code></b>.</p>
-	 * @link http://php.net/manual/en/function.gnupg-sign.php
+	 * @link https://php.net/manual/en/function.gnupg-sign.php
 	 * @since PECL gnupg >= 0.1
 	 */
 	function gnupg_sign($identifier, string $plaintext): string {}
@@ -218,7 +218,7 @@ namespace {
 	 * @param string $signature <p>The signature. To verify a clearsigned text, set signature to <b><code>FALSE</code></b>.</p>
 	 * @param string $plaintext <p>The plain text. If this optional parameter is passed, it is filled with the plain text.</p>
 	 * @return array <p>On success, this function returns information about the signature. On failure, this function returns <b><code>FALSE</code></b>.</p>
-	 * @link http://php.net/manual/en/function.gnupg-verify.php
+	 * @link https://php.net/manual/en/function.gnupg-verify.php
 	 * @since PECL gnupg >= 0.1
 	 */
 	function gnupg_verify($identifier, string $signed_text, string $signature, string &$plaintext = NULL): array {}

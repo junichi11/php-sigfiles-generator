@@ -11,7 +11,7 @@ namespace {
 	 * @param string $pathname <p>File or directory to watch</p>
 	 * @param int $mask <p>Events to watch for. See Predefined Constants.</p>
 	 * @return int <p>The return value is a unique (inotify instance wide) watch descriptor.</p>
-	 * @link http://php.net/manual/en/function.inotify-add-watch.php
+	 * @link https://php.net/manual/en/function.inotify-add-watch.php
 	 * @see inotify_init()
 	 * @since PECL inotify >= 0.1.2
 	 */
@@ -21,7 +21,7 @@ namespace {
 	 * Initialize an inotify instance
 	 * <p>Initialize an inotify instance for use with <code>inotify_add_watch()</code></p>
 	 * @return resource <p>A stream resource or <b><code>FALSE</code></b> on error.</p>
-	 * @link http://php.net/manual/en/function.inotify-init.php
+	 * @link https://php.net/manual/en/function.inotify-init.php
 	 * @see inotify_add_watch(), inotify_rm_watch(), inotify_queue_len(), inotify_read(), fclose()
 	 * @since PECL inotify >= 0.1.2
 	 */
@@ -32,7 +32,7 @@ namespace {
 	 * <p>This function allows to know if <code>inotify_read()</code> will block or not. If a number upper than zero is returned, there are pending events and <code>inotify_read()</code> will not block.</p>
 	 * @param resource $inotify_instance <p>Resource returned by <code>inotify_init()</code></p>
 	 * @return int <p>Returns a number upper than zero if there are pending events.</p>
-	 * @link http://php.net/manual/en/function.inotify-queue-len.php
+	 * @link https://php.net/manual/en/function.inotify-queue-len.php
 	 * @see inotify_init(), stream_select(), stream_set_blocking()
 	 * @since PECL inotify >= 0.1.2
 	 */
@@ -43,7 +43,7 @@ namespace {
 	 * <p>Read inotify events from an inotify instance.</p>
 	 * @param resource $inotify_instance <p>Resource returned by <code>inotify_init()</code></p>
 	 * @return array <p>An array of inotify events or <b><code>FALSE</code></b> if no events was pending and <code>inotify_instance</code> is non-blocking. Each event is an array with the following keys:</p><ul> <li>wd is a watch descriptor returned by <code>inotify_add_watch()</code></li> <li>mask is a bit mask of events</li> <li>cookie is a unique id to connect related events (e.g. <b><code>IN_MOVE_FROM</code></b> and <b><code>IN_MOVE_TO</code></b>)</li> <li>name is the name of a file (e.g. if a file was modified in a watched directory)</li> </ul>
-	 * @link http://php.net/manual/en/function.inotify-read.php
+	 * @link https://php.net/manual/en/function.inotify-read.php
 	 * @see inotify_init(), stream_select(), stream_set_blocking(), inotify_queue_len()
 	 * @since PECL inotify >= 0.1.2
 	 */
@@ -55,7 +55,7 @@ namespace {
 	 * @param resource $inotify_instance <p>Resource returned by <code>inotify_init()</code></p>
 	 * @param int $watch_descriptor <p>Watch to remove from the instance</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.inotify-rm-watch.php
+	 * @link https://php.net/manual/en/function.inotify-rm-watch.php
 	 * @see inotify_init()
 	 * @since PECL inotify >= 0.1.2
 	 */

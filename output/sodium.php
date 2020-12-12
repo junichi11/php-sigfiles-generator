@@ -10,7 +10,7 @@ namespace {
 	 * @param string $val
 	 * @param string $addv
 	 * @return void <p>No value is returned.</p>
-	 * @link http://php.net/manual/en/function.sodium-add.php
+	 * @link https://php.net/manual/en/function.sodium-add.php
 	 * @since PHP 7 >= 7.2.0
 	 */
 	function sodium_add(string &$val, string $addv): void {}
@@ -22,7 +22,7 @@ namespace {
 	 * @param int $id
 	 * @param string $ignore
 	 * @return string
-	 * @link http://php.net/manual/en/function.sodium-base642bin.php
+	 * @link https://php.net/manual/en/function.sodium-base642bin.php
 	 * @since PHP 7 >= 7.2.0
 	 */
 	function sodium_base642bin(string $b64, int $id, string $ignore = NULL): string {}
@@ -33,7 +33,7 @@ namespace {
 	 * @param string $bin
 	 * @param int $id
 	 * @return string
-	 * @link http://php.net/manual/en/function.sodium-bin2base64.php
+	 * @link https://php.net/manual/en/function.sodium-bin2base64.php
 	 * @since PHP 7 >= 7.2.0
 	 */
 	function sodium_bin2base64(string $bin, int $id): string {}
@@ -43,7 +43,7 @@ namespace {
 	 * <p></p><p>This function is currently not documented; only its argument list is available.</p>
 	 * @param string $bin
 	 * @return string
-	 * @link http://php.net/manual/en/function.sodium-bin2hex.php
+	 * @link https://php.net/manual/en/function.sodium-bin2hex.php
 	 * @since PHP 7 >= 7.2.0
 	 */
 	function sodium_bin2hex(string $bin): string {}
@@ -54,7 +54,7 @@ namespace {
 	 * @param string $buf1
 	 * @param string $buf2
 	 * @return int
-	 * @link http://php.net/manual/en/function.sodium-compare.php
+	 * @link https://php.net/manual/en/function.sodium-compare.php
 	 * @since PHP 7 >= 7.2.0
 	 */
 	function sodium_compare(string $buf1, string $buf2): int {}
@@ -67,7 +67,7 @@ namespace {
 	 * @param string $nonce
 	 * @param string $key
 	 * @return string
-	 * @link http://php.net/manual/en/function.sodium-crypto-aead-aes256gcm-decrypt.php
+	 * @link https://php.net/manual/en/function.sodium-crypto-aead-aes256gcm-decrypt.php
 	 * @since PHP 7 >= 7.2.0
 	 */
 	function sodium_crypto_aead_aes256gcm_decrypt(string $ciphertext, string $ad, string $nonce, string $key): string {}
@@ -80,7 +80,7 @@ namespace {
 	 * @param string $nonce
 	 * @param string $key
 	 * @return string
-	 * @link http://php.net/manual/en/function.sodium-crypto-aead-aes256gcm-encrypt.php
+	 * @link https://php.net/manual/en/function.sodium-crypto-aead-aes256gcm-encrypt.php
 	 * @since PHP 7 >= 7.2.0
 	 */
 	function sodium_crypto_aead_aes256gcm_encrypt(string $msg, string $ad, string $nonce, string $key): string {}
@@ -89,7 +89,7 @@ namespace {
 	 * Check if hardware supports AES256-GCM
 	 * <p></p><p>This function is currently not documented; only its argument list is available.</p>
 	 * @return bool
-	 * @link http://php.net/manual/en/function.sodium-crypto-aead-aes256gcm-is-available.php
+	 * @link https://php.net/manual/en/function.sodium-crypto-aead-aes256gcm-is-available.php
 	 * @since PHP 7 >= 7.2.0
 	 */
 	function sodium_crypto_aead_aes256gcm_is_available(): bool {}
@@ -98,7 +98,7 @@ namespace {
 	 * Get random bytes for key
 	 * <p></p><p>This function is currently not documented; only its argument list is available.</p>
 	 * @return string
-	 * @link http://php.net/manual/en/function.sodium-crypto-aead-aes256gcm-keygen.php
+	 * @link https://php.net/manual/en/function.sodium-crypto-aead-aes256gcm-keygen.php
 	 * @since PHP 7 >= 7.2.0
 	 */
 	function sodium_crypto_aead_aes256gcm_keygen(): string {}
@@ -111,7 +111,7 @@ namespace {
 	 * @param string $nonce
 	 * @param string $key
 	 * @return string
-	 * @link http://php.net/manual/en/function.sodium-crypto-aead-chacha20poly1305-decrypt.php
+	 * @link https://php.net/manual/en/function.sodium-crypto-aead-chacha20poly1305-decrypt.php
 	 * @since PHP 7 >= 7.2.0
 	 */
 	function sodium_crypto_aead_chacha20poly1305_decrypt(string $ciphertext, string $ad, string $nonce, string $key): string {}
@@ -124,7 +124,7 @@ namespace {
 	 * @param string $nonce
 	 * @param string $key
 	 * @return string
-	 * @link http://php.net/manual/en/function.sodium-crypto-aead-chacha20poly1305-encrypt.php
+	 * @link https://php.net/manual/en/function.sodium-crypto-aead-chacha20poly1305-encrypt.php
 	 * @since PHP 7 >= 7.2.0
 	 */
 	function sodium_crypto_aead_chacha20poly1305_encrypt(string $msg, string $ad, string $nonce, string $key): string {}
@@ -137,7 +137,7 @@ namespace {
 	 * @param string $nonce
 	 * @param string $key
 	 * @return string
-	 * @link http://php.net/manual/en/function.sodium-crypto-aead-chacha20poly1305-ietf-decrypt.php
+	 * @link https://php.net/manual/en/function.sodium-crypto-aead-chacha20poly1305-ietf-decrypt.php
 	 * @since PHP 7 >= 7.2.0
 	 */
 	function sodium_crypto_aead_chacha20poly1305_ietf_decrypt(string $ciphertext, string $ad, string $nonce, string $key): string {}
@@ -150,7 +150,7 @@ namespace {
 	 * @param string $nonce
 	 * @param string $key
 	 * @return string
-	 * @link http://php.net/manual/en/function.sodium-crypto-aead-chacha20poly1305-ietf-encrypt.php
+	 * @link https://php.net/manual/en/function.sodium-crypto-aead-chacha20poly1305-ietf-encrypt.php
 	 * @since PHP 7 >= 7.2.0
 	 */
 	function sodium_crypto_aead_chacha20poly1305_ietf_encrypt(string $msg, string $ad, string $nonce, string $key): string {}
@@ -159,7 +159,7 @@ namespace {
 	 * Get random bytes for key
 	 * <p></p><p>This function is currently not documented; only its argument list is available.</p>
 	 * @return string
-	 * @link http://php.net/manual/en/function.sodium-crypto-aead-chacha20poly1305-ietf-keygen.php
+	 * @link https://php.net/manual/en/function.sodium-crypto-aead-chacha20poly1305-ietf-keygen.php
 	 * @since PHP 7 >= 7.2.0
 	 */
 	function sodium_crypto_aead_chacha20poly1305_ietf_keygen(): string {}
@@ -168,7 +168,7 @@ namespace {
 	 * Get random bytes for key
 	 * <p></p><p>This function is currently not documented; only its argument list is available.</p>
 	 * @return string
-	 * @link http://php.net/manual/en/function.sodium-crypto-aead-chacha20poly1305-keygen.php
+	 * @link https://php.net/manual/en/function.sodium-crypto-aead-chacha20poly1305-keygen.php
 	 * @since PHP 7 >= 7.2.0
 	 */
 	function sodium_crypto_aead_chacha20poly1305_keygen(): string {}
@@ -181,7 +181,7 @@ namespace {
 	 * @param string $nonce
 	 * @param string $key
 	 * @return string
-	 * @link http://php.net/manual/en/function.sodium-crypto-aead-xchacha20poly1305-ietf-decrypt.php
+	 * @link https://php.net/manual/en/function.sodium-crypto-aead-xchacha20poly1305-ietf-decrypt.php
 	 * @since PHP 7 >= 7.2.0
 	 */
 	function sodium_crypto_aead_xchacha20poly1305_ietf_decrypt(string $ciphertext, string $ad, string $nonce, string $key): string {}
@@ -194,7 +194,7 @@ namespace {
 	 * @param string $nonce
 	 * @param string $key
 	 * @return string
-	 * @link http://php.net/manual/en/function.sodium-crypto-aead-xchacha20poly1305-ietf-encrypt.php
+	 * @link https://php.net/manual/en/function.sodium-crypto-aead-xchacha20poly1305-ietf-encrypt.php
 	 * @since PHP 7 >= 7.2.0
 	 */
 	function sodium_crypto_aead_xchacha20poly1305_ietf_encrypt(string $msg, string $ad, string $nonce, string $key): string {}
@@ -203,7 +203,7 @@ namespace {
 	 * Description
 	 * <p></p><p>This function is currently not documented; only its argument list is available.</p>
 	 * @return string
-	 * @link http://php.net/manual/en/function.sodium-crypto-aead-xchacha20poly1305-ietf-keygen.php
+	 * @link https://php.net/manual/en/function.sodium-crypto-aead-xchacha20poly1305-ietf-keygen.php
 	 * @since PHP 7 >= 7.2.0
 	 */
 	function sodium_crypto_aead_xchacha20poly1305_ietf_keygen(): string {}
@@ -214,7 +214,7 @@ namespace {
 	 * @param string $msg
 	 * @param string $key
 	 * @return string
-	 * @link http://php.net/manual/en/function.sodium-crypto-auth.php
+	 * @link https://php.net/manual/en/function.sodium-crypto-auth.php
 	 * @since PHP 7 >= 7.2.0
 	 */
 	function sodium_crypto_auth(string $msg, string $key): string {}
@@ -223,7 +223,7 @@ namespace {
 	 * Get random bytes for key
 	 * <p></p><p>This function is currently not documented; only its argument list is available.</p>
 	 * @return string
-	 * @link http://php.net/manual/en/function.sodium-crypto-auth-keygen.php
+	 * @link https://php.net/manual/en/function.sodium-crypto-auth-keygen.php
 	 * @since PHP 7 >= 7.2.0
 	 */
 	function sodium_crypto_auth_keygen(): string {}
@@ -235,7 +235,7 @@ namespace {
 	 * @param string $msg
 	 * @param string $key
 	 * @return bool
-	 * @link http://php.net/manual/en/function.sodium-crypto-auth-verify.php
+	 * @link https://php.net/manual/en/function.sodium-crypto-auth-verify.php
 	 * @since PHP 7 >= 7.2.0
 	 */
 	function sodium_crypto_auth_verify(string $signature, string $msg, string $key): bool {}
@@ -247,7 +247,7 @@ namespace {
 	 * @param string $nonce
 	 * @param string $key
 	 * @return string
-	 * @link http://php.net/manual/en/function.sodium-crypto-box.php
+	 * @link https://php.net/manual/en/function.sodium-crypto-box.php
 	 * @since PHP 7 >= 7.2.0
 	 */
 	function sodium_crypto_box(string $msg, string $nonce, string $key): string {}
@@ -256,7 +256,7 @@ namespace {
 	 * Randomly generate a secret key and a corresponding public key
 	 * <p></p><p>This function is currently not documented; only its argument list is available.</p>
 	 * @return string
-	 * @link http://php.net/manual/en/function.sodium-crypto-box-keypair.php
+	 * @link https://php.net/manual/en/function.sodium-crypto-box-keypair.php
 	 * @since PHP 7 >= 7.2.0
 	 */
 	function sodium_crypto_box_keypair(): string {}
@@ -267,7 +267,7 @@ namespace {
 	 * @param string $secret_key
 	 * @param string $public_key
 	 * @return string
-	 * @link http://php.net/manual/en/function.sodium-crypto-box-keypair-from-secretkey-and-publickey.php
+	 * @link https://php.net/manual/en/function.sodium-crypto-box-keypair-from-secretkey-and-publickey.php
 	 * @since PHP 7 >= 7.2.0
 	 */
 	function sodium_crypto_box_keypair_from_secretkey_and_publickey(string $secret_key, string $public_key): string {}
@@ -279,7 +279,7 @@ namespace {
 	 * @param string $nonce
 	 * @param string $key
 	 * @return string
-	 * @link http://php.net/manual/en/function.sodium-crypto-box-open.php
+	 * @link https://php.net/manual/en/function.sodium-crypto-box-open.php
 	 * @since PHP 7 >= 7.2.0
 	 */
 	function sodium_crypto_box_open(string $ciphertext, string $nonce, string $key): string {}
@@ -289,7 +289,7 @@ namespace {
 	 * <p></p><p>This function is currently not documented; only its argument list is available.</p>
 	 * @param string $key
 	 * @return string
-	 * @link http://php.net/manual/en/function.sodium-crypto-box-publickey.php
+	 * @link https://php.net/manual/en/function.sodium-crypto-box-publickey.php
 	 * @since PHP 7 >= 7.2.0
 	 */
 	function sodium_crypto_box_publickey(string $key): string {}
@@ -299,7 +299,7 @@ namespace {
 	 * <p></p><p>This function is currently not documented; only its argument list is available.</p>
 	 * @param string $key
 	 * @return string
-	 * @link http://php.net/manual/en/function.sodium-crypto-box-publickey-from-secretkey.php
+	 * @link https://php.net/manual/en/function.sodium-crypto-box-publickey-from-secretkey.php
 	 * @since PHP 7 >= 7.2.0
 	 */
 	function sodium_crypto_box_publickey_from_secretkey(string $key): string {}
@@ -310,7 +310,7 @@ namespace {
 	 * @param string $msg
 	 * @param string $key
 	 * @return string
-	 * @link http://php.net/manual/en/function.sodium-crypto-box-seal.php
+	 * @link https://php.net/manual/en/function.sodium-crypto-box-seal.php
 	 * @since PHP 7 >= 7.2.0
 	 */
 	function sodium_crypto_box_seal(string $msg, string $key): string {}
@@ -321,7 +321,7 @@ namespace {
 	 * @param string $ciphertext
 	 * @param string $key
 	 * @return string
-	 * @link http://php.net/manual/en/function.sodium-crypto-box-seal-open.php
+	 * @link https://php.net/manual/en/function.sodium-crypto-box-seal-open.php
 	 * @since PHP 7 >= 7.2.0
 	 */
 	function sodium_crypto_box_seal_open(string $ciphertext, string $key): string {}
@@ -331,7 +331,7 @@ namespace {
 	 * <p></p><p>This function is currently not documented; only its argument list is available.</p>
 	 * @param string $key
 	 * @return string
-	 * @link http://php.net/manual/en/function.sodium-crypto-box-secretkey.php
+	 * @link https://php.net/manual/en/function.sodium-crypto-box-secretkey.php
 	 * @since PHP 7 >= 7.2.0
 	 */
 	function sodium_crypto_box_secretkey(string $key): string {}
@@ -341,7 +341,7 @@ namespace {
 	 * <p></p><p>This function is currently not documented; only its argument list is available.</p>
 	 * @param string $key
 	 * @return string
-	 * @link http://php.net/manual/en/function.sodium-crypto-box-seed-keypair.php
+	 * @link https://php.net/manual/en/function.sodium-crypto-box-seed-keypair.php
 	 * @since PHP 7 >= 7.2.0
 	 */
 	function sodium_crypto_box_seed_keypair(string $key): string {}
@@ -353,7 +353,7 @@ namespace {
 	 * @param string $key
 	 * @param int $length
 	 * @return string
-	 * @link http://php.net/manual/en/function.sodium-crypto-generichash.php
+	 * @link https://php.net/manual/en/function.sodium-crypto-generichash.php
 	 * @since PHP 7 >= 7.2.0
 	 */
 	function sodium_crypto_generichash(string $msg, string $key = NULL, int $length = SODIUM_CRYPTO_GENERICHASH_BYTES): string {}
@@ -364,7 +364,7 @@ namespace {
 	 * @param string $state
 	 * @param int $length
 	 * @return string
-	 * @link http://php.net/manual/en/function.sodium-crypto-generichash-final.php
+	 * @link https://php.net/manual/en/function.sodium-crypto-generichash-final.php
 	 * @since PHP 7 >= 7.2.0
 	 */
 	function sodium_crypto_generichash_final(string &$state, int $length = SODIUM_CRYPTO_GENERICHASH_BYTES): string {}
@@ -375,7 +375,7 @@ namespace {
 	 * @param string $key
 	 * @param int $length
 	 * @return string
-	 * @link http://php.net/manual/en/function.sodium-crypto-generichash-init.php
+	 * @link https://php.net/manual/en/function.sodium-crypto-generichash-init.php
 	 * @since PHP 7 >= 7.2.0
 	 */
 	function sodium_crypto_generichash_init(string $key = NULL, int $length = SODIUM_CRYPTO_GENERICHASH_BYTES): string {}
@@ -384,7 +384,7 @@ namespace {
 	 * Get random bytes for key
 	 * <p></p><p>This function is currently not documented; only its argument list is available.</p>
 	 * @return string
-	 * @link http://php.net/manual/en/function.sodium-crypto-generichash-keygen.php
+	 * @link https://php.net/manual/en/function.sodium-crypto-generichash-keygen.php
 	 * @since PHP 7 >= 7.2.0
 	 */
 	function sodium_crypto_generichash_keygen(): string {}
@@ -395,7 +395,7 @@ namespace {
 	 * @param string $state
 	 * @param string $msg
 	 * @return bool
-	 * @link http://php.net/manual/en/function.sodium-crypto-generichash-update.php
+	 * @link https://php.net/manual/en/function.sodium-crypto-generichash-update.php
 	 * @since PHP 7 >= 7.2.0
 	 */
 	function sodium_crypto_generichash_update(string &$state, string $msg): bool {}
@@ -408,7 +408,7 @@ namespace {
 	 * @param string $context
 	 * @param string $key
 	 * @return string
-	 * @link http://php.net/manual/en/function.sodium-crypto-kdf-derive-from-key.php
+	 * @link https://php.net/manual/en/function.sodium-crypto-kdf-derive-from-key.php
 	 * @since PHP 7 >= 7.2.0
 	 */
 	function sodium_crypto_kdf_derive_from_key(int $subkey_len, int $subkey_id, string $context, string $key): string {}
@@ -417,7 +417,7 @@ namespace {
 	 * Get random bytes for key
 	 * <p></p><p>This function is currently not documented; only its argument list is available.</p>
 	 * @return string
-	 * @link http://php.net/manual/en/function.sodium-crypto-kdf-keygen.php
+	 * @link https://php.net/manual/en/function.sodium-crypto-kdf-keygen.php
 	 * @since PHP 7 >= 7.2.0
 	 */
 	function sodium_crypto_kdf_keygen(): string {}
@@ -428,7 +428,7 @@ namespace {
 	 * @param string $client_keypair
 	 * @param string $server_key
 	 * @return array
-	 * @link http://php.net/manual/en/function.sodium-crypto-kx-client-session-keys.php
+	 * @link https://php.net/manual/en/function.sodium-crypto-kx-client-session-keys.php
 	 * @since PHP 7 >= 7.2.0
 	 */
 	function sodium_crypto_kx_client_session_keys(string $client_keypair, string $server_key): array {}
@@ -437,7 +437,7 @@ namespace {
 	 * Creates a new sodium keypair
 	 * <p>Create a new sodium keypair consisting of the secret key (32 bytes) followed by the public key (32 bytes). The keys can be retrieved by calling <code>sodium_crypto_kx_secretkey()</code> and <code>sodium_crypto_kx_publickey()</code>, respectively.</p>
 	 * @return string <p>Returns the new keypair on success; throws an exception otherwise.</p>
-	 * @link http://php.net/manual/en/function.sodium-crypto-kx-keypair.php
+	 * @link https://php.net/manual/en/function.sodium-crypto-kx-keypair.php
 	 * @since PHP 7 >= 7.2.0
 	 */
 	function sodium_crypto_kx_keypair(): string {}
@@ -447,7 +447,7 @@ namespace {
 	 * <p></p><p>This function is currently not documented; only its argument list is available.</p>
 	 * @param string $key
 	 * @return string
-	 * @link http://php.net/manual/en/function.sodium-crypto-kx-publickey.php
+	 * @link https://php.net/manual/en/function.sodium-crypto-kx-publickey.php
 	 * @since PHP 7 >= 7.2.0
 	 */
 	function sodium_crypto_kx_publickey(string $key): string {}
@@ -457,7 +457,7 @@ namespace {
 	 * <p></p><p>This function is currently not documented; only its argument list is available.</p>
 	 * @param string $key
 	 * @return string
-	 * @link http://php.net/manual/en/function.sodium-crypto-kx-secretkey.php
+	 * @link https://php.net/manual/en/function.sodium-crypto-kx-secretkey.php
 	 * @since PHP 7 >= 7.2.0
 	 */
 	function sodium_crypto_kx_secretkey(string $key): string {}
@@ -467,7 +467,7 @@ namespace {
 	 * <p></p><p>This function is currently not documented; only its argument list is available.</p>
 	 * @param string $string
 	 * @return string
-	 * @link http://php.net/manual/en/function.sodium-crypto-kx-seed-keypair.php
+	 * @link https://php.net/manual/en/function.sodium-crypto-kx-seed-keypair.php
 	 * @since PHP 7 >= 7.2.0
 	 */
 	function sodium_crypto_kx_seed_keypair(string $string): string {}
@@ -478,7 +478,7 @@ namespace {
 	 * @param string $server_keypair
 	 * @param string $client_key
 	 * @return array
-	 * @link http://php.net/manual/en/function.sodium-crypto-kx-server-session-keys.php
+	 * @link https://php.net/manual/en/function.sodium-crypto-kx-server-session-keys.php
 	 * @since PHP 7 >= 7.2.0
 	 */
 	function sodium_crypto_kx_server_session_keys(string $server_keypair, string $client_key): array {}
@@ -493,7 +493,7 @@ namespace {
 	 * @param int $memlimit <p>The maximum amount of RAM that the function will use, in bytes. There are constants to help you choose an appropriate value, in order of size: <b><code>SODIUM_CRYPTO_PWHASH_MEMLIMIT_INTERACTIVE</code></b>, <b><code>SODIUM_CRYPTO_PWHASH_MEMLIMIT_MODERATE</code></b>, and <b><code>SODIUM_CRYPTO_PWHASH_MEMLIMIT_SENSITIVE</code></b>. Typically these should be paired with the matching <code>opslimit</code> values.</p>
 	 * @param int $alg <p><code>int</code> A number indicating the hash algorithm to use. By default <b><code>SODIUM_CRYPTO_PWHASH_ALG_DEFAULT</code></b> (the currently recommended algorithm, which can change from one version of libsodium to another), or explicitly using <b><code>SODIUM_CRYPTO_PWHASH_ALG_ARGON2ID13</code></b>, representing the Argon2id algorithm version 1.3.</p>
 	 * @return string|false <p>Returns the derived key, or <b><code>FALSE</code></b> on failure. The return value is a binary string of the hash, not an ASCII-encoded representation, and does not contain additional information about the parameters used to create the hash, so you will need to keep that information if you are ever going to verify the password in future. Use <code>sodium_crypto_pwhash_str()</code> to avoid needing to do all that.</p>
-	 * @link http://php.net/manual/en/function.sodium-crypto-pwhash.php
+	 * @link https://php.net/manual/en/function.sodium-crypto-pwhash.php
 	 * @since PHP 7 >= 7.2.0
 	 */
 	function sodium_crypto_pwhash(int $length, string $password, string $salt, int $opslimit, int $memlimit, int $alg = NULL) {}
@@ -507,7 +507,7 @@ namespace {
 	 * @param int $opslimit
 	 * @param int $memlimit
 	 * @return string
-	 * @link http://php.net/manual/en/function.sodium-crypto-pwhash-scryptsalsa208sha256.php
+	 * @link https://php.net/manual/en/function.sodium-crypto-pwhash-scryptsalsa208sha256.php
 	 * @since PHP 7 >= 7.2.0
 	 */
 	function sodium_crypto_pwhash_scryptsalsa208sha256(int $length, string $password, string $salt, int $opslimit, int $memlimit): string {}
@@ -519,7 +519,7 @@ namespace {
 	 * @param int $opslimit
 	 * @param int $memlimit
 	 * @return string
-	 * @link http://php.net/manual/en/function.sodium-crypto-pwhash-scryptsalsa208sha256-str.php
+	 * @link https://php.net/manual/en/function.sodium-crypto-pwhash-scryptsalsa208sha256-str.php
 	 * @since PHP 7 >= 7.2.0
 	 */
 	function sodium_crypto_pwhash_scryptsalsa208sha256_str(string $password, int $opslimit, int $memlimit): string {}
@@ -530,7 +530,7 @@ namespace {
 	 * @param string $hash
 	 * @param string $password
 	 * @return bool
-	 * @link http://php.net/manual/en/function.sodium-crypto-pwhash-scryptsalsa208sha256-str-verify.php
+	 * @link https://php.net/manual/en/function.sodium-crypto-pwhash-scryptsalsa208sha256-str-verify.php
 	 * @since PHP 7 >= 7.2.0
 	 */
 	function sodium_crypto_pwhash_scryptsalsa208sha256_str_verify(string $hash, string $password): bool {}
@@ -542,7 +542,7 @@ namespace {
 	 * @param int $opslimit <p>Represents a maximum amount of computations to perform. Raising this number will make the function require more CPU cycles to compute a key. There are constants available to set the operations limit to appropriate values depending on intended use, in order of strength: <b><code>SODIUM_CRYPTO_PWHASH_OPSLIMIT_INTERACTIVE</code></b>, <b><code>SODIUM_CRYPTO_PWHASH_OPSLIMIT_MODERATE</code></b> and <b><code>SODIUM_CRYPTO_PWHASH_OPSLIMIT_SENSITIVE</code></b>.</p>
 	 * @param int $memlimit <p>The maximum amount of RAM that the function will use, in bytes. There are constants to help you choose an appropriate value, in order of size: <b><code>SODIUM_CRYPTO_PWHASH_MEMLIMIT_INTERACTIVE</code></b>, <b><code>SODIUM_CRYPTO_PWHASH_MEMLIMIT_MODERATE</code></b>, and <b><code>SODIUM_CRYPTO_PWHASH_MEMLIMIT_SENSITIVE</code></b>. Typically these should be paired with the matching opslimit values.</p>
 	 * @return string|false <p>Returns the hashed password, or <b><code>FALSE</code></b> on failure.</p><p>In order to produce the same password hash from the same password, the same values for <code>opslimit</code> and <code>memlimit</code> must be used. These are embedded within the generated hash, so everything that's needed to verify the hash is included. This allows the <code>sodium_crypto_pwhash_str_verify()</code> function to verify the hash without needing separate storage for the other parameters.</p>
-	 * @link http://php.net/manual/en/function.sodium-crypto-pwhash-str.php
+	 * @link https://php.net/manual/en/function.sodium-crypto-pwhash-str.php
 	 * @see sodium_crypto_pwhash_str_verify(), sodium_crypto_pwhash(), password_hash(), password_verify()
 	 * @since PHP 7 >= 7.2.0
 	 */
@@ -555,7 +555,7 @@ namespace {
 	 * @param int $opslimit
 	 * @param int $memlimit
 	 * @return bool
-	 * @link http://php.net/manual/en/function.sodium-crypto-pwhash-str-needs-rehash.php
+	 * @link https://php.net/manual/en/function.sodium-crypto-pwhash-str-needs-rehash.php
 	 * @since PHP 7 >= 7.2.0
 	 */
 	function sodium_crypto_pwhash_str_needs_rehash(string $password, int $opslimit, int $memlimit): bool {}
@@ -566,7 +566,7 @@ namespace {
 	 * @param string $hash <p>A hash created by <code>password_hash()</code>.</p>
 	 * @param string $password <p>The user's password.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> if the password and hash match, or <b><code>FALSE</code></b> otherwise.</p>
-	 * @link http://php.net/manual/en/function.sodium-crypto-pwhash-str-verify.php
+	 * @link https://php.net/manual/en/function.sodium-crypto-pwhash-str-verify.php
 	 * @see sodium_crypto_pwhash_str(), password_hash(), password_verify()
 	 * @since PHP 7 >= 7.2.0
 	 */
@@ -578,7 +578,7 @@ namespace {
 	 * @param string $n
 	 * @param string $p
 	 * @return string
-	 * @link http://php.net/manual/en/function.sodium-crypto-scalarmult.php
+	 * @link https://php.net/manual/en/function.sodium-crypto-scalarmult.php
 	 * @since PHP 7 >= 7.2.0
 	 */
 	function sodium_crypto_scalarmult(string $n, string $p): string {}
@@ -588,7 +588,7 @@ namespace {
 	 * <p>This function is an alias of: <code>sodium_crypto_box_publickey_from_secretkey()</code>.</p>
 	 * @param string $key
 	 * @return string
-	 * @link http://php.net/manual/en/function.sodium-crypto-scalarmult-base.php
+	 * @link https://php.net/manual/en/function.sodium-crypto-scalarmult-base.php
 	 * @since PHP 7 >= 7.2.0
 	 */
 	function sodium_crypto_scalarmult_base(string $key): string {}
@@ -600,7 +600,7 @@ namespace {
 	 * @param string $nonce
 	 * @param string $key
 	 * @return string
-	 * @link http://php.net/manual/en/function.sodium-crypto-secretbox.php
+	 * @link https://php.net/manual/en/function.sodium-crypto-secretbox.php
 	 * @since PHP 7 >= 7.2.0
 	 */
 	function sodium_crypto_secretbox(string $string, string $nonce, string $key): string {}
@@ -609,7 +609,7 @@ namespace {
 	 * Get random bytes for key
 	 * <p></p><p>This function is currently not documented; only its argument list is available.</p>
 	 * @return string
-	 * @link http://php.net/manual/en/function.sodium-crypto-secretbox-keygen.php
+	 * @link https://php.net/manual/en/function.sodium-crypto-secretbox-keygen.php
 	 * @since PHP 7 >= 7.2.0
 	 */
 	function sodium_crypto_secretbox_keygen(): string {}
@@ -621,7 +621,7 @@ namespace {
 	 * @param string $nonce
 	 * @param string $key
 	 * @return string
-	 * @link http://php.net/manual/en/function.sodium-crypto-secretbox-open.php
+	 * @link https://php.net/manual/en/function.sodium-crypto-secretbox-open.php
 	 * @since PHP 7 >= 7.2.0
 	 */
 	function sodium_crypto_secretbox_open(string $ciphertext, string $nonce, string $key): string {}
@@ -632,7 +632,7 @@ namespace {
 	 * @param string $header
 	 * @param string $key
 	 * @return string
-	 * @link http://php.net/manual/en/function.sodium-crypto-secretstream-xchacha20poly1305-init-pull.php
+	 * @link https://php.net/manual/en/function.sodium-crypto-secretstream-xchacha20poly1305-init-pull.php
 	 * @since PHP 7 >= 7.2.0
 	 */
 	function sodium_crypto_secretstream_xchacha20poly1305_init_pull(string $header, string $key): string {}
@@ -642,7 +642,7 @@ namespace {
 	 * <p></p><p>This function is currently not documented; only its argument list is available.</p>
 	 * @param string $key
 	 * @return array
-	 * @link http://php.net/manual/en/function.sodium-crypto-secretstream-xchacha20poly1305-init-push.php
+	 * @link https://php.net/manual/en/function.sodium-crypto-secretstream-xchacha20poly1305-init-push.php
 	 * @since PHP 7 >= 7.2.0
 	 */
 	function sodium_crypto_secretstream_xchacha20poly1305_init_push(string $key): array {}
@@ -651,7 +651,7 @@ namespace {
 	 * Description
 	 * <p></p><p>This function is currently not documented; only its argument list is available.</p>
 	 * @return string
-	 * @link http://php.net/manual/en/function.sodium-crypto-secretstream-xchacha20poly1305-keygen.php
+	 * @link https://php.net/manual/en/function.sodium-crypto-secretstream-xchacha20poly1305-keygen.php
 	 * @since PHP 7 >= 7.2.0
 	 */
 	function sodium_crypto_secretstream_xchacha20poly1305_keygen(): string {}
@@ -663,7 +663,7 @@ namespace {
 	 * @param string $c
 	 * @param string $ad
 	 * @return array
-	 * @link http://php.net/manual/en/function.sodium-crypto-secretstream-xchacha20poly1305-pull.php
+	 * @link https://php.net/manual/en/function.sodium-crypto-secretstream-xchacha20poly1305-pull.php
 	 * @since PHP 7 >= 7.2.0
 	 */
 	function sodium_crypto_secretstream_xchacha20poly1305_pull(string &$state, string $c, string $ad = NULL): array {}
@@ -676,7 +676,7 @@ namespace {
 	 * @param string $ad
 	 * @param int $tag
 	 * @return string
-	 * @link http://php.net/manual/en/function.sodium-crypto-secretstream-xchacha20poly1305-push.php
+	 * @link https://php.net/manual/en/function.sodium-crypto-secretstream-xchacha20poly1305-push.php
 	 * @since PHP 7 >= 7.2.0
 	 */
 	function sodium_crypto_secretstream_xchacha20poly1305_push(string &$state, string $msg, string $ad = NULL, int $tag = NULL): string {}
@@ -686,7 +686,7 @@ namespace {
 	 * <p></p><p>This function is currently not documented; only its argument list is available.</p>
 	 * @param string $state
 	 * @return void
-	 * @link http://php.net/manual/en/function.sodium-crypto-secretstream-xchacha20poly1305-rekey.php
+	 * @link https://php.net/manual/en/function.sodium-crypto-secretstream-xchacha20poly1305-rekey.php
 	 * @since PHP 7 >= 7.2.0
 	 */
 	function sodium_crypto_secretstream_xchacha20poly1305_rekey(string &$state): void {}
@@ -697,7 +697,7 @@ namespace {
 	 * @param string $msg
 	 * @param string $key
 	 * @return string
-	 * @link http://php.net/manual/en/function.sodium-crypto-shorthash.php
+	 * @link https://php.net/manual/en/function.sodium-crypto-shorthash.php
 	 * @since PHP 7 >= 7.2.0
 	 */
 	function sodium_crypto_shorthash(string $msg, string $key): string {}
@@ -706,7 +706,7 @@ namespace {
 	 * Get random bytes for key
 	 * <p></p><p>This function is currently not documented; only its argument list is available.</p>
 	 * @return string
-	 * @link http://php.net/manual/en/function.sodium-crypto-shorthash-keygen.php
+	 * @link https://php.net/manual/en/function.sodium-crypto-shorthash-keygen.php
 	 * @since PHP 7 >= 7.2.0
 	 */
 	function sodium_crypto_shorthash_keygen(): string {}
@@ -717,7 +717,7 @@ namespace {
 	 * @param string $msg
 	 * @param string $secret_key
 	 * @return string
-	 * @link http://php.net/manual/en/function.sodium-crypto-sign.php
+	 * @link https://php.net/manual/en/function.sodium-crypto-sign.php
 	 * @since PHP 7 >= 7.2.0
 	 */
 	function sodium_crypto_sign(string $msg, string $secret_key): string {}
@@ -728,7 +728,7 @@ namespace {
 	 * @param string $msg
 	 * @param string $secretkey
 	 * @return string
-	 * @link http://php.net/manual/en/function.sodium-crypto-sign-detached.php
+	 * @link https://php.net/manual/en/function.sodium-crypto-sign-detached.php
 	 * @since PHP 7 >= 7.2.0
 	 */
 	function sodium_crypto_sign_detached(string $msg, string $secretkey): string {}
@@ -738,7 +738,7 @@ namespace {
 	 * <p></p><p>This function is currently not documented; only its argument list is available.</p>
 	 * @param string $key
 	 * @return string
-	 * @link http://php.net/manual/en/function.sodium-crypto-sign-ed25519-pk-to-curve25519.php
+	 * @link https://php.net/manual/en/function.sodium-crypto-sign-ed25519-pk-to-curve25519.php
 	 * @since PHP 7 >= 7.2.0
 	 */
 	function sodium_crypto_sign_ed25519_pk_to_curve25519(string $key): string {}
@@ -748,7 +748,7 @@ namespace {
 	 * <p></p><p>This function is currently not documented; only its argument list is available.</p>
 	 * @param string $key
 	 * @return string
-	 * @link http://php.net/manual/en/function.sodium-crypto-sign-ed25519-sk-to-curve25519.php
+	 * @link https://php.net/manual/en/function.sodium-crypto-sign-ed25519-sk-to-curve25519.php
 	 * @since PHP 7 >= 7.2.0
 	 */
 	function sodium_crypto_sign_ed25519_sk_to_curve25519(string $key): string {}
@@ -757,7 +757,7 @@ namespace {
 	 * Randomly generate a secret key and a corresponding public key
 	 * <p></p><p>This function is currently not documented; only its argument list is available.</p>
 	 * @return string
-	 * @link http://php.net/manual/en/function.sodium-crypto-sign-keypair.php
+	 * @link https://php.net/manual/en/function.sodium-crypto-sign-keypair.php
 	 * @since PHP 7 >= 7.2.0
 	 */
 	function sodium_crypto_sign_keypair(): string {}
@@ -768,7 +768,7 @@ namespace {
 	 * @param string $secret_key
 	 * @param string $public_key
 	 * @return string
-	 * @link http://php.net/manual/en/function.sodium-crypto-sign-keypair-from-secretkey-and-publickey.php
+	 * @link https://php.net/manual/en/function.sodium-crypto-sign-keypair-from-secretkey-and-publickey.php
 	 * @since PHP 7 >= 7.2.0
 	 */
 	function sodium_crypto_sign_keypair_from_secretkey_and_publickey(string $secret_key, string $public_key): string {}
@@ -779,7 +779,7 @@ namespace {
 	 * @param string $string
 	 * @param string $public_key
 	 * @return string
-	 * @link http://php.net/manual/en/function.sodium-crypto-sign-open.php
+	 * @link https://php.net/manual/en/function.sodium-crypto-sign-open.php
 	 * @since PHP 7 >= 7.2.0
 	 */
 	function sodium_crypto_sign_open(string $string, string $public_key): string {}
@@ -789,7 +789,7 @@ namespace {
 	 * <p></p><p>This function is currently not documented; only its argument list is available.</p>
 	 * @param string $keypair
 	 * @return string
-	 * @link http://php.net/manual/en/function.sodium-crypto-sign-publickey.php
+	 * @link https://php.net/manual/en/function.sodium-crypto-sign-publickey.php
 	 * @since PHP 7 >= 7.2.0
 	 */
 	function sodium_crypto_sign_publickey(string $keypair): string {}
@@ -799,7 +799,7 @@ namespace {
 	 * <p></p><p>This function is currently not documented; only its argument list is available.</p>
 	 * @param string $key
 	 * @return string
-	 * @link http://php.net/manual/en/function.sodium-crypto-sign-publickey-from-secretkey.php
+	 * @link https://php.net/manual/en/function.sodium-crypto-sign-publickey-from-secretkey.php
 	 * @since PHP 7 >= 7.2.0
 	 */
 	function sodium_crypto_sign_publickey_from_secretkey(string $key): string {}
@@ -809,7 +809,7 @@ namespace {
 	 * <p></p><p>This function is currently not documented; only its argument list is available.</p>
 	 * @param string $key
 	 * @return string
-	 * @link http://php.net/manual/en/function.sodium-crypto-sign-secretkey.php
+	 * @link https://php.net/manual/en/function.sodium-crypto-sign-secretkey.php
 	 * @since PHP 7 >= 7.2.0
 	 */
 	function sodium_crypto_sign_secretkey(string $key): string {}
@@ -819,7 +819,7 @@ namespace {
 	 * <p></p><p>This function is currently not documented; only its argument list is available.</p>
 	 * @param string $key
 	 * @return string
-	 * @link http://php.net/manual/en/function.sodium-crypto-sign-seed-keypair.php
+	 * @link https://php.net/manual/en/function.sodium-crypto-sign-seed-keypair.php
 	 * @since PHP 7 >= 7.2.0
 	 */
 	function sodium_crypto_sign_seed_keypair(string $key): string {}
@@ -831,7 +831,7 @@ namespace {
 	 * @param string $msg
 	 * @param string $public_key
 	 * @return bool
-	 * @link http://php.net/manual/en/function.sodium-crypto-sign-verify-detached.php
+	 * @link https://php.net/manual/en/function.sodium-crypto-sign-verify-detached.php
 	 * @since PHP 7 >= 7.2.0
 	 */
 	function sodium_crypto_sign_verify_detached(string $signature, string $msg, string $public_key): bool {}
@@ -843,7 +843,7 @@ namespace {
 	 * @param string $nonce
 	 * @param string $key
 	 * @return string
-	 * @link http://php.net/manual/en/function.sodium-crypto-stream.php
+	 * @link https://php.net/manual/en/function.sodium-crypto-stream.php
 	 * @since PHP 7 >= 7.2.0
 	 */
 	function sodium_crypto_stream(int $length, string $nonce, string $key): string {}
@@ -852,7 +852,7 @@ namespace {
 	 * Get random bytes for key
 	 * <p></p><p>This function is currently not documented; only its argument list is available.</p>
 	 * @return string
-	 * @link http://php.net/manual/en/function.sodium-crypto-stream-keygen.php
+	 * @link https://php.net/manual/en/function.sodium-crypto-stream-keygen.php
 	 * @since PHP 7 >= 7.2.0
 	 */
 	function sodium_crypto_stream_keygen(): string {}
@@ -864,7 +864,7 @@ namespace {
 	 * @param string $nonce
 	 * @param string $key
 	 * @return string
-	 * @link http://php.net/manual/en/function.sodium-crypto-stream-xor.php
+	 * @link https://php.net/manual/en/function.sodium-crypto-stream-xor.php
 	 * @since PHP 7 >= 7.2.0
 	 */
 	function sodium_crypto_stream_xor(string $msg, string $nonce, string $key): string {}
@@ -875,7 +875,7 @@ namespace {
 	 * @param string $hex <p>Hexadecimal representation of data.</p>
 	 * @param string $ignore <p>Optional string argument for characters to ignore.</p>
 	 * @return string <p>Returns the binary representation of the given <code>hex</code> data.</p>
-	 * @link http://php.net/manual/en/function.sodium-hex2bin.php
+	 * @link https://php.net/manual/en/function.sodium-hex2bin.php
 	 * @since PHP 7 >= 7.2.0
 	 */
 	function sodium_hex2bin(string $hex, string $ignore = NULL): string {}
@@ -885,7 +885,7 @@ namespace {
 	 * <p></p><p>This function is currently not documented; only its argument list is available.</p>
 	 * @param string $val
 	 * @return void
-	 * @link http://php.net/manual/en/function.sodium-increment.php
+	 * @link https://php.net/manual/en/function.sodium-increment.php
 	 * @since PHP 7 >= 7.2.0
 	 */
 	function sodium_increment(string &$val): void {}
@@ -896,7 +896,7 @@ namespace {
 	 * @param string $buf1
 	 * @param string $buf2
 	 * @return int
-	 * @link http://php.net/manual/en/function.sodium-memcmp.php
+	 * @link https://php.net/manual/en/function.sodium-memcmp.php
 	 * @since PHP 7 >= 7.2.0
 	 */
 	function sodium_memcmp(string $buf1, string $buf2): int {}
@@ -906,7 +906,7 @@ namespace {
 	 * <p></p><p>This function is currently not documented; only its argument list is available.</p>
 	 * @param string $buf
 	 * @return void
-	 * @link http://php.net/manual/en/function.sodium-memzero.php
+	 * @link https://php.net/manual/en/function.sodium-memzero.php
 	 * @since PHP 7 >= 7.2.0
 	 */
 	function sodium_memzero(string &$buf): void {}
@@ -917,7 +917,7 @@ namespace {
 	 * @param string $unpadded
 	 * @param int $length
 	 * @return string
-	 * @link http://php.net/manual/en/function.sodium-pad.php
+	 * @link https://php.net/manual/en/function.sodium-pad.php
 	 * @since PHP 7 >= 7.2.0
 	 */
 	function sodium_pad(string $unpadded, int $length): string {}
@@ -928,7 +928,7 @@ namespace {
 	 * @param string $padded
 	 * @param int $length
 	 * @return string
-	 * @link http://php.net/manual/en/function.sodium-unpad.php
+	 * @link https://php.net/manual/en/function.sodium-unpad.php
 	 * @since PHP 7 >= 7.2.0
 	 */
 	function sodium_unpad(string $padded, int $length): string {}

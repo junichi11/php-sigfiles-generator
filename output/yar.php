@@ -5,32 +5,32 @@
 namespace {
 
 	/**
-	 * @link http://php.net/manual/en/class.yar-client.php
+	 * @link https://php.net/manual/en/class.yar-client.php
 	 * @since No version information available, might only be in Git
 	 */
 	class Yar_Client {
 
 		/**
 		 * @var mixed
-		 * @link http://php.net/manual/en/class.yar-client.php#yar-client.props.protocol
+		 * @link https://php.net/manual/en/class.yar-client.php#yar-client.props.protocol
 		 */
 		protected $_protocol;
 
 		/**
 		 * @var mixed
-		 * @link http://php.net/manual/en/class.yar-client.php#yar-client.props.uri
+		 * @link https://php.net/manual/en/class.yar-client.php#yar-client.props.uri
 		 */
 		protected $_uri;
 
 		/**
 		 * @var mixed
-		 * @link http://php.net/manual/en/class.yar-client.php#yar-client.props.options
+		 * @link https://php.net/manual/en/class.yar-client.php#yar-client.props.options
 		 */
 		protected $_options;
 
 		/**
 		 * @var mixed
-		 * @link http://php.net/manual/en/class.yar-client.php#yar-client.props.running
+		 * @link https://php.net/manual/en/class.yar-client.php#yar-client.props.running
 		 */
 		protected $_running;
 
@@ -40,7 +40,7 @@ namespace {
 		 * @param string $method <p>Remote RPC method name.</p>
 		 * @param array $parameters <p>Parameters.</p>
 		 * @return void
-		 * @link http://php.net/manual/en/yar-client.call.php
+		 * @link https://php.net/manual/en/yar-client.call.php
 		 * @since PECL yar >= 1.0.0
 		 */
 		public function __call(string $method, array $parameters): void {}
@@ -51,7 +51,7 @@ namespace {
 		 * @param string $url <p>Yar Server URL.</p>
 		 * @param array $options
 		 * @return self <p>Yar_Client instance.</p>
-		 * @link http://php.net/manual/en/yar-client.construct.php
+		 * @link https://php.net/manual/en/yar-client.construct.php
 		 * @since PECL yar >= 1.0.0
 		 */
 		final public function __construct(string $url, array $options = NULL) {}
@@ -61,14 +61,14 @@ namespace {
 		 * @param int $name <p>it can be: YAR_OPT_PACKAGER, YAR_OPT_PERSISTENT (Need server support), YAR_OPT_TIMEOUT, YAR_OPT_CONNECT_TIMEOUT YAR_OPT_HEADER (Since 2.0.4)</p>
 		 * @param mixed $value
 		 * @return Yar_Client|false <p>Returns $this on success or <b><code>FALSE</code></b> on failure.</p>
-		 * @link http://php.net/manual/en/yar-client.setopt.php
+		 * @link https://php.net/manual/en/yar-client.setopt.php
 		 * @since PECL yar >= 1.0.0
 		 */
 		public function setOpt(int $name, $value) {}
 	}
 
 	/**
-	 * @link http://php.net/manual/en/class.yar-client-exception.php
+	 * @link https://php.net/manual/en/class.yar-client-exception.php
 	 * @since No version information available, might only be in Git
 	 */
 	class Yar_Client_Exception extends \Exception {
@@ -77,7 +77,7 @@ namespace {
 		 * Clone the exception
 		 * <p>Tries to clone the Exception, which results in Fatal error.</p>
 		 * @return void <p>No value is returned.</p>
-		 * @link http://php.net/manual/en/exception.clone.php
+		 * @link https://php.net/manual/en/exception.clone.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final private function __clone() {}
@@ -86,7 +86,7 @@ namespace {
 		 * String representation of the exception
 		 * <p>Returns the <code>string</code> representation of the exception.</p>
 		 * @return string <p>Returns the <code>string</code> representation of the exception.</p>
-		 * @link http://php.net/manual/en/exception.tostring.php
+		 * @link https://php.net/manual/en/exception.tostring.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		public function __toString(): string {}
@@ -95,7 +95,7 @@ namespace {
 		 * Gets the Exception code
 		 * <p>Returns the Exception code.</p>
 		 * @return mixed <p>Returns the exception code as <code>int</code> in Exception but possibly as other type in Exception descendants (for example as <code>string</code> in PDOException).</p>
-		 * @link http://php.net/manual/en/exception.getcode.php
+		 * @link https://php.net/manual/en/exception.getcode.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getCode() {}
@@ -104,7 +104,7 @@ namespace {
 		 * Gets the file in which the exception was created
 		 * <p>Get the name of the file in which the exception was created.</p>
 		 * @return string <p>Returns the filename in which the exception was created.</p>
-		 * @link http://php.net/manual/en/exception.getfile.php
+		 * @link https://php.net/manual/en/exception.getfile.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getFile(): string {}
@@ -113,7 +113,7 @@ namespace {
 		 * Gets the line in which the exception was created
 		 * <p>Get line number where the exception was created.</p>
 		 * @return int <p>Returns the line number where the exception was created.</p>
-		 * @link http://php.net/manual/en/exception.getline.php
+		 * @link https://php.net/manual/en/exception.getline.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getLine(): int {}
@@ -122,7 +122,7 @@ namespace {
 		 * Gets the Exception message
 		 * <p>Returns the Exception message.</p>
 		 * @return string <p>Returns the Exception message as a string.</p>
-		 * @link http://php.net/manual/en/exception.getmessage.php
+		 * @link https://php.net/manual/en/exception.getmessage.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getMessage(): string {}
@@ -131,7 +131,7 @@ namespace {
 		 * Returns previous Exception
 		 * <p>Returns previous exception (the third parameter of <code>Exception::__construct()</code>).</p>
 		 * @return Throwable <p>Returns the previous Throwable if available or <b><code>NULL</code></b> otherwise.</p>
-		 * @link http://php.net/manual/en/exception.getprevious.php
+		 * @link https://php.net/manual/en/exception.getprevious.php
 		 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8
 		 */
 		final public function getPrevious(): \Throwable {}
@@ -140,7 +140,7 @@ namespace {
 		 * Gets the stack trace
 		 * <p>Returns the Exception stack trace.</p>
 		 * @return array <p>Returns the Exception stack trace as an <code>array</code>.</p>
-		 * @link http://php.net/manual/en/exception.gettrace.php
+		 * @link https://php.net/manual/en/exception.gettrace.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getTrace(): array {}
@@ -149,7 +149,7 @@ namespace {
 		 * Gets the stack trace as a string
 		 * <p>Returns the Exception stack trace as a string.</p>
 		 * @return string <p>Returns the Exception stack trace as a string.</p>
-		 * @link http://php.net/manual/en/exception.gettraceasstring.php
+		 * @link https://php.net/manual/en/exception.gettraceasstring.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getTraceAsString(): string {}
@@ -157,33 +157,33 @@ namespace {
 		/**
 		 * Retrieve exception's type
 		 * @return string <p>Returns <code>"Yar_Exception_Client"</code>.</p>
-		 * @link http://php.net/manual/en/yar-client-exception.gettype.php
+		 * @link https://php.net/manual/en/yar-client-exception.gettype.php
 		 * @since PECL yar >= 1.0.0
 		 */
 		public function getType(): string {}
 	}
 
 	/**
-	 * @link http://php.net/manual/en/class.yar-concurrent-client.php
+	 * @link https://php.net/manual/en/class.yar-concurrent-client.php
 	 * @since No version information available, might only be in Git
 	 */
 	class Yar_Concurrent_Client {
 
 		/**
 		 * @var mixed
-		 * @link http://php.net/manual/en/class.yar-concurrent-client.php#yar-concurrent-client.props.callstack
+		 * @link https://php.net/manual/en/class.yar-concurrent-client.php#yar-concurrent-client.props.callstack
 		 */
 		static $_callstack;
 
 		/**
 		 * @var mixed
-		 * @link http://php.net/manual/en/class.yar-concurrent-client.php#yar-concurrent-client.props.callback
+		 * @link https://php.net/manual/en/class.yar-concurrent-client.php#yar-concurrent-client.props.callback
 		 */
 		static $_callback;
 
 		/**
 		 * @var mixed
-		 * @link http://php.net/manual/en/class.yar-concurrent-client.php#yar-concurrent-client.props.error-callback
+		 * @link https://php.net/manual/en/class.yar-concurrent-client.php#yar-concurrent-client.props.error-callback
 		 */
 		static $_error_callback;
 
@@ -197,7 +197,7 @@ namespace {
 		 * @param callable $error_callback
 		 * @param array $options
 		 * @return int <p>An unique id, can be used to identified which call it is.</p>
-		 * @link http://php.net/manual/en/yar-concurrent-client.call.php
+		 * @link https://php.net/manual/en/yar-concurrent-client.call.php
 		 * @since PECL yar >= 1.0.0
 		 */
 		public static function call(string $uri, string $method, array $parameters = NULL, callable $callback = NULL, callable $error_callback = NULL, array $options = NULL): int {}
@@ -208,7 +208,7 @@ namespace {
 		 * @param callable $callback <p>If this callback is set, then Yar will call this callback after all calls are sent and before any response return, with a $callinfo NULL.</p> <p>Then, if user didn't specify callback when registering concurrent call, this callback will be used to handle response, otherwise, the callback specified while registering will be used.</p>
 		 * @param callable $error_callback <p>If this callback is set, then Yar will call this callback while error occurred.</p>
 		 * @return bool
-		 * @link http://php.net/manual/en/yar-concurrent-client.loop.php
+		 * @link https://php.net/manual/en/yar-concurrent-client.loop.php
 		 * @since PECL yar >= 1.0.0
 		 */
 		public static function loop(callable $callback = NULL, callable $error_callback = NULL): bool {}
@@ -217,21 +217,21 @@ namespace {
 		 * Clean all registered calls
 		 * <p>Clean all registered calls</p>
 		 * @return bool
-		 * @link http://php.net/manual/en/yar-concurrent-client.reset.php
+		 * @link https://php.net/manual/en/yar-concurrent-client.reset.php
 		 * @since PECL yar >= 1.2.4
 		 */
 		public static function reset(): bool {}
 	}
 
 	/**
-	 * @link http://php.net/manual/en/class.yar-server.php
+	 * @link https://php.net/manual/en/class.yar-server.php
 	 * @since No version information available, might only be in Git
 	 */
 	class Yar_Server {
 
 		/**
 		 * @var mixed
-		 * @link http://php.net/manual/en/class.yar-server.php#yar-server.props.executor
+		 * @link https://php.net/manual/en/class.yar-server.php#yar-server.props.executor
 		 */
 		protected $_executor;
 
@@ -240,7 +240,7 @@ namespace {
 		 * <p>Set up a Yar HTTP RPC Server, All the public methods of $obj will be register as a RPC service.</p>
 		 * @param Object $obj <p>An Object, all public methods of its will be registered as RPC services.</p>
 		 * @return self <p>An instance of Yar_Server.</p>
-		 * @link http://php.net/manual/en/yar-server.construct.php
+		 * @link https://php.net/manual/en/yar-server.construct.php
 		 * @since PECL yar >= 1.0.0
 		 */
 		final public function __construct(Object $obj) {}
@@ -249,7 +249,7 @@ namespace {
 		 * Start RPC Server
 		 * <p>Start a RPC HTTP server, and ready for accpet RPC requests.</p><p><b>Note</b>:</p><p>Usual RPC calls will be issued as HTTP POST requests. If a HTTP GET request is issued to the uri, the service information (commented section above) will be printed on the page</p>
 		 * @return bool <p>boolean</p>
-		 * @link http://php.net/manual/en/yar-server.handle.php
+		 * @link https://php.net/manual/en/yar-server.handle.php
 		 * @since PECL yar >= 1.0.0
 		 */
 		public function handle(): bool {}
@@ -257,14 +257,14 @@ namespace {
 
 	/**
 	 * <p>If service threw exceptions, A Yar_Server_Exception will be threw in client side.</p>
-	 * @link http://php.net/manual/en/class.yar-server-exception.php
+	 * @link https://php.net/manual/en/class.yar-server-exception.php
 	 * @since No version information available, might only be in Git
 	 */
 	class Yar_Server_Exception extends \Exception {
 
 		/**
 		 * @var mixed
-		 * @link http://php.net/manual/en/class.yar-server-exception.php#yar-server-exception.props.type
+		 * @link https://php.net/manual/en/class.yar-server-exception.php#yar-server-exception.props.type
 		 */
 		protected $_type;
 
@@ -272,7 +272,7 @@ namespace {
 		 * Clone the exception
 		 * <p>Tries to clone the Exception, which results in Fatal error.</p>
 		 * @return void <p>No value is returned.</p>
-		 * @link http://php.net/manual/en/exception.clone.php
+		 * @link https://php.net/manual/en/exception.clone.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final private function __clone() {}
@@ -281,7 +281,7 @@ namespace {
 		 * String representation of the exception
 		 * <p>Returns the <code>string</code> representation of the exception.</p>
 		 * @return string <p>Returns the <code>string</code> representation of the exception.</p>
-		 * @link http://php.net/manual/en/exception.tostring.php
+		 * @link https://php.net/manual/en/exception.tostring.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		public function __toString(): string {}
@@ -290,7 +290,7 @@ namespace {
 		 * Gets the Exception code
 		 * <p>Returns the Exception code.</p>
 		 * @return mixed <p>Returns the exception code as <code>int</code> in Exception but possibly as other type in Exception descendants (for example as <code>string</code> in PDOException).</p>
-		 * @link http://php.net/manual/en/exception.getcode.php
+		 * @link https://php.net/manual/en/exception.getcode.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getCode() {}
@@ -299,7 +299,7 @@ namespace {
 		 * Gets the file in which the exception was created
 		 * <p>Get the name of the file in which the exception was created.</p>
 		 * @return string <p>Returns the filename in which the exception was created.</p>
-		 * @link http://php.net/manual/en/exception.getfile.php
+		 * @link https://php.net/manual/en/exception.getfile.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getFile(): string {}
@@ -308,7 +308,7 @@ namespace {
 		 * Gets the line in which the exception was created
 		 * <p>Get line number where the exception was created.</p>
 		 * @return int <p>Returns the line number where the exception was created.</p>
-		 * @link http://php.net/manual/en/exception.getline.php
+		 * @link https://php.net/manual/en/exception.getline.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getLine(): int {}
@@ -317,7 +317,7 @@ namespace {
 		 * Gets the Exception message
 		 * <p>Returns the Exception message.</p>
 		 * @return string <p>Returns the Exception message as a string.</p>
-		 * @link http://php.net/manual/en/exception.getmessage.php
+		 * @link https://php.net/manual/en/exception.getmessage.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getMessage(): string {}
@@ -326,7 +326,7 @@ namespace {
 		 * Returns previous Exception
 		 * <p>Returns previous exception (the third parameter of <code>Exception::__construct()</code>).</p>
 		 * @return Throwable <p>Returns the previous Throwable if available or <b><code>NULL</code></b> otherwise.</p>
-		 * @link http://php.net/manual/en/exception.getprevious.php
+		 * @link https://php.net/manual/en/exception.getprevious.php
 		 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8
 		 */
 		final public function getPrevious(): \Throwable {}
@@ -335,7 +335,7 @@ namespace {
 		 * Gets the stack trace
 		 * <p>Returns the Exception stack trace.</p>
 		 * @return array <p>Returns the Exception stack trace as an <code>array</code>.</p>
-		 * @link http://php.net/manual/en/exception.gettrace.php
+		 * @link https://php.net/manual/en/exception.gettrace.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getTrace(): array {}
@@ -344,7 +344,7 @@ namespace {
 		 * Gets the stack trace as a string
 		 * <p>Returns the Exception stack trace as a string.</p>
 		 * @return string <p>Returns the Exception stack trace as a string.</p>
-		 * @link http://php.net/manual/en/exception.gettraceasstring.php
+		 * @link https://php.net/manual/en/exception.gettraceasstring.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		final public function getTraceAsString(): string {}
@@ -353,7 +353,7 @@ namespace {
 		 * Retrieve exception's type
 		 * <p>Get the exception original type threw by server</p>
 		 * @return string <p>string</p>
-		 * @link http://php.net/manual/en/yar-server-exception.gettype.php
+		 * @link https://php.net/manual/en/yar-server-exception.gettype.php
 		 * @since PECL yar >= 1.0.0
 		 */
 		public function getType(): string {}

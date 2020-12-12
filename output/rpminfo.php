@@ -9,7 +9,7 @@ namespace {
 	 * <p>Add an additional retrieved tag in subsequent queries.</p>
 	 * @param int $tag <p>One of RPMTAG_&#42; constant, see the rpminfo constants page.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.rpmaddtag.php
+	 * @link https://php.net/manual/en/function.rpmaddtag.php
 	 * @see rpminfo(), rpmdbinfo(), rpmdbsearch()
 	 * @since PECL rpminfo >= 0.5.0
 	 */
@@ -21,7 +21,7 @@ namespace {
 	 * @param string $nevr <p>Name with optional epoch, version and release.</p>
 	 * @param bool $full <p>If <b><code>TRUE</code></b> all information headers for the file are retrieved, else only a minimal set.</p>
 	 * @return array <p>An <code>array</code> of <code>array</code> of information or NULL on error.</p>
-	 * @link http://php.net/manual/en/function.rpmdbinfo.php
+	 * @link https://php.net/manual/en/function.rpmdbinfo.php
 	 * @see rpmaddtag()
 	 * @since PECL rpminfo >= 0.2.0
 	 */
@@ -35,7 +35,7 @@ namespace {
 	 * @param int $rpmmire <p>Pattern type, one of RPMMIRE_&#42; constant, see the rpminfo constants page. When &lt; 0 the criterion must equals the value, and database index is used if possible.</p>
 	 * @param bool $full <p>If <b><code>TRUE</code></b> all information headers for the file are retrieved, else only a minimal set.</p>
 	 * @return array <p>An <code>array</code> of <code>array</code> of information or NULL on error.</p>
-	 * @link http://php.net/manual/en/function.rpmdbsearch.php
+	 * @link https://php.net/manual/en/function.rpmdbsearch.php
 	 * @see rpmaddtag()
 	 * @since PECL rpminfo >= 0.3.0
 	 */
@@ -48,7 +48,7 @@ namespace {
 	 * @param bool $full <p>If <b><code>TRUE</code></b> all information headers for the file are retrieved, else only a minimal set.</p>
 	 * @param string $error <p>If provided, will receive the possible error message, and will avoid a runtime warning.</p>
 	 * @return array <p>An <code>array</code> of information or NULL on error.</p>
-	 * @link http://php.net/manual/en/function.rpminfo.php
+	 * @link https://php.net/manual/en/function.rpminfo.php
 	 * @see rpmaddtag()
 	 * @since PECL rpminfo >= 0.1.0
 	 */
@@ -60,7 +60,7 @@ namespace {
 	 * @param string $evr1 <p>First epoch:version-release string</p>
 	 * @param string $evr2 <p>Second epoch:version-release string</p>
 	 * @return int <p>Returns &lt; 0 if evr1 is less than evr2, &gt; 0 if evr1 is greater than evr2, and 0 if they are equal.</p>
-	 * @link http://php.net/manual/en/function.rpmvercmp.php
+	 * @link https://php.net/manual/en/function.rpmvercmp.php
 	 * @since PECL rpminfo >= 0.1.0
 	 */
 	function rpmvercmp(string $evr1, string $evr2): int {}

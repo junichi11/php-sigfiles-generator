@@ -5,14 +5,14 @@
 namespace parallel {
 
 	/**
-	 * @link http://php.net/manual/en/class.parallel-channel.php
+	 * @link https://php.net/manual/en/class.parallel-channel.php
 	 * @since 0.9.0
 	 */
 	final class Channel {
 
 		/**
 		 * @var mixed
-		 * @link http://php.net/manual/en/class.parallel-channel.php
+		 * @link https://php.net/manual/en/class.parallel-channel.php
 		 */
 		const Infinite = null;
 
@@ -20,7 +20,7 @@ namespace parallel {
 		 * Channel Construction
 		 * <p>Shall make an anonymous unbuffered channel</p><p>Shall make an anonymous buffered channel with the given capacity</p>
 		 * @return self
-		 * @link http://php.net/manual/en/parallel-channel.construct.php
+		 * @link https://php.net/manual/en/parallel-channel.construct.php
 		 * @since 1.1.0
 		 */
 		public function __construct() {}
@@ -29,7 +29,7 @@ namespace parallel {
 		 * Closing
 		 * <p>Shall close this channel</p>
 		 * @return void
-		 * @link http://php.net/manual/en/parallel-channel.close.php
+		 * @link https://php.net/manual/en/parallel-channel.close.php
 		 * @since 0.9.0
 		 */
 		public function close(): void {}
@@ -39,7 +39,7 @@ namespace parallel {
 		 * <p>Shall make an unbuffered channel with the given name</p><p>Shall make a buffered channel with the given name and capacity</p>
 		 * @param string $name <p>The name of the channel.</p>
 		 * @return Channel
-		 * @link http://php.net/manual/en/parallel-channel.make.php
+		 * @link https://php.net/manual/en/parallel-channel.make.php
 		 * @since 0.9.0
 		 */
 		public function make(string $name): \Channel {}
@@ -49,7 +49,7 @@ namespace parallel {
 		 * <p>Shall open the channel with the given name</p>
 		 * @param string $name
 		 * @return Channel
-		 * @link http://php.net/manual/en/parallel-channel.open.php
+		 * @link https://php.net/manual/en/parallel-channel.open.php
 		 * @since 0.9.0
 		 */
 		public function open(string $name): \Channel {}
@@ -58,7 +58,7 @@ namespace parallel {
 		 * Sharing
 		 * <p>Shall recv a value from this channel</p>
 		 * @return mixed
-		 * @link http://php.net/manual/en/parallel-channel.recv.php
+		 * @link https://php.net/manual/en/parallel-channel.recv.php
 		 * @since 0.9.0
 		 */
 		public function recv() {}
@@ -68,14 +68,14 @@ namespace parallel {
 		 * <p>Shall send the given value on this channel</p>
 		 * @param mixed $value
 		 * @return void
-		 * @link http://php.net/manual/en/parallel-channel.send.php
+		 * @link https://php.net/manual/en/parallel-channel.send.php
 		 * @since 0.9.0
 		 */
 		public function send($value): void {}
 	}
 
 	/**
-	 * @link http://php.net/manual/en/class.parallel-events.php
+	 * @link https://php.net/manual/en/class.parallel-events.php
 	 * @since 0.9.0
 	 */
 	final class Events implements \Countable, \Traversable {
@@ -85,7 +85,7 @@ namespace parallel {
 		 * <p>Shall watch for events on the given <code>channel</code></p>
 		 * @param \parallel\Channel $channel
 		 * @return void
-		 * @link http://php.net/manual/en/parallel-events.addchannel.php
+		 * @link https://php.net/manual/en/parallel-events.addchannel.php
 		 * @since 0.9.0
 		 */
 		public function addChannel(\parallel\Channel $channel): void {}
@@ -96,7 +96,7 @@ namespace parallel {
 		 * @param string $name
 		 * @param \parallel\Future $future
 		 * @return void
-		 * @link http://php.net/manual/en/parallel-events.addfuture.php
+		 * @link https://php.net/manual/en/parallel-events.addfuture.php
 		 * @since 0.9.0
 		 */
 		public function addFuture(string $name, \parallel\Future $future): void {}
@@ -105,7 +105,7 @@ namespace parallel {
 		 * Polling
 		 * <p>Shall poll for the next event</p>
 		 * @return Event|null <p>Should there be no targets remaining, null shall be returned</p><p>Should this be a non-blocking loop, and blocking would occur, null shall be returned</p><p>Otherwise, the parallel\Events\Event returned describes the event.</p>
-		 * @link http://php.net/manual/en/parallel-events.poll.php
+		 * @link https://php.net/manual/en/parallel-events.poll.php
 		 * @since 0.9.0
 		 */
 		public function poll() {}
@@ -115,7 +115,7 @@ namespace parallel {
 		 * <p>Shall remove the given <code>target</code></p>
 		 * @param string $target
 		 * @return void
-		 * @link http://php.net/manual/en/parallel-events.remove.php
+		 * @link https://php.net/manual/en/parallel-events.remove.php
 		 * @since 0.9.0
 		 */
 		public function remove(string $target): void {}
@@ -125,7 +125,7 @@ namespace parallel {
 		 * <p>By default when events are polled for, blocking will occur (at the PHP level) until the first event can be returned: Setting blocking mode to false will cause poll to return control if the first target polled is not ready.</p><p>This differs from setting a timeout of 0 with <code>parallel\Events::setTimeout()</code>, since a timeout of 0, while allowed, will cause an exception to be raised, which may be extremely slow or wasteful if what is really desired is non-blocking behaviour.</p><p>A non-blocking loop effects the return value of <code>parallel\Events::poll()</code>, such that it may be null before all events have been processed.</p><p>Shall set blocking mode</p>
 		 * @param bool $blocking
 		 * @return void
-		 * @link http://php.net/manual/en/parallel-events.setblocking.php
+		 * @link https://php.net/manual/en/parallel-events.setblocking.php
 		 * @since 0.9.0
 		 */
 		public function setBlocking(bool $blocking): void {}
@@ -135,7 +135,7 @@ namespace parallel {
 		 * <p>Shall set <code>input</code> for this event loop</p>
 		 * @param \Input $input
 		 * @return void
-		 * @link http://php.net/manual/en/parallel-events.setinput.php
+		 * @link https://php.net/manual/en/parallel-events.setinput.php
 		 * @since 0.9.0
 		 */
 		public function setInput(\Input $input): void {}
@@ -145,7 +145,7 @@ namespace parallel {
 		 * <p>By default when events are polled for, blocking will occur (at the PHP level) until the first event can be returned: Setting the timeout causes an exception to be thrown when the timeout is reached.</p><p>This differs from setting blocking mode to false with <code>parallel\Events::setBlocking()</code>, which will not cause an exception to be thrown.</p><p>Shall set the timeout in microseconds</p>
 		 * @param int $timeout
 		 * @return void
-		 * @link http://php.net/manual/en/parallel-events.settimeout.php
+		 * @link https://php.net/manual/en/parallel-events.settimeout.php
 		 * @since 0.9.0
 		 */
 		public function setTimeout(int $timeout): void {}
@@ -156,7 +156,7 @@ namespace parallel {
 namespace parallel\Events {
 
 	/**
-	 * @link http://php.net/manual/en/class.parallel-events-event.php
+	 * @link https://php.net/manual/en/class.parallel-events-event.php
 	 * @since 0.9.0
 	 */
 	final class Event {
@@ -175,44 +175,44 @@ namespace parallel\Events {
 namespace parallel\Events\Event {
 
 	/**
-	 * @link http://php.net/manual/en/class.parallel-events-event-type.php
+	 * @link https://php.net/manual/en/class.parallel-events-event-type.php
 	 * @since 0.9.0
 	 */
 	final class Type {
 
 		/**
 		 * @var mixed
-		 * @link http://php.net/manual/en/class.parallel-events-event-type.php
+		 * @link https://php.net/manual/en/class.parallel-events-event-type.php
 		 */
 		const Read = null;
 
 		/**
 		 * @var mixed
-		 * @link http://php.net/manual/en/class.parallel-events-event-type.php
+		 * @link https://php.net/manual/en/class.parallel-events-event-type.php
 		 */
 		const Write = null;
 
 		/**
 		 * @var mixed
-		 * @link http://php.net/manual/en/class.parallel-events-event-type.php
+		 * @link https://php.net/manual/en/class.parallel-events-event-type.php
 		 */
 		const Close = null;
 
 		/**
 		 * @var mixed
-		 * @link http://php.net/manual/en/class.parallel-events-event-type.php
+		 * @link https://php.net/manual/en/class.parallel-events-event-type.php
 		 */
 		const Cancel = null;
 
 		/**
 		 * @var mixed
-		 * @link http://php.net/manual/en/class.parallel-events-event-type.php
+		 * @link https://php.net/manual/en/class.parallel-events-event-type.php
 		 */
 		const Kill = null;
 
 		/**
 		 * @var mixed
-		 * @link http://php.net/manual/en/class.parallel-events-event-type.php
+		 * @link https://php.net/manual/en/class.parallel-events-event-type.php
 		 */
 		const Error = null;
 	}
@@ -222,7 +222,7 @@ namespace parallel\Events\Event {
 namespace parallel\Events {
 
 	/**
-	 * @link http://php.net/manual/en/class.parallel-events-input.php
+	 * @link https://php.net/manual/en/class.parallel-events-input.php
 	 * @since 0.9.0
 	 */
 	final class Input {
@@ -233,7 +233,7 @@ namespace parallel\Events {
 		 * @param string $target
 		 * @param mixed $value
 		 * @return void
-		 * @link http://php.net/manual/en/parallel-events-input.add.php
+		 * @link https://php.net/manual/en/parallel-events-input.add.php
 		 * @since 0.9.0
 		 */
 		public function add(string $target, $value): void {}
@@ -242,7 +242,7 @@ namespace parallel\Events {
 		 * Inputs
 		 * <p>Shall remove input for all targets</p>
 		 * @return void
-		 * @link http://php.net/manual/en/parallel-events-input.clear.php
+		 * @link https://php.net/manual/en/parallel-events-input.clear.php
 		 * @since 0.9.0
 		 */
 		public function clear(): void {}
@@ -252,7 +252,7 @@ namespace parallel\Events {
 		 * <p>Shall remove input for the given target</p>
 		 * @param string $target
 		 * @return void
-		 * @link http://php.net/manual/en/parallel-events-input.remove.php
+		 * @link https://php.net/manual/en/parallel-events-input.remove.php
 		 * @since 0.9.0
 		 */
 		public function remove(string $target): void {}
@@ -263,7 +263,7 @@ namespace parallel\Events {
 namespace parallel {
 
 	/**
-	 * @link http://php.net/manual/en/class.parallel-future.php
+	 * @link https://php.net/manual/en/class.parallel-future.php
 	 * @since 0.8.0
 	 */
 	final class Future {
@@ -272,7 +272,7 @@ namespace parallel {
 		 * Cancellation
 		 * <p>Shall try to cancel the task</p><p><b>Note</b>:</p><p>If task is running, it will be interrupted.</p><p>Internal function calls in progress cannot be interrupted.</p>
 		 * @return bool
-		 * @link http://php.net/manual/en/parallel-future.cancel.php
+		 * @link https://php.net/manual/en/parallel-future.cancel.php
 		 * @since 0.9.0
 		 */
 		public function cancel(): bool {}
@@ -281,7 +281,7 @@ namespace parallel {
 		 * State Detection
 		 * <p>Shall indicate if the task was cancelled</p>
 		 * @return bool
-		 * @link http://php.net/manual/en/parallel-future.cancelled.php
+		 * @link https://php.net/manual/en/parallel-future.cancelled.php
 		 * @since 0.9.0
 		 */
 		public function cancelled(): bool {}
@@ -290,7 +290,7 @@ namespace parallel {
 		 * State Detection
 		 * <p>Shall indicate if the task is completed</p>
 		 * @return bool
-		 * @link http://php.net/manual/en/parallel-future.done.php
+		 * @link https://php.net/manual/en/parallel-future.done.php
 		 * @since 0.8.0
 		 */
 		public function done(): bool {}
@@ -299,14 +299,14 @@ namespace parallel {
 		 * Resolution
 		 * <p>Shall return (and if necessary wait for) return from task</p>
 		 * @return mixed
-		 * @link http://php.net/manual/en/parallel-future.value.php
+		 * @link https://php.net/manual/en/parallel-future.value.php
 		 * @since 0.8.0
 		 */
 		public function value() {}
 	}
 
 	/**
-	 * @link http://php.net/manual/en/class.parallel-runtime.php
+	 * @link https://php.net/manual/en/class.parallel-runtime.php
 	 * @since 0.8.0
 	 */
 	final class Runtime {
@@ -315,7 +315,7 @@ namespace parallel {
 		 * Runtime Construction
 		 * <p>Shall construct a new runtime without bootstrapping.</p><p>Shall construct a bootstrapped runtime.</p>
 		 * @return self
-		 * @link http://php.net/manual/en/parallel-runtime.construct.php
+		 * @link https://php.net/manual/en/parallel-runtime.construct.php
 		 * @since 0.8.0
 		 */
 		public function __construct() {}
@@ -324,7 +324,7 @@ namespace parallel {
 		 * Runtime Graceful Join
 		 * <p>Shall request that the runtime shutsdown.</p><p><b>Note</b>:</p><p>Tasks scheduled for execution will be executed before the shutdown occurs.</p>
 		 * @return void
-		 * @link http://php.net/manual/en/parallel-runtime.close.php
+		 * @link https://php.net/manual/en/parallel-runtime.close.php
 		 * @since 0.8.0
 		 */
 		public function close(): void {}
@@ -333,7 +333,7 @@ namespace parallel {
 		 * Runtime Join
 		 * <p>Shall attempt to force the runtime to shutdown.</p><p><b>Note</b>:</p><p>Tasks scheduled for execution will not be executed, the currently running task shall be interrupted.</p><p>Internal function calls in progress cannot be interrupted.</p>
 		 * @return void
-		 * @link http://php.net/manual/en/parallel-runtime.kill.php
+		 * @link https://php.net/manual/en/parallel-runtime.kill.php
 		 * @since 0.8.0
 		 */
 		public function kill(): void {}
@@ -343,14 +343,14 @@ namespace parallel {
 		 * <p>Shall schedule <code>task</code> for execution in parallel.</p><p>Shall schedule <code>task</code> for execution in parallel, passing <code>argv</code> at execution time.</p>
 		 * @param \Closure $task <p>A Closure with specific characteristics.</p>
 		 * @return Future|null <p><b>Warning</b></p> <p>The return <code>parallel\Future</code> must not be ignored when the task contains a return or throw statement.</p>
-		 * @link http://php.net/manual/en/parallel-runtime.run.php
+		 * @link https://php.net/manual/en/parallel-runtime.run.php
 		 * @since 0.8.0
 		 */
 		public function run(\Closure $task) {}
 	}
 
 	/**
-	 * @link http://php.net/manual/en/class.parallel-sync.php
+	 * @link https://php.net/manual/en/class.parallel-sync.php
 	 * @since 1.1.0
 	 */
 	final class Sync {
@@ -359,7 +359,7 @@ namespace parallel {
 		 * Construction
 		 * <p>Shall construct a new synchronization object with no value</p><p>Shall construct a new synchronization object containing the given scalar value</p>
 		 * @return self
-		 * @link http://php.net/manual/en/parallel-sync.construct.php
+		 * @link https://php.net/manual/en/parallel-sync.construct.php
 		 * @since 1.1.0
 		 */
 		public function __construct() {}
@@ -369,7 +369,7 @@ namespace parallel {
 		 * <p>Shall exclusively enter into the critical code</p>
 		 * @param callable $critical
 		 * @return mixed
-		 * @link http://php.net/manual/en/parallel-sync.invoke.php
+		 * @link https://php.net/manual/en/parallel-sync.invoke.php
 		 * @since 1.1.0
 		 */
 		public function __invoke(callable $critical) {}
@@ -378,7 +378,7 @@ namespace parallel {
 		 * Access
 		 * <p>Shall atomically return the syncrhonization objects value</p>
 		 * @return scalar
-		 * @link http://php.net/manual/en/parallel-sync.get.php
+		 * @link https://php.net/manual/en/parallel-sync.get.php
 		 * @since 1.1.0
 		 */
 		public function get(): \scalar {}
@@ -388,7 +388,7 @@ namespace parallel {
 		 * <p>Shall notify one (by default) or all threads waiting on the synchronization object</p>
 		 * @param bool $all
 		 * @return void
-		 * @link http://php.net/manual/en/parallel-sync.notify.php
+		 * @link https://php.net/manual/en/parallel-sync.notify.php
 		 * @since 1.1.0
 		 */
 		public function notify(bool $all = NULL) {}
@@ -398,7 +398,7 @@ namespace parallel {
 		 * <p>Shall atomically set the value of the synchronization object</p>
 		 * @param \scalar $value
 		 * @return void
-		 * @link http://php.net/manual/en/parallel-sync.set.php
+		 * @link https://php.net/manual/en/parallel-sync.set.php
 		 * @since 1.1.0
 		 */
 		public function set(\scalar $value) {}
@@ -407,7 +407,7 @@ namespace parallel {
 		 * Synchronization
 		 * <p>Shall wait for notification on this synchronization object</p>
 		 * @return void
-		 * @link http://php.net/manual/en/parallel-sync.wait.php
+		 * @link https://php.net/manual/en/parallel-sync.wait.php
 		 * @since 1.1.0
 		 */
 		public function wait() {}

@@ -10,7 +10,7 @@ namespace {
 	 * @param resource $connection_id <p>The ODBC connection identifier, see <code>odbc_connect()</code> for details.</p>
 	 * @param bool $OnOff <p>If <code>OnOff</code> is <b><code>TRUE</code></b>, auto-commit is enabled, if it is <b><code>FALSE</code></b> auto-commit is disabled.</p>
 	 * @return mixed <p>Without the <code>OnOff</code> parameter, this function returns auto-commit status for <code>connection_id</code>. Non-zero is returned if auto-commit is on, 0 if it is off, or <b><code>FALSE</code></b> if an error occurs.</p><p>If <code>OnOff</code> is set, this function returns <b><code>TRUE</code></b> on success and <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.odbc-autocommit.php
+	 * @link https://php.net/manual/en/function.odbc-autocommit.php
 	 * @see odbc_commit(), odbc_rollback()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
@@ -22,7 +22,7 @@ namespace {
 	 * @param resource $result_id <p>The result identifier.</p> <p>If <code>result_id</code> is <code>0</code>, the settings apply as default for new results.</p>
 	 * @param int $mode <p>Possible values for <code>mode</code> are:</p><ul> <li>  <b><code>ODBC_BINMODE_PASSTHRU</code></b>: Passthru BINARY data  </li> <li>  <b><code>ODBC_BINMODE_RETURN</code></b>: Return as is  </li> <li>  <b><code>ODBC_BINMODE_CONVERT</code></b>: Convert to char and return  </li> </ul> <p><b>Note</b>:  Handling of binary long columns is also affected by <code>odbc_longreadlen()</code>. </p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.odbc-binmode.php
+	 * @link https://php.net/manual/en/function.odbc-binmode.php
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
 	function odbc_binmode($result_id, int $mode): bool {}
@@ -32,7 +32,7 @@ namespace {
 	 * <p>Closes down the connection to the database server.</p>
 	 * @param resource $connection_id <p>The ODBC connection identifier, see <code>odbc_connect()</code> for details.</p>
 	 * @return void <p>No value is returned.</p>
-	 * @link http://php.net/manual/en/function.odbc-close.php
+	 * @link https://php.net/manual/en/function.odbc-close.php
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
 	function odbc_close($connection_id): void {}
@@ -41,7 +41,7 @@ namespace {
 	 * Close all ODBC connections
 	 * <p><b>odbc_close_all()</b> will close down all connections to database server(s).</p>
 	 * @return void <p>No value is returned.</p>
-	 * @link http://php.net/manual/en/function.odbc-close-all.php
+	 * @link https://php.net/manual/en/function.odbc-close-all.php
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
 	function odbc_close_all(): void {}
@@ -55,7 +55,7 @@ namespace {
 	 * @param string $table_name <p>The table name. This parameter accepts the following search patterns: <code>%</code> to match zero or more characters, and <code>_</code> to match a single character.</p>
 	 * @param string $column_name <p>The column name. This parameter accepts the following search patterns: <code>%</code> to match zero or more characters, and <code>_</code> to match a single character.</p>
 	 * @return resource|false <p>Returns an ODBC result identifier or <b><code>FALSE</code></b> on failure. This result identifier can be used to fetch a list of columns and associated privileges.</p><p>The result set has the following columns:</p><ul> <li><code>TABLE_CAT</code></li> <li><code>TABLE_SCHEM</code></li> <li><code>TABLE_NAME</code></li> <li><code>COLUMN_NAME</code></li> <li><code>GRANTOR</code></li> <li><code>GRANTEE</code></li> <li><code>PRIVILEGE</code></li> <li><code>IS_GRANTABLE</code></li> </ul> Drivers can report additional columns. <p>The result set is ordered by <code>TABLE_CAT</code>, <code>TABLE_SCHEM</code>, <code>TABLE_NAME</code>, <code>COLUMN_NAME</code> and <code>PRIVILEGE</code>.</p>
-	 * @link http://php.net/manual/en/function.odbc-columnprivileges.php
+	 * @link https://php.net/manual/en/function.odbc-columnprivileges.php
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
 	function odbc_columnprivileges($connection_id, string $catalog, string $schema, string $table_name, string $column_name) {}
@@ -69,7 +69,7 @@ namespace {
 	 * @param string $table_name <p>The table name. This parameter accepts the following search patterns: <code>%</code> to match zero or more characters, and <code>_</code> to match a single character.</p>
 	 * @param string $column_name <p>The column name. This parameter accepts the following search patterns: <code>%</code> to match zero or more characters, and <code>_</code> to match a single character.</p>
 	 * @return resource|false <p>Returns an ODBC result identifier or <b><code>FALSE</code></b> on failure.</p><p>The result set has the following columns:</p><ul> <li><code>TABLE_CAT</code></li> <li><code>TABLE_SCHEM</code></li> <li><code>TABLE_NAME</code></li> <li><code>COLUMN_NAME</code></li> <li><code>DATA_TYPE</code></li> <li><code>TYPE_NAME</code></li> <li><code>COLUMN_SIZE</code></li> <li><code>BUFFER_LENGTH</code></li> <li><code>DECIMAL_DIGITS</code></li> <li><code>NUM_PREC_RADIX</code></li> <li><code>NULLABLE</code></li> <li><code>REMARKS</code></li> <li><code>COLUMN_DEF</code></li> <li><code>SQL_DATA_TYPE</code></li> <li><code>SQL_DATETIME_SUB</code></li> <li><code>CHAR_OCTET_LENGTH</code></li> <li><code>ORDINAL_POSITION</code></li> <li><code>IS_NULLABLE</code></li> </ul> Drivers can report additional columns. <p>The result set is ordered by <code>TABLE_CAT</code>, <code>TABLE_SCHEM</code>, <code>TABLE_NAME</code> and <code>ORDINAL_POSITION</code>.</p>
-	 * @link http://php.net/manual/en/function.odbc-columns.php
+	 * @link https://php.net/manual/en/function.odbc-columns.php
 	 * @see odbc_columnprivileges(), odbc_procedurecolumns()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
@@ -80,7 +80,7 @@ namespace {
 	 * <p>Commits all pending transactions on the connection.</p>
 	 * @param resource $connection_id <p>The ODBC connection identifier, see <code>odbc_connect()</code> for details.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.odbc-commit.php
+	 * @link https://php.net/manual/en/function.odbc-commit.php
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
 	function odbc_commit($connection_id): bool {}
@@ -93,7 +93,7 @@ namespace {
 	 * @param string $password <p>The password.</p>
 	 * @param int $cursor_type <p>This sets the type of cursor to be used for this connection. This parameter is not normally needed, but can be useful for working around problems with some ODBC drivers.</p>  The following constants are defined for cursortype:  <p></p><ul> <li>  SQL_CUR_USE_IF_NEEDED  </li> <li>  SQL_CUR_USE_ODBC  </li> <li>  SQL_CUR_USE_DRIVER  </li> </ul>
 	 * @return resource <p>Returns an ODBC connection or (<b><code>FALSE</code></b>) on error.</p>
-	 * @link http://php.net/manual/en/function.odbc-connect.php
+	 * @link https://php.net/manual/en/function.odbc-connect.php
 	 * @see odbc_pconnect()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
@@ -104,7 +104,7 @@ namespace {
 	 * <p>Gets the cursorname for the given result_id.</p>
 	 * @param resource $result_id <p>The result identifier.</p>
 	 * @return string <p>Returns the cursor name, as a string.</p>
-	 * @link http://php.net/manual/en/function.odbc-cursor.php
+	 * @link https://php.net/manual/en/function.odbc-cursor.php
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
 	function odbc_cursor($result_id): string {}
@@ -115,7 +115,7 @@ namespace {
 	 * @param resource $connection_id <p>The ODBC connection identifier, see <code>odbc_connect()</code> for details.</p>
 	 * @param int $fetch_type <p>The <code>fetch_type</code> can be one of two constant types: <b><code>SQL_FETCH_FIRST</code></b>, <b><code>SQL_FETCH_NEXT</code></b>. Use <b><code>SQL_FETCH_FIRST</code></b> the first time this function is called, thereafter use the <b><code>SQL_FETCH_NEXT</code></b>.</p>
 	 * @return array <p>Returns <b><code>FALSE</code></b> on error, an <code>array</code> upon success, and <b><code>NULL</code></b> after fetching the last available DSN.</p>
-	 * @link http://php.net/manual/en/function.odbc-data-source.php
+	 * @link https://php.net/manual/en/function.odbc-data-source.php
 	 * @since PHP 4 >= 4.3.0, PHP 5, PHP 7
 	 */
 	function odbc_data_source($connection_id, int $fetch_type): array {}
@@ -127,7 +127,7 @@ namespace {
 	 * @param string $query_string <p>The SQL statement.</p>
 	 * @param int $flags <p>This parameter is currently not used.</p>
 	 * @return resource
-	 * @link http://php.net/manual/en/function.odbc-do.php
+	 * @link https://php.net/manual/en/function.odbc-do.php
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
 	function odbc_do($connection_id, string $query_string, int $flags = NULL) {}
@@ -137,7 +137,7 @@ namespace {
 	 * <p>Returns a six-digit ODBC state, or an empty string if there has been no errors.</p>
 	 * @param resource $connection_id <p>The ODBC connection identifier, see <code>odbc_connect()</code> for details.</p>
 	 * @return string <p>If <code>connection_id</code> is specified, the last state of that connection is returned, else the last state of any connection is returned.</p><p>This function returns meaningful value only if last odbc query failed (i.e. <code>odbc_exec()</code> returned <b><code>FALSE</code></b>).</p>
-	 * @link http://php.net/manual/en/function.odbc-error.php
+	 * @link https://php.net/manual/en/function.odbc-error.php
 	 * @see odbc_errormsg(), odbc_exec()
 	 * @since PHP 4 >= 4.0.5, PHP 5, PHP 7
 	 */
@@ -148,7 +148,7 @@ namespace {
 	 * <p>Returns a string containing the last ODBC error message, or an empty string if there has been no errors.</p>
 	 * @param resource $connection_id <p>The ODBC connection identifier, see <code>odbc_connect()</code> for details.</p>
 	 * @return string <p>If <code>connection_id</code> is specified, the last state of that connection is returned, else the last state of any connection is returned.</p><p>This function returns meaningful value only if last odbc query failed (i.e. <code>odbc_exec()</code> returned <b><code>FALSE</code></b>).</p>
-	 * @link http://php.net/manual/en/function.odbc-errormsg.php
+	 * @link https://php.net/manual/en/function.odbc-errormsg.php
 	 * @see odbc_error(), odbc_exec()
 	 * @since PHP 4 >= 4.0.5, PHP 5, PHP 7
 	 */
@@ -161,7 +161,7 @@ namespace {
 	 * @param string $query_string <p>The SQL statement.</p>
 	 * @param int $flags <p>This parameter is currently not used.</p>
 	 * @return resource <p>Returns an ODBC result identifier if the SQL command was executed successfully, or <b><code>FALSE</code></b> on error.</p>
-	 * @link http://php.net/manual/en/function.odbc-exec.php
+	 * @link https://php.net/manual/en/function.odbc-exec.php
 	 * @see odbc_prepare(), odbc_execute()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
@@ -173,7 +173,7 @@ namespace {
 	 * @param resource $result_id <p>The result id <code>resource</code>, from <code>odbc_prepare()</code>.</p>
 	 * @param array $parameters_array <p>Parameters in <code>parameter_array</code> will be substituted for placeholders in the prepared statement in order. Elements of this array will be converted to strings by calling this function.</p> <p>Any parameters in <code>parameter_array</code> which start and end with single quotes will be taken as the name of a file to read and send to the database server as the data for the appropriate placeholder.</p>  If you wish to store a string which actually begins and ends with single quotes, you must add a space or other non-single-quote character to the beginning or end of the parameter, which will prevent the parameter from being taken as a file name. If this is not an option, then you must use another mechanism to store the string, such as executing the query directly with <code>odbc_exec()</code>).
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.odbc-execute.php
+	 * @link https://php.net/manual/en/function.odbc-execute.php
 	 * @see odbc_prepare()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
@@ -185,7 +185,7 @@ namespace {
 	 * @param resource $result <p>The result resource from <code>odbc_exec()</code>.</p>
 	 * @param int $rownumber <p>Optionally choose which row number to retrieve.</p>
 	 * @return array <p>Returns an array that corresponds to the fetched row, or <b><code>FALSE</code></b> if there are no more rows.</p>
-	 * @link http://php.net/manual/en/function.odbc-fetch-array.php
+	 * @link https://php.net/manual/en/function.odbc-fetch-array.php
 	 * @see odbc_fetch_row(), odbc_fetch_object(), odbc_num_rows()
 	 * @since PHP 4 >= 4.0.2, PHP 5, PHP 7
 	 */
@@ -198,7 +198,7 @@ namespace {
 	 * @param array $result_array <p>The result <code>array</code> that can be of any type since it will be converted to type array. The array will contain the column values starting at array index 0.</p>
 	 * @param int $rownumber <p>The row number.</p>
 	 * @return int <p>Returns the number of columns in the result; <b><code>FALSE</code></b> on error.</p>
-	 * @link http://php.net/manual/en/function.odbc-fetch-into.php
+	 * @link https://php.net/manual/en/function.odbc-fetch-into.php
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
 	function odbc_fetch_into($result_id, array &$result_array, int $rownumber = NULL): int {}
@@ -209,7 +209,7 @@ namespace {
 	 * @param resource $result <p>The result resource from <code>odbc_exec()</code>.</p>
 	 * @param int $rownumber <p>Optionally choose which row number to retrieve.</p>
 	 * @return object <p>Returns an object that corresponds to the fetched row, or <b><code>FALSE</code></b> if there are no more rows.</p>
-	 * @link http://php.net/manual/en/function.odbc-fetch-object.php
+	 * @link https://php.net/manual/en/function.odbc-fetch-object.php
 	 * @see odbc_fetch_row(), odbc_fetch_array(), odbc_num_rows()
 	 * @since PHP 4 >= 4.0.2, PHP 5, PHP 7
 	 */
@@ -221,7 +221,7 @@ namespace {
 	 * @param resource $result_id <p>The result identifier.</p>
 	 * @param int $row_number <p>If <code>row_number</code> is not specified, <b>odbc_fetch_row()</b> will try to fetch the next row in the result set. Calls to <b>odbc_fetch_row()</b> with and without <code>row_number</code> can be mixed.</p> <p>To step through the result more than once, you can call <b>odbc_fetch_row()</b> with <code>row_number</code> 1, and then continue doing <b>odbc_fetch_row()</b> without <code>row_number</code> to review the result. If a driver doesn't support fetching rows by number, the <code>row_number</code> parameter is ignored.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> if there was a row, <b><code>FALSE</code></b> otherwise.</p>
-	 * @link http://php.net/manual/en/function.odbc-fetch-row.php
+	 * @link https://php.net/manual/en/function.odbc-fetch-row.php
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
 	function odbc_fetch_row($result_id, int $row_number = 1): bool {}
@@ -232,7 +232,7 @@ namespace {
 	 * @param resource $result_id <p>The result identifier.</p>
 	 * @param int $field_number <p>The field number. Field numbering starts at 1.</p>
 	 * @return int <p>Returns the field length, or <b><code>FALSE</code></b> on error.</p>
-	 * @link http://php.net/manual/en/function.odbc-field-len.php
+	 * @link https://php.net/manual/en/function.odbc-field-len.php
 	 * @see odbc_field_scale()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
@@ -244,7 +244,7 @@ namespace {
 	 * @param resource $result_id <p>The result identifier.</p>
 	 * @param int $field_number <p>The field number. Field numbering starts at 1.</p>
 	 * @return string <p>Returns the field name as a string, or <b><code>FALSE</code></b> on error.</p>
-	 * @link http://php.net/manual/en/function.odbc-field-name.php
+	 * @link https://php.net/manual/en/function.odbc-field-name.php
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
 	function odbc_field_name($result_id, int $field_number): string {}
@@ -255,7 +255,7 @@ namespace {
 	 * @param resource $result_id <p>The result identifier.</p>
 	 * @param string $field_name <p>The field name.</p>
 	 * @return int <p>Returns the field number as a integer, or <b><code>FALSE</code></b> on error. Field numbering starts at 1.</p>
-	 * @link http://php.net/manual/en/function.odbc-field-num.php
+	 * @link https://php.net/manual/en/function.odbc-field-num.php
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
 	function odbc_field_num($result_id, string $field_name): int {}
@@ -266,7 +266,7 @@ namespace {
 	 * @param resource $result_id <p>The result identifier.</p>
 	 * @param int $field_number <p>The field number. Field numbering starts at 1.</p>
 	 * @return int
-	 * @link http://php.net/manual/en/function.odbc-field-precision.php
+	 * @link https://php.net/manual/en/function.odbc-field-precision.php
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
 	function odbc_field_precision($result_id, int $field_number): int {}
@@ -277,7 +277,7 @@ namespace {
 	 * @param resource $result_id <p>The result identifier.</p>
 	 * @param int $field_number <p>The field number. Field numbering starts at 1.</p>
 	 * @return int <p>Returns the field scale as a integer, or <b><code>FALSE</code></b> on error.</p>
-	 * @link http://php.net/manual/en/function.odbc-field-scale.php
+	 * @link https://php.net/manual/en/function.odbc-field-scale.php
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
 	function odbc_field_scale($result_id, int $field_number): int {}
@@ -288,7 +288,7 @@ namespace {
 	 * @param resource $result_id <p>The result identifier.</p>
 	 * @param int $field_number <p>The field number. Field numbering starts at 1.</p>
 	 * @return string <p>Returns the field type as a string, or <b><code>FALSE</code></b> on error.</p>
-	 * @link http://php.net/manual/en/function.odbc-field-type.php
+	 * @link https://php.net/manual/en/function.odbc-field-type.php
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
 	function odbc_field_type($result_id, int $field_number): string {}
@@ -304,7 +304,7 @@ namespace {
 	 * @param string $fk_schema <p>The schema ('owner' in ODBC 2 parlance) of the foreign key table.</p>
 	 * @param string $fk_table <p>The foreign key table.</p>
 	 * @return resource|false <p>Returns an ODBC result identifier or <b><code>FALSE</code></b> on failure.</p><p>The result set has the following columns:</p><ul> <li><code>PKTABLE_CAT</code></li> <li><code>PKTABLE_SCHEM</code></li> <li><code>PKTABLE_NAME</code></li> <li><code>PKCOLUMN_NAME</code></li> <li><code>FKTABLE_CAT</code></li> <li><code>FKTABLE_SCHEM</code></li> <li><code>FKTABLE_NAME</code></li> <li><code>FKCOLUMN_NAME</code></li> <li><code>KEY_SEQ</code></li> <li><code>UPDATE_RULE</code></li> <li><code>DELETE_RULE</code></li> <li><code>FK_NAME</code></li> <li><code>PK_NAME</code></li> <li><code>DEFERRABILITY</code></li> </ul> Drivers can report additional columns. <p>If the foreign keys associated with a primary key are requested, the result set is ordered by <code>FKTABLE_CAT</code>, <code>FKTABLE_SCHEM</code>, <code>FKTABLE_NAME</code> and <code>KEY_SEQ</code>. If the primary keys associated with a foreign key are requested, the result set is ordered by <code>PKTABLE_CAT</code>, <code>PKTABLE_SCHEM</code>, <code>PKTABLE_NAME</code> and <code>KEY_SEQ</code>.</p><p>If <code>pk_table</code> contains a table name, <b>odbc_foreignkeys()</b> returns a result set containing the primary key of the specified table and all of the foreign keys that refer to it.</p><p>If <code>fk_table</code> contains a table name, <b>odbc_foreignkeys()</b> returns a result set containing all of the foreign keys in the specified table and the primary keys (in other tables) to which they refer.</p><p>If both <code>pk_table</code> and <code>fk_table</code> contain table names, <b>odbc_foreignkeys()</b> returns the foreign keys in the table specified in <code>fk_table</code> that refer to the primary key of the table specified in <code>pk_table</code>. This should be one key at most.</p>
-	 * @link http://php.net/manual/en/function.odbc-foreignkeys.php
+	 * @link https://php.net/manual/en/function.odbc-foreignkeys.php
 	 * @see odbc_tables(), odbc_primarykeys()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
@@ -315,7 +315,7 @@ namespace {
 	 * <p>Free resources associated with a result.</p><p><b>odbc_free_result()</b> only needs to be called if you are worried about using too much memory while your script is running. All result memory will automatically be freed when the script is finished.</p>
 	 * @param resource $result_id <p>The result identifier.</p>
 	 * @return bool <p>Always returns <b><code>TRUE</code></b>.</p>
-	 * @link http://php.net/manual/en/function.odbc-free-result.php
+	 * @link https://php.net/manual/en/function.odbc-free-result.php
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
 	function odbc_free_result($result_id): bool {}
@@ -326,7 +326,7 @@ namespace {
 	 * @param resource $connection_id <p>The ODBC connection identifier, see <code>odbc_connect()</code> for details.</p>
 	 * @param int $data_type <p>The data type, which can be used to restrict the information to a single data type.</p>
 	 * @return resource <p>Returns an ODBC result identifier or <b><code>FALSE</code></b> on failure.</p><p>The result set has the following columns:</p><ul> <li>TYPE_NAME</li> <li>DATA_TYPE</li> <li>PRECISION</li> <li>LITERAL_PREFIX</li> <li>LITERAL_SUFFIX</li> <li>CREATE_PARAMS</li> <li>NULLABLE</li> <li>CASE_SENSITIVE</li> <li>SEARCHABLE</li> <li>UNSIGNED_ATTRIBUTE</li> <li>MONEY</li> <li>AUTO_INCREMENT</li> <li>LOCAL_TYPE_NAME</li> <li>MINIMUM_SCALE</li> <li>MAXIMUM_SCALE</li> </ul><p>The result set is ordered by DATA_TYPE and TYPE_NAME.</p>
-	 * @link http://php.net/manual/en/function.odbc-gettypeinfo.php
+	 * @link https://php.net/manual/en/function.odbc-gettypeinfo.php
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
 	function odbc_gettypeinfo($connection_id, int $data_type = NULL) {}
@@ -337,7 +337,7 @@ namespace {
 	 * @param resource $result_id <p>The result identifier.</p>
 	 * @param int $length <p>The number of bytes returned to PHP is controlled by the parameter length. If it is set to <code>0</code>, long column data is passed through to the client (i.e. printed) when retrieved with <code>odbc_result()</code>.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.odbc-longreadlen.php
+	 * @link https://php.net/manual/en/function.odbc-longreadlen.php
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
 	function odbc_longreadlen($result_id, int $length): bool {}
@@ -347,7 +347,7 @@ namespace {
 	 * <p>Checks if there are more result sets available as well as allowing access to the next result set via <code>odbc_fetch_array()</code>, <code>odbc_fetch_row()</code>, <code>odbc_result()</code>, etc.</p>
 	 * @param resource $result_id <p>The result identifier.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> if there are more result sets, <b><code>FALSE</code></b> otherwise.</p>
-	 * @link http://php.net/manual/en/function.odbc-next-result.php
+	 * @link https://php.net/manual/en/function.odbc-next-result.php
 	 * @since PHP 4 >= 4.0.5, PHP 5, PHP 7
 	 */
 	function odbc_next_result($result_id): bool {}
@@ -357,7 +357,7 @@ namespace {
 	 * <p>Gets the number of fields (columns) in an ODBC result.</p>
 	 * @param resource $result_id <p>The result identifier returned by <code>odbc_exec()</code>.</p>
 	 * @return int <p>Returns the number of fields, or -1 on error.</p>
-	 * @link http://php.net/manual/en/function.odbc-num-fields.php
+	 * @link https://php.net/manual/en/function.odbc-num-fields.php
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
 	function odbc_num_fields($result_id): int {}
@@ -367,7 +367,7 @@ namespace {
 	 * <p>Gets the number of rows in a result. For INSERT, UPDATE and DELETE statements <b>odbc_num_rows()</b> returns the number of rows affected. For a SELECT clause this <code>can</code> be the number of rows available.</p>
 	 * @param resource $result_id <p>The result identifier returned by <code>odbc_exec()</code>.</p>
 	 * @return int <p>Returns the number of rows in an ODBC result. This function will return -1 on error.</p>
-	 * @link http://php.net/manual/en/function.odbc-num-rows.php
+	 * @link https://php.net/manual/en/function.odbc-num-rows.php
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
 	function odbc_num_rows($result_id): int {}
@@ -380,7 +380,7 @@ namespace {
 	 * @param string $password
 	 * @param int $cursor_type
 	 * @return resource <p>Returns an ODBC connection id or 0 (<b><code>FALSE</code></b>) on error.</p>
-	 * @link http://php.net/manual/en/function.odbc-pconnect.php
+	 * @link https://php.net/manual/en/function.odbc-pconnect.php
 	 * @see odbc_connect()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
@@ -392,7 +392,7 @@ namespace {
 	 * @param resource $connection_id <p>The ODBC connection identifier, see <code>odbc_connect()</code> for details.</p>
 	 * @param string $query_string <p>The query string statement being prepared.</p>
 	 * @return resource <p>Returns an ODBC result identifier if the SQL command was prepared successfully. Returns <b><code>FALSE</code></b> on error.</p>
-	 * @link http://php.net/manual/en/function.odbc-prepare.php
+	 * @link https://php.net/manual/en/function.odbc-prepare.php
 	 * @see odbc_execute()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
@@ -406,7 +406,7 @@ namespace {
 	 * @param string $schema <p>The schema ('owner' in ODBC 2 parlance).</p>
 	 * @param string $table
 	 * @return resource|false <p>Returns an ODBC result identifier or <b><code>FALSE</code></b> on failure.</p><p>The result set has the following columns:</p><ul> <li><code>TABLE_CAT</code></li> <li><code>TABLE_SCHEM</code></li> <li><code>TABLE_NAME</code></li> <li><code>COLUMN_NAME</code></li> <li><code>KEY_SEQ</code></li> <li><code>PK_NAME</code></li> </ul> Drivers can report additional columns. <p>The result set is ordered by <code>TABLE_CAT</code>, <code>TABLE_SCHEM</code>, <code>TABLE_NAME</code> and <code>KEY_SEQ</code>.</p>
-	 * @link http://php.net/manual/en/function.odbc-primarykeys.php
+	 * @link https://php.net/manual/en/function.odbc-primarykeys.php
 	 * @see odbc_tables(), odbc_foreignkeys()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
@@ -417,7 +417,7 @@ namespace {
 	 * <p>Retrieve information about parameters to procedures.</p>
 	 * @param resource $connection_id <p>The ODBC connection identifier, see <code>odbc_connect()</code> for details.</p>
 	 * @return resource|false <p>Returns the list of input and output parameters, as well as the columns that make up the result set for the specified procedures. Returns an ODBC result identifier or <b><code>FALSE</code></b> on failure.</p><p>The result set has the following columns:</p><ul> <li><code>PROCEDURE_CAT</code></li> <li><code>PROCEDURE_SCHEM</code></li> <li><code>PROCEDURE_NAME</code></li> <li><code>COLUMN_NAME</code></li> <li><code>COLUMN_TYPE</code></li> <li><code>DATA_TYPE</code></li> <li><code>TYPE_NAME</code></li> <li><code>COLUMN_SIZE</code></li> <li><code>BUFFER_LENGTH</code></li> <li><code>DECIMAL_DIGITS</code></li> <li><code>NUM_PREC_RADIX</code></li> <li><code>NULLABLE</code></li> <li><code>REMARKS</code></li> <li><code>COLUMN_DEF</code></li> <li><code>SQL_DATA_TYPE</code></li> <li><code>SQL_DATETIME_SUB</code></li> <li><code>CHAR_OCTET_LENGTH</code></li> <li><code>ORDINAL_POSITION</code></li> <li><code>IS_NULLABLE</code></li> </ul> Drivers can report additional columns. <p>The result set is ordered by <code>PROCEDURE_CAT</code>, <code>PROCEDURE_SCHEM</code>, <code>PROCEDURE_NAME</code> and <code>COLUMN_TYPE</code>.</p>
-	 * @link http://php.net/manual/en/function.odbc-procedurecolumns.php
+	 * @link https://php.net/manual/en/function.odbc-procedurecolumns.php
 	 * @see odbc_columns()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
@@ -428,7 +428,7 @@ namespace {
 	 * <p>Lists all procedures in the requested range.</p>
 	 * @param resource $connection_id <p>The ODBC connection identifier, see <code>odbc_connect()</code> for details.</p>
 	 * @return resource|false <p>Returns an ODBC result identifier containing the information or <b><code>FALSE</code></b> on failure.</p><p>The result set has the following columns:</p><ul> <li><code>PROCEDURE_CAT</code></li> <li><code>PROCEDURE_SCHEM</code></li> <li><code>PROCEDURE_NAME</code></li> <li><code>NUM_INPUT_PARAMS</code></li> <li><code>NUM_OUTPUT_PARAMS</code></li> <li><code>NUM_RESULT_SETS</code></li> <li><code>REMARKS</code></li> <li><code>PROCEDURE_TYPE</code></li> </ul> Drivers can report additional columns. <p>The result set is ordered by <code>PROCEDURE_CAT</code>, <code>PROCEDURE_SCHEMA</code> and <code>PROCEDURE_NAME</code>.</p>
-	 * @link http://php.net/manual/en/function.odbc-procedures.php
+	 * @link https://php.net/manual/en/function.odbc-procedures.php
 	 * @see odbc_procedurecolumns(), odbc_tables()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
@@ -440,7 +440,7 @@ namespace {
 	 * @param resource $result_id <p>The ODBC <code>resource</code>.</p>
 	 * @param mixed $field <p>The field name being retrieved. It can either be an integer containing the column number of the field you want; or it can be a string containing the name of the field.</p>
 	 * @return mixed <p>Returns the string contents of the field, <b><code>FALSE</code></b> on error, <b><code>NULL</code></b> for NULL data, or <b><code>TRUE</code></b> for binary data.</p>
-	 * @link http://php.net/manual/en/function.odbc-result.php
+	 * @link https://php.net/manual/en/function.odbc-result.php
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
 	function odbc_result($result_id, $field) {}
@@ -451,7 +451,7 @@ namespace {
 	 * @param resource $result_id <p>The result identifier.</p>
 	 * @param string $format <p>Additional overall table formatting.</p>
 	 * @return int <p>Returns the number of rows in the result or <b><code>FALSE</code></b> on error.</p>
-	 * @link http://php.net/manual/en/function.odbc-result-all.php
+	 * @link https://php.net/manual/en/function.odbc-result-all.php
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
 	function odbc_result_all($result_id, string $format = NULL): int {}
@@ -461,7 +461,7 @@ namespace {
 	 * <p>Rolls back all pending statements on the connection.</p>
 	 * @param resource $connection_id <p>The ODBC connection identifier, see <code>odbc_connect()</code> for details.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.odbc-rollback.php
+	 * @link https://php.net/manual/en/function.odbc-rollback.php
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
 	function odbc_rollback($connection_id): bool {}
@@ -474,7 +474,7 @@ namespace {
 	 * @param int $option <p>The option to set.</p>
 	 * @param int $param <p>The value for the given <code>option</code>.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.odbc-setoption.php
+	 * @link https://php.net/manual/en/function.odbc-setoption.php
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
 	function odbc_setoption($id, int $function, int $option, int $param): bool {}
@@ -490,7 +490,7 @@ namespace {
 	 * @param int $scope <p>The scope, which orders the result set. One of <b><code>SQL_SCOPE_CURROW</code></b>, <b><code>SQL_SCOPE_TRANSACTION</code></b> or <b><code>SQL_SCOPE_SESSION</code></b>.</p>
 	 * @param int $nullable <p>Determines whether to return special columns that can have a NULL value. One of <b><code>SQL_NO_NULLS</code></b> or <b><code>SQL_NULLABLE </code></b>.</p>
 	 * @return resource <p>Returns an ODBC result identifier or <b><code>FALSE</code></b> on failure.</p><p>The result set has the following columns:</p><ul> <li><code>SCOPE</code></li> <li><code>COLUMN_NAME</code></li> <li><code>DATA_TYPE</code></li> <li><code>TYPE_NAME</code></li> <li><code>COLUMN_SIZE</code></li> <li><code>BUFFER_LENGTH</code></li> <li><code>DECIMAL_DIGITS</code></li> <li><code>PSEUDO_COLUMN</code></li> </ul> Drivers can report additional columns. <p>The result set is ordered by <code>SCOPE</code>.</p>
-	 * @link http://php.net/manual/en/function.odbc-specialcolumns.php
+	 * @link https://php.net/manual/en/function.odbc-specialcolumns.php
 	 * @see odbc_tables()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
@@ -506,7 +506,7 @@ namespace {
 	 * @param int $unique <p>The type of the index. One of <b><code>SQL_INDEX_UNIQUE</code></b> or <b><code>SQL_INDEX_ALL</code></b>.</p>
 	 * @param int $accuracy <p>One of <b><code>SQL_ENSURE</code></b> or <b><code>SQL_QUICK</code></b>. The latter requests that the driver retrieve the <code>CARDINALITY</code> and <code>PAGES</code> only if they are readily available from the server.</p>
 	 * @return resource|false <p>Returns an ODBC result identifier or <b><code>FALSE</code></b> on failure.</p><p>The result set has the following columns:</p><ul> <li><code>TABLE_CAT</code></li> <li><code>TABLE_SCHEM</code></li> <li><code>TABLE_NAME</code></li> <li><code>NON_UNIQUE</code></li> <li><code>INDEX_QUALIFIER</code></li> <li><code>INDEX_NAME</code></li> <li><code>TYPE</code></li> <li><code>ORDINAL_POSITION</code></li> <li><code>COLUMN_NAME</code></li> <li><code>ASC_OR_DESC</code></li> <li><code>CARDINALITY</code></li> <li><code>PAGES</code></li> <li><code>FILTER_CONDITION</code></li> </ul> Drivers can report additional columns. <p>The result set is ordered by <code>NON_UNIQUE</code>, <code>TYPE</code>, <code>INDEX_QUALIFIER</code>, <code>INDEX_NAME</code> and <code>ORDINAL_POSITION</code>.</p>
-	 * @link http://php.net/manual/en/function.odbc-statistics.php
+	 * @link https://php.net/manual/en/function.odbc-statistics.php
 	 * @see odbc_tables()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
@@ -520,7 +520,7 @@ namespace {
 	 * @param string $schema <p>The schema ('owner' in ODBC 2 parlance). This parameter accepts the following search patterns: <code>%</code> to match zero or more characters, and <code>_</code> to match a single character.</p>
 	 * @param string $name <p>The name. This parameter accepts the following search patterns: <code>%</code> to match zero or more characters, and <code>_</code> to match a single character.</p>
 	 * @return resource|false <p>An ODBC result identifier or <b><code>FALSE</code></b> on failure.</p><p>The result set has the following columns:</p><ul> <li><code>TABLE_CAT</code></li> <li><code>TABLE_SCHEM</code></li> <li><code>TABLE_NAME</code></li> <li><code>GRANTOR</code></li> <li><code>GRANTEE</code></li> <li><code>PRIVILEGE</code></li> <li><code>IS_GRANTABLE</code></li> </ul> Drivers can report additional columns. <p>The result set is ordered by <code>TABLE_CAT</code>, <code>TABLE_SCHEM</code>, <code>TABLE_NAME</code>, <code>PRIVILEGE</code> and <code>GRANTEE</code>.</p>
-	 * @link http://php.net/manual/en/function.odbc-tableprivileges.php
+	 * @link https://php.net/manual/en/function.odbc-tableprivileges.php
 	 * @see odbc_tables()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
@@ -535,7 +535,7 @@ namespace {
 	 * @param string $name <p>The name. This parameter accepts the following search patterns: <code>%</code> to match zero or more characters, and <code>_</code> to match a single character.</p>
 	 * @param string $types <p>If <code>table_type</code> is not an empty string, it must contain a list of comma-separated values for the types of interest; each value may be enclosed in single quotes (<code>'</code>) or unquoted. For example, <code>'TABLE','VIEW'</code> or <code>TABLE, VIEW</code>. If the data source does not support a specified table type, <b>odbc_tables()</b> does not return any results for that type.</p>
 	 * @return resource|false <p>Returns an ODBC result identifier containing the information or <b><code>FALSE</code></b> on failure.</p><p>The result set has the following columns:</p><ul> <li><code>TABLE_CAT</code></li> <li><code>TABLE_SCHEM</code></li> <li><code>TABLE_NAME</code></li> <li><code>TABLE_TYPE</code></li> <li><code>REMARKS</code></li> </ul> Drivers can report additional columns. <p>The result set is ordered by <code>TABLE_TYPE</code>, <code>TABLE_CAT</code>, <code>TABLE_SCHEM</code> and <code>TABLE_NAME</code>.</p>
-	 * @link http://php.net/manual/en/function.odbc-tables.php
+	 * @link https://php.net/manual/en/function.odbc-tables.php
 	 * @see odbc_tableprivileges(), odbc_columns(), odbc_specialcolumns(), odbc_statistics(), odbc_procedures()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */

@@ -10,7 +10,7 @@ namespace {
 	 * @param callable $callback <p>The <code>callable</code> to be called.</p>
 	 * @param mixed $_$args
 	 * @return mixed <p>Returns the return value of the callback.</p>
-	 * @link http://php.net/manual/en/function.call-user-func.php
+	 * @link https://php.net/manual/en/function.call-user-func.php
 	 * @see call_user_func_array(), is_callable()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
@@ -22,7 +22,7 @@ namespace {
 	 * @param callable $callback <p>The <code>callable</code> to be called.</p>
 	 * @param array $param_arr <p>The parameters to be passed to the callback, as an indexed array.</p>
 	 * @return mixed <p>Returns the return value of the callback, or <b><code>FALSE</code></b> on error.</p>
-	 * @link http://php.net/manual/en/function.call-user-func-array.php
+	 * @link https://php.net/manual/en/function.call-user-func-array.php
 	 * @see call_user_func()
 	 * @since PHP 4 >= 4.0.4, PHP 5, PHP 7
 	 */
@@ -34,7 +34,7 @@ namespace {
 	 * @param string $args <p>The function arguments.</p>
 	 * @param string $code <p>The function code.</p>
 	 * @return string <p>Returns a unique function name as a string, or <b><code>FALSE</code></b> on error.</p>
-	 * @link http://php.net/manual/en/function.create-function.php
+	 * @link https://php.net/manual/en/function.create-function.php
 	 * @since PHP 4 >= 4.0.1, PHP 5, PHP 7
 	 */
 	function create_function(string $args, string $code): string {}
@@ -45,7 +45,7 @@ namespace {
 	 * @param callable $function <p>The function or method to be called. This parameter may be an array, with the name of the class, and the method, or a string, with a function name.</p>
 	 * @param mixed $_$args
 	 * @return mixed <p>Returns the function result, or <b><code>FALSE</code></b> on error.</p>
-	 * @link http://php.net/manual/en/function.forward-static-call.php
+	 * @link https://php.net/manual/en/function.forward-static-call.php
 	 * @see forward_static_call_array(), call_user_func_array(), call_user_func(), is_callable()
 	 * @since PHP 5 >= 5.3.0, PHP 7
 	 */
@@ -57,7 +57,7 @@ namespace {
 	 * @param callable $function <p>The function or method to be called. This parameter may be an <code>array</code>, with the name of the class, and the method, or a <code>string</code>, with a function name.</p>
 	 * @param array $parameters
 	 * @return mixed <p>Returns the function result, or <b><code>FALSE</code></b> on error.</p>
-	 * @link http://php.net/manual/en/function.forward-static-call-array.php
+	 * @link https://php.net/manual/en/function.forward-static-call-array.php
 	 * @see forward_static_call(), call_user_func(), call_user_func_array(), is_callable()
 	 * @since PHP 5 >= 5.3.0, PHP 7
 	 */
@@ -68,7 +68,7 @@ namespace {
 	 * <p>Gets the specified argument from a user-defined function's argument list.</p><p>This function may be used in conjunction with <code>func_get_args()</code> and <code>func_num_args()</code> to allow user-defined functions to accept variable-length argument lists.</p>
 	 * @param int $arg_num <p>The argument offset. Function arguments are counted starting from zero.</p>
 	 * @return mixed <p>Returns the specified argument, or <b><code>FALSE</code></b> on error.</p>
-	 * @link http://php.net/manual/en/function.func-get-arg.php
+	 * @link https://php.net/manual/en/function.func-get-arg.php
 	 * @see func_get_args(), func_num_args()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
@@ -78,7 +78,7 @@ namespace {
 	 * Returns an array comprising a function's argument list
 	 * <p>Gets an array of the function's argument list.</p><p>This function may be used in conjunction with <code>func_get_arg()</code> and <code>func_num_args()</code> to allow user-defined functions to accept variable-length argument lists.</p>
 	 * @return array <p>Returns an array in which each element is a copy of the corresponding member of the current user-defined function's argument list.</p>
-	 * @link http://php.net/manual/en/function.func-get-args.php
+	 * @link https://php.net/manual/en/function.func-get-args.php
 	 * @see func_get_arg(), func_num_args()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
@@ -88,7 +88,7 @@ namespace {
 	 * Returns the number of arguments passed to the function
 	 * <p>Gets the number of arguments passed to the function.</p><p>This function may be used in conjunction with <code>func_get_arg()</code> and <code>func_get_args()</code> to allow user-defined functions to accept variable-length argument lists.</p>
 	 * @return int <p>Returns the number of arguments passed into the current user-defined function.</p>
-	 * @link http://php.net/manual/en/function.func-num-args.php
+	 * @link https://php.net/manual/en/function.func-num-args.php
 	 * @see func_get_arg(), func_get_args()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
@@ -99,7 +99,7 @@ namespace {
 	 * <p>Checks the list of defined functions, both built-in (internal) and user-defined, for <code>function_name</code>.</p>
 	 * @param string $function_name <p>The function name, as a string.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> if <code>function_name</code> exists and is a function, <b><code>FALSE</code></b> otherwise.</p><p><b>Note</b>:</p><p>This function will return <b><code>FALSE</code></b> for constructs, such as <code>include_once</code> and <code>echo</code>.</p>
-	 * @link http://php.net/manual/en/function.function-exists.php
+	 * @link https://php.net/manual/en/function.function-exists.php
 	 * @see method_exists(), is_callable(), get_defined_functions(), class_exists(), extension_loaded()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
@@ -110,7 +110,7 @@ namespace {
 	 * <p>Gets an array of all defined functions.</p>
 	 * @param bool $exclude_disabled <p>Whether disabled functions should be excluded from the return value.</p>
 	 * @return array <p>Returns a multidimensional array containing a list of all defined functions, both built-in (internal) and user-defined. The internal functions will be accessible via $arr["internal"], and the user defined ones using $arr["user"] (see example below).</p>
-	 * @link http://php.net/manual/en/function.get-defined-functions.php
+	 * @link https://php.net/manual/en/function.get-defined-functions.php
 	 * @see function_exists(), get_defined_vars(), get_defined_constants(), get_declared_classes()
 	 * @since PHP 4 >= 4.0.4, PHP 5, PHP 7
 	 */
@@ -122,7 +122,7 @@ namespace {
 	 * @param callable $callback <p>The shutdown callback to register.</p> <p>The shutdown callbacks are executed as the part of the request, so it's possible to send output from them and access output buffers.</p>
 	 * @param mixed $_$args
 	 * @return void <p>No value is returned.</p>
-	 * @link http://php.net/manual/en/function.register-shutdown-function.php
+	 * @link https://php.net/manual/en/function.register-shutdown-function.php
 	 * @see exit()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
@@ -134,7 +134,7 @@ namespace {
 	 * @param callable $function <p>The function to register.</p>
 	 * @param mixed $_$args
 	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
-	 * @link http://php.net/manual/en/function.register-tick-function.php
+	 * @link https://php.net/manual/en/function.register-tick-function.php
 	 * @see unregister_tick_function()
 	 * @since PHP 4 >= 4.0.3, PHP 5, PHP 7
 	 */
@@ -145,7 +145,7 @@ namespace {
 	 * <p>De-registers the function <code>function</code> so it is no longer executed when a tick is called.</p>
 	 * @param callable $function <p>The function to de-register.</p>
 	 * @return void <p>No value is returned.</p>
-	 * @link http://php.net/manual/en/function.unregister-tick-function.php
+	 * @link https://php.net/manual/en/function.unregister-tick-function.php
 	 * @see register_tick_function()
 	 * @since PHP 4 >= 4.0.3, PHP 5, PHP 7
 	 */

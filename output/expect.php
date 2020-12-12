@@ -11,7 +11,7 @@ namespace {
 	 * @param array $cases <p>An array of expect cases. Each expect case is an indexed array, as described in the following table:</p> <b>Expect Case Array</b>   Index Key Value Type Description Is Mandatory Default Value     0 string pattern, that will be matched against the output from the stream yes &nbsp;   1 mixed value, that will be returned by this function, if the pattern matches yes &nbsp;   2 integer  pattern type, one of: <b><code>EXP_GLOB</code></b>, <b><code>EXP_EXACT</code></b> or <b><code>EXP_REGEXP</code></b>  no <b><code>EXP_GLOB</code></b>
 	 * @param array $match
 	 * @return int <p>Returns value associated with the pattern that was matched.</p><p>On failure this function returns: <b><code>EXP_EOF</code></b>, <b><code>EXP_TIMEOUT</code></b> or <b><code>EXP_FULLBUFFER</code></b></p>
-	 * @link http://php.net/manual/en/function.expect-expectl.php
+	 * @link https://php.net/manual/en/function.expect-expectl.php
 	 * @see expect_popen()
 	 * @since PECL expect >= 0.1.0
 	 */
@@ -22,7 +22,7 @@ namespace {
 	 * <p>Execute command via Bourne shell, and open the PTY stream to the process.</p>
 	 * @param string $command <p>Command to execute.</p>
 	 * @return resource <p>Returns an open PTY stream to the processes <code>stdio</code>, <code>stdout</code>, and <code>stderr</code>.</p><p>On failure this function returns <b><code>FALSE</code></b>.</p>
-	 * @link http://php.net/manual/en/function.expect-popen.php
+	 * @link https://php.net/manual/en/function.expect-popen.php
 	 * @see popen()
 	 * @since PECL expect >= 0.1.0
 	 */

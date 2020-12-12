@@ -8,7 +8,7 @@ namespace {
 	 * Get available password hashing algorithm IDs
 	 * <p>Returns a complete list of all registered password hashing algorithm IDs as an <code>array</code> of <code>string</code>s.</p>
 	 * @return array <p>Returns the available password hashing algorithm IDs.</p>
-	 * @link http://php.net/manual/en/function.password-algos.php
+	 * @link https://php.net/manual/en/function.password-algos.php
 	 * @since PHP 7 >= 7.4.0
 	 */
 	function password_algos(): array {}
@@ -18,7 +18,7 @@ namespace {
 	 * <p>When passed in a valid hash created by an algorithm supported by <code>password_hash()</code>, this function will return an array of information about that hash.</p>
 	 * @param string $hash <p>A hash created by <code>password_hash()</code>.</p>
 	 * @return array <p>Returns an associative array with three elements:</p><ul> <li>  <code>algo</code>, which will match a password algorithm constant  </li> <li>  <code>algoName</code>, which has the human readable name of the algorithm  </li> <li>  <code>options</code>, which includes the options provided when calling <code>password_hash()</code>  </li> </ul>
-	 * @link http://php.net/manual/en/function.password-get-info.php
+	 * @link https://php.net/manual/en/function.password-get-info.php
 	 * @since PHP 5 >= 5.5.0, PHP 7
 	 */
 	function password_get_info(string $hash): array {}
@@ -30,7 +30,7 @@ namespace {
 	 * @param mixed $algo <p>A password algorithm constant denoting the algorithm to use when hashing the password.</p>
 	 * @param array $options <p>An associative array containing options. See the password algorithm constants for documentation on the supported options for each algorithm.</p> <p>If omitted, a random salt will be created and the default cost will be used.</p>
 	 * @return string|false <p>Returns the hashed password, or <b><code>FALSE</code></b> on failure.</p><p>The used algorithm, cost and salt are returned as part of the hash. Therefore, all information that's needed to verify the hash is included in it. This allows the <code>password_verify()</code> function to verify the hash without needing separate storage for the salt or algorithm information.</p>
-	 * @link http://php.net/manual/en/function.password-hash.php
+	 * @link https://php.net/manual/en/function.password-hash.php
 	 * @see password_verify(), crypt(), sodium_crypto_pwhash_str()
 	 * @since PHP 5 >= 5.5.0, PHP 7
 	 */
@@ -43,7 +43,7 @@ namespace {
 	 * @param mixed $algo <p>A password algorithm constant denoting the algorithm to use when hashing the password.</p>
 	 * @param array $options <p>An associative array containing options. See the password algorithm constants for documentation on the supported options for each algorithm.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> if the hash should be rehashed to match the given <code>algo</code> and <code>options</code>, or <b><code>FALSE</code></b> otherwise.</p>
-	 * @link http://php.net/manual/en/function.password-needs-rehash.php
+	 * @link https://php.net/manual/en/function.password-needs-rehash.php
 	 * @since PHP 5 >= 5.5.0, PHP 7
 	 */
 	function password_needs_rehash(string $hash, $algo, array $options = NULL): bool {}
@@ -54,7 +54,7 @@ namespace {
 	 * @param string $password <p>The user's password.</p>
 	 * @param string $hash <p>A hash created by <code>password_hash()</code>.</p>
 	 * @return bool <p>Returns <b><code>TRUE</code></b> if the password and hash match, or <b><code>FALSE</code></b> otherwise.</p>
-	 * @link http://php.net/manual/en/function.password-verify.php
+	 * @link https://php.net/manual/en/function.password-verify.php
 	 * @see password_hash(), sodium_crypto_pwhash_str_verify()
 	 * @since PHP 5 >= 5.5.0, PHP 7
 	 */
