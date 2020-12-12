@@ -237,7 +237,7 @@ namespace {
 		 * @var string Returns the name of the driver.  <p></p><p><b>Example #1 using <b><code>PDO::ATTR_DRIVER_NAME</code></b></b></p>  <code> &lt;&#63;php<br>if&nbsp;($db-&gt;getAttribute(PDO::ATTR_DRIVER_NAME)&nbsp;==&nbsp;'mysql')&nbsp;{<br>&nbsp;&nbsp;echo&nbsp;"Running&nbsp;on&nbsp;mysql;&nbsp;doing&nbsp;something&nbsp;mysql&nbsp;specific&nbsp;here\n";<br>}<br>&#63;&gt;  </code>
 		 * @link https://php.net/manual/en/pdo.constants.php
 		 */
-		const ATTR_DRIVER_NAME = 16;
+		const ATTR_DRIVER_NAME = '16';
 
 		/**
 		 * @var int Convert empty strings to SQL NULL values on data fetches.
@@ -405,7 +405,7 @@ namespace {
 		 * @var string Corresponds to SQLSTATE '00000', meaning that the SQL statement was successfully issued with no errors or warnings. This constant is for your convenience when checking <code>PDO::errorCode()</code> or <code>PDOStatement::errorCode()</code> to determine if an error occurred. You will usually know if this is the case by examining the return code from the method that raised the error condition anyway.
 		 * @link https://php.net/manual/en/pdo.constants.php
 		 */
-		const ERR_NONE = 00000;
+		const ERR_NONE = '00000';
 
 		/**
 		 * @var int Allocation event
