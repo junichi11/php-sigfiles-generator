@@ -29,8 +29,6 @@ final class Php {
 
     /** @var string[] */
     private static $pseudoTypes = [
-        'boolean',
-        'integer',
         'number',
         'resource',
     ];
@@ -107,7 +105,33 @@ final class Php {
             return null;
         }
         $types = [];
-        foreach (explode('|', $type) as $part) {
+        $parts = array_unique(explode('|', $type));
+        $partsCount = count($parts);
+        if (!$phpDoc) {
+            // resource?
+            if (in_array('resource', $parts)) {
+                // resource => noop (phpdoc will help us)
+                return '';
+            }
+            // void?
+            if (in_array('void', $parts)) {
+                // void[|...] => void
+                return 'void';
+            }
+            // false?
+            if (in_array('false', $parts)) {
+                if ($partsCount == 1) {
+                    // false => bool
+                    return 'bool';
+                }
+                if ($partsCount == 2
+                        && in_array('null', $parts)) {
+                    // null|false => ?bool
+                    return '?bool';
+                }
+            }
+        }
+        foreach ($parts as $part) {
             $prefix = self::isBuiltinType($part) ? '' : PhpName::DEFAULT_NAMESPACE;
             // e.g. public parallel\Events::poll ( void ) : ?Event
             if (Strings::startsWith($part, '?')) {
