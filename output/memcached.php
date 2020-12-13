@@ -54,7 +54,7 @@ namespace {
 		const OPT_HASH = 2;
 
 		/**
-		 * @var mixed <p>The default (Jenkins one-at-a-time) item key hashing algorithm.</p>
+		 * @var integer <p>The default (Jenkins one-at-a-time) item key hashing algorithm.</p>
 		 * @link https://php.net/manual/en/memcached.constants.php
 		 */
 		const HASH_DEFAULT = 0;
@@ -114,7 +114,7 @@ namespace {
 		const OPT_DISTRIBUTION = 9;
 
 		/**
-		 * @var mixed <p>Modulo-based key distribution algorithm.</p>
+		 * @var integer <p>Modulo-based key distribution algorithm.</p>
 		 * @link https://php.net/manual/en/memcached.constants.php
 		 */
 		const DISTRIBUTION_MODULA = 0;
@@ -144,7 +144,7 @@ namespace {
 		const OPT_BINARY_PROTOCOL = 18;
 
 		/**
-		 * @var mixed <p>Enables or disables asynchronous I/O. This is the fastest transport available for storage functions.</p> <p>Type: <code>boolean</code>, default: <b><code>FALSE</code></b>.</p>
+		 * @var integer <p>Enables or disables asynchronous I/O. This is the fastest transport available for storage functions.</p> <p>Type: <code>boolean</code>, default: <b><code>FALSE</code></b>.</p>
 		 * @link https://php.net/manual/en/memcached.constants.php
 		 */
 		const OPT_NO_BLOCK = 0;
@@ -252,7 +252,7 @@ namespace {
 		const GET_PRESERVE_ORDER = 1;
 
 		/**
-		 * @var mixed <p>The operation was successful.</p>
+		 * @var integer <p>The operation was successful.</p>
 		 * @link https://php.net/manual/en/memcached.constants.php
 		 */
 		const RES_SUCCESS = 0;

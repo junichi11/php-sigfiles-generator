@@ -315,7 +315,7 @@ namespace {
 		 * @var string Entry has been changed
 		 * @link https://php.net/manual/en/zip.constants.php
 		 */
-		const ER_CHANGED = 15;
+		const ER_CHANGED = '15';
 
 		/**
 		 * @var int Compression method not supported.
@@ -459,7 +459,7 @@ namespace {
 		 * @var string Zip library version. Available as of PHP 7.4.3 and PECL zip 1.16.0.
 		 * @link https://php.net/manual/en/zip.constants.php
 		 */
-		const LIBZIP_VERSION = 1.5.1;
+		const LIBZIP_VERSION = '1.5.1';
 
 		/**
 		 * @var int Since PHP 5.6.0, PECL zip 1.12.4

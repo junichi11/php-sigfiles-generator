@@ -50,7 +50,7 @@ class PhpConstants extends PhpElements {
 
         $constants = $this->phpDoc->getConstantNames();
         if (!count($constants)) {
-            Log::info("No constants found in file '$this->file'");
+            Log::warn("No constants found in file '$this->file'");
             return;
         }
         foreach ($constants as $constant) {
