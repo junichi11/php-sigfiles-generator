@@ -108,7 +108,7 @@ namespace {
 	 * @see ssh2_connect(), ssh2_shell(), ssh2_tunnel()
 	 * @since PECL ssh2 >= 0.9.0
 	 */
-	function ssh2_exec($session, string $command, string $pty = NULL, array $env = NULL, int $width = 80, int $height = 25, int $width_height_type = SSH2_TERM_UNIT_CHARS): resource|false {}
+	function ssh2_exec($session, string $command, string $pty = NULL, array $env = NULL, int $width = 80, int $height = 25, int $width_height_type = SSH2_TERM_UNIT_CHARS) {}
 
 	/**
 	 * Fetch an extended data stream
@@ -168,7 +168,7 @@ namespace {
 	 * @see ssh2_publickey_add(), ssh2_publickey_remove(), ssh2_publickey_list()
 	 * @since PECL ssh2 >= 0.10
 	 */
-	function ssh2_publickey_init($session): resource|false {}
+	function ssh2_publickey_init($session) {}
 
 	/**
 	 * List currently authorized publickeys
@@ -230,7 +230,7 @@ namespace {
 	 * @see ssh2_scp_recv(), ssh2_scp_send()
 	 * @since PECL ssh2 >= 0.9.0
 	 */
-	function ssh2_sftp($session): resource|false {}
+	function ssh2_sftp($session) {}
 
 	/**
 	 * Changes file mode

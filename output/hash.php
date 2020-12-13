@@ -180,7 +180,7 @@ namespace {
 	 * @see hash_init(), hash_update(), hash_update_stream(), hash_final(), hash(), hash_file()
 	 * @since PHP 5 >= 5.1.2, PHP 7, PECL hash >= 1.1
 	 */
-	function hash_update_file(\HashContext $context, string $filename, resource|null $stream_context = NULL): bool {}
+	function hash_update_file(\HashContext $context, string $filename, $stream_context = NULL): bool {}
 
 	/**
 	 * Pump data into an active hashing context from an open stream

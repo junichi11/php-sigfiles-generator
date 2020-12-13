@@ -2345,7 +2345,7 @@ namespace {
 		 * @see MongoGridFS::put(), MongoGridFS::storeBytes(), MongoGridFS::storeUpload()
 		 * @since PECL mongo >=0.9.0
 		 */
-		public function storeFile(string|resource $filename, array $metadata = array(), array $options = array()): mixed {}
+		public function storeFile($filename, array $metadata = array(), array $options = array()): mixed {}
 
 		/**
 		 * Stores an uploaded file in the database

@@ -748,7 +748,7 @@ namespace {
 	 * @see stream_socket_server(), stream_socket_get_name(), stream_set_blocking(), stream_set_timeout(), fgets(), fgetss(), fwrite(), fclose(), feof()
 	 * @since PHP 5, PHP 7
 	 */
-	function stream_socket_accept($server_socket, float $timeout  = 'ini_get("default_socket_timeout")', string &$peername = NULL): resource|false {}
+	function stream_socket_accept($server_socket, float $timeout  = 'ini_get("default_socket_timeout")', string &$peername = NULL) {}
 
 	/**
 	 * Open Internet or Unix domain socket connection

@@ -842,7 +842,7 @@ namespace {
 		 * @link https://php.net/manual/en/ziparchive.getstream.php
 		 * @since PHP 5 >= 5.2.0, PHP 7, PECL zip >= 1.1.0
 		 */
-		public function getStream(string $name): resource|false {}
+		public function getStream(string $name) {}
 
 		/**
 		 * Check if a compression method is supported by libzip
@@ -1246,7 +1246,7 @@ namespace {
 	 * @see zip_read(), zip_close()
 	 * @since PHP 4 >= 4.1.0, PHP 5 >= 5.2.0, PHP 7, PECL zip >= 1.0.0
 	 */
-	function zip_open(string $filename): resource|int|false {}
+	function zip_open(string $filename) {}
 
 	/**
 	 * Read next entry in a ZIP file archive

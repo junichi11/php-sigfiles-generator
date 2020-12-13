@@ -83,7 +83,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.imageaffine.php
 	 * @since PHP 5 >= 5.5.0, PHP 7
 	 */
-	function imageaffine($image, array $affine, array $clip = NULL): resource|false {}
+	function imageaffine($image, array $affine, array $clip = NULL) {}
 
 	/**
 	 * Concatenate two affine transformation matrices
@@ -677,7 +677,7 @@ namespace {
 	 * @see imagecropauto()
 	 * @since PHP 5 >= 5.5.0, PHP 7
 	 */
-	function imagecrop($image, array $rect): resource|false {}
+	function imagecrop($image, array $rect) {}
 
 	/**
 	 * Crop an image automatically using one of the available modes
@@ -691,7 +691,7 @@ namespace {
 	 * @see imagecrop()
 	 * @since PHP 5 >= 5.5.0, PHP 7
 	 */
-	function imagecropauto($image, int $mode = IMG_CROP_DEFAULT, float $threshold = .5, int $color = -1): resource|false {}
+	function imagecropauto($image, int $mode = IMG_CROP_DEFAULT, float $threshold = .5, int $color = -1) {}
 
 	/**
 	 * Draw a dashed line
@@ -1177,7 +1177,7 @@ namespace {
 	 * @see imagesetinterpolation()
 	 * @since PHP 4 >= 4.3.0, PHP 5, PHP 7
 	 */
-	function imagerotate($image, float $angle, int $bgd_color, int $dummy = 0): resource|false {}
+	function imagerotate($image, float $angle, int $bgd_color, int $dummy = 0) {}
 
 	/**
 	 * Whether to retain full alpha channel information when saving PNG images
@@ -1203,7 +1203,7 @@ namespace {
 	 * @see imagecopyresized(), imagecopyresampled()
 	 * @since PHP 5 >= 5.5.0, PHP 7
 	 */
-	function imagescale($image, int $new_width, int $new_height = -1, int $mode = IMG_BILINEAR_FIXED): resource|false {}
+	function imagescale($image, int $new_width, int $new_height = -1, int $mode = IMG_BILINEAR_FIXED) {}
 
 	/**
 	 * Set the brush image for line drawing

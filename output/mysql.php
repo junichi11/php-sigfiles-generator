@@ -50,7 +50,7 @@ namespace {
 	 * @see mysql_pconnect(), mysql_close()
 	 * @since PHP 4, PHP 5
 	 */
-	function mysql_connect(string $server = 'ini_get("mysql.default_host")', string $username = 'ini_get("mysql.default_user")', string $password = 'ini_get("mysql.default_password")', bool $new_link = FALSE, int $client_flags = 0): resource|false {}
+	function mysql_connect(string $server = 'ini_get("mysql.default_host")', string $username = 'ini_get("mysql.default_user")', string $password = 'ini_get("mysql.default_password")', bool $new_link = FALSE, int $client_flags = 0) {}
 
 	/**
 	 * Create a MySQL database
@@ -100,7 +100,7 @@ namespace {
 	 * @see mysql_query(), mysql_select_db()
 	 * @since PHP 4, PHP 5
 	 */
-	function mysql_db_query(string $database, string $query, $link_identifier = NULL): resource|bool {}
+	function mysql_db_query(string $database, string $query, $link_identifier = NULL) {}
 
 	/**
 	 * Drop (delete) a MySQL database
@@ -398,7 +398,7 @@ namespace {
 	 * @see mysql_thread_id(), mysql_stat()
 	 * @since PHP 4 >= 4.3.0, PHP 5
 	 */
-	function mysql_list_processes($link_identifier = NULL): resource|false {}
+	function mysql_list_processes($link_identifier = NULL) {}
 
 	/**
 	 * List tables in a MySQL database
@@ -410,7 +410,7 @@ namespace {
 	 * @see mysql_list_dbs(), mysql_tablename()
 	 * @since PHP 4, PHP 5
 	 */
-	function mysql_list_tables(string $database, $link_identifier = NULL): resource|false {}
+	function mysql_list_tables(string $database, $link_identifier = NULL) {}
 
 	/**
 	 * Get number of fields in result

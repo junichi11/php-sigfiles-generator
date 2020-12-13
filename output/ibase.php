@@ -83,7 +83,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.fbird-blob-create.php
 	 * @since PHP 5, PHP 7 < 7.4.0
 	 */
-	function fbird_blob_create($link_identifier = NULL): resource|false {}
+	function fbird_blob_create($link_identifier = NULL) {}
 
 	/**
 	 * Alias of ibase_blob_echo()
@@ -137,7 +137,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.fbird-blob-open.php
 	 * @since PHP 5, PHP 7 < 7.4.0
 	 */
-	function fbird_blob_open($link_identifier, string $blob_id): resource|false {}
+	function fbird_blob_open($link_identifier, string $blob_id) {}
 
 	/**
 	 * Alias of ibase_close()
@@ -499,7 +499,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.fbird-service-attach.php
 	 * @since PHP 5, PHP 7 < 7.4.0
 	 */
-	function fbird_service_attach(string $host, string $dba_username, string $dba_password): resource|false {}
+	function fbird_service_attach(string $host, string $dba_username, string $dba_password) {}
 
 	/**
 	 * Alias of ibase_service_detach()
@@ -629,7 +629,7 @@ namespace {
 	 * @see ibase_blob_add(), ibase_blob_cancel(), ibase_blob_close(), ibase_blob_import()
 	 * @since PHP 5, PHP 7 < 7.4.0
 	 */
-	function ibase_blob_create($link_identifier = NULL): resource|false {}
+	function ibase_blob_create($link_identifier = NULL) {}
 
 	/**
 	 * Output blob contents to browser
@@ -687,7 +687,7 @@ namespace {
 	 * @see ibase_blob_close(), ibase_blob_echo(), ibase_blob_get()
 	 * @since PHP 5, PHP 7 < 7.4.0
 	 */
-	function ibase_blob_open($link_identifier, string $blob_id): resource|false {}
+	function ibase_blob_open($link_identifier, string $blob_id) {}
 
 	/**
 	 * Close a connection to an InterBase database
@@ -1066,7 +1066,7 @@ namespace {
 	 * @see ibase_service_detach()
 	 * @since PHP 5, PHP 7 < 7.4.0
 	 */
-	function ibase_service_attach(string $host, string $dba_username, string $dba_password): resource|false {}
+	function ibase_service_attach(string $host, string $dba_username, string $dba_password) {}
 
 	/**
 	 * Disconnect from the service manager

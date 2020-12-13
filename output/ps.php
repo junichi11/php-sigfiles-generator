@@ -224,7 +224,7 @@ namespace {
 	 * @see ps_open_image(), ps_open_image_file()
 	 * @since PECL ps >= 1.1.0
 	 */
-	function ps_close_image($psdoc, int $imageid): void|false {}
+	function ps_close_image($psdoc, int $imageid): void {}
 
 	/**
 	 * Closes path
@@ -464,7 +464,7 @@ namespace {
 	 * @see ps_delete()
 	 * @since PECL ps >= 1.1.0
 	 */
-	function ps_new(): resource|false {}
+	function ps_new() {}
 
 	/**
 	 * Opens a file for output

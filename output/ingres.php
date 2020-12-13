@@ -71,7 +71,7 @@ namespace {
 	 * @see ingres_pconnect(), ingres_close()
 	 * @since PHP 4 >= 4.0.2, PHP 5 < 5.1.0, PECL ingres >= 1.0.0
 	 */
-	function ingres_connect(string $database = NULL, string $username = NULL, string $password = NULL, array $options = NULL): resource|false {}
+	function ingres_connect(string $database = NULL, string $username = NULL, string $password = NULL, array $options = NULL) {}
 
 	/**
 	 * Get a cursor name for a given result resource
@@ -326,7 +326,7 @@ namespace {
 	 * @see ingres_connect(), ingres_close()
 	 * @since PHP 4 >= 4.0.2, PHP 5 < 5.1.0, PECL ingres >= 1.0.0
 	 */
-	function ingres_pconnect(string $database = NULL, string $username = NULL, string $password = NULL, array $options = NULL): resource|false {}
+	function ingres_pconnect(string $database = NULL, string $username = NULL, string $password = NULL, array $options = NULL) {}
 
 	/**
 	 * Prepare a query for later execution

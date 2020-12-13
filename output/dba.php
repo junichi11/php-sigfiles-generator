@@ -128,7 +128,7 @@ namespace {
 	 * @see dba_popen(), dba_close()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function dba_open(string $path, string $mode, string $handler = NULL, string ...$args): resource|false {}
+	function dba_open(string $path, string $mode, string $handler = NULL, string ...$args) {}
 
 	/**
 	 * Optimize database
@@ -153,7 +153,7 @@ namespace {
 	 * @see dba_open(), dba_close()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function dba_popen(string $path, string $mode, string $handler = NULL, mixed ...$args): resource|false {}
+	function dba_popen(string $path, string $mode, string $handler = NULL, mixed ...$args) {}
 
 	/**
 	 * Replace or insert entry

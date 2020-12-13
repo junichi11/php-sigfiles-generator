@@ -100,7 +100,7 @@ namespace {
 	 * @see enchant_dict_describe(), enchant_broker_dict_exists(), enchant_broker_free_dict()
 	 * @since PHP 5 >= 5.3.0, PHP 7, PECL enchant >= 0.1.0 
 	 */
-	function enchant_broker_request_dict($broker, string $tag): resource|false {}
+	function enchant_broker_request_dict($broker, string $tag) {}
 
 	/**
 	 * Creates a dictionary using a PWL file
@@ -112,7 +112,7 @@ namespace {
 	 * @see enchant_dict_describe(), enchant_broker_dict_exists(), enchant_broker_free_dict()
 	 * @since PHP 5 >= 5.3.0, PHP 7, PECL enchant >= 0.1.0 
 	 */
-	function enchant_broker_request_pwl_dict($broker, string $filename): resource|false {}
+	function enchant_broker_request_pwl_dict($broker, string $filename) {}
 
 	/**
 	 * Set the directory path for a given backend

@@ -169,7 +169,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.socket-export-stream.php
 	 * @since PHP 7 >= 7.0.7
 	 */
-	function socket_export_stream($socket): resource|false {}
+	function socket_export_stream($socket) {}
 
 	/**
 	 * Gets socket options for the socket
@@ -473,7 +473,7 @@ namespace {
 	 * @see socket_wsaprotocol_info_export()
 	 * @since PHP 7 >= 7.3.0
 	 */
-	function socket_wsaprotocol_info_import(string $info_id): resource|false {}
+	function socket_wsaprotocol_info_import(string $info_id) {}
 
 	/**
 	 * Releases an exported WSAPROTOCOL_INFO Structure

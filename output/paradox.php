@@ -238,7 +238,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.px-set-tablename.php
 	 * @since PECL paradox >= 1.0.0
 	 */
-	function px_set_tablename($pxdoc, string $name): void|false {}
+	function px_set_tablename($pxdoc, string $name): void {}
 
 	/**
 	 * Sets the encoding for character fields (deprecated)

@@ -241,7 +241,7 @@ namespace {
 	 * @see openal_source_create(), fwrite()
 	 * @since PECL openal >= 0.1.0
 	 */
-	function openal_stream($source, int $format, int $rate): resource|false {}
+	function openal_stream($source, int $format, int $rate) {}
 
 	/**
 	 * Buffer Setting

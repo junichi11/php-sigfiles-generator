@@ -699,7 +699,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.openssl-x509-read.php
 	 * @since PHP 4 >= 4.0.6, PHP 5, PHP 7
 	 */
-	function openssl_x509_read(mixed $x509certdata): resource|false {}
+	function openssl_x509_read(mixed $x509certdata) {}
 
 	/**
 	 * Verifies digital signature of x509 certificate against a public key

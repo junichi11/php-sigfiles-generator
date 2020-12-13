@@ -58,7 +58,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.odbc-columnprivileges.php
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function odbc_columnprivileges($connection_id, string $catalog, string $schema, string $table_name, string $column_name): resource|false {}
+	function odbc_columnprivileges($connection_id, string $catalog, string $schema, string $table_name, string $column_name) {}
 
 	/**
 	 * Lists the column names in specified tables
@@ -73,7 +73,7 @@ namespace {
 	 * @see odbc_columnprivileges(), odbc_procedurecolumns()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function odbc_columns($connection_id, string $catalog = NULL, string $schema = NULL, string $table_name = NULL, string $column_name = NULL): resource|false {}
+	function odbc_columns($connection_id, string $catalog = NULL, string $schema = NULL, string $table_name = NULL, string $column_name = NULL) {}
 
 	/**
 	 * Commit an ODBC transaction
@@ -308,7 +308,7 @@ namespace {
 	 * @see odbc_tables(), odbc_primarykeys()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function odbc_foreignkeys($connection_id, string $pk_catalog, string $pk_schema, string $pk_table, string $fk_catalog, string $fk_schema, string $fk_table): resource|false {}
+	function odbc_foreignkeys($connection_id, string $pk_catalog, string $pk_schema, string $pk_table, string $fk_catalog, string $fk_schema, string $fk_table) {}
 
 	/**
 	 * Free resources associated with a result
@@ -410,7 +410,7 @@ namespace {
 	 * @see odbc_tables(), odbc_foreignkeys()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function odbc_primarykeys($connection_id, string $catalog, string $schema, string $table): resource|false {}
+	function odbc_primarykeys($connection_id, string $catalog, string $schema, string $table) {}
 
 	/**
 	 * Retrieve information about parameters to procedures
@@ -421,7 +421,7 @@ namespace {
 	 * @see odbc_columns()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function odbc_procedurecolumns($connection_id): resource|false {}
+	function odbc_procedurecolumns($connection_id) {}
 
 	/**
 	 * Get the list of procedures stored in a specific data source
@@ -432,7 +432,7 @@ namespace {
 	 * @see odbc_procedurecolumns(), odbc_tables()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function odbc_procedures($connection_id): resource|false {}
+	function odbc_procedures($connection_id) {}
 
 	/**
 	 * Get result data
@@ -510,7 +510,7 @@ namespace {
 	 * @see odbc_tables()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function odbc_statistics($connection_id, string $catalog, string $schema, string $table_name, int $unique, int $accuracy): resource|false {}
+	function odbc_statistics($connection_id, string $catalog, string $schema, string $table_name, int $unique, int $accuracy) {}
 
 	/**
 	 * Lists tables and the privileges associated with each table
@@ -524,7 +524,7 @@ namespace {
 	 * @see odbc_tables()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function odbc_tableprivileges($connection_id, string $catalog, string $schema, string $name): resource|false {}
+	function odbc_tableprivileges($connection_id, string $catalog, string $schema, string $name) {}
 
 	/**
 	 * Get the list of table names stored in a specific data source
@@ -539,7 +539,7 @@ namespace {
 	 * @see odbc_tableprivileges(), odbc_columns(), odbc_specialcolumns(), odbc_statistics(), odbc_procedures()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function odbc_tables($connection_id, string $catalog = NULL, string $schema = NULL, string $name = NULL, string $types = NULL): resource|false {}
+	function odbc_tables($connection_id, string $catalog = NULL, string $schema = NULL, string $name = NULL, string $types = NULL) {}
 
 	define('ODBC_BINMODE_CONVERT', null);
 

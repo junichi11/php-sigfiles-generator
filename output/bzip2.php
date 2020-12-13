@@ -94,7 +94,7 @@ namespace {
 	 * @see bzclose()
 	 * @since PHP 4 >= 4.0.4, PHP 5, PHP 7
 	 */
-	function bzopen(string|resource $file, string $mode): resource|false {}
+	function bzopen($file, string $mode) {}
 
 	/**
 	 * Binary safe bzip2 file read

@@ -191,7 +191,7 @@ namespace {
 		 * @link https://php.net/manual/en/sqlite3.openblob.php
 		 * @since PHP 5 >= 5.3.0, PHP 7
 		 */
-		public function openBlob(string $table, string $column, int $rowid, string $dbname = "main", int $flags = SQLITE3_OPEN_READONLY): resource|false {}
+		public function openBlob(string $table, string $column, int $rowid, string $dbname = "main", int $flags = SQLITE3_OPEN_READONLY) {}
 
 		/**
 		 * Prepares an SQL statement for execution

@@ -172,7 +172,7 @@ namespace {
 	 * @see gzclose()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function gzopen(string $filename, string $mode, int $use_include_path = 0): resource|false {}
+	function gzopen(string $filename, string $mode, int $use_include_path = 0) {}
 
 	/**
 	 * Output all remaining data on a gz-file pointer

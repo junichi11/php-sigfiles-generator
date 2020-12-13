@@ -905,7 +905,7 @@ namespace {
 	 * @see tempnam(), sys_get_temp_dir()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function tmpfile(): resource|false {}
+	function tmpfile() {}
 
 	/**
 	 * Sets access and modification time of file

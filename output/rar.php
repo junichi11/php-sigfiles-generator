@@ -445,7 +445,7 @@ namespace {
 		 * @link https://php.net/manual/en/rarentry.getstream.php
 		 * @since PECL rar >= 2.0.0
 		 */
-		public function getStream(string $password = NULL): resource|false {}
+		public function getStream(string $password = NULL) {}
 
 		/**
 		 * Get unpacked size of the entry

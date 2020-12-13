@@ -250,7 +250,7 @@ namespace {
 	 * @see pg_prepare(), pg_send_prepare(), pg_query_params()
 	 * @since PHP 5 >= 5.1.0, PHP 7
 	 */
-	function pg_execute($connection = NULL, string $stmtname, array $params): resource|false {}
+	function pg_execute($connection = NULL, string $stmtname, array $params) {}
 
 	/**
 	 * Fetches all rows from a result as an array
@@ -797,7 +797,7 @@ namespace {
 	 * @see pg_execute(), pg_send_execute()
 	 * @since PHP 5 >= 5.1.0, PHP 7
 	 */
-	function pg_prepare($connection = NULL, string $stmtname, string $query): resource|false {}
+	function pg_prepare($connection = NULL, string $stmtname, string $query) {}
 
 	/**
 	 * Send a NULL-terminated string to PostgreSQL backend
@@ -821,7 +821,7 @@ namespace {
 	 * @see pg_connect(), pg_pconnect(), pg_fetch_array(), pg_fetch_object(), pg_num_rows(), pg_affected_rows()
 	 * @since PHP 4 >= 4.2.0, PHP 5, PHP 7
 	 */
-	function pg_query($connection = NULL, string $query): resource|false {}
+	function pg_query($connection = NULL, string $query) {}
 
 	/**
 	 * Submits a command to the server and waits for the result, with the ability to pass parameters separately from the SQL command text
@@ -834,7 +834,7 @@ namespace {
 	 * @see pg_query()
 	 * @since PHP 5 >= 5.1.0, PHP 7
 	 */
-	function pg_query_params($connection = NULL, string $query, array $params): resource|false {}
+	function pg_query_params($connection = NULL, string $query, array $params) {}
 
 	/**
 	 * Get error message associated with result
@@ -981,7 +981,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.pg-socket.php
 	 * @since PHP 5 >= 5.6.0, PHP 7
 	 */
-	function pg_socket($connection): resource|false {}
+	function pg_socket($connection) {}
 
 	/**
 	 * Enable tracing a PostgreSQL connection
