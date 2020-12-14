@@ -128,7 +128,7 @@ namespace {
 		 * @link https://php.net/manual/en/varnishadmin.setparam.php
 		 * @since PECL varnish >= 0.4
 		 */
-		public function setParam(string $name, $value): int {}
+		public function setParam(string $name, string|int $value): int {}
 
 		/**
 		 * Set the class port configuration param

@@ -12,7 +12,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.mysqlnd-ms-dump-servers.php
 	 * @since No version information available, might only be in Git
 	 */
-	function mysqlnd_ms_dump_servers($connection): array {}
+	function mysqlnd_ms_dump_servers(mixed $connection): array {}
 
 	/**
 	 * Switch to global sharding server for a given table
@@ -23,7 +23,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.mysqlnd-ms-fabric-select-global.php
 	 * @since No version information available, might only be in Git
 	 */
-	function mysqlnd_ms_fabric_select_global($connection, $table_name): array {}
+	function mysqlnd_ms_fabric_select_global(mixed $connection, mixed $table_name): array {}
 
 	/**
 	 * Switch to shard
@@ -35,7 +35,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.mysqlnd-ms-fabric-select-shard.php
 	 * @since No version information available, might only be in Git
 	 */
-	function mysqlnd_ms_fabric_select_shard($connection, $table_name, $shard_key): array {}
+	function mysqlnd_ms_fabric_select_shard(mixed $connection, mixed $table_name, mixed $shard_key): array {}
 
 	/**
 	 * Returns the latest global transaction ID
@@ -45,7 +45,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.mysqlnd-ms-get-last-gtid.php
 	 * @since PECL mysqlnd_ms >= 1.2.0
 	 */
-	function mysqlnd_ms_get_last_gtid($connection): string {}
+	function mysqlnd_ms_get_last_gtid(mixed $connection): string {}
 
 	/**
 	 * Returns an array which describes the last used connection
@@ -55,7 +55,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.mysqlnd-ms-get-last-used-connection.php
 	 * @since PECL mysqlnd_ms >= 1.1.0
 	 */
-	function mysqlnd_ms_get_last_used_connection($connection): array {}
+	function mysqlnd_ms_get_last_used_connection(mixed $connection): array {}
 
 	/**
 	 * Returns query distribution and connection statistics
@@ -99,7 +99,7 @@ namespace {
 	 * @see mysqlnd_ms_get_last_gtid()
 	 * @since PECL mysqlnd_ms < 1.2.0
 	 */
-	function mysqlnd_ms_set_qos($connection, int $service_level, int $service_level_option = NULL, $option_value = NULL): bool {}
+	function mysqlnd_ms_set_qos(mixed $connection, int $service_level, int $service_level_option = NULL, mixed $option_value = NULL): bool {}
 
 	/**
 	 * Sets a callback for user-defined read/write splitting
@@ -123,7 +123,7 @@ namespace {
 	 * @see mysqlnd_ms_get_stats()
 	 * @since PECL mysqlnd_ms < 1.6.0
 	 */
-	function mysqlnd_ms_xa_begin($connection, string $gtrid, int $timeout = NULL): int {}
+	function mysqlnd_ms_xa_begin(mixed $connection, string $gtrid, int $timeout = NULL): int {}
 
 	/**
 	 * Commits a distributed/XA transaction among MySQL servers
@@ -135,7 +135,7 @@ namespace {
 	 * @see mysqlnd_ms_get_stats()
 	 * @since PECL mysqlnd_ms < 1.6.0
 	 */
-	function mysqlnd_ms_xa_commit($connection, string $gtrid): bool {}
+	function mysqlnd_ms_xa_commit(mixed $connection, string $gtrid): bool {}
 
 	/**
 	 * Garbage collects unfinished XA transactions after severe errors
@@ -148,7 +148,7 @@ namespace {
 	 * @see mysqlnd_ms_get_stats()
 	 * @since PECL mysqlnd_ms < 1.6.0
 	 */
-	function mysqlnd_ms_xa_gc($connection, string $gtrid = NULL, bool $ignore_max_retries = NULL): int {}
+	function mysqlnd_ms_xa_gc(mixed $connection, string $gtrid = NULL, bool $ignore_max_retries = NULL): int {}
 
 	/**
 	 * Rolls back a distributed/XA transaction among MySQL servers
@@ -160,7 +160,7 @@ namespace {
 	 * @see mysqlnd_ms_get_stats()
 	 * @since PECL mysqlnd_ms < 1.6.0
 	 */
-	function mysqlnd_ms_xa_rollback($connection, string $gtrid): int {}
+	function mysqlnd_ms_xa_rollback(mixed $connection, string $gtrid): int {}
 
 	/**
 	 * SQL hint used to send a query to the last used MySQL server. The last used MySQL server can either be a master or a slave server in a MySQL replication setup.

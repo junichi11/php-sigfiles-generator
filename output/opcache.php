@@ -23,7 +23,7 @@ namespace {
 	 * @see opcache_get_status()
 	 * @since PHP 5 >= 5.5.0, PHP 7, PECL ZendOpcache > 7.0.2
 	 */
-	function opcache_get_configuration() {}
+	function opcache_get_configuration(): array|false {}
 
 	/**
 	 * Get status information about the cache
@@ -34,7 +34,7 @@ namespace {
 	 * @see opcache_get_configuration()
 	 * @since PHP 5 >= 5.5.0, PHP 7, PECL ZendOpcache > 7.0.2
 	 */
-	function opcache_get_status(bool $include_scripts = TRUE) {}
+	function opcache_get_status(bool $include_scripts = TRUE): array|false {}
 
 	/**
 	 * Invalidates a cached script

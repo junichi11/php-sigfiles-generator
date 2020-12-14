@@ -29,7 +29,7 @@ namespace wkhtmltox\Image {
 		 * @link https://php.net/manual/en/wkhtmltox-image-converter.convert.php
 		 * @since wkhtmltox >= 0.1.0
 		 */
-		public function convert() {}
+		public function convert(): string|null {}
 
 		/**
 		 * Determine version of Converter
@@ -79,7 +79,7 @@ namespace wkhtmltox\PDF {
 		 * @link https://php.net/manual/en/wkhtmltox-pdf-converter.convert.php
 		 * @since wkhtmltox >= 0.1.0
 		 */
-		public function convert() {}
+		public function convert(): string|null {}
 
 		/**
 		 * Determine version of Converter

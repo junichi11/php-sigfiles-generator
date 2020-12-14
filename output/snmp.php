@@ -163,7 +163,7 @@ namespace {
 		 * @link https://php.net/manual/en/snmp.get.php
 		 * @since PHP 5 >= 5.4.0, PHP 7
 		 */
-		public function get($object_id, bool $preserve_keys = FALSE) {}
+		public function get(mixed $object_id, bool $preserve_keys = FALSE): mixed {}
 
 		/**
 		 * Get last error code
@@ -191,7 +191,7 @@ namespace {
 		 * @link https://php.net/manual/en/snmp.getnext.php
 		 * @since PHP 5 >= 5.4.0, PHP 7
 		 */
-		public function getnext($object_id) {}
+		public function getnext(mixed $object_id): mixed {}
 
 		/**
 		 * Set the value of an SNMP object
@@ -203,7 +203,7 @@ namespace {
 		 * @link https://php.net/manual/en/snmp.set.php
 		 * @since PHP 5 >= 5.4.0, PHP 7
 		 */
-		public function set($object_id, $type, $value): bool {}
+		public function set(mixed $object_id, mixed $type, mixed $value): bool {}
 
 		/**
 		 * Configures security-related SNMPv3 session parameters
@@ -291,7 +291,7 @@ namespace {
 		 * @link https://php.net/manual/en/exception.getcode.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
-		final public function getCode() {}
+		final public function getCode(): mixed {}
 
 		/**
 		 * Gets the file in which the exception was created
@@ -666,7 +666,7 @@ namespace {
 	 * @see snmpget()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function snmpset(string $host, string $community, string $object_id, string $type, $value, int $timeout = 1000000, int $retries = 5): bool {}
+	function snmpset(string $host, string $community, string $object_id, string $type, mixed $value, int $timeout = 1000000, int $retries = 5): bool {}
 
 	/**
 	 * Fetch all the SNMP objects from an agent

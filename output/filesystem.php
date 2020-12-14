@@ -26,7 +26,7 @@ namespace {
 	 * @see chown(), chmod()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function chgrp(string $filename, $group): bool {}
+	function chgrp(string $filename, mixed $group): bool {}
 
 	/**
 	 * Changes file mode
@@ -50,7 +50,7 @@ namespace {
 	 * @see chmod(), chgrp()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function chown(string $filename, $user): bool {}
+	function chown(string $filename, mixed $user): bool {}
 
 	/**
 	 * Clears file status cache
@@ -97,7 +97,7 @@ namespace {
 	 * @see disk_total_space()
 	 * @since PHP 4 >= 4.1.0, PHP 5, PHP 7
 	 */
-	function disk_free_space(string $directory) {}
+	function disk_free_space(string $directory): float|false {}
 
 	/**
 	 * Returns the total size of a filesystem or disk partition
@@ -108,7 +108,7 @@ namespace {
 	 * @see disk_free_space()
 	 * @since PHP 4 >= 4.1.0, PHP 5, PHP 7
 	 */
-	function disk_total_space(string $directory) {}
+	function disk_total_space(string $directory): float|false {}
 
 	/**
 	 * Alias of disk_free_space()
@@ -118,7 +118,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.diskfreespace.php
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function diskfreespace(string $directory) {}
+	function diskfreespace(string $directory): float|false {}
 
 	/**
 	 * Closes an open file pointer
@@ -240,7 +240,7 @@ namespace {
 	 * @see file(), fgets(), fread(), readfile(), file_put_contents(), stream_get_contents(), stream_context_create()
 	 * @since PHP 4 >= 4.3.0, PHP 5, PHP 7
 	 */
-	function file_get_contents(string $filename, bool $use_include_path = FALSE, $context = NULL, int $offset = 0, int $maxlen = NULL) {}
+	function file_get_contents(string $filename, bool $use_include_path = FALSE, $context = NULL, int $offset = 0, int $maxlen = NULL): string|false {}
 
 	/**
 	 * Write data to a file
@@ -254,7 +254,7 @@ namespace {
 	 * @see fopen(), fwrite(), file_get_contents(), stream_context_create()
 	 * @since PHP 5, PHP 7
 	 */
-	function file_put_contents(string $filename, $data, int $flags = 0, $context = NULL): int {}
+	function file_put_contents(string $filename, mixed $data, int $flags = 0, $context = NULL): int {}
 
 	/**
 	 * Gets last access time of file
@@ -265,7 +265,7 @@ namespace {
 	 * @see filemtime(), fileinode(), date()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function fileatime(string $filename) {}
+	function fileatime(string $filename): int|false {}
 
 	/**
 	 * Gets inode change time of file
@@ -276,7 +276,7 @@ namespace {
 	 * @see filemtime()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function filectime(string $filename) {}
+	function filectime(string $filename): int|false {}
 
 	/**
 	 * Gets file group
@@ -298,7 +298,7 @@ namespace {
 	 * @see getmyinode(), stat()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function fileinode(string $filename) {}
+	function fileinode(string $filename): int|false {}
 
 	/**
 	 * Gets file modification time
@@ -309,7 +309,7 @@ namespace {
 	 * @see filectime(), stat(), touch(), getlastmod()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function filemtime(string $filename) {}
+	function filemtime(string $filename): int|false {}
 
 	/**
 	 * Gets file owner
@@ -320,7 +320,7 @@ namespace {
 	 * @see filegroup(), stat(), posix_getpwuid()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function fileowner(string $filename) {}
+	function fileowner(string $filename): int|false {}
 
 	/**
 	 * Gets file permissions
@@ -418,7 +418,7 @@ namespace {
 	 * @see fgetcsv()
 	 * @since PHP 5 >= 5.1.0, PHP 7
 	 */
-	function fputcsv($handle, array $fields, string $delimiter = ",", string $enclosure = '"', string $escape_char = "\\") {}
+	function fputcsv($handle, array $fields, string $delimiter = ",", string $enclosure = '"', string $escape_char = "\\"): int|false {}
 
 	/**
 	 * Alias of fwrite()
@@ -442,7 +442,7 @@ namespace {
 	 * @see fwrite(), fopen(), fsockopen(), popen(), fgets(), fgetss(), fscanf(), file(), fpassthru(), ftell(), rewind(), unpack()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function fread($handle, int $length) {}
+	function fread($handle, int $length): string|false {}
 
 	/**
 	 * Parses input from a file according to a format
@@ -455,7 +455,7 @@ namespace {
 	 * @see fread(), fgets(), fgetss(), sscanf(), printf(), sprintf()
 	 * @since PHP 4 >= 4.0.1, PHP 5, PHP 7
 	 */
-	function fscanf($handle, string $format, &...$vars) {}
+	function fscanf($handle, string $format, mixed &...$vars): mixed {}
 
 	/**
 	 * Seeks on a file pointer
@@ -625,7 +625,7 @@ namespace {
 	 * @see chgrp(), lchown(), chown(), chmod()
 	 * @since PHP 5 >= 5.1.3, PHP 7
 	 */
-	function lchgrp(string $filename, $group): bool {}
+	function lchgrp(string $filename, mixed $group): bool {}
 
 	/**
 	 * Changes user ownership of symlink
@@ -637,7 +637,7 @@ namespace {
 	 * @see chown(), lchgrp(), chgrp(), chmod()
 	 * @since PHP 5 >= 5.1.3, PHP 7
 	 */
-	function lchown(string $filename, $user): bool {}
+	function lchown(string $filename, mixed $user): bool {}
 
 	/**
 	 * Create a hard link
@@ -735,7 +735,7 @@ namespace {
 	 * @see dirname(), basename(), parse_url(), realpath()
 	 * @since PHP 4 >= 4.0.3, PHP 5, PHP 7
 	 */
-	function pathinfo(string $path, int $options = PATHINFO_DIRNAME | PATHINFO_BASENAME | PATHINFO_EXTENSION | PATHINFO_FILENAME) {}
+	function pathinfo(string $path, int $options = PATHINFO_DIRNAME | PATHINFO_BASENAME | PATHINFO_EXTENSION | PATHINFO_FILENAME): mixed {}
 
 	/**
 	 * Closes process file pointer
@@ -771,7 +771,7 @@ namespace {
 	 * @see fpassthru(), file(), fopen(), include, require, virtual(), file_get_contents()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function readfile(string $filename, bool $use_include_path = FALSE, $context = NULL) {}
+	function readfile(string $filename, bool $use_include_path = FALSE, $context = NULL): int|false {}
 
 	/**
 	 * Returns the target of a symbolic link

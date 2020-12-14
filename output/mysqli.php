@@ -431,7 +431,7 @@ namespace {
 		 * @see mysqli_init(), mysqli_real_connect()
 		 * @since PHP 5, PHP 7
 		 */
-		public function options(int $option, $value): bool {}
+		public function options(int $option, mixed $value): bool {}
 
 		/**
 		 * Pings a server connection, or tries to reconnect if the connection has gone down
@@ -478,7 +478,7 @@ namespace {
 		 * @see mysqli_real_query(), mysqli_multi_query(), mysqli_free_result()
 		 * @since PHP 5, PHP 7
 		 */
-		public function query(string $query, int $resultmode = MYSQLI_STORE_RESULT) {}
+		public function query(string $query, int $resultmode = MYSQLI_STORE_RESULT): mixed {}
 
 		/**
 		 * Opens a connection to a mysql server
@@ -804,7 +804,7 @@ namespace {
 		 * @see mysqli_fetch_array(), mysqli_query()
 		 * @since PHP 5 >= 5.3.0, PHP 7
 		 */
-		public function fetch_all(int $resulttype = MYSQLI_NUM) {}
+		public function fetch_all(int $resulttype = MYSQLI_NUM): mixed {}
 
 		/**
 		 * Fetch a result row as an associative, a numeric array, or both
@@ -815,7 +815,7 @@ namespace {
 		 * @see mysqli_fetch_assoc(), mysqli_fetch_row(), mysqli_fetch_object(), mysqli_query(), mysqli_data_seek()
 		 * @since PHP 5, PHP 7
 		 */
-		public function fetch_array(int $resulttype = MYSQLI_BOTH) {}
+		public function fetch_array(int $resulttype = MYSQLI_BOTH): mixed {}
 
 		/**
 		 * Fetch a result row as an associative array
@@ -878,7 +878,7 @@ namespace {
 		 * @see mysqli_fetch_array(), mysqli_fetch_assoc(), mysqli_fetch_object(), mysqli_query(), mysqli_data_seek()
 		 * @since PHP 5, PHP 7
 		 */
-		public function fetch_row() {}
+		public function fetch_row(): mixed {}
 
 		/**
 		 * Set result pointer to a specified field offset
@@ -1089,7 +1089,7 @@ namespace {
 		 * @see mysqli_stmt_bind_result(), mysqli_stmt_execute(), mysqli_stmt_fetch(), mysqli_prepare(), mysqli_stmt_send_long_data(), mysqli_stmt_errno(), mysqli_stmt_error()
 		 * @since PHP 5, PHP 7
 		 */
-		public function bind_param(string $types, &$var, &...$vars): bool {}
+		public function bind_param(string $types, mixed &$var, mixed &...$vars): bool {}
 
 		/**
 		 * Binds variables to a prepared statement for result storage
@@ -1101,7 +1101,7 @@ namespace {
 		 * @see mysqli_stmt_get_result(), mysqli_stmt_bind_param(), mysqli_stmt_execute(), mysqli_stmt_fetch(), mysqli_prepare(), mysqli_stmt_prepare(), mysqli_stmt_init(), mysqli_stmt_errno(), mysqli_stmt_error()
 		 * @since PHP 5, PHP 7
 		 */
-		public function bind_result(&$var, &...$vars): bool {}
+		public function bind_result(mixed &$var, mixed &...$vars): bool {}
 
 		/**
 		 * Closes a prepared statement
@@ -1210,7 +1210,7 @@ namespace {
 		 * @see mysqli_stmt_init(), mysqli_stmt_execute(), mysqli_stmt_fetch(), mysqli_stmt_bind_param(), mysqli_stmt_bind_result(), mysqli_stmt_get_result(), mysqli_stmt_close()
 		 * @since PHP 5, PHP 7
 		 */
-		public function prepare(string $query) {}
+		public function prepare(string $query): mixed {}
 
 		/**
 		 * Resets a prepared statement
@@ -1389,7 +1389,7 @@ namespace {
 	 * @see mysqli_real_connect(), mysqli_options(), mysqli_connect_errno(), mysqli_connect_error(), mysqli_close()
 	 * @since PHP 5, PHP 7
 	 */
-	function mysqli_connect(string $host = 'ini_get("mysqli.default_host")', string $username = 'ini_get("mysqli.default_user")', string $passwd = 'ini_get("mysqli.default_pw")', string $dbname = "", int $port  = 'ini_get("mysqli.default_port")', string $socket = 'ini_get("mysqli.default_socket")') {}
+	function mysqli_connect(string $host = 'ini_get("mysqli.default_host")', string $username = 'ini_get("mysqli.default_user")', string $passwd = 'ini_get("mysqli.default_pw")', string $dbname = "", int $port  = 'ini_get("mysqli.default_port")', string $socket = 'ini_get("mysqli.default_socket")'): \mysqli|false {}
 
 	/**
 	 * Returns the error code from last connect call
@@ -1530,7 +1530,7 @@ namespace {
 	 * @see mysqli_fetch_array(), mysqli_query()
 	 * @since PHP 5 >= 5.3.0, PHP 7
 	 */
-	function mysqli_fetch_all(\mysqli_result $result, int $resulttype = MYSQLI_NUM) {}
+	function mysqli_fetch_all(\mysqli_result $result, int $resulttype = MYSQLI_NUM): mixed {}
 
 	/**
 	 * Fetch a result row as an associative, a numeric array, or both
@@ -1542,7 +1542,7 @@ namespace {
 	 * @see mysqli_fetch_assoc(), mysqli_fetch_row(), mysqli_fetch_object(), mysqli_query(), mysqli_data_seek()
 	 * @since PHP 5, PHP 7
 	 */
-	function mysqli_fetch_array(\mysqli_result $result, int $resulttype = MYSQLI_BOTH) {}
+	function mysqli_fetch_array(\mysqli_result $result, int $resulttype = MYSQLI_BOTH): mixed {}
 
 	/**
 	 * Fetch a result row as an associative array
@@ -1621,7 +1621,7 @@ namespace {
 	 * @see mysqli_fetch_array(), mysqli_fetch_assoc(), mysqli_fetch_object(), mysqli_query(), mysqli_data_seek()
 	 * @since PHP 5, PHP 7
 	 */
-	function mysqli_fetch_row(\mysqli_result $result) {}
+	function mysqli_fetch_row(\mysqli_result $result): mixed {}
 
 	/**
 	 * Returns the number of columns for the most recent query
@@ -1811,7 +1811,7 @@ namespace {
 	 * @link https://php.net/manual/en/mysqli.insert-id.php
 	 * @since PHP 5, PHP 7
 	 */
-	function mysqli_insert_id(\mysqli $link) {}
+	function mysqli_insert_id(\mysqli $link): mixed {}
 
 	/**
 	 * Asks the server to kill a MySQL thread
@@ -1892,7 +1892,7 @@ namespace {
 	 * @see mysqli_init(), mysqli_real_connect()
 	 * @since PHP 5, PHP 7
 	 */
-	function mysqli_options(\mysqli $link, int $option, $value): bool {}
+	function mysqli_options(\mysqli $link, int $option, mixed $value): bool {}
 
 	/**
 	 * Pings a server connection, or tries to reconnect if the connection has gone down
@@ -1942,7 +1942,7 @@ namespace {
 	 * @see mysqli_real_query(), mysqli_multi_query(), mysqli_free_result()
 	 * @since PHP 5, PHP 7
 	 */
-	function mysqli_query(\mysqli $link, string $query, int $resultmode = MYSQLI_STORE_RESULT) {}
+	function mysqli_query(\mysqli $link, string $query, int $resultmode = MYSQLI_STORE_RESULT): mixed {}
 
 	/**
 	 * Opens a connection to a mysql server
@@ -2088,7 +2088,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.mysqli-set-opt.php
 	 * @since PHP 5, PHP 7
 	 */
-	function mysqli_set_opt(\mysqli $link, int $option, $value): bool {}
+	function mysqli_set_opt(\mysqli $link, int $option, mixed $value): bool {}
 
 	/**
 	 * Returns the SQLSTATE error from previous MySQL operation
@@ -2174,7 +2174,7 @@ namespace {
 	 * @see mysqli_stmt_bind_result(), mysqli_stmt_execute(), mysqli_stmt_fetch(), mysqli_prepare(), mysqli_stmt_send_long_data(), mysqli_stmt_errno(), mysqli_stmt_error()
 	 * @since PHP 5, PHP 7
 	 */
-	function mysqli_stmt_bind_param(\mysqli_stmt $stmt, string $types, &$var, &...$vars): bool {}
+	function mysqli_stmt_bind_param(\mysqli_stmt $stmt, string $types, mixed &$var, mixed &...$vars): bool {}
 
 	/**
 	 * Binds variables to a prepared statement for result storage
@@ -2187,7 +2187,7 @@ namespace {
 	 * @see mysqli_stmt_get_result(), mysqli_stmt_bind_param(), mysqli_stmt_execute(), mysqli_stmt_fetch(), mysqli_prepare(), mysqli_stmt_prepare(), mysqli_stmt_init(), mysqli_stmt_errno(), mysqli_stmt_error()
 	 * @since PHP 5, PHP 7
 	 */
-	function mysqli_stmt_bind_result(\mysqli_stmt $stmt, &$var, &...$vars): bool {}
+	function mysqli_stmt_bind_result(\mysqli_stmt $stmt, mixed &$var, mixed &...$vars): bool {}
 
 	/**
 	 * Closes a prepared statement
@@ -2328,7 +2328,7 @@ namespace {
 	 * @link https://php.net/manual/en/mysqli-stmt.insert-id.php
 	 * @since PHP 5, PHP 7
 	 */
-	function mysqli_stmt_insert_id(\mysqli_stmt $stmt) {}
+	function mysqli_stmt_insert_id(\mysqli_stmt $stmt): mixed {}
 
 	/**
 	 * Check if there are more query results from a multiple query

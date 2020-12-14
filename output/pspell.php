@@ -160,7 +160,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.pspell-new.php
 	 * @since PHP 4 >= 4.0.2, PHP 5, PHP 7
 	 */
-	function pspell_new(string $language, string $spelling = NULL, string $jargon = NULL, string $encoding = NULL, int $mode = 0) {}
+	function pspell_new(string $language, string $spelling = NULL, string $jargon = NULL, string $encoding = NULL, int $mode = 0): int|false {}
 
 	/**
 	 * Load a new dictionary with settings based on a given config
@@ -170,7 +170,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.pspell-new-config.php
 	 * @since PHP 4 >= 4.0.2, PHP 5, PHP 7
 	 */
-	function pspell_new_config(int $config) {}
+	function pspell_new_config(int $config): int|false {}
 
 	/**
 	 * Load a new dictionary with personal wordlist

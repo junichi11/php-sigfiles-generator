@@ -26,7 +26,7 @@ namespace {
 	 * @see bzdecompress()
 	 * @since PHP 4 >= 4.0.4, PHP 5, PHP 7
 	 */
-	function bzcompress(string $data, int $block_size = 4, int $work_factor = 0) {}
+	function bzcompress(string $data, int $block_size = 4, int $work_factor = 0): string|int {}
 
 	/**
 	 * Decompresses bzip2 encoded data
@@ -38,7 +38,7 @@ namespace {
 	 * @see bzcompress()
 	 * @since PHP 4 >= 4.0.4, PHP 5, PHP 7
 	 */
-	function bzdecompress(string $data, bool $use_less_memory = FALSE) {}
+	function bzdecompress(string $data, bool $use_less_memory = FALSE): string|int|false {}
 
 	/**
 	 * Returns a bzip2 error number
@@ -106,7 +106,7 @@ namespace {
 	 * @see bzwrite(), feof(), bzopen()
 	 * @since PHP 4 >= 4.0.4, PHP 5, PHP 7
 	 */
-	function bzread($bz, int $length = 1024) {}
+	function bzread($bz, int $length = 1024): string|false {}
 
 	/**
 	 * Binary safe bzip2 file write
@@ -119,6 +119,6 @@ namespace {
 	 * @see bzread(), bzopen()
 	 * @since PHP 4 >= 4.0.4, PHP 5, PHP 7
 	 */
-	function bzwrite($bz, string $data, $length = NULL) {}
+	function bzwrite($bz, string $data, int|null $length = NULL): int|false {}
 
 }

@@ -32,7 +32,7 @@ namespace {
 		 * @link https://php.net/manual/en/closure.bind.php
 		 * @since PHP 5 >= 5.4.0, PHP 7, PHP 8
 		 */
-		public static function bind(\Closure $closure, object $newthis, $newscope = "static") {}
+		public static function bind(\Closure $closure, object $newthis, mixed $newscope = "static"): \Closure|false {}
 
 		/**
 		 * Duplicates the closure with a new bound object and class scope
@@ -43,7 +43,7 @@ namespace {
 		 * @link https://php.net/manual/en/closure.bindto.php
 		 * @since PHP 5 >= 5.4.0, PHP 7, PHP 8
 		 */
-		public function bindTo(object $newthis, $newscope = "static") {}
+		public function bindTo(object $newthis, mixed $newscope = "static"): \Closure|false {}
 
 		/**
 		 * Binds and calls the closure
@@ -54,7 +54,7 @@ namespace {
 		 * @link https://php.net/manual/en/closure.call.php
 		 * @since PHP 7, PHP 8
 		 */
-		public function call(object $newthis, ...$values) {}
+		public function call(object $newthis, mixed ...$values): mixed {}
 
 		/**
 		 * Converts a callable into a closure

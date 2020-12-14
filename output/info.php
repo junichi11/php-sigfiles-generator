@@ -14,7 +14,7 @@ namespace {
 	 * @see assert_options()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function assert($assertion, string $description = NULL): bool {}
+	function assert(mixed $assertion, string $description = NULL): bool {}
 
 	/**
 	 * Set/get the various assert flags
@@ -26,7 +26,7 @@ namespace {
 	 * @see assert()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function assert_options(int $what, $value = NULL) {}
+	function assert_options(int $what, mixed $value = NULL): mixed {}
 
 	/**
 	 * Returns the current process title
@@ -134,7 +134,7 @@ namespace {
 	 * @see ini_get(), ini_get_all()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function get_cfg_var(string $option) {}
+	function get_cfg_var(string $option): mixed {}
 
 	/**
 	 * Gets the name of the owner of the current PHP script
@@ -311,7 +311,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.getopt.php
 	 * @since PHP 4 >= 4.3.0, PHP 5, PHP 7
 	 */
-	function getopt(string $options, array $longopts = NULL, int &$optind = NULL) {}
+	function getopt(string $options, array $longopts = NULL, int &$optind = NULL): array|false {}
 
 	/**
 	 * Gets the current resource usages
@@ -505,7 +505,7 @@ namespace {
 	 * @see ini_set(), get_include_path(), restore_include_path(), include
 	 * @since PHP 4 >= 4.3.0, PHP 5, PHP 7
 	 */
-	function set_include_path(string $new_include_path) {}
+	function set_include_path(string $new_include_path): string|false {}
 
 	/**
 	 * Limits the maximum execution time

@@ -61,7 +61,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.fdf-enum-values.php
 	 * @since PHP 4 >= 4.3.0, PHP 5 < 5.3.0, PECL fdf SVN
 	 */
-	function fdf_enum_values($fdf_document, callable $function, $userdata = NULL): bool {}
+	function fdf_enum_values($fdf_document, callable $function, mixed $userdata = NULL): bool {}
 
 	/**
 	 * Return error code for last fdf operation
@@ -153,7 +153,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.fdf-get-opt.php
 	 * @since PHP 4 >= 4.3.0, PHP 5 < 5.3.0, PECLv
 	 */
-	function fdf_get_opt($fdf_document, string $fieldname, int $element = -1) {}
+	function fdf_get_opt($fdf_document, string $fieldname, int $element = -1): mixed {}
 
 	/**
 	 * Get the value of the /STATUS key
@@ -177,7 +177,7 @@ namespace {
 	 * @see fdf_set_value()
 	 * @since PHP 4, PHP 5 < 5.3.0, PECL fdf SVN
 	 */
-	function fdf_get_value($fdf_document, string $fieldname, int $which = -1) {}
+	function fdf_get_value($fdf_document, string $fieldname, int $which = -1): mixed {}
 
 	/**
 	 * Gets version number for FDF API or file
@@ -412,7 +412,7 @@ namespace {
 	 * @see fdf_get_value(), fdf_remove_item()
 	 * @since PHP 4, PHP 5 < 5.3.0, PECL fdf SVN
 	 */
-	function fdf_set_value($fdf_document, string $fieldname, $value, int $isName = NULL): bool {}
+	function fdf_set_value($fdf_document, string $fieldname, mixed $value, int $isName = NULL): bool {}
 
 	/**
 	 * Sets version number for a FDF file

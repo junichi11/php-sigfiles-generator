@@ -163,7 +163,7 @@ namespace {
 	 * @see ps_end_pattern(), ps_setcolor(), ps_shading_pattern()
 	 * @since PECL ps >= 1.2.0
 	 */
-	function ps_begin_pattern($psdoc, float $width, float $height, float $xstep, float $ystep, int $painttype) {}
+	function ps_begin_pattern($psdoc, float $width, float $height, float $xstep, float $ystep, int $painttype): int|false {}
 
 	/**
 	 * Start a new template
@@ -224,7 +224,7 @@ namespace {
 	 * @see ps_open_image(), ps_open_image_file()
 	 * @since PECL ps >= 1.1.0
 	 */
-	function ps_close_image($psdoc, int $imageid) {}
+	function ps_close_image($psdoc, int $imageid): void {}
 
 	/**
 	 * Closes path
@@ -379,7 +379,7 @@ namespace {
 	 * @see ps_set_parameter()
 	 * @since PECL ps >= 1.1.0
 	 */
-	function ps_get_parameter($psdoc, string $name, float $modifier = NULL) {}
+	function ps_get_parameter($psdoc, string $name, float $modifier = NULL): string|false {}
 
 	/**
 	 * Gets certain values
@@ -404,7 +404,7 @@ namespace {
 	 * @see ps_show_boxed()
 	 * @since PECL ps >= 1.1.1
 	 */
-	function ps_hyphenate($psdoc, string $text) {}
+	function ps_hyphenate($psdoc, string $text): array|false {}
 
 	/**
 	 * Reads an external file with raw PostScript code
@@ -848,7 +848,7 @@ namespace {
 	 * @see ps_shading_pattern(), ps_shfill()
 	 * @since PECL ps >= 1.3.0
 	 */
-	function ps_shading($psdoc, string $type, float $x0, float $y0, float $x1, float $y1, float $c1, float $c2, float $c3, float $c4, string $optlist) {}
+	function ps_shading($psdoc, string $type, float $x0, float $y0, float $x1, float $y1, float $c1, float $c2, float $c3, float $c4, string $optlist): int|false {}
 
 	/**
 	 * Creates a pattern based on a shading
@@ -861,7 +861,7 @@ namespace {
 	 * @see ps_shading(), ps_shfill()
 	 * @since PECL ps >= 1.3.0
 	 */
-	function ps_shading_pattern($psdoc, int $shadingid, string $optlist) {}
+	function ps_shading_pattern($psdoc, int $shadingid, string $optlist): int|false {}
 
 	/**
 	 * Fills an area with a shading

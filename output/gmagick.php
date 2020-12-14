@@ -2274,7 +2274,7 @@ namespace {
 		 * @link https://php.net/manual/en/gmagick.hasnextimage.php
 		 * @since PECL gmagick >= Unknown
 		 */
-		public function hasnextimage() {}
+		public function hasnextimage(): mixed {}
 
 		/**
 		 * Checks if the object has a previous image
@@ -2283,7 +2283,7 @@ namespace {
 		 * @link https://php.net/manual/en/gmagick.haspreviousimage.php
 		 * @since PECL gmagick >= Unknown
 		 */
-		public function haspreviousimage() {}
+		public function haspreviousimage(): mixed {}
 
 		/**
 		 * Creates a new image as a copy
@@ -2293,7 +2293,7 @@ namespace {
 		 * @link https://php.net/manual/en/gmagick.implodeimage.php
 		 * @since PECL gmagick >= Unknown
 		 */
-		public function implodeimage(float $radius) {}
+		public function implodeimage(float $radius): mixed {}
 
 		/**
 		 * Adds a label to an image
@@ -2303,7 +2303,7 @@ namespace {
 		 * @link https://php.net/manual/en/gmagick.labelimage.php
 		 * @since PECL gmagick >= Unknown
 		 */
-		public function labelimage(string $label) {}
+		public function labelimage(string $label): mixed {}
 
 		/**
 		 * Adjusts the levels of an image
@@ -2316,7 +2316,7 @@ namespace {
 		 * @link https://php.net/manual/en/gmagick.levelimage.php
 		 * @since PECL gmagick >= Unknown
 		 */
-		public function levelimage(float $blackPoint, float $gamma, float $whitePoint, int $channel = Gmagick::CHANNEL_DEFAULT) {}
+		public function levelimage(float $blackPoint, float $gamma, float $whitePoint, int $channel = Gmagick::CHANNEL_DEFAULT): mixed {}
 
 		/**
 		 * Scales an image proportionally 2x
@@ -2325,7 +2325,7 @@ namespace {
 		 * @link https://php.net/manual/en/gmagick.magnifyimage.php
 		 * @since PECL gmagick >= Unknown
 		 */
-		public function magnifyimage() {}
+		public function magnifyimage(): mixed {}
 
 		/**
 		 * Replaces the colors of an image with the closest color from a reference image
@@ -2645,7 +2645,7 @@ namespace {
 		 * @link https://php.net/manual/en/gmagick.rotateimage.php
 		 * @since PECL gmagick >= Unknown
 		 */
-		public function rotateimage($color, float $degrees): \Gmagick {}
+		public function rotateimage(mixed $color, float $degrees): \Gmagick {}
 
 		/**
 		 * Scales the size of an image
@@ -2967,7 +2967,7 @@ namespace {
 		 * @link https://php.net/manual/en/gmagick.shearimage.php
 		 * @since PECL gmagick >= Unknown
 		 */
-		public function shearimage($color, float $xShear, float $yShear): \Gmagick {}
+		public function shearimage(mixed $color, float $xShear, float $yShear): \Gmagick {}
 
 		/**
 		 * Applies a solarizing effect to the image
@@ -3125,7 +3125,7 @@ namespace {
 		 * @link https://php.net/manual/en/gmagickdraw.getfont.php
 		 * @since PECL gmagick >= Unknown
 		 */
-		public function getfont() {}
+		public function getfont(): mixed {}
 
 		/**
 		 * Returns the font pointsize
@@ -3197,7 +3197,7 @@ namespace {
 		 * @link https://php.net/manual/en/gmagickdraw.gettextencoding.php
 		 * @since PECL gmagick >= Unknown
 		 */
-		public function gettextencoding() {}
+		public function gettextencoding(): mixed {}
 
 		/**
 		 * The line purpose
@@ -3300,7 +3300,7 @@ namespace {
 		 * @link https://php.net/manual/en/gmagickdraw.setfillcolor.php
 		 * @since PECL gmagick >= Unknown
 		 */
-		public function setfillcolor($color): \GmagickDraw {}
+		public function setfillcolor(mixed $color): \GmagickDraw {}
 
 		/**
 		 * The setfillopacity purpose
@@ -3360,7 +3360,7 @@ namespace {
 		 * @link https://php.net/manual/en/gmagickdraw.setstrokecolor.php
 		 * @since PECL gmagick >= Unknown
 		 */
-		public function setstrokecolor($color): \GmagickDraw {}
+		public function setstrokecolor(mixed $color): \GmagickDraw {}
 
 		/**
 		 * Specifies the opacity of stroked object outlines
@@ -3428,7 +3428,7 @@ namespace {
 		 * @link https://php.net/manual/en/gmagickpixel.getcolor.php
 		 * @since PECL gmagick >= Unknown
 		 */
-		public function getcolor(bool $as_array = FALSE, bool $normalize_array = FALSE) {}
+		public function getcolor(bool $as_array = FALSE, bool $normalize_array = FALSE): mixed {}
 
 		/**
 		 * Returns the color count associated with this color

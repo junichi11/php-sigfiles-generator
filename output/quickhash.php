@@ -387,7 +387,7 @@ namespace {
 		 * @link https://php.net/manual/en/quickhashintstringhash.get.php
 		 * @since PECL quickhash >= Unknown
 		 */
-		public function get(int $key) {}
+		public function get(int $key): mixed {}
 
 		/**
 		 * Returns the number of elements in the hash
@@ -534,7 +534,7 @@ namespace {
 		 * @link https://php.net/manual/en/quickhashstringinthash.get.php
 		 * @since No version information available, might only be in Git
 		 */
-		public function get(string $key) {}
+		public function get(string $key): mixed {}
 
 		/**
 		 * Returns the number of elements in the hash

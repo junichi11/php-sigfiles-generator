@@ -37,7 +37,7 @@ namespace {
 	 * @see shmop_close(), shmop_delete()
 	 * @since PHP 4 >= 4.0.4, PHP 5, PHP 7
 	 */
-	function shmop_open(int $key, string $mode, int $permissions, int $size) {}
+	function shmop_open(int $key, string $mode, int $permissions, int $size): \Shmop|false {}
 
 	/**
 	 * Read data from shared memory block

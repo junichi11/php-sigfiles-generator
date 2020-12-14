@@ -55,7 +55,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.gmp-binomial.php
 	 * @since PHP 7 >= 7.3.0
 	 */
-	function gmp_binomial($n, int $k) {}
+	function gmp_binomial(mixed $n, int $k): \GMP|false {}
 
 	/**
 	 * Clear bit
@@ -163,7 +163,7 @@ namespace {
 	 * @see gmp_import()
 	 * @since PHP 5 >= 5.6.1, PHP 7
 	 */
-	function gmp_export(\GMP $gmpnumber, int $word_size = 1, int $options = GMP_MSW_FIRST | GMP_NATIVE_ENDIAN) {}
+	function gmp_export(\GMP $gmpnumber, int $word_size = 1, int $options = GMP_MSW_FIRST | GMP_NATIVE_ENDIAN): string|false {}
 
 	/**
 	 * Factorial
@@ -173,7 +173,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.gmp-fact.php
 	 * @since PHP 4 >= 4.0.4, PHP 5, PHP 7
 	 */
-	function gmp_fact($a): \GMP {}
+	function gmp_fact(mixed $a): \GMP {}
 
 	/**
 	 * Calculate GCD
@@ -221,7 +221,7 @@ namespace {
 	 * @see gmp_export()
 	 * @since PHP 5 >= 5.6.1, PHP 7
 	 */
-	function gmp_import(string $data, int $word_size = 1, int $options = GMP_MSW_FIRST | GMP_NATIVE_ENDIAN) {}
+	function gmp_import(string $data, int $word_size = 1, int $options = GMP_MSW_FIRST | GMP_NATIVE_ENDIAN): \GMP|false {}
 
 	/**
 	 * Create GMP number
@@ -232,7 +232,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.gmp-init.php
 	 * @since PHP 4 >= 4.0.4, PHP 5, PHP 7
 	 */
-	function gmp_init($number, int $base = 0): \GMP {}
+	function gmp_init(mixed $number, int $base = 0): \GMP {}
 
 	/**
 	 * Convert GMP number to integer
@@ -277,7 +277,7 @@ namespace {
 	 * @see gmp_jacobi(), gmp_legendre()
 	 * @since PHP 7 >= 7.3.0
 	 */
-	function gmp_kronecker($a, $b): int {}
+	function gmp_kronecker(mixed $a, mixed $b): int {}
 
 	/**
 	 * Calculate LCM
@@ -289,7 +289,7 @@ namespace {
 	 * @see gmp_gcd()
 	 * @since PHP 7 >= 7.3.0
 	 */
-	function gmp_lcm($a, $b): \GMP {}
+	function gmp_lcm(mixed $a, mixed $b): \GMP {}
 
 	/**
 	 * Legendre symbol
@@ -365,7 +365,7 @@ namespace {
 	 * @see gmp_perfect_square()
 	 * @since PHP 7 >= 7.3.0
 	 */
-	function gmp_perfect_power($a): bool {}
+	function gmp_perfect_power(mixed $a): bool {}
 
 	/**
 	 * Perfect square check
@@ -461,7 +461,7 @@ namespace {
 	 * @see gmp_init(), gmp_random(), gmp_random_bits(), gmp_random_range()
 	 * @since PHP 7
 	 */
-	function gmp_random_seed($seed): void {}
+	function gmp_random_seed(mixed $seed): void {}
 
 	/**
 	 * Take the integer part of nth root

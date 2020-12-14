@@ -31,7 +31,7 @@ namespace {
 		 * @link https://php.net/manual/en/ffi.alignof.php
 		 * @since PHP 7 >= 7.4.0
 		 */
-		public static function alignof(&$ptr): int {}
+		public static function alignof(mixed &$ptr): int {}
 
 		/**
 		 * Dynamically constructs a new C array type
@@ -53,7 +53,7 @@ namespace {
 		 * @link https://php.net/manual/en/ffi.cast.php
 		 * @since PHP 7 >= 7.4.0
 		 */
-		public static function cast($type, \FFI\CData &$ptr): \FFI\CData {}
+		public static function cast(mixed $type, \FFI\CData &$ptr): \FFI\CData {}
 
 		/**
 		 * Creates a new FFI object
@@ -106,7 +106,7 @@ namespace {
 		 * @link https://php.net/manual/en/ffi.memcmp.php
 		 * @since PHP 7 >= 7.4.0
 		 */
-		public static function memcmp(&$ptr1, &$ptr2, int $size): int {}
+		public static function memcmp(mixed &$ptr1, mixed &$ptr2, int $size): int {}
 
 		/**
 		 * Copies one memory area to another
@@ -118,7 +118,7 @@ namespace {
 		 * @link https://php.net/manual/en/ffi.memcpy.php
 		 * @since PHP 7 >= 7.4.0
 		 */
-		public static function memcpy(\FFI\CData &$dst, &$src, int $size): void {}
+		public static function memcpy(\FFI\CData &$dst, mixed &$src, int $size): void {}
 
 		/**
 		 * Fills a memory area
@@ -142,7 +142,7 @@ namespace {
 		 * @link https://php.net/manual/en/ffi.new.php
 		 * @since PHP 7 >= 7.4.0
 		 */
-		public static function new($type, bool $owned = TRUE, bool $persistent = FALSE): \FFI\CData {}
+		public static function new(mixed $type, bool $owned = TRUE, bool $persistent = FALSE): \FFI\CData {}
 
 		/**
 		 * Instantiates an FFI object with C declarations parsed during preloading
@@ -162,7 +162,7 @@ namespace {
 		 * @link https://php.net/manual/en/ffi.sizeof.php
 		 * @since PHP 7 >= 7.4.0
 		 */
-		public static function sizeof(&$ptr): int {}
+		public static function sizeof(mixed &$ptr): int {}
 
 		/**
 		 * Creates a PHP string from a memory area
@@ -183,7 +183,7 @@ namespace {
 		 * @link https://php.net/manual/en/ffi.type.php
 		 * @since PHP 7 >= 7.4.0
 		 */
-		public static function type($type): \FFI\CType {}
+		public static function type(mixed $type): \FFI\CType {}
 
 		/**
 		 * Gets the FFI\CType of FFI\CData
@@ -271,7 +271,7 @@ namespace FFI {
 		 * @link https://php.net/manual/en/error.getcode.php
 		 * @since PHP 7, PHP 8
 		 */
-		final public function getCode() {}
+		final public function getCode(): mixed {}
 
 		/**
 		 * Gets the file in which the error occurred

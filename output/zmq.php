@@ -381,7 +381,7 @@ namespace {
 		 * @link https://php.net/manual/en/zmqcontext.getopt.php
 		 * @since PECL zmq >= 1.0.4
 		 */
-		public function getOpt(string $key) {}
+		public function getOpt(string $key): mixed {}
 
 		/**
 		 * Create a new socket
@@ -413,7 +413,7 @@ namespace {
 		 * @link https://php.net/manual/en/zmqcontext.setopt.php
 		 * @since PECL zmq >= 1.0.4
 		 */
-		public function setOpt(int $key, $value): \ZMQContext {}
+		public function setOpt(int $key, mixed $value): \ZMQContext {}
 	}
 
 	/**
@@ -471,7 +471,7 @@ namespace {
 		 * @link https://php.net/manual/en/zmqdevice.setidlecallback.php
 		 * @since No version information available, might only be in Git
 		 */
-		public function setIdleCallback(callable $cb_func, int $timeout, $user_data = NULL): \ZMQDevice {}
+		public function setIdleCallback(callable $cb_func, int $timeout, mixed $user_data = NULL): \ZMQDevice {}
 
 		/**
 		 * Set the idle timeout
@@ -493,7 +493,7 @@ namespace {
 		 * @link https://php.net/manual/en/zmqdevice.settimercallback.php
 		 * @since No version information available, might only be in Git
 		 */
-		public function setTimerCallback(callable $cb_func, int $timeout, $user_data = NULL): \ZMQDevice {}
+		public function setTimerCallback(callable $cb_func, int $timeout, mixed $user_data = NULL): \ZMQDevice {}
 
 		/**
 		 * Set the timer timeout
@@ -521,7 +521,7 @@ namespace {
 		 * @link https://php.net/manual/en/zmqpoll.add.php
 		 * @since PECL zmq >= 0.5.0
 		 */
-		public function add($entry, int $type): string {}
+		public function add(mixed $entry, int $type): string {}
 
 		/**
 		 * Clear the poll set
@@ -570,7 +570,7 @@ namespace {
 		 * @link https://php.net/manual/en/zmqpoll.remove.php
 		 * @since PECL zmq >= 0.5.0
 		 */
-		public function remove($item): bool {}
+		public function remove(mixed $item): bool {}
 	}
 
 	/**
@@ -650,7 +650,7 @@ namespace {
 		 * @link https://php.net/manual/en/zmqsocket.getsockopt.php
 		 * @since PECL zmq >= 0.5.0
 		 */
-		public function getSockOpt(string $key) {}
+		public function getSockOpt(string $key): mixed {}
 
 		/**
 		 * Get the socket type
@@ -721,7 +721,7 @@ namespace {
 		 * @link https://php.net/manual/en/zmqsocket.setsockopt.php
 		 * @since PECL zmq >= 0.5.0
 		 */
-		public function setSockOpt(int $key, $value): \ZMQSocket {}
+		public function setSockOpt(int $key, mixed $value): \ZMQSocket {}
 
 		/**
 		 * Unbind the socket

@@ -131,7 +131,7 @@ namespace {
 	 * @see radius_put_attr(), radius_get_vendor_attr(), radius_put_vendor_attr(), radius_send_request()
 	 * @since PECL radius >= 1.1.0
 	 */
-	function radius_get_attr($radius_handle) {}
+	function radius_get_attr($radius_handle): mixed {}
 
 	/**
 	 * Extracts the data from a tagged attribute
@@ -142,7 +142,7 @@ namespace {
 	 * @see radius_get_attr(), radius_get_tagged_attr_tag()
 	 * @since PECL radius >= 1.3.0
 	 */
-	function radius_get_tagged_attr_data(string $data) {}
+	function radius_get_tagged_attr_data(string $data): string|false {}
 
 	/**
 	 * Extracts the tag from a tagged attribute
@@ -153,7 +153,7 @@ namespace {
 	 * @see radius_get_attr(), radius_get_tagged_attr_data()
 	 * @since PECL radius >= 1.3.0
 	 */
-	function radius_get_tagged_attr_tag(string $data) {}
+	function radius_get_tagged_attr_tag(string $data): int|false {}
 
 	/**
 	 * Extracts a vendor specific attribute
@@ -307,7 +307,7 @@ namespace {
 	 * @see radius_put_addr(), radius_put_attr(), radius_put_int(), radius_put_string()
 	 * @since PECL radius >= 1.3.0
 	 */
-	function radius_salt_encrypt_attr($radius_handle, string $data) {}
+	function radius_salt_encrypt_attr($radius_handle, string $data): string|false {}
 
 	/**
 	 * Sends the request and waits for a reply

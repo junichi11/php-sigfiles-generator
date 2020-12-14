@@ -20,7 +20,7 @@ namespace {
 		 * @link https://php.net/manual/en/soapclient.soapclient.php
 		 * @since PHP 5, PHP 7
 		 */
-		public function SoapClient($wsdl, array $options = NULL) {}
+		public function SoapClient(mixed $wsdl, array $options = NULL) {}
 
 		/**
 		 * Calls a SOAP function (deprecated)
@@ -31,7 +31,7 @@ namespace {
 		 * @link https://php.net/manual/en/soapclient.call.php
 		 * @since PHP 5, PHP 7
 		 */
-		public function __call(string $function_name, array $arguments) {}
+		public function __call(string $function_name, array $arguments): mixed {}
 
 		/**
 		 * SoapClient constructor
@@ -147,7 +147,7 @@ namespace {
 		 * @link https://php.net/manual/en/soapclient.setsoapheaders.php
 		 * @since PHP 5 >= 5.0.5, PHP 7
 		 */
-		public function __setSoapHeaders($soapheaders = NULL): bool {}
+		public function __setSoapHeaders(mixed $soapheaders = NULL): bool {}
 
 		/**
 		 * Calls a SOAP function
@@ -162,7 +162,7 @@ namespace {
 		 * @see is_soap_fault()
 		 * @since PHP 5, PHP 7
 		 */
-		public function __soapCall(string $function_name, array $arguments, array $options = NULL, $input_headers = NULL, array &$output_headers = NULL) {}
+		public function __soapCall(string $function_name, array $arguments, array $options = NULL, mixed $input_headers = NULL, array &$output_headers = NULL): mixed {}
 	}
 
 	/**
@@ -245,7 +245,7 @@ namespace {
 		 * @link https://php.net/manual/en/exception.getcode.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
-		final public function getCode() {}
+		final public function getCode(): mixed {}
 
 		/**
 		 * Gets the file in which the exception was created
@@ -321,7 +321,7 @@ namespace {
 		 * @link https://php.net/manual/en/soapheader.soapheader.php
 		 * @since PHP 5, PHP 7
 		 */
-		public function SoapHeader(string $namespace, string $name, $data = NULL, bool $mustunderstand = FALSE, string $actor = NULL) {}
+		public function SoapHeader(string $namespace, string $name, mixed $data = NULL, bool $mustunderstand = FALSE, string $actor = NULL) {}
 
 		/**
 		 * SoapHeader constructor
@@ -348,7 +348,7 @@ namespace {
 		 * @link https://php.net/manual/en/soapparam.soapparam.php
 		 * @since PHP 5, PHP 7
 		 */
-		public function SoapParam($data, string $name) {}
+		public function SoapParam(mixed $data, string $name) {}
 
 		/**
 		 * SoapParam constructor
@@ -375,7 +375,7 @@ namespace {
 		 * @link https://php.net/manual/en/soapserver.soapserver.php
 		 * @since PHP 5, PHP 7
 		 */
-		public function SoapServer($wsdl, array $options = NULL) {}
+		public function SoapServer(mixed $wsdl, array $options = NULL) {}
 
 		/**
 		 * SoapServer constructor
@@ -393,7 +393,7 @@ namespace {
 		 * @link https://php.net/manual/en/soapserver.addfunction.php
 		 * @since PHP 5, PHP 7
 		 */
-		public function addFunction($functions): void {}
+		public function addFunction(mixed $functions): void {}
 
 		/**
 		 * Add a SOAP header to the response
@@ -447,7 +447,7 @@ namespace {
 		 * @link https://php.net/manual/en/soapserver.setclass.php
 		 * @since PHP 5, PHP 7
 		 */
-		public function setClass(string $class_name, ...$args): void {}
+		public function setClass(string $class_name, mixed ...$args): void {}
 
 		/**
 		 * Sets the object which will be used to handle SOAP requests
@@ -490,7 +490,7 @@ namespace {
 		 * @link https://php.net/manual/en/soapvar.soapvar.php
 		 * @since PHP 5, PHP 7
 		 */
-		public function SoapVar($data, string $encoding, string $type_name = NULL, string $type_namespace = NULL, string $node_name = NULL, string $node_namespace = NULL) {}
+		public function SoapVar(mixed $data, string $encoding, string $type_name = NULL, string $type_namespace = NULL, string $node_name = NULL, string $node_namespace = NULL) {}
 
 		/**
 		 * SoapVar constructor
@@ -509,7 +509,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.is-soap-fault.php
 	 * @since PHP 5, PHP 7
 	 */
-	function is_soap_fault($object): bool {}
+	function is_soap_fault(mixed $object): bool {}
 
 	/**
 	 * Set whether to use the SOAP error handler

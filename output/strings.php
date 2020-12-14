@@ -95,7 +95,7 @@ namespace {
 	 * @see convert_uuencode()
 	 * @since PHP 5, PHP 7
 	 */
-	function convert_uudecode(string $data) {}
+	function convert_uudecode(string $data): string|false {}
 
 	/**
 	 * Uuencode a string
@@ -106,7 +106,7 @@ namespace {
 	 * @see convert_uudecode(), base64_encode()
 	 * @since PHP 5, PHP 7
 	 */
-	function convert_uuencode(string $data) {}
+	function convert_uuencode(string $data): string|false {}
 
 	/**
 	 * Return information about characters used in a string
@@ -118,7 +118,7 @@ namespace {
 	 * @see strpos(), substr_count()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function count_chars(string $string, int $mode = 0) {}
+	function count_chars(string $string, int $mode = 0): mixed {}
 
 	/**
 	 * Calculates the crc32 polynomial of a string
@@ -167,7 +167,7 @@ namespace {
 	 * @see printf(), sprintf(), vprintf(), vsprintf(), vfprintf(), sscanf(), fscanf(), number_format(), date()
 	 * @since PHP 5, PHP 7
 	 */
-	function fprintf($handle, string $format, ...$values): int {}
+	function fprintf($handle, string $format, mixed ...$values): int {}
 
 	/**
 	 * Returns the translation table used by htmlspecialchars() and htmlentities()
@@ -215,7 +215,7 @@ namespace {
 	 * @see bin2hex(), unpack()
 	 * @since PHP 5 >= 5.4.0, PHP 7
 	 */
-	function hex2bin(string $data) {}
+	function hex2bin(string $data): string|false {}
 
 	/**
 	 * Convert HTML entities to their corresponding characters
@@ -371,7 +371,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.metaphone.php
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function metaphone(string $str, int $phonemes = 0) {}
+	function metaphone(string $str, int $phonemes = 0): string|false {}
 
 	/**
 	 * Formats a number as a currency string
@@ -455,7 +455,7 @@ namespace {
 	 * @see print, sprintf(), fprintf(), vprintf(), vsprintf(), vfprintf(), sscanf(), fscanf(), number_format(), date(), flush()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function printf(string $format, ...$values): int {}
+	function printf(string $format, mixed ...$values): int {}
 
 	/**
 	 * Convert a quoted-printable string to an 8 bit string
@@ -560,7 +560,7 @@ namespace {
 	 * @see levenshtein(), metaphone(), similar_text()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function soundex(string $str) {}
+	function soundex(string $str): string|false {}
 
 	/**
 	 * Return a formatted string
@@ -572,7 +572,7 @@ namespace {
 	 * @see printf(), fprintf(), vprintf(), vsprintf(), vfprintf(), sscanf(), fscanf(), number_format(), date()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function sprintf(string $format, ...$values) {}
+	function sprintf(string $format, mixed ...$values): string|false {}
 
 	/**
 	 * Parses input from a string according to a format
@@ -585,7 +585,7 @@ namespace {
 	 * @see printf(), sprintf(), fprintf(), vprintf(), vsprintf(), vfprintf(), fscanf(), number_format(), date()
 	 * @since PHP 4 >= 4.0.1, PHP 5, PHP 7
 	 */
-	function sscanf(string $str, string $format, &...$vars) {}
+	function sscanf(string $str, string $format, mixed &...$vars): mixed {}
 
 	/**
 	 * Determine if a string contains a given substring
@@ -637,7 +637,7 @@ namespace {
 	 * @see str_replace(), preg_replace(), strtr()
 	 * @since PHP 5, PHP 7
 	 */
-	function str_ireplace($search, $replace, $subject, int &$count = NULL) {}
+	function str_ireplace(mixed $search, mixed $replace, mixed $subject, int &$count = NULL): mixed {}
 
 	/**
 	 * Pad a string to a certain length with another string
@@ -676,7 +676,7 @@ namespace {
 	 * @see str_ireplace(), substr_replace(), preg_replace(), strtr()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function str_replace($search, $replace, $subject, int &$count = NULL) {}
+	function str_replace(mixed $search, mixed $replace, mixed $subject, int &$count = NULL): mixed {}
 
 	/**
 	 * Perform the rot13 transform on a string
@@ -734,7 +734,7 @@ namespace {
 	 * @see explode(), preg_split(), split(), count_chars(), substr_count()
 	 * @since PHP 4 >= 4.3.0, PHP 5, PHP 7
 	 */
-	function str_word_count(string $string, int $format = 0, string $charlist = NULL) {}
+	function str_word_count(string $string, int $format = 0, string $charlist = NULL): mixed {}
 
 	/**
 	 * Binary safe case-insensitive string comparison
@@ -758,7 +758,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.strchr.php
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function strchr(string $haystack, $needle, bool $before_needle = FALSE): string {}
+	function strchr(string $haystack, mixed $needle, bool $before_needle = FALSE): string {}
 
 	/**
 	 * Binary safe string comparison
@@ -808,7 +808,7 @@ namespace {
 	 * @see htmlspecialchars()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function strip_tags(string $str, $allowable_tags = NULL): string {}
+	function strip_tags(string $str, mixed $allowable_tags = NULL): string {}
 
 	/**
 	 * Un-quote string quoted with addcslashes()
@@ -832,7 +832,7 @@ namespace {
 	 * @see mb_stripos(), str_contains(), str_ends_with(), str_starts_with(), strpos(), strrpos(), strripos(), stristr(), substr(), str_ireplace()
 	 * @since PHP 5, PHP 7
 	 */
-	function stripos(string $haystack, $needle, int $offset = 0): int {}
+	function stripos(string $haystack, mixed $needle, int $offset = 0): int {}
 
 	/**
 	 * Un-quotes a quoted string
@@ -856,7 +856,7 @@ namespace {
 	 * @see strstr(), strrchr(), stripos(), strpbrk(), preg_match()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function stristr(string $haystack, $needle, bool $before_needle = FALSE): string {}
+	function stristr(string $haystack, mixed $needle, bool $before_needle = FALSE): string {}
 
 	/**
 	 * Get string length
@@ -942,7 +942,7 @@ namespace {
 	 * @see stripos(), str_contains(), str_ends_with(), str_starts_with(), strrpos(), strripos(), strstr(), strpbrk(), substr(), preg_match()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function strpos(string $haystack, $needle, int $offset = 0): int {}
+	function strpos(string $haystack, mixed $needle, int $offset = 0): int {}
 
 	/**
 	 * Find the last occurrence of a character in a string
@@ -954,7 +954,7 @@ namespace {
 	 * @see strstr(), strrpos()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function strrchr(string $haystack, $needle): string {}
+	function strrchr(string $haystack, mixed $needle): string {}
 
 	/**
 	 * Reverse a string
@@ -977,7 +977,7 @@ namespace {
 	 * @see strpos(), stripos(), strrpos(), strrchr(), stristr(), substr()
 	 * @since PHP 5, PHP 7
 	 */
-	function strripos(string $haystack, $needle, int $offset = 0): int {}
+	function strripos(string $haystack, mixed $needle, int $offset = 0): int {}
 
 	/**
 	 * Find the position of the last occurrence of a substring in a string
@@ -990,7 +990,7 @@ namespace {
 	 * @see strpos(), stripos(), strripos(), strrchr(), substr()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function strrpos(string $haystack, $needle, int $offset = 0): int {}
+	function strrpos(string $haystack, mixed $needle, int $offset = 0): int {}
 
 	/**
 	 * Finds the length of the initial segment of a string consisting entirely of characters contained within a given mask
@@ -1017,7 +1017,7 @@ namespace {
 	 * @see stristr(), strrchr(), strpos(), strpbrk(), preg_match()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function strstr(string $haystack, $needle, bool $before_needle = FALSE): string {}
+	function strstr(string $haystack, mixed $needle, bool $before_needle = FALSE): string {}
 
 	/**
 	 * Tokenize string
@@ -1077,7 +1077,7 @@ namespace {
 	 * @see strrchr(), substr_replace(), preg_match(), trim(), mb_substr(), wordwrap()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function substr(string $string, int $start, int $length = NULL) {}
+	function substr(string $string, int $start, int $length = NULL): string|false {}
 
 	/**
 	 * Binary safe comparison of two strings from an offset, up to length characters
@@ -1120,7 +1120,7 @@ namespace {
 	 * @see str_replace(), substr()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function substr_replace($string, $replacement, $start, $length = NULL) {}
+	function substr_replace(mixed $string, mixed $replacement, mixed $start, mixed $length = NULL): mixed {}
 
 	/**
 	 * Strip whitespace (or other characters) from the beginning and end of a string
@@ -1192,7 +1192,7 @@ namespace {
 	 * @see printf(), sprintf(), fprintf(), vprintf(), vfprintf(), sscanf(), fscanf(), number_format(), date()
 	 * @since PHP 4 >= 4.1.0, PHP 5, PHP 7
 	 */
-	function vsprintf(string $format, array $args) {}
+	function vsprintf(string $format, array $args): string|false {}
 
 	/**
 	 * Wraps a string to a given number of characters

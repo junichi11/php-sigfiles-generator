@@ -101,7 +101,7 @@ namespace {
 	 * @see pcntl_fork(), pcntl_waitpid()
 	 * @since PHP 4 >= 4.1.0, PHP 5, PHP 7
 	 */
-	function pcntl_signal(int $signo, $handler, bool $restart_syscalls = TRUE): bool {}
+	function pcntl_signal(int $signo, callable|int $handler, bool $restart_syscalls = TRUE): bool {}
 
 	/**
 	 * Calls signal handlers for pending signals
@@ -122,7 +122,7 @@ namespace {
 	 * @see pcntl_signal()
 	 * @since PHP 7 >= 7.1.0
 	 */
-	function pcntl_signal_get_handler(int $signo) {}
+	function pcntl_signal_get_handler(int $signo): mixed {}
 
 	/**
 	 * Sets and retrieves blocked signals
@@ -172,7 +172,7 @@ namespace {
 	 * @see pcntl_get_last_error()
 	 * @since PHP 5 >= 5.3.4, PHP 7
 	 */
-	function pcntl_strerror(int $errno) {}
+	function pcntl_strerror(int $errno): string|false {}
 
 	/**
 	 * Waits on or returns the status of a forked child

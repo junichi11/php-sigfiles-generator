@@ -89,7 +89,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.phpdbg-exec.php
 	 * @since PHP 5 >= 5.6.0, PHP 7
 	 */
-	function phpdbg_exec(string $context = NULL) {}
+	function phpdbg_exec(string $context = NULL): mixed {}
 
 	/**
 	 * 

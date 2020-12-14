@@ -246,7 +246,7 @@ namespace {
 		const ATTR_ORACLE_NULLS = 11;
 
 		/**
-		 * @var integer Request a persistent connection, rather than creating a new connection. See Connections and Connection management for more information on this attribute.
+		 * @var mixed Request a persistent connection, rather than creating a new connection. See Connections and Connection management for more information on this attribute.
 		 * @link https://php.net/manual/en/pdo.constants.php
 		 */
 		const ATTR_PERSISTENT = 12;
@@ -526,7 +526,7 @@ namespace {
 		 * @see PDO::setAttribute(), PDOStatement::getAttribute(), PDOStatement::setAttribute()
 		 * @since PHP 5 >= 5.1.0, PHP 7, PECL pdo >= 0.2.0
 		 */
-		public function getAttribute(int $attribute) {}
+		public function getAttribute(int $attribute): mixed {}
 
 		/**
 		 * Return an array of available PDO drivers
@@ -610,7 +610,7 @@ namespace {
 		 * @link https://php.net/manual/en/pdo.setattribute.php
 		 * @since PHP 5 >= 5.1.0, PHP 7, PECL pdo >= 0.1.0
 		 */
-		public function setAttribute(int $attribute, $value): bool {}
+		public function setAttribute(int $attribute, mixed $value): bool {}
 	}
 
 	/**
@@ -675,7 +675,7 @@ namespace {
 		 * @link https://php.net/manual/en/exception.getcode.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
-		final public function getCode() {}
+		final public function getCode(): mixed {}
 
 		/**
 		 * Gets the file in which the exception was created
@@ -758,7 +758,7 @@ namespace {
 		 * @see PDOStatement::execute(), PDOStatement::fetch(), PDOStatement::fetchAll(), PDOStatement::fetchColumn()
 		 * @since PHP 5 >= 5.1.0, PHP 7, PECL pdo >= 0.1.0
 		 */
-		public function bindColumn($column, &$param, int $type = NULL, int $maxlen = NULL, $driverdata = NULL): bool {}
+		public function bindColumn(mixed $column, mixed &$param, int $type = NULL, int $maxlen = NULL, mixed $driverdata = NULL): bool {}
 
 		/**
 		 * Binds a parameter to the specified variable name
@@ -773,7 +773,7 @@ namespace {
 		 * @see PDO::prepare(), PDOStatement::execute(), PDOStatement::bindValue()
 		 * @since PHP 5 >= 5.1.0, PHP 7, PECL pdo >= 0.1.0
 		 */
-		public function bindParam($parameter, &$variable, int $data_type = PDO::PARAM_STR, int $length = NULL, $driver_options = NULL): bool {}
+		public function bindParam(mixed $parameter, mixed &$variable, int $data_type = PDO::PARAM_STR, int $length = NULL, mixed $driver_options = NULL): bool {}
 
 		/**
 		 * Binds a value to a parameter
@@ -786,7 +786,7 @@ namespace {
 		 * @see PDO::prepare(), PDOStatement::execute(), PDOStatement::bindParam()
 		 * @since PHP 5 >= 5.1.0, PHP 7, PECL pdo >= 1.0.0
 		 */
-		public function bindValue($parameter, $value, int $data_type = PDO::PARAM_STR): bool {}
+		public function bindValue(mixed $parameter, mixed $value, int $data_type = PDO::PARAM_STR): bool {}
 
 		/**
 		 * Closes the cursor, enabling the statement to be executed again
@@ -858,7 +858,7 @@ namespace {
 		 * @see PDO::prepare(), PDOStatement::execute(), PDOStatement::fetchAll(), PDOStatement::fetchColumn(), PDOStatement::fetchObject(), PDOStatement::setFetchMode()
 		 * @since PHP 5 >= 5.1.0, PHP 7, PECL pdo >= 0.1.0
 		 */
-		public function fetch(int $fetch_style = NULL, int $cursor_orientation = PDO::FETCH_ORI_NEXT, int $cursor_offset = 0) {}
+		public function fetch(int $fetch_style = NULL, int $cursor_orientation = PDO::FETCH_ORI_NEXT, int $cursor_offset = 0): mixed {}
 
 		/**
 		 * Returns an array containing all of the result set rows
@@ -870,7 +870,7 @@ namespace {
 		 * @see PDO::query(), PDOStatement::fetch(), PDOStatement::fetchColumn(), PDO::prepare(), PDOStatement::setFetchMode()
 		 * @since PHP 5 >= 5.1.0, PHP 7, PECL pdo >= 0.1.0
 		 */
-		public function fetchAll(int $fetch_style = NULL, $fetch_argument = NULL, array $ctor_args = array()): array {}
+		public function fetchAll(int $fetch_style = NULL, mixed $fetch_argument = NULL, array $ctor_args = array()): array {}
 
 		/**
 		 * Returns a single column from the next row of a result set
@@ -881,7 +881,7 @@ namespace {
 		 * @see PDO::query(), PDOStatement::fetch(), PDOStatement::fetchAll(), PDO::prepare(), PDOStatement::setFetchMode()
 		 * @since PHP 5 >= 5.1.0, PHP 7, PECL pdo >= 0.9.0
 		 */
-		public function fetchColumn(int $column_number = 0) {}
+		public function fetchColumn(int $column_number = 0): mixed {}
 
 		/**
 		 * Fetches the next row and returns it as an object
@@ -893,7 +893,7 @@ namespace {
 		 * @see PDOStatement::fetch()
 		 * @since PHP 5 >= 5.1.0, PHP 7, PECL pdo >= 0.2.4
 		 */
-		public function fetchObject(string $class_name = "stdClass", array $ctor_args = NULL) {}
+		public function fetchObject(string $class_name = "stdClass", array $ctor_args = NULL): object|false {}
 
 		/**
 		 * Retrieve a statement attribute
@@ -904,7 +904,7 @@ namespace {
 		 * @see PDO::getAttribute(), PDO::setAttribute(), PDOStatement::setAttribute()
 		 * @since PHP 5 >= 5.1.0, PHP 7, PECL pdo >= 0.2.0
 		 */
-		public function getAttribute(int $attribute) {}
+		public function getAttribute(int $attribute): mixed {}
 
 		/**
 		 * Returns metadata for a column in a result set
@@ -947,7 +947,7 @@ namespace {
 		 * @see PDO::getAttribute(), PDO::setAttribute(), PDOStatement::getAttribute()
 		 * @since PHP 5 >= 5.1.0, PHP 7, PECL pdo >= 0.2.0
 		 */
-		public function setAttribute(int $attribute, $value): bool {}
+		public function setAttribute(int $attribute, mixed $value): bool {}
 
 		/**
 		 * Set the default fetch mode for this statement

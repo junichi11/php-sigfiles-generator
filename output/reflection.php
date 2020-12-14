@@ -72,7 +72,7 @@ namespace {
 		 * @link https://php.net/manual/en/reflectionclass.construct.php
 		 * @since PHP 5, PHP 7
 		 */
-		public function __construct($argument) {}
+		public function __construct(mixed $argument) {}
 
 		/**
 		 * Returns the string representation of the ReflectionClass object
@@ -92,7 +92,7 @@ namespace {
 		 * @link https://php.net/manual/en/reflectionclass.export.php
 		 * @since PHP 5, PHP 7
 		 */
-		public static function export($argument, bool $return = FALSE): string {}
+		public static function export(mixed $argument, bool $return = FALSE): string {}
 
 		/**
 		 * Gets defined constant
@@ -102,7 +102,7 @@ namespace {
 		 * @link https://php.net/manual/en/reflectionclass.getconstant.php
 		 * @since PHP 5, PHP 7
 		 */
-		public function getConstant(string $name) {}
+		public function getConstant(string $name): mixed {}
 
 		/**
 		 * Gets constants
@@ -279,7 +279,7 @@ namespace {
 		 * @link https://php.net/manual/en/reflectionclass.getreflectionconstant.php
 		 * @since PHP 7 >= 7.1.0
 		 */
-		public function getReflectionConstant(string $name) {}
+		public function getReflectionConstant(string $name): \ReflectionClassConstant|false {}
 
 		/**
 		 * Gets class constants
@@ -326,7 +326,7 @@ namespace {
 		 * @link https://php.net/manual/en/reflectionclass.getstaticpropertyvalue.php
 		 * @since PHP 5 >= 5.1.2, PHP 7
 		 */
-		public function getStaticPropertyValue(string $name, &$def_value = NULL) {}
+		public function getStaticPropertyValue(string $name, mixed &$def_value = NULL): mixed {}
 
 		/**
 		 * Returns an array of trait aliases
@@ -394,7 +394,7 @@ namespace {
 		 * @see interface_exists()
 		 * @since PHP 5, PHP 7
 		 */
-		public function implementsInterface($interface): bool {}
+		public function implementsInterface(\ReflectionClass|string $interface): bool {}
 
 		/**
 		 * Checks if in namespace
@@ -497,7 +497,7 @@ namespace {
 		 * @see is_subclass_of(), get_parent_class()
 		 * @since PHP 5, PHP 7
 		 */
-		public function isSubclassOf($class): bool {}
+		public function isSubclassOf(mixed $class): bool {}
 
 		/**
 		 * Returns whether this is a trait
@@ -525,7 +525,7 @@ namespace {
 		 * @link https://php.net/manual/en/reflectionclass.newinstance.php
 		 * @since PHP 5, PHP 7
 		 */
-		public function newInstance(...$args): object {}
+		public function newInstance(mixed ...$args): object {}
 
 		/**
 		 * Creates a new class instance from given arguments
@@ -555,7 +555,7 @@ namespace {
 		 * @link https://php.net/manual/en/reflectionclass.setstaticpropertyvalue.php
 		 * @since PHP 5 >= 5.1.2, PHP 7
 		 */
-		public function setStaticPropertyValue(string $name, $value): void {}
+		public function setStaticPropertyValue(string $name, mixed $value): void {}
 	}
 
 	/**
@@ -586,7 +586,7 @@ namespace {
 		 * @link https://php.net/manual/en/reflectionclassconstant.construct.php
 		 * @since PHP 7 >= 7.1.0
 		 */
-		public function __construct($class, string $name) {}
+		public function __construct(mixed $class, string $name) {}
 
 		/**
 		 * Returns the string representation of the ReflectionClassConstant object
@@ -607,7 +607,7 @@ namespace {
 		 * @link https://php.net/manual/en/reflectionclassconstant.export.php
 		 * @since PHP 7 >= 7.1.0
 		 */
-		public static function export($class, string $name, bool $return = NULL): string {}
+		public static function export(mixed $class, string $name, bool $return = NULL): string {}
 
 		/**
 		 * Gets declaring class
@@ -651,7 +651,7 @@ namespace {
 		 * @link https://php.net/manual/en/reflectionclassconstant.getvalue.php
 		 * @since PHP 7 >= 7.1.0
 		 */
-		public function getValue() {}
+		public function getValue(): mixed {}
 
 		/**
 		 * Checks if class constant is private
@@ -737,7 +737,7 @@ namespace {
 		 * @link https://php.net/manual/en/exception.getcode.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
-		final public function getCode() {}
+		final public function getCode(): mixed {}
 
 		/**
 		 * Gets the file in which the exception was created
@@ -985,7 +985,7 @@ namespace {
 		 * @link https://php.net/manual/en/reflectionfunction.construct.php
 		 * @since PHP 5, PHP 7
 		 */
-		public function __construct($name) {}
+		public function __construct(mixed $name) {}
 
 		/**
 		 * To string
@@ -1189,7 +1189,7 @@ namespace {
 		 * @see call_user_func()
 		 * @since PHP 5, PHP 7
 		 */
-		public function invoke(...$args) {}
+		public function invoke(mixed ...$args): mixed {}
 
 		/**
 		 * Invokes function args
@@ -1200,7 +1200,7 @@ namespace {
 		 * @see call_user_func_array()
 		 * @since PHP 5 >= 5.1.2, PHP 7
 		 */
-		public function invokeArgs(array $args) {}
+		public function invokeArgs(array $args): mixed {}
 
 		/**
 		 * Checks if closure
@@ -1680,7 +1680,7 @@ namespace {
 		 * @link https://php.net/manual/en/reflectionmethod.construct.php
 		 * @since PHP 5, PHP 7
 		 */
-		public function __construct($class, string $name) {}
+		public function __construct(string|object $class, string $name) {}
 
 		/**
 		 * Returns the string representation of the Reflection method object
@@ -1914,7 +1914,7 @@ namespace {
 		 * @see call_user_func()
 		 * @since PHP 5, PHP 7
 		 */
-		public function invoke(object $object, ...$args) {}
+		public function invoke(object $object, mixed ...$args): mixed {}
 
 		/**
 		 * Invoke args
@@ -1926,7 +1926,7 @@ namespace {
 		 * @see call_user_func_array()
 		 * @since PHP 5 >= 5.1.2, PHP 7
 		 */
-		public function invokeArgs(object $object, array $args) {}
+		public function invokeArgs(object $object, array $args): mixed {}
 
 		/**
 		 * Checks if method is abstract
@@ -2167,7 +2167,7 @@ namespace {
 		 * @link https://php.net/manual/en/reflectionclass.getconstant.php
 		 * @since PHP 5, PHP 7
 		 */
-		public function getConstant(string $name) {}
+		public function getConstant(string $name): mixed {}
 
 		/**
 		 * Gets constants
@@ -2344,7 +2344,7 @@ namespace {
 		 * @link https://php.net/manual/en/reflectionclass.getreflectionconstant.php
 		 * @since PHP 7 >= 7.1.0
 		 */
-		public function getReflectionConstant(string $name) {}
+		public function getReflectionConstant(string $name): \ReflectionClassConstant|false {}
 
 		/**
 		 * Gets class constants
@@ -2391,7 +2391,7 @@ namespace {
 		 * @link https://php.net/manual/en/reflectionclass.getstaticpropertyvalue.php
 		 * @since PHP 5 >= 5.1.2, PHP 7
 		 */
-		public function getStaticPropertyValue(string $name, &$def_value = NULL) {}
+		public function getStaticPropertyValue(string $name, mixed &$def_value = NULL): mixed {}
 
 		/**
 		 * Returns an array of trait aliases
@@ -2459,7 +2459,7 @@ namespace {
 		 * @see interface_exists()
 		 * @since PHP 5, PHP 7
 		 */
-		public function implementsInterface($interface): bool {}
+		public function implementsInterface(\ReflectionClass|string $interface): bool {}
 
 		/**
 		 * Checks if in namespace
@@ -2562,7 +2562,7 @@ namespace {
 		 * @see is_subclass_of(), get_parent_class()
 		 * @since PHP 5, PHP 7
 		 */
-		public function isSubclassOf($class): bool {}
+		public function isSubclassOf(mixed $class): bool {}
 
 		/**
 		 * Returns whether this is a trait
@@ -2590,7 +2590,7 @@ namespace {
 		 * @link https://php.net/manual/en/reflectionclass.newinstance.php
 		 * @since PHP 5, PHP 7
 		 */
-		public function newInstance(...$args): object {}
+		public function newInstance(mixed ...$args): object {}
 
 		/**
 		 * Creates a new class instance from given arguments
@@ -2620,7 +2620,7 @@ namespace {
 		 * @link https://php.net/manual/en/reflectionclass.setstaticpropertyvalue.php
 		 * @since PHP 5 >= 5.1.2, PHP 7
 		 */
-		public function setStaticPropertyValue(string $name, $value): void {}
+		public function setStaticPropertyValue(string $name, mixed $value): void {}
 	}
 
 	/**
@@ -2655,7 +2655,7 @@ namespace {
 		 * @link https://php.net/manual/en/reflectionparameter.construct.php
 		 * @since PHP 5, PHP 7
 		 */
-		public function __construct(callable $function, $parameter) {}
+		public function __construct(callable $function, mixed $parameter) {}
 
 		/**
 		 * To string
@@ -2730,7 +2730,7 @@ namespace {
 		 * @link https://php.net/manual/en/reflectionparameter.getdefaultvalue.php
 		 * @since PHP 5 >= 5.0.3, PHP 7
 		 */
-		public function getDefaultValue() {}
+		public function getDefaultValue(): mixed {}
 
 		/**
 		 * Returns the default value's constant name if default value is constant or null
@@ -2902,7 +2902,7 @@ namespace {
 		 * @link https://php.net/manual/en/reflectionproperty.construct.php
 		 * @since PHP 5, PHP 7
 		 */
-		public function __construct($class, string $name) {}
+		public function __construct(mixed $class, string $name) {}
 
 		/**
 		 * To string
@@ -2923,7 +2923,7 @@ namespace {
 		 * @link https://php.net/manual/en/reflectionproperty.export.php
 		 * @since PHP 5, PHP 7
 		 */
-		public static function export($class, string $name, bool $return = NULL): string {}
+		public static function export(mixed $class, string $name, bool $return = NULL): string {}
 
 		/**
 		 * Gets declaring class
@@ -2941,7 +2941,7 @@ namespace {
 		 * @link https://php.net/manual/en/reflectionproperty.getdefaultvalue.php
 		 * @since PHP 8
 		 */
-		public function getDefaultValue() {}
+		public function getDefaultValue(): mixed {}
 
 		/**
 		 * Gets the property doc comment
@@ -2977,7 +2977,7 @@ namespace {
 		 * @link https://php.net/manual/en/reflectionproperty.gettype.php
 		 * @since PHP 7 >= 7.4.0
 		 */
-		public function getType() {}
+		public function getType(): \ReflectionType|null {}
 
 		/**
 		 * Gets value
@@ -2987,7 +2987,7 @@ namespace {
 		 * @link https://php.net/manual/en/reflectionproperty.getvalue.php
 		 * @since PHP 5, PHP 7
 		 */
-		public function getValue(object $object = NULL) {}
+		public function getValue(object $object = NULL): mixed {}
 
 		/**
 		 * Checks if property has a default value declared
@@ -3081,7 +3081,7 @@ namespace {
 		 * @link https://php.net/manual/en/reflectionproperty.setvalue.php
 		 * @since PHP 5, PHP 7
 		 */
-		public function setValue(object $object, $value): void {}
+		public function setValue(object $object, mixed $value): void {}
 	}
 
 	/**
@@ -3100,7 +3100,7 @@ namespace {
 		 * @link https://php.net/manual/en/reflectionreference.fromarrayelement.php
 		 * @since PHP 7 >= 7.4.0
 		 */
-		public static function fromArrayElement(array $array, $key): \ReflectionReference {}
+		public static function fromArrayElement(array $array, mixed $key): \ReflectionReference {}
 
 		/**
 		 * Get unique ID of a reference
@@ -3109,7 +3109,7 @@ namespace {
 		 * @link https://php.net/manual/en/reflectionreference.getid.php
 		 * @since PHP 7 >= 7.4.0
 		 */
-		public function getId() {}
+		public function getId(): mixed {}
 	}
 
 	/**

@@ -14,7 +14,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.mhash.php
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function mhash(int $algo, string $data, $key = NULL) {}
+	function mhash(int $algo, string $data, string|null $key = NULL): string|false {}
 
 	/**
 	 * Gets the highest available hash ID
@@ -33,7 +33,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.mhash-get-block-size.php
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function mhash_get_block_size(int $algo) {}
+	function mhash_get_block_size(int $algo): int|false {}
 
 	/**
 	 * Gets the name of the specified hash
@@ -43,7 +43,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.mhash-get-hash-name.php
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function mhash_get_hash_name(int $algo) {}
+	function mhash_get_hash_name(int $algo): string|false {}
 
 	/**
 	 * Generates a key
@@ -56,6 +56,6 @@ namespace {
 	 * @link https://php.net/manual/en/function.mhash-keygen-s2k.php
 	 * @since PHP 4 >= 4.0.4, PHP 5, PHP 7
 	 */
-	function mhash_keygen_s2k(int $algo, string $password, string $salt, int $length) {}
+	function mhash_keygen_s2k(int $algo, string $password, string $salt, int $length): string|false {}
 
 }

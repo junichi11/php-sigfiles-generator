@@ -221,7 +221,7 @@ namespace {
 	 * @see ingres_query(), ingres_fetch_array(), ingres_fetch_assoc(), ingres_fetch_object(), ingres_fetch_row()
 	 * @since PHP 4 >= 4.0.2, PHP 5 < 5.1.0, PECL ingres >= 1.0.0
 	 */
-	function ingres_field_name($result, int $index) {}
+	function ingres_field_name($result, int $index): string|false {}
 
 	/**
 	 * Test if a field is nullable
@@ -269,7 +269,7 @@ namespace {
 	 * @see ingres_query(), ingres_fetch_array(), ingres_fetch_assoc(), ingres_fetch_object(), ingres_fetch_row()
 	 * @since PHP 4 >= 4.0.2, PHP 5 < 5.1.0, PECL ingres >= 1.0.0
 	 */
-	function ingres_field_type($result, int $index) {}
+	function ingres_field_type($result, int $index): string|false {}
 
 	/**
 	 * Free the resources associated with a result identifier
@@ -338,7 +338,7 @@ namespace {
 	 * @see ingres_unbuffered_query(), ingres_fetch_array(), ingres_fetch_assoc(), ingres_fetch_object(), ingres_fetch_row(), ingres_commit(), ingres_rollback(), ingres_autocommit(), ingres_set_environment(), ingres_errno(), ingres_error()
 	 * @since PECL ingres >= 1.1.0
 	 */
-	function ingres_prepare($link, string $query) {}
+	function ingres_prepare($link, string $query): mixed {}
 
 	/**
 	 * Send an SQL query to Ingres
@@ -352,7 +352,7 @@ namespace {
 	 * @see ingres_unbuffered_query(), ingres_fetch_array(), ingres_fetch_assoc(), ingres_fetch_object(), ingres_fetch_row(), ingres_commit(), ingres_rollback(), ingres_autocommit(), ingres_set_environment(), ingres_errno(), ingres_error()
 	 * @since PHP 4 >= 4.0.2, PHP 5 < 5.1.0, PECL ingres >= 1.0.0
 	 */
-	function ingres_query($link, string $query, array $params = NULL, string $types = NULL) {}
+	function ingres_query($link, string $query, array $params = NULL, string $types = NULL): mixed {}
 
 	/**
 	 * Set the row position before fetching data
@@ -401,7 +401,7 @@ namespace {
 	 * @see ingres_query(), ingres_fetch_array(), ingres_fetch_assoc(), ingres_fetch_object(), ingres_fetch_row(), ingres_commit(), ingres_rollback(), ingres_autocommit(), ingres_set_environment(), ingres_errno(), ingres_error()
 	 * @since No version information available, might only be in Git
 	 */
-	function ingres_unbuffered_query($link, string $query, array $params = NULL, string $types = NULL) {}
+	function ingres_unbuffered_query($link, string $query, array $params = NULL, string $types = NULL): mixed {}
 
 	/**
 	 * Specifies the version of Ingres OpenAPI that the extension was built against. Available since version 1.2.0 of the PECL extension.

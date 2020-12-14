@@ -14,7 +14,7 @@ namespace {
 	 * @see define(), runkit7_constant_redefine(), runkit7_constant_remove()
 	 * @since PECL runkit7 >= Unknown
 	 */
-	function runkit7_constant_add(string $constname, $value, int $newVisibility = NULL): bool {}
+	function runkit7_constant_add(string $constname, mixed $value, int $newVisibility = NULL): bool {}
 
 	/**
 	 * Redefine an already defined constant
@@ -26,7 +26,7 @@ namespace {
 	 * @see runkit7_constant_add(), runkit7_constant_remove()
 	 * @since PECL runkit7 >= Unknown
 	 */
-	function runkit7_constant_redefine(string $constname, $value, string $newVisibility = NULL): bool {}
+	function runkit7_constant_redefine(string $constname, mixed $value, string $newVisibility = NULL): bool {}
 
 	/**
 	 * Remove/Delete an already defined constant

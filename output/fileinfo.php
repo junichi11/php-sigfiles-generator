@@ -59,7 +59,7 @@ namespace {
 	 * @see finfo_file()
 	 * @since PHP 5 >= 5.3.0, PHP 7, PECL fileinfo >= 0.1.0
 	 */
-	function finfo_buffer($finfo, string $string, int $flags = FILEINFO_NONE, $context = NULL) {}
+	function finfo_buffer($finfo, string $string, int $flags = FILEINFO_NONE, $context = NULL): string|false {}
 
 	/**
 	 * Close fileinfo resource
@@ -83,7 +83,7 @@ namespace {
 	 * @see finfo_buffer()
 	 * @since PHP >= 5.3.0, PECL fileinfo >= 0.1.0
 	 */
-	function finfo_file($finfo, string $filename, int $flags = FILEINFO_NONE, $context = NULL) {}
+	function finfo_file($finfo, string $filename, int $flags = FILEINFO_NONE, $context = NULL): string|false {}
 
 	/**
 	 * Create a new fileinfo resource
@@ -117,7 +117,7 @@ namespace {
 	 * @see finfo_file(), finfo_buffer()
 	 * @since PHP 4 >= 4.3.0, PHP 5, PHP 7
 	 */
-	function mime_content_type($filename) {}
+	function mime_content_type($filename): string|false {}
 
 	/**
 	 * Decompress compressed files.   Disabled since PHP 5.3.0 due to thread safety issues.

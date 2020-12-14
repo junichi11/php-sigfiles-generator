@@ -45,7 +45,7 @@ namespace {
 		 * @link https://php.net/manual/en/yaf-action-abstract.execute.php
 		 * @since Yaf >=1.0.0
 		 */
-		abstract public function execute(...$args);
+		abstract public function execute(mixed ...$args): mixed;
 
 		/**
 		 * Foward to another action
@@ -249,7 +249,7 @@ namespace {
 		 * @link https://php.net/manual/en/yaf-application.construct.php
 		 * @since Yaf >=1.0.0
 		 */
-		public function __construct($config, string $envrion = NULL) {}
+		public function __construct(mixed $config, string $envrion = NULL) {}
 
 		/**
 		 * The __destruct purpose
@@ -266,7 +266,7 @@ namespace {
 		 * @link https://php.net/manual/en/yaf-application.app.php
 		 * @since Yaf >=1.0.0
 		 */
-		public static function app() {}
+		public static function app(): mixed {}
 
 		/**
 		 * Call bootstrap
@@ -411,7 +411,7 @@ namespace {
 		 * @link https://php.net/manual/en/yaf-config-abstract.get.php
 		 * @since Yaf >=1.0.0
 		 */
-		abstract public function get(string $name, $value);
+		abstract public function get(string $name, mixed $value): mixed;
 
 		/**
 		 * Find a config whether readonly
@@ -490,7 +490,7 @@ namespace {
 		 * @link https://php.net/manual/en/yaf-config-ini.set.php
 		 * @since Yaf >=1.0.0
 		 */
-		public function __set(string $name, $value): void {}
+		public function __set(string $name, mixed $value): void {}
 
 		/**
 		 * Count all elements in Yaf_Config.ini
@@ -519,7 +519,7 @@ namespace {
 		 * @link https://php.net/manual/en/yaf-config-abstract.get.php
 		 * @since Yaf >=1.0.0
 		 */
-		abstract public function get(string $name, $value);
+		abstract public function get(string $name, mixed $value): mixed;
 
 		/**
 		 * Fetch current element's key
@@ -707,7 +707,7 @@ namespace {
 		 * @link https://php.net/manual/en/yaf-config-abstract.get.php
 		 * @since Yaf >=1.0.0
 		 */
-		abstract public function get(string $name, $value);
+		abstract public function get(string $name, mixed $value): mixed;
 
 		/**
 		 * The key purpose
@@ -1376,7 +1376,7 @@ namespace {
 		 * @link https://php.net/manual/en/exception.getcode.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
-		final public function getCode() {}
+		final public function getCode(): mixed {}
 
 		/**
 		 * Gets the file in which the exception was created
@@ -1798,7 +1798,7 @@ namespace {
 		 * @link https://php.net/manual/en/yaf-loader.registerlocalnamespace.php
 		 * @since Yaf >=1.0.0
 		 */
-		public function registerLocalNamespace($prefix): void {}
+		public function registerLocalNamespace(mixed $prefix): void {}
 
 		/**
 		 * Register namespace with searching path
@@ -1809,7 +1809,7 @@ namespace {
 		 * @link https://php.net/manual/en/yaf-loader.registernamespace.php
 		 * @since Yaf >=3.2.0
 		 */
-		public function registerNamespace($namespaces, string $path = NULL): bool {}
+		public function registerNamespace(string|array $namespaces, string $path = NULL): bool {}
 
 		/**
 		 * Change the library path
@@ -1954,7 +1954,7 @@ namespace {
 		 * @link https://php.net/manual/en/yaf-registry.get.php
 		 * @since Yaf >=1.0.0
 		 */
-		public static function get(string $name) {}
+		public static function get(string $name): mixed {}
 
 		/**
 		 * Check whether an item exists
@@ -2151,7 +2151,7 @@ namespace {
 		 * @link https://php.net/manual/en/yaf-request-abstract.getparam.php
 		 * @since Yaf >=1.0.0
 		 */
-		public function getParam(string $name, string $default = NULL) {}
+		public function getParam(string $name, string $default = NULL): mixed {}
 
 		/**
 		 * Retrieve all calling parameters
@@ -2377,7 +2377,7 @@ namespace {
 		 * @link https://php.net/manual/en/yaf-request-http.get.php
 		 * @since Yaf >=1.0.0
 		 */
-		public function get(string $name, string $default = NULL) {}
+		public function get(string $name, string $default = NULL): mixed {}
 
 		/**
 		 * The getActionName purpose
@@ -2415,7 +2415,7 @@ namespace {
 		 * @link https://php.net/manual/en/yaf-request-http.getcookie.php
 		 * @since Yaf >=1.0.0
 		 */
-		public function getCookie(string $name, string $default = NULL) {}
+		public function getCookie(string $name, string $default = NULL): mixed {}
 
 		/**
 		 * Retrieve ENV varialbe
@@ -2479,7 +2479,7 @@ namespace {
 		 * @link https://php.net/manual/en/yaf-request-abstract.getparam.php
 		 * @since Yaf >=1.0.0
 		 */
-		public function getParam(string $name, string $default = NULL) {}
+		public function getParam(string $name, string $default = NULL): mixed {}
 
 		/**
 		 * Retrieve all calling parameters
@@ -2498,7 +2498,7 @@ namespace {
 		 * @link https://php.net/manual/en/yaf-request-http.getpost.php
 		 * @since Yaf >=1.0.0
 		 */
-		public function getPost(string $name, string $default = NULL) {}
+		public function getPost(string $name, string $default = NULL): mixed {}
 
 		/**
 		 * Fetch a query parameter
@@ -2509,7 +2509,7 @@ namespace {
 		 * @link https://php.net/manual/en/yaf-request-http.getquery.php
 		 * @since Yaf >=1.0.0
 		 */
-		public function getQuery(string $name, string $default = NULL) {}
+		public function getQuery(string $name, string $default = NULL): mixed {}
 
 		/**
 		 * Retrieve Raw request body
@@ -2518,7 +2518,7 @@ namespace {
 		 * @link https://php.net/manual/en/yaf-request-http.getraw.php
 		 * @since Yaf >=3.0.7
 		 */
-		public function getRaw() {}
+		public function getRaw(): mixed {}
 
 		/**
 		 * The getRequest purpose
@@ -2855,7 +2855,7 @@ namespace {
 		 * @link https://php.net/manual/en/yaf-request-abstract.getparam.php
 		 * @since Yaf >=1.0.0
 		 */
-		public function getParam(string $name, string $default = NULL) {}
+		public function getParam(string $name, string $default = NULL): mixed {}
 
 		/**
 		 * Retrieve all calling parameters
@@ -3161,7 +3161,7 @@ namespace {
 		 * @link https://php.net/manual/en/yaf-response-abstract.getbody.php
 		 * @since Yaf >=1.0.0
 		 */
-		public function getBody(string $key = NULL) {}
+		public function getBody(string $key = NULL): mixed {}
 
 		/**
 		 * The getHeader purpose
@@ -3662,7 +3662,7 @@ namespace {
 		 * @link https://php.net/manual/en/yaf-router.getroutes.php
 		 * @since Yaf >=1.0.0
 		 */
-		public function getRoutes() {}
+		public function getRoutes(): mixed {}
 
 		/**
 		 * The route purpose
@@ -4000,7 +4000,7 @@ namespace {
 		 * @link https://php.net/manual/en/yaf-view-simple.set.php
 		 * @since Yaf >=1.0.0
 		 */
-		public function __set(string $name, $value): void {}
+		public function __set(string $name, mixed $value): void {}
 
 		/**
 		 * Assign values
@@ -4011,7 +4011,7 @@ namespace {
 		 * @link https://php.net/manual/en/yaf-view-simple.assign.php
 		 * @since Yaf >=1.0.0
 		 */
-		public function assign(string $name, $value = NULL): bool {}
+		public function assign(string $name, mixed $value = NULL): bool {}
 
 		/**
 		 * The assignRef purpose
@@ -4022,7 +4022,7 @@ namespace {
 		 * @link https://php.net/manual/en/yaf-view-simple.assignref.php
 		 * @since Yaf >=1.0.0
 		 */
-		public function assignRef(string $name, &$value): bool {}
+		public function assignRef(string $name, mixed &$value): bool {}
 
 		/**
 		 * Clear Assigned values

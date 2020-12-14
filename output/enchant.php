@@ -12,7 +12,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.enchant-broker-describe.php
 	 * @since PHP 5 >= 5.3.0, PHP 7, PECL enchant >= 0.1.0
 	 */
-	function enchant_broker_describe($broker) {}
+	function enchant_broker_describe($broker): array|false {}
 
 	/**
 	 * Whether a dictionary exists or not. Using non-empty tag
@@ -88,7 +88,7 @@ namespace {
 	 * @see enchant_broker_describe()
 	 * @since PHP 5 >= 5.3.0, PHP 7, PECL enchant >= 1.0.1
 	 */
-	function enchant_broker_list_dicts($broker) {}
+	function enchant_broker_list_dicts($broker): mixed {}
 
 	/**
 	 * Create a new dictionary using a tag
@@ -182,7 +182,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.enchant-dict-describe.php
 	 * @since PHP 5 >= 5.3.0, PHP 7, PECL enchant >= 0.1.0 
 	 */
-	function enchant_dict_describe($dict) {}
+	function enchant_dict_describe($dict): mixed {}
 
 	/**
 	 * Returns the last error of the current spelling-session

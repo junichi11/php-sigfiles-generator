@@ -60,7 +60,7 @@ namespace {
 	 * @see yaz_close()
 	 * @since PHP 4 >= 4.0.1, PECL yaz >= 0.9.0
 	 */
-	function yaz_connect(string $zurl, $options = NULL) {}
+	function yaz_connect(string $zurl, mixed $options = NULL): mixed {}
 
 	/**
 	 * Specifies the databases within a session
@@ -287,6 +287,6 @@ namespace {
 	 * @link https://php.net/manual/en/function.yaz-wait.php
 	 * @since PHP 4 >= 4.0.1, PECL yaz >= 0.9.0
 	 */
-	function yaz_wait(array &$options = NULL) {}
+	function yaz_wait(array &$options = NULL): mixed {}
 
 }

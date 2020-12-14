@@ -125,7 +125,7 @@ namespace {
 	 * @see uopz_allow_exit()
 	 * @since PECL uopz 5, PECL uopz 6
 	 */
-	function uopz_get_exit_status() {}
+	function uopz_get_exit_status(): mixed {}
 
 	/**
 	 * Gets previously set hook on function or method
@@ -147,7 +147,7 @@ namespace {
 	 * @see uopz_set_mock(), uopz_unset_mock()
 	 * @since PECL uopz 5, PECL uopz 6
 	 */
-	function uopz_get_mock(string $class) {}
+	function uopz_get_mock(string $class): mixed {}
 
 	/**
 	 * Gets value of class or instance property
@@ -159,7 +159,7 @@ namespace {
 	 * @see uopz_set_property()
 	 * @since PECL uopz 5, PECL uopz 6
 	 */
-	function uopz_get_property(string $class, string $property) {}
+	function uopz_get_property(string $class, string $property): mixed {}
 
 	/**
 	 * Gets a previous set return value for a function
@@ -169,7 +169,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.uopz-get-return.php
 	 * @since PECL uopz 5, PECL uopz 6
 	 */
-	function uopz_get_return(string $function) {}
+	function uopz_get_return(string $function): mixed {}
 
 	/**
 	 * Gets the static variables from function or method scope
@@ -214,7 +214,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.uopz-redefine.php
 	 * @since PECL uopz 1, PECL uopz 2, PECL uopz 5, PECL uopz 6
 	 */
-	function uopz_redefine(string $constant, $value): bool {}
+	function uopz_redefine(string $constant, mixed $value): bool {}
 
 	/**
 	 * Rename a function at runtime
@@ -259,7 +259,7 @@ namespace {
 	 * @see uopz_get_mock(), uopz_unset_mock()
 	 * @since PECL uopz 5, PECL uopz 6
 	 */
-	function uopz_set_mock(string $class, $mock): void {}
+	function uopz_set_mock(string $class, mixed $mock): void {}
 
 	/**
 	 * Sets value of existing class or instance property
@@ -272,7 +272,7 @@ namespace {
 	 * @see uopz_get_property()
 	 * @since PECL uopz 5, PECL uopz 6
 	 */
-	function uopz_set_property(string $class, string $property, $value): void {}
+	function uopz_set_property(string $class, string $property, mixed $value): void {}
 
 	/**
 	 * Provide a return value for an existing function
@@ -284,7 +284,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.uopz-set-return.php
 	 * @since PECL uopz 5, PECL uopz 6
 	 */
-	function uopz_set_return(string $function, $value, bool $execute = FALSE): bool {}
+	function uopz_set_return(string $function, mixed $value, bool $execute = FALSE): bool {}
 
 	/**
 	 * Sets the static variables in function or method scope

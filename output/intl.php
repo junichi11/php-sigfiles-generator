@@ -107,7 +107,7 @@ namespace {
 		 * @see collator_sort(), collator_sort_with_sort_keys()
 		 * @since PHP 5 >= 5.3.2, PHP 7, PECL intl >= 1.0.3
 		 */
-		public function getSortKey(string $str) {}
+		public function getSortKey(string $str): string|false {}
 
 		/**
 		 * Get current collation strength
@@ -787,7 +787,7 @@ namespace {
 		 * @link https://php.net/manual/en/intlcalendar.createinstance.php
 		 * @since PHP 5 >= 5.5.0, PHP 7, PECL >= 3.0.0a1
 		 */
-		public static function createInstance($timeZone = NULL, string $locale = ""): \IntlCalendar {}
+		public static function createInstance(mixed $timeZone = NULL, string $locale = ""): \IntlCalendar {}
 
 		/**
 		 * Compare time of two IntlCalendar objects for equality
@@ -808,7 +808,7 @@ namespace {
 		 * @link https://php.net/manual/en/intlcalendar.fielddifference.php
 		 * @since PHP 5 >= 5.5.0, PHP 7, PECL >= 3.0.0a1
 		 */
-		public function fieldDifference(float $when, int $field) {}
+		public function fieldDifference(float $when, int $field): int|false {}
 
 		/**
 		 * Create an IntlCalendar from a DateTime object or string
@@ -818,7 +818,7 @@ namespace {
 		 * @link https://php.net/manual/en/intlcalendar.fromdatetime.php
 		 * @since PHP 5 >= 5.5.0, PHP 7, PECL >= 3.0.0a2
 		 */
-		public static function fromDateTime($dateTime): \IntlCalendar {}
+		public static function fromDateTime(mixed $dateTime): \IntlCalendar {}
 
 		/**
 		 * Get the value for a field
@@ -838,7 +838,7 @@ namespace {
 		 * @link https://php.net/manual/en/intlcalendar.getactualmaximum.php
 		 * @since PHP 5 >= 5.5.0, PHP 7, PECL >= 3.0.0a1
 		 */
-		public function getActualMaximum(int $field) {}
+		public function getActualMaximum(int $field): int|false {}
 
 		/**
 		 * The minimum value for a field, considering the objectʼs current time
@@ -848,7 +848,7 @@ namespace {
 		 * @link https://php.net/manual/en/intlcalendar.getactualminimum.php
 		 * @since PHP 5 >= 5.5.0, PHP 7, PECL >= 3.0.0a1
 		 */
-		public function getActualMinimum(int $field) {}
+		public function getActualMinimum(int $field): int|false {}
 
 		/**
 		 * Get array of locales for which there is data
@@ -867,7 +867,7 @@ namespace {
 		 * @link https://php.net/manual/en/intlcalendar.getdayofweektype.php
 		 * @since PHP 5 >= 5.5.0, PHP 7, PECL >= 3.0.0a1
 		 */
-		public function getDayOfWeekType(int $dayOfWeek) {}
+		public function getDayOfWeekType(int $dayOfWeek): int|false {}
 
 		/**
 		 * Get last error code on the object
@@ -894,7 +894,7 @@ namespace {
 		 * @link https://php.net/manual/en/intlcalendar.getfirstdayofweek.php
 		 * @since PHP 5 >= 5.5.0, PHP 7, PECL >= 3.0.0a1
 		 */
-		public function getFirstDayOfWeek() {}
+		public function getFirstDayOfWeek(): int|false {}
 
 		/**
 		 * Get the largest local minimum value for a field
@@ -904,7 +904,7 @@ namespace {
 		 * @link https://php.net/manual/en/intlcalendar.getgreatestminimum.php
 		 * @since PHP 5 >= 5.5.0, PHP 7, PECL >= 3.0.0a1
 		 */
-		public function getGreatestMinimum(int $field) {}
+		public function getGreatestMinimum(int $field): int|false {}
 
 		/**
 		 * Get set of locale keyword values
@@ -916,7 +916,7 @@ namespace {
 		 * @link https://php.net/manual/en/intlcalendar.getkeywordvaluesforlocale.php
 		 * @since PHP 5 >= 5.5.0, PHP 7, PECL >= 3.0.0a1
 		 */
-		public static function getKeywordValuesForLocale(string $key, string $locale, bool $commonlyUsed) {}
+		public static function getKeywordValuesForLocale(string $key, string $locale, bool $commonlyUsed): \Iterator|false {}
 
 		/**
 		 * Get the smallest local maximum for a field
@@ -926,7 +926,7 @@ namespace {
 		 * @link https://php.net/manual/en/intlcalendar.getleastmaximum.php
 		 * @since PHP 5 >= 5.5.0, PHP 7, PECL >= 3.0.0a1
 		 */
-		public function getLeastMaximum(int $field) {}
+		public function getLeastMaximum(int $field): int|false {}
 
 		/**
 		 * Get the locale associated with the object
@@ -936,7 +936,7 @@ namespace {
 		 * @link https://php.net/manual/en/intlcalendar.getlocale.php
 		 * @since PHP 5 >= 5.5.0, PHP 7, PECL >= 3.0.0a1
 		 */
-		public function getLocale(int $localeType) {}
+		public function getLocale(int $localeType): string|false {}
 
 		/**
 		 * Get the global maximum value for a field
@@ -946,7 +946,7 @@ namespace {
 		 * @link https://php.net/manual/en/intlcalendar.getmaximum.php
 		 * @since PHP 5 >= 5.5.0, PHP 7, PECL >= 3.0.0a1
 		 */
-		public function getMaximum(int $field) {}
+		public function getMaximum(int $field): int|false {}
 
 		/**
 		 * Get minimal number of days the first week in a year or month can have
@@ -955,7 +955,7 @@ namespace {
 		 * @link https://php.net/manual/en/intlcalendar.getminimaldaysinfirstweek.php
 		 * @since PHP 5 >= 5.5.0, PHP 7, PECL >= 3.0.0a1
 		 */
-		public function getMinimalDaysInFirstWeek() {}
+		public function getMinimalDaysInFirstWeek(): int|false {}
 
 		/**
 		 * Get the global minimum value for a field
@@ -965,7 +965,7 @@ namespace {
 		 * @link https://php.net/manual/en/intlcalendar.getminimum.php
 		 * @since PHP 5 >= 5.5.0, PHP 7, PECL >= 3.0.0a1
 		 */
-		public function getMinimum(int $field) {}
+		public function getMinimum(int $field): int|false {}
 
 		/**
 		 * Get number representing the current time
@@ -1029,7 +1029,7 @@ namespace {
 		 * @link https://php.net/manual/en/intlcalendar.getweekendtransition.php
 		 * @since PHP 5 >= 5.5.0, PHP 7, PECL >= 3.0.0a1
 		 */
-		public function getWeekendTransition(string $dayOfWeek) {}
+		public function getWeekendTransition(string $dayOfWeek): int|false {}
 
 		/**
 		 * Whether the objectʼs time is in Daylight Savings Time
@@ -1088,7 +1088,7 @@ namespace {
 		 * @link https://php.net/manual/en/intlcalendar.roll.php
 		 * @since PHP 5 >= 5.5.0, PHP 7, PECL >= 3.0.0a1
 		 */
-		public function roll(int $field, $amountOrUpOrDown): bool {}
+		public function roll(int $field, mixed $amountOrUpOrDown): bool {}
 
 		/**
 		 * Set a time field or several common fields at once
@@ -1169,7 +1169,7 @@ namespace {
 		 * @link https://php.net/manual/en/intlcalendar.settimezone.php
 		 * @since PHP 5 >= 5.5.0, PHP 7, PECL >= 3.0.0a1
 		 */
-		public function setTimeZone($timeZone): bool {}
+		public function setTimeZone(mixed $timeZone): bool {}
 
 		/**
 		 * Convert an IntlCalendar into a DateTime object
@@ -4804,7 +4804,7 @@ namespace {
 		 * @see IntlChar::getUnicodeVersion(), IntlChar::getIntPropertyMinValue(), IntlChar::getIntPropertyValue()
 		 * @since PHP 7
 		 */
-		public static function charAge($codepoint): array {}
+		public static function charAge(mixed $codepoint): array {}
 
 		/**
 		 * Get the decimal digit value of a decimal digit character
@@ -4815,7 +4815,7 @@ namespace {
 		 * @see IntlChar::getNumericValue()
 		 * @since PHP 7
 		 */
-		public static function charDigitValue($codepoint): int {}
+		public static function charDigitValue(mixed $codepoint): int {}
 
 		/**
 		 * Get bidirectional category value for a code point
@@ -4825,7 +4825,7 @@ namespace {
 		 * @link https://php.net/manual/en/intlchar.chardirection.php
 		 * @since PHP 7
 		 */
-		public static function charDirection($codepoint): int {}
+		public static function charDirection(mixed $codepoint): int {}
 
 		/**
 		 * Find Unicode character by name and return its code point value
@@ -4848,7 +4848,7 @@ namespace {
 		 * @see IntlChar::isMirrored()
 		 * @since PHP 7
 		 */
-		public static function charMirror($codepoint) {}
+		public static function charMirror(mixed $codepoint): mixed {}
 
 		/**
 		 * Retrieve the name of a Unicode character
@@ -4860,7 +4860,7 @@ namespace {
 		 * @see IntlChar::charFromName(), IntlChar::enumCharNames()
 		 * @since PHP 7
 		 */
-		public static function charName($codepoint, int $nameChoice = IntlChar::UNICODE_CHAR_NAME): string {}
+		public static function charName(mixed $codepoint, int $nameChoice = IntlChar::UNICODE_CHAR_NAME): string {}
 
 		/**
 		 * Get the general category value for a code point
@@ -4870,7 +4870,7 @@ namespace {
 		 * @link https://php.net/manual/en/intlchar.chartype.php
 		 * @since PHP 7
 		 */
-		public static function charType($codepoint): int {}
+		public static function charType(mixed $codepoint): int {}
 
 		/**
 		 * Return Unicode character by code point value
@@ -4881,7 +4881,7 @@ namespace {
 		 * @see IntlChar::ord(), chr()
 		 * @since PHP 7
 		 */
-		public static function chr($codepoint): string {}
+		public static function chr(mixed $codepoint): string {}
 
 		/**
 		 * Get the decimal digit value of a code point for a given radix
@@ -4907,7 +4907,7 @@ namespace {
 		 * @see IntlChar::charName(), IntlChar::charFromName()
 		 * @since PHP 7
 		 */
-		public static function enumCharNames($start, $limit, callable $callback, int $nameChoice = IntlChar::UNICODE_CHAR_NAME): void {}
+		public static function enumCharNames(mixed $start, mixed $limit, callable $callback, int $nameChoice = IntlChar::UNICODE_CHAR_NAME): void {}
 
 		/**
 		 * Enumerate all code points with their Unicode general categories
@@ -4928,7 +4928,7 @@ namespace {
 		 * @link https://php.net/manual/en/intlchar.foldcase.php
 		 * @since PHP 7
 		 */
-		public static function foldCase($codepoint, int $options = IntlChar::FOLD_CASE_DEFAULT) {}
+		public static function foldCase(mixed $codepoint, int $options = IntlChar::FOLD_CASE_DEFAULT): mixed {}
 
 		/**
 		 * Get character representation for a given digit and radix
@@ -4951,7 +4951,7 @@ namespace {
 		 * @see IntlChar::charMirror()
 		 * @since PHP 7
 		 */
-		public static function getBidiPairedBracket($codepoint) {}
+		public static function getBidiPairedBracket(mixed $codepoint): mixed {}
 
 		/**
 		 * Get the Unicode allocation block containing a code point
@@ -4961,7 +4961,7 @@ namespace {
 		 * @link https://php.net/manual/en/intlchar.getblockcode.php
 		 * @since PHP 7
 		 */
-		public static function getBlockCode($codepoint): int {}
+		public static function getBlockCode(mixed $codepoint): int {}
 
 		/**
 		 * Get the combining class of a code point
@@ -4971,7 +4971,7 @@ namespace {
 		 * @link https://php.net/manual/en/intlchar.getcombiningclass.php
 		 * @since PHP 7
 		 */
-		public static function getCombiningClass($codepoint): int {}
+		public static function getCombiningClass(mixed $codepoint): int {}
 
 		/**
 		 * Get the FC_NFKC_Closure property for a code point
@@ -4981,7 +4981,7 @@ namespace {
 		 * @link https://php.net/manual/en/intlchar.getfc-nfkc-closure.php
 		 * @since PHP 7
 		 */
-		public static function getFC_NFKC_Closure($codepoint): string {}
+		public static function getFC_NFKC_Closure(mixed $codepoint): string {}
 
 		/**
 		 * Get the max value for a Unicode property
@@ -5015,7 +5015,7 @@ namespace {
 		 * @see IntlChar::hasBinaryProperty(), IntlChar::getIntPropertyMinValue(), IntlChar::getIntPropertyMaxValue(), IntlChar::getUnicodeVersion()
 		 * @since PHP 7
 		 */
-		public static function getIntPropertyValue($codepoint, int $property): int {}
+		public static function getIntPropertyValue(mixed $codepoint, int $property): int {}
 
 		/**
 		 * Get the numeric value for a Unicode code point
@@ -5025,7 +5025,7 @@ namespace {
 		 * @link https://php.net/manual/en/intlchar.getnumericvalue.php
 		 * @since PHP 7
 		 */
-		public static function getNumericValue($codepoint): float {}
+		public static function getNumericValue(mixed $codepoint): float {}
 
 		/**
 		 * Get the property constant value for a given property name
@@ -5093,7 +5093,7 @@ namespace {
 		 * @see IntlChar::getIntPropertyValue(), IntlChar::getUnicodeVersion()
 		 * @since PHP 7
 		 */
-		public static function hasBinaryProperty($codepoint, int $property): bool {}
+		public static function hasBinaryProperty(mixed $codepoint, int $property): bool {}
 
 		/**
 		 * Check if code point is an ignorable character
@@ -5104,7 +5104,7 @@ namespace {
 		 * @see IntlChar::isIDStart(), IntlChar::isIDPart()
 		 * @since PHP 7
 		 */
-		public static function isIDIgnorable($codepoint): bool {}
+		public static function isIDIgnorable(mixed $codepoint): bool {}
 
 		/**
 		 * Check if code point is permissible in an identifier
@@ -5115,7 +5115,7 @@ namespace {
 		 * @see IntlChar::isIDIgnorable(), IntlChar::isIDStart()
 		 * @since PHP 7
 		 */
-		public static function isIDPart($codepoint): bool {}
+		public static function isIDPart(mixed $codepoint): bool {}
 
 		/**
 		 * Check if code point is permissible as the first character in an identifier
@@ -5126,7 +5126,7 @@ namespace {
 		 * @see IntlChar::isalpha(), IntlChar::isIDPart()
 		 * @since PHP 7
 		 */
-		public static function isIDStart($codepoint): bool {}
+		public static function isIDStart(mixed $codepoint): bool {}
 
 		/**
 		 * Check if code point is an ISO control code
@@ -5137,7 +5137,7 @@ namespace {
 		 * @see IntlChar::iscntrl()
 		 * @since PHP 7
 		 */
-		public static function isISOControl($codepoint): bool {}
+		public static function isISOControl(mixed $codepoint): bool {}
 
 		/**
 		 * Check if code point is permissible in a Java identifier
@@ -5148,7 +5148,7 @@ namespace {
 		 * @see IntlChar::isIDIgnorable(), IntlChar::isIDPart(), IntlChar::isJavaIDStart(), IntlChar::isalpha(), IntlChar::isdigit()
 		 * @since PHP 7
 		 */
-		public static function isJavaIDPart($codepoint): bool {}
+		public static function isJavaIDPart(mixed $codepoint): bool {}
 
 		/**
 		 * Check if code point is permissible as the first character in a Java identifier
@@ -5159,7 +5159,7 @@ namespace {
 		 * @see IntlChar::isIDStart(), IntlChar::isJavaIDPart(), IntlChar::isalpha()
 		 * @since PHP 7
 		 */
-		public static function isJavaIDStart($codepoint): bool {}
+		public static function isJavaIDStart(mixed $codepoint): bool {}
 
 		/**
 		 * Check if code point is a space character according to Java
@@ -5170,7 +5170,7 @@ namespace {
 		 * @see IntlChar::isspace(), IntlChar::isWhitespace(), IntlChar::isUWhiteSpace()
 		 * @since PHP 7
 		 */
-		public static function isJavaSpaceChar($codepoint): bool {}
+		public static function isJavaSpaceChar(mixed $codepoint): bool {}
 
 		/**
 		 * Check if code point has the Bidi_Mirrored property
@@ -5181,7 +5181,7 @@ namespace {
 		 * @see IntlChar::charMirror()
 		 * @since PHP 7
 		 */
-		public static function isMirrored($codepoint): bool {}
+		public static function isMirrored(mixed $codepoint): bool {}
 
 		/**
 		 * Check if code point has the Alphabetic Unicode property
@@ -5192,7 +5192,7 @@ namespace {
 		 * @see IntlChar::isalpha(), IntlChar::hasBinaryProperty()
 		 * @since PHP 7
 		 */
-		public static function isUAlphabetic($codepoint): bool {}
+		public static function isUAlphabetic(mixed $codepoint): bool {}
 
 		/**
 		 * Check if code point has the Lowercase Unicode property
@@ -5203,7 +5203,7 @@ namespace {
 		 * @see IntlChar::islower(), IntlChar::hasBinaryProperty()
 		 * @since PHP 7
 		 */
-		public static function isULowercase($codepoint): bool {}
+		public static function isULowercase(mixed $codepoint): bool {}
 
 		/**
 		 * Check if code point has the Uppercase Unicode property
@@ -5214,7 +5214,7 @@ namespace {
 		 * @see IntlChar::isupper(), IntlChar::hasBinaryProperty()
 		 * @since PHP 7
 		 */
-		public static function isUUppercase($codepoint): bool {}
+		public static function isUUppercase(mixed $codepoint): bool {}
 
 		/**
 		 * Check if code point has the White_Space Unicode property
@@ -5225,7 +5225,7 @@ namespace {
 		 * @see IntlChar::isspace(), IntlChar::isWhitespace(), IntlChar::isJavaSpaceChar(), IntlChar::hasBinaryProperty()
 		 * @since PHP 7
 		 */
-		public static function isUWhiteSpace($codepoint): bool {}
+		public static function isUWhiteSpace(mixed $codepoint): bool {}
 
 		/**
 		 * Check if code point is a whitespace character according to ICU
@@ -5236,7 +5236,7 @@ namespace {
 		 * @see IntlChar::isspace(), IntlChar::isJavaSpaceChar(), IntlChar::isUWhiteSpace()
 		 * @since PHP 7
 		 */
-		public static function isWhitespace($codepoint): bool {}
+		public static function isWhitespace(mixed $codepoint): bool {}
 
 		/**
 		 * Check if code point is an alphanumeric character
@@ -5247,7 +5247,7 @@ namespace {
 		 * @see IntlChar::isalpha(), IntlChar::isdigit()
 		 * @since PHP 7
 		 */
-		public static function isalnum($codepoint): bool {}
+		public static function isalnum(mixed $codepoint): bool {}
 
 		/**
 		 * Check if code point is a letter character
@@ -5258,7 +5258,7 @@ namespace {
 		 * @see IntlChar::isalnum(), IntlChar::isdigit()
 		 * @since PHP 7
 		 */
-		public static function isalpha($codepoint): bool {}
+		public static function isalpha(mixed $codepoint): bool {}
 
 		/**
 		 * Check if code point is a base character
@@ -5269,7 +5269,7 @@ namespace {
 		 * @see IntlChar::isalpha(), IntlChar::isdigit()
 		 * @since PHP 7
 		 */
-		public static function isbase($codepoint): bool {}
+		public static function isbase(mixed $codepoint): bool {}
 
 		/**
 		 * Check if code point is a "blank" or "horizontal space" character
@@ -5280,7 +5280,7 @@ namespace {
 		 * @see IntlChar::isspace(), IntlChar::isJavaSpaceChar(), IntlChar::isUWhiteSpace(), IntlChar::isWhitespace()
 		 * @since PHP 7
 		 */
-		public static function isblank($codepoint): bool {}
+		public static function isblank(mixed $codepoint): bool {}
 
 		/**
 		 * Check if code point is a control character
@@ -5291,7 +5291,7 @@ namespace {
 		 * @see IntlChar::isprint()
 		 * @since PHP 7
 		 */
-		public static function iscntrl($codepoint): bool {}
+		public static function iscntrl(mixed $codepoint): bool {}
 
 		/**
 		 * Check whether the code point is defined
@@ -5302,7 +5302,7 @@ namespace {
 		 * @see IntlChar::isdigit(), IntlChar::isalpha(), IntlChar::isalnum(), IntlChar::isupper(), IntlChar::islower(), IntlChar::istitle()
 		 * @since PHP 7
 		 */
-		public static function isdefined($codepoint): bool {}
+		public static function isdefined(mixed $codepoint): bool {}
 
 		/**
 		 * Check if code point is a digit character
@@ -5313,7 +5313,7 @@ namespace {
 		 * @see IntlChar::isalpha(), IntlChar::isalnum(), IntlChar::isxdigit()
 		 * @since PHP 7
 		 */
-		public static function isdigit($codepoint): bool {}
+		public static function isdigit(mixed $codepoint): bool {}
 
 		/**
 		 * Check if code point is a graphic character
@@ -5323,7 +5323,7 @@ namespace {
 		 * @link https://php.net/manual/en/intlchar.isgraph.php
 		 * @since PHP 7
 		 */
-		public static function isgraph($codepoint): bool {}
+		public static function isgraph(mixed $codepoint): bool {}
 
 		/**
 		 * Check if code point is a lowercase letter
@@ -5334,7 +5334,7 @@ namespace {
 		 * @see IntlChar::isupper(), IntlChar::istitle(), IntlChar::tolower(), IntlChar::toupper()
 		 * @since PHP 7
 		 */
-		public static function islower($codepoint): bool {}
+		public static function islower(mixed $codepoint): bool {}
 
 		/**
 		 * Check if code point is a printable character
@@ -5345,7 +5345,7 @@ namespace {
 		 * @see IntlChar::iscntrl()
 		 * @since PHP 7
 		 */
-		public static function isprint($codepoint): bool {}
+		public static function isprint(mixed $codepoint): bool {}
 
 		/**
 		 * Check if code point is punctuation character
@@ -5355,7 +5355,7 @@ namespace {
 		 * @link https://php.net/manual/en/intlchar.ispunct.php
 		 * @since PHP 7
 		 */
-		public static function ispunct($codepoint): bool {}
+		public static function ispunct(mixed $codepoint): bool {}
 
 		/**
 		 * Check if code point is a space character
@@ -5366,7 +5366,7 @@ namespace {
 		 * @see IntlChar::isJavaSpaceChar(), IntlChar::isWhitespace(), IntlChar::isUWhiteSpace()
 		 * @since PHP 7
 		 */
-		public static function isspace($codepoint): bool {}
+		public static function isspace(mixed $codepoint): bool {}
 
 		/**
 		 * Check if code point is a titlecase letter
@@ -5377,7 +5377,7 @@ namespace {
 		 * @see IntlChar::isupper(), IntlChar::islower(), IntlChar::totitle()
 		 * @since PHP 7
 		 */
-		public static function istitle($codepoint): bool {}
+		public static function istitle(mixed $codepoint): bool {}
 
 		/**
 		 * Check if code point has the general category "Lu" (uppercase letter)
@@ -5388,7 +5388,7 @@ namespace {
 		 * @see IntlChar::islower(), IntlChar::istitle(), IntlChar::tolower(), IntlChar::toupper()
 		 * @since PHP 7
 		 */
-		public static function isupper($codepoint): bool {}
+		public static function isupper(mixed $codepoint): bool {}
 
 		/**
 		 * Check if code point is a hexadecimal digit
@@ -5399,7 +5399,7 @@ namespace {
 		 * @see IntlChar::isdigit()
 		 * @since PHP 7
 		 */
-		public static function isxdigit($codepoint): bool {}
+		public static function isxdigit(mixed $codepoint): bool {}
 
 		/**
 		 * Return Unicode code point value of character
@@ -5410,7 +5410,7 @@ namespace {
 		 * @see IntlChar::isalnum(), IntlChar::isdigit(), IntlChar::chr(), ord()
 		 * @since PHP 7
 		 */
-		public static function ord($character): int {}
+		public static function ord(mixed $character): int {}
 
 		/**
 		 * Make Unicode character lowercase
@@ -5421,7 +5421,7 @@ namespace {
 		 * @see IntlChar::totitle(), IntlChar::toupper(), mb_strtolower()
 		 * @since PHP 7
 		 */
-		public static function tolower($codepoint) {}
+		public static function tolower(mixed $codepoint): mixed {}
 
 		/**
 		 * Make Unicode character titlecase
@@ -5432,7 +5432,7 @@ namespace {
 		 * @see IntlChar::tolower(), IntlChar::toupper(), mb_convert_case()
 		 * @since PHP 7
 		 */
-		public static function totitle($codepoint) {}
+		public static function totitle(mixed $codepoint): mixed {}
 
 		/**
 		 * Make Unicode character uppercase
@@ -5443,7 +5443,7 @@ namespace {
 		 * @see IntlChar::tolower(), IntlChar::totitle(), mb_strtoupper()
 		 * @since PHP 7
 		 */
-		public static function toupper($codepoint) {}
+		public static function toupper(mixed $codepoint): mixed {}
 	}
 
 	/**
@@ -5686,7 +5686,7 @@ namespace {
 		 * @see datefmt_format(), datefmt_parse(), datefmt_get_error_code(), datefmt_get_error_message()
 		 * @since PHP 5 >= 5.3.0, PHP 7, PECL intl >= 1.0.0
 		 */
-		public function __construct(string $locale, int $datetype, int $timetype, $timezone = NULL, $calendar = NULL, string $pattern = "") {}
+		public function __construct(string $locale, int $datetype, int $timetype, mixed $timezone = NULL, mixed $calendar = NULL, string $pattern = "") {}
 
 		/**
 		 * Create a date formatter
@@ -5702,7 +5702,7 @@ namespace {
 		 * @see datefmt_format(), datefmt_parse(), datefmt_get_error_code(), datefmt_get_error_message()
 		 * @since PHP 5 >= 5.3.0, PHP 7, PECL intl >= 1.0.0
 		 */
-		public static function create(string $locale, int $datetype, int $timetype, $timezone = NULL, $calendar = NULL, string $pattern = ""): \IntlDateFormatter {}
+		public static function create(string $locale, int $datetype, int $timetype, mixed $timezone = NULL, mixed $calendar = NULL, string $pattern = ""): \IntlDateFormatter {}
 
 		/**
 		 * Format the date/time value as a string
@@ -5713,7 +5713,7 @@ namespace {
 		 * @see datefmt_create(), datefmt_parse(), datefmt_get_error_code(), datefmt_get_error_message(), datefmt_format_object()
 		 * @since PHP 5 >= 5.3.0, PHP 7, PECL intl >= 1.0.0
 		 */
-		public function format($value): string {}
+		public function format(mixed $value): string {}
 
 		/**
 		 * Formats an object
@@ -5725,7 +5725,7 @@ namespace {
 		 * @link https://php.net/manual/en/intldateformatter.formatobject.php
 		 * @since PHP 5 >= 5.5.0, PHP 7, PECL intl >= 3.0.0
 		 */
-		public static function formatObject(object $object, $format = NULL, string $locale = NULL) {}
+		public static function formatObject(object $object, mixed $format = NULL, string $locale = NULL): string|false {}
 
 		/**
 		 * Get the calendar type used for the IntlDateFormatter
@@ -5815,7 +5815,7 @@ namespace {
 		 * @see IntlDateFormatter::getTimeZoneId(), IntlDateFormatter::setTimeZone()
 		 * @since PHP 5 >= 5.5.0, PHP 7, PECL intl >= 3.0.0
 		 */
-		public function getTimeZone() {}
+		public function getTimeZone(): \IntlTimeZone|false {}
 
 		/**
 		 * Get the timezone-id used for the IntlDateFormatter
@@ -5870,7 +5870,7 @@ namespace {
 		 * @see datefmt_get_calendar(), datefmt_get_calendar_object(), datefmt_create()
 		 * @since PHP 5 >= 5.3.0, PHP 7, PECL intl >= 1.0.0
 		 */
-		public function setCalendar($which): bool {}
+		public function setCalendar(mixed $which): bool {}
 
 		/**
 		 * Set the leniency of the parser
@@ -5903,7 +5903,7 @@ namespace {
 		 * @see IntlDateFormatter::getTimeZone()
 		 * @since PHP 5 >= 5.5.0, PHP 7, PECL intl >= 3.0.0
 		 */
-		public function setTimeZone($zone): bool {}
+		public function setTimeZone(mixed $zone): bool {}
 
 		/**
 		 * Sets the time zone to use
@@ -5973,7 +5973,7 @@ namespace {
 		 * @link https://php.net/manual/en/exception.getcode.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
-		final public function getCode() {}
+		final public function getCode(): mixed {}
 
 		/**
 		 * Gets the file in which the exception was created
@@ -6097,7 +6097,7 @@ namespace {
 		 * @link https://php.net/manual/en/intlcalendar.createinstance.php
 		 * @since PHP 5 >= 5.5.0, PHP 7, PECL >= 3.0.0a1
 		 */
-		public static function createInstance($timeZone = NULL, string $locale = ""): \IntlCalendar {}
+		public static function createInstance(mixed $timeZone = NULL, string $locale = ""): \IntlCalendar {}
 
 		/**
 		 * Compare time of two IntlCalendar objects for equality
@@ -6118,7 +6118,7 @@ namespace {
 		 * @link https://php.net/manual/en/intlcalendar.fielddifference.php
 		 * @since PHP 5 >= 5.5.0, PHP 7, PECL >= 3.0.0a1
 		 */
-		public function fieldDifference(float $when, int $field) {}
+		public function fieldDifference(float $when, int $field): int|false {}
 
 		/**
 		 * Create an IntlCalendar from a DateTime object or string
@@ -6128,7 +6128,7 @@ namespace {
 		 * @link https://php.net/manual/en/intlcalendar.fromdatetime.php
 		 * @since PHP 5 >= 5.5.0, PHP 7, PECL >= 3.0.0a2
 		 */
-		public static function fromDateTime($dateTime): \IntlCalendar {}
+		public static function fromDateTime(mixed $dateTime): \IntlCalendar {}
 
 		/**
 		 * Get the value for a field
@@ -6148,7 +6148,7 @@ namespace {
 		 * @link https://php.net/manual/en/intlcalendar.getactualmaximum.php
 		 * @since PHP 5 >= 5.5.0, PHP 7, PECL >= 3.0.0a1
 		 */
-		public function getActualMaximum(int $field) {}
+		public function getActualMaximum(int $field): int|false {}
 
 		/**
 		 * The minimum value for a field, considering the objectʼs current time
@@ -6158,7 +6158,7 @@ namespace {
 		 * @link https://php.net/manual/en/intlcalendar.getactualminimum.php
 		 * @since PHP 5 >= 5.5.0, PHP 7, PECL >= 3.0.0a1
 		 */
-		public function getActualMinimum(int $field) {}
+		public function getActualMinimum(int $field): int|false {}
 
 		/**
 		 * Get array of locales for which there is data
@@ -6177,7 +6177,7 @@ namespace {
 		 * @link https://php.net/manual/en/intlcalendar.getdayofweektype.php
 		 * @since PHP 5 >= 5.5.0, PHP 7, PECL >= 3.0.0a1
 		 */
-		public function getDayOfWeekType(int $dayOfWeek) {}
+		public function getDayOfWeekType(int $dayOfWeek): int|false {}
 
 		/**
 		 * Get last error code on the object
@@ -6204,7 +6204,7 @@ namespace {
 		 * @link https://php.net/manual/en/intlcalendar.getfirstdayofweek.php
 		 * @since PHP 5 >= 5.5.0, PHP 7, PECL >= 3.0.0a1
 		 */
-		public function getFirstDayOfWeek() {}
+		public function getFirstDayOfWeek(): int|false {}
 
 		/**
 		 * Get the largest local minimum value for a field
@@ -6214,7 +6214,7 @@ namespace {
 		 * @link https://php.net/manual/en/intlcalendar.getgreatestminimum.php
 		 * @since PHP 5 >= 5.5.0, PHP 7, PECL >= 3.0.0a1
 		 */
-		public function getGreatestMinimum(int $field) {}
+		public function getGreatestMinimum(int $field): int|false {}
 
 		/**
 		 * Get the Gregorian Calendar change date
@@ -6223,7 +6223,7 @@ namespace {
 		 * @link https://php.net/manual/en/intlgregoriancalendar.getgregorianchange.php
 		 * @since PHP 5 >= 5.5.0, PHP 7
 		 */
-		public function getGregorianChange() {}
+		public function getGregorianChange(): float|false {}
 
 		/**
 		 * Get set of locale keyword values
@@ -6235,7 +6235,7 @@ namespace {
 		 * @link https://php.net/manual/en/intlcalendar.getkeywordvaluesforlocale.php
 		 * @since PHP 5 >= 5.5.0, PHP 7, PECL >= 3.0.0a1
 		 */
-		public static function getKeywordValuesForLocale(string $key, string $locale, bool $commonlyUsed) {}
+		public static function getKeywordValuesForLocale(string $key, string $locale, bool $commonlyUsed): \Iterator|false {}
 
 		/**
 		 * Get the smallest local maximum for a field
@@ -6245,7 +6245,7 @@ namespace {
 		 * @link https://php.net/manual/en/intlcalendar.getleastmaximum.php
 		 * @since PHP 5 >= 5.5.0, PHP 7, PECL >= 3.0.0a1
 		 */
-		public function getLeastMaximum(int $field) {}
+		public function getLeastMaximum(int $field): int|false {}
 
 		/**
 		 * Get the locale associated with the object
@@ -6255,7 +6255,7 @@ namespace {
 		 * @link https://php.net/manual/en/intlcalendar.getlocale.php
 		 * @since PHP 5 >= 5.5.0, PHP 7, PECL >= 3.0.0a1
 		 */
-		public function getLocale(int $localeType) {}
+		public function getLocale(int $localeType): string|false {}
 
 		/**
 		 * Get the global maximum value for a field
@@ -6265,7 +6265,7 @@ namespace {
 		 * @link https://php.net/manual/en/intlcalendar.getmaximum.php
 		 * @since PHP 5 >= 5.5.0, PHP 7, PECL >= 3.0.0a1
 		 */
-		public function getMaximum(int $field) {}
+		public function getMaximum(int $field): int|false {}
 
 		/**
 		 * Get minimal number of days the first week in a year or month can have
@@ -6274,7 +6274,7 @@ namespace {
 		 * @link https://php.net/manual/en/intlcalendar.getminimaldaysinfirstweek.php
 		 * @since PHP 5 >= 5.5.0, PHP 7, PECL >= 3.0.0a1
 		 */
-		public function getMinimalDaysInFirstWeek() {}
+		public function getMinimalDaysInFirstWeek(): int|false {}
 
 		/**
 		 * Get the global minimum value for a field
@@ -6284,7 +6284,7 @@ namespace {
 		 * @link https://php.net/manual/en/intlcalendar.getminimum.php
 		 * @since PHP 5 >= 5.5.0, PHP 7, PECL >= 3.0.0a1
 		 */
-		public function getMinimum(int $field) {}
+		public function getMinimum(int $field): int|false {}
 
 		/**
 		 * Get number representing the current time
@@ -6348,7 +6348,7 @@ namespace {
 		 * @link https://php.net/manual/en/intlcalendar.getweekendtransition.php
 		 * @since PHP 5 >= 5.5.0, PHP 7, PECL >= 3.0.0a1
 		 */
-		public function getWeekendTransition(string $dayOfWeek) {}
+		public function getWeekendTransition(string $dayOfWeek): int|false {}
 
 		/**
 		 * Whether the objectʼs time is in Daylight Savings Time
@@ -6417,7 +6417,7 @@ namespace {
 		 * @link https://php.net/manual/en/intlcalendar.roll.php
 		 * @since PHP 5 >= 5.5.0, PHP 7, PECL >= 3.0.0a1
 		 */
-		public function roll(int $field, $amountOrUpOrDown): bool {}
+		public function roll(int $field, mixed $amountOrUpOrDown): bool {}
 
 		/**
 		 * Set a time field or several common fields at once
@@ -6508,7 +6508,7 @@ namespace {
 		 * @link https://php.net/manual/en/intlcalendar.settimezone.php
 		 * @since PHP 5 >= 5.5.0, PHP 7, PECL >= 3.0.0a1
 		 */
-		public function setTimeZone($timeZone): bool {}
+		public function setTimeZone(mixed $timeZone): bool {}
 
 		/**
 		 * Convert an IntlCalendar into a DateTime object
@@ -6535,7 +6535,7 @@ namespace {
 		 * @link https://php.net/manual/en/intliterator.current.php
 		 * @since PHP 5 >= 5.5.0, PHP 7
 		 */
-		public function current() {}
+		public function current(): mixed {}
 
 		/**
 		 * Get the current key
@@ -6607,7 +6607,7 @@ namespace {
 		 * @link https://php.net/manual/en/intliterator.current.php
 		 * @since PHP 5 >= 5.5.0, PHP 7
 		 */
-		public function current() {}
+		public function current(): mixed {}
 
 		/**
 		 * Get IntlBreakIterator backing this parts iterator
@@ -6948,7 +6948,7 @@ namespace {
 		 * @link https://php.net/manual/en/intltimezone.createenumeration.php
 		 * @since PHP 5 >= 5.5.0, PHP 7, PECL >= 3.0.0a1
 		 */
-		public static function createEnumeration($countryOrRawOffset = NULL): \IntlIterator {}
+		public static function createEnumeration(mixed $countryOrRawOffset = NULL): \IntlIterator {}
 
 		/**
 		 * Create a timezone object for the given ID
@@ -6970,7 +6970,7 @@ namespace {
 		 * @link https://php.net/manual/en/intltimezone.createtimezoneidenumeration.php
 		 * @since PHP 5 >= 5.5.0, PHP 7
 		 */
-		public static function createTimeZoneIDEnumeration(int $zoneType, string $region = NULL, int $rawOffset = NULL) {}
+		public static function createTimeZoneIDEnumeration(int $zoneType, string $region = NULL, int $rawOffset = NULL): \IntlIterator|false {}
 
 		/**
 		 * Create a timezone object from DateTimeZone
@@ -7070,7 +7070,7 @@ namespace {
 		 * @link https://php.net/manual/en/intltimezone.getidforwindowsid.php
 		 * @since PHP 7 >= 7.1.0
 		 */
-		public static function getIDForWindowsID(string $timezone, string $region = NULL) {}
+		public static function getIDForWindowsID(string $timezone, string $region = NULL): string|false {}
 
 		/**
 		 * Get the time zone raw and GMT offset for the given moment in time
@@ -7102,7 +7102,7 @@ namespace {
 		 * @link https://php.net/manual/en/intltimezone.getregion.php
 		 * @since PHP 5 >= 5.5.0, PHP 7
 		 */
-		public static function getRegion(string $zoneId) {}
+		public static function getRegion(string $zoneId): string|false {}
 
 		/**
 		 * Get the timezone data version currently used by ICU
@@ -7130,7 +7130,7 @@ namespace {
 		 * @link https://php.net/manual/en/intltimezone.getwindowsid.php
 		 * @since PHP 7 >= 7.1.0
 		 */
-		public static function getWindowsID(string $timezone) {}
+		public static function getWindowsID(string $timezone): string|false {}
 
 		/**
 		 * Check if this zone has the same rules and offset as another zone
@@ -7603,7 +7603,7 @@ namespace {
 		 * @see numfmt_get_error_code(), numfmt_format_currency(), numfmt_parse()
 		 * @since PHP 5 >= 5.3.0, PHP 7, PECL intl >= 1.0.0
 		 */
-		public function format($value, int $type = NULL): string {}
+		public function format(int|float $value, int $type = NULL): string {}
 
 		/**
 		 * Format a currency value
@@ -7615,7 +7615,7 @@ namespace {
 		 * @see numfmt_get_error_code(), numfmt_format(), numfmt_parse_currency()
 		 * @since PHP 5 >= 5.3.0, PHP 7, PECL intl >= 1.0.0
 		 */
-		public function formatCurrency(float $value, string $currency) {}
+		public function formatCurrency(float $value, string $currency): string|false {}
 
 		/**
 		 * Get an attribute
@@ -7702,7 +7702,7 @@ namespace {
 		 * @see numfmt_get_error_code(), numfmt_format(), numfmt_parse_currency()
 		 * @since PHP 5 >= 5.3.0, PHP 7, PECL intl >= 1.0.0
 		 */
-		public function parse(string $value, int $type = NULL, int &$position = NULL) {}
+		public function parse(string $value, int $type = NULL, int &$position = NULL): mixed {}
 
 		/**
 		 * Parse a currency number
@@ -7821,7 +7821,7 @@ namespace {
 		 * @see resourcebundle_count()
 		 * @since PHP 5 >= 5.3.2, PHP 7, PECL intl >= 2.0.0
 		 */
-		public function get($index, bool $fallback = TRUE) {}
+		public function get(string|int $index, bool $fallback = TRUE): mixed {}
 
 		/**
 		 * Get bundle's last error code
@@ -8084,7 +8084,7 @@ namespace {
 		 * @link https://php.net/manual/en/transliterator.listids.php
 		 * @since PHP 5 >= 5.4.0, PHP 7, PECL intl >= 2.0.0
 		 */
-		public static function listIDs() {}
+		public static function listIDs(): array|false {}
 
 		/**
 		 * Transliterate a string
@@ -8096,7 +8096,7 @@ namespace {
 		 * @link https://php.net/manual/en/transliterator.transliterate.php
 		 * @since PHP 5 >= 5.4.0, PHP 7, PECL intl >= 2.0.0
 		 */
-		public function transliterate(string $subject, int $start = NULL, int $end = NULL) {}
+		public function transliterate(string $subject, int $start = NULL, int $end = NULL): string|false {}
 	}
 
 	/**
@@ -8384,7 +8384,7 @@ namespace {
 		 * @link https://php.net/manual/en/uconverter.fromucallback.php
 		 * @since PHP 5 >= 5.5.0, PHP 7, PECL >= 3.0.0a1
 		 */
-		public function fromUCallback(int $reason, string $source, string $codePoint, int &$error) {}
+		public function fromUCallback(int $reason, string $source, string $codePoint, int &$error): mixed {}
 
 		/**
 		 * Get the aliases of the given name
@@ -8528,7 +8528,7 @@ namespace {
 		 * @link https://php.net/manual/en/uconverter.toucallback.php
 		 * @since PHP 5 >= 5.5.0, PHP 7, PECL >= 3.0.0a1
 		 */
-		public function toUCallback(int $reason, string $source, string $codeUnits, int &$error) {}
+		public function toUCallback(int $reason, string $source, string $codeUnits, int &$error): mixed {}
 
 		/**
 		 * Convert string from one charset to another
@@ -8636,7 +8636,7 @@ namespace {
 	 * @see collator_sort(), collator_sort_with_sort_keys()
 	 * @since PHP 5 >= 5.3.2, PHP 7, PECL intl >= 1.0.3
 	 */
-	function collator_get_sort_key(\Collator $coll, string $str) {}
+	function collator_get_sort_key(\Collator $coll, string $str): string|false {}
 
 	/**
 	 * Get current collation strength
@@ -8711,7 +8711,7 @@ namespace {
 	 * @see datefmt_format(), datefmt_parse(), datefmt_get_error_code(), datefmt_get_error_message()
 	 * @since PHP 5 >= 5.3.0, PHP 7, PECL intl >= 1.0.0
 	 */
-	function datefmt_create(string $locale, int $datetype, int $timetype, $timezone = NULL, $calendar = NULL, string $pattern = ""): \IntlDateFormatter {}
+	function datefmt_create(string $locale, int $datetype, int $timetype, mixed $timezone = NULL, mixed $calendar = NULL, string $pattern = ""): \IntlDateFormatter {}
 
 	/**
 	 * Format the date/time value as a string
@@ -8723,7 +8723,7 @@ namespace {
 	 * @see datefmt_create(), datefmt_parse(), datefmt_get_error_code(), datefmt_get_error_message(), datefmt_format_object()
 	 * @since PHP 5 >= 5.3.0, PHP 7, PECL intl >= 1.0.0
 	 */
-	function datefmt_format(\IntlDateFormatter $fmt, $value): string {}
+	function datefmt_format(\IntlDateFormatter $fmt, mixed $value): string {}
 
 	/**
 	 * Formats an object
@@ -8735,7 +8735,7 @@ namespace {
 	 * @link https://php.net/manual/en/intldateformatter.formatobject.php
 	 * @since PHP 5 >= 5.5.0, PHP 7, PECL intl >= 3.0.0
 	 */
-	function datefmt_format_object(object $object, $format = NULL, string $locale = NULL) {}
+	function datefmt_format_object(object $object, mixed $format = NULL, string $locale = NULL): string|false {}
 
 	/**
 	 * Get the calendar type used for the IntlDateFormatter
@@ -8832,7 +8832,7 @@ namespace {
 	 * @see IntlDateFormatter::getTimeZoneId(), IntlDateFormatter::setTimeZone()
 	 * @since PHP 5 >= 5.5.0, PHP 7, PECL intl >= 3.0.0
 	 */
-	function datefmt_get_timezone() {}
+	function datefmt_get_timezone(): \IntlTimeZone|false {}
 
 	/**
 	 * Get the timezone-id used for the IntlDateFormatter
@@ -8892,7 +8892,7 @@ namespace {
 	 * @see datefmt_get_calendar(), datefmt_get_calendar_object(), datefmt_create()
 	 * @since PHP 5 >= 5.3.0, PHP 7, PECL intl >= 1.0.0
 	 */
-	function datefmt_set_calendar(\IntlDateFormatter $fmt, $which): bool {}
+	function datefmt_set_calendar(\IntlDateFormatter $fmt, mixed $which): bool {}
 
 	/**
 	 * Set the leniency of the parser
@@ -8928,7 +8928,7 @@ namespace {
 	 * @see IntlDateFormatter::getTimeZone()
 	 * @since PHP 5 >= 5.5.0, PHP 7, PECL intl >= 3.0.0
 	 */
-	function datefmt_set_timezone(\IntlDateFormatter $fmt, $zone): bool {}
+	function datefmt_set_timezone(\IntlDateFormatter $fmt, mixed $zone): bool {}
 
 	/**
 	 * Sets the time zone to use
@@ -9071,7 +9071,7 @@ namespace {
 	 * @see idn_to_utf8()
 	 * @since PHP 5 >= 5.3.0, PHP 7, PECL intl >= 1.0.2, PECL idn >= 0.1
 	 */
-	function idn_to_ascii(string $domain, int $options = IDNA_DEFAULT, int $variant = INTL_IDNA_VARIANT_UTS46, array &$idna_info = NULL) {}
+	function idn_to_ascii(string $domain, int $options = IDNA_DEFAULT, int $variant = INTL_IDNA_VARIANT_UTS46, array &$idna_info = NULL): string|false {}
 
 	/**
 	 * Convert domain name from IDNA ASCII to Unicode
@@ -9085,7 +9085,7 @@ namespace {
 	 * @see idn_to_ascii()
 	 * @since PHP 5 >= 5.3.0, PHP 7, PECL intl >= 1.0.2, PECL idn >= 0.1
 	 */
-	function idn_to_utf8(string $domain, int $options = IDNA_DEFAULT, int $variant = INTL_IDNA_VARIANT_UTS46, array &$idna_info = NULL) {}
+	function idn_to_utf8(string $domain, int $options = IDNA_DEFAULT, int $variant = INTL_IDNA_VARIANT_UTS46, array &$idna_info = NULL): string|false {}
 
 	/**
 	 * Get symbolic name for a given error code
@@ -9173,7 +9173,7 @@ namespace {
 	 * @link https://php.net/manual/en/intltimezone.createenumeration.php
 	 * @since PHP 5 >= 5.5.0, PHP 7, PECL >= 3.0.0a1
 	 */
-	function intltz_create_enumeration($countryOrRawOffset = NULL): \IntlIterator {}
+	function intltz_create_enumeration(mixed $countryOrRawOffset = NULL): \IntlIterator {}
 
 	/**
 	 * Create a timezone object for the given ID
@@ -9195,7 +9195,7 @@ namespace {
 	 * @link https://php.net/manual/en/intltimezone.createtimezoneidenumeration.php
 	 * @since PHP 5 >= 5.5.0, PHP 7
 	 */
-	function intltz_create_time_zone_id_enumeration(int $zoneType, string $region = NULL, int $rawOffset = NULL) {}
+	function intltz_create_time_zone_id_enumeration(int $zoneType, string $region = NULL, int $rawOffset = NULL): \IntlIterator|false {}
 
 	/**
 	 * Create a timezone object from DateTimeZone
@@ -9300,7 +9300,7 @@ namespace {
 	 * @link https://php.net/manual/en/intltimezone.getidforwindowsid.php
 	 * @since PHP 7 >= 7.1.0
 	 */
-	function intltz_get_id_for_windows_id(string $timezone, string $region = NULL) {}
+	function intltz_get_id_for_windows_id(string $timezone, string $region = NULL): string|false {}
 
 	/**
 	 * Get the time zone raw and GMT offset for the given moment in time
@@ -9334,7 +9334,7 @@ namespace {
 	 * @link https://php.net/manual/en/intltimezone.getregion.php
 	 * @since PHP 5 >= 5.5.0, PHP 7
 	 */
-	function intltz_get_region(string $zoneId) {}
+	function intltz_get_region(string $zoneId): string|false {}
 
 	/**
 	 * Get the timezone data version currently used by ICU
@@ -9362,7 +9362,7 @@ namespace {
 	 * @link https://php.net/manual/en/intltimezone.getwindowsid.php
 	 * @since PHP 7 >= 7.1.0
 	 */
-	function intltz_get_windows_id(string $timezone) {}
+	function intltz_get_windows_id(string $timezone): string|false {}
 
 	/**
 	 * Check if this zone has the same rules and offset as another zone
@@ -9777,7 +9777,7 @@ namespace {
 	 * @see numfmt_get_error_code(), numfmt_format_currency(), numfmt_parse()
 	 * @since PHP 5 >= 5.3.0, PHP 7, PECL intl >= 1.0.0
 	 */
-	function numfmt_format(\NumberFormatter $fmt, $value, int $type = NULL): string {}
+	function numfmt_format(\NumberFormatter $fmt, int|float $value, int $type = NULL): string {}
 
 	/**
 	 * Format a currency value
@@ -9790,7 +9790,7 @@ namespace {
 	 * @see numfmt_get_error_code(), numfmt_format(), numfmt_parse_currency()
 	 * @since PHP 5 >= 5.3.0, PHP 7, PECL intl >= 1.0.0
 	 */
-	function numfmt_format_currency(\NumberFormatter $fmt, float $value, string $currency) {}
+	function numfmt_format_currency(\NumberFormatter $fmt, float $value, string $currency): string|false {}
 
 	/**
 	 * Get an attribute
@@ -9885,7 +9885,7 @@ namespace {
 	 * @see numfmt_get_error_code(), numfmt_format(), numfmt_parse_currency()
 	 * @since PHP 5 >= 5.3.0, PHP 7, PECL intl >= 1.0.0
 	 */
-	function numfmt_parse(\NumberFormatter $fmt, string $value, int $type = NULL, int &$position = NULL) {}
+	function numfmt_parse(\NumberFormatter $fmt, string $value, int $type = NULL, int &$position = NULL): mixed {}
 
 	/**
 	 * Parse a currency number
@@ -9987,7 +9987,7 @@ namespace {
 	 * @see resourcebundle_count()
 	 * @since PHP 5 >= 5.3.2, PHP 7, PECL intl >= 2.0.0
 	 */
-	function resourcebundle_get(\ResourceBundle $r, $index, bool $fallback = TRUE) {}
+	function resourcebundle_get(\ResourceBundle $r, string|int $index, bool $fallback = TRUE): mixed {}
 
 	/**
 	 * Get bundle's last error code
@@ -10080,7 +10080,7 @@ namespace {
 	 * @link https://php.net/manual/en/transliterator.listids.php
 	 * @since PHP 5 >= 5.4.0, PHP 7, PECL intl >= 2.0.0
 	 */
-	function transliterator_list_ids() {}
+	function transliterator_list_ids(): array|false {}
 
 	/**
 	 * Transliterate a string
@@ -10093,7 +10093,7 @@ namespace {
 	 * @link https://php.net/manual/en/transliterator.transliterate.php
 	 * @since PHP 5 >= 5.4.0, PHP 7, PECL intl >= 2.0.0
 	 */
-	function transliterator_transliterate($transliterator, string $subject, int $start = NULL, int $end = NULL) {}
+	function transliterator_transliterate(mixed $transliterator, string $subject, int $start = NULL, int $end = NULL) {}
 
 	/**
 	 * Allow processing of unassigned codepoints in the input for IDN functions.

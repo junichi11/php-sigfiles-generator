@@ -14,7 +14,7 @@ namespace {
 	 * @see odbc_commit(), odbc_rollback()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function odbc_autocommit($connection_id, bool $OnOff = FALSE) {}
+	function odbc_autocommit($connection_id, bool $OnOff = FALSE): mixed {}
 
 	/**
 	 * Handling of binary column data
@@ -443,7 +443,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.odbc-result.php
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function odbc_result($result_id, $field) {}
+	function odbc_result($result_id, mixed $field): mixed {}
 
 	/**
 	 * Print result as HTML table

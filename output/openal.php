@@ -45,7 +45,7 @@ namespace {
 	 * @see openal_buffer_create()
 	 * @since PECL openal >= 0.1.0
 	 */
-	function openal_buffer_get($buffer, int $property) {}
+	function openal_buffer_get($buffer, int $property): int|false {}
 
 	/**
 	 * Load a .wav file into a buffer
@@ -136,7 +136,7 @@ namespace {
 	 * @see openal_listener_set()
 	 * @since PECL openal >= 0.1.0
 	 */
-	function openal_listener_get(int $property) {}
+	function openal_listener_get(int $property): mixed {}
 
 	/**
 	 * Set a listener property
@@ -147,7 +147,7 @@ namespace {
 	 * @see openal_listener_get()
 	 * @since PECL openal >= 0.1.0
 	 */
-	function openal_listener_set(int $property, $setting): bool {}
+	function openal_listener_set(int $property, mixed $setting): bool {}
 
 	/**
 	 * Generate a source resource
@@ -177,7 +177,7 @@ namespace {
 	 * @see openal_source_create(), openal_source_set(), openal_source_play()
 	 * @since PECL openal >= 0.1.0
 	 */
-	function openal_source_get($source, int $property) {}
+	function openal_source_get($source, int $property): mixed {}
 
 	/**
 	 * Pause the source
@@ -219,7 +219,7 @@ namespace {
 	 * @see openal_source_create(), openal_source_get(), openal_source_play()
 	 * @since PECL openal >= 0.1.0
 	 */
-	function openal_source_set($source, int $property, $setting): bool {}
+	function openal_source_set($source, int $property, mixed $setting): bool {}
 
 	/**
 	 * Stop playing the source

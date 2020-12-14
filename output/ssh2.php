@@ -40,7 +40,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.ssh2-auth-none.php
 	 * @since PECL ssh2 >= 0.9.0
 	 */
-	function ssh2_auth_none($session, string $username) {}
+	function ssh2_auth_none($session, string $username): mixed {}
 
 	/**
 	 * Authenticate over SSH using a plain password

@@ -188,7 +188,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.swoole-load-module.php
 	 * @since PECL swoole >= 1.9.0
 	 */
-	function swoole_load_module(string $filename) {}
+	function swoole_load_module(string $filename): mixed {}
 
 	/**
 	 * Select the file descriptions which are ready to read/write or error in the eventloop
@@ -231,7 +231,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.swoole-timer-after.php
 	 * @since PECL swoole >= 1.9.0
 	 */
-	function swoole_timer_after(int $ms, callable $callback, $param = NULL): int {}
+	function swoole_timer_after(int $ms, callable $callback, mixed $param = NULL): int {}
 
 	/**
 	 * Check if a timer callback function is existed
@@ -251,7 +251,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.swoole-timer-tick.php
 	 * @since PECL swoole >= 1.9.0
 	 */
-	function swoole_timer_tick(int $ms, callable $callback, $param = NULL): int {}
+	function swoole_timer_tick(int $ms, callable $callback, mixed $param = NULL): int {}
 
 	/**
 	 * Get the version of Swoole

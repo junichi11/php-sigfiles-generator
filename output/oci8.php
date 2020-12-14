@@ -32,7 +32,7 @@ namespace {
 	 * @see oci_bind_array_by_name(), oci_parse()
 	 * @since PHP 5, PHP 7, PECL OCI8 >= 1.1.0
 	 */
-	function oci_bind_by_name($statement, string $bv_name, &$variable, int $maxlength = -1, int $type = SQLT_CHR): bool {}
+	function oci_bind_by_name($statement, string $bv_name, mixed &$variable, int $maxlength = -1, int $type = SQLT_CHR): bool {}
 
 	/**
 	 * Cancels reading from cursor
@@ -103,7 +103,7 @@ namespace {
 	 * @see oci_fetch(), oci_new_descriptor()
 	 * @since PHP 5, PHP 7, PECL OCI8 >= 1.1.0
 	 */
-	function oci_define_by_name($statement, string $column_name, &$variable, int $type = SQLT_CHR): bool {}
+	function oci_define_by_name($statement, string $column_name, mixed &$variable, int $type = SQLT_CHR): bool {}
 
 	/**
 	 * Returns the last error found
@@ -151,7 +151,7 @@ namespace {
 	 * @see oci_fetch(), oci_fetch_array(), oci_fetch_assoc(), oci_fetch_object(), oci_fetch_row(), oci_set_prefetch()
 	 * @since PHP 5, PHP 7, PECL OCI8 >= 1.1.0
 	 */
-	function oci_fetch_all($statement, array &$output, int $skip = 0, int $maxrows = -1, int $flags = OCI_FETCHSTATEMENT_BY_COLUMN + OCI_ASSOC) {}
+	function oci_fetch_all($statement, array &$output, int $skip = 0, int $maxrows = -1, int $flags = OCI_FETCHSTATEMENT_BY_COLUMN + OCI_ASSOC): int|false {}
 
 	/**
 	 * Returns the next row from a query as an associative or numeric array
@@ -207,7 +207,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.oci-field-is-null.php
 	 * @since PHP 5, PHP 7, PECL OCI8 >= 1.1.0
 	 */
-	function oci_field_is_null($statement, $field): bool {}
+	function oci_field_is_null($statement, mixed $field): bool {}
 
 	/**
 	 * Returns the name of a field from the statement
@@ -219,7 +219,7 @@ namespace {
 	 * @see oci_num_fields(), oci_field_type(), oci_field_size()
 	 * @since PHP 5, PHP 7, PECL OCI8 >= 1.1.0
 	 */
-	function oci_field_name($statement, $field): string {}
+	function oci_field_name($statement, mixed $field): string {}
 
 	/**
 	 * Tell the precision of a field
@@ -231,7 +231,7 @@ namespace {
 	 * @see oci_field_scale(), oci_field_type()
 	 * @since PHP 5, PHP 7, PECL OCI8 >= 1.1.0
 	 */
-	function oci_field_precision($statement, $field): int {}
+	function oci_field_precision($statement, mixed $field): int {}
 
 	/**
 	 * Tell the scale of the field
@@ -243,7 +243,7 @@ namespace {
 	 * @see oci_field_precision(), oci_field_type()
 	 * @since PHP 5, PHP 7, PECL OCI8 >= 1.1.0
 	 */
-	function oci_field_scale($statement, $field): int {}
+	function oci_field_scale($statement, mixed $field): int {}
 
 	/**
 	 * Returns field's size
@@ -255,7 +255,7 @@ namespace {
 	 * @see oci_num_fields(), oci_field_name()
 	 * @since PHP 5, PHP 7, PECL OCI8 >= 1.1.0
 	 */
-	function oci_field_size($statement, $field): int {}
+	function oci_field_size($statement, mixed $field): int {}
 
 	/**
 	 * Returns a field's data type name
@@ -267,7 +267,7 @@ namespace {
 	 * @see oci_num_fields(), oci_field_name(), oci_field_size()
 	 * @since PHP 5, PHP 7, PECL OCI8 >= 1.1.0
 	 */
-	function oci_field_type($statement, $field) {}
+	function oci_field_type($statement, mixed $field): mixed {}
 
 	/**
 	 * Tell the raw Oracle data type of the field
@@ -278,7 +278,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.oci-field-type-raw.php
 	 * @since PHP 5, PHP 7, PECL OCI8 >= 1.1.0
 	 */
-	function oci_field_type_raw($statement, $field): int {}
+	function oci_field_type_raw($statement, mixed $field): int {}
 
 	/**
 	 * Frees a descriptor
@@ -452,7 +452,7 @@ namespace {
 	 * @see oci_unregister_taf_callback()
 	 * @since PHP 7.0 >= 7.0.21, PHP 7 >= 7.1.7, PECL OCI8 >= 2.1.7
 	 */
-	function oci_register_taf_callback($connection, $callbackFn = NULL): bool {}
+	function oci_register_taf_callback($connection, mixed $callbackFn = NULL): bool {}
 
 	/**
 	 * Returns field's value from the fetched row
@@ -464,7 +464,7 @@ namespace {
 	 * @see oci_fetch_array(), oci_fetch_assoc(), oci_fetch_object(), oci_fetch_row(), oci_fetch_all()
 	 * @since PHP 5, PHP 7, PECL OCI8 >= 1.1.0
 	 */
-	function oci_result($statement, $field) {}
+	function oci_result($statement, mixed $field): mixed {}
 
 	/**
 	 * Rolls back the outstanding database transaction

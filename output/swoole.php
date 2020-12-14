@@ -338,7 +338,7 @@ namespace Swoole {
 		 * @link https://php.net/manual/en/swoole-channel.pop.php
 		 * @since PECL swoole >= 1.9.0
 		 */
-		public function pop() {}
+		public function pop(): mixed {}
 
 		/**
 		 * Write and push data into Swoole channel.
@@ -650,7 +650,7 @@ namespace Swoole\Connection {
 		 * @link https://php.net/manual/en/swoole-connection-iterator.offsetset.php
 		 * @since PECL swoole >= 1.9.0
 		 */
-		public function offsetSet(int $offset, $connection): void {}
+		public function offsetSet(int $offset, mixed $connection): void {}
 
 		/**
 		 * Unset an offset.
@@ -717,7 +717,7 @@ namespace Swoole {
 		 * @link https://php.net/manual/en/swoole-coroutine.call-user-func.php
 		 * @since PECL swoole >= 2.0.0
 		 */
-		public static function call_user_func(callable $callback, ...$args) {}
+		public static function call_user_func(callable $callback, mixed ...$args): mixed {}
 
 		/**
 		 * Call a callback with an array of parameters
@@ -728,7 +728,7 @@ namespace Swoole {
 		 * @link https://php.net/manual/en/swoole-coroutine.call-user-func-array.php
 		 * @since PECL swoole >= 2.0.0
 		 */
-		public static function call_user_func_array(callable $callback, array $param_array) {}
+		public static function call_user_func_array(callable $callback, array $param_array): mixed {}
 
 		/**
 		 * Description
@@ -980,7 +980,7 @@ namespace Swoole {
 		 * @link https://php.net/manual/en/swoole-event.defer.php
 		 * @since PECL swoole >= 1.9.0
 		 */
-		public static function defer($callback): void {}
+		public static function defer(mixed $callback): void {}
 
 		/**
 		 * Remove all event callback functions of a socket.
@@ -1548,7 +1548,7 @@ namespace Swoole\Http {
 		 * @link https://php.net/manual/en/swoole-server.heartbeat.php
 		 * @since PECL swoole >= 1.9.0
 		 */
-		public function heartbeat(bool $if_close_connection) {}
+		public function heartbeat(bool $if_close_connection): mixed {}
 
 		/**
 		 * Listen on the given IP and port, socket type.
@@ -1718,7 +1718,7 @@ namespace Swoole\Http {
 		 * @link https://php.net/manual/en/swoole-server.task.php
 		 * @since PECL swoole >= 1.9.0
 		 */
-		public function task(string $data, int $dst_worker_id = NULL, callable $callback = NULL) {}
+		public function task(string $data, int $dst_worker_id = NULL, callable $callback = NULL): mixed {}
 
 		/**
 		 * Execute multiple tasks concurrently.
@@ -2038,7 +2038,7 @@ namespace Swoole {
 		 * @link https://php.net/manual/en/swoole-process.pop.php
 		 * @since PECL swoole >= 1.9.0
 		 */
-		public function pop(int $maxsize = NULL) {}
+		public function pop(int $maxsize = NULL): mixed {}
 
 		/**
 		 * Write and push data into the message queue.
@@ -2337,7 +2337,7 @@ namespace Swoole\Redis {
 		 * @link https://php.net/manual/en/swoole-server.heartbeat.php
 		 * @since PECL swoole >= 1.9.0
 		 */
-		public function heartbeat(bool $if_close_connection) {}
+		public function heartbeat(bool $if_close_connection): mixed {}
 
 		/**
 		 * Listen on the given IP and port, socket type.
@@ -2519,7 +2519,7 @@ namespace Swoole\Redis {
 		 * @link https://php.net/manual/en/swoole-server.task.php
 		 * @since PECL swoole >= 1.9.0
 		 */
-		public function task(string $data, int $dst_worker_id = NULL, callable $callback = NULL) {}
+		public function task(string $data, int $dst_worker_id = NULL, callable $callback = NULL): mixed {}
 
 		/**
 		 * Execute multiple tasks concurrently.
@@ -2754,7 +2754,7 @@ namespace Swoole {
 		 * @link https://php.net/manual/en/swoole-server.heartbeat.php
 		 * @since PECL swoole >= 1.9.0
 		 */
-		public function heartbeat(bool $if_close_connection) {}
+		public function heartbeat(bool $if_close_connection): mixed {}
 
 		/**
 		 * Listen on the given IP and port, socket type.
@@ -2922,7 +2922,7 @@ namespace Swoole {
 		 * @link https://php.net/manual/en/swoole-server.task.php
 		 * @since PECL swoole >= 1.9.0
 		 */
-		public function task(string $data, int $dst_worker_id = NULL, callable $callback = NULL) {}
+		public function task(string $data, int $dst_worker_id = NULL, callable $callback = NULL): mixed {}
 
 		/**
 		 * Execute multiple tasks concurrently.

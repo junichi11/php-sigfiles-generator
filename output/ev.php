@@ -419,7 +419,7 @@ namespace {
 		 * @link https://php.net/manual/en/evcheck.construct.php
 		 * @since PECL ev >= 0.2.0
 		 */
-		public function __construct(callable $callback, $data = NULL, int $priority = NULL) {}
+		public function __construct(callable $callback, mixed $data = NULL, int $priority = NULL) {}
 
 		/**
 		 * Clear watcher pending status
@@ -572,7 +572,7 @@ namespace {
 		 * @link https://php.net/manual/en/evchild.construct.php
 		 * @since PECL ev >= 0.2.0
 		 */
-		public function __construct(int $pid, bool $trace, callable $callback, $data = NULL, int $priority = 0) {}
+		public function __construct(int $pid, bool $trace, callable $callback, mixed $data = NULL, int $priority = 0) {}
 
 		/**
 		 * Clear watcher pending status
@@ -595,7 +595,7 @@ namespace {
 		 * @link https://php.net/manual/en/evchild.createstopped.php
 		 * @since PECL ev >= 0.2.0
 		 */
-		final public static function createStopped(int $pid, bool $trace, callable $callback, $data = NULL, int $priority = NULL): object {}
+		final public static function createStopped(int $pid, bool $trace, callable $callback, mixed $data = NULL, int $priority = NULL): object {}
 
 		/**
 		 * Feeds the given revents set into the event loop
@@ -699,7 +699,7 @@ namespace {
 		 * @link https://php.net/manual/en/evembed.construct.php
 		 * @since PECL ev >= 0.2.0
 		 */
-		public function __construct(object $other, callable $callback = NULL, $data = NULL, int $priority = NULL) {}
+		public function __construct(object $other, callable $callback = NULL, mixed $data = NULL, int $priority = NULL) {}
 
 		/**
 		 * Clear watcher pending status
@@ -721,7 +721,7 @@ namespace {
 		 * @link https://php.net/manual/en/evembed.createstopped.php
 		 * @since PECL ev >= 0.2.0
 		 */
-		final public static function createStopped(object $other, callable $callback = NULL, $data = NULL, int $priority = NULL): void {}
+		final public static function createStopped(object $other, callable $callback = NULL, mixed $data = NULL, int $priority = NULL): void {}
 
 		/**
 		 * Feeds the given revents set into the event loop
@@ -851,7 +851,7 @@ namespace {
 		 * @link https://php.net/manual/en/evfork.construct.php
 		 * @since PECL ev >= 0.2.0
 		 */
-		public function __construct(callable $callback, $data = NULL, int $priority = 0) {}
+		public function __construct(callable $callback, mixed $data = NULL, int $priority = 0) {}
 
 		/**
 		 * Clear watcher pending status
@@ -986,7 +986,7 @@ namespace {
 		 * @link https://php.net/manual/en/evidle.construct.php
 		 * @since PECL ev >= 0.2.0
 		 */
-		public function __construct(callable $callback, $data = NULL, int $priority = NULL) {}
+		public function __construct(callable $callback, mixed $data = NULL, int $priority = NULL) {}
 
 		/**
 		 * Clear watcher pending status
@@ -1007,7 +1007,7 @@ namespace {
 		 * @link https://php.net/manual/en/evidle.createstopped.php
 		 * @since PECL ev >= 0.2.0
 		 */
-		final public static function createStopped(string $callback, $data = NULL, int $priority = NULL): object {}
+		final public static function createStopped(string $callback, mixed $data = NULL, int $priority = NULL): object {}
 
 		/**
 		 * Feeds the given revents set into the event loop
@@ -1136,7 +1136,7 @@ namespace {
 		 * @link https://php.net/manual/en/evio.construct.php
 		 * @since PECL ev >= 0.2.0
 		 */
-		public function __construct($fd, int $events, callable $callback, $data = NULL, int $priority = NULL) {}
+		public function __construct(mixed $fd, int $events, callable $callback, mixed $data = NULL, int $priority = NULL) {}
 
 		/**
 		 * Clear watcher pending status
@@ -1159,7 +1159,7 @@ namespace {
 		 * @link https://php.net/manual/en/evio.createstopped.php
 		 * @since PECL ev >= 0.2.0
 		 */
-		final public static function createStopped($fd, int $events, callable $callback, $data = NULL, int $priority = 0): \EvIo {}
+		final public static function createStopped(mixed $fd, int $events, callable $callback, mixed $data = NULL, int $priority = 0): \EvIo {}
 
 		/**
 		 * Feeds the given revents set into the event loop
@@ -1209,7 +1209,7 @@ namespace {
 		 * @link https://php.net/manual/en/evio.set.php
 		 * @since PECL ev >= 0.2.0
 		 */
-		public function set($fd, int $events): void {}
+		public function set(mixed $fd, int $events): void {}
 
 		/**
 		 * Sets new callback for the watcher
@@ -1308,7 +1308,7 @@ namespace {
 		 * @link https://php.net/manual/en/evloop.construct.php
 		 * @since PECL ev >= 0.2.0
 		 */
-		public function __construct(int $flags = NULL, $data = NULL, float $io_interval = 0.0, float $timeout_interval = 0.0) {}
+		public function __construct(int $flags = NULL, mixed $data = NULL, float $io_interval = 0.0, float $timeout_interval = 0.0) {}
 
 		/**
 		 * Returns an integer describing the backend used by libev
@@ -1356,7 +1356,7 @@ namespace {
 		 * @link https://php.net/manual/en/evloop.defaultloop.php
 		 * @since PECL ev >= 0.2.0
 		 */
-		public static function defaultLoop(int $flags = Ev::FLAG_AUTO, $data = NULL, float $io_interval = 0., float $timeout_interval = 0.): \EvLoop {}
+		public static function defaultLoop(int $flags = Ev::FLAG_AUTO, mixed $data = NULL, float $io_interval = 0., float $timeout_interval = 0.): \EvLoop {}
 
 		/**
 		 * Creates an instance of EvEmbed watcher associated with the current EvLoop object
@@ -1381,7 +1381,7 @@ namespace {
 		 * @link https://php.net/manual/en/evloop.fork.php
 		 * @since PECL ev >= 0.2.0
 		 */
-		final public function fork(callable $callback, $data = NULL, int $priority = 0): \EvFork {}
+		final public function fork(callable $callback, mixed $data = NULL, int $priority = 0): \EvFork {}
 
 		/**
 		 * Creates EvIdle watcher object associated with the current event loop instance
@@ -1393,7 +1393,7 @@ namespace {
 		 * @link https://php.net/manual/en/evloop.idle.php
 		 * @since PECL ev >= 0.2.0
 		 */
-		final public function idle(callable $callback, $data = NULL, int $priority = 0): \EvIdle {}
+		final public function idle(callable $callback, mixed $data = NULL, int $priority = 0): \EvIdle {}
 
 		/**
 		 * Invoke all pending watchers while resetting their pending state
@@ -1416,7 +1416,7 @@ namespace {
 		 * @link https://php.net/manual/en/evloop.io.php
 		 * @since PECL ev >= 0.2.0
 		 */
-		final public function io($fd, int $events, callable $callback, $data = NULL, int $priority = 0): \EvIo {}
+		final public function io(mixed $fd, int $events, callable $callback, mixed $data = NULL, int $priority = 0): \EvIo {}
 
 		/**
 		 * Must be called after a fork
@@ -1457,7 +1457,7 @@ namespace {
 		 * @link https://php.net/manual/en/evloop.periodic.php
 		 * @since PECL ev >= 0.2.0
 		 */
-		final public function periodic(float $offset, float $interval, callable $callback, $data = NULL, int $priority = 0): \EvPeriodic {}
+		final public function periodic(float $offset, float $interval, callable $callback, mixed $data = NULL, int $priority = 0): \EvPeriodic {}
 
 		/**
 		 * Creates EvPrepare watcher object associated with the current event loop instance
@@ -1469,7 +1469,7 @@ namespace {
 		 * @link https://php.net/manual/en/evloop.prepare.php
 		 * @since PECL ev >= 0.2.0
 		 */
-		final public function prepare(callable $callback, $data = NULL, int $priority = 0): \EvPrepare {}
+		final public function prepare(callable $callback, mixed $data = NULL, int $priority = 0): \EvPrepare {}
 
 		/**
 		 * Resume previously suspended default event loop
@@ -1501,7 +1501,7 @@ namespace {
 		 * @link https://php.net/manual/en/evloop.signal.php
 		 * @since PECL ev >= 0.2.0
 		 */
-		final public function signal(int $signum, callable $callback, $data = NULL, int $priority = 0): \EvSignal {}
+		final public function signal(int $signum, callable $callback, mixed $data = NULL, int $priority = 0): \EvSignal {}
 
 		/**
 		 * Creates EvStat watcher object associated with the current event loop instance
@@ -1515,7 +1515,7 @@ namespace {
 		 * @link https://php.net/manual/en/evloop.stat.php
 		 * @since PECL ev >= 0.2.0
 		 */
-		final public function stat(string $path, float $interval, callable $callback, $data = NULL, int $priority = 0): \EvStat {}
+		final public function stat(string $path, float $interval, callable $callback, mixed $data = NULL, int $priority = 0): \EvStat {}
 
 		/**
 		 * Stops the event loop
@@ -1548,7 +1548,7 @@ namespace {
 		 * @link https://php.net/manual/en/evloop.timer.php
 		 * @since PECL ev >= 0.2.0
 		 */
-		final public function timer(float $after, float $repeat, callable $callback, $data = NULL, int $priority = 0): \EvTimer {}
+		final public function timer(float $after, float $repeat, callable $callback, mixed $data = NULL, int $priority = 0): \EvTimer {}
 
 		/**
 		 * Performs internal consistency checks(for debugging)
@@ -1619,7 +1619,7 @@ namespace {
 		 * @link https://php.net/manual/en/evperiodic.construct.php
 		 * @since PECL ev >= 0.2.0
 		 */
-		public function __construct(float $offset, string $interval, callable $reschedule_cb, callable $callback, $data = NULL, int $priority = 0) {}
+		public function __construct(float $offset, string $interval, callable $reschedule_cb, callable $callback, mixed $data = NULL, int $priority = 0) {}
 
 		/**
 		 * Simply stops and restarts the periodic watcher again
@@ -1661,7 +1661,7 @@ namespace {
 		 * @link https://php.net/manual/en/evperiodic.createstopped.php
 		 * @since PECL ev >= 0.2.0
 		 */
-		final public static function createStopped(float $offset, float $interval, callable $reschedule_cb, callable $callback, $data = NULL, int $priority = 0): \EvPeriodic {}
+		final public static function createStopped(float $offset, float $interval, callable $reschedule_cb, callable $callback, mixed $data = NULL, int $priority = 0): \EvPeriodic {}
 
 		/**
 		 * Feeds the given revents set into the event loop
@@ -1808,7 +1808,7 @@ namespace {
 		 * @link https://php.net/manual/en/evprepare.createstopped.php
 		 * @since PECL ev >= 0.2.0
 		 */
-		final public static function createStopped(callable $callback, $data = NULL, int $priority = 0): \EvPrepare {}
+		final public static function createStopped(callable $callback, mixed $data = NULL, int $priority = 0): \EvPrepare {}
 
 		/**
 		 * Feeds the given revents set into the event loop
@@ -1928,7 +1928,7 @@ namespace {
 		 * @link https://php.net/manual/en/evsignal.construct.php
 		 * @since PECL ev >= 0.2.0
 		 */
-		public function __construct(int $signum, callable $callback, $data = NULL, int $priority = 0) {}
+		public function __construct(int $signum, callable $callback, mixed $data = NULL, int $priority = 0) {}
 
 		/**
 		 * Clear watcher pending status
@@ -1950,7 +1950,7 @@ namespace {
 		 * @link https://php.net/manual/en/evsignal.createstopped.php
 		 * @since PECL ev >= 0.2.0
 		 */
-		final public static function createStopped(int $signum, callable $callback, $data = NULL, int $priority = 0): \EvSignal {}
+		final public static function createStopped(int $signum, callable $callback, mixed $data = NULL, int $priority = 0): \EvSignal {}
 
 		/**
 		 * Feeds the given revents set into the event loop
@@ -2089,7 +2089,7 @@ namespace {
 		 * @link https://php.net/manual/en/evstat.construct.php
 		 * @since PECL ev >= 0.2.0
 		 */
-		public function __construct(string $path, float $interval, callable $callback, $data = NULL, int $priority = 0) {}
+		public function __construct(string $path, float $interval, callable $callback, mixed $data = NULL, int $priority = 0) {}
 
 		/**
 		 * Returns the values most recently detected by Ev
@@ -2121,7 +2121,7 @@ namespace {
 		 * @link https://php.net/manual/en/evstat.createstopped.php
 		 * @since PECL ev >= 0.2.0
 		 */
-		final public static function createStopped(string $path, float $interval, callable $callback, $data = NULL, int $priority = 0): void {}
+		final public static function createStopped(string $path, float $interval, callable $callback, mixed $data = NULL, int $priority = 0): void {}
 
 		/**
 		 * Feeds the given revents set into the event loop
@@ -2278,7 +2278,7 @@ namespace {
 		 * @link https://php.net/manual/en/evtimer.construct.php
 		 * @since PECL ev >= 0.2.0
 		 */
-		public function __construct(float $after, float $repeat, callable $callback, $data = NULL, int $priority = 0) {}
+		public function __construct(float $after, float $repeat, callable $callback, mixed $data = NULL, int $priority = 0) {}
 
 		/**
 		 * Restarts the timer watcher
@@ -2310,7 +2310,7 @@ namespace {
 		 * @link https://php.net/manual/en/evtimer.createstopped.php
 		 * @since PECL ev >= 0.2.0
 		 */
-		final public static function createStopped(float $after, float $repeat, callable $callback, $data = NULL, int $priority = 0): \EvTimer {}
+		final public static function createStopped(float $after, float $repeat, callable $callback, mixed $data = NULL, int $priority = 0): \EvTimer {}
 
 		/**
 		 * Feeds the given revents set into the event loop

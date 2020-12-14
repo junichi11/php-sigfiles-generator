@@ -168,7 +168,7 @@ namespace {
 	 * @see ftp_set_option()
 	 * @since PHP 4 >= 4.2.0, PHP 5, PHP 7
 	 */
-	function ftp_get_option($ftp_stream, int $option) {}
+	function ftp_get_option($ftp_stream, int $option): mixed {}
 
 	/**
 	 * Logs in to an FTP connection
@@ -403,7 +403,7 @@ namespace {
 	 * @see ftp_get_option()
 	 * @since PHP 4 >= 4.2.0, PHP 5, PHP 7
 	 */
-	function ftp_set_option($ftp_stream, int $option, $value): bool {}
+	function ftp_set_option($ftp_stream, int $option, mixed $value): bool {}
 
 	/**
 	 * Sends a SITE command to the server

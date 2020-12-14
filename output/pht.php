@@ -128,7 +128,7 @@ namespace pht {
 		 * @link https://php.net/manual/en/pht-queue.front.php
 		 * @since PECL pht >= 0.0.1
 		 */
-		public function front() {}
+		public function front(): mixed {}
 
 		/**
 		 * Acquires the queue's mutex lock
@@ -146,7 +146,7 @@ namespace pht {
 		 * @link https://php.net/manual/en/pht-queue.pop.php
 		 * @since PECL pht >= 0.0.1
 		 */
-		public function pop() {}
+		public function pop(): mixed {}
 
 		/**
 		 * Pushes a value to the end of a queue
@@ -156,7 +156,7 @@ namespace pht {
 		 * @link https://php.net/manual/en/pht-queue.push.php
 		 * @since PECL pht >= 0.0.1
 		 */
-		public function push($value): void {}
+		public function push(mixed $value): void {}
 
 		/**
 		 * Gets the size of the queue
@@ -210,7 +210,7 @@ namespace pht {
 		 * @link https://php.net/manual/en/pht-thread.addClassTask.php
 		 * @since PECL pht >= 0.0.1
 		 */
-		public function addClassTask(string $className, ...$ctorArgs): void {}
+		public function addClassTask(string $className, mixed ...$ctorArgs): void {}
 
 		/**
 		 * File threading
@@ -221,7 +221,7 @@ namespace pht {
 		 * @link https://php.net/manual/en/pht-thread.addFileTask.php
 		 * @since PECL pht >= 0.0.1
 		 */
-		public function addFileTask(string $fileName, ...$globals): void {}
+		public function addFileTask(string $fileName, mixed ...$globals): void {}
 
 		/**
 		 * Function threading
@@ -232,7 +232,7 @@ namespace pht {
 		 * @link https://php.net/manual/en/pht-thread.addFunctionTask.php
 		 * @since PECL pht >= 0.0.1
 		 */
-		public function addFunctionTask(callable $func, ...$funcArgs): void {}
+		public function addFunctionTask(callable $func, mixed ...$funcArgs): void {}
 
 		/**
 		 * Joins a thread
@@ -305,7 +305,7 @@ namespace pht {
 		 * @link https://php.net/manual/en/pht-vector.construct.php
 		 * @since PECL pht >= 0.0.1
 		 */
-		public function __construct(int $size = 0, $value = 0) {}
+		public function __construct(int $size = 0, mixed $value = 0) {}
 
 		/**
 		 * Deletes a value in the vector
@@ -326,7 +326,7 @@ namespace pht {
 		 * @link https://php.net/manual/en/pht-vector.insertAt.php
 		 * @since PECL pht >= 0.0.1
 		 */
-		public function insertAt($value, int $offset): void {}
+		public function insertAt(mixed $value, int $offset): void {}
 
 		/**
 		 * Acquires the vector's mutex lock
@@ -344,7 +344,7 @@ namespace pht {
 		 * @link https://php.net/manual/en/pht-vector.pop.php
 		 * @since PECL pht >= 0.0.1
 		 */
-		public function pop() {}
+		public function pop(): mixed {}
 
 		/**
 		 * Pushes a value to the vector
@@ -354,7 +354,7 @@ namespace pht {
 		 * @link https://php.net/manual/en/pht-vector.push.php
 		 * @since PECL pht >= 0.0.1
 		 */
-		public function push($value): void {}
+		public function push(mixed $value): void {}
 
 		/**
 		 * Resizes a vector
@@ -365,7 +365,7 @@ namespace pht {
 		 * @link https://php.net/manual/en/pht-vector.resize.php
 		 * @since PECL pht >= 0.0.1
 		 */
-		public function resize(int $size, $value = 0): void {}
+		public function resize(int $size, mixed $value = 0): void {}
 
 		/**
 		 * Shifts a value from the vector
@@ -374,7 +374,7 @@ namespace pht {
 		 * @link https://php.net/manual/en/pht-vector.shift.php
 		 * @since PECL pht >= 0.0.1
 		 */
-		public function shift() {}
+		public function shift(): mixed {}
 
 		/**
 		 * Gets the size of the vector
@@ -402,7 +402,7 @@ namespace pht {
 		 * @link https://php.net/manual/en/pht-vector.unshift.php
 		 * @since PECL pht >= 0.0.1
 		 */
-		public function unshift($value): void {}
+		public function unshift(mixed $value): void {}
 
 		/**
 		 * Updates a value in the vector
@@ -413,7 +413,7 @@ namespace pht {
 		 * @link https://php.net/manual/en/pht-vector.updateAt.php
 		 * @since PECL pht >= 0.0.1
 		 */
-		public function updateAt($value, int $offset): void {}
+		public function updateAt(mixed $value, int $offset): void {}
 	}
 
 }

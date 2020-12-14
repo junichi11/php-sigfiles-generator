@@ -62,7 +62,7 @@ namespace {
 	 * @see easter_days()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function easter_date($year = NULL, int $mode = CAL_EASTER_DEFAULT): int {}
+	function easter_date(int|null $year = NULL, int $mode = CAL_EASTER_DEFAULT): int {}
 
 	/**
 	 * Get number of days after March 21 on which Easter falls for a given year
@@ -74,7 +74,7 @@ namespace {
 	 * @see easter_date()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function easter_days($year = NULL, int $mode = CAL_EASTER_DEFAULT): int {}
+	function easter_days(int|null $year = NULL, int $mode = CAL_EASTER_DEFAULT): int {}
 
 	/**
 	 * Converts a date from the French Republican Calendar to a Julian Day Count
@@ -111,7 +111,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.jddayofweek.php
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function jddayofweek(int $julian_day, int $mode = CAL_DOW_DAYNO) {}
+	function jddayofweek(int $julian_day, int $mode = CAL_DOW_DAYNO): int|string {}
 
 	/**
 	 * Returns a month name
@@ -216,7 +216,7 @@ namespace {
 	 * @see jdtounix()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function unixtojd($timestamp = NULL) {}
+	function unixtojd(int|null $timestamp = NULL): int|false {}
 
 	/**
 	 * For <code>jddayofweek()</code>: the day of the week as <code>int</code>, where <code>0</code> means Sunday and <code>6</code> means Saturday.

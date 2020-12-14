@@ -47,7 +47,7 @@ namespace {
 		 * @link https://php.net/manual/en/oci-lob.erase.php
 		 * @since PHP 5, PHP 7, PECL OCI8 >= 1.1.0
 		 */
-		public function erase(int $offset = NULL, int $length = NULL) {}
+		public function erase(int $offset = NULL, int $length = NULL): int|false {}
 
 		/**
 		 * Exports LOB's contents to a file
@@ -116,7 +116,7 @@ namespace {
 		 * @link https://php.net/manual/en/oci-lob.read.php
 		 * @since PHP 5, PHP 7, PECL OCI8 >= 1.1.0
 		 */
-		public function read(int $length) {}
+		public function read(int $length): string|false {}
 
 		/**
 		 * Moves the internal pointer to the beginning of the large object
@@ -166,7 +166,7 @@ namespace {
 		 * @link https://php.net/manual/en/oci-lob.size.php
 		 * @since PHP 5, PHP 7, PECL OCI8 >= 1.1.0
 		 */
-		public function size() {}
+		public function size(): int|false {}
 
 		/**
 		 * Returns the current position of internal pointer of large object
@@ -186,7 +186,7 @@ namespace {
 		 * @link https://php.net/manual/en/oci-lob.write.php
 		 * @since PHP 5, PHP 7, PECL OCI8 >= 1.1.0
 		 */
-		public function write(string $data, int $length = NULL) {}
+		public function write(string $data, int $length = NULL): int|false {}
 
 		/**
 		 * Writes a temporary large object

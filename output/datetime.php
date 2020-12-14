@@ -260,7 +260,7 @@ namespace {
 		 * @see DateTime::__construct(), DateTime::getLastErrors(), checkdate(), strptime()
 		 * @since PHP 5 >= 5.3.0, PHP 7
 		 */
-		public static function createFromFormat(string $format, string $datetime, \DateTimeZone $timezone = NULL) {}
+		public static function createFromFormat(string $format, string $datetime, \DateTimeZone $timezone = NULL): \DateTime|false {}
 
 		/**
 		 * Returns new DateTime object encapsulating the given DateTimeImmutable object
@@ -281,7 +281,7 @@ namespace {
 		 * @see DateInterval::format(), DateTime::add(), DateTime::sub()
 		 * @since PHP 5 >= 5.3.0, PHP 7
 		 */
-		public function diff(\DateTimeInterface $targetObject, bool $absolute = FALSE) {}
+		public function diff(\DateTimeInterface $targetObject, bool $absolute = FALSE): \DateInterval|false {}
 
 		/**
 		 * Returns date formatted according to given format
@@ -292,7 +292,7 @@ namespace {
 		 * @see date()
 		 * @since PHP 5 >= 5.2.1, PHP 7
 		 */
-		public function format(string $format) {}
+		public function format(string $format): string|false {}
 
 		/**
 		 * Returns the warnings and errors
@@ -310,7 +310,7 @@ namespace {
 		 * @link https://php.net/manual/en/datetime.getoffset.php
 		 * @since PHP 5 >= 5.2.1, PHP 7
 		 */
-		public function getOffset() {}
+		public function getOffset(): int|false {}
 
 		/**
 		 * Gets the Unix timestamp
@@ -330,7 +330,7 @@ namespace {
 		 * @see DateTime::setTimezone()
 		 * @since PHP 5 >= 5.2.1, PHP 7
 		 */
-		public function getTimezone() {}
+		public function getTimezone(): \DateTimeZone|false {}
 
 		/**
 		 * Alters the timestamp
@@ -495,7 +495,7 @@ namespace {
 		 * @see DateInterval::format(), DateTime::add(), DateTime::sub()
 		 * @since PHP 5 >= 5.3.0, PHP 7
 		 */
-		public function diff(\DateTimeInterface $targetObject, bool $absolute = FALSE) {}
+		public function diff(\DateTimeInterface $targetObject, bool $absolute = FALSE): \DateInterval|false {}
 
 		/**
 		 * Returns date formatted according to given format
@@ -506,7 +506,7 @@ namespace {
 		 * @see date()
 		 * @since PHP 5 >= 5.2.1, PHP 7
 		 */
-		public function format(string $format) {}
+		public function format(string $format): string|false {}
 
 		/**
 		 * Returns the warnings and errors
@@ -524,7 +524,7 @@ namespace {
 		 * @link https://php.net/manual/en/datetime.getoffset.php
 		 * @since PHP 5 >= 5.2.1, PHP 7
 		 */
-		public function getOffset() {}
+		public function getOffset(): int|false {}
 
 		/**
 		 * Gets the Unix timestamp
@@ -544,7 +544,7 @@ namespace {
 		 * @see DateTime::setTimezone()
 		 * @since PHP 5 >= 5.2.1, PHP 7
 		 */
-		public function getTimezone() {}
+		public function getTimezone(): \DateTimeZone|false {}
 
 		/**
 		 * Creates a new object with modified timestamp
@@ -554,7 +554,7 @@ namespace {
 		 * @link https://php.net/manual/en/datetimeimmutable.modify.php
 		 * @since PHP 5 >= 5.5.0, PHP 7
 		 */
-		public function modify(string $modifier) {}
+		public function modify(string $modifier): \DateTimeImmutable|false {}
 
 		/**
 		 * Sets the date
@@ -728,7 +728,7 @@ namespace {
 		 * @see DateInterval::format(), DateTime::add(), DateTime::sub()
 		 * @since PHP 5 >= 5.3.0, PHP 7
 		 */
-		public function diff(\DateTimeInterface $targetObject, bool $absolute = FALSE);
+		public function diff(\DateTimeInterface $targetObject, bool $absolute = FALSE): \DateInterval|false;
 
 		/**
 		 * Returns date formatted according to given format
@@ -739,7 +739,7 @@ namespace {
 		 * @see date()
 		 * @since PHP 5 >= 5.2.1, PHP 7
 		 */
-		public function format(string $format);
+		public function format(string $format): string|false;
 
 		/**
 		 * Returns the timezone offset
@@ -748,7 +748,7 @@ namespace {
 		 * @link https://php.net/manual/en/datetime.getoffset.php
 		 * @since PHP 5 >= 5.2.1, PHP 7
 		 */
-		public function getOffset();
+		public function getOffset(): int|false;
 
 		/**
 		 * Gets the Unix timestamp
@@ -768,7 +768,7 @@ namespace {
 		 * @see DateTime::setTimezone()
 		 * @since PHP 5 >= 5.2.1, PHP 7
 		 */
-		public function getTimezone();
+		public function getTimezone(): \DateTimeZone|false;
 	}
 
 	/**
@@ -879,7 +879,7 @@ namespace {
 		 * @link https://php.net/manual/en/datetimezone.getlocation.php
 		 * @since PHP 5 >= 5.3.0, PHP 7
 		 */
-		public function getLocation() {}
+		public function getLocation(): array|false {}
 
 		/**
 		 * Returns the name of the timezone
@@ -898,7 +898,7 @@ namespace {
 		 * @link https://php.net/manual/en/datetimezone.getoffset.php
 		 * @since PHP 5 >= 5.2.0, PHP 7
 		 */
-		public function getOffset(\DateTimeInterface $datetime) {}
+		public function getOffset(\DateTimeInterface $datetime): int|false {}
 
 		/**
 		 * Returns all transitions for the timezone
@@ -908,7 +908,7 @@ namespace {
 		 * @link https://php.net/manual/en/datetimezone.gettransitions.php
 		 * @since PHP 5 >= 5.2.0, PHP 7
 		 */
-		public function getTransitions(int $timestampBegin = PHP_INT_MIN, int $timestampEnd = PHP_INT_MAX) {}
+		public function getTransitions(int $timestampBegin = PHP_INT_MIN, int $timestampEnd = PHP_INT_MAX): array|false {}
 
 		/**
 		 * Returns associative array containing dst, offset and the timezone name
@@ -918,7 +918,7 @@ namespace {
 		 * @see timezone_identifiers_list()
 		 * @since PHP 5 >= 5.2.0, PHP 7
 		 */
-		public static function listAbbreviations() {}
+		public static function listAbbreviations(): array|false {}
 
 		/**
 		 * Returns a numerically indexed array containing all defined timezone identifiers
@@ -929,7 +929,7 @@ namespace {
 		 * @see timezone_abbreviations_list()
 		 * @since PHP 5 >= 5.2.0, PHP 7
 		 */
-		public static function listIdentifiers(int $timezoneGroup = DateTimeZone::ALL, string $countryCode = NULL) {}
+		public static function listIdentifiers(int $timezoneGroup = DateTimeZone::ALL, string $countryCode = NULL): array|false {}
 	}
 
 	/**
@@ -992,7 +992,7 @@ namespace {
 	 * @see DateTime::__construct(), DateTime::getLastErrors(), checkdate(), strptime()
 	 * @since PHP 5 >= 5.3.0, PHP 7
 	 */
-	function date_create_from_format(string $format, string $datetime, \DateTimeZone $timezone = NULL) {}
+	function date_create_from_format(string $format, string $datetime, \DateTimeZone $timezone = NULL): \DateTime|false {}
 
 	/**
 	 * Returns new DateTimeImmutable object
@@ -1063,7 +1063,7 @@ namespace {
 	 * @see DateInterval::format(), DateTime::add(), DateTime::sub()
 	 * @since PHP 5 >= 5.3.0, PHP 7
 	 */
-	function date_diff(\DateTimeInterface $originObject, \DateTimeInterface $targetObject, bool $absolute = FALSE) {}
+	function date_diff(\DateTimeInterface $originObject, \DateTimeInterface $targetObject, bool $absolute = FALSE): \DateInterval|false {}
 
 	/**
 	 * Returns date formatted according to given format
@@ -1075,7 +1075,7 @@ namespace {
 	 * @see date()
 	 * @since PHP 5 >= 5.2.1, PHP 7
 	 */
-	function date_format(\DateTimeInterface $object, string $format) {}
+	function date_format(\DateTimeInterface $object, string $format): string|false {}
 
 	/**
 	 * Returns the warnings and errors
@@ -1136,7 +1136,7 @@ namespace {
 	 * @link https://php.net/manual/en/datetime.getoffset.php
 	 * @since PHP 5 >= 5.2.1, PHP 7
 	 */
-	function date_offset_get(\DateTimeInterface $object) {}
+	function date_offset_get(\DateTimeInterface $object): int|false {}
 
 	/**
 	 * Returns associative array with detailed info about given date/time
@@ -1146,7 +1146,7 @@ namespace {
 	 * @see checkdate(), getdate()
 	 * @since PHP 5 >= 5.2.0, PHP 7
 	 */
-	function date_parse(string $datetime) {}
+	function date_parse(string $datetime): array|false {}
 
 	/**
 	 * Get info about given date formatted according to the specified format
@@ -1182,7 +1182,7 @@ namespace {
 	 * @see date_sunrise(), date_sunset()
 	 * @since PHP 5 >= 5.1.2, PHP 7
 	 */
-	function date_sun_info(int $timestamp, float $latitude, float $longitude) {}
+	function date_sun_info(int $timestamp, float $latitude, float $longitude): array|false {}
 
 	/**
 	 * Returns time of sunrise for a given day and location
@@ -1198,7 +1198,7 @@ namespace {
 	 * @see date_sunset(), date_sun_info()
 	 * @since PHP 5, PHP 7
 	 */
-	function date_sunrise(int $timestamp, int $returnFormat = SUNFUNCS_RET_STRING, float $latitude  = 'ini_get("date.default_latitude")', float $longitude  = 'ini_get("date.default_longitude")', float $zenith  = 'ini_get("date.sunrise_zenith")', float $utcOffset = 0) {}
+	function date_sunrise(int $timestamp, int $returnFormat = SUNFUNCS_RET_STRING, float $latitude  = 'ini_get("date.default_latitude")', float $longitude  = 'ini_get("date.default_longitude")', float $zenith  = 'ini_get("date.sunrise_zenith")', float $utcOffset = 0): mixed {}
 
 	/**
 	 * Returns time of sunset for a given day and location
@@ -1214,7 +1214,7 @@ namespace {
 	 * @see date_sunrise(), date_sun_info()
 	 * @since PHP 5, PHP 7
 	 */
-	function date_sunset(int $timestamp, int $returnFormat = SUNFUNCS_RET_STRING, float $latitude  = 'ini_get("date.default_latitude")', float $longitude  = 'ini_get("date.default_longitude")', float $zenith  = 'ini_get("date.sunset_zenith")', float $utcOffset = 0) {}
+	function date_sunset(int $timestamp, int $returnFormat = SUNFUNCS_RET_STRING, float $latitude  = 'ini_get("date.default_latitude")', float $longitude  = 'ini_get("date.default_longitude")', float $zenith  = 'ini_get("date.sunset_zenith")', float $utcOffset = 0): mixed {}
 
 	/**
 	 * Sets the time
@@ -1263,7 +1263,7 @@ namespace {
 	 * @see DateTime::setTimezone()
 	 * @since PHP 5 >= 5.2.1, PHP 7
 	 */
-	function date_timezone_get(\DateTimeInterface $object) {}
+	function date_timezone_get(\DateTimeInterface $object): \DateTimeZone|false {}
 
 	/**
 	 * Sets the time zone for the DateTime object
@@ -1296,7 +1296,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.gettimeofday.php
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function gettimeofday(bool $returnFloat = FALSE) {}
+	function gettimeofday(bool $returnFloat = FALSE): mixed {}
 
 	/**
 	 * Format a GMT/UTC date/time
@@ -1372,7 +1372,7 @@ namespace {
 	 * @see time(), hrtime()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function microtime(bool $getAsFloat = FALSE) {}
+	function microtime(bool $getAsFloat = FALSE): mixed {}
 
 	/**
 	 * Get Unix timestamp for a date
@@ -1413,7 +1413,7 @@ namespace {
 	 * @see checkdate(), strftime(), date_parse_from_format(), DateTime::createFromFormat()
 	 * @since PHP 5 >= 5.1.0, PHP 7
 	 */
-	function strptime(string $date, string $format) {}
+	function strptime(string $date, string $format): array|false {}
 
 	/**
 	 * Parse about any English textual datetime description into a Unix timestamp
@@ -1445,7 +1445,7 @@ namespace {
 	 * @see timezone_identifiers_list()
 	 * @since PHP 5 >= 5.2.0, PHP 7
 	 */
-	function timezone_abbreviations_list() {}
+	function timezone_abbreviations_list(): array|false {}
 
 	/**
 	 * Returns a numerically indexed array containing all defined timezone identifiers
@@ -1456,7 +1456,7 @@ namespace {
 	 * @see timezone_abbreviations_list()
 	 * @since PHP 5 >= 5.2.0, PHP 7
 	 */
-	function timezone_identifiers_list(int $timezoneGroup = DateTimeZone::ALL, string $countryCode = NULL) {}
+	function timezone_identifiers_list(int $timezoneGroup = DateTimeZone::ALL, string $countryCode = NULL): array|false {}
 
 	/**
 	 * Returns location information for a timezone
@@ -1466,7 +1466,7 @@ namespace {
 	 * @link https://php.net/manual/en/datetimezone.getlocation.php
 	 * @since PHP 5 >= 5.3.0, PHP 7
 	 */
-	function timezone_location_get(\DateTimeZone $object) {}
+	function timezone_location_get(\DateTimeZone $object): array|false {}
 
 	/**
 	 * Returns the timezone name from abbreviation
@@ -1478,7 +1478,7 @@ namespace {
 	 * @see timezone_abbreviations_list()
 	 * @since PHP 5 >= 5.1.3, PHP 7
 	 */
-	function timezone_name_from_abbr(string $abbr, int $utcOffset = -1, int $isDST = -1) {}
+	function timezone_name_from_abbr(string $abbr, int $utcOffset = -1, int $isDST = -1): string|false {}
 
 	/**
 	 * Returns the name of the timezone
@@ -1499,7 +1499,7 @@ namespace {
 	 * @link https://php.net/manual/en/datetimezone.getoffset.php
 	 * @since PHP 5 >= 5.2.0, PHP 7
 	 */
-	function timezone_offset_get(\DateTimeZone $object, \DateTimeInterface $datetime) {}
+	function timezone_offset_get(\DateTimeZone $object, \DateTimeInterface $datetime): int|false {}
 
 	/**
 	 * Creates new DateTimeZone object
@@ -1520,7 +1520,7 @@ namespace {
 	 * @link https://php.net/manual/en/datetimezone.gettransitions.php
 	 * @since PHP 5 >= 5.2.0, PHP 7
 	 */
-	function timezone_transitions_get(\DateTimeZone $object, int $timestampBegin = PHP_INT_MIN, int $timestampEnd = PHP_INT_MAX) {}
+	function timezone_transitions_get(\DateTimeZone $object, int $timestampBegin = PHP_INT_MIN, int $timestampEnd = PHP_INT_MAX): array|false {}
 
 	/**
 	 * Gets the version of the timezonedb

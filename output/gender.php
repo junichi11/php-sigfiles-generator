@@ -410,7 +410,7 @@ namespace Gender {
 		 * @link https://php.net/manual/en/gender-gender.country.php
 		 * @since PECL gender >= 0.8.0
 		 */
-		public function country(int $country) {}
+		public function country(int $country): array|false {}
 
 		/**
 		 * Get gender of a name

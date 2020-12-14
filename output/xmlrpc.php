@@ -14,7 +14,7 @@ namespace {
 	 * @see xmlrpc_encode_request(), xmlrpc_is_fault()
 	 * @since PHP 4 >= 4.1.0, PHP 5, PHP 7
 	 */
-	function xmlrpc_decode(string $xml, string $encoding = "iso-8859-1") {}
+	function xmlrpc_decode(string $xml, string $encoding = "iso-8859-1"): mixed {}
 
 	/**
 	 * Decodes XML into native PHP types
@@ -26,7 +26,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.xmlrpc-decode-request.php
 	 * @since PHP 4 >= 4.1.0, PHP 5, PHP 7
 	 */
-	function xmlrpc_decode_request(string $xml, string &$method, string $encoding = NULL) {}
+	function xmlrpc_decode_request(string $xml, string &$method, string $encoding = NULL): mixed {}
 
 	/**
 	 * Generates XML for a PHP value
@@ -36,7 +36,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.xmlrpc-encode.php
 	 * @since PHP 4 >= 4.1.0, PHP 5, PHP 7
 	 */
-	function xmlrpc_encode($value): string {}
+	function xmlrpc_encode(mixed $value): string {}
 
 	/**
 	 * Generates XML for a method request
@@ -49,7 +49,7 @@ namespace {
 	 * @see stream_context_create(), file_get_contents(), xmlrpc_decode()
 	 * @since PHP 4 >= 4.1.0, PHP 5, PHP 7
 	 */
-	function xmlrpc_encode_request(string $method, $params, array $output_options = NULL): string {}
+	function xmlrpc_encode_request(string $method, mixed $params, array $output_options = NULL): string {}
 
 	/**
 	 * Gets xmlrpc type for a PHP value
@@ -60,7 +60,7 @@ namespace {
 	 * @see xmlrpc_set_type()
 	 * @since PHP 4 >= 4.1.0, PHP 5, PHP 7
 	 */
-	function xmlrpc_get_type($value): string {}
+	function xmlrpc_get_type(mixed $value): string {}
 
 	/**
 	 * Determines if an array value represents an XMLRPC fault
@@ -105,7 +105,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.xmlrpc-server-call-method.php
 	 * @since PHP 4 >= 4.1.0, PHP 5, PHP 7
 	 */
-	function xmlrpc_server_call_method($server, string $xml, $user_data, array $output_options = NULL): string {}
+	function xmlrpc_server_call_method($server, string $xml, mixed $user_data, array $output_options = NULL): string {}
 
 	/**
 	 * Creates an xmlrpc server

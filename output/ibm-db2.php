@@ -14,7 +14,7 @@ namespace {
 	 * @see db2_connect(), db2_pconnect()
 	 * @since PECL ibm_db2 >= 1.0.0
 	 */
-	function db2_autocommit($connection, bool $value = NULL) {}
+	function db2_autocommit($connection, bool $value = NULL): mixed {}
 
 	/**
 	 * Binds a PHP variable to an SQL statement parameter
@@ -249,7 +249,7 @@ namespace {
 	 * @see db2_field_name(), db2_field_num(), db2_field_precision(), db2_field_scale(), db2_field_type(), db2_field_width()
 	 * @since PECL ibm_db2 >= 1.0.0
 	 */
-	function db2_field_display_size($stmt, $column): int {}
+	function db2_field_display_size($stmt, mixed $column): int {}
 
 	/**
 	 * Returns the name of the column in the result set
@@ -261,7 +261,7 @@ namespace {
 	 * @see db2_field_display_size(), db2_field_num(), db2_field_precision(), db2_field_scale(), db2_field_type(), db2_field_width()
 	 * @since PECL ibm_db2 >= 1.0.0
 	 */
-	function db2_field_name($stmt, $column): string {}
+	function db2_field_name($stmt, mixed $column): string {}
 
 	/**
 	 * Returns the position of the named column in a result set
@@ -273,7 +273,7 @@ namespace {
 	 * @see db2_field_display_size(), db2_field_name(), db2_field_precision(), db2_field_scale(), db2_field_type(), db2_field_width()
 	 * @since PECL ibm_db2 >= 1.0.0
 	 */
-	function db2_field_num($stmt, $column): int {}
+	function db2_field_num($stmt, mixed $column): int {}
 
 	/**
 	 * Returns the precision of the indicated column in a result set
@@ -285,7 +285,7 @@ namespace {
 	 * @see db2_field_display_size(), db2_field_name(), db2_field_num(), db2_field_scale(), db2_field_type(), db2_field_width()
 	 * @since PECL ibm_db2 >= 1.0.0
 	 */
-	function db2_field_precision($stmt, $column): int {}
+	function db2_field_precision($stmt, mixed $column): int {}
 
 	/**
 	 * Returns the scale of the indicated column in a result set
@@ -297,7 +297,7 @@ namespace {
 	 * @see db2_field_display_size(), db2_field_name(), db2_field_num(), db2_field_precision(), db2_field_type(), db2_field_width()
 	 * @since PECL ibm_db2 >= 1.0.0
 	 */
-	function db2_field_scale($stmt, $column): int {}
+	function db2_field_scale($stmt, mixed $column): int {}
 
 	/**
 	 * Returns the data type of the indicated column in a result set
@@ -309,7 +309,7 @@ namespace {
 	 * @see db2_field_display_size(), db2_field_name(), db2_field_num(), db2_field_precision(), db2_field_scale(), db2_field_width()
 	 * @since PECL ibm_db2 >= 1.0.0
 	 */
-	function db2_field_type($stmt, $column): string {}
+	function db2_field_type($stmt, mixed $column): string {}
 
 	/**
 	 * Returns the width of the current value of the indicated column in a result set
@@ -321,7 +321,7 @@ namespace {
 	 * @see db2_field_display_size(), db2_field_name(), db2_field_num(), db2_field_precision(), db2_field_scale(), db2_field_type()
 	 * @since PECL ibm_db2 >= 1.0.0
 	 */
-	function db2_field_width($stmt, $column): int {}
+	function db2_field_width($stmt, mixed $column): int {}
 
 	/**
 	 * Returns a result set listing the foreign keys for a table
@@ -369,7 +369,7 @@ namespace {
 	 * @see db2_connect(), db2_cursor_type(), db2_exec(), db2_set_option(), db2_pconnect(), db2_prepare()
 	 * @since PECL ibm_db2 >= 1.6.0
 	 */
-	function db2_get_option($resource, string $option) {}
+	function db2_get_option($resource, string $option): string|false {}
 
 	/**
 	 * Returns the auto generated ID of the last insert query that successfully executed on this connection
@@ -516,7 +516,7 @@ namespace {
 	 * @see db2_fetch_array(), db2_fetch_assoc(), db2_fetch_both(), db2_fetch_object(), db2_fetch_row()
 	 * @since PECL ibm_db2 >= 1.0.0
 	 */
-	function db2_result($stmt, $column) {}
+	function db2_result($stmt, mixed $column): mixed {}
 
 	/**
 	 * Rolls back a transaction

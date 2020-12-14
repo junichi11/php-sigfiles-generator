@@ -23,7 +23,7 @@ namespace {
 		 * @see apcu_exists(), apcu_cache_info()
 		 * @since PECL apcu >= 5.0.0
 		 */
-		public function __construct($search = NULL, int $format = APC_ITER_ALL, int $chunk_size = 100, int $list = APC_LIST_ACTIVE) {}
+		public function __construct(mixed $search = NULL, int $format = APC_ITER_ALL, int $chunk_size = 100, int $list = APC_LIST_ACTIVE) {}
 
 		/**
 		 * Get current item
@@ -32,7 +32,7 @@ namespace {
 		 * @link https://php.net/manual/en/apcuiterator.current.php
 		 * @since PECL apcu >= 5.0.0
 		 */
-		public function current() {}
+		public function current(): mixed {}
 
 		/**
 		 * Get total count
@@ -111,7 +111,7 @@ namespace {
 	 * @see apcu_store(), apcu_fetch(), apcu_delete()
 	 * @since PECL apcu >= 4.0.0
 	 */
-	function apcu_add(string $key, $var, int $ttl = 0): bool {}
+	function apcu_add(string $key, mixed $var, int $ttl = 0): bool {}
 
 	/**
 	 * Retrieves cached information from APCu's data store
@@ -121,7 +121,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.apcu-cache-info.php
 	 * @since PECL apcu >= 4.0.0
 	 */
-	function apcu_cache_info(bool $limited = FALSE) {}
+	function apcu_cache_info(bool $limited = FALSE): array|false {}
 
 	/**
 	 * Updates an old value with a new value
@@ -158,7 +158,7 @@ namespace {
 	 * @see apcu_inc()
 	 * @since PECL apcu >= 4.0.0
 	 */
-	function apcu_dec(string $key, int $step = 1, bool &$success = NULL, int $ttl = 0) {}
+	function apcu_dec(string $key, int $step = 1, bool &$success = NULL, int $ttl = 0): int|false {}
 
 	/**
 	 * Removes a stored variable from the cache
@@ -169,7 +169,7 @@ namespace {
 	 * @see apcu_store(), apcu_fetch(), apcu_clear_cache()
 	 * @since PECL apcu >= 4.0.0
 	 */
-	function apcu_delete($key) {}
+	function apcu_delete(mixed $key): mixed {}
 
 	/**
 	 * Whether APCu is usable in the current environment
@@ -191,7 +191,7 @@ namespace {
 	 * @see apcu_store(), apcu_fetch(), apcu_delete()
 	 * @since PECL apcu >= 5.1.0
 	 */
-	function apcu_entry(string $key, callable $generator, int $ttl = 0) {}
+	function apcu_entry(string $key, callable $generator, int $ttl = 0): mixed {}
 
 	/**
 	 * Checks if entry exists
@@ -202,7 +202,7 @@ namespace {
 	 * @see apcu_cache_info(), apcu_fetch()
 	 * @since PECL apcu >= 4.0.0
 	 */
-	function apcu_exists($keys) {}
+	function apcu_exists(mixed $keys): mixed {}
 
 	/**
 	 * Fetch a stored variable from the cache
@@ -214,7 +214,7 @@ namespace {
 	 * @see apcu_store(), apcu_delete()
 	 * @since PECL apcu >= 4.0.0
 	 */
-	function apcu_fetch($key, bool &$success = NULL) {}
+	function apcu_fetch(mixed $key, bool &$success = NULL): mixed {}
 
 	/**
 	 * Increase a stored number
@@ -228,7 +228,7 @@ namespace {
 	 * @see apcu_dec()
 	 * @since PECL apcu >= 4.0.0
 	 */
-	function apcu_inc(string $key, int $step = 1, bool &$success = NULL, int $ttl = 0) {}
+	function apcu_inc(string $key, int $step = 1, bool &$success = NULL, int $ttl = 0): int|false {}
 
 	/**
 	 * Retrieves APCu Shared Memory Allocation information
@@ -251,7 +251,7 @@ namespace {
 	 * @see apcu_add(), apcu_fetch(), apcu_delete()
 	 * @since PECL apcu >= 4.0.0
 	 */
-	function apcu_store(string $key, $var, int $ttl = 0): bool {}
+	function apcu_store(string $key, mixed $var, int $ttl = 0): bool {}
 
 	define('APC_ITER_ALL', null);
 

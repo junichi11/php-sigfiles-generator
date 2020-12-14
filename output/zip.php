@@ -670,7 +670,7 @@ namespace {
 		 * @link https://php.net/manual/en/ziparchive.addglob.php
 		 * @since PHP 5 >= 5.3.0, PHP 7, PECL zip >= 1.9.0
 		 */
-		public function addGlob(string $pattern, int $flags = 0, array $options = array()) {}
+		public function addGlob(string $pattern, int $flags = 0, array $options = array()): array|false {}
 
 		/**
 		 * Add files from a directory by PCRE pattern
@@ -682,7 +682,7 @@ namespace {
 		 * @link https://php.net/manual/en/ziparchive.addpattern.php
 		 * @since PHP 5 >= 5.3.0, PHP 7, PECL zip >= 1.9.0
 		 */
-		public function addPattern(string $pattern, string $path = ".", array $options = array()) {}
+		public function addPattern(string $pattern, string $path = ".", array $options = array()): array|false {}
 
 		/**
 		 * Close the active archive (opened or newly created)
@@ -730,7 +730,7 @@ namespace {
 		 * @link https://php.net/manual/en/ziparchive.extractto.php
 		 * @since PHP 5 >= 5.2.0, PHP 7, PECL zip >= 1.1.0
 		 */
-		public function extractTo(string $destination, $entries = NULL): bool {}
+		public function extractTo(string $destination, mixed $entries = NULL): bool {}
 
 		/**
 		 * Returns the Zip archive comment
@@ -740,7 +740,7 @@ namespace {
 		 * @link https://php.net/manual/en/ziparchive.getarchivecomment.php
 		 * @since PHP 5 >= 5.2.0, PHP 7, PECL zip >= 1.1.0
 		 */
-		public function getArchiveComment(int $flags = NULL) {}
+		public function getArchiveComment(int $flags = NULL): string|false {}
 
 		/**
 		 * Returns the comment of an entry using the entry index
@@ -751,7 +751,7 @@ namespace {
 		 * @link https://php.net/manual/en/ziparchive.getcommentindex.php
 		 * @since PHP 5 >= 5.2.0, PHP 7, PECL zip >= 1.4.0
 		 */
-		public function getCommentIndex(int $index, int $flags = NULL) {}
+		public function getCommentIndex(int $index, int $flags = NULL): string|false {}
 
 		/**
 		 * Returns the comment of an entry using the entry name
@@ -762,7 +762,7 @@ namespace {
 		 * @link https://php.net/manual/en/ziparchive.getcommentname.php
 		 * @since PHP 5 >= 5.2.0, PHP 7, PECL zip >= 1.4.0
 		 */
-		public function getCommentName(string $name, int $flags = NULL) {}
+		public function getCommentName(string $name, int $flags = NULL): string|false {}
 
 		/**
 		 * Retrieve the external attributes of an entry defined by its index
@@ -800,7 +800,7 @@ namespace {
 		 * @link https://php.net/manual/en/ziparchive.getfromindex.php
 		 * @since PHP 5 >= 5.2.0, PHP 7, PECL zip >= 1.1.0
 		 */
-		public function getFromIndex(int $index, int $length = 0, int $flags = NULL) {}
+		public function getFromIndex(int $index, int $length = 0, int $flags = NULL): string|false {}
 
 		/**
 		 * Returns the entry contents using its name
@@ -812,7 +812,7 @@ namespace {
 		 * @link https://php.net/manual/en/ziparchive.getfromname.php
 		 * @since PHP 5 >= 5.2.0, PHP 7, PECL zip >= 1.1.0
 		 */
-		public function getFromName(string $name, int $length = 0, int $flags = NULL) {}
+		public function getFromName(string $name, int $length = 0, int $flags = NULL): string|false {}
 
 		/**
 		 * Returns the name of an entry using its index
@@ -823,7 +823,7 @@ namespace {
 		 * @link https://php.net/manual/en/ziparchive.getnameindex.php
 		 * @since PHP 5 >= 5.2.0, PHP 7, PECL zip >= 1.5.0
 		 */
-		public function getNameIndex(int $index, int $flags = NULL) {}
+		public function getNameIndex(int $index, int $flags = NULL): string|false {}
 
 		/**
 		 * Returns the status error message, system and/or zip messages
@@ -832,7 +832,7 @@ namespace {
 		 * @link https://php.net/manual/en/ziparchive.getstatusstring.php
 		 * @since PHP 5 >= 5.2.7, PHP 7
 		 */
-		public function getStatusString() {}
+		public function getStatusString(): string|false {}
 
 		/**
 		 * Get a file handler to the entry defined by its name (read only)
@@ -875,7 +875,7 @@ namespace {
 		 * @link https://php.net/manual/en/ziparchive.locatename.php
 		 * @since PHP 5 >= 5.2.0, PHP 7, PECL zip >= 1.5.0
 		 */
-		public function locateName(string $name, int $flags = NULL) {}
+		public function locateName(string $name, int $flags = NULL): int|false {}
 
 		/**
 		 * Open a ZIP file archive
@@ -886,7 +886,7 @@ namespace {
 		 * @link https://php.net/manual/en/ziparchive.open.php
 		 * @since PHP 5 >= 5.2.0, PHP 7, PECL zip >= 1.1.0
 		 */
-		public function open(string $filename, int $flags = NULL) {}
+		public function open(string $filename, int $flags = NULL): mixed {}
 
 		/**
 		 * Register a callback to allow cancellation during archive close.
@@ -1094,7 +1094,7 @@ namespace {
 		 * @link https://php.net/manual/en/ziparchive.statindex.php
 		 * @since PHP 5 >= 5.2.0, PHP 7, PECL zip >= 1.1.0
 		 */
-		public function statIndex(int $index, int $flags = NULL) {}
+		public function statIndex(int $index, int $flags = NULL): array|false {}
 
 		/**
 		 * Get the details of an entry defined by its name
@@ -1105,7 +1105,7 @@ namespace {
 		 * @link https://php.net/manual/en/ziparchive.statname.php
 		 * @since PHP 5 >= 5.2.0, PHP 7, PECL zip >= 1.5.0
 		 */
-		public function statName(string $name, int $flags = NULL) {}
+		public function statName(string $name, int $flags = NULL): array|false {}
 
 		/**
 		 * Undo all changes done in the archive

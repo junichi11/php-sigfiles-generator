@@ -13,7 +13,7 @@ namespace {
 	 * @see image_type_to_mime_type(), getimagesize()
 	 * @since PHP 4 >= 4.3.0, PHP 5, PHP 7
 	 */
-	function exif_imagetype(string $filename) {}
+	function exif_imagetype(string $filename): int|false {}
 
 	/**
 	 * Reads the EXIF headers from an image file
@@ -27,7 +27,7 @@ namespace {
 	 * @see exif_thumbnail(), getimagesize()
 	 * @since PHP 4 >= 4.2.0, PHP 5, PHP 7
 	 */
-	function exif_read_data($file, $required_sections = NULL, bool $as_arrays = FALSE, bool $read_thumbnail = FALSE) {}
+	function exif_read_data($file, string|null $required_sections = NULL, bool $as_arrays = FALSE, bool $read_thumbnail = FALSE): array|false {}
 
 	/**
 	 * Get the header name for an index
@@ -37,7 +37,7 @@ namespace {
 	 * @see exif_imagetype()
 	 * @since PHP 4 >= 4.2.0, PHP 5, PHP 7
 	 */
-	function exif_tagname(int $index) {}
+	function exif_tagname(int $index): string|false {}
 
 	/**
 	 * Retrieve the embedded thumbnail of an image
@@ -51,7 +51,7 @@ namespace {
 	 * @see exif_read_data(), image_type_to_mime_type()
 	 * @since PHP 4 >= 4.2.0, PHP 5, PHP 7
 	 */
-	function exif_thumbnail($file, int &$width = NULL, int &$height = NULL, int &$image_type = NULL) {}
+	function exif_thumbnail($file, int &$width = NULL, int &$height = NULL, int &$image_type = NULL): string|false {}
 
 	/**
 	 * Alias of exif_read_data()
@@ -64,7 +64,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.read-exif-data.php
 	 * @since PHP 4 >= 4.0.1, PHP 5, PHP 7
 	 */
-	function read_exif_data($file, $required_sections = NULL, bool $as_arrays = FALSE, bool $read_thumbnail = FALSE) {}
+	function read_exif_data($file, string|null $required_sections = NULL, bool $as_arrays = FALSE, bool $read_thumbnail = FALSE): array|false {}
 
 	/**
 	 * This constant has a value of <code>1</code> if the mbstring is enabled, otherwise it has a value of <code>0</code>.

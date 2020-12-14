@@ -14,7 +14,7 @@ namespace {
 	 * @see call_user_func_array(), is_callable()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function call_user_func(callable $callback, ...$args) {}
+	function call_user_func(callable $callback, mixed ...$args): mixed {}
 
 	/**
 	 * Call a callback with an array of parameters
@@ -26,7 +26,7 @@ namespace {
 	 * @see call_user_func()
 	 * @since PHP 4 >= 4.0.4, PHP 5, PHP 7
 	 */
-	function call_user_func_array(callable $callback, array $param_arr) {}
+	function call_user_func_array(callable $callback, array $param_arr): mixed {}
 
 	/**
 	 * Create an anonymous (lambda-style) function
@@ -49,7 +49,7 @@ namespace {
 	 * @see forward_static_call_array(), call_user_func_array(), call_user_func(), is_callable()
 	 * @since PHP 5 >= 5.3.0, PHP 7
 	 */
-	function forward_static_call(callable $function, ...$args) {}
+	function forward_static_call(callable $function, mixed ...$args): mixed {}
 
 	/**
 	 * Call a static method and pass the arguments as array
@@ -61,7 +61,7 @@ namespace {
 	 * @see forward_static_call(), call_user_func(), call_user_func_array(), is_callable()
 	 * @since PHP 5 >= 5.3.0, PHP 7
 	 */
-	function forward_static_call_array(callable $function, array $parameters) {}
+	function forward_static_call_array(callable $function, array $parameters): mixed {}
 
 	/**
 	 * Return an item from the argument list
@@ -72,7 +72,7 @@ namespace {
 	 * @see func_get_args(), func_num_args()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function func_get_arg(int $arg_num) {}
+	function func_get_arg(int $arg_num): mixed {}
 
 	/**
 	 * Returns an array comprising a function's argument list
@@ -126,7 +126,7 @@ namespace {
 	 * @see exit()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function register_shutdown_function(callable $callback, ...$args): void {}
+	function register_shutdown_function(callable $callback, mixed ...$args): void {}
 
 	/**
 	 * Register a function for execution on each tick
@@ -138,7 +138,7 @@ namespace {
 	 * @see unregister_tick_function()
 	 * @since PHP 4 >= 4.0.3, PHP 5, PHP 7
 	 */
-	function register_tick_function(callable $function, ...$args): bool {}
+	function register_tick_function(callable $function, mixed ...$args): bool {}
 
 	/**
 	 * De-register a function for execution on each tick

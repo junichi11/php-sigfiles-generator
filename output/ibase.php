@@ -41,7 +41,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.fbird-backup.php
 	 * @since PHP 5, PHP 7 < 7.4.0
 	 */
-	function fbird_backup($service_handle, string $source_db, string $dest_file, int $options = 0, bool $verbose = FALSE) {}
+	function fbird_backup($service_handle, string $source_db, string $dest_file, int $options = 0, bool $verbose = FALSE): mixed {}
 
 	/**
 	 * Alias of ibase_blob_add()
@@ -73,7 +73,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.fbird-blob-close.php
 	 * @since PHP 5, PHP 7 < 7.4.0
 	 */
-	function fbird_blob_close($blob_handle) {}
+	function fbird_blob_close($blob_handle): mixed {}
 
 	/**
 	 * Alias of ibase_blob_create()
@@ -247,7 +247,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.fbird-execute.php
 	 * @since PHP 5, PHP 7 < 7.4.0
 	 */
-	function fbird_execute($query, ...$values) {}
+	function fbird_execute($query, mixed ...$values) {}
 
 	/**
 	 * Alias of ibase_fetch_assoc()
@@ -333,7 +333,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.fbird-gen-id.php
 	 * @since PHP 5, PHP 7 < 7.4.0
 	 */
-	function fbird_gen_id(string $generator, int $increment = 1, $link_identifier = NULL) {}
+	function fbird_gen_id(string $generator, int $increment = 1, $link_identifier = NULL): mixed {}
 
 	/**
 	 * Alias of ibase_maintain_db()
@@ -456,7 +456,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.fbird-restore.php
 	 * @since PHP 5, PHP 7 < 7.4.0
 	 */
-	function fbird_restore($service_handle, string $source_file, string $dest_db, int $options = 0, bool $verbose = FALSE) {}
+	function fbird_restore($service_handle, string $source_file, string $dest_db, int $options = 0, bool $verbose = FALSE): mixed {}
 
 	/**
 	 * Alias of ibase_rollback()
@@ -584,7 +584,7 @@ namespace {
 	 * @see ibase_restore()
 	 * @since PHP 5, PHP 7 < 7.4.0
 	 */
-	function ibase_backup($service_handle, string $source_db, string $dest_file, int $options = 0, bool $verbose = FALSE) {}
+	function ibase_backup($service_handle, string $source_db, string $dest_file, int $options = 0, bool $verbose = FALSE): mixed {}
 
 	/**
 	 * Add data into a newly created blob
@@ -618,7 +618,7 @@ namespace {
 	 * @see ibase_blob_cancel(), ibase_blob_open()
 	 * @since PHP 5, PHP 7 < 7.4.0
 	 */
-	function ibase_blob_close($blob_handle) {}
+	function ibase_blob_close($blob_handle): mixed {}
 
 	/**
 	 * Create a new blob for adding data
@@ -803,7 +803,7 @@ namespace {
 	 * @see ibase_query()
 	 * @since PHP 5, PHP 7 < 7.4.0
 	 */
-	function ibase_execute($query, ...$values) {}
+	function ibase_execute($query, mixed ...$values) {}
 
 	/**
 	 * Fetch a result row from a query as an associative array
@@ -894,7 +894,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.ibase-gen-id.php
 	 * @since PHP 5, PHP 7 < 7.4.0
 	 */
-	function ibase_gen_id(string $generator, int $increment = 1, $link_identifier = NULL) {}
+	function ibase_gen_id(string $generator, int $increment = 1, $link_identifier = NULL): mixed {}
 
 	/**
 	 * Execute a maintenance command on the database server
@@ -1024,7 +1024,7 @@ namespace {
 	 * @see ibase_backup()
 	 * @since PHP 5, PHP 7 < 7.4.0
 	 */
-	function ibase_restore($service_handle, string $source_file, string $dest_db, int $options = 0, bool $verbose = FALSE) {}
+	function ibase_restore($service_handle, string $source_file, string $dest_db, int $options = 0, bool $verbose = FALSE): mixed {}
 
 	/**
 	 * Roll back a transaction

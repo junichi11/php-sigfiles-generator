@@ -33,7 +33,7 @@ namespace {
 		 * @see tidy::parseFile(), tidy::parseString()
 		 * @since PHP 5, PHP 7, PECL tidy >= 0.5.2
 		 */
-		public function __construct(string $filename = NULL, $config = NULL, string $encoding = NULL, bool $use_include_path = NULL) {}
+		public function __construct(string $filename = NULL, mixed $config = NULL, string $encoding = NULL, bool $use_include_path = NULL) {}
 
 		/**
 		 * Returns a tidyNode object starting from the  tag of the tidy parse tree
@@ -90,7 +90,7 @@ namespace {
 		 * @link https://php.net/manual/en/tidy.getopt.php
 		 * @since PHP 5, PHP 7, PECL tidy >= 0.5.2
 		 */
-		public function getOpt(string $option) {}
+		public function getOpt(string $option): mixed {}
 
 		/**
 		 * Returns the documentation for the given option name
@@ -171,7 +171,7 @@ namespace {
 		 * @see tidy::parsestring(), tidy::repairfile(), tidy::repairstring()
 		 * @since PHP 5, PHP 7, PECL tidy >= 0.5.2
 		 */
-		public function parseFile(string $filename, $config = NULL, string $encoding = NULL, bool $use_include_path = FALSE): bool {}
+		public function parseFile(string $filename, mixed $config = NULL, string $encoding = NULL, bool $use_include_path = FALSE): bool {}
 
 		/**
 		 * Parse a document stored in a string
@@ -184,7 +184,7 @@ namespace {
 		 * @see tidy::parseFile(), tidy::repairFile(), tidy::repairString()
 		 * @since PHP 5, PHP 7, PECL tidy >= 0.5.2
 		 */
-		public function parseString(string $input, $config = NULL, string $encoding = NULL): bool {}
+		public function parseString(string $input, mixed $config = NULL, string $encoding = NULL): bool {}
 
 		/**
 		 * Repair a file and return it as a string
@@ -198,7 +198,7 @@ namespace {
 		 * @see tidy::parseFile(), tidy::parseString(), tidy::repairString()
 		 * @since PHP 5, PHP 7, PECL tidy >= 0.7.0
 		 */
-		public function repairFile(string $filename, $config = NULL, string $encoding = NULL, bool $use_include_path = FALSE): string {}
+		public function repairFile(string $filename, mixed $config = NULL, string $encoding = NULL, bool $use_include_path = FALSE): string {}
 
 		/**
 		 * Repair a string using an optionally provided configuration file
@@ -211,7 +211,7 @@ namespace {
 		 * @see tidy::parseFile(), tidy::parseString(), tidy::repairFile()
 		 * @since PHP 5, PHP 7, PECL tidy >= 0.7.0
 		 */
-		public function repairString(string $data, $config = NULL, string $encoding = NULL): string {}
+		public function repairString(string $data, mixed $config = NULL, string $encoding = NULL): string {}
 
 		/**
 		 * Returns a tidyNode object representing the root of the tidy parse tree
@@ -563,7 +563,7 @@ namespace {
 	 * @link https://php.net/manual/en/tidy.getopt.php
 	 * @since PHP 5, PHP 7, PECL tidy >= 0.5.2
 	 */
-	function tidy_getopt(\tidy $object, string $option) {}
+	function tidy_getopt(\tidy $object, string $option): mixed {}
 
 	/**
 	 * Indicates if the document is a XHTML document
@@ -597,7 +597,7 @@ namespace {
 	 * @see tidy::parsestring(), tidy::repairfile(), tidy::repairstring()
 	 * @since PHP 5, PHP 7, PECL tidy >= 0.5.2
 	 */
-	function tidy_parse_file(string $filename, $config = NULL, string $encoding = NULL, bool $use_include_path = FALSE): \tidy {}
+	function tidy_parse_file(string $filename, mixed $config = NULL, string $encoding = NULL, bool $use_include_path = FALSE): \tidy {}
 
 	/**
 	 * Parse a document stored in a string
@@ -610,7 +610,7 @@ namespace {
 	 * @see tidy::parseFile(), tidy::repairFile(), tidy::repairString()
 	 * @since PHP 5, PHP 7, PECL tidy >= 0.5.2
 	 */
-	function tidy_parse_string(string $input, $config = NULL, string $encoding = NULL): \tidy {}
+	function tidy_parse_string(string $input, mixed $config = NULL, string $encoding = NULL): \tidy {}
 
 	/**
 	 * Repair a file and return it as a string
@@ -624,7 +624,7 @@ namespace {
 	 * @see tidy::parseFile(), tidy::parseString(), tidy::repairString()
 	 * @since PHP 5, PHP 7, PECL tidy >= 0.7.0
 	 */
-	function tidy_repair_file(string $filename, $config = NULL, string $encoding = NULL, bool $use_include_path = FALSE): string {}
+	function tidy_repair_file(string $filename, mixed $config = NULL, string $encoding = NULL, bool $use_include_path = FALSE): string {}
 
 	/**
 	 * Repair a string using an optionally provided configuration file
@@ -637,7 +637,7 @@ namespace {
 	 * @see tidy::parseFile(), tidy::parseString(), tidy::repairFile()
 	 * @since PHP 5, PHP 7, PECL tidy >= 0.7.0
 	 */
-	function tidy_repair_string(string $data, $config = NULL, string $encoding = NULL): string {}
+	function tidy_repair_string(string $data, mixed $config = NULL, string $encoding = NULL): string {}
 
 	/**
 	 * Returns the Number of Tidy warnings encountered for specified document

@@ -104,7 +104,7 @@ namespace {
 	 * @see posix_getegid(), posix_getgrgid(), filegroup(), stat()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function posix_getgrnam(string $name) {}
+	function posix_getgrnam(string $name): array|false {}
 
 	/**
 	 * Return the group set of the current process
@@ -135,7 +135,7 @@ namespace {
 	 * @see posix_getppid()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function posix_getpgid(int $pid) {}
+	function posix_getpgid(int $pid): int|false {}
 
 	/**
 	 * Return the current process group identifier
@@ -238,7 +238,7 @@ namespace {
 	 * @see posix_ttyname(), stream_isatty()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function posix_isatty($fd): bool {}
+	function posix_isatty(mixed $fd): bool {}
 
 	/**
 	 * Send a signal to a process
@@ -381,7 +381,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.posix-ttyname.php
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function posix_ttyname($fd): string {}
+	function posix_ttyname(mixed $fd): string {}
 
 	/**
 	 * Get system name

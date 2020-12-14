@@ -41,7 +41,7 @@ namespace {
 		 * @see curl_setopt()
 		 * @since PHP 5 >= 5.5.0, PHP 7
 		 */
-		public function __construct(string $filename, $mime_type = NULL, $posted_filename = NULL) {}
+		public function __construct(string $filename, string|null $mime_type = NULL, string|null $posted_filename = NULL) {}
 
 		/**
 		 * Get file name
@@ -105,7 +105,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.curl-copy-handle.php
 	 * @since PHP 5, PHP 7
 	 */
-	function curl_copy_handle(\CurlHandle $handle) {}
+	function curl_copy_handle(\CurlHandle $handle): \CurlHandle|false {}
 
 	/**
 	 * Return the last error number
@@ -139,7 +139,7 @@ namespace {
 	 * @see curl_unescape(), urlencode(), rawurlencode()
 	 * @since PHP 5 >= 5.5.0, PHP 7
 	 */
-	function curl_escape(\CurlHandle $handle, string $string) {}
+	function curl_escape(\CurlHandle $handle, string $string): string|false {}
 
 	/**
 	 * Perform a cURL session
@@ -150,7 +150,7 @@ namespace {
 	 * @see curl_multi_exec()
 	 * @since PHP 4 >= 4.0.2, PHP 5, PHP 7
 	 */
-	function curl_exec(\CurlHandle $handle) {}
+	function curl_exec(\CurlHandle $handle): string|bool {}
 
 	/**
 	 * Create a CURLFile object
@@ -163,7 +163,7 @@ namespace {
 	 * @see curl_setopt()
 	 * @since PHP 5 >= 5.5.0, PHP 7
 	 */
-	function curl_file_create(string $filename, $mime_type = NULL, $posted_filename = NULL): \CURLFile {}
+	function curl_file_create(string $filename, string|null $mime_type = NULL, string|null $posted_filename = NULL): \CURLFile {}
 
 	/**
 	 * Get information regarding a specific transfer
@@ -174,7 +174,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.curl-getinfo.php
 	 * @since PHP 4 >= 4.0.4, PHP 5, PHP 7
 	 */
-	function curl_getinfo(\CurlHandle $handle, $option = NULL) {}
+	function curl_getinfo(\CurlHandle $handle, int|null $option = NULL): mixed {}
 
 	/**
 	 * Initialize a cURL session
@@ -185,7 +185,7 @@ namespace {
 	 * @see curl_close(), curl_multi_init()
 	 * @since PHP 4 >= 4.0.2, PHP 5, PHP 7
 	 */
-	function curl_init($url = NULL) {}
+	function curl_init(string|null $url = NULL): \CurlHandle|false {}
 
 	/**
 	 * Add a normal cURL handle to a cURL multi handle
@@ -242,7 +242,7 @@ namespace {
 	 * @see curl_multi_init()
 	 * @since PHP 5, PHP 7
 	 */
-	function curl_multi_getcontent(\CurlHandle $handle) {}
+	function curl_multi_getcontent(\CurlHandle $handle): string|null {}
 
 	/**
 	 * Get information about the current transfers
@@ -254,7 +254,7 @@ namespace {
 	 * @see curl_multi_init()
 	 * @since PHP 5, PHP 7
 	 */
-	function curl_multi_info_read(\CurlMultiHandle $multi_handle, int &$queued_messages = NULL) {}
+	function curl_multi_info_read(\CurlMultiHandle $multi_handle, int &$queued_messages = NULL): array|false {}
 
 	/**
 	 * Returns a new cURL multi handle
@@ -300,7 +300,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.curl-multi-setopt.php
 	 * @since PHP 5 >= 5.5.0, PHP 7
 	 */
-	function curl_multi_setopt(\CurlMultiHandle $multi_handle, int $option, $value): bool {}
+	function curl_multi_setopt(\CurlMultiHandle $multi_handle, int $option, mixed $value): bool {}
 
 	/**
 	 * Return string describing error code
@@ -311,7 +311,7 @@ namespace {
 	 * @see curl_strerror()
 	 * @since PHP 5 >= 5.5.0, PHP 7
 	 */
-	function curl_multi_strerror(int $error_code) {}
+	function curl_multi_strerror(int $error_code): string|null {}
 
 	/**
 	 * Pause and unpause a connection
@@ -346,7 +346,7 @@ namespace {
 	 * @see curl_setopt_array()
 	 * @since PHP 4 >= 4.0.2, PHP 5, PHP 7
 	 */
-	function curl_setopt(\CurlHandle $handle, int $option, $value): bool {}
+	function curl_setopt(\CurlHandle $handle, int $option, mixed $value): bool {}
 
 	/**
 	 * Set multiple options for a cURL transfer
@@ -402,7 +402,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.curl-share-setopt.php
 	 * @since PHP 5 >= 5.5.0, PHP 7
 	 */
-	function curl_share_setopt(\CurlShareHandle $share_handle, int $option, $value): bool {}
+	function curl_share_setopt(\CurlShareHandle $share_handle, int $option, mixed $value): bool {}
 
 	/**
 	 * Return string describing the given error code
@@ -413,7 +413,7 @@ namespace {
 	 * @see curl_share_errno(), curl_strerror()
 	 * @since PHP 7 >= 7.1.0
 	 */
-	function curl_share_strerror(int $error_code) {}
+	function curl_share_strerror(int $error_code): string|null {}
 
 	/**
 	 * Return string describing the given error code
@@ -424,7 +424,7 @@ namespace {
 	 * @see curl_errno(), curl_error()
 	 * @since PHP 5 >= 5.5.0, PHP 7
 	 */
-	function curl_strerror(int $error_code) {}
+	function curl_strerror(int $error_code): string|null {}
 
 	/**
 	 * Decodes the given URL encoded string
@@ -436,7 +436,7 @@ namespace {
 	 * @see curl_escape(), urlencode(), urldecode(), rawurlencode(), rawurldecode()
 	 * @since PHP 5 >= 5.5.0, PHP 7
 	 */
-	function curl_unescape(\CurlHandle $handle, string $string) {}
+	function curl_unescape(\CurlHandle $handle, string $string): string|false {}
 
 	/**
 	 * Gets cURL version information
@@ -445,7 +445,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.curl-version.php
 	 * @since PHP 4 >= 4.0.2, PHP 5, PHP 7
 	 */
-	function curl_version() {}
+	function curl_version(): array|false {}
 
 	define('CURL_HTTP_VERSION_1_0', null);
 

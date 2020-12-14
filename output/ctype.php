@@ -13,7 +13,7 @@ namespace {
 	 * @see ctype_alpha(), ctype_digit(), setlocale()
 	 * @since PHP 4 >= 4.0.4, PHP 5, PHP 7
 	 */
-	function ctype_alnum($text): bool {}
+	function ctype_alnum(mixed $text): bool {}
 
 	/**
 	 * Check for alphabetic character(s)
@@ -24,7 +24,7 @@ namespace {
 	 * @see ctype_upper(), ctype_lower(), setlocale()
 	 * @since PHP 4 >= 4.0.4, PHP 5, PHP 7
 	 */
-	function ctype_alpha($text): bool {}
+	function ctype_alpha(mixed $text): bool {}
 
 	/**
 	 * Check for control character(s)
@@ -35,7 +35,7 @@ namespace {
 	 * @see ctype_print()
 	 * @since PHP 4 >= 4.0.4, PHP 5, PHP 7
 	 */
-	function ctype_cntrl($text): bool {}
+	function ctype_cntrl(mixed $text): bool {}
 
 	/**
 	 * Check for numeric character(s)
@@ -46,7 +46,7 @@ namespace {
 	 * @see ctype_alnum(), ctype_xdigit(), is_numeric(), is_int(), is_string()
 	 * @since PHP 4 >= 4.0.4, PHP 5, PHP 7
 	 */
-	function ctype_digit($text): bool {}
+	function ctype_digit(mixed $text): bool {}
 
 	/**
 	 * Check for any printable character(s) except space
@@ -57,7 +57,7 @@ namespace {
 	 * @see ctype_alnum(), ctype_print(), ctype_punct()
 	 * @since PHP 4 >= 4.0.4, PHP 5, PHP 7
 	 */
-	function ctype_graph($text): bool {}
+	function ctype_graph(mixed $text): bool {}
 
 	/**
 	 * Check for lowercase character(s)
@@ -68,7 +68,7 @@ namespace {
 	 * @see ctype_alpha(), ctype_upper(), setlocale()
 	 * @since PHP 4 >= 4.0.4, PHP 5, PHP 7
 	 */
-	function ctype_lower($text): bool {}
+	function ctype_lower(mixed $text): bool {}
 
 	/**
 	 * Check for printable character(s)
@@ -79,7 +79,7 @@ namespace {
 	 * @see ctype_cntrl(), ctype_graph(), ctype_punct()
 	 * @since PHP 4 >= 4.0.4, PHP 5, PHP 7
 	 */
-	function ctype_print($text): bool {}
+	function ctype_print(mixed $text): bool {}
 
 	/**
 	 * Check for any printable character which is not whitespace or an alphanumeric character
@@ -90,7 +90,7 @@ namespace {
 	 * @see ctype_cntrl(), ctype_graph()
 	 * @since PHP 4 >= 4.0.4, PHP 5, PHP 7
 	 */
-	function ctype_punct($text): bool {}
+	function ctype_punct(mixed $text): bool {}
 
 	/**
 	 * Check for whitespace character(s)
@@ -101,7 +101,7 @@ namespace {
 	 * @see ctype_cntrl(), ctype_graph(), ctype_punct()
 	 * @since PHP 4 >= 4.0.4, PHP 5, PHP 7
 	 */
-	function ctype_space($text): bool {}
+	function ctype_space(mixed $text): bool {}
 
 	/**
 	 * Check for uppercase character(s)
@@ -112,7 +112,7 @@ namespace {
 	 * @see ctype_alpha(), ctype_lower(), setlocale()
 	 * @since PHP 4 >= 4.0.4, PHP 5, PHP 7
 	 */
-	function ctype_upper($text): bool {}
+	function ctype_upper(mixed $text): bool {}
 
 	/**
 	 * Check for character(s) representing a hexadecimal digit
@@ -123,6 +123,6 @@ namespace {
 	 * @see ctype_digit()
 	 * @since PHP 4 >= 4.0.4, PHP 5, PHP 7
 	 */
-	function ctype_xdigit($text): bool {}
+	function ctype_xdigit(mixed $text): bool {}
 
 }

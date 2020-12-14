@@ -19,7 +19,7 @@ namespace {
 		 * @link https://php.net/manual/en/yaconf.get.php
 		 * @since PECL yaconf >= 1.0.0
 		 */
-		public static function get(string $name, $default_value = NULL) {}
+		public static function get(string $name, mixed $default_value = NULL): mixed {}
 
 		/**
 		 * Determine if a item exists

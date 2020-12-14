@@ -233,7 +233,7 @@ namespace {
 		 * @see touch(), chmod(), chown(), chgrp()
 		 * @since PHP 5 >= 5.4.0, PHP 7
 		 */
-		public function stream_metadata(string $path, int $option, $value): bool {}
+		public function stream_metadata(string $path, int $option, mixed $value): bool {}
 
 		/**
 		 * Opens file or URL
@@ -459,7 +459,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.stream-context-set-option.php
 	 * @since PHP 4 >= 4.3.0, PHP 5, PHP 7
 	 */
-	function stream_context_set_option($stream_or_context, string $wrapper, string $option, $value): bool {}
+	function stream_context_set_option($stream_or_context, string $wrapper, string $option, mixed $value): bool {}
 
 	/**
 	 * Set parameters for a stream/wrapper/context
@@ -485,7 +485,7 @@ namespace {
 	 * @see copy()
 	 * @since PHP 5, PHP 7
 	 */
-	function stream_copy_to_stream($source, $dest, int $maxlength = -1, int $offset = 0) {}
+	function stream_copy_to_stream($source, $dest, int $maxlength = -1, int $offset = 0): int|false {}
 
 	/**
 	 * Attach a filter to a stream
@@ -499,7 +499,7 @@ namespace {
 	 * @see stream_filter_register(), stream_filter_prepend(), stream_get_filters()
 	 * @since PHP 4 >= 4.3.0, PHP 5, PHP 7
 	 */
-	function stream_filter_append($stream, string $filtername, int $read_write = NULL, $params = NULL) {}
+	function stream_filter_append($stream, string $filtername, int $read_write = NULL, mixed $params = NULL) {}
 
 	/**
 	 * Attach a filter to a stream
@@ -513,7 +513,7 @@ namespace {
 	 * @see stream_filter_register(), stream_filter_append()
 	 * @since PHP 4 >= 4.3.0, PHP 5, PHP 7
 	 */
-	function stream_filter_prepend($stream, string $filtername, int $read_write = NULL, $params = NULL) {}
+	function stream_filter_prepend($stream, string $filtername, int $read_write = NULL, mixed $params = NULL) {}
 
 	/**
 	 * Register a user defined stream filter
@@ -549,7 +549,7 @@ namespace {
 	 * @see fgets(), fread(), fpassthru()
 	 * @since PHP 5, PHP 7
 	 */
-	function stream_get_contents($handle, int $maxlength = -1, int $offset = -1) {}
+	function stream_get_contents($handle, int $maxlength = -1, int $offset = -1): string|false {}
 
 	/**
 	 * Retrieve list of registered filters
@@ -613,7 +613,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.stream-is-local.php
 	 * @since PHP 5 >= 5.2.4, PHP 7
 	 */
-	function stream_is_local($stream_or_url): bool {}
+	function stream_is_local(mixed $stream_or_url): bool {}
 
 	/**
 	 * Check if a stream is a TTY
@@ -660,7 +660,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.stream-resolve-include-path.php
 	 * @since PHP 5 >= 5.3.2, PHP 7
 	 */
-	function stream_resolve_include_path(string $filename) {}
+	function stream_resolve_include_path(string $filename): string|false {}
 
 	/**
 	 * Runs the equivalent of the select() system call on the given arrays of streams with a timeout specified by tv_sec and tv_usec
@@ -777,7 +777,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.stream-socket-enable-crypto.php
 	 * @since PHP 5 >= 5.1.0, PHP 7
 	 */
-	function stream_socket_enable_crypto($stream, bool $enable, int $crypto_type = NULL, $session_stream = NULL) {}
+	function stream_socket_enable_crypto($stream, bool $enable, int $crypto_type = NULL, $session_stream = NULL): mixed {}
 
 	/**
 	 * Retrieve the name of the local or remote sockets

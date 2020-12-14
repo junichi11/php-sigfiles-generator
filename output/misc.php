@@ -33,7 +33,7 @@ namespace {
 	 * @see define(), defined()
 	 * @since PHP 4 >= 4.0.4, PHP 5, PHP 7
 	 */
-	function constant(string $name) {}
+	function constant(string $name): mixed {}
 
 	/**
 	 * Defines a named constant
@@ -46,7 +46,7 @@ namespace {
 	 * @see defined(), constant()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function define(string $name, $value, bool $case_insensitive = FALSE): bool {}
+	function define(string $name, mixed $value, bool $case_insensitive = FALSE): bool {}
 
 	/**
 	 * Checks whether a given named constant exists
@@ -68,7 +68,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.get-browser.php
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function get_browser(string $user_agent = NULL, bool $return_array = FALSE) {}
+	function get_browser(string $user_agent = NULL, bool $return_array = FALSE): mixed {}
 
 	/**
 	 * Syntax highlighting of a file
@@ -80,7 +80,7 @@ namespace {
 	 * @see highlight_string()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function highlight_file(string $filename, bool $return = FALSE) {}
+	function highlight_file(string $filename, bool $return = FALSE): mixed {}
 
 	/**
 	 * Syntax highlighting of a string
@@ -92,7 +92,7 @@ namespace {
 	 * @see highlight_file()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function highlight_string(string $str, bool $return = FALSE) {}
+	function highlight_string(string $str, bool $return = FALSE): mixed {}
 
 	/**
 	 * Get the system's high resolution time
@@ -103,7 +103,7 @@ namespace {
 	 * @see microtime()
 	 * @since PHP 7 >= 7.3.0
 	 */
-	function hrtime(bool $get_as_number = FALSE) {}
+	function hrtime(bool $get_as_number = FALSE): mixed {}
 
 	/**
 	 * Set whether a client disconnect should abort script execution
@@ -126,7 +126,7 @@ namespace {
 	 * @see unpack()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function pack(string $format, ...$values) {}
+	function pack(string $format, mixed ...$values): string|false {}
 
 	/**
 	 * Return source with stripped comments and whitespace
@@ -149,7 +149,7 @@ namespace {
 	 * @see sapi_windows_cp_get(), iconv()
 	 * @since PHP 7 >= 7.1.0
 	 */
-	function sapi_windows_cp_conv($in_codepage, $out_codepage, string $subject): string {}
+	function sapi_windows_cp_conv(int|string $in_codepage, int|string $out_codepage, string $subject): string {}
 
 	/**
 	 * Get current codepage
@@ -227,7 +227,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.show-source.php
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function show_source(string $filename, bool $return = FALSE) {}
+	function show_source(string $filename, bool $return = FALSE): mixed {}
 
 	/**
 	 * Delay execution
@@ -259,7 +259,7 @@ namespace {
 	 * @see sleep(), usleep(), time_sleep_until(), set_time_limit()
 	 * @since PHP 5, PHP 7
 	 */
-	function time_nanosleep(int $seconds, int $nanoseconds) {}
+	function time_nanosleep(int $seconds, int $nanoseconds): mixed {}
 
 	/**
 	 * Make the script sleep until the specified time
@@ -294,7 +294,7 @@ namespace {
 	 * @see pack()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function unpack(string $format, string $data, int $offset = 0) {}
+	function unpack(string $format, string $data, int $offset = 0): array|false {}
 
 	/**
 	 * Delay execution in microseconds

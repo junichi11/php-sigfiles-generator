@@ -38,7 +38,7 @@ namespace {
 		 * @link https://php.net/manual/en/luasandbox.callfunction.php
 		 * @since PECL luasandbox >= 1.0.0
 		 */
-		public function callFunction(string $name, ...$args) {}
+		public function callFunction(string $name, mixed ...$args): array|bool {}
 
 		/**
 		 * Disable the profiler
@@ -155,7 +155,7 @@ namespace {
 		 * @link https://php.net/manual/en/luasandbox.setcpulimit.php
 		 * @since PECL luasandbox >= 1.0.0
 		 */
-		public function setCPULimit($limit): void {}
+		public function setCPULimit(float|bool $limit): void {}
 
 		/**
 		 * Set the memory limit for the Lua environment
@@ -267,7 +267,7 @@ namespace {
 		 * @link https://php.net/manual/en/exception.getcode.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
-		final public function getCode() {}
+		final public function getCode(): mixed {}
 
 		/**
 		 * Gets the file in which the exception was created
@@ -380,7 +380,7 @@ namespace {
 		 * @link https://php.net/manual/en/exception.getcode.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
-		final public function getCode() {}
+		final public function getCode(): mixed {}
 
 		/**
 		 * Gets the file in which the exception was created
@@ -494,7 +494,7 @@ namespace {
 		 * @link https://php.net/manual/en/exception.getcode.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
-		final public function getCode() {}
+		final public function getCode(): mixed {}
 
 		/**
 		 * Gets the file in which the exception was created
@@ -567,7 +567,7 @@ namespace {
 		 * @link https://php.net/manual/en/luasandboxfunction.call.php
 		 * @since PECL luasandbox >= 1.0.0
 		 */
-		public function call(string ...$args) {}
+		public function call(string ...$args): array|bool {}
 
 		/**
 		 * Dump the function as a binary blob
@@ -635,7 +635,7 @@ namespace {
 		 * @link https://php.net/manual/en/exception.getcode.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
-		final public function getCode() {}
+		final public function getCode(): mixed {}
 
 		/**
 		 * Gets the file in which the exception was created
@@ -749,7 +749,7 @@ namespace {
 		 * @link https://php.net/manual/en/exception.getcode.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
-		final public function getCode() {}
+		final public function getCode(): mixed {}
 
 		/**
 		 * Gets the file in which the exception was created
@@ -862,7 +862,7 @@ namespace {
 		 * @link https://php.net/manual/en/exception.getcode.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
-		final public function getCode() {}
+		final public function getCode(): mixed {}
 
 		/**
 		 * Gets the file in which the exception was created
@@ -975,7 +975,7 @@ namespace {
 		 * @link https://php.net/manual/en/exception.getcode.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
-		final public function getCode() {}
+		final public function getCode(): mixed {}
 
 		/**
 		 * Gets the file in which the exception was created

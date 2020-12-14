@@ -72,7 +72,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.mysqlnd-qc-set-cache-condition.php
 	 * @since PECL mysqlnd_qc >= 1.1.0
 	 */
-	function mysqlnd_qc_set_cache_condition(int $condition_type, $condition, $condition_option): bool {}
+	function mysqlnd_qc_set_cache_condition(int $condition_type, mixed $condition, mixed $condition_option): bool {}
 
 	/**
 	 * Installs a callback which decides whether a statement is cached
@@ -83,7 +83,7 @@ namespace {
 	 * @see mysqlnd_qc_set_user_handlers()
 	 * @since PECL mysqlnd_qc >= 1.0.0
 	 */
-	function mysqlnd_qc_set_is_select(string $callback) {}
+	function mysqlnd_qc_set_is_select(string $callback): mixed {}
 
 	/**
 	 * Change current storage handler

@@ -237,7 +237,7 @@ namespace {
 		 * @link https://php.net/manual/en/xmlreader.xml.php
 		 * @since PHP 5 >= 5.1.0, PHP 7
 		 */
-		public function XML(string $source, $encoding = NULL, int $flags = 0) {}
+		public function XML(string $source, string|null $encoding = NULL, int $flags = 0): bool|\XMLReader {}
 
 		/**
 		 * Close the XMLReader input
@@ -256,7 +256,7 @@ namespace {
 		 * @link https://php.net/manual/en/xmlreader.expand.php
 		 * @since PHP 5 >= 5.1.0, PHP 7
 		 */
-		public function expand($baseNode = NULL) {}
+		public function expand(\DOMNode|null $baseNode = NULL): \DOMNode|false {}
 
 		/**
 		 * Get the value of a named attribute
@@ -266,7 +266,7 @@ namespace {
 		 * @link https://php.net/manual/en/xmlreader.getattribute.php
 		 * @since PHP 5 >= 5.1.0, PHP 7
 		 */
-		public function getAttribute(string $name) {}
+		public function getAttribute(string $name): string|null {}
 
 		/**
 		 * Get the value of an attribute by index
@@ -276,7 +276,7 @@ namespace {
 		 * @link https://php.net/manual/en/xmlreader.getattributeno.php
 		 * @since PHP 5 >= 5.1.0, PHP 7
 		 */
-		public function getAttributeNo(int $index) {}
+		public function getAttributeNo(int $index): string|null {}
 
 		/**
 		 * Get the value of an attribute by localname and URI
@@ -287,7 +287,7 @@ namespace {
 		 * @link https://php.net/manual/en/xmlreader.getattributens.php
 		 * @since PHP 5 >= 5.1.0, PHP 7
 		 */
-		public function getAttributeNs(string $name, string $namespace) {}
+		public function getAttributeNs(string $name, string $namespace): string|null {}
 
 		/**
 		 * Indicates if specified property has been set
@@ -316,7 +316,7 @@ namespace {
 		 * @link https://php.net/manual/en/xmlreader.lookupnamespace.php
 		 * @since PHP 5 >= 5.1.0, PHP 7
 		 */
-		public function lookupNamespace(string $prefix) {}
+		public function lookupNamespace(string $prefix): string|null {}
 
 		/**
 		 * Move cursor to a named attribute
@@ -384,7 +384,7 @@ namespace {
 		 * @link https://php.net/manual/en/xmlreader.next.php
 		 * @since PHP 5 >= 5.1.0, PHP 7
 		 */
-		public function next($name = NULL): bool {}
+		public function next(string|null $name = NULL): bool {}
 
 		/**
 		 * Set the URI containing the XML to parse
@@ -396,7 +396,7 @@ namespace {
 		 * @link https://php.net/manual/en/xmlreader.open.php
 		 * @since PHP 5 >= 5.1.0, PHP 7
 		 */
-		public static function open(string $uri, $encoding = NULL, int $flags = 0) {}
+		public static function open(string $uri, string|null $encoding = NULL, int $flags = 0): bool|\XMLReader {}
 
 		/**
 		 * Move to next node in document
@@ -456,7 +456,7 @@ namespace {
 		 * @link https://php.net/manual/en/xmlreader.setrelaxngschema.php
 		 * @since PHP 5 >= 5.1.0, PHP 7
 		 */
-		public function setRelaxNGSchema($filename): bool {}
+		public function setRelaxNGSchema(string|null $filename): bool {}
 
 		/**
 		 * Set the data containing a RelaxNG Schema
@@ -466,7 +466,7 @@ namespace {
 		 * @link https://php.net/manual/en/xmlreader.setrelaxngschemasource.php
 		 * @since PHP 5 >= 5.1.0, PHP 7
 		 */
-		public function setRelaxNGSchemaSource($source): bool {}
+		public function setRelaxNGSchemaSource(string|null $source): bool {}
 
 		/**
 		 * Validate document against XSD
@@ -476,7 +476,7 @@ namespace {
 		 * @link https://php.net/manual/en/xmlreader.setschema.php
 		 * @since PHP 5 >= 5.2.0, PHP 7
 		 */
-		public function setSchema($filename): bool {}
+		public function setSchema(string|null $filename): bool {}
 	}
 
 }

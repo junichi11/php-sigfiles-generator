@@ -22,7 +22,7 @@ namespace {
 	 * @see filter_list()
 	 * @since PHP 5 >= 5.2.0, PHP 7
 	 */
-	function filter_id(string $name) {}
+	function filter_id(string $name): int|false {}
 
 	/**
 	 * Gets a specific external variable by name and optionally filters it
@@ -35,7 +35,7 @@ namespace {
 	 * @see filter_var(), filter_input_array(), filter_var_array()
 	 * @since PHP 5 >= 5.2.0, PHP 7
 	 */
-	function filter_input(int $type, string $var_name, int $filter = FILTER_DEFAULT, $options = 0) {}
+	function filter_input(int $type, string $var_name, int $filter = FILTER_DEFAULT, array|int $options = 0): mixed {}
 
 	/**
 	 * Gets external variables and optionally filters them
@@ -48,7 +48,7 @@ namespace {
 	 * @see filter_input(), filter_var_array()
 	 * @since PHP 5 >= 5.2.0, PHP 7
 	 */
-	function filter_input_array(int $type, $options = FILTER_DEFAULT, bool $add_empty = TRUE) {}
+	function filter_input_array(int $type, array|int $options = FILTER_DEFAULT, bool $add_empty = TRUE): array|false|null {}
 
 	/**
 	 * Returns a list of all supported filters
@@ -68,7 +68,7 @@ namespace {
 	 * @see filter_var_array(), filter_input(), filter_input_array()
 	 * @since PHP 5 >= 5.2.0, PHP 7
 	 */
-	function filter_var($value, int $filter = FILTER_DEFAULT, $options = 0) {}
+	function filter_var(mixed $value, int $filter = FILTER_DEFAULT, array|int $options = 0): mixed {}
 
 	/**
 	 * Gets multiple variables and optionally filters them
@@ -81,7 +81,7 @@ namespace {
 	 * @see filter_input_array(), filter_var(), filter_input()
 	 * @since PHP 5 >= 5.2.0, PHP 7
 	 */
-	function filter_var_array(array $array, $options = FILTER_DEFAULT, bool $add_empty = TRUE) {}
+	function filter_var_array(array $array, array|int $options = FILTER_DEFAULT, bool $add_empty = TRUE): array|false|null {}
 
 	/**
 	 * ID of "callback" filter.

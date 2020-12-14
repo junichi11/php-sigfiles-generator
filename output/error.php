@@ -72,7 +72,7 @@ namespace {
 		 * @link https://php.net/manual/en/error.getcode.php
 		 * @since PHP 7, PHP 8
 		 */
-		final public function getCode() {}
+		final public function getCode(): mixed {}
 
 		/**
 		 * Gets the file in which the error occurred

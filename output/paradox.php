@@ -91,7 +91,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.px-get-parameter.php
 	 * @since PECL paradox >= 1.1.0
 	 */
-	function px_get_parameter($pxdoc, string $name) {}
+	function px_get_parameter($pxdoc, string $name): string|false {}
 
 	/**
 	 * Returns record of paradox database
@@ -125,7 +125,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.px-get-value.php
 	 * @since PECL paradox >= 1.1.0
 	 */
-	function px_get_value($pxdoc, string $name) {}
+	function px_get_value($pxdoc, string $name): float|false {}
 
 	/**
 	 * Inserts record into paradox database
@@ -238,7 +238,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.px-set-tablename.php
 	 * @since PECL paradox >= 1.0.0
 	 */
-	function px_set_tablename($pxdoc, string $name) {}
+	function px_set_tablename($pxdoc, string $name): void {}
 
 	/**
 	 * Sets the encoding for character fields (deprecated)

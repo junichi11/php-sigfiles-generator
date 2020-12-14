@@ -178,7 +178,7 @@ namespace {
 	 * @see pg_convert()
 	 * @since PHP 4 >= 4.3.0, PHP 5, PHP 7
 	 */
-	function pg_delete($connection, string $table_name, array $assoc_array, int $options = PGSQL_DML_EXEC) {}
+	function pg_delete($connection, string $table_name, array $assoc_array, int $options = PGSQL_DML_EXEC): mixed {}
 
 	/**
 	 * Sync with PostgreSQL backend
@@ -325,7 +325,7 @@ namespace {
 	 * @see pg_query(), pg_fetch_array()
 	 * @since PHP 4 >= 4.2.0, PHP 5, PHP 7
 	 */
-	function pg_fetch_result($result, int $row, $field): string {}
+	function pg_fetch_result($result, int $row, mixed $field): string {}
 
 	/**
 	 * Get a row as an enumerated array
@@ -349,7 +349,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.pg-field-is-null.php
 	 * @since PHP 4 >= 4.2.0, PHP 5, PHP 7
 	 */
-	function pg_field_is_null($result, int $row, $field): int {}
+	function pg_field_is_null($result, int $row, mixed $field): int {}
 
 	/**
 	 * Returns the name of a field
@@ -386,7 +386,7 @@ namespace {
 	 * @see pg_field_size()
 	 * @since PHP 4 >= 4.2.0, PHP 5, PHP 7
 	 */
-	function pg_field_prtlen($result, int $row_number, $field_name_or_number): int {}
+	function pg_field_prtlen($result, int $row_number, mixed $field_name_or_number): int {}
 
 	/**
 	 * Returns the internal storage size of the named field
@@ -411,7 +411,7 @@ namespace {
 	 * @see pg_field_name(), pg_field_type()
 	 * @since PHP 5 >= 5.2.0, PHP 7
 	 */
-	function pg_field_table($result, int $field_number, bool $oid_only = FALSE) {}
+	function pg_field_table($result, int $field_number, bool $oid_only = FALSE): mixed {}
 
 	/**
 	 * Returns the type name for the corresponding field number
@@ -445,7 +445,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.pg-flush.php
 	 * @since PHP 5 >= 5.6.0, PHP 7
 	 */
-	function pg_flush($connection) {}
+	function pg_flush($connection): mixed {}
 
 	/**
 	 * Free result memory
@@ -515,7 +515,7 @@ namespace {
 	 * @see pg_convert()
 	 * @since PHP 4 >= 4.3.0, PHP 5, PHP 7
 	 */
-	function pg_insert($connection, string $table_name, array $assoc_array, int $options = PGSQL_DML_EXEC) {}
+	function pg_insert($connection, string $table_name, array $assoc_array, int $options = PGSQL_DML_EXEC): mixed {}
 
 	/**
 	 * Get the last error message string of a connection
@@ -538,7 +538,7 @@ namespace {
 	 * @see pg_query(), pg_last_error()
 	 * @since PHP 4 >= 4.0.6, PHP 5, PHP 7
 	 */
-	function pg_last_notice($connection, int $option = PGSQL_NOTICE_LAST) {}
+	function pg_last_notice($connection, int $option = PGSQL_NOTICE_LAST): mixed {}
 
 	/**
 	 * Returns the last row's OID
@@ -571,7 +571,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.pg-lo-create.php
 	 * @since PHP 4 >= 4.2.0, PHP 5, PHP 7
 	 */
-	function pg_lo_create($connection = NULL, $object_id = NULL): int {}
+	function pg_lo_create($connection = NULL, mixed $object_id = NULL): int {}
 
 	/**
 	 * Export a large object to file
@@ -597,7 +597,7 @@ namespace {
 	 * @see pg_lo_export(), pg_lo_open()
 	 * @since PHP 4 >= 4.2.0, PHP 5, PHP 7
 	 */
-	function pg_lo_import($connection = NULL, string $pathname, $object_id = NULL): int {}
+	function pg_lo_import($connection = NULL, string $pathname, mixed $object_id = NULL): int {}
 
 	/**
 	 * Open a large object
@@ -881,7 +881,7 @@ namespace {
 	 * @see pg_connection_status()
 	 * @since PHP 4 >= 4.2.0, PHP 5, PHP 7
 	 */
-	function pg_result_status($result, int $type = PGSQL_STATUS_LONG) {}
+	function pg_result_status($result, int $type = PGSQL_STATUS_LONG): mixed {}
 
 	/**
 	 * Select records
@@ -896,7 +896,7 @@ namespace {
 	 * @see pg_convert()
 	 * @since PHP 4 >= 4.3.0, PHP 5, PHP 7
 	 */
-	function pg_select($connection, string $table_name, array $assoc_array, int $options = PGSQL_DML_EXEC, int $result_type = PGSQL_ASSOC) {}
+	function pg_select($connection, string $table_name, array $assoc_array, int $options = PGSQL_DML_EXEC, int $result_type = PGSQL_ASSOC): mixed {}
 
 	/**
 	 * Sends a request to execute a prepared statement with given parameters, without waiting for the result(s)
@@ -1051,7 +1051,7 @@ namespace {
 	 * @see pg_convert()
 	 * @since PHP 4 >= 4.3.0, PHP 5, PHP 7
 	 */
-	function pg_update($connection, string $table_name, array $data, array $condition, int $options = PGSQL_DML_EXEC) {}
+	function pg_update($connection, string $table_name, array $data, array $condition, int $options = PGSQL_DML_EXEC): mixed {}
 
 	/**
 	 * Returns an array with client, protocol and server version (when available)

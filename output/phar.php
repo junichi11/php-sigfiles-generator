@@ -328,7 +328,7 @@ namespace {
 		 * @see PharData::extractTo()
 		 * @since PHP 5 >= 5.3.0, PHP 7, PECL phar >= 2.0.0
 		 */
-		public function extractTo(string $pathto, $files = NULL, bool $overwrite = FALSE): bool {}
+		public function extractTo(string $pathto, string|array|null $files = NULL, bool $overwrite = FALSE): bool {}
 
 		/**
 		 * Get the alias for Phar
@@ -347,7 +347,7 @@ namespace {
 		 * @see Phar::setMetadata(), Phar::delMetadata(), Phar::hasMetadata()
 		 * @since PHP 5 >= 5.3.0, PHP 7, PECL phar >= 1.0.0
 		 */
-		public function getMetadata() {}
+		public function getMetadata(): mixed {}
 
 		/**
 		 * Return whether phar was modified
@@ -452,7 +452,7 @@ namespace {
 		 * @see PharFileInfo::getCompressedSize(), PharFileInfo::isCompressed(), PharFileInfo::decompress(), PharFileInfo::compress(), Phar::decompress(), Phar::compress(), Phar::canCompress(), Phar::compressFiles(), Phar::decompressFiles(), Phar::getSupportedCompression()
 		 * @since PHP 5 >= 5.3.0, PHP 7, PECL phar >= 2.0.0
 		 */
-		public function isCompressed() {}
+		public function isCompressed(): mixed {}
 
 		/**
 		 * Returns true if the phar archive is based on the tar/phar/zip file format depending on the parameter
@@ -618,7 +618,7 @@ namespace {
 		 * @see Phar::getMetadata(), Phar::delMetadata(), Phar::hasMetadata()
 		 * @since PHP 5 >= 5.3.0, PHP 7, PECL phar >= 1.0.0
 		 */
-		public function setMetadata($metadata): void {}
+		public function setMetadata(mixed $metadata): void {}
 
 		/**
 		 * Set the signature algorithm for a phar and apply it
@@ -931,7 +931,7 @@ namespace {
 		 * @see Phar::extractTo()
 		 * @since PHP 5 >= 5.3.0, PHP 7, PECL phar >= 2.0.0
 		 */
-		public function extractTo(string $pathto, $files = NULL, bool $overwrite = FALSE): bool {}
+		public function extractTo(string $pathto, string|array|null $files = NULL, bool $overwrite = FALSE): bool {}
 
 		/**
 		 * Get the alias for Phar
@@ -950,7 +950,7 @@ namespace {
 		 * @see Phar::setMetadata(), Phar::delMetadata(), Phar::hasMetadata()
 		 * @since PHP 5 >= 5.3.0, PHP 7, PECL phar >= 1.0.0
 		 */
-		public function getMetadata() {}
+		public function getMetadata(): mixed {}
 
 		/**
 		 * Return whether phar was modified
@@ -1055,7 +1055,7 @@ namespace {
 		 * @see PharFileInfo::getCompressedSize(), PharFileInfo::isCompressed(), PharFileInfo::decompress(), PharFileInfo::compress(), Phar::decompress(), Phar::compress(), Phar::canCompress(), Phar::compressFiles(), Phar::decompressFiles(), Phar::getSupportedCompression()
 		 * @since PHP 5 >= 5.3.0, PHP 7, PECL phar >= 2.0.0
 		 */
-		public function isCompressed() {}
+		public function isCompressed(): mixed {}
 
 		/**
 		 * Returns true if the phar archive is based on the tar/phar/zip file format depending on the parameter
@@ -1221,7 +1221,7 @@ namespace {
 		 * @see Phar::getMetadata(), Phar::delMetadata(), Phar::hasMetadata()
 		 * @since PHP 5 >= 5.3.0, PHP 7, PECL phar >= 1.0.0
 		 */
-		public function setMetadata($metadata): void {}
+		public function setMetadata(mixed $metadata): void {}
 
 		/**
 		 * Set the signature algorithm for a phar and apply it
@@ -1349,7 +1349,7 @@ namespace {
 		 * @link https://php.net/manual/en/exception.getcode.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
-		final public function getCode() {}
+		final public function getCode(): mixed {}
 
 		/**
 		 * Gets the file in which the exception was created
@@ -1500,7 +1500,7 @@ namespace {
 		 * @see PharFileInfo::setMetadata(), PharFileInfo::hasMetadata(), PharFileInfo::delMetadata(), Phar::setMetadata(), Phar::hasMetadata(), Phar::getMetadata()
 		 * @since PHP 5 >= 5.3.0, PHP 7, PECL phar >= 1.0.0
 		 */
-		public function getMetadata() {}
+		public function getMetadata(): mixed {}
 
 		/**
 		 * Returns the Phar file entry flags
@@ -1550,7 +1550,7 @@ namespace {
 		 * @see PharFileInfo::hasMetadata(), PharFileInfo::getMetadata(), PharFileInfo::delMetadata(), Phar::setMetadata(), Phar::hasMetadata(), Phar::getMetadata()
 		 * @since PHP 5 >= 5.3.0, PHP 7, PECL phar >= 1.0.0
 		 */
-		public function setMetadata($metadata): void {}
+		public function setMetadata(mixed $metadata): void {}
 	}
 
 }

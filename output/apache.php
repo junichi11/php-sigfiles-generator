@@ -31,7 +31,7 @@ namespace {
 	 * @see phpinfo()
 	 * @since PHP 4 >= 4.3.2, PHP 5, PHP 7
 	 */
-	function apache_get_version() {}
+	function apache_get_version(): string|false {}
 
 	/**
 	 * Get an Apache subprocess_env variable
@@ -95,7 +95,7 @@ namespace {
 	 * @see apache_request_headers(), headers_sent(), headers_list()
 	 * @since PHP 4 >= 4.3.0, PHP 5, PHP 7
 	 */
-	function apache_response_headers() {}
+	function apache_response_headers(): array|false {}
 
 	/**
 	 * Set an Apache subprocess_env variable

@@ -46,7 +46,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.dbplus-close.php
 	 * @since PHP 4 <= 4.3.0, PECL dbplus >= 0.9
 	 */
-	function dbplus_close($relation) {}
+	function dbplus_close($relation): mixed {}
 
 	/**
 	 * Get current tuple from relation
@@ -91,7 +91,7 @@ namespace {
 	 * @see dbplus_unselect()
 	 * @since PHP 4 <= 4.3.0, PECL dbplus >= 0.9
 	 */
-	function dbplus_find($relation, array $constraints, $tuple): int {}
+	function dbplus_find($relation, array $constraints, mixed $tuple): int {}
 
 	/**
 	 * Get first tuple from relation
@@ -263,7 +263,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.dbplus-rcreate.php
 	 * @since PHP 4 <= 4.3.0, PECL dbplus >= 0.9
 	 */
-	function dbplus_rcreate(string $name, $domlist, bool $overwrite = NULL) {}
+	function dbplus_rcreate(string $name, mixed $domlist, bool $overwrite = NULL) {}
 
 	/**
 	 * Creates an exact but empty copy of a relation including indices
@@ -275,7 +275,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.dbplus-rcrtexact.php
 	 * @since PHP 4 <= 4.3.0, PECL dbplus >= 0.9
 	 */
-	function dbplus_rcrtexact(string $name, $relation, bool $overwrite = NULL) {}
+	function dbplus_rcrtexact(string $name, $relation, bool $overwrite = NULL): mixed {}
 
 	/**
 	 * Creates an empty copy of a relation with default indices
@@ -287,7 +287,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.dbplus-rcrtlike.php
 	 * @since PHP 4 <= 4.3.0, PECL dbplus >= 0.9
 	 */
-	function dbplus_rcrtlike(string $name, $relation, int $overwrite = NULL) {}
+	function dbplus_rcrtlike(string $name, $relation, int $overwrite = NULL): mixed {}
 
 	/**
 	 * Resolve host information for relation
@@ -320,7 +320,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.dbplus-rkeys.php
 	 * @since PHP 4 <= 4.3.0, PECL dbplus >= 0.9
 	 */
-	function dbplus_rkeys($relation, $domlist) {}
+	function dbplus_rkeys($relation, mixed $domlist): mixed {}
 
 	/**
 	 * Open relation file local
@@ -364,7 +364,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.dbplus-rsecindex.php
 	 * @since PHP 4 <= 4.3.0, PECL dbplus >= 0.9
 	 */
-	function dbplus_rsecindex($relation, $domlist, int $type) {}
+	function dbplus_rsecindex($relation, mixed $domlist, int $type): mixed {}
 
 	/**
 	 * Remove relation from filesystem

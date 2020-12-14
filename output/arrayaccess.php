@@ -19,7 +19,7 @@ namespace {
 		 * @link https://php.net/manual/en/arrayaccess.offsetexists.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
-		public function offsetExists($offset): bool;
+		public function offsetExists(mixed $offset): bool;
 
 		/**
 		 * Offset to retrieve
@@ -29,7 +29,7 @@ namespace {
 		 * @link https://php.net/manual/en/arrayaccess.offsetget.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
-		public function offsetGet($offset);
+		public function offsetGet(mixed $offset): mixed;
 
 		/**
 		 * Assign a value to the specified offset
@@ -40,7 +40,7 @@ namespace {
 		 * @link https://php.net/manual/en/arrayaccess.offsetset.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
-		public function offsetSet($offset, $value): void;
+		public function offsetSet(mixed $offset, mixed $value): void;
 
 		/**
 		 * Unset an offset
@@ -50,7 +50,7 @@ namespace {
 		 * @link https://php.net/manual/en/arrayaccess.offsetunset.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
-		public function offsetUnset($offset): void;
+		public function offsetUnset(mixed $offset): void;
 	}
 
 }

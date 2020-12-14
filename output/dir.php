@@ -127,7 +127,7 @@ namespace {
 	 * @see is_dir(), glob(), opendir(), scandir()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function readdir($dir_handle = NULL) {}
+	function readdir($dir_handle = NULL): string|false {}
 
 	/**
 	 * Rewind directory handle
