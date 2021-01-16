@@ -49,8 +49,8 @@ Alternatives to this function include:</p>
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>mysql_fetch_array</strong></span>
     ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$result</code></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$result_type</code><span class="initializer"> = MYSQL_BOTH</span></span>
-  ] ) : <span class="type">array</span></div>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$result_type</code><span class="initializer"> = MYSQL_BOTH</span></span>
+   ) : <span class="type">array</span></div>
 
   <p class="para rdfs-comment">
    Returns an array that corresponds to the fetched row
@@ -96,7 +96,7 @@ is being evaluated. This result comes from a call to
  <div class="refsect1 returnvalues" id="refsect1-function.mysql-fetch-array-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns an array of strings that corresponds to the fetched row, or <strong><code>FALSE</code></strong>
+   Returns an array of strings that corresponds to the fetched row, or <strong><code>false</code></strong>
    if there are no more rows. The type of returned array depends on
    how <code class="parameter">result_type</code> is defined. By using 
    <strong><code>MYSQL_BOTH</code></strong> (default), you&#039;ll get an array with both 
@@ -118,7 +118,7 @@ is being evaluated. This result comes from a call to
  <div class="refsect1 examples" id="refsect1-function.mysql-fetch-array-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-1960">
+   <div class="example" id="example-1973">
     <p><strong>Example #1 Query with aliased duplicate field names</strong></p>
     <div class="example-contents">
 <div class="sqlcode"><pre class="sqlcode">SELECT table1.field AS foo, table2.field AS bar FROM table1, table2</pre>
@@ -128,7 +128,7 @@ is being evaluated. This result comes from a call to
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-1961">
+   <div class="example" id="example-1974">
     <p><strong>Example #2 <span class="function"><strong>mysql_fetch_array()</strong></span> with <strong><code>MYSQL_NUM</code></strong></strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -140,7 +140,7 @@ is being evaluated. This result comes from a call to
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-1962">
+   <div class="example" id="example-1975">
     <p><strong>Example #3 <span class="function"><strong>mysql_fetch_array()</strong></span> with <strong><code>MYSQL_ASSOC</code></strong></strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -152,7 +152,7 @@ is being evaluated. This result comes from a call to
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-1963">
+   <div class="example" id="example-1976">
     <p><strong>Example #4 <span class="function"><strong>mysql_fetch_array()</strong></span> with <strong><code>MYSQL_BOTH</code></strong></strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -181,7 +181,7 @@ is being evaluated. This result comes from a call to
   <blockquote class="note"><p><strong class="note">Note</strong>: <span class="simpara">Field names returned by this function
 are <em class="emphasis">case-sensitive</em>.</span></p></blockquote>
   <blockquote class="note"><p><strong class="note">Note</strong>: <span class="simpara">This function sets NULL fields to
-the PHP <strong><code>NULL</code></strong> value.</span></p></blockquote>
+the PHP <strong><code>null</code></strong> value.</span></p></blockquote>
  </div>
 
 

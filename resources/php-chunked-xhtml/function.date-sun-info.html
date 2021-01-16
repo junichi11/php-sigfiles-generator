@@ -36,7 +36,7 @@
     ( <span class="methodparam"><span class="type">int</span> <code class="parameter">$timestamp</code></span>
    , <span class="methodparam"><span class="type">float</span> <code class="parameter">$latitude</code></span>
    , <span class="methodparam"><span class="type">float</span> <code class="parameter">$longitude</code></span>
-   ) : <span class="type"><span class="type">array</span>|<span class="type"><span class="type false">false</span></span></span></div>
+   ) : <span class="type">array</span></div>
 
  </div>
 
@@ -91,7 +91,7 @@
  <div class="refsect1 returnvalues" id="refsect1-function.date-sun-info-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns array on success or <strong><code>FALSE</code></strong> on failure.
+   Returns array on success or <strong><code>false</code></strong> on failure.
    The structure of the array is detailed in the following list:
   </p>
   <p class="para">
@@ -214,8 +214,8 @@
 
   </p>
   <p class="para"> 
-   The values of the array elements are either UNIX timestamps, <strong><code>FALSE</code></strong> if the
-   sun is below the respective zenith for the whole day, or <strong><code>TRUE</code></strong> if the sun is
+   The values of the array elements are either UNIX timestamps, <strong><code>false</code></strong> if the
+   sun is below the respective zenith for the whole day, or <strong><code>true</code></strong> if the sun is
    above the respective zenith for the whole day.
   </p>
  </div>
@@ -224,7 +224,7 @@
  <div class="refsect1 examples" id="refsect1-function.date-sun-info-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-2549">
+   <div class="example" id="example-2564">
     <p><strong>Example #1 A <span class="function"><strong>date_sun_info()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -248,7 +248,7 @@ astronomical_twilight_end: 17:12:00
 </pre></div>
     </div>
    </div>
-   <div class="example" id="example-2550">
+   <div class="example" id="example-2565">
     <p><strong>Example #2 Polar night</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -283,7 +283,7 @@ array(9) {
 </pre></div>
     </div>
    </div>
-   <div class="example" id="example-2551">
+   <div class="example" id="example-2566">
     <p><strong>Example #3 Midnight sun</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

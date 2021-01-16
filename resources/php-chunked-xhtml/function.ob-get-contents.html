@@ -35,7 +35,7 @@
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>ob_get_contents</strong></span>
     (
-   ) : <span class="type">string</span></div>
+   ) : <span class="type"><span class="type">string</span>|<span class="type"><span class="type false">false</span></span></span></div>
 
   <p class="para rdfs-comment">
    Gets the contents of the output buffer without clearing it.
@@ -46,7 +46,7 @@
  <div class="refsect1 returnvalues" id="refsect1-function.ob-get-contents-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   This will return the contents of the output buffer or <strong><code>FALSE</code></strong>, if output
+   This will return the contents of the output buffer or <strong><code>false</code></strong>, if output
    buffering isn&#039;t active.
   </p>
  </div>
@@ -55,7 +55,7 @@
  <div class="refsect1 examples" id="refsect1-function.ob-get-contents-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-495">
+   <div class="example" id="example-509">
     <p><strong>Example #1 A simple <span class="function"><strong>ob_get_contents()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

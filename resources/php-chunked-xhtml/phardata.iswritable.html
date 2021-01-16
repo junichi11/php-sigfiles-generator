@@ -33,12 +33,12 @@
  <div class="refsect1 description" id="refsect1-phardata.iswritable-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>PharData::isWritable</strong></span>
+   <span class="modifier">public</span> <span class="methodname"><strong>PharData::isWritable</strong></span>
     (
    ) : <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
-   This method returns <strong><code>TRUE</code></strong> if the tar/zip archive on disk is not read-only.
+   This method returns <strong><code>true</code></strong> if the tar/zip archive on disk is not read-only.
    Unlike <span class="function"><a href="phar.iswritable.html" class="function">Phar::isWritable()</a></span>, data-only tar/zip archives
    can be modified even if <code class="literal">phar.readonly</code> is set to <code class="literal">1</code>.
   </p>
@@ -56,7 +56,7 @@
  <div class="refsect1 returnvalues" id="refsect1-phardata.iswritable-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns <strong><code>TRUE</code></strong> if the tar/zip archive can be modified
+   Returns <strong><code>true</code></strong> if the tar/zip archive can be modified
   </p>
  </div>
 

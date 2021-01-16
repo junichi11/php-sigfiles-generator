@@ -58,11 +58,23 @@
    Returns a control constant which will be one of the
    <a href="win32service.constants.servicecontrol.html" class="link">Win32Service Service Control Message Constants</a>:
    <strong><code>WIN32_SERVICE_CONTROL_CONTINUE</code></strong>,
+   <strong><code>WIN32_SERVICE_CONTROL_DEVICEEVENT</code></strong>,
+   <strong><code>WIN32_SERVICE_CONTROL_HARDWAREPROFILECHANGE</code></strong>,
    <strong><code>WIN32_SERVICE_CONTROL_INTERROGATE</code></strong>,
+   <strong><code>WIN32_SERVICE_CONTROL_NETBINDADD</code></strong>,
+   <strong><code>WIN32_SERVICE_CONTROL_NETBINDDISABLE</code></strong>,
+   <strong><code>WIN32_SERVICE_CONTROL_NETBINDENABLE</code></strong>,
+   <strong><code>WIN32_SERVICE_CONTROL_NETBINDREMOVE</code></strong>,
+   <strong><code>WIN32_SERVICE_CONTROL_PARAMCHANGE</code></strong>,
    <strong><code>WIN32_SERVICE_CONTROL_PAUSE</code></strong>,
+   <strong><code>WIN32_SERVICE_CONTROL_POWEREVENT</code></strong>,
    <strong><code>WIN32_SERVICE_CONTROL_PRESHUTDOWN</code></strong>,
+   <strong><code>WIN32_SERVICE_CONTROL_SESSIONCHANGE</code></strong>,
    <strong><code>WIN32_SERVICE_CONTROL_SHUTDOWN</code></strong>,
    <strong><code>WIN32_SERVICE_CONTROL_STOP</code></strong>.
+  </p>
+  <p class="para">
+   If the value is between 128 and 255, the control code is custom.
   </p>
  </div>
 
@@ -70,8 +82,14 @@
  <div class="refsect1 errors" id="refsect1-function.win32-get-last-control-message-errors">
   <h3 class="title">Errors/Exceptions</h3>
   <p class="para">
-   If SAPI is not <code class="literal">&quot;cli&quot;</code>, this function emits an <strong><code>E_ERROR</code></strong> level error.
+   Prior to version 1.0.0, if the SAPI is not <code class="literal">&quot;cli&quot;</code>, this function emits an 
+<strong><code>E_ERROR</code></strong> level error.
   </p>
+   <p class="para">
+    As of version 1.0.0, will throw a 
+    <a href="class.win32serviceexception.html" class="classname">Win32ServiceException</a> if SAPI is not 
+    <code class="literal">&quot;cli&quot;</code>
+   </p>
  </div>
 
  
@@ -89,6 +107,24 @@
      </thead>
 
      <tbody class="tbody">
+      <tr>
+       <td>PECL win32service 1.0.0</td>
+       <td>
+        Throws a <a href="class.valueerror.html" class="classname">ValueError</a> on invalid data in parameters,
+        previously <strong><code>false</code></strong> was returned.
+       </td>
+      </tr>
+
+      <tr>
+       <td>PECL win32service 1.0.0</td>
+       <td>
+        Throws a <a href="class.win32serviceexception.html" class="classname">Win32ServiceException</a> on error,
+        previously a 
+        <a href="win32service.constants.errors.html" class="link">Win32 Error Code</a>
+        was returned.
+       </td>
+      </tr>
+
       <tr>
        <td>PECL win32service 0.2.0</td>
        <td>

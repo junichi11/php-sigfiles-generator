@@ -36,9 +36,9 @@
    <span class="methodname"><strong>openssl_sign</strong></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$data</code></span>
    , <span class="methodparam"><span class="type">string</span> <code class="parameter reference">&$signature</code></span>
-   , <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">$priv_key_id</code></span>
-   [, <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">$signature_alg</code><span class="initializer"> = OPENSSL_ALGO_SHA1</span></span>
-  ] ) : <span class="type">bool</span></div>
+   , <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$priv_key_id</code></span>
+   , <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$signature_alg</code><span class="initializer"> = OPENSSL_ALGO_SHA1</span></span>
+   ) : <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
    <span class="function"><strong>openssl_sign()</strong></span> computes a signature for the
@@ -119,7 +119,7 @@
  <div class="refsect1 returnvalues" id="refsect1-function.openssl-sign-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns <strong><code>TRUE</code></strong> on success or <strong><code>FALSE</code></strong> on failure.
+   Returns <strong><code>true</code></strong> on success or <strong><code>false</code></strong> on failure.
   </p>
  </div>
 
@@ -127,7 +127,7 @@
  <div class="refsect1 examples" id="refsect1-function.openssl-sign-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-922">
+   <div class="example" id="example-935">
     <p><strong>Example #1 <span class="function"><strong>openssl_sign()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -137,7 +137,7 @@
     </div>
 
    </div>
-   <div class="example" id="example-923">
+   <div class="example" id="example-936">
     <p><strong>Example #2 <span class="function"><strong>openssl_sign()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

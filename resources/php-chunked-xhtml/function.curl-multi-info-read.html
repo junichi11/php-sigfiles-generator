@@ -34,9 +34,9 @@
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>curl_multi_info_read</strong></span>
-    ( <span class="methodparam"><span class="type"><span class="type CurlMultiHandle">CurlMultiHandle</span></span> <code class="parameter">$multi_handle</code></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter reference">&$queued_messages</code><span class="initializer"> = <strong><code>NULL</code></strong></span></span>
-  ] ) : <span class="type"><span class="type">array</span>|<span class="type"><span class="type false">false</span></span></span></div>
+    ( <span class="methodparam"><span class="type"><a href="class.curlmultihandle.html" class="type CurlMultiHandle">CurlMultiHandle</a></span> <code class="parameter">$multi_handle</code></span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter reference">&$queued_messages</code><span class="initializer"> = <strong><code>null</code></strong></span></span>
+   ) : <span class="type"><span class="type">array</span>|<span class="type"><span class="type false">false</span></span></span></div>
 
   <p class="para rdfs-comment">
    Ask the multi handle if there are any messages or information from the individual transfers. 
@@ -44,7 +44,7 @@
    that a transfer is completed.
   </p>
   <p class="para">   
-   Repeated calls to this function will return a new result each time, until a <strong><code>FALSE</code></strong> is returned 
+   Repeated calls to this function will return a new result each time, until a <strong><code>false</code></strong> is returned 
    as a signal that there is no more to get at this point. The integer pointed to with 
    <code class="parameter">queued_messages</code> will contain the number of remaining messages after this 
    function was called.
@@ -91,7 +91,7 @@
  <div class="refsect1 returnvalues" id="refsect1-function.curl-multi-info-read-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   On success, returns an associative array for the message, <strong><code>FALSE</code></strong> on failure.
+   On success, returns an associative array for the message, <strong><code>false</code></strong> on failure.
   </p>
   <p class="para">
    <table class="doctable table">
@@ -147,7 +147,7 @@
      <tr>
  <td>8.0.0</td>
  <td>
-  <code class="parameter">multi_handle</code> expects a <strong class="classname">CurlMultiHandle</strong>
+  <code class="parameter">multi_handle</code> expects a <a href="class.curlmultihandle.html" class="classname">CurlMultiHandle</a>
   instance now; previously, a <span class="type">resource</span> was expected.
  </td>
 </tr>
@@ -162,7 +162,7 @@
  <div class="refsect1 examples" id="refsect1-function.curl-multi-info-read-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-4695">
+   <div class="example" id="example-4717">
     <p><strong>Example #1 A <span class="function"><strong>curl_multi_info_read()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

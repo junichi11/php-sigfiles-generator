@@ -35,8 +35,8 @@
   <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><strong>MongoDB\Driver\BulkWrite::delete</strong></span>
     ( <span class="methodparam"><span class="type"><span class="type">array</span>|<span class="type">object</span></span> <code class="parameter">$filter</code></span>
-   [, <span class="methodparam"><span class="type">array</span> <code class="parameter">$deleteOptions</code></span>
-  ] ) : <span class="type"><span class="type void">void</span></span></div>
+   , <span class="methodparam"><span class="type">array</span> <code class="parameter">$deleteOptions</code> = ?</span>
+   ) : <span class="type"><span class="type void">void</span></span></div>
 
   <p class="para rdfs-comment">
    Adds a delete operation to the
@@ -129,8 +129,8 @@
          <tr>
           <td>limit</td>
           <td><span class="type">bool</span></td>
-          <td>Delete all matching documents (<strong><code>FALSE</code></strong>), or only the first matching document (<strong><code>TRUE</code></strong>)</td>
-          <td><strong><code>FALSE</code></strong></td>
+          <td>Delete all matching documents (<strong><code>false</code></strong>), or only the first matching document (<strong><code>true</code></strong>)</td>
+          <td><strong><code>false</code></strong></td>
          </tr>
 
         </tbody>
@@ -200,7 +200,7 @@
 
  <div class="refsect1 examples" id="refsect1-mongodb-driver-bulkwrite.delete-examples">
   <h3 class="title">Examples</h3>
-  <div class="example" id="example-1523">
+  <div class="example" id="example-1535">
    <p><strong>Example #1 <span class="function"><strong>MongoDB\Driver\BulkWrite::delete()</strong></span> example</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

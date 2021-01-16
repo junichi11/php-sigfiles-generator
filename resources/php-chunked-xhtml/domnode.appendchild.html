@@ -35,8 +35,8 @@
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><strong>DOMNode::appendChild</strong></span>
-    ( <span class="methodparam"><span class="type"><a href="class.domnode.html" class="type DOMNode">DOMNode</a></span> <code class="parameter">$newnode</code></span>
-   ) : <span class="type"><a href="class.domnode.html" class="type DOMNode">DOMNode</a></span></div>
+    ( <span class="methodparam"><span class="type"><a href="class.domnode.html" class="type DOMNode">DOMNode</a></span> <code class="parameter">$node</code></span>
+   ) : <span class="type"><span class="type"><a href="class.domnode.html" class="type DOMNode">DOMNode</a></span>|<span class="type"><span class="type false">false</span></span></span></div>
 
   <p class="para rdfs-comment">
    This function appends a child to an existing list of children or creates
@@ -57,7 +57,7 @@
 
     
      <dt>
-<code class="parameter">newnode</code></dt>
+<code class="parameter">node</code></dt>
 
      <dd>
 
@@ -105,7 +105,7 @@
 
       <p class="para">
        Raised if this node is of a type that does not allow children of the 
-       type of the <code class="parameter">newnode</code> node, or if the node to 
+       type of the <code class="parameter">node</code> node, or if the node to 
        append is one of this node&#039;s ancestors or this node itself.
       </p>
      </dd>
@@ -118,7 +118,7 @@
      <dd>
 
       <p class="para">
-       Raised if <code class="parameter">newnode</code> was created from a different 
+       Raised if <code class="parameter">node</code> was created from a different 
        document than the one that created this node.
       </p>
      </dd>
@@ -134,7 +134,7 @@
   <h3 class="title">Examples</h3>
   <p class="para">
    The following example will add a new element node to a fresh document.
-   <div class="example" id="example-5884">
+   <div class="example" id="example-5908">
     <p><strong>Example #1 Adding a child</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -147,7 +147,7 @@
   </p>
   
   <p class="para">
-   <div class="example" id="example-5885">
+   <div class="example" id="example-5909">
     <p><strong>Example #2 Nested children</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

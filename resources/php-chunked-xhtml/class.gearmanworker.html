@@ -59,18 +59,18 @@
    <span class="modifier">public</span> <span class="methodname"><a href="gearmanworker.addfunction.html" class="methodname">addFunction</a></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$function_name</code></span>
    , <span class="methodparam"><span class="type"><a href="language.types.callable.html" class="type callable">callable</a></span> <code class="parameter">$function</code></span>
-   [, <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter reference">&$context</code></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$timeout</code></span>
-  ]] ) : <span class="type">bool</span></div>
+   , <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter reference">&$context</code> = ?</span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$timeout</code> = ?</span>
+   ) : <span class="type">bool</span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="gearmanworker.addoptions.html" class="methodname">addOptions</a></span>
     ( <span class="methodparam"><span class="type">int</span> <code class="parameter">$option</code></span>
    ) : <span class="type">bool</span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="gearmanworker.addserver.html" class="methodname">addServer</a></span>
-    ([ <span class="methodparam"><span class="type">string</span> <code class="parameter">$host</code><span class="initializer"> = 127.0.0.1</span></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$port</code><span class="initializer"> = 4730</span></span>
-  ]] ) : <span class="type">bool</span></div>
+    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$host</code><span class="initializer"> = 127.0.0.1</span></span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$port</code><span class="initializer"> = 4730</span></span>
+   ) : <span class="type">bool</span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="gearmanworker.addservers.html" class="methodname">addServers</a></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$servers</code><span class="initializer"> = 127.0.0.1:4730</span></span>
@@ -102,8 +102,8 @@
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="gearmanworker.register.html" class="methodname">register</a></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$function_name</code></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$timeout</code></span>
-  ] ) : <span class="type">bool</span></div>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$timeout</code> = ?</span>
+   ) : <span class="type">bool</span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="gearmanworker.removeoptions.html" class="methodname">removeOptions</a></span>
     ( <span class="methodparam"><span class="type">int</span> <code class="parameter">$option</code></span>

@@ -75,34 +75,34 @@
     <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="ziparchive.addemptydir.html" class="methodname">addEmptyDir</a></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$dirname</code></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code><span class="initializer"> = 0</span></span>
-  ] ) : <span class="type">bool</span></div>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code><span class="initializer"> = 0</span></span>
+   ) : <span class="type">bool</span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="ziparchive.addfile.html" class="methodname">addFile</a></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$filename</code></span>
-   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$entryname</code><span class="initializer"> = <strong><code>NULL</code></strong></span></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$start</code><span class="initializer"> = 0</span></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$length</code><span class="initializer"> = 0</span></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code><span class="initializer"> = ZipArchive::FL_OVERWRITE</span></span>
-  ]]]] ) : <span class="type">bool</span></div>
+    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$filepath</code></span>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$entryname</code><span class="initializer"> = &quot;&quot;</span></span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$start</code><span class="initializer"> = 0</span></span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$length</code><span class="initializer"> = 0</span></span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code><span class="initializer"> = ZipArchive::FL_OVERWRITE</span></span>
+   ) : <span class="type">bool</span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="ziparchive.addfromstring.html" class="methodname">addFromString</a></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$name</code></span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$contents</code></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code><span class="initializer"> = ZipArchive::FL_OVERWRITE</span></span>
-  ] ) : <span class="type">bool</span></div>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$content</code></span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code><span class="initializer"> = ZipArchive::FL_OVERWRITE</span></span>
+   ) : <span class="type">bool</span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="ziparchive.addglob.html" class="methodname">addGlob</a></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$pattern</code></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code><span class="initializer"> = 0</span></span>
-   [, <span class="methodparam"><span class="type">array</span> <code class="parameter">$options</code><span class="initializer"> = array()</span></span>
-  ]] ) : <span class="type"><span class="type">array</span>|<span class="type"><span class="type false">false</span></span></span></div>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code><span class="initializer"> = 0</span></span>
+   , <span class="methodparam"><span class="type">array</span> <code class="parameter">$options</code><span class="initializer"> = []</span></span>
+   ) : <span class="type"><span class="type">array</span>|<span class="type"><span class="type false">false</span></span></span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="ziparchive.addpattern.html" class="methodname">addPattern</a></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$pattern</code></span>
-   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$path</code><span class="initializer"> = &quot;.&quot;</span></span>
-   [, <span class="methodparam"><span class="type">array</span> <code class="parameter">$options</code><span class="initializer"> = array()</span></span>
-  ]] ) : <span class="type"><span class="type">array</span>|<span class="type"><span class="type false">false</span></span></span></div>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$path</code><span class="initializer"> = &quot;.&quot;</span></span>
+   , <span class="methodparam"><span class="type">array</span> <code class="parameter">$options</code><span class="initializer"> = []</span></span>
+   ) : <span class="type"><span class="type">array</span>|<span class="type"><span class="type false">false</span></span></span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="ziparchive.close.html" class="methodname">close</a></span>
     (
@@ -121,84 +121,83 @@
    ) : <span class="type">bool</span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="ziparchive.extractto.html" class="methodname">extractTo</a></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$destination</code></span>
-   [, <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">$entries</code></span>
-  ] ) : <span class="type">bool</span></div>
+    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$pathto</code></span>
+   , <span class="methodparam"><span class="type"><span class="type">array</span>|<span class="type">string</span>|<span class="type">null</span></span> <code class="parameter">$files</code><span class="initializer"> = <strong><code>null</code></strong></span></span>
+   ) : <span class="type">bool</span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="ziparchive.getarchivecomment.html" class="methodname">getArchiveComment</a></span>
-    ([ <span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code></span>
-  ] ) : <span class="type"><span class="type">string</span>|<span class="type"><span class="type false">false</span></span></span></div>
+    ( <span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code><span class="initializer"> = 0</span></span>
+   ) : <span class="type"><span class="type">string</span>|<span class="type"><span class="type false">false</span></span></span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="ziparchive.getcommentindex.html" class="methodname">getCommentIndex</a></span>
     ( <span class="methodparam"><span class="type">int</span> <code class="parameter">$index</code></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code></span>
-  ] ) : <span class="type"><span class="type">string</span>|<span class="type"><span class="type false">false</span></span></span></div>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code><span class="initializer"> = 0</span></span>
+   ) : <span class="type"><span class="type">string</span>|<span class="type"><span class="type false">false</span></span></span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="ziparchive.getcommentname.html" class="methodname">getCommentName</a></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$name</code></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code></span>
-  ] ) : <span class="type"><span class="type">string</span>|<span class="type"><span class="type false">false</span></span></span></div>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code><span class="initializer"> = 0</span></span>
+   ) : <span class="type"><span class="type">string</span>|<span class="type"><span class="type false">false</span></span></span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> 
    <span class="methodname"><a href="ziparchive.getexternalattributesindex.html" class="methodname">GetExternalAttributesIndex</a></span>
     ( <span class="methodparam"><span class="type">int</span> <code class="parameter">$index</code></span>
    , <span class="methodparam"><span class="type">int</span> <code class="parameter reference">&$opsys</code></span>
    , <span class="methodparam"><span class="type">int</span> <code class="parameter reference">&$attr</code></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code></span>
-  ] ) : <span class="type">bool</span></div>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code> = ?</span>
+   ) : <span class="type">bool</span></div>
 <div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> 
-   <span class="methodname"><a href="ziparchive.getexternalattributesname.html" class="methodname">getExternalAttributesName</a></span>
+   <span class="modifier">public</span> <span class="methodname"><a href="ziparchive.getexternalattributesname.html" class="methodname">getExternalAttributesName</a></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$name</code></span>
    , <span class="methodparam"><span class="type">int</span> <code class="parameter reference">&$opsys</code></span>
    , <span class="methodparam"><span class="type">int</span> <code class="parameter reference">&$attr</code></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code></span>
-  ] ) : <span class="type">bool</span></div>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code><span class="initializer"> = 0</span></span>
+   ) : <span class="type">bool</span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="ziparchive.getfromindex.html" class="methodname">getFromIndex</a></span>
     ( <span class="methodparam"><span class="type">int</span> <code class="parameter">$index</code></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$length</code><span class="initializer"> = 0</span></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code></span>
-  ]] ) : <span class="type"><span class="type">string</span>|<span class="type"><span class="type false">false</span></span></span></div>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$len</code><span class="initializer"> = 0</span></span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code><span class="initializer"> = 0</span></span>
+   ) : <span class="type"><span class="type">string</span>|<span class="type"><span class="type false">false</span></span></span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="ziparchive.getfromname.html" class="methodname">getFromName</a></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$name</code></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$length</code><span class="initializer"> = 0</span></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code></span>
-  ]] ) : <span class="type"><span class="type">string</span>|<span class="type"><span class="type false">false</span></span></span></div>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$len</code><span class="initializer"> = 0</span></span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code><span class="initializer"> = 0</span></span>
+   ) : <span class="type"><span class="type">string</span>|<span class="type"><span class="type false">false</span></span></span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="ziparchive.getnameindex.html" class="methodname">getNameIndex</a></span>
     ( <span class="methodparam"><span class="type">int</span> <code class="parameter">$index</code></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code></span>
-  ] ) : <span class="type"><span class="type">string</span>|<span class="type"><span class="type false">false</span></span></span></div>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code><span class="initializer"> = 0</span></span>
+   ) : <span class="type"><span class="type">string</span>|<span class="type"><span class="type false">false</span></span></span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="ziparchive.getstatusstring.html" class="methodname">getStatusString</a></span>
     (
-   ) : <span class="type"><span class="type">string</span>|<span class="type"><span class="type false">false</span></span></span></div>
+   ) : <span class="type">string</span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="ziparchive.getstream.html" class="methodname">getStream</a></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$name</code></span>
    ) : <span class="type"><span class="type">resource</span>|<span class="type"><span class="type false">false</span></span></span></div>
 <div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><a href="ziparchive.iscompressionmethoddupported.html" class="methodname">isCompressionMethodSupported</a></span>
+   <span class="modifier">public</span> <span class="modifier">static</span> <span class="methodname"><a href="ziparchive.iscompressionmethoddupported.html" class="methodname">isCompressionMethodSupported</a></span>
     ( <span class="methodparam"><span class="type">int</span> <code class="parameter">$method</code></span>
-   [, <span class="methodparam"><span class="type">bool</span> <code class="parameter">$encode</code><span class="initializer"> = true</span></span>
-  ] ) : <span class="type">bool</span></div>
+   , <span class="methodparam"><span class="type">bool</span> <code class="parameter">$enc</code><span class="initializer"> = <strong><code>true</code></strong></span></span>
+   ) : <span class="type">bool</span></div>
 <div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><a href="ziparchive.isencryptionmethoddupported.html" class="methodname">isEncryptionMethodSupported</a></span>
+   <span class="modifier">public</span> <span class="modifier">static</span> <span class="methodname"><a href="ziparchive.isencryptionmethoddupported.html" class="methodname">isEncryptionMethodSupported</a></span>
     ( <span class="methodparam"><span class="type">int</span> <code class="parameter">$method</code></span>
-   [, <span class="methodparam"><span class="type">bool</span> <code class="parameter">$encode</code><span class="initializer"> = true</span></span>
-  ] ) : <span class="type">bool</span></div>
+   , <span class="methodparam"><span class="type">bool</span> <code class="parameter">$enc</code><span class="initializer"> = <strong><code>true</code></strong></span></span>
+   ) : <span class="type">bool</span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="ziparchive.locatename.html" class="methodname">locateName</a></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$name</code></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code></span>
-  ] ) : <span class="type"><span class="type">int</span>|<span class="type"><span class="type false">false</span></span></span></div>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code><span class="initializer"> = 0</span></span>
+   ) : <span class="type"><span class="type">int</span>|<span class="type"><span class="type false">false</span></span></span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="ziparchive.open.html" class="methodname">open</a></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$filename</code></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code></span>
-  ] ) : <span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span></div>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code><span class="initializer"> = 0</span></span>
+   ) : <span class="type"><span class="type">bool</span>|<span class="type">int</span></span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> 
    <span class="methodname"><a href="ziparchive.registercancelcallback.html" class="methodname">registerCancelCallback</a></span>
@@ -213,21 +212,21 @@
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="ziparchive.renameindex.html" class="methodname">renameIndex</a></span>
     ( <span class="methodparam"><span class="type">int</span> <code class="parameter">$index</code></span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$newname</code></span>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$new_name</code></span>
    ) : <span class="type">bool</span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="ziparchive.renamename.html" class="methodname">renameName</a></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$name</code></span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$newname</code></span>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$new_name</code></span>
    ) : <span class="type">bool</span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="ziparchive.replacefile.html" class="methodname">replaceFile</a></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$filename</code></span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$index</code></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$start</code><span class="initializer"> = 0</span></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$length</code><span class="initializer"> = 0</span></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code><span class="initializer"> = 0</span></span>
-  ]]] ) : <span class="type">bool</span></div>
+    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$filepath</code></span>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$index</code></span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$start</code><span class="initializer"> = 0</span></span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$length</code><span class="initializer"> = 0</span></span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code><span class="initializer"> = 0</span></span>
+   ) : <span class="type">bool</span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="ziparchive.setarchivecomment.html" class="methodname">setArchiveComment</a></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$comment</code></span>
@@ -245,59 +244,53 @@
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="ziparchive.setcompressionindex.html" class="methodname">setCompressionIndex</a></span>
     ( <span class="methodparam"><span class="type">int</span> <code class="parameter">$index</code></span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$comp_method</code></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$comp_flags</code><span class="initializer"> = 0</span></span>
-  ] ) : <span class="type">bool</span></div>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$method</code></span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$compflags</code><span class="initializer"> = 0</span></span>
+   ) : <span class="type">bool</span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="ziparchive.setcompressionname.html" class="methodname">setCompressionName</a></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$name</code></span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$comp_method</code></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$comp_flags</code><span class="initializer"> = 0</span></span>
-  ] ) : <span class="type">bool</span></div>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$method</code></span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$compflags</code><span class="initializer"> = 0</span></span>
+   ) : <span class="type">bool</span></div>
 <div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> 
-   <span class="methodname"><a href="ziparchive.setencryptionindex.html" class="methodname">setEncryptionIndex</a></span>
+   <span class="modifier">public</span> <span class="methodname"><a href="ziparchive.setencryptionindex.html" class="methodname">setEncryptionIndex</a></span>
     ( <span class="methodparam"><span class="type">int</span> <code class="parameter">$index</code></span>
    , <span class="methodparam"><span class="type">int</span> <code class="parameter">$method</code></span>
-   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$password</code></span>
-  ] ) : <span class="type">bool</span></div>
+   , <span class="methodparam"><span class="type"><span class="type">string</span>|<span class="type">null</span></span> <code class="parameter">$password</code><span class="initializer"> = <strong><code>null</code></strong></span></span>
+   ) : <span class="type">bool</span></div>
 <div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> 
-   <span class="methodname"><a href="ziparchive.setencryptionname.html" class="methodname">setEncryptionName</a></span>
+   <span class="modifier">public</span> <span class="methodname"><a href="ziparchive.setencryptionname.html" class="methodname">setEncryptionName</a></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$name</code></span>
    , <span class="methodparam"><span class="type">int</span> <code class="parameter">$method</code></span>
-   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$password</code></span>
-  ] ) : <span class="type">bool</span></div>
+   , <span class="methodparam"><span class="type"><span class="type">string</span>|<span class="type">null</span></span> <code class="parameter">$password</code><span class="initializer"> = <strong><code>null</code></strong></span></span>
+   ) : <span class="type">bool</span></div>
 <div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> 
-   <span class="methodname"><a href="ziparchive.setexternalattributesindex.html" class="methodname">setExternalAttributesIndex</a></span>
+   <span class="modifier">public</span> <span class="methodname"><a href="ziparchive.setexternalattributesindex.html" class="methodname">setExternalAttributesIndex</a></span>
     ( <span class="methodparam"><span class="type">int</span> <code class="parameter">$index</code></span>
    , <span class="methodparam"><span class="type">int</span> <code class="parameter">$opsys</code></span>
    , <span class="methodparam"><span class="type">int</span> <code class="parameter">$attr</code></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code></span>
-  ] ) : <span class="type">bool</span></div>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code><span class="initializer"> = 0</span></span>
+   ) : <span class="type">bool</span></div>
 <div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> 
-   <span class="methodname"><a href="ziparchive.setexternalattributesname.html" class="methodname">setExternalAttributesName</a></span>
+   <span class="modifier">public</span> <span class="methodname"><a href="ziparchive.setexternalattributesname.html" class="methodname">setExternalAttributesName</a></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$name</code></span>
    , <span class="methodparam"><span class="type">int</span> <code class="parameter">$opsys</code></span>
    , <span class="methodparam"><span class="type">int</span> <code class="parameter">$attr</code></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code></span>
-  ] ) : <span class="type">bool</span></div>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code><span class="initializer"> = 0</span></span>
+   ) : <span class="type">bool</span></div>
 <div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> 
-   <span class="methodname"><a href="ziparchive.setmtimeindex.html" class="methodname">setMtimeIndex</a></span>
+   <span class="modifier">public</span> <span class="methodname"><a href="ziparchive.setmtimeindex.html" class="methodname">setMtimeIndex</a></span>
     ( <span class="methodparam"><span class="type">int</span> <code class="parameter">$index</code></span>
    , <span class="methodparam"><span class="type">int</span> <code class="parameter">$timestamp</code></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code></span>
-  ] ) : <span class="type">bool</span></div>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code><span class="initializer"> = 0</span></span>
+   ) : <span class="type"><span class="type">bool</span>|<span class="type">null</span></span></div>
 <div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> 
-   <span class="methodname"><a href="ziparchive.setmtimename.html" class="methodname">setMtimeName</a></span>
+   <span class="modifier">public</span> <span class="methodname"><a href="ziparchive.setmtimename.html" class="methodname">setMtimeName</a></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$name</code></span>
    , <span class="methodparam"><span class="type">int</span> <code class="parameter">$timestamp</code></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code></span>
-  ] ) : <span class="type">bool</span></div>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code><span class="initializer"> = 0</span></span>
+   ) : <span class="type"><span class="type">bool</span>|<span class="type">null</span></span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="ziparchive.setpassword.html" class="methodname">setPassword</a></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$password</code></span>
@@ -305,13 +298,13 @@
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="ziparchive.statindex.html" class="methodname">statIndex</a></span>
     ( <span class="methodparam"><span class="type">int</span> <code class="parameter">$index</code></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code></span>
-  ] ) : <span class="type"><span class="type">array</span>|<span class="type"><span class="type false">false</span></span></span></div>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code><span class="initializer"> = 0</span></span>
+   ) : <span class="type"><span class="type">array</span>|<span class="type"><span class="type false">false</span></span></span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="ziparchive.statname.html" class="methodname">statName</a></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$name</code></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code></span>
-  ] ) : <span class="type"><span class="type">array</span>|<span class="type"><span class="type false">false</span></span></span></div>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code><span class="initializer"> = 0</span></span>
+   ) : <span class="type"><span class="type">array</span>|<span class="type"><span class="type false">false</span></span></span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="ziparchive.unchangeall.html" class="methodname">unchangeAll</a></span>
     (
@@ -405,37 +398,6 @@
 
 
  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

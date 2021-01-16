@@ -34,8 +34,8 @@
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>phpversion</strong></span>
-    ([ <span class="methodparam"><span class="type">string</span> <code class="parameter">$extension</code></span>
-  ] ) : <span class="type">string</span></div>
+    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$extension</code> = ?</span>
+   ) : <span class="type">string</span></div>
 
   <p class="para rdfs-comment">
    Returns a string containing the version of the currently running PHP
@@ -72,7 +72,7 @@
   <p class="para">
    If the optional <code class="parameter">extension</code> parameter is
    specified, <span class="function"><strong>phpversion()</strong></span> returns the version of that
-   extension, or <strong><code>FALSE</code></strong> if there is no version information associated or
+   extension, or <strong><code>false</code></strong> if there is no version information associated or
    the extension isn&#039;t enabled.
   </p>
  </div>
@@ -81,7 +81,7 @@
  <div class="refsect1 examples" id="refsect1-function.phpversion-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-547">
+   <div class="example" id="example-560">
     <p><strong>Example #1 <span class="function"><strong>phpversion()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -93,7 +93,7 @@
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-548">
+   <div class="example" id="example-561">
     <p><strong>Example #2 <strong><code>PHP_VERSION_ID</code></strong> example and usage</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

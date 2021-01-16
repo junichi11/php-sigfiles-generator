@@ -35,8 +35,8 @@
    <span class="methodname"><strong>dba_popen</strong></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$path</code></span>
    , <span class="methodparam"><span class="type">string</span> <code class="parameter">$mode</code></span>
-   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$handler</code></span>
-   ], <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">...$args</code></span>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$handler</code> = ?</span>
+   , <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">...$args</code></span>
    ) : <span class="type"><span class="type">resource</span>|<span class="type"><span class="type false">false</span></span></span></div>
 
   <p class="para rdfs-comment">
@@ -132,7 +132,7 @@
  <div class="refsect1 returnvalues" id="refsect1-function.dba-popen-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns a positive handle on success or <strong><code>FALSE</code></strong> on failure.
+   Returns a positive handle on success or <strong><code>false</code></strong> on failure.
   </p>
  </div>
 

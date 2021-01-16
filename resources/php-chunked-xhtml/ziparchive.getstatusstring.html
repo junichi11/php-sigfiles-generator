@@ -34,7 +34,7 @@
   <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><strong>ZipArchive::getStatusString</strong></span>
     (
-   ) : <span class="type"><span class="type">string</span>|<span class="type"><span class="type false">false</span></span></span></div>
+   ) : <span class="type">string</span></div>
 
   <p class="para rdfs-comment">
    Returns the status error message, system and/or zip messages.
@@ -51,7 +51,7 @@
  <div class="refsect1 returnvalues" id="refsect1-ziparchive.getstatusstring-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns a <span class="type">string</span> with the status message on success or <strong><code>FALSE</code></strong> on failure.
+   Returns a <span class="type">string</span> with the status message.
   </p>
  </div>
 
@@ -74,6 +74,13 @@
        <td>8.0.0 / 1.18.0</td>
        <td>
         This method can be called on closed archive.
+       </td>
+      </tr>
+
+      <tr>
+       <td>8.0.0 / 1.18.0</td>
+       <td>
+        This method no longer returns <strong><code>false</code></strong> on failure.
        </td>
       </tr>
 

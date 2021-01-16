@@ -51,14 +51,12 @@
     so will result in a fatal error. Classes may implement more than one interface
     if desired by separating each interface with a comma.
    </p>
-   <blockquote class="note"><p><strong class="note">Note</strong>: 
+   <div class="warning"><strong class="warning">Warning</strong>
     <p class="para">
-     Prior to PHP 5.3.9, a class could not implement two interfaces that
-     specified a method with the same name, since it would cause ambiguity.
-     More recent versions of PHP allow this as long as the duplicate methods
-     have the same signature.
+     A class can implement two interfaces which define a method with the
+     same name, only if the method declaration in both interfaces is identical.
     </p>
-   </p></blockquote>
+   </div>
    <blockquote class="note"><p><strong class="note">Note</strong>: 
     <p class="para">
      Interfaces can be extended like classes using the <a href="language.oop5.inheritance.html" class="link">extends</a> 
@@ -67,12 +65,12 @@
    </p></blockquote>
    <blockquote class="note"><p><strong class="note">Note</strong>: 
     <p class="para">
-     The class implementing the interface must use a method signatures
-     which is compatible with LSP (Liskov Substitution Principle).
-     Not doing so will result in a fatal error.
-     </p>
-    </p></blockquote>
+     The class implementing the interface must declare a method which has a
+     <a href="language.oop5.basic.html#language.oop.lsp" class="link">compatible signature</a>.
+    </p>
+   </p></blockquote>
   </div>
+ 
   <div class="sect2" id="language.oop5.interfaces.constants">
    <h3 class="title"><code class="literal">Constants</code></h3>
    <p class="para">
@@ -83,7 +81,7 @@
   </div>
   <div class="sect2" id="language.oop5.interfaces.examples">
    <h3 class="title">Examples</h3>
-   <div class="example" id="example-226">
+   <div class="example" id="example-234">
     <p><strong>Example #1 Interface example</strong></p>
      <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -93,7 +91,7 @@
     </div>
 
    </div>
-   <div class="example" id="example-227">
+   <div class="example" id="example-235">
     <p><strong>Example #2 Extendable Interfaces</strong></p>
      <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -103,7 +101,7 @@
      </div>
 
    </div>
-   <div class="example" id="example-228">
+   <div class="example" id="example-236">
     <p><strong>Example #3 Multiple interface inheritance</strong></p>
      <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -113,7 +111,7 @@
      </div>
 
    </div>
-   <div class="example" id="example-229">
+   <div class="example" id="example-237">
     <p><strong>Example #4 Interfaces with constants</strong></p>
      <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -124,7 +122,7 @@
 
    </div>
    <p class="para">
-     An interface, together with type-hinting, provides a good way to make sure
+     An interface, together with type declarations, provides a good way to make sure
      that a particular object contains particular methods. See
      <a href="language.operators.type.html" class="link">instanceof</a> operator and
      <a href="language.types.declarations.html" class="link">type declarations</a>.

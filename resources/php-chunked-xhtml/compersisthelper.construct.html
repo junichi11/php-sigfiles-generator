@@ -34,8 +34,8 @@
   <h3 class="title">Description</h3>
   <div class="constructorsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><strong>COMPersistHelper::__construct</strong></span>
-    ([ <span class="methodparam"><span class="type"><span class="type"><a href="class.variant.html" class="type variant">variant</a></span>|<span class="type">null</span></span> <code class="parameter">$variant</code></span>
-  ] )</div>
+    ( <span class="methodparam"><span class="type"><span class="type"><a href="class.variant.html" class="type variant">variant</a></span>|<span class="type">null</span></span> <code class="parameter">$variant</code> = ?</span>
+   )</div>
 
   <p class="para rdfs-comment">
    Constructs a persistence helper object, usually associated with a
@@ -61,7 +61,7 @@
       and/or <span class="interfacename"><strong class="interfacename">IPersistStreamInit</strong></span>.
      </span>
      <span class="simpara">
-      Passing <strong><code>NULL</code></strong> as <code class="parameter">variant</code> is only useful if the object is to be
+      Passing <strong><code>null</code></strong> as <code class="parameter">variant</code> is only useful if the object is to be
       loaded from a stream by calling <span class="methodname"><a href="compersisthelper.loadfromstream.html" class="methodname">COMPersistHelper::LoadFromStream()</a></span>.
      </span>
     </dd>

@@ -35,7 +35,7 @@
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>apache_child_terminate</strong></span>
     (
-   ) : <span class="type">bool</span></div>
+   ) : <span class="type"><span class="type void">void</span></span></div>
 
   <p class="para rdfs-comment">
    <span class="function"><strong>apache_child_terminate()</strong></span> will register the
@@ -46,9 +46,7 @@
    given back to the operating system. 
   </p>
   <p class="para">
-   Works in the Apache, FastCGI and
-   <a href="book.nsapi.html" class="link">NSAPI server module</a>
-   in Netscape/iPlanet/SunONE webservers.
+   Works in the Apache, and FastCGI webservers.
   </p>
  </div>
 
@@ -56,11 +54,7 @@
  <div class="refsect1 returnvalues" id="refsect1-function.apache-child-terminate-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns <strong><code>TRUE</code></strong> if PHP is running as an Apache 1 module, the Apache version
-   is non-multithreaded, and the 
-   <a href="apache.configuration.html#ini.child-terminate" class="link">child_terminate</a> PHP directive is 
-   enabled (disabled by default). If these conditions are not met, <strong><code>FALSE</code></strong> is 
-   returned and an error of level <strong><code>E_WARNING</code></strong> is generated.
+   No value is returned.
   </p>
  </div>
 

@@ -44,7 +44,7 @@
      Owing to the lack of input validation and connecting to the database on
      behalf of a superuser or the one who can create users, the attacker
      may create a superuser in your database.
-     <div class="example" id="example-387">
+     <div class="example" id="example-402">
       <p><strong>Example #1 
        Splitting the result set into pages ... and making superusers
        (PostgreSQL)
@@ -94,7 +94,7 @@ insert into pg_shadow(usename,usesysid,usesuper,usecatupd,passwd)
      the attacker may try to append an entire query to the original one to list
      passwords from an arbitrary table. Using encrypted password fields is 
      strongly encouraged.
-     <div class="example" id="example-388">
+     <div class="example" id="example-403">
       <p><strong>Example #2 
        Listing out articles ... and some passwords (any database server)
       </strong></p>
@@ -129,7 +129,7 @@ union select &#039;1&#039;, concat(uname||&#039;-&#039;||passwd) as name, &#039;
      successfully. This can be acquired by examining the form variable names, or
      just simply brute forcing. There are not so many naming conventions for
      fields storing passwords or usernames.
-     <div class="example" id="example-389">
+     <div class="example" id="example-404">
      <p><strong>Example #3 
       From resetting a password ... to gaining more privileges (any database server)
      </strong></p>
@@ -159,7 +159,7 @@ union select &#039;1&#039;, concat(uname||&#039;-&#039;||passwd) as name, &#039;
     <p class="para">
      A frightening example of how operating system level commands can be accessed
      on some database hosts.
-     <div class="example" id="example-390">
+     <div class="example" id="example-405">
      <p><strong>Example #4 Attacking the database hosts operating system (MSSQL Server)</strong></p>
       <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -260,7 +260,7 @@ union select &#039;1&#039;, concat(uname||&#039;-&#039;||passwd) as name, &#039;
         with <span class="function"><a href="function.ctype-digit.html" class="function">ctype_digit()</a></span>, or silently change its type
         using <span class="function"><a href="function.settype.html" class="function">settype()</a></span>, or use its numeric representation
         by <span class="function"><a href="function.sprintf.html" class="function">sprintf()</a></span>.
-        <div class="example" id="example-391">
+        <div class="example" id="example-406">
          <p><strong>Example #5 A more secure way to compose a query for paging</strong></p>
          <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

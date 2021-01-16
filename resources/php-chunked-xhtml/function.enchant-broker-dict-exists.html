@@ -33,7 +33,7 @@
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>enchant_broker_dict_exists</strong></span>
-    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$broker</code></span>
+    ( <span class="methodparam"><span class="type"><a href="class.enchantbroker.html" class="type EnchantBroker">EnchantBroker</a></span> <code class="parameter">$broker</code></span>
    , <span class="methodparam"><span class="type">string</span> <code class="parameter">$tag</code></span>
    ) : <span class="type">bool</span></div>
 
@@ -54,7 +54,7 @@
      <dd>
 
       <p class="para">
-       Broker resource
+       An Enchant broker returned by <span class="function"><a href="function.enchant-broker-init.html" class="function">enchant_broker_init()</a></span>.
       </p>
      </dd>
 
@@ -80,15 +80,43 @@
  <div class="refsect1 returnvalues" id="refsect1-function.enchant-broker-dict-exists-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns <strong><code>TRUE</code></strong> when the tag exist or <strong><code>FALSE</code></strong> when not.
+   Returns <strong><code>true</code></strong> when the tag exist or <strong><code>false</code></strong> when not.
   </p>
+ </div>
+
+
+ <div class="refsect1 changelog" id="refsect1-function.enchant-broker-dict-exists-changelog">
+  <h3 class="title">Changelog</h3>
+  <table class="doctable informaltable">
+   
+    <thead>
+     <tr>
+      <th>Version</th>
+      <th>Description</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+ <td>8.0.0</td>
+ <td>
+  <code class="parameter">broker</code> expects an <a href="class.enchantbroker.html" class="classname">EnchantBroker</a> instance now;
+  previoulsy, a <a href="language.types.resource.html" class="link">resource</a> was expected.
+ </td>
+</tr>
+
+    </tbody>
+   
+  </table>
+
  </div>
 
 
  <div class="refsect1 examples" id="refsect1-function.enchant-broker-dict-exists-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-2721">
+   <div class="example" id="example-2736">
     <p><strong>Example #1 A <span class="function"><strong>enchant_broker_dict_exists()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

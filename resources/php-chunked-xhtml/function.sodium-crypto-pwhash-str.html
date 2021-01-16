@@ -37,7 +37,7 @@
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$password</code></span>
    , <span class="methodparam"><span class="type">int</span> <code class="parameter">$opslimit</code></span>
    , <span class="methodparam"><span class="type">int</span> <code class="parameter">$memlimit</code></span>
-   ) : <span class="type"><span class="type">string</span>|<span class="type"><span class="type false">false</span></span></span></div>
+   ) : <span class="type">string</span></div>
 
   <p class="para rdfs-comment">
 Uses a CPU- and memory-hard hash algorithm along with a randomly-generated salt, and memory and CPU limits to generate an ASCII-encoded hash suitable for password storage.
@@ -93,7 +93,7 @@ Uses a CPU- and memory-hard hash algorithm along with a randomly-generated salt,
  <div class="refsect1 returnvalues" id="refsect1-function.sodium-crypto-pwhash-str-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns the hashed password,  or <strong><code>FALSE</code></strong> on failure.
+   Returns the hashed password.
   </p>
   <p class="para">
    In order to produce the same password hash from the same password, the same values for <code class="parameter">opslimit</code> and <code class="parameter">memlimit</code> must be used. These are embedded within the generated hash, so

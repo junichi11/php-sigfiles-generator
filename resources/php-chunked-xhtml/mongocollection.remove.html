@@ -34,9 +34,9 @@
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><strong>MongoCollection::remove</strong></span>
-    ([ <span class="methodparam"><span class="type">array</span> <code class="parameter">$criteria</code><span class="initializer"> = array()</span></span>
-   [, <span class="methodparam"><span class="type">array</span> <code class="parameter">$options</code><span class="initializer"> = array()</span></span>
-  ]] ) : <span class="type"><span class="type">bool</span>|<span class="type">array</span></span></div>
+    ( <span class="methodparam"><span class="type">array</span> <code class="parameter">$criteria</code><span class="initializer"> = array()</span></span>
+   , <span class="methodparam"><span class="type">array</span> <code class="parameter">$options</code><span class="initializer"> = array()</span></span>
+   ) : <span class="type"><span class="type">bool</span>|<span class="type">array</span></span></div>
 
  </div>
 
@@ -77,12 +77,12 @@
           <code class="literal">&quot;justOne&quot;</code>
          </p>
          <p class="para">
-          Specify <strong><code>TRUE</code></strong> to limit deletion to just one document. If <strong><code>FALSE</code></strong> or
+          Specify <strong><code>true</code></strong> to limit deletion to just one document. If <strong><code>false</code></strong> or
           omitted, all documents matching the criteria will be deleted.
          </p>
         </li>
-        <li class="listitem"><p class="para"><code class="literal">&quot;fsync&quot;</code></p><p class="para">Boolean, defaults to <strong><code>FALSE</code></strong>. If journaling is enabled, it works exactly like <code class="literal">&quot;j&quot;</code>. If journaling is not enabled, the write operation blocks until it is synced to database files on disk. If <strong><code>TRUE</code></strong>, an acknowledged insert is implied and this option will override setting <code class="literal">&quot;w&quot;</code> to <code class="literal">0</code>.</p><blockquote class="note"><p><strong class="note">Note</strong>: <span class="simpara">If journaling is enabled, users are strongly encouraged to use the <code class="literal">&quot;j&quot;</code> option instead of <code class="literal">&quot;fsync&quot;</code>. Do not use <code class="literal">&quot;fsync&quot;</code> and <code class="literal">&quot;j&quot;</code> simultaneously, as that will result in an error.</span></p></blockquote></li>
-        <li class="listitem"><p class="para"><code class="literal">&quot;j&quot;</code></p><p class="para">Boolean, defaults to <strong><code>FALSE</code></strong>. Forces the write operation to block until it is synced to the journal on disk. If <strong><code>TRUE</code></strong>, an acknowledged write is implied and this option will override setting <code class="literal">&quot;w&quot;</code> to <code class="literal">0</code>.</p><blockquote class="note"><p><strong class="note">Note</strong>: <span class="simpara">If this option is used and journaling is disabled, MongoDB 2.6+ will raise an error and the write will fail; older server versions will simply ignore the option.</span></p></blockquote></li>
+        <li class="listitem"><p class="para"><code class="literal">&quot;fsync&quot;</code></p><p class="para">Boolean, defaults to <strong><code>false</code></strong>. If journaling is enabled, it works exactly like <code class="literal">&quot;j&quot;</code>. If journaling is not enabled, the write operation blocks until it is synced to database files on disk. If <strong><code>true</code></strong>, an acknowledged insert is implied and this option will override setting <code class="literal">&quot;w&quot;</code> to <code class="literal">0</code>.</p><blockquote class="note"><p><strong class="note">Note</strong>: <span class="simpara">If journaling is enabled, users are strongly encouraged to use the <code class="literal">&quot;j&quot;</code> option instead of <code class="literal">&quot;fsync&quot;</code>. Do not use <code class="literal">&quot;fsync&quot;</code> and <code class="literal">&quot;j&quot;</code> simultaneously, as that will result in an error.</span></p></blockquote></li>
+        <li class="listitem"><p class="para"><code class="literal">&quot;j&quot;</code></p><p class="para">Boolean, defaults to <strong><code>false</code></strong>. Forces the write operation to block until it is synced to the journal on disk. If <strong><code>true</code></strong>, an acknowledged write is implied and this option will override setting <code class="literal">&quot;w&quot;</code> to <code class="literal">0</code>.</p><blockquote class="note"><p><strong class="note">Note</strong>: <span class="simpara">If this option is used and journaling is disabled, MongoDB 2.6+ will raise an error and the write will fail; older server versions will simply ignore the option.</span></p></blockquote></li>
         <li class="listitem"><p class="para"><code class="literal">&quot;socketTimeoutMS&quot;</code></p><p class="para">This option specifies the time limit, in milliseconds, for socket communication. If the server does not respond within the timeout period, a <a href="class.mongocursortimeoutexception.html" class="classname">MongoCursorTimeoutException</a> will be thrown and there will be no way to determine if the server actually handled the write or not. A value of <code class="literal">-1</code> may be specified to block indefinitely. The default value for <a href="class.mongoclient.html" class="classname">MongoClient</a> is <code class="literal">30000</code> (30 seconds).</p></li>
         <li class="listitem"><p class="para"><code class="literal">&quot;w&quot;</code></p><p class="para">See <a href="mongo.writeconcerns.html" class="link">Write Concerns</a>. The default value for <a href="class.mongoclient.html" class="classname">MongoClient</a> is <code class="literal">1</code>.</p></li>
         <li class="listitem"><p class="para"><code class="literal">&quot;wTimeoutMS&quot;</code></p><p class="para">This option specifies the time limit, in milliseconds, for <a href="mongo.writeconcerns.html" class="link">write concern</a> acknowledgement. It is only applicable when <code class="literal">&quot;w&quot;</code> is greater than <code class="literal">1</code>, as the timeout pertains to replication. If the write concern is not satisfied within the time limit, a <a href="class.mongocursorexception.html" class="classname">MongoCursorException</a> will be thrown. A value of <code class="literal">0</code> may be specified to block indefinitely. The default value for <a href="class.mongoclient.html" class="classname">MongoClient</a> is <code class="literal">10000</code> (ten seconds).</p></li>
@@ -109,7 +109,7 @@
   <h3 class="title">Return Values</h3>
   <p class="para">
    Returns an array containing the status of the removal if the
-   <code class="literal">&quot;w&quot;</code> option is set. Otherwise, returns <strong><code>TRUE</code></strong>.
+   <code class="literal">&quot;w&quot;</code> option is set. Otherwise, returns <strong><code>true</code></strong>.
   </p>
   <p class="para">
    Fields in the status array are described in the documentation for

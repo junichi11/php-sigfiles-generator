@@ -36,10 +36,10 @@
    <span class="methodname"><strong>snmpwalkoid</strong></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$hostname</code></span>
    , <span class="methodparam"><span class="type">string</span> <code class="parameter">$community</code></span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$object_id</code></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$timeout</code><span class="initializer"> = 1000000</span></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$retries</code><span class="initializer"> = 5</span></span>
-  ]] ) : <span class="type">array</span></div>
+   , <span class="methodparam"><span class="type"><span class="type">array</span>|<span class="type">string</span></span> <code class="parameter">$object_id</code></span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$timeout</code><span class="initializer"> = -1</span></span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$retries</code><span class="initializer"> = -1</span></span>
+   ) : <span class="type"><span class="type">array</span>|<span class="type">bool</span></span></div>
 
 
   <p class="para rdfs-comment">
@@ -93,7 +93,7 @@
      <dd>
 
       <p class="para">
-       If <strong><code>NULL</code></strong>, <code class="parameter">object_id</code> is taken as the root of
+       If <strong><code>null</code></strong>, <code class="parameter">object_id</code> is taken as the root of
        the SNMP objects tree and all objects under that tree are returned as
        an array. 
       </p>
@@ -139,7 +139,7 @@
   <p class="para">
    Returns an associative array with object ids and their respective
    object value starting from the <code class="parameter">object_id</code>
-   as root or <strong><code>FALSE</code></strong> on error.
+   as root or <strong><code>false</code></strong> on error.
   </p>
  </div>
 
@@ -147,7 +147,7 @@
  <div class="refsect1 examples" id="refsect1-function.snmpwalkoid-examples">
   <h3 class="title">Examples</h3>
   <p class="para"> 
-   <div class="example" id="example-4975">
+   <div class="example" id="example-4997">
     <p><strong>Example #1 <span class="function"><strong>snmpwalkoid()</strong></span> Example</strong></p>
     <div class="example-contents"> 
 <div class="phpcode"><code><span style="color: #000000">

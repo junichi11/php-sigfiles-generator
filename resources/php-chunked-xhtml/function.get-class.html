@@ -33,8 +33,8 @@
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>get_class</strong></span>
-    ([ <span class="methodparam"><span class="type">object</span> <code class="parameter">$object</code></span>
-  ] ) : <span class="type">string</span></div>
+    ( <span class="methodparam"><span class="type">object</span> <code class="parameter">$object</code> = ?</span>
+   ) : <span class="type">string</span></div>
 
   <p class="para rdfs-comment">
    Gets the name of the class of the given <code class="parameter">object</code>.
@@ -57,12 +57,12 @@
       </p>
       <blockquote class="note"><p><strong class="note">Note</strong>: 
        <span class="simpara">
-        Explicitly passing <strong><code>NULL</code></strong> as the <code class="parameter">object</code> is no
+        Explicitly passing <strong><code>null</code></strong> as the <code class="parameter">object</code> is no
         longer allowed as of PHP 7.2.0.
        </span>
        <span class="simpara">
         The parameter is still optional and calling <span class="function"><strong>get_class()</strong></span>
-        without a parameter from inside a class will work, but passing <strong><code>NULL</code></strong> now
+        without a parameter from inside a class will work, but passing <strong><code>null</code></strong> now
         emits an <strong><code>E_WARNING</code></strong> notice.
        </span>
       </p></blockquote>
@@ -78,7 +78,7 @@
   <h3 class="title">Return Values</h3>
   <p class="para">
    Returns the name of the class of which <code class="parameter">object</code> is an
-   instance. Returns <strong><code>FALSE</code></strong> if <code class="parameter">object</code> is not an 
+   instance. Returns <strong><code>false</code></strong> if <code class="parameter">object</code> is not an 
    object.
   </p>
   <p class="para">
@@ -117,8 +117,8 @@
        <td>7.2.0</td>
        <td>
         Prior to this version the default value for <code class="parameter">object</code>
-        was <strong><code>NULL</code></strong> and it had the same effect as not passing any value. Now
-        <strong><code>NULL</code></strong> has been removed as the default value for <code class="parameter">object</code>,
+        was <strong><code>null</code></strong> and it had the same effect as not passing any value. Now
+        <strong><code>null</code></strong> has been removed as the default value for <code class="parameter">object</code>,
         and is no longer a valid input.
        </td>
       </tr>
@@ -133,7 +133,7 @@
  <div class="refsect1 examples" id="refsect1-function.get-class-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-5514">
+   <div class="example" id="example-5535">
     <p><strong>Example #1 Using <span class="function"><strong>get_class()</strong></span></strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -150,7 +150,7 @@ My name is foo
 </pre></div>
     </div>
    </div>
-   <div class="example" id="example-5515">
+   <div class="example" id="example-5536">
     <p><strong>Example #2 Using <span class="function"><strong>get_class()</strong></span> in superclass</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

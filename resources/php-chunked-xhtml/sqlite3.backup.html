@@ -34,10 +34,10 @@
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><strong>SQLite3::backup</strong></span>
-    ( <span class="methodparam"><span class="type"><a href="class.sqlite3.html" class="type SQLite3">SQLite3</a></span> <code class="parameter">$destination_db</code></span>
-   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$source_dbname</code><span class="initializer"> = &quot;main&quot;</span></span>
-   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$destination_dbname</code><span class="initializer"> = &quot;main&quot;</span></span>
-  ]] ) : <span class="type">bool</span></div>
+    ( <span class="methodparam"><span class="type"><a href="class.sqlite3.html" class="type SQLite3">SQLite3</a></span> <code class="parameter">$destination</code></span>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$sourceDatabase</code><span class="initializer"> = &quot;main&quot;</span></span>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$destinationDatabase</code><span class="initializer"> = &quot;main&quot;</span></span>
+   ) : <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
    <span class="methodname"><strong>SQLite3::backup()</strong></span> copies the contents of one database
@@ -54,7 +54,7 @@
 
    
     <dt>
-<code class="parameter">destination_db</code></dt>
+<code class="parameter">destination</code></dt>
 
     <dd>
 
@@ -66,7 +66,7 @@
    
    
     <dt>
-<code class="parameter">source_dbname</code></dt>
+<code class="parameter">sourceDatabase</code></dt>
 
     <dd>
 
@@ -81,13 +81,13 @@
    
    
     <dt>
-<code class="parameter">destination_dbname</code></dt>
+<code class="parameter">destinationDatabase</code></dt>
 
     <dd>
 
      <p class="para">
-      Analogous to <code class="parameter">source_dbname</code>
-      but for the <code class="parameter">destination_db</code>.
+      Analogous to <code class="parameter">sourceDatabase</code>
+      but for the <code class="parameter">destination</code>.
      </p>
     </dd>
 
@@ -100,14 +100,14 @@
  <div class="refsect1 returnvalues" id="refsect1-sqlite3.backup-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns <strong><code>TRUE</code></strong> on success or <strong><code>FALSE</code></strong> on failure.
+   Returns <strong><code>true</code></strong> on success or <strong><code>false</code></strong> on failure.
   </p>
  </div>
 
 
  <div class="refsect1 examples" id="refsect1-sqlite3.backup-examples">
   <h3 class="title">Examples</h3>
-  <div class="example" id="example-2393">
+  <div class="example" id="example-2406">
    <p><strong>Example #1 Backup an existing database</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

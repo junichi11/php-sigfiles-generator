@@ -59,7 +59,7 @@
   <p class="para">
     If a PHP file is given on the command line when the web server is
     started it is treated as a &quot;router&quot; script.  The script is run at
-    the start of each HTTP request.  If this script returns <strong><code>FALSE</code></strong>,
+    the start of each HTTP request.  If this script returns <strong><code>false</code></strong>,
     then the requested resource is returned as-is.  Otherwise the
     script&#039;s output is returned to the browser.
   </p>
@@ -167,7 +167,7 @@
 
 
 
-  <div class="example" id="example-434">
+  <div class="example" id="example-447">
    <p><strong>Example #1 Starting the web server</strong></p> 
    <div class="example-contents">
 <div class="shellcode"><pre class="shellcode">$ cd ~/public_html
@@ -210,7 +210,7 @@ Press Ctrl-C to quit.
    </p></div>
   </div>
 
-  <div class="example" id="example-435">
+  <div class="example" id="example-448">
    <p><strong>Example #2 Starting with a specific document root directory</strong></p> 
    <div class="example-contents">
 <div class="shellcode"><pre class="shellcode">$ cd ~/public_html
@@ -231,7 +231,7 @@ Press Ctrl-C to quit
    </div>
   </div>
 
-  <div class="example" id="example-436">
+  <div class="example" id="example-449">
    <p><strong>Example #3 Using a Router Script</strong></p> 
 <div class="example-contents"><p>
   In this example, requests for images will display them, but requests for HTML files will display &quot;Welcome to PHP&quot;:
@@ -250,7 +250,7 @@ Press Ctrl-C to quit
 
   </div>
 
-  <div class="example" id="example-437">
+  <div class="example" id="example-450">
    <p><strong>Example #4 Checking for CLI Web Server Use</strong></p> 
 <div class="example-contents"><p>
   To reuse a framework router script during development with the CLI web server and later also with a production web server:
@@ -269,7 +269,7 @@ Press Ctrl-C to quit
 
   </div>
 
-  <div class="example" id="example-438">
+  <div class="example" id="example-451">
    <p><strong>Example #5 Handling Unsupported File Types</strong></p> 
 <div class="example-contents"><p>
   If you need to serve a static resource whose MIME type is not handled by the CLI web server, use:
@@ -288,7 +288,7 @@ Press Ctrl-C to quit
 
   </div>
 
-  <div class="example" id="example-439">
+  <div class="example" id="example-452">
    <p><strong>Example #6 Accessing the CLI Web Server From Remote Machines</strong></p> 
    <div class="example-contents"><p>
     You can make the web server accessible on port 8000 to any interface with:

@@ -34,12 +34,12 @@
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>posix_getpgid</strong></span>
-    ( <span class="methodparam"><span class="type">int</span> <code class="parameter">$pid</code></span>
+    ( <span class="methodparam"><span class="type">int</span> <code class="parameter">$process_id</code></span>
    ) : <span class="type"><span class="type">int</span>|<span class="type"><span class="type false">false</span></span></span></div>
 
   <p class="para rdfs-comment">
    Returns the process group identifier of the process
-   <code class="parameter">pid</code> or <strong><code>FALSE</code></strong> on failure.
+   <code class="parameter">process_id</code> or <strong><code>false</code></strong> on failure.
   </p>
  </div>
 
@@ -51,7 +51,7 @@
 
     
      <dt>
-<code class="parameter">pid</code></dt>
+<code class="parameter">process_id</code></dt>
 
      <dd>
 
@@ -78,7 +78,7 @@
  <div class="refsect1 examples" id="refsect1-function.posix-getpgid-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-3774">
+   <div class="example" id="example-3790">
     <p><strong>Example #1 Example use of <span class="function"><strong>posix_getpgid()</strong></span></strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

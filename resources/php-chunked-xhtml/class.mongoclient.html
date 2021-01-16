@@ -143,50 +143,50 @@ Alternatives to this class include:</p>
      <span class="modifier">public</span>
      <span class="type">bool</span>
       <var class="varname"><a href="class.mongoclient.html#mongoclient.props.connected">$<var class="varname">connected</var></a></var>
-     <span class="initializer"> = <strong><code>FALSE</code></strong></span>
+     <span class="initializer"> = <strong><code>false</code></strong></span>
     ;</div>
 
     <div class="fieldsynopsis">
      <span class="modifier">public</span>
      <span class="type">string</span>
       <var class="varname"><a href="class.mongoclient.html#mongoclient.props.status">$<var class="varname">status</var></a></var>
-     <span class="initializer"> = <strong><code>NULL</code></strong></span>
+     <span class="initializer"> = <strong><code>null</code></strong></span>
     ;</div>
 
     <div class="fieldsynopsis">
      <span class="modifier">protected</span>
      <span class="type">string</span>
       <var class="varname">$<var class="varname">server</var></var>
-     <span class="initializer"> = <strong><code>NULL</code></strong></span>
+     <span class="initializer"> = <strong><code>null</code></strong></span>
     ;</div>
 
     <div class="fieldsynopsis">
      <span class="modifier">protected</span>
      <span class="type">bool</span>
       <var class="varname">$<var class="varname">persistent</var></var>
-     <span class="initializer"> = <strong><code>NULL</code></strong></span>
+     <span class="initializer"> = <strong><code>null</code></strong></span>
     ;</div>
 
 
     <div class="classsynopsisinfo classsynopsisinfo_comment">/* Methods */</div>
     <div class="constructorsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="mongoclient.construct.html" class="methodname">__construct</a></span>
-    ([ <span class="methodparam"><span class="type">string</span> <code class="parameter">$server</code><span class="initializer"> = &quot;mongodb://localhost:27017&quot;</span></span>
-   [, <span class="methodparam"><span class="type">array</span> <code class="parameter">$options</code><span class="initializer"> = array(&quot;connect&quot; =&gt; <strong><code>TRUE</code></strong>)</span></span>
-   [, <span class="methodparam"><span class="type">array</span> <code class="parameter">$driver_options</code></span>
-  ]]] )</div>
+    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$server</code><span class="initializer"> = &quot;mongodb://localhost:27017&quot;</span></span>
+   , <span class="methodparam"><span class="type">array</span> <code class="parameter">$options</code><span class="initializer"> = array(&quot;connect&quot; =&gt; <strong><code>true</code></strong>)</span></span>
+   , <span class="methodparam"><span class="type">array</span> <code class="parameter">$driver_options</code> = ?</span>
+   )</div>
 
     <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="mongoclient.close.html" class="methodname">close</a></span>
-    ([ <span class="methodparam"><span class="type"><span class="type">bool</span>|<span class="type">string</span></span> <code class="parameter">$connection</code></span>
-  ] ) : <span class="type">bool</span></div>
+    ( <span class="methodparam"><span class="type"><span class="type">bool</span>|<span class="type">string</span></span> <code class="parameter">$connection</code> = ?</span>
+   ) : <span class="type">bool</span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="mongoclient.connect.html" class="methodname">connect</a></span>
     (
    ) : <span class="type">bool</span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="mongoclient.dropdb.html" class="methodname">dropDB</a></span>
-    ( <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">$db</code></span>
+    ( <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$db</code></span>
    ) : <span class="type">array</span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="mongoclient.get.html" class="methodname">__get</a></span>
@@ -229,13 +229,13 @@ Alternatives to this class include:</p>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="mongoclient.setreadpreference.html" class="methodname">setReadPreference</a></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$read_preference</code></span>
-   [, <span class="methodparam"><span class="type">array</span> <code class="parameter">$tags</code></span>
-  ] ) : <span class="type">bool</span></div>
+   , <span class="methodparam"><span class="type">array</span> <code class="parameter">$tags</code> = ?</span>
+   ) : <span class="type">bool</span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="mongoclient.setwriteconcern.html" class="methodname">setWriteConcern</a></span>
-    ( <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">$w</code></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$wtimeout</code></span>
-  ] ) : <span class="type">bool</span></div>
+    ( <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$w</code></span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$wtimeout</code> = ?</span>
+   ) : <span class="type">bool</span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="mongoclient.tostring.html" class="methodname">__toString</a></span>
     (
@@ -362,9 +362,9 @@ Alternatives to this class include:</p>
      <dd>
 
       <p class="para">
-       This property will be set to <strong><code>TRUE</code></strong> if we have a open connection to
-       the database, <strong><code>FALSE</code></strong> otherwise. If the connection is to a replica set,
-       this property will only be <strong><code>TRUE</code></strong> if the driver has a connection to a
+       This property will be set to <strong><code>true</code></strong> if we have a open connection to
+       the database, <strong><code>false</code></strong> otherwise. If the connection is to a replica set,
+       this property will only be <strong><code>true</code></strong> if the driver has a connection to a
        node matching the current read preference. This property does not take
        authentication into account.
       </p>
@@ -380,7 +380,7 @@ Alternatives to this class include:</p>
      <dd>
 
       <p class="para">
-       This property is no longer used and will be set to <strong><code>NULL</code></strong> In driver
+       This property is no longer used and will be set to <strong><code>null</code></strong> In driver
        versions 1.1.x and earlier, this may be set to a string value (e.g.
        <code class="literal">&quot;recycled&quot;</code>, <code class="literal">&quot;new&quot;</code>) when persistent
        connections are used.

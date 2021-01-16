@@ -33,14 +33,15 @@
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>max</strong></span>
-    ( <span class="methodparam"><span class="type">array</span> <code class="parameter">$value_array</code></span>
-   ) : <span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span></div>
+    ( <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$value</code></span>
+   , <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">...$values</code></span>
+   ) : <span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span></div>
 
+  <p class="simpara">Alternative signature (not supported with named arguments):</p>
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>max</strong></span>
-    ( <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">$value</code></span>
-   , <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">...$values</code></span>
-   ) : <span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span></div>
+    ( <span class="methodparam"><span class="type">array</span> <code class="parameter">$value_array</code></span>
+   ) : <span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span></div>
 
   <p class="para rdfs-comment">
    If the first and only parameter is an array, <span class="function"><strong>max()</strong></span>
@@ -58,7 +59,7 @@
   </p></blockquote>
   <div class="caution"><strong class="caution">Caution</strong>
    <p class="simpara">
-    Be careful when passing arguments with mixed types values because
+    Be careful when passing arguments of different types because
     <span class="function"><strong>max()</strong></span> can produce unpredictable results.
    </p>
   </div>
@@ -69,18 +70,6 @@
   <p class="para">
    <dl>
 
-    
-     <dt>
-<code class="parameter">value_array</code></dt>
-
-     <dd>
-
-      <p class="para">
-       An array containing the values.
-      </p>
-     </dd>
-
-    
     
      <dt>
 <code class="parameter">value</code></dt>
@@ -107,6 +96,18 @@
      </dd>
 
     
+    
+     <dt>
+<code class="parameter">value_array</code></dt>
+
+     <dd>
+
+      <p class="para">
+       An array containing the values.
+      </p>
+     </dd>
+
+    
    </dl>
 
   </p>
@@ -121,7 +122,7 @@
   </p>
 
   <p class="para">
-   If an empty array is passed, then <strong><code>FALSE</code></strong> will be returned and an
+   If an empty array is passed, then <strong><code>false</code></strong> will be returned and an
    <strong><code>E_WARNING</code></strong> error will be emitted.
   </p>
  </div>
@@ -129,7 +130,7 @@
  <div class="refsect1 examples" id="refsect1-function.max-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-3590">
+   <div class="example" id="example-3606">
     <p><strong>Example #1 Example uses of <span class="function"><strong>max()</strong></span></strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

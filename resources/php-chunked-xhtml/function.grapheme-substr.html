@@ -36,8 +36,8 @@
    <span class="methodname"><strong>grapheme_substr</strong></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$string</code></span>
    , <span class="methodparam"><span class="type">int</span> <code class="parameter">$start</code></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$length</code></span>
-  ] ) : <span class="type">string</span></div>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$length</code> = ?</span>
+   ) : <span class="type">string</span></div>
 
   <p class="para rdfs-comment">
    Return part of a string
@@ -91,7 +91,7 @@
        length of string). If $length is given and is negative, then
        that many grapheme units will be omitted from the end of string (after the
        start position has been calculated when a start is negative). If $start
-       denotes a position beyond this truncation, <strong><code>FALSE</code></strong> will be returned. 
+       denotes a position beyond this truncation, <strong><code>false</code></strong> will be returned. 
       </p>
      </dd>
 
@@ -113,7 +113,7 @@
 
  <div class="refsect1 examples" id="refsect1-function.grapheme-substr-examples">
   <h3 class="title">Examples</h3>
-  <div class="example" id="example-2946">
+  <div class="example" id="example-2961">
    <p><strong>Example #1 <span class="function"><strong>grapheme_substr()</strong></span> example</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

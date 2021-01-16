@@ -128,13 +128,13 @@
 <div class="methodsynopsis dc-description">
    <span class="modifier">protected</span> <span class="methodname"><a href="yaf-controller-abstract.display.html" class="methodname">display</a></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$tpl</code></span>
-   [, <span class="methodparam"><span class="type">array</span> <code class="parameter">$parameters</code></span>
-  ] ) : <span class="type">bool</span></div>
+   , <span class="methodparam"><span class="type">array</span> <code class="parameter">$parameters</code> = ?</span>
+   ) : <span class="type">bool</span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="yaf-controller-abstract.forward.html" class="methodname">forward</a></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$action</code></span>
-   [, <span class="methodparam"><span class="type">array</span> <code class="parameter">$paramters</code></span>
-  ] ) : <span class="type"><span class="type void">void</span></span></div>
+   , <span class="methodparam"><span class="type">array</span> <code class="parameter">$paramters</code> = ?</span>
+   ) : <span class="type"><span class="type void">void</span></span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="yaf-controller-abstract.getinvokearg.html" class="methodname">getInvokeArg</a></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$name</code></span>
@@ -173,8 +173,8 @@
    ) : <span class="type"><span class="type void">void</span></span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="yaf-controller-abstract.initview.html" class="methodname">initView</a></span>
-    ([ <span class="methodparam"><span class="type">array</span> <code class="parameter">$options</code></span>
-  ] ) : <span class="type"><span class="type void">void</span></span></div>
+    ( <span class="methodparam"><span class="type">array</span> <code class="parameter">$options</code> = ?</span>
+   ) : <span class="type"><span class="type void">void</span></span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="yaf-controller-abstract.redirect.html" class="methodname">redirect</a></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$url</code></span>
@@ -182,8 +182,8 @@
 <div class="methodsynopsis dc-description">
    <span class="modifier">protected</span> <span class="methodname"><a href="yaf-controller-abstract.render.html" class="methodname">render</a></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$tpl</code></span>
-   [, <span class="methodparam"><span class="type">array</span> <code class="parameter">$parameters</code></span>
-  ] ) : <span class="type">string</span></div>
+   , <span class="methodparam"><span class="type">array</span> <code class="parameter">$parameters</code> = ?</span>
+   ) : <span class="type">string</span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="yaf-controller-abstract.setviewpath.html" class="methodname">setViewpath</a></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$view_directory</code></span>
@@ -208,7 +208,7 @@
       <p class="para">
       You can also define a action method in a separate PHP script by using
       this property and <a href="class.yaf-action-abstract.html" class="classname">Yaf_Action_Abstract</a>.
-      <div class="example" id="example-4385">
+      <div class="example" id="example-4407">
        <p><strong>Example #1 define action in a separate file</strong></p>
         <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -218,7 +218,7 @@
         </div>
 
       </div>
-      <div class="example" id="example-4386">
+      <div class="example" id="example-4408">
        <p><strong>Example #2 Dummy_action.php</strong></p>
         <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

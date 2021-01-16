@@ -34,12 +34,12 @@
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>dl</strong></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$library</code></span>
+    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$extension_filename</code></span>
    ) : <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
    Loads the PHP extension given by the parameter
-   <code class="parameter">library</code>.
+   <code class="parameter">extension_filename</code>.
   </p>
   <p class="para">
    Use <span class="function"><a href="function.extension-loaded.html" class="function">extension_loaded()</a></span> to test whether a given
@@ -63,7 +63,7 @@
 
     
      <dt>
-<code class="parameter">library</code></dt>
+<code class="parameter">extension_filename</code></dt>
 
      <dd>
 
@@ -126,12 +126,12 @@
  <div class="refsect1 returnvalues" id="refsect1-function.dl-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns <strong><code>TRUE</code></strong> on success or <strong><code>FALSE</code></strong> on failure. If the functionality of loading modules is not available
+   Returns <strong><code>true</code></strong> on success or <strong><code>false</code></strong> on failure. If the functionality of loading modules is not available
    or has been disabled (by setting
    <a href="info.configuration.html#ini.enable-dl" class="link">enable_dl</a> off
    in <var class="filename">php.ini</var>) an <strong><code>E_ERROR</code></strong> is emitted
    and execution is stopped. If <span class="function"><strong>dl()</strong></span> fails because the
-   specified library couldn&#039;t be loaded, in addition to <strong><code>FALSE</code></strong> an
+   specified library couldn&#039;t be loaded, in addition to <strong><code>false</code></strong> an
    <strong><code>E_WARNING</code></strong> message is emitted.
   </p>
  </div>
@@ -140,7 +140,7 @@
  <div class="refsect1 examples" id="refsect1-function.dl-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-511">
+   <div class="example" id="example-525">
     <p><strong>Example #1 <span class="function"><strong>dl()</strong></span> examples</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

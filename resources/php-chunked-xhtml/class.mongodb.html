@@ -36,7 +36,7 @@
    <p class="para">
     Instances of this class are used to interact with a database.  To get a
     database:
-    <div class="example" id="example-1362">
+    <div class="example" id="example-1374">
      <p><strong>Example #1 Selecting a database</strong></p>
      <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -122,9 +122,9 @@
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="mongodb.command.html" class="methodname">command</a></span>
     ( <span class="methodparam"><span class="type">array</span> <code class="parameter">$command</code></span>
-   [, <span class="methodparam"><span class="type">array</span> <code class="parameter">$options</code><span class="initializer"> = array()</span></span>
-   [, <span class="methodparam"><span class="type">string</span> <code class="parameter reference">&$hash</code></span>
-  ]] ) : <span class="type">array</span></div>
+   , <span class="methodparam"><span class="type">array</span> <code class="parameter">$options</code><span class="initializer"> = array()</span></span>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter reference">&$hash</code> = ?</span>
+   ) : <span class="type">array</span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="mongodb.construct.html" class="methodname">__construct</a></span>
     ( <span class="methodparam"><span class="type"><a href="class.mongoclient.html" class="type MongoClient">MongoClient</a></span> <code class="parameter">$conn</code></span>
@@ -133,12 +133,12 @@
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="mongodb.createcollection.html" class="methodname">createCollection</a></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$name</code></span>
-   [, <span class="methodparam"><span class="type">array</span> <code class="parameter">$options</code></span>
-  ] ) : <span class="type"><a href="class.mongocollection.html" class="type MongoCollection">MongoCollection</a></span></div>
+   , <span class="methodparam"><span class="type">array</span> <code class="parameter">$options</code> = ?</span>
+   ) : <span class="type"><a href="class.mongocollection.html" class="type MongoCollection">MongoCollection</a></span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="mongodb.createdbref.html" class="methodname">createDBRef</a></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$collection</code></span>
-   , <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">$document_or_id</code></span>
+   , <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$document_or_id</code></span>
    ) : <span class="type">array</span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="mongodb.drop.html" class="methodname">drop</a></span>
@@ -146,13 +146,13 @@
    ) : <span class="type">array</span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="mongodb.dropcollection.html" class="methodname">dropCollection</a></span>
-    ( <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">$coll</code></span>
+    ( <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$coll</code></span>
    ) : <span class="type">array</span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="mongodb.execute.html" class="methodname">execute</a></span>
-    ( <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">$code</code></span>
-   [, <span class="methodparam"><span class="type">array</span> <code class="parameter">$args</code><span class="initializer"> = array()</span></span>
-  ] ) : <span class="type">array</span></div>
+    ( <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$code</code></span>
+   , <span class="methodparam"><span class="type">array</span> <code class="parameter">$args</code><span class="initializer"> = array()</span></span>
+   ) : <span class="type">array</span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="mongodb.forceerror.html" class="methodname">forceError</a></span>
     (
@@ -163,20 +163,20 @@
    ) : <span class="type"><a href="class.mongocollection.html" class="type MongoCollection">MongoCollection</a></span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="mongodb.getcollectioninfo.html" class="methodname">getCollectionInfo</a></span>
-    ([ <span class="methodparam"><span class="type">array</span> <code class="parameter">$options</code><span class="initializer"> = array()</span></span>
-  ] ) : <span class="type">array</span></div>
+    ( <span class="methodparam"><span class="type">array</span> <code class="parameter">$options</code><span class="initializer"> = array()</span></span>
+   ) : <span class="type">array</span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="mongodb.getcollectionnames.html" class="methodname">getCollectionNames</a></span>
-    ([ <span class="methodparam"><span class="type">array</span> <code class="parameter">$options</code><span class="initializer"> = array()</span></span>
-  ] ) : <span class="type">array</span></div>
+    ( <span class="methodparam"><span class="type">array</span> <code class="parameter">$options</code><span class="initializer"> = array()</span></span>
+   ) : <span class="type">array</span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="mongodb.getdbref.html" class="methodname">getDBRef</a></span>
     ( <span class="methodparam"><span class="type">array</span> <code class="parameter">$ref</code></span>
    ) : <span class="type">array</span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="mongodb.getgridfs.html" class="methodname">getGridFS</a></span>
-    ([ <span class="methodparam"><span class="type">string</span> <code class="parameter">$prefix</code><span class="initializer"> = &quot;fs&quot;</span></span>
-  ] ) : <span class="type"><a href="class.mongogridfs.html" class="type MongoGridFS">MongoGridFS</a></span></div>
+    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$prefix</code><span class="initializer"> = &quot;fs&quot;</span></span>
+   ) : <span class="type"><a href="class.mongogridfs.html" class="type MongoGridFS">MongoGridFS</a></span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="mongodb.getprofilinglevel.html" class="methodname">getProfilingLevel</a></span>
     (
@@ -199,17 +199,17 @@
    ) : <span class="type">array</span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="mongodb.listcollections.html" class="methodname">listCollections</a></span>
-    ([ <span class="methodparam"><span class="type">array</span> <code class="parameter">$options</code><span class="initializer"> = array()</span></span>
-  ] ) : <span class="type">array</span></div>
+    ( <span class="methodparam"><span class="type">array</span> <code class="parameter">$options</code><span class="initializer"> = array()</span></span>
+   ) : <span class="type">array</span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="mongodb.preverror.html" class="methodname">prevError</a></span>
     (
    ) : <span class="type">array</span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="mongodb.repair.html" class="methodname">repair</a></span>
-    ([ <span class="methodparam"><span class="type">bool</span> <code class="parameter">$preserve_cloned_files</code><span class="initializer"> = <strong><code>FALSE</code></strong></span></span>
-   [, <span class="methodparam"><span class="type">bool</span> <code class="parameter">$backup_original_files</code><span class="initializer"> = <strong><code>FALSE</code></strong></span></span>
-  ]] ) : <span class="type">array</span></div>
+    ( <span class="methodparam"><span class="type">bool</span> <code class="parameter">$preserve_cloned_files</code><span class="initializer"> = <strong><code>false</code></strong></span></span>
+   , <span class="methodparam"><span class="type">bool</span> <code class="parameter">$backup_original_files</code><span class="initializer"> = <strong><code>false</code></strong></span></span>
+   ) : <span class="type">array</span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="mongodb.reseterror.html" class="methodname">resetError</a></span>
     (
@@ -225,17 +225,17 @@
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="mongodb.setreadpreference.html" class="methodname">setReadPreference</a></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$read_preference</code></span>
-   [, <span class="methodparam"><span class="type">array</span> <code class="parameter">$tags</code></span>
-  ] ) : <span class="type">bool</span></div>
+   , <span class="methodparam"><span class="type">array</span> <code class="parameter">$tags</code> = ?</span>
+   ) : <span class="type">bool</span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="mongodb.setslaveokay.html" class="methodname">setSlaveOkay</a></span>
-    ([ <span class="methodparam"><span class="type">bool</span> <code class="parameter">$ok</code><span class="initializer"> = <strong><code>TRUE</code></strong></span></span>
-  ] ) : <span class="type">bool</span></div>
+    ( <span class="methodparam"><span class="type">bool</span> <code class="parameter">$ok</code><span class="initializer"> = <strong><code>true</code></strong></span></span>
+   ) : <span class="type">bool</span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="mongodb.setwriteconcern.html" class="methodname">setWriteConcern</a></span>
-    ( <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">$w</code></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$wtimeout</code></span>
-  ] ) : <span class="type">bool</span></div>
+    ( <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$w</code></span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$wtimeout</code> = ?</span>
+   ) : <span class="type">bool</span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="mongodb.--tostring.html" class="methodname">__toString</a></span>
     (

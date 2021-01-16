@@ -34,9 +34,9 @@
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><strong>SoapClient::SoapClient</strong></span>
-    ( <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">$wsdl</code></span>
-   [, <span class="methodparam"><span class="type">array</span> <code class="parameter">$options</code></span>
-  ] )</div>
+    ( <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$wsdl</code></span>
+   , <span class="methodparam"><span class="type">array</span> <code class="parameter">$options</code> = ?</span>
+   )</div>
 
   <p class="para rdfs-comment">
    This constructor creates <a href="class.soapclient.html" class="classname">SoapClient</a> objects 
@@ -57,7 +57,7 @@
      <dd>
 
       <p class="para">
-       URI of the <code class="literal">WSDL</code> file or <strong><code>NULL</code></strong> if working in 
+       URI of the <code class="literal">WSDL</code> file or <strong><code>null</code></strong> if working in 
        <code class="literal">non-WSDL</code> mode.
       </p>
       <blockquote class="note"><p><strong class="note">Note</strong>: 
@@ -118,7 +118,7 @@
       </p>
       <p class="para">
        The <code class="literal">trace</code> option enables tracing of request so faults 
-       can be backtraced. This defaults to <strong><code>FALSE</code></strong>
+       can be backtraced. This defaults to <strong><code>false</code></strong>
       </p>
       <p class="para">
        The <code class="literal">classmap</code> option can be used to map some WSDL 
@@ -214,7 +214,7 @@
  <div class="refsect1 examples" id="refsect1-soapclient.soapclient-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-5805">
+   <div class="example" id="example-5829">
     <p><strong>Example #1 <span class="function"><strong>SoapClient::SoapClient()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

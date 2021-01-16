@@ -36,13 +36,13 @@
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>oci_fetch_array</strong></span>
     ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$statement</code></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$mode</code></span>
-  ] ) : <span class="type">array</span></div>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$mode</code> = ?</span>
+   ) : <span class="type">array</span></div>
 
   <p class="para rdfs-comment">
    Returns an array containing the next result-set row of a query.
    Each array entry corresponds to a column of the row.  This function
-   is typically called in a loop until it returns <strong><code>FALSE</code></strong>, indicating
+   is typically called in a loop until it returns <strong><code>false</code></strong>, indicating
    no more rows exist.
   </p>
   <p class="para">
@@ -122,8 +122,8 @@ CURSOR</code> statement identifier.</p>
 
           <tr>
            <td><strong><code>OCI_RETURN_NULLS</code></strong></td>
-           <td>Creates elements for <strong><code>NULL</code></strong> fields.  The element
-             values will be a PHP <strong><code>NULL</code></strong>.
+           <td>Creates elements for <strong><code>null</code></strong> fields.  The element
+             values will be a PHP <strong><code>null</code></strong>.
            </td>
           </tr>
 
@@ -160,7 +160,7 @@ CURSOR</code> statement identifier.</p>
   <p class="para">
    Returns an array with associative and/or numeric indices. If there
    are no more rows in the <code class="parameter">statement</code> then
-   <strong><code>FALSE</code></strong> is returned.
+   <strong><code>false</code></strong> is returned.
   </p>
   <p class="para">
     By default, <code class="literal">LOB</code> columns are returned as LOB descriptors.
@@ -192,7 +192,7 @@ CURSOR</code> statement identifier.</p>
  <div class="refsect1 examples" id="refsect1-function.oci-fetch-array-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-2244">
+   <div class="example" id="example-2257">
     <p><strong>Example #1 <span class="function"><strong>oci_fetch_array()</strong></span> with <strong><code>OCI_BOTH</code></strong></strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -204,7 +204,7 @@ CURSOR</code> statement identifier.</p>
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-2245">
+   <div class="example" id="example-2258">
     <p><strong>Example #2 <span class="function"><strong>oci_fetch_array()</strong></span> with <strong><code>OCI_NUM</code></strong></strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -216,7 +216,7 @@ CURSOR</code> statement identifier.</p>
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-2246">
+   <div class="example" id="example-2259">
     <p><strong>Example #3 <span class="function"><strong>oci_fetch_array()</strong></span> with <strong><code>OCI_ASSOC</code></strong></strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -228,7 +228,7 @@ CURSOR</code> statement identifier.</p>
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-2247">
+   <div class="example" id="example-2260">
     <p><strong>Example #4 <span class="function"><strong>oci_fetch_array()</strong></span> with <strong><code>OCI_RETURN_NULLS</code></strong></strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -240,7 +240,7 @@ CURSOR</code> statement identifier.</p>
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-2248">
+   <div class="example" id="example-2261">
     <p><strong>Example #5 <span class="function"><strong>oci_fetch_array()</strong></span> with <strong><code>OCI_RETURN_LOBS</code></strong></strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -252,7 +252,7 @@ CURSOR</code> statement identifier.</p>
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-2249">
+   <div class="example" id="example-2262">
     <p><strong>Example #6 <span class="function"><strong>oci_fetch_array()</strong></span> with case sensitive column names</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -264,7 +264,7 @@ CURSOR</code> statement identifier.</p>
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-2250">
+   <div class="example" id="example-2263">
     <p><strong>Example #7 <span class="function"><strong>oci_fetch_array()</strong></span> with columns having duplicate names</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -276,7 +276,7 @@ CURSOR</code> statement identifier.</p>
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-2251">
+   <div class="example" id="example-2264">
     <p><strong>Example #8 <span class="function"><strong>oci_fetch_array()</strong></span> with <code class="literal">DATE</code> columns</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -288,7 +288,7 @@ CURSOR</code> statement identifier.</p>
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-2252">
+   <div class="example" id="example-2265">
     <p><strong>Example #9 <span class="function"><strong>oci_fetch_array()</strong></span> with <code class="literal">REF CURSOR</code></strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -300,7 +300,7 @@ CURSOR</code> statement identifier.</p>
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-2253">
+   <div class="example" id="example-2266">
     <p><strong>Example #10 Pagination with <span class="function"><strong>oci_fetch_array()</strong></span> using a <code class="literal">LIMIT</code>-like query</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -312,7 +312,7 @@ CURSOR</code> statement identifier.</p>
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-2254">
+   <div class="example" id="example-2267">
     <p><strong>Example #11 <span class="function"><strong>oci_fetch_array()</strong></span> with Oracle Database Implicit Result Sets</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

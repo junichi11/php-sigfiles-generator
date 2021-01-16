@@ -139,14 +139,14 @@
      <dd>
 
       <p class="para">
-       When set to <strong><code>TRUE</code></strong>, the entire URI will be used when
+       When set to <strong><code>true</code></strong>, the entire URI will be used when
        constructing the request.  (i.e.
        <code class="literal">GET http://www.example.com/path/to/file.html HTTP/1.0</code>).
        While this is a non-standard request format, some
        proxy servers require it.
       </p>
       <p class="para">
-       Defaults to <strong><code>FALSE</code></strong>.
+       Defaults to <strong><code>false</code></strong>.
       </p>
      </dd>
 
@@ -236,7 +236,7 @@
        Fetch the content even on failure status codes.
       </p>
       <p class="para">
-       Defaults to <strong><code>FALSE</code></strong>.
+       Defaults to <strong><code>false</code></strong>.
       </p>
      </dd>
 
@@ -250,7 +250,7 @@
  <div class="refsect1 examples" id="refsect1-context.http-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-362">
+   <div class="example" id="example-377">
     <p><strong>Example #1 Fetch a page and send POST data</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -303,7 +303,7 @@
 array (
   &#039;wrapper_data&#039; =&gt;
   array (
-    0 =&gt; &#039;HTTP/1.0 301 Moved Permantenly&#039;,
+    0 =&gt; &#039;HTTP/1.0 301 Moved Permanently&#039;,
     1 =&gt; &#039;Cache-Control: no-cache&#039;,
     2 =&gt; &#039;Connection: close&#039;,
     3 =&gt; &#039;Location: http://example.com/foo.jpg&#039;,

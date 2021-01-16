@@ -41,7 +41,7 @@
    Returns an object containing the next result-set row of a query.
    Each attribute of the object corresponds to a column of the row.
    This function is typically called in a loop until it returns
-   <strong><code>FALSE</code></strong>, indicating no more rows exist.
+   <strong><code>false</code></strong>, indicating no more rows exist.
   </p>
   <p class="para">For details on the data type mapping performed by
 the OCI8 extension, see the <a href="oci8.datatypes.html" class="link">datatypes
@@ -78,7 +78,7 @@ CURSOR</code> statement identifier.</p>
   <p class="para">
    Returns an object.  Each attribute of the object corresponds to a
    column of the row.  If there are no more rows in
-   the <code class="parameter">statement</code> then <strong><code>FALSE</code></strong> is returned.
+   the <code class="parameter">statement</code> then <strong><code>false</code></strong> is returned.
   </p>
   <p class="para">
     Any <code class="literal">LOB</code> columns are returned as LOB descriptors.
@@ -98,7 +98,7 @@ CURSOR</code> statement identifier.</p>
    the appropriate case for attribute access.
   </p>
   <p class="para">
-    Attribute values will be <strong><code>NULL</code></strong> for any <code class="literal">NULL</code>
+    Attribute values will be <strong><code>null</code></strong> for any <code class="literal">NULL</code>
     data fields.
   </p>
  </div>
@@ -107,7 +107,7 @@ CURSOR</code> statement identifier.</p>
  <div class="refsect1 examples" id="refsect1-function.oci-fetch-object-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-2256">
+   <div class="example" id="example-2269">
     <p><strong>Example #1 <span class="function"><strong>oci_fetch_object()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -119,7 +119,7 @@ CURSOR</code> statement identifier.</p>
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-2257">
+   <div class="example" id="example-2270">
     <p><strong>Example #2 <span class="function"><strong>oci_fetch_object()</strong></span> with case sensitive column names</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -131,7 +131,7 @@ CURSOR</code> statement identifier.</p>
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-2258">
+   <div class="example" id="example-2271">
     <p><strong>Example #3 <span class="function"><strong>oci_fetch_object()</strong></span> with LOBs</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

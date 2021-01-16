@@ -34,9 +34,9 @@
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>curl_setopt</strong></span>
-    ( <span class="methodparam"><span class="type"><span class="type CurlHandle">CurlHandle</span></span> <code class="parameter">$handle</code></span>
+    ( <span class="methodparam"><span class="type"><a href="class.curlhandle.html" class="type CurlHandle">CurlHandle</a></span> <code class="parameter">$handle</code></span>
    , <span class="methodparam"><span class="type">int</span> <code class="parameter">$option</code></span>
-   , <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">$value</code></span>
+   , <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$value</code></span>
    ) : <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
@@ -96,7 +96,7 @@
           <tr>
            <td style="vertical-align: top;"><strong><code>CURLOPT_AUTOREFERER</code></strong></td>
            <td style="vertical-align: top;">
-            <strong><code>TRUE</code></strong> to automatically set the <code class="literal">Referer:</code> field in
+            <strong><code>true</code></strong> to automatically set the <code class="literal">Referer:</code> field in
             requests where it follows a <code class="literal">Location:</code> redirect.
            </td>
            <td style="vertical-align: top;">
@@ -106,7 +106,7 @@
           <tr>
            <td style="vertical-align: top;"><strong><code>CURLOPT_BINARYTRANSFER</code></strong></td>
            <td style="vertical-align: top;">
-            <strong><code>TRUE</code></strong> to return the raw output when
+            <strong><code>true</code></strong> to return the raw output when
             <strong><code>CURLOPT_RETURNTRANSFER</code></strong> is used.
            </td>
            <td style="vertical-align: top;">
@@ -119,7 +119,7 @@
           <tr>
            <td style="vertical-align: top;"><strong><code>CURLOPT_COOKIESESSION</code></strong></td>
            <td style="vertical-align: top;">
-            <strong><code>TRUE</code></strong> to mark this as a new cookie &quot;session&quot;. It will force libcurl
+            <strong><code>true</code></strong> to mark this as a new cookie &quot;session&quot;. It will force libcurl
             to ignore all cookies it is about to load that are &quot;session cookies&quot;
             from the previous session. By default, libcurl always stores and
             loads all cookies, independent if they are session cookies or not.
@@ -133,7 +133,7 @@
           <tr>
            <td style="vertical-align: top;"><strong><code>CURLOPT_CERTINFO</code></strong></td>
            <td style="vertical-align: top;">
-            <strong><code>TRUE</code></strong> to output SSL certification information to <code class="literal">STDERR</code>
+            <strong><code>true</code></strong> to output SSL certification information to <code class="literal">STDERR</code>
             on secure transfers.
            </td>
            <td style="vertical-align: top;">
@@ -146,7 +146,7 @@
           <tr>
            <td style="vertical-align: top;"><strong><code>CURLOPT_CONNECT_ONLY</code></strong></td>
            <td style="vertical-align: top;">
-            <strong><code>TRUE</code></strong> tells the library to perform all the required proxy authentication 
+            <strong><code>true</code></strong> tells the library to perform all the required proxy authentication 
             and connection setup, but no data transfer. This option is implemented for 
             HTTP, SMTP and POP3.
            </td>
@@ -159,7 +159,7 @@
           <tr>
            <td style="vertical-align: top;"><strong><code>CURLOPT_CRLF</code></strong></td>
            <td style="vertical-align: top;">
-            <strong><code>TRUE</code></strong> to convert Unix newlines to CRLF newlines
+            <strong><code>true</code></strong> to convert Unix newlines to CRLF newlines
             on transfers.
            </td>
            <td style="vertical-align: top;">
@@ -169,7 +169,7 @@
           <tr>
            <td style="vertical-align: top;"><strong><code>CURLOPT_DISALLOW_USERNAME_IN_URL</code></strong></td>
            <td style="vertical-align: top;">
-            <strong><code>TRUE</code></strong> to not allow URLs that include a username. Usernames are allowed by default (0).
+            <strong><code>true</code></strong> to not allow URLs that include a username. Usernames are allowed by default (0).
            </td>
            <td style="vertical-align: top;">
             Added in cURL 7.61.0. Available since PHP 7.3.0.
@@ -179,7 +179,7 @@
           <tr>
            <td style="vertical-align: top;"><strong><code>CURLOPT_DNS_SHUFFLE_ADDRESSES</code></strong></td>
            <td style="vertical-align: top;">
-            <strong><code>TRUE</code></strong> to shuffle the order of all returned addresses so that they will be used 
+            <strong><code>true</code></strong> to shuffle the order of all returned addresses so that they will be used 
             in a random order, when a name is resolved and more than one IP address is returned.
             This may cause IPv4 to be used before IPv6 or vice versa.
            </td>
@@ -191,7 +191,7 @@
           <tr>
            <td style="vertical-align: top;"><strong><code>CURLOPT_HAPROXYPROTOCOL</code></strong></td>
            <td style="vertical-align: top;">
-            <strong><code>TRUE</code></strong> to send an HAProxy PROXY protocol v1 header at the start of the connection.
+            <strong><code>true</code></strong> to send an HAProxy PROXY protocol v1 header at the start of the connection.
             The default action is not to send this header.
            </td>
            <td style="vertical-align: top;">
@@ -202,7 +202,7 @@
           <tr>
            <td style="vertical-align: top;"><strong><code>CURLOPT_SSH_COMPRESSION</code></strong></td>
            <td style="vertical-align: top;">
-            <strong><code>TRUE</code></strong> to enable built-in SSH compression. This is a request, not an order; 
+            <strong><code>true</code></strong> to enable built-in SSH compression. This is a request, not an order; 
             the server may or may not do it.
            </td>
            <td style="vertical-align: top;">
@@ -213,7 +213,7 @@
           <tr>
            <td style="vertical-align: top;"><strong><code>CURLOPT_DNS_USE_GLOBAL_CACHE</code></strong></td>
            <td style="vertical-align: top;">
-            <strong><code>TRUE</code></strong> to use a global DNS cache. This option is not thread-safe.
+            <strong><code>true</code></strong> to use a global DNS cache. This option is not thread-safe.
             It is conditionally enabled by default if PHP is built for non-threaded use
             (CLI, FCGI, Apache2-Prefork, etc.).
            </td>
@@ -224,7 +224,7 @@
           <tr>
            <td style="vertical-align: top;"><strong><code>CURLOPT_FAILONERROR</code></strong></td>
            <td style="vertical-align: top;">
-            <strong><code>TRUE</code></strong> to fail verbosely if the HTTP code returned
+            <strong><code>true</code></strong> to fail verbosely if the HTTP code returned
             is greater than or equal to 400. The default behavior is to return
             the page normally, ignoring the code.
            </td>
@@ -235,7 +235,7 @@
           <tr>
            <td style="vertical-align: top;"><strong><code>CURLOPT_SSL_FALSESTART</code></strong></td>
            <td style="vertical-align: top;">
-            <strong><code>TRUE</code></strong> to enable TLS false start.
+            <strong><code>true</code></strong> to enable TLS false start.
            </td>
            <td style="vertical-align: top;">
             Added in cURL 7.42.0. Available since PHP 7.0.7.
@@ -245,7 +245,7 @@
           <tr>
            <td style="vertical-align: top;"><strong><code>CURLOPT_FILETIME</code></strong></td>
            <td style="vertical-align: top;">
-            <strong><code>TRUE</code></strong> to attempt to retrieve the modification
+            <strong><code>true</code></strong> to attempt to retrieve the modification
             date of the remote document. This value can be retrieved using
             the <strong><code>CURLINFO_FILETIME</code></strong> option with
             <span class="function"><a href="function.curl-getinfo.html" class="function">curl_getinfo()</a></span>.
@@ -257,7 +257,7 @@
           <tr>
            <td style="vertical-align: top;"><strong><code>CURLOPT_FOLLOWLOCATION</code></strong></td>
            <td style="vertical-align: top;">
-            <strong><code>TRUE</code></strong> to follow any
+            <strong><code>true</code></strong> to follow any
             <code class="literal">&quot;Location: &quot;</code> header that the server sends as
             part of the HTTP header (note this is recursive, PHP will follow as
             many <code class="literal">&quot;Location: &quot;</code> headers that it is sent,
@@ -270,7 +270,7 @@
           <tr>
            <td style="vertical-align: top;"><strong><code>CURLOPT_FORBID_REUSE</code></strong></td>
            <td style="vertical-align: top;">
-            <strong><code>TRUE</code></strong> to force the connection to explicitly
+            <strong><code>true</code></strong> to force the connection to explicitly
             close when it has finished processing, and not be pooled for reuse.
            </td>
            <td style="vertical-align: top;">
@@ -280,7 +280,7 @@
           <tr>
            <td style="vertical-align: top;"><strong><code>CURLOPT_FRESH_CONNECT</code></strong></td>
            <td style="vertical-align: top;">
-            <strong><code>TRUE</code></strong> to force the use of a new connection
+            <strong><code>true</code></strong> to force the use of a new connection
             instead of a cached one.
            </td>
            <td style="vertical-align: top;">
@@ -290,8 +290,8 @@
           <tr>
            <td style="vertical-align: top;"><strong><code>CURLOPT_FTP_USE_EPRT</code></strong></td>
            <td style="vertical-align: top;">
-            <strong><code>TRUE</code></strong> to use EPRT (and LPRT) when doing active
-            FTP downloads. Use <strong><code>FALSE</code></strong> to disable EPRT and LPRT and use PORT
+            <strong><code>true</code></strong> to use EPRT (and LPRT) when doing active
+            FTP downloads. Use <strong><code>false</code></strong> to disable EPRT and LPRT and use PORT
             only.
            </td>
            <td style="vertical-align: top;">
@@ -301,8 +301,8 @@
           <tr>
            <td style="vertical-align: top;"><strong><code>CURLOPT_FTP_USE_EPSV</code></strong></td>
            <td style="vertical-align: top;">
-            <strong><code>TRUE</code></strong> to first try an EPSV command for FTP
-            transfers before reverting back to PASV. Set to <strong><code>FALSE</code></strong>
+            <strong><code>true</code></strong> to first try an EPSV command for FTP
+            transfers before reverting back to PASV. Set to <strong><code>false</code></strong>
             to disable EPSV.
            </td>
            <td style="vertical-align: top;">
@@ -312,7 +312,7 @@
           <tr>
            <td style="vertical-align: top;"><strong><code>CURLOPT_FTP_CREATE_MISSING_DIRS</code></strong></td>
            <td style="vertical-align: top;">
-            <strong><code>TRUE</code></strong> to create missing directories when an FTP operation
+            <strong><code>true</code></strong> to create missing directories when an FTP operation
             encounters a path that currently doesn&#039;t exist.
            </td>
            <td style="vertical-align: top;">
@@ -322,7 +322,7 @@
           <tr>
            <td style="vertical-align: top;"><strong><code>CURLOPT_FTPAPPEND</code></strong></td>
            <td style="vertical-align: top;">
-            <strong><code>TRUE</code></strong> to append to the remote file instead of
+            <strong><code>true</code></strong> to append to the remote file instead of
             overwriting it.
            </td>
            <td style="vertical-align: top;">
@@ -332,7 +332,7 @@
           <tr>
            <td style="vertical-align: top;"><strong><code>CURLOPT_TCP_NODELAY</code></strong></td>
            <td style="vertical-align: top;">
-            <strong><code>TRUE</code></strong> to disable TCP&#039;s Nagle algorithm, which tries to minimize
+            <strong><code>true</code></strong> to disable TCP&#039;s Nagle algorithm, which tries to minimize
             the number of small packets on the network.
            </td>
            <td style="vertical-align: top;">
@@ -354,7 +354,7 @@
           <tr>
            <td style="vertical-align: top;"><strong><code>CURLOPT_FTPLISTONLY</code></strong></td>
            <td style="vertical-align: top;">
-            <strong><code>TRUE</code></strong> to only list the names of an FTP
+            <strong><code>true</code></strong> to only list the names of an FTP
             directory.
            </td>
            <td style="vertical-align: top;">
@@ -364,7 +364,7 @@
           <tr>
            <td style="vertical-align: top;"><strong><code>CURLOPT_HEADER</code></strong></td>
            <td style="vertical-align: top;">
-            <strong><code>TRUE</code></strong> to include the header in the output.
+            <strong><code>true</code></strong> to include the header in the output.
            </td>
            <td style="vertical-align: top;">
            </td>
@@ -373,7 +373,7 @@
           <tr>
            <td><strong><code>CURLINFO_HEADER_OUT</code></strong></td>
            <td style="vertical-align: top;">
-            <strong><code>TRUE</code></strong> to track the handle&#039;s request string.
+            <strong><code>true</code></strong> to track the handle&#039;s request string.
            </td>
            <td style="vertical-align: top;">
             Available since PHP 5.1.3. The <strong><code>CURLINFO_</code></strong>
@@ -384,8 +384,8 @@
           <tr>
            <td style="vertical-align: top;"><strong><code>CURLOPT_HTTP09_ALLOWED </code></strong></td>
            <td style="vertical-align: top;">
-            Whether to allow HTTP/0.9 responses. Defaults to <strong><code>FALSE</code></strong> as of libcurl 7.66.0;
-            formerly it defaulted to <strong><code>TRUE</code></strong>.
+            Whether to allow HTTP/0.9 responses. Defaults to <strong><code>false</code></strong> as of libcurl 7.66.0;
+            formerly it defaulted to <strong><code>true</code></strong>.
            </td>
            <td style="vertical-align: top;">
             Available since PHP 7.3.15 and 7.4.3, respectively, if built against libcurl &gt;= 7.64.0 
@@ -395,7 +395,7 @@
           <tr>
            <td style="vertical-align: top;"><strong><code>CURLOPT_HTTPGET</code></strong></td>
            <td style="vertical-align: top;">
-            <strong><code>TRUE</code></strong> to reset the HTTP request method to GET.
+            <strong><code>true</code></strong> to reset the HTTP request method to GET.
             Since GET is the default, this is only necessary if the request
             method has been changed.
            </td>
@@ -406,7 +406,7 @@
           <tr>
            <td style="vertical-align: top;"><strong><code>CURLOPT_HTTPPROXYTUNNEL</code></strong></td>
            <td style="vertical-align: top;">
-            <strong><code>TRUE</code></strong> to tunnel through a given HTTP proxy.
+            <strong><code>true</code></strong> to tunnel through a given HTTP proxy.
            </td>
            <td style="vertical-align: top;">
            </td>
@@ -415,7 +415,7 @@
           <tr>
            <td style="vertical-align: top;"><strong><code>CURLOPT_HTTP_CONTENT_DECODING</code></strong></td>
            <td style="vertical-align: top;">
-            <strong><code>FALSE</code></strong> to get the raw HTTP response body.
+            <strong><code>false</code></strong> to get the raw HTTP response body.
            </td>
            <td style="vertical-align: top;">
             Available as of PHP 5.5.0 if built against libcurl &gt;= 7.16.2.
@@ -425,7 +425,7 @@
           <tr>
            <td style="vertical-align: top;"><strong><code>CURLOPT_KEEP_SENDING_ON_ERROR</code></strong></td>
            <td style="vertical-align: top;">
-            <strong><code>TRUE</code></strong> to keep sending the request body if the HTTP code returned is 
+            <strong><code>true</code></strong> to keep sending the request body if the HTTP code returned is 
             equal to or larger than 300. The default action would be to stop sending
             and close the stream or connection. Suitable for manual NTLM authentication.
             Most applications do not need this option.
@@ -438,7 +438,7 @@
           <tr>
            <td style="vertical-align: top;"><strong><code>CURLOPT_MUTE</code></strong></td>
            <td style="vertical-align: top;">
-            <strong><code>TRUE</code></strong> to be completely silent with regards to
+            <strong><code>true</code></strong> to be completely silent with regards to
             the cURL functions.
            </td>
            <td style="vertical-align: top;">
@@ -449,7 +449,7 @@
           <tr>
            <td style="vertical-align: top;"><strong><code>CURLOPT_NETRC</code></strong></td>
            <td style="vertical-align: top;">
-            <strong><code>TRUE</code></strong> to scan the <var class="filename">~/.netrc</var>
+            <strong><code>true</code></strong> to scan the <var class="filename">~/.netrc</var>
             file to find a username and password for the remote site that
             a connection is being established with.
            </td>
@@ -460,8 +460,8 @@
           <tr>
            <td style="vertical-align: top;"><strong><code>CURLOPT_NOBODY</code></strong></td>
            <td style="vertical-align: top;">
-            <strong><code>TRUE</code></strong> to exclude the body from the output.
-            Request method is then set to HEAD. Changing this to <strong><code>FALSE</code></strong> does
+            <strong><code>true</code></strong> to exclude the body from the output.
+            Request method is then set to HEAD. Changing this to <strong><code>false</code></strong> does
             not change it to GET.
            </td>
            <td style="vertical-align: top;">
@@ -471,10 +471,10 @@
           <tr>
            <td style="vertical-align: top;"><strong><code>CURLOPT_NOPROGRESS</code></strong></td>
            <td style="vertical-align: top;"><p class="para">
-            <strong><code>TRUE</code></strong> to disable the progress meter for cURL transfers.
+            <strong><code>true</code></strong> to disable the progress meter for cURL transfers.
             <blockquote class="note"><p><strong class="note">Note</strong>: 
              <p class="para">
-              PHP automatically sets this option to <strong><code>TRUE</code></strong>, this should only be
+              PHP automatically sets this option to <strong><code>true</code></strong>, this should only be
               changed for debugging purposes.
              </p>
             </p></blockquote>
@@ -486,7 +486,7 @@
           <tr>
            <td style="vertical-align: top;"><strong><code>CURLOPT_NOSIGNAL</code></strong></td>
            <td style="vertical-align: top;">
-            <strong><code>TRUE</code></strong> to ignore any cURL function that causes a
+            <strong><code>true</code></strong> to ignore any cURL function that causes a
             signal to be sent to the PHP process. This is turned on by default
             in multi-threaded SAPIs so timeout options can still be used.
            </td>
@@ -498,7 +498,7 @@
           <tr>
            <td style="vertical-align: top;"><strong><code>CURLOPT_PATH_AS_IS</code></strong></td>
            <td style="vertical-align: top;">
-            <strong><code>TRUE</code></strong> to not handle dot dot sequences.
+            <strong><code>true</code></strong> to not handle dot dot sequences.
            </td>
            <td style="vertical-align: top;">
             Added in cURL 7.42.0. Available since PHP 7.0.7.
@@ -508,7 +508,7 @@
           <tr>
            <td style="vertical-align: top;"><strong><code>CURLOPT_PIPEWAIT</code></strong></td>
            <td style="vertical-align: top;">
-            <strong><code>TRUE</code></strong> to wait for pipelining/multiplexing.
+            <strong><code>true</code></strong> to wait for pipelining/multiplexing.
            </td>
            <td style="vertical-align: top;">
             Added in cURL 7.43.0. Available since PHP 7.0.7.
@@ -518,7 +518,7 @@
           <tr>
            <td style="vertical-align: top;"><strong><code>CURLOPT_POST</code></strong></td>
            <td style="vertical-align: top;">
-            <strong><code>TRUE</code></strong> to do a regular HTTP POST. This POST is the
+            <strong><code>true</code></strong> to do a regular HTTP POST. This POST is the
             normal <code class="literal">application/x-www-form-urlencoded</code> kind,
             most commonly used by HTML forms.
            </td>
@@ -529,7 +529,7 @@
           <tr>
            <td style="vertical-align: top;"><strong><code>CURLOPT_PUT</code></strong></td>
            <td style="vertical-align: top;">
-            <strong><code>TRUE</code></strong> to HTTP PUT a file. The file to PUT must
+            <strong><code>true</code></strong> to HTTP PUT a file. The file to PUT must
             be set with <strong><code>CURLOPT_INFILE</code></strong> and
             <strong><code>CURLOPT_INFILESIZE</code></strong>.
            </td>
@@ -540,7 +540,7 @@
           <tr>
            <td style="vertical-align: top;"><strong><code>CURLOPT_RETURNTRANSFER</code></strong></td>
            <td style="vertical-align: top;">
-            <strong><code>TRUE</code></strong> to return the transfer as a string of the
+            <strong><code>true</code></strong> to return the transfer as a string of the
             return value of <span class="function"><a href="function.curl-exec.html" class="function">curl_exec()</a></span> instead of outputting
             it directly.
            </td>
@@ -551,7 +551,7 @@
           <tr>
            <td style="vertical-align: top;"><strong><code>CURLOPT_SASL_IR</code></strong></td>
            <td style="vertical-align: top;">
-            <strong><code>TRUE</code></strong> to enable sending the initial response in the first packet.
+            <strong><code>true</code></strong> to enable sending the initial response in the first packet.
            </td>
            <td style="vertical-align: top;">
             Added in cURL 7.31.10. Available since PHP 7.0.7.
@@ -561,7 +561,7 @@
           <tr>
            <td style="vertical-align: top;"><strong><code>CURLOPT_SSL_ENABLE_ALPN</code></strong></td>
            <td style="vertical-align: top;">
-            <strong><code>FALSE</code></strong> to disable ALPN in the SSL handshake (if the SSL backend
+            <strong><code>false</code></strong> to disable ALPN in the SSL handshake (if the SSL backend
             libcurl is built to use supports it), which can be used to
             negotiate http2.
            </td>
@@ -573,7 +573,7 @@
           <tr>
            <td style="vertical-align: top;"><strong><code>CURLOPT_SSL_ENABLE_NPN</code></strong></td>
            <td style="vertical-align: top;">
-            <strong><code>FALSE</code></strong> to disable NPN in the SSL handshake (if the SSL backend
+            <strong><code>false</code></strong> to disable NPN in the SSL handshake (if the SSL backend
             libcurl is built to use supports it), which can be used to
             negotiate http2.
            </td>
@@ -585,14 +585,14 @@
           <tr>
            <td style="vertical-align: top;"><strong><code>CURLOPT_SSL_VERIFYPEER</code></strong></td>
            <td style="vertical-align: top;">
-            <strong><code>FALSE</code></strong> to stop cURL from verifying the peer&#039;s
+            <strong><code>false</code></strong> to stop cURL from verifying the peer&#039;s
             certificate. Alternate certificates to verify against can be
             specified with the <strong><code>CURLOPT_CAINFO</code></strong> option
             or a certificate directory can be specified with the
             <strong><code>CURLOPT_CAPATH</code></strong> option.
            </td>
            <td style="vertical-align: top;">
-            <strong><code>TRUE</code></strong> by default as of cURL 7.10. Default bundle installed as of
+            <strong><code>true</code></strong> by default as of cURL 7.10. Default bundle installed as of
             cURL 7.10.
            </td>
           </tr>
@@ -600,7 +600,7 @@
           <tr>
            <td style="vertical-align: top;"><strong><code>CURLOPT_SSL_VERIFYSTATUS</code></strong></td>
            <td style="vertical-align: top;">
-            <strong><code>TRUE</code></strong> to verify the certificate&#039;s status.
+            <strong><code>true</code></strong> to verify the certificate&#039;s status.
            </td>
            <td style="vertical-align: top;">
             Added in cURL 7.41.0. Available since PHP 7.0.7.
@@ -610,7 +610,7 @@
           <tr>
            <td style="vertical-align: top;"><strong><code>CURLOPT_PROXY_SSL_VERIFYPEER</code></strong></td>
            <td style="vertical-align: top;">
-            <strong><code>FALSE</code></strong> to stop cURL from verifying the peer&#039;s certificate.
+            <strong><code>false</code></strong> to stop cURL from verifying the peer&#039;s certificate.
             Alternate certificates to verify against can be
             specified with the <strong><code>CURLOPT_CAINFO</code></strong> option
             or a certificate directory can be specified with the
@@ -618,14 +618,14 @@
             When set to false, the peer certificate verification succeeds regardless.
            </td>
            <td style="vertical-align: top;">
-            <strong><code>TRUE</code></strong> by default. Available since PHP 7.3.0 and libcurl &gt;= cURL 7.52.0.
+            <strong><code>true</code></strong> by default. Available since PHP 7.3.0 and libcurl &gt;= cURL 7.52.0.
            </td>
           </tr>
 
           <tr>
            <td style="vertical-align: top;"><strong><code>CURLOPT_SUPPRESS_CONNECT_HEADERS</code></strong></td>
            <td style="vertical-align: top;">
-            <strong><code>TRUE</code></strong> to suppress proxy CONNECT response headers from the user callback functions 
+            <strong><code>true</code></strong> to suppress proxy CONNECT response headers from the user callback functions 
             <strong><code>CURLOPT_HEADERFUNCTION</code></strong> and <strong><code>CURLOPT_WRITEFUNCTION</code></strong>,
             when <strong><code>CURLOPT_HTTPPROXYTUNNEL</code></strong> is used and a CONNECT request is made.
            </td>
@@ -637,7 +637,7 @@
           <tr>
            <td style="vertical-align: top;"><strong><code>CURLOPT_TCP_FASTOPEN</code></strong></td>
            <td style="vertical-align: top;">
-            <strong><code>TRUE</code></strong> to enable TCP Fast Open.
+            <strong><code>true</code></strong> to enable TCP Fast Open.
            </td>
            <td style="vertical-align: top;">
             Added in cURL 7.49.0. Available since PHP 7.0.7.
@@ -647,7 +647,7 @@
           <tr>
            <td style="vertical-align: top;"><strong><code>CURLOPT_TFTP_NO_OPTIONS</code></strong></td>
            <td style="vertical-align: top;">
-            <strong><code>TRUE</code></strong> to not send TFTP options requests.
+            <strong><code>true</code></strong> to not send TFTP options requests.
            </td>
            <td style="vertical-align: top;">
             Added in cURL 7.48.0. Available since PHP 7.0.7.
@@ -657,7 +657,7 @@
           <tr>
            <td style="vertical-align: top;"><strong><code>CURLOPT_TRANSFERTEXT</code></strong></td>
            <td style="vertical-align: top;">
-            <strong><code>TRUE</code></strong> to use ASCII mode for FTP transfers.
+            <strong><code>true</code></strong> to use ASCII mode for FTP transfers.
             For LDAP, it retrieves data in plain text instead of HTML. On
             Windows systems, it will not set <code class="literal">STDOUT</code> to binary
             mode.
@@ -669,7 +669,7 @@
           <tr>
            <td style="vertical-align: top;"><strong><code>CURLOPT_UNRESTRICTED_AUTH</code></strong></td>
            <td style="vertical-align: top;">
-            <strong><code>TRUE</code></strong> to keep sending the username and password
+            <strong><code>true</code></strong> to keep sending the username and password
             when following locations (using
             <strong><code>CURLOPT_FOLLOWLOCATION</code></strong>), even when the
             hostname has changed.
@@ -681,7 +681,7 @@
           <tr>
            <td style="vertical-align: top;"><strong><code>CURLOPT_UPLOAD</code></strong></td>
            <td style="vertical-align: top;">
-            <strong><code>TRUE</code></strong> to prepare for an upload.
+            <strong><code>true</code></strong> to prepare for an upload.
            </td>
            <td style="vertical-align: top;">
            </td>
@@ -690,7 +690,7 @@
           <tr>
            <td style="vertical-align: top;"><strong><code>CURLOPT_VERBOSE</code></strong></td>
            <td style="vertical-align: top;">
-            <strong><code>TRUE</code></strong> to output verbose information. Writes
+            <strong><code>true</code></strong> to output verbose information. Writes
             output to <code class="literal">STDERR</code>, or the file specified using
             <strong><code>CURLOPT_STDERR</code></strong>.
            </td>
@@ -1288,7 +1288,7 @@
             page only if it has been modified since the time specified in
             <strong><code>CURLOPT_TIMEVALUE</code></strong>. If it hasn&#039;t been modified,
             a <code class="literal">&quot;304 Not Modified&quot;</code> header will be returned
-            assuming <strong><code>CURLOPT_HEADER</code></strong> is <strong><code>TRUE</code></strong>.
+            assuming <strong><code>CURLOPT_HEADER</code></strong> is <strong><code>true</code></strong>.
             Use <strong><code>CURL_TIMECOND_IFUNMODSINCE</code></strong> for the reverse
             effect. <strong><code>CURL_TIMECOND_IFMODSINCE</code></strong> is the
             default.
@@ -1658,7 +1658,7 @@
             <code class="literal">&quot;confidential&quot;</code>,
             <code class="literal">&quot;private&quot;.</code>.
             If the string does not match one of these,
-            <code class="literal">&quot;private&quot;</code> is used. Setting this option to <strong><code>NULL</code></strong>
+            <code class="literal">&quot;private&quot;</code> is used. Setting this option to <strong><code>null</code></strong>
             will disable KRB4 security. Currently KRB4 security only works
             with FTP transactions.
            </td>
@@ -2427,7 +2427,7 @@
             <blockquote class="note"><p><strong class="note">Note</strong>: 
              <p class="para">
               The callback is only called when the <strong><code>CURLOPT_NOPROGRESS</code></strong>
-              option is set to <strong><code>FALSE</code></strong>.
+              option is set to <strong><code>false</code></strong>.
              </p>
             </p></blockquote>
             <p class="para">
@@ -2506,7 +2506,7 @@
  <div class="refsect1 returnvalues" id="refsect1-function.curl-setopt-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns <strong><code>TRUE</code></strong> on success or <strong><code>FALSE</code></strong> on failure.
+   Returns <strong><code>true</code></strong> on success or <strong><code>false</code></strong> on failure.
   </p>
  </div>
 
@@ -2528,7 +2528,7 @@
       <tr>
  <td>8.0.0</td>
  <td>
-  <code class="parameter">handle</code> expects a <strong class="classname">CurlHandle</strong>
+  <code class="parameter">handle</code> expects a <a href="class.curlhandle.html" class="classname">CurlHandle</a>
   instance now; previously, a <span class="type">resource</span> was expected.
  </td>
 </tr>
@@ -2604,7 +2604,7 @@
  <div class="refsect1 examples" id="refsect1-function.curl-setopt-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-4701">
+   <div class="example" id="example-4723">
     <p><strong>Example #1 Initializing a new cURL session and fetching a web page</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

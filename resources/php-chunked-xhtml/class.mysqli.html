@@ -10,7 +10,7 @@
  <body class="docs"><div class="navbar navbar-fixed-top">
   <div class="navbar-inner clearfix">
     <ul class="nav" style="width: 100%">
-      <li style="float: left;"><a href="mysqli.examples-basic.html">« MySQLi extension basic examples</a></li>
+      <li style="float: left;"><a href="mysqli.summary.html">« The MySQLi Extension Function Summary</a></li>
       <li style="float: right;"><a href="mysqli.affected-rows.html">mysqli::$affected_rows »</a></li>
     </ul>
   </div>
@@ -68,7 +68,7 @@
 <div class="fieldsynopsis"><span class="type">string</span> <var class="varname"><a href="mysqli.get-server-info.html">$<var class="varname">server_info</var></a></var>;</div>
 <div class="fieldsynopsis"><span class="type">int</span> <var class="varname"><a href="mysqli.get-server-version.html">$<var class="varname">server_version</var></a></var>;</div>
 <div class="fieldsynopsis"><span class="type">string</span> <var class="varname"><a href="mysqli.info.html">$<var class="varname">info</var></a></var>;</div>
-<div class="fieldsynopsis"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <var class="varname"><a href="mysqli.insert-id.html">$<var class="varname">insert_id</var></a></var>;</div>
+<div class="fieldsynopsis"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <var class="varname"><a href="mysqli.insert-id.html">$<var class="varname">insert_id</var></a></var>;</div>
 <div class="fieldsynopsis"><span class="type">string</span> <var class="varname"><a href="mysqli.sqlstate.html">$<var class="varname">sqlstate</var></a></var>;</div>
 <div class="fieldsynopsis"><span class="type">int</span> <var class="varname"><a href="mysqli.thread-id.html">$<var class="varname">thread_id</var></a></var>;</div>
 <div class="fieldsynopsis"><span class="type">int</span> <var class="varname"><a href="mysqli.warning-count.html">$<var class="varname">warning_count</var></a></var>;</div>
@@ -77,13 +77,13 @@
     <div class="classsynopsisinfo classsynopsisinfo_comment">/* Methods */</div>
     <div class="constructorsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="mysqli.construct.html" class="methodname">__construct</a></span>
-    ([ <span class="methodparam"><span class="type">string</span> <code class="parameter">$host</code><span class="initializer"> = ini_get(&quot;mysqli.default_host&quot;)</span></span>
-   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$username</code><span class="initializer"> = ini_get(&quot;mysqli.default_user&quot;)</span></span>
-   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$passwd</code><span class="initializer"> = ini_get(&quot;mysqli.default_pw&quot;)</span></span>
-   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$dbname</code><span class="initializer"> = &quot;&quot;</span></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$port</code><span class="initializer"> = ini_get(&quot;mysqli.default_port&quot;)</span></span>
-   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$socket</code><span class="initializer"> = ini_get(&quot;mysqli.default_socket&quot;)</span></span>
-  ]]]]]] )</div>
+    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$host</code><span class="initializer"> = ini_get(&quot;mysqli.default_host&quot;)</span></span>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$username</code><span class="initializer"> = ini_get(&quot;mysqli.default_user&quot;)</span></span>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$passwd</code><span class="initializer"> = ini_get(&quot;mysqli.default_pw&quot;)</span></span>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$dbname</code><span class="initializer"> = &quot;&quot;</span></span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$port</code><span class="initializer"> = ini_get(&quot;mysqli.default_port&quot;)</span></span>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$socket</code><span class="initializer"> = ini_get(&quot;mysqli.default_socket&quot;)</span></span>
+   )</div>
 
     <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="mysqli.autocommit.html" class="methodname">autocommit</a></span>
@@ -91,9 +91,9 @@
    ) : <span class="type">bool</span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="mysqli.begin-transaction.html" class="methodname">begin_transaction</a></span>
-    ([ <span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code><span class="initializer"> = 0</span></span>
-   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$name</code></span>
-  ]] ) : <span class="type">bool</span></div>
+    ( <span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code><span class="initializer"> = 0</span></span>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$name</code> = ?</span>
+   ) : <span class="type">bool</span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="mysqli.change-user.html" class="methodname">change_user</a></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$user</code></span>
@@ -110,18 +110,18 @@
    ) : <span class="type">bool</span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="mysqli.commit.html" class="methodname">commit</a></span>
-    ([ <span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code><span class="initializer"> = 0</span></span>
-   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$name</code></span>
-  ]] ) : <span class="type">bool</span></div>
+    ( <span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code><span class="initializer"> = 0</span></span>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$name</code> = ?</span>
+   ) : <span class="type">bool</span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="function.mysqli-connect.html" class="methodname">connect</a></span>
-    ([ <span class="methodparam"><span class="type">string</span> <code class="parameter">$host</code><span class="initializer"> = ini_get(&quot;mysqli.default_host&quot;)</span></span>
-   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$username</code><span class="initializer"> = ini_get(&quot;mysqli.default_user&quot;)</span></span>
-   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$passwd</code><span class="initializer"> = ini_get(&quot;mysqli.default_pw&quot;)</span></span>
-   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$dbname</code><span class="initializer"> = &quot;&quot;</span></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$port</code><span class="initializer"> = ini_get(&quot;mysqli.default_port&quot;)</span></span>
-   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$socket</code><span class="initializer"> = ini_get(&quot;mysqli.default_socket&quot;)</span></span>
-  ]]]]]] ) : <span class="type"><span class="type void">void</span></span></div>
+    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$host</code><span class="initializer"> = ini_get(&quot;mysqli.default_host&quot;)</span></span>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$username</code><span class="initializer"> = ini_get(&quot;mysqli.default_user&quot;)</span></span>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$passwd</code><span class="initializer"> = ini_get(&quot;mysqli.default_pw&quot;)</span></span>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$dbname</code><span class="initializer"> = &quot;&quot;</span></span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$port</code><span class="initializer"> = ini_get(&quot;mysqli.default_port&quot;)</span></span>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$socket</code><span class="initializer"> = ini_get(&quot;mysqli.default_socket&quot;)</span></span>
+   ) : <span class="type"><span class="type void">void</span></span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="mysqli.debug.html" class="methodname">debug</a></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$message</code></span>
@@ -173,7 +173,7 @@
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="mysqli.options.html" class="methodname">options</a></span>
     ( <span class="methodparam"><span class="type">int</span> <code class="parameter">$option</code></span>
-   , <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">$value</code></span>
+   , <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$value</code></span>
    ) : <span class="type">bool</span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="mysqli.ping.html" class="methodname">ping</a></span>
@@ -185,8 +185,8 @@
    , <span class="methodparam"><span class="type">array</span> <code class="parameter reference">&$error</code></span>
    , <span class="methodparam"><span class="type">array</span> <code class="parameter reference">&$reject</code></span>
    , <span class="methodparam"><span class="type">int</span> <code class="parameter">$sec</code></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$usec</code><span class="initializer"> = 0</span></span>
-  ] ) : <span class="type">int</span></div>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$usec</code><span class="initializer"> = 0</span></span>
+   ) : <span class="type">int</span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="mysqli.prepare.html" class="methodname">prepare</a></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$query</code></span>
@@ -194,18 +194,18 @@
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="mysqli.query.html" class="methodname">query</a></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$query</code></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$resultmode</code><span class="initializer"> = MYSQLI_STORE_RESULT</span></span>
-  ] ) : <span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span></div>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$resultmode</code><span class="initializer"> = MYSQLI_STORE_RESULT</span></span>
+   ) : <span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="mysqli.real-connect.html" class="methodname">real_connect</a></span>
-    ([ <span class="methodparam"><span class="type">string</span> <code class="parameter">$host</code></span>
-   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$username</code></span>
-   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$passwd</code></span>
-   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$dbname</code></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$port</code></span>
-   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$socket</code></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code></span>
-  ]]]]]]] ) : <span class="type">bool</span></div>
+    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$host</code> = ?</span>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$username</code> = ?</span>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$passwd</code> = ?</span>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$dbname</code> = ?</span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$port</code> = ?</span>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$socket</code> = ?</span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code> = ?</span>
+   ) : <span class="type">bool</span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="function.mysqli-escape-string.html" class="methodname">escape_string</a></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$escapestr</code></span>
@@ -232,9 +232,9 @@
    ) : <span class="type">bool</span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="mysqli.rollback.html" class="methodname">rollback</a></span>
-    ([ <span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code><span class="initializer"> = 0</span></span>
-   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$name</code></span>
-  ]] ) : <span class="type">bool</span></div>
+    ( <span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code><span class="initializer"> = 0</span></span>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$name</code> = ?</span>
+   ) : <span class="type">bool</span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="mysqli.savepoint.html" class="methodname">savepoint</a></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$name</code></span>
@@ -265,8 +265,8 @@
    ) : <span class="type"><a href="class.mysqli-stmt.html" class="type mysqli_stmt">mysqli_stmt</a></span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="mysqli.store-result.html" class="methodname">store_result</a></span>
-    ([ <span class="methodparam"><span class="type">int</span> <code class="parameter">$option</code></span>
-  ] ) : <span class="type"><a href="class.mysqli-result.html" class="type mysqli_result">mysqli_result</a></span></div>
+    ( <span class="methodparam"><span class="type">int</span> <code class="parameter">$option</code> = ?</span>
+   ) : <span class="type"><a href="class.mysqli-result.html" class="type mysqli_result">mysqli_result</a></span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="mysqli.thread-safe.html" class="methodname">thread_safe</a></span>
     (

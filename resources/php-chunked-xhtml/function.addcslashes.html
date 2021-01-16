@@ -34,13 +34,13 @@
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>addcslashes</strong></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$str</code></span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$charlist</code></span>
+    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$string</code></span>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$characters</code></span>
    ) : <span class="type">string</span></div>
 
   <p class="para rdfs-comment">
    Returns a string with backslashes before characters that are
-   listed in <code class="parameter">charlist</code> parameter. 
+   listed in <code class="parameter">characters</code> parameter. 
   </p>
  </div>
 
@@ -52,7 +52,7 @@
 
     
      <dt>
-<code class="parameter">str</code></dt>
+<code class="parameter">string</code></dt>
 
      <dd>
 
@@ -64,13 +64,13 @@
     
     
      <dt>
-<code class="parameter">charlist</code></dt>
+<code class="parameter">characters</code></dt>
 
      <dd>
 
       <p class="para">
        A list of characters to be escaped. If
-       <code class="parameter">charlist</code> contains characters
+       <code class="parameter">characters</code> contains characters
        <code class="literal">\n</code>, <code class="literal">\r</code> etc., they are
        converted in C-like style, while other non-alphanumeric characters
        with ASCII codes lower than 32 and higher than 126 converted to
@@ -111,7 +111,7 @@
        also defined in other C-derived languages, including PHP, meaning that
        you may not get the desired result if you use the output of
        <span class="function"><strong>addcslashes()</strong></span> to generate code in those languages
-       with these characters defined in <code class="parameter">charlist</code>.
+       with these characters defined in <code class="parameter">characters</code>.
       </p>
      </dd>
 
@@ -133,9 +133,9 @@
  <div class="refsect1 examples" id="refsect1-function.addcslashes-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-    <code class="parameter">charlist</code> like &quot;\0..\37&quot;, which would
+    <code class="parameter">characters</code> like &quot;\0..\37&quot;, which would
     escape all characters with ASCII code between 0 and 31.
-   <div class="example" id="example-5258">
+   <div class="example" id="example-5279">
     <p><strong>Example #1 <span class="function"><strong>addcslashes()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

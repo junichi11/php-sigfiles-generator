@@ -47,8 +47,8 @@ Alternatives to this function include:</p>
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>mysql_info</strong></span>
-    ([ <span class="methodparam"><span class="type">resource</span> <code class="parameter">$link_identifier</code><span class="initializer"> = NULL</span></span>
-  ] ) : <span class="type">string</span></div>
+    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$link_identifier</code><span class="initializer"> = NULL</span></span>
+   ) : <span class="type">string</span></div>
 
   <p class="para rdfs-comment">
    Returns detailed information about the last query.
@@ -82,10 +82,10 @@ with no arguments. If no connection is found or established, an
  <div class="refsect1 returnvalues" id="refsect1-function.mysql-info-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns information about the statement on success, or <strong><code>FALSE</code></strong> on
+   Returns information about the statement on success, or <strong><code>false</code></strong> on
    failure. See the example below for which statements provide information,
    and what the returned value may look like. Statements that are not listed 
-   will return <strong><code>FALSE</code></strong>.
+   will return <strong><code>false</code></strong>.
   </p>
  </div>
 
@@ -93,7 +93,7 @@ with no arguments. If no connection is found or established, an
  <div class="refsect1 examples" id="refsect1-function.mysql-info-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-1980">
+   <div class="example" id="example-1993">
     <p><strong>Example #1 Relevant MySQL Statements</strong></p>
     <div class="example-contents"><p>
      Statements that return string values. The numbers are only for 
@@ -122,7 +122,7 @@ String format: Rows matched: 65 Changed: 65 Warnings: 0</pre>
   <h3 class="title">Notes</h3>
   <blockquote class="note"><p><strong class="note">Note</strong>: 
    <p class="para">
-    <span class="function"><strong>mysql_info()</strong></span> returns a non-<strong><code>FALSE</code></strong> value for the 
+    <span class="function"><strong>mysql_info()</strong></span> returns a non-<strong><code>false</code></strong> value for the 
     INSERT ... VALUES statement only if multiple value lists are 
     specified in the statement.
    </p>

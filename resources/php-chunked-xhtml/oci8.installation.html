@@ -35,10 +35,6 @@
   section before configuring OCI8.
  </p>
  <p class="para">
-  To enable the OCI8 extension, configure PHP with the option
-  <strong class="option configure">--with-oci8</strong>.
- </p>
- <p class="para">
   Before starting the web server, OCI8 typically requires several
   Oracle environment variables (see below) to locate libraries, point
   to configuration files, and set some basic properties such as the
@@ -54,13 +50,10 @@
  </p>
 </div>
 <div class="section">
- <h2 class="title">Installing OCI8 from PECL</h2>
+ <h2 class="title">Installing OCI8 from PECL Using the pecl Command</h2>
  <p class="para">
-  The OCI8 extension can be added to an existing PHP installation
-  by using <a href="https://pecl.php.net/package/oci8" class="link external">&raquo;&nbsp;PECL</a>.
- </p>
- <p class="para">
-  For an automated install follow these steps:
+  The OCI8 extension can be added to an existing PHP installation by using
+  the <a href="https://pecl.php.net/package/oci8" class="link external">&raquo;&nbsp;PECL</a> repository.
  </p>
  <p class="para">
   <ul class="itemizedlist">
@@ -94,21 +87,68 @@ pecl install oci8
     <p class="para">
      For PHP 7, use <code class="literal">pecl install oci8-2.2.0</code>
     </p>
+   </li>
+   <li class="listitem">
     <p class="para">
      When prompted, enter either the value of <code class="literal">$ORACLE_HOME</code>, or
      <code class="literal">instantclient,/path/to/instant/client/lib</code>.
     </p>
     <p class="para">
-      Note: Do not enter the text <code class="literal">$ORACLE_HOME</code>
-      because it will not be expanded.  Instead, enter the actual path
-      of the Oracle home directory.
+      Note: Do not enter variable names like <code class="literal">$ORACLE_HOME</code>
+      or <code class="literal">$HOME</code> because <code class="literal">pecl</code> will not
+      expand them.  Instead, enter an expanded path, for
+      example <code class="literal">/opt/oracle/product/19c/dbhome_1</code>
+      or <code class="literal">instantclient,/Users/myname/Downloads/instantclient_19_8</code>
+    </p>
+   </li>
+   <li class="listitem">
+    <p class="para">
+     If you get an error <code class="literal">oci8_dtrace_gen.h: No such file or
+     directory</code>, it means PHP was built
+     with <a href="features.dtrace.html" class="link">DTrace Dynamic Tracing</a> enabled.
+     Install using:
+    </p>
+   <p class="para">
+    <div class="informalexample">
+     <div class="example-contents screen">
+<div class="cdata"><pre>
+$ export PHP_DTRACE=yes
+$ pecl install oci8
+</pre></div>
+     </div>
+    </div>
+   </p>    
+   </li>   
+   <li class="listitem">
+    <p class="para">
+      Edit your <var class="filename">php.ini</var> file and add the line:
+    </p>
+    <p class="para">
+      <div class="informalexample">
+        <div class="example-contents screen">
+          <div class="cdata"><pre>
+extension=oci8.so
+</pre></div>
+        </div>
+      </div>
+    </p>
+    <p class="para">
+      Make sure the <var class="filename">php.ini</var>
+      directive <a href="ini.core.html#ini.extension-dir" class="link">extension_dir</a> is
+      set to the directory that <var class="filename">oci8.so</var> was installed
+      in.
     </p>
    </li>
   </ul>
  </p>
+</div>
+<div class="section">
+ <h2 class="title">Installing OCI8 from PECL Using phpize</h2>
  <p class="para">
-  For a manual install when the <code class="literal">pecl</code> command is not
-  available, download the PECL OCI8 package, e.g. <var class="filename">oci8-3.0.0.tgz</var>.
+  To install OCI8 on an existing PHP installation when
+  the <code class="literal">pecl</code> command is not available, manually download
+  the <a href="https://pecl.php.net/package/oci8" class="link external">&raquo;&nbsp;PECL</a> OCI8 package,
+  e.g. <var class="filename">oci8-3.0.0.tgz</var>.
  </p>
  <p class="para">
   <ul class="itemizedlist">
@@ -182,30 +222,49 @@ make install
      </div>
     </p>
    </li>
-  </ul>
- </p>
- <p class="para">
-  After either an automatic or manual install, edit your <var class="filename">php.ini</var>
-  file and add the line:
- </p>
- <p class="para">
-  <div class="informalexample">
-   <div class="example-contents screen">
+   <li class="listitem">
+    <p class="para">
+     If you get an error <code class="literal">oci8_dtrace_gen.h: No such file or
+     directory</code>, it means PHP was built
+     with <a href="features.dtrace.html" class="link">DTrace Dynamic Tracing</a> enabled.
+     Re-run the <code class="literal">configure</code> and <code class="literal">make</code>
+     commands after setting this environment variable:
+    </p>
+    <p class="para">
+     <div class="informalexample">
+      <div class="example-contents screen">
 <div class="cdata"><pre>
+$ export PHP_DTRACE=yes
+</pre></div>
+     </div>
+    </div>
+   </p>    
+   </li>
+   <li class="listitem">
+    <p class="para">
+      Edit your <var class="filename">php.ini</var> file and add the line:
+    </p>
+    <p class="para">
+      <div class="informalexample">
+        <div class="example-contents screen">
+          <div class="cdata"><pre>
 extension=oci8.so
 </pre></div>
-   </div>
-  </div>
- </p>
- <p class="para">
-  Make sure the <var class="filename">php.ini</var>
-  directive <a href="ini.core.html#ini.extension-dir" class="link">extension_dir</a> is
-  set to the directory that <var class="filename">oci8.so</var> was installed
-  in.
+        </div>
+      </div>
+    </p>
+    <p class="para">
+      Make sure the <var class="filename">php.ini</var>
+      directive <a href="ini.core.html#ini.extension-dir" class="link">extension_dir</a> is
+      set to the directory that <var class="filename">oci8.so</var> was installed
+      in.
+    </p>
+   </li>
+  </ul>
  </p>
 </div>
 <div class="section">
- <h2 class="title">Installing OCI8 as a Shared Extension</h2>
+ <h2 class="title">Installing OCI8 as a Shared Extension when Building PHP</h2>
  <p class="para">
   If you are building PHP from source code, the
   configuration <code class="literal">shared</code> option can be used to build OCI8 as a shared library
@@ -307,7 +366,7 @@ extension=oci8.so
  </p>
 </div>
 <div class="section">
- <h2 class="title">Installing OCI8 as a Statically Compiled Extension</h2>
+ <h2 class="title">Installing OCI8 as a Statically Compiled Extension when Building PHP</h2>
  <p class="para">
   If you are building PHP from source code, you can configure PHP to include
   OCI8 as a static extension using one of the following configure options.
@@ -353,6 +412,11 @@ extension=oci8.so
 </div>
 <div class="section">
  <h2 class="title">Installing OCI8 on Windows</h2>
+ <p class="para">
+  The OCI8 extension can be added to an existing PHP installation by using the
+  DLLs from <a href="https://pecl.php.net/package/oci8" class="link external">&raquo;&nbsp;PECL</a> repository or
+  the libraries in your PHP installation&#039;s <code class="literal">ext</code> directory.
+ </p>
  <p class="para">
   With Oracle 12<em class="emphasis">c</em> (or later) libraries, uncomment one of
   the <var class="filename">php.ini</var> lines <code class="literal">extension=php_oci8_12c.dll</code>
@@ -440,7 +504,7 @@ extension=oci8.so
       location of the Oracle libraries, for
       example <var class="filename">$ORACLE_HOME/lib</var>
       or <var class="filename">/usr/lib/oracle/18.5/client/lib</var>. Note with Instant
-      Client 19 ZIP files on Linux it is more reliable to
+      Client ZIP files on Linux it is more reliable to
       use <var class="filename">ldconfig</var> instead, see the Instant Client
       installation instructions.  With Instant Client 19 (or later) RPM
       files, <code class="literal">ldconfig</code> is automatically run for you.  Some

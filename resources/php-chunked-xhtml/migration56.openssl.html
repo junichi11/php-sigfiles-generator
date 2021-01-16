@@ -51,9 +51,9 @@
     While not recommended in general, it is possible to disable peer
     certificate verification for a request by setting the
     <a href="context.ssl.html#context.ssl.verify-peer" class="link"><code class="parameter">verify_peer</code></a>
-    context option to <strong><code>FALSE</code></strong>, and to disable peer name validation by setting
+    context option to <strong><code>false</code></strong>, and to disable peer name validation by setting
     the <a href="context.ssl.html#context.ssl.verify-peer-name" class="link"><code class="parameter">verify_peer_name</code></a>
-    context option to <strong><code>FALSE</code></strong>.
+    context option to <strong><code>false</code></strong>.
    </p>
 
  </div>
@@ -99,7 +99,7 @@
    attack. PHP 5.4.13 added a
    <a href="context.ssl.html#context.ssl.disable-compression" class="link"><code class="parameter">disable_compression</code></a>
    context option to allow compression to be disabled: this is now set to
-   <strong><code>TRUE</code></strong> (that is, compression is disabled) by default.
+   <strong><code>true</code></strong> (that is, compression is disabled) by default.
   </p>
  </div>
 
@@ -121,7 +121,7 @@
    now be accessed via <span class="function"><a href="function.stream-get-meta-data.html" class="function">stream_get_meta_data()</a></span> or
    <span class="function"><a href="function.stream-context-get-options.html" class="function">stream_context_get_options()</a></span> when the
    <code class="parameter">capture_session_meta</code> SSL context option is set to
-   <strong><code>TRUE</code></strong>.
+   <strong><code>true</code></strong>.
   </p>
 
   <div class="informalexample">
@@ -202,7 +202,7 @@ array(4) {
     <dd>
 
      <p class="para">
-      If set to <strong><code>TRUE</code></strong>, a new key pair will be created when using
+      If set to <strong><code>true</code></strong>, a new key pair will be created when using
       Diffie-Hellman parameters, thereby improving forward secrecy.
      </p>
     </dd>
@@ -215,7 +215,7 @@ array(4) {
     <dd>
 
      <p class="para">
-      If set to <strong><code>TRUE</code></strong>, a new key pair will always be generated when ECDH
+      If set to <strong><code>true</code></strong>, a new key pair will always be generated when ECDH
       cipher suites are negotiated. This improves forward secrecy.
      </p>
     </dd>

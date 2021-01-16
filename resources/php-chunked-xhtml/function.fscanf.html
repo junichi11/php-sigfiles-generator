@@ -34,15 +34,15 @@
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>fscanf</strong></span>
-    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$handle</code></span>
+    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$stream</code></span>
    , <span class="methodparam"><span class="type">string</span> <code class="parameter">$format</code></span>
-   , <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter reference">&...$vars</code></span>
-   ) : <span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span></div>
+   , <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter reference">&...$vars</code></span>
+   ) : <span class="type"><span class="type">array</span>|<span class="type">int</span>|<span class="type"><span class="type false">false</span></span>|<span class="type">null</span></span></div>
 
   <p class="para rdfs-comment">
    The function <span class="function"><strong>fscanf()</strong></span> is similar to
    <span class="function"><a href="function.sscanf.html" class="function">sscanf()</a></span>, but it takes its input from a file
-   associated with <code class="parameter">handle</code> and interprets the
+   associated with <code class="parameter">stream</code> and interprets the
    input according to the specified <code class="parameter">format</code>, which is
    described in the documentation for <span class="function"><a href="function.sprintf.html" class="function">sprintf()</a></span>. 
   </p>
@@ -64,7 +64,7 @@
 
     
      <dt>
-<code class="parameter">handle</code></dt>
+<code class="parameter">stream</code></dt>
 
      <dd>
 
@@ -319,6 +319,22 @@ that is typically created using <span class="function"><a href="function.fopen.h
       </tr>
 
       <tr>
+       <td><code class="literal">h</code></td>
+       <td>
+        Like the <code class="literal">g</code> specifier but uses <code class="literal">F</code>.
+        Available as of PHP 8.0.0.
+       </td>
+      </tr>
+
+      <tr>
+       <td><code class="literal">H</code></td>
+       <td>
+        Like the <code class="literal">g</code> specifier but uses
+        <code class="literal">E</code> and <code class="literal">F</code>. Available as of PHP 8.0.0.
+       </td>
+      </tr>
+
+      <tr>
        <td><code class="literal">o</code></td>
        <td>
         The argument is treated as an integer and presented
@@ -454,13 +470,18 @@ that is typically created using <span class="function"><a href="function.fopen.h
    function will return the number of assigned values. The optional
    parameters must be passed by reference. 
   </p>
+  <p class="para">
+   If there are more substrings expected in the <code class="parameter">format</code>
+   than there are available within <code class="parameter">string</code>,
+   <strong><code>null</code></strong> will be returned. On other errors, <strong><code>false</code></strong> will be returned.
+  </p>
  </div>
 
 
  <div class="refsect1 examples" id="refsect1-function.fscanf-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-2646">
+   <div class="example" id="example-2661">
     <p><strong>Example #1 <span class="function"><strong>fscanf()</strong></span> Example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -472,7 +493,7 @@ that is typically created using <span class="function"><a href="function.fopen.h
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-2647">
+   <div class="example" id="example-2662">
     <p><strong>Example #2 Contents of users.txt</strong></p>
     <div class="example-contents">
 <div class="txtcode"><pre class="txtcode">javier  argonaut        pe

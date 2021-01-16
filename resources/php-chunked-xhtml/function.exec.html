@@ -35,9 +35,9 @@
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>exec</strong></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$command</code></span>
-   [, <span class="methodparam"><span class="type">array</span> <code class="parameter reference">&$output</code></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter reference">&$return_var</code></span>
-  ]] ) : <span class="type">string</span></div>
+   , <span class="methodparam"><span class="type">array</span> <code class="parameter reference">&$output</code><span class="initializer"> = <strong><code>null</code></strong></span></span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter reference">&$result_code</code><span class="initializer"> = <strong><code>null</code></strong></span></span>
+   ) : <span class="type"><span class="type">string</span>|<span class="type"><span class="type false">false</span></span></span></div>
 
   <p class="para rdfs-comment">
    <span class="function"><strong>exec()</strong></span> executes the given
@@ -84,12 +84,12 @@
     
     
      <dt>
-<code class="parameter">return_var</code></dt>
+<code class="parameter">result_code</code></dt>
 
      <dd>
 
       <p class="para">
-       If the <code class="parameter">return_var</code> argument is present
+       If the <code class="parameter">result_code</code> argument is present
        along with the <code class="parameter">output</code> argument, then the
        return status of the executed command will be written to this
        variable.
@@ -111,6 +111,9 @@
    any interference, use the <span class="function"><a href="function.passthru.html" class="function">passthru()</a></span> function.
   </p>
   <p class="para">
+   Returns <strong><code>false</code></strong> on failure.
+  </p>
+  <p class="para">
    To get the output of the executed command, be sure to set and use the
    <code class="parameter">output</code> parameter.
   </p>
@@ -120,15 +123,26 @@
  <div class="refsect1 examples" id="refsect1-function.exec-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-3791">
+   <div class="example" id="example-3807">
     <p><strong>Example #1 An <span class="function"><strong>exec()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;outputs&nbsp;the&nbsp;username&nbsp;that&nbsp;owns&nbsp;the&nbsp;running&nbsp;php/httpd&nbsp;process<br />//&nbsp;(on&nbsp;a&nbsp;system&nbsp;with&nbsp;the&nbsp;"whoami"&nbsp;executable&nbsp;in&nbsp;the&nbsp;path)<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #0000BB">exec</span><span style="color: #007700">(</span><span style="color: #DD0000">'whoami'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;outputs&nbsp;the&nbsp;username&nbsp;that&nbsp;owns&nbsp;the&nbsp;running&nbsp;php/httpd&nbsp;process<br />//&nbsp;(on&nbsp;a&nbsp;system&nbsp;with&nbsp;the&nbsp;"whoami"&nbsp;executable&nbsp;in&nbsp;the&nbsp;path)<br /></span><span style="color: #0000BB">$output</span><span style="color: #007700">=</span><span style="color: #0000BB">null</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$retval</span><span style="color: #007700">=</span><span style="color: #0000BB">null</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">exec</span><span style="color: #007700">(</span><span style="color: #DD0000">'whoami'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$output</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$retval</span><span style="color: #007700">);<br />echo&nbsp;</span><span style="color: #DD0000">"Returned&nbsp;with&nbsp;status&nbsp;</span><span style="color: #0000BB">$retval</span><span style="color: #DD0000">&nbsp;and&nbsp;output:\n"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">$output</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
 
+    <div class="example-contents"><p>The above example will output
+something similar to:</p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>
+Returned with status 0 and output:
+Array
+(
+    [0] =&gt; cmb
+)
+</pre></div>
+    </div>
    </div>
   </p>
  </div>

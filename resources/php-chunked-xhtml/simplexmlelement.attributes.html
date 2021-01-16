@@ -34,9 +34,9 @@
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><strong>SimpleXMLElement::attributes</strong></span>
-    ([ <span class="methodparam"><span class="type">string</span> <code class="parameter">$ns</code><span class="initializer"> = <strong><code>NULL</code></strong></span></span>
-   [, <span class="methodparam"><span class="type">bool</span> <code class="parameter">$is_prefix</code><span class="initializer"> = <strong><code>FALSE</code></strong></span></span>
-  ]] ) : <span class="type"><a href="class.simplexmlelement.html" class="type SimpleXMLElement">SimpleXMLElement</a></span></div>
+    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$ns</code><span class="initializer"> = <strong><code>null</code></strong></span></span>
+   , <span class="methodparam"><span class="type">bool</span> <code class="parameter">$is_prefix</code><span class="initializer"> = <strong><code>false</code></strong></span></span>
+   ) : <span class="type"><a href="class.simplexmlelement.html" class="type SimpleXMLElement">SimpleXMLElement</a></span></div>
 
   <p class="para rdfs-comment">
    This function provides the attributes and values defined within an xml tag.
@@ -71,7 +71,7 @@ or anything else which can examine objects.</span></p></blockquote>
      <dd>
 
       <p class="para">
-       Default to <strong><code>FALSE</code></strong>
+       Default to <strong><code>false</code></strong>
       </p>
      </dd>
 
@@ -89,7 +89,7 @@ or anything else which can examine objects.</span></p></blockquote>
    iterated over to loop through the attributes on the tag.
   </p>
   <p class="para">
-   Returns <strong><code>NULL</code></strong> if called on a <a href="class.simplexmlelement.html" class="classname">SimpleXMLElement</a>
+   Returns <strong><code>null</code></strong> if called on a <a href="class.simplexmlelement.html" class="classname">SimpleXMLElement</a>
    object that already represents an attribute and not a tag.
   </p>
  </div>
@@ -127,7 +127,7 @@ or anything else which can examine objects.</span></p></blockquote>
  <div class="refsect1 examples" id="refsect1-simplexmlelement.attributes-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-5959">
+   <div class="example" id="example-5942">
     <p><strong>Example #1 Interpret an XML string</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

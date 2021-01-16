@@ -34,9 +34,9 @@
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>get_browser</strong></span>
-    ([ <span class="methodparam"><span class="type">string</span> <code class="parameter">$user_agent</code></span>
-   [, <span class="methodparam"><span class="type">bool</span> <code class="parameter">$return_array</code><span class="initializer"> = <strong><code>FALSE</code></strong></span></span>
-  ]] ) : <span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span></div>
+    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$user_agent</code> = ?</span>
+   , <span class="methodparam"><span class="type">bool</span> <code class="parameter">$return_array</code><span class="initializer"> = <strong><code>false</code></strong></span></span>
+   ) : <span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span></div>
 
   <p class="para rdfs-comment">
    Attempts to determine the capabilities of the user&#039;s browser, by looking
@@ -63,7 +63,7 @@
        another browser&#039;s info) by passing this parameter.
       </p>
       <p class="para">
-       You can bypass this parameter with a <strong><code>NULL</code></strong> value.
+       You can bypass this parameter with a <strong><code>null</code></strong> value.
       </p>
      </dd>
 
@@ -75,7 +75,7 @@
      <dd>
 
       <p class="para">
-       If set to <strong><code>TRUE</code></strong>, this function will return an <span class="type">array</span>
+       If set to <strong><code>true</code></strong>, this function will return an <span class="type">array</span>
        instead of an <span class="type">object</span>.
       </p>
      </dd>
@@ -92,7 +92,7 @@
   <p class="para">
    The information is returned in an object or an array which will contain
    various data elements representing, for instance, the browser&#039;s major and
-   minor version numbers and ID string; <strong><code>TRUE</code></strong>/<strong><code>FALSE</code></strong> values for features
+   minor version numbers and ID string; <strong><code>true</code></strong>/<strong><code>false</code></strong> values for features
    such as frames, JavaScript, and cookies; and so forth.
   </p>
   <p class="para">
@@ -108,7 +108,7 @@
  <div class="refsect1 examples" id="refsect1-function.get-browser-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-3982">
+   <div class="example" id="example-3997">
     <p><strong>Example #1 Listing all information about the users browser</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

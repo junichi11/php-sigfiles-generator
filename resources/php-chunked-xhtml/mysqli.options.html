@@ -37,7 +37,7 @@
   <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><strong>mysqli::options</strong></span>
     ( <span class="methodparam"><span class="type">int</span> <code class="parameter">$option</code></span>
-   , <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">$value</code></span>
+   , <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$value</code></span>
    ) : <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">Procedural style</p>
@@ -45,7 +45,7 @@
    <span class="methodname"><strong>mysqli_options</strong></span>
     ( <span class="methodparam"><span class="type"><a href="class.mysqli.html" class="type mysqli">mysqli</a></span> <code class="parameter">$link</code></span>
    , <span class="methodparam"><span class="type">int</span> <code class="parameter">$option</code></span>
-   , <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">$value</code></span>
+   , <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$value</code></span>
    ) : <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
@@ -97,28 +97,34 @@ returned by <span class="function"><a href="function.mysqli-connect.html" class=
          <tbody class="tbody">
           <tr>
            <td><strong><code>MYSQLI_OPT_CONNECT_TIMEOUT</code></strong></td>
-           <td>connection timeout in seconds</td>
+           <td>Connection timeout in seconds</td>
           </tr>
 
           <tr>
            <td><strong><code>MYSQLI_OPT_READ_TIMEOUT</code></strong></td>
-           <td>command execution result timeout in seconds. Available as of PHP 7.2.0.</td>
+           <td>Command execution result timeout in seconds. Available as of PHP 7.2.0.</td>
           </tr>
 
           <tr>
            <td><strong><code>MYSQLI_OPT_LOCAL_INFILE</code></strong></td>
-           <td>enable/disable use of <code class="literal">LOAD LOCAL INFILE</code></td>
+           <td>Enable/disable use of <code class="literal">LOAD LOCAL INFILE</code></td>
           </tr>
 
           <tr>
            <td><strong><code>MYSQLI_INIT_COMMAND</code></strong></td>
-           <td>command to execute after when connecting to MySQL server</td>
+           <td>Command to execute after when connecting to MySQL server</td>
+          </tr>
+
+          <tr>
+           <td><strong><code>MYSQLI_SET_CHARSET_NAME</code></strong></td>
+           <td>The charset to be set as default.</td>
           </tr>
 
           <tr>
            <td><strong><code>MYSQLI_READ_DEFAULT_FILE</code></strong></td>
            <td>
             Read options from named option file instead of <var class="filename">my.cnf</var>
+            Not supported by mysqlnd.
            </td>
           </tr>
 
@@ -127,6 +133,7 @@ returned by <span class="function"><a href="function.mysqli-connect.html" class=
            <td>
             Read options from the named group from <var class="filename">my.cnf</var>
             or the file specified with <strong><code>MYSQL_READ_DEFAULT_FILE</code></strong>.
+            Not supported by mysqlnd.
            </td>
           </tr>
 
@@ -134,7 +141,6 @@ returned by <span class="function"><a href="function.mysqli-connect.html" class=
            <td><strong><code>MYSQLI_SERVER_PUBLIC_KEY</code></strong></td>
            <td>
              RSA public key file used with the SHA-256 based authentication.
-             Available since PHP 5.5.0.
            </td>
           </tr>
 
@@ -142,7 +148,7 @@ returned by <span class="function"><a href="function.mysqli-connect.html" class=
            <td><strong><code>MYSQLI_OPT_NET_CMD_BUFFER_SIZE</code></strong></td>
            <td>
              The size of the internal command/network buffer. Only valid for
-             mysqlnd. Available since PHP 5.3.0.
+             mysqlnd.
            </td>
           </tr>
 
@@ -150,7 +156,7 @@ returned by <span class="function"><a href="function.mysqli-connect.html" class=
            <td><strong><code>MYSQLI_OPT_NET_READ_BUFFER_SIZE</code></strong></td>
            <td>
              Maximum read chunk size in bytes when reading the body of a MySQL
-             command packet. Only valid for mysqlnd. Available since PHP 5.3.0.
+             command packet. Only valid for mysqlnd.
            </td>
           </tr>
 
@@ -158,14 +164,14 @@ returned by <span class="function"><a href="function.mysqli-connect.html" class=
            <td><strong><code>MYSQLI_OPT_INT_AND_FLOAT_NATIVE</code></strong></td>
            <td>
              Convert integer and float columns back to PHP numbers. Only valid
-             for mysqlnd. Available since PHP 5.3.0.
+             for mysqlnd.
            </td>
           </tr>
 
           <tr>
            <td><strong><code>MYSQLI_OPT_SSL_VERIFY_SERVER_CERT</code></strong></td>
            <td>
-            Available since PHP 5.3.0.
+            Whether to verify server certificate or not.
            </td>
           </tr>
 
@@ -198,7 +204,7 @@ returned by <span class="function"><a href="function.mysqli-connect.html" class=
  <div class="refsect1 returnvalues" id="refsect1-mysqli.options-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns <strong><code>TRUE</code></strong> on success or <strong><code>FALSE</code></strong> on failure.
+   Returns <strong><code>true</code></strong> on success or <strong><code>false</code></strong> on failure.
   </p>
  </div>
 

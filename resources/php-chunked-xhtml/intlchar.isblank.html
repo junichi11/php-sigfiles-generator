@@ -34,7 +34,7 @@
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="modifier">static</span> <span class="methodname"><strong>IntlChar::isblank</strong></span>
-    ( <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">$codepoint</code></span>
+    ( <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$codepoint</code></span>
    ) : <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
@@ -44,11 +44,11 @@
    The following are equivalent definitions:
    <ul class="simplelist">
     <li class="member">
-     <strong><code>TRUE</code></strong> for Unicode White_Space characters except for &quot;vertical space controls&quot; where &quot;vertical space controls&quot; are
+     <strong><code>true</code></strong> for Unicode White_Space characters except for &quot;vertical space controls&quot; where &quot;vertical space controls&quot; are
      the following characters: U+000A (LF) U+000B (VT) U+000C (FF) U+000D (CR) U+0085 (NEL) U+2028 (LS) U+2029 (PS)
     </li>
     <li class="member">
-     <strong><code>TRUE</code></strong> for U+0009 (TAB) and characters with general category &quot;Zs&quot; (space separators) except Zero Width Space (ZWSP, U+200B).
+     <strong><code>true</code></strong> for U+0009 (TAB) and characters with general category &quot;Zs&quot; (space separators) except Zero Width Space (ZWSP, U+200B).
     </li>
    </ul>
   </p>
@@ -77,15 +77,15 @@
  <div class="refsect1 returnvalues" id="refsect1-intlchar.isblank-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns <strong><code>TRUE</code></strong> if
-   <code class="parameter">codepoint</code> is either a &quot;blank&quot; or &quot;horizontal space&quot; character, <strong><code>FALSE</code></strong> if not.
+   Returns <strong><code>true</code></strong> if
+   <code class="parameter">codepoint</code> is either a &quot;blank&quot; or &quot;horizontal space&quot; character, <strong><code>false</code></strong> if not.
   </p>
  </div>
 
 
  <div class="refsect1 examples" id="refsect1-intlchar.isblank-examples">
   <h3 class="title">Examples</h3>
-  <div class="example" id="example-2978">
+  <div class="example" id="example-2993">
    <p><strong>Example #1 Testing different code points</strong></p>
    <div class="example-contents">
     <div class="phpcode"><code><span style="color: #000000">

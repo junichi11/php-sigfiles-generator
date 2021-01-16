@@ -34,8 +34,8 @@
   <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><strong>MongoDB::createCollection</strong></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$name</code></span>
-   [, <span class="methodparam"><span class="type">array</span> <code class="parameter">$options</code></span>
-  ] ) : <span class="type"><a href="class.mongocollection.html" class="type MongoCollection">MongoCollection</a></span></div>
+   , <span class="methodparam"><span class="type">array</span> <code class="parameter">$options</code> = ?</span>
+   ) : <span class="type"><a href="class.mongocollection.html" class="type MongoCollection">MongoCollection</a></span></div>
 
   
   <p class="para rdfs-comment">
@@ -145,10 +145,10 @@
          <dd>
 
           <p class="para">
-           If capped is <strong><code>TRUE</code></strong> you can specify <strong><code>FALSE</code></strong> to disable the
+           If capped is <strong><code>true</code></strong> you can specify <strong><code>false</code></strong> to disable the
            automatic index created on the <code class="literal">_id</code> field.
            Before MongoDB 2.2, the default value for
-           <code class="literal">autoIndexId</code> was <strong><code>FALSE</code></strong>.
+           <code class="literal">autoIndexId</code> was <strong><code>false</code></strong>.
           </p>
          </dd>
 
@@ -174,7 +174,7 @@
 
  <div class="refsect1 examples" id="refsect1-mongodb.createcollection-examples">
   <h3 class="title">Examples</h3>
-  <div class="example" id="example-1367">
+  <div class="example" id="example-1379">
    <p><strong>Example #1 <span class="function"><strong>MongoDB::createCollection()</strong></span> capped collection example</strong></p>
    <div class="example-contents"><p>
     A capped collection is a special type of collection that has either a fixed
@@ -238,10 +238,10 @@ sample log message #99<br />
          <div class="methodsynopsis dc-description">
           <span class="modifier">public</span> <span class="methodname"><strong>MongoDB::createCollection</strong></span>
            ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$name</code></span>
-          [, <span class="methodparam"><span class="type">bool</span> <code class="parameter">$capped</code><span class="initializer"> = <strong><code>FALSE</code></strong></span></span>
-          [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$size</code><span class="initializer"> = 0</span></span>
-          [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$max</code><span class="initializer"> = 0</span></span>
-         ]]] ) : <span class="type"><a href="class.mongocollection.html" class="type MongoCollection">MongoCollection</a></span></div>
+          , <span class="methodparam"><span class="type">bool</span> <code class="parameter">$capped</code><span class="initializer"> = <strong><code>false</code></strong></span></span>
+          , <span class="methodparam"><span class="type">int</span> <code class="parameter">$size</code><span class="initializer"> = 0</span></span>
+          , <span class="methodparam"><span class="type">int</span> <code class="parameter">$max</code><span class="initializer"> = 0</span></span>
+          ) : <span class="type"><a href="class.mongocollection.html" class="type MongoCollection">MongoCollection</a></span></div>
 
         </p>
         <p class="para">

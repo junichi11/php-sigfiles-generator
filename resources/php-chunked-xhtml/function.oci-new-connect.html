@@ -36,10 +36,10 @@
    <span class="methodname"><strong>oci_new_connect</strong></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$username</code></span>
    , <span class="methodparam"><span class="type">string</span> <code class="parameter">$password</code></span>
-   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$connection_string</code></span>
-   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$character_set</code></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$session_mode</code></span>
-  ]]] ) : <span class="type">resource</span></div>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$connection_string</code> = ?</span>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$character_set</code> = ?</span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$session_mode</code> = ?</span>
+   ) : <span class="type">resource</span></div>
 
   <p class="para rdfs-comment">
    Establishes a new connection to an Oracle server and logs on.
@@ -195,7 +195,7 @@ security reasons.
  <div class="refsect1 returnvalues" id="refsect1-function.oci-new-connect-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns a connection identifier or <strong><code>FALSE</code></strong> on error.
+   Returns a connection identifier or <strong><code>false</code></strong> on error.
   </p>
  </div>
 
@@ -204,7 +204,7 @@ security reasons.
   <h3 class="title">Examples</h3>
   <p class="para">
    The following demonstrates how you can separate connections.
-   <div class="example" id="example-2273">
+   <div class="example" id="example-2286">
     <p><strong>Example #1 <span class="function"><strong>oci_new_connect()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

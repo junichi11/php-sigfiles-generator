@@ -78,14 +78,14 @@
  <div class="refsect1 returnvalues" id="refsect1-function.oci-close-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns <strong><code>TRUE</code></strong> on success or <strong><code>FALSE</code></strong> on failure.
+   Returns <strong><code>true</code></strong> on success or <strong><code>false</code></strong> on failure.
   </p>
  </div>
 
 
  <div class="refsect1 examples" id="refsect1-function.oci-close-examples">
   <h3 class="title">Examples</h3>
-  <div class="example" id="example-2220">
+  <div class="example" id="example-2233">
    <p><strong>Example #1 Closing a connection</strong></p>
    <div class="example-contents"><p>
     Resources associated with a connection should be closed to ensure
@@ -101,7 +101,7 @@
 
   </div>
 
-  <div class="example" id="example-2221">
+  <div class="example" id="example-2234">
    <p><strong>Example #2 Database connections are not closed until all references are closed</strong></p>
    <div class="example-contents"><p>
     The internal refcount of a connection identifier must be zero
@@ -116,7 +116,7 @@
 
   </div>
 
-  <div class="example" id="example-2222">
+  <div class="example" id="example-2235">
    <p><strong>Example #3 Closing a connection opened more than once</strong></p>
    <div class="example-contents"><p>
      When database credentials are reused, both connections must be closed
@@ -131,7 +131,7 @@
 
   </div>
 
-  <div class="example" id="example-2223">
+  <div class="example" id="example-2236">
    <p><strong>Example #4 Connections are closed when variables go out of scope</strong></p>
    <div class="example-contents"><p>
     When all variables referencing a connection go out of scope and

@@ -38,9 +38,9 @@
    , <span class="methodparam"><span class="type">string</span> <code class="parameter">$name</code></span>
    , <span class="methodparam"><span class="type">array</span> <code class="parameter reference">&$var_array</code></span>
    , <span class="methodparam"><span class="type">int</span> <code class="parameter">$max_table_length</code></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$max_item_length</code><span class="initializer"> = -1</span></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$type</code><span class="initializer"> = SQLT_AFC</span></span>
-  ]] ) : <span class="type">bool</span></div>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$max_item_length</code><span class="initializer"> = -1</span></span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$type</code><span class="initializer"> = SQLT_AFC</span></span>
+   ) : <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
    Binds the PHP array <code class="parameter">var_array</code> to the Oracle
@@ -197,7 +197,7 @@
  <div class="refsect1 returnvalues" id="refsect1-function.oci-bind-array-by-name-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns <strong><code>TRUE</code></strong> on success or <strong><code>FALSE</code></strong> on failure.
+   Returns <strong><code>true</code></strong> on success or <strong><code>false</code></strong> on failure.
   </p>
  </div>
 
@@ -205,7 +205,7 @@
  <div class="refsect1 examples" id="refsect1-function.oci-bind-array-by-name-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-2205">
+   <div class="example" id="example-2218">
     <p><strong>Example #1 <span class="function"><strong>oci_bind_array_by_name()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

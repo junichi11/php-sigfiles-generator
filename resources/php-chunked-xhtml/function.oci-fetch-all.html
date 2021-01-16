@@ -36,10 +36,10 @@
    <span class="methodname"><strong>oci_fetch_all</strong></span>
     ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$statement</code></span>
    , <span class="methodparam"><span class="type">array</span> <code class="parameter reference">&$output</code></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$skip</code><span class="initializer"> = 0</span></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$maxrows</code><span class="initializer"> = -1</span></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code><span class="initializer"> = <strong><code>OCI_FETCHSTATEMENT_BY_COLUMN</code></strong> + <strong><code>OCI_ASSOC</code></strong></span></span>
-  ]]] ) : <span class="type"><span class="type">int</span>|<span class="type"><span class="type false">false</span></span></span></div>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$skip</code><span class="initializer"> = 0</span></span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$maxrows</code><span class="initializer"> = -1</span></span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code><span class="initializer"> = <strong><code>OCI_FETCHSTATEMENT_BY_COLUMN</code></strong> + <strong><code>OCI_ASSOC</code></strong></span></span>
+   ) : <span class="type"><span class="type">int</span>|<span class="type"><span class="type false">false</span></span></span></div>
 
   <p class="para rdfs-comment">
    Fetches multiple rows from a query into a two-dimensional array.
@@ -216,7 +216,7 @@ CURSOR</code> statement identifier.</p>
   <h3 class="title">Return Values</h3>
   <p class="para">
    Returns the number of rows in <code class="parameter">output</code>, which
-   may be 0 or more,  or <strong><code>FALSE</code></strong> on failure.
+   may be 0 or more,  or <strong><code>false</code></strong> on failure.
   </p>
  </div>
 
@@ -224,7 +224,7 @@ CURSOR</code> statement identifier.</p>
  <div class="refsect1 examples" id="refsect1-function.oci-fetch-all-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-2241">
+   <div class="example" id="example-2254">
     <p><strong>Example #1 <span class="function"><strong>oci_fetch_all()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -236,7 +236,7 @@ CURSOR</code> statement identifier.</p>
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-2242">
+   <div class="example" id="example-2255">
     <p><strong>Example #2 <span class="function"><strong>oci_fetch_all()</strong></span> example with <strong><code>OCI_FETCHSTATEMENT_BY_ROW</code></strong></strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -248,7 +248,7 @@ CURSOR</code> statement identifier.</p>
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-2243">
+   <div class="example" id="example-2256">
     <p><strong>Example #3 <span class="function"><strong>oci_fetch_all()</strong></span> with <strong><code>OCI_NUM</code></strong></strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

@@ -34,9 +34,9 @@
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>odbc_execute</strong></span>
-    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$result_id</code></span>
-   [, <span class="methodparam"><span class="type">array</span> <code class="parameter">$parameters_array</code></span>
-  ] ) : <span class="type">bool</span></div>
+    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$statement</code></span>
+   , <span class="methodparam"><span class="type">array</span> <code class="parameter">$params</code><span class="initializer"> = []</span></span>
+   ) : <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
    Executes a statement prepared with <span class="function"><a href="function.odbc-prepare.html" class="function">odbc_prepare()</a></span>.
@@ -51,7 +51,7 @@
 
     
      <dt>
-<code class="parameter">result_id</code></dt>
+<code class="parameter">statement</code></dt>
 
      <dd>
 
@@ -63,7 +63,7 @@
     
     
      <dt>
-<code class="parameter">parameters_array</code></dt>
+<code class="parameter">params</code></dt>
 
      <dd>
 
@@ -99,7 +99,7 @@
  <div class="refsect1 returnvalues" id="refsect1-function.odbc-execute-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns <strong><code>TRUE</code></strong> on success or <strong><code>FALSE</code></strong> on failure.
+   Returns <strong><code>true</code></strong> on success or <strong><code>false</code></strong> on failure.
   </p>
  </div>
 
@@ -107,11 +107,11 @@
  <div class="refsect1 examples" id="refsect1-function.odbc-execute-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-962">
+   <div class="example" id="example-975">
     <p><strong>Example #1 <span class="function"><strong>odbc_execute()</strong></span> and <span class="function"><a href="function.odbc-prepare.html" class="function">odbc_prepare()</a></span> example</strong></p>
     <div class="example-contents"><p>
      In the following code, <var class="varname">$success</var> will only be
-     <strong><code>TRUE</code></strong> if all three parameters to myproc are IN parameters:
+     <strong><code>true</code></strong> if all three parameters to myproc are IN parameters:
     </p></div>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

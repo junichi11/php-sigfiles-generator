@@ -35,12 +35,12 @@
   <h3 class="title">Description</h3>
    <div class="methodsynopsis dc-description">
     <span class="modifier">public</span> <span class="methodname"><strong>PDOStatement::bindColumn</strong></span>
-     ( <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">$column</code></span>
-    , <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter reference">&$param</code></span>
-    [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$type</code></span>
-    [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$maxlen</code></span>
-    [, <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">$driverdata</code></span>
-   ]]] ) : <span class="type">bool</span></div>
+     ( <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$column</code></span>
+    , <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter reference">&$param</code></span>
+    , <span class="methodparam"><span class="type">int</span> <code class="parameter">$type</code> = ?</span>
+    , <span class="methodparam"><span class="type">int</span> <code class="parameter">$maxlen</code> = ?</span>
+    , <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$driverdata</code> = ?</span>
+    ) : <span class="type">bool</span></div>
 
 
   <p class="para rdfs-comment">
@@ -143,7 +143,7 @@
  <div class="refsect1 returnvalues" id="refsect1-pdostatement.bindcolumn-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns <strong><code>TRUE</code></strong> on success or <strong><code>FALSE</code></strong> on failure.
+   Returns <strong><code>true</code></strong> on success or <strong><code>false</code></strong> on failure.
   </p>
  </div>
 
@@ -151,7 +151,7 @@
  <div class="refsect1 examples" id="refsect1-pdostatement.bindcolumn-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-1009">
+   <div class="example" id="example-1022">
     <p><strong>Example #1 Binding result set output to PHP variables</strong></p>
     <div class="example-contents"><p>
      Binding columns in the result set to PHP variables is an effective

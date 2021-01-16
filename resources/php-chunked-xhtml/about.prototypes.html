@@ -51,7 +51,7 @@
 <div class="cdata"><pre>
 strlen
 
-(PHP 4, PHP 5)
+(PHP 4, PHP 5, PHP 7)
 strlen -- Get string length
 
 Description
@@ -85,10 +85,10 @@ Returns the length of given string.
 
         <tr>
          <td>
-          (PHP 4, PHP 5)
+          (PHP 4, PHP 5, PHP 7)
          </td>
          <td>
-          strlen() has been around in all versions of PHP 4 and PHP 5
+          strlen() has been around in all versions of PHP 4, 5 and 7
          </td>
         </tr>
 
@@ -136,15 +136,15 @@ Returns the length of given string.
     <p class="para">
      <div class="example-contents screen">    
 <div class="cdata"><pre>
-      in_array ( mixed $needle, array $haystack [, bool $strict = FALSE ] ) : bool
+      in_array ( mixed $needle, array $haystack , bool $strict = false ) : bool
 </pre></div>
      </div>
     </p>
     <p class="para">
      What does this mean?  in_array() returns a 
-     <a href="language.types.boolean.html" class="link">boolean</a> value, <strong><code>TRUE</code></strong> on 
+     <a href="language.types.boolean.html" class="link">boolean</a> value, <strong><code>true</code></strong> on 
      success (if the <code class="parameter">needle</code> was found in the 
-     <code class="parameter">haystack</code>) or <strong><code>FALSE</code></strong> on failure (if the 
+     <code class="parameter">haystack</code>) or <strong><code>false</code></strong> on failure (if the 
      <code class="parameter">needle</code> was not found in the 
      <code class="parameter">haystack</code>).  The first parameter is named 
      <code class="parameter">needle</code> and it can be of many different 
@@ -155,10 +155,10 @@ Returns the length of given string.
      <a href="language.types.array.html" class="link">array</a>.
      <code class="parameter">haystack</code> (the array we&#039;re searching in) is the 
      second parameter.  The third <em class="emphasis">optional</em> parameter is 
-     named <code class="parameter">strict</code>.  All optional parameters are seen 
-     in <em class="emphasis">[</em> brackets <em class="emphasis">]</em>.  The manual 
+     named <code class="parameter">strict</code>.  All optional parameters have default 
+     values; if the default value is unknown, it is shown as <code class="literal">?</code>.  The manual 
      states that the <code class="parameter">strict</code> parameter defaults to 
-     boolean <strong><code>FALSE</code></strong>.  See the manual page on each function for details on 
+     boolean <strong><code>false</code></strong>.  See the manual page on each function for details on 
      how they work.
     </p>
     <p class="para"> 
@@ -168,8 +168,8 @@ Returns the length of given string.
     <p class="para">
      <div class="example-contents screen"> 
 <div class="cdata"><pre>
-       preg_match ( string $pattern , string $subject [, array &amp;$matches
-      [, int $flags = 0 [, int $offset = 0 ]]] ) : int
+       preg_match ( string $pattern , string $subject , array &amp;$matches = null,
+       int $flags = 0 , int $offset = 0 ) : int|false
 </pre></div>
      </div>
     </p>
@@ -184,7 +184,7 @@ Returns the length of given string.
     <p class="para">
      <div class="example-contents screen">    
 <div class="cdata"><pre>
-(PHP 4 &gt;= 4.3.0, PHP 5)
+(PHP 4 &gt;= 4.3.0, PHP 5, PHP 7)
 </pre></div>
      </div>
     </p>

@@ -34,7 +34,7 @@
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>socket_addrinfo_explain</strong></span>
-    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$addr</code></span>
+    ( <span class="methodparam"><span class="type"><a href="class.addressinfo.html" class="type AddressInfo">AddressInfo</a></span> <code class="parameter">$address</code></span>
    ) : <span class="type">array</span></div>
 
   <p class="para rdfs-comment">
@@ -51,12 +51,12 @@
 
    
     <dt>
-<code class="parameter">addr</code></dt>
+<code class="parameter">address</code></dt>
 
     <dd>
 
      <p class="para">
-      Resource created from <span class="function"><a href="function.socket-addrinfo-lookup.html" class="function">socket_addrinfo_lookup()</a></span>
+      <a href="class.addressinfo.html" class="classname">AddressInfo</a> instance created from <span class="function"><a href="function.socket-addrinfo-lookup.html" class="function">socket_addrinfo_lookup()</a></span>
      </p>
     </dd>
 
@@ -73,7 +73,35 @@
   </p>
  </div>
 
- 
+
+ <div class="refsect1 changelog" id="refsect1-function.socket-addrinfo-explain-changelog">
+  <h3 class="title">Changelog</h3>
+  <table class="doctable informaltable">
+   
+    <thead>
+     <tr>
+      <th>Version</th>
+      <th>Description</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+ <td>8.0.0</td>
+ <td>
+  <code class="parameter">address</code> is an <a href="class.addressinfo.html" class="classname">AddressInfo</a> instance now;
+  previously, it was a <span class="type">resource</span>.
+ </td>
+</tr>
+
+    </tbody>
+   
+  </table>
+
+ </div>
+
+
  <div class="refsect1 seealso" id="refsect1-function.socket-addrinfo-explain-seealso">
   <h3 class="title">See Also</h3>
   <p class="para">

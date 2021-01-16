@@ -51,38 +51,38 @@
       <tbody class="tbody">
        <tr>
         <td><code class="code">0 == &quot;0&quot;</code></td>
-        <td><strong><code>TRUE</code></strong></td>
-        <td><strong><code>TRUE</code></strong></td>
+        <td><strong><code>true</code></strong></td>
+        <td><strong><code>true</code></strong></td>
        </tr>
 
        <tr>
         <td><code class="code">0 == &quot;0.0&quot;</code></td>
-        <td><strong><code>TRUE</code></strong></td>
-        <td><strong><code>TRUE</code></strong></td>
+        <td><strong><code>true</code></strong></td>
+        <td><strong><code>true</code></strong></td>
        </tr>
 
        <tr>
         <td><code class="code">0 == &quot;foo&quot;</code></td>
-        <td><strong><code>TRUE</code></strong></td>
-        <td><strong><code>FALSE</code></strong></td>
+        <td><strong><code>true</code></strong></td>
+        <td><strong><code>false</code></strong></td>
        </tr>
 
        <tr>
         <td><code class="code">0 == &quot;&quot;</code></td>
-        <td><strong><code>TRUE</code></strong></td>
-        <td><strong><code>FALSE</code></strong></td>
+        <td><strong><code>true</code></strong></td>
+        <td><strong><code>false</code></strong></td>
        </tr>
 
        <tr>
         <td><code class="code">42 == &quot;   42&quot;</code></td>
-        <td><strong><code>TRUE</code></strong></td>
-        <td><strong><code>TRUE</code></strong></td>
+        <td><strong><code>true</code></strong></td>
+        <td><strong><code>true</code></strong></td>
        </tr>
 
        <tr>
         <td><code class="code">42 == &quot;42foo&quot;</code></td>
-        <td><strong><code>TRUE</code></strong></td>
-        <td><strong><code>FALSE</code></strong></td>
+        <td><strong><code>true</code></strong></td>
+        <td><strong><code>false</code></strong></td>
        </tr>
 
       </tbody>
@@ -136,7 +136,7 @@
     <li class="listitem">
      <p class="para">
       The ability to define case-insensitive constants has been removed. The third argument to
-      <span class="function"><a href="function.define.html" class="function">define()</a></span> may no longer be <strong><code>TRUE</code></strong>.
+      <span class="function"><a href="function.define.html" class="function">define()</a></span> may no longer be <strong><code>true</code></strong>.
      </p>
     </li>
     <li class="listitem">
@@ -147,7 +147,8 @@
     </li>
     <li class="listitem">
      <p class="para">
-      The <code class="parameter">errcontext</code> argument for custom error handlers has been removed.
+      The <code class="parameter">errcontext</code> argument will no longer be passed to custom error handlers
+      set with <span class="function"><a href="function.set-error-handler.html" class="function">set_error_handler()</a></span>.
      </p>
     </li>
     <li class="listitem">
@@ -270,8 +271,8 @@
     </li>
     <li class="listitem">
      <p class="para">
-      Arguments with a default value that resolves to <strong><code>NULL</code></strong> at runtime will no longer implicitly mark
-      the argument type as nullable. Either an explicit nullable type, or an explicit <strong><code>NULL</code></strong> default
+      Arguments with a default value that resolves to <strong><code>null</code></strong> at runtime will no longer implicitly mark
+      the argument type as nullable. Either an explicit nullable type, or an explicit <strong><code>null</code></strong> default
       value has to be used instead.
      </p>
      <p class="para">
@@ -591,36 +592,36 @@
 
   <p class="para">
    Several <a href="language.types.resource.html" class="link">resource</a>s have been migrated to <span class="type">object</span>s.
-   Return value checks using <span class="function"><a href="function.is-resource.html" class="function">is_resource()</a></span> should be replaced with checks for <strong><code>FALSE</code></strong>.
+   Return value checks using <span class="function"><a href="function.is-resource.html" class="function">is_resource()</a></span> should be replaced with checks for <strong><code>false</code></strong>.
   </p>
   <ul class="itemizedlist">
     <li class="listitem">
      <p class="para">
-      <span class="function"><a href="function.curl-init.html" class="function">curl_init()</a></span> will now return a <strong class="classname">CurlHandle</strong> object rather
+      <span class="function"><a href="function.curl-init.html" class="function">curl_init()</a></span> will now return a <a href="class.curlhandle.html" class="classname">CurlHandle</a> object rather
       than a <a href="language.types.resource.html" class="link">resource</a>. The <span class="function"><a href="function.curl-close.html" class="function">curl_close()</a></span> function no longer has an effect,
-      instead the <strong class="classname">CurlHandle</strong> instance is automatically destroyed if it is no
+      instead the <a href="class.curlhandle.html" class="classname">CurlHandle</a> instance is automatically destroyed if it is no
       longer referenced.
      </p>
     </li>
     <li class="listitem">
      <p class="para">
-      <span class="function"><a href="function.curl-multi-init.html" class="function">curl_multi_init()</a></span> will now return a <strong class="classname">CurlMultiHandle</strong>
+      <span class="function"><a href="function.curl-multi-init.html" class="function">curl_multi_init()</a></span> will now return a <a href="class.curlmultihandle.html" class="classname">CurlMultiHandle</a>
       object rather than a <a href="language.types.resource.html" class="link">resource</a>. The <span class="function"><a href="function.curl-multi-close.html" class="function">curl_multi_close()</a></span> function no
-      longer has an effect, instead the <strong class="classname">CurlMultiHandle</strong> instance is
+      longer has an effect, instead the <a href="class.curlmultihandle.html" class="classname">CurlMultiHandle</a> instance is
       automatically destroyed if it is no longer referenced.
      </p>
     </li>
     <li class="listitem">
      <p class="para">
-      <span class="function"><a href="function.curl-share-init.html" class="function">curl_share_init()</a></span> will now return a <strong class="classname">CurlShareHandle</strong>
+      <span class="function"><a href="function.curl-share-init.html" class="function">curl_share_init()</a></span> will now return a <a href="class.curlsharehandle.html" class="classname">CurlShareHandle</a>
       object rather than a <a href="language.types.resource.html" class="link">resource</a>. The <span class="function"><a href="function.curl-share-close.html" class="function">curl_share_close()</a></span> function no
-      longer has an effect, instead the <strong class="classname">CurlShareHandle</strong> instance is
+      longer has an effect, instead the <a href="class.curlsharehandle.html" class="classname">CurlShareHandle</a> instance is
       automatically destroyed if it is no longer referenced.
      </p>
     </li>
    <li class="listitem">
     <p class="para">
-     <span class="function"><a href="function.enchant-broker-init.html" class="function">enchant_broker_init()</a></span> will now return an <strong class="classname">EnchantBroker</strong>
+     <span class="function"><a href="function.enchant-broker-init.html" class="function">enchant_broker_init()</a></span> will now return an <a href="class.enchantbroker.html" class="classname">EnchantBroker</a>
      object rather than a <a href="language.types.resource.html" class="link">resource</a>.
     </p>
    </li>
@@ -628,46 +629,46 @@
     <p class="para">
      <span class="function"><a href="function.enchant-broker-request-dict.html" class="function">enchant_broker_request_dict()</a></span> and
      <span class="function"><a href="function.enchant-broker-request-pwl-dict.html" class="function">enchant_broker_request_pwl_dict()</a></span> will now return an
-     <strong class="classname">EnchantDictionary</strong> object rather than a <a href="language.types.resource.html" class="link">resource</a>.
+     <a href="class.enchantdictionary.html" class="classname">EnchantDictionary</a> object rather than a <a href="language.types.resource.html" class="link">resource</a>.
     </p>
    </li>
    <li class="listitem">
     <p class="para">
-     The GD extension now uses <strong class="classname">GdImage</strong> objects as the underlying data structure
+     The GD extension now uses <a href="class.gdimage.html" class="classname">GdImage</a> objects as the underlying data structure
      for images, rather than <a href="language.types.resource.html" class="link">resource</a>s.
      The <span class="function"><a href="function.imagedestroy.html" class="function">imagedestroy()</a></span> function no longer has an effect; instead the
-     <strong class="classname">GdImage</strong> instance is automatically destroyed if it is no longer referenced.
+     <a href="class.gdimage.html" class="classname">GdImage</a> instance is automatically destroyed if it is no longer referenced.
     </p>
    </li>
    <li class="listitem">
     <p class="para">
      <span class="function"><a href="function.openssl-x509-read.html" class="function">openssl_x509_read()</a></span> and <span class="function"><a href="function.openssl-csr-sign.html" class="function">openssl_csr_sign()</a></span> will now return
-     an <strong class="classname">OpenSSLCertificate</strong> object rather than a <a href="language.types.resource.html" class="link">resource</a>.
+     an <a href="class.opensslcertificate.html" class="classname">OpenSSLCertificate</a> object rather than a <a href="language.types.resource.html" class="link">resource</a>.
      The <span class="function"><a href="function.openssl-x509-free.html" class="function">openssl_x509_free()</a></span> function is deprecated and no longer has an effect,
-     instead the <strong class="classname">OpenSSLCertificate</strong> instance is automatically destroyed if it
+     instead the <a href="class.opensslcertificate.html" class="classname">OpenSSLCertificate</a> instance is automatically destroyed if it
      is no longer referenced.
     </p>
    </li>
    <li class="listitem">
     <p class="para">
      <span class="function"><a href="function.openssl-csr-new.html" class="function">openssl_csr_new()</a></span> will now return an
-     <strong class="classname">OpenSSLCertificateSigningRequest</strong> object rather than a <a href="language.types.resource.html" class="link">resource</a>.
+     <a href="class.opensslcertificatesigningrequest.html" class="classname">OpenSSLCertificateSigningRequest</a> object rather than a <a href="language.types.resource.html" class="link">resource</a>.
     </p>
    </li>
    <li class="listitem">
     <p class="para">
      <span class="function"><a href="function.openssl-pkey-new.html" class="function">openssl_pkey_new()</a></span> will now return an
-     <strong class="classname">OpenSSLAsymmetricKey</strong> object rather than a <a href="language.types.resource.html" class="link">resource</a>.
+     <a href="class.opensslasymmetrickey.html" class="classname">OpenSSLAsymmetricKey</a> object rather than a <a href="language.types.resource.html" class="link">resource</a>.
      The <span class="function"><a href="function.openssl-pkey-free.html" class="function">openssl_pkey_free()</a></span> function is deprecated and no longer has an effect,
-     instead the <strong class="classname">OpenSSLAsymmetricKey</strong> instance is automatically destroyed if it
+     instead the <a href="class.opensslasymmetrickey.html" class="classname">OpenSSLAsymmetricKey</a> instance is automatically destroyed if it
      is no longer referenced.
     </p>
    </li>
    <li class="listitem">
      <p class="para">
-      <span class="function"><a href="function.shmop-open.html" class="function">shmop_open()</a></span> will now return a <strong class="classname">Shmop</strong> object rather than
+      <span class="function"><a href="function.shmop-open.html" class="function">shmop_open()</a></span> will now return a <a href="class.shmop.html" class="classname">Shmop</a> object rather than
       a <a href="language.types.resource.html" class="link">resource</a>. The <span class="function"><a href="function.shmop-close.html" class="function">shmop_close()</a></span> function no longer has an effect, and is
-      deprecated; instead the <strong class="classname">Shmop</strong> instance is automatically destroyed if it is
+      deprecated; instead the <a href="class.shmop.html" class="classname">Shmop</a> instance is automatically destroyed if it is
       no longer referenced.
      </p>
     </li>
@@ -677,9 +678,9 @@
      <span class="function"><a href="function.socket-accept.html" class="function">socket_accept()</a></span>, <span class="function"><a href="function.socket-import-stream.html" class="function">socket_import_stream()</a></span>,
      <span class="function"><a href="function.socket-addrinfo-connect.html" class="function">socket_addrinfo_connect()</a></span>, <span class="function"><a href="function.socket-addrinfo-bind.html" class="function">socket_addrinfo_bind()</a></span>, and
      <span class="function"><a href="function.socket-wsaprotocol-info-import.html" class="function">socket_wsaprotocol_info_import()</a></span> will now return a
-     <strong class="classname">Socket</strong> object rather than a <a href="language.types.resource.html" class="link">resource</a>.
+     <a href="class.socket.html" class="classname">Socket</a> object rather than a <a href="language.types.resource.html" class="link">resource</a>.
      <span class="function"><a href="function.socket-addrinfo-lookup.html" class="function">socket_addrinfo_lookup()</a></span> will now return an array of
-     <strong class="classname">AddressInfo</strong> objects rather than <a href="language.types.resource.html" class="link">resource</a>s.
+     <a href="class.addressinfo.html" class="classname">AddressInfo</a> objects rather than <a href="language.types.resource.html" class="link">resource</a>s.
     </p>
    </li>
    <li class="listitem">
@@ -703,26 +704,26 @@
    <li class="listitem">
     <p class="para">
      <span class="function"><a href="function.xml-parser-create.html" class="function">xml_parser_create()</a></span> and <span class="function"><a href="function.xml-parser-create-ns.html" class="function">xml_parser_create_ns()</a></span> will now
-     return an <strong class="classname">XmlParser</strong> object rather than a <a href="language.types.resource.html" class="link">resource</a>. The
-     <span class="function"><a href="function.xml-parser-free.html" class="function">xml_parser_free()</a></span> function no longer has an effect, instead the XmlParser
+     return an <a href="class.xmlparser.html" class="classname">XMLParser</a> object rather than a <a href="language.types.resource.html" class="link">resource</a>. The
+     <span class="function"><a href="function.xml-parser-free.html" class="function">xml_parser_free()</a></span> function no longer has an effect, instead the XMLParser
      instance is automatically destroyed if it is no longer referenced.
     </p>
    </li>
    <li class="listitem">
     <p class="para">
-     The <a href="ref.xmlwriter.html" class="link">XMLWriter functions</a> now accept and return, respectively,
-     <strong class="classname">XMLWriter</strong> objects instead of <a href="language.types.resource.html" class="link">resource</a>s.
+     The <a href="book.xmlwriter.html" class="link">XMLWriter</a> functions now accept and return, respectively,
+     <a href="class.xmlwriter.html" class="classname">XMLWriter</a> objects instead of <a href="language.types.resource.html" class="link">resource</a>s.
     </p>
    </li>
    <li class="listitem">
     <p class="para">
-     <span class="function"><a href="function.inflate-init.html" class="function">inflate_init()</a></span> will now return an <strong class="classname">InflateContext</strong> object
+     <span class="function"><a href="function.inflate-init.html" class="function">inflate_init()</a></span> will now return an <a href="class.inflatecontext.html" class="classname">InflateContext</a> object
      rather than a <a href="language.types.resource.html" class="link">resource</a>.
     </p>
    </li>
    <li class="listitem">
     <p class="para">
-     <span class="function"><a href="function.deflate-init.html" class="function">deflate_init()</a></span> will now return a <strong class="classname">DeflateContext</strong> object
+     <span class="function"><a href="function.deflate-init.html" class="function">deflate_init()</a></span> will now return a <a href="class.deflatecontext.html" class="classname">DeflateContext</a> object
      rather than a <a href="language.types.resource.html" class="link">resource</a>.
     </p>
    </li>
@@ -790,7 +791,7 @@
    <li class="listitem">
     <p class="para">
      <span class="function"><a href="function.enchant-broker-list-dicts.html" class="function">enchant_broker_list_dicts()</a></span>, <span class="function"><a href="function.enchant-broker-describe.html" class="function">enchant_broker_describe()</a></span> and
-     <span class="function"><a href="function.enchant-dict-suggest.html" class="function">enchant_dict_suggest()</a></span> will now return an empty array instead of <strong><code>NULL</code></strong>.
+     <span class="function"><a href="function.enchant-dict-suggest.html" class="function">enchant_dict_suggest()</a></span> will now return an empty array instead of <strong><code>null</code></strong>.
     </p>
    </li>
   </ul>
@@ -927,7 +928,7 @@
   <li class="listitem">
    <p class="para">
     The interface of <span class="function"><a href="function.ldap-set-rebind-proc.html" class="function">ldap_set_rebind_proc()</a></span> has changed; the
-    <code class="parameter">callback</code> parameter does not accept empty strings anymore; <strong><code>NULL</code></strong> should be
+    <code class="parameter">callback</code> parameter does not accept empty strings anymore; <strong><code>null</code></strong> should be
     used instead.
    </p>
    </li>
@@ -1022,8 +1023,8 @@
    </li>
    <li class="listitem">
     <p class="para">
-     <span class="function"><a href="function.mb-ereg.html" class="function">mb_ereg()</a></span> and <span class="function"><a href="function.mb-eregi.html" class="function">mb_eregi()</a></span> will now return boolean <strong><code>TRUE</code></strong> on
-     a successfuly match. Previously they returned integer <code class="literal">1</code> if
+     <span class="function"><a href="function.mb-ereg.html" class="function">mb_ereg()</a></span> and <span class="function"><a href="function.mb-eregi.html" class="function">mb_eregi()</a></span> will now return boolean <strong><code>true</code></strong> on
+     a successful match. Previously they returned integer <code class="literal">1</code> if
      <code class="parameter">matches</code> was not passed, or <code class="code">max(1, strlen($matches[0]))</code> if
      <code class="parameter">matches</code> was passed.
     </p>
@@ -1139,7 +1140,7 @@
    <span class="methodname"><a href="pdo.intransaction.html" class="methodname">PDO::inTransaction()</a></span> now reports the actual transaction state of
    the connection, rather than an approximation maintained by PDO. If a query that is
    subject to &quot;implicit commit&quot; is executed, <span class="methodname"><a href="pdo.intransaction.html" class="methodname">PDO::inTransaction()</a></span>
-   will subsequently return <strong><code>FALSE</code></strong>, as a transaction is no longer active.
+   will subsequently return <strong><code>false</code></strong>, as a transaction is no longer active.
   </p>
  </div>
 
@@ -1162,7 +1163,7 @@
    </li>
    <li class="listitem">
     <p class="para">
-     <span class="function"><a href="function.pg-fetch-all.html" class="function">pg_fetch_all()</a></span> will now return an empty array instead of <strong><code>FALSE</code></strong> for result
+     <span class="function"><a href="function.pg-fetch-all.html" class="function">pg_fetch_all()</a></span> will now return an empty array instead of <strong><code>false</code></strong> for result
      sets with zero rows.
     </p>
    </li>
@@ -1233,7 +1234,7 @@
    <li class="listitem">
     <p class="para">
      <span class="methodname"><a href="reflectionmethod.isconstructor.html" class="methodname">ReflectionMethod::isConstructor()</a></span> and
-     <span class="methodname"><a href="reflectionmethod.isdestructor.html" class="methodname">ReflectionMethod::isDestructor()</a></span> now also return <strong><code>TRUE</code></strong> for
+     <span class="methodname"><a href="reflectionmethod.isdestructor.html" class="methodname">ReflectionMethod::isDestructor()</a></span> now also return <strong><code>true</code></strong> for
      <a href="language.oop5.decon.html#object.construct" class="link">__construct()</a> and
      <a href="language.oop5.decon.html#object.destruct" class="link">__destruct()</a> methods of interfaces.
      Previously, this would only be true for methods of classes and traits.
@@ -1241,8 +1242,8 @@
    </li>
    <li class="listitem">
     <p class="para">
-     <span class="methodname"><a href="reflectiontype.isbuiltin.html" class="methodname">ReflectionType::isBuiltin()</a></span> method has been moved to
-     <a href="class.reflectionnamedtype.html" class="classname">ReflectionNamedType</a>. <strong class="classname">ReflectionUnionType</strong> does not
+     <span class="methodname"><strong>ReflectionType::isBuiltin()</strong></span> method has been moved to
+     <a href="class.reflectionnamedtype.html" class="classname">ReflectionNamedType</a>. <a href="class.reflectionuniontype.html" class="classname">ReflectionUnionType</a> does not
      have it.
     </p>
    </li>
@@ -1274,6 +1275,12 @@
    </li>
    <li class="listitem">
     <p class="para">
+     <span class="methodname"><a href="splfileobject.seek.html" class="methodname">SplFileObject::seek()</a></span> now always seeks to the beginning of the line.
+     Previously, positions <code class="literal">=1</code> sought to the beginning of the next line.
+    </p>
+   </li>
+   <li class="listitem">
+    <p class="para">
      <span class="methodname"><a href="splheap.compare.html" class="methodname">SplHeap::compare()</a></span> now specifies a method signature. Inheriting classes
      implementing this method will now have to use a compatible method signature.
     </p>
@@ -1282,14 +1289,14 @@
     <p class="para">
      <span class="methodname"><a href="spldoublylinkedlist.push.html" class="methodname">SplDoublyLinkedList::push()</a></span>,
      <span class="methodname"><a href="spldoublylinkedlist.unshift.html" class="methodname">SplDoublyLinkedList::unshift()</a></span> and
-     <span class="methodname"><a href="splqueue.enqueue.html" class="methodname">SplQueue::enqueue()</a></span> now return <span class="type"><span class="type void">void</span></span> instead of <strong><code>TRUE</code></strong>.
+     <span class="methodname"><a href="splqueue.enqueue.html" class="methodname">SplQueue::enqueue()</a></span> now return <span class="type"><span class="type void">void</span></span> instead of <strong><code>true</code></strong>.
     </p>
    </li>
    <li class="listitem">
     <p class="para">
      <span class="function"><a href="function.spl-autoload-register.html" class="function">spl_autoload_register()</a></span> will now always throw a
      <a href="class.typeerror.html" class="classname">TypeError</a> on invalid arguments, therefore the second argument
-     <code class="parameter">do_throw</code> is ignored and a notice will be emitted if it is set to <strong><code>FALSE</code></strong>.
+     <code class="parameter">do_throw</code> is ignored and a notice will be emitted if it is set to <strong><code>false</code></strong>.
     </p>
    </li>
    <li class="listitem">
@@ -1354,7 +1361,7 @@
     <p class="para">
      The <code class="parameter">length</code> argument for <span class="function"><a href="function.substr.html" class="function">substr()</a></span>,
      <span class="function"><a href="function.substr-count.html" class="function">substr_count()</a></span>, <span class="function"><a href="function.substr-compare.html" class="function">substr_compare()</a></span>, and
-     <span class="function"><a href="function.iconv-substr.html" class="function">iconv_substr()</a></span> can now be <strong><code>NULL</code></strong>. <strong><code>NULL</code></strong> values will behave as if no length
+     <span class="function"><a href="function.iconv-substr.html" class="function">iconv_substr()</a></span> can now be <strong><code>null</code></strong>. <strong><code>null</code></strong> values will behave as if no length
      argument was provided and will therefore return the remainder of the string instead of an empty
      string.
     </p>
@@ -1362,7 +1369,7 @@
    <li class="listitem">
     <p class="para">
      The <code class="parameter">length</code> argument for <span class="function"><a href="function.array-splice.html" class="function">array_splice()</a></span> can now be
-     <strong><code>NULL</code></strong>. <strong><code>NULL</code></strong> values will behave identically to omitting the argument, thus removing everything
+     <strong><code>null</code></strong>. <strong><code>null</code></strong> values will behave identically to omitting the argument, thus removing everything
      from the <code class="parameter">offset</code> to the end of the array.
     </p>
    </li>
@@ -1383,7 +1390,7 @@
    <li class="listitem">
     <p class="para">
      The <span class="function"><a href="function.quotemeta.html" class="function">quotemeta()</a></span> function will now return an empty string if an empty string
-     was passed. Previously <strong><code>FALSE</code></strong> was returned.
+     was passed. Previously <strong><code>false</code></strong> was returned.
     </p>
    </li>
    <li class="listitem">
@@ -1425,7 +1432,7 @@
       <li class="member"><code class="code">http://example.com/foo# → query = null, fragment = &quot;&quot;</code></li>
       <li class="member"><code class="code">http://example.com/foo?# → query = &quot;&quot;,   fragment = &quot;&quot;</code></li>
      </ul>
-      Previously all cases resulted in query and fragment being <strong><code>NULL</code></strong>.
+      Previously all cases resulted in query and fragment being <strong><code>null</code></strong>.
     </p>
    </li>
    <li class="listitem">
@@ -1441,7 +1448,7 @@
     <p class="para">
      If the array returned by <a href="language.oop5.magic.html#object.sleep" class="link">__sleep()</a> contains non-existing
      properties, these are now silently ignored. Previously, such properties would have been
-     serialized as if they had the value <strong><code>NULL</code></strong>.
+     serialized as if they had the value <strong><code>null</code></strong>.
     </p>
    </li>
    <li class="listitem">
@@ -1509,7 +1516,7 @@
     <p class="para">
     <span class="function"><a href="function.substr.html" class="function">substr()</a></span>, <span class="function"><a href="function.mb-substr.html" class="function">mb_substr()</a></span>, <span class="function"><a href="function.iconv-substr.html" class="function">iconv_substr()</a></span> and
     <span class="function"><a href="function.grapheme-substr.html" class="function">grapheme_substr()</a></span> now consistently clamp out-of-bounds offsets to the string
-    boundary. Previously, <strong><code>FALSE</code></strong> was returned instead of the empty string in some cases.
+    boundary. Previously, <strong><code>false</code></strong> was returned instead of the empty string in some cases.
     </p>
    </li>
    <li class="listitem">

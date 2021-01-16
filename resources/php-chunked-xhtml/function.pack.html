@@ -35,8 +35,8 @@
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>pack</strong></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$format</code></span>
-   , <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">...$values</code></span>
-   ) : <span class="type"><span class="type">string</span>|<span class="type"><span class="type false">false</span></span></span></div>
+   , <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">...$values</code></span>
+   ) : <span class="type">string</span></div>
 
   <p class="para rdfs-comment">
    Pack given arguments into a binary string according to
@@ -262,7 +262,7 @@
  <div class="refsect1 returnvalues" id="refsect1-function.pack-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns a binary string containing data,  or <strong><code>FALSE</code></strong> on failure.
+   Returns a binary string containing data,  or <strong><code>false</code></strong> on failure.
   </p>
  </div>
 
@@ -281,6 +281,13 @@
      </thead>
 
      <tbody class="tbody">
+      <tr>
+       <td>8.0.0</td>
+       <td>
+        This function no longer returns <strong><code>false</code></strong> on failure.
+       </td>
+      </tr>
+
       <tr>
        <td>7.2.0</td>
        <td>
@@ -321,7 +328,7 @@
  <div class="refsect1 examples" id="refsect1-function.pack-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-3987">
+   <div class="example" id="example-4002">
     <p><strong>Example #1 <span class="function"><strong>pack()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

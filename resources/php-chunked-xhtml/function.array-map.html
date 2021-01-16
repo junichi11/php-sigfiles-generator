@@ -34,7 +34,7 @@
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>array_map</strong></span>
-    ( <span class="methodparam"><span class="type"><a href="language.types.callable.html" class="type callable">callable</a></span> <code class="parameter">$callback</code></span>
+    ( <span class="methodparam"><span class="type"><span class="type"><a href="language.types.callable.html" class="type callable">callable</a></span>|<span class="type">null</span></span> <code class="parameter">$callback</code></span>
    , <span class="methodparam"><span class="type">array</span> <code class="parameter">$array</code></span>
    , <span class="methodparam"><span class="type">array</span> <code class="parameter">...$arrays</code></span>
    ) : <span class="type">array</span></div>
@@ -67,7 +67,7 @@
        A <span class="type"><a href="language.types.callable.html" class="type callable">callable</a></span> to run for each element in each array.
       </p>
       <p class="para">
-       <strong><code>NULL</code></strong> can be passed as a value to <code class="parameter">callback</code>
+       <strong><code>null</code></strong> can be passed as a value to <code class="parameter">callback</code>
        to perform a zip operation on multiple arrays.
        If only <code class="parameter">array</code> is provided,
        <span class="methodname"><strong>array_map()</strong></span> will return the input array.
@@ -152,7 +152,7 @@ Array
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-5418">
+   <div class="example" id="example-5439">
     <p><strong>Example #2 <span class="function"><strong>array_map()</strong></span> using a lambda function (as of PHP 5.3.0)</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -176,7 +176,7 @@ Array
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-5419">
+   <div class="example" id="example-5440">
     <p><strong>Example #3 <span class="function"><strong>array_map()</strong></span> - using more arrays</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -240,11 +240,11 @@ Array
   </p>
   <p class="para">
    An interesting use of this function is to construct an array of arrays,
-   which can be easily performed by using <strong><code>NULL</code></strong>
+   which can be easily performed by using <strong><code>null</code></strong>
    as the name of the callback function
   </p>
   <p class="para">
-   <div class="example" id="example-5420">
+   <div class="example" id="example-5441">
     <p><strong>Example #4 Performing a zip operation of arrays</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -300,9 +300,9 @@ Array
   </p>
   
   <p class="para">
-   <div class="example" id="example-5421">
+   <div class="example" id="example-5442">
     <p><strong>Example #5 
-     <strong><code>NULL</code></strong> <code class="parameter">callback</code> with only
+     <strong><code>null</code></strong> <code class="parameter">callback</code> with only
      <code class="parameter">array</code>
     </strong></p>
     <div class="example-contents">
@@ -328,7 +328,7 @@ array(3) {
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-5422">
+   <div class="example" id="example-5443">
     <p><strong>Example #6 <span class="function"><strong>array_map()</strong></span> - with string keys</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

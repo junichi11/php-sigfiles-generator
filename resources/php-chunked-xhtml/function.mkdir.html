@@ -35,10 +35,10 @@
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>mkdir</strong></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$pathname</code></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$mode</code><span class="initializer"> = 0777</span></span>
-   [, <span class="methodparam"><span class="type">bool</span> <code class="parameter">$recursive</code><span class="initializer"> = <strong><code>FALSE</code></strong></span></span>
-   [, <span class="methodparam"><span class="type">resource</span> <code class="parameter">$context</code></span>
-  ]]] ) : <span class="type">bool</span></div>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$mode</code><span class="initializer"> = 0777</span></span>
+   , <span class="methodparam"><span class="type">bool</span> <code class="parameter">$recursive</code><span class="initializer"> = <strong><code>false</code></strong></span></span>
+   , <span class="methodparam"><span class="type">resource</span> <code class="parameter">$context</code> = ?</span>
+   ) : <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
    Attempts to create the directory specified by pathname. 
@@ -122,7 +122,7 @@ with PHP 5.0.0. For a description of <code class="literal">contexts</code>, refe
  <div class="refsect1 returnvalues" id="refsect1-function.mkdir-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns <strong><code>TRUE</code></strong> on success or <strong><code>FALSE</code></strong> on failure.
+   Returns <strong><code>true</code></strong> on success or <strong><code>false</code></strong> on failure.
   </p>
  </div>
 
@@ -130,7 +130,7 @@ with PHP 5.0.0. For a description of <code class="literal">contexts</code>, refe
  <div class="refsect1 examples" id="refsect1-function.mkdir-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-2666">
+   <div class="example" id="example-2681">
     <p><strong>Example #1 <span class="function"><strong>mkdir()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -142,7 +142,7 @@ with PHP 5.0.0. For a description of <code class="literal">contexts</code>, refe
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-2667">
+   <div class="example" id="example-2682">
     <p><strong>Example #2 <span class="function"><strong>mkdir()</strong></span> using the <code class="parameter">recursive</code> parameter</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

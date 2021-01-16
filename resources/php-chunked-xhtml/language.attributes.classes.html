@@ -1,0 +1,86 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Declaring Attribute Classes</title>
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="language.attributes.reflection.html">« Reading Attributes with the Reflection API</a></li>
+      <li style="float: right;"><a href="language.references.html">References Explained »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="language.attributes.html">Attributes</a></li>
+    <li>Declaring Attribute Classes</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="language.attributes.classes" class="sect1">
+   <h2 class="title">Declaring Attribute Classes</h2>
+
+   <p class="para">
+    While not strictly required it is recommended to create an actual class for every attribute.
+    In the most simple case only an empty class is needed with the <code class="literal">#[Attribute]</code> attribute declared
+    that can be imported from the global namespace with a use statement.
+   </p>
+
+  <div class="example" id="example-329">
+   <p><strong>Example #1 Using target specification to restrict where attributes can be used</strong></p>
+
+   <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /><br /></span><span style="color: #007700">namespace&nbsp;</span><span style="color: #0000BB">Example</span><span style="color: #007700">;<br /><br />use&nbsp;</span><span style="color: #0000BB">Attribute</span><span style="color: #007700">;<br /><br /></span><span style="color: #FF8000">#[Attribute]<br /></span><span style="color: #007700">class&nbsp;</span><span style="color: #0000BB">MyAttribute<br /></span><span style="color: #007700">{<br />}</span>
+</span>
+</code></div>
+   </div>
+
+  </div>
+
+  <p class="para">
+   To restrict the type of declaration an attribute can be assigned to, a bitmask can be passed as the first
+   argument to the <code class="literal">#[Attribute]</code> declaration.
+  </p>
+
+  <div class="example" id="example-330">
+   <p><strong>Example #2 Simple Attribute Class</strong></p>
+
+   <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /><br /></span><span style="color: #007700">namespace&nbsp;</span><span style="color: #0000BB">Example</span><span style="color: #007700">;<br /><br />use&nbsp;</span><span style="color: #0000BB">Attribute</span><span style="color: #007700">;<br /><br /></span><span style="color: #FF8000">#[Attribute(Attribute::TARGET_METHOD&nbsp;|&nbsp;Attribute::TARGET_FUNCTION)]<br /></span><span style="color: #007700">class&nbsp;</span><span style="color: #0000BB">MyAttribute<br /></span><span style="color: #007700">{<br />}</span>
+</span>
+</code></div>
+    </div>
+
+
+    <div class="example-contents"><p>
+     Declaring <strong class="classname">MyAttribute</strong> on another type will now throw an exception during
+     the call to <span class="function"><strong>ReflectionAttribute::newInstance()</strong></span>
+    </p></div>
+   </div>
+
+   <p class="para">
+    By default an attribute can only be used once per declaration. If the attribute should be repeatable on declarations it must
+    be specified as part of the bitmask to the <code class="literal">#[Attribute]</code> declaration.
+   </p>
+
+   <div class="example" id="example-331">
+    <p><strong>Example #3 Using IS_REPEATABLE to allow attribute on a declaration multiple times</strong></p>
+
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /><br /></span><span style="color: #007700">namespace&nbsp;</span><span style="color: #0000BB">Example</span><span style="color: #007700">;<br /><br />use&nbsp;</span><span style="color: #0000BB">Attribute</span><span style="color: #007700">;<br /><br /></span><span style="color: #FF8000">#[Attribute(Attribute::TARGET_METHOD&nbsp;|&nbsp;Attribute::TARGET_FUNCTION&nbsp;|&nbsp;Attribute::IS_REPEATABLE)]<br /></span><span style="color: #007700">class&nbsp;</span><span style="color: #0000BB">MyAttribute<br /></span><span style="color: #007700">{<br />}</span>
+</span>
+</code></div>
+    </div>
+
+
+   </div>
+  </div></div></div></body></html>

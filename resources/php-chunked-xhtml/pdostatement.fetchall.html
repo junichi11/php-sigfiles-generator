@@ -35,10 +35,10 @@
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><strong>PDOStatement::fetchAll</strong></span>
-    ([ <span class="methodparam"><span class="type">int</span> <code class="parameter">$fetch_style</code></span>
-   [, <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">$fetch_argument</code></span>
-   [, <span class="methodparam"><span class="type">array</span> <code class="parameter">$ctor_args</code><span class="initializer"> = array()</span></span>
-  ]]] ) : <span class="type">array</span></div>
+    ( <span class="methodparam"><span class="type">int</span> <code class="parameter">$fetch_style</code> = ?</span>
+   , <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$fetch_argument</code> = ?</span>
+   , <span class="methodparam"><span class="type">array</span> <code class="parameter">$ctor_args</code><span class="initializer"> = array()</span></span>
+   ) : <span class="type">array</span></div>
 
 
  </div>
@@ -139,7 +139,7 @@
    all of the remaining rows in the result set. The array represents each
    row as either an array of column values or an object with properties
    corresponding to each column name. An empty array is returned if there
-   are zero results to fetch, or <strong><code>FALSE</code></strong> on failure.
+   are zero results to fetch, or <strong><code>false</code></strong> on failure.
   </p>
   <p class="para">
    Using this method to fetch large result sets will result in a heavy
@@ -155,7 +155,7 @@
  <div class="refsect1 examples" id="refsect1-pdostatement.fetchall-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-1029"><p><strong>Example #1 Fetch all remaining rows in a result set</strong></p>
+   <div class="example" id="example-1042"><p><strong>Example #1 Fetch all remaining rows in a result set</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
 <span style="color: #0000BB">&lt;?php<br />$sth&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$dbh</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">prepare</span><span style="color: #007700">(</span><span style="color: #DD0000">"SELECT&nbsp;name,&nbsp;colour&nbsp;FROM&nbsp;fruit"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$sth</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">execute</span><span style="color: #007700">();<br /><br /></span><span style="color: #FF8000">/*&nbsp;Fetch&nbsp;all&nbsp;of&nbsp;the&nbsp;remaining&nbsp;rows&nbsp;in&nbsp;the&nbsp;result&nbsp;set&nbsp;*/<br /></span><span style="color: #007700">print(</span><span style="color: #DD0000">"Fetch&nbsp;all&nbsp;of&nbsp;the&nbsp;remaining&nbsp;rows&nbsp;in&nbsp;the&nbsp;result&nbsp;set:\n"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$result&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$sth</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">fetchAll</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">$result</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
@@ -198,7 +198,7 @@ Array
 </pre></div>
     </div>
    </div>
-   <div class="example" id="example-1030"><p><strong>Example #2 Fetching all values of a single column from a result set</strong></p>
+   <div class="example" id="example-1043"><p><strong>Example #2 Fetching all values of a single column from a result set</strong></p>
     <div class="example-contents"><p>
      The following example demonstrates how to return all of the values of a
      single column from a result set, even though the SQL statement itself
@@ -227,7 +227,7 @@ Array(3)
 </pre></div>
     </div>
    </div>
-   <div class="example" id="example-1031"><p><strong>Example #3 Grouping all values by a single column</strong></p>
+   <div class="example" id="example-1044"><p><strong>Example #3 Grouping all values by a single column</strong></p>
     <div class="example-contents"><p>
      The following example demonstrates how to return an associative array
      grouped by the values of the specified column in the result set. The
@@ -272,7 +272,7 @@ array(3) {
 </pre></div>
     </div>
    </div>
-   <div class="example" id="example-1032"><p><strong>Example #4 Instantiating a class for each result</strong></p>
+   <div class="example" id="example-1045"><p><strong>Example #4 Instantiating a class for each result</strong></p>
     <div class="example-contents"><p>
      The following example demonstrates the behaviour of the
      <strong><code>PDO::FETCH_CLASS</code></strong> fetch style.
@@ -328,7 +328,7 @@ array(3) {
 </pre></div>
     </div>
    </div>
-   <div class="example" id="example-1033"><p><strong>Example #5 Calling a function for each result</strong></p>
+   <div class="example" id="example-1046"><p><strong>Example #5 Calling a function for each result</strong></p>
     <div class="example-contents"><p>
      The following example demonstrates the behaviour of the
      <strong><code>PDO::FETCH_FUNC</code></strong> fetch style.

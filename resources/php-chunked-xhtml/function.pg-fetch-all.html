@@ -35,15 +35,15 @@
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>pg_fetch_all</strong></span>
     ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$result</code></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$result_type</code><span class="initializer"> = PGSQL_ASSOC</span></span>
-  ] ) : <span class="type">array</span></div>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$result_type</code><span class="initializer"> = PGSQL_ASSOC</span></span>
+   ) : <span class="type">array</span></div>
 
   <p class="para rdfs-comment">
    <span class="function"><strong>pg_fetch_all()</strong></span> returns an array that
    contains all rows (records) in the result resource.
   </p>
   <blockquote class="note"><p><strong class="note">Note</strong>: <span class="simpara">This function sets NULL fields to
-the PHP <strong><code>NULL</code></strong> value.</span></p></blockquote>
+the PHP <strong><code>null</code></strong> value.</span></p></blockquote>
  </div>
 
 
@@ -79,7 +79,7 @@ the PHP <strong><code>NULL</code></strong> value.</span></p></blockquote>
    of field values indexed by field name.
   </p>
   <p class="para">
-   <strong><code>FALSE</code></strong> is returned if there are no rows in the result, or on any
+   <strong><code>false</code></strong> is returned if there are no rows in the result, or on any
    other error.
   </p>
  </div>
@@ -88,7 +88,7 @@ the PHP <strong><code>NULL</code></strong> value.</span></p></blockquote>
  <div class="refsect1 examples" id="refsect1-function.pg-fetch-all-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-2327">
+   <div class="example" id="example-2340">
     <p><strong>Example #1 PostgreSQL fetch all</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

@@ -389,7 +389,7 @@ array(2) {
    The <code class="literal">allowed_classes</code> element of the $options parameter of
    <span class="function"><a href="function.unserialize.html" class="function">unserialize()</a></span> is now strictly typed, i.e. if anything
    other than an <span class="type">array</span> or a <span class="type">bool</span> is given,
-   unserialize() returns <strong><code>FALSE</code></strong> and issues an <strong><code>E_WARNING</code></strong>.
+   unserialize() returns <strong><code>false</code></strong> and issues an <strong><code>E_WARNING</code></strong>.
   </p>
  </div>
 
@@ -400,7 +400,7 @@ array(2) {
    now properly incorporate microseconds when constructed from the current time,
    either explicitly or with a relative string (e.g. <code class="literal">&quot;first day of next
    month&quot;</code>). This means that naive comparisons of two newly created
-   instances will now more likely return <strong><code>FALSE</code></strong> instead of <strong><code>TRUE</code></strong>:
+   instances will now more likely return <strong><code>false</code></strong> instead of <strong><code>true</code></strong>:
    <div class="informalexample">
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

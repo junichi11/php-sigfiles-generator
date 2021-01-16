@@ -34,9 +34,9 @@
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>filter_var_array</strong></span>
     ( <span class="methodparam"><span class="type">array</span> <code class="parameter">$array</code></span>
-   [, <span class="methodparam"><span class="type"><span class="type">array</span>|<span class="type">int</span></span> <code class="parameter">$options</code><span class="initializer"> = <strong><code>FILTER_DEFAULT</code></strong></span></span>
-   [, <span class="methodparam"><span class="type">bool</span> <code class="parameter">$add_empty</code><span class="initializer"> = <strong><code>TRUE</code></strong></span></span>
-  ]] ) : <span class="type"><span class="type">array</span>|<span class="type"><span class="type false">false</span></span>|<span class="type">null</span></span></div>
+   , <span class="methodparam"><span class="type"><span class="type">array</span>|<span class="type">int</span></span> <code class="parameter">$options</code><span class="initializer"> = <strong><code>FILTER_DEFAULT</code></strong></span></span>
+   , <span class="methodparam"><span class="type">bool</span> <code class="parameter">$add_empty</code><span class="initializer"> = <strong><code>true</code></strong></span></span>
+   ) : <span class="type"><span class="type">array</span>|<span class="type"><span class="type false">false</span></span>|<span class="type">null</span></span></div>
 
   <p class="para rdfs-comment">
    This function is useful for retrieving many values without
@@ -92,7 +92,7 @@
      <dd>
 
       <p class="para">
-       Add missing keys as <strong><code>NULL</code></strong> to the return value.
+       Add missing keys as <strong><code>null</code></strong> to the return value.
       </p>
      </dd>
 
@@ -105,8 +105,8 @@
  <div class="refsect1 returnvalues" id="refsect1-function.filter-var-array-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   An array containing the values of the requested variables on success, or <strong><code>FALSE</code></strong> 
-   on failure. An array value will be <strong><code>FALSE</code></strong> if the filter fails, or <strong><code>NULL</code></strong> if 
+   An array containing the values of the requested variables on success, or <strong><code>false</code></strong> 
+   on failure. An array value will be <strong><code>false</code></strong> if the filter fails, or <strong><code>null</code></strong> if 
    the variable is not set.
   </p>
  </div>
@@ -115,7 +115,7 @@
  <div class="refsect1 examples" id="refsect1-function.filter-var-array-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-5557">
+   <div class="example" id="example-5578">
     <p><strong>Example #1 A <span class="function"><strong>filter_var_array()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

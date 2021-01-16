@@ -35,7 +35,7 @@
   <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><strong>ReflectionParameter::getClass</strong></span>
     (
-   ) : <span class="type"><a href="class.reflectionclass.html" class="type ReflectionClass">ReflectionClass</a></span></div>
+   ) : <span class="type"><span class="type"><a href="class.reflectionclass.html" class="type ReflectionClass">ReflectionClass</a></span>|<span class="type">null</span></span></div>
 
   <p class="para rdfs-comment">
    Gets the class type hinted for the parameter as a <a href="class.reflectionclass.html" class="classname">ReflectionClass</a> object.
@@ -57,7 +57,8 @@ currently not documented; only its argument list is available.
  <div class="refsect1 returnvalues" id="refsect1-reflectionparameter.getclass-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   A <a href="class.reflectionclass.html" class="classname">ReflectionClass</a> object.
+   A <a href="class.reflectionclass.html" class="classname">ReflectionClass</a> object, or <strong><code>null</code></strong> if no type is declared,
+   or the declared type is not a class or interface.
   </p>
  </div>
 
@@ -65,7 +66,7 @@ currently not documented; only its argument list is available.
  <div class="refsect1 examples" id="refsect1-reflectionparameter.getclass-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-5706">
+   <div class="example" id="example-5729">
     <p><strong>Example #1 Using the <a href="class.reflectionparameter.html" class="classname">ReflectionParameter</a> class</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

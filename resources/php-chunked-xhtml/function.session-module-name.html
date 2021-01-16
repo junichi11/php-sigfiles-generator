@@ -34,8 +34,8 @@
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>session_module_name</strong></span>
-    ([ <span class="methodparam"><span class="type">string</span> <code class="parameter">$module</code></span>
-  ] ) : <span class="type">string</span></div>
+    ( <span class="methodparam"><span class="type"><span class="type">string</span>|<span class="type">null</span></span> <code class="parameter">$module</code><span class="initializer"> = <strong><code>null</code></strong></span></span>
+   ) : <span class="type"><span class="type">string</span>|<span class="type"><span class="type false">false</span></span></span></div>
 
   <p class="para rdfs-comment">
    <span class="function"><strong>session_module_name()</strong></span> gets the name of the current
@@ -57,7 +57,7 @@
      <dd>
 
       <p class="para">
-       If <code class="parameter">module</code> is specified, that module will be
+       If <code class="parameter">module</code> is specified and not <strong><code>null</code></strong>, that module will be
        used instead.
        Passing <code class="literal">&quot;user&quot;</code> to this parameter is forbidden. Instead
        <span class="function"><a href="function.session-set-save-handler.html" class="function">session_set_save_handler()</a></span> has to be called to set a user
@@ -75,7 +75,7 @@
  <div class="refsect1 returnvalues" id="refsect1-function.session-module-name-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns the name of the current session module.
+   Returns the name of the current session module,  or <strong><code>false</code></strong> on failure.
   </p>
  </div>
 
@@ -93,6 +93,13 @@
     </thead>
 
     <tbody class="tbody">
+     <tr>
+      <td>8.0.0</td>
+      <td>
+       <code class="parameter">module</code> is nullable now.
+      </td>
+     </tr>
+
      <tr>
       <td>7.2.0</td>
       <td>

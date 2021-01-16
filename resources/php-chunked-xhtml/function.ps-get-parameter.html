@@ -36,8 +36,8 @@
    <span class="methodname"><strong>ps_get_parameter</strong></span>
     ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$psdoc</code></span>
    , <span class="methodparam"><span class="type">string</span> <code class="parameter">$name</code></span>
-   [, <span class="methodparam"><span class="type">float</span> <code class="parameter">$modifier</code></span>
-  ] ) : <span class="type"><span class="type">string</span>|<span class="type"><span class="type false">false</span></span></span></div>
+   , <span class="methodparam"><span class="type">float</span> <code class="parameter">$modifier</code> = ?</span>
+   ) : <span class="type"><span class="type">string</span>|<span class="type"><span class="type false">false</span></span></span></div>
 
   <p class="para rdfs-comment">
    Gets several parameters which were directly set by
@@ -154,7 +154,7 @@
 
       <p class="para">
        Only used if text is output with <span class="function"><a href="function.ps-show-boxed.html" class="function">ps_show_boxed()</a></span>.
-       If set to <strong><code>TRUE</code></strong> a carriage return will add a line
+       If set to <strong><code>true</code></strong> a carriage return will add a line
        break.
       </p>
      </dd>
@@ -168,7 +168,7 @@
 
       <p class="para">
        Only used if text is output with <span class="function"><a href="function.ps-show-boxed.html" class="function">ps_show_boxed()</a></span>.
-       If set to <strong><code>TRUE</code></strong> a carriage return will start
+       If set to <strong><code>true</code></strong> a carriage return will start
        a new paragraph.
       </p>
      </dd>
@@ -182,7 +182,7 @@
 
       <p class="para">
        Only used if text is output with <span class="function"><a href="function.ps-show-boxed.html" class="function">ps_show_boxed()</a></span>.
-       If set to <strong><code>TRUE</code></strong> the paragraph will be hyphenated
+       If set to <strong><code>true</code></strong> the paragraph will be hyphenated
        if a hypen dictionary is set and exists.
       </p>
      </dd>
@@ -259,7 +259,7 @@
  <div class="refsect1 returnvalues" id="refsect1-function.ps-get-parameter-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns the value of the parameter  or <strong><code>FALSE</code></strong> on failure.
+   Returns the value of the parameter  or <strong><code>false</code></strong> on failure.
   </p>
  </div>
 

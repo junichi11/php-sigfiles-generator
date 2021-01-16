@@ -35,9 +35,9 @@
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>stream_socket_accept</strong></span>
     ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$server_socket</code></span>
-   [, <span class="methodparam"><span class="type">float</span> <code class="parameter">$timeout</code><span class="initializer"> = ini_get(&quot;default_socket_timeout&quot;)</span></span>
-   [, <span class="methodparam"><span class="type">string</span> <code class="parameter reference">&$peername</code></span>
-  ]] ) : <span class="type"><span class="type">resource</span>|<span class="type"><span class="type false">false</span></span></span></div>
+   , <span class="methodparam"><span class="type">float</span> <code class="parameter">$timeout</code><span class="initializer"> = ini_get(&quot;default_socket_timeout&quot;)</span></span>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter reference">&$peername</code> = ?</span>
+   ) : <span class="type"><span class="type">resource</span>|<span class="type"><span class="type false">false</span></span></span></div>
 
   <p class="para rdfs-comment">
    Accept a connection on a socket previously created by
@@ -104,7 +104,7 @@
  <div class="refsect1 returnvalues" id="refsect1-function.stream-socket-accept-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns a stream to the accepted socket connection or <strong><code>FALSE</code></strong> on failure.
+   Returns a stream to the accepted socket connection or <strong><code>false</code></strong> on failure.
   </p>
  </div>
 

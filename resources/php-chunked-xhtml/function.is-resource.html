@@ -26,7 +26,7 @@
   <div id="layout-content"><div id="function.is-resource" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">is_resource</h1>
-  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">is_resource</span> &mdash; <span class="dc-title">
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">is_resource</span> &mdash; <span class="dc-title">
    Finds whether a variable is a resource
   </span></p>
 
@@ -36,7 +36,7 @@
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>is_resource</strong></span>
-    ( <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">$var</code></span>
+    ( <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$value</code></span>
    ) : <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
@@ -52,7 +52,7 @@
 
     
      <dt>
-<code class="parameter">var</code></dt>
+<code class="parameter">value</code></dt>
 
      <dd>
 
@@ -71,8 +71,8 @@
  <div class="refsect1 returnvalues" id="refsect1-function.is-resource-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns <strong><code>TRUE</code></strong> if <code class="parameter">var</code> is a <span class="type">resource</span>,
-   <strong><code>FALSE</code></strong> otherwise.
+   Returns <strong><code>true</code></strong> if <code class="parameter">value</code> is a <span class="type">resource</span>,
+   <strong><code>false</code></strong> otherwise.
   </p>
  </div>
 
@@ -80,7 +80,7 @@
  <div class="refsect1 examples" id="refsect1-function.is-resource-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-5760">
+   <div class="example" id="example-5784">
     <p><strong>Example #1 <span class="function"><strong>is_resource()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -98,7 +98,7 @@
   <h3 class="title">Notes</h3>
   <blockquote class="note"><p><strong class="note">Note</strong>: 
    <p class="para">
-    <span class="function"><strong>is_resource()</strong></span> is not a strict type-checking method: it will return <strong><code>FALSE</code></strong> if <code class="parameter">var</code> is a resource variable that has been closed.
+    <span class="function"><strong>is_resource()</strong></span> is not a strict type-checking method: it will return <strong><code>false</code></strong> if <code class="parameter">value</code> is a resource variable that has been closed.
    </p>
   </p></blockquote>
  </div>

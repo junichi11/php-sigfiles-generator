@@ -35,8 +35,8 @@
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>openssl_random_pseudo_bytes</strong></span>
     ( <span class="methodparam"><span class="type">int</span> <code class="parameter">$length</code></span>
-   [, <span class="methodparam"><span class="type">bool</span> <code class="parameter reference">&$crypto_strong</code></span>
-  ] ) : <span class="type"><span class="type">string</span>|<span class="type"><span class="type false">false</span></span></span></div>
+   , <span class="methodparam"><span class="type">bool</span> <code class="parameter reference">&$crypto_strong</code> = ?</span>
+   ) : <span class="type"><span class="type">string</span>|<span class="type"><span class="type false">false</span></span></span></div>
 
   <p class="para rdfs-comment">
    Generates a <span class="type">string</span> of pseudo-random bytes, with the number of bytes
@@ -45,7 +45,7 @@
   <p class="para">
    It also indicates if a cryptographically strong algorithm was used to produce the
    pseudo-random bytes, and does this via the optional <code class="parameter">crypto_strong</code>
-   parameter. It&#039;s rare for this to be <strong><code>FALSE</code></strong>, but some systems may be broken or old.
+   parameter. It&#039;s rare for this to be <strong><code>false</code></strong>, but some systems may be broken or old.
   </p>
  </div>
 
@@ -77,7 +77,7 @@
       <p class="para">
        If passed into the function, this will hold a <span class="type">bool</span> value that determines
        if the algorithm used was &quot;cryptographically strong&quot;, e.g., safe for usage with GPG, 
-       passwords, etc. <strong><code>TRUE</code></strong> if it did, otherwise <strong><code>FALSE</code></strong>
+       passwords, etc. <strong><code>true</code></strong> if it did, otherwise <strong><code>false</code></strong>
       </p>
      </dd>
 
@@ -91,7 +91,7 @@
  <div class="refsect1 returnvalues" id="refsect1-function.openssl-random-pseudo-bytes-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns the generated <span class="type">string</span> of bytes on success,  or <strong><code>FALSE</code></strong> on failure.
+   Returns the generated <span class="type">string</span> of bytes on success,  or <strong><code>false</code></strong> on failure.
   </p>
  </div>
 
@@ -99,7 +99,7 @@
  <div class="refsect1 examples" id="refsect1-function.openssl-random-pseudo-bytes-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-920">
+   <div class="example" id="example-933">
     <p><strong>Example #1 <span class="function"><strong>openssl_random_pseudo_bytes()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

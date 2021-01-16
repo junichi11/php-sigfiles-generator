@@ -38,11 +38,11 @@
     ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$stmt</code></span>
    , <span class="methodparam"><span class="type">int</span> <code class="parameter">$parameter_number</code></span>
    , <span class="methodparam"><span class="type">string</span> <code class="parameter">$variable_name</code></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$parameter_type</code></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$data_type</code><span class="initializer"> = 0</span></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$precision</code><span class="initializer"> = -1</span></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$scale</code><span class="initializer"> = 0</span></span>
-  ]]]] ) : <span class="type">bool</span></div>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$parameter_type</code> = ?</span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$data_type</code><span class="initializer"> = 0</span></span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$precision</code><span class="initializer"> = -1</span></span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$scale</code><span class="initializer"> = 0</span></span>
+   ) : <span class="type">bool</span></div>
 
 
   <p class="para rdfs-comment">
@@ -170,7 +170,7 @@
  <div class="refsect1 returnvalues" id="refsect1-function.db2-bind-param-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns <strong><code>TRUE</code></strong> on success or <strong><code>FALSE</code></strong> on failure.
+   Returns <strong><code>true</code></strong> on success or <strong><code>false</code></strong> on failure.
   </p>
  </div>
 
@@ -178,7 +178,7 @@
  <div class="refsect1 examples" id="refsect1-function.db2-bind-param-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-1223">
+   <div class="example" id="example-1235">
     <p><strong>Example #1 Binding PHP variables to a prepared statement</strong></p>
     <div class="example-contents"><p>
      The SQL statement in the following example uses two input parameters in
@@ -209,7 +209,7 @@ Peaches, dog, 12.3
 </pre></div>
     </div>
    </div>
-   <div class="example" id="example-1224">
+   <div class="example" id="example-1236">
     <p><strong>Example #2 Calling stored procedures with IN and OUT parameters</strong></p>
     <div class="example-contents"><p>
      The stored procedure match_animal in the following example accepts
@@ -263,7 +263,7 @@ Results:
 </pre></div>
     </div>
    </div>
-   <div class="example" id="example-1225">
+   <div class="example" id="example-1237">
     <p><strong>Example #3 Inserting a binary large object (BLOB) directly from a file</strong></p>
     <div class="example-contents"><p>
      The data for large objects are typically stored in files, such as XML

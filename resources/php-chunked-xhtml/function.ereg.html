@@ -53,8 +53,8 @@
    <span class="methodname"><strong>ereg</strong></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$pattern</code></span>
    , <span class="methodparam"><span class="type">string</span> <code class="parameter">$string</code></span>
-   [, <span class="methodparam"><span class="type">array</span> <code class="parameter reference">&$regs</code></span>
-  ] ) : <span class="type">int</span></div>
+   , <span class="methodparam"><span class="type">array</span> <code class="parameter reference">&$regs</code> = ?</span>
+   ) : <span class="type">int</span></div>
 
   <p class="simpara">
    Searches a <code class="parameter">string</code> for matches to the regular
@@ -126,7 +126,7 @@
   <p class="para">
    Returns the length of the matched string if a match for
    <code class="parameter">pattern</code> was found in <code class="parameter">string</code>,
-   or <strong><code>FALSE</code></strong> if no matches were found or an error occurred.
+   or <strong><code>false</code></strong> if no matches were found or an error occurred.
   </p>
   <p class="para">
    If the optional parameter <code class="parameter">regs</code> was not passed or
@@ -172,7 +172,7 @@
  <div class="refsect1 examples" id="refsect1-function.ereg-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-5251">
+   <div class="example" id="example-5272">
     <p><strong>Example #1 <span class="function"><strong>ereg()</strong></span> example</strong></p>
     <div class="example-contents"><p>
      The following code snippet takes a date in ISO format (YYYY-MM-DD) and

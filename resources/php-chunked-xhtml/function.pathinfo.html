@@ -35,13 +35,13 @@
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>pathinfo</strong></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$path</code></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$options</code><span class="initializer"> = PATHINFO_DIRNAME | PATHINFO_BASENAME | PATHINFO_EXTENSION | PATHINFO_FILENAME</span></span>
-  ] ) : <span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span></div>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code><span class="initializer"> = <strong><code>PATHINFO_ALL</code></strong></span></span>
+   ) : <span class="type"><span class="type">array</span>|<span class="type">string</span></span></div>
 
   <p class="para rdfs-comment">
    <span class="function"><strong>pathinfo()</strong></span> returns information about
    <code class="parameter">path</code>: either an associative array or a string,
-   depending on <code class="parameter">options</code>.
+   depending on <code class="parameter">flags</code>.
   </p>
   <blockquote class="note"><p><strong class="note">Note</strong>: 
    <p class="para">
@@ -79,7 +79,7 @@
     
     
      <dt>
-<code class="parameter">options</code></dt>
+<code class="parameter">flags</code></dt>
 
      <dd>
 
@@ -90,7 +90,7 @@
        <strong><code>PATHINFO_EXTENSION</code></strong> or
        <strong><code>PATHINFO_FILENAME</code></strong>.
       </p>
-      <p class="para">If <code class="parameter">options</code> is not specified, returns all
+      <p class="para">If <code class="parameter">flags</code> is not specified, returns all
        available elements.
       </p>
      </dd>
@@ -105,7 +105,7 @@
  <div class="refsect1 returnvalues" id="refsect1-function.pathinfo-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   If the <code class="parameter">options</code> parameter is not passed, an
+   If the <code class="parameter">flags</code> parameter is not passed, an
    associative <span class="type">array</span> containing the following elements is
    returned:
    <code class="literal">dirname</code>, <code class="literal">basename</code>,
@@ -135,7 +135,7 @@
    </p>
   </p></blockquote>
   <p class="para">
-   If <code class="parameter">options</code> is present, returns a
+   If <code class="parameter">flags</code> is present, returns a
    <span class="type">string</span> containing the requested element.
   </p>
  </div>
@@ -144,7 +144,7 @@
  <div class="refsect1 examples" id="refsect1-function.pathinfo-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-2673">
+   <div class="example" id="example-2688">
     <p><strong>Example #1 <span class="function"><strong>pathinfo()</strong></span> Example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -165,7 +165,7 @@ lib.inc
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-2674">
+   <div class="example" id="example-2689">
     <p><strong>Example #2 <span class="function"><strong>pathinfo()</strong></span> example showing difference between null and no extension</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -187,7 +187,7 @@ NULL
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-2675">
+   <div class="example" id="example-2690">
     <p><strong>Example #3 <span class="function"><strong>pathinfo()</strong></span> example for a dot-file</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

@@ -35,10 +35,10 @@
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>ssh2_connect</strong></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$host</code></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$port</code><span class="initializer"> = 22</span></span>
-   [, <span class="methodparam"><span class="type">array</span> <code class="parameter">$methods</code></span>
-   [, <span class="methodparam"><span class="type">array</span> <code class="parameter">$callbacks</code></span>
-  ]]] ) : <span class="type">resource</span></div>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$port</code><span class="initializer"> = 22</span></span>
+   , <span class="methodparam"><span class="type">array</span> <code class="parameter">$methods</code> = ?</span>
+   , <span class="methodparam"><span class="type">array</span> <code class="parameter">$callbacks</code> = ?</span>
+   ) : <span class="type">resource</span></div>
 
   <p class="para rdfs-comment">
    Establish a connection to a remote SSH server.
@@ -282,7 +282,7 @@
            <td>
             Name of function to call when a packet is received but the
             message authentication code failed.  If the callback returns
-            <strong><code>TRUE</code></strong>, the mismatch will be ignored, otherwise the connection
+            <strong><code>true</code></strong>, the mismatch will be ignored, otherwise the connection
             will be terminated.
            </td>
            <td>bool macerror_cb($packet)</td>
@@ -314,7 +314,7 @@
  <div class="refsect1 returnvalues" id="refsect1-function.ssh2-connect-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns a resource on success, or <strong><code>FALSE</code></strong> on error.
+   Returns a resource on success, or <strong><code>false</code></strong> on error.
   </p>
  </div>
 
@@ -322,7 +322,7 @@
  <div class="refsect1 examples" id="refsect1-function.ssh2-connect-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-5013">
+   <div class="example" id="example-5035">
     <p><strong>Example #1 <span class="function"><strong>ssh2_connect()</strong></span> example</strong></p>
     <div class="example-contents"><p>
      Open a connection forcing 3des-cbc when sending packets, any strength

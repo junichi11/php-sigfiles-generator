@@ -38,7 +38,7 @@
     ( <span class="methodparam"><span class="type">int</span> <code class="parameter">$domain</code></span>
    , <span class="methodparam"><span class="type">int</span> <code class="parameter">$type</code></span>
    , <span class="methodparam"><span class="type">int</span> <code class="parameter">$protocol</code></span>
-   ) : <span class="type">array</span></div>
+   ) : <span class="type"><span class="type">array</span>|<span class="type"><span class="type false">false</span></span></span></div>
 
   <p class="para rdfs-comment">
    <span class="function"><strong>stream_socket_pair()</strong></span> creates a pair of connected,
@@ -116,7 +116,7 @@
   <h3 class="title">Return Values</h3>
   <p class="para">
    Returns an <span class="type">array</span> with the two socket resources on success, or
-   <strong><code>FALSE</code></strong> on failure.
+   <strong><code>false</code></strong> on failure.
   </p>
  </div>
 
@@ -124,7 +124,7 @@
  <div class="refsect1 examples" id="refsect1-function.stream-socket-pair-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-4286">
+   <div class="example" id="example-4301">
     <p><strong>Example #1 A <span class="function"><strong>stream_socket_pair()</strong></span> example</strong></p>
     <div class="example-contents"><p>
      This example shows the basic usage of

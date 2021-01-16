@@ -37,10 +37,10 @@
     ( <span class="methodparam"><span class="type"><span class="type SysvMessageQueue">SysvMessageQueue</span></span> <code class="parameter">$queue</code></span>
    , <span class="methodparam"><span class="type">int</span> <code class="parameter">$message_type</code></span>
    , <span class="methodparam"><span class="type"><span class="type">string</span>|<span class="type">int</span>|<span class="type">float</span>|<span class="type">bool</span></span> <code class="parameter">$message</code></span>
-   [, <span class="methodparam"><span class="type">bool</span> <code class="parameter">$serialize</code><span class="initializer"> = <strong><code>TRUE</code></strong></span></span>
-   [, <span class="methodparam"><span class="type">bool</span> <code class="parameter">$blocking</code><span class="initializer"> = <strong><code>TRUE</code></strong></span></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter reference">&$error_code</code><span class="initializer"> = <strong><code>NULL</code></strong></span></span>
-  ]]] ) : <span class="type">bool</span></div>
+   , <span class="methodparam"><span class="type">bool</span> <code class="parameter">$serialize</code><span class="initializer"> = <strong><code>true</code></strong></span></span>
+   , <span class="methodparam"><span class="type">bool</span> <code class="parameter">$blocking</code><span class="initializer"> = <strong><code>true</code></strong></span></span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter reference">&$error_code</code><span class="initializer"> = <strong><code>null</code></strong></span></span>
+   ) : <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
    <span class="function"><strong>msg_send()</strong></span> sends a <code class="parameter">message</code> of type
@@ -90,7 +90,7 @@
       </p>
       <blockquote class="note"><p><strong class="note">Note</strong>: 
        <p class="para">
-        If <code class="parameter">serialize</code> set to <strong><code>FALSE</code></strong> is supplied,
+        If <code class="parameter">serialize</code> set to <strong><code>false</code></strong> is supplied,
         MUST be of type: <span class="type">string</span>, <span class="type">int</span>, <span class="type">float</span> 
         or <span class="type">bool</span>. In other case a warning will be issued.
        </p>
@@ -107,7 +107,7 @@
       <p class="para">
        The optional <code class="parameter">serialize</code> controls how the
        <code class="parameter">message</code> is sent.  <code class="parameter">serialize</code>
-       defaults to <strong><code>TRUE</code></strong> which means that the <code class="parameter">message</code> is
+       defaults to <strong><code>true</code></strong> which means that the <code class="parameter">message</code> is
        serialized using the same mechanism as the session module before being
        sent to the queue.  This allows complex arrays and objects to be sent to
        other PHP scripts, or if you are using the WDDX serializer, to any WDDX
@@ -127,8 +127,8 @@
        until another process reads messages from the queue and frees enough
        space for your message to be sent.
        This is called blocking; you can prevent blocking by setting the
-       optional <code class="parameter">blocking</code> parameter to <strong><code>FALSE</code></strong>, in which
-       case <span class="function"><strong>msg_send()</strong></span> will immediately return <strong><code>FALSE</code></strong> if the
+       optional <code class="parameter">blocking</code> parameter to <strong><code>false</code></strong>, in which
+       case <span class="function"><strong>msg_send()</strong></span> will immediately return <strong><code>false</code></strong> if the
        message is too big for the queue, and set the optional
        <code class="parameter">error_code</code> to <strong><code>MSG_EAGAIN</code></strong>,
        indicating that you should try to send your message again a little
@@ -158,7 +158,7 @@
  <div class="refsect1 returnvalues" id="refsect1-function.msg-send-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns <strong><code>TRUE</code></strong> on success or <strong><code>FALSE</code></strong> on failure.
+   Returns <strong><code>true</code></strong> on success or <strong><code>false</code></strong> on failure.
   </p>
   <p class="para">
    Upon successful completion the message queue data structure is updated as

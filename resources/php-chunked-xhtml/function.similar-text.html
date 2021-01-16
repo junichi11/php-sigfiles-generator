@@ -34,10 +34,10 @@
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>similar_text</strong></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$first</code></span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$second</code></span>
-   [, <span class="methodparam"><span class="type">float</span> <code class="parameter reference">&$percent</code></span>
-  ] ) : <span class="type">int</span></div>
+    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$string1</code></span>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$string2</code></span>
+   , <span class="methodparam"><span class="type">float</span> <code class="parameter reference">&$percent</code><span class="initializer"> = <strong><code>null</code></strong></span></span>
+   ) : <span class="type">int</span></div>
 
   <p class="para rdfs-comment">
    This calculates the similarity between two strings as described in
@@ -56,7 +56,7 @@
 
     
      <dt>
-<code class="parameter">first</code></dt>
+<code class="parameter">string1</code></dt>
 
      <dd>
 
@@ -68,7 +68,7 @@
     
     
      <dt>
-<code class="parameter">second</code></dt>
+<code class="parameter">string2</code></dt>
 
      <dd>
 
@@ -77,8 +77,8 @@
       </p>
       <blockquote class="note"><p><strong class="note">Note</strong>: 
        <p class="para">
-        Swapping the <code class="parameter">first</code> and
-        <code class="parameter">second</code> may yield a different result; see the
+        Swapping the <code class="parameter">string1</code> and
+        <code class="parameter">string2</code> may yield a different result; see the
         example below.
        </p>
       </p></blockquote> 
@@ -122,11 +122,11 @@
 
  <div class="refsect1 examples" id="refsect1-function.similar-text-examples">
   <h3 class="title">Examples</h3>
-  <div class="example" id="example-5311">
+  <div class="example" id="example-5332">
    <p><strong>Example #1 <span class="function"><strong>similar_text()</strong></span> argument swapping example</strong></p>
    <div class="example-contents"><p>
-    This example shows that swapping the <code class="parameter">first</code> and
-    <code class="parameter">second</code> argument may yield different results.
+    This example shows that swapping the <code class="parameter">string1</code> and
+    <code class="parameter">string2</code> argument may yield different results.
    </p></div>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

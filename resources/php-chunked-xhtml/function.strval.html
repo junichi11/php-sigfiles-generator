@@ -26,7 +26,7 @@
   <div id="layout-content"><div id="function.strval" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">strval</h1>
-  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">strval</span> &mdash; <span class="dc-title">Get string value of a variable</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">strval</span> &mdash; <span class="dc-title">Get string value of a variable</span></p>
 
  </div>
  
@@ -34,7 +34,7 @@
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>strval</strong></span>
-    ( <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">$var</code></span>
+    ( <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$value</code></span>
    ) : <span class="type">string</span></div>
 
   <p class="simpara">
@@ -57,7 +57,7 @@
 
     
      <dt>
-<code class="parameter">var</code></dt>
+<code class="parameter">value</code></dt>
 
      <dd>
 
@@ -65,7 +65,7 @@
        The variable that is being converted to a <span class="type">string</span>.
       </p>
       <p class="para">
-       <code class="parameter">var</code> may be any scalar type or an object that
+       <code class="parameter">value</code> may be any scalar type or an object that
        implements the <a href="language.oop5.magic.html#object.tostring" class="link">__toString()</a>
        method. You cannot use <span class="function"><strong>strval()</strong></span> on arrays or on
        objects that do not implement the
@@ -83,7 +83,7 @@
  <div class="refsect1 returnvalues" id="refsect1-function.strval-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   The <span class="type">string</span> value of <code class="parameter">var</code>.
+   The <span class="type">string</span> value of <code class="parameter">value</code>.
   </p>
  </div>
 
@@ -91,7 +91,7 @@
  <div class="refsect1 examples" id="refsect1-function.strval-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-5769">
+   <div class="example" id="example-5793">
     <p><strong>Example #1 
      <span class="function"><strong>strval()</strong></span> example using PHP 5&#039;s magic
      <a href="language.oop5.magic.html#object.tostring" class="link">__toString()</a> method.

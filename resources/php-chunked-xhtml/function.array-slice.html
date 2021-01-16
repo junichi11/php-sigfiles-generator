@@ -35,9 +35,9 @@
    <span class="methodname"><strong>array_slice</strong></span>
     ( <span class="methodparam"><span class="type">array</span> <code class="parameter">$array</code></span>
    , <span class="methodparam"><span class="type">int</span> <code class="parameter">$offset</code></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$length</code><span class="initializer"> = <strong><code>NULL</code></strong></span></span>
-   [, <span class="methodparam"><span class="type">bool</span> <code class="parameter">$preserve_keys</code><span class="initializer"> = <strong><code>FALSE</code></strong></span></span>
-  ]] ) : <span class="type">array</span></div>
+   , <span class="methodparam"><span class="type"><span class="type">int</span>|<span class="type">null</span></span> <code class="parameter">$length</code><span class="initializer"> = <strong><code>null</code></strong></span></span>
+   , <span class="methodparam"><span class="type">bool</span> <code class="parameter">$preserve_keys</code><span class="initializer"> = <strong><code>false</code></strong></span></span>
+   ) : <span class="type">array</span></div>
 
   <p class="para rdfs-comment">
    <span class="function"><strong>array_slice()</strong></span> returns the sequence of elements
@@ -123,7 +123,7 @@
        <p class="para">
         <span class="function"><strong>array_slice()</strong></span> will reorder and reset the
         integer array indices by default. This behaviour can be changed
-        by setting <code class="parameter">preserve_keys</code> to <strong><code>TRUE</code></strong>.
+        by setting <code class="parameter">preserve_keys</code> to <strong><code>true</code></strong>.
         String keys are always preserved, regardless of this parameter.
        </p>
       </p></blockquote>
@@ -146,7 +146,7 @@
  <div class="refsect1 examples" id="refsect1-function.array-slice-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-5443">
+   <div class="example" id="example-5464">
     <p><strong>Example #1 <span class="function"><strong>array_slice()</strong></span> examples</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -173,7 +173,7 @@ Array
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-5444">
+   <div class="example" id="example-5465">
     <p><strong>Example #2 <span class="function"><strong>array_slice()</strong></span> and one-based array</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -195,7 +195,7 @@ Array
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-5445">
+   <div class="example" id="example-5466">
     <p><strong>Example #3 <span class="function"><strong>array_slice()</strong></span> and array with mixed keys</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

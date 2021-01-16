@@ -34,8 +34,8 @@
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>socket_accept</strong></span>
-    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$socket</code></span>
-   ) : <span class="type">resource</span></div>
+    ( <span class="methodparam"><span class="type"><a href="class.socket.html" class="type Socket">Socket</a></span> <code class="parameter">$socket</code></span>
+   ) : <span class="type"><span class="type"><a href="class.socket.html" class="type Socket">Socket</a></span>|<span class="type"><span class="type false">false</span></span></span></div>
 
   <p class="para rdfs-comment">
    After the socket <code class="parameter">socket</code> has been created
@@ -43,17 +43,17 @@
    <span class="function"><a href="function.socket-bind.html" class="function">socket_bind()</a></span>, and told to listen for connections
    with <span class="function"><a href="function.socket-listen.html" class="function">socket_listen()</a></span>, this function will accept
    incoming connections on that socket. Once a successful connection
-   is made, a new socket resource is returned, which may be used
-   for communication. If there are multiple connections queued on
-   the socket, the first will be used. If there are no pending
+   is made, a new <a href="class.socket.html" class="classname">Socket</a> instance is returned,
+   which may be used for communication. If there are multiple connections
+   queued on the socket, the first will be used. If there are no pending
    connections, <span class="function"><strong>socket_accept()</strong></span> will block until
    a connection becomes present. If <code class="parameter">socket</code>
    has been made non-blocking using
    <span class="function"><a href="function.socket-set-blocking.html" class="function">socket_set_blocking()</a></span> or
-   <span class="function"><a href="function.socket-set-nonblock.html" class="function">socket_set_nonblock()</a></span>, <strong><code>FALSE</code></strong> will be returned.
+   <span class="function"><a href="function.socket-set-nonblock.html" class="function">socket_set_nonblock()</a></span>, <strong><code>false</code></strong> will be returned.
   </p>
   <p class="para">
-   The socket resource returned by
+   The <a href="class.socket.html" class="classname">Socket</a> instance returned by
    <span class="function"><strong>socket_accept()</strong></span> may not be used to accept new
    connections. The original listening socket
    <code class="parameter">socket</code>, however, remains open and may be
@@ -74,7 +74,7 @@
      <dd>
 
       <p class="para">
-       A valid socket resource created with <span class="function"><a href="function.socket-create.html" class="function">socket_create()</a></span>.
+       A <a href="class.socket.html" class="classname">Socket</a> instance created with <span class="function"><a href="function.socket-create.html" class="function">socket_create()</a></span>.
       </p>
      </dd>
 
@@ -88,12 +88,40 @@
  <div class="refsect1 returnvalues" id="refsect1-function.socket-accept-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns a new socket resource on success, or <strong><code>FALSE</code></strong> on error. The actual
+   Returns a new <a href="class.socket.html" class="classname">Socket</a> instance on success, or <strong><code>false</code></strong> on error. The actual
    error code can be retrieved by calling
    <span class="function"><a href="function.socket-last-error.html" class="function">socket_last_error()</a></span>. This error code may be passed to
    <span class="function"><a href="function.socket-strerror.html" class="function">socket_strerror()</a></span> to get a textual explanation of the
    error.
   </p>
+ </div>
+
+
+ <div class="refsect1 changelog" id="refsect1-function.socket-accept-changelog">
+  <h3 class="title">Changelog</h3>
+  <table class="doctable informaltable">
+   
+    <thead>
+     <tr>
+      <th>Version</th>
+      <th>Description</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+      <td>8.0.0</td>
+      <td>
+       On success, this function returns a <a href="class.socket.html" class="classname">Socket</a> instance now;
+       previously, a <span class="type">resource</span> was returned.
+      </td>
+     </tr>
+
+    </tbody>
+   
+  </table>
+
  </div>
 
 

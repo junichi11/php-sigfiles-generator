@@ -35,7 +35,7 @@
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>property_exists</strong></span>
-    ( <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">$class</code></span>
+    ( <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$class</code></span>
    , <span class="methodparam"><span class="type">string</span> <code class="parameter">$property</code></span>
    ) : <span class="type">bool</span></div>
 
@@ -46,8 +46,8 @@
   <blockquote class="note"><p><strong class="note">Note</strong>: 
    <p class="para">
     As opposed with <span class="function"><a href="function.isset.html" class="function">isset()</a></span>,
-    <span class="function"><strong>property_exists()</strong></span> returns <strong><code>TRUE</code></strong> even if the property
-    has the value <strong><code>NULL</code></strong>.
+    <span class="function"><strong>property_exists()</strong></span> returns <strong><code>true</code></strong> even if the property
+    has the value <strong><code>null</code></strong>.
    </p>
   </p></blockquote>
  </div>
@@ -89,8 +89,8 @@
  <div class="refsect1 returnvalues" id="refsect1-function.property-exists-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns <strong><code>TRUE</code></strong> if the property exists, <strong><code>FALSE</code></strong> if it doesn&#039;t exist or
-   <strong><code>NULL</code></strong> in case of an error.
+   Returns <strong><code>true</code></strong> if the property exists, <strong><code>false</code></strong> if it doesn&#039;t exist or
+   <strong><code>null</code></strong> in case of an error.
   </p>
  </div>
 
@@ -113,7 +113,7 @@
  <div class="refsect1 examples" id="refsect1-function.property-exists-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-5528">
+   <div class="example" id="example-5549">
     <p><strong>Example #1 A <span class="function"><strong>property_exists()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

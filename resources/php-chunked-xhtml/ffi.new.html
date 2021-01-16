@@ -34,17 +34,17 @@
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="modifier">static</span> <span class="methodname"><strong>FFI::new</strong></span>
-    ( <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">$type</code></span>
-   [, <span class="methodparam"><span class="type">bool</span> <code class="parameter">$owned</code><span class="initializer"> = <strong><code>TRUE</code></strong></span></span>
-   [, <span class="methodparam"><span class="type">bool</span> <code class="parameter">$persistent</code><span class="initializer"> = <strong><code>FALSE</code></strong></span></span>
-  ]] ) : <span class="type"><a href="class.ffi-cdata.html" class="type FFI\CData">FFI\CData</a></span></div>
+    ( <span class="methodparam"><span class="type"><span class="type"><a href="class.ffi-ctype.html" class="type FFI\CType">FFI\CType</a></span>|<span class="type">string</span></span> <code class="parameter">$type</code></span>
+   , <span class="methodparam"><span class="type">bool</span> <code class="parameter">$owned</code><span class="initializer"> = <strong><code>true</code></strong></span></span>
+   , <span class="methodparam"><span class="type">bool</span> <code class="parameter">$persistent</code><span class="initializer"> = <strong><code>false</code></strong></span></span>
+   ) : <span class="type"><span class="type"><a href="class.ffi-cdata.html" class="type FFI\CData">FFI\CData</a></span>|<span class="type">null</span></span></div>
 
   <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><strong>FFI::new</strong></span>
-    ( <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">$type</code></span>
-   [, <span class="methodparam"><span class="type">bool</span> <code class="parameter">$owned</code><span class="initializer"> = <strong><code>TRUE</code></strong></span></span>
-   [, <span class="methodparam"><span class="type">bool</span> <code class="parameter">$persistent</code><span class="initializer"> = <strong><code>FALSE</code></strong></span></span>
-  ]] ) : <span class="type"><a href="class.ffi-cdata.html" class="type FFI\CData">FFI\CData</a></span></div>
+    ( <span class="methodparam"><span class="type"><span class="type"><a href="class.ffi-ctype.html" class="type FFI\CType">FFI\CType</a></span>|<span class="type">string</span></span> <code class="parameter">$type</code></span>
+   , <span class="methodparam"><span class="type">bool</span> <code class="parameter">$owned</code><span class="initializer"> = <strong><code>true</code></strong></span></span>
+   , <span class="methodparam"><span class="type">bool</span> <code class="parameter">$persistent</code><span class="initializer"> = <strong><code>false</code></strong></span></span>
+   ) : <span class="type"><span class="type"><a href="class.ffi-cdata.html" class="type FFI\CData">FFI\CData</a></span>|<span class="type">null</span></span></div>
 
   <p class="para rdfs-comment">
    Creates a native data structure of the given C type.
@@ -109,7 +109,8 @@
  <div class="refsect1 returnvalues" id="refsect1-ffi.new-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns the freshly created <a href="class.ffi-cdata.html" class="classname">FFI\CData</a> object.
+   Returns the freshly created <a href="class.ffi-cdata.html" class="classname">FFI\CData</a> object,
+   or <strong><code>null</code></strong> on failure.
   </p>
  </div>
 

@@ -36,8 +36,8 @@
    <span class="methodname"><strong>fdf_set_file</strong></span>
     ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$fdf_document</code></span>
    , <span class="methodparam"><span class="type">string</span> <code class="parameter">$url</code></span>
-   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$target_frame</code></span>
-  ] ) : <span class="type">bool</span></div>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$target_frame</code> = ?</span>
+   ) : <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
    Selects a different PDF document to display the form results in then the
@@ -99,7 +99,7 @@
  <div class="refsect1 returnvalues" id="refsect1-function.fdf-set-file-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns <strong><code>TRUE</code></strong> on success or <strong><code>FALSE</code></strong> on failure.
+   Returns <strong><code>true</code></strong> on success or <strong><code>false</code></strong> on failure.
   </p>
  </div>
 
@@ -107,7 +107,7 @@
  <div class="refsect1 examples" id="refsect1-function.fdf-set-file-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-3616">
+   <div class="example" id="example-3632">
     <p><strong>Example #1 Passing FDF data to a second form</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

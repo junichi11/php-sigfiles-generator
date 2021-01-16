@@ -36,8 +36,8 @@
    <span class="methodname"><strong>fbsql_list_fields</strong></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$database_name</code></span>
    , <span class="methodparam"><span class="type">string</span> <code class="parameter">$table_name</code></span>
-   [, <span class="methodparam"><span class="type">resource</span> <code class="parameter">$link_identifier</code></span>
-  ] ) : <span class="type">resource</span></div>
+   , <span class="methodparam"><span class="type">resource</span> <code class="parameter">$link_identifier</code> = ?</span>
+   ) : <span class="type">resource</span></div>
 
   <p class="para rdfs-comment">
    Retrieves information about the given table.
@@ -96,7 +96,7 @@ such link is found it will try to create one as if
   <h3 class="title">Return Values</h3>
   <p class="para">
    Returns a result pointer which can be used with the
-   <code class="literal">fbsql_field_xxx</code> functions, or <strong><code>FALSE</code></strong> on error.
+   <code class="literal">fbsql_field_xxx</code> functions, or <strong><code>false</code></strong> on error.
   </p>
  </div>
 
@@ -115,7 +115,7 @@ such link is found it will try to create one as if
  <div class="refsect1 examples" id="refsect1-function.fbsql-list-fields-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-1213">
+   <div class="example" id="example-1225">
     <p><strong>Example #1 <span class="function"><strong>fbsql_list_fields()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

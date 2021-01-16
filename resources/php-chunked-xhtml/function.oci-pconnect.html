@@ -36,10 +36,10 @@
    <span class="methodname"><strong>oci_pconnect</strong></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$username</code></span>
    , <span class="methodparam"><span class="type">string</span> <code class="parameter">$password</code></span>
-   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$connection_string</code></span>
-   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$character_set</code></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$session_mode</code></span>
-  ]]] ) : <span class="type">resource</span></div>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$connection_string</code> = ?</span>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$character_set</code> = ?</span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$session_mode</code> = ?</span>
+   ) : <span class="type">resource</span></div>
 
   <p class="para rdfs-comment">
    Creates a persistent connection to an Oracle server and logs on. 
@@ -196,7 +196,7 @@ security reasons.
  <div class="refsect1 returnvalues" id="refsect1-function.oci-pconnect-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns a connection identifier or <strong><code>FALSE</code></strong> on error.
+   Returns a connection identifier or <strong><code>false</code></strong> on error.
   </p>
  </div>
 
@@ -204,7 +204,7 @@ security reasons.
  <div class="refsect1 examples" id="refsect1-function.oci-pconnect-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-2283">
+   <div class="example" id="example-2296">
     <p><strong>Example #1 Basic <span class="function"><strong>oci_pconnect()</strong></span> Example using Easy Connect syntax</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

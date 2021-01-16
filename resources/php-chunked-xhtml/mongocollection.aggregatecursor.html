@@ -34,8 +34,8 @@
   <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><strong>MongoCollection::aggregateCursor</strong></span>
     ( <span class="methodparam"><span class="type">array</span> <code class="parameter">$command</code></span>
-   [, <span class="methodparam"><span class="type">array</span> <code class="parameter">$options</code></span>
-  ] ) : <span class="type"><a href="class.mongocommandcursor.html" class="type MongoCommandCursor">MongoCommandCursor</a></span></div>
+   , <span class="methodparam"><span class="type">array</span> <code class="parameter">$options</code> = ?</span>
+   ) : <span class="type"><a href="class.mongocommandcursor.html" class="type MongoCommandCursor">MongoCommandCursor</a></span></div>
 
   <p class="para rdfs-comment">
    With this method you can execute Aggregation Framework pipelines and
@@ -148,7 +148,7 @@
 
  <div class="refsect1 examples" id="refsect1-mongocollection.aggregatecursor-examples">
   <h3 class="title">Examples</h3>
-  <div class="example" id="example-1390">
+  <div class="example" id="example-1402">
    <p><strong>Example #1 <span class="function"><strong>MongoCollection::aggregateCursor()</strong></span> example</strong></p>
    <div class="example-contents"><p>
     Finding all of the distinct values for a key.
@@ -169,7 +169,7 @@ Sally: 22<br />
    </div>
   </div>
 
-  <div class="example" id="example-1391">
+  <div class="example" id="example-1403">
    <p><strong>Example #2 <span class="function"><strong>MongoCollection::aggregateCursor()</strong></span>
    example with different initial batch size</strong></p>
    <div class="example-contents"><p>

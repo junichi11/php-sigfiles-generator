@@ -33,13 +33,13 @@
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>imap_delete</strong></span>
-    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$imap_stream</code></span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$msg_number</code></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$options</code><span class="initializer"> = 0</span></span>
-  ] ) : <span class="type">bool</span></div>
+    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$imap</code></span>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$message_num</code></span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code><span class="initializer"> = 0</span></span>
+   ) : <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
-   Marks messages listed in <code class="parameter">msg_number</code> for deletion.
+   Marks messages listed in <code class="parameter">message_num</code> for deletion.
    Messages marked for deletion will stay in the mailbox until either
    <span class="function"><a href="function.imap-expunge.html" class="function">imap_expunge()</a></span> is called or
    <span class="function"><a href="function.imap-close.html" class="function">imap_close()</a></span> is called with the optional parameter
@@ -54,14 +54,14 @@
 
     <dt>
 <code class="parameter">
-imap_stream</code></dt>
+imap</code></dt>
 <dd>
 <p class="para">An IMAP stream returned by
 <span class="function"><a href="function.imap-open.html" class="function">imap_open()</a></span>.</p></dd>
 
     
      <dt>
-<code class="parameter">msg_number</code></dt>
+<code class="parameter">message_num</code></dt>
 
      <dd>
 
@@ -73,13 +73,13 @@ imap_stream</code></dt>
     
     
      <dt>
-<code class="parameter">options</code></dt>
+<code class="parameter">flags</code></dt>
 
      <dd>
 
       <p class="para">
        You can set the <strong><code>FT_UID</code></strong> which tells the function
-       to treat the <code class="parameter">msg_number</code> argument as a
+       to treat the <code class="parameter">message_num</code> argument as a
        <code class="literal">UID</code>.
       </p>
      </dd>
@@ -93,14 +93,14 @@ imap_stream</code></dt>
  <div class="refsect1 returnvalues" id="refsect1-function.imap-delete-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns <strong><code>TRUE</code></strong>.
+   Returns <strong><code>true</code></strong>.
   </p>
  </div>
 
  <div class="refsect1 examples" id="refsect1-function.imap-delete-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-3478">
+   <div class="example" id="example-3493">
     <p><strong>Example #1 <span class="function"><strong>imap_delete()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

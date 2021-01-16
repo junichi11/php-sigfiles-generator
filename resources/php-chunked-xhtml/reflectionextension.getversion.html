@@ -35,7 +35,7 @@
   <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><strong>ReflectionExtension::getVersion</strong></span>
     (
-   ) : <span class="type">string</span></div>
+   ) : <span class="type"><span class="type">string</span>|<span class="type">null</span></span></div>
 
   <p class="para rdfs-comment">
    Gets the version of the extension.
@@ -52,7 +52,7 @@
  <div class="refsect1 returnvalues" id="refsect1-reflectionextension.getversion-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   The version of the extension.
+   The version of the extension, or <strong><code>null</code></strong> if the extension has no version.
   </p>
  </div>
 
@@ -60,7 +60,7 @@
  <div class="refsect1 examples" id="refsect1-reflectionextension.getversion-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-5685">
+   <div class="example" id="example-5706">
     <p><strong>Example #1 <span class="methodname"><strong>ReflectionExtension::getVersion()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

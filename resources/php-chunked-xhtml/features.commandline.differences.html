@@ -76,9 +76,9 @@
         <tbody class="tbody">
          <tr>
           <td><a href="errorfunc.configuration.html#ini.html-errors" class="link">html_errors</a></td>
-          <td><strong><code>FALSE</code></strong></td>
+          <td><strong><code>false</code></strong></td>
           <td>
-           Defaults to <strong><code>FALSE</code></strong>, as it can be quite hard to read error messages
+           Defaults to <strong><code>false</code></strong>, as it can be quite hard to read error messages
            in the shell environment when they are cluttered up with uninterpreted
            <acronym title="Hyper Text Markup Language">HTML</acronym> tags.
           </td>
@@ -86,7 +86,7 @@
 
          <tr>
           <td><a href="outcontrol.configuration.html#ini.implicit-flush" class="link">implicit_flush</a></td>
-          <td><strong><code>TRUE</code></strong></td>
+          <td><strong><code>true</code></strong></td>
           <td>
            In a shell environment, it is usually desirable for output, such as
            from <span class="function"><a href="function.print.html" class="function">print</a></span>, <span class="function"><a href="function.echo.html" class="function">echo</a></span> and
@@ -109,10 +109,10 @@
 
          <tr>
           <td><a href="ini.core.html#ini.register-argc-argv" class="link">register_argc_argv</a></td>
-          <td><strong><code>TRUE</code></strong></td>
+          <td><strong><code>true</code></strong></td>
           <td>
           <p class="para">
-           Setting this to <strong><code>TRUE</code></strong> means that scripts executed via the
+           Setting this to <strong><code>true</code></strong> means that scripts executed via the
            <acronym title="Command Line Interpreter/Interface">CLI</acronym> <acronym title="Server Application Programming Interface">SAPI</acronym> always have access to
            <em class="emphasis">argc</em> (number of arguments passed to the
            application) and <em class="emphasis">argv</em> (array of the actual
@@ -130,10 +130,10 @@
 
          <tr>
           <td><a href="outcontrol.configuration.html#ini.output-buffering" class="link">output_buffering</a></td>
-          <td><strong><code>FALSE</code></strong></td>
+          <td><strong><code>false</code></strong></td>
           <td>
            <p class="para">
-            Although the <var class="filename">php.ini</var> setting is hardcoded to <strong><code>FALSE</code></strong>, the
+            Although the <var class="filename">php.ini</var> setting is hardcoded to <strong><code>false</code></strong>, the
             <a href="book.outcontrol.html" class="link">Output buffering</a> functions
             are available.
            </p>
@@ -142,7 +142,7 @@
 
          <tr>
           <td><a href="info.configuration.html#ini.max-input-time" class="link">max_input_time</a></td>
-          <td><strong><code>FALSE</code></strong></td>
+          <td><strong><code>false</code></strong></td>
           <td>
            <p class="para">
             The PHP <acronym title="Command Line Interpreter/Interface">CLI</acronym> does not support GET, POST or file uploads.
@@ -188,7 +188,7 @@
       The <acronym title="Command Line Interpreter/Interface">CLI</acronym> <acronym title="Server Application Programming Interface">SAPI</acronym> does <em class="emphasis">not</em> change the
       current directory to the directory of the executed script.
      </p>
-     <div class="example" id="example-416">
+     <div class="example" id="example-429">
       <p><strong>Example #1 
        Example showing the difference to the <acronym title="Common Gateway Interface">CGI</acronym>
        <acronym title="Server Application Programming Interface">SAPI</acronym>:

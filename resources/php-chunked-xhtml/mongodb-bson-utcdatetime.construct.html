@@ -34,8 +34,8 @@
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
    <span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><strong>MongoDB\BSON\UTCDateTime::__construct</strong></span>
-    ([ <span class="methodparam"><span class="type"><span class="type">int</span>|<span class="type">float</span>|<span class="type">string</span>|<span class="type"><a href="class.datetimeinterface.html" class="type DateTimeInterface">DateTimeInterface</a></span></span> <code class="parameter">$milliseconds</code><span class="initializer"> = <strong><code>NULL</code></strong></span></span>
-  ] )</div>
+    ( <span class="methodparam"><span class="type"><span class="type">int</span>|<span class="type">float</span>|<span class="type">string</span>|<span class="type"><a href="class.datetimeinterface.html" class="type DateTimeInterface">DateTimeInterface</a></span></span> <code class="parameter">$milliseconds</code><span class="initializer"> = <strong><code>null</code></strong></span></span>
+   )</div>
 
  </div>
 
@@ -67,7 +67,7 @@
         incorporate sub-second precision</a>.
      </p>
      <p class="para">
-      If this argument is <strong><code>NULL</code></strong>, the current time will be used by default.
+      If this argument is <strong><code>null</code></strong>, the current time will be used by default.
      </p>
     </dd>
 
@@ -104,7 +104,7 @@
        <td>
         <p class="para">
          The <code class="parameter">milliseconds</code> argument is optional and
-         defaults to <strong><code>NULL</code></strong> (i.e. current time). The argument also accepts a
+         defaults to <strong><code>null</code></strong> (i.e. current time). The argument also accepts a
          <a href="class.datetimeinterface.html" class="classname">DateTimeInterface</a>, which may be used to derive
          the number of milliseconds since the Unix epoch. Previously, only
          <span class="type">int</span>, <span class="type">float</span>, and <span class="type">string</span> types
@@ -123,7 +123,7 @@
 
  <div class="refsect1 examples" id="refsect1-mongodb-bson-utcdatetime.construct-examples">
   <h3 class="title">Examples</h3>
-  <div class="example" id="example-1603">
+  <div class="example" id="example-1615">
    <p><strong>Example #1 <span class="function"><strong>MongoDB\BSON\UTCDateTime::__construct()</strong></span> example</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

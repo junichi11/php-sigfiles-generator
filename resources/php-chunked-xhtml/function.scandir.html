@@ -35,9 +35,9 @@
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>scandir</strong></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$directory</code></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$sorting_order</code><span class="initializer"> = SCANDIR_SORT_ASCENDING</span></span>
-   [, <span class="methodparam"><span class="type">resource</span> <code class="parameter">$context</code></span>
-  ]] ) : <span class="type">array</span></div>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$sorting_order</code><span class="initializer"> = SCANDIR_SORT_ASCENDING</span></span>
+   , <span class="methodparam"><span class="type">resource</span> <code class="parameter">$context</code> = ?</span>
+   ) : <span class="type">array</span></div>
 
   <p class="para rdfs-comment">
    Returns an <span class="type">array</span> of files and directories from the
@@ -103,9 +103,9 @@
  <div class="refsect1 returnvalues" id="refsect1-function.scandir-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns an <span class="type">array</span> of filenames on success, or <strong><code>FALSE</code></strong> on 
+   Returns an <span class="type">array</span> of filenames on success, or <strong><code>false</code></strong> on 
    failure. If <code class="parameter">directory</code> is not a directory, then 
-   boolean <strong><code>FALSE</code></strong> is returned, and an error of level 
+   boolean <strong><code>false</code></strong> is returned, and an error of level 
    <strong><code>E_WARNING</code></strong> is generated.
   </p> 
  </div>
@@ -114,7 +114,7 @@
  <div class="refsect1 examples" id="refsect1-function.scandir-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-2597">
+   <div class="example" id="example-2612">
     <p><strong>Example #1 A simple <span class="function"><strong>scandir()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

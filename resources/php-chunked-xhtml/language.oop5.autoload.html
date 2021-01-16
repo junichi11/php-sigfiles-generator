@@ -32,8 +32,7 @@
    at the beginning of each script (one for each class).
   </p>
   <p class="para">
-   In PHP 5, this is no longer necessary. The
-   <span class="function"><a href="function.spl-autoload-register.html" class="function">spl_autoload_register()</a></span> function registers any number of
+   The <span class="function"><a href="function.spl-autoload-register.html" class="function">spl_autoload_register()</a></span> function registers any number of
    autoloaders, enabling for classes and interfaces to be automatically loaded
    if they are currently not defined. By registering autoloaders, PHP is given
    a last chance to load the class or interface before it fails with an error.
@@ -51,17 +50,6 @@
   </div>
   <blockquote class="note"><p><strong class="note">Note</strong>: 
    <p class="para">
-    Prior to PHP 5.3, exceptions thrown in the <span class="function"><a href="function.autoload.html" class="function">__autoload()</a></span>
-    function could not be caught in the
-    <a href="language.exceptions.html" class="link">catch</a> block and would result in
-    a fatal error. From PHP 5.3 and upwards, this is possible provided that if
-    a custom exception is thrown, then the custom exception class is available.
-    The <span class="function"><a href="function.autoload.html" class="function">__autoload()</a></span> function may be used recursively to
-    autoload the custom exception class.
-   </p>
-  </p></blockquote>
-  <blockquote class="note"><p><strong class="note">Note</strong>: 
-   <p class="para">
     Autoloading is not available if using PHP in CLI
     <a href="features.commandline.html" class="link">interactive mode</a>.
    </p>
@@ -75,7 +63,7 @@
    </p>
   </p></blockquote>
   <p class="para">
-   <div class="example" id="example-205">
+   <div class="example" id="example-213">
     <p><strong>Example #1 Autoload example</strong></p>
     <div class="example-contents"><p>
      This example attempts to load the classes <code class="literal">MyClass1</code>
@@ -90,7 +78,7 @@
     </div>
 
    </div>
-   <div class="example" id="example-206">
+   <div class="example" id="example-214">
     <p><strong>Example #2 Autoload other example</strong></p>
     <div class="example-contents"><p>
      This example attempts to load the interface <code class="literal">ITest</code>.
@@ -103,8 +91,8 @@
     </div>
 
    </div>
-   <div class="example" id="language.oop5.basic.class.class.name">
-    <p><strong>Example #3 Autoloading with exception handling for 5.3.0+</strong></p>
+   <div class="example" id="example-215">
+    <p><strong>Example #3 Autoloading with exception handling</strong></p>
     <div class="example-contents"><p>
      This example throws an exception and demonstrates the try/catch block.
     </p></div>
@@ -123,8 +111,8 @@ Unable to load NonLoadableClass.
 </pre></div>
     </div>
    </div>
-   <div class="example" id="language.oop5.basic.class.class.fail">
-    <p><strong>Example #4 Autoloading with exception handling for 5.3.0+ - Missing custom exception</strong></p>
+   <div class="example" id="example-216">
+    <p><strong>Example #4 Autoloading with exception handling - Missing custom exception</strong></p>
     <div class="example-contents"><p>
      This example throws an exception for a non-loadable, custom exception.
     </p></div>

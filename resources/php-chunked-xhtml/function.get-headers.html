@@ -35,9 +35,9 @@
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>get_headers</strong></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$url</code></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$format</code><span class="initializer"> = 0</span></span>
-   [, <span class="methodparam"><span class="type">resource</span> <code class="parameter">$context</code></span>
-  ]] ) : <span class="type">array</span></div>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$format</code><span class="initializer"> = 0</span></span>
+   , <span class="methodparam"><span class="type">resource</span> <code class="parameter">$context</code> = ?</span>
+   ) : <span class="type">array</span></div>
 
   <p class="para rdfs-comment">
    <span class="function"><strong>get_headers()</strong></span> returns an array with the headers sent
@@ -99,7 +99,7 @@
  <div class="refsect1 returnvalues" id="refsect1-function.get-headers-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns an indexed or associative array with the headers, or <strong><code>FALSE</code></strong> on
+   Returns an indexed or associative array with the headers, or <strong><code>false</code></strong> on
    failure.
   </p>
  </div>
@@ -137,7 +137,7 @@
  <div class="refsect1 examples" id="refsect1-function.get-headers-examples">
  <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-4332">
+   <div class="example" id="example-4354">
     <p><strong>Example #1 <span class="function"><strong>get_headers()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -178,7 +178,7 @@ Array
 </pre></div>
     </div>
    </div>
-   <div class="example" id="example-4333">
+   <div class="example" id="example-4355">
     <p><strong>Example #2 <span class="function"><strong>get_headers()</strong></span> using HEAD example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

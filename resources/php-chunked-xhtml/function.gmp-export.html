@@ -34,10 +34,10 @@
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>gmp_export</strong></span>
-    ( <span class="methodparam"><span class="type"><a href="class.gmp.html" class="type GMP">GMP</a></span> <code class="parameter">$gmpnumber</code></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$word_size</code><span class="initializer"> = 1</span></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$options</code><span class="initializer"> = <strong><code>GMP_MSW_FIRST</code></strong> | <strong><code>GMP_NATIVE_ENDIAN</code></strong></span></span>
-  ]] ) : <span class="type"><span class="type">string</span>|<span class="type"><span class="type false">false</span></span></span></div>
+    ( <span class="methodparam"><span class="type"><span class="type"><a href="class.gmp.html" class="type GMP">GMP</a></span>|<span class="type">int</span>|<span class="type">string</span></span> <code class="parameter">$num</code></span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$word_size</code><span class="initializer"> = 1</span></span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code><span class="initializer"> = <strong><code>GMP_MSW_FIRST</code></strong> | <strong><code>GMP_NATIVE_ENDIAN</code></strong></span></span>
+   ) : <span class="type">string</span></div>
 
   <p class="para rdfs-comment">
    Export a GMP number to a binary string
@@ -52,7 +52,7 @@
 
     
      <dt>
-<code class="parameter">gmpnumber</code></dt>
+<code class="parameter">num</code></dt>
 
      <dd>
 
@@ -76,7 +76,7 @@
     
     
      <dt>
-<code class="parameter">options</code></dt>
+<code class="parameter">flags</code></dt>
 
      <dd>
 
@@ -95,15 +95,42 @@
  <div class="refsect1 returnvalues" id="refsect1-function.gmp-export-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns a string or <strong><code>FALSE</code></strong> on failure.
+   Returns a string.
   </p>
+ </div>
+
+
+ <div class="refsect1 changelog" id="refsect1-function.gmp-export-changelog">
+  <h3 class="title">Changelog</h3>
+  <table class="doctable informaltable">
+   
+    <thead>
+     <tr>
+      <th>Version</th>
+      <th>Description</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+      <td>8.0.0</td>
+      <td>
+       This function no longer returns <strong><code>false</code></strong> on failure.
+      </td>
+     </tr>
+
+    </tbody>
+   
+  </table>
+
  </div>
 
 
  <div class="refsect1 examples" id="refsect1-function.gmp-export-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-3536">
+   <div class="example" id="example-3551">
     <p><strong>Example #1 <span class="function"><strong>gmp_export()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

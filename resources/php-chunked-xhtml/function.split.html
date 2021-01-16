@@ -55,8 +55,8 @@
    <span class="methodname"><strong>split</strong></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$pattern</code></span>
    , <span class="methodparam"><span class="type">string</span> <code class="parameter">$string</code></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$limit</code><span class="initializer"> = -1</span></span>
-  ] ) : <span class="type">array</span></div>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$limit</code><span class="initializer"> = -1</span></span>
+   ) : <span class="type">array</span></div>
 
   <p class="para rdfs-comment">
    Splits a <code class="parameter">string</code> into array by regular expression.
@@ -138,7 +138,7 @@
    there is no occurrence of <code class="parameter">pattern</code>, an array with
    only one element will be returned. Of course, this is also true if
    <code class="parameter">string</code> is empty. If an error occurs,
-   <span class="function"><strong>split()</strong></span> returns <strong><code>FALSE</code></strong>.
+   <span class="function"><strong>split()</strong></span> returns <strong><code>false</code></strong>.
   </p>
  </div>
 
@@ -146,7 +146,7 @@
  <div class="refsect1 examples" id="refsect1-function.split-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-5254">
+   <div class="example" id="example-5275">
     <p><strong>Example #1 <span class="function"><strong>split()</strong></span> example</strong></p>
     <div class="example-contents"><p>
      To split off the first four fields from a line from
@@ -162,7 +162,7 @@
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-5255">
+   <div class="example" id="example-5276">
     <p><strong>Example #2 <span class="function"><strong>split()</strong></span> example</strong></p>
     <div class="example-contents"><p>
      To parse a date which may be delimited with slashes, dots, or hyphens:

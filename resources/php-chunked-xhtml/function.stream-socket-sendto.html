@@ -35,9 +35,9 @@
    <span class="methodname"><strong>stream_socket_sendto</strong></span>
     ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$socket</code></span>
    , <span class="methodparam"><span class="type">string</span> <code class="parameter">$data</code></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code><span class="initializer"> = 0</span></span>
-   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$address</code></span>
-  ]] ) : <span class="type">int</span></div>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code><span class="initializer"> = 0</span></span>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$address</code> = ?</span>
+   ) : <span class="type">int</span></div>
 
   <p class="para rdfs-comment">
    Sends the specified <code class="parameter">data</code> through the
@@ -136,7 +136,7 @@
  <div class="refsect1 examples" id="refsect1-function.stream-socket-sendto-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-4288">
+   <div class="example" id="example-4303">
     <p><strong>Example #1 <span class="function"><strong>stream_socket_sendto()</strong></span> Example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

@@ -40,6 +40,14 @@
    , <span class="methodparam"><span class="type">int</span> <code class="parameter">$color</code></span>
    ) : <span class="type">bool</span></div>
 
+  <p class="simpara">Alternative signature (as of PHP 8.0.0)</p>
+  <div class="methodsynopsis dc-description">
+   <span class="methodname"><strong>imageopenpolygon</strong></span>
+    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$image</code></span>
+   , <span class="methodparam"><span class="type">array</span> <code class="parameter">$points</code></span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$color</code></span>
+   ) : <span class="type">bool</span></div>
+
   <p class="para rdfs-comment">
    <span class="function"><strong>imageopenpolygon()</strong></span> draws an open polygon on the given
    <code class="parameter">image</code>. Contrary to <span class="function"><a href="function.imagepolygon.html" class="function">imagepolygon()</a></span>,
@@ -108,6 +116,11 @@ such as <span class="function"><a href="function.imagecreatetruecolor.html" clas
       <p class="para">
        Total number of points (vertices), which must be at least 3.
       </p>
+      <span class="simpara">
+       If this parameter is omitted as per the second signature, <code class="parameter">points</code>
+       must have an even number of elements, and <code class="parameter">num_points</code> is
+       assumed to be <code class="code">count($points)/2</code>.
+      </span>
      </dd>
 
     
@@ -132,7 +145,7 @@ such as <span class="function"><a href="function.imagecreatetruecolor.html" clas
  <div class="refsect1 returnvalues" id="refsect1-function.imageopenpolygon-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns <strong><code>TRUE</code></strong> on success or <strong><code>FALSE</code></strong> on failure.
+   Returns <strong><code>true</code></strong> on success or <strong><code>false</code></strong> on failure.
   </p>
  </div>
 
@@ -140,7 +153,7 @@ such as <span class="function"><a href="function.imagecreatetruecolor.html" clas
  <div class="refsect1 examples" id="refsect1-function.imageopenpolygon-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-3170">
+   <div class="example" id="example-3185">
     <p><strong>Example #1 <span class="function"><strong>imageopenpolygon()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

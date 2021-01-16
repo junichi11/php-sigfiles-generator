@@ -278,8 +278,8 @@
       <tr>
        <td>Supports <span class="function"><a href="function.stat.html" class="function">stat()</a></span></td>
        <td>
-        <code class="literal">php://memory</code> and
-        <code class="literal">php://temp</code> only.
+        No.  However, <code class="literal">php://memory</code> and
+        <code class="literal">php://temp</code> support <span class="function"><a href="function.fstat.html" class="function">fstat()</a></span>.
        </td>
       </tr>
 
@@ -338,7 +338,7 @@
    </div>
 
   </div>
-  <div class="example" id="example-368">
+  <div class="example" id="example-383">
    <p><strong>Example #2 php://filter/resource=&lt;stream to be filtered&gt;</strong></p>
    <div class="example-contents"><p>
     This parameter must be located at
@@ -353,7 +353,7 @@
    </div>
 
   </div>
-  <div class="example" id="example-369">
+  <div class="example" id="example-384">
    <p><strong>Example #3 php://filter/read=&lt;filter list to apply to read chain&gt;</strong></p>
    <div class="example-contents"><p>
     This parameter takes one or more
@@ -367,7 +367,7 @@
    </div>
 
   </div>
-  <div class="example" id="example-370">
+  <div class="example" id="example-385">
    <p><strong>Example #4 php://filter/write=&lt;filter list to apply to write chain&gt;</strong></p>
    <div class="example-contents"><p>
     This parameter takes one or more
@@ -381,7 +381,7 @@
    </div>
 
   </div>
-  <div class="example" id="example-371">
+  <div class="example" id="example-386">
    <p><strong>Example #5 php://memory and php://temp are not reusable</strong></p>
    <div class="example-contents"><p>
     <var class="filename">php://memory</var> and <var class="filename">php://temp</var>

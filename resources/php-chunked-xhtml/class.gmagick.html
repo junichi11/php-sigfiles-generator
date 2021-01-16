@@ -74,8 +74,8 @@
    <span class="modifier">public</span> <span class="methodname"><a href="gmagick.blurimage.html" class="methodname">blurimage</a></span>
     ( <span class="methodparam"><span class="type">float</span> <code class="parameter">$radius</code></span>
    , <span class="methodparam"><span class="type">float</span> <code class="parameter">$sigma</code></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$channel</code></span>
-  ] ) : <span class="type"><a href="class.gmagick.html" class="type Gmagick">Gmagick</a></span></div>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$channel</code> = ?</span>
+   ) : <span class="type"><a href="class.gmagick.html" class="type Gmagick">Gmagick</a></span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="gmagick.borderimage.html" class="methodname">borderimage</a></span>
     ( <span class="methodparam"><span class="type"><a href="class.gmagickpixel.html" class="type GmagickPixel">GmagickPixel</a></span> <code class="parameter">$color</code></span>
@@ -111,8 +111,8 @@
    ) : <span class="type"><a href="class.gmagick.html" class="type Gmagick">Gmagick</a></span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="gmagick.construct.html" class="methodname">__construct</a></span>
-    ([ <span class="methodparam"><span class="type">string</span> <code class="parameter">$filename</code></span>
-  ] )</div>
+    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$filename</code> = ?</span>
+   )</div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="gmagick.cropimage.html" class="methodname">cropimage</a></span>
      ( <span class="methodparam">
@@ -355,30 +355,30 @@
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="gmagick.hasnextimage.html" class="methodname">hasnextimage</a></span>
     (
-   ) : <span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span></div>
+   ) : <span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="gmagick.haspreviousimage.html" class="methodname">haspreviousimage</a></span>
     (
-   ) : <span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span></div>
+   ) : <span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="gmagick.implodeimage.html" class="methodname">implodeimage</a></span>
     ( <span class="methodparam"><span class="type">float</span> <code class="parameter">$radius</code></span>
-   ) : <span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span></div>
+   ) : <span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="gmagick.labelimage.html" class="methodname">labelimage</a></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$label</code></span>
-   ) : <span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span></div>
+   ) : <span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="gmagick.levelimage.html" class="methodname">levelimage</a></span>
     ( <span class="methodparam"><span class="type">float</span> <code class="parameter">$blackPoint</code></span>
    , <span class="methodparam"><span class="type">float</span> <code class="parameter">$gamma</code></span>
    , <span class="methodparam"><span class="type">float</span> <code class="parameter">$whitePoint</code></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$channel</code><span class="initializer"> = Gmagick::CHANNEL_DEFAULT</span></span>
-  ] ) : <span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span></div>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$channel</code><span class="initializer"> = Gmagick::CHANNEL_DEFAULT</span></span>
+   ) : <span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="gmagick.magnifyimage.html" class="methodname">magnifyimage</a></span>
     (
-   ) : <span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span></div>
+   ) : <span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="gmagick.mapimage.html" class="methodname">mapimage</a></span>
     ( <span class="methodparam"><span class="type"><a href="class.gmagick.html" class="type gmagick">gmagick</a></span> <code class="parameter">$gmagick</code></span>
@@ -409,16 +409,16 @@
     ( <span class="methodparam"><span class="type">int</span> <code class="parameter">$width</code></span>
    , <span class="methodparam"><span class="type">int</span> <code class="parameter">$height</code></span>
    , <span class="methodparam"><span class="type">string</span> <code class="parameter">$background</code></span>
-   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$format</code></span>    
-  ] ) : <span class="type"><a href="class.gmagick.html" class="type Gmagick">Gmagick</a></span></div>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$format</code> = ?</span>    
+   ) : <span class="type"><a href="class.gmagick.html" class="type Gmagick">Gmagick</a></span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="gmagick.nextimage.html" class="methodname">nextimage</a></span>
     (
    ) : <span class="type">bool</span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="gmagick.normalizeimage.html" class="methodname">normalizeimage</a></span>
-    ([ <span class="methodparam"><span class="type">int</span> <code class="parameter">$channel</code></span>
-  ] ) : <span class="type"><a href="class.gmagick.html" class="type Gmagick">Gmagick</a></span></div>
+    ( <span class="methodparam"><span class="type">int</span> <code class="parameter">$channel</code> = ?</span>
+   ) : <span class="type"><a href="class.gmagick.html" class="type Gmagick">Gmagick</a></span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="gmagick.oilpaintimage.html" class="methodname">oilpaintimage</a></span>
      ( <span class="methodparam">
@@ -458,17 +458,17 @@
    ) : <span class="type">array</span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="gmagick.queryfonts.html" class="methodname">queryfonts</a></span>
-    ([ <span class="methodparam"><span class="type">string</span> <code class="parameter">$pattern</code><span class="initializer"> = &quot;*&quot;</span></span>
-  ] ) : <span class="type">array</span></div>
+    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$pattern</code><span class="initializer"> = &quot;*&quot;</span></span>
+   ) : <span class="type">array</span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="gmagick.queryformats.html" class="methodname">queryformats</a></span>
-    ([ <span class="methodparam"><span class="type">string</span> <code class="parameter">$pattern</code><span class="initializer"> = &quot;*&quot;</span></span>
-  ] ) : <span class="type">array</span></div>
+    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$pattern</code><span class="initializer"> = &quot;*&quot;</span></span>
+   ) : <span class="type">array</span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="gmagick.radialblurimage.html" class="methodname">radialblurimage</a></span>
     ( <span class="methodparam"><span class="type">float</span> <code class="parameter">$angle</code></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$channel</code><span class="initializer"> = Gmagick::CHANNEL_DEFAULT</span></span>
-  ] ) : <span class="type"><a href="class.gmagick.html" class="type Gmagick">Gmagick</a></span></div>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$channel</code><span class="initializer"> = Gmagick::CHANNEL_DEFAULT</span></span>
+   ) : <span class="type"><a href="class.gmagick.html" class="type Gmagick">Gmagick</a></span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="gmagick.raiseimage.html" class="methodname">raiseimage</a></span>
     ( <span class="methodparam"><span class="type">int</span> <code class="parameter">$width</code></span>
@@ -488,13 +488,13 @@
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="gmagick.readimageblob.html" class="methodname">readimageblob</a></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$imageContents</code></span>
-   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$filename</code></span>
-  ] ) : <span class="type"><a href="class.gmagick.html" class="type Gmagick">Gmagick</a></span></div>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$filename</code> = ?</span>
+   ) : <span class="type"><a href="class.gmagick.html" class="type Gmagick">Gmagick</a></span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="gmagick.readimagefile.html" class="methodname">readimagefile</a></span>
     ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$fp</code></span>
-   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$filename</code></span>
-  ] ) : <span class="type"><a href="class.gmagick.html" class="type Gmagick">Gmagick</a></span></div>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$filename</code> = ?</span>
+   ) : <span class="type"><a href="class.gmagick.html" class="type Gmagick">Gmagick</a></span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="gmagick.reducenoiseimage.html" class="methodname">reducenoiseimage</a></span>
     ( <span class="methodparam"><span class="type">float</span> <code class="parameter">$radius</code></span>
@@ -520,8 +520,8 @@
    , <span class="methodparam"><span class="type">int</span> <code class="parameter">$height</code></span>
    , <span class="methodparam"><span class="type">int</span> <code class="parameter">$filter</code></span>
    , <span class="methodparam"><span class="type">float</span> <code class="parameter">$blur</code></span>
-   [, <span class="methodparam"><span class="type">bool</span> <code class="parameter">$fit</code><span class="initializer"> = <strong><code>FALSE</code></strong></span></span>
-  ] ) : <span class="type"><a href="class.gmagick.html" class="type Gmagick">Gmagick</a></span></div>
+   , <span class="methodparam"><span class="type">bool</span> <code class="parameter">$fit</code><span class="initializer"> = <strong><code>false</code></strong></span></span>
+   ) : <span class="type"><a href="class.gmagick.html" class="type Gmagick">Gmagick</a></span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="gmagick.rollimage.html" class="methodname">rollimage</a></span>
     ( <span class="methodparam"><span class="type">int</span> <code class="parameter">$x</code></span>
@@ -529,15 +529,15 @@
    ) : <span class="type"><a href="class.gmagick.html" class="type Gmagick">Gmagick</a></span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="gmagick.rotateimage.html" class="methodname">rotateimage</a></span>
-    ( <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">$color</code></span>
+    ( <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$color</code></span>
    , <span class="methodparam"><span class="type">float</span> <code class="parameter">$degrees</code></span>
    ) : <span class="type"><a href="class.gmagick.html" class="type Gmagick">Gmagick</a></span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="gmagick.scaleimage.html" class="methodname">scaleimage</a></span>
     ( <span class="methodparam"><span class="type">int</span> <code class="parameter">$width</code></span>
    , <span class="methodparam"><span class="type">int</span> <code class="parameter">$height</code></span>
-   [, <span class="methodparam"><span class="type">bool</span> <code class="parameter">$fit</code><span class="initializer"> = <strong><code>FALSE</code></strong></span></span>
-  ] ) : <span class="type"><a href="class.gmagick.html" class="type Gmagick">Gmagick</a></span></div>
+   , <span class="methodparam"><span class="type">bool</span> <code class="parameter">$fit</code><span class="initializer"> = <strong><code>false</code></strong></span></span>
+   ) : <span class="type"><a href="class.gmagick.html" class="type Gmagick">Gmagick</a></span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="gmagick.separateimagechannel.html" class="methodname">separateimagechannel</a></span>
     ( <span class="methodparam"><span class="type">int</span> <code class="parameter">$channel</code></span>
@@ -667,7 +667,7 @@
    ) : <span class="type"><a href="class.gmagick.html" class="type Gmagick">Gmagick</a></span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="gmagick.shearimage.html" class="methodname">shearimage</a></span>
-    ( <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">$color</code></span>
+    ( <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$color</code></span>
    , <span class="methodparam"><span class="type">float</span> <code class="parameter">$xShear</code></span>
    , <span class="methodparam"><span class="type">float</span> <code class="parameter">$yShear</code></span>
    ) : <span class="type"><a href="class.gmagick.html" class="type Gmagick">Gmagick</a></span></div>
@@ -691,8 +691,8 @@
    <span class="modifier">public</span> <span class="methodname"><a href="gmagick.thumbnailimage.html" class="methodname">thumbnailimage</a></span>
     ( <span class="methodparam"><span class="type">int</span> <code class="parameter">$width</code></span>
    , <span class="methodparam"><span class="type">int</span> <code class="parameter">$height</code></span>
-   [, <span class="methodparam"><span class="type">bool</span> <code class="parameter">$fit</code><span class="initializer"> = <strong><code>FALSE</code></strong></span></span>
-  ] ) : <span class="type"><a href="class.gmagick.html" class="type Gmagick">Gmagick</a></span></div>
+   , <span class="methodparam"><span class="type">bool</span> <code class="parameter">$fit</code><span class="initializer"> = <strong><code>false</code></strong></span></span>
+   ) : <span class="type"><a href="class.gmagick.html" class="type Gmagick">Gmagick</a></span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="gmagick.trimimage.html" class="methodname">trimimage</a></span>
     ( <span class="methodparam"><span class="type">float</span> <code class="parameter">$fuzz</code></span>
@@ -700,8 +700,8 @@
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="gmagick.writeimage.html" class="methodname">writeimage</a></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$filename</code></span>
-   [, <span class="methodparam"><span class="type">bool</span> <code class="parameter">$all_frames</code><span class="initializer"> = <strong><code>FALSE</code></strong></span></span>
-  ] ) : <span class="type"><a href="class.gmagick.html" class="type Gmagick">Gmagick</a></span></div>
+   , <span class="methodparam"><span class="type">bool</span> <code class="parameter">$all_frames</code><span class="initializer"> = <strong><code>false</code></strong></span></span>
+   ) : <span class="type"><a href="class.gmagick.html" class="type Gmagick">Gmagick</a></span></div>
 
    }</div>
 

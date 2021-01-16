@@ -37,18 +37,18 @@
   </p>
   <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="modifier">static</span> <span class="methodname"><strong>IntlCalendar::createInstance</strong></span>
-    ([ <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">$timeZone</code><span class="initializer"> = NULL</span></span>
-   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$locale</code><span class="initializer"> = &quot;&quot;</span></span>
-  ]] ) : <span class="type"><a href="class.intlcalendar.html" class="type IntlCalendar">IntlCalendar</a></span></div>
+    ( <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$timeZone</code><span class="initializer"> = NULL</span></span>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$locale</code><span class="initializer"> = &quot;&quot;</span></span>
+   ) : <span class="type"><a href="class.intlcalendar.html" class="type IntlCalendar">IntlCalendar</a></span></div>
 
   <p class="para rdfs-comment">
    Procedural style
   </p>
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>intlcal_create_instance</strong></span>
-    ([ <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">$timeZone</code><span class="initializer"> = NULL</span></span>
-   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$locale</code><span class="initializer"> = &quot;&quot;</span></span>
-  ]] ) : <span class="type"><a href="class.intlcalendar.html" class="type IntlCalendar">IntlCalendar</a></span></div>
+    ( <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$timeZone</code><span class="initializer"> = NULL</span></span>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$locale</code><span class="initializer"> = &quot;&quot;</span></span>
+   ) : <span class="type"><a href="class.intlcalendar.html" class="type IntlCalendar">IntlCalendar</a></span></div>
 
   <p class="para rdfs-comment">
    Given a timezone and locale, this method creates an
@@ -82,7 +82,7 @@
 <ul class="itemizedlist">
  <li class="listitem">
   <p class="para">
-   <strong><code>NULL</code></strong>, in which case the default timezone will be used, as specified in
+   <strong><code>null</code></strong>, in which case the default timezone will be used, as specified in
    the ini setting <a href="datetime.configuration.html#ini.date.timezone" class="link">date.timezone</a> or
    through the function <span class="function"><a href="function.date-default-timezone-set.html" class="function">date_default_timezone_set()</a></span> and as
    returned by <span class="function"><a href="function.date-default-timezone-get.html" class="function">date_default_timezone_get()</a></span>.
@@ -119,7 +119,7 @@
     <dd>
 
      <p class="para">
-      A locale to use or <strong><code>NULL</code></strong> to use <a href="intl.configuration.html#ini.intl.default-locale" class="link">the default locale</a>.
+      A locale to use or <strong><code>null</code></strong> to use <a href="intl.configuration.html#ini.intl.default-locale" class="link">the default locale</a>.
      </p>
     </dd>
 
@@ -132,7 +132,7 @@
  <div class="refsect1 returnvalues" id="refsect1-intlcalendar.createinstance-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   The created <a href="class.intlcalendar.html" class="classname">IntlCalendar</a> instance or <strong><code>NULL</code></strong> on
+   The created <a href="class.intlcalendar.html" class="classname">IntlCalendar</a> instance or <strong><code>null</code></strong> on
    failure.
   </p>
  </div>
@@ -141,7 +141,7 @@
  <div class="refsect1 examples" id="refsect1-intlcalendar.createinstance-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-2851">
+   <div class="example" id="example-2866">
    <p><strong>Example #1 <span class="function"><strong>IntlCalendar::createInstance()</strong></span></strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

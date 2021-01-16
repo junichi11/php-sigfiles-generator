@@ -34,10 +34,10 @@
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>getopt</strong></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$options</code></span>
-   [, <span class="methodparam"><span class="type">array</span> <code class="parameter">$longopts</code></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter reference">&$optind</code></span>
-  ]] ) : <span class="type"><span class="type">array</span>|<span class="type"><span class="type false">false</span></span></span></div>
+    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$short_options</code></span>
+   , <span class="methodparam"><span class="type">array</span> <code class="parameter">$long_options</code><span class="initializer"> = []</span></span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter reference">&$rest_index</code><span class="initializer"> = <strong><code>null</code></strong></span></span>
+   ) : <span class="type"><span class="type">array</span>|<span class="type"><span class="type false">false</span></span></span></div>
 
   <p class="para rdfs-comment">
    Parses options passed to the script.
@@ -52,7 +52,7 @@
 
     
      <dt>
-<code class="parameter">options</code></dt>
+<code class="parameter">short_options</code></dt>
 
      <dd>
 
@@ -73,7 +73,7 @@
     
     
      <dt>
-<code class="parameter">longopts</code></dt>
+<code class="parameter">long_options</code></dt>
 
      <dd>
 
@@ -91,12 +91,12 @@
     
     
      <dt>
-<code class="parameter">optind</code></dt>
+<code class="parameter">rest_index</code></dt>
 
      <dd>
 
       <span class="simpara">
-       If the <code class="parameter">optind</code> parameter is present, then the
+       If the <code class="parameter">rest_index</code> parameter is present, then the
        index where argument parsing stopped will be written to this variable.
       </span>
      </dd>
@@ -106,7 +106,7 @@
 
   </p>
   <p class="para">
-   The <code class="parameter">options</code> parameter may contain the following
+   The <code class="parameter">short_options</code> parameter may contain the following
    elements:
    <ul class="simplelist">
     <li class="member">Individual characters (do not accept values)</li>
@@ -123,10 +123,10 @@
   </p>
   <blockquote class="note"><p><strong class="note">Note</strong>: 
    <p class="para">
-    The format for the <code class="parameter">options</code> and
-    <code class="parameter">longopts</code> is almost the same, the only difference is
-    that <code class="parameter">longopts</code> takes an array of options (where each
-    element is the option) whereas <code class="parameter">options</code> takes a
+    The format for the <code class="parameter">short_options</code> and
+    <code class="parameter">long_options</code> is almost the same, the only difference is
+    that <code class="parameter">long_options</code> takes an array of options (where each
+    element is the option) whereas <code class="parameter">short_options</code> takes a
     string (where each character is the option).
    </p>
   </p></blockquote>
@@ -136,7 +136,7 @@
  <div class="refsect1 returnvalues" id="refsect1-function.getopt-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   This function will return an array of option / argument pairs,  or <strong><code>FALSE</code></strong> on failure.
+   This function will return an array of option / argument pairs,  or <strong><code>false</code></strong> on failure.
   </p>
   <blockquote class="note"><p><strong class="note">Note</strong>: 
    <p class="para">
@@ -164,7 +164,7 @@
       <tr>
        <td>7.1.0</td>
        <td>
-        Added the <code class="parameter">optind</code> parameter.
+        Added the <code class="parameter">rest_index</code> parameter.
        </td>
       </tr>
 
@@ -179,7 +179,7 @@
  <div class="refsect1 examples" id="refsect1-function.getopt-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-527">
+   <div class="example" id="example-540">
     <p><strong>Example #1 <span class="function"><strong>getopt()</strong></span> example: The basics</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -207,7 +207,7 @@ array(2) {
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-528">
+   <div class="example" id="example-541">
     <p><strong>Example #2 <span class="function"><strong>getopt()</strong></span> example: Introducing long options</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -243,7 +243,7 @@ array(6) {
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-529">
+   <div class="example" id="example-542">
     <p><strong>Example #3 <span class="function"><strong>getopt()</strong></span> example: Passing multiple options as one</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -278,8 +278,8 @@ array(2) {
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-530">
-    <p><strong>Example #4 <span class="function"><strong>getopt()</strong></span> example: Using <code class="parameter">optind</code></strong></p>
+   <div class="example" id="example-543">
+    <p><strong>Example #4 <span class="function"><strong>getopt()</strong></span> example: Using <code class="parameter">rest_index</code></strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
 <span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;Script&nbsp;example.php<br /></span><span style="color: #0000BB">$optind&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">null</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$opts&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">getopt</span><span style="color: #007700">(</span><span style="color: #DD0000">'a:b:'</span><span style="color: #007700">,&nbsp;[],&nbsp;</span><span style="color: #0000BB">$optind</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$pos_args&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">array_slice</span><span style="color: #007700">(</span><span style="color: #0000BB">$argv</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$optind</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$pos_args</span><span style="color: #007700">);</span>

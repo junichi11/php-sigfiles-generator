@@ -34,18 +34,18 @@
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>str_pad</strong></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$input</code></span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$pad_length</code></span>
-   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$pad_string</code><span class="initializer"> = &quot; &quot;</span></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$pad_type</code><span class="initializer"> = STR_PAD_RIGHT</span></span>
-  ]] ) : <span class="type">string</span></div>
+    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$string</code></span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$length</code></span>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$pad_string</code><span class="initializer"> = &quot; &quot;</span></span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$pad_type</code><span class="initializer"> = <strong><code>STR_PAD_RIGHT</code></strong></span></span>
+   ) : <span class="type">string</span></div>
 
   <p class="para rdfs-comment">
-   This function returns the <code class="parameter">input</code> string
+   This function returns the <code class="parameter">string</code> string
    padded on the left, the right, or both sides to the specified
    padding length. If the optional argument
    <code class="parameter">pad_string</code> is not supplied, the
-   <code class="parameter">input</code> is padded with spaces, otherwise it
+   <code class="parameter">string</code> is padded with spaces, otherwise it
    is padded with characters from <code class="parameter">pad_string</code>
    up to the limit.
   </p>
@@ -59,7 +59,7 @@
 
     
      <dt>
-<code class="parameter">input</code></dt>
+<code class="parameter">string</code></dt>
 
      <dd>
 
@@ -71,14 +71,14 @@
     
     
      <dt>
-<code class="parameter">pad_length</code></dt>
+<code class="parameter">length</code></dt>
 
      <dd>
 
       <p class="para">
-       If the value of <code class="parameter">pad_length</code> is negative,
+       If the value of <code class="parameter">length</code> is negative,
        less than, or equal to the length of the input string, no padding
-       takes place, and <code class="parameter">input</code> will be returned.
+       takes place, and <code class="parameter">string</code> will be returned.
       </p>
      </dd>
 

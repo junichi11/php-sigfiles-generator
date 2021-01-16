@@ -33,21 +33,21 @@
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>array_splice</strong></span>
-    ( <span class="methodparam"><span class="type">array</span> <code class="parameter reference">&$input</code></span>
+    ( <span class="methodparam"><span class="type">array</span> <code class="parameter reference">&$array</code></span>
    , <span class="methodparam"><span class="type">int</span> <code class="parameter">$offset</code></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$length</code><span class="initializer"> = count($input)</span></span>
-   [, <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">$replacement</code><span class="initializer"> = array()</span></span>
-  ]] ) : <span class="type">array</span></div>
+   , <span class="methodparam"><span class="type"><span class="type">int</span>|<span class="type">null</span></span> <code class="parameter">$length</code><span class="initializer"> = <strong><code>null</code></strong></span></span>
+   , <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$replacement</code><span class="initializer"> = []</span></span>
+   ) : <span class="type">array</span></div>
 
   <p class="para rdfs-comment">
    Removes the elements designated by <code class="parameter">offset</code> and
-   <code class="parameter">length</code> from the <code class="parameter">input</code> array,
+   <code class="parameter">length</code> from the <code class="parameter">array</code> array,
    and replaces them with the elements of the
    <code class="parameter">replacement</code> array, if supplied.
   </p>
   <blockquote class="note"><p><strong class="note">Note</strong>: 
    <p class="para">
-    Numerical keys in <code class="parameter">input</code> are not preserved.
+    Numerical keys in <code class="parameter">array</code> are not preserved.
    </p>
   </p></blockquote>
   <blockquote class="note"><p><strong class="note">Note</strong>: 
@@ -55,7 +55,7 @@
     If <code class="parameter">replacement</code> is not an array, it will be
     <a href="language.types.array.html#language.types.array.casting" class="link">typecast</a>
     to one (i.e. <code class="code">(array) $replacement</code>). This may result in unexpected
-    behavior when using an object or <strong><code>NULL</code></strong> <code class="parameter">replacement</code>.
+    behavior when using an object or <strong><code>null</code></strong> <code class="parameter">replacement</code>.
    </span>
   </p></blockquote>
  </div>
@@ -67,7 +67,7 @@
 
     
      <dt>
-<code class="parameter">input</code></dt>
+<code class="parameter">array</code></dt>
 
      <dd>
 
@@ -86,12 +86,12 @@
       <p class="para">
        If <code class="parameter">offset</code> is positive then the start of the
        removed portion is at that offset from the beginning of the
-       <code class="parameter">input</code> array.
+       <code class="parameter">array</code> array.
       </p>
       <p class="para">
        If <code class="parameter">offset</code> is negative then the start of the
        removed portion is at that offset from the end of the
-       <code class="parameter">input</code> array.
+       <code class="parameter">array</code> array.
       </p>
      </dd>
 
@@ -153,7 +153,7 @@
       <p class="para">
        If <code class="parameter">replacement</code> is just one element it is
        not necessary to put <code class="literal">array()</code> or square brackets
-       around it, unless the element is an array itself, an object or <strong><code>NULL</code></strong>.
+       around it, unless the element is an array itself, an object or <strong><code>null</code></strong>.
       </p>
      </dd>
 
@@ -170,10 +170,38 @@
   </p>
  </div>
 
+
+ <div class="refsect1 changelog" id="refsect1-function.array-splice-changelog">
+  <h3 class="title">Changelog</h3>
+  <table class="doctable informaltable">
+   
+    <thead>
+     <tr>
+      <th>Version</th>
+      <th>Description</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+      <td>8.0.0</td>
+      <td>
+       <code class="parameter">length</code> is nullable now.
+      </td>
+     </tr>
+
+    </tbody>
+   
+  </table>
+
+ </div>
+
+
  <div class="refsect1 examples" id="refsect1-function.array-splice-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-5446">
+   <div class="example" id="example-5467">
     <p><strong>Example #1 <span class="function"><strong>array_splice()</strong></span> examples</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -220,7 +248,7 @@ array(5) {
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-5447">
+   <div class="example" id="example-5468">
     <p><strong>Example #2 Equivalent statements to various <span class="function"><strong>array_splice()</strong></span> examples</strong></p>
     <div class="example-contents"><p>
      The following statements are equivalent:

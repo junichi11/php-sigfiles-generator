@@ -34,8 +34,8 @@
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>gettimeofday</strong></span>
-    ([ <span class="methodparam"><span class="type">bool</span> <code class="parameter">$returnFloat</code><span class="initializer"> = <strong><code>FALSE</code></strong></span></span>
-  ] ) : <span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span></div>
+    ( <span class="methodparam"><span class="type">bool</span> <code class="parameter">$as_float</code><span class="initializer"> = <strong><code>false</code></strong></span></span>
+   ) : <span class="type"><span class="type">array</span>|<span class="type">float</span></span></div>
 
   <p class="para rdfs-comment">
    This is an interface to gettimeofday(2). It returns an
@@ -52,12 +52,12 @@
 
     
      <dt>
-<code class="parameter">returnFloat</code></dt>
+<code class="parameter">as_float</code></dt>
 
      <dd>
 
       <p class="para">
-       When set to <strong><code>TRUE</code></strong>, a float instead of an array is returned.
+       When set to <strong><code>true</code></strong>, a float instead of an array is returned.
       </p>
      </dd>
 
@@ -71,7 +71,7 @@
  <div class="refsect1 returnvalues" id="refsect1-function.gettimeofday-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   By default an <span class="type">array</span> is returned. If <code class="parameter">returnFloat</code>
+   By default an <span class="type">array</span> is returned. If <code class="parameter">as_float</code>
    is set, then a <span class="type">float</span> is returned.
   </p>
   <p class="para">
@@ -105,7 +105,7 @@
  <div class="refsect1 examples" id="refsect1-function.gettimeofday-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-2561">
+   <div class="example" id="example-2576">
     <p><strong>Example #1 <span class="function"><strong>gettimeofday()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

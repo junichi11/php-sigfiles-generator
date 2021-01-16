@@ -34,14 +34,14 @@
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>fprintf</strong></span>
-    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$handle</code></span>
+    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$stream</code></span>
    , <span class="methodparam"><span class="type">string</span> <code class="parameter">$format</code></span>
-   , <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">...$values</code></span>
+   , <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">...$values</code></span>
    ) : <span class="type">int</span></div>
 
   <p class="para rdfs-comment">
    Write a string produced according to <code class="parameter">format</code> to the
-   stream resource specified by <code class="parameter">handle</code>.
+   stream resource specified by <code class="parameter">stream</code>.
   </p>
  </div>
 
@@ -53,7 +53,7 @@
 
     
      <dt>
-<code class="parameter">handle</code></dt>
+<code class="parameter">stream</code></dt>
 
      <dd>
 
@@ -308,6 +308,22 @@ that is typically created using <span class="function"><a href="function.fopen.h
       </tr>
 
       <tr>
+       <td><code class="literal">h</code></td>
+       <td>
+        Like the <code class="literal">g</code> specifier but uses <code class="literal">F</code>.
+        Available as of PHP 8.0.0.
+       </td>
+      </tr>
+
+      <tr>
+       <td><code class="literal">H</code></td>
+       <td>
+        Like the <code class="literal">g</code> specifier but uses
+        <code class="literal">E</code> and <code class="literal">F</code>. Available as of PHP 8.0.0.
+       </td>
+      </tr>
+
+      <tr>
        <td><code class="literal">o</code></td>
        <td>
         The argument is treated as an integer and presented
@@ -445,7 +461,7 @@ that is typically created using <span class="function"><a href="function.fopen.h
  <div class="refsect1 examples" id="refsect1-function.fprintf-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-5275">
+   <div class="example" id="example-5296">
     <p><strong>Example #1 <span class="function"><strong>fprintf()</strong></span>: zero-padded integers</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -455,7 +471,7 @@ that is typically created using <span class="function"><a href="function.fopen.h
     </div>
 
    </div>
-   <div class="example" id="example-5276">
+   <div class="example" id="example-5297">
     <p><strong>Example #2 <span class="function"><strong>fprintf()</strong></span>: formatting currency</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

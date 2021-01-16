@@ -55,39 +55,40 @@
 
     
     <div class="classsynopsisinfo classsynopsisinfo_comment">/* Methods */</div>
+    <div class="constructorsynopsis dc-description">
+   <span class="modifier">public</span> <span class="methodname"><a href="soapserver.construct.html" class="methodname">__construct</a></span>
+    ( <span class="methodparam"><span class="type"><span class="type">string</span>|<span class="type">null</span></span> <code class="parameter">$wsdl</code></span>
+   , <span class="methodparam"><span class="type">array</span> <code class="parameter">$options</code><span class="initializer"> = []</span></span>
+   )</div>
+
     <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="soapserver.addfunction.html" class="methodname">addFunction</a></span>
-    ( <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">$functions</code></span>
+    ( <span class="methodparam"><span class="type"><span class="type">array</span>|<span class="type">string</span>|<span class="type">int</span></span> <code class="parameter">$functions</code></span>
    ) : <span class="type"><span class="type void">void</span></span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="soapserver.addsoapheader.html" class="methodname">addSoapHeader</a></span>
-    ( <span class="methodparam"><span class="type"><a href="class.soapheader.html" class="type SoapHeader">SoapHeader</a></span> <code class="parameter">$object</code></span>
+    ( <span class="methodparam"><span class="type"><a href="class.soapheader.html" class="type SoapHeader">SoapHeader</a></span> <code class="parameter">$header</code></span>
    ) : <span class="type"><span class="type void">void</span></span></div>
-<div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><a href="soapserver.construct.html" class="methodname">__construct</a></span>
-    ( <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">$wsdl</code></span>
-   [, <span class="methodparam"><span class="type">array</span> <code class="parameter">$options</code></span>
-  ] )</div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="soapserver.fault.html" class="methodname">fault</a></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$code</code></span>
    , <span class="methodparam"><span class="type">string</span> <code class="parameter">$string</code></span>
-   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$actor</code></span>
-   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$details</code></span>
-   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$name</code></span>
-  ]]] ) : <span class="type"><span class="type void">void</span></span></div>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$actor</code><span class="initializer"> = &quot;&quot;</span></span>
+   , <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$details</code><span class="initializer"> = <strong><code>null</code></strong></span></span>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$name</code><span class="initializer"> = &quot;&quot;</span></span>
+   ) : <span class="type"><span class="type void">void</span></span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="soapserver.getfunctions.html" class="methodname">getFunctions</a></span>
     (
    ) : <span class="type">array</span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="soapserver.handle.html" class="methodname">handle</a></span>
-    ([ <span class="methodparam"><span class="type">string</span> <code class="parameter">$soap_request</code></span>
-  ] ) : <span class="type"><span class="type void">void</span></span></div>
+    ( <span class="methodparam"><span class="type"><span class="type">string</span>|<span class="type">null</span></span> <code class="parameter">$request</code><span class="initializer"> = <strong><code>null</code></strong></span></span>
+   ) : <span class="type"><span class="type void">void</span></span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="soapserver.setclass.html" class="methodname">setClass</a></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$class_name</code></span>
-   , <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">...$args</code></span>
+    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$class</code></span>
+   , <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">...$args</code></span>
    ) : <span class="type"><span class="type void">void</span></span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="soapserver.setobject.html" class="methodname">setObject</a></span>
@@ -99,9 +100,9 @@
    ) : <span class="type"><span class="type void">void</span></span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="soapserver.soapserver.html" class="methodname">SoapServer</a></span>
-    ( <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">$wsdl</code></span>
-   [, <span class="methodparam"><span class="type">array</span> <code class="parameter">$options</code></span>
-  ] )</div>
+    ( <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$wsdl</code></span>
+   , <span class="methodparam"><span class="type">array</span> <code class="parameter">$options</code> = ?</span>
+   )</div>
 
    }</div>
 
@@ -111,18 +112,6 @@
  </div>
 
  
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

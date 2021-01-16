@@ -33,8 +33,8 @@
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>debug_zval_dump</strong></span>
-    ( <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">$variable</code></span>
-   , <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">...$variables</code></span>
+    ( <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$value</code></span>
+   , <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">...$values</code></span>
    ) : <span class="type"><span class="type void">void</span></span></div>
 
   <p class="para rdfs-comment">
@@ -49,7 +49,7 @@
 
     
      <dt>
-<code class="parameter">variable</code></dt>
+<code class="parameter">value</code></dt>
 
      <dd>
 
@@ -61,7 +61,7 @@
     
     
      <dt>
-<code class="parameter">variables</code></dt>
+<code class="parameter">values</code></dt>
 
      <dd>
 
@@ -86,7 +86,7 @@
  <div class="refsect1 examples" id="refsect1-function.debug-zval-dump-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-5737">
+   <div class="example" id="reflectionproperty.isinitialized.example.basic">
     <p><strong>Example #1 <span class="function"><strong>debug_zval_dump()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -118,7 +118,7 @@
     a slightly modified version of the above example:
    </p>
    <p class="para">
-    <div class="example" id="reflectionproperty.isinitialized.example.basic">
+    <div class="example" id="example-5762">
      
      <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -145,7 +145,7 @@ string(11) &quot;Hello World&quot; refcount(1)
     passed (by copy/value):
    </p>
    <p class="para">
-    <div class="example" id="example-5739">
+    <div class="example" id="example-5763">
      
      <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

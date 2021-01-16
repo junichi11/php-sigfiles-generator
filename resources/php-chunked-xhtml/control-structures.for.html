@@ -24,7 +24,7 @@
 </div>
 <div id="layout">
   <div id="layout-content"><div id="control-structures.for" class="sect1">
- <h2 class="title"><code class="literal">for</code></h2>
+ <h2 class="title">for</h2>
  <p class="verinfo">(PHP 4, PHP 5, PHP 7, PHP 8)</p>
  <p class="para">
   <code class="literal">for</code> loops are the most complex loops in PHP.
@@ -48,9 +48,9 @@ for (expr1; expr2; expr3)
  <p class="simpara">
   In the beginning of each iteration,
   <var class="varname">expr2</var> is evaluated.  If it evaluates to
-  <strong><code>TRUE</code></strong>, the loop continues and the nested
+  <strong><code>true</code></strong>, the loop continues and the nested
   statement(s) are executed.  If it evaluates to
-  <strong><code>FALSE</code></strong>, the execution of the loop ends.
+  <strong><code>false</code></strong>, the execution of the loop ends.
  </p>
  <p class="simpara">
   At the end of each iteration, <var class="varname">expr3</var> is
@@ -63,7 +63,7 @@ for (expr1; expr2; expr3)
   from the last part.
   <var class="varname">expr2</var> being empty means the loop should
   be run indefinitely (PHP implicitly considers it as
-  <strong><code>TRUE</code></strong>, like C).  This may not be as useless as
+  <strong><code>true</code></strong>, like C).  This may not be as useless as
   you might think, since often you&#039;d want to end the loop using a
   conditional <a href="control-structures.break.html" class="link"><code class="literal">break</code></a>
   statement instead of using the <code class="literal">for</code> truth

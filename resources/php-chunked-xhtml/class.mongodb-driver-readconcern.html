@@ -101,8 +101,8 @@
    ) : <span class="type">object</span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><a href="mongodb-driver-readconcern.construct.html" class="methodname">__construct</a></span>
-    ([ <span class="methodparam"><span class="type">string</span> <code class="parameter">$level</code></span>
-  ] )</div>
+    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$level</code> = ?</span>
+   )</div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><a href="mongodb-driver-readconcern.getlevel.html" class="methodname">getLevel</a></span>
     (
@@ -175,12 +175,12 @@
        write concern of <code class="literal">&quot;majority&quot;</code> <em class="emphasis">and</em>
        acknowledged prior to the start of the read operation. For replica sets
        that run with <code class="literal">writeConcernMajorityJournalDefault</code> set
-       to <strong><code>TRUE</code></strong>, linearizable read concern returns data that will never be
+       to <strong><code>true</code></strong>, linearizable read concern returns data that will never be
        rolled back.
       </p>
       <p class="para">
        With <code class="literal">writeConcernMajorityJournalDefault</code> set to
-       <strong><code>FALSE</code></strong>, MongoDB will not wait for <code class="literal">w: &quot;majority&quot;</code>
+       <strong><code>false</code></strong>, MongoDB will not wait for <code class="literal">w: &quot;majority&quot;</code>
        writes to be durable before acknowledging the writes. As such,
        <code class="literal">&quot;majority&quot;</code> write operations could possibly roll back
        in the event of a loss of a replica set member.

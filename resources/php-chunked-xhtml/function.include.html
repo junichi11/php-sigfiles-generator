@@ -178,7 +178,7 @@ vars.php<br /><span style="color: #0000BB">&lt;?php<br /><br />$color&nbsp;</spa
    <p><strong>Example #4 Comparing return value of include</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;won't&nbsp;work,&nbsp;evaluated&nbsp;as&nbsp;include(('vars.php')&nbsp;==&nbsp;TRUE),&nbsp;i.e.&nbsp;include('')<br /></span><span style="color: #007700">if&nbsp;(include(</span><span style="color: #DD0000">'vars.php'</span><span style="color: #007700">)&nbsp;==&nbsp;</span><span style="color: #0000BB">TRUE</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">'OK'</span><span style="color: #007700">;<br />}<br /><br /></span><span style="color: #FF8000">//&nbsp;works<br /></span><span style="color: #007700">if&nbsp;((include&nbsp;</span><span style="color: #DD0000">'vars.php'</span><span style="color: #007700">)&nbsp;==&nbsp;</span><span style="color: #0000BB">TRUE</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">'OK'</span><span style="color: #007700">;<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;won't&nbsp;work,&nbsp;evaluated&nbsp;as&nbsp;include(('vars.php')&nbsp;==&nbsp;TRUE),&nbsp;i.e.&nbsp;include('1')<br /></span><span style="color: #007700">if&nbsp;(include(</span><span style="color: #DD0000">'vars.php'</span><span style="color: #007700">)&nbsp;==&nbsp;</span><span style="color: #0000BB">TRUE</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">'OK'</span><span style="color: #007700">;<br />}<br /><br /></span><span style="color: #FF8000">//&nbsp;works<br /></span><span style="color: #007700">if&nbsp;((include&nbsp;</span><span style="color: #DD0000">'vars.php'</span><span style="color: #007700">)&nbsp;==&nbsp;</span><span style="color: #0000BB">TRUE</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">'OK'</span><span style="color: #007700">;<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
    </div>
@@ -201,7 +201,7 @@ return.php<br /><span style="color: #0000BB">&lt;?php<br /><br />$var&nbsp;</spa
   <code class="literal">$bar</code> is the value <code class="literal">1</code> because the include
   was successful.  Notice the difference between the above examples.  The first uses
   <span class="function"><a href="function.return.html" class="function">return</a></span> within the included file while the other does not.
-  If the file can&#039;t be included, <strong><code>FALSE</code></strong> is returned and
+  If the file can&#039;t be included, <strong><code>false</code></strong> is returned and
   <strong><code>E_WARNING</code></strong> is issued.
  </p>
  <p class="para">

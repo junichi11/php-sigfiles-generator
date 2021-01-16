@@ -34,9 +34,9 @@
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>mb_ereg_search_pos</strong></span>
-    ([ <span class="methodparam"><span class="type">string</span> <code class="parameter">$pattern</code></span>
-   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$option</code><span class="initializer"> = &quot;ms&quot;</span></span>
-  ]] ) : <span class="type">array</span></div>
+    ( <span class="methodparam"><span class="type"><span class="type">string</span>|<span class="type">null</span></span> <code class="parameter">$pattern</code><span class="initializer"> = <strong><code>null</code></strong></span></span>
+   , <span class="methodparam"><span class="type"><span class="type">string</span>|<span class="type">null</span></span> <code class="parameter">$options</code><span class="initializer"> = <strong><code>null</code></strong></span></span>
+   ) : <span class="type"><span class="type">array</span>|<span class="type"><span class="type false">false</span></span></span></div>
 
   <p class="para rdfs-comment">
    Returns position and length of a matched part of the multibyte regular expression 
@@ -69,7 +69,7 @@
     
     
      <dt>
-<code class="parameter">option</code></dt>
+<code class="parameter">options</code></dt>
 
      <dd>
 
@@ -93,7 +93,36 @@
    search string, and the second element is the length in bytes of the match.
   </p>
   <p class="simpara">
-   If an error occurs, <strong><code>FALSE</code></strong> is returned.
+   If an error occurs, <strong><code>false</code></strong> is returned.
+  </p>
+ </div>
+
+
+ <div class="refsect1 changelog" id="refsect1-function.mb-ereg-search-pos-changelog">
+  <h3 class="title">Changelog</h3>
+  <p class="para">
+   <table class="doctable informaltable">
+    
+     <thead>
+      <tr>
+       <th>Version</th>
+       <th>Description</th>
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr>
+       <td>8.0.0</td>
+       <td>
+        <code class="parameter">pattern</code> and <code class="parameter">options</code> are nullable now.
+       </td>
+      </tr>
+
+     </tbody>
+    
+   </table>
+
   </p>
  </div>
 

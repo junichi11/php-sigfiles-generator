@@ -35,8 +35,8 @@
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>date</strong></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$format</code></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$timestamp</code><span class="initializer"> = time()</span></span>
-  ] ) : <span class="type">string</span></div>
+   , <span class="methodparam"><span class="type"><span class="type">int</span>|<span class="type">null</span></span> <code class="parameter">$timestamp</code><span class="initializer"> = <strong><code>null</code></strong></span></span>
+   ) : <span class="type">string</span></div>
 
   <p class="para rdfs-comment">
    Returns a string formatted according to the given format string using the
@@ -71,7 +71,7 @@
 <p class="para">
 The optional <code class="parameter">timestamp</code> parameter is an
 <span class="type">int</span> Unix timestamp that defaults to the current
-local time if a <code class="parameter">timestamp</code> is not given. In other
+local time if <code class="parameter">timestamp</code> is omitted or <strong><code>null</code></strong>. In other
 words, it defaults to the value of <span class="function"><a href="function.time.html" class="function">time()</a></span>.
 </p></dd>
 
@@ -85,7 +85,7 @@ words, it defaults to the value of <span class="function"><a href="function.time
   <h3 class="title">Return Values</h3>
   <p class="para">
    Returns a formatted date string. If a non-numeric value is used for 
-   <code class="parameter">timestamp</code>, <strong><code>FALSE</code></strong> is returned and an 
+   <code class="parameter">timestamp</code>, <strong><code>false</code></strong> is returned and an 
    <strong><code>E_WARNING</code></strong> level error is emitted.
   </p>
  </div>
@@ -104,10 +104,39 @@ variable. See also <span class="function"><a href="function.date-default-timezon
  </div>
 
 
+ <div class="refsect1 changelog" id="refsect1-function.date-changelog">
+  <h3 class="title">Changelog</h3>
+  <p class="para">
+   <table class="doctable informaltable">
+    
+     <thead>
+      <tr>
+       <th>Version</th>
+       <th>Description</th>
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr>
+       <td>8.0.0</td>
+       <td>
+        <code class="parameter">timestamp</code> is nullable now.
+       </td>
+      </tr>
+
+     </tbody>
+    
+   </table>
+
+  </p>
+ </div>
+
+
  <div class="refsect1 examples" id="refsect1-function.date-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-2556">
+   <div class="example" id="example-2571">
     <p><strong>Example #1 <span class="function"><strong>date()</strong></span> examples</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -123,7 +152,7 @@ variable. See also <span class="function"><a href="function.date-default-timezon
    expanded by escaping it with a preceding backslash. If the character with
    a backslash is already a special sequence, you may need to also escape
    the backslash.
-   <div class="example" id="example-2557">
+   <div class="example" id="example-2572">
     <p><strong>Example #2 Escaping characters in <span class="function"><strong>date()</strong></span></strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -138,7 +167,7 @@ variable. See also <span class="function"><a href="function.date-default-timezon
    It is possible to use <span class="function"><strong>date()</strong></span> and
    <span class="function"><a href="function.mktime.html" class="function">mktime()</a></span> together to find dates in the future
    or the past.
-   <div class="example" id="example-2558">
+   <div class="example" id="example-2573">
     <p><strong>Example #3 <span class="function"><strong>date()</strong></span> and <span class="function"><a href="function.mktime.html" class="function">mktime()</a></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -163,7 +192,7 @@ variable. See also <span class="function"><a href="function.date-default-timezon
    other characters may be assigned meaning in future PHP versions.
    When escaping, be sure to use single quotes to prevent characters
    like \n from becoming newlines.
-   <div class="example" id="example-2559">
+   <div class="example" id="example-2574">
     <p><strong>Example #4 <span class="function"><strong>date()</strong></span> Formatting</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

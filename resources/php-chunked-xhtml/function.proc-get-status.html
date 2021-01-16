@@ -71,7 +71,7 @@
  <div class="refsect1 returnvalues" id="refsect1-function.proc-get-status-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   An <span class="type">array</span> of collected information on success, and <strong><code>FALSE</code></strong>
+   An <span class="type">array</span> of collected information on success, and <strong><code>false</code></strong>
    on failure. The returned array contains the following elements:
   </p>
   <p class="para">
@@ -101,7 +101,7 @@
       <td>running</td>
       <td><span class="type">bool</span></td>
       <td>
-       <strong><code>TRUE</code></strong> if the process is still running, <strong><code>FALSE</code></strong> if it has
+       <strong><code>true</code></strong> if the process is still running, <strong><code>false</code></strong> if it has
        terminated.
       </td>
      </tr>
@@ -110,8 +110,8 @@
       <td>signaled</td>
       <td><span class="type">bool</span></td>
       <td>
-       <strong><code>TRUE</code></strong> if the child process has been terminated by
-       an uncaught signal. Always set to <strong><code>FALSE</code></strong> on Windows.
+       <strong><code>true</code></strong> if the child process has been terminated by
+       an uncaught signal. Always set to <strong><code>false</code></strong> on Windows.
       </td>
      </tr>
 
@@ -119,8 +119,8 @@
       <td>stopped</td>
       <td><span class="type">bool</span></td>
       <td>
-       <strong><code>TRUE</code></strong> if the child process has been stopped by a
-       signal. Always set to <strong><code>FALSE</code></strong> on Windows.
+       <strong><code>true</code></strong> if the child process has been stopped by a
+       signal. Always set to <strong><code>false</code></strong> on Windows.
       </td>
      </tr>
 
@@ -129,7 +129,7 @@
       <td><span class="type">int</span></td>
       <td>
        The exit code returned by the process (which is only
-       meaningful if <code class="literal">running</code> is <strong><code>FALSE</code></strong>).
+       meaningful if <code class="literal">running</code> is <strong><code>false</code></strong>).
        Only first call of this function return real value, next calls return
        <code class="literal">-1</code>.
       </td>
@@ -140,7 +140,7 @@
       <td><span class="type">int</span></td>
       <td>
        The number of the signal that caused the child process to terminate
-       its execution (only meaningful if <code class="literal">signaled</code> is <strong><code>TRUE</code></strong>).
+       its execution (only meaningful if <code class="literal">signaled</code> is <strong><code>true</code></strong>).
       </td>
      </tr>
 
@@ -149,7 +149,7 @@
       <td><span class="type">int</span></td>
       <td>
        The number of the signal that caused the child process to stop its
-       execution (only meaningful if <code class="literal">stopped</code> is <strong><code>TRUE</code></strong>).
+       execution (only meaningful if <code class="literal">stopped</code> is <strong><code>true</code></strong>).
       </td>
      </tr>
 

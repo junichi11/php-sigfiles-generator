@@ -44,10 +44,10 @@
   </p>
   <p class="para">
    A cursor being &quot;dead&quot; does not mean that 
-   <span class="function"><a href="mongocursor.hasnext.html" class="function">MongoCursor::hasNext()</a></span> will return <strong><code>FALSE</code></strong>, it only means
+   <span class="function"><a href="mongocursor.hasnext.html" class="function">MongoCursor::hasNext()</a></span> will return <strong><code>false</code></strong>, it only means
    that the database is done sending results to the client. The client should
    continue iterating through results until 
-   <span class="function"><a href="mongocursor.hasnext.html" class="function">MongoCursor::hasNext()</a></span> is <strong><code>FALSE</code></strong>.
+   <span class="function"><a href="mongocursor.hasnext.html" class="function">MongoCursor::hasNext()</a></span> is <strong><code>false</code></strong>.
   </p>
  </div>
 
@@ -61,8 +61,8 @@
  <div class="refsect1 returnvalues" id="refsect1-mongocursor.dead-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns <strong><code>TRUE</code></strong> if there are more results that have not yet been sent to the
-   client, and <strong><code>FALSE</code></strong> otherwise.
+   Returns <strong><code>true</code></strong> if there are more results that have not yet been sent to the
+   client, and <strong><code>false</code></strong> otherwise.
   </p>
  </div>
 

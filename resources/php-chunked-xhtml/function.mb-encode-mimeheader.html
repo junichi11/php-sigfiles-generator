@@ -34,16 +34,16 @@
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>mb_encode_mimeheader</strong></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$str</code></span>
-   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$charset</code><span class="initializer"> = mb_language()</span></span>
-   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$transfer_encoding</code><span class="initializer"> = &quot;B&quot;</span></span>
-   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$linefeed</code><span class="initializer"> = &quot;\r\n&quot;</span></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$indent</code><span class="initializer"> = 0</span></span>
-  ]]]] ) : <span class="type">string</span></div>
+    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$string</code></span>
+   , <span class="methodparam"><span class="type"><span class="type">string</span>|<span class="type">null</span></span> <code class="parameter">$charset</code><span class="initializer"> = <strong><code>null</code></strong></span></span>
+   , <span class="methodparam"><span class="type"><span class="type">string</span>|<span class="type">null</span></span> <code class="parameter">$transfer_encoding</code><span class="initializer"> = <strong><code>null</code></strong></span></span>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$newline</code><span class="initializer"> = &quot;\r\n&quot;</span></span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$indent</code><span class="initializer"> = 0</span></span>
+   ) : <span class="type">string</span></div>
 
   <p class="para rdfs-comment">
    Encodes a given <span class="type">string</span>
-   <code class="parameter">str</code> by the MIME header encoding scheme.
+   <code class="parameter">string</code> by the MIME header encoding scheme.
   </p>
  </div>
 
@@ -55,7 +55,7 @@
 
     
      <dt>
-<code class="parameter">str</code></dt>
+<code class="parameter">string</code></dt>
 
      <dd>
 
@@ -74,7 +74,7 @@
 
       <p class="para">
        <code class="parameter">charset</code> specifies the name of the character set
-       in which <code class="parameter">str</code> is represented in. The default value
+       in which <code class="parameter">string</code> is represented in. The default value
        is determined by the current NLS setting (<code class="literal">mbstring.language</code>).
       </p>
      </dd>
@@ -97,12 +97,12 @@
     
     
      <dt>
-<code class="parameter">linefeed</code></dt>
+<code class="parameter">newline</code></dt>
 
      <dd>
 
       <p class="para">
-       <code class="parameter">linefeed</code> specifies the EOL (end-of-line) marker
+       <code class="parameter">newline</code> specifies the EOL (end-of-line) marker
        with which <span class="function"><strong>mb_encode_mimeheader()</strong></span> performs
        line-folding (a <a href="http://www.faqs.org/rfcs/rfc2822" class="link external">&raquo;&nbsp;RFC</a> term,
        the act of breaking a line longer than a certain length into multiple
@@ -120,7 +120,7 @@
 
       <p class="para">
        Indentation of the first line (number of characters in the header
-       before <code class="parameter">str</code>).
+       before <code class="parameter">string</code>).
       </p>
      </dd>
 
@@ -139,10 +139,38 @@
  </div>
 
 
+ <div class="refsect1 changelog" id="refsect1-function.mb-encode-mimeheader-changelog">
+  <h3 class="title">Changelog</h3>
+  <table class="doctable informaltable">
+   
+    <thead>
+     <tr>
+      <th>Version</th>
+      <th>Description</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+      <td>8.0.0</td>
+      <td>
+       <code class="parameter">charset</code> and <code class="parameter">transfer_encoding</code>
+       are nullable now.
+      </td>
+     </tr>
+
+    </tbody>
+   
+  </table>
+
+ </div>
+
+
  <div class="refsect1 examples" id="refsect1-function.mb-encode-mimeheader-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-3027">
+   <div class="example" id="example-3042">
     <p><strong>Example #1 <span class="function"><strong>mb_encode_mimeheader()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

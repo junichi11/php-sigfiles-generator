@@ -34,14 +34,14 @@
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>fread</strong></span>
-    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$handle</code></span>
+    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$stream</code></span>
    , <span class="methodparam"><span class="type">int</span> <code class="parameter">$length</code></span>
    ) : <span class="type"><span class="type">string</span>|<span class="type"><span class="type false">false</span></span></span></div>
 
   <p class="para rdfs-comment">
    <span class="function"><strong>fread()</strong></span> reads up to
    <code class="parameter">length</code> bytes from the file pointer
-   referenced by <code class="parameter">handle</code>. Reading stops as soon as one
+   referenced by <code class="parameter">stream</code>. Reading stops as soon as one
    of the following conditions is met:
    <ul class="itemizedlist">
     <li class="listitem">
@@ -80,7 +80,7 @@
 
     
      <dt>
-<code class="parameter">handle</code></dt>
+<code class="parameter">stream</code></dt>
 
      <dd>
 
@@ -110,7 +110,7 @@ that is typically created using <span class="function"><a href="function.fopen.h
  <div class="refsect1 returnvalues" id="refsect1-function.fread-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns the read string  or <strong><code>FALSE</code></strong> on failure.
+   Returns the read string  or <strong><code>false</code></strong> on failure.
   </p>
  </div>
 
@@ -118,7 +118,7 @@ that is typically created using <span class="function"><a href="function.fopen.h
  <div class="refsect1 examples" id="refsect1-function.fread-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-2643">
+   <div class="example" id="example-2658">
     <p><strong>Example #1 A simple <span class="function"><strong>fread()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -130,7 +130,7 @@ that is typically created using <span class="function"><a href="function.fopen.h
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-2644">
+   <div class="example" id="example-2659">
     <p><strong>Example #2 Binary <span class="function"><strong>fread()</strong></span> example</strong></p>
     <div class="warning"><strong class="warning">Warning</strong>
      <p class="para">
@@ -149,7 +149,7 @@ that is typically created using <span class="function"><a href="function.fopen.h
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-2645">
+   <div class="example" id="example-2660">
     <p><strong>Example #3 Remote <span class="function"><strong>fread()</strong></span> examples</strong></p>
     <div class="warning"><strong class="warning">Warning</strong>
      <p class="para">

@@ -123,11 +123,11 @@
    <span class="modifier">public</span>
    
    <span class="methodname"><a href="evwatcher.keepalive.html" class="methodname">keepalive</a></span>
-    ([ <span class="methodparam">
+    ( <span class="methodparam">
     <span class="type">bool</span>
      <code class="parameter">$value</code>
-   </span>
-  ] ) : <span class="type">bool</span></div>
+    = ?</span>
+   ) : <span class="type">bool</span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span>
    
@@ -167,7 +167,7 @@
 
       <p class="para">
        <em class="emphasis">Readonly</em>
-       . <strong><code>TRUE</code></strong> if the watcher is active. <strong><code>FALSE</code></strong> otherwise.
+       . <strong><code>true</code></strong> if the watcher is active. <strong><code>false</code></strong> otherwise.
       </p>
      </dd>
 
@@ -194,8 +194,8 @@
 
       <p class="para">
        <em class="emphasis">Readonly</em>
-       .<strong><code>TRUE</code></strong> if the watcher is pending, i.e. it has outstanding events, but
-       its callback has not yet been invoked. <strong><code>FALSE</code></strong> otherwise. As long, as a
+       .<strong><code>true</code></strong> if the watcher is pending, i.e. it has outstanding events, but
+       its callback has not yet been invoked. <strong><code>false</code></strong> otherwise. As long, as a
        watcher is pending(but not active), one must
        <em class="emphasis">not</em>
        change its priority.

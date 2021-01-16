@@ -36,9 +36,9 @@
    <span class="methodname"><strong>svn_checkout</strong></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$repos</code></span>
    , <span class="methodparam"><span class="type">string</span> <code class="parameter">$targetpath</code></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$revision</code></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code><span class="initializer"> = 0</span></span>
-  ]] ) : <span class="type">bool</span></div>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$revision</code> = ?</span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code><span class="initializer"> = 0</span></span>
+   ) : <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
    Checks out a working copy from the repository at <code class="parameter">repos</code>
@@ -112,7 +112,7 @@
  <div class="refsect1 returnvalues" id="refsect1-function.svn-checkout-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns <strong><code>TRUE</code></strong> on success or <strong><code>FALSE</code></strong> on failure.
+   Returns <strong><code>true</code></strong> on success or <strong><code>false</code></strong> on failure.
   </p>
  </div>
 
@@ -134,7 +134,7 @@ This function should be used at your own risk.
  <div class="refsect1 examples" id="refsect1-function.svn-checkout-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-5063">
+   <div class="example" id="example-5085">
     <p><strong>Example #1 Basic example</strong></p>
     <div class="example-contents"><p>
      This example demonstrates how to check out a directory from

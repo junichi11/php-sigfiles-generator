@@ -33,10 +33,10 @@
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>is_subclass_of</strong></span>
-    ( <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">$object</code></span>
+    ( <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$object</code></span>
    , <span class="methodparam"><span class="type">string</span> <code class="parameter">$class_name</code></span>
-   [, <span class="methodparam"><span class="type">bool</span> <code class="parameter">$allow_string</code><span class="initializer"> = <strong><code>TRUE</code></strong></span></span>
-  ] ) : <span class="type">bool</span></div>
+   , <span class="methodparam"><span class="type">bool</span> <code class="parameter">$allow_string</code><span class="initializer"> = <strong><code>true</code></strong></span></span>
+   ) : <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
    Checks if the given <code class="parameter">object</code> has the class
@@ -94,16 +94,16 @@
  <div class="refsect1 returnvalues" id="refsect1-function.is-subclass-of-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   This function returns <strong><code>TRUE</code></strong> if the object <code class="parameter">object</code>,
+   This function returns <strong><code>true</code></strong> if the object <code class="parameter">object</code>,
    belongs to a class which is a subclass of
-   <code class="parameter">class_name</code>, <strong><code>FALSE</code></strong> otherwise.
+   <code class="parameter">class_name</code>, <strong><code>false</code></strong> otherwise.
   </p>
  </div>
 
  <div class="refsect1 examples" id="refsect1-function.is-subclass-of-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-5524">
+   <div class="example" id="example-5545">
     <p><strong>Example #1 <span class="function"><strong>is_subclass_of()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -123,7 +123,7 @@ yes, WidgetFactory_Child is a subclass of WidgetFactory
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-5525">
+   <div class="example" id="example-5546">
     <p><strong>Example #2 <span class="function"><strong>is_subclass_of()</strong></span> using interface example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

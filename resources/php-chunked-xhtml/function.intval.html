@@ -26,7 +26,7 @@
   <div id="layout-content"><div id="function.intval" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">intval</h1>
-  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">intval</span> &mdash; <span class="dc-title">Get the integer value of a variable</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">intval</span> &mdash; <span class="dc-title">Get the integer value of a variable</span></p>
 
  </div>
 
@@ -34,12 +34,12 @@
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>intval</strong></span>
-    ( <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">$var</code></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$base</code><span class="initializer"> = 10</span></span>
-  ] ) : <span class="type">int</span></div>
+    ( <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$value</code></span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$base</code><span class="initializer"> = 10</span></span>
+   ) : <span class="type">int</span></div>
 
   <p class="para rdfs-comment">
-   Returns the <span class="type">int</span> value of <code class="parameter">var</code>,
+   Returns the <span class="type">int</span> value of <code class="parameter">value</code>,
    using the specified <code class="parameter">base</code> for the conversion 
    (the default is base 10). <span class="function"><strong>intval()</strong></span> should not be used
    on objects, as doing so will emit an <strong><code>E_NOTICE</code></strong> level
@@ -55,7 +55,7 @@
 
     
      <dt>
-<code class="parameter">var</code></dt>
+<code class="parameter">value</code></dt>
 
      <dd>
 
@@ -77,7 +77,7 @@
       <blockquote class="note"><p><strong class="note">Note</strong>: 
        <p class="para">
         If <code class="parameter">base</code> is 0, the base used is determined
-        by the format of <code class="parameter">var</code>:
+        by the format of <code class="parameter">value</code>:
         <ul class="itemizedlist">
          <li class="listitem">
           <span class="simpara">
@@ -111,7 +111,7 @@
  <div class="refsect1 returnvalues" id="refsect1-function.intval-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   The integer value of <code class="parameter">var</code> on success, or 0 on
+   The integer value of <code class="parameter">value</code> on success, or 0 on
    failure. Empty arrays return 0, non-empty arrays return 1.
   </p>
   <p class="para">
@@ -133,7 +133,7 @@
  <div class="refsect1 examples" id="refsect1-function.intval-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-5748">
+   <div class="example" id="example-5772">
     <p><strong>Example #1 <span class="function"><strong>intval()</strong></span> examples</strong></p>
     <div class="example-contents"><p>
      The following examples are based on a 32 bit system.
@@ -155,7 +155,7 @@
   <blockquote class="note"><p><strong class="note">Note</strong>: 
    <p class="para">
     The <code class="parameter">base</code> parameter has no effect unless the
-    <code class="parameter">var</code> parameter is a string.
+    <code class="parameter">value</code> parameter is a string.
    </p>
   </p></blockquote>
  </div>

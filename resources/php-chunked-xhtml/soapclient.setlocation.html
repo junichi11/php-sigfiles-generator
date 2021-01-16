@@ -34,8 +34,8 @@
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><strong>SoapClient::__setLocation</strong></span>
-    ([ <span class="methodparam"><span class="type">string</span> <code class="parameter">$new_location</code></span>
-  ] ) : <span class="type">string</span></div>
+    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$location</code><span class="initializer"> = &quot;&quot;</span></span>
+   ) : <span class="type"><span class="type">string</span>|<span class="type">null</span></span></div>
 
   <p class="para rdfs-comment">
    Sets the endpoint URL that will be touched by following SOAP requests. This is equivalent to 
@@ -57,7 +57,7 @@
 
     
      <dt>
-<code class="parameter">new_location</code></dt>
+<code class="parameter">location</code></dt>
 
      <dd>
 
@@ -84,7 +84,7 @@
  <div class="refsect1 examples" id="refsect1-soapclient.setlocation-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-5801">
+   <div class="example" id="example-5825">
     <p><strong>Example #1 <span class="function"><strong>SoapClient::__setLocation()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

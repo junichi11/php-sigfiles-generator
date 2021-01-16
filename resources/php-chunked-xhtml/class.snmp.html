@@ -109,9 +109,9 @@
     ( <span class="methodparam"><span class="type">int</span> <code class="parameter">$version</code></span>
    , <span class="methodparam"><span class="type">string</span> <code class="parameter">$hostname</code></span>
    , <span class="methodparam"><span class="type">string</span> <code class="parameter">$community</code></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$timeout</code><span class="initializer"> = 1000000</span></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$retries</code><span class="initializer"> = 5</span></span>
-  ]] )</div>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$timeout</code><span class="initializer"> = -1</span></span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$retries</code><span class="initializer"> = -1</span></span>
+   )</div>
 
     
     <div class="methodsynopsis dc-description">
@@ -120,9 +120,9 @@
    ) : <span class="type">bool</span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="snmp.get.html" class="methodname">get</a></span>
-    ( <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">$object_id</code></span>
-   [, <span class="methodparam"><span class="type">bool</span> <code class="parameter">$preserve_keys</code><span class="initializer"> = <strong><code>FALSE</code></strong></span></span>
-  ] ) : <span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span></div>
+    ( <span class="methodparam"><span class="type"><span class="type">array</span>|<span class="type">string</span></span> <code class="parameter">$objectId</code></span>
+   , <span class="methodparam"><span class="type">bool</span> <code class="parameter">$preserveKeys</code><span class="initializer"> = <strong><code>false</code></strong></span></span>
+   ) : <span class="type"><span class="type">array</span>|<span class="type">bool</span></span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="snmp.geterrno.html" class="methodname">getErrno</a></span>
     (
@@ -133,31 +133,31 @@
    ) : <span class="type">string</span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="snmp.getnext.html" class="methodname">getnext</a></span>
-    ( <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">$object_id</code></span>
-   ) : <span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span></div>
+    ( <span class="methodparam"><span class="type"><span class="type">array</span>|<span class="type">string</span></span> <code class="parameter">$objectId</code></span>
+   ) : <span class="type"><span class="type">array</span>|<span class="type">bool</span></span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="snmp.set.html" class="methodname">set</a></span>
-    ( <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">$object_id</code></span>
-   , <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">$type</code></span>
-   , <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">$value</code></span>
-   ) : <span class="type">bool</span></div>
+    ( <span class="methodparam"><span class="type"><span class="type">array</span>|<span class="type">string</span></span> <code class="parameter">$objectId</code></span>
+   , <span class="methodparam"><span class="type"><span class="type">array</span>|<span class="type">string</span></span> <code class="parameter">$type</code></span>
+   , <span class="methodparam"><span class="type"><span class="type">array</span>|<span class="type">string</span></span> <code class="parameter">$value</code></span>
+   ) : <span class="type"><span class="type">array</span>|<span class="type">bool</span></span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="snmp.setsecurity.html" class="methodname">setSecurity</a></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$sec_level</code></span>
-   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$auth_protocol</code><span class="initializer"> = </span>
-   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$auth_passphrase</code><span class="initializer"> = </span>
-   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$priv_protocol</code><span class="initializer"> = </span>
-   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$priv_passphrase</code><span class="initializer"> = </span>
-   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$contextName</code><span class="initializer"> = </span>
-   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$contextEngineID</code><span class="initializer"> = </span>
-  ]]]]]] ) : <span class="type">bool</span></div>
+    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$securityLevel</code></span>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$authProtocol</code><span class="initializer"> = &quot;&quot;</span></span>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$authPassphrase</code><span class="initializer"> = &quot;&quot;</span></span>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$privacyProtocol</code><span class="initializer"> = &quot;&quot;</span></span>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$privacyPassphrase</code><span class="initializer"> = &quot;&quot;</span></span>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$contextName</code><span class="initializer"> = &quot;&quot;</span></span>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$contextEngineId</code><span class="initializer"> = &quot;&quot;</span></span>
+   ) : <span class="type">bool</span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="snmp.walk.html" class="methodname">walk</a></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$object_id</code></span>
-   [, <span class="methodparam"><span class="type">bool</span> <code class="parameter">$suffix_as_key</code><span class="initializer"> = <strong><code>FALSE</code></strong></span></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$max_repetitions</code></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$non_repeaters</code></span>
-  ]]] ) : <span class="type">array</span></div>
+    ( <span class="methodparam"><span class="type"><span class="type">array</span>|<span class="type">string</span></span> <code class="parameter">$objectId</code></span>
+   , <span class="methodparam"><span class="type">bool</span> <code class="parameter">$suffixAsKey</code><span class="initializer"> = <strong><code>false</code></strong></span></span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$maxRepetitions</code><span class="initializer"> = -1</span></span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$nonRepeaters</code><span class="initializer"> = -1</span></span>
+   ) : <span class="type"><span class="type">array</span>|<span class="type">bool</span></span></div>
 
 
     <div class="classsynopsisinfo classsynopsisinfo_comment">/* Constants */</div>
@@ -307,7 +307,7 @@
        Sets the value of <code class="parameter">quick_print</code> within the NET-<acronym title="Simple Network Management Protocol">SNMP</acronym> library.  When this
        is set (1), the <acronym title="Simple Network Management Protocol">SNMP</acronym> library will return &#039;quick printed&#039; values.  This
        means that just the value will be printed.  When <code class="parameter">quick_print</code> is not
-       enabled (default) the UCD <acronym title="Simple Network Management Protocol">SNMP</acronym> library prints extra information
+       enabled (default) the NET-<acronym title="Simple Network Management Protocol">SNMP</acronym> library prints extra information
        including the type of the value (i.e. IpAddress or OID).  Additionally,
        if quick_print is not enabled, the library prints additional hex values
        for all strings of three characters or less.
@@ -372,7 +372,7 @@
        PHP SNMP library by default performs OID increasing check and stops
        walking on OID tree when it detects possible loop with issuing warning
        about non-increasing OID faced.
-       Set <var class="varname">oid_increasing_check</var> to <strong><code>FALSE</code></strong> to disable this
+       Set <var class="varname">oid_increasing_check</var> to <strong><code>false</code></strong> to disable this
        check.
       </p>
      </dd>
@@ -556,20 +556,6 @@
  </div>
  
  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

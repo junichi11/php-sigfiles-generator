@@ -36,6 +36,9 @@
    <p class="para">
     Children of this class are passed to
     <span class="function"><a href="function.stream-filter-register.html" class="function">stream_filter_register()</a></span>.
+    Note that the <a href="language.oop5.decon.html#object.construct" class="link">__construct</a> method is not called;
+    instead, <span class="methodname"><a href="php-user-filter.oncreate.html" class="methodname">php_user_filter::onCreate()</a></span> should be used for
+    initialization.
    </p>
   </div>
 

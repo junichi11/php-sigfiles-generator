@@ -35,13 +35,13 @@
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>substr</strong></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$string</code></span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$start</code></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$length</code></span>
-  ] ) : <span class="type"><span class="type">string</span>|<span class="type"><span class="type false">false</span></span></span></div>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$offset</code></span>
+   , <span class="methodparam"><span class="type"><span class="type">int</span>|<span class="type">null</span></span> <code class="parameter">$length</code><span class="initializer"> = <strong><code>null</code></strong></span></span>
+   ) : <span class="type">string</span></div>
 
   <p class="para rdfs-comment">
    Returns the portion of <code class="parameter">string</code> specified by the
-   <code class="parameter">start</code> and <code class="parameter">length</code> parameters.
+   <code class="parameter">offset</code> and <code class="parameter">length</code> parameters.
   </p>
  </div>
 
@@ -65,13 +65,13 @@
     
     
      <dt>
-<code class="parameter">start</code></dt>
+<code class="parameter">offset</code></dt>
 
      <dd>
 
       <p class="para">
-       If <code class="parameter">start</code> is non-negative, the returned string
-       will start at the <code class="parameter">start</code>&#039;th position in
+       If <code class="parameter">offset</code> is non-negative, the returned string
+       will start at the <code class="parameter">offset</code>&#039;th position in
        <code class="parameter">string</code>, counting from zero. For instance,
        in the string &#039;<code class="literal">abcdef</code>&#039;, the character at
        position <code class="literal">0</code> is &#039;<code class="literal">a</code>&#039;, the
@@ -79,17 +79,17 @@
        &#039;<code class="literal">c</code>&#039;, and so forth.
       </p>
       <p class="para">
-       If <code class="parameter">start</code> is negative, the returned string
-       will start at the <code class="parameter">start</code>&#039;th character
+       If <code class="parameter">offset</code> is negative, the returned string
+       will start at the <code class="parameter">offset</code>&#039;th character
        from the end of <code class="parameter">string</code>.
       </p>
       <p class="para">
        If <code class="parameter">string</code> is less than
-       <code class="parameter">start</code> characters long, <strong><code>FALSE</code></strong> will be returned.
+       <code class="parameter">offset</code> characters long, <strong><code>false</code></strong> will be returned.
       </p>
       <p class="para">
-       <div class="example" id="example-5369">
-        <p><strong>Example #1 Using a negative <code class="parameter">start</code></strong></p>
+       <div class="example" id="example-5390">
+        <p><strong>Example #1 Using a negative <code class="parameter">offset</code></strong></p>
         <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
 <span style="color: #0000BB">&lt;?php<br />$rest&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">substr</span><span style="color: #007700">(</span><span style="color: #DD0000">"abcdef"</span><span style="color: #007700">,&nbsp;-</span><span style="color: #0000BB">1</span><span style="color: #007700">);&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;returns&nbsp;"f"<br /></span><span style="color: #0000BB">$rest&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">substr</span><span style="color: #007700">(</span><span style="color: #DD0000">"abcdef"</span><span style="color: #007700">,&nbsp;-</span><span style="color: #0000BB">2</span><span style="color: #007700">);&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;returns&nbsp;"ef"<br /></span><span style="color: #0000BB">$rest&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">substr</span><span style="color: #007700">(</span><span style="color: #DD0000">"abcdef"</span><span style="color: #007700">,&nbsp;-</span><span style="color: #0000BB">3</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">);&nbsp;</span><span style="color: #FF8000">//&nbsp;returns&nbsp;"d"<br /></span><span style="color: #0000BB">?&gt;</span>
@@ -111,27 +111,27 @@
       <p class="para">
        If <code class="parameter">length</code> is given and is positive, the string
        returned will contain at most <code class="parameter">length</code> characters
-       beginning from <code class="parameter">start</code> (depending on the length of
+       beginning from <code class="parameter">offset</code> (depending on the length of
        <code class="parameter">string</code>).
       </p>
       <p class="para">
        If <code class="parameter">length</code> is given and is negative, then that many
        characters will be omitted from the end of <code class="parameter">string</code>
        (after the start position has been calculated when a
-       <code class="parameter">start</code> is negative).  If
-       <code class="parameter">start</code> denotes the position of this truncation or
-       beyond, <strong><code>FALSE</code></strong> will be returned.
+       <code class="parameter">offset</code> is negative).  If
+       <code class="parameter">offset</code> denotes the position of this truncation or
+       beyond, <strong><code>false</code></strong> will be returned.
       </p>
       <p class="para">
        If <code class="parameter">length</code> is given and is <code class="literal">0</code>,
-       <strong><code>FALSE</code></strong> or <strong><code>NULL</code></strong>, an empty string will be returned.
+       <strong><code>false</code></strong> or <strong><code>null</code></strong>, an empty string will be returned.
       </p>
       <p class="para">
        If <code class="parameter">length</code> is omitted, the substring starting from
-       <code class="parameter">start</code> until the end of the string will be
+       <code class="parameter">offset</code> until the end of the string will be
        returned.
       </p>
-      <div class="example" id="example-5370">
+      <div class="example" id="example-5391">
        <p><strong>Example #2 Using a negative <code class="parameter">length</code></strong></p>
        <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -153,16 +153,50 @@
  <div class="refsect1 returnvalues" id="refsect1-function.substr-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns the extracted part of <code class="parameter">string</code>;  or <strong><code>FALSE</code></strong> on failure, or
+   Returns the extracted part of <code class="parameter">string</code>;  or <strong><code>false</code></strong> on failure, or
    an empty string.
   </p>
+ </div>
+
+
+ <div class="refsect1 changelog" id="refsect1-function.substr-changelog">
+  <h3 class="title">Changelog</h3>
+  <table class="doctable informaltable">
+   
+    <thead>
+     <tr>
+      <th>Version</th>
+      <th>Description</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+      <td>8.0.0</td>
+      <td>
+       <code class="parameter">length</code> is nullable now.
+      </td>
+     </tr>
+
+     <tr>
+      <td>8.0.0</td>
+      <td>
+       The function returns an empty string where it previously returned <strong><code>false</code></strong>.
+      </td>
+     </tr>
+
+    </tbody>
+   
+  </table>
+
  </div>
 
 
  <div class="refsect1 examples" id="refsect1-function.substr-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-5371">
+   <div class="example" id="example-5392">
     <p><strong>Example #3 Basic <span class="function"><strong>substr()</strong></span> usage</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -172,7 +206,7 @@
     </div>
 
    </div> 
-   <div class="example" id="example-5372">
+   <div class="example" id="example-5393">
     <p><strong>Example #4 <span class="function"><strong>substr()</strong></span> casting behaviour</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -213,8 +247,8 @@
  <div class="refsect1 errors" id="refsect1-function.substr-errors">
   <h3 class="title">Errors/Exceptions</h3>
   <p class="para">
-   Returns <strong><code>FALSE</code></strong> on error.
-   <div class="example" id="example-5373">
+   Returns <strong><code>false</code></strong> on error.
+   <div class="example" id="example-5394">
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
 <span style="color: #0000BB">&lt;?php<br />var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">substr</span><span style="color: #007700">(</span><span style="color: #DD0000">'a'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">2</span><span style="color: #007700">));&nbsp;</span><span style="color: #FF8000">//&nbsp;bool(false)<br /></span><span style="color: #0000BB">?&gt;</span>

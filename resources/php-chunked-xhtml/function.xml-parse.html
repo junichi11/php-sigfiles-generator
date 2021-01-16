@@ -34,10 +34,10 @@
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>xml_parse</strong></span>
-    ( <span class="methodparam"><span class="type"><span class="type XmlParser">XmlParser</span></span> <code class="parameter">$parser</code></span>
+    ( <span class="methodparam"><span class="type"><a href="class.xmlparser.html" class="type XMLParser">XMLParser</a></span> <code class="parameter">$parser</code></span>
    , <span class="methodparam"><span class="type">string</span> <code class="parameter">$data</code></span>
-   [, <span class="methodparam"><span class="type">bool</span> <code class="parameter">$is_final</code><span class="initializer"> = <strong><code>FALSE</code></strong></span></span>
-  ] ) : <span class="type">int</span></div>
+   , <span class="methodparam"><span class="type">bool</span> <code class="parameter">$is_final</code><span class="initializer"> = <strong><code>false</code></strong></span></span>
+   ) : <span class="type">int</span></div>
 
   <p class="para rdfs-comment">
    <span class="function"><strong>xml_parse()</strong></span> parses an XML document. The handlers for
@@ -73,7 +73,7 @@
        Chunk of data to parse.  A document may be parsed piece-wise by
        calling <span class="function"><strong>xml_parse()</strong></span> several times with new data,
        as long as the <code class="parameter">is_final</code> parameter is set and
-       <strong><code>TRUE</code></strong> when the last data is parsed.
+       <strong><code>true</code></strong> when the last data is parsed.
       </p>
      </dd>
 
@@ -85,7 +85,7 @@
      <dd>
 
       <p class="para">
-       If set and <strong><code>TRUE</code></strong>, <code class="parameter">data</code> is the last piece of
+       If set and <strong><code>true</code></strong>, <code class="parameter">data</code> is the last piece of
        data sent in this parse.
       </p>
      </dd>
@@ -113,7 +113,7 @@
   <blockquote class="note"><p><strong class="note">Note</strong>: 
    <p class="para">
     Some errors (such as entity errors) are reported at the end of the data, thus only if
-    <code class="parameter">is_final</code> is set and <strong><code>TRUE</code></strong>.
+    <code class="parameter">is_final</code> is set and <strong><code>true</code></strong>.
    </p>
   </p></blockquote>
  </div>
@@ -135,7 +135,7 @@
      <tr>
  <td>8.0.0</td>
  <td>
-  <code class="parameter">parser</code> expects an <strong class="classname">XMLParser</strong>
+  <code class="parameter">parser</code> expects an <a href="class.xmlparser.html" class="classname">XMLParser</a>
   instance now; previously, a <span class="type">resource</span> was expected.
  </td>
 </tr>
@@ -149,7 +149,7 @@
 
  <div class="refsect1 examples" id="refsect1-function.xml-parse-examples">
   <h3 class="title">Examples</h3>
-  <div class="example" id="example-5993">
+  <div class="example" id="example-5976">
    <p><strong>Example #1 Chunked parsing of large XML documents</strong></p>
    <div class="example-contents"><p>
      This example shows how large XML documents can be read and parsed in

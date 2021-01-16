@@ -36,8 +36,8 @@
   <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><strong>DOMDocument::loadXML</strong></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$source</code></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$options</code><span class="initializer"> = 0</span></span>
-  ] ) : <span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span></div>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$options</code><span class="initializer"> = 0</span></span>
+   ) : <span class="type"><span class="type"><a href="class.domdocument.html" class="type DOMDocument">DOMDocument</a></span>|<span class="type">bool</span></span></div>
 
   <p class="para rdfs-comment">
    Loads an XML document from a string. 
@@ -83,8 +83,8 @@
  <div class="refsect1 returnvalues" id="refsect1-domdocument.loadxml-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns <strong><code>TRUE</code></strong> on success or <strong><code>FALSE</code></strong> on failure. If called statically, returns a
-   <a href="class.domdocument.html" class="classname">DOMDocument</a> or <strong><code>FALSE</code></strong> on failure.
+   Returns <strong><code>true</code></strong> on success or <strong><code>false</code></strong> on failure. If called statically, returns a
+   <a href="class.domdocument.html" class="classname">DOMDocument</a> or <strong><code>false</code></strong> on failure.
   </p>
  </div>
 
@@ -101,7 +101,7 @@
  <div class="refsect1 examples" id="refsect1-domdocument.loadxml-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-5866">
+   <div class="example" id="example-5890">
     <p><strong>Example #1 Creating a Document</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

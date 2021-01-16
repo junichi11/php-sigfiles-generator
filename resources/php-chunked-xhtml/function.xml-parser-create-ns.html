@@ -34,13 +34,13 @@
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>xml_parser_create_ns</strong></span>
-    ([ <span class="methodparam"><span class="type"><span class="type">string</span>|<span class="type">null</span></span> <code class="parameter">$encoding</code><span class="initializer"> = <strong><code>NULL</code></strong></span></span>
-   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$separator</code><span class="initializer"> = &quot;:&quot;</span></span>
-  ]] ) : <span class="type"><span class="type XmlParser">XmlParser</span></span></div>
+    ( <span class="methodparam"><span class="type"><span class="type">string</span>|<span class="type">null</span></span> <code class="parameter">$encoding</code><span class="initializer"> = <strong><code>null</code></strong></span></span>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$separator</code><span class="initializer"> = &quot;:&quot;</span></span>
+   ) : <span class="type"><a href="class.xmlparser.html" class="type XMLParser">XMLParser</a></span></div>
 
   <p class="para rdfs-comment">
    <span class="function"><strong>xml_parser_create_ns()</strong></span> creates a new XML parser
-   with XML namespace support and returns a <strong class="classname">XMLParser</strong> 
+   with XML namespace support and returns a <a href="class.xmlparser.html" class="classname">XMLParser</a> 
    instance to be used by the other XML functions.
   </p>
  </div>
@@ -91,7 +91,7 @@
  <div class="refsect1 returnvalues" id="refsect1-function.xml-parser-create-ns-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns a new <strong class="classname">XMLParser</strong> instance.
+   Returns a new <a href="class.xmlparser.html" class="classname">XMLParser</a> instance.
   </p>
  </div>
 
@@ -112,8 +112,8 @@
      <tr>
       <td>8.0.0</td>
       <td>
-      This function returns an <strong class="classname">XMLParser</strong> instance now;
-      previously, a <span class="type">resource</span> was returned,  or <strong><code>FALSE</code></strong> on failure.
+      This function returns an <a href="class.xmlparser.html" class="classname">XMLParser</a> instance now;
+      previously, a <span class="type">resource</span> was returned,  or <strong><code>false</code></strong> on failure.
       </td>
      </tr>
 

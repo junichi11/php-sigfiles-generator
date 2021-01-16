@@ -72,7 +72,7 @@
    <var class="filename">php.ini</var> format.
   </p>
   <p class="para">
-   <div class="example" id="example-2057">
+   <div class="example" id="example-2070">
     <p><strong>Example #1 Converting a PHP array (hash) into JSON format</strong></p>
     <div class="example-contents"><p>
      Or alternatively, a developer may be more familiar with the PHP <span class="type">array</span>
@@ -127,7 +127,7 @@ Dumping file contents...
    section name match, then the plugin will load the settings for that section.
   </p>
   <p class="para" id="mysqlnd-ms.plugin-ini-json.using-section">
-   <div class="example" id="example-2058">
+   <div class="example" id="example-2071">
     <p><strong>Example #2 Using section names example</strong></p>
     <div class="example-contents">
 <div class="inicode"><pre class="inicode">{
@@ -212,7 +212,7 @@ Dumping file contents...
    for slave and master servers may be used.
   </p>
   <p class="para">
-   <div class="example" id="example-2059">
+   <div class="example" id="example-2072">
     <p><strong>Example #3 List of anonymous slaves</strong></p>
         <div class="example-contents">
 <div class="inicode"><pre class="inicode">&quot;slave&quot;: [
@@ -236,7 +236,7 @@ Dumping file contents...
    of a server list, and done so using the <code class="literal">JSON object</code> type.
   </p>
   <p class="para">
-   <div class="example" id="example-2060">
+   <div class="example" id="example-2073">
     <p><strong>Example #4 Master list using symbolic names</strong></p>
         <div class="example-contents">
 <div class="inicode"><pre class="inicode">&quot;master&quot;: {
@@ -267,7 +267,7 @@ Dumping file contents...
    keyword. All other settings are optional.
   </p>
   <p class="para">
-   <div class="example" id="example-2061">
+   <div class="example" id="example-2074">
     <p><strong>Example #5 Keywords to configure a server</strong></p>
     <div class="example-contents">
 <div class="inicode"><pre class="inicode">{
@@ -318,7 +318,7 @@ Dumping file contents...
    <code class="literal">roundrobin</code> provide the same functionality.
   </p>
   <p class="para">
-   <div class="example" id="example-2062">
+   <div class="example" id="example-2075">
     <p><strong>Example #6 New <code class="literal">roundrobin</code> filter, old functionality</strong></p>
     <div class="example-contents">
 <div class="inicode"><pre class="inicode">{
@@ -357,7 +357,7 @@ Dumping file contents...
    filter. Some filters accept parameters. The <code class="literal">user</code> filter
    requires and accepts a mandatory <code class="literal">callback</code> parameter
    to set the callback previously set through the function <span class="function"><a href="function.mysqlnd-ms-set-user-pick-server.html" class="function">mysqlnd_ms_set_user_pick_server()</a></span>.
-   <div class="example" id="example-2063">
+   <div class="example" id="example-2076">
     <p><strong>Example #7 The <code class="literal">user</code> filter replaces <span class="function"><a href="function.mysqlnd-ms-set-user-pick-server.html" class="function">mysqlnd_ms_set_user_pick_server()</a></span></strong></p>
     <div class="example-contents">
 <div class="inicode"><pre class="inicode">&quot;filters&quot;: {
@@ -379,7 +379,7 @@ Dumping file contents...
    This problem has been cured in version 1.5.0.
   </p>
   <p class="para">
-   <div class="example" id="example-2064">
+   <div class="example" id="example-2077">
     <p><strong>Example #8 Common error message in case of configuration file issues (upto version 1.5.0)</strong></p>
      <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -410,7 +410,7 @@ Fatal error: Call to a member function fetch_assoc() on a non-object in Command 
    of type <code class="literal">E_WARNING</code> will be emitted.
  </p>
   <p class="para">
-   <div class="example" id="example-2065">
+   <div class="example" id="example-2078">
     <p><strong>Example #9 Improved configuration file validation since 1.5.0</strong></p>
      <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -434,7 +434,7 @@ Warning: mysqli::mysqli(): (mysqlnd_ms) (mysqlnd_ms) Failed to parse config file
    help detecting misspelled section names.
   </p>
   <p class="para">
-   <div class="example" id="example-2066">
+   <div class="example" id="example-2079">
     <p><strong>Example #10 Possibly more precise error due to <code class="literal">mysqlnd_ms.force_config_usage=1</code></strong></p>
     <div class="example-contents">
 <div class="inicode"><pre class="inicode">mysqlnd_ms.force_config_usage=1</pre>
@@ -809,7 +809,7 @@ Warning: mysqli::mysqli(): (mysqlnd_ms) Exclusive usage of configuration enforce
         strategy to choose among them. Other strategies are currently not available.
       </p>
       <p class="para">
-       <div class="example" id="example-2067">
+       <div class="example" id="example-2080">
         <p><strong>Example #11 Minimum pluging configuration for use with MySQL Fabric</strong></p>
         <div class="example-contents">
 <div class="inicode"><pre class="inicode">{
@@ -897,7 +897,7 @@ Warning: mysqli::mysqli(): (mysqlnd_ms) Exclusive usage of configuration enforce
        range is from 0 to 65535. The setting exists since version 1.6.
       </p>
       <p class="para">
-       <div class="example" id="example-2068">
+       <div class="example" id="example-2081">
         <p><strong>Example #12 Optional timeout for communication with Fabric</strong></p>
         <div class="example-contents">
 <div class="inicode"><pre class="inicode">{
@@ -937,7 +937,7 @@ Warning: mysqli::mysqli(): (mysqlnd_ms) Exclusive usage of configuration enforce
        set the boolean flag <code class="literal">trx_warn_server_list_changes</code>.
       </p>
       <p class="para">
-       <div class="example" id="example-2069">
+       <div class="example" id="example-2082">
         <p><strong>Example #13 Warnings about the violation of transaction boundaries</strong></p>
         <div class="example-contents">
 <div class="inicode"><pre class="inicode">{
@@ -1021,7 +1021,7 @@ PHP Warning: mysqlnd_ms_fabric_select_global(): (mysqlnd_ms) Fabric server excha
        handle.
       </p>
       <p class="para">
-       <div class="example" id="example-2070">
+       <div class="example" id="example-2083">
         <p><strong>Example #14 Invalid filter sequence</strong></p>
         <div class="example-contents">
 <div class="inicode"><pre class="inicode">{
@@ -1092,7 +1092,7 @@ PHP Warning:  mysqli::query(): Couldn&#039;t fetch mysqli in filter_warning.php 
        stands for random load balancing policy.
       </p>
       <p class="para">
-       <div class="example" id="example-2071">
+       <div class="example" id="example-2084">
         <p><strong>Example #15 Random load balancing with <code class="literal">random</code> filter</strong></p>
         <div class="example-contents">
 <div class="inicode"><pre class="inicode">{
@@ -1129,7 +1129,7 @@ PHP Warning:  mysqli::query(): Couldn&#039;t fetch mysqli in filter_warning.php 
        load balancing strategy.
       </p>
       <p class="para">
-       <div class="example" id="example-2072">
+       <div class="example" id="example-2085">
         <p><strong>Example #16 Random once load balancing with <code class="literal">random</code> filter</strong></p>
         <div class="example-contents">
 <div class="inicode"><pre class="inicode">{
@@ -1154,7 +1154,7 @@ PHP Warning:  mysqli::query(): Couldn&#039;t fetch mysqli in filter_warning.php 
        to reference servers for assigning a priority with <code class="literal">weight</code>.
       </p>
       <p class="para">
-       <div class="example" id="example-2073">
+       <div class="example" id="example-2086">
         <p><strong>Example #17 Referencing error</strong></p>
         <div class="example-contents screen">
 <div class="cdata"><pre>
@@ -1172,7 +1172,7 @@ PHP Warning:  mysqli::query(): Couldn&#039;t fetch mysqli in filter_warning.php 
        all servers is one.
       </p>
       <p class="para">
-       <div class="example" id="example-2074">
+       <div class="example" id="example-2087">
         <p><strong>Example #18 Assigning a <code class="literal">weight</code> for load balancing</strong></p>
         <div class="example-contents">
 <div class="inicode"><pre class="inicode">{
@@ -1309,7 +1309,7 @@ PHP Warning:  mysqli::query(): Couldn&#039;t fetch mysqli in filter_warning.php 
        configured slave server.
       </p>
       <p class="para">
-       <div class="example" id="example-2075">
+       <div class="example" id="example-2088">
         <p><strong>Example #19 <code class="literal">roundrobin</code> filter</strong></p>
         <div class="example-contents">
 <div class="inicode"><pre class="inicode">{
@@ -1428,7 +1428,7 @@ PHP Warning:  mysqli::query(): Couldn&#039;t fetch mysqli in filter_warning.php 
        the plugin to prevent an endless loop.
       </p>
       <p class="para">
-       <div class="example" id="example-2076">
+       <div class="example" id="example-2089">
         <p><strong>Example #20 Setting a callback</strong></p>
         <div class="example-contents">
 <div class="inicode"><pre class="inicode">{
@@ -1580,8 +1580,8 @@ PHP Warning:  mysqli::query(): Couldn&#039;t fetch mysqli in filter_warning.php 
             <p class="para">
              Boolean flag indicating whether the statement is
              part of an open transaction. If autocommit mode is turned
-             off, this will be set to <strong><code>TRUE</code></strong>. Otherwise
-             it is set to <strong><code>FALSE</code></strong>.
+             off, this will be set to <strong><code>true</code></strong>. Otherwise
+             it is set to <strong><code>false</code></strong>.
             </p>
             <p class="para">
              Transaction detection is based on monitoring the
@@ -1599,7 +1599,7 @@ PHP Warning:  mysqli::query(): Couldn&#039;t fetch mysqli in filter_warning.php 
       </table>
 
       <p class="para">
-       <div class="example" id="example-2077">
+       <div class="example" id="example-2090">
         <p><strong>Example #21 Using a callback</strong></p>
         <div class="example-contents">
 <div class="inicode"><pre class="inicode">{
@@ -1692,7 +1692,7 @@ User has connected to &#039;myapp&#039;...
        random master and slave lists extracted from the functions input.
       </p>
       <p class="para">
-      <div class="example" id="example-2078">
+      <div class="example" id="example-2091">
         <p><strong>Example #22 Returning random masters and slaves</strong></p>
         <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -1801,7 +1801,7 @@ User has connected to &#039;myapp&#039;...
              <code class="literal">(mysqlnd_ms) Unknown master &#039;server_alias_name&#039; (section &#039;name_of_group&#039;) in &#039;node_groups&#039; filter configuration</code>.
             </p>
             <p class="para">
-             <div class="example" id="example-2079">
+             <div class="example" id="example-2092">
                <p><strong>Example #23 Manual partitioning</strong></p>
                 <div class="example-contents">
 <div class="inicode"><pre class="inicode">{
@@ -1942,7 +1942,7 @@ User has connected to &#039;myapp&#039;...
               emit a warning.
             </p>
             <p class="para">
-             <div class="example" id="example-2080">
+             <div class="example" id="example-2093">
                <p><strong>Example #24 Global limit on slave lag</strong></p>
                 <div class="example-contents">
 <div class="inicode"><pre class="inicode">{
@@ -2065,7 +2065,7 @@ User has connected to &#039;myapp&#039;...
        pitfalls and risks of using <code class="literal">failover=master</code>.
       </p>
       <p class="para">
-       <div class="example" id="example-2081">
+       <div class="example" id="example-2094">
         <p><strong>Example #25 Optional master failover when failing to connect to slave (PECL/mysqlnd_ms &lt; 1.4.0)</strong></p>
         <div class="example-contents">
 <div class="inicode"><pre class="inicode">{
@@ -2094,7 +2094,7 @@ User has connected to &#039;myapp&#039;...
        object.
       </p>
       <p class="para">
-       <div class="example" id="example-2082">
+       <div class="example" id="example-2095">
         <p><strong>Example #26 New syntax since 1.4.0</strong></p>
         <div class="example-contents">
 <div class="inicode"><pre class="inicode">{
@@ -2257,7 +2257,7 @@ User has connected to &#039;myapp&#039;...
        connections are opened.
       </p>
       <p class="para">
-       <div class="example" id="example-2083">
+       <div class="example" id="example-2096">
         <p><strong>Example #27 Disabling lazy connection</strong></p>
         <div class="example-contents">
 <div class="inicode"><pre class="inicode">{
@@ -2353,7 +2353,7 @@ User has connected to &#039;myapp&#039;...
        <code class="literal">set_charset</code> is of no meaning anymore.
       </p>
       <p class="para">
-       <div class="example" id="example-2084">
+       <div class="example" id="example-2097">
         <p><strong>Example #28 String escaping on a lazy connection handle</strong></p>
         <div class="example-contents">
 <div class="inicode"><pre class="inicode">{
@@ -2370,7 +2370,7 @@ User has connected to &#039;myapp&#039;...
             }
         },
         &quot;lazy_connections&quot;: 1,
-        &quot;server_charset&quot; : &quot;utf8&quot;
+        &quot;server_charset&quot; : &quot;utf8mb4&quot;
     }
 }</pre>
 </div>
@@ -2378,7 +2378,7 @@ User has connected to &#039;myapp&#039;...
 
         <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$mysqli&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">mysqli</span><span style="color: #007700">(</span><span style="color: #DD0000">"myapp"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"username"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"password"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"database"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$mysqli</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">real_escape</span><span style="color: #007700">(</span><span style="color: #DD0000">"this&nbsp;will&nbsp;be&nbsp;escaped&nbsp;using&nbsp;the&nbsp;server_charset&nbsp;setting&nbsp;-&nbsp;utf8"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$mysqli</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">set_charset</span><span style="color: #007700">(</span><span style="color: #DD0000">"latin1"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$mysqli</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">real_escape</span><span style="color: #007700">(</span><span style="color: #DD0000">"this&nbsp;will&nbsp;be&nbsp;escaped&nbsp;using&nbsp;latin1"</span><span style="color: #007700">);<br /></span><span style="color: #FF8000">/*&nbsp;server_charset&nbsp;implicitly&nbsp;set&nbsp;-&nbsp;utf8&nbsp;connection&nbsp;*/<br /></span><span style="color: #0000BB">$mysqli</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">query</span><span style="color: #007700">(</span><span style="color: #DD0000">"SELECT&nbsp;'This&nbsp;connection&nbsp;will&nbsp;be&nbsp;set&nbsp;to&nbsp;server_charset&nbsp;upon&nbsp;establishing'&nbsp;AS&nbsp;_msg&nbsp;FROM&nbsp;DUAL"</span><span style="color: #007700">);<br /></span><span style="color: #FF8000">/*&nbsp;latin1&nbsp;used&nbsp;from&nbsp;now&nbsp;on&nbsp;*/<br /></span><span style="color: #0000BB">$mysqli</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">set_charset</span><span style="color: #007700">(</span><span style="color: #DD0000">"latin1"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$mysqli&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">mysqli</span><span style="color: #007700">(</span><span style="color: #DD0000">"myapp"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"username"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"password"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"database"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$mysqli</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">real_escape</span><span style="color: #007700">(</span><span style="color: #DD0000">"this&nbsp;will&nbsp;be&nbsp;escaped&nbsp;using&nbsp;the&nbsp;server_charset&nbsp;setting&nbsp;-&nbsp;utf8mb4"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$mysqli</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">set_charset</span><span style="color: #007700">(</span><span style="color: #DD0000">"latin1"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$mysqli</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">real_escape</span><span style="color: #007700">(</span><span style="color: #DD0000">"this&nbsp;will&nbsp;be&nbsp;escaped&nbsp;using&nbsp;latin1"</span><span style="color: #007700">);<br /></span><span style="color: #FF8000">/*&nbsp;server_charset&nbsp;implicitly&nbsp;set&nbsp;-&nbsp;utf8mb4&nbsp;connection&nbsp;*/<br /></span><span style="color: #0000BB">$mysqli</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">query</span><span style="color: #007700">(</span><span style="color: #DD0000">"SELECT&nbsp;'This&nbsp;connection&nbsp;will&nbsp;be&nbsp;set&nbsp;to&nbsp;server_charset&nbsp;upon&nbsp;establishing'&nbsp;AS&nbsp;_msg&nbsp;FROM&nbsp;DUAL"</span><span style="color: #007700">);<br /></span><span style="color: #FF8000">/*&nbsp;latin1&nbsp;used&nbsp;from&nbsp;now&nbsp;on&nbsp;*/<br /></span><span style="color: #0000BB">$mysqli</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">set_charset</span><span style="color: #007700">(</span><span style="color: #DD0000">"latin1"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
          </div>
@@ -2412,7 +2412,7 @@ User has connected to &#039;myapp&#039;...
        <code class="literal">INSERT</code> yet.
       </p>
       <p class="para">
-       <div class="example" id="example-2085">
+       <div class="example" id="example-2098">
         <p><strong>Example #29 Master on write for consistent reads</strong></p>
         <div class="example-contents">
 <div class="inicode"><pre class="inicode">{
@@ -2508,7 +2508,7 @@ User has connected to &#039;myapp&#039;...
        a transaction.
       </p>
       <p class="para">
-       <div class="example" id="example-2086">
+       <div class="example" id="example-2099">
         <p><strong>Example #30 Using master to execute transactions</strong></p>
         <div class="example-contents">
 <div class="inicode"><pre class="inicode">{
@@ -2546,7 +2546,7 @@ User has connected to &#039;myapp&#039;...
        Those errors will be generated by the failing query function.
       </p>
       <p class="para">
-       <div class="example" id="example-2087">
+       <div class="example" id="example-2100">
         <p><strong>Example #31 No automatic failover, error handling pitfall</strong></p>
         <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -2606,7 +2606,7 @@ User has connected to &#039;myapp&#039;...
        forwarded to the application by the end of the loop.
       </p>
       <p class="para">
-       <div class="example" id="example-2088">
+       <div class="example" id="example-2101">
         <p><strong>Example #32 Retry loop for transient errors</strong></p>
         <div class="example-contents">
 <div class="inicode"><pre class="inicode">{
@@ -2819,7 +2819,7 @@ global_trx_table</dt>
                   Default: <code class="literal">mysqlnd_ms_xa_trx</code>
                  </p>
                  <p class="para">
-                  <div class="example" id="example-2089">
+                  <div class="example" id="example-2102">
                    <p><strong>Example #33 SQL definition for the MySQL state store transaction table</strong></p>
                    <div class="example-contents">
 <div class="sqlcode"><pre class="sqlcode">CREATE TABLE mysqlnd_ms_xa_trx (
@@ -2862,7 +2862,7 @@ participant_table</dt>
                    <p class="para">
                     Default: <code class="literal">mysqlnd_ms_xa_participants</code>
                    </p>
-                   <div class="example" id="example-2090">
+                   <div class="example" id="example-2103">
                     <p><strong>Example #34 SQL definition for the MySQL state store transaction table</strong></p>
                     <div class="example-contents">
 <div class="sqlcode"><pre class="sqlcode">CREATE TABLE mysqlnd_ms_xa_participants (
@@ -2910,7 +2910,7 @@ garbage_collection_table</dt>
                   <p class="para">
                    Default: <code class="literal">mysqlnd_ms_xa_gc</code>
                   </p>
-                  <div class="example" id="example-2091">
+                  <div class="example" id="example-2104">
                    <p><strong>Example #35 SQL definition for the MySQL state store garbage collection table</strong></p>
                    <div class="example-contents">
 <div class="sqlcode"><pre class="sqlcode">CREATE TABLE mysqlnd_ms_xa_gc (
@@ -3191,7 +3191,7 @@ max_transactions_per_run</dt>
    section name match, the plugin will load the sections settings.
   </p>
   <p class="para">
-   <div class="example" id="example-2092">
+   <div class="example" id="example-2105">
     <p><strong>Example #36 Using section names example</strong></p>
     <div class="example-contents">
 <div class="inicode"><pre class="inicode">[myapp]
@@ -3245,7 +3245,7 @@ slave[] = 192.168.3.65:3309</pre>
    section.
   </p>
   <p class="para">
-   <div class="example" id="example-2093">
+   <div class="example" id="example-2106">
     <p><strong>Example #37 List-like syntax</strong></p>
     <div class="example-contents">
 <div class="inicode"><pre class="inicode">[myapp]
@@ -3759,7 +3759,7 @@ mysqlnd.debug=d:t:x:O,/tmp/mysqlnd.trace
    script cannot rely on the fact that it sees only its own changes to statistics.
   </p>
   <p class="para">
-   <div class="example" id="example-2094">
+   <div class="example" id="example-2107">
     <p><strong>Example #38 Verify plugin activity in a non-threaded deployment model</strong></p>
     <div class="example-contents">
 <div class="inicode"><pre class="inicode">mysqlnd_ms.enable=1
@@ -3789,7 +3789,7 @@ mysqlnd_ms.collect_statistics=1</pre>
    to an external monitoring tool for recording and display.
   </p>
   <p class="para">
-   <div class="example" id="example-2095">
+   <div class="example" id="example-2108">
     <p><strong>Example #39 Recording statistics during shutdown</strong></p>
     <div class="example-contents">
 <div class="inicode"><pre class="inicode">mysqlnd_ms.enable=1

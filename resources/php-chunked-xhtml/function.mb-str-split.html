@@ -35,13 +35,13 @@
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>mb_str_split</strong></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$string</code></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$split_length</code><span class="initializer"> = 1</span></span>
-   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$encoding</code><span class="initializer"> = mb_internal_encoding()</span></span>
-  ]] ) : <span class="type"><span class="type">array</span>|<span class="type"><span class="type false">false</span></span></span></div>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$length</code><span class="initializer"> = 1</span></span>
+   , <span class="methodparam"><span class="type"><span class="type">string</span>|<span class="type">null</span></span> <code class="parameter">$encoding</code><span class="initializer"> = <strong><code>null</code></strong></span></span>
+   ) : <span class="type">array</span></div>
 
   <p class="para rdfs-comment">
    This function will return an array of strings, it is a version of <span class="function"><a href="function.str-split.html" class="function">str_split()</a></span> with support for encodings of variable character size as well as fixed-size encodings of 1,2 or 4 byte characters.
-   If the <code class="parameter">split_length</code> parameter is specified, the string is broken down into chunks of the specified length in characters (not bytes).
+   If the <code class="parameter">length</code> parameter is specified, the string is broken down into chunks of the specified length in characters (not bytes).
    The <code class="parameter">encoding</code> parameter can be optionally specified and it is good practice to do so.
   </p>
  </div>
@@ -66,7 +66,7 @@
     
     
      <dt>
-<code class="parameter">split_length</code></dt>
+<code class="parameter">length</code></dt>
 
      <dd>
 
@@ -83,7 +83,7 @@
      <dd>
 
       <p class="para">The <code class="parameter">encoding</code>
-parameter is the character encoding. If it is omitted, the internal character
+parameter is the character encoding. If it is omitted or <strong><code>null</code></strong>, the internal character
 encoding value will be used.</p>
       <p class="para">
         A string specifying one of the supported encodings.
@@ -100,8 +100,42 @@ encoding value will be used.</p>
  <div class="refsect1 returnvalues" id="refsect1-function.mb-str-split-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   <span class="function"><strong>mb_str_split()</strong></span> returns an array of strings,  or <strong><code>FALSE</code></strong> on failure.
+   <span class="function"><strong>mb_str_split()</strong></span> returns an array of strings.
   </p>
+ </div>
+
+
+ <div class="refsect1 changelog" id="refsect1-function.mb-str-split-changelog">
+  <h3 class="title">Changelog</h3>
+  <table class="doctable informaltable">
+   
+    <thead>
+     <tr>
+      <th>Version</th>
+      <th>Description</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+ <td>8.0.0</td>
+ <td>
+  <code class="parameter">encoding</code> is nullable now.
+ </td>
+</tr>
+
+     <tr>
+      <td>8.0.0</td>
+      <td>
+       This function no longer returns <strong><code>false</code></strong> on failure.
+      </td>
+     </tr>
+
+    </tbody>
+   
+  </table>
+
  </div>
 
 

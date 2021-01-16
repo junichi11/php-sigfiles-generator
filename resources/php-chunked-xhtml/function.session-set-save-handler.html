@@ -39,10 +39,10 @@
    , <span class="methodparam"><span class="type"><a href="language.types.callable.html" class="type callable">callable</a></span> <code class="parameter">$write</code></span>
    , <span class="methodparam"><span class="type"><a href="language.types.callable.html" class="type callable">callable</a></span> <code class="parameter">$destroy</code></span>
    , <span class="methodparam"><span class="type"><a href="language.types.callable.html" class="type callable">callable</a></span> <code class="parameter">$gc</code></span>
-   [, <span class="methodparam"><span class="type"><a href="language.types.callable.html" class="type callable">callable</a></span> <code class="parameter">$create_sid</code></span>
-   [, <span class="methodparam"><span class="type"><a href="language.types.callable.html" class="type callable">callable</a></span> <code class="parameter">$validate_sid</code></span>
-   [, <span class="methodparam"><span class="type"><a href="language.types.callable.html" class="type callable">callable</a></span> <code class="parameter">$update_timestamp</code></span>
-  ]]] ) : <span class="type">bool</span></div>
+   , <span class="methodparam"><span class="type"><a href="language.types.callable.html" class="type callable">callable</a></span> <code class="parameter">$create_sid</code> = ?</span>
+   , <span class="methodparam"><span class="type"><a href="language.types.callable.html" class="type callable">callable</a></span> <code class="parameter">$validate_sid</code> = ?</span>
+   , <span class="methodparam"><span class="type"><a href="language.types.callable.html" class="type callable">callable</a></span> <code class="parameter">$update_timestamp</code> = ?</span>
+   ) : <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
    Since PHP 5.4 it is possible to register the following prototype:
@@ -50,8 +50,8 @@
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>session_set_save_handler</strong></span>
     ( <span class="methodparam"><span class="type">object</span> <code class="parameter">$sessionhandler</code></span>
-   [, <span class="methodparam"><span class="type">bool</span> <code class="parameter">$register_shutdown</code><span class="initializer"> = <strong><code>TRUE</code></strong></span></span>
-  ] ) : <span class="type">bool</span></div>
+   , <span class="methodparam"><span class="type">bool</span> <code class="parameter">$register_shutdown</code><span class="initializer"> = <strong><code>true</code></strong></span></span>
+   ) : <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
    <span class="function"><strong>session_set_save_handler()</strong></span> sets the user-level
@@ -126,7 +126,7 @@
        executed when the session is being opened.  It is the first callback
        function executed when the session is started automatically or
        manually with <span class="function"><a href="function.session-start.html" class="function">session_start()</a></span>.
-       Return value is <strong><code>TRUE</code></strong> for success, <strong><code>FALSE</code></strong> for failure.
+       Return value is <strong><code>true</code></strong> for success, <strong><code>false</code></strong> for failure.
       </p>
      </dd>
 
@@ -149,7 +149,7 @@
        The close callback works like a destructor in classes and is
        executed after the session write callback has been called. It is also invoked when
        <span class="function"><a href="function.session-write-close.html" class="function">session_write_close()</a></span> is called.
-       Return value should be <strong><code>TRUE</code></strong> for success, <strong><code>FALSE</code></strong> for failure.
+       Return value should be <strong><code>true</code></strong> for success, <strong><code>false</code></strong> for failure.
       </p>
      </dd>
 
@@ -244,8 +244,8 @@
       </p>
       <p class="para">
        This callback is executed when a session is destroyed with <span class="function"><a href="function.session-destroy.html" class="function">session_destroy()</a></span> or with
-       <span class="function"><a href="function.session-regenerate-id.html" class="function">session_regenerate_id()</a></span> with the destroy parameter set to <strong><code>TRUE</code></strong>.
-       Return value should be <strong><code>TRUE</code></strong> for success, <strong><code>FALSE</code></strong> for failure.
+       <span class="function"><a href="function.session-regenerate-id.html" class="function">session_regenerate_id()</a></span> with the destroy parameter set to <strong><code>true</code></strong>.
+       Return value should be <strong><code>true</code></strong> for success, <strong><code>false</code></strong> for failure.
       </p>
      </dd>
 
@@ -269,7 +269,7 @@
        purge old session data.  The frequency is controlled by
        <a href="session.configuration.html#ini.session.gc-probability" class="link">session.gc_probability</a> and <a href="session.configuration.html#ini.session.gc-divisor" class="link">session.gc_divisor</a>.
        The value of lifetime which is passed to this callback can be set in <a href="session.configuration.html#ini.session.gc-maxlifetime" class="link">session.gc_maxlifetime</a>.
-       Return value should be <strong><code>TRUE</code></strong> for success, <strong><code>FALSE</code></strong> for failure.
+       Return value should be <strong><code>true</code></strong> for success, <strong><code>false</code></strong> for failure.
       </p>
      </dd>
 
@@ -315,7 +315,7 @@
        and <a href="session.configuration.html#ini.session.use-strict-mode" class="link">session.use_strict_mode</a> is enabled.
        The <code class="parameter">key</code> is the session ID to validate.
        A session ID is valid, if a session with that ID already exists.
-       The return value should be <strong><code>TRUE</code></strong> for success, <strong><code>FALSE</code></strong> for failure.
+       The return value should be <strong><code>true</code></strong> for success, <strong><code>false</code></strong> for failure.
       </p>
      </dd>
 
@@ -338,7 +338,7 @@
       <p class="para">
        This callback is executed when a session is updated.
        <code class="parameter">key</code> is the session ID, <code class="parameter">val</code> is the session data.
-       The return value should be <strong><code>TRUE</code></strong> for success, <strong><code>FALSE</code></strong> for failure.
+       The return value should be <strong><code>true</code></strong> for success, <strong><code>false</code></strong> for failure.
       </p>
      </dd>
 
@@ -352,7 +352,7 @@
  <div class="refsect1 returnvalues" id="refsect1-function.session-set-save-handler-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns <strong><code>TRUE</code></strong> on success or <strong><code>FALSE</code></strong> on failure.
+   Returns <strong><code>true</code></strong> on success or <strong><code>false</code></strong> on failure.
   </p>
  </div>
 
@@ -360,7 +360,7 @@
  <div class="refsect1 examples" id="refsect1-function.session-set-save-handler-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-5208">
+   <div class="example" id="example-5229">
     <p><strong>Example #1 
      Custom session handler: see full code in <a href="class.sessionhandlerinterface.html" class="classname">SessionHandlerInterface</a> synopsis.
     </strong></p>
@@ -381,7 +381,7 @@
     </div>
 
    </div>
-   <div class="example" id="example-5209">
+   <div class="example" id="example-5230">
     <p><strong>Example #2 Custom session save handler using objects</strong></p>
     <div class="example-contents"><p>
      The following code is for PHP versions less than 5.4.0.

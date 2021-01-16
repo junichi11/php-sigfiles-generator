@@ -38,8 +38,7 @@
    ) : <span class="type"><span class="type void">void</span></span></div>
 
   <p class="para rdfs-comment">
-   Sets a method to be accessible. For example, it may allow protected
-   and private methods to be invoked.
+   Enables invoking of a protected or private method via the <span class="methodname"><a href="reflectionmethod.invoke.html" class="methodname">ReflectionMethod::invoke()</a></span> method.
   </p>
  </div>
 
@@ -56,7 +55,7 @@
      <dd>
 
       <p class="para">
-       <strong><code>TRUE</code></strong> to allow accessibility, or <strong><code>FALSE</code></strong>.
+       <strong><code>true</code></strong> to allow accessibility, or <strong><code>false</code></strong>.
       </p>
      </dd>
 
@@ -72,6 +71,29 @@
   <p class="para">
    No value is returned.
   </p>
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-reflectionmethod.setaccessible-examples">
+  <h3 class="title">Examples</h3>
+  <div class="example" id="example-5725">
+   <p><strong>Example #1 Simple Class definition</strong></p>
+   <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">class&nbsp;</span><span style="color: #0000BB">MyClass<br /></span><span style="color: #007700">{<br />&nbsp;&nbsp;&nbsp;&nbsp;private&nbsp;function&nbsp;</span><span style="color: #0000BB">foo</span><span style="color: #007700">()<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #DD0000">'bar'</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />}<br /><br /></span><span style="color: #0000BB">$method&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">ReflectionMethod</span><span style="color: #007700">(</span><span style="color: #DD0000">"MyClass"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"foo"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$method</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">setAccessible</span><span style="color: #007700">(</span><span style="color: #0000BB">true</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$obj&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">MyClass</span><span style="color: #007700">();<br />echo&nbsp;</span><span style="color: #0000BB">$method</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">invoke</span><span style="color: #007700">(</span><span style="color: #0000BB">$obj</span><span style="color: #007700">);<br />echo&nbsp;</span><span style="color: #0000BB">$obj</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">foo</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+   </div>
+
+   <div class="example-contents"><p>The above example will output
+something similar to:</p></div>
+   <div class="example-contents screen">
+<div class="cdata"><pre>
+bar
+Fatal error: Uncaught Error: Call to private method MyClass::foo() from global scope in /in/qdaZS:16
+</pre></div>
+   </div>
+  </div>
  </div>
 
 

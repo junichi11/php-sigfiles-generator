@@ -34,12 +34,12 @@
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>parse_str</strong></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$encoded_string</code></span>
-   [, <span class="methodparam"><span class="type">array</span> <code class="parameter reference">&$result</code></span>
-  ] ) : <span class="type"><span class="type void">void</span></span></div>
+    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$string</code></span>
+   , <span class="methodparam"><span class="type">array</span> <code class="parameter reference">&$result</code></span>
+   ) : <span class="type"><span class="type void">void</span></span></div>
 
   <p class="para rdfs-comment">
-   Parses <code class="parameter">encoded_string</code> as if it were the query string
+   Parses <code class="parameter">string</code> as if it were the query string
    passed via a URL and sets variables in the current scope (or in the array
    if <code class="parameter">result</code> is provided).
   </p>
@@ -53,7 +53,7 @@
 
     
      <dt>
-<code class="parameter">encoded_string</code></dt>
+<code class="parameter">string</code></dt>
 
      <dd>
 
@@ -78,14 +78,6 @@
        <p class="para">
         Using this function without the <code class="parameter">result</code> parameter is highly
         <em class="emphasis">DISCOURAGED</em> and <em class="emphasis">DEPRECATED</em> as of PHP 7.2.
-       </p>
-       <p class="para">
-        Dynamically setting variables in function&#039;s scope suffers from exactly same problems
-        as <a href="ini.core.html#ini.register-globals" class="link">register_globals</a>.
-       </p>
-       <p class="para">
-        Read section on security of <a href="security.globals.html" class="link">Using Register Globals</a>
-        explaining why it is dangerous.
        </p>
       </div>
      </dd>
@@ -119,6 +111,13 @@
      </thead>
 
      <tbody class="tbody">
+     <tr>
+      <td>8.0.0</td>
+      <td>
+       <code class="parameter">result</code> is no longer optional.
+      </td>
+     </tr>
+
       <tr>
        <td>7.2.0</td>
        <td>
@@ -138,7 +137,7 @@
  <div class="refsect1 examples" id="refsect1-function.parse-str-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-5301">
+   <div class="example" id="example-5322">
     <p><strong>Example #1 Using <span class="function"><strong>parse_str()</strong></span></strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -154,7 +153,7 @@
    those are converted to underscores. Same applies to naming of
    respective key names in case of using this function with
    <code class="parameter">result</code> parameter.   
-   <div class="example" id="example-5302">
+   <div class="example" id="example-5323">
     <p><strong>Example #2 <span class="function"><strong>parse_str()</strong></span> name mangling</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

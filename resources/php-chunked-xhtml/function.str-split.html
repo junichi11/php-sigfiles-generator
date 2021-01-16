@@ -35,8 +35,8 @@
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>str_split</strong></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$string</code></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$split_length</code><span class="initializer"> = 1</span></span>
-  ] ) : <span class="type">array</span></div>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$length</code><span class="initializer"> = 1</span></span>
+   ) : <span class="type">array</span></div>
 
   <p class="para rdfs-comment">
    Converts a string to an array. 
@@ -63,7 +63,7 @@
     
     
      <dt>
-<code class="parameter">split_length</code></dt>
+<code class="parameter">length</code></dt>
 
      <dd>
 
@@ -82,14 +82,14 @@
  <div class="refsect1 returnvalues" id="refsect1-function.str-split-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   If the optional <code class="parameter">split_length</code> parameter is
+   If the optional <code class="parameter">length</code> parameter is
    specified, the returned array will be broken down into chunks with each
-   being <code class="parameter">split_length</code> in length, otherwise each chunk
+   being <code class="parameter">length</code> in length, otherwise each chunk
    will be one character in length.
   </p>
   <p class="para">
-   <strong><code>FALSE</code></strong> is returned if <code class="parameter">split_length</code> is less than 1.
-   If the <code class="parameter">split_length</code> length exceeds the length of
+   <strong><code>false</code></strong> is returned if <code class="parameter">length</code> is less than 1.
+   If the <code class="parameter">length</code> length exceeds the length of
    <code class="parameter">string</code>, the entire string is returned as the first
    (and only) array element.
   </p>
@@ -99,7 +99,7 @@
  <div class="refsect1 examples" id="refsect1-function.str-split-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-5332">
+   <div class="example" id="example-5353">
     <p><strong>Example #1 Example uses of <span class="function"><strong>str_split()</strong></span></strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

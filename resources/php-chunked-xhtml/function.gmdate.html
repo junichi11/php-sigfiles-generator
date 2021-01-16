@@ -35,8 +35,8 @@
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>gmdate</strong></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$format</code></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$timestamp</code><span class="initializer"> = time()</span></span>
-  ] ) : <span class="type">string</span></div>
+   , <span class="methodparam"><span class="type"><span class="type">int</span>|<span class="type">null</span></span> <code class="parameter">$timestamp</code><span class="initializer"> = <strong><code>null</code></strong></span></span>
+   ) : <span class="type">string</span></div>
 
   <p class="para rdfs-comment">
    Identical to the <span class="function"><a href="function.date.html" class="function">date()</a></span> function except that
@@ -71,7 +71,7 @@
 <p class="para">
 The optional <code class="parameter">timestamp</code> parameter is an
 <span class="type">int</span> Unix timestamp that defaults to the current
-local time if a <code class="parameter">timestamp</code> is not given. In other
+local time if <code class="parameter">timestamp</code> is omitted or <strong><code>null</code></strong>. In other
 words, it defaults to the value of <span class="function"><a href="function.time.html" class="function">time()</a></span>.
 </p></dd>
 
@@ -85,9 +85,36 @@ words, it defaults to the value of <span class="function"><a href="function.time
  <div class="refsect1 returnvalues" id="refsect1-function.gmdate-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns a formatted date string. If a non-numeric value is used for 
-   <code class="parameter">timestamp</code>, <strong><code>FALSE</code></strong> is returned and an 
-   <strong><code>E_WARNING</code></strong> level error is emitted.
+   Returns a formatted date string.
+  </p>
+ </div>
+
+
+ <div class="refsect1 changelog" id="refsect1-function.gmdate-changelog">
+  <h3 class="title">Changelog</h3>
+  <p class="para">
+   <table class="doctable informaltable">
+    
+     <thead>
+      <tr>
+       <th>Version</th>
+       <th>Description</th>
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr>
+       <td>8.0.0</td>
+       <td>
+        <code class="parameter">timestamp</code> is nullable now.
+       </td>
+      </tr>
+
+     </tbody>
+    
+   </table>
+
   </p>
  </div>
 
@@ -95,7 +122,7 @@ words, it defaults to the value of <span class="function"><a href="function.time
  <div class="refsect1 examples" id="refsect1-function.gmdate-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-2562">
+   <div class="example" id="example-2577">
     <p><strong>Example #1 <span class="function"><strong>gmdate()</strong></span> example</strong></p>
     <div class="example-contents"><p>
      When run in Finland (GMT +0200), the first line below prints &quot;Jan 01

@@ -35,8 +35,8 @@
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>apcu_cache_info</strong></span>
-    ([ <span class="methodparam"><span class="type">bool</span> <code class="parameter">$limited</code><span class="initializer"> = <strong><code>FALSE</code></strong></span></span>
-  ] ) : <span class="type"><span class="type">array</span>|<span class="type"><span class="type false">false</span></span></span></div>
+    ( <span class="methodparam"><span class="type">bool</span> <code class="parameter">$limited</code><span class="initializer"> = <strong><code>false</code></strong></span></span>
+   ) : <span class="type"><span class="type">array</span>|<span class="type"><span class="type false">false</span></span></span></div>
 
   <p class="para rdfs-comment">
    Retrieves cached information and meta-data from APC&#039;s data store.
@@ -56,7 +56,7 @@
      <dd>
 
       <p class="para">
-       If <code class="parameter">limited</code> is <strong><code>TRUE</code></strong>, the
+       If <code class="parameter">limited</code> is <strong><code>true</code></strong>, the
        return value will exclude the individual list of cache entries.  This
        is useful when trying to optimize calls for statistics gathering.
       </p>
@@ -72,7 +72,7 @@
  <div class="refsect1 returnvalues" id="refsect1-function.apcu-cache-info-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Array of cached data (and meta-data) or <strong><code>FALSE</code></strong> on failure
+   Array of cached data (and meta-data) or <strong><code>false</code></strong> on failure
   </p>
   <blockquote class="note"><p><strong class="note">Note</strong>: 
    <span class="simpara">
@@ -123,7 +123,7 @@
  <div class="refsect1 examples" id="refsect1-function.apcu-cache-info-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-457">
+   <div class="example" id="example-470">
     <p><strong>Example #1 A <span class="function"><strong>apcu_cache_info()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

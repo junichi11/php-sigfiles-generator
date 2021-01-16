@@ -31,17 +31,17 @@
  </div>
  <div class="refsect1 description" id="refsect1-function.log-description">
   <h3 class="title">Description</h3>
-   <div class="methodsynopsis dc-description">
-    <span class="methodname"><strong>log</strong></span>
-     ( <span class="methodparam"><span class="type">float</span> <code class="parameter">$arg</code></span>
-    [, <span class="methodparam"><span class="type">float</span> <code class="parameter">$base</code><span class="initializer"> = M_E</span></span>
-   ] ) : <span class="type">float</span></div>
+  <div class="methodsynopsis dc-description">
+   <span class="methodname"><strong>log</strong></span>
+    ( <span class="methodparam"><span class="type">float</span> <code class="parameter">$num</code></span>
+   , <span class="methodparam"><span class="type">float</span> <code class="parameter">$base</code><span class="initializer"> = <strong><code>M_E</code></strong></span></span>
+   ) : <span class="type">float</span></div>
 
   <p class="para rdfs-comment">
    If the optional <code class="parameter">base</code> parameter is specified, 
    <span class="function"><strong>log()</strong></span> returns log<sub class="subscript">base</sub>
-   <code class="parameter">arg</code>, otherwise <span class="function"><strong>log()</strong></span> 
-   returns the natural logarithm of <code class="parameter">arg</code>.
+   <code class="parameter">num</code>, otherwise <span class="function"><strong>log()</strong></span> 
+   returns the natural logarithm of <code class="parameter">num</code>.
   </p>
  </div>
 
@@ -52,7 +52,7 @@
 
     
      <dt>
-<code class="parameter">arg</code></dt>
+<code class="parameter">num</code></dt>
 
      <dd>
 
@@ -83,7 +83,7 @@
  <div class="refsect1 returnvalues" id="refsect1-function.log-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   The logarithm of <code class="parameter">arg</code> to 
+   The logarithm of <code class="parameter">num</code> to 
    <code class="parameter">base</code>, if given, or the
    natural logarithm.  
   </p>

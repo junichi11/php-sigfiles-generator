@@ -45,10 +45,10 @@ Alternatives to this method include:</p>
   <h3 class="title">Description</h3>
   <div class="constructorsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><strong>MongoClient::__construct</strong></span>
-    ([ <span class="methodparam"><span class="type">string</span> <code class="parameter">$server</code><span class="initializer"> = &quot;mongodb://localhost:27017&quot;</span></span>
-   [, <span class="methodparam"><span class="type">array</span> <code class="parameter">$options</code><span class="initializer"> = array(&quot;connect&quot; =&gt; <strong><code>TRUE</code></strong>)</span></span>
-   [, <span class="methodparam"><span class="type">array</span> <code class="parameter">$driver_options</code></span>
-  ]]] )</div>
+    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$server</code><span class="initializer"> = &quot;mongodb://localhost:27017&quot;</span></span>
+   , <span class="methodparam"><span class="type">array</span> <code class="parameter">$options</code><span class="initializer"> = array(&quot;connect&quot; =&gt; <strong><code>true</code></strong>)</span></span>
+   , <span class="methodparam"><span class="type">array</span> <code class="parameter">$driver_options</code> = ?</span>
+   )</div>
 
   <p class="para rdfs-comment">
    If no parameters are passed, this connects to &quot;localhost:27017&quot; (or whatever
@@ -200,7 +200,7 @@ Alternatives to this method include:</p>
          </p>
          <p class="para">
           If the constructor should connect before returning.  Default is
-          <strong><code>TRUE</code></strong>. When set to <strong><code>FALSE</code></strong> the driver will
+          <strong><code>true</code></strong>. When set to <strong><code>false</code></strong> the driver will
           <em class="emphasis">automatically</em> connect to the server whenever
           it is necessary to do a query. Alternatively, you can run
           <span class="function"><a href="mongoclient.connect.html" class="function">MongoClient::connect()</a></span> manually.
@@ -848,7 +848,7 @@ switched to db admin
 
            <p class="para">
             Optional boolean parameter specifying if the constructor should
-            connect to the database before returning.  Defaults to <strong><code>TRUE</code></strong>.
+            connect to the database before returning.  Defaults to <strong><code>true</code></strong>.
            </p>
           </dd>
 

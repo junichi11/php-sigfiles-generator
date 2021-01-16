@@ -35,7 +35,7 @@
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>printf</strong></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$format</code></span>
-   , <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">...$values</code></span>
+   , <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">...$values</code></span>
    ) : <span class="type">int</span></div>
 
   <p class="simpara">
@@ -295,6 +295,22 @@
       </tr>
 
       <tr>
+       <td><code class="literal">h</code></td>
+       <td>
+        Like the <code class="literal">g</code> specifier but uses <code class="literal">F</code>.
+        Available as of PHP 8.0.0.
+       </td>
+      </tr>
+
+      <tr>
+       <td><code class="literal">H</code></td>
+       <td>
+        Like the <code class="literal">g</code> specifier but uses
+        <code class="literal">E</code> and <code class="literal">F</code>. Available as of PHP 8.0.0.
+       </td>
+      </tr>
+
+      <tr>
        <td><code class="literal">o</code></td>
        <td>
         The argument is treated as an integer and presented
@@ -432,7 +448,7 @@
  <div class="refsect1 examples" id="refsect1-function.printf-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-5304">
+   <div class="example" id="example-5325">
     <p><strong>Example #1 <span class="function"><strong>printf()</strong></span>: various examples</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -461,7 +477,7 @@
     </div>
    </div>
 
-   <div class="example" id="example-5305">
+   <div class="example" id="example-5326">
     <p><strong>Example #2 <span class="function"><strong>printf()</strong></span>: string specifiers</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

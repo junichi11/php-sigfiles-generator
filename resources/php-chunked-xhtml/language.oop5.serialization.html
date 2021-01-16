@@ -59,17 +59,7 @@
    </div>
 
   </div>
-  
-  <p class="para">
-   If an application is using sessions and uses 
-   <span class="function"><a href="function.session-register.html" class="function">session_register()</a></span> to register objects, these objects 
-   are serialized automatically at the end of each PHP page, and are 
-   unserialized automatically on each of the following pages. This means that 
-   these objects can show up on any of the application&#039;s pages once they become 
-   part of the session. However, the <span class="function"><a href="function.session-register.html" class="function">session_register()</a></span> is
-   removed since PHP 5.4.0.
-  </p>
-  
+
   <p class="para">
    It is strongly recommended that if an application serializes objects, for use
    later in the application, that the application includes the class definition

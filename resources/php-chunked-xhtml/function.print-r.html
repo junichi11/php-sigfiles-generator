@@ -26,7 +26,7 @@
   <div id="layout-content"><div id="function.print-r" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">print_r</h1>
-  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">print_r</span> &mdash; <span class="dc-title">
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">print_r</span> &mdash; <span class="dc-title">
    Prints human-readable information about a variable
   </span></p>
 
@@ -36,9 +36,9 @@
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>print_r</strong></span>
-    ( <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">$expression</code></span>
-   [, <span class="methodparam"><span class="type">bool</span> <code class="parameter">$return</code><span class="initializer"> = <strong><code>FALSE</code></strong></span></span>
-  ] ) : <span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span></div>
+    ( <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$value</code></span>
+   , <span class="methodparam"><span class="type">bool</span> <code class="parameter">$return</code><span class="initializer"> = <strong><code>false</code></strong></span></span>
+   ) : <span class="type"><span class="type">string</span>|<span class="type">bool</span></span></div>
 
   <p class="para rdfs-comment">
    <span class="function"><strong>print_r()</strong></span> displays information about a variable
@@ -60,7 +60,7 @@
 
     
      <dt>
-<code class="parameter">expression</code></dt>
+<code class="parameter">value</code></dt>
 
      <dd>
 
@@ -79,7 +79,7 @@
       <p class="para">
        If you would like to capture the output of <span class="function"><strong>print_r()</strong></span>, 
        use the <code class="parameter">return</code> parameter.  When this parameter is set
-       to <strong><code>TRUE</code></strong>, <span class="function"><strong>print_r()</strong></span> will return the information rather than print it.
+       to <strong><code>true</code></strong>, <span class="function"><strong>print_r()</strong></span> will return the information rather than print it.
       </p>
      </dd>
 
@@ -99,8 +99,8 @@
    notation is used for <span class="type">object</span>s.
   </p>
   <p class="para">
-   When the <code class="parameter">return</code> parameter is <strong><code>TRUE</code></strong>, this function
-   will return a <span class="type">string</span>. Otherwise, the return value is <strong><code>TRUE</code></strong>.
+   When the <code class="parameter">return</code> parameter is <strong><code>true</code></strong>, this function
+   will return a <span class="type">string</span>. Otherwise, the return value is <strong><code>true</code></strong>.
   </p>
  </div>
 
@@ -116,7 +116,7 @@ is used, this function uses internal output buffering so it cannot be used insid
  <div class="refsect1 examples" id="refsect1-function.print-r-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-5765">
+   <div class="example" id="example-5789">
     <p><strong>Example #1 <span class="function"><strong>print_r()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -145,7 +145,7 @@ Array
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-5766">
+   <div class="example" id="example-5790">
     <p><strong>Example #2 <code class="parameter">return</code> parameter example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

@@ -38,9 +38,9 @@
     ( <span class="methodparam"><span class="type">int</span> <code class="parameter">$version</code></span>
    , <span class="methodparam"><span class="type">string</span> <code class="parameter">$hostname</code></span>
    , <span class="methodparam"><span class="type">string</span> <code class="parameter">$community</code></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$timeout</code><span class="initializer"> = 1000000</span></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$retries</code><span class="initializer"> = 5</span></span>
-  ]] )</div>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$timeout</code><span class="initializer"> = -1</span></span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$retries</code><span class="initializer"> = -1</span></span>
+   )</div>
 
   <p class="para rdfs-comment">
    The function description goes here.
@@ -182,7 +182,7 @@
 
  <div class="refsect1 examples" id="refsect1-snmp.construct-examples">
   <h3 class="title">Examples</h3>
-  <div class="example" id="example-4977">
+  <div class="example" id="example-4999">
    <p><strong>Example #1 Fetching sysLocation</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

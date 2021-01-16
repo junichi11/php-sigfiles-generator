@@ -35,20 +35,21 @@
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>setcookie</strong></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$name</code></span>
-   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$value</code><span class="initializer"> = &quot;&quot;</span></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$expires</code><span class="initializer"> = 0</span></span>
-   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$path</code><span class="initializer"> = &quot;&quot;</span></span>
-   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$domain</code><span class="initializer"> = &quot;&quot;</span></span>
-   [, <span class="methodparam"><span class="type">bool</span> <code class="parameter">$secure</code><span class="initializer"> = <strong><code>FALSE</code></strong></span></span>
-   [, <span class="methodparam"><span class="type">bool</span> <code class="parameter">$httponly</code><span class="initializer"> = <strong><code>FALSE</code></strong></span></span>
-  ]]]]]] ) : <span class="type">bool</span></div>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$value</code><span class="initializer"> = &quot;&quot;</span></span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$expires</code><span class="initializer"> = 0</span></span>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$path</code><span class="initializer"> = &quot;&quot;</span></span>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$domain</code><span class="initializer"> = &quot;&quot;</span></span>
+   , <span class="methodparam"><span class="type">bool</span> <code class="parameter">$secure</code><span class="initializer"> = <strong><code>false</code></strong></span></span>
+   , <span class="methodparam"><span class="type">bool</span> <code class="parameter">$httponly</code><span class="initializer"> = <strong><code>false</code></strong></span></span>
+   ) : <span class="type">bool</span></div>
 
+  <p class="para rdfs-comment">Alternative signature available as of PHP 7.3.0:</p>
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>setcookie</strong></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$name</code></span>
-   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$value</code><span class="initializer"> = &quot;&quot;</span></span>
-   [, <span class="methodparam"><span class="type">array</span> <code class="parameter">$options</code><span class="initializer"> = []</span></span>
-  ]] ) : <span class="type">bool</span></div>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$value</code><span class="initializer"> = &quot;&quot;</span></span>
+   , <span class="methodparam"><span class="type">array</span> <code class="parameter">$options</code><span class="initializer"> = []</span></span>
+   ) : <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
    <span class="function"><strong>setcookie()</strong></span> defines a cookie to be sent along with the
@@ -180,7 +181,7 @@
 
       <p class="para">
        Indicates that the cookie should only be transmitted over a
-       secure HTTPS connection from the client. When set to <strong><code>TRUE</code></strong>, the
+       secure HTTPS connection from the client. When set to <strong><code>true</code></strong>, the
        cookie will only be set if a secure connection exists.
        On the server-side, it&#039;s on the programmer to send this
        kind of cookie only on secure connection (e.g. with respect to
@@ -196,13 +197,13 @@
      <dd>
 
       <p class="para">
-       When <strong><code>TRUE</code></strong> the cookie will be made accessible only through the HTTP
+       When <strong><code>true</code></strong> the cookie will be made accessible only through the HTTP
        protocol. This means that the cookie won&#039;t be accessible by
        scripting languages, such as JavaScript. It has been suggested that
        this setting can effectively help to reduce identity theft through
        XSS attacks (although it is not supported by all browsers), but that
        claim is often disputed.
-       <strong><code>TRUE</code></strong> or <strong><code>FALSE</code></strong>
+       <strong><code>true</code></strong> or <strong><code>false</code></strong>
       </p>
      </dd>
 
@@ -240,8 +241,8 @@
   <h3 class="title">Return Values</h3>
   <p class="para">
    If output exists prior to calling this function,
-   <span class="function"><strong>setcookie()</strong></span> will fail and return <strong><code>FALSE</code></strong>. If
-   <span class="function"><strong>setcookie()</strong></span> successfully runs, it will return <strong><code>TRUE</code></strong>.
+   <span class="function"><strong>setcookie()</strong></span> will fail and return <strong><code>false</code></strong>. If
+   <span class="function"><strong>setcookie()</strong></span> successfully runs, it will return <strong><code>true</code></strong>.
    This does not indicate whether the user accepted the cookie.
   </p>
  </div>
@@ -251,7 +252,7 @@
   <h3 class="title">Examples</h3>
   <p class="para">
    Some examples follow how to send cookies:
-   <div class="example" id="example-4939">
+   <div class="example" id="example-4961">
     <p><strong>Example #1 <span class="function"><strong>setcookie()</strong></span> send example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -283,7 +284,7 @@
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-4940">
+   <div class="example" id="example-4962">
     <p><strong>Example #2 <span class="function"><strong>setcookie()</strong></span> delete example</strong></p>
     <div class="example-contents"><p>
      When deleting a cookie you should assure that the expiration date
@@ -380,14 +381,6 @@ one : cookieone
     <var class="filename">php.ini</var> or server configuration files.
    </p>
   </p></blockquote>
-  <blockquote class="note"><p><strong class="note">Note</strong>: 
-   <p class="para">
-    If the PHP directive <a href="ini.core.html#ini.register-globals" class="link">register_globals</a>
-    is set to <code class="literal">on</code> then cookie values will also be made into
-    variables.  In our examples below, <var class="varname">$TestCookie</var> will
-    exist.  It&#039;s recommended to use <var class="varname"><a href="reserved.variables.cookies.html" class="classname">$_COOKIE</a></var>.
-   </p>
-  </p></blockquote>
   <p class="para">
    Common Pitfalls:
    <ul class="itemizedlist">
@@ -404,7 +397,7 @@ one : cookieone
     <li class="listitem">
      <span class="simpara">
       Cookies must be deleted with the same parameters as they were set with.
-      If the value argument is an empty string, or <strong><code>FALSE</code></strong>, and all other arguments
+      If the value argument is an empty string, or <strong><code>false</code></strong>, and all other arguments
       match a previous call to setcookie, then the cookie with the specified
       name will be deleted from the remote client.
       This is internally achieved by setting value to &#039;deleted&#039; and expiration
@@ -413,9 +406,9 @@ one : cookieone
     </li>
     <li class="listitem">
      <span class="simpara">
-      Because setting a cookie with a value of <strong><code>FALSE</code></strong> will try to delete the cookie,
-      you should not use boolean values. Instead, use <em class="emphasis">0</em> for <strong><code>FALSE</code></strong>
-      and <em class="emphasis">1</em> for <strong><code>TRUE</code></strong>.
+      Because setting a cookie with a value of <strong><code>false</code></strong> will try to delete the cookie,
+      you should not use boolean values. Instead, use <em class="emphasis">0</em> for <strong><code>false</code></strong>
+      and <em class="emphasis">1</em> for <strong><code>true</code></strong>.
      </span>
     </li>
     <li class="listitem">

@@ -34,8 +34,8 @@
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>sort</strong></span>
     ( <span class="methodparam"><span class="type">array</span> <code class="parameter reference">&$array</code></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$sort_flags</code><span class="initializer"> = SORT_REGULAR</span></span>
-  ] ) : <span class="type">bool</span></div>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code><span class="initializer"> = <strong><code>SORT_REGULAR</code></strong></span></span>
+   ) : <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
    This function sorts an array.  Elements will be arranged from
@@ -67,54 +67,55 @@
 
     
     
-     <dt>
-<code class="parameter">sort_flags</code></dt>
+  <dt>
+<code class="parameter">flags</code></dt>
 
-     <dd>
+  <dd>
 
-      <p class="para">
-       The optional second parameter <code class="parameter">sort_flags</code>
-       may be used to modify the sorting behavior using these values:
-      </p>
-      <p class="para">
-       Sorting type flags:
-       <ul class="itemizedlist">
-        <li class="listitem">
-         <span class="simpara"><strong><code>SORT_REGULAR</code></strong> - compare items normally;
-         the details are described in the <a href="language.operators.comparison.html" class="link">comparison operators</a> section</span>
-        </li>
-        <li class="listitem">
-         <span class="simpara"><strong><code>SORT_NUMERIC</code></strong> - compare items numerically</span>
-        </li>
-        <li class="listitem">
-         <span class="simpara"><strong><code>SORT_STRING</code></strong> - compare items as strings</span>
-        </li>
-        <li class="listitem">
-         <span class="simpara">
-          <strong><code>SORT_LOCALE_STRING</code></strong> - compare items as
-          strings, based on the current locale. It uses the locale,
-          which can be changed using <span class="function"><a href="function.setlocale.html" class="function">setlocale()</a></span>
-         </span>
-        </li>
-        <li class="listitem">
-         <span class="simpara">
-          <strong><code>SORT_NATURAL</code></strong> - compare items as strings
-          using &quot;natural ordering&quot; like <span class="function"><a href="function.natsort.html" class="function">natsort()</a></span>
-         </span>
-        </li>
-        <li class="listitem">
-         <span class="simpara">
-          <strong><code>SORT_FLAG_CASE</code></strong> - can be combined
-          (bitwise OR) with
-          <strong><code>SORT_STRING</code></strong> or
-          <strong><code>SORT_NATURAL</code></strong> to sort strings case-insensitively
-         </span>
-        </li>
-       </ul>
-      </p>
-     </dd>
+   <p class="para">
+    The optional second parameter <code class="parameter">flags</code>
+    may be used to modify the sorting behavior using these values:
+   </p>
+   <p class="para">
+    Sorting type flags:
+    <ul class="itemizedlist">
+     <li class="listitem">
+      <span class="simpara"><strong><code>SORT_REGULAR</code></strong> - compare items normally;
+      the details are described in the <a href="language.operators.comparison.html" class="link">comparison operators</a> section</span>
+     </li>
+     <li class="listitem">
+      <span class="simpara"><strong><code>SORT_NUMERIC</code></strong> - compare items numerically</span>
+     </li>
+     <li class="listitem">
+      <span class="simpara"><strong><code>SORT_STRING</code></strong> - compare items as strings</span>
+     </li>
+     <li class="listitem">
+      <span class="simpara">
+       <strong><code>SORT_LOCALE_STRING</code></strong> - compare items as
+       strings, based on the current locale. It uses the locale,
+       which can be changed using <span class="function"><a href="function.setlocale.html" class="function">setlocale()</a></span>
+      </span>
+     </li>
+     <li class="listitem">
+      <span class="simpara">
+       <strong><code>SORT_NATURAL</code></strong> - compare items as strings
+       using &quot;natural ordering&quot; like <span class="function"><a href="function.natsort.html" class="function">natsort()</a></span>
+      </span>
+     </li>
+     <li class="listitem">
+      <span class="simpara">
+       <strong><code>SORT_FLAG_CASE</code></strong> - can be combined
+       (bitwise OR) with
+       <strong><code>SORT_STRING</code></strong> or
+       <strong><code>SORT_NATURAL</code></strong> to sort strings case-insensitively
+      </span>
+     </li>
+    </ul>
+   </p>
+  </dd>
 
-    
+ 
+
    </dl>
 
   </p>
@@ -123,14 +124,14 @@
  <div class="refsect1 returnvalues" id="refsect1-function.sort-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns <strong><code>TRUE</code></strong> on success or <strong><code>FALSE</code></strong> on failure.
+   Returns <strong><code>true</code></strong> on success or <strong><code>false</code></strong> on failure.
   </p>
  </div>
 
  <div class="refsect1 examples" id="refsect1-function.sort-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-5497">
+   <div class="example" id="example-5518">
     <p><strong>Example #1 <span class="function"><strong>sort()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -154,7 +155,7 @@ fruits[3] = orange
    The fruits have been sorted in alphabetical order.
   </p>
   <p class="para">
-   <div class="example" id="example-5498">
+   <div class="example" id="example-5519">
     <p><strong>Example #2 <span class="function"><strong>sort()</strong></span> example using case-insensitive natural
     ordering</strong></p>
     <div class="example-contents">
@@ -199,7 +200,7 @@ than just reordering the keys.</span></p></blockquote>
    <p class="simpara">
     Be careful when sorting arrays with mixed types values because
     <span class="function"><strong>sort()</strong></span> can produce unexpected results,
-    if <code class="parameter">sort_flags</code> is <strong><code>SORT_REGULAR</code></strong>,
+    if <code class="parameter">flags</code> is <strong><code>SORT_REGULAR</code></strong>,
    </p>
   </div>
  </div>

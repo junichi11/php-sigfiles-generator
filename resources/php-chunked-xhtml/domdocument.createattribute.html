@@ -33,8 +33,8 @@
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><strong>DOMDocument::createAttribute</strong></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$name</code></span>
-   ) : <span class="type"><a href="class.domattr.html" class="type DOMAttr">DOMAttr</a></span></div>
+    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$localName</code></span>
+   ) : <span class="type"><span class="type"><a href="class.domattr.html" class="type DOMAttr">DOMAttr</a></span>|<span class="type"><span class="type false">false</span></span></span></div>
 
   <p class="para rdfs-comment">
    This function creates a new instance of class <a href="class.domattr.html" class="classname">DOMAttr</a>. 
@@ -50,7 +50,7 @@ it is inserted with (e.g.) <span class="function"><a href="domnode.appendchild.h
 
     
      <dt>
-<code class="parameter">name</code></dt>
+<code class="parameter">localName</code></dt>
 
      <dd>
 
@@ -68,7 +68,7 @@ it is inserted with (e.g.) <span class="function"><a href="domnode.appendchild.h
  <div class="refsect1 returnvalues" id="refsect1-domdocument.createattribute-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   The new <a href="class.domattr.html" class="classname">DOMAttr</a> or <strong><code>FALSE</code></strong> if an error occurred.
+   The new <a href="class.domattr.html" class="classname">DOMAttr</a> or <strong><code>false</code></strong> if an error occurred.
   </p>
  </div>
 
@@ -84,7 +84,7 @@ it is inserted with (e.g.) <span class="function"><a href="domnode.appendchild.h
      <dd>
 
       <p class="para">
-       Raised if <code class="parameter">name</code> contains an invalid character.
+       Raised if <code class="parameter">localName</code> contains an invalid character.
       </p>
      </dd>
 

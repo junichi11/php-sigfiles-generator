@@ -34,11 +34,11 @@
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>stream_socket_server</strong></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$local_socket</code></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter reference">&$errno</code></span>
-   [, <span class="methodparam"><span class="type">string</span> <code class="parameter reference">&$errstr</code></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code><span class="initializer"> = STREAM_SERVER_BIND | STREAM_SERVER_LISTEN</span></span>
-   [, <span class="methodparam"><span class="type">resource</span> <code class="parameter">$context</code></span>
-  ]]]] ) : <span class="type">resource</span></div>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter reference">&$errno</code> = ?</span>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter reference">&$errstr</code> = ?</span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code><span class="initializer"> = STREAM_SERVER_BIND | STREAM_SERVER_LISTEN</span></span>
+   , <span class="methodparam"><span class="type">resource</span> <code class="parameter">$context</code> = ?</span>
+   ) : <span class="type">resource</span></div>
 
   <p class="para rdfs-comment">
    Creates a stream or datagram socket on the specified
@@ -95,7 +95,7 @@
        level error that occurred in the system-level <code class="literal">socket()</code>,
        <code class="literal">bind()</code>, and <code class="literal">listen()</code> calls. If
        the value returned in <code class="parameter">errno</code> is 
-       <code class="literal">0</code> and the function returned <strong><code>FALSE</code></strong>, it is an
+       <code class="literal">0</code> and the function returned <strong><code>false</code></strong>, it is an
        indication that the error occurred before the <code class="literal">bind()</code>
        call. This is most likely due to a problem initializing the socket. 
        Note that the <code class="parameter">errno</code> and
@@ -155,7 +155,7 @@
  <div class="refsect1 returnvalues" id="refsect1-function.stream-socket-server-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns the created stream, or <strong><code>FALSE</code></strong> on error.
+   Returns the created stream, or <strong><code>false</code></strong> on error.
   </p>
  </div>
 
@@ -163,7 +163,7 @@
  <div class="refsect1 examples" id="refsect1-function.stream-socket-server-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-4289">
+   <div class="example" id="example-4304">
     <p><strong>Example #1 Using TCP server sockets</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -183,7 +183,7 @@
      below 1024.
     </span>
    </p></blockquote>
-   <div class="example" id="example-4290">
+   <div class="example" id="example-4305">
     <p><strong>Example #2 Using UDP server sockets</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

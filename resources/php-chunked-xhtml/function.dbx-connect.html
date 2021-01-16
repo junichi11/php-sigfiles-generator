@@ -33,13 +33,13 @@
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>dbx_connect</strong></span>
-    ( <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">$module</code></span>
+    ( <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$module</code></span>
    , <span class="methodparam"><span class="type">string</span> <code class="parameter">$host</code></span>
    , <span class="methodparam"><span class="type">string</span> <code class="parameter">$database</code></span>
    , <span class="methodparam"><span class="type">string</span> <code class="parameter">$username</code></span>
    , <span class="methodparam"><span class="type">string</span> <code class="parameter">$password</code></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$persistent</code></span>
-  ] ) : <span class="type">object</span></div>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$persistent</code> = ?</span>
+   ) : <span class="type">object</span></div>
 
   <p class="para rdfs-comment">
    Opens a connection to a database.
@@ -186,9 +186,9 @@
  <div class="refsect1 returnvalues" id="refsect1-function.dbx-connect-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns an object on success, <strong><code>FALSE</code></strong> on error. If a connection has been
+   Returns an object on success, <strong><code>false</code></strong> on error. If a connection has been
    made but the database could not be selected, the connection is closed and
-   <strong><code>FALSE</code></strong> is returned. 
+   <strong><code>false</code></strong> is returned. 
   </p>
   <p class="para">
    The returned <var class="varname">object</var> has three properties:

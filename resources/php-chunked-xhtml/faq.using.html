@@ -49,11 +49,6 @@
       regular expression?  I&#039;d also like to convert &quot; to \&quot; and
       \ to \\.
      
-    </a></li><li><a href="#faq.using.stripslashes">
-     
-      All my &quot; turn into \&quot; and my &#039; turn into \&#039;, how do I get rid of all 
-      these unwanted backslashes?  How and why did they get there?
-     
     </a></li><li><a href="#faq.register-globals">
      
       How does the PHP directive register_globals affect me?
@@ -192,6 +187,7 @@ echo &quot;myfunc($variable) = &quot; . myfunc($variable);
    </dl>
 
    <dl class="qandaentry" id="faq.using.addslashes">
+    
     <dt><strong>
      
       I need to convert all single-quotes (&#039;) to a backslash 
@@ -210,40 +206,8 @@ echo &quot;myfunc($variable) = &quot; . myfunc($variable);
       <span class="function"><a href="function.stripslashes.html" class="function">stripslashes()</a></span> functions, that are more
       common with older PHP code.
      </p>
-
-     <blockquote class="note"><p><strong class="note">Note</strong>: <strong>directive note: magic_quotes_gpc
-</strong><br /><p class="para">The <a href="info.configuration.html#ini.magic-quotes-gpc" class="link">magic_quotes_gpc</a>
-directive defaults to <code class="literal">on</code>. It essentially runs
-<span class="function"><a href="function.addslashes.html" class="function">addslashes()</a></span> on all GET, POST, and COOKIE data.
-<span class="function"><a href="function.stripslashes.html" class="function">stripslashes()</a></span> may be used to remove them.</p></p></blockquote>
-
     </dd>
    </dl>
-   
-   <dl class="qandaentry" id="faq.using.stripslashes">
-    <dt><strong>
-     
-      All my &quot; turn into \&quot; and my &#039; turn into \&#039;, how do I get rid of all 
-      these unwanted backslashes?  How and why did they get there?
-     
-    </strong></dt>
-    <dd class="answer">
-     <p class="para">
-      Most likely the backslashes magically exist because the PHP directive 
-      <a href="info.configuration.html#ini.magic-quotes-gpc" class="link">magic_quotes_gpc</a> is on.
-      This is an old feature of PHP, and should be disabled and not relied
-      upon. Also, the PHP function <span class="function"><a href="function.stripslashes.html" class="function">stripslashes()</a></span> may be
-      used to strip the backslashes from the <span class="type">string</span>.
-     </p>
-     
-     <blockquote class="note"><p><strong class="note">Note</strong>: <strong>directive note: magic_quotes_gpc
-</strong><br /><p class="para">The <a href="info.configuration.html#ini.magic-quotes-gpc" class="link">magic_quotes_gpc</a>
-directive defaults to <code class="literal">on</code>. It essentially runs
-<span class="function"><a href="function.addslashes.html" class="function">addslashes()</a></span> on all GET, POST, and COOKIE data.
-<span class="function"><a href="function.stripslashes.html" class="function">stripslashes()</a></span> may be used to remove them.</p></p></blockquote>
-     
-    </dd>
-   </dl>   
 
    <dl class="qandaentry" id="faq.register-globals">
     <dt><strong>

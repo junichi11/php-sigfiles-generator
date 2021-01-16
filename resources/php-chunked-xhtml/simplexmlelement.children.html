@@ -34,9 +34,9 @@
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><strong>SimpleXMLElement::children</strong></span>
-    ([ <span class="methodparam"><span class="type">string</span> <code class="parameter">$ns</code></span>
-   [, <span class="methodparam"><span class="type">bool</span> <code class="parameter">$is_prefix</code><span class="initializer"> = <strong><code>FALSE</code></strong></span></span>
-  ]] ) : <span class="type"><a href="class.simplexmlelement.html" class="type SimpleXMLElement">SimpleXMLElement</a></span></div>
+    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$ns</code> = ?</span>
+   , <span class="methodparam"><span class="type">bool</span> <code class="parameter">$is_prefix</code><span class="initializer"> = <strong><code>false</code></strong></span></span>
+   ) : <span class="type"><a href="class.simplexmlelement.html" class="type SimpleXMLElement">SimpleXMLElement</a></span></div>
 
   <p class="para rdfs-comment">
    This method finds the children of an element. The result follows normal
@@ -72,8 +72,8 @@ or anything else which can examine objects.</span></p></blockquote>
      <dd>
 
       <p class="para">
-       If <code class="parameter">is_prefix</code> is <strong><code>TRUE</code></strong>,
-       <code class="parameter">ns</code> will be regarded as a prefix. If <strong><code>FALSE</code></strong>,
+       If <code class="parameter">is_prefix</code> is <strong><code>true</code></strong>,
+       <code class="parameter">ns</code> will be regarded as a prefix. If <strong><code>false</code></strong>,
        <code class="parameter">ns</code> will be regarded as a namespace
        <acronym title="Uniform Resource Locator">URL</acronym>.
       </p>
@@ -98,7 +98,7 @@ or anything else which can examine objects.</span></p></blockquote>
  <div class="refsect1 examples" id="refsect1-simplexmlelement.children-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-5960">
+   <div class="example" id="example-5943">
     <p><strong>Example #1 Traversing a <code class="literal">children()</code> pseudo-array</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -115,7 +115,7 @@ begot a daughter who begot a son; and that son begot a son
 </pre></div>
     </div>
    </div>
-   <div class="example" id="example-5961">
+   <div class="example" id="example-5944">
     <p><strong>Example #2 Using namespaces</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

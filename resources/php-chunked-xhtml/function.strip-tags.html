@@ -34,13 +34,13 @@
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>strip_tags</strong></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$str</code></span>
-   [, <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">$allowable_tags</code></span>
-  ] ) : <span class="type">string</span></div>
+    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$string</code></span>
+   , <span class="methodparam"><span class="type"><span class="type">array</span>|<span class="type">string</span>|<span class="type">null</span></span> <code class="parameter">$allowed_tags</code><span class="initializer"> = <strong><code>null</code></strong></span></span>
+   ) : <span class="type">string</span></div>
 
   <p class="para rdfs-comment">
    This function tries to return a string with all NULL bytes, HTML and PHP tags stripped
-   from a given <code class="parameter">str</code>.  It uses the same tag stripping
+   from a given <code class="parameter">string</code>.  It uses the same tag stripping
    state machine as the <span class="function"><a href="function.fgetss.html" class="function">fgetss()</a></span> function.
   </p>
  </div>
@@ -53,7 +53,7 @@
 
     
      <dt>
-<code class="parameter">str</code></dt>
+<code class="parameter">string</code></dt>
 
      <dd>
 
@@ -65,7 +65,7 @@
     
     
      <dt>
-<code class="parameter">allowable_tags</code></dt>
+<code class="parameter">allowed_tags</code></dt>
 
      <dd>
 
@@ -78,14 +78,14 @@
       <blockquote class="note"><p><strong class="note">Note</strong>: 
        <p class="para">
         HTML comments and PHP tags are also stripped. This is hardcoded and
-        can not be changed with <code class="parameter">allowable_tags</code>.
+        can not be changed with <code class="parameter">allowed_tags</code>.
        </p>
       </p></blockquote>
       <blockquote class="note"><p><strong class="note">Note</strong>: 
        <p class="para">
         In PHP 5.3.4 and later, self-closing
         XHTML tags are ignored and only non-self-closing tags should be used in
-        <code class="parameter">allowable_tags</code>. For example,
+        <code class="parameter">allowed_tags</code>. For example,
         to allow both <code class="literal">&lt;br&gt;</code> and
         <code class="literal">&lt;br/&gt;</code>, you should use:
        </p>
@@ -130,10 +130,17 @@
      </thead>
 
      <tbody class="tbody">
+     <tr>
+      <td>8.0.0</td>
+      <td>
+       <code class="parameter">allowed_tags</code> is nullable now.
+      </td>
+     </tr>
+
       <tr>
        <td>7.4.0</td>
        <td>
-        The <code class="parameter">allowable_tags</code> now alternatively accepts an <span class="type">array</span>.
+        The <code class="parameter">allowed_tags</code> now alternatively accepts an <span class="type">array</span>.
        </td>
       </tr>
 
@@ -148,7 +155,7 @@
  <div class="refsect1 examples" id="refsect1-function.strip-tags-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-5339">
+   <div class="example" id="example-5360">
     <p><strong>Example #1 <span class="function"><strong>strip_tags()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -188,7 +195,7 @@ Test paragraph. Other text
   <div class="warning"><strong class="warning">Warning</strong>
    <p class="para">
     This function does not modify any attributes on the tags that you allow
-    using <code class="parameter">allowable_tags</code>, including the
+    using <code class="parameter">allowed_tags</code>, including the
     <code class="literal">style</code> and <code class="literal">onmouseover</code> attributes
     that a mischievous user may abuse when posting text that will be shown
     to other users.
@@ -198,7 +205,7 @@ Test paragraph. Other text
    <p class="para">
     Tag names within the input HTML that are greater than 1023 bytes in length
     will be treated as though they are invalid, regardless of the
-    <code class="parameter">allowable_tags</code> parameter.
+    <code class="parameter">allowed_tags</code> parameter.
    </p>
   </p></blockquote>
  </div>

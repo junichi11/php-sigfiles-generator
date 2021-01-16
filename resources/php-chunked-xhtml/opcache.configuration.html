@@ -213,7 +213,7 @@ The behaviour of these functions is affected by settings in <var class="filename
 
      <tr>
       <td><a href="opcache.configuration.html#ini.opcache.mmap-base" class="link">opcache.mmap_base</a></td>
-      <td><strong><code>NULL</code></strong></td>
+      <td><strong><code>null</code></strong></td>
       <td>PHP_INI_SYSTEM</td>
       <td class="empty">&nbsp;</td>
      </tr>
@@ -1157,17 +1157,27 @@ the configuration directives.</p>
 
        
         <dt>
-<code class="literal">O</code> (optimization level)</dt>
+<code class="literal">C</code> (CPU-specific optimization flags)</dt>
 
         <dd>
 
          <ul class="simplelist">
-          <li class="member"><code class="literal">0</code>: No JIT.</li>
-          <li class="member"><code class="literal">1</code>: Minimal JIT (call standard VM handlers).</li>
-          <li class="member"><code class="literal">2</code>: Inline VM handlers.</li>
-          <li class="member"><code class="literal">3</code>: Use type inference.</li>
-          <li class="member"><code class="literal">4</code>: Use call graph.</li>
-          <li class="member"><code class="literal">5</code>: Optimize whole script.</li>
+          <li class="member"><code class="literal">0</code>: Disable CPU-specific optimization.</li>
+          <li class="member"><code class="literal">1</code>: Enable use of AVX, if the CPU supports it.</li>
+         </ul>
+        </dd>
+
+       
+       
+        <dt>
+<code class="literal">R</code> (register allocation)</dt>
+
+        <dd>
+
+         <ul class="simplelist">
+          <li class="member"><code class="literal">0</code>: Don&#039;t perform register allocation.</li>
+          <li class="member"><code class="literal">1</code>: Perform block-local register allocation.</li>
+          <li class="member"><code class="literal">2</code>: Perform global register allocation.</li>
          </ul>
         </dd>
 
@@ -1193,31 +1203,21 @@ the configuration directives.</p>
           </li>
          </ul>
         </dd>
- 
-       
-       
-        <dt>
-<code class="literal">R</code> (register allocation)</dt>
-
-        <dd>
-
-         <ul class="simplelist">
-          <li class="member"><code class="literal">0</code>: Don&#039;t perform register allocation.</li>
-          <li class="member"><code class="literal">1</code>: Perform block-local register allocation.</li>
-          <li class="member"><code class="literal">2</code>: Perform global register allocation.</li>
-         </ul>
-        </dd>
 
        
        
         <dt>
-<code class="literal">C</code> (CPU-specific optimization flags)</dt>
+<code class="literal">O</code> (optimization level)</dt>
 
         <dd>
 
          <ul class="simplelist">
-          <li class="member"><code class="literal">0</code>: Disable CPU-specific optimization.</li>
-          <li class="member"><code class="literal">1</code>: Enable use of AVX, if the CPU supports it.</li>
+          <li class="member"><code class="literal">0</code>: No JIT.</li>
+          <li class="member"><code class="literal">1</code>: Minimal JIT (call standard VM handlers).</li>
+          <li class="member"><code class="literal">2</code>: Inline VM handlers.</li>
+          <li class="member"><code class="literal">3</code>: Use type inference.</li>
+          <li class="member"><code class="literal">4</code>: Use call graph.</li>
+          <li class="member"><code class="literal">5</code>: Optimize whole script.</li>
          </ul>
         </dd>
 

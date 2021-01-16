@@ -34,15 +34,15 @@
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>sscanf</strong></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$str</code></span>
+    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$string</code></span>
    , <span class="methodparam"><span class="type">string</span> <code class="parameter">$format</code></span>
-   , <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter reference">&...$vars</code></span>
-   ) : <span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span></div>
+   , <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter reference">&...$vars</code></span>
+   ) : <span class="type"><span class="type">array</span>|<span class="type">int</span>|<span class="type">null</span></span></div>
 
   <p class="para rdfs-comment">
    The function <span class="function"><strong>sscanf()</strong></span> is the input analog of
    <span class="function"><a href="function.printf.html" class="function">printf()</a></span>. <span class="function"><strong>sscanf()</strong></span> reads
-   from the string <code class="parameter">str</code> and interprets it
+   from the string <code class="parameter">string</code> and interprets it
    according to the specified <code class="parameter">format</code>, which is
    described in the documentation for <span class="function"><a href="function.sprintf.html" class="function">sprintf()</a></span>. 
   </p>
@@ -61,7 +61,7 @@
 
     
      <dt>
-<code class="parameter">str</code></dt>
+<code class="parameter">string</code></dt>
 
      <dd>
 
@@ -78,7 +78,7 @@
      <dd>
 
       <p class="para">
-       The interpreted format for <code class="parameter">str</code>, which is
+       The interpreted format for <code class="parameter">string</code>, which is
        described in the documentation for <span class="function"><a href="function.sprintf.html" class="function">sprintf()</a></span> with
        following differences:
        <ul class="simplelist">
@@ -134,8 +134,8 @@
   </p>
   <p class="para">
    If there are more substrings expected in the <code class="parameter">format</code>
-   than there are available within <code class="parameter">str</code>,
-   <code class="literal">-1</code> will be returned.
+   than there are available within <code class="parameter">string</code>,
+   <strong><code>null</code></strong> will be returned.
   </p>
  </div>
 
@@ -143,7 +143,7 @@
  <div class="refsect1 examples" id="refsect1-function.sscanf-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-5319">
+   <div class="example" id="example-5340">
     <p><strong>Example #1 <span class="function"><strong>sscanf()</strong></span> Example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -159,7 +159,7 @@
    number of assigned values.
   </p>
   <p class="para">
-   <div class="example" id="example-5320">
+   <div class="example" id="example-5341">
     <p><strong>Example #2 <span class="function"><strong>sscanf()</strong></span> - using optional parameters</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

@@ -48,8 +48,8 @@ Alternatives to this function include:</p>
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>mysql_stat</strong></span>
-    ([ <span class="methodparam"><span class="type">resource</span> <code class="parameter">$link_identifier</code><span class="initializer"> = NULL</span></span>
-  ] ) : <span class="type">string</span></div>
+    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$link_identifier</code><span class="initializer"> = NULL</span></span>
+   ) : <span class="type">string</span></div>
 
   <p class="para rdfs-comment">
    <span class="function"><strong>mysql_stat()</strong></span> returns the current server status.
@@ -86,7 +86,7 @@ with no arguments. If no connection is found or established, an
    Returns a string with the status for uptime, threads, queries, open tables,
    flush tables and queries per second. For a complete list of other status
    variables, you have to use the <code class="literal">SHOW STATUS</code> SQL command.
-   If <code class="parameter">link_identifier</code> is invalid, <strong><code>NULL</code></strong> is returned.
+   If <code class="parameter">link_identifier</code> is invalid, <strong><code>null</code></strong> is returned.
   </p>
  </div>
 
@@ -94,7 +94,7 @@ with no arguments. If no connection is found or established, an
  <div class="refsect1 examples" id="refsect1-function.mysql-stat-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-1996">
+   <div class="example" id="example-2009">
     <p><strong>Example #1 <span class="function"><strong>mysql_stat()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -123,7 +123,7 @@ Array
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-1997">
+   <div class="example" id="example-2010">
     <p><strong>Example #2 Alternative <span class="function"><strong>mysql_stat()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

@@ -34,16 +34,16 @@
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>chunk_split</strong></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$body</code></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$chunklen</code><span class="initializer"> = 76</span></span>
-   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$end</code><span class="initializer"> = &quot;\r\n&quot;</span></span>
-  ]] ) : <span class="type">string</span></div>
+    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$string</code></span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$length</code><span class="initializer"> = 76</span></span>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$separator</code><span class="initializer"> = &quot;\r\n&quot;</span></span>
+   ) : <span class="type">string</span></div>
 
   <p class="para rdfs-comment">
    Can be used to split a string into smaller chunks which is useful for
    e.g. converting <span class="function"><a href="function.base64-encode.html" class="function">base64_encode()</a></span> output to match RFC
-   2045 semantics. It inserts <code class="parameter">end</code> every 
-   <code class="parameter">chunklen</code> characters.
+   2045 semantics. It inserts <code class="parameter">separator</code> every 
+   <code class="parameter">length</code> characters.
   </p>
  </div>
 
@@ -55,7 +55,7 @@
 
     
      <dt>
-<code class="parameter">body</code></dt>
+<code class="parameter">string</code></dt>
 
      <dd>
 
@@ -67,7 +67,7 @@
     
     
      <dt>
-<code class="parameter">chunklen</code></dt>
+<code class="parameter">length</code></dt>
 
      <dd>
 
@@ -79,7 +79,7 @@
     
     
      <dt>
-<code class="parameter">end</code></dt>
+<code class="parameter">separator</code></dt>
 
      <dd>
 
@@ -106,7 +106,7 @@
  <div class="refsect1 examples" id="refsect1-function.chunk-split-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-5263">
+   <div class="example" id="example-5284">
     <p><strong>Example #1 <span class="function"><strong>chunk_split()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

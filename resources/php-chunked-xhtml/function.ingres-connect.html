@@ -34,11 +34,11 @@
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>ingres_connect</strong></span>
-    ([ <span class="methodparam"><span class="type">string</span> <code class="parameter">$database</code></span>
-   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$username</code></span>
-   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$password</code></span>
-   [, <span class="methodparam"><span class="type">array</span> <code class="parameter">$options</code></span>
-  ]]]] ) : <span class="type"><span class="type">resource</span>|<span class="type"><span class="type false">false</span></span></span></div>
+    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$database</code> = ?</span>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$username</code> = ?</span>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$password</code> = ?</span>
+   , <span class="methodparam"><span class="type">array</span> <code class="parameter">$options</code> = ?</span>
+   ) : <span class="type"><span class="type">resource</span>|<span class="type"><span class="type false">false</span></span></span></div>
 
   <p class="para rdfs-comment">
    <span class="function"><strong>ingres_connect()</strong></span> opens a connection with the
@@ -321,7 +321,7 @@
  <div class="refsect1 returnvalues" id="refsect1-function.ingres-connect-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns a Ingres link resource on success or <strong><code>FALSE</code></strong> on failure
+   Returns a Ingres link resource on success or <strong><code>false</code></strong> on failure
   </p>
  </div>
 
@@ -329,7 +329,7 @@
  <div class="refsect1 examples" id="refsect1-function.ingres-connect-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-1278">
+   <div class="example" id="example-1290">
     <p><strong>Example #1 Open a connection to an Ingres database</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

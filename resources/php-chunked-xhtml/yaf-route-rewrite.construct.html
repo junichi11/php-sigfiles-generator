@@ -36,8 +36,8 @@
    <span class="modifier">public</span> <span class="methodname"><strong>Yaf_Route_Rewrite::__construct</strong></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$match</code></span>
    , <span class="methodparam"><span class="type">array</span> <code class="parameter">$route</code></span>
-   [, <span class="methodparam"><span class="type">array</span> <code class="parameter">$verify</code></span>
-  ] )</div>
+   , <span class="methodparam"><span class="type">array</span> <code class="parameter">$verify</code> = ?</span>
+   )</div>
 
   <p class="para rdfs-comment">
 
@@ -58,7 +58,7 @@
      <p class="para">
        A pattern, will be used to match a request uri, if
        it doesn&#039;t match, <a href="class.yaf-route-rewrite.html" class="classname">Yaf_Route_Rewrite</a> will return
-       <strong><code>FALSE</code></strong>.
+       <strong><code>false</code></strong>.
      </p>
      <p class="para">
       You can use :name style to name segments matched, and use * to match
@@ -112,7 +112,7 @@
 
  <div class="refsect1 examples" id="refsect1-yaf-route-rewrite.construct-examples">
   <h3 class="title">Examples</h3>
-  <div class="example" id="example-4424">
+  <div class="example" id="example-4446">
    <p><strong>Example #1 <span class="function"><strong>Yaf_Route_Rewrite()</strong></span>example</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -145,7 +145,7 @@ array(
 </pre></div>
    </div>
   </div>
-  <div class="example" id="example-4425">
+  <div class="example" id="example-4447">
    <p><strong>Example #2 <span class="function"><strong>Yaf_Route_Rewrite()</strong></span>example</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -176,7 +176,7 @@ array(
 </pre></div>
    </div>
   </div>
-  <div class="example" id="example-4426">
+  <div class="example" id="example-4448">
    <p><strong>Example #3 <span class="function"><strong>Yaf_Route_Rewrite(as of 2.3.0)()</strong></span>example</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

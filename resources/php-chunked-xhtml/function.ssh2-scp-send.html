@@ -37,8 +37,8 @@
     ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$session</code></span>
    , <span class="methodparam"><span class="type">string</span> <code class="parameter">$local_file</code></span>
    , <span class="methodparam"><span class="type">string</span> <code class="parameter">$remote_file</code></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$create_mode</code><span class="initializer"> = 0644</span></span>
-  ] ) : <span class="type">bool</span></div>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$create_mode</code><span class="initializer"> = 0644</span></span>
+   ) : <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
    Copy a file from the local filesystem to the remote server using the SCP protocol.
@@ -110,7 +110,7 @@
  <div class="refsect1 returnvalues" id="refsect1-function.ssh2-scp-send-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns <strong><code>TRUE</code></strong> on success or <strong><code>FALSE</code></strong> on failure.
+   Returns <strong><code>true</code></strong> on success or <strong><code>false</code></strong> on failure.
   </p>
  </div>
 
@@ -118,7 +118,7 @@
  <div class="refsect1 examples" id="refsect1-function.ssh2-scp-send-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-5021">
+   <div class="example" id="example-5043">
     <p><strong>Example #1 Uploading a file via SCP</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

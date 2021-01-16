@@ -34,8 +34,8 @@
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>getimagesize</strong></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$filename</code></span>
-   [, <span class="methodparam"><span class="type">array</span> <code class="parameter reference">&$imageinfo</code></span>
-  ] ) : <span class="type">array</span></div>
+   , <span class="methodparam"><span class="type">array</span> <code class="parameter reference">&$image_info</code><span class="initializer"> = <strong><code>null</code></strong></span></span>
+   ) : <span class="type"><span class="type">array</span>|<span class="type"><span class="type false">false</span></span></span></div>
 
   <p class="para rdfs-comment">
    The <span class="function"><strong>getimagesize()</strong></span> function will determine the
@@ -46,7 +46,7 @@
   </p>
   <p class="para">
    <span class="function"><strong>getimagesize()</strong></span> can also return some more information
-   in <code class="parameter">imageinfo</code> parameter.
+   in <code class="parameter">image_info</code> parameter.
   </p>
   <div class="caution"><strong class="caution">Caution</strong>
    <p class="para">
@@ -108,7 +108,7 @@
     
     
      <dt>
-<code class="parameter">imageinfo</code></dt>
+<code class="parameter">image_info</code></dt>
 
      <dd>
 
@@ -124,7 +124,7 @@
       </p>
       <blockquote class="note"><p><strong class="note">Note</strong>: 
        <p class="para">
-        The <code class="parameter">imageinfo</code> only supports
+        The <code class="parameter">image_info</code> only supports
         <acronym>JFIF</acronym> files.
        </p>
       </p></blockquote>
@@ -167,7 +167,7 @@
    <code class="literal">mime</code> is the correspondant MIME type of the image.
    This information can be used to deliver images with the correct HTTP 
    <code class="literal">Content-type</code> header:
-   <div class="example" id="example-3070">
+   <div class="example" id="example-3085">
     <p><strong>Example #1 <span class="function"><strong>getimagesize()</strong></span> and MIME types</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -193,7 +193,7 @@
    animated <acronym title="Graphic Interchange Format">GIF</acronym> with a global color table.
   </p>
   <p class="para">
-   On failure, <strong><code>FALSE</code></strong> is returned.
+   On failure, <strong><code>false</code></strong> is returned.
   </p>
  </div>
 
@@ -242,7 +242,7 @@
  <div class="refsect1 examples" id="refsect1-function.getimagesize-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-3071">
+   <div class="example" id="example-3086">
     <p><strong>Example #2 <span class="function"><strong>getimagesize()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -252,7 +252,7 @@
     </div>
 
    </div>
-   <div class="example" id="example-3072">
+   <div class="example" id="example-3087">
     <p><strong>Example #3 getimagesize (URL)</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -262,7 +262,7 @@
     </div>
 
    </div>
-   <div class="example" id="example-3073">
+   <div class="example" id="example-3088">
     <p><strong>Example #4 getimagesize() returning IPTC</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

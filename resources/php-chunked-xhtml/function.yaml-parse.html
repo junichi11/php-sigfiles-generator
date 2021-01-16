@@ -35,10 +35,10 @@
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>yaml_parse</strong></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$input</code></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$pos</code><span class="initializer"> = 0</span></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter reference">&$ndocs</code></span>
-   [, <span class="methodparam"><span class="type">array</span> <code class="parameter">$callbacks</code><span class="initializer"> = <strong><code>NULL</code></strong></span></span>
-  ]]] ) : <span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span></div>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$pos</code><span class="initializer"> = 0</span></span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter reference">&$ndocs</code> = ?</span>
+   , <span class="methodparam"><span class="type">array</span> <code class="parameter">$callbacks</code><span class="initializer"> = <strong><code>null</code></strong></span></span>
+   ) : <span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span></div>
 
   <p class="para rdfs-comment">
    Convert all or part of a YAML document stream to a PHP variable.
@@ -114,7 +114,7 @@
   <h3 class="title">Return Values</h3>
   <p class="para">
    Returns the value encoded in <code class="parameter">input</code> in appropriate
-   PHP type or <strong><code>FALSE</code></strong> on failure. If <code class="parameter">pos</code> is <code class="literal">-1</code> an
+   PHP type or <strong><code>false</code></strong> on failure. If <code class="parameter">pos</code> is <code class="literal">-1</code> an
    <span class="type">array</span> will be returned with one entry for each document found
    in the stream.
   </p>
@@ -124,7 +124,7 @@
  <div class="refsect1 examples" id="refsect1-function.yaml-parse-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-4353">
+   <div class="example" id="example-4375">
     <p><strong>Example #1 <span class="function"><strong>yaml_parse()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

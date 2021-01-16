@@ -37,16 +37,16 @@
   <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><strong>mysqli::query</strong></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$query</code></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$resultmode</code><span class="initializer"> = MYSQLI_STORE_RESULT</span></span>
-  ] ) : <span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span></div>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$resultmode</code><span class="initializer"> = MYSQLI_STORE_RESULT</span></span>
+   ) : <span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span></div>
 
   <p class="para rdfs-comment">Procedural style</p>
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>mysqli_query</strong></span>
     ( <span class="methodparam"><span class="type"><a href="class.mysqli.html" class="type mysqli">mysqli</a></span> <code class="parameter">$link</code></span>
    , <span class="methodparam"><span class="type">string</span> <code class="parameter">$query</code></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$resultmode</code><span class="initializer"> = MYSQLI_STORE_RESULT</span></span>
-  ] ) : <span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span></div>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$resultmode</code><span class="initializer"> = MYSQLI_STORE_RESULT</span></span>
+   ) : <span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span></div>
 
   <p class="para rdfs-comment">
    Performs a <code class="parameter">query</code> against the database.
@@ -155,17 +155,17 @@ returned by <span class="function"><a href="function.mysqli-connect.html" class=
  <div class="refsect1 returnvalues" id="refsect1-mysqli.query-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns <strong><code>FALSE</code></strong> on failure. For successful <code class="literal">SELECT, SHOW, DESCRIBE</code> or
+   Returns <strong><code>false</code></strong> on failure. For successful <code class="literal">SELECT, SHOW, DESCRIBE</code> or
    <code class="literal">EXPLAIN</code> queries <span class="function"><strong>mysqli_query()</strong></span> will return
    a <a href="class.mysqli-result.html" class="classname">mysqli_result</a> object. For other successful queries <span class="function"><strong>mysqli_query()</strong></span> will
-   return <strong><code>TRUE</code></strong>.
+   return <strong><code>true</code></strong>.
   </p>
  </div>
 
 
  <div class="refsect1 examples" id="refsect1-mysqli.query-examples">
   <h3 class="title">Examples</h3>
-  <div class="example" id="example-1680">
+  <div class="example" id="example-1691">
    <p><strong>Example #1 <span class="methodname"><strong>mysqli::query()</strong></span> example</strong></p>
    <div class="example-contents"><p>Object oriented style</p></div>
    <div class="example-contents">

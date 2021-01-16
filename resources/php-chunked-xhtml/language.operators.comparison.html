@@ -47,14 +47,14 @@
       <tr>
        <td>$a == $b</td>
        <td>Equal</td>
-       <td><strong><code>TRUE</code></strong> if <var class="varname">$a</var> is equal to <var class="varname">$b</var> after type juggling.</td>
+       <td><strong><code>true</code></strong> if <var class="varname">$a</var> is equal to <var class="varname">$b</var> after type juggling.</td>
       </tr>
 
       <tr>
        <td>$a === $b</td>
        <td>Identical</td>
        <td>
-        <strong><code>TRUE</code></strong> if <var class="varname">$a</var> is equal to <var class="varname">$b</var>, and they are of the same
+        <strong><code>true</code></strong> if <var class="varname">$a</var> is equal to <var class="varname">$b</var>, and they are of the same
         type.
        </td>
       </tr>
@@ -62,20 +62,20 @@
       <tr>
        <td>$a != $b</td>
        <td>Not equal</td>
-       <td><strong><code>TRUE</code></strong> if <var class="varname">$a</var> is not equal to <var class="varname">$b</var> after type juggling.</td>
+       <td><strong><code>true</code></strong> if <var class="varname">$a</var> is not equal to <var class="varname">$b</var> after type juggling.</td>
       </tr>
 
       <tr>
        <td>$a &lt;&gt; $b</td>
        <td>Not equal</td>
-       <td><strong><code>TRUE</code></strong> if <var class="varname">$a</var> is not equal to <var class="varname">$b</var> after type juggling.</td>
+       <td><strong><code>true</code></strong> if <var class="varname">$a</var> is not equal to <var class="varname">$b</var> after type juggling.</td>
       </tr>
 
       <tr>
        <td>$a !== $b</td>
        <td>Not identical</td>
        <td>
-        <strong><code>TRUE</code></strong> if <var class="varname">$a</var> is not equal to <var class="varname">$b</var>, or they are not of the same
+        <strong><code>true</code></strong> if <var class="varname">$a</var> is not equal to <var class="varname">$b</var>, or they are not of the same
         type.
        </td>
       </tr>
@@ -83,25 +83,25 @@
       <tr>
        <td>$a &lt; $b</td>
        <td>Less than</td>
-       <td><strong><code>TRUE</code></strong> if <var class="varname">$a</var> is strictly less than <var class="varname">$b</var>.</td>
+       <td><strong><code>true</code></strong> if <var class="varname">$a</var> is strictly less than <var class="varname">$b</var>.</td>
       </tr>
 
       <tr>
        <td>$a &gt; $b</td>
        <td>Greater than</td>
-       <td><strong><code>TRUE</code></strong> if <var class="varname">$a</var> is strictly greater than <var class="varname">$b</var>.</td>
+       <td><strong><code>true</code></strong> if <var class="varname">$a</var> is strictly greater than <var class="varname">$b</var>.</td>
       </tr>
 
       <tr>
        <td>$a &lt;= $b</td>
        <td>Less than or equal to </td>
-       <td><strong><code>TRUE</code></strong> if <var class="varname">$a</var> is less than or equal to <var class="varname">$b</var>.</td>
+       <td><strong><code>true</code></strong> if <var class="varname">$a</var> is less than or equal to <var class="varname">$b</var>.</td>
       </tr>
 
       <tr>
        <td>$a &gt;= $b</td>
        <td>Greater than or equal to </td>
-       <td><strong><code>TRUE</code></strong> if <var class="varname">$a</var> is greater than or equal to <var class="varname">$b</var>.</td>
+       <td><strong><code>true</code></strong> if <var class="varname">$a</var> is greater than or equal to <var class="varname">$b</var>.</td>
       </tr>
 
       <tr>
@@ -182,13 +182,13 @@
       <tr>
        <td><span class="type">null</span> or <span class="type">string</span></td>
        <td><span class="type">string</span></td>
-       <td>Convert <strong><code>NULL</code></strong> to &quot;&quot;, numerical or lexical comparison</td>
+       <td>Convert <strong><code>null</code></strong> to &quot;&quot;, numerical or lexical comparison</td>
       </tr>
 
       <tr>
        <td><span class="type">bool</span> or <span class="type">null</span></td>
        <td>anything</td>
-       <td>Convert both sides to <span class="type">bool</span>, <strong><code>FALSE</code></strong> &lt; <strong><code>TRUE</code></strong></td>
+       <td>Convert both sides to <span class="type">bool</span>, <strong><code>false</code></strong> &lt; <strong><code>true</code></strong></td>
       </tr>
 
       <tr>
@@ -298,15 +298,15 @@
      </div>
      The expression <code class="literal">(expr1) ? (expr2) : (expr3)</code>
      evaluates to <span class="replaceable">expr2</span> if
-     <span class="replaceable">expr1</span> evaluates to <strong><code>TRUE</code></strong>, and
+     <span class="replaceable">expr1</span> evaluates to <strong><code>true</code></strong>, and
      <span class="replaceable">expr3</span> if
-     <span class="replaceable">expr1</span> evaluates to <strong><code>FALSE</code></strong>.
+     <span class="replaceable">expr1</span> evaluates to <strong><code>false</code></strong>.
     </p>
     <p class="para">
      It is possible to leave out the middle part of the ternary operator.
      Expression <code class="literal">expr1 ?: expr3</code> returns
      <span class="replaceable">expr1</span> if <span class="replaceable">expr1</span>
-     evaluates to <strong><code>TRUE</code></strong>, and <span class="replaceable">expr3</span> otherwise.
+     evaluates to <strong><code>true</code></strong>, and <span class="replaceable">expr3</span> otherwise.
     </p>
     <blockquote class="note"><p><strong class="note">Note</strong>: 
      <span class="simpara">
@@ -355,10 +355,10 @@
      </div>
      The expression <code class="literal">(expr1) ?? (expr2)</code> evaluates to
      <span class="replaceable">expr2</span> if <span class="replaceable">expr1</span> is
-     <strong><code>NULL</code></strong>, and <span class="replaceable">expr1</span> otherwise.
+     <strong><code>null</code></strong>, and <span class="replaceable">expr1</span> otherwise.
     </p>
     <p class="para">
-     In particular, this operator does not emit a notice if the left-hand side
+     In particular, this operator does not emit a notice or warning if the left-hand side
      value does not exist, just like <span class="function"><a href="function.isset.html" class="function">isset()</a></span>. This is especially
      useful on array keys.
     </p>

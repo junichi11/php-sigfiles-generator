@@ -38,7 +38,7 @@
   <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><strong>DatePeriod::getEndDate</strong></span>
     (
-   ) : <span class="type"><a href="class.datetimeinterface.html" class="type DateTimeInterface">DateTimeInterface</a></span></div>
+   ) : <span class="type"><span class="type"><a href="class.datetimeinterface.html" class="type DateTimeInterface">DateTimeInterface</a></span>|<span class="type">null</span></span></div>
 
   <p class="para rdfs-comment">
    Gets the end date of the period.
@@ -55,7 +55,7 @@
  <div class="refsect1 returnvalues" id="refsect1-dateperiod.getenddate-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns <strong><code>NULL</code></strong> if the <a href="class.dateperiod.html" class="classname">DatePeriod</a> does
+   Returns <strong><code>null</code></strong> if the <a href="class.dateperiod.html" class="classname">DatePeriod</a> does
    not have an end date. For example, when initialized with the
    <code class="parameter">recurrences</code> parameter, or the
    <code class="parameter">isostr</code> parameter without an
@@ -76,7 +76,7 @@
 
  <div class="refsect1 examples" id="refsect1-dateperiod.getenddate-examples">
   <h3 class="title">Examples</h3>
-  <div class="example" id="example-2539">
+  <div class="example" id="example-2554">
    <p><strong>Example #1 <span class="methodname"><strong>DatePeriod::getEndDate()</strong></span> example</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -92,7 +92,7 @@
 </pre></div>
    </div>
   </div>
-  <div class="example" id="example-2540">
+  <div class="example" id="example-2555">
    <p><strong>Example #2 <span class="methodname"><strong>DatePeriod::getEndDate()</strong></span> without an end date</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

@@ -35,11 +35,11 @@
    <span class="methodname"><strong>imagefilter</strong></span>
     ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$image</code></span>
    , <span class="methodparam"><span class="type">int</span> <code class="parameter">$filtertype</code></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$arg1</code></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$arg2</code></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$arg3</code></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$arg4</code></span>
-  ]]]] ) : <span class="type">bool</span></div>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$arg1</code> = ?</span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$arg2</code> = ?</span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$arg3</code> = ?</span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$arg4</code> = ?</span>
+   ) : <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
    <span class="function"><strong>imagefilter()</strong></span> applies the given filter
@@ -224,7 +224,7 @@ such as <span class="function"><a href="function.imagecreatetruecolor.html" clas
         <li class="listitem">
          <span class="simpara">
           <strong><code>IMG_FILTER_PIXELATE</code></strong>: Whether to use advanced pixelation 
-          effect or not (defaults to <strong><code>FALSE</code></strong>).
+          effect or not (defaults to <strong><code>false</code></strong>).
          </span>
         </li>
         <li class="listitem">
@@ -289,7 +289,7 @@ such as <span class="function"><a href="function.imagecreatetruecolor.html" clas
  <div class="refsect1 returnvalues" id="refsect1-function.imagefilter-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns <strong><code>TRUE</code></strong> on success or <strong><code>FALSE</code></strong> on failure.
+   Returns <strong><code>true</code></strong> on success or <strong><code>false</code></strong> on failure.
   </p>
  </div>
 
@@ -324,7 +324,7 @@ such as <span class="function"><a href="function.imagecreatetruecolor.html" clas
  <div class="refsect1 examples" id="refsect1-function.imagefilter-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-3138">
+   <div class="example" id="example-3153">
     <p><strong>Example #1 <span class="function"><strong>imagefilter()</strong></span> grayscale example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -336,7 +336,7 @@ such as <span class="function"><a href="function.imagecreatetruecolor.html" clas
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-3139">
+   <div class="example" id="example-3154">
     <p><strong>Example #2 <span class="function"><strong>imagefilter()</strong></span> brightness example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -348,7 +348,7 @@ such as <span class="function"><a href="function.imagecreatetruecolor.html" clas
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-3140">
+   <div class="example" id="example-3155">
     <p><strong>Example #3 <span class="function"><strong>imagefilter()</strong></span> colorize example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -372,7 +372,7 @@ such as <span class="function"><a href="function.imagecreatetruecolor.html" clas
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-3142">
+   <div class="example" id="example-3157">
     <p><strong>Example #5 <span class="function"><strong>imagefilter()</strong></span> pixelate example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -392,7 +392,7 @@ something similar to:</p></div>
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-3143">
+   <div class="example" id="example-3158">
     <p><strong>Example #6 <span class="function"><strong>imagefilter()</strong></span> scatter example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

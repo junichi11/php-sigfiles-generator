@@ -33,8 +33,8 @@
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>imap_gc</strong></span>
-    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$imap_stream</code></span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$caches</code></span>
+    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$imap</code></span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code></span>
    ) : <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
@@ -49,14 +49,14 @@
 
      <dt>
 <code class="parameter">
-imap_stream</code></dt>
+imap</code></dt>
 <dd>
 <p class="para">An IMAP stream returned by
 <span class="function"><a href="function.imap-open.html" class="function">imap_open()</a></span>.</p></dd>
 
     
      <dt>
-<code class="parameter">caches</code></dt>
+<code class="parameter">flags</code></dt>
 
      <dd>
 
@@ -78,14 +78,14 @@ imap_stream</code></dt>
  <div class="refsect1 returnvalues" id="refsect1-function.imap-gc-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-  Returns <strong><code>TRUE</code></strong> on success or <strong><code>FALSE</code></strong> on failure.
+  Returns <strong><code>true</code></strong> on success or <strong><code>false</code></strong> on failure.
   </p>
  </div>
 
  <div class="refsect1 examples" id="refsect1-function.imap-gc-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-3480">
+   <div class="example" id="example-3495">
     <p><strong>Example #1 <span class="function"><strong>imap_gc()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

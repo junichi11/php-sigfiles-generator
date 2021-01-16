@@ -34,20 +34,21 @@
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>strtr</strong></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$str</code></span>
+    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$string</code></span>
    , <span class="methodparam"><span class="type">string</span> <code class="parameter">$from</code></span>
    , <span class="methodparam"><span class="type">string</span> <code class="parameter">$to</code></span>
    ) : <span class="type">string</span></div>
 
+  <p class="simpara">Alternative signature (not supported with named arguments):</p>
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>strtr</strong></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$str</code></span>
+    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$string</code></span>
    , <span class="methodparam"><span class="type">array</span> <code class="parameter">$replace_pairs</code></span>
    ) : <span class="type">string</span></div>
 
   <p class="para rdfs-comment">
    If given three arguments, this function returns a copy of
-   <code class="parameter">str</code> where all occurrences of each (single-byte)
+   <code class="parameter">string</code> where all occurrences of each (single-byte)
    character in <code class="parameter">from</code> have been translated to the
    corresponding character in <code class="parameter">to</code>, i.e., every
    occurrence of <code class="literal">$from[$n]</code> has been replaced with
@@ -57,7 +58,7 @@
   <p class="para">
    If <code class="parameter">from</code> and <code class="parameter">to</code> have
    different lengths, the extra characters in the longer of the two
-   are ignored. The length of <code class="parameter">str</code> will be the same as
+   are ignored. The length of <code class="parameter">string</code> will be the same as
    the return value&#039;s.
   </p>
   <p class="para">
@@ -71,7 +72,7 @@
   <p class="para">
    In this case, the keys and the values may have any length, provided that
    there is no empty key; additionally, the length of the return value may
-   differ from that of <code class="parameter">str</code>.
+   differ from that of <code class="parameter">string</code>.
    However, this function will be the most efficient when all the keys have the
    same size.
   </p>
@@ -85,7 +86,7 @@
 
     
      <dt>
-<code class="parameter">str</code></dt>
+<code class="parameter">string</code></dt>
 
      <dd>
 
@@ -130,6 +131,11 @@
        <code class="parameter">to</code> and <code class="parameter">from</code>, in which case it&#039;s an
        <span class="type">array</span> in the form <code class="literal">array(&#039;from&#039; =&gt; &#039;to&#039;, ...)</code>. 
       </p>
+      <p class="para">
+       If <code class="parameter">replace_pairs</code> contains a key which is an empty
+       <span class="type">string</span> (<code class="literal">&quot;&quot;</code>), the element is ignored;
+       as of PHP 8.0.0 <strong><code>E_WARNING</code></strong> is raised in this case.
+      </p>
      </dd>
 
     
@@ -144,20 +150,13 @@
   <p class="para">
    Returns the translated <span class="type">string</span>.
   </p>
-  <p class="para">
-   If <code class="parameter">replace_pairs</code> contains a key which
-   is an empty <span class="type">string</span> (<code class="literal">&quot;&quot;</code>),
-   <strong><code>FALSE</code></strong> will be returned. If the <code class="parameter">str</code> is not a scalar
-   then it is not typecasted into a string, instead a warning is raised and 
-   <strong><code>NULL</code></strong> is returned. 
-  </p>
  </div>
 
 
  <div class="refsect1 examples" id="refsect1-function.strtr-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-5362">
+   <div class="example" id="example-5383">
     <p><strong>Example #1 <span class="function"><strong>strtr()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -174,7 +173,7 @@
    (<code class="literal">&quot;h&quot;</code> is not picked because there are longer matches)
    and how replaced text was not searched again.
   </p>
-  <div class="example" id="example-5363">
+  <div class="example" id="example-5384">
    <p><strong>Example #2 <span class="function"><strong>strtr()</strong></span> example with two arguments</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -195,7 +194,7 @@ hello all, I said hi
    <span class="function"><strong>strtr()</strong></span> will replace bytes; with two, it may replace
    longer substrings.
   </p>
-  <div class="example" id="example-5364">
+  <div class="example" id="example-5385">
    <p><strong>Example #3 <span class="function"><strong>strtr()</strong></span> behavior comparison</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

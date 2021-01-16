@@ -42,8 +42,8 @@ is highly discouraged.</p></div>
    <span class="modifier">public</span> <span class="modifier">static</span> <span class="methodname"><strong>ReflectionParameter::export</strong></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$function</code></span>
    , <span class="methodparam"><span class="type">string</span> <code class="parameter">$parameter</code></span>
-   [, <span class="methodparam"><span class="type">bool</span> <code class="parameter">$return</code></span>
-  ] ) : <span class="type">string</span></div>
+   , <span class="methodparam"><span class="type">bool</span> <code class="parameter">$return</code> = ?</span>
+   ) : <span class="type">string</span></div>
 
   <p class="para rdfs-comment">
    Exports.
@@ -92,8 +92,8 @@ currently not documented; only its argument list is available.
      <dd>
 
       <p class="para">
-       Setting to <strong><code>TRUE</code></strong> will return the export,
-as opposed to emitting it. Setting to <strong><code>FALSE</code></strong> (the default) will do the opposite.       
+       Setting to <strong><code>true</code></strong> will return the export,
+as opposed to emitting it. Setting to <strong><code>false</code></strong> (the default) will do the opposite.       
       </p>
      </dd>
 

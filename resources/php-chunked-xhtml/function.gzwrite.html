@@ -35,8 +35,8 @@
    <span class="methodname"><strong>gzwrite</strong></span>
     ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$stream</code></span>
    , <span class="methodparam"><span class="type">string</span> <code class="parameter">$data</code></span>
-   [, <span class="methodparam"><span class="type"><span class="type">int</span>|<span class="type">null</span></span> <code class="parameter">$length</code><span class="initializer"> = <strong><code>NULL</code></strong></span></span>
-  ] ) : <span class="type"><span class="type">int</span>|<span class="type"><span class="type false">false</span></span></span></div>
+   , <span class="methodparam"><span class="type"><span class="type">int</span>|<span class="type">null</span></span> <code class="parameter">$length</code><span class="initializer"> = <strong><code>null</code></strong></span></span>
+   ) : <span class="type"><span class="type">int</span>|<span class="type"><span class="type false">false</span></span></span></div>
 
   <p class="para rdfs-comment">
    <span class="function"><strong>gzwrite()</strong></span> writes the contents of
@@ -106,7 +106,7 @@
   <h3 class="title">Return Values</h3>
   <p class="para"> 
    Returns the number of (uncompressed) bytes written to the given gz-file 
-   stream,  or <strong><code>FALSE</code></strong> on failure.
+   stream,  or <strong><code>false</code></strong> on failure.
   </p>
  </div>
 
@@ -135,7 +135,7 @@
      <tr>
       <td>7.4.0</td>
       <td>
-       This functions returns <strong><code>FALSE</code></strong> on failure now; previously <code class="literal">0</code> was returned.
+       This functions returns <strong><code>false</code></strong> on failure now; previously <code class="literal">0</code> was returned.
       </td>
      </tr>
 
@@ -149,7 +149,7 @@
  <div class="refsect1 examples" id="refsect1-function.gzwrite-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-859">
+   <div class="example" id="example-871">
     <p><strong>Example #1 <span class="function"><strong>gzwrite()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

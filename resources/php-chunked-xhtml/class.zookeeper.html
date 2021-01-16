@@ -59,18 +59,18 @@
     <div class="constructorsynopsis dc-description">
    <span class="modifier">public</span>
    <span class="methodname"><a href="zookeeper.construct.html" class="methodname">__construct</a></span>
-    ([ <span class="methodparam"><span class="type">string</span> <code class="parameter">$host</code><span class="initializer"> = &#039;&#039;</span></span>
-   [, <span class="methodparam"><span class="type"><a href="language.types.callable.html" class="type callable">callable</a></span> <code class="parameter">$watcher_cb</code><span class="initializer"> = <strong><code>NULL</code></strong></span></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$recv_timeout</code><span class="initializer"> = 10000</span></span>
-  ]]] )</div>
+    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$host</code><span class="initializer"> = &#039;&#039;</span></span>
+   , <span class="methodparam"><span class="type"><a href="language.types.callable.html" class="type callable">callable</a></span> <code class="parameter">$watcher_cb</code><span class="initializer"> = <strong><code>null</code></strong></span></span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$recv_timeout</code><span class="initializer"> = 10000</span></span>
+   )</div>
 
     <div class="methodsynopsis dc-description">
    <span class="modifier">public</span>
    <span class="methodname"><a href="zookeeper.addauth.html" class="methodname">addAuth</a></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$scheme</code></span>
    , <span class="methodparam"><span class="type">string</span> <code class="parameter">$cert</code></span>
-   [, <span class="methodparam"><span class="type"><a href="language.types.callable.html" class="type callable">callable</a></span> <code class="parameter">$completion_cb</code><span class="initializer"> = <strong><code>NULL</code></strong></span></span>
-  ] ) : <span class="type">bool</span></div>
+   , <span class="methodparam"><span class="type"><a href="language.types.callable.html" class="type callable">callable</a></span> <code class="parameter">$completion_cb</code><span class="initializer"> = <strong><code>null</code></strong></span></span>
+   ) : <span class="type">bool</span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span>
    <span class="methodname"><a href="zookeeper.close.html" class="methodname">close</a></span>
@@ -80,37 +80,37 @@
    <span class="modifier">public</span>
    <span class="methodname"><a href="zookeeper.connect.html" class="methodname">connect</a></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$host</code></span>
-   [, <span class="methodparam"><span class="type"><a href="language.types.callable.html" class="type callable">callable</a></span> <code class="parameter">$watcher_cb</code><span class="initializer"> = <strong><code>NULL</code></strong></span></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$recv_timeout</code><span class="initializer"> = 10000</span></span>
-  ]] ) : <span class="type"><span class="type void">void</span></span></div>
+   , <span class="methodparam"><span class="type"><a href="language.types.callable.html" class="type callable">callable</a></span> <code class="parameter">$watcher_cb</code><span class="initializer"> = <strong><code>null</code></strong></span></span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$recv_timeout</code><span class="initializer"> = 10000</span></span>
+   ) : <span class="type"><span class="type void">void</span></span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span>
    <span class="methodname"><a href="zookeeper.create.html" class="methodname">create</a></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$path</code></span>
    , <span class="methodparam"><span class="type">string</span> <code class="parameter">$value</code></span>
    , <span class="methodparam"><span class="type">array</span> <code class="parameter">$acls</code></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code><span class="initializer"> = <strong><code>NULL</code></strong></span></span>
-  ] ) : <span class="type">string</span></div>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code><span class="initializer"> = <strong><code>null</code></strong></span></span>
+   ) : <span class="type">string</span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span>
    <span class="methodname"><a href="zookeeper.delete.html" class="methodname">delete</a></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$path</code></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$version</code><span class="initializer"> = -1</span></span>
-  ] ) : <span class="type">bool</span></div>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$version</code><span class="initializer"> = -1</span></span>
+   ) : <span class="type">bool</span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span>
    <span class="methodname"><a href="zookeeper.exists.html" class="methodname">exists</a></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$path</code></span>
-   [, <span class="methodparam"><span class="type"><a href="language.types.callable.html" class="type callable">callable</a></span> <code class="parameter">$watcher_cb</code><span class="initializer"> = <strong><code>NULL</code></strong></span></span>
-  ] ) : <span class="type">array</span></div>
+   , <span class="methodparam"><span class="type"><a href="language.types.callable.html" class="type callable">callable</a></span> <code class="parameter">$watcher_cb</code><span class="initializer"> = <strong><code>null</code></strong></span></span>
+   ) : <span class="type">array</span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span>
    <span class="methodname"><a href="zookeeper.get.html" class="methodname">get</a></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$path</code></span>
-   [, <span class="methodparam"><span class="type"><a href="language.types.callable.html" class="type callable">callable</a></span> <code class="parameter">$watcher_cb</code><span class="initializer"> = <strong><code>NULL</code></strong></span></span>
-   [, <span class="methodparam"><span class="type">array</span> <code class="parameter reference">&$stat</code><span class="initializer"> = <strong><code>NULL</code></strong></span></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$max_size</code><span class="initializer"> = 0</span></span>
-  ]]] ) : <span class="type">string</span></div>
+   , <span class="methodparam"><span class="type"><a href="language.types.callable.html" class="type callable">callable</a></span> <code class="parameter">$watcher_cb</code><span class="initializer"> = <strong><code>null</code></strong></span></span>
+   , <span class="methodparam"><span class="type">array</span> <code class="parameter reference">&$stat</code><span class="initializer"> = <strong><code>null</code></strong></span></span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$max_size</code><span class="initializer"> = 0</span></span>
+   ) : <span class="type">string</span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span>
    <span class="methodname"><a href="zookeeper.getacl.html" class="methodname">getAcl</a></span>
@@ -120,8 +120,8 @@
    <span class="modifier">public</span>
    <span class="methodname"><a href="zookeeper.getchildren.html" class="methodname">getChildren</a></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$path</code></span>
-   [, <span class="methodparam"><span class="type"><a href="language.types.callable.html" class="type callable">callable</a></span> <code class="parameter">$watcher_cb</code><span class="initializer"> = <strong><code>NULL</code></strong></span></span>
-  ] ) : <span class="type">array</span></div>
+   , <span class="methodparam"><span class="type"><a href="language.types.callable.html" class="type callable">callable</a></span> <code class="parameter">$watcher_cb</code><span class="initializer"> = <strong><code>null</code></strong></span></span>
+   ) : <span class="type">array</span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span>
    <span class="methodname"><a href="zookeeper.getclientid.html" class="methodname">getClientId</a></span>
@@ -152,9 +152,9 @@
    <span class="methodname"><a href="zookeeper.set.html" class="methodname">set</a></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$path</code></span>
    , <span class="methodparam"><span class="type">string</span> <code class="parameter">$value</code></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$version</code><span class="initializer"> = -1</span></span>
-   [, <span class="methodparam"><span class="type">array</span> <code class="parameter reference">&$stat</code><span class="initializer"> = <strong><code>NULL</code></strong></span></span>
-  ]] ) : <span class="type">bool</span></div>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$version</code><span class="initializer"> = -1</span></span>
+   , <span class="methodparam"><span class="type">array</span> <code class="parameter reference">&$stat</code><span class="initializer"> = <strong><code>null</code></strong></span></span>
+   ) : <span class="type">bool</span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span>
    <span class="methodname"><a href="zookeeper.setacl.html" class="methodname">setAcl</a></span>

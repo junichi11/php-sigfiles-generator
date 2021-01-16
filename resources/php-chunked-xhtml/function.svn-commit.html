@@ -36,15 +36,15 @@
    <span class="methodname"><strong>svn_commit</strong></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$log</code></span>
    , <span class="methodparam"><span class="type">array</span> <code class="parameter">$targets</code></span>
-   [, <span class="methodparam"><span class="type">bool</span> <code class="parameter">$recursive</code><span class="initializer"> = <strong><code>TRUE</code></strong></span></span>
-  ] ) : <span class="type">array</span></div>
+   , <span class="methodparam"><span class="type">bool</span> <code class="parameter">$recursive</code><span class="initializer"> = <strong><code>true</code></strong></span></span>
+   ) : <span class="type">array</span></div>
 
   <p class="para rdfs-comment">
    Commits changes made in the local working copy files enumerated in
    the <code class="parameter">targets</code> array to the repository, with the
    log message <code class="parameter">log</code>. Directories in the <code class="parameter">targets</code>
    array will be recursively committed unless <code class="parameter">recursive</code>
-   is set to <strong><code>FALSE</code></strong>.
+   is set to <strong><code>false</code></strong>.
   </p>
   <blockquote class="note"><p><strong class="note">Note</strong>: 
    <span class="simpara">
@@ -100,7 +100,7 @@
       <p class="para">
        Boolean flag to disable recursive committing of
        directories in the <code class="parameter">targets</code> array.
-       Default is <strong><code>TRUE</code></strong>.
+       Default is <strong><code>true</code></strong>.
       </p>
      </dd>
 
@@ -125,7 +125,7 @@
 </div>
     </div>
   <p class="para">
-   Returns <strong><code>FALSE</code></strong> on failure.
+   Returns <strong><code>false</code></strong> on failure.
   </p>
  </div>
 
@@ -147,7 +147,7 @@ This function should be used at your own risk.
  <div class="refsect1 examples" id="refsect1-function.svn-commit-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-5066">
+   <div class="example" id="example-5088">
     <p><strong>Example #1 Basic example</strong></p>
     <div class="example-contents"><p>
      This example commits the calculator directory to a repository, using

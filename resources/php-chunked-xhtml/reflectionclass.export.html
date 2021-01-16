@@ -40,9 +40,9 @@ is highly discouraged.</p></div>
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="modifier">static</span> <span class="methodname"><strong>ReflectionClass::export</strong></span>
-    ( <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">$argument</code></span>
-   [, <span class="methodparam"><span class="type">bool</span> <code class="parameter">$return</code><span class="initializer"> = <strong><code>FALSE</code></strong></span></span>
-  ] ) : <span class="type">string</span></div>
+    ( <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$argument</code></span>
+   , <span class="methodparam"><span class="type">bool</span> <code class="parameter">$return</code><span class="initializer"> = <strong><code>false</code></strong></span></span>
+   ) : <span class="type">string</span></div>
 
   <p class="para rdfs-comment">
    Exports a reflected class.
@@ -75,8 +75,8 @@ is highly discouraged.</p></div>
      <dd>
 
       <p class="para">
-       Setting to <strong><code>TRUE</code></strong> will return the export,
-as opposed to emitting it. Setting to <strong><code>FALSE</code></strong> (the default) will do the opposite.
+       Setting to <strong><code>true</code></strong> will return the export,
+as opposed to emitting it. Setting to <strong><code>false</code></strong> (the default) will do the opposite.
       </p>
      </dd>
 
@@ -91,8 +91,8 @@ as opposed to emitting it. Setting to <strong><code>FALSE</code></strong> (the d
   <h3 class="title">Return Values</h3>
   <p class="para">
    If the <code class="parameter">return</code> parameter
-is set to <strong><code>TRUE</code></strong>, then the export is returned as a <span class="type">string</span>,
-otherwise <strong><code>NULL</code></strong> is returned.
+is set to <strong><code>true</code></strong>, then the export is returned as a <span class="type">string</span>,
+otherwise <strong><code>null</code></strong> is returned.
   </p>
  </div>
 
@@ -100,7 +100,7 @@ otherwise <strong><code>NULL</code></strong> is returned.
  <div class="refsect1 examples" id="refsect1-reflectionclass.export-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-5642">
+   <div class="example" id="example-5663">
     <p><strong>Example #1 Basic usage of <span class="methodname"><strong>ReflectionClass::export()</strong></span></strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

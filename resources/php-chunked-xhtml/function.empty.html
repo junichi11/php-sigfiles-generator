@@ -26,18 +26,18 @@
   <div id="layout-content"><div id="function.empty" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">empty</h1>
-  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">empty</span> &mdash; <span class="dc-title">Determine whether a variable is empty</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">empty</span> &mdash; <span class="dc-title">Determine whether a variable is empty</span></p>
 
  </div>
  <div class="refsect1 description" id="refsect1-function.empty-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>empty</strong></span>
-    ( <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">$var</code></span>
+    ( <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$var</code></span>
    ) : <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
-   Determine whether a variable is considered to be empty. A variable is considered empty if it does not exist or if its value equals <strong><code>FALSE</code></strong>. <span class="function"><strong>empty()</strong></span> does not generate a warning if the variable does not exist.
+   Determine whether a variable is considered to be empty. A variable is considered empty if it does not exist or if its value equals <strong><code>false</code></strong>. <span class="function"><strong>empty()</strong></span> does not generate a warning if the variable does not exist.
   </p>
  </div>
 
@@ -79,27 +79,16 @@
  <div class="refsect1 returnvalues" id="refsect1-function.empty-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns <strong><code>FALSE</code></strong> if <code class="parameter">var</code> exists and has a non-empty, non-zero value.
-   Otherwise returns <strong><code>TRUE</code></strong>.
-  </p>
-  <p class="para">
-   The following values are considered to be empty:
-   <ul class="simplelist">
-    <li class="member"><code class="literal">&quot;&quot;</code> (an empty string)</li>
-    <li class="member"><code class="literal">0</code> (0 as an integer)</li>
-    <li class="member"><code class="literal">0.0</code> (0 as a float)</li>
-    <li class="member"><code class="literal">&quot;0&quot;</code> (0 as a string)</li>
-    <li class="member"><strong><code>NULL</code></strong></li>
-    <li class="member"><strong><code>FALSE</code></strong></li>
-    <li class="member"><code class="literal">array()</code> (an empty array)</li>
-   </ul>
+   Returns <strong><code>false</code></strong> if <code class="parameter">var</code> exists and has a non-empty, non-zero value,
+   aka falsey, see <a href="language.types.boolean.html#language.types.boolean.casting" class="link">conversion to boolean</a>.
+   Otherwise returns <strong><code>true</code></strong>.
   </p>
  </div>
 
  <div class="refsect1 examples" id="refsect1-function.empty-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-5740">
+   <div class="example" id="example-5764">
     <p><strong>Example #1 
      A simple <span class="function"><strong>empty()</strong></span> / <span class="function"><a href="function.isset.html" class="function">isset()</a></span>
      comparison.
@@ -113,7 +102,7 @@
 
    </div>
   </p>
-  <div class="example" id="example-5741">
+  <div class="example" id="example-5765">
    <p><strong>Example #2 <span class="function"><strong>empty()</strong></span> on String Offsets</strong></p>
    <div class="example-contents"><p>
     PHP 5.4 changes how <span class="function"><strong>empty()</strong></span> behaves
@@ -170,7 +159,7 @@ language construct and not a function, it cannot be called using
   <h3 class="title">See Also</h3>
   <p class="para">
    <ul class="simplelist">
-    <li class="member"><span class="function"><a href="function.isset.html" class="function" rel="rdfs-seeAlso">isset()</a> - Determine if a variable is declared and is different than NULL</span></li>
+    <li class="member"><span class="function"><a href="function.isset.html" class="function" rel="rdfs-seeAlso">isset()</a> - Determine if a variable is declared and is different than null</span></li>
     <li class="member"><a href="language.oop5.overloading.html#object.isset" class="link">__isset()</a></li>
     <li class="member"><span class="function"><a href="function.unset.html" class="function" rel="rdfs-seeAlso">unset()</a> - Unset a given variable</span></li>
     <li class="member"><span class="function"><a href="function.array-key-exists.html" class="function" rel="rdfs-seeAlso">array_key_exists()</a> - Checks if the given key or index exists in the array</span></li>

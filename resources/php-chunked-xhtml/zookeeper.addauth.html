@@ -37,8 +37,8 @@
    <span class="methodname"><strong>Zookeeper::addAuth</strong></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$scheme</code></span>
    , <span class="methodparam"><span class="type">string</span> <code class="parameter">$cert</code></span>
-   [, <span class="methodparam"><span class="type"><a href="language.types.callable.html" class="type callable">callable</a></span> <code class="parameter">$completion_cb</code><span class="initializer"> = <strong><code>NULL</code></strong></span></span>
-  ] ) : <span class="type">bool</span></div>
+   , <span class="methodparam"><span class="type"><a href="language.types.callable.html" class="type callable">callable</a></span> <code class="parameter">$completion_cb</code><span class="initializer"> = <strong><code>null</code></strong></span></span>
+   ) : <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
    The application calls this function to specify its credentials for purposes of authentication. The server will use the security provider specified by the scheme parameter to authenticate the client connection. If the authentication request has failed:
@@ -98,7 +98,7 @@
  <div class="refsect1 returnvalues" id="refsect1-zookeeper.addauth-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns <strong><code>TRUE</code></strong> on success or <strong><code>FALSE</code></strong> on failure.
+   Returns <strong><code>true</code></strong> on success or <strong><code>false</code></strong> on failure.
   </p>
  </div>
 
@@ -118,7 +118,7 @@
 
  <div class="refsect1 examples" id="refsect1-zookeeper.addauth-examples">
   <h3 class="title">Examples</h3>
-  <div class="example" id="example-5098">
+  <div class="example" id="example-5120">
    <p><strong>Example #1 <span class="methodname"><strong>Zookeeper::addAuth()</strong></span> example</strong></p>
    <div class="example-contents"><p>
      Add auth before requesting node value.

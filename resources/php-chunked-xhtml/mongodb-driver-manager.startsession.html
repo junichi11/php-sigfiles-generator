@@ -34,8 +34,8 @@
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
    <span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><strong>MongoDB\Driver\Manager::startSession</strong></span>
-    ([ <span class="methodparam"><span class="type">array</span> <code class="parameter">$options</code></span>
-  ] ) : <span class="type"><a href="class.mongodb-driver-session.html" class="type MongoDB\Driver\Session">MongoDB\Driver\Session</a></span></div>
+    ( <span class="methodparam"><span class="type">array</span> <code class="parameter">$options</code> = ?</span>
+   ) : <span class="type"><a href="class.mongodb-driver-session.html" class="type MongoDB\Driver\Session">MongoDB\Driver\Session</a></span></div>
 
   <p class="para rdfs-comment">
    Creates a <a href="class.mongodb-driver-session.html" class="classname">MongoDB\Driver\Session</a> for the given
@@ -81,9 +81,9 @@
           <td><span class="type">bool</span></td>
           <td>
            <p class="para">
-            Configure causal consistency in a session. If <strong><code>TRUE</code></strong>, each operation
+            Configure causal consistency in a session. If <strong><code>true</code></strong>, each operation
             in the session will be causally ordered after the previous read or
-            write operation. Set to <strong><code>FALSE</code></strong> to disable causal consistency.
+            write operation. Set to <strong><code>false</code></strong> to disable causal consistency.
            </p>
            <p class="para">
             See
@@ -91,7 +91,7 @@
             in the MongoDB manual for more information.
            </p>
           </td>
-          <td><strong><code>TRUE</code></strong></td>
+          <td><strong><code>true</code></strong></td>
          </tr>
 
          <tr>

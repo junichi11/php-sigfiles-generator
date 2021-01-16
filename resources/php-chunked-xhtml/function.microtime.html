@@ -34,8 +34,8 @@
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>microtime</strong></span>
-    ([ <span class="methodparam"><span class="type">bool</span> <code class="parameter">$getAsFloat</code><span class="initializer"> = <strong><code>FALSE</code></strong></span></span>
-  ] ) : <span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span></div>
+    ( <span class="methodparam"><span class="type">bool</span> <code class="parameter">$as_float</code><span class="initializer"> = <strong><code>false</code></strong></span></span>
+   ) : <span class="type"><span class="type">string</span>|<span class="type">float</span></span></div>
 
   <p class="para rdfs-comment">
    <span class="function"><strong>microtime()</strong></span> returns the current Unix timestamp with
@@ -55,12 +55,12 @@
 
     
      <dt>
-<code class="parameter">getAsFloat</code></dt>
+<code class="parameter">as_float</code></dt>
 
      <dd>
 
       <p class="para">
-       If used and set to <strong><code>TRUE</code></strong>, <span class="function"><strong>microtime()</strong></span> will return a
+       If used and set to <strong><code>true</code></strong>, <span class="function"><strong>microtime()</strong></span> will return a
        <span class="type">float</span> instead of a <span class="type">string</span>, as described in
        the return values section below.
       </p>
@@ -83,7 +83,7 @@
    and is also expressed in seconds.
   </p>
   <p class="para">
-   If <code class="parameter">getAsFloat</code> is set to <strong><code>TRUE</code></strong>, then
+   If <code class="parameter">as_float</code> is set to <strong><code>true</code></strong>, then
    <span class="function"><strong>microtime()</strong></span> returns a <span class="type">float</span>, which
    represents the current time in seconds since the Unix epoch accurate to the
    nearest microsecond.
@@ -94,7 +94,7 @@
  <div class="refsect1 examples" id="refsect1-function.microtime-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-2567">
+   <div class="example" id="example-2582">
     <p><strong>Example #1 Timing script execution with <span class="function"><strong>microtime()</strong></span></strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -104,7 +104,7 @@
     </div>
 
    </div>
-   <div class="example" id="example-2568">
+   <div class="example" id="example-2583">
     <p><strong>Example #2 Timing script execution in PHP 5</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -114,7 +114,7 @@
     </div>
 
    </div>
-   <div class="example" id="example-2569">
+   <div class="example" id="example-2584">
     <p><strong>Example #3 <span class="function"><strong>microtime()</strong></span> and <code class="literal">REQUEST_TIME_FLOAT</code> (as of PHP 5.4.0)</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

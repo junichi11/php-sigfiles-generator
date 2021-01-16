@@ -72,17 +72,17 @@
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="modifier">static</span> <span class="methodname"><a href="swoole-websocket-server.pack.html" class="methodname">pack</a></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$data</code></span>
-   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$opcode</code></span>
-   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$finish</code></span>
-   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$mask</code></span>
-  ]]] ) : <span class="type"><span class="type binary">binary</span></span></div>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$opcode</code> = ?</span>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$finish</code> = ?</span>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$mask</code> = ?</span>
+   ) : <span class="type"><span class="type binary">binary</span></span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="swoole-websocket-server.push.html" class="methodname">push</a></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$fd</code></span>
    , <span class="methodparam"><span class="type">string</span> <code class="parameter">$data</code></span>
-   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$opcode</code></span>
-   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$finish</code></span>
-  ]] ) : <span class="type"><span class="type void">void</span></span></div>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$opcode</code> = ?</span>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$finish</code> = ?</span>
+   ) : <span class="type"><span class="type void">void</span></span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="modifier">static</span> <span class="methodname"><a href="swoole-websocket-server.unpack.html" class="methodname">unpack</a></span>
     ( <span class="methodparam"><span class="type"><span class="type binary">binary</span></span> <code class="parameter">$data</code></span>

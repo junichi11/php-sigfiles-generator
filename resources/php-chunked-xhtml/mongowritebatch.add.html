@@ -84,7 +84,7 @@
          <td>
           <p class="para">Raw update operation.</p>
           <p class="para">Required keys are <code class="literal">&quot;q&quot;</code> and <code class="literal">&quot;u&quot;</code>, which correspond to the <a href="mongocollection.update.html#mongocollection.update.criteria" class="link"><code class="parameter">$criteria</code></a> and <a href="mongocollection.update.html#mongocollection.update.new_object" class="link"><code class="parameter">$new_object</code></a> parameters of <span class="function"><a href="mongocollection.update.html" class="function">MongoCollection::update()</a></span>, respectively.</p>
-          <p class="para">Optional keys are <code class="literal">&quot;multi&quot;</code> and <code class="literal">&quot;upsert&quot;</code>, which correspond to the <a href="mongocollection.update.html#mongocollection.update.multiple" class="link"><code class="literal">&quot;multiple&quot;</code></a> and <a href="mongocollection.update.html#mongocollection.update.upsert" class="link"><code class="literal">&quot;upsert&quot;</code></a> options for <span class="function"><a href="mongocollection.update.html" class="function">MongoCollection::update()</a></span>, respectively. If unspecified, both options default to <strong><code>FALSE</code></strong>.</p>
+          <p class="para">Optional keys are <code class="literal">&quot;multi&quot;</code> and <code class="literal">&quot;upsert&quot;</code>, which correspond to the <a href="mongocollection.update.html#mongocollection.update.multiple" class="link"><code class="literal">&quot;multiple&quot;</code></a> and <a href="mongocollection.update.html#mongocollection.update.upsert" class="link"><code class="literal">&quot;upsert&quot;</code></a> options for <span class="function"><a href="mongocollection.update.html" class="function">MongoCollection::update()</a></span>, respectively. If unspecified, both options default to <strong><code>false</code></strong>.</p>
          </td>
         </tr>
 
@@ -112,7 +112,7 @@
  <div class="refsect1 returnvalues" id="refsect1-mongowritebatch.add-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns <strong><code>TRUE</code></strong> on success and throws an exception on failure.
+   Returns <strong><code>true</code></strong> on success and throws an exception on failure.
   </p>
  </div>
 
@@ -128,7 +128,7 @@
 
  <div class="refsect1 examples" id="refsect1-mongowritebatch.add-examples">
   <h3 class="title">Examples</h3>
-  <div class="example" id="example-1489">
+  <div class="example" id="example-1501">
    <p><strong>Example #1 <span class="methodname"><strong>MongoWriteBatch::add()</strong></span> example</strong></p>
    <div class="example-contents"><p>
     Batching up multiple insert operations
@@ -142,7 +142,7 @@
 
   </div>
 
-  <div class="example" id="example-1490">
+  <div class="example" id="example-1502">
    <p><strong>Example #2 <span class="methodname"><strong>MongoWriteBatch::add()</strong></span> example</strong></p>
    <div class="example-contents"><p>
     Batching up multiple update operations

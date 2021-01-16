@@ -35,7 +35,7 @@
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>linkinfo</strong></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$path</code></span>
-   ) : <span class="type">int</span></div>
+   ) : <span class="type"><span class="type">int</span>|<span class="type"><span class="type false">false</span></span></span></div>
 
   <p class="para rdfs-comment">
    Gets information about a link.  
@@ -77,7 +77,7 @@
    <span class="function"><strong>linkinfo()</strong></span> returns the <code class="literal">st_dev</code> field
    of the Unix C stat structure returned by the <code class="literal">lstat</code>
    system call. Returns a non-negative integer on success, -1 in case the link was not found, 
-   or <strong><code>FALSE</code></strong> if an open.base_dir violation occurs.
+   or <strong><code>false</code></strong> if an open.base_dir violation occurs.
   </p>
  </div>
 
@@ -85,7 +85,7 @@
  <div class="refsect1 examples" id="refsect1-function.linkinfo-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-2664">
+   <div class="example" id="example-2679">
     <p><strong>Example #1 <span class="function"><strong>linkinfo()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

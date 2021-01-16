@@ -36,10 +36,10 @@
    <span class="methodname"><strong>grapheme_extract</strong></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$haystack</code></span>
    , <span class="methodparam"><span class="type">int</span> <code class="parameter">$size</code></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$extract_type</code></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$start</code><span class="initializer"> = 0</span></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter reference">&$next</code></span>
-  ]]] ) : <span class="type">string</span></div>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$extract_type</code> = ?</span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$start</code><span class="initializer"> = 0</span></span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter reference">&$next</code> = ?</span>
+   ) : <span class="type">string</span></div>
 
   <p class="para rdfs-comment">
    Function to extract a sequence of default grapheme clusters from a text buffer, which must be encoded in UTF-8. 
@@ -173,7 +173,7 @@
 
  <div class="refsect1 examples" id="refsect1-function.grapheme-extract-examples">
   <h3 class="title">Examples</h3>
-  <div class="example" id="example-2938">
+  <div class="example" id="example-2953">
    <p><strong>Example #1 <span class="function"><strong>grapheme_extract()</strong></span> example</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

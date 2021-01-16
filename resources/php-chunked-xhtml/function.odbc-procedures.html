@@ -34,15 +34,10 @@
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>odbc_procedures</strong></span>
-    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$connection_id</code></span>
-   ) : <span class="type"><span class="type">resource</span>|<span class="type"><span class="type false">false</span></span></span></div>
-
-  <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>odbc_procedures</strong></span>
-    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$connection_id</code></span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$catalog</code></span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$schema</code></span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$name</code></span>
+    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$odbc</code></span>
+   , <span class="methodparam"><span class="type"><span class="type">string</span>|<span class="type">null</span></span> <code class="parameter">$catalog</code><span class="initializer"> = <strong><code>null</code></strong></span></span>
+   , <span class="methodparam"><span class="type"><span class="type">string</span>|<span class="type">null</span></span> <code class="parameter">$schema</code><span class="initializer"> = <strong><code>null</code></strong></span></span>
+   , <span class="methodparam"><span class="type"><span class="type">string</span>|<span class="type">null</span></span> <code class="parameter">$procedure</code><span class="initializer"> = <strong><code>null</code></strong></span></span>
    ) : <span class="type"><span class="type">resource</span>|<span class="type"><span class="type false">false</span></span></span></div>
 
   <p class="para rdfs-comment">
@@ -58,7 +53,7 @@
 
     
      <dt>
-<code class="parameter">connection_id</code></dt>
+<code class="parameter">odbc</code></dt>
 
      <dd>
 
@@ -96,7 +91,7 @@ and <code class="literal">_</code> to match a single character.
     
     
      <dt>
-<code class="parameter">name</code></dt>
+<code class="parameter">procedure</code></dt>
 
      <dd>
 
@@ -119,7 +114,7 @@ and <code class="literal">_</code> to match a single character.
   <h3 class="title">Return Values</h3>
   <p class="para">
    Returns an ODBC
-   result identifier containing the information or <strong><code>FALSE</code></strong> on failure.
+   result identifier containing the information or <strong><code>false</code></strong> on failure.
   </p>
   <p class="para">
    The result set has the following columns:
@@ -142,9 +137,37 @@ and <code class="literal">_</code> to match a single character.
  </div>
 
 
+ <div class="refsect1 changelog" id="refsect1-function.odbc-procedures-changelog">
+  <h3 class="title">Changelog</h3>
+  <table class="doctable informaltable">
+   
+    <thead>
+     <tr>
+      <th>Version</th>
+      <th>Description</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+      <td>8.0.0</td>
+      <td>
+       Prior to this version, the function could only be called with either one
+       or four arguments.
+      </td>
+     </tr>
+
+    </tbody>
+   
+  </table>
+
+ </div>
+
+
  <div class="refsect1 examples" id="refsect1-function.odbc-procedures-examples">
   <h3 class="title">Examples</h3>
-  <div class="example" id="example-968">
+  <div class="example" id="example-981">
    <p><strong>Example #1 List stored Procedures of a Database</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

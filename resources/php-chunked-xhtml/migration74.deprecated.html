@@ -47,6 +47,18 @@
 
     </div>
    </p>
+   <p class="para">
+    Parentheses are <em class="emphasis">not</em> required when nesting into the middle operand,
+    as this is always unambiguous and not affected by associativity:
+    <div class="informalexample">
+     <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+1&nbsp;?&nbsp;2&nbsp;?&nbsp;3&nbsp;:&nbsp;4&nbsp;:&nbsp;5&nbsp;//&nbsp;ok</span>
+</code></div>
+     </div>
+
+    </div>
+   </p>
   </div>
 
   <div class="sect3" id="migration74.deprecated.core.array-string-access-curly-brace">
@@ -130,7 +142,7 @@
 
    <p class="para">
     The <span class="function"><a href="function.get-magic-quotes-gpc.html" class="function">get_magic_quotes_gpc()</a></span> and <span class="function"><a href="function.get-magic-quotes-runtime.html" class="function">get_magic_quotes_runtime()</a></span>
-    functions are deprecated. They always return <strong><code>FALSE</code></strong>.
+    functions are deprecated. They always return <strong><code>false</code></strong>.
    </p>
   </div>
 

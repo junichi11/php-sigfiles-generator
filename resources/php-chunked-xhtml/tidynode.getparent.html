@@ -35,7 +35,7 @@
   <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><strong>tidyNode::getParent</strong></span>
     (
-   ) : <span class="type"><a href="class.tidynode.html" class="type tidyNode">tidyNode</a></span></div>
+   ) : <span class="type"><span class="type"><a href="class.tidynode.html" class="type tidyNode">tidyNode</a></span>|<span class="type">null</span></span></div>
 
   <p class="para rdfs-comment">
    Returns the parent node of the current node.
@@ -43,10 +43,19 @@
  </div>
 
 
+ <div class="refsect1 returnvalues" id="refsect1-tidynode.getparent-returnvalues">
+  <h3 class="title">Return Values</h3>
+  <p class="para">
+   Returns a <span class="type"><a href="class.tidynode.html" class="type tidyNode">tidyNode</a></span> if the node has a parent, or <strong><code>null</code></strong>
+   otherwise.
+  </p>
+ </div>
+
+
  <div class="refsect1 examples" id="refsect1-tidynode.getparent-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-4310">
+   <div class="example" id="example-4325">
     <p><strong>Example #1 <span class="function"><a href="tidynode.haschildren.html" class="function">tidyNode::hasChildren()</a></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -62,15 +71,6 @@ string(4) &quot;head&quot;
 </pre></div>
     </div>
    </div>
-  </p>
- </div>
-
-
- <div class="refsect1 returnvalues" id="refsect1-tidynode.getparent-returnvalues">
-  <h3 class="title">Return Values</h3>
-  <p class="para">
-   Returns a <span class="type"><a href="class.tidynode.html" class="type tidyNode">tidyNode</a></span> if the node has a parent, or <strong><code>NULL</code></strong>
-   otherwise.
   </p>
  </div>
 

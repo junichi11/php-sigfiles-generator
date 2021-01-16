@@ -126,7 +126,7 @@
    <p class="para">
     It is not necessary to initialize variables in PHP however it is a very
     good practice. Uninitialized variables have a default value of their type depending on the context in which they are used
-    - booleans default to <strong><code>FALSE</code></strong>, integers and floats default to zero, strings (e.g. used in <span class="function"><a href="function.echo.html" class="function">echo</a></span>) are 
+    - booleans default to <strong><code>false</code></strong>, integers and floats default to zero, strings (e.g. used in <span class="function"><a href="function.echo.html" class="function">echo</a></span>) are 
     set as an empty string and arrays become to an empty array.
    </p>
    <p class="para">
@@ -144,7 +144,8 @@
    <p class="para">
     Relying on the default value of an uninitialized variable is problematic
     in the case of including one file into another which uses the same
-    variable name. It is also a major <a href="security.globals.html" class="link">security risk</a> with <a href="ini.core.html#ini.register-globals" class="link">register_globals</a> turned on. <a href="" class="link">E_NOTICE</a> level error is issued in case of
+    variable name.
+    <a href="" class="link">E_NOTICE</a> level error is issued in case of
     working with uninitialized variables, however not in the case of appending
     elements to the uninitialized array. <span class="function"><a href="function.isset.html" class="function">isset()</a></span> language
     construct can be used to detect if a variable has been already initialized.

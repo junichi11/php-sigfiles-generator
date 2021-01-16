@@ -26,9 +26,13 @@
   <div id="layout-content"><div id="intro.bc" class="preface">
   <h1 class="title">Introduction</h1>
   <p class="para">
-    For arbitrary precision mathematics PHP offers BCMath which
-   supports numbers of any size and precision up to <code class="literal">2147483647</code> (or <code class="literal">0x7FFFFFFF</code>) decimals,
+   For arbitrary precision mathematics PHP offers BCMath which
+   supports numbers of any size and precision up to <code class="literal">2147483647</code> (or <code class="literal">0x7FFFFFFF</code>) decimal digits,
    if there is sufficient memory, represented as strings.
+  </p>
+  <p class="para">
+   Valid (aka. well-formed) BCMath numbers are strings which match the regular expression
+   <code class="literal">/^[+-]?[0]*[1-9]*[.]?[0-9]*$/</code>.
   </p>
   <div class="caution"><strong class="caution">Caution</strong>
    <p class="para">

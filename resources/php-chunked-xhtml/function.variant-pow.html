@@ -33,8 +33,8 @@
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>variant_pow</strong></span>
-    ( <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">$left</code></span>
-   , <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">$right</code></span>
+    ( <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$left</code></span>
+   , <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$right</code></span>
    ) : <span class="type"><a href="class.variant.html" class="type variant">variant</a></span></div>
 
   <p class="para rdfs-comment">
@@ -79,7 +79,7 @@
 <p class="para">
  As with all the variant arithmetic functions, the parameters for this function
  can be either a PHP native type (integer, string, floating point, boolean or
- <strong><code>NULL</code></strong>), or an instance of a COM, VARIANT or DOTNET class.  PHP native types
+ <strong><code>null</code></strong>), or an instance of a COM, VARIANT or DOTNET class.  PHP native types
  will be converted to variants using the same rules as found in the constructor
  for the <a href="class.variant.html" class="xref">variant</a> class.  COM and DOTNET objects
  will have the value of their default property taken and used as the variant value.

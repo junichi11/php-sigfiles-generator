@@ -35,8 +35,8 @@
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>fbsql_db_status</strong></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$database_name</code></span>
-   [, <span class="methodparam"><span class="type">resource</span> <code class="parameter">$link_identifier</code></span>
-  ] ) : <span class="type">int</span></div>
+   , <span class="methodparam"><span class="type">resource</span> <code class="parameter">$link_identifier</code> = ?</span>
+   ) : <span class="type">int</span></div>
 
   <p class="para rdfs-comment">
    Gets the current status of the specified database.
@@ -87,7 +87,7 @@ such link is found it will try to create one as if
    <ul class="itemizedlist">
     <li class="listitem">
      <span class="simpara">
-      <strong><code>FALSE</code></strong> - The exec handler for the host was invalid. This error will
+      <strong><code>false</code></strong> - The exec handler for the host was invalid. This error will
       occur when the <code class="parameter">link_identifier</code> connects directly
       to a database by using a port number. FBExec can be available on the
       server but no connection has been made for it.

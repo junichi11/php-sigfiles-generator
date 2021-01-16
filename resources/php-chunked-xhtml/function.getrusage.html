@@ -34,8 +34,8 @@
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>getrusage</strong></span>
-    ([ <span class="methodparam"><span class="type">int</span> <code class="parameter">$who</code><span class="initializer"> = 0</span></span>
-  ] ) : <span class="type">array</span></div>
+    ( <span class="methodparam"><span class="type">int</span> <code class="parameter">$mode</code><span class="initializer"> = 0</span></span>
+   ) : <span class="type"><span class="type">array</span>|<span class="type"><span class="type false">false</span></span></span></div>
 
   <p class="para rdfs-comment">
    This is an interface to <strong class="command">getrusage(2)</strong>. It gets data returned
@@ -51,12 +51,12 @@
 
     
      <dt>
-<code class="parameter">who</code></dt>
+<code class="parameter">mode</code></dt>
 
      <dd>
 
       <p class="para">
-       If <code class="parameter">who</code> is 1, getrusage will be called with
+       If <code class="parameter">mode</code> is 1, getrusage will be called with
        <strong><code>RUSAGE_CHILDREN</code></strong>.
       </p>
      </dd>
@@ -73,6 +73,7 @@
   <p class="para">
    Returns an associative array containing the data returned from the system
    call. All entries are accessible by using their documented field names.
+   Returns <strong><code>false</code></strong> on failure.
   </p>
  </div>
 
@@ -80,7 +81,7 @@
  <div class="refsect1 examples" id="refsect1-function.getrusage-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-531">
+   <div class="example" id="example-544">
     <p><strong>Example #1 <span class="function"><strong>getrusage()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -137,17 +138,17 @@
      <li class="member"><code class="literal">&quot;ru_utime.tv_sec&quot;</code></li>
      <li class="member"><code class="literal">&quot;ru_utime.tv_usec&quot;</code></li>
      <li class="member">
-      <code class="literal">&quot;ru_majflt&quot;</code> (only if <code class="parameter">who</code> is 
+      <code class="literal">&quot;ru_majflt&quot;</code> (only if <code class="parameter">mode</code> is 
       <strong><code>RUSAGE_SELF</code></strong>)
      </li>
      <li class="member">
-      <code class="literal">&quot;ru_maxrss&quot;</code> (only if <code class="parameter">who</code> is 
+      <code class="literal">&quot;ru_maxrss&quot;</code> (only if <code class="parameter">mode</code> is 
       <strong><code>RUSAGE_SELF</code></strong>)
      </li>
     </ul>
    </p>
    <p class="para">
-    If <span class="function"><strong>getrusage()</strong></span> is called with <code class="parameter">who</code> 
+    If <span class="function"><strong>getrusage()</strong></span> is called with <code class="parameter">mode</code> 
     set to <code class="literal">1</code> (<strong><code>RUSAGE_CHILDREN</code></strong>), then 
     resource usage for threads are collected (meaning that internally the function 
     is called with <strong><code>RUSAGE_THREAD</code></strong>).

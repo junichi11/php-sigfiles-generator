@@ -34,8 +34,8 @@
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>posix_getgrgid</strong></span>
-    ( <span class="methodparam"><span class="type">int</span> <code class="parameter">$gid</code></span>
-   ) : <span class="type">array</span></div>
+    ( <span class="methodparam"><span class="type">int</span> <code class="parameter">$group_id</code></span>
+   ) : <span class="type"><span class="type">array</span>|<span class="type"><span class="type false">false</span></span></span></div>
 
   <p class="para rdfs-comment">
    Gets information about a group provided its id.
@@ -50,7 +50,7 @@
 
     
      <dt>
-<code class="parameter">gid</code></dt>
+<code class="parameter">group_id</code></dt>
 
      <dd>
 
@@ -104,7 +104,7 @@
        <td>gid</td>
        <td>
         Group ID, should be the same as the
-        <code class="parameter">gid</code> parameter used when calling the
+        <code class="parameter">group_id</code> parameter used when calling the
         function, and hence redundant.
        </td>
       </tr>
@@ -121,6 +121,7 @@
     
    </table>
 
+   The function returns <strong><code>false</code></strong> on failure.
   </p>
  </div>
 
@@ -128,7 +129,7 @@
  <div class="refsect1 examples" id="refsect1-function.posix-getgrgid-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-3770">
+   <div class="example" id="example-3786">
     <p><strong>Example #1 Example use of <span class="function"><strong>posix_getgrgid()</strong></span></strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

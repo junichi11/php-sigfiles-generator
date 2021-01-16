@@ -110,10 +110,10 @@ int(1)
  </div>
 
  <div class="sect2" id="migration72.incompatible.no-null-to-get_class">
-  <h3 class="title">Disallow passing <strong><code>NULL</code></strong> to <span class="function"><a href="function.get-class.html" class="function">get_class()</a></span></h3>
+  <h3 class="title">Disallow passing <strong><code>null</code></strong> to <span class="function"><a href="function.get-class.html" class="function">get_class()</a></span></h3>
 
   <p class="para">
-   Previously, passing <strong><code>NULL</code></strong> to the <span class="function"><a href="function.get-class.html" class="function">get_class()</a></span> function
+   Previously, passing <strong><code>null</code></strong> to the <span class="function"><a href="function.get-class.html" class="function">get_class()</a></span> function
    would output the name of the enclosing class. This behaviour has now been
    removed, where an <strong><code>E_WARNING</code></strong> will be output instead. To
    achieve the same behaviour as before, the argument should simply be omitted.
@@ -211,8 +211,8 @@ int(2)
 
   <p class="para">
    Previously, using <span class="function"><a href="function.is-object.html" class="function">is_object()</a></span> on the
-   <strong class="classname">__PHP_Incomplete_Class</strong> class would return <strong><code>FALSE</code></strong>.
-   Now, <strong><code>TRUE</code></strong> will be returned.
+   <strong class="classname">__PHP_Incomplete_Class</strong> class would return <strong><code>false</code></strong>.
+   Now, <strong><code>true</code></strong> will be returned.
   </p>
  </div>
 
@@ -303,7 +303,7 @@ int(2)
   <p class="para">
    The <span class="function"><a href="function.json-decode.html" class="function">json_decode()</a></span> function option,
    <strong><code>JSON_OBJECT_AS_ARRAY</code></strong>, is now used if the second
-   parameter (assoc) is <strong><code>NULL</code></strong>. Previously,
+   parameter (assoc) is <strong><code>null</code></strong>. Previously,
    <strong><code>JSON_OBJECT_AS_ARRAY</code></strong> was always ignored.
   </p>
  </div>

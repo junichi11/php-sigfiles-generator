@@ -58,17 +58,10 @@ The behaviour of these functions is affected by settings in <var class="filename
      </tr>
 
      <tr>
-      <td><a href="phar.configuration.html#ini.phar.extract-list" class="link">phar.extract_list</a></td>
-      <td>&quot;&quot;</td>
-      <td>PHP_INI_ALL</td>
-      <td>Available from phar 1.1.0 to 1.2.3, removed in 2.0.0.</td>
-     </tr>
-
-     <tr>
       <td><a href="phar.configuration.html#ini.phar.cache-list" class="link">phar.cache_list</a></td>
       <td>&quot;&quot;</td>
       <td>PHP_INI_SYSTEM</td>
-      <td>Available from phar 2.0.0.</td>
+      <td class="empty">&nbsp;</td>
      </tr>
 
     </tbody>
@@ -123,12 +116,12 @@ the configuration directives.</p>
 
      <p class="para">
       This option will force all opened Phar archives to contain some
-      kind of signature (currently MD5, SHA1, SHA256 and SHA512 are supported), and will
+      kind of signature (currently MD5, SHA1, SHA256, SHA512 and OpenSSL are supported), and will
       refuse to process any Phar archive that does not contain a signature.
      </p>
      <blockquote class="note"><p><strong class="note">Note</strong>: 
       <p class="para">
-       This setting can only be unset in php.ini due to security reasons.
+       This setting can only be unset in php.ini.
        If <code class="literal">phar.require_hash</code> is disabled in php.ini, the
        user may enable <code class="literal">phar.require_hash</code> in a script
        or disable it later.  If <code class="literal">phar.require_hash</code> is
@@ -140,39 +133,14 @@ the configuration directives.</p>
        <a href="class.phardata.html" class="classname">PharData</a> class.
       </p>
      </p></blockquote>
-    </dd>
-
-   
-
-   
-    <dt id="ini.phar.extract-list">
-     <code class="parameter">phar.extract_list</code>
-     <span class="type">string</span>
-    </dt>
-
-    <dd>
-
-     <p class="para">
-      This INI setting has been removed as of phar 2.0.0
-     </p>
-     <p class="para">
-      Allows mappings from a full path to a phar archive or its alias to
-      the location of its extracted files.
-      The format of the parameter is <code class="literal">name=archive,name2=archive2</code>.
-      This allows extraction of phar files to disk, and allows phar to act as a
-      kind of mapper to extracted disk files.  This is often done for performance
-      reasons, or to assist with debugging a phar.
-      <div class="example" id="example-682">
-       <p><strong>Example #1 phar.extract_list usage example</strong></p>
-       <div class="example-contents">
-<div class="phpcode"><code><span style="color: #000000">
-in&nbsp;php.ini:<br />phar.extract_list&nbsp;=&nbsp;archive=/full/path/to/archive/,arch2=/full/path/to/arch2<br /><span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">include&nbsp;</span><span style="color: #DD0000">"phar://archive/content.php"</span><span style="color: #007700">;<br />include&nbsp;</span><span style="color: #DD0000">"phar://arch2/foo.php"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">?&gt;</span>
-</span>
-</code></div>
-       </div>
-
-      </div>
-     </p>
+     <div class="caution"><strong class="caution">Caution</strong>
+      <p class="simpara">
+       <code class="literal">phar.require_hash</code> does not provide any security per se,
+       it is merely a measure against running accidentially corrupted Phar archives,
+       because anyone who would be able to tamper with the Phar could easily fix
+       the signature afterwards.
+      </p>
+     </div>
     </dd>
 
    
@@ -186,15 +154,12 @@ in&nbsp;php.ini:<br />phar.extract_list&nbsp;=&nbsp;archive=/full/path/to/archiv
     <dd>
 
      <p class="para">
-      This INI setting was added in phar 2.0.0
-     </p>
-     <p class="para">
       Allows mapping phar archives to be pre-parsed at web server startup,
       providing a performance improvement that brings running files out of a
       phar archive very close to the speed of running those files from a
       traditional disk-based installation.
-      <div class="example" id="example-683">
-       <p><strong>Example #2 phar.cache_list usage example</strong></p>
+      <div class="example" id="example-695">
+       <p><strong>Example #1 phar.cache_list usage example</strong></p>
        <div class="example-contents">
 <div class="cdata"><pre>
 in php.ini (windows):

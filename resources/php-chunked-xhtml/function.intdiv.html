@@ -32,13 +32,13 @@
  <div class="refsect1 description" id="refsect1-function.intdiv-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-    <span class="methodname"><strong>intdiv</strong></span>
-     ( <span class="methodparam"><span class="type">int</span> <code class="parameter">$dividend</code></span>
-    , <span class="methodparam"><span class="type">int</span> <code class="parameter">$divisor</code></span>
-    ) : <span class="type">int</span></div>
+   <span class="methodname"><strong>intdiv</strong></span>
+    ( <span class="methodparam"><span class="type">int</span> <code class="parameter">$num1</code></span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$num2</code></span>
+   ) : <span class="type">int</span></div>
 
   <p class="para rdfs-comment">
-   Returns the integer quotient of the division of <code class="parameter">dividend</code> by <code class="parameter">divisor</code>.
+   Returns the integer quotient of the division of <code class="parameter">num1</code> by <code class="parameter">num2</code>.
   </p>
  </div>
 
@@ -48,7 +48,7 @@
 
    
     <dt>
-<code class="parameter">dividend</code></dt>
+<code class="parameter">num1</code></dt>
 
     <dd>
 
@@ -60,12 +60,12 @@
    
    
     <dt>
-<code class="parameter">divisor</code></dt>
+<code class="parameter">num2</code></dt>
 
     <dd>
 
      <p class="para">
-      Number which divides the <code class="parameter">dividend</code>.
+      Number which divides the <code class="parameter">num1</code>.
      </p>
     </dd>
 
@@ -77,16 +77,16 @@
  <div class="refsect1 returnvalues" id="refsect1-function.intdiv-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   The integer quotient of the division of <code class="parameter">dividend</code> by <code class="parameter">divisor</code>.
+   The integer quotient of the division of <code class="parameter">num1</code> by <code class="parameter">num2</code>.
   </p>
  </div>
 
  <div class="refsect1 errors" id="refsect1-function.intdiv-errors">
   <h3 class="title">Errors/Exceptions</h3>
   <p class="para">
-    If <code class="parameter">divisor</code> is <code class="literal">0</code>, a <a href="class.divisionbyzeroerror.html" class="classname">DivisionByZeroError</a>
-    exception is thrown. If the <code class="parameter">dividend</code> is <strong><code>PHP_INT_MIN</code></strong>
-    and the <code class="parameter">divisor</code> is <code class="literal">-1</code>, then an
+    If <code class="parameter">num2</code> is <code class="literal">0</code>, a <a href="class.divisionbyzeroerror.html" class="classname">DivisionByZeroError</a>
+    exception is thrown. If the <code class="parameter">num1</code> is <strong><code>PHP_INT_MIN</code></strong>
+    and the <code class="parameter">num2</code> is <code class="literal">-1</code>, then an
     <a href="class.arithmeticerror.html" class="classname">ArithmeticError</a> exception is thrown.
   </p>
  </div>
@@ -94,7 +94,7 @@
  <div class="refsect1 examples" id="refsect1-function.intdiv-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-3588">
+   <div class="example" id="example-3604">
     <p><strong>Example #1 <span class="function"><strong>intdiv()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

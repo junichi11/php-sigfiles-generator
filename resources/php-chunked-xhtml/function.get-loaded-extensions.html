@@ -34,8 +34,8 @@
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>get_loaded_extensions</strong></span>
-    ([ <span class="methodparam"><span class="type">bool</span> <code class="parameter">$zend_extensions</code><span class="initializer"> = <strong><code>FALSE</code></strong></span></span>
-  ] ) : <span class="type">array</span></div>
+    ( <span class="methodparam"><span class="type">bool</span> <code class="parameter">$zend_extensions</code><span class="initializer"> = <strong><code>false</code></strong></span></span>
+   ) : <span class="type">array</span></div>
 
   <p class="para rdfs-comment">
    This function returns the names of all the modules compiled and
@@ -57,7 +57,7 @@
 
       <p class="para">
        Only return Zend extensions, if not then regular extensions, like 
-       mysqli are listed. Defaults to <strong><code>FALSE</code></strong> (return regular extensions).
+       mysqli are listed. Defaults to <strong><code>false</code></strong> (return regular extensions).
       </p>
      </dd>
 
@@ -79,7 +79,7 @@
  <div class="refsect1 examples" id="refsect1-function.get-loaded-extensions-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-520">
+   <div class="example" id="example-534">
     <p><strong>Example #1 <span class="function"><strong>get_loaded_extensions()</strong></span> Example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

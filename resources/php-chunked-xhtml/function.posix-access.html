@@ -35,9 +35,9 @@
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>posix_access</strong></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$file</code></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$mode</code><span class="initializer"> = POSIX_F_OK</span></span>
-  ] ) : <span class="type">bool</span></div>
+    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$filename</code></span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code><span class="initializer"> = 0</span></span>
+   ) : <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
    <span class="function"><strong>posix_access()</strong></span> checks the user&#039;s permission of a file.
@@ -52,7 +52,7 @@
 
     
      <dt>
-<code class="parameter">file</code></dt>
+<code class="parameter">filename</code></dt>
 
       <dd>
 
@@ -64,7 +64,7 @@
      
     
      <dt>
-<code class="parameter">mode</code></dt>
+<code class="parameter">flags</code></dt>
 
       <dd>
 
@@ -92,7 +92,7 @@
  <div class="refsect1 returnvalues" id="refsect1-function.posix-access-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns <strong><code>TRUE</code></strong> on success or <strong><code>FALSE</code></strong> on failure.
+   Returns <strong><code>true</code></strong> on success or <strong><code>false</code></strong> on failure.
   </p>
  </div>
 
@@ -100,7 +100,7 @@
  <div class="refsect1 examples" id="refsect1-function.posix-access-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-3763">
+   <div class="example" id="example-3779">
     <p><strong>Example #1 <span class="function"><strong>posix_access()</strong></span> example</strong></p>
     <div class="example-contents"><p>
      This example will check if the $file is readable and writable, otherwise

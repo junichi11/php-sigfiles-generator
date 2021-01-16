@@ -34,12 +34,7 @@
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><strong>ReflectionMethod::getClosure</strong></span>
-    ( <span class="methodparam"><span class="type">object</span> <code class="parameter">$object</code></span>
-   ) : <span class="type"><a href="class.closure.html" class="type Closure">Closure</a></span></div>
-
-  <div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><strong>ReflectionMethod::getClosure</strong></span>
-    (
+    ( <span class="methodparam"><span class="type"><span class="type">object</span>|<span class="type">null</span></span> <code class="parameter">$object</code><span class="initializer"> = <strong><code>null</code></strong></span></span>
    ) : <span class="type"><a href="class.closure.html" class="type Closure">Closure</a></span></div>
 
   <p class="para rdfs-comment">
@@ -78,10 +73,35 @@ currently not documented; only its argument list is available.
   <h3 class="title">Return Values</h3>
   <p class="para">
    Returns <a href="class.closure.html" class="classname">Closure</a>.
-   Returns <strong><code>NULL</code></strong> in case of an error.
+   Returns <strong><code>null</code></strong> in case of an error.
   </p>
  </div>
 
 
+ <div class="refsect1 changelog" id="refsect1-reflectionmethod.getclosure-changelog">
+  <h3 class="title">Changelog</h3>
+  <table class="doctable informaltable">
+   
+    <thead>
+     <tr>
+      <th>Version</th>
+      <th>Description</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+      <td>8.0.0</td>
+      <td>
+       <code class="parameter">object</code> is now nullable.
+      </td>
+     </tr>
+
+    </tbody>
+   
+  </table>
+
+ </div>
 
 </div></div></div></body></html>

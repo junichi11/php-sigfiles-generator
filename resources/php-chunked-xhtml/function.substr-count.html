@@ -35,9 +35,9 @@
    <span class="methodname"><strong>substr_count</strong></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$haystack</code></span>
    , <span class="methodparam"><span class="type">string</span> <code class="parameter">$needle</code></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$offset</code><span class="initializer"> = 0</span></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$length</code></span>
-  ]] ) : <span class="type">int</span></div>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$offset</code><span class="initializer"> = 0</span></span>
+   , <span class="methodparam"><span class="type"><span class="type">int</span>|<span class="type">null</span></span> <code class="parameter">$length</code><span class="initializer"> = <strong><code>null</code></strong></span></span>
+   ) : <span class="type">int</span></div>
 
   <p class="para rdfs-comment">
    <span class="function"><strong>substr_count()</strong></span> returns the number of times the
@@ -138,6 +138,13 @@
      </thead>
 
      <tbody class="tbody">
+     <tr>
+      <td>8.0.0</td>
+      <td>
+       <code class="parameter">length</code> is nullable now.
+      </td>
+     </tr>
+
       <tr>
        <td>7.1.0</td>
        <td>
@@ -157,7 +164,7 @@
  <div class="refsect1 examples" id="refsect1-function.substr-count-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-5366">
+   <div class="example" id="example-5387">
     <p><strong>Example #1 A <span class="function"><strong>substr_count()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

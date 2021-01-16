@@ -34,15 +34,15 @@
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>gmp_powm</strong></span>
-    ( <span class="methodparam"><span class="type"><a href="class.gmp.html" class="type GMP">GMP</a></span> <code class="parameter">$base</code></span>
-   , <span class="methodparam"><span class="type"><a href="class.gmp.html" class="type GMP">GMP</a></span> <code class="parameter">$exp</code></span>
-   , <span class="methodparam"><span class="type"><a href="class.gmp.html" class="type GMP">GMP</a></span> <code class="parameter">$mod</code></span>
+    ( <span class="methodparam"><span class="type"><span class="type"><a href="class.gmp.html" class="type GMP">GMP</a></span>|<span class="type">int</span>|<span class="type">string</span></span> <code class="parameter">$num</code></span>
+   , <span class="methodparam"><span class="type"><span class="type"><a href="class.gmp.html" class="type GMP">GMP</a></span>|<span class="type">int</span>|<span class="type">string</span></span> <code class="parameter">$exponent</code></span>
+   , <span class="methodparam"><span class="type"><span class="type"><a href="class.gmp.html" class="type GMP">GMP</a></span>|<span class="type">int</span>|<span class="type">string</span></span> <code class="parameter">$modulus</code></span>
    ) : <span class="type"><a href="class.gmp.html" class="type GMP">GMP</a></span></div>
 
   <p class="para rdfs-comment">
-   Calculate (<code class="parameter">base</code> raised into power
-   <code class="parameter">exp</code>) modulo <code class="parameter">mod</code>. If
-   <code class="parameter">exp</code> is negative, result is undefined.
+   Calculate (<code class="parameter">num</code> raised into power
+   <code class="parameter">exponent</code>) modulo <code class="parameter">modulus</code>. If
+   <code class="parameter">exponent</code> is negative, result is undefined.
   </p>
  </div>
 
@@ -55,40 +55,40 @@
 
     
      <dt>
-<code class="parameter">base</code></dt>
+<code class="parameter">num</code></dt>
 
      <dd>
 
       <p class="para">
        The base number.
       </p>
-      <p class="para">Either a GMP number <span class="type">resource</span> in PHP 5.5 and earlier, a <a href="class.gmp.html" class="classname">GMP</a> object in PHP 5.6 and later, or a numeric string provided that it is possible to convert the latter to a number.</p> 
+      <p class="para">A <a href="class.gmp.html" class="classname">GMP</a> object, an <span class="type">int</span> or a numeric <span class="type">string</span>.</p> 
      </dd>
 
     
     
      <dt>
-<code class="parameter">exp</code></dt>
+<code class="parameter">exponent</code></dt>
 
      <dd>
 
       <p class="para">
-       The positive power to raise the <code class="parameter">base</code>.
+       The positive power to raise the <code class="parameter">num</code>.
       </p>
-      <p class="para">Either a GMP number <span class="type">resource</span> in PHP 5.5 and earlier, a <a href="class.gmp.html" class="classname">GMP</a> object in PHP 5.6 and later, or a numeric string provided that it is possible to convert the latter to a number.</p> 
+      <p class="para">A <a href="class.gmp.html" class="classname">GMP</a> object, an <span class="type">int</span> or a numeric <span class="type">string</span>.</p> 
      </dd>
 
     
     
      <dt>
-<code class="parameter">mod</code></dt>
+<code class="parameter">modulus</code></dt>
 
      <dd>
 
       <p class="para">
        The modulo.
       </p>
-      <p class="para">Either a GMP number <span class="type">resource</span> in PHP 5.5 and earlier, a <a href="class.gmp.html" class="classname">GMP</a> object in PHP 5.6 and later, or a numeric string provided that it is possible to convert the latter to a number.</p> 
+      <p class="para">A <a href="class.gmp.html" class="classname">GMP</a> object, an <span class="type">int</span> or a numeric <span class="type">string</span>.</p> 
      </dd>
 
     
@@ -109,7 +109,7 @@
  <div class="refsect1 examples" id="refsect1-function.gmp-powm-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-3555">
+   <div class="example" id="example-3570">
     <p><strong>Example #1 <span class="function"><strong>gmp_powm()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

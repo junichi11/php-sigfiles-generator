@@ -33,8 +33,8 @@
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>imap_mailboxmsginfo</strong></span>
-    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$imap_stream</code></span>
-   ) : <span class="type">object</span></div>
+    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$imap</code></span>
+   ) : <span class="type"><span class="type stdClass">stdClass</span></span></div>
 
   <p class="para rdfs-comment">
    Checks the current mailbox status on the server. It is similar to
@@ -51,7 +51,7 @@
 
     <dt>
 <code class="parameter">
-imap_stream</code></dt>
+imap</code></dt>
 <dd>
 <p class="para">An IMAP stream returned by
 <span class="function"><a href="function.imap-open.html" class="function">imap_open()</a></span>.</p></dd>
@@ -115,14 +115,14 @@ imap_stream</code></dt>
 
   </p>
   <p class="para">
-   Returns <strong><code>FALSE</code></strong> on failure.
+   Returns <strong><code>false</code></strong> on failure.
   </p>
  </div>
 
  <div class="refsect1 examples" id="refsect1-function.imap-mailboxmsginfo-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-3488">
+   <div class="example" id="example-3503">
     <p><strong>Example #1 <span class="function"><strong>imap_mailboxmsginfo()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

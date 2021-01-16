@@ -36,11 +36,11 @@
    <span class="methodname"><strong>SoapFault::SoapFault</strong></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$faultcode</code></span>
    , <span class="methodparam"><span class="type">string</span> <code class="parameter">$faultstring</code></span>
-   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$faultactor</code></span>
-   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$detail</code></span>
-   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$faultname</code></span>
-   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$headerfault</code></span>
-  ]]]] )</div>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$faultactor</code> = ?</span>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$detail</code> = ?</span>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$faultname</code> = ?</span>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$headerfault</code> = ?</span>
+   )</div>
 
   <p class="para rdfs-comment">
    This class is used to send SOAP fault responses from the PHP handler.
@@ -138,7 +138,7 @@
  <div class="refsect1 examples" id="refsect1-soapfault.soapfault-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-5811">
+   <div class="example" id="example-5835">
     <p><strong>Example #1 Some examples</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -153,7 +153,7 @@
    It is possible to use PHP exception mechanism to throw SOAP Fault.
   </p>
   <p class="para">
-   <div class="example" id="example-5812">
+   <div class="example" id="example-5836">
     <p><strong>Example #2 Some examples</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

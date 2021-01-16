@@ -86,7 +86,7 @@
    reporting mode, the plugin will silently ignore the lack of the table or bail out.
   </p>
   <p class="para">
-   <div class="example" id="example-2026">
+   <div class="example" id="example-2039">
     <p><strong>Example #1 Create counter table on master</strong></p>
     <div class="example-contents">
 <div class="sqlcode"><pre class="sqlcode">CREATE TABLE `trx` (
@@ -117,7 +117,7 @@ INSERT INTO `trx`(`trx_id`) VALUES (1);</pre>
    transaction ID injection.
   </p>
   <p class="para">
-   <div class="example" id="example-2027">
+   <div class="example" id="example-2040">
     <p><strong>Example #2 Plugin config: SQL for client-side GTID injection</strong></p>
     <div class="example-contents">
 <div class="inicode"><pre class="inicode">{
@@ -146,7 +146,7 @@ INSERT INTO `trx`(`trx_id`) VALUES (1);</pre>
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-2028">
+   <div class="example" id="example-2041">
     <p><strong>Example #3 Transparent global transaction ID injection</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -188,7 +188,7 @@ array(1) {
    </p>
   </p></blockquote>
   <p class="para">
-   <div class="example" id="example-2029">
+   <div class="example" id="example-2042">
     <p><strong>Example #4 Plugin config: SQL for fetching GTID</strong></p>
     <div class="example-contents">
 <div class="inicode"><pre class="inicode">{
@@ -218,7 +218,7 @@ array(1) {
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-2030">
+   <div class="example" id="example-2043">
     <p><strong>Example #5 Obtaining GTID after injection</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -261,7 +261,7 @@ GTID after transaction 8
    to fetch the GTID. Otherwise, it is greater.
   </p>
   <p class="para">
-   <div class="example" id="example-2031">
+   <div class="example" id="example-2044">
     <p><strong>Example #6 Plugin config: Checking for a certain GTID</strong></p>
     <div class="example-contents">
 <div class="inicode"><pre class="inicode">{
@@ -292,7 +292,7 @@ GTID after transaction 8
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-2032">
+   <div class="example" id="example-2045">
     <p><strong>Example #7 Session consistency service level and GTID combined</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -362,7 +362,7 @@ GTID after transaction 8
     by <span class="function"><a href="function.mysqlnd-ms-get-last-gtid.html" class="function">mysqlnd_ms_get_last_gtid()</a></span>.
   </p>
   <p class="para">
-   <div class="example" id="example-2033">
+   <div class="example" id="example-2046">
     <p><strong>Example #8 Plugin config: using MySQL 5.6.5-m8 built-in GTID feature</strong></p>
     <div class="example-contents">
 <div class="inicode"><pre class="inicode">{

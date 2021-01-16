@@ -26,7 +26,7 @@
   <div id="layout-content"><div id="imagick.functionimage" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">Imagick::functionImage</h1>
-  <p class="verinfo">(No version information available, might only be in Git)</p><p class="refpurpose"><span class="refname">Imagick::functionImage</span> &mdash; <span class="dc-title">Applies a function on the image</span></p>
+  <p class="verinfo">(PECL imagick 2 &gt;= 2.3.0, PECL imagick 3)</p><p class="refpurpose"><span class="refname">Imagick::functionImage</span> &mdash; <span class="dc-title">Applies a function on the image</span></p>
 
  </div>
 
@@ -36,8 +36,8 @@
    <span class="modifier">public</span> <span class="methodname"><strong>Imagick::functionImage</strong></span>
     ( <span class="methodparam"><span class="type">int</span> <code class="parameter">$function</code></span>
    , <span class="methodparam"><span class="type">array</span> <code class="parameter">$arguments</code></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$channel</code><span class="initializer"> = Imagick::CHANNEL_DEFAULT</span></span>
-  ] ) : <span class="type">bool</span></div>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$channel</code><span class="initializer"> = Imagick::CHANNEL_DEFAULT</span></span>
+   ) : <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
    Applies an arithmetic, relational, or logical expression to a pseudo image.
@@ -90,7 +90,7 @@
  <div class="refsect1 returnvalues" id="refsect1-imagick.functionimage-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns <strong><code>TRUE</code></strong> on success.
+   Returns <strong><code>true</code></strong> on success.
   </p>
  </div>
 
@@ -106,7 +106,7 @@
  <div class="refsect1 examples" id="refsect1-imagick.functionimage-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-3253">
+   <div class="example" id="example-3268">
     <p><strong>Example #1 Create a sinusoidal gradient</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -125,7 +125,7 @@ something similar to:</p></div>
     </div>
    </div>
    
-   <div class="example" id="example-3254">
+   <div class="example" id="example-3269">
     <p><strong>Example #2 Create a gradient from the polynomial (4x^2 - 4x + 1) </strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -144,7 +144,7 @@ something similar to:</p></div>
     </div>
    </div>
 
-   <div class="example" id="example-3255">
+   <div class="example" id="example-3270">
     <p><strong>Example #3 Create a complex gradient from the polynomial (4x^2 - 4x^2 + 1) modulated by a sinusoidal gradient </strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

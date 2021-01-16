@@ -47,8 +47,8 @@ Alternatives to this function include:</p>
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>mysql_ping</strong></span>
-    ([ <span class="methodparam"><span class="type">resource</span> <code class="parameter">$link_identifier</code><span class="initializer"> = NULL</span></span>
-  ] ) : <span class="type">bool</span></div>
+    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$link_identifier</code><span class="initializer"> = NULL</span></span>
+   ) : <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
    Checks whether or not the connection to
@@ -91,8 +91,8 @@ with no arguments. If no connection is found or established, an
  <div class="refsect1 returnvalues" id="refsect1-function.mysql-ping-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns <strong><code>TRUE</code></strong> if the connection to the server MySQL server is working, 
-   otherwise <strong><code>FALSE</code></strong>.
+   Returns <strong><code>true</code></strong> if the connection to the server MySQL server is working, 
+   otherwise <strong><code>false</code></strong>.
   </p>
  </div>
 
@@ -100,7 +100,7 @@ with no arguments. If no connection is found or established, an
  <div class="refsect1 examples" id="refsect1-function.mysql-ping-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-1988">
+   <div class="example" id="example-2001">
     <p><strong>Example #1 A <span class="function"><strong>mysql_ping()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

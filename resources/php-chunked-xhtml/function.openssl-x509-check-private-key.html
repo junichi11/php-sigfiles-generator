@@ -34,8 +34,8 @@
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>openssl_x509_check_private_key</strong></span>
-    ( <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">$cert</code></span>
-   , <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">$key</code></span>
+    ( <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$cert</code></span>
+   , <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$key</code></span>
    ) : <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
@@ -50,7 +50,7 @@
     </p>
     <p class="para">
      This means, for example, that a public key could be given for <code class="parameter">key</code>
-     and the function may return <strong><code>TRUE</code></strong>.
+     and the function may return <strong><code>true</code></strong>.
     </p>
   </div>
  </div>
@@ -94,8 +94,8 @@
  <div class="refsect1 returnvalues" id="refsect1-function.openssl-x509-check-private-key-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns <strong><code>TRUE</code></strong> if <code class="parameter">key</code> is the private key that
-   corresponds to <code class="parameter">cert</code>, or <strong><code>FALSE</code></strong> otherwise.
+   Returns <strong><code>true</code></strong> if <code class="parameter">key</code> is the private key that
+   corresponds to <code class="parameter">cert</code>, or <strong><code>false</code></strong> otherwise.
   </p>
  </div>
 

@@ -36,8 +36,8 @@
    <span class="methodname"><strong>dbplus_rcrtexact</strong></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$name</code></span>
    , <span class="methodparam"><span class="type">resource</span> <code class="parameter">$relation</code></span>
-   [, <span class="methodparam"><span class="type">bool</span> <code class="parameter">$overwrite</code></span>
-  ] ) : <span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span></div>
+   , <span class="methodparam"><span class="type">bool</span> <code class="parameter">$overwrite</code> = ?</span>
+   ) : <span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span></div>
 
   <p class="para rdfs-comment">
    <span class="function"><strong>dbplus_rcrtexact()</strong></span> will create an exact but
@@ -83,7 +83,7 @@
 
       <p class="para">
        An existing relation by the same <code class="parameter">name</code> will only
-       be overwritten if this parameter is set to <strong><code>TRUE</code></strong> and no other process
+       be overwritten if this parameter is set to <strong><code>true</code></strong> and no other process
        is currently using the relation.
       </p>
      </dd>

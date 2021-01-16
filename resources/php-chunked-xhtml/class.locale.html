@@ -114,8 +114,8 @@
    <span class="methodname"><a href="locale.filtermatches.html" class="methodname">filterMatches</a></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$langtag</code></span>
    , <span class="methodparam"><span class="type">string</span> <code class="parameter">$locale</code></span>
-   [, <span class="methodparam"><span class="type">bool</span> <code class="parameter">$canonicalize</code><span class="initializer"> = <strong><code>FALSE</code></strong></span></span>
-  ] ) : <span class="type">bool</span></div>
+   , <span class="methodparam"><span class="type">bool</span> <code class="parameter">$canonicalize</code><span class="initializer"> = <strong><code>false</code></strong></span></span>
+   ) : <span class="type">bool</span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span>
    <span class="modifier">static</span>
@@ -136,40 +136,40 @@
    
    <span class="methodname"><a href="locale.getdisplaylanguage.html" class="methodname">getDisplayLanguage</a></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$locale</code></span>
-   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$in_locale</code></span>
-  ] ) : <span class="type">string</span></div>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$in_locale</code> = ?</span>
+   ) : <span class="type">string</span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span>
    <span class="modifier">static</span>
    
    <span class="methodname"><a href="locale.getdisplayname.html" class="methodname">getDisplayName</a></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$locale</code></span>
-   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$in_locale</code></span>
-  ] ) : <span class="type">string</span></div>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$in_locale</code> = ?</span>
+   ) : <span class="type">string</span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span>
    <span class="modifier">static</span>
    
    <span class="methodname"><a href="locale.getdisplayregion.html" class="methodname">getDisplayRegion</a></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$locale</code></span>
-   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$in_locale</code></span>
-  ] ) : <span class="type">string</span></div>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$in_locale</code> = ?</span>
+   ) : <span class="type">string</span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span>
    <span class="modifier">static</span>
    
    <span class="methodname"><a href="locale.getdisplayscript.html" class="methodname">getDisplayScript</a></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$locale</code></span>
-   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$in_locale</code></span>
-  ] ) : <span class="type">string</span></div>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$in_locale</code> = ?</span>
+   ) : <span class="type">string</span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span>
    <span class="modifier">static</span>
    
    <span class="methodname"><a href="locale.getdisplayvariant.html" class="methodname">getDisplayVariant</a></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$locale</code></span>
-   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$in_locale</code></span>
-  ] ) : <span class="type">string</span></div>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$in_locale</code> = ?</span>
+   ) : <span class="type">string</span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span>
    <span class="modifier">static</span>
@@ -205,9 +205,9 @@
    <span class="methodname"><a href="locale.lookup.html" class="methodname">lookup</a></span>
     ( <span class="methodparam"><span class="type">array</span> <code class="parameter">$langtag</code></span>
    , <span class="methodparam"><span class="type">string</span> <code class="parameter">$locale</code></span>
-   [, <span class="methodparam"><span class="type">bool</span> <code class="parameter">$canonicalize</code><span class="initializer"> = <strong><code>FALSE</code></strong></span></span>
-   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$default</code></span>
-  ]] ) : <span class="type">string</span></div>
+   , <span class="methodparam"><span class="type">bool</span> <code class="parameter">$canonicalize</code><span class="initializer"> = <strong><code>false</code></strong></span></span>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$default</code> = ?</span>
+   ) : <span class="type">string</span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span>
    <span class="modifier">static</span>
@@ -413,7 +413,7 @@
       <a href="http://www.iana.org/assignments/language-subtag-registry" class="link external">&raquo;&nbsp;IANA Language Subtags Registry</a>
      </li>
      <li class="member">
-      <a href="http://www.icu-project.org/userguide/locale.html" class="link external">&raquo;&nbsp;ICU User Guide - Locale</a>
+      <a href="https://unicode-org.github.io/icu/userguide/locale/" class="link external">&raquo;&nbsp;ICU User Guide - Locale</a>
      </li>
      <li class="member">
       <a href="http://www.icu-project.org/apiref/icu4c/uloc_8h.html#details" class="link external">&raquo;&nbsp;ICU Locale api</a>

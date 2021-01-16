@@ -37,9 +37,9 @@
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$to</code></span>
    , <span class="methodparam"><span class="type">string</span> <code class="parameter">$subject</code></span>
    , <span class="methodparam"><span class="type">string</span> <code class="parameter">$message</code></span>
-   [, <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">$additional_headers</code></span>
-   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$additional_parameters</code></span>
-  ]] ) : <span class="type">bool</span></div>
+   , <span class="methodparam"><span class="type"><span class="type">array</span>|<span class="type">string</span></span> <code class="parameter">$additional_headers</code><span class="initializer"> = []</span></span>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$additional_params</code><span class="initializer"> = &quot;&quot;</span></span>
+   ) : <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
    Sends an email.
@@ -178,12 +178,12 @@
     
     
      <dt>
-<code class="parameter">additional_parameters</code> (optional)</dt>
+<code class="parameter">additional_params</code> (optional)</dt>
 
      <dd>
 
       <p class="para">
-       The <code class="parameter">additional_parameters</code> parameter
+       The <code class="parameter">additional_params</code> parameter
        can be used to pass additional flags as command line options to the
        program configured to be used when sending mail, as defined by the
        <code class="literal">sendmail_path</code> configuration setting. For example,
@@ -222,7 +222,7 @@
  <div class="refsect1 returnvalues" id="refsect1-function.mail-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns <strong><code>TRUE</code></strong> if the mail was successfully accepted for delivery, <strong><code>FALSE</code></strong> otherwise.
+   Returns <strong><code>true</code></strong> if the mail was successfully accepted for delivery, <strong><code>false</code></strong> otherwise.
   </p>
   <p class="para">
    It is important to note that just because the mail was accepted for delivery,
@@ -264,7 +264,7 @@
  <div class="refsect1 examples" id="refsect1-function.mail-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-3504">
+   <div class="example" id="example-3519">
     <p><strong>Example #1 Sending mail.</strong></p>
     <div class="example-contents"><p>
      Using <span class="function"><strong>mail()</strong></span> to send a simple email:
@@ -277,7 +277,7 @@
     </div>
 
    </div>
-   <div class="example" id="example-3505">
+   <div class="example" id="example-3520">
     <p><strong>Example #2 Sending mail with extra headers.</strong></p>
     <div class="example-contents"><p>
      The addition of basic headers, telling the MUA
@@ -291,7 +291,7 @@
     </div>
 
    </div>
-   <div class="example" id="example-3506">
+   <div class="example" id="example-3521">
     <p><strong>Example #3 Sending mail with extra headers as <span class="type">array</span></strong></p>
     <div class="example-contents"><p>
      This example sends the same mail as the example immediately above, but
@@ -305,10 +305,10 @@
     </div>
 
    </div>
-   <div class="example" id="example-3507">
+   <div class="example" id="example-3522">
     <p><strong>Example #4 Sending mail with an additional command line parameter.</strong></p>
     <div class="example-contents"><p>
-     The <code class="parameter">additional_parameters</code> parameter
+     The <code class="parameter">additional_params</code> parameter
      can be used to pass an additional parameter to the program configured
      to use when sending mail using the <code class="literal">sendmail_path</code>.
     </p></div>
@@ -320,7 +320,7 @@
     </div>
 
    </div>
-   <div class="example" id="example-3508">
+   <div class="example" id="example-3523">
     <p><strong>Example #5 Sending HTML email</strong></p>
     <div class="example-contents"><p>
      It is also possible to send HTML email with <span class="function"><strong>mail()</strong></span>.

@@ -61,55 +61,55 @@
     <div class="constructorsynopsis dc-description">
    <span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><a href="simplexmlelement.construct.html" class="methodname">__construct</a></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$data</code></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$options</code><span class="initializer"> = 0</span></span>
-   [, <span class="methodparam"><span class="type">bool</span> <code class="parameter">$data_is_url</code><span class="initializer"> = <strong><code>FALSE</code></strong></span></span>
-   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$ns</code><span class="initializer"> = &quot;&quot;</span></span>
-   [, <span class="methodparam"><span class="type">bool</span> <code class="parameter">$is_prefix</code><span class="initializer"> = <strong><code>FALSE</code></strong></span></span>
-  ]]]] )</div>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$options</code><span class="initializer"> = 0</span></span>
+   , <span class="methodparam"><span class="type">bool</span> <code class="parameter">$data_is_url</code><span class="initializer"> = <strong><code>false</code></strong></span></span>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$ns</code><span class="initializer"> = &quot;&quot;</span></span>
+   , <span class="methodparam"><span class="type">bool</span> <code class="parameter">$is_prefix</code><span class="initializer"> = <strong><code>false</code></strong></span></span>
+   )</div>
 
     <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="simplexmlelement.addattribute.html" class="methodname">addAttribute</a></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$name</code></span>
-   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$value</code></span>
-   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$namespace</code></span>
-  ]] ) : <span class="type"><span class="type void">void</span></span></div>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$value</code> = ?</span>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$namespace</code> = ?</span>
+   ) : <span class="type"><span class="type void">void</span></span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="simplexmlelement.addchild.html" class="methodname">addChild</a></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$name</code></span>
-   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$value</code></span>
-   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$namespace</code></span>
-  ]] ) : <span class="type"><a href="class.simplexmlelement.html" class="type SimpleXMLElement">SimpleXMLElement</a></span></div>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$value</code> = ?</span>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$namespace</code> = ?</span>
+   ) : <span class="type"><a href="class.simplexmlelement.html" class="type SimpleXMLElement">SimpleXMLElement</a></span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="simplexmlelement.asxml.html" class="methodname">asXML</a></span>
-    ([ <span class="methodparam"><span class="type">string</span> <code class="parameter">$filename</code></span>
-  ] ) : <span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span></div>
+    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$filename</code> = ?</span>
+   ) : <span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="simplexmlelement.attributes.html" class="methodname">attributes</a></span>
-    ([ <span class="methodparam"><span class="type">string</span> <code class="parameter">$ns</code><span class="initializer"> = <strong><code>NULL</code></strong></span></span>
-   [, <span class="methodparam"><span class="type">bool</span> <code class="parameter">$is_prefix</code><span class="initializer"> = <strong><code>FALSE</code></strong></span></span>
-  ]] ) : <span class="type"><a href="class.simplexmlelement.html" class="type SimpleXMLElement">SimpleXMLElement</a></span></div>
+    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$ns</code><span class="initializer"> = <strong><code>null</code></strong></span></span>
+   , <span class="methodparam"><span class="type">bool</span> <code class="parameter">$is_prefix</code><span class="initializer"> = <strong><code>false</code></strong></span></span>
+   ) : <span class="type"><a href="class.simplexmlelement.html" class="type SimpleXMLElement">SimpleXMLElement</a></span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="simplexmlelement.children.html" class="methodname">children</a></span>
-    ([ <span class="methodparam"><span class="type">string</span> <code class="parameter">$ns</code></span>
-   [, <span class="methodparam"><span class="type">bool</span> <code class="parameter">$is_prefix</code><span class="initializer"> = <strong><code>FALSE</code></strong></span></span>
-  ]] ) : <span class="type"><a href="class.simplexmlelement.html" class="type SimpleXMLElement">SimpleXMLElement</a></span></div>
+    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$ns</code> = ?</span>
+   , <span class="methodparam"><span class="type">bool</span> <code class="parameter">$is_prefix</code><span class="initializer"> = <strong><code>false</code></strong></span></span>
+   ) : <span class="type"><a href="class.simplexmlelement.html" class="type SimpleXMLElement">SimpleXMLElement</a></span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="simplexmlelement.count.html" class="methodname">count</a></span>
     (
    ) : <span class="type">int</span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="simplexmlelement.getdocnamespaces.html" class="methodname">getDocNamespaces</a></span>
-    ([ <span class="methodparam"><span class="type">bool</span> <code class="parameter">$recursive</code><span class="initializer"> = <strong><code>FALSE</code></strong></span></span>
-   [, <span class="methodparam"><span class="type">bool</span> <code class="parameter">$from_root</code><span class="initializer"> = <strong><code>TRUE</code></strong></span></span>
-  ]] ) : <span class="type">array</span></div>
+    ( <span class="methodparam"><span class="type">bool</span> <code class="parameter">$recursive</code><span class="initializer"> = <strong><code>false</code></strong></span></span>
+   , <span class="methodparam"><span class="type">bool</span> <code class="parameter">$from_root</code><span class="initializer"> = <strong><code>true</code></strong></span></span>
+   ) : <span class="type">array</span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="simplexmlelement.getname.html" class="methodname">getName</a></span>
     (
    ) : <span class="type">string</span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="simplexmlelement.getnamespaces.html" class="methodname">getNamespaces</a></span>
-    ([ <span class="methodparam"><span class="type">bool</span> <code class="parameter">$recursive</code><span class="initializer"> = <strong><code>FALSE</code></strong></span></span>
-  ] ) : <span class="type">array</span></div>
+    ( <span class="methodparam"><span class="type">bool</span> <code class="parameter">$recursive</code><span class="initializer"> = <strong><code>false</code></strong></span></span>
+   ) : <span class="type">array</span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="simplexmlelement.registerxpathnamespace.html" class="methodname">registerXPathNamespace</a></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$prefix</code></span>

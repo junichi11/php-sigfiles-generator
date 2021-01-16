@@ -34,8 +34,8 @@
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>oci_error</strong></span>
-    ([ <span class="methodparam"><span class="type">resource</span> <code class="parameter">$resource</code></span>
-  ] ) : <span class="type">array</span></div>
+    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$resource</code> = ?</span>
+   ) : <span class="type">array</span></div>
 
   <p class="para rdfs-comment">
    Returns the last error found.
@@ -78,7 +78,7 @@
   <h3 class="title">Return Values</h3>
   <p class="para">
    If no error is found, <span class="function"><strong>oci_error()</strong></span> returns
-   <strong><code>FALSE</code></strong>. Otherwise, <span class="function"><strong>oci_error()</strong></span> returns the
+   <strong><code>false</code></strong>. Otherwise, <span class="function"><strong>oci_error()</strong></span> returns the
    error information as an associative array.
   </p>
   <p class="para">
@@ -141,7 +141,7 @@
  <div class="refsect1 examples" id="refsect1-function.oci-error-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-2233">
+   <div class="example" id="example-2246">
     <p><strong>Example #1 Displaying the Oracle error message after a connection error</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -153,7 +153,7 @@
    </div>
   </p>
    <p class="para">
-   <div class="example" id="example-2234">
+   <div class="example" id="example-2247">
     <p><strong>Example #2 Displaying the Oracle error message after a parsing error</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -165,7 +165,7 @@
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-2235">
+   <div class="example" id="example-2248">
     <p><strong>Example #3 Displaying the Oracle error message, the problematic statement,
      and the position of the problem of an execution error</strong></p>
     <div class="example-contents">

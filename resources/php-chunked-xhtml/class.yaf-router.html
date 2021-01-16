@@ -49,7 +49,7 @@
    on Rails routing and does not require any prior knowledge of webserver URL
    rewriting. It is designed to work with a single Apache mod_rewrite rule
    (one of):
-   <div class="example" id="example-4427">
+   <div class="example" id="example-4449">
     <p><strong>Example #1 Rewrite rule for Apache</strong></p>
    <div class="example-contents">
 <div class="confcode"><pre class="confcode">RewriteEngine on
@@ -59,7 +59,7 @@ RewriteRule !\.(js|ico|gif|jpg|png|css|html)$ index.php</pre>
 
    </div>
    or (preferred):
-   <div class="example" id="example-4428">
+   <div class="example" id="example-4450">
    <p><strong>Example #2 Rewrite rule for Apache</strong></p>
    <div class="example-contents">
 <div class="confcode"><pre class="confcode">RewriteEngine On
@@ -73,7 +73,7 @@ RewriteRule ^.*$ index.php [NC,L]</pre>
 
   </div>
    If using Lighttpd, the following rewrite rule is valid:
-   <div class="example" id="example-4429">
+   <div class="example" id="example-4451">
     <p><strong>Example #3 Rewrite rule for Lighttpd</strong></p>
    <div class="example-contents">
 <div class="confcode"><pre class="confcode">url.rewrite-once = (
@@ -86,7 +86,7 @@ RewriteRule ^.*$ index.php [NC,L]</pre>
 
   </div>
    If using Nginx, use the following rewrite rule:
-   <div class="example" id="example-4430">
+   <div class="example" id="example-4452">
     <p><strong>Example #4 Rewrite rule for Nginx</strong></p>
    <div class="example-contents">
 <div class="confcode"><pre class="confcode">server {
@@ -127,7 +127,7 @@ RewriteRule ^.*$ index.php [NC,L]</pre>
 
    <p class="para">
    Some examples of how such routes are matched:
-   <div class="example" id="example-4431">
+   <div class="example" id="example-4453">
     <p><strong>Example #5 <a href="class.yaf-route-static.html" class="classname">Yaf_Route_Static</a>(default route)example</strong></p>
    <div class="example-contents">
 <div class="confcode"><pre class="confcode">// Assuming the following configure:
@@ -225,7 +225,7 @@ http://example/blog/archive/list/sort/alpha/date/desc
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="yaf-router.getroutes.html" class="methodname">getRoutes</a></span>
     (
-   ) : <span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span></div>
+   ) : <span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="yaf-router.route.html" class="methodname">route</a></span>
     ( <span class="methodparam"><span class="type"><a href="class.yaf-request-abstract.html" class="type Yaf_Request_Abstract">Yaf_Request_Abstract</a></span> <code class="parameter">$request</code></span>

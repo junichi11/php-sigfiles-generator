@@ -168,10 +168,10 @@
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="recursivetreeiterator.construct.html" class="methodname">__construct</a></span>
     ( <span class="methodparam"><span class="type"><span class="type"><a href="class.recursiveiterator.html" class="type RecursiveIterator">RecursiveIterator</a></span>|<span class="type"><a href="class.iteratoraggregate.html" class="type IteratorAggregate">IteratorAggregate</a></span></span> <code class="parameter">$it</code></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code><span class="initializer"> = RecursiveTreeIterator::BYPASS_KEY</span></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$cit_flags</code><span class="initializer"> = CachingIterator::CATCH_GET_CHILD</span></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$mode</code><span class="initializer"> = RecursiveIteratorIterator::SELF_FIRST</span></span>
-  ]]] )</div>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code><span class="initializer"> = RecursiveTreeIterator::BYPASS_KEY</span></span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$cit_flags</code><span class="initializer"> = CachingIterator::CATCH_GET_CHILD</span></span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$mode</code><span class="initializer"> = RecursiveIteratorIterator::SELF_FIRST</span></span>
+   )</div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="recursivetreeiterator.current.html" class="methodname">current</a></span>
     (
@@ -247,13 +247,13 @@
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="recursiveiteratoriterator.construct.html" class="methodname">RecursiveIteratorIterator::__construct</a></span>
     ( <span class="methodparam"><span class="type"><a href="class.traversable.html" class="type Traversable">Traversable</a></span> <code class="parameter">$iterator</code></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$mode</code><span class="initializer"> = RecursiveIteratorIterator::LEAVES_ONLY</span></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code><span class="initializer"> = 0</span></span>
-  ]] )</div>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$mode</code><span class="initializer"> = RecursiveIteratorIterator::LEAVES_ONLY</span></span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code><span class="initializer"> = 0</span></span>
+   )</div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="recursiveiteratoriterator.current.html" class="methodname">RecursiveIteratorIterator::current</a></span>
     (
-   ) : <span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span></div>
+   ) : <span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="recursiveiteratoriterator.endchildren.html" class="methodname">RecursiveIteratorIterator::endChildren</a></span>
     (
@@ -273,15 +273,15 @@
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="recursiveiteratoriterator.getmaxdepth.html" class="methodname">RecursiveIteratorIterator::getMaxDepth</a></span>
     (
-   ) : <span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span></div>
+   ) : <span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="recursiveiteratoriterator.getsubiterator.html" class="methodname">RecursiveIteratorIterator::getSubIterator</a></span>
-    ([ <span class="methodparam"><span class="type">int</span> <code class="parameter">$level</code></span>
-  ] ) : <span class="type"><a href="class.recursiveiterator.html" class="type RecursiveIterator">RecursiveIterator</a></span></div>
+    ( <span class="methodparam"><span class="type">int</span> <code class="parameter">$level</code> = ?</span>
+   ) : <span class="type"><a href="class.recursiveiterator.html" class="type RecursiveIterator">RecursiveIterator</a></span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="recursiveiteratoriterator.key.html" class="methodname">RecursiveIteratorIterator::key</a></span>
     (
-   ) : <span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span></div>
+   ) : <span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="recursiveiteratoriterator.next.html" class="methodname">RecursiveIteratorIterator::next</a></span>
     (
@@ -296,8 +296,8 @@
    ) : <span class="type"><span class="type void">void</span></span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="recursiveiteratoriterator.setmaxdepth.html" class="methodname">RecursiveIteratorIterator::setMaxDepth</a></span>
-    ([ <span class="methodparam"><span class="type">int</span> <code class="parameter">$max_depth</code><span class="initializer"> = -1</span></span>
-  ] ) : <span class="type"><span class="type void">void</span></span></div>
+    ( <span class="methodparam"><span class="type">int</span> <code class="parameter">$max_depth</code><span class="initializer"> = -1</span></span>
+   ) : <span class="type"><span class="type void">void</span></span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="recursiveiteratoriterator.valid.html" class="methodname">RecursiveIteratorIterator::valid</a></span>
     (

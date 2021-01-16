@@ -34,9 +34,9 @@
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>mb_ereg_search</strong></span>
-    ([ <span class="methodparam"><span class="type">string</span> <code class="parameter">$pattern</code></span>
-   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$option</code><span class="initializer"> = &quot;ms&quot;</span></span>
-  ]] ) : <span class="type">bool</span></div>
+    ( <span class="methodparam"><span class="type"><span class="type">string</span>|<span class="type">null</span></span> <code class="parameter">$pattern</code><span class="initializer"> = <strong><code>null</code></strong></span></span>
+   , <span class="methodparam"><span class="type"><span class="type">string</span>|<span class="type">null</span></span> <code class="parameter">$options</code><span class="initializer"> = <strong><code>null</code></strong></span></span>
+   ) : <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
    Performs a multibyte regular expression match for a predefined multibyte string.
@@ -63,7 +63,7 @@
     
     
      <dt>
-<code class="parameter">option</code></dt>
+<code class="parameter">options</code></dt>
 
      <dd>
 
@@ -82,12 +82,41 @@
  <div class="refsect1 returnvalues" id="refsect1-function.mb-ereg-search-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="simpara">
-   <span class="function"><strong>mb_ereg_search()</strong></span> returns <strong><code>TRUE</code></strong> if the
-   multibyte string matches with the regular expression, or <strong><code>FALSE</code></strong>
+   <span class="function"><strong>mb_ereg_search()</strong></span> returns <strong><code>true</code></strong> if the
+   multibyte string matches with the regular expression, or <strong><code>false</code></strong>
    otherwise. The <span class="type">string</span> for matching is set by 
    <span class="function"><a href="function.mb-ereg-search-init.html" class="function">mb_ereg_search_init()</a></span>. If
    <code class="parameter">pattern</code> is not specified, the previous one
    is used.
+  </p>
+ </div>
+
+
+ <div class="refsect1 changelog" id="refsect1-function.mb-ereg-search-changelog">
+  <h3 class="title">Changelog</h3>
+  <p class="para">
+   <table class="doctable informaltable">
+    
+     <thead>
+      <tr>
+       <th>Version</th>
+       <th>Description</th>
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr>
+       <td>8.0.0</td>
+       <td>
+        <code class="parameter">pattern</code> and <code class="parameter">options</code> are nullable now.
+       </td>
+      </tr>
+
+     </tbody>
+    
+   </table>
+
   </p>
  </div>
 

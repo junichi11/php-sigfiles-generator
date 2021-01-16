@@ -36,8 +36,8 @@
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>pg_version</strong></span>
-    ([ <span class="methodparam"><span class="type">resource</span> <code class="parameter">$connection</code></span>
-  ] ) : <span class="type">array</span></div>
+    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$connection</code> = ?</span>
+   ) : <span class="type">array</span></div>
 
   <p class="para rdfs-comment">
    <span class="function"><strong>pg_version()</strong></span> returns an array with the client, protocol
@@ -81,7 +81,7 @@
   <p class="para">
    Returns an array with <code class="literal">client</code>, <code class="literal">protocol</code> 
    and <code class="literal">server</code> keys and values (if available).  Returns
-   <strong><code>FALSE</code></strong> on error or invalid connection.
+   <strong><code>false</code></strong> on error or invalid connection.
   </p>
  </div>
 
@@ -89,7 +89,7 @@
  <div class="refsect1 examples" id="refsect1-function.pg-version-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-2392">
+   <div class="example" id="example-2405">
     <p><strong>Example #1 <span class="function"><strong>pg_version()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

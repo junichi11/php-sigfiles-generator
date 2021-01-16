@@ -38,16 +38,16 @@
    <span class="modifier">public</span> <span class="modifier">static</span> <span class="methodname"><strong>DateTime::createFromFormat</strong></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$format</code></span>
    , <span class="methodparam"><span class="type">string</span> <code class="parameter">$datetime</code></span>
-   [, <span class="methodparam"><span class="type"><a href="class.datetimezone.html" class="type DateTimeZone">DateTimeZone</a></span> <code class="parameter">$timezone</code></span>
-  ] ) : <span class="type"><span class="type"><a href="class.datetime.html" class="type DateTime">DateTime</a></span>|<span class="type"><span class="type false">false</span></span></span></div>
+   , <span class="methodparam"><span class="type"><span class="type"><a href="class.datetimezone.html" class="type DateTimeZone">DateTimeZone</a></span>|<span class="type">null</span></span> <code class="parameter">$timezone</code><span class="initializer"> = <strong><code>null</code></strong></span></span>
+   ) : <span class="type"><span class="type"><a href="class.datetime.html" class="type DateTime">DateTime</a></span>|<span class="type"><span class="type false">false</span></span></span></div>
 
   <p class="para rdfs-comment">Procedural style</p>
   <div class="methodsynopsis dc-description">
    <span class="methodname"><a href="function.date-create-from-format.html" class="methodname">date_create_from_format</a></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$format</code></span>
    , <span class="methodparam"><span class="type">string</span> <code class="parameter">$datetime</code></span>
-   [, <span class="methodparam"><span class="type"><a href="class.datetimezone.html" class="type DateTimeZone">DateTimeZone</a></span> <code class="parameter">$timezone</code></span>
-  ] ) : <span class="type"><span class="type"><a href="class.datetime.html" class="type DateTime">DateTime</a></span>|<span class="type"><span class="type false">false</span></span></span></div>
+   , <span class="methodparam"><span class="type"><span class="type"><a href="class.datetimezone.html" class="type DateTimeZone">DateTimeZone</a></span>|<span class="type">null</span></span> <code class="parameter">$timezone</code><span class="initializer"> = <strong><code>null</code></strong></span></span>
+   ) : <span class="type"><span class="type"><a href="class.datetime.html" class="type DateTime">DateTime</a></span>|<span class="type"><span class="type false">false</span></span></span></div>
 
   <p class="para rdfs-comment">
    Returns a new DateTime object representing the date and time specified by the
@@ -398,7 +398,7 @@
       desired time zone.
      </p>
      <p class="para">
-      If <code class="parameter">timezone</code> is omitted and
+      If <code class="parameter">timezone</code> is omitted or <strong><code>null</code></strong> and
       <code class="parameter">datetime</code> contains no timezone,
       the current timezone will be used.
      </p>
@@ -423,7 +423,7 @@
  <div class="refsect1 returnvalues" id="refsect1-datetime.createfromformat-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns a new DateTime instance or <strong><code>FALSE</code></strong> on failure.
+   Returns a new DateTime instance or <strong><code>false</code></strong> on failure.
   </p>
  </div>
 
@@ -459,7 +459,7 @@
 
  <div class="refsect1 examples" id="refsect1-datetime.createfromformat-examples">
   <h3 class="title">Examples</h3>
-  <div class="example" id="example-2498">
+  <div class="example" id="example-2511">
    <p><strong>Example #1 <span class="function"><strong>DateTime::createFromFormat()</strong></span> example</strong></p>
    <div class="example-contents"><p>Object oriented style</p></div>
    <div class="example-contents">
@@ -484,7 +484,7 @@
 </pre></div>
    </div>
   </div>
-  <div class="example" id="example-2499">
+  <div class="example" id="example-2512">
    <p><strong>Example #2 Intricacies of <span class="function"><strong>DateTime::createFromFormat()</strong></span></strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -505,7 +505,7 @@ Format: !d; 1970-01-15 00:00:00
 </pre></div>
    </div>
   </div>
-  <div class="example" id="example-2500">
+  <div class="example" id="example-2513">
    <p><strong>Example #3 Format string with literal characters</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

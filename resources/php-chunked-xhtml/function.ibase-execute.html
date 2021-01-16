@@ -35,7 +35,7 @@
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>ibase_execute</strong></span>
     ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$query</code></span>
-   , <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">...$values</code></span>
+   , <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">...$values</code></span>
    ) : <span class="type">resource</span></div>
 
   <p class="para rdfs-comment">
@@ -86,17 +86,17 @@
  <div class="refsect1 returnvalues" id="refsect1-function.ibase-execute-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   If the query raises an error, returns <strong><code>FALSE</code></strong>. If it is successful and
+   If the query raises an error, returns <strong><code>false</code></strong>. If it is successful and
    there is a (possibly empty) result set (such as with a SELECT query),
    returns a result identifier. If the query was successful and there were
-   no results, returns <strong><code>TRUE</code></strong>.
+   no results, returns <strong><code>true</code></strong>.
   </p>
   <blockquote class="note"><p><strong class="note">Note</strong>: 
    <p class="para">
     This function returns the number of rows affected by
     the query (if &gt; 0 and applicable to the statement type). A query that
     succeeded, but did not affect any rows (e.g. an UPDATE of a non-existent
-    record) will return <strong><code>TRUE</code></strong>.
+    record) will return <strong><code>true</code></strong>.
    </p>
   </p></blockquote>
  </div>
@@ -105,7 +105,7 @@
  <div class="refsect1 examples" id="refsect1-function.ibase-execute-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-1184">
+   <div class="example" id="example-1196">
     <p><strong>Example #1 <span class="function"><strong>ibase_execute()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

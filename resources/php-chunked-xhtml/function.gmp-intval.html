@@ -34,7 +34,7 @@
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>gmp_intval</strong></span>
-   ( <span class="methodparam"><span class="type"><a href="class.gmp.html" class="type GMP">GMP</a></span> <code class="parameter">$gmpnumber</code></span>
+    ( <span class="methodparam"><span class="type"><span class="type"><a href="class.gmp.html" class="type GMP">GMP</a></span>|<span class="type">int</span>|<span class="type">string</span></span> <code class="parameter">$num</code></span>
    ) : <span class="type">int</span></div>
 
   <p class="para rdfs-comment">
@@ -50,11 +50,11 @@
 
     
      <dt>
-<code class="parameter">gmpnumber</code></dt>
+<code class="parameter">num</code></dt>
 
      <dd>
 
-      <p class="para">Either a GMP number <span class="type">resource</span> in PHP 5.5 and earlier, a <a href="class.gmp.html" class="classname">GMP</a> object in PHP 5.6 and later, or a numeric string provided that it is possible to convert the latter to a number.</p>
+      <p class="para">A <a href="class.gmp.html" class="classname">GMP</a> object, an <span class="type">int</span> or a numeric <span class="type">string</span>.</p>
      </dd>
 
     
@@ -67,7 +67,7 @@
  <div class="refsect1 returnvalues" id="refsect1-function.gmp-intval-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   The <span class="type">int</span> value of <code class="parameter">gmpnumber</code>.
+   The <span class="type">int</span> value of <code class="parameter">num</code>.
   </p>
  </div>
 
@@ -75,7 +75,7 @@
  <div class="refsect1 examples" id="refsect1-function.gmp-intval-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-3543">
+   <div class="example" id="example-3558">
     <p><strong>Example #1 <span class="function"><strong>gmp_intval()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

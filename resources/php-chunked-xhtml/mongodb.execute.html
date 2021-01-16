@@ -34,9 +34,9 @@
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><strong>MongoDB::execute</strong></span>
-    ( <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">$code</code></span>
-   [, <span class="methodparam"><span class="type">array</span> <code class="parameter">$args</code><span class="initializer"> = array()</span></span>
-  ] ) : <span class="type">array</span></div>
+    ( <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$code</code></span>
+   , <span class="methodparam"><span class="type">array</span> <code class="parameter">$args</code><span class="initializer"> = array()</span></span>
+   ) : <span class="type">array</span></div>
 
   <div class="warning"><strong class="warning">Warning</strong>
    <p class="para">
@@ -79,7 +79,7 @@
   </div>
 
   <p class="para">
-   However, these return <strong><code>NULL</code></strong>:
+   However, these return <strong><code>null</code></strong>:
   </p>
   <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -156,7 +156,7 @@
 
  <div class="refsect1 examples" id="refsect1-mongodb.execute-examples">
   <h3 class="title">Examples</h3>
-  <div class="example" id="example-1371">
+  <div class="example" id="example-1383">
    <p><strong>Example #1 Simple <span class="function"><strong>MongoDB::execute()</strong></span> example</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -171,7 +171,7 @@ something similar to:</p></div>
 Hello, world!<br />
    </div>
   </div>
-  <div class="example" id="example-1372">
+  <div class="example" id="example-1384">
    <p><strong>Example #2 Parameter <span class="function"><strong>MongoDB::execute()</strong></span> example</strong></p>
    <div class="example-contents"><p>
     The optional array of parameters will be passed to the JavaScript function.
@@ -189,7 +189,7 @@ something similar to:</p></div>
 Good bye, Joe!<br />
    </div>
   </div>
-  <div class="example" id="example-1373">
+  <div class="example" id="example-1385">
    <p><strong>Example #3 Scope example</strong></p>
    <div class="example-contents"><p>
     If a <a href="class.mongocode.html" class="classname">MongoCode</a> object is used instead of a string for

@@ -37,10 +37,7 @@
      to enable access from PHP to MySQL databases.
     </p>
     <p class="para">
-     As of PHP 5.2.1, PDO_MYSQL uses emulated prepares by default.
-     Formerly, PDO_MYSQL defaulted to native prepared statement support
-     present in MySQL 4.1 and higher, and emulated them for older versions of the
-     mysql client libraries.
+     PDO_MYSQL uses emulated prepares by default.
     </p>
 
     <p class="para">
@@ -131,52 +128,6 @@ $ ./configure --with-pdo-mysql --with-mysql-sock=/var/mysql/mysql.sock
   MySQL with SSL</a>.
  </p>
 
- <table class="doctable table">
-  <caption><strong>Changelog</strong></caption>
-  
-   <thead>
-    <tr>
-     <th>Version</th>
-     <th>Description</th>
-    </tr>
-
-   </thead>
-
-   <tbody class="tbody">
-    <tr>
-     <td>5.4.0</td>
-     <td>
-      <a href="book.mysqlnd.html" class="link">mysqlnd</a> became the default MySQL library 
-      when compiling PDO_MYSQL. Previously, libmysqlclient was the default MySQL library.
-     </td>
-    </tr>
-
-    <tr>
-     <td>5.4.0</td>
-     <td>
-      MySQL client libraries 4.1 and below are no longer supported. 
-     </td>
-    </tr>
-
-    <tr>
-     <td>5.3.9</td>
-     <td>
-      Added SSL support with mysqlnd and OpenSSL.
-     </td>
-    </tr>
-
-    <tr>
-     <td>5.3.7</td>
-     <td>
-      Added SSL support with libmysqlclient and OpenSSL.
-     </td>
-    </tr>
-
-   </tbody>
-  
- </table>
-
-
 </div>
 
 
@@ -204,13 +155,13 @@ driver, if your code can run against multiple drivers.</p>
    <dd>
 
     <span class="simpara">
-     If this attribute is set to <strong><code>TRUE</code></strong> on a
+     If this attribute is set to <strong><code>true</code></strong> on a
      <a href="class.pdostatement.html" class="classname">PDOStatement</a>, the MySQL driver will use the
      buffered versions of the MySQL API.  If you&#039;re writing portable code, you
      should use <span class="function"><a href="pdostatement.fetchall.html" class="function">PDOStatement::fetchAll()</a></span> instead.
     </span>
     <p class="para">
-     <div class="example" id="example-1055"><p><strong>Example #1 Forcing queries to be buffered in mysql</strong></p>
+     <div class="example" id="example-1068"><p><strong>Example #1 Forcing queries to be buffered in mysql</strong></p>
      <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
 <span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">if&nbsp;(</span><span style="color: #0000BB">$db</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getAttribute</span><span style="color: #007700">(</span><span style="color: #0000BB">PDO</span><span style="color: #007700">::</span><span style="color: #0000BB">ATTR_DRIVER_NAME</span><span style="color: #007700">)&nbsp;==&nbsp;</span><span style="color: #DD0000">'mysql'</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$stmt&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$db</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">prepare</span><span style="color: #007700">(</span><span style="color: #DD0000">'select&nbsp;*&nbsp;from&nbsp;foo'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;array(</span><span style="color: #0000BB">PDO</span><span style="color: #007700">::</span><span style="color: #0000BB">MYSQL_ATTR_USE_BUFFERED_QUERY&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">true</span><span style="color: #007700">));<br />}&nbsp;else&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;die(</span><span style="color: #DD0000">"my&nbsp;application&nbsp;only&nbsp;works&nbsp;with&nbsp;mysql;&nbsp;I&nbsp;should&nbsp;use&nbsp;\$stmt-&gt;fetchAll()&nbsp;instead"</span><span style="color: #007700">);<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
@@ -381,8 +332,7 @@ driver, if your code can run against multiple drivers.</p>
    <dd>
 
     <p class="para">
-     Enable network communication compression. This is also supported when 
-     compiled against mysqlnd as of PHP 5.3.11.
+     Enable network communication compression.
     </p>
    </dd>
 
@@ -398,9 +348,6 @@ driver, if your code can run against multiple drivers.</p>
 
     <p class="para">
      The file path to the SSL certificate authority.
-    </p>
-    <p class="para">
-     This exists as of PHP  5.3.7.
     </p>
    </dd>
 
@@ -418,9 +365,6 @@ driver, if your code can run against multiple drivers.</p>
      The file path to the directory that contains the trusted SSL
      CA certificates, which are stored in PEM format.
     </p>
-    <p class="para">
-     This exists as of PHP  5.3.7.
-    </p>
    </dd>
 
   
@@ -435,9 +379,6 @@ driver, if your code can run against multiple drivers.</p>
 
     <p class="para">
      The file path to the SSL certificate.
-    </p>
-    <p class="para">
-     This exists as of PHP  5.3.7.
     </p>
    </dd>
 
@@ -455,9 +396,6 @@ driver, if your code can run against multiple drivers.</p>
      A list of one or more permissible ciphers to use for SSL encryption, in a format
      understood by OpenSSL. For example: <code class="literal">DHE-RSA-AES256-SHA:AES128-SHA</code>
     </p>
-    <p class="para">
-     This exists as of PHP  5.3.7.
-    </p>
    </dd>
 
   
@@ -472,9 +410,6 @@ driver, if your code can run against multiple drivers.</p>
 
     <p class="para">
      The file path to the SSL key.
-    </p>
-    <p class="para">
-     This exists as of PHP  5.3.7.
     </p>
    </dd>
 
@@ -508,14 +443,11 @@ driver, if your code can run against multiple drivers.</p>
 
     <p class="para">
      Disables multi query execution in both <span class="function"><a href="pdo.prepare.html" class="function">PDO::prepare()</a></span>
-     and <span class="function"><a href="pdo.query.html" class="function">PDO::query()</a></span> when set to <strong><code>FALSE</code></strong>.
+     and <span class="function"><a href="pdo.query.html" class="function">PDO::query()</a></span> when set to <strong><code>false</code></strong>.
     </p>
     <p class="para">
      Note, this constant can only be used in the <code class="parameter">driver_options</code> 
      array when constructing a new database handle.
-    </p>
-    <p class="para">
-     This exists as of PHP  5.5.21 and PHP 5.6.5.
     </p>
    </dd>
 

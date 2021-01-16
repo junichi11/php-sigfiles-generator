@@ -34,13 +34,40 @@
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>ldap_set_rebind_proc</strong></span>
-    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$link</code></span>
-   , <span class="methodparam"><span class="type"><a href="language.types.callable.html" class="type callable">callable</a></span> <code class="parameter">$callback</code></span>
+    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$ldap</code></span>
+   , <span class="methodparam"><span class="type"><span class="type"><a href="language.types.callable.html" class="type callable">callable</a></span>|<span class="type">null</span></span> <code class="parameter">$callback</code></span>
    ) : <span class="type">bool</span></div>
 
   <div class="warning"><strong class="warning">Warning</strong><p class="simpara">This function is
 currently not documented; only its argument list is available.
 </p></div>
+ </div>
+
+
+ <div class="refsect1 changelog" id="refsect1-function.ldap-set-rebind-proc-changelog">
+  <h3 class="title">Changelog</h3>
+  <table class="doctable informaltable">
+   
+    <thead>
+     <tr>
+      <th>Version</th>
+      <th>Description</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+      <td>8.0.0</td>
+      <td>
+       <code class="parameter">callback</code> is nullable now.
+      </td>
+     </tr>
+
+    </tbody>
+   
+  </table>
+
  </div>
 
 

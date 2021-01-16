@@ -37,8 +37,8 @@
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$pattern</code></span>
    , <span class="methodparam"><span class="type">string</span> <code class="parameter">$replacement</code></span>
    , <span class="methodparam"><span class="type">string</span> <code class="parameter">$string</code></span>
-   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$option</code><span class="initializer"> = &quot;msr&quot;</span></span>
-  ] ) : <span class="type">string</span></div>
+   , <span class="methodparam"><span class="type"><span class="type">string</span>|<span class="type">null</span></span> <code class="parameter">$options</code><span class="initializer"> = <strong><code>null</code></strong></span></span>
+   ) : <span class="type"><span class="type">string</span>|<span class="type"><span class="type false">false</span></span>|<span class="type">null</span></span></div>
 
   <p class="simpara">
    Scans <code class="parameter">string</code> for matches to
@@ -94,7 +94,7 @@
     
     
      <dt>
-<code class="parameter">option</code></dt>
+<code class="parameter">options</code></dt>
 
      <dd>
 
@@ -113,7 +113,9 @@
  <div class="refsect1 returnvalues" id="refsect1-function.mb-ereg-replace-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   The resultant <span class="type">string</span> on success, or <strong><code>FALSE</code></strong> on error.
+   The resultant <span class="type">string</span> on success, or <strong><code>false</code></strong> on error.
+   If <code class="parameter">string</code> is not valid for the current encoding, <strong><code>null</code></strong>
+   is returned.
   </p>
  </div>
 
@@ -132,6 +134,21 @@
      </thead>
 
      <tbody class="tbody">
+      <tr>
+       <td>8.0.0</td>
+       <td>
+        <code class="parameter">options</code> is nullable now.
+       </td>
+      </tr>
+
+      <tr>
+       <td>7.1.0</td>
+       <td>
+        The function checks whether <code class="parameter">string</code> is valid for the
+        current encoding.
+       </td>
+      </tr>
+
       <tr>
        <td>7.1.0</td>
        <td>

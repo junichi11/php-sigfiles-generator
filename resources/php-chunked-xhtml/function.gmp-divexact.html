@@ -34,15 +34,15 @@
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>gmp_divexact</strong></span>
-    ( <span class="methodparam"><span class="type"><a href="class.gmp.html" class="type GMP">GMP</a></span> <code class="parameter">$n</code></span>
-   , <span class="methodparam"><span class="type"><a href="class.gmp.html" class="type GMP">GMP</a></span> <code class="parameter">$d</code></span>
+    ( <span class="methodparam"><span class="type"><span class="type"><a href="class.gmp.html" class="type GMP">GMP</a></span>|<span class="type">int</span>|<span class="type">string</span></span> <code class="parameter">$num1</code></span>
+   , <span class="methodparam"><span class="type"><span class="type"><a href="class.gmp.html" class="type GMP">GMP</a></span>|<span class="type">int</span>|<span class="type">string</span></span> <code class="parameter">$num2</code></span>
    ) : <span class="type"><a href="class.gmp.html" class="type GMP">GMP</a></span></div>
 
   <p class="para rdfs-comment">
-   Divides <code class="parameter">n</code> by <code class="parameter">d</code>,
+   Divides <code class="parameter">num1</code> by <code class="parameter">num2</code>,
    using fast &quot;exact division&quot; algorithm. This function produces
    correct results only when it is known in advance that
-   <code class="parameter">d</code> divides <code class="parameter">n</code>.
+   <code class="parameter">num2</code> divides <code class="parameter">num1</code>.
   </p>
  </div>
 
@@ -54,27 +54,27 @@
 
     
      <dt>
-<code class="parameter">n</code></dt>
+<code class="parameter">num1</code></dt>
 
      <dd>
 
       <p class="para">
        The number being divided.
       </p>
-      <p class="para">Either a GMP number <span class="type">resource</span> in PHP 5.5 and earlier, a <a href="class.gmp.html" class="classname">GMP</a> object in PHP 5.6 and later, or a numeric string provided that it is possible to convert the latter to a number.</p> 
+      <p class="para">A <a href="class.gmp.html" class="classname">GMP</a> object, an <span class="type">int</span> or a numeric <span class="type">string</span>.</p> 
      </dd>
 
     
     
      <dt>
-<code class="parameter">d</code></dt>
+<code class="parameter">num2</code></dt>
 
      <dd>
 
       <p class="para">
        The number that <code class="parameter">a</code> is being divided by.
       </p>
-      <p class="para">Either a GMP number <span class="type">resource</span> in PHP 5.5 and earlier, a <a href="class.gmp.html" class="classname">GMP</a> object in PHP 5.6 and later, or a numeric string provided that it is possible to convert the latter to a number.</p> 
+      <p class="para">A <a href="class.gmp.html" class="classname">GMP</a> object, an <span class="type">int</span> or a numeric <span class="type">string</span>.</p> 
      </dd>
 
     
@@ -95,7 +95,7 @@
  <div class="refsect1 examples" id="refsect1-function.gmp-divexact-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-3535">
+   <div class="example" id="example-3550">
     <p><strong>Example #1 <span class="function"><strong>gmp_divexact()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

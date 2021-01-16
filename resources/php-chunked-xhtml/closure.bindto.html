@@ -37,9 +37,9 @@
   <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><strong>Closure::bindTo</strong></span>
     ( <span class="methodparam"><span class="type">object</span> <code class="parameter">$newthis</code></span>
-   [, <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">$newscope</code>
+   , <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$newscope</code>
    <span class="initializer"> = &quot;static&quot;</span></span>
-  ] ) : <span class="type"><span class="type"><a href="class.closure.html" class="type Closure">Closure</a></span>|<span class="type"><span class="type false">false</span></span></span></div>
+   ) : <span class="type"><span class="type"><a href="class.closure.html" class="type Closure">Closure</a></span>|<span class="type"><span class="type false">false</span></span></span></div>
 
   <p class="para rdfs-comment">
    Create and return a new <a href="functions.anonymous.html" class="link">anonymous
@@ -59,14 +59,14 @@
 
   <p class="para">
    Static closures cannot have any bound object (the value of the parameter
-   <code class="parameter">newthis</code> should be <strong><code>NULL</code></strong>), but this function can
+   <code class="parameter">newthis</code> should be <strong><code>null</code></strong>), but this function can
    nevertheless be used to change their class scope.
   </p>
 
   <p class="para">
    This function will ensure that for a non-static closure, having a bound
    instance will imply being scoped and vice-versa. To this end,
-   non-static closures that are given a scope but a <strong><code>NULL</code></strong> instance are made
+   non-static closures that are given a scope but a <strong><code>null</code></strong> instance are made
    static and non-static non-scoped closures that are given a non-null
    instance are scoped to an unspecified class.
   </p>
@@ -93,7 +93,7 @@
 
      <p class="para">
       The object to which the given anonymous function should be bound, or
-      <strong><code>NULL</code></strong> for the closure to be unbound. 
+      <strong><code>null</code></strong> for the closure to be unbound. 
      </p>
     </dd>
 
@@ -123,14 +123,14 @@
   <h3 class="title">Return Values</h3>
   <p class="para">
    Returns the newly created <a href="class.closure.html" class="classname">Closure</a> object
-    or <strong><code>FALSE</code></strong> on failure
+    or <strong><code>false</code></strong> on failure
   </p>
  </div>
 
 
  <div class="refsect1 examples" id="refsect1-closure.bindto-examples">
   <h3 class="title">Examples</h3>
-  <div class="example" id="example-354">
+  <div class="example" id="example-369">
    <p><strong>Example #1 <span class="function"><strong>Closure::bindTo()</strong></span> example</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
