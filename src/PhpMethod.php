@@ -142,6 +142,13 @@ class PhpMethod extends SigFileElement {
                 $name = substr($name, 1);
             }
             $initializer = Html::querySingleValue($this->xpath(), '*[@class="initializer"]', $param, true);
+            if ($initializer === null) {
+                // #25
+                // we can remove this part when the value is surrounded with <span class="initializer"></span>
+                if (Strings::endsWith(trim($param->nodeValue), ' = ?')) {
+                    $initializer = ' = ?';
+                }
+            }
             if ($initializer) {
                 $initializer = Php::sanitizeInitializer($initializer, $type);
             }

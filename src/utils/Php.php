@@ -199,7 +199,8 @@ final class Php {
 
     public static function sanitizeInitializer(string $initializer, string $type) {
         $initializer = trim($initializer);
-        if ($initializer === '=') {
+        if ($initializer === '='
+                || $initializer === '= ?') { // #25
             return '= null';
         }
         if (!Strings::startsWith($initializer, '= ')) {
