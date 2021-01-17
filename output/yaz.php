@@ -33,7 +33,7 @@ namespace {
 	 * @param resource $id <p>The connection resource returned by <code>yaz_connect()</code>.</p>
 	 * @param string $query <p>The CCL FIND query.</p>
 	 * @param array $result <p>If the function was executed successfully, this will be an array containing the valid RPN query under the key <code>rpn</code>.</p> <p>Upon failure, three indexes are set in this array to indicate the cause of failure:</p><ul> <li> <p><code>errorcode</code> - the CCL error code (integer)</p> </li> <li> <p><code>errorstring</code> - the CCL error string</p> </li> <li> <p><code>errorpos</code> - approximate position in query of failure (integer is character position)</p> </li> </ul>
-	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.yaz-ccl-parse.php
 	 * @since PHP 4 >= 4.0.5, PECL yaz >= 0.9.0
 	 */
@@ -41,9 +41,9 @@ namespace {
 
 	/**
 	 * Close YAZ connection
-	 * <p>Closes the connection given by parameter <code>id</code>.</p><p><b>Note</b>:</p><p>This function will only close a non-persistent connection opened by setting the <code>persistent</code> option to <b><code>FALSE</code></b> with <code>yaz_connect()</code>.</p>
+	 * <p>Closes the connection given by parameter <code>id</code>.</p><p><b>Note</b>:</p><p>This function will only close a non-persistent connection opened by setting the <code>persistent</code> option to <b><code>false</code></b> with <code>yaz_connect()</code>.</p>
 	 * @param resource $id <p>The connection resource returned by <code>yaz_connect()</code>.</p>
-	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.yaz-close.php
 	 * @see yaz_connect()
 	 * @since PHP 4 >= 4.0.1, PECL yaz >= 0.9.0
@@ -54,20 +54,20 @@ namespace {
 	 * Prepares for a connection to a Z39.50 server
 	 * <p>This function returns a connection resource on success, zero on failure.</p><p><b>yaz_connect()</b> prepares for a connection to a Z39.50 server. This function is non-blocking and does not attempt to establish a connection - it merely prepares a connect to be performed later when <code>yaz_wait()</code> is called.</p><p><b>Note</b>:</p><p>The YAZ proxy is a freely available Z39.50 proxy.</p>
 	 * @param string $zurl <p>A string that takes the form <code>host[:port][/database]</code>. If port is omitted, port 210 is used. If database is omitted <code>Default</code> is used.</p>
-	 * @param mixed $options <p>If given as a string, it is treated as the Z39.50 V2 authentication string (OpenAuth).</p> <p>If given as an array, the contents of the array serves as options.</p>  user  <p>Username for authentication.</p>   group  <p>Group for authentication.</p>   password  <p>Password for authentication.</p>   cookie  <p>Cookie for session (YAZ proxy).</p>   proxy  <p>Proxy for connection (YAZ proxy).</p>   persistent  <p>A boolean. If <b><code>TRUE</code></b> the connection is persistent; If <b><code>FALSE</code></b> the connection is not persistent. By default connections are persistent.</p> <p><b>Note</b>:</p><p>If you open a persistent connection, you won't be able to close it later with <code>yaz_close()</code>.</p>    piggyback  <p>A boolean. If <b><code>TRUE</code></b> piggyback is enabled for searches; If <b><code>FALSE</code></b> piggyback is disabled. By default piggyback is enabled.</p> <p>Enabling piggyback is more efficient and usually saves a network-round-trip for first time fetches of records. However, a few Z39.50 servers do not support piggyback or they ignore element set names. For those, piggyback should be disabled.</p>   charset  <p>A string that specifies character set to be used in Z39.50 language and character set negotiation. Use strings such as: <code>ISO-8859-1</code>, <code>UTF-8</code>, <code>UTF-16</code>.</p> <p>Most Z39.50 servers do not support this feature (and thus, this is ignored). Many servers use the ISO-8859-1 encoding for queries and messages. MARC21/USMARC records are not affected by this setting.</p>   preferredMessageSize  <p>An integer that specifies the maximum byte size of all records to be returned by a target during retrieval. See the Z39.50 standard for more information.</p> <p><b>Note</b>:</p><p>This option is supported in PECL YAZ 1.0.5 or later.</p>    maximumRecordSize  <p>An integer that specifies the maximum byte size of a single record to be returned by a target during retrieval. This entity is referred to as Exceptional-record-size in the Z39.50 standard.</p> <p><b>Note</b>:</p><p>This option is supported in PECL YAZ 1.0.5 or later.</p>
-	 * @return mixed <p>A connection resource on success, <b><code>FALSE</code></b> on error.</p>
+	 * @param mixed $options <p>If given as a string, it is treated as the Z39.50 V2 authentication string (OpenAuth).</p> <p>If given as an array, the contents of the array serves as options.</p>  user  <p>Username for authentication.</p>   group  <p>Group for authentication.</p>   password  <p>Password for authentication.</p>   cookie  <p>Cookie for session (YAZ proxy).</p>   proxy  <p>Proxy for connection (YAZ proxy).</p>   persistent  <p>A boolean. If <b><code>true</code></b> the connection is persistent; If <b><code>false</code></b> the connection is not persistent. By default connections are persistent.</p> <p><b>Note</b>:</p><p>If you open a persistent connection, you won't be able to close it later with <code>yaz_close()</code>.</p>    piggyback  <p>A boolean. If <b><code>true</code></b> piggyback is enabled for searches; If <b><code>false</code></b> piggyback is disabled. By default piggyback is enabled.</p> <p>Enabling piggyback is more efficient and usually saves a network-round-trip for first time fetches of records. However, a few Z39.50 servers do not support piggyback or they ignore element set names. For those, piggyback should be disabled.</p>   charset  <p>A string that specifies character set to be used in Z39.50 language and character set negotiation. Use strings such as: <code>ISO-8859-1</code>, <code>UTF-8</code>, <code>UTF-16</code>.</p> <p>Most Z39.50 servers do not support this feature (and thus, this is ignored). Many servers use the ISO-8859-1 encoding for queries and messages. MARC21/USMARC records are not affected by this setting.</p>   preferredMessageSize  <p>An integer that specifies the maximum byte size of all records to be returned by a target during retrieval. See the Z39.50 standard for more information.</p> <p><b>Note</b>:</p><p>This option is supported in PECL YAZ 1.0.5 or later.</p>    maximumRecordSize  <p>An integer that specifies the maximum byte size of a single record to be returned by a target during retrieval. This entity is referred to as Exceptional-record-size in the Z39.50 standard.</p> <p><b>Note</b>:</p><p>This option is supported in PECL YAZ 1.0.5 or later.</p>
+	 * @return mixed <p>A connection resource on success, <b><code>false</code></b> on error.</p>
 	 * @link https://php.net/manual/en/function.yaz-connect.php
 	 * @see yaz_close()
 	 * @since PHP 4 >= 4.0.1, PECL yaz >= 0.9.0
 	 */
-	function yaz_connect(string $zurl, mixed $options = NULL): mixed {}
+	function yaz_connect(string $zurl, mixed $options = null): mixed {}
 
 	/**
 	 * Specifies the databases within a session
 	 * <p>This function allows you to change databases within a session by specifying one or more databases to be used in search, retrieval, etc. - overriding databases specified in call to <code>yaz_connect()</code>.</p>
 	 * @param resource $id <p>The connection resource returned by <code>yaz_connect()</code>.</p>
 	 * @param string $databases <p>A string containing one or more databases. Multiple databases are separated by a plus sign <code>+</code>.</p>
-	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.yaz-database.php
 	 * @since PHP 4 >= 4.0.6, PECL yaz >= 0.9.0
 	 */
@@ -78,7 +78,7 @@ namespace {
 	 * <p>This function sets the element set name for retrieval.</p><p>Call this function before <code>yaz_search()</code> or <code>yaz_present()</code> to specify the element set name for records to be retrieved.</p><p><b>Note</b>:</p><p>If this function appears to have no effect, see the description of the <code>piggybacking</code> option in <code>yaz_connect()</code>.</p>
 	 * @param resource $id <p>The connection resource returned by <code>yaz_connect()</code>.</p>
 	 * @param string $elementset <p>Most servers support <code>F</code> (for full records) and <code>B</code> (for brief records).</p>
-	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.yaz-element.php
 	 * @since PHP 4 >= 4.0.1, PECL yaz >= 0.9.0
 	 */
@@ -151,7 +151,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.yaz-hits.php
 	 * @since PHP 4 >= 4.0.1, PECL yaz >= 0.9.0
 	 */
-	function yaz_hits($id, array &$searchresult = NULL): int {}
+	function yaz_hits($id, array &$searchresult = null): int {}
 
 	/**
 	 * Prepares for Z39.50 Item Order with an ILL-Request package
@@ -168,7 +168,7 @@ namespace {
 	 * Prepares for retrieval (Z39.50 present)
 	 * <p>This function prepares for retrieval of records after a successful search.</p><p>The <code>yaz_range()</code> function should be called prior to this function to specify the range of records to be retrieved.</p>
 	 * @param resource $id <p>The connection resource returned by <code>yaz_connect()</code>.</p>
-	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.yaz-present.php
 	 * @since PHP 4 >= 4.0.5, PECL yaz >= 0.9.0
 	 */
@@ -209,7 +209,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.yaz-scan.php
 	 * @since PHP 4 >= 4.0.5, PECL yaz >= 0.9.0
 	 */
-	function yaz_scan($id, string $type, string $startterm, array $flags = NULL): void {}
+	function yaz_scan($id, string $type, string $startterm, array $flags = null): void {}
 
 	/**
 	 * Returns Scan Response result
@@ -220,7 +220,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.yaz-scan-result.php
 	 * @since PHP 4 >= 4.0.5, PECL yaz >= 0.9.0
 	 */
-	function yaz_scan_result($id, array &$result = NULL): array {}
+	function yaz_scan_result($id, array &$result = null): array {}
 
 	/**
 	 * Specifies schema for retrieval
@@ -239,7 +239,7 @@ namespace {
 	 * @param resource $id <p>The connection resource returned by <code>yaz_connect()</code>.</p>
 	 * @param string $type <p>This parameter represents the query type - only <code>"rpn"</code> is supported now in which case the third argument specifies a Type-1 query in prefix query notation.</p>
 	 * @param string $query <p>The RPN query is a textual representation of the Type-1 query as defined by the Z39.50 standard. However, in the text representation as used by YAZ a prefix notation is used, that is the operator precedes the operands. The query string is a sequence of tokens where white space is ignored unless surrounded by double quotes. Tokens beginning with an at-character (<code>@</code>) are considered operators, otherwise they are treated as search terms.</p>  <b>RPN Operators</b>     Construct Description     <code>@and</code> query1 query2 intersection of query1 and query2   <code>@or</code> query1 query2 union of query1 and query2   <code>@not</code> query1 query2 query1 and not query2   <code>@set</code> name result set reference   <code>@attrset</code> set query  specifies attribute-set for query. This construction is only allowed once - in the beginning of the whole query    <code>@attr</code> [set] type=value query  applies attribute to query. The type and value are integers specifying the attribute-type and attribute-value respectively. The set, if given, specifies the attribute-set.     <p>You can find information about attributes at the Z39.50 Maintenance Agency site.</p> <p><b>Note</b>:</p><p>If you would like to use a more friendly notation, use the CCL parser - functions <code>yaz_ccl_conf()</code> and <code>yaz_ccl_parse()</code>.</p>
-	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.yaz-search.php
 	 * @since PHP 4 >= 4.0.1, PECL yaz >= 0.9.0
 	 */
@@ -283,10 +283,10 @@ namespace {
 	 * Wait for Z39.50 requests to complete
 	 * <p>This function carries out networked (blocked) activity for outstanding requests which have been prepared by the functions <code>yaz_connect()</code>, <code>yaz_search()</code>, <code>yaz_present()</code>, <code>yaz_scan()</code> and <code>yaz_itemorder()</code>.</p><p><b>yaz_wait()</b> returns when all servers have either completed all requests or aborted (in case of errors).</p>
 	 * @param array $options <p>An associative array of options:</p>  <code>timeout</code>  <p>Sets timeout in seconds. If a server has not responded within the timeout it is considered dead and <b>yaz_wait()</b> returns. The default value for timeout is 15 seconds.</p>   <code>event</code>  <p>A boolean.</p>
-	 * @return mixed <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure. In event mode, returns resource or <b><code>FALSE</code></b> on failure.</p>
+	 * @return mixed <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure. In event mode, returns resource or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.yaz-wait.php
 	 * @since PHP 4 >= 4.0.1, PECL yaz >= 0.9.0
 	 */
-	function yaz_wait(array &$options = NULL): mixed {}
+	function yaz_wait(array &$options = null): mixed {}
 
 }

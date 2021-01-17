@@ -19,7 +19,7 @@ namespace {
 	 * Set the thread title
 	 * <p>Sets the thread title.</p>
 	 * @param string $title <p>The title to use as the thread title.</p>
-	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.setthreadtitle.php
 	 * @see pcntl_fork(), setproctitle()
 	 * @since PECL proctitle >= 0.1.2

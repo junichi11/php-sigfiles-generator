@@ -22,7 +22,7 @@ namespace {
 		 * @link https://php.net/manual/en/syncevent.construct.php
 		 * @since PECL sync >= 1.0.0
 		 */
-		public function __construct(string $name = NULL, bool $manual = FALSE, bool $prefire = FALSE) {}
+		public function __construct(string $name = null, bool $manual = false, bool $prefire = false) {}
 
 		/**
 		 * Fires/sets the event
@@ -69,7 +69,7 @@ namespace {
 		 * @link https://php.net/manual/en/syncmutex.construct.php
 		 * @since PECL sync >= 1.0.0
 		 */
-		public function __construct(string $name = NULL) {}
+		public function __construct(string $name = null) {}
 
 		/**
 		 * Waits for an exclusive lock
@@ -89,7 +89,7 @@ namespace {
 		 * @link https://php.net/manual/en/syncmutex.unlock.php
 		 * @since PECL sync >= 1.0.0
 		 */
-		public function unlock(bool $all = FALSE): bool {}
+		public function unlock(bool $all = false): bool {}
 	}
 
 	/**
@@ -109,7 +109,7 @@ namespace {
 		 * @link https://php.net/manual/en/syncreaderwriter.construct.php
 		 * @since PECL sync >= 1.0.0
 		 */
-		public function __construct(string $name = NULL, bool $autounlock = TRUE) {}
+		public function __construct(string $name = null, bool $autounlock = true) {}
 
 		/**
 		 * Waits for a read lock
@@ -168,7 +168,7 @@ namespace {
 		 * @link https://php.net/manual/en/syncsemaphore.construct.php
 		 * @since PECL sync >= 1.0.0
 		 */
-		public function __construct(string $name = NULL, int $initialval = 1, bool $autounlock = TRUE) {}
+		public function __construct(string $name = null, int $initialval = 1, bool $autounlock = true) {}
 
 		/**
 		 * Decreases the count of the semaphore or waits
@@ -188,7 +188,7 @@ namespace {
 		 * @link https://php.net/manual/en/syncsemaphore.unlock.php
 		 * @since PECL sync >= 1.0.0
 		 */
-		public function unlock(int &$prevcount = NULL): bool {}
+		public function unlock(int &$prevcount = null): bool {}
 	}
 
 	/**
@@ -229,7 +229,7 @@ namespace {
 		 * @link https://php.net/manual/en/syncsharedmemory.read.php
 		 * @since PECL sync >= 1.1.0
 		 */
-		public function read(int $start = 0, int $length = NULL) {}
+		public function read(int $start = 0, int $length = null) {}
 
 		/**
 		 * Returns the size of the named shared memory
@@ -249,7 +249,7 @@ namespace {
 		 * @link https://php.net/manual/en/syncsharedmemory.write.php
 		 * @since PECL sync >= 1.1.0
 		 */
-		public function write(string $string = NULL, int $start = 0) {}
+		public function write(string $string = null, int $start = 0) {}
 	}
 
 }

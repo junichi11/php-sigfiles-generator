@@ -32,7 +32,7 @@ namespace Ds {
 		/**
 		 * Returns whether the collection is empty
 		 * <p>Returns whether the collection is empty.</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b> if the collection is empty, <b><code>FALSE</code></b> otherwise.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> if the collection is empty, <b><code>false</code></b> otherwise.</p>
 		 * @link https://php.net/manual/en/ds-collection.isempty.php
 		 * @since PECL ds >= 1.0.0
 		 */
@@ -105,7 +105,7 @@ namespace Ds {
 		 * Determines if the deque contains given values
 		 * <p>Determines if the deque contains all values.</p>
 		 * @param mixed $values <p>Values to check.</p>
-		 * @return bool <p><b><code>FALSE</code></b> if any of the provided <code>values</code> are not in the deque, <b><code>TRUE</code></b> otherwise.</p>
+		 * @return bool <p><b><code>false</code></b> if any of the provided <code>values</code> are not in the deque, <b><code>true</code></b> otherwise.</p>
 		 * @link https://php.net/manual/en/ds-deque.contains.php
 		 * @since PECL ds >= 1.0.0
 		 */
@@ -123,18 +123,18 @@ namespace Ds {
 		/**
 		 * Creates a new deque using a callable to determine which values to include
 		 * <p>Creates a new deque using a <code>callable</code> to determine which values to include.</p>
-		 * @param callable $callback <p></p> callback ( <code>mixed</code> <code>$value</code> ) : <code>bool</code> <p>Optional <code>callable</code> which returns <b><code>TRUE</code></b> if the value should be included, <b><code>FALSE</code></b> otherwise.</p> <p>If a callback is not provided, only values which are <b><code>TRUE</code></b> (see converting to boolean) will be included.</p>
-		 * @return Ds\Deque <p>A new deque containing all the values for which either the <code>callback</code> returned <b><code>TRUE</code></b>, or all values that convert to <b><code>TRUE</code></b> if a <code>callback</code> was not provided.</p>
+		 * @param callable $callback <p></p> callback ( <code>mixed</code> <code>$value</code> ) : <code>bool</code> <p>Optional <code>callable</code> which returns <b><code>true</code></b> if the value should be included, <b><code>false</code></b> otherwise.</p> <p>If a callback is not provided, only values which are <b><code>true</code></b> (see converting to boolean) will be included.</p>
+		 * @return Ds\Deque <p>A new deque containing all the values for which either the <code>callback</code> returned <b><code>true</code></b>, or all values that convert to <b><code>true</code></b> if a <code>callback</code> was not provided.</p>
 		 * @link https://php.net/manual/en/ds-deque.filter.php
 		 * @since PECL ds >= 1.0.0
 		 */
-		public function filter(callable $callback = NULL): \Ds\Deque {}
+		public function filter(callable $callback = null): \Ds\Deque {}
 
 		/**
 		 * Attempts to find a value's index
-		 * <p>Returns the index of the <code>value</code>, or <b><code>FALSE</code></b> if not found.</p>
+		 * <p>Returns the index of the <code>value</code>, or <b><code>false</code></b> if not found.</p>
 		 * @param mixed $value <p>The value to find.</p>
-		 * @return mixed <p>The index of the value, or <b><code>FALSE</code></b> if not found.</p><p><b>Note</b>:</p><p>Values will be compared by value and by type.</p>
+		 * @return mixed <p>The index of the value, or <b><code>false</code></b> if not found.</p><p><b>Note</b>:</p><p>Values will be compared by value and by type.</p>
 		 * @link https://php.net/manual/en/ds-deque.find.php
 		 * @since PECL ds >= 1.0.0
 		 */
@@ -173,7 +173,7 @@ namespace Ds {
 		/**
 		 * Returns whether the deque is empty
 		 * <p>Returns whether the deque is empty.</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b> if the deque is empty, <b><code>FALSE</code></b> otherwise.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> if the deque is empty, <b><code>false</code></b> otherwise.</p>
 		 * @link https://php.net/manual/en/ds-deque.isempty.php
 		 * @since PECL ds >= 1.0.0
 		 */
@@ -187,7 +187,7 @@ namespace Ds {
 		 * @link https://php.net/manual/en/ds-deque.join.php
 		 * @since PECL ds >= 1.0.0
 		 */
-		public function join(string $glue = NULL): string {}
+		public function join(string $glue = null): string {}
 
 		/**
 		 * Returns the last value
@@ -241,12 +241,12 @@ namespace Ds {
 		 * Reduces the deque to a single value using a callback function
 		 * <p>Reduces the deque to a single value using a callback function.</p>
 		 * @param callable $callback callback ( <code>mixed</code> <code>$carry</code> , <code>mixed</code> <code>$value</code> ) : <code>mixed</code>   <code>carry</code>  <p>The return value of the previous callback, or <code>initial</code> if it's the first iteration.</p>   <code>value</code>  <p>The value of the current iteration.</p>
-		 * @param mixed $initial <p>The initial value of the carry value. Can be <b><code>NULL</code></b>.</p>
+		 * @param mixed $initial <p>The initial value of the carry value. Can be <b><code>null</code></b>.</p>
 		 * @return mixed <p>The return value of the final callback.</p>
 		 * @link https://php.net/manual/en/ds-deque.reduce.php
 		 * @since PECL ds >= 1.0.0
 		 */
-		public function reduce(callable $callback, mixed $initial = NULL): mixed {}
+		public function reduce(callable $callback, mixed $initial = null): mixed {}
 
 		/**
 		 * Removes and returns a value by index
@@ -315,7 +315,7 @@ namespace Ds {
 		 * @link https://php.net/manual/en/ds-deque.slice.php
 		 * @since PECL ds >= 1.0.0
 		 */
-		public function slice(int $index, int $length = NULL): \Ds\Deque {}
+		public function slice(int $index, int $length = null): \Ds\Deque {}
 
 		/**
 		 * Sorts the deque in-place
@@ -325,7 +325,7 @@ namespace Ds {
 		 * @link https://php.net/manual/en/ds-deque.sort.php
 		 * @since PECL ds >= 1.0.0
 		 */
-		public function sort(callable $comparator = NULL): void {}
+		public function sort(callable $comparator = null): void {}
 
 		/**
 		 * Returns a sorted copy
@@ -335,7 +335,7 @@ namespace Ds {
 		 * @link https://php.net/manual/en/ds-deque.sorted.php
 		 * @since PECL ds >= 1.0.0
 		 */
-		public function sorted(callable $comparator = NULL): \Ds\Deque {}
+		public function sorted(callable $comparator = null): \Ds\Deque {}
 
 		/**
 		 * Returns the sum of all values in the deque
@@ -363,7 +363,7 @@ namespace Ds {
 		 * @link https://php.net/manual/en/ds-deque.unshift.php
 		 * @since PECL ds >= 1.0.0
 		 */
-		public function unshift(mixed $values = NULL): void {}
+		public function unshift(mixed $values = null): void {}
 	}
 
 	/**
@@ -379,7 +379,7 @@ namespace Ds {
 		 * Determines whether an object is equal to the current instance
 		 * <p>Determines whether another object is equal to the current instance.</p><p>This method allows objects to be used as keys in structures such as <b>Ds\Map</b> and <b>Ds\Set</b>, or any other lookup structure that honors this interface.</p><p><b>Note</b>:</p><p>It's guaranteed that <code>obj</code> is an instance of the same class.</p><p>It's important that objects which are equal also have the same hash value. See <code>Ds\Hashable::hash()</code>.</p>
 		 * @param object $obj <p>The object to compare the current instance to, which is always an instance of the same class.</p>
-		 * @return bool <p><b><code>TRUE</code></b> if equal, <b><code>FALSE</code></b> otherwise.</p>
+		 * @return bool <p><b><code>true</code></b> if equal, <b><code>false</code></b> otherwise.</p>
 		 * @link https://php.net/manual/en/ds-hashable.equals.php
 		 * @since PECL ds >= 1.0.0
 		 */
@@ -387,7 +387,7 @@ namespace Ds {
 
 		/**
 		 * Returns a scalar value to be used as a hash value
-		 * <p>Returns a scalar value to be used as the hash value of the objects.</p><p>While the hash value does not define equality, all objects that are equal according to <code>Ds\Hashable::equals()</code> must have the same hash value. Hash values of equal objects don't have to be unique, for example you could just return <b><code>TRUE</code></b> for all objects and nothing would break - the only implication would be that hash tables then turn into linked lists because all your objects will be hashed to the same bucket. It's therefore very important that you pick a good hash value, such as an ID or email address.</p><p>This method allows objects to be used as keys in structures such as <b>Ds\Map</b> and <b>Ds\Set</b>, or any other lookup structure that honors this interface.</p><p>Do not pick a value that might change within the object, such as a public property. Hash table lookups would fail because the hash has changed.</p><p>All objects that are equal must have the same hash value.</p>
+		 * <p>Returns a scalar value to be used as the hash value of the objects.</p><p>While the hash value does not define equality, all objects that are equal according to <code>Ds\Hashable::equals()</code> must have the same hash value. Hash values of equal objects don't have to be unique, for example you could just return <b><code>true</code></b> for all objects and nothing would break - the only implication would be that hash tables then turn into linked lists because all your objects will be hashed to the same bucket. It's therefore very important that you pick a good hash value, such as an ID or email address.</p><p>This method allows objects to be used as keys in structures such as <b>Ds\Map</b> and <b>Ds\Set</b>, or any other lookup structure that honors this interface.</p><p>Do not pick a value that might change within the object, such as a public property. Hash table lookups would fail because the hash has changed.</p><p>All objects that are equal must have the same hash value.</p>
 		 * @return mixed <p>A scalar value to be used as this object's hash value.</p>
 		 * @link https://php.net/manual/en/ds-hashable.hash.php
 		 * @since PECL ds >= 1.0.0
@@ -468,12 +468,12 @@ namespace Ds {
 		/**
 		 * Creates a new map using a callable to determine which pairs to include
 		 * <p>Creates a new map using a <code>callable</code> to determine which pairs to include.</p>
-		 * @param callable $callback <p></p> callback ( <code>mixed</code> <code>$key</code> , <code>mixed</code> <code>$value</code> ) : <code>bool</code> <p>Optional <code>callable</code> which returns <b><code>TRUE</code></b> if the pair should be included, <b><code>FALSE</code></b> otherwise.</p> <p>If a callback is not provided, only values which are <b><code>TRUE</code></b> (see converting to boolean) will be included.</p>
-		 * @return Ds\Map <p>A new map containing all the pairs for which either the <code>callback</code> returned <b><code>TRUE</code></b>, or all values that convert to <b><code>TRUE</code></b> if a <code>callback</code> was not provided.</p>
+		 * @param callable $callback <p></p> callback ( <code>mixed</code> <code>$key</code> , <code>mixed</code> <code>$value</code> ) : <code>bool</code> <p>Optional <code>callable</code> which returns <b><code>true</code></b> if the pair should be included, <b><code>false</code></b> otherwise.</p> <p>If a callback is not provided, only values which are <b><code>true</code></b> (see converting to boolean) will be included.</p>
+		 * @return Ds\Map <p>A new map containing all the pairs for which either the <code>callback</code> returned <b><code>true</code></b>, or all values that convert to <b><code>true</code></b> if a <code>callback</code> was not provided.</p>
 		 * @link https://php.net/manual/en/ds-map.filter.php
 		 * @since PECL ds >= 1.0.0
 		 */
-		public function filter(callable $callback = NULL): \Ds\Map {}
+		public function filter(callable $callback = null): \Ds\Map {}
 
 		/**
 		 * Returns the first pair in the map
@@ -493,13 +493,13 @@ namespace Ds {
 		 * @link https://php.net/manual/en/ds-map.get.php
 		 * @since PECL ds >= 1.0.0
 		 */
-		public function get(mixed $key, mixed $default = NULL): mixed {}
+		public function get(mixed $key, mixed $default = null): mixed {}
 
 		/**
 		 * Determines whether the map contains a given key
 		 * <p>Determines whether the map contains a given key.</p>
 		 * @param mixed $key <p>The key to look for.</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b> if the key could found, <b><code>FALSE</code></b> otherwise.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> if the key could found, <b><code>false</code></b> otherwise.</p>
 		 * @link https://php.net/manual/en/ds-map.haskey.php
 		 * @since PECL ds >= 1.0.0
 		 */
@@ -509,7 +509,7 @@ namespace Ds {
 		 * Determines whether the map contains a given value
 		 * <p>Determines whether the map contains a given value.</p>
 		 * @param mixed $value <p>The value to look for.</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b> if the value could found, <b><code>FALSE</code></b> otherwise.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> if the value could found, <b><code>false</code></b> otherwise.</p>
 		 * @link https://php.net/manual/en/ds-map.hasvalue.php
 		 * @since PECL ds >= 1.0.0
 		 */
@@ -528,7 +528,7 @@ namespace Ds {
 		/**
 		 * Returns whether the map is empty
 		 * <p>Returns whether the map is empty.</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b> if the map is empty, <b><code>FALSE</code></b> otherwise.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> if the map is empty, <b><code>false</code></b> otherwise.</p>
 		 * @link https://php.net/manual/en/ds-map.isempty.php
 		 * @since PECL ds >= 1.0.0
 		 */
@@ -551,7 +551,7 @@ namespace Ds {
 		 * @link https://php.net/manual/en/ds-map.ksort.php
 		 * @since PECL ds >= 1.0.0
 		 */
-		public function ksort(callable $comparator = NULL): void {}
+		public function ksort(callable $comparator = null): void {}
 
 		/**
 		 * Returns a copy, sorted by key
@@ -561,7 +561,7 @@ namespace Ds {
 		 * @link https://php.net/manual/en/ds-map.ksorted.php
 		 * @since No version information available, might only be in Git
 		 */
-		public function ksorted(callable $comparator = NULL): \Ds\Map {}
+		public function ksorted(callable $comparator = null): \Ds\Map {}
 
 		/**
 		 * Returns the last pair of the map
@@ -626,12 +626,12 @@ namespace Ds {
 		 * Reduces the map to a single value using a callback function
 		 * <p>Reduces the map to a single value using a callback function.</p>
 		 * @param callable $callback callback ( <code>mixed</code> <code>$carry</code> , <code>mixed</code> <code>$key</code> , <code>mixed</code> <code>$value</code> ) : <code>mixed</code>   <code>carry</code>  <p>The return value of the previous callback, or <code>initial</code> if it's the first iteration.</p>   <code>key</code>  <p>The key of the current iteration.</p>   <code>value</code>  <p>The value of the current iteration.</p>
-		 * @param mixed $initial <p>The initial value of the carry value. Can be <b><code>NULL</code></b>.</p>
+		 * @param mixed $initial <p>The initial value of the carry value. Can be <b><code>null</code></b>.</p>
 		 * @return mixed <p>The return value of the final callback.</p>
 		 * @link https://php.net/manual/en/ds-map.reduce.php
 		 * @since PECL ds >= 1.0.0
 		 */
-		public function reduce(callable $callback, mixed $initial = NULL): mixed {}
+		public function reduce(callable $callback, mixed $initial = null): mixed {}
 
 		/**
 		 * Removes and returns a value by key
@@ -642,7 +642,7 @@ namespace Ds {
 		 * @link https://php.net/manual/en/ds-map.remove.php
 		 * @since PECL ds >= 1.0.0
 		 */
-		public function remove(mixed $key, mixed $default = NULL): mixed {}
+		public function remove(mixed $key, mixed $default = null): mixed {}
 
 		/**
 		 * Reverses the map in-place
@@ -681,7 +681,7 @@ namespace Ds {
 		 * @link https://php.net/manual/en/ds-map.slice.php
 		 * @since PECL ds >= 1.0.0
 		 */
-		public function slice(int $index, int $length = NULL): \Ds\Map {}
+		public function slice(int $index, int $length = null): \Ds\Map {}
 
 		/**
 		 * Sorts the map in-place by value
@@ -691,7 +691,7 @@ namespace Ds {
 		 * @link https://php.net/manual/en/ds-map.sort.php
 		 * @since PECL ds >= 1.0.0
 		 */
-		public function sort(callable $comparator = NULL): void {}
+		public function sort(callable $comparator = null): void {}
 
 		/**
 		 * Returns a copy, sorted by value
@@ -701,7 +701,7 @@ namespace Ds {
 		 * @link https://php.net/manual/en/ds-map.sorted.php
 		 * @since PECL ds >= 1.0.0
 		 */
-		public function sorted(callable $comparator = NULL): \Ds\Map {}
+		public function sorted(callable $comparator = null): \Ds\Map {}
 
 		/**
 		 * Returns the sum of all values in the map
@@ -767,7 +767,7 @@ namespace Ds {
 		 * @link https://php.net/manual/en/ds-pair.construct.php
 		 * @since PECL ds >= 1.0.0
 		 */
-		public function __construct(mixed $key = NULL, mixed $value = NULL) {}
+		public function __construct(mixed $key = null, mixed $value = null) {}
 
 		/**
 		 * Removes all values
@@ -790,7 +790,7 @@ namespace Ds {
 		/**
 		 * Returns whether the pair is empty
 		 * <p>Returns whether the pair is empty.</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b> if the pair is empty, <b><code>FALSE</code></b> otherwise.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> if the pair is empty, <b><code>false</code></b> otherwise.</p>
 		 * @link https://php.net/manual/en/ds-pair.isempty.php
 		 * @since No version information available, might only be in Git
 		 */
@@ -864,7 +864,7 @@ namespace Ds {
 		/**
 		 * Returns whether the queue is empty
 		 * <p>Returns whether the queue is empty.</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b> if the queue is empty, <b><code>FALSE</code></b> otherwise.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> if the queue is empty, <b><code>false</code></b> otherwise.</p>
 		 * @link https://php.net/manual/en/ds-priorityqueue.isempty.php
 		 * @since PECL ds >= 1.0.0
 		 */
@@ -962,7 +962,7 @@ namespace Ds {
 		/**
 		 * Returns whether the queue is empty
 		 * <p>Returns whether the queue is empty.</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b> if the queue is empty, <b><code>FALSE</code></b> otherwise.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> if the queue is empty, <b><code>false</code></b> otherwise.</p>
 		 * @link https://php.net/manual/en/ds-queue.isempty.php
 		 * @since PECL ds >= 1.0.0
 		 */
@@ -1047,7 +1047,7 @@ namespace Ds {
 		 * Determines if the sequence contains given values
 		 * <p>Determines if the sequence contains all values.</p>
 		 * @param mixed $values <p>Values to check.</p>
-		 * @return bool <p><b><code>FALSE</code></b> if any of the provided <code>values</code> are not in the sequence, <b><code>TRUE</code></b> otherwise.</p>
+		 * @return bool <p><b><code>false</code></b> if any of the provided <code>values</code> are not in the sequence, <b><code>true</code></b> otherwise.</p>
 		 * @link https://php.net/manual/en/ds-sequence.contains.php
 		 * @since PECL ds >= 1.0.0
 		 */
@@ -1056,18 +1056,18 @@ namespace Ds {
 		/**
 		 * Creates a new sequence using a callable to determine which values to include
 		 * <p>Creates a new sequence using a <code>callable</code> to determine which values to include.</p>
-		 * @param callable $callback <p></p> callback ( <code>mixed</code> <code>$value</code> ) : <code>bool</code> <p>Optional <code>callable</code> which returns <b><code>TRUE</code></b> if the value should be included, <b><code>FALSE</code></b> otherwise.</p> <p>If a callback is not provided, only values which are <b><code>TRUE</code></b> (see converting to boolean) will be included.</p>
-		 * @return Ds\Sequence <p>A new sequence containing all the values for which either the <code>callback</code> returned <b><code>TRUE</code></b>, or all values that convert to <b><code>TRUE</code></b> if a <code>callback</code> was not provided.</p>
+		 * @param callable $callback <p></p> callback ( <code>mixed</code> <code>$value</code> ) : <code>bool</code> <p>Optional <code>callable</code> which returns <b><code>true</code></b> if the value should be included, <b><code>false</code></b> otherwise.</p> <p>If a callback is not provided, only values which are <b><code>true</code></b> (see converting to boolean) will be included.</p>
+		 * @return Ds\Sequence <p>A new sequence containing all the values for which either the <code>callback</code> returned <b><code>true</code></b>, or all values that convert to <b><code>true</code></b> if a <code>callback</code> was not provided.</p>
 		 * @link https://php.net/manual/en/ds-sequence.filter.php
 		 * @since PECL ds >= 1.0.0
 		 */
-		public function filter(callable $callback = NULL): \Ds\Sequence;
+		public function filter(callable $callback = null): \Ds\Sequence;
 
 		/**
 		 * Attempts to find a value's index
-		 * <p>Returns the index of the <code>value</code>, or <b><code>FALSE</code></b> if not found.</p>
+		 * <p>Returns the index of the <code>value</code>, or <b><code>false</code></b> if not found.</p>
 		 * @param mixed $value <p>The value to find.</p>
-		 * @return mixed <p>The index of the value, or <b><code>FALSE</code></b> if not found.</p><p><b>Note</b>:</p><p>Values will be compared by value and by type.</p>
+		 * @return mixed <p>The index of the value, or <b><code>false</code></b> if not found.</p><p><b>Note</b>:</p><p>Values will be compared by value and by type.</p>
 		 * @link https://php.net/manual/en/ds-sequence.find.php
 		 * @since PECL ds >= 1.0.0
 		 */
@@ -1111,7 +1111,7 @@ namespace Ds {
 		 * @link https://php.net/manual/en/ds-sequence.join.php
 		 * @since PECL ds >= 1.0.0
 		 */
-		public function join(string $glue = NULL): string;
+		public function join(string $glue = null): string;
 
 		/**
 		 * Returns the last value
@@ -1165,12 +1165,12 @@ namespace Ds {
 		 * Reduces the sequence to a single value using a callback function
 		 * <p>Reduces the sequence to a single value using a callback function.</p>
 		 * @param callable $callback callback ( <code>mixed</code> <code>$carry</code> , <code>mixed</code> <code>$value</code> ) : <code>mixed</code>   <code>carry</code>  <p>The return value of the previous callback, or <code>initial</code> if it's the first iteration.</p>   <code>value</code>  <p>The value of the current iteration.</p>
-		 * @param mixed $initial <p>The initial value of the carry value. Can be <b><code>NULL</code></b>.</p>
+		 * @param mixed $initial <p>The initial value of the carry value. Can be <b><code>null</code></b>.</p>
 		 * @return mixed <p>The return value of the final callback.</p>
 		 * @link https://php.net/manual/en/ds-sequence.reduce.php
 		 * @since PECL ds >= 1.0.0
 		 */
-		public function reduce(callable $callback, mixed $initial = NULL): mixed;
+		public function reduce(callable $callback, mixed $initial = null): mixed;
 
 		/**
 		 * Removes and returns a value by index
@@ -1239,7 +1239,7 @@ namespace Ds {
 		 * @link https://php.net/manual/en/ds-sequence.slice.php
 		 * @since PECL ds >= 1.0.0
 		 */
-		public function slice(int $index, int $length = NULL): \Ds\Sequence;
+		public function slice(int $index, int $length = null): \Ds\Sequence;
 
 		/**
 		 * Sorts the sequence in-place
@@ -1249,7 +1249,7 @@ namespace Ds {
 		 * @link https://php.net/manual/en/ds-sequence.sort.php
 		 * @since PECL ds >= 1.0.0
 		 */
-		public function sort(callable $comparator = NULL): void;
+		public function sort(callable $comparator = null): void;
 
 		/**
 		 * Returns a sorted copy
@@ -1259,7 +1259,7 @@ namespace Ds {
 		 * @link https://php.net/manual/en/ds-sequence.sorted.php
 		 * @since PECL ds >= 1.0.0
 		 */
-		public function sorted(callable $comparator = NULL): \Ds\Sequence;
+		public function sorted(callable $comparator = null): \Ds\Sequence;
 
 		/**
 		 * Returns the sum of all values in the sequence
@@ -1278,7 +1278,7 @@ namespace Ds {
 		 * @link https://php.net/manual/en/ds-sequence.unshift.php
 		 * @since PECL ds >= 1.0.0
 		 */
-		public function unshift(mixed $values = NULL): void;
+		public function unshift(mixed $values = null): void;
 	}
 
 	/**
@@ -1336,7 +1336,7 @@ namespace Ds {
 		 * Determines if the set contains all values
 		 * <p>Determines if the set contains all values.</p><p><b>Note</b>:</p><p>Values of type <code>object</code> are supported. If an object implements <b>Ds\Hashable</b>, equality will be determined by the object's <code>equals</code> function. If an object does not implement <b>Ds\Hashable</b>, objects must be references to the same instance to be considered equal.</p><p>All comparisons are strict (type and value).</p>
 		 * @param mixed $values <p>Values to check.</p>
-		 * @return bool <p><b><code>FALSE</code></b> if any of the provided <code>values</code> are not in the set, <b><code>TRUE</code></b> otherwise.</p>
+		 * @return bool <p><b><code>false</code></b> if any of the provided <code>values</code> are not in the set, <b><code>true</code></b> otherwise.</p>
 		 * @link https://php.net/manual/en/ds-set.contains.php
 		 * @since PECL ds >= 1.0.0
 		 */
@@ -1364,12 +1364,12 @@ namespace Ds {
 		/**
 		 * Creates a new set using a callable to determine which values to include
 		 * <p>Creates a new set using a <code>callable</code> to determine which values to include.</p>
-		 * @param callable $callback <p></p> callback ( <code>mixed</code> <code>$value</code> ) : <code>bool</code> <p>Optional <code>callable</code> which returns <b><code>TRUE</code></b> if the value should be included, <b><code>FALSE</code></b> otherwise.</p> <p>If a callback is not provided, only values which are <b><code>TRUE</code></b> (see converting to boolean) will be included.</p>
-		 * @return Ds\Set <p>A new set containing all the values for which either the <code>callback</code> returned <b><code>TRUE</code></b>, or all values that convert to <b><code>TRUE</code></b> if a <code>callback</code> was not provided.</p>
+		 * @param callable $callback <p></p> callback ( <code>mixed</code> <code>$value</code> ) : <code>bool</code> <p>Optional <code>callable</code> which returns <b><code>true</code></b> if the value should be included, <b><code>false</code></b> otherwise.</p> <p>If a callback is not provided, only values which are <b><code>true</code></b> (see converting to boolean) will be included.</p>
+		 * @return Ds\Set <p>A new set containing all the values for which either the <code>callback</code> returned <b><code>true</code></b>, or all values that convert to <b><code>true</code></b> if a <code>callback</code> was not provided.</p>
 		 * @link https://php.net/manual/en/ds-set.filter.php
 		 * @since PECL ds >= 1.0.0
 		 */
-		public function filter(callable $callback = NULL): \Ds\Set {}
+		public function filter(callable $callback = null): \Ds\Set {}
 
 		/**
 		 * Returns the first value in the set
@@ -1403,7 +1403,7 @@ namespace Ds {
 		/**
 		 * Returns whether the set is empty
 		 * <p>Returns whether the set is empty.</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b> if the set is empty, <b><code>FALSE</code></b> otherwise.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> if the set is empty, <b><code>false</code></b> otherwise.</p>
 		 * @link https://php.net/manual/en/ds-set.isempty.php
 		 * @since PECL ds >= 1.0.0
 		 */
@@ -1417,7 +1417,7 @@ namespace Ds {
 		 * @link https://php.net/manual/en/ds-set.join.php
 		 * @since PECL ds >= 1.0.0
 		 */
-		public function join(string $glue = NULL): string {}
+		public function join(string $glue = null): string {}
 
 		/**
 		 * Returns the last value in the set
@@ -1442,12 +1442,12 @@ namespace Ds {
 		 * Reduces the set to a single value using a callback function
 		 * <p>Reduces the set to a single value using a callback function.</p>
 		 * @param callable $callback callback ( <code>mixed</code> <code>$carry</code> , <code>mixed</code> <code>$value</code> ) : <code>mixed</code>   <code>carry</code>  <p>The return value of the previous callback, or <code>initial</code> if it's the first iteration.</p>   <code>value</code>  <p>The value of the current iteration.</p>
-		 * @param mixed $initial <p>The initial value of the carry value. Can be <b><code>NULL</code></b>.</p>
+		 * @param mixed $initial <p>The initial value of the carry value. Can be <b><code>null</code></b>.</p>
 		 * @return mixed <p>The return value of the final callback.</p>
 		 * @link https://php.net/manual/en/ds-set.reduce.php
 		 * @since PECL ds >= 1.0.0
 		 */
-		public function reduce(callable $callback, mixed $initial = NULL): mixed {}
+		public function reduce(callable $callback, mixed $initial = null): mixed {}
 
 		/**
 		 * Removes all given values from the set
@@ -1486,7 +1486,7 @@ namespace Ds {
 		 * @link https://php.net/manual/en/ds-set.slice.php
 		 * @since PECL ds >= 1.0.0
 		 */
-		public function slice(int $index, int $length = NULL): \Ds\Set {}
+		public function slice(int $index, int $length = null): \Ds\Set {}
 
 		/**
 		 * Sorts the set in-place
@@ -1496,7 +1496,7 @@ namespace Ds {
 		 * @link https://php.net/manual/en/ds-set.sort.php
 		 * @since PECL ds >= 1.0.0
 		 */
-		public function sort(callable $comparator = NULL): void {}
+		public function sort(callable $comparator = null): void {}
 
 		/**
 		 * Returns a sorted copy
@@ -1506,7 +1506,7 @@ namespace Ds {
 		 * @link https://php.net/manual/en/ds-set.sorted.php
 		 * @since PECL ds >= 1.0.0
 		 */
-		public function sorted(callable $comparator = NULL): \Ds\Set {}
+		public function sorted(callable $comparator = null): \Ds\Set {}
 
 		/**
 		 * Returns the sum of all values in the set
@@ -1595,7 +1595,7 @@ namespace Ds {
 		/**
 		 * Returns whether the stack is empty
 		 * <p>Returns whether the stack is empty.</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b> if the stack is empty, <b><code>FALSE</code></b> otherwise.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> if the stack is empty, <b><code>false</code></b> otherwise.</p>
 		 * @link https://php.net/manual/en/ds-stack.isempty.php
 		 * @since PECL ds >= 1.0.0
 		 */
@@ -1694,7 +1694,7 @@ namespace Ds {
 		 * Determines if the vector contains given values
 		 * <p>Determines if the vector contains all values.</p>
 		 * @param mixed $values <p>Values to check.</p>
-		 * @return bool <p><b><code>FALSE</code></b> if any of the provided <code>values</code> are not in the vector, <b><code>TRUE</code></b> otherwise.</p>
+		 * @return bool <p><b><code>false</code></b> if any of the provided <code>values</code> are not in the vector, <b><code>true</code></b> otherwise.</p>
 		 * @link https://php.net/manual/en/ds-vector.contains.php
 		 * @since PECL ds >= 1.0.0
 		 */
@@ -1712,18 +1712,18 @@ namespace Ds {
 		/**
 		 * Creates a new vector using a callable to determine which values to include
 		 * <p>Creates a new vector using a <code>callable</code> to determine which values to include.</p>
-		 * @param callable $callback <p></p> callback ( <code>mixed</code> <code>$value</code> ) : <code>bool</code> <p>Optional <code>callable</code> which returns <b><code>TRUE</code></b> if the value should be included, <b><code>FALSE</code></b> otherwise.</p> <p>If a callback is not provided, only values which are <b><code>TRUE</code></b> (see converting to boolean) will be included.</p>
-		 * @return Ds\Vector <p>A new vector containing all the values for which either the <code>callback</code> returned <b><code>TRUE</code></b>, or all values that convert to <b><code>TRUE</code></b> if a <code>callback</code> was not provided.</p>
+		 * @param callable $callback <p></p> callback ( <code>mixed</code> <code>$value</code> ) : <code>bool</code> <p>Optional <code>callable</code> which returns <b><code>true</code></b> if the value should be included, <b><code>false</code></b> otherwise.</p> <p>If a callback is not provided, only values which are <b><code>true</code></b> (see converting to boolean) will be included.</p>
+		 * @return Ds\Vector <p>A new vector containing all the values for which either the <code>callback</code> returned <b><code>true</code></b>, or all values that convert to <b><code>true</code></b> if a <code>callback</code> was not provided.</p>
 		 * @link https://php.net/manual/en/ds-vector.filter.php
 		 * @since PECL ds >= 1.0.0
 		 */
-		public function filter(callable $callback = NULL): \Ds\Vector {}
+		public function filter(callable $callback = null): \Ds\Vector {}
 
 		/**
 		 * Attempts to find a value's index
-		 * <p>Returns the index of the <code>value</code>, or <b><code>FALSE</code></b> if not found.</p>
+		 * <p>Returns the index of the <code>value</code>, or <b><code>false</code></b> if not found.</p>
 		 * @param mixed $value <p>The value to find.</p>
-		 * @return mixed <p>The index of the value, or <b><code>FALSE</code></b> if not found.</p><p><b>Note</b>:</p><p>Values will be compared by value and by type.</p>
+		 * @return mixed <p>The index of the value, or <b><code>false</code></b> if not found.</p><p><b>Note</b>:</p><p>Values will be compared by value and by type.</p>
 		 * @link https://php.net/manual/en/ds-vector.find.php
 		 * @since PECL ds >= 1.0.0
 		 */
@@ -1762,7 +1762,7 @@ namespace Ds {
 		/**
 		 * Returns whether the vector is empty
 		 * <p>Returns whether the vector is empty.</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b> if the vector is empty, <b><code>FALSE</code></b> otherwise.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> if the vector is empty, <b><code>false</code></b> otherwise.</p>
 		 * @link https://php.net/manual/en/ds-vector.isempty.php
 		 * @since PECL ds >= 1.0.0
 		 */
@@ -1776,7 +1776,7 @@ namespace Ds {
 		 * @link https://php.net/manual/en/ds-vector.join.php
 		 * @since PECL ds >= 1.0.0
 		 */
-		public function join(string $glue = NULL): string {}
+		public function join(string $glue = null): string {}
 
 		/**
 		 * Returns the last value
@@ -1830,12 +1830,12 @@ namespace Ds {
 		 * Reduces the vector to a single value using a callback function
 		 * <p>Reduces the vector to a single value using a callback function.</p>
 		 * @param callable $callback callback ( <code>mixed</code> <code>$carry</code> , <code>mixed</code> <code>$value</code> ) : <code>mixed</code>   <code>carry</code>  <p>The return value of the previous callback, or <code>initial</code> if it's the first iteration.</p>   <code>value</code>  <p>The value of the current iteration.</p>
-		 * @param mixed $initial <p>The initial value of the carry value. Can be <b><code>NULL</code></b>.</p>
+		 * @param mixed $initial <p>The initial value of the carry value. Can be <b><code>null</code></b>.</p>
 		 * @return mixed <p>The return value of the final callback.</p>
 		 * @link https://php.net/manual/en/ds-vector.reduce.php
 		 * @since PECL ds >= 1.0.0
 		 */
-		public function reduce(callable $callback, mixed $initial = NULL): mixed {}
+		public function reduce(callable $callback, mixed $initial = null): mixed {}
 
 		/**
 		 * Removes and returns a value by index
@@ -1904,7 +1904,7 @@ namespace Ds {
 		 * @link https://php.net/manual/en/ds-vector.slice.php
 		 * @since PECL ds >= 1.0.0
 		 */
-		public function slice(int $index, int $length = NULL): \Ds\Vector {}
+		public function slice(int $index, int $length = null): \Ds\Vector {}
 
 		/**
 		 * Sorts the vector in-place
@@ -1914,7 +1914,7 @@ namespace Ds {
 		 * @link https://php.net/manual/en/ds-vector.sort.php
 		 * @since PECL ds >= 1.0.0
 		 */
-		public function sort(callable $comparator = NULL): void {}
+		public function sort(callable $comparator = null): void {}
 
 		/**
 		 * Returns a sorted copy
@@ -1924,7 +1924,7 @@ namespace Ds {
 		 * @link https://php.net/manual/en/ds-vector.sorted.php
 		 * @since PECL ds >= 1.0.0
 		 */
-		public function sorted(callable $comparator = NULL): \Ds\Vector {}
+		public function sorted(callable $comparator = null): \Ds\Vector {}
 
 		/**
 		 * Returns the sum of all values in the vector
@@ -1952,7 +1952,7 @@ namespace Ds {
 		 * @link https://php.net/manual/en/ds-vector.unshift.php
 		 * @since PECL ds >= 1.0.0
 		 */
-		public function unshift(mixed $values = NULL): void {}
+		public function unshift(mixed $values = null): void {}
 	}
 
 }

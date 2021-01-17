@@ -371,7 +371,7 @@ namespace {
 		 * @link https://php.net/manual/en/zmqcontext.construct.php
 		 * @since PECL zmq >= 0.5.0
 		 */
-		public function __construct(int $io_threads = 1, bool $is_persistent = TRUE) {}
+		public function __construct(int $io_threads = 1, bool $is_persistent = true) {}
 
 		/**
 		 * Get context option
@@ -393,12 +393,12 @@ namespace {
 		 * @link https://php.net/manual/en/zmqcontext.getsocket.php
 		 * @since PECL zmq >= 0.5.0
 		 */
-		public function getSocket(int $type, string $persistent_id = NULL, callable $on_new_socket = NULL): \ZMQSocket {}
+		public function getSocket(int $type, string $persistent_id = null, callable $on_new_socket = null): \ZMQSocket {}
 
 		/**
 		 * Whether the context is persistent
 		 * <p>Whether the context is persistent. Persistent context is needed for persistent connections as each socket is allocated from a context.</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b> if the context is persistent and <b><code>FALSE</code></b> if the context is non-persistent.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> if the context is persistent and <b><code>false</code></b> if the context is non-persistent.</p>
 		 * @link https://php.net/manual/en/zmqcontext.ispersistent.php
 		 * @since PECL zmq >= 0.5.0
 		 */
@@ -432,7 +432,7 @@ namespace {
 		 * @link https://php.net/manual/en/zmqdevice.construct.php
 		 * @since PECL zmq >= 0.5.0
 		 */
-		public function __construct(\ZMQSocket $frontend, \ZMQSocket $backend, \ZMQSocket $listener = NULL) {}
+		public function __construct(\ZMQSocket $frontend, \ZMQSocket $backend, \ZMQSocket $listener = null) {}
 
 		/**
 		 * Get the idle timeout
@@ -471,7 +471,7 @@ namespace {
 		 * @link https://php.net/manual/en/zmqdevice.setidlecallback.php
 		 * @since No version information available, might only be in Git
 		 */
-		public function setIdleCallback(callable $cb_func, int $timeout, mixed $user_data = NULL): \ZMQDevice {}
+		public function setIdleCallback(callable $cb_func, int $timeout, mixed $user_data = null): \ZMQDevice {}
 
 		/**
 		 * Set the idle timeout
@@ -493,7 +493,7 @@ namespace {
 		 * @link https://php.net/manual/en/zmqdevice.settimercallback.php
 		 * @since No version information available, might only be in Git
 		 */
-		public function setTimerCallback(callable $cb_func, int $timeout, mixed $user_data = NULL): \ZMQDevice {}
+		public function setTimerCallback(callable $cb_func, int $timeout, mixed $user_data = null): \ZMQDevice {}
 
 		/**
 		 * Set the timer timeout
@@ -590,7 +590,7 @@ namespace {
 		 * @link https://php.net/manual/en/zmqsocket.construct.php
 		 * @since PECL zmq >= 0.5.0
 		 */
-		public function __construct(\ZMQContext $context, int $type, string $persistent_id = NULL, callable $on_new_socket = NULL) {}
+		public function __construct(\ZMQContext $context, int $type, string $persistent_id = null, callable $on_new_socket = null) {}
 
 		/**
 		 * Bind the socket
@@ -601,7 +601,7 @@ namespace {
 		 * @link https://php.net/manual/en/zmqsocket.bind.php
 		 * @since PECL zmq >= 0.5.0
 		 */
-		public function bind(string $dsn, bool $force = FALSE): \ZMQSocket {}
+		public function bind(string $dsn, bool $force = false): \ZMQSocket {}
 
 		/**
 		 * Connect the socket
@@ -612,7 +612,7 @@ namespace {
 		 * @link https://php.net/manual/en/zmqsocket.connect.php
 		 * @since PECL zmq >= 0.5.0
 		 */
-		public function connect(string $dsn, bool $force = FALSE): \ZMQSocket {}
+		public function connect(string $dsn, bool $force = false): \ZMQSocket {}
 
 		/**
 		 * Disconnect a socket
@@ -636,7 +636,7 @@ namespace {
 		/**
 		 * Get the persistent id
 		 * <p>Returns the persistent id of the socket.</p>
-		 * @return string <p>Returns the persistent id string assigned of the object and <b><code>NULL</code></b> if socket is not persistent.</p>
+		 * @return string <p>Returns the persistent id string assigned of the object and <b><code>null</code></b> if socket is not persistent.</p>
 		 * @link https://php.net/manual/en/zmqsocket.getpersistentid.php
 		 * @since PECL zmq >= 0.5.0
 		 */

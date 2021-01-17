@@ -53,8 +53,8 @@ namespace {
 
 		/**
 		 * Turn off verbose debugging
-		 * <p>Turns off verbose request information (off by default). Alternatively, the debug property can be set to a <b><code>FALSE</code></b> value to turn debug off.</p>
-		 * @return bool <p><b><code>TRUE</code></b></p>
+		 * <p>Turns off verbose request information (off by default). Alternatively, the debug property can be set to a <b><code>false</code></b> value to turn debug off.</p>
+		 * @return bool <p><b><code>true</code></b></p>
 		 * @link https://php.net/manual/en/oauth.disabledebug.php
 		 * @since PECL OAuth >= 0.99.3
 		 */
@@ -63,7 +63,7 @@ namespace {
 		/**
 		 * Turn off redirects
 		 * <p>Disable redirects from being followed automatically, thus allowing the request to be manually redirected.</p><p>This function is currently not documented; only its argument list is available.</p>
-		 * @return bool <p><b><code>TRUE</code></b></p>
+		 * @return bool <p><b><code>true</code></b></p>
 		 * @link https://php.net/manual/en/oauth.disableredirects.php
 		 * @since PECL OAuth >= 0.99.9
 		 */
@@ -71,8 +71,8 @@ namespace {
 
 		/**
 		 * Turn off SSL checks
-		 * <p>Turns off the usual SSL peer certificate and host checks, this is not for production environments. Alternatively, the <code>sslChecks</code> member can be set to <b><code>FALSE</code></b> to turn SSL checks off.</p>
-		 * @return bool <p><b><code>TRUE</code></b></p>
+		 * <p>Turns off the usual SSL peer certificate and host checks, this is not for production environments. Alternatively, the <code>sslChecks</code> member can be set to <b><code>false</code></b> to turn SSL checks off.</p>
+		 * @return bool <p><b><code>true</code></b></p>
 		 * @link https://php.net/manual/en/oauth.disablesslchecks.php
 		 * @since PECL OAuth >= 0.99.5
 		 */
@@ -80,8 +80,8 @@ namespace {
 
 		/**
 		 * Turn on verbose debugging
-		 * <p>Turns on verbose request information useful for debugging, the debug information is stored in the <code>debugInfo</code> member. Alternatively, the <code>debug</code> member can be set to a non-<b><code>FALSE</code></b> value to turn debug on.</p>
-		 * @return bool <p><b><code>TRUE</code></b></p>
+		 * <p>Turns on verbose request information useful for debugging, the debug information is stored in the <code>debugInfo</code> member. Alternatively, the <code>debug</code> member can be set to a non-<b><code>false</code></b> value to turn debug on.</p>
+		 * @return bool <p><b><code>true</code></b></p>
 		 * @link https://php.net/manual/en/oauth.enabledebug.php
 		 * @since PECL OAuth >= 0.99.3
 		 */
@@ -90,7 +90,7 @@ namespace {
 		/**
 		 * Turn on redirects
 		 * <p>Follow and sign redirects automatically, which is enabled by default.</p><p>This function is currently not documented; only its argument list is available.</p>
-		 * @return bool <p><b><code>TRUE</code></b></p>
+		 * @return bool <p><b><code>true</code></b></p>
 		 * @link https://php.net/manual/en/oauth.enableredirects.php
 		 * @since PECL OAuth >= 0.99.9
 		 */
@@ -98,8 +98,8 @@ namespace {
 
 		/**
 		 * Turn on SSL checks
-		 * <p>Turns on the usual SSL peer certificate and host checks (enabled by default). Alternatively, the <code>sslChecks</code> member can be set to a non-<b><code>FALSE</code></b> value to turn SSL checks off.</p>
-		 * @return bool <p><b><code>TRUE</code></b></p>
+		 * <p>Turns on the usual SSL peer certificate and host checks (enabled by default). Alternatively, the <code>sslChecks</code> member can be set to a non-<b><code>false</code></b> value to turn SSL checks off.</p>
+		 * @return bool <p><b><code>true</code></b></p>
 		 * @link https://php.net/manual/en/oauth.enablesslchecks.php
 		 * @since PECL OAuth >= 0.99.5
 		 */
@@ -112,11 +112,11 @@ namespace {
 		 * @param array $extra_parameters <p>Extra parameters to send with the request for the resource.</p>
 		 * @param string $http_method <p>One of the <b><code>OAUTH_HTTP_METHOD_&#42;</code></b> OAUTH constants, which includes GET, POST, PUT, HEAD, or DELETE.</p> <p>HEAD (<b><code>OAUTH_HTTP_METHOD_HEAD</code></b>) can be useful for discovering information prior to the request (if OAuth credentials are in the <code>Authorization</code> header).</p>
 		 * @param array $http_headers <p>HTTP client headers (such as User-Agent, Accept, etc.)</p>
-		 * @return mixed <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+		 * @return mixed <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/oauth.fetch.php
 		 * @since PECL OAuth >= 0.99.1
 		 */
-		public function fetch(string $protected_resource_url, array $extra_parameters = NULL, string $http_method = NULL, array $http_headers = NULL): mixed {}
+		public function fetch(string $protected_resource_url, array $extra_parameters = null, string $http_method = null, array $http_headers = null): mixed {}
 
 		/**
 		 * Generate a signature
@@ -124,11 +124,11 @@ namespace {
 		 * @param string $http_method <p>HTTP method for request</p>
 		 * @param string $url <p>URL for request</p>
 		 * @param mixed $extra_parameters <p>String or array of additional parameters.</p>
-		 * @return string|false <p>A string containing the generated signature or <b><code>FALSE</code></b> on failure</p>
+		 * @return string|false <p>A string containing the generated signature or <b><code>false</code></b> on failure</p>
 		 * @link https://php.net/manual/en/oauth.generatesignature.php
 		 * @since No version information available, might only be in Git
 		 */
-		public function generateSignature(string $http_method, string $url, mixed $extra_parameters = NULL): string|false {}
+		public function generateSignature(string $http_method, string $url, mixed $extra_parameters = null): string|false {}
 
 		/**
 		 * Fetch an access token
@@ -137,11 +137,11 @@ namespace {
 		 * @param string $auth_session_handle <p>Authorization session handle, this parameter does not have any citation in the core OAuth 1.0 specification but may be implemented by large providers. See ScalableOAuth for more information.</p>
 		 * @param string $verifier_token <p>For service providers which support 1.0a, a <code>verifier_token</code> must be passed while exchanging the request token for the access token. If the <code>verifier_token</code> is present in <code>$_GET</code> or <code>$_POST</code> it is passed automatically and the caller does not need to specify a <code>verifier_token</code> (usually if the access token is exchanged at the oauth_callback URL). See ScalableOAuth for more information.</p>
 		 * @param string $http_method <p>HTTP method to use, e.g. <code>GET</code> or <code>POST</code>.</p>
-		 * @return array <p>Returns an array containing the parsed OAuth response on success or <b><code>FALSE</code></b> on failure.</p>
+		 * @return array <p>Returns an array containing the parsed OAuth response on success or <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/oauth.getaccesstoken.php
 		 * @since PECL OAuth >= 0.99.1
 		 */
-		public function getAccessToken(string $access_token_url, string $auth_session_handle = NULL, string $verifier_token = NULL, string $http_method = NULL): array {}
+		public function getAccessToken(string $access_token_url, string $auth_session_handle = null, string $verifier_token = null, string $http_method = null): array {}
 
 		/**
 		 * Gets CA information
@@ -164,7 +164,7 @@ namespace {
 		/**
 		 * Get headers for last response
 		 * <p>Get headers for last response.</p>
-		 * @return string|false <p>A string containing the last response's headers or <b><code>FALSE</code></b> on failure</p>
+		 * @return string|false <p>A string containing the last response's headers or <b><code>false</code></b> on failure</p>
 		 * @link https://php.net/manual/en/oauth.getlastresponseheaders.php
 		 * @since No version information available, might only be in Git
 		 */
@@ -185,11 +185,11 @@ namespace {
 		 * @param string $http_method <p>HTTP method for request.</p>
 		 * @param string $url <p>URL for request.</p>
 		 * @param mixed $extra_parameters <p>String or array of additional parameters.</p>
-		 * @return string|false <p>A string containing the generated request header or <b><code>FALSE</code></b> on failure</p>
+		 * @return string|false <p>A string containing the generated request header or <b><code>false</code></b> on failure</p>
 		 * @link https://php.net/manual/en/oauth.getrequestheader.php
 		 * @since No version information available, might only be in Git
 		 */
-		public function getRequestHeader(string $http_method, string $url, mixed $extra_parameters = NULL): string|false {}
+		public function getRequestHeader(string $http_method, string $url, mixed $extra_parameters = null): string|false {}
 
 		/**
 		 * Fetch a request token
@@ -197,17 +197,17 @@ namespace {
 		 * @param string $request_token_url <p>URL to the request token API.</p>
 		 * @param string $callback_url <p>OAuth callback URL. If <code>callback_url</code> is passed and is an empty value, it is set to "oob" to address the OAuth 2009.1 advisory.</p>
 		 * @param string $http_method <p>HTTP method to use, e.g. <code>GET</code> or <code>POST</code>.</p>
-		 * @return array <p>Returns an array containing the parsed OAuth response on success or <b><code>FALSE</code></b> on failure.</p>
+		 * @return array <p>Returns an array containing the parsed OAuth response on success or <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/oauth.getrequesttoken.php
 		 * @since PECL OAuth >= 0.99.1
 		 */
-		public function getRequestToken(string $request_token_url, string $callback_url = NULL, string $http_method = NULL): array {}
+		public function getRequestToken(string $request_token_url, string $callback_url = null, string $http_method = null): array {}
 
 		/**
 		 * Set authorization type
 		 * <p>Set where the OAuth parameters should be passed.</p>
 		 * @param int $auth_type <p><code>auth_type</code> can be one of the following flags (in order of decreasing preference as per OAuth 1.0 section 5.2):</p>  <b><code>OAUTH_AUTH_TYPE_AUTHORIZATION</code></b>   Pass the OAuth parameters in the HTTP <code>Authorization</code> header.    <b><code>OAUTH_AUTH_TYPE_FORM</code></b>   Append the OAuth parameters to the HTTP POST request body.    <b><code>OAUTH_AUTH_TYPE_URI</code></b>   Append the OAuth parameters to the request URI.    <b><code>OAUTH_AUTH_TYPE_NONE</code></b>   None.
-		 * @return bool <p>Returns <b><code>TRUE</code></b> if a parameter is correctly set, otherwise <b><code>FALSE</code></b> (e.g., if an invalid <code>auth_type</code> is passed in.)</p>
+		 * @return bool <p>Returns <b><code>true</code></b> if a parameter is correctly set, otherwise <b><code>false</code></b> (e.g., if an invalid <code>auth_type</code> is passed in.)</p>
 		 * @link https://php.net/manual/en/oauth.setauthtype.php
 		 * @since PECL OAuth >= 0.99.1
 		 */
@@ -218,17 +218,17 @@ namespace {
 		 * <p>Sets the Certificate Authority (CA), both for path and info.</p><p>This function is currently not documented; only its argument list is available.</p>
 		 * @param string $ca_path <p>The CA Path being set.</p>
 		 * @param string $ca_info <p>The CA Info being set.</p>
-		 * @return mixed <p>Returns <b><code>TRUE</code></b> on success, or <b><code>FALSE</code></b> if either <code>ca_path</code> or <code>ca_info</code> are considered invalid.</p>
+		 * @return mixed <p>Returns <b><code>true</code></b> on success, or <b><code>false</code></b> if either <code>ca_path</code> or <code>ca_info</code> are considered invalid.</p>
 		 * @link https://php.net/manual/en/oauth.setcapath.php
 		 * @since PECL OAuth >= 0.99.8
 		 */
-		public function setCAPath(string $ca_path = NULL, string $ca_info = NULL): mixed {}
+		public function setCAPath(string $ca_path = null, string $ca_info = null): mixed {}
 
 		/**
 		 * Set the nonce for subsequent requests
 		 * <p>Sets the nonce for all subsequent requests.</p>
 		 * @param string $nonce <p>The value for oauth_nonce.</p>
-		 * @return mixed <p>Returns <b><code>TRUE</code></b> on success, or <b><code>FALSE</code></b> if the <code>nonce</code> is considered invalid.</p>
+		 * @return mixed <p>Returns <b><code>true</code></b> on success, or <b><code>false</code></b> if the <code>nonce</code> is considered invalid.</p>
 		 * @link https://php.net/manual/en/oauth.setnonce.php
 		 * @since PECL OAuth >= 0.99.1
 		 */
@@ -238,7 +238,7 @@ namespace {
 		 * Set the RSA certificate
 		 * <p>Sets the RSA certificate.</p><p>This function is currently not documented; only its argument list is available.</p>
 		 * @param string $cert <p>The RSA certificate.</p>
-		 * @return mixed <p>Returns <b><code>TRUE</code></b> on success, or <b><code>FALSE</code></b> on failure (e.g., the RSA certificate cannot be parsed.)</p>
+		 * @return mixed <p>Returns <b><code>true</code></b> on success, or <b><code>false</code></b> on failure (e.g., the RSA certificate cannot be parsed.)</p>
 		 * @link https://php.net/manual/en/oauth.setrsacertificate.php
 		 * @since PECL OAuth >= 1.0.0
 		 */
@@ -258,7 +258,7 @@ namespace {
 		 * Tweak specific SSL checks for requests
 		 * <p>Tweak specific SSL checks for requests.</p><p>This function is currently not documented; only its argument list is available.</p>
 		 * @param int $sslcheck
-		 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/oauth.setsslchecks.php
 		 * @since No version information available, might only be in Git
 		 */
@@ -268,7 +268,7 @@ namespace {
 		 * Set the timestamp
 		 * <p>Sets the OAuth timestamp for subsequent requests.</p><p>This function is currently not documented; only its argument list is available.</p>
 		 * @param string $timestamp <p>The timestamp.</p>
-		 * @return mixed <p>Returns <b><code>TRUE</code></b>, unless the <code>timestamp</code> is invalid, in which case <b><code>FALSE</code></b> is returned.</p>
+		 * @return mixed <p>Returns <b><code>true</code></b>, unless the <code>timestamp</code> is invalid, in which case <b><code>false</code></b> is returned.</p>
 		 * @link https://php.net/manual/en/oauth.settimestamp.php
 		 * @since PECL OAuth >= 1.0.0
 		 */
@@ -279,7 +279,7 @@ namespace {
 		 * <p>Set the token and secret for subsequent requests.</p>
 		 * @param string $token <p>The OAuth token.</p>
 		 * @param string $token_secret <p>The OAuth token secret.</p>
-		 * @return bool <p><b><code>TRUE</code></b></p>
+		 * @return bool <p><b><code>true</code></b></p>
 		 * @link https://php.net/manual/en/oauth.settoken.php
 		 * @since PECL OAuth >= 0.99.1
 		 */
@@ -289,7 +289,7 @@ namespace {
 		 * Set the OAuth version
 		 * <p>Sets the OAuth version for subsequent requests</p>
 		 * @param string $version <p>OAuth version, default value is always "1.0"</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/oauth.setversion.php
 		 * @since PECL OAuth >= 0.99.1
 		 */
@@ -396,7 +396,7 @@ namespace {
 		/**
 		 * Returns previous Exception
 		 * <p>Returns previous exception (the third parameter of <code>Exception::__construct()</code>).</p>
-		 * @return Throwable <p>Returns the previous Throwable if available or <b><code>NULL</code></b> otherwise.</p>
+		 * @return Throwable <p>Returns the previous Throwable if available or <b><code>null</code></b> otherwise.</p>
 		 * @link https://php.net/manual/en/exception.getprevious.php
 		 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8
 		 */
@@ -437,13 +437,13 @@ namespace {
 		 * @link https://php.net/manual/en/oauthprovider.construct.php
 		 * @since PECL OAuth >= 1.0.0
 		 */
-		public function __construct(array $params_array = NULL) {}
+		public function __construct(array $params_array = null) {}
 
 		/**
 		 * Add required parameters
 		 * <p>Add required oauth provider parameters.</p><p>This function is currently not documented; only its argument list is available.</p>
 		 * @param string $req_params <p>The required parameters.</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/oauthprovider.addrequiredparameter.php
 		 * @since PECL OAuth >= 1.0.0
 		 */
@@ -485,7 +485,7 @@ namespace {
 		 * @link https://php.net/manual/en/oauthprovider.checkoauthrequest.php
 		 * @since PECL OAuth >= 1.0.0
 		 */
-		public function checkOAuthRequest(string $uri = NULL, string $method = NULL): void {}
+		public function checkOAuthRequest(string $uri = null, string $method = null): void {}
 
 		/**
 		 * Set the consumerHandler handler callback
@@ -501,13 +501,13 @@ namespace {
 		 * Generate a random token
 		 * <p>Generates a <code>string</code> of pseudo-random bytes.</p>
 		 * @param int $size <p>The desired token length, in terms of bytes.</p>
-		 * @param bool $strong <p>Setting to <b><code>TRUE</code></b> means <code>/dev/random</code> will be used for entropy, as otherwise the non-blocking <code>/dev/urandom</code> is used. This parameter is ignored on Windows.</p>
+		 * @param bool $strong <p>Setting to <b><code>true</code></b> means <code>/dev/random</code> will be used for entropy, as otherwise the non-blocking <code>/dev/urandom</code> is used. This parameter is ignored on Windows.</p>
 		 * @return string <p>The generated token, as a <code>string</code> of bytes.</p>
 		 * @link https://php.net/manual/en/oauthprovider.generatetoken.php
 		 * @see openssl_random_pseudo_bytes(), mcrypt_create_iv()
 		 * @since PECL OAuth >= 1.0.0
 		 */
-		final public static function generateToken(int $size, bool $strong = FALSE): string {}
+		final public static function generateToken(int $size, bool $strong = false): string {}
 
 		/**
 		 * is2LeggedEndpoint
@@ -533,7 +533,7 @@ namespace {
 		 * Remove a required parameter
 		 * <p>Removes a required parameter.</p><p>This function is currently not documented; only its argument list is available.</p>
 		 * @param string $req_params <p>The required parameter to be removed.</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/oauthprovider.removerequiredparameter.php
 		 * @since PECL OAuth >= 1.0.0
 		 */
@@ -548,24 +548,24 @@ namespace {
 		 * @link https://php.net/manual/en/oauthprovider.reportproblem.php
 		 * @since PECL OAuth >= 1.0.0
 		 */
-		final public static function reportProblem(string $oauthexception, bool $send_headers = TRUE): string {}
+		final public static function reportProblem(string $oauthexception, bool $send_headers = true): string {}
 
 		/**
 		 * Set a parameter
 		 * <p>Sets a parameter.</p><p>This function is currently not documented; only its argument list is available.</p>
 		 * @param string $param_key <p>The parameter key.</p>
-		 * @param mixed $param_val <p>The optional parameter value.</p> <p>To exclude a parameter from signature verification, set its value to <b><code>NULL</code></b>.</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+		 * @param mixed $param_val <p>The optional parameter value.</p> <p>To exclude a parameter from signature verification, set its value to <b><code>null</code></b>.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/oauthprovider.setparam.php
 		 * @since PECL OAuth >= 1.0.0
 		 */
-		final public function setParam(string $param_key, mixed $param_val = NULL): bool {}
+		final public function setParam(string $param_key, mixed $param_val = null): bool {}
 
 		/**
 		 * Set request token path
 		 * <p>Sets the request tokens path.</p><p>This function is currently not documented; only its argument list is available.</p>
 		 * @param string $path <p>The path.</p>
-		 * @return bool <p><b><code>TRUE</code></b></p>
+		 * @return bool <p><b><code>true</code></b></p>
 		 * @link https://php.net/manual/en/oauthprovider.setrequesttokenpath.php
 		 * @since PECL OAuth >= 1.0.0
 		 */
@@ -602,7 +602,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.oauth-get-sbs.php
 	 * @since PECL OAuth >=0.99.7
 	 */
-	function oauth_get_sbs(string $http_method, string $uri, array $request_parameters = NULL): string {}
+	function oauth_get_sbs(string $http_method, string $uri, array $request_parameters = null): string {}
 
 	/**
 	 * Encode a URI to RFC 3986

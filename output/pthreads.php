@@ -87,7 +87,7 @@ namespace {
 		 * @link https://php.net/manual/en/cond.wait.php
 		 * @since PECL pthreads < 3.0.0
 		 */
-		final public static function wait(int $condition, int $mutex, int $timeout = NULL): bool {}
+		final public static function wait(int $condition, int $mutex, int $timeout = null): bool {}
 	}
 
 	/**
@@ -106,7 +106,7 @@ namespace {
 		 * @link https://php.net/manual/en/mutex.create.php
 		 * @since PECL pthreads < 3.0.0
 		 */
-		final public static function create(bool $lock = NULL): int {}
+		final public static function create(bool $lock = null): int {}
 
 		/**
 		 * Destroy Mutex
@@ -147,7 +147,7 @@ namespace {
 		 * @link https://php.net/manual/en/mutex.unlock.php
 		 * @since PECL pthreads < 3.0.0
 		 */
-		final public static function unlock(int $mutex, bool $destroy = NULL): bool {}
+		final public static function unlock(int $mutex, bool $destroy = null): bool {}
 	}
 
 	/**
@@ -198,7 +198,7 @@ namespace {
 		 * @link https://php.net/manual/en/pool.construct.php
 		 * @since PECL pthreads >= 2.0.0
 		 */
-		public function __construct(int $size, string $class = NULL, array $ctor = NULL) {}
+		public function __construct(int $size, string $class = null, array $ctor = null) {}
 
 		/**
 		 * Collect references to completed tasks
@@ -208,7 +208,7 @@ namespace {
 		 * @link https://php.net/manual/en/pool.collect.php
 		 * @since PECL pthreads >= 2.0.0
 		 */
-		public function collect(Callable $collector = NULL): int {}
+		public function collect(Callable $collector = null): int {}
 
 		/**
 		 * Resize the Pool
@@ -309,7 +309,7 @@ namespace {
 		 * @link https://php.net/manual/en/threaded.from.php
 		 * @since PECL pthreads >= 2.0.9
 		 */
-		public function from(\Closure $run, \Closure $construct = NULL, array $args = NULL): \Threaded {}
+		public function from(\Closure $run, \Closure $construct = null, array $args = null): \Threaded {}
 
 		/**
 		 * Identification
@@ -446,7 +446,7 @@ namespace {
 		 * @link https://php.net/manual/en/threaded.merge.php
 		 * @since PECL pthreads >= 2.0.0
 		 */
-		public function merge(mixed $from, bool $overwrite = NULL): bool {}
+		public function merge(mixed $from, bool $overwrite = null): bool {}
 
 		/**
 		 * Synchronization
@@ -501,7 +501,7 @@ namespace {
 		 * @link https://php.net/manual/en/thread.start.php
 		 * @since PECL pthreads >= 2.0.0
 		 */
-		public function start(int $options = NULL): bool {}
+		public function start(int $options = null): bool {}
 
 		/**
 		 * Synchronization
@@ -531,7 +531,7 @@ namespace {
 		 * @link https://php.net/manual/en/threaded.wait.php
 		 * @since PECL pthreads >= 2.0.0
 		 */
-		public function wait(int $timeout = NULL): bool {}
+		public function wait(int $timeout = null): bool {}
 	}
 
 	/**
@@ -582,7 +582,7 @@ namespace {
 		 * @link https://php.net/manual/en/threaded.from.php
 		 * @since PECL pthreads >= 2.0.9
 		 */
-		public function from(\Closure $run, \Closure $construct = NULL, array $args = NULL): \Threaded {}
+		public function from(\Closure $run, \Closure $construct = null, array $args = null): \Threaded {}
 
 		/**
 		 * Error Detection
@@ -638,7 +638,7 @@ namespace {
 		 * @link https://php.net/manual/en/threaded.merge.php
 		 * @since PECL pthreads >= 2.0.0
 		 */
-		public function merge(mixed $from, bool $overwrite = NULL): bool {}
+		public function merge(mixed $from, bool $overwrite = null): bool {}
 
 		/**
 		 * Synchronization
@@ -713,7 +713,7 @@ namespace {
 		 * @link https://php.net/manual/en/threaded.wait.php
 		 * @since PECL pthreads >= 2.0.0
 		 */
-		public function wait(int $timeout = NULL): bool {}
+		public function wait(int $timeout = null): bool {}
 	}
 
 	/**
@@ -763,7 +763,7 @@ namespace {
 		 * @link https://php.net/manual/en/threaded.from.php
 		 * @since PECL pthreads >= 2.0.9
 		 */
-		public function from(\Closure $run, \Closure $construct = NULL, array $args = NULL): \Threaded {}
+		public function from(\Closure $run, \Closure $construct = null, array $args = null): \Threaded {}
 
 		/**
 		 * Error Detection
@@ -819,7 +819,7 @@ namespace {
 		 * @link https://php.net/manual/en/threaded.merge.php
 		 * @since PECL pthreads >= 2.0.0
 		 */
-		public function merge(mixed $from, bool $overwrite = NULL): bool {}
+		public function merge(mixed $from, bool $overwrite = null): bool {}
 
 		/**
 		 * Synchronization
@@ -894,7 +894,7 @@ namespace {
 		 * @link https://php.net/manual/en/threaded.wait.php
 		 * @since PECL pthreads >= 2.0.0
 		 */
-		public function wait(int $timeout = NULL): bool {}
+		public function wait(int $timeout = null): bool {}
 	}
 
 	/**
@@ -917,7 +917,7 @@ namespace {
 		 * @link https://php.net/manual/en/worker.collect.php
 		 * @since PECL pthreads >= 3.0.0
 		 */
-		public function collect(Callable $collector = NULL): int {}
+		public function collect(Callable $collector = null): int {}
 
 		/**
 		 * Execution
@@ -1063,7 +1063,7 @@ namespace {
 		 * @link https://php.net/manual/en/thread.start.php
 		 * @since PECL pthreads >= 2.0.0
 		 */
-		public function start(int $options = NULL): bool {}
+		public function start(int $options = null): bool {}
 
 		/**
 		 * Unstacking work

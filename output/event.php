@@ -72,11 +72,11 @@ namespace {
 		 * Makes event pending
 		 * <p>Marks event pending. Non-pending event will never occur, and the event callback will never be called. In conjuction with <code>Event::del()</code> an event could be re-scheduled by user at any time.</p><p>If <b>Event::add()</b> is called on an already pending event, libevent will leave it pending and re-schedule it with the given timeout(if specified). If in this case timeout is not specified, <b>Event::add()</b> has no effect.</p>
 		 * @param float $timeout <p>Timeout in seconds.</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b> on success. Otherwise <b><code>FALSE</code></b></p>
+		 * @return bool <p>Returns <b><code>true</code></b> on success. Otherwise <b><code>false</code></b></p>
 		 * @link https://php.net/manual/en/event.add.php
 		 * @since PECL event >= 1.2.6-beta
 		 */
-		public function add(float $timeout = NULL): bool {}
+		public function add(float $timeout = null): bool {}
 
 		/**
 		 * Makes signal event pending
@@ -86,7 +86,7 @@ namespace {
 		 * @link https://php.net/manual/en/event.addsignal.php
 		 * @since PECL event >= 1.2.6-beta
 		 */
-		public function addSignal(float $timeout = NULL): bool {}
+		public function addSignal(float $timeout = null): bool {}
 
 		/**
 		 * Makes timer event pending
@@ -96,12 +96,12 @@ namespace {
 		 * @link https://php.net/manual/en/event.addtimer.php
 		 * @since PECL event >= 1.2.6-beta
 		 */
-		public function addTimer(float $timeout = NULL): bool {}
+		public function addTimer(float $timeout = null): bool {}
 
 		/**
 		 * Makes event non-pending
 		 * <p>Removes an event from the set of monitored events, i.e. makes it non-pending.</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b> on success. Otherwise <b><code>FALSE</code></b></p>
+		 * @return bool <p>Returns <b><code>true</code></b> on success. Otherwise <b><code>false</code></b></p>
 		 * @link https://php.net/manual/en/event.del.php
 		 * @since PECL event >= 1.2.6-beta
 		 */
@@ -127,7 +127,7 @@ namespace {
 
 		/**
 		 * Make event non-pending and free resources allocated for this event
-		 * <p>Removes event from the list of events monitored by libevent, and free resources allocated for the event.</p><p>The <b>Event::free()</b> method currently doesn't destruct the object itself. To destruct the object completely call <code>unset()</code> , or assign <b><code>NULL</code></b>.</p>
+		 * <p>Removes event from the list of events monitored by libevent, and free resources allocated for the event.</p><p>The <b>Event::free()</b> method currently doesn't destruct the object itself. To destruct the object completely call <code>unset()</code> , or assign <b><code>null</code></b>.</p>
 		 * @return void <p>No value is returned.</p>
 		 * @link https://php.net/manual/en/event.free.php
 		 * @since PECL event >= 1.2.6-beta
@@ -147,7 +147,7 @@ namespace {
 		 * Detects whether event is pending or scheduled
 		 * <p>Detects whether event is pending or scheduled</p>
 		 * @param int $flags <p>One of, or a composition of the following constants: <b><code>Event::READ</code></b> , <b><code>Event::WRITE</code></b> , <b><code>Event::TIMEOUT</code></b> , <b><code>Event::SIGNAL</code></b> .</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b> if event is pending or scheduled. Otherwise <b><code>FALSE</code></b>.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> if event is pending or scheduled. Otherwise <b><code>false</code></b>.</p>
 		 * @link https://php.net/manual/en/event.pending.php
 		 * @since PECL event >= 1.2.6-beta
 		 */
@@ -161,17 +161,17 @@ namespace {
 		 * @param int $what <p>See Event flags .</p>
 		 * @param callable $cb <p>The event callback. See Event callbacks .</p>
 		 * @param mixed $arg <p>Custom data associated with the event. It will be passed to the callback when the event becomes active.</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b> on success. Otherwise <b><code>FALSE</code></b>.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> on success. Otherwise <b><code>false</code></b>.</p>
 		 * @link https://php.net/manual/en/event.set.php
 		 * @since PECL event >= 1.2.6-beta
 		 */
-		public function set(\EventBase $base, mixed $fd, int $what = NULL, callable $cb = NULL, mixed $arg = NULL): bool {}
+		public function set(\EventBase $base, mixed $fd, int $what = null, callable $cb = null, mixed $arg = null): bool {}
 
 		/**
 		 * Set event priority
 		 * <p>Set event priority.</p>
 		 * @param int $priority <p>The event priority.</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b> on success. Otherwise <b><code>FALSE</code></b>.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> on success. Otherwise <b><code>false</code></b>.</p>
 		 * @link https://php.net/manual/en/event.setpriority.php
 		 * @since PECL event >= 1.2.6-beta
 		 */
@@ -183,11 +183,11 @@ namespace {
 		 * @param \EventBase $base <p>The event base to associate with.</p>
 		 * @param callable $cb <p>The timer event callback. See Event callbacks .</p>
 		 * @param mixed $arg <p>Custom data. If specified, it will be passed to the callback when event triggers.</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b> on success. Otherwise <b><code>FALSE</code></b>.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> on success. Otherwise <b><code>false</code></b>.</p>
 		 * @link https://php.net/manual/en/event.settimer.php
 		 * @since PECL event >= 1.2.6-beta
 		 */
-		public function setTimer(\EventBase $base, callable $cb, mixed $arg = NULL): bool {}
+		public function setTimer(\EventBase $base, callable $cb, mixed $arg = null): bool {}
 
 		/**
 		 * Constructs signal event object
@@ -196,11 +196,11 @@ namespace {
 		 * @param int $signum <p>The signal number.</p>
 		 * @param callable $cb <p>The signal event callback. See Event callbacks .</p>
 		 * @param mixed $arg <p>Custom data. If specified, it will be passed to the callback when event triggers.</p>
-		 * @return Event <p>Returns Event object on success. Otherwise <b><code>FALSE</code></b>.</p>
+		 * @return Event <p>Returns Event object on success. Otherwise <b><code>false</code></b>.</p>
 		 * @link https://php.net/manual/en/event.signal.php
 		 * @since PECL event >= 1.2.6-beta
 		 */
-		public static function signal(\EventBase $base, int $signum, callable $cb, mixed $arg = NULL): \Event {}
+		public static function signal(\EventBase $base, int $signum, callable $cb, mixed $arg = null): \Event {}
 
 		/**
 		 * Constructs timer event object
@@ -208,11 +208,11 @@ namespace {
 		 * @param \EventBase $base <p>The associated event base object.</p>
 		 * @param callable $cb <p>The signal event callback. See Event callbacks .</p>
 		 * @param mixed $arg <p>Custom data. If specified, it will be passed to the callback when event triggers.</p>
-		 * @return Event <p>Returns Event object on success. Otherwise <b><code>FALSE</code></b>.</p>
+		 * @return Event <p>Returns Event object on success. Otherwise <b><code>false</code></b>.</p>
 		 * @link https://php.net/manual/en/event.timer.php
 		 * @since PECL event >= 1.2.6-beta
 		 */
-		public static function timer(\EventBase $base, callable $cb, mixed $arg = NULL): \Event {}
+		public static function timer(\EventBase $base, callable $cb, mixed $arg = null): \Event {}
 	}
 
 	/**
@@ -269,12 +269,12 @@ namespace {
 		 * @link https://php.net/manual/en/eventbase.construct.php
 		 * @since PECL event >= 1.2.6-beta
 		 */
-		public function __construct(\EventConfig $cfg = NULL) {}
+		public function __construct(\EventConfig $cfg = null) {}
 
 		/**
 		 * Dispatch pending events
 		 * <p>Wait for events to become active, and run their callbacks. The same as <code>EventBase::loop()</code> with no flags set.</p><p></p><p>Do <i>NOT</i> destroy the EventBase object as long as resources of the associated <code>Event</code> objects are not released. Otherwise, it will lead to unpredictable results!</p>
-		 * @return void <p>Returns <b><code>TRUE</code></b> on success. Otherwise <b><code>FALSE</code></b>.</p>
+		 * @return void <p>Returns <b><code>true</code></b> on success. Otherwise <b><code>false</code></b>.</p>
 		 * @link https://php.net/manual/en/eventbase.dispatch.php
 		 * @since PECL event >= 1.2.6-beta
 		 */
@@ -284,15 +284,15 @@ namespace {
 		 * Stop dispatching events
 		 * <p>Tells event base to stop optionally after given number of seconds.</p>
 		 * @param float $timeout <p>Optional number of seconds after which the event base should stop dispatching events.</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b> on success. Otherwise <b><code>FALSE</code></b>.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> on success. Otherwise <b><code>false</code></b>.</p>
 		 * @link https://php.net/manual/en/eventbase.exit.php
 		 * @since PECL event >= 1.2.6-beta
 		 */
-		public function exit(float $timeout = NULL): bool {}
+		public function exit(float $timeout = null): bool {}
 
 		/**
 		 * Free resources allocated for this event base
-		 * <p>Deallocates resources allocated by libevent for the EventBase object.</p><p>The <b>EventBase::free()</b> method doesn't destruct the object itself. To destruct the object completely call <code>unset()</code> , or assign <b><code>NULL</code></b>.</p><p>This method does not deallocate or detach any of the events that are currently associated with the EventBase object, or close any of their sockets - beware.</p>
+		 * <p>Deallocates resources allocated by libevent for the EventBase object.</p><p>The <b>EventBase::free()</b> method doesn't destruct the object itself. To destruct the object completely call <code>unset()</code> , or assign <b><code>null</code></b>.</p><p>This method does not deallocate or detach any of the events that are currently associated with the EventBase object, or close any of their sockets - beware.</p>
 		 * @return void <p>No value is returned.</p>
 		 * @link https://php.net/manual/en/eventbase.free.php
 		 * @since PECL event >= 1.10.0
@@ -319,7 +319,7 @@ namespace {
 		/**
 		 * Returns the current event base time
 		 * <p>On success returns the current time(as returned by <code>gettimeofday()</code> ), looking at the cached value in <i>base</i> if possible, and calling <code>gettimeofday()</code> or <code>clock_gettime()</code> as appropriate if there is no cached time.</p>
-		 * @return float <p>Returns the current <i>event base</i> time. On failure returns <b><code>NULL</code></b>.</p>
+		 * @return float <p>Returns the current <i>event base</i> time. On failure returns <b><code>null</code></b>.</p>
 		 * @link https://php.net/manual/en/eventbase.gettimeofdaycached.php
 		 * @since PECL event >= 1.2.6-beta
 		 */
@@ -328,7 +328,7 @@ namespace {
 		/**
 		 * Checks if the event loop was told to exit
 		 * <p>Checks if the event loop was told to exit by <code>EventBase::exit()</code> .</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b>, event loop was told to exit by <code>EventBase::exit()</code> . Otherwise <b><code>FALSE</code></b>.</p>
+		 * @return bool <p>Returns <b><code>true</code></b>, event loop was told to exit by <code>EventBase::exit()</code> . Otherwise <b><code>false</code></b>.</p>
 		 * @link https://php.net/manual/en/eventbase.gotexit.php
 		 * @since PECL event >= 1.2.6-beta
 		 */
@@ -337,7 +337,7 @@ namespace {
 		/**
 		 * Checks if the event loop was told to exit
 		 * <p>Checks if the event loop was told to exit by <code>EventBase::stop()</code> .</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b>, event loop was told to stop by <code>EventBase::stop()</code> . Otherwise <b><code>FALSE</code></b>.</p>
+		 * @return bool <p>Returns <b><code>true</code></b>, event loop was told to stop by <code>EventBase::stop()</code> . Otherwise <b><code>false</code></b>.</p>
 		 * @link https://php.net/manual/en/eventbase.gotstop.php
 		 * @since PECL event >= 1.2.6-beta
 		 */
@@ -347,17 +347,17 @@ namespace {
 		 * Dispatch pending events
 		 * <p>Wait for events to become active, and run their callbacks.</p><p></p><p>Do <i>NOT</i> destroy the EventBase object as long as resources of the associated <code>Event</code> objects are not released. Otherwise, it will lead to unpredictable results!</p>
 		 * @param int $flags <p>Optional flags. One of <code>EventBase::LOOP_&#42;</code> constants. See EventBase constants .</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b> on success. Otherwise <b><code>FALSE</code></b>.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> on success. Otherwise <b><code>false</code></b>.</p>
 		 * @link https://php.net/manual/en/eventbase.loop.php
 		 * @since PECL event >= 1.2.6-beta
 		 */
-		public function loop(int $flags = NULL): bool {}
+		public function loop(int $flags = null): bool {}
 
 		/**
 		 * Sets number of priorities per event base
 		 * <p>Sets number of priorities per event base.</p>
 		 * @param int $n_priorities <p>The number of priorities per event base.</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b> on success, otherwise <b><code>FALSE</code></b>.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> on success, otherwise <b><code>false</code></b>.</p>
 		 * @link https://php.net/manual/en/eventbase.priorityinit.php
 		 * @since PECL event >= 1.2.6-beta
 		 */
@@ -366,7 +366,7 @@ namespace {
 		/**
 		 * Re-initialize event base(after a fork)
 		 * <p>Re-initialize event base. Should be called after a fork.</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b> on success. Otherwise <b><code>FALSE</code></b>.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> on success. Otherwise <b><code>false</code></b>.</p>
 		 * @link https://php.net/manual/en/eventbase.reinit.php
 		 * @since PECL event >= 1.2.6-beta
 		 */
@@ -375,7 +375,7 @@ namespace {
 		/**
 		 * Tells event_base to stop dispatching events
 		 * <p>Tells event_base to stop dispatching events</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b> on success. Otherwise <b><code>FALSE</code></b>.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> on success. Otherwise <b><code>false</code></b>.</p>
 		 * @link https://php.net/manual/en/eventbase.stop.php
 		 * @since PECL event >= 1.2.6-beta
 		 */
@@ -451,7 +451,7 @@ namespace {
 		 * Append data to the end of an event buffer
 		 * <p>Append data to the end of an event buffer.</p>
 		 * @param string $data <p>String to be appended to the end of the buffer.</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b> on success. Otherwise <b><code>FALSE</code></b>.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> on success. Otherwise <b><code>false</code></b>.</p>
 		 * @link https://php.net/manual/en/eventbuffer.add.php
 		 * @since PECL event >= 1.2.6-beta
 		 */
@@ -461,7 +461,7 @@ namespace {
 		 * Move all data from a buffer provided to the current instance of EventBuffer
 		 * <p>Move all data from the buffer provided in <code>buf</code> parameter to the end of current EventBuffer . This is a destructive add. The data from one buffer moves into the other buffer. However, no unnecessary memory copies occur.</p>
 		 * @param \EventBuffer $buf <p>The source EventBuffer object.</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b> on success. Otherwise <b><code>FALSE</code></b>.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> on success. Otherwise <b><code>false</code></b>.</p>
 		 * @link https://php.net/manual/en/eventbuffer.addbuffer.php
 		 * @since PECL event >= 1.2.6-beta
 		 */
@@ -493,7 +493,7 @@ namespace {
 		 * Removes specified number of bytes from the front of the buffer without copying it anywhere
 		 * <p>Behaves as <code>EventBuffer::read()</code> , except that it does not copy the data: it just removes it from the front of the buffer.</p>
 		 * @param int $len <p>The number of bytes to remove from the buffer.</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b> on success. Otherwise <b><code>FALSE</code></b>.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> on success. Otherwise <b><code>false</code></b>.</p>
 		 * @link https://php.net/manual/en/eventbuffer.drain.php
 		 * @since PECL event >= 1.2.6-beta
 		 */
@@ -512,7 +512,7 @@ namespace {
 		 * Reserves space in buffer
 		 * <p>Alters the last chunk of memory in the buffer, or adds a new chunk, such that the buffer is now large enough to contain <code>len</code> bytes without any further allocations.</p>
 		 * @param int $len <p>The number of bytes to reserve for the buffer</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b> on success. Otherwise <b><code>FALSE</code></b>.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> on success. Otherwise <b><code>false</code></b>.</p>
 		 * @link https://php.net/manual/en/eventbuffer.expand.php
 		 * @since PECL event >= 1.2.6-beta
 		 */
@@ -522,7 +522,7 @@ namespace {
 		 * Prevent calls that modify an event buffer from succeeding
 		 * <p>Prevent calls that modify an event buffer from succeeding</p>
 		 * @param bool $at_front <p>Whether to disable changes to the front or end of the buffer.</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b> on success. Otherwise <b><code>FALSE</code></b>.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> on success. Otherwise <b><code>false</code></b>.</p>
 		 * @link https://php.net/manual/en/eventbuffer.freeze.php
 		 * @since PECL event >= 1.2.6-beta
 		 */
@@ -541,7 +541,7 @@ namespace {
 		 * Prepend data to the front of the buffer
 		 * <p>Prepend data to the front of the buffer.</p>
 		 * @param string $data <p>String to be prepended to the front of the buffer.</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b> on success. Otherwise <b><code>FALSE</code></b>.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> on success. Otherwise <b><code>false</code></b>.</p>
 		 * @link https://php.net/manual/en/eventbuffer.prepend.php
 		 * @since PECL event >= 1.2.6-beta
 		 */
@@ -551,7 +551,7 @@ namespace {
 		 * Moves all data from source buffer to the front of current buffer
 		 * <p>Behaves as <code>EventBuffer::addBuffer()</code> , except that it moves data to the front of the buffer.</p>
 		 * @param \EventBuffer $buf <p>Source buffer.</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b> on success. Otherwise <b><code>FALSE</code></b>.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> on success. Otherwise <b><code>false</code></b>.</p>
 		 * @link https://php.net/manual/en/eventbuffer.prependbuffer.php
 		 * @since PECL event >= 1.2.6-beta
 		 */
@@ -561,7 +561,7 @@ namespace {
 		 * Linearizes data within buffer and returns it's contents as a string
 		 * <p>"Linearizes" the first <code>size</code> bytes of the buffer, copying or moving them as needed to ensure that they are all contiguous and occupying the same chunk of memory. If size is negative, the function linearizes the entire buffer.</p><p>Calling <b>EventBuffer::pullup()</b> with a large size can be quite slow, since it potentially needs to copy the entire buffer's contents.</p>
 		 * @param int $size <p>The number of bytes required to be contiguous within the buffer.</p>
-		 * @return string <p>If <code>size</code> is greater than the number of bytes in the buffer, the function returns <b><code>NULL</code></b>. Otherwise, <b>EventBuffer::pullup()</b> returns string.</p>
+		 * @return string <p>If <code>size</code> is greater than the number of bytes in the buffer, the function returns <b><code>null</code></b>. Otherwise, <b>EventBuffer::pullup()</b> returns string.</p>
 		 * @link https://php.net/manual/en/eventbuffer.pullup.php
 		 * @since PECL event >= 1.2.6-beta
 		 */
@@ -571,7 +571,7 @@ namespace {
 		 * Read data from an evbuffer and drain the bytes read
 		 * <p>Read the first <code>max_bytes</code> from the buffer and drain the bytes read. If more <code>max_bytes</code> are requested than are available in the buffer, it only extracts as many bytes as available.</p>
 		 * @param int $max_bytes <p>Maxmimum number of bytes to read from the buffer.</p>
-		 * @return string <p>Returns string read, or <b><code>FALSE</code></b> on failure.</p>
+		 * @return string <p>Returns string read, or <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/eventbuffer.read.php
 		 * @since PECL event >= 1.6.0
 		 */
@@ -579,9 +579,9 @@ namespace {
 
 		/**
 		 * Extracts a line from the front of the buffer
-		 * <p>Extracts a line from the front of the buffer and returns it in a newly allocated string. If there is not a whole line to read, the function returns <b><code>NULL</code></b>. The line terminator is not included in the copied string.</p>
+		 * <p>Extracts a line from the front of the buffer and returns it in a newly allocated string. If there is not a whole line to read, the function returns <b><code>null</code></b>. The line terminator is not included in the copied string.</p>
 		 * @param int $eol_style <p>One of EventBuffer:EOL_&#42; constants .</p>
-		 * @return string <p>On success returns the line read from the buffer, otherwise <b><code>NULL</code></b>.</p>
+		 * @return string <p>On success returns the line read from the buffer, otherwise <b><code>null</code></b>.</p>
 		 * @link https://php.net/manual/en/eventbuffer.readline.php
 		 * @since PECL event >= 1.2.6-beta
 		 */
@@ -589,11 +589,11 @@ namespace {
 
 		/**
 		 * Scans the buffer for an occurrence of a string
-		 * <p>Scans the buffer for an occurrence of the string <code>what</code> . It returns numeric position of the string, or <b><code>FALSE</code></b> if the string was not found.</p><p>If the <code>start</code> argument is provided, it points to the position at which the search should begin; otherwise, the search is performed from the start of the string. If <code>end</code> argument provided, the search is performed between start and end buffer positions.</p>
+		 * <p>Scans the buffer for an occurrence of the string <code>what</code> . It returns numeric position of the string, or <b><code>false</code></b> if the string was not found.</p><p>If the <code>start</code> argument is provided, it points to the position at which the search should begin; otherwise, the search is performed from the start of the string. If <code>end</code> argument provided, the search is performed between start and end buffer positions.</p>
 		 * @param string $what <p>String to search.</p>
 		 * @param int $start <p>Start search position.</p>
 		 * @param int $end <p>End search position.</p>
-		 * @return mixed <p>Returns numeric position of the first occurance of the string in the buffer, or <b><code>FALSE</code></b> if string is not found.</p><p><b>Warning</b></p><p>This function may return Boolean <b><code>FALSE</code></b>, but may also return a non-Boolean value which evaluates to <b><code>FALSE</code></b>. Please read the section on Booleans for more information. Use the === operator for testing the return value of this function.</p>
+		 * @return mixed <p>Returns numeric position of the first occurance of the string in the buffer, or <b><code>false</code></b> if string is not found.</p><p><b>Warning</b></p><p>This function may return Boolean <b><code>false</code></b>, but may also return a non-Boolean value which evaluates to <b><code>false</code></b>. Please read the section on Booleans for more information. Use the === operator for testing the return value of this function.</p>
 		 * @link https://php.net/manual/en/eventbuffer.search.php
 		 * @since PECL event >= 1.2.6-beta
 		 */
@@ -601,10 +601,10 @@ namespace {
 
 		/**
 		 * Scans the buffer for an occurrence of an end of line
-		 * <p>Scans the buffer for an occurrence of an end of line specified by <code>eol_style</code> parameter . It returns numeric position of the string, or <b><code>FALSE</code></b> if the string was not found.</p><p>If the <code>start</code> argument is provided, it represents the position at which the search should begin; otherwise, the search is performed from the start of the string. If <code>end</code> argument provided, the search is performed between start and end buffer positions.</p>
+		 * <p>Scans the buffer for an occurrence of an end of line specified by <code>eol_style</code> parameter . It returns numeric position of the string, or <b><code>false</code></b> if the string was not found.</p><p>If the <code>start</code> argument is provided, it represents the position at which the search should begin; otherwise, the search is performed from the start of the string. If <code>end</code> argument provided, the search is performed between start and end buffer positions.</p>
 		 * @param int $start <p>Start search position.</p>
 		 * @param int $eol_style <p>One of EventBuffer:EOL_&#42; constants .</p>
-		 * @return mixed <p>Returns numeric position of the first occurance of end-of-line symbol in the buffer, or <b><code>FALSE</code></b> if not found.</p><p><b>Warning</b></p><p>This function may return Boolean <b><code>FALSE</code></b>, but may also return a non-Boolean value which evaluates to <b><code>FALSE</code></b>. Please read the section on Booleans for more information. Use the === operator for testing the return value of this function.</p>
+		 * @return mixed <p>Returns numeric position of the first occurance of end-of-line symbol in the buffer, or <b><code>false</code></b> if not found.</p><p><b>Warning</b></p><p>This function may return Boolean <b><code>false</code></b>, but may also return a non-Boolean value which evaluates to <b><code>false</code></b>. Please read the section on Booleans for more information. Use the === operator for testing the return value of this function.</p>
 		 * @link https://php.net/manual/en/eventbuffer.searcheol.php
 		 * @since PECL event >= 1.5.0
 		 */
@@ -616,17 +616,17 @@ namespace {
 		 * <p>Substracts up to <code>length</code> bytes of the buffer data beginning at <code>start</code> position.</p>
 		 * @param int $start <p>The start position of data to be substracted.</p>
 		 * @param int $length <p>Maximum number of bytes to substract.</p>
-		 * @return string <p>Returns the data substracted as a <code>string</code> on success, or <b><code>FALSE</code></b> on failure.</p>
+		 * @return string <p>Returns the data substracted as a <code>string</code> on success, or <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/eventbuffer.substr.php
 		 * @since PECL event >= 1.6.0
 		 */
-		public function substr(int $start, int $length = NULL): string {}
+		public function substr(int $start, int $length = null): string {}
 
 		/**
 		 * Re-enable calls that modify an event buffer
 		 * <p>Re-enable calls that modify an event buffer.</p>
 		 * @param bool $at_front <p>Whether to enable events at the front or at the end of the buffer.</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b> on success. Otherwise <b><code>FALSE</code></b>.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> on success. Otherwise <b><code>false</code></b>.</p>
 		 * @link https://php.net/manual/en/eventbuffer.unfreeze.php
 		 * @since PECL event >= 1.2.6-beta
 		 */
@@ -635,7 +635,7 @@ namespace {
 		/**
 		 * Releases lock acquired by EventBuffer::lock
 		 * <p>Releases lock acquired by <code>EventBuffer::lock()</code> .</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b> on success. Otherwise <b><code>FALSE</code></b>.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> on success. Otherwise <b><code>false</code></b>.</p>
 		 * @link https://php.net/manual/en/eventbuffer.unlock.php
 		 * @since PECL event >= 1.2.6-beta
 		 */
@@ -646,11 +646,11 @@ namespace {
 		 * <p>Write contents of the buffer to a file descriptor. The buffer will be drained after the bytes have been successfully written.</p>
 		 * @param mixed $fd <p>Socket resource, stream or numeric file descriptor associated normally associated with a socket.</p>
 		 * @param int $howmuch <p>The maximum number of bytes to write.</p>
-		 * @return int <p>Returns the number of bytes written, or <b><code>FALSE</code></b> on error.</p>
+		 * @return int <p>Returns the number of bytes written, or <b><code>false</code></b> on error.</p>
 		 * @link https://php.net/manual/en/eventbuffer.write.php
 		 * @since PECL event >= 1.6.0
 		 */
-		public function write(mixed $fd, int $howmuch = NULL): int {}
+		public function write(mixed $fd, int $howmuch = null): int {}
 	}
 
 	/**
@@ -745,7 +745,7 @@ namespace {
 		const SSL_ACCEPTING = 2;
 
 		/**
-		 * @var int <p>Numeric file descriptor associated with the buffer event. Normally represents a bound socket. Equals to <b><code>NULL</code></b>, if there is no file descriptor(socket) associated with the buffer event.</p>
+		 * @var int <p>Numeric file descriptor associated with the buffer event. Normally represents a bound socket. Equals to <b><code>null</code></b>, if there is no file descriptor(socket) associated with the buffer event.</p>
 		 * @link https://php.net/manual/en/class.eventbufferevent.php#eventbufferevent.props.fd
 		 */
 		public $fd;
@@ -770,7 +770,7 @@ namespace {
 
 		/**
 		 * Constructs EventBufferEvent object
-		 * <p>Create a buffer event on a socket, stream or a file descriptor. Passing <b><code>NULL</code></b> to <code>socket</code> means that the socket should be created later, e.g. by means of <code>EventBufferEvent::connect()</code> .</p>
+		 * <p>Create a buffer event on a socket, stream or a file descriptor. Passing <b><code>null</code></b> to <code>socket</code> means that the socket should be created later, e.g. by means of <code>EventBufferEvent::connect()</code> .</p>
 		 * @param \EventBase $base <p>Event base that should be associated with the new buffer event.</p>
 		 * @param mixed $socket <p>May be created as a stream(not necessarily by means of <code>sockets</code> extension)</p>
 		 * @param int $options <p>One of EventBufferEvent::OPT_&#42; constants , or <b><code>0</code></b> .</p>
@@ -781,7 +781,7 @@ namespace {
 		 * @link https://php.net/manual/en/eventbufferevent.construct.php
 		 * @since PECL event >= 1.2.6-beta
 		 */
-		public function __construct(\EventBase $base, mixed $socket = NULL, int $options = 0, callable $readcb = NULL, callable $writecb = NULL, callable $eventcb = NULL) {}
+		public function __construct(\EventBase $base, mixed $socket = null, int $options = 0, callable $readcb = null, callable $writecb = null, callable $eventcb = null) {}
 
 		/**
 		 * Closes file descriptor associated with the current buffer event
@@ -796,7 +796,7 @@ namespace {
 		 * Connect buffer event's file descriptor to given address or UNIX socket
 		 * <p>Connect buffer event's file descriptor to given address(optionally with port), or a UNIX domain socket.</p><p>If socket is not assigned to the buffer event, this function allocates a new socket and makes it non-blocking internally.</p><p>To resolve DNS names(asyncronously), use <code>EventBufferEvent::connectHost()</code> method.</p>
 		 * @param string $addr <p>Should contain an IP address with optional port number, or a path to UNIX domain socket. Recognized formats are:</p> <pre>[IPv6Address]:port [IPv6Address] IPv6Address IPv4Address:port IPv4Address unix:path</pre>   Note, <code>'unix:'</code> prefix is currently not case sensitive.
-		 * @return bool <p>Returns <b><code>TRUE</code></b> on success. Otherwise <b><code>FALSE</code></b>.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> on success. Otherwise <b><code>false</code></b>.</p>
 		 * @link https://php.net/manual/en/eventbufferevent.connect.php
 		 * @since PECL event >= 1.2.6-beta
 		 */
@@ -804,12 +804,12 @@ namespace {
 
 		/**
 		 * Connects to a hostname with optionally asyncronous DNS resolving
-		 * <p>Resolves the DNS name hostname, looking for addresses of type <code>family</code> ( <code>EventUtil::AF_&#42;</code> constants). If the name resolution fails, it invokes the event callback with an error event. If it succeeds, it launches a connection attempt just as <code>EventBufferEvent::connect()</code> would.</p><p><code>dns_base</code> is optional. May be <b><code>NULL</code></b>, or an object created with <code>EventDnsBase::__construct()</code> . For asyncronous hostname resolving pass a valid event dns base resource. Otherwise the hostname resolving will block.</p><p><b>Note</b>:</p><p>EventDnsBase is available only if <code>Event</code> configured <b>--with-event-extra</b> ( <code>event_extra</code> library, <i>libevent protocol-specific functionality support including HTTP, DNS, and RPC</i> ).</p><p><b>Note</b>:</p><p><b>EventBufferEvent::connectHost()</b> requires <code>libevent-2.0.3-alpha</code> or greater.</p>
-		 * @param \EventDnsBase $dns_base <p>Object of EventDnsBase in case if DNS is to be resolved asyncronously. Otherwise <b><code>NULL</code></b>.</p>
+		 * <p>Resolves the DNS name hostname, looking for addresses of type <code>family</code> ( <code>EventUtil::AF_&#42;</code> constants). If the name resolution fails, it invokes the event callback with an error event. If it succeeds, it launches a connection attempt just as <code>EventBufferEvent::connect()</code> would.</p><p><code>dns_base</code> is optional. May be <b><code>null</code></b>, or an object created with <code>EventDnsBase::__construct()</code> . For asyncronous hostname resolving pass a valid event dns base resource. Otherwise the hostname resolving will block.</p><p><b>Note</b>:</p><p>EventDnsBase is available only if <code>Event</code> configured <b>--with-event-extra</b> ( <code>event_extra</code> library, <i>libevent protocol-specific functionality support including HTTP, DNS, and RPC</i> ).</p><p><b>Note</b>:</p><p><b>EventBufferEvent::connectHost()</b> requires <code>libevent-2.0.3-alpha</code> or greater.</p>
+		 * @param \EventDnsBase $dns_base <p>Object of EventDnsBase in case if DNS is to be resolved asyncronously. Otherwise <b><code>null</code></b>.</p>
 		 * @param string $hostname <p>Hostname to connect to. Recognized formats are:</p> <pre>www.example.com (hostname) 1.2.3.4 (ipv4address) ::1 (ipv6address) [::1] ([ipv6address])</pre>
 		 * @param int $port <p>Port number</p>
 		 * @param int $family <p>Address family. <b><code>EventUtil::AF_UNSPEC</code></b> , <b><code>EventUtil::AF_INET</code></b> , or <b><code>EventUtil::AF_INET6</code></b> . See EventUtil constants .</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b> on success. Otherwise <b><code>FALSE</code></b>.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> on success. Otherwise <b><code>false</code></b>.</p>
 		 * @link https://php.net/manual/en/eventbufferevent.connecthost.php
 		 * @since PECL event >= 1.2.6-beta
 		 */
@@ -830,7 +830,7 @@ namespace {
 		 * Disable events read, write, or both on a buffer event
 		 * <p>Disable events <b><code>Event::READ</code></b> , <b><code>Event::WRITE</code></b> , or <b><code>Event::READ</code></b> <code>|</code> <b><code>Event::WRITE</code></b> on a buffer event.</p>
 		 * @param int $events
-		 * @return bool <p>Returns <b><code>TRUE</code></b> on success. Otherwise <b><code>FALSE</code></b>.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> on success. Otherwise <b><code>false</code></b>.</p>
 		 * @link https://php.net/manual/en/eventbufferevent.disable.php
 		 * @since PECL event >= 1.2.6-beta
 		 */
@@ -840,7 +840,7 @@ namespace {
 		 * Enable events read, write, or both on a buffer event
 		 * <p>Enable events <b><code>Event::READ</code></b> , <b><code>Event::WRITE</code></b> , or <b><code>Event::READ</code></b> <code>|</code> <b><code>Event::WRITE</code></b> on a buffer event.</p>
 		 * @param int $events <p><b><code>Event::READ</code></b> , <b><code>Event::WRITE</code></b> , or <b><code>Event::READ</code></b> <code>|</code> <b><code>Event::WRITE</code></b> on a buffer event.</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b> on success. Otherwise <b><code>FALSE</code></b>.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> on success. Otherwise <b><code>false</code></b>.</p>
 		 * @link https://php.net/manual/en/eventbufferevent.enable.php
 		 * @since PECL event >= 1.2.6-beta
 		 */
@@ -905,7 +905,7 @@ namespace {
 		 * Drains the entire contents of the input buffer and places them into buf
 		 * <p>Drains the entire contents of the input buffer and places them into <code>buf</code> .</p>
 		 * @param \EventBuffer $buf <p>Target buffer</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b> on success; Otherwise <b><code>FALSE</code></b>.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> on success; Otherwise <b><code>false</code></b>.</p>
 		 * @link https://php.net/manual/en/eventbufferevent.readbuffer.php
 		 * @since PECL event >= 1.2.6-beta
 		 */
@@ -922,13 +922,13 @@ namespace {
 		 * @link https://php.net/manual/en/eventbufferevent.setcallbacks.php
 		 * @since PECL event >= 1.2.6-beta
 		 */
-		public function setCallbacks(callable $readcb, callable $writecb, callable $eventcb, string $arg = NULL): void {}
+		public function setCallbacks(callable $readcb, callable $writecb, callable $eventcb, string $arg = null): void {}
 
 		/**
 		 * Assign a priority to a bufferevent
 		 * <p>Assign a priority to a bufferevent</p><p>Only supported for socket buffer events</p>
 		 * @param int $priority <p>Priority value.</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b> on success. Otherwise <b><code>FALSE</code></b>.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> on success. Otherwise <b><code>false</code></b>.</p>
 		 * @link https://php.net/manual/en/eventbufferevent.setpriority.php
 		 * @since PECL event >= 1.2.6-beta
 		 */
@@ -939,7 +939,7 @@ namespace {
 		 * <p>Set the read and write timeout for a buffer event</p>
 		 * @param float $timeout_read <p>Read timeout</p>
 		 * @param float $timeout_write <p>Write timeout</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b> on success. Otherwise <b><code>FALSE</code></b>.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> on success. Otherwise <b><code>false</code></b>.</p>
 		 * @link https://php.net/manual/en/eventbufferevent.settimeouts.php
 		 * @since PECL event >= 1.2.6-beta
 		 */
@@ -960,7 +960,7 @@ namespace {
 		/**
 		 * Returns most recent OpenSSL error reported on the buffer event
 		 * <p>Returns most recent OpenSSL error reported on the buffer event.</p><p><b>Note</b>:</p><p>This function is available only if <code>Event</code> is compiled with OpenSSL support.</p>
-		 * @return string <p>Returns OpenSSL error string reported on the buffer event, or <b><code>FALSE</code></b>, if there is no more error to return.</p>
+		 * @return string <p>Returns OpenSSL error string reported on the buffer event, or <b><code>false</code></b>, if there is no more error to return.</p>
 		 * @link https://php.net/manual/en/eventbufferevent.sslerror.php
 		 * @since PECL event >= 1.2.6-beta
 		 */
@@ -983,7 +983,7 @@ namespace {
 		/**
 		 * Returns a textual description of the cipher
 		 * <p>Retrieves description of the current cipher by means of the <code>SSL_CIPHER_description</code> SSL API function (see <i>SSL_CIPHER_get_name(3)</i> man page).</p><p><b>Note</b>:</p><p>This function is available only if <code>Event</code> is compiled with OpenSSL support.</p>
-		 * @return string <p>Returns a textual description of the cipher on success, or <b><code>FALSE</code></b> on error.</p>
+		 * @return string <p>Returns a textual description of the cipher on success, or <b><code>false</code></b> on error.</p>
 		 * @link https://php.net/manual/en/eventbufferevent.sslgetcipherinfo.php
 		 * @since PECL event >= 1.10.0
 		 */
@@ -992,7 +992,7 @@ namespace {
 		/**
 		 * Returns the current cipher name of the SSL connection
 		 * <p>Retrieves name of cipher used by current SSL connection.</p><p><b>Note</b>:</p><p>This function is available only if <code>Event</code> is compiled with OpenSSL support.</p>
-		 * @return string <p>Returns the current cipher name of the SSL connection, or <b><code>FALSE</code></b> on error.</p>
+		 * @return string <p>Returns the current cipher name of the SSL connection, or <b><code>false</code></b> on error.</p>
 		 * @link https://php.net/manual/en/eventbufferevent.sslgetciphername.php
 		 * @since PECL event >= 1.10.0
 		 */
@@ -1001,7 +1001,7 @@ namespace {
 		/**
 		 * Returns version of cipher used by current SSL connection
 		 * <p>Retrieves version of cipher used by current SSL connection.</p><p><b>Note</b>:</p><p>This function is available only if <code>Event</code> is compiled with OpenSSL support.</p>
-		 * @return string <p>Returns the current cipher version of the SSL connection, or <b><code>FALSE</code></b> on error.</p>
+		 * @return string <p>Returns the current cipher version of the SSL connection, or <b><code>false</code></b> on error.</p>
 		 * @link https://php.net/manual/en/eventbufferevent.sslgetcipherversion.php
 		 * @since PECL event >= 1.10.0
 		 */
@@ -1029,7 +1029,7 @@ namespace {
 		 * Creates a new SSL buffer event to send its data over an SSL on a socket
 		 * <p>Creates a new SSL buffer event to send its data over an SSL on a socket.</p>
 		 * @param \EventBase $base <p>Associated event base.</p>
-		 * @param mixed $socket <p>Socket to use for this SSL. Can be stream or socket resource, numeric file descriptor, or <b><code>NULL</code></b>. If <code>socket</code> is <b><code>NULL</code></b>, it is assumed that the file descriptor for the socket will be assigned later, for instance, by means of <code>EventBufferEvent::connectHost()</code> method.</p>
+		 * @param mixed $socket <p>Socket to use for this SSL. Can be stream or socket resource, numeric file descriptor, or <b><code>null</code></b>. If <code>socket</code> is <b><code>null</code></b>, it is assumed that the file descriptor for the socket will be assigned later, for instance, by means of <code>EventBufferEvent::connectHost()</code> method.</p>
 		 * @param \EventSslContext $ctx <p>Object of EventSslContext class.</p>
 		 * @param int $state <p>The current state of SSL connection: <b><code>EventBufferEvent::SSL_OPEN</code></b> , <b><code>EventBufferEvent::SSL_ACCEPTING</code></b> or <b><code>EventBufferEvent::SSL_CONNECTING</code></b> .</p>
 		 * @param int $options <p>The buffer event options.</p>
@@ -1037,13 +1037,13 @@ namespace {
 		 * @link https://php.net/manual/en/eventbufferevent.sslsocket.php
 		 * @since PECL event >= 1.2.6-beta
 		 */
-		public static function sslSocket(\EventBase $base, mixed $socket, \EventSslContext $ctx, int $state, int $options = NULL): \EventBufferEvent {}
+		public static function sslSocket(\EventBase $base, mixed $socket, \EventSslContext $ctx, int $state, int $options = null): \EventBufferEvent {}
 
 		/**
 		 * Adds data to a buffer event's output buffer
 		 * <p>Adds <code>data</code> to a buffer event's output buffer</p>
 		 * @param string $data <p>Data to be added to the underlying buffer.</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b> on success. Otherwise <b><code>FALSE</code></b>.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> on success. Otherwise <b><code>false</code></b>.</p>
 		 * @link https://php.net/manual/en/eventbufferevent.write.php
 		 * @since PECL event >= 1.2.6-beta
 		 */
@@ -1053,7 +1053,7 @@ namespace {
 		 * Adds contents of the entire buffer to a buffer event's output buffer
 		 * <p>Adds contents of the entire buffer to a buffer event's output buffer</p>
 		 * @param \EventBuffer $buf <p>Source EventBuffer object.</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b> on success. Otherwise <b><code>FALSE</code></b>.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> on success. Otherwise <b><code>false</code></b>.</p>
 		 * @link https://php.net/manual/en/eventbufferevent.writebuffer.php
 		 * @since PECL event >= 1.2.6-beta
 		 */
@@ -1098,7 +1098,7 @@ namespace {
 		 * Tells libevent to avoid specific event method
 		 * <p>Tells libevent to avoid specific event method(backend). See Creating an event base .</p>
 		 * @param string $method <p>The backend method to avoid. See EventConfig constants .</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b> on success, otherwise <b><code>FALSE</code></b>.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> on success, otherwise <b><code>false</code></b>.</p>
 		 * @link https://php.net/manual/en/eventconfig.avoidmethod.php
 		 * @since PECL event >= 1.2.6-beta
 		 */
@@ -1120,7 +1120,7 @@ namespace {
 		 * @param int $max_interval <p>An interval after which Libevent should stop running callbacks and check for more events, or <b><code>0</code></b> , if there should be no such interval.</p>
 		 * @param int $max_callbacks <p>A number of callbacks after which Libevent should stop running callbacks and check for more events, or <b><code>-1</code></b> , if there should be no such limit.</p>
 		 * @param int $min_priority <p>A priority below which <code>max_interval</code> and <code>max_callbacks</code> should not be enforced. If this is set to <b><code>0</code></b> , they are enforced for events of every priority; if it's set to <b><code>1</code></b> , they're enforced for events of priority <b><code>1</code></b> and above, and so on.</p>
-		 * @return void <p>Returns <b><code>TRUE</code></b> on success, otherwise <b><code>FALSE</code></b>.</p>
+		 * @return void <p>Returns <b><code>true</code></b> on success, otherwise <b><code>false</code></b>.</p>
 		 * @link https://php.net/manual/en/eventconfig.setmaxdispatchinterval.php
 		 * @since No version information available, might only be in Git
 		 */
@@ -1168,7 +1168,7 @@ namespace {
 		 * Constructs EventDnsBase object
 		 * <p>Constructs EventDnsBase object.</p>
 		 * @param \EventBase $base <p>Event base.</p>
-		 * @param bool $initialize <p>If the <code>initialize</code> argument is <b><code>TRUE</code></b>, it tries to configure the DNS base sensibly given your operating system&rsquo;s default. Otherwise, it leaves the event DNS base empty, with no nameservers or options configured. In the latter case DNS base should be configured manually, e.g. with <code>EventDnsBase::parseResolvConf()</code> .</p>
+		 * @param bool $initialize <p>If the <code>initialize</code> argument is <b><code>true</code></b>, it tries to configure the DNS base sensibly given your operating system&rsquo;s default. Otherwise, it leaves the event DNS base empty, with no nameservers or options configured. In the latter case DNS base should be configured manually, e.g. with <code>EventDnsBase::parseResolvConf()</code> .</p>
 		 * @return self <p>Returns EventDnsBase object.</p>
 		 * @link https://php.net/manual/en/eventdnsbase.construct.php
 		 * @since PECL event >= 1.2.6-beta
@@ -1179,7 +1179,7 @@ namespace {
 		 * Adds a nameserver to the DNS base
 		 * <p>Adds a nameserver to the evdns_base.</p>
 		 * @param string $ip <p>The nameserver string, either as an IPv4 address, an IPv6 address, an IPv4 address with a port ( <code>IPv4:Port</code> ), or an IPv6 address with a port ( <code>[IPv6]:Port</code> ).</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b> on success. Otherwise <b><code>FALSE</code></b>.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> on success. Otherwise <b><code>false</code></b>.</p>
 		 * @link https://php.net/manual/en/eventdnsbase.addnameserverip.php
 		 * @since PECL event >= 1.2.6-beta
 		 */
@@ -1217,7 +1217,7 @@ namespace {
 		 * Loads a hosts file (in the same format as /etc/hosts) from hosts file
 		 * <p>Loads a hosts file (in the same format as <code>/etc/hosts</code> ) from hosts file.</p>
 		 * @param string $hosts <p>Path to the hosts' file.</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b> on success. Otherwise <b><code>FALSE</code></b>.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> on success. Otherwise <b><code>false</code></b>.</p>
 		 * @link https://php.net/manual/en/eventdnsbase.loadhosts.php
 		 * @since PECL event >= 1.2.6-beta
 		 */
@@ -1228,7 +1228,7 @@ namespace {
 		 * <p>Scans the resolv.conf-formatted file stored in filename, and read in all the options from it that are listed in flags</p>
 		 * @param int $flags <p>Determines what information is parsed from the <code>resolv.conf</code> file. See the man page for <code>resolv.conf</code> for the format of this file.</p> <p>The following directives are not parsed from the file: <code>sortlist, rotate, no-check-names, inet6, debug</code> .</p> <p>If this function encounters an error, the possible return values are:</p><ul> <li> <b><code>1</code></b> = failed to open file</li> <li> <b><code>2</code></b> = failed to stat file</li> <li> <b><code>3</code></b> = file too large</li> <li> <b><code>4</code></b> = out of memory</li> <li> <b><code>5</code></b> = short read from file</li> <li> <b><code>6</code></b> = no nameservers listed in the file</li> </ul>
 		 * @param string $filename <p>Path to <code>resolv.conf</code> file.</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b> on success. Otherwise <b><code>FALSE</code></b>.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> on success. Otherwise <b><code>false</code></b>.</p>
 		 * @link https://php.net/manual/en/eventdnsbase.parseresolvconf.php
 		 * @since PECL event >= 1.2.6-beta
 		 */
@@ -1239,7 +1239,7 @@ namespace {
 		 * <p>Set the value of a configuration option.</p>
 		 * @param string $option <p>The currently available configuration options are: <code>"ndots"</code> , <code>"timeout"</code> , <code>"max-timeouts"</code> , <code>"max-inflight"</code> , and <code>"attempts"</code> .</p>
 		 * @param string $value <p>Option value.</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b> on success. Otherwise <b><code>FALSE</code></b>.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> on success. Otherwise <b><code>false</code></b>.</p>
 		 * @link https://php.net/manual/en/eventdnsbase.setoption.php
 		 * @since PECL event >= 1.2.6-beta
 		 */
@@ -1249,7 +1249,7 @@ namespace {
 		 * Set the 'ndots' parameter for searches
 		 * <p>Set the <b><code>'ndots'</code></b> parameter for searches. Sets the number of dots which, when found in a name, causes the first query to be without any search domain.</p>
 		 * @param int $ndots <p>The number of dots.</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b> on success. Otherwise <b><code>FALSE</code></b>.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> on success. Otherwise <b><code>false</code></b>.</p>
 		 * @link https://php.net/manual/en/eventdnsbase.setsearchndots.php
 		 * @since PECL event >= 1.2.6-beta
 		 */
@@ -1272,13 +1272,13 @@ namespace {
 		 * @link https://php.net/manual/en/eventhttp.construct.php
 		 * @since PECL event >= 1.2.6-beta
 		 */
-		public function __construct(\EventBase $base, \EventSslContext $ctx = NULL) {}
+		public function __construct(\EventBase $base, \EventSslContext $ctx = null) {}
 
 		/**
 		 * Makes an HTTP server accept connections on the specified socket stream or resource
 		 * <p>Makes an HTTP server accept connections on the specified socket stream or resource. The socket should be ready to accept connections.</p><p>Can be called multiple times to accept connections on different sockets.</p><p><b>Note</b>:</p><p>To bind a socket, <code>listen</code> , and <code> accept</code> connections on the socket in s single call use <code>EventHttp::bind()</code> . <b>EventHttp::accept()</b> is needed only if one already has a socket ready to accept connections.</p>
 		 * @param mixed $socket <p>Socket resource, stream or numeric file descriptor representing a socket ready to accept connections.</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b> on success. Otherwise <b><code>FALSE</code></b>.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> on success. Otherwise <b><code>false</code></b>.</p>
 		 * @link https://php.net/manual/en/eventhttp.accept.php
 		 * @since PECL event >= 1.2.6-beta
 		 */
@@ -1288,7 +1288,7 @@ namespace {
 		 * Adds a server alias to the HTTP server object
 		 * <p>Adds a server alias to the HTTP server object.</p>
 		 * @param string $alias <p>The alias to add.</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b> on success. Otherwise <b><code>FALSE</code></b>.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> on success. Otherwise <b><code>false</code></b>.</p>
 		 * @link https://php.net/manual/en/eventhttp.addserveralias.php
 		 * @since PECL event >= 1.4.0-beta
 		 */
@@ -1299,7 +1299,7 @@ namespace {
 		 * <p>Binds an HTTP server on the specified address and port.</p><p>Can be called multiple times to bind the same HTTP server to multiple different ports.</p>
 		 * @param string $address <p>A string containing the IP address to <code>listen(2)</code> on.</p>
 		 * @param int $port <p>The port number to listen on.</p>
-		 * @return void <p>Returns <b><code>TRUE</code></b> on success. Otherwise <b><code>FALSE</code></b>.</p>
+		 * @return void <p>Returns <b><code>true</code></b> on success. Otherwise <b><code>false</code></b>.</p>
 		 * @link https://php.net/manual/en/eventhttp.bind.php
 		 * @since PECL event >= 1.2.6-beta
 		 */
@@ -1309,7 +1309,7 @@ namespace {
 		 * Removes server alias
 		 * <p>Removes server alias added with <code>EventHttp::addServerAlias()</code></p>
 		 * @param string $alias <p>The alias to remove.</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b> on success. Otherwise <b><code>FALSE</code></b>.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> on success. Otherwise <b><code>false</code></b>.</p>
 		 * @link https://php.net/manual/en/eventhttp.removeserveralias.php
 		 * @since PECL event >= 1.4.0-beta
 		 */
@@ -1329,24 +1329,24 @@ namespace {
 		 * Sets a callback for specified URI
 		 * <p>Sets a callback for specified URI.</p>
 		 * @param string $path <p>The path for which to invoke the callback.</p>
-		 * @param string $cb <p>The callback <code>callable</code> that gets invoked on requested <code>path</code> . It should match the following prototype:</p>  <b>callback</b> ([  <code>EventHttpRequest</code> <code>$req</code>  = NULL  [,  <code>mixed</code> <code>$arg</code>  = NULL  ]] ) : void <p></p>  <code>req</code>   <p>EventHttpRequest object.</p>   <code>arg</code>   <p>Custom data.</p>
+		 * @param string $cb <p>The callback <code>callable</code> that gets invoked on requested <code>path</code> . It should match the following prototype:</p>  <b>callback</b> (  <code>EventHttpRequest</code> <code>$req</code>  = NULL  ,  <code>mixed</code> <code>$arg</code>  = NULL  ) : void <p></p>  <code>req</code>   <p>EventHttpRequest object.</p>   <code>arg</code>   <p>Custom data.</p>
 		 * @param string $arg <p>Custom data.</p>
-		 * @return void <p>Returns <b><code>TRUE</code></b> on success. Otherwise <b><code>FALSE</code></b>.</p>
+		 * @return void <p>Returns <b><code>true</code></b> on success. Otherwise <b><code>false</code></b>.</p>
 		 * @link https://php.net/manual/en/eventhttp.setcallback.php
 		 * @since PECL event >= 1.4.0-beta
 		 */
-		public function setCallback(string $path, string $cb, string $arg = NULL): void {}
+		public function setCallback(string $path, string $cb, string $arg = null): void {}
 
 		/**
 		 * Sets default callback to handle requests that are not caught by specific callbacks
 		 * <p>Sets default callback to handle requests that are not caught by specific callbacks</p>
-		 * @param string $cb <p>The callback <code>callable</code> . It should match the following prototype:</p>  <b>callback</b> ([  <code>EventHttpRequest</code> <code>$req</code>  = NULL  [,  <code>mixed</code> <code>$arg</code>  = NULL  ]] ) : void <p></p>  <code>req</code>   <p>EventHttpRequest object.</p>   <code>arg</code>   <p>Custom data.</p>
+		 * @param string $cb <p>The callback <code>callable</code> . It should match the following prototype:</p>  <b>callback</b> (  <code>EventHttpRequest</code> <code>$req</code>  = NULL  ,  <code>mixed</code> <code>$arg</code>  = NULL  ) : void <p></p>  <code>req</code>   <p>EventHttpRequest object.</p>   <code>arg</code>   <p>Custom data.</p>
 		 * @param string $arg <p>User custom data passed to the callback.</p>
-		 * @return void <p>Returns <b><code>TRUE</code></b> on success. Otherwise <b><code>FALSE</code></b>.</p>
+		 * @return void <p>Returns <b><code>true</code></b> on success. Otherwise <b><code>false</code></b>.</p>
 		 * @link https://php.net/manual/en/eventhttp.setdefaultcallback.php
 		 * @since PECL event >= 1.4.0-beta
 		 */
-		public function setDefaultCallback(string $cb, string $arg = NULL): void {}
+		public function setDefaultCallback(string $cb, string $arg = null): void {}
 
 		/**
 		 * Sets maximum request body size
@@ -1390,7 +1390,7 @@ namespace {
 		 * Constructs EventHttpConnection object
 		 * <p>Constructs EventHttpConnection object.</p>
 		 * @param \EventBase $base <p>Associated event base.</p>
-		 * @param \EventDnsBase $dns_base <p>If <code>dns_base</code> is <b><code>NULL</code></b>, hostname resolution will block.</p>
+		 * @param \EventDnsBase $dns_base <p>If <code>dns_base</code> is <b><code>null</code></b>, hostname resolution will block.</p>
 		 * @param string $address <p>The address to connect to.</p>
 		 * @param int $port <p>The port to connect to.</p>
 		 * @param \EventSslContext $ctx <p>EventSslContext class object. Enables OpenSSL.</p> <p><b>Note</b>:</p><p>This parameter is available only if <code>Event</code> is compiled with OpenSSL support and only with <code>Libevent 2.1.0-alpha</code> and higher.</p>
@@ -1398,12 +1398,12 @@ namespace {
 		 * @link https://php.net/manual/en/eventhttpconnection.construct.php
 		 * @since PECL event >= 1.2.6-beta
 		 */
-		public function __construct(\EventBase $base, \EventDnsBase $dns_base, string $address, int $port, \EventSslContext $ctx = NULL) {}
+		public function __construct(\EventBase $base, \EventDnsBase $dns_base, string $address, int $port, \EventSslContext $ctx = null) {}
 
 		/**
 		 * Returns event base associated with the connection
 		 * <p>Returns event base associated with the connection.</p>
-		 * @return EventBase <p>On success returns EventBase object associated with the connection. Otherwise <b><code>FALSE</code></b>.</p>
+		 * @return EventBase <p>On success returns EventBase object associated with the connection. Otherwise <b><code>false</code></b>.</p>
 		 * @link https://php.net/manual/en/eventhttpconnection.getbase.php
 		 * @since PECL event >= 1.2.6-beta
 		 */
@@ -1426,7 +1426,7 @@ namespace {
 		 * @param \EventHttpRequest $req <p>The connection object over which to send the request.</p>
 		 * @param int $type <p>One of  <code>EventHttpRequest::CMD_&#42;</code> constants .</p>
 		 * @param string $uri <p>The URI associated with the request.</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b> on success. Otherwise <b><code>FALSE</code></b>.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> on success. Otherwise <b><code>false</code></b>.</p>
 		 * @link https://php.net/manual/en/eventhttpconnection.makerequest.php
 		 * @since PECL event >= 1.4.0-beta
 		 */
@@ -1435,13 +1435,13 @@ namespace {
 		/**
 		 * Set callback for connection close
 		 * <p>Sets callback for connection close.</p>
-		 * @param callable $callback <p>Callback which is called when connection is closed. Should match the following prototype:</p>  <b>callback</b> ([  <code>EventHttpConnection</code> <code>$conn</code>  = <b><code>NULL</code></b>  [,  <code>mixed</code> <code>$arg</code>  = <b><code>NULL</code></b>  ]] ) : void
+		 * @param callable $callback <p>Callback which is called when connection is closed. Should match the following prototype:</p>  <b>callback</b> (  <code>EventHttpConnection</code> <code>$conn</code>  = <b><code>null</code></b>  ,  <code>mixed</code> <code>$arg</code>  = <b><code>null</code></b>  ) : void
 		 * @param mixed $data
 		 * @return void <p>No value is returned.</p>
 		 * @link https://php.net/manual/en/eventhttpconnection.setclosecallback.php
 		 * @since PECL event >= 1.8.0
 		 */
-		public function setCloseCallback(callable $callback, mixed $data = NULL): void {}
+		public function setCloseCallback(callable $callback, mixed $data = null): void {}
 
 		/**
 		 * Sets the IP address from which HTTP connections are made
@@ -1580,13 +1580,13 @@ namespace {
 		/**
 		 * Constructs EventHttpRequest object
 		 * <p>Constructs EventHttpRequest object.</p>
-		 * @param callable $callback <p>Gets invoked on requesting path. Should match the following prototype:</p>  <b>callback</b> ([  <code>EventHttpRequest</code> <code>$req</code>  = <b><code>NULL</code></b>  [,  <code>mixed</code> <code>$arg</code>  = <b><code>NULL</code></b>  ]] ) : void
+		 * @param callable $callback <p>Gets invoked on requesting path. Should match the following prototype:</p>  <b>callback</b> (  <code>EventHttpRequest</code> <code>$req</code>  = <b><code>null</code></b>  ,  <code>mixed</code> <code>$arg</code>  = <b><code>null</code></b>  ) : void
 		 * @param mixed $data <p>User custom data passed to the callback.</p>
 		 * @return self <p>Returns EventHttpRequest object.</p>
 		 * @link https://php.net/manual/en/eventhttprequest.construct.php
 		 * @since PECL event >= 1.4.0-beta
 		 */
-		public function __construct(callable $callback, mixed $data = NULL) {}
+		public function __construct(callable $callback, mixed $data = null) {}
 
 		/**
 		 * Adds an HTTP header to the headers of the request
@@ -1594,7 +1594,7 @@ namespace {
 		 * @param string $key <p>Header name.</p>
 		 * @param string $value <p>Header value.</p>
 		 * @param int $type <p>One of  <code>EventHttpRequest::&#42;_HEADER</code> constants .</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b> on success. Otherwise <b><code>FALSE</code></b>.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> on success. Otherwise <b><code>false</code></b>.</p>
 		 * @link https://php.net/manual/en/eventhttprequest.addheader.php
 		 * @since PECL event >= 1.4.0-beta
 		 */
@@ -1632,7 +1632,7 @@ namespace {
 		 * <p>Finds the value belonging a header.</p>
 		 * @param string $key <p>The header name.</p>
 		 * @param string $type <p>One of  <code>EventHttpRequest::&#42;_HEADER</code> constants .</p>
-		 * @return void <p>Returns <b><code>NULL</code></b> if header not found.</p>
+		 * @return void <p>Returns <b><code>null</code></b> if header not found.</p>
 		 * @link https://php.net/manual/en/eventhttprequest.findheader.php
 		 * @since PECL event >= 1.4.0-beta
 		 */
@@ -1734,12 +1734,12 @@ namespace {
 		 * Send an HTML error message to the client
 		 * <p>Send an HTML error message to the client.</p>
 		 * @param int $error <p>The HTTP error code.</p>
-		 * @param string $reason <p>A brief explanation ofthe error. If <b><code>NULL</code></b>, the standard meaning of the error code will be used.</p>
+		 * @param string $reason <p>A brief explanation ofthe error. If <b><code>null</code></b>, the standard meaning of the error code will be used.</p>
 		 * @return void <p>No value is returned.</p>
 		 * @link https://php.net/manual/en/eventhttprequest.senderror.php
 		 * @since PECL event >= 1.4.0-beta
 		 */
-		public function sendError(int $error, string $reason = NULL): void {}
+		public function sendError(int $error, string $reason = null): void {}
 
 		/**
 		 * Send an HTML reply to the client
@@ -1751,7 +1751,7 @@ namespace {
 		 * @link https://php.net/manual/en/eventhttprequest.sendreply.php
 		 * @since PECL event >= 1.4.0-beta
 		 */
-		public function sendReply(int $code, string $reason, \EventBuffer $buf = NULL): void {}
+		public function sendReply(int $code, string $reason, \EventBuffer $buf = null): void {}
 
 		/**
 		 * Send another data chunk as part of an ongoing chunked reply
@@ -1845,7 +1845,7 @@ namespace {
 		/**
 		 * Disables an event connect listener object
 		 * <p>Disables an event connect listener object</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b> on success. Otherwise <b><code>FALSE</code></b>.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> on success. Otherwise <b><code>false</code></b>.</p>
 		 * @link https://php.net/manual/en/eventlistener.disable.php
 		 * @since PECL event >= 1.2.6-beta
 		 */
@@ -1854,7 +1854,7 @@ namespace {
 		/**
 		 * Enables an event connect listener object
 		 * <p>Enables an event connect listener object</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b> on success. Otherwise <b><code>FALSE</code></b>.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> on success. Otherwise <b><code>false</code></b>.</p>
 		 * @link https://php.net/manual/en/eventlistener.enable.php
 		 * @since PECL event >= 1.2.6-beta
 		 */
@@ -1874,27 +1874,27 @@ namespace {
 		 * <p>Retreives the current address to which the listener's socket is bound.</p>
 		 * @param string $address <p>Output parameter. IP-address depending on the socket address family.</p>
 		 * @param mixed $port <p>Output parameter. The port the socket is bound to.</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b> on success. Otherwise <b><code>FALSE</code></b>.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> on success. Otherwise <b><code>false</code></b>.</p>
 		 * @link https://php.net/manual/en/eventlistener.getsocketname.php
 		 * @since PECL event >= 1.5.0
 		 */
-		public static function getSocketName(string &$address, mixed &$port = NULL): bool {}
+		public static function getSocketName(string &$address, mixed &$port = null): bool {}
 
 		/**
 		 * The setCallback purpose
 		 * <p>Adjust event connect listener's callback and optionally the callback argument.</p>
-		 * @param callable $cb <p>The new callback for new connections. Ignored if <b><code>NULL</code></b>.</p> <p>Should match the following prototype:</p>  <b>callback</b> ([  <code>EventListener</code> <code>$listener</code>  = <b><code>NULL</code></b>  [,  <code>mixed</code> <code>$fd</code>  = <b><code>NULL</code></b>  [,  <code>array</code> <code>$address</code>  = <b><code>NULL</code></b>  [,  <code>mixed</code> <code>$arg</code>  = <b><code>NULL</code></b>  ]]]] ) : void <p></p>  <code>listener</code>   <p>The EventListener object.</p>   <code>fd</code>   <p>The file descriptor or a resource associated with the listener.</p>   <code>address</code>   <p>Array of two elements: IP address and the <i>server</i> port.</p>   <code>arg</code>   <p>User custom data attached to the callback.</p>
-		 * @param mixed $arg <p>Custom user data attached to the callback. Ignored if <b><code>NULL</code></b>.</p>
+		 * @param callable $cb <p>The new callback for new connections. Ignored if <b><code>null</code></b>.</p> <p>Should match the following prototype:</p>  <b>callback</b> (  <code>EventListener</code> <code>$listener</code>  = <b><code>null</code></b>  ,  <code>mixed</code> <code>$fd</code>  = <b><code>null</code></b>  ,  <code>array</code> <code>$address</code>  = <b><code>null</code></b>  ,  <code>mixed</code> <code>$arg</code>  = <b><code>null</code></b>  ) : void <p></p>  <code>listener</code>   <p>The EventListener object.</p>   <code>fd</code>   <p>The file descriptor or a resource associated with the listener.</p>   <code>address</code>   <p>Array of two elements: IP address and the <i>server</i> port.</p>   <code>arg</code>   <p>User custom data attached to the callback.</p>
+		 * @param mixed $arg <p>Custom user data attached to the callback. Ignored if <b><code>null</code></b>.</p>
 		 * @return void <p>No value is returned.</p>
 		 * @link https://php.net/manual/en/eventlistener.setcallback.php
 		 * @since PECL event >= 1.2.6-beta
 		 */
-		public function setCallback(callable $cb, mixed $arg = NULL): void {}
+		public function setCallback(callable $cb, mixed $arg = null): void {}
 
 		/**
 		 * Set event listener's error callback
 		 * <p>Set event listener's error callback</p>
-		 * @param string $cb <p>The error callback. Should match the following prototype:</p>  <b>callback</b> ([  <code>EventListener</code> <code>$listener</code>  = <b><code>NULL</code></b>  [,  <code>mixed</code> <code>$data</code>  = <b><code>NULL</code></b>  ]] ) : void <p></p>  <code>listener</code>   <p>The EventListener object.</p>   <code>data</code>   <p>User custom data attached to the callback.</p>
+		 * @param string $cb <p>The error callback. Should match the following prototype:</p>  <b>callback</b> (  <code>EventListener</code> <code>$listener</code>  = <b><code>null</code></b>  ,  <code>mixed</code> <code>$data</code>  = <b><code>null</code></b>  ) : void <p></p>  <code>listener</code>   <p>The EventListener object.</p>   <code>data</code>   <p>User custom data attached to the callback.</p>
 		 * @return void
 		 * @link https://php.net/manual/en/eventlistener.seterrorcallback.php
 		 * @since PECL event >= 1.2.6-beta
@@ -2203,7 +2203,7 @@ namespace {
 		 * @link https://php.net/manual/en/eventutil.getlastsocketerrno.php
 		 * @since PECL event >= 1.2.6-beta
 		 */
-		public static function getLastSocketErrno(mixed $socket = NULL): int {}
+		public static function getLastSocketErrno(mixed $socket = null): int {}
 
 		/**
 		 * Returns the most recent socket error
@@ -2213,13 +2213,13 @@ namespace {
 		 * @link https://php.net/manual/en/eventutil.getlastsocketerror.php
 		 * @since PECL event >= 1.2.6-beta
 		 */
-		public static function getLastSocketError(mixed $socket = NULL): string {}
+		public static function getLastSocketError(mixed $socket = null): string {}
 
 		/**
 		 * Returns numeric file descriptor of a socket, or stream
 		 * <p>Returns numeric file descriptor of a socket or stream specified by <code>socket</code> argument just like the <code>Event</code> extension does it internally for all methods accepting socket resource or stream.</p>
 		 * @param mixed $socket <p>Socket resource or stream.</p>
-		 * @return int <p>Returns numeric file descriptor of a socket, or stream. <b>EventUtil::getSocketFd()</b> returns <b><code>FALSE</code></b> in case if it is whether failed to recognize the type of the underlying file, or detected that the file descriptor associated with <code>socket</code> is not valid.</p>
+		 * @return int <p>Returns numeric file descriptor of a socket, or stream. <b>EventUtil::getSocketFd()</b> returns <b><code>false</code></b> in case if it is whether failed to recognize the type of the underlying file, or detected that the file descriptor associated with <code>socket</code> is not valid.</p>
 		 * @link https://php.net/manual/en/eventutil.getsocketfd.php
 		 * @since PECL event >= 1.7.0
 		 */
@@ -2231,11 +2231,11 @@ namespace {
 		 * @param mixed $socket <p>Socket resource, stream or a file descriptor of a socket.</p>
 		 * @param string $address <p>Output parameter. IP-address, or the UNIX domain socket path depending on the socket address family.</p>
 		 * @param mixed $port <p>Output parameter. The port the socket is bound to. Has no meaning for UNIX domain sockets.</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b> on success. Otherwise <b><code>FALSE</code></b>.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> on success. Otherwise <b><code>false</code></b>.</p>
 		 * @link https://php.net/manual/en/eventutil.getsocketname.php
 		 * @since PECL event >= 1.5.0
 		 */
-		public static function getSocketName(mixed $socket, string &$address, mixed &$port = NULL): bool {}
+		public static function getSocketName(mixed $socket, string &$address, mixed &$port = null): bool {}
 
 		/**
 		 * Sets socket options
@@ -2244,7 +2244,7 @@ namespace {
 		 * @param int $level <p>One of <code>EventUtil::SOL_&#42;</code> constants. Specifies the protocol level at which the option resides. For example, to retrieve options at the socket level, a <code>level</code> parameter of <b><code>EventUtil::SOL_SOCKET</code></b> would be used. Other levels, such as TCP, can be used by specifying the protocol number of that level. Protocol numbers can be found by using the <code>getprotobyname()</code> function. See EventUtil constants .</p>
 		 * @param int $optname <p>Option name(type). Has the same meaning as corresponding parameter of <code>socket_get_option()</code> function. See EventUtil constants .</p>
 		 * @param mixed $optval <p>Accepts the same values as <code>optval</code> parameter of the <code>socket_get_option()</code> function.</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b> on success. Otherwise <b><code>FALSE</code></b>.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> on success. Otherwise <b><code>false</code></b>.</p>
 		 * @link https://php.net/manual/en/eventutil.setsocketoption.php
 		 * @see socket_get_option(), socket_set_option()
 		 * @since PECL event >= 1.6.0

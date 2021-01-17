@@ -390,7 +390,7 @@ namespace Gender {
 		 * @link https://php.net/manual/en/gender-gender.construct.php
 		 * @since PECL gender >= 0.6.0
 		 */
-		public function __construct(string $dsn = NULL) {}
+		public function __construct(string $dsn = null) {}
 
 		/**
 		 * Connect to an external name dictionary
@@ -406,7 +406,7 @@ namespace Gender {
 		 * Get textual country representation
 		 * <p>Returns the textual representation of a country from a Gender class constant.</p>
 		 * @param int $country <p>A country ID specified by a Gender\Gender class constant.</p>
-		 * @return array|false <p>Returns an array with the short and full names of the country on success or <b><code>FALSE</code></b> on failure.</p>
+		 * @return array|false <p>Returns an array with the short and full names of the country on success or <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/gender-gender.country.php
 		 * @since PECL gender >= 0.8.0
 		 */
@@ -421,7 +421,7 @@ namespace Gender {
 		 * @link https://php.net/manual/en/gender-gender.get.php
 		 * @since PECL gender >= 0.6.0
 		 */
-		public function get(string $name, int $country = NULL): int {}
+		public function get(string $name, int $country = null): int {}
 
 		/**
 		 * Check if the name0 is an alias of the name1
@@ -429,11 +429,11 @@ namespace Gender {
 		 * @param string $name0 <p>Name to check.</p>
 		 * @param string $name1 <p>Name to check.</p>
 		 * @param int $country <p>Country id identified by Gender class constant. If ommited ANY_COUNTRY is used.</p>
-		 * @return array <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+		 * @return array <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/gender-gender.isnick.php
 		 * @since PECL gender >= 0.9.0
 		 */
-		public function isNick(string $name0, string $name1, int $country = NULL): array {}
+		public function isNick(string $name0, string $name1, int $country = null): array {}
 
 		/**
 		 * Get similar names
@@ -444,7 +444,7 @@ namespace Gender {
 		 * @link https://php.net/manual/en/gender-gender.similarnames.php
 		 * @since PECL gender >= 0.9.0
 		 */
-		public function similarNames(string $name, int $country = NULL): array {}
+		public function similarNames(string $name, int $country = null): array {}
 	}
 
 }

@@ -8,10 +8,10 @@ namespace {
 	 * Artificially increase load. Could be useful in tests, benchmarking
 	 * <p><b>eio_busy()</b> artificially increases load taking <code>delay</code> seconds to execute. May be used for debugging, or benchmarking.</p>
 	 * @param int $delay <p>Delay in seconds</p>
-	 * @param int $pri <p>The request priority: <b><code>EIO_PRI_DEFAULT</code></b>, <b><code>EIO_PRI_MIN</code></b>, <b><code>EIO_PRI_MAX</code></b>, or <b><code>NULL</code></b>. If <b><code>NULL</code></b> passed, <code>pri</code> internally is set to <b><code>EIO_PRI_DEFAULT</code></b>.</p>
+	 * @param int $pri <p>The request priority: <b><code>EIO_PRI_DEFAULT</code></b>, <b><code>EIO_PRI_MIN</code></b>, <b><code>EIO_PRI_MAX</code></b>, or <b><code>null</code></b>. If <b><code>null</code></b> passed, <code>pri</code> internally is set to <b><code>EIO_PRI_DEFAULT</code></b>.</p>
 	 * @param callable $callback <p>This callback is called when all the group requests are done.</p>
 	 * @param mixed $data <p>Arbitrary variable passed to <code>callback</code>.</p>
-	 * @return resource <p><b>eio_busy()</b> returns request resource on success or <b><code>FALSE</code></b> on error.</p>
+	 * @return resource <p><b>eio_busy()</b> returns request resource on success or <b><code>false</code></b> on error.</p>
 	 * @link https://php.net/manual/en/function.eio-busy.php
 	 * @see eio_nop()
 	 * @since PECL eio >= 0.0.1dev
@@ -34,10 +34,10 @@ namespace {
 	 * <p><b>eio_chmod()</b> changes file, or directory permissions. The new permissions are specified by <code>mode</code>.</p>
 	 * @param string $path <p>Path to the target file or directory</p><p><b>Warning</b></p><p>Avoid relative paths</p>
 	 * @param int $mode <p>The new permissions. E.g. <b><code>0644</code></b>.</p>
-	 * @param int $pri <p>The request priority: <b><code>EIO_PRI_DEFAULT</code></b>, <b><code>EIO_PRI_MIN</code></b>, <b><code>EIO_PRI_MAX</code></b>, or <b><code>NULL</code></b>. If <b><code>NULL</code></b> passed, <code>pri</code> internally is set to <b><code>EIO_PRI_DEFAULT</code></b>.</p>
+	 * @param int $pri <p>The request priority: <b><code>EIO_PRI_DEFAULT</code></b>, <b><code>EIO_PRI_MIN</code></b>, <b><code>EIO_PRI_MAX</code></b>, or <b><code>null</code></b>. If <b><code>null</code></b> passed, <code>pri</code> internally is set to <b><code>EIO_PRI_DEFAULT</code></b>.</p>
 	 * @param callable $callback <p><code>callback</code> function is called when the request is done. It should match the following prototype:</p><code> void&nbsp;callback(mixed&nbsp;$data,&nbsp;int&nbsp;$result[,&nbsp;resource&nbsp;$req]); </code>   <code>data</code>  <p>is custom data passed to the request.</p>  <code>result</code>  <p>request-specific result value; basically, the value returned by corresponding system call.</p>  <code>req</code>  <p>is optional request resource which can be used with functions like <code>eio_get_last_error()</code></p>
 	 * @param mixed $data <p>Arbitrary variable passed to <code>callback</code>.</p>
-	 * @return resource <p><b>eio_chmod()</b> returns request resource on success or <b><code>FALSE</code></b> on error.</p>
+	 * @return resource <p><b>eio_chmod()</b> returns request resource on success or <b><code>false</code></b> on error.</p>
 	 * @link https://php.net/manual/en/function.eio-chmod.php
 	 * @see eio_chown()
 	 * @since PECL eio >= 0.0.1dev
@@ -50,10 +50,10 @@ namespace {
 	 * @param string $path <p>Path to file or directory.</p><p><b>Warning</b></p><p>Avoid relative paths</p>
 	 * @param int $uid <p>User ID. Is ignored when equal to -1.</p>
 	 * @param int $gid <p>Group ID. Is ignored when equal to -1.</p>
-	 * @param int $pri <p>The request priority: <b><code>EIO_PRI_DEFAULT</code></b>, <b><code>EIO_PRI_MIN</code></b>, <b><code>EIO_PRI_MAX</code></b>, or <b><code>NULL</code></b>. If <b><code>NULL</code></b> passed, <code>pri</code> internally is set to <b><code>EIO_PRI_DEFAULT</code></b>.</p>
+	 * @param int $pri <p>The request priority: <b><code>EIO_PRI_DEFAULT</code></b>, <b><code>EIO_PRI_MIN</code></b>, <b><code>EIO_PRI_MAX</code></b>, or <b><code>null</code></b>. If <b><code>null</code></b> passed, <code>pri</code> internally is set to <b><code>EIO_PRI_DEFAULT</code></b>.</p>
 	 * @param callable $callback <p><code>callback</code> function is called when the request is done. It should match the following prototype:</p><code> void&nbsp;callback(mixed&nbsp;$data,&nbsp;int&nbsp;$result[,&nbsp;resource&nbsp;$req]); </code>   <code>data</code>  <p>is custom data passed to the request.</p>  <code>result</code>  <p>request-specific result value; basically, the value returned by corresponding system call.</p>  <code>req</code>  <p>is optional request resource which can be used with functions like <code>eio_get_last_error()</code></p>
 	 * @param mixed $data <p>Arbitrary variable passed to <code>callback</code>.</p>
-	 * @return resource <p><b>eio_chown()</b> returns request resource on success or <b><code>FALSE</code></b> on error.</p>
+	 * @return resource <p><b>eio_chown()</b> returns request resource on success or <b><code>false</code></b> on error.</p>
 	 * @link https://php.net/manual/en/function.eio-chown.php
 	 * @see eio_chmod()
 	 * @since PECL eio >= 0.0.1dev
@@ -64,10 +64,10 @@ namespace {
 	 * Close file
 	 * <p><b>eio_close()</b> closes file specified by <code>fd</code>.</p>
 	 * @param mixed $fd <p>Stream, Socket resource, or numeric file descriptor</p>
-	 * @param int $pri <p>The request priority: <b><code>EIO_PRI_DEFAULT</code></b>, <b><code>EIO_PRI_MIN</code></b>, <b><code>EIO_PRI_MAX</code></b>, or <b><code>NULL</code></b>. If <b><code>NULL</code></b> passed, <code>pri</code> internally is set to <b><code>EIO_PRI_DEFAULT</code></b>.</p>
+	 * @param int $pri <p>The request priority: <b><code>EIO_PRI_DEFAULT</code></b>, <b><code>EIO_PRI_MIN</code></b>, <b><code>EIO_PRI_MAX</code></b>, or <b><code>null</code></b>. If <b><code>null</code></b> passed, <code>pri</code> internally is set to <b><code>EIO_PRI_DEFAULT</code></b>.</p>
 	 * @param callable $callback <p><code>callback</code> function is called when the request is done. It should match the following prototype:</p><code> void&nbsp;callback(mixed&nbsp;$data,&nbsp;int&nbsp;$result[,&nbsp;resource&nbsp;$req]); </code>   <code>data</code>  <p>is custom data passed to the request.</p>  <code>result</code>  <p>request-specific result value; basically, the value returned by corresponding system call.</p>  <code>req</code>  <p>is optional request resource which can be used with functions like <code>eio_get_last_error()</code></p>
 	 * @param mixed $data <p>Arbitrary variable passed to <code>callback</code>.</p>
-	 * @return resource <p><b>eio_close()</b> returns request resource on success or <b><code>FALSE</code></b> on error.</p>
+	 * @return resource <p><b>eio_close()</b> returns request resource on success or <b><code>false</code></b> on error.</p>
 	 * @link https://php.net/manual/en/function.eio-close.php
 	 * @see eio_open()
 	 * @since PECL eio >= 0.0.1dev
@@ -78,10 +78,10 @@ namespace {
 	 * Execute custom request like any other eio_&#42; call
 	 * <p><b>eio_custom()</b> executes custom function specified by <code>execute</code> processing it just like any other <i>eio_&#42;</i> call.</p>
 	 * @param callable $execute <p>Specifies the request function that should match the following prototype:</p><pre> mixed execute(mixed data); </pre> <code>callback</code> is event completion callback that should match the following prototype: <pre> void callback(mixed data, mixed result); </pre> <code>data</code> is the data passed to <code>execute</code> via <code>data</code> argument without modifications <code>result</code> value returned by <code>execute</code>
-	 * @param int $pri <p>The request priority: <b><code>EIO_PRI_DEFAULT</code></b>, <b><code>EIO_PRI_MIN</code></b>, <b><code>EIO_PRI_MAX</code></b>, or <b><code>NULL</code></b>. If <b><code>NULL</code></b> passed, <code>pri</code> internally is set to <b><code>EIO_PRI_DEFAULT</code></b>.</p>
+	 * @param int $pri <p>The request priority: <b><code>EIO_PRI_DEFAULT</code></b>, <b><code>EIO_PRI_MIN</code></b>, <b><code>EIO_PRI_MAX</code></b>, or <b><code>null</code></b>. If <b><code>null</code></b> passed, <code>pri</code> internally is set to <b><code>EIO_PRI_DEFAULT</code></b>.</p>
 	 * @param callable $callback <p><code>callback</code> function is called when the request is done. It should match the following prototype:</p><code> void&nbsp;callback(mixed&nbsp;$data,&nbsp;int&nbsp;$result[,&nbsp;resource&nbsp;$req]); </code>   <code>data</code>  <p>is custom data passed to the request.</p>  <code>result</code>  <p>request-specific result value; basically, the value returned by corresponding system call.</p>  <code>req</code>  <p>is optional request resource which can be used with functions like <code>eio_get_last_error()</code></p>
 	 * @param mixed $data <p>Arbitrary variable passed to <code>callback</code>.</p>
-	 * @return resource <p><b>eio_custom()</b> returns request resource on success or <b><code>FALSE</code></b> on error.</p>
+	 * @return resource <p><b>eio_custom()</b> returns request resource on success or <b><code>false</code></b> on error.</p>
 	 * @link https://php.net/manual/en/function.eio-custom.php
 	 * @since PECL eio >= 0.0.1dev
 	 */
@@ -92,10 +92,10 @@ namespace {
 	 * <p><b>eio_dup2()</b> duplicates file descriptor.</p>
 	 * @param mixed $fd <p>Source stream, Socket resource, or numeric file descriptor</p>
 	 * @param mixed $fd2 <p>Target stream, Socket resource, or numeric file descriptor</p>
-	 * @param int $pri <p>The request priority: <b><code>EIO_PRI_DEFAULT</code></b>, <b><code>EIO_PRI_MIN</code></b>, <b><code>EIO_PRI_MAX</code></b>, or <b><code>NULL</code></b>. If <b><code>NULL</code></b> passed, <code>pri</code> internally is set to <b><code>EIO_PRI_DEFAULT</code></b>.</p>
+	 * @param int $pri <p>The request priority: <b><code>EIO_PRI_DEFAULT</code></b>, <b><code>EIO_PRI_MIN</code></b>, <b><code>EIO_PRI_MAX</code></b>, or <b><code>null</code></b>. If <b><code>null</code></b> passed, <code>pri</code> internally is set to <b><code>EIO_PRI_DEFAULT</code></b>.</p>
 	 * @param callable $callback <p><code>callback</code> function is called when the request is done. It should match the following prototype:</p><code> void&nbsp;callback(mixed&nbsp;$data,&nbsp;int&nbsp;$result[,&nbsp;resource&nbsp;$req]); </code>   <code>data</code>  <p>is custom data passed to the request.</p>  <code>result</code>  <p>request-specific result value; basically, the value returned by corresponding system call.</p>  <code>req</code>  <p>is optional request resource which can be used with functions like <code>eio_get_last_error()</code></p>
 	 * @param mixed $data <p>Arbitrary variable passed to <code>callback</code>.</p>
-	 * @return resource <p><b>eio_dup2()</b> returns request resource on success or <b><code>FALSE</code></b> on error.</p>
+	 * @return resource <p><b>eio_dup2()</b> returns request resource on success or <b><code>false</code></b> on error.</p>
 	 * @link https://php.net/manual/en/function.eio-dup2.php
 	 * @since PECL eio >= 0.0.1dev
 	 */
@@ -104,7 +104,7 @@ namespace {
 	/**
 	 * Polls libeio until all requests proceeded
 	 * <p><b>eio_event_loop()</b> polls libeio until all requests proceeded.</p>
-	 * @return bool <p><b>eio_event_loop()</b> returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on error.</p>
+	 * @return bool <p><b>eio_event_loop()</b> returns <b><code>true</code></b> on success or <b><code>false</code></b> on error.</p>
 	 * @link https://php.net/manual/en/function.eio-event-loop.php
 	 * @see eio_poll()
 	 * @since PECL eio >= 0.0.1dev
@@ -118,10 +118,10 @@ namespace {
 	 * @param int $mode <p>Currently only one flag is supported for mode: <b><code>EIO_FALLOC_FL_KEEP_SIZE</code></b> (the same as POSIX constant <b><code>FALLOC_FL_KEEP_SIZE</code></b>).</p>
 	 * @param int $offset <p>Specifies start of the byte range.</p>
 	 * @param int $length <p>Specifies length the byte range.</p>
-	 * @param int $pri <p>The request priority: <b><code>EIO_PRI_DEFAULT</code></b>, <b><code>EIO_PRI_MIN</code></b>, <b><code>EIO_PRI_MAX</code></b>, or <b><code>NULL</code></b>. If <b><code>NULL</code></b> passed, <code>pri</code> internally is set to <b><code>EIO_PRI_DEFAULT</code></b>.</p>
+	 * @param int $pri <p>The request priority: <b><code>EIO_PRI_DEFAULT</code></b>, <b><code>EIO_PRI_MIN</code></b>, <b><code>EIO_PRI_MAX</code></b>, or <b><code>null</code></b>. If <b><code>null</code></b> passed, <code>pri</code> internally is set to <b><code>EIO_PRI_DEFAULT</code></b>.</p>
 	 * @param callable $callback <p><code>callback</code> function is called when the request is done. It should match the following prototype:</p><code> void&nbsp;callback(mixed&nbsp;$data,&nbsp;int&nbsp;$result[,&nbsp;resource&nbsp;$req]); </code>   <code>data</code>  <p>is custom data passed to the request.</p>  <code>result</code>  <p>request-specific result value; basically, the value returned by corresponding system call.</p>  <code>req</code>  <p>is optional request resource which can be used with functions like <code>eio_get_last_error()</code></p>
 	 * @param mixed $data <p>Arbitrary variable passed to <code>callback</code>.</p>
-	 * @return resource <p><b>eio_fallocate()</b> returns request resource on success or <b><code>FALSE</code></b> on error.</p>
+	 * @return resource <p><b>eio_fallocate()</b> returns request resource on success or <b><code>false</code></b> on error.</p>
 	 * @link https://php.net/manual/en/function.eio-fallocate.php
 	 * @since PECL eio >= 0.0.1dev
 	 */
@@ -132,10 +132,10 @@ namespace {
 	 * <p><b>eio_fchmod()</b> changes permissions for the file specified by <code>fd</code> file descriptor.</p>
 	 * @param mixed $fd <p>Stream, Socket resource, or numeric file descriptor, e.g. returned by <code>eio_open()</code>.</p>
 	 * @param int $mode <p>The new permissions. E.g. 0644.</p>
-	 * @param int $pri <p>The request priority: <b><code>EIO_PRI_DEFAULT</code></b>, <b><code>EIO_PRI_MIN</code></b>, <b><code>EIO_PRI_MAX</code></b>, or <b><code>NULL</code></b>. If <b><code>NULL</code></b> passed, <code>pri</code> internally is set to <b><code>EIO_PRI_DEFAULT</code></b>.</p>
+	 * @param int $pri <p>The request priority: <b><code>EIO_PRI_DEFAULT</code></b>, <b><code>EIO_PRI_MIN</code></b>, <b><code>EIO_PRI_MAX</code></b>, or <b><code>null</code></b>. If <b><code>null</code></b> passed, <code>pri</code> internally is set to <b><code>EIO_PRI_DEFAULT</code></b>.</p>
 	 * @param callable $callback <p><code>callback</code> function is called when the request is done. It should match the following prototype:</p><code> void&nbsp;callback(mixed&nbsp;$data,&nbsp;int&nbsp;$result[,&nbsp;resource&nbsp;$req]); </code>   <code>data</code>  <p>is custom data passed to the request.</p>  <code>result</code>  <p>request-specific result value; basically, the value returned by corresponding system call.</p>  <code>req</code>  <p>is optional request resource which can be used with functions like <code>eio_get_last_error()</code></p>
 	 * @param mixed $data <p>Arbitrary variable passed to <code>callback</code>.</p>
-	 * @return resource <p><b>eio_fchmod()</b> returns request resource on success or <b><code>FALSE</code></b> on error.</p>
+	 * @return resource <p><b>eio_fchmod()</b> returns request resource on success or <b><code>false</code></b> on error.</p>
 	 * @link https://php.net/manual/en/function.eio-fchmod.php
 	 * @see eio_fchown()
 	 * @since PECL eio >= 0.0.1dev
@@ -148,7 +148,7 @@ namespace {
 	 * @param mixed $fd <p>Stream, Socket resource, or numeric file descriptor.</p>
 	 * @param int $uid <p>User ID. Is ignored when equal to -1.</p>
 	 * @param int $gid <p>Group ID. Is ignored when equal to -1.</p>
-	 * @param int $pri <p>The request priority: <b><code>EIO_PRI_DEFAULT</code></b>, <b><code>EIO_PRI_MIN</code></b>, <b><code>EIO_PRI_MAX</code></b>, or <b><code>NULL</code></b>. If <b><code>NULL</code></b> passed, <code>pri</code> internally is set to <b><code>EIO_PRI_DEFAULT</code></b>.</p>
+	 * @param int $pri <p>The request priority: <b><code>EIO_PRI_DEFAULT</code></b>, <b><code>EIO_PRI_MIN</code></b>, <b><code>EIO_PRI_MAX</code></b>, or <b><code>null</code></b>. If <b><code>null</code></b> passed, <code>pri</code> internally is set to <b><code>EIO_PRI_DEFAULT</code></b>.</p>
 	 * @param callable $callback <p><code>callback</code> function is called when the request is done. It should match the following prototype:</p><code> void&nbsp;callback(mixed&nbsp;$data,&nbsp;int&nbsp;$result[,&nbsp;resource&nbsp;$req]); </code>   <code>data</code>  <p>is custom data passed to the request.</p>  <code>result</code>  <p>request-specific result value; basically, the value returned by corresponding system call.</p>  <code>req</code>  <p>is optional request resource which can be used with functions like <code>eio_get_last_error()</code></p>
 	 * @param mixed $data <p>Arbitrary variable passed to <code>callback</code>.</p>
 	 * @return resource
@@ -162,10 +162,10 @@ namespace {
 	 * Synchronize a file's in-core state with storage device
 	 * <p><b>eio_fdatasync()</b> synchronizes a file's in-core state with storage device.</p>
 	 * @param mixed $fd <p>Stream, Socket resource, or numeric file descriptor, e.g. returned by <code>eio_open()</code>.</p>
-	 * @param int $pri <p>The request priority: <b><code>EIO_PRI_DEFAULT</code></b>, <b><code>EIO_PRI_MIN</code></b>, <b><code>EIO_PRI_MAX</code></b>, or <b><code>NULL</code></b>. If <b><code>NULL</code></b> passed, <code>pri</code> internally is set to <b><code>EIO_PRI_DEFAULT</code></b>.</p>
+	 * @param int $pri <p>The request priority: <b><code>EIO_PRI_DEFAULT</code></b>, <b><code>EIO_PRI_MIN</code></b>, <b><code>EIO_PRI_MAX</code></b>, or <b><code>null</code></b>. If <b><code>null</code></b> passed, <code>pri</code> internally is set to <b><code>EIO_PRI_DEFAULT</code></b>.</p>
 	 * @param callable $callback <p><code>callback</code> function is called when the request is done. It should match the following prototype:</p><code> void&nbsp;callback(mixed&nbsp;$data,&nbsp;int&nbsp;$result[,&nbsp;resource&nbsp;$req]); </code>   <code>data</code>  <p>is custom data passed to the request.</p>  <code>result</code>  <p>request-specific result value; basically, the value returned by corresponding system call.</p>  <code>req</code>  <p>is optional request resource which can be used with functions like <code>eio_get_last_error()</code></p>
 	 * @param mixed $data <p>Arbitrary variable passed to <code>callback</code>.</p>
-	 * @return resource <p><b>eio_fdatasync()</b> returns request resource on success or <b><code>FALSE</code></b> on error.</p>
+	 * @return resource <p><b>eio_fdatasync()</b> returns request resource on success or <b><code>false</code></b> on error.</p>
 	 * @link https://php.net/manual/en/function.eio-fdatasync.php
 	 * @since PECL eio >= 0.0.1dev
 	 */
@@ -175,38 +175,38 @@ namespace {
 	 * Get file status
 	 * <p><b>eio_fstat()</b> returns file status information in <code>result</code> argument of <code>callback</code></p>
 	 * @param mixed $fd <p>Stream, Socket resource, or numeric file descriptor.</p>
-	 * @param int $pri <p>The request priority: <b><code>EIO_PRI_DEFAULT</code></b>, <b><code>EIO_PRI_MIN</code></b>, <b><code>EIO_PRI_MAX</code></b>, or <b><code>NULL</code></b>. If <b><code>NULL</code></b> passed, <code>pri</code> internally is set to <b><code>EIO_PRI_DEFAULT</code></b>.</p>
+	 * @param int $pri <p>The request priority: <b><code>EIO_PRI_DEFAULT</code></b>, <b><code>EIO_PRI_MIN</code></b>, <b><code>EIO_PRI_MAX</code></b>, or <b><code>null</code></b>. If <b><code>null</code></b> passed, <code>pri</code> internally is set to <b><code>EIO_PRI_DEFAULT</code></b>.</p>
 	 * @param callable $callback <p><code>callback</code> function is called when the request is done. It should match the following prototype:</p><code> void&nbsp;callback(mixed&nbsp;$data,&nbsp;int&nbsp;$result[,&nbsp;resource&nbsp;$req]); </code>   <code>data</code>  <p>is custom data passed to the request.</p>  <code>result</code>  <p>request-specific result value; basically, the value returned by corresponding system call.</p>  <code>req</code>  <p>is optional request resource which can be used with functions like <code>eio_get_last_error()</code></p>
 	 * @param mixed $data <p>Arbitrary variable passed to <code>callback</code>.</p>
-	 * @return resource <p><code>eio_busy()</code> returns request resource on success or <b><code>FALSE</code></b> on error.</p>
+	 * @return resource <p><code>eio_busy()</code> returns request resource on success or <b><code>false</code></b> on error.</p>
 	 * @link https://php.net/manual/en/function.eio-fstat.php
 	 * @see eio_lstat(), eio_stat()
 	 * @since PECL eio >= 0.0.1dev
 	 */
-	function eio_fstat(mixed $fd, int $pri, callable $callback, mixed $data = NULL) {}
+	function eio_fstat(mixed $fd, int $pri, callable $callback, mixed $data = null) {}
 
 	/**
 	 * Get file system statistics
 	 * <p><b>eio_fstatvfs()</b> returns file system statistics in <code>result</code> of <code>callback</code>.</p>
 	 * @param mixed $fd <p>A file descriptor of a file within the mounted file system.</p>
-	 * @param int $pri <p>The request priority: <b><code>EIO_PRI_DEFAULT</code></b>, <b><code>EIO_PRI_MIN</code></b>, <b><code>EIO_PRI_MAX</code></b>, or <b><code>NULL</code></b>. If <b><code>NULL</code></b> passed, <code>pri</code> internally is set to <b><code>EIO_PRI_DEFAULT</code></b>.</p>
+	 * @param int $pri <p>The request priority: <b><code>EIO_PRI_DEFAULT</code></b>, <b><code>EIO_PRI_MIN</code></b>, <b><code>EIO_PRI_MAX</code></b>, or <b><code>null</code></b>. If <b><code>null</code></b> passed, <code>pri</code> internally is set to <b><code>EIO_PRI_DEFAULT</code></b>.</p>
 	 * @param callable $callback <p><code>callback</code> function is called when the request is done. It should match the following prototype:</p><code> void&nbsp;callback(mixed&nbsp;$data,&nbsp;int&nbsp;$result[,&nbsp;resource&nbsp;$req]); </code>   <code>data</code>  <p>is custom data passed to the request.</p>  <code>result</code>  <p>request-specific result value; basically, the value returned by corresponding system call.</p>  <code>req</code>  <p>is optional request resource which can be used with functions like <code>eio_get_last_error()</code></p>
 	 * @param mixed $data <p>Arbitrary variable passed to <code>callback</code>.</p>
-	 * @return resource <p><b>eio_fstatvfs()</b> returns request resource on success or <b><code>FALSE</code></b> on error.</p>
+	 * @return resource <p><b>eio_fstatvfs()</b> returns request resource on success or <b><code>false</code></b> on error.</p>
 	 * @link https://php.net/manual/en/function.eio-fstatvfs.php
 	 * @see eio_statvfs()
 	 * @since PECL eio >= 0.0.1dev
 	 */
-	function eio_fstatvfs(mixed $fd, int $pri, callable $callback, mixed $data = NULL) {}
+	function eio_fstatvfs(mixed $fd, int $pri, callable $callback, mixed $data = null) {}
 
 	/**
 	 * Synchronize a file's in-core state with storage device
 	 * <p>Synchronize a file's in-core state with storage device</p>
 	 * @param mixed $fd <p>Stream, Socket resource, or numeric file descriptor.</p>
-	 * @param int $pri <p>The request priority: <b><code>EIO_PRI_DEFAULT</code></b>, <b><code>EIO_PRI_MIN</code></b>, <b><code>EIO_PRI_MAX</code></b>, or <b><code>NULL</code></b>. If <b><code>NULL</code></b> passed, <code>pri</code> internally is set to <b><code>EIO_PRI_DEFAULT</code></b>.</p>
+	 * @param int $pri <p>The request priority: <b><code>EIO_PRI_DEFAULT</code></b>, <b><code>EIO_PRI_MIN</code></b>, <b><code>EIO_PRI_MAX</code></b>, or <b><code>null</code></b>. If <b><code>null</code></b> passed, <code>pri</code> internally is set to <b><code>EIO_PRI_DEFAULT</code></b>.</p>
 	 * @param callable $callback <p><code>callback</code> function is called when the request is done. It should match the following prototype:</p><code> void&nbsp;callback(mixed&nbsp;$data,&nbsp;int&nbsp;$result[,&nbsp;resource&nbsp;$req]); </code>   <code>data</code>  <p>is custom data passed to the request.</p>  <code>result</code>  <p>request-specific result value; basically, the value returned by corresponding system call.</p>  <code>req</code>  <p>is optional request resource which can be used with functions like <code>eio_get_last_error()</code></p>
 	 * @param mixed $data <p>Arbitrary variable passed to <code>callback</code>.</p>
-	 * @return resource <p><b>eio_fsync()</b> returns request resource on success or <b><code>FALSE</code></b> on error.</p>
+	 * @return resource <p><b>eio_fsync()</b> returns request resource on success or <b><code>false</code></b> on error.</p>
 	 * @link https://php.net/manual/en/function.eio-fsync.php
 	 * @see eio_sync()
 	 * @since PECL eio >= 0.0.1dev
@@ -218,10 +218,10 @@ namespace {
 	 * <p><b>eio_ftruncate()</b> causes a regular file referenced by <code>fd</code> file descriptor to be truncated to precisely <code>length</code> bytes.</p>
 	 * @param mixed $fd <p>Stream, Socket resource, or numeric file descriptor.</p>
 	 * @param int $offset <p>Offset from beginning of the file</p>
-	 * @param int $pri <p>The request priority: <b><code>EIO_PRI_DEFAULT</code></b>, <b><code>EIO_PRI_MIN</code></b>, <b><code>EIO_PRI_MAX</code></b>, or <b><code>NULL</code></b>. If <b><code>NULL</code></b> passed, <code>pri</code> internally is set to <b><code>EIO_PRI_DEFAULT</code></b>.</p>
+	 * @param int $pri <p>The request priority: <b><code>EIO_PRI_DEFAULT</code></b>, <b><code>EIO_PRI_MIN</code></b>, <b><code>EIO_PRI_MAX</code></b>, or <b><code>null</code></b>. If <b><code>null</code></b> passed, <code>pri</code> internally is set to <b><code>EIO_PRI_DEFAULT</code></b>.</p>
 	 * @param callable $callback <p><code>callback</code> function is called when the request is done. It should match the following prototype:</p><code> void&nbsp;callback(mixed&nbsp;$data,&nbsp;int&nbsp;$result[,&nbsp;resource&nbsp;$req]); </code>   <code>data</code>  <p>is custom data passed to the request.</p>  <code>result</code>  <p>request-specific result value; basically, the value returned by corresponding system call.</p>  <code>req</code>  <p>is optional request resource which can be used with functions like <code>eio_get_last_error()</code></p>
 	 * @param mixed $data <p>Arbitrary variable passed to <code>callback</code>.</p>
-	 * @return resource <p><b>eio_ftruncate()</b> returns request resource on success or <b><code>FALSE</code></b> on error.</p>
+	 * @return resource <p><b>eio_ftruncate()</b> returns request resource on success or <b><code>false</code></b> on error.</p>
 	 * @link https://php.net/manual/en/function.eio-ftruncate.php
 	 * @see eio_truncate()
 	 * @since PECL eio >= 0.0.1dev
@@ -234,10 +234,10 @@ namespace {
 	 * @param mixed $fd <p>Stream, Socket resource, or numeric file descriptor, e.g. returned by <code>eio_open()</code></p>
 	 * @param float $atime <p>Access time</p>
 	 * @param float $mtime <p>Modification time</p>
-	 * @param int $pri <p>The request priority: <b><code>EIO_PRI_DEFAULT</code></b>, <b><code>EIO_PRI_MIN</code></b>, <b><code>EIO_PRI_MAX</code></b>, or <b><code>NULL</code></b>. If <b><code>NULL</code></b> passed, <code>pri</code> internally is set to <b><code>EIO_PRI_DEFAULT</code></b>.</p>
+	 * @param int $pri <p>The request priority: <b><code>EIO_PRI_DEFAULT</code></b>, <b><code>EIO_PRI_MIN</code></b>, <b><code>EIO_PRI_MAX</code></b>, or <b><code>null</code></b>. If <b><code>null</code></b> passed, <code>pri</code> internally is set to <b><code>EIO_PRI_DEFAULT</code></b>.</p>
 	 * @param callable $callback <p><code>callback</code> function is called when the request is done. It should match the following prototype:</p><code> void&nbsp;callback(mixed&nbsp;$data,&nbsp;int&nbsp;$result[,&nbsp;resource&nbsp;$req]); </code>   <code>data</code>  <p>is custom data passed to the request.</p>  <code>result</code>  <p>request-specific result value; basically, the value returned by corresponding system call.</p>  <code>req</code>  <p>is optional request resource which can be used with functions like <code>eio_get_last_error()</code></p>
 	 * @param mixed $data <p>Arbitrary variable passed to <code>callback</code>.</p>
-	 * @return resource <p><b>eio_futime()</b> returns request resource on success or <b><code>FALSE</code></b> on error.</p>
+	 * @return resource <p><b>eio_futime()</b> returns request resource on success or <b><code>false</code></b> on error.</p>
 	 * @link https://php.net/manual/en/function.eio-futime.php
 	 * @see eio_utime()
 	 * @since PECL eio >= 0.0.1dev
@@ -247,7 +247,7 @@ namespace {
 	/**
 	 * Get stream representing a variable used in internal communications with libeio
 	 * <p><b>eio_get_event_stream()</b> acquires stream representing a variable used in internal communications with libeio. Could be used to bind with some event loop provided by other PECL extension, for example libevent.</p>
-	 * @return mixed <p><b>eio_get_event_stream()</b> returns stream on success; otherwise, <b><code>NULL</code></b></p>
+	 * @return mixed <p><b>eio_get_event_stream()</b> returns stream on success; otherwise, <b><code>null</code></b></p>
 	 * @link https://php.net/manual/en/function.eio-get-event-stream.php
 	 * @since PECL eio >= 0.3.1b
 	 */
@@ -268,7 +268,7 @@ namespace {
 	 * <p><b>eio_grp()</b> creates a request group.</p>
 	 * @param callable $callback <p><code>callback</code> function is called when the request is done. It should match the following prototype:</p><code> void&nbsp;callback(mixed&nbsp;$data,&nbsp;int&nbsp;$result[,&nbsp;resource&nbsp;$req]); </code>   <code>data</code>  <p>is custom data passed to the request.</p>  <code>result</code>  <p>request-specific result value; basically, the value returned by corresponding system call.</p>  <code>req</code>  <p>is optional request resource which can be used with functions like <code>eio_get_last_error()</code></p>
 	 * @param string $data <p>Arbitrary variable passed to <code>callback</code>.</p>
-	 * @return resource <p><b>eio_grp()</b> returns request group resource on success or <b><code>FALSE</code></b> on error.</p>
+	 * @return resource <p><b>eio_grp()</b> returns request group resource on success or <b><code>false</code></b> on error.</p>
 	 * @link https://php.net/manual/en/function.eio-grp.php
 	 * @see eio_grp_cancel(), eio_grp_add()
 	 * @since PECL eio >= 0.0.1dev
@@ -324,7 +324,7 @@ namespace {
 	 * <p><b>eio_link()</b> creates a hardlink <code>new_path</code> for a file specified by <code>path</code>.</p>
 	 * @param string $path <p>Source file path.</p>
 	 * @param string $new_path <p>Target file path.</p>
-	 * @param int $pri <p>The request priority: <b><code>EIO_PRI_DEFAULT</code></b>, <b><code>EIO_PRI_MIN</code></b>, <b><code>EIO_PRI_MAX</code></b>, or <b><code>NULL</code></b>. If <b><code>NULL</code></b> passed, <code>pri</code> internally is set to <b><code>EIO_PRI_DEFAULT</code></b>.</p>
+	 * @param int $pri <p>The request priority: <b><code>EIO_PRI_DEFAULT</code></b>, <b><code>EIO_PRI_MIN</code></b>, <b><code>EIO_PRI_MAX</code></b>, or <b><code>null</code></b>. If <b><code>null</code></b> passed, <code>pri</code> internally is set to <b><code>EIO_PRI_DEFAULT</code></b>.</p>
 	 * @param callable $callback <p><code>callback</code> function is called when the request is done. It should match the following prototype:</p><code> void&nbsp;callback(mixed&nbsp;$data,&nbsp;int&nbsp;$result[,&nbsp;resource&nbsp;$req]); </code>   <code>data</code>  <p>is custom data passed to the request.</p>  <code>result</code>  <p>request-specific result value; basically, the value returned by corresponding system call.</p>  <code>req</code>  <p>is optional request resource which can be used with functions like <code>eio_get_last_error()</code></p>
 	 * @param mixed $data <p>Arbitrary variable passed to <code>callback</code>.</p>
 	 * @return resource
@@ -338,10 +338,10 @@ namespace {
 	 * Get file status
 	 * <p><b>eio_lstat()</b> returns file status information in <code>result</code> argument of <code>callback</code></p>
 	 * @param string $path <p>The file path</p>
-	 * @param int $pri <p>The request priority: <b><code>EIO_PRI_DEFAULT</code></b>, <b><code>EIO_PRI_MIN</code></b>, <b><code>EIO_PRI_MAX</code></b>, or <b><code>NULL</code></b>. If <b><code>NULL</code></b> passed, <code>pri</code> internally is set to <b><code>EIO_PRI_DEFAULT</code></b>.</p>
+	 * @param int $pri <p>The request priority: <b><code>EIO_PRI_DEFAULT</code></b>, <b><code>EIO_PRI_MIN</code></b>, <b><code>EIO_PRI_MAX</code></b>, or <b><code>null</code></b>. If <b><code>null</code></b> passed, <code>pri</code> internally is set to <b><code>EIO_PRI_DEFAULT</code></b>.</p>
 	 * @param callable $callback <p><code>callback</code> function is called when the request is done. It should match the following prototype:</p><code> void&nbsp;callback(mixed&nbsp;$data,&nbsp;int&nbsp;$result[,&nbsp;resource&nbsp;$req]); </code>   <code>data</code>  <p>is custom data passed to the request.</p>  <code>result</code>  <p>request-specific result value; basically, the value returned by corresponding system call.</p>  <code>req</code>  <p>is optional request resource which can be used with functions like <code>eio_get_last_error()</code></p>
 	 * @param mixed $data <p>Arbitrary variable passed to <code>callback</code>.</p>
-	 * @return resource <p><b>eio_lstat()</b> returns request resource on success or <b><code>FALSE</code></b> on error.</p>
+	 * @return resource <p><b>eio_lstat()</b> returns request resource on success or <b><code>false</code></b> on error.</p>
 	 * @link https://php.net/manual/en/function.eio-lstat.php
 	 * @see eio_stat(), eio_fstat()
 	 * @since PECL eio >= 0.0.1dev
@@ -353,10 +353,10 @@ namespace {
 	 * <p><b>eio_mkdir()</b> creates directory with specified access <code>mode</code>.</p>
 	 * @param string $path <p>Path for the new directory.</p>
 	 * @param int $mode <p>Access mode, e.g. 0755</p>
-	 * @param int $pri <p>The request priority: <b><code>EIO_PRI_DEFAULT</code></b>, <b><code>EIO_PRI_MIN</code></b>, <b><code>EIO_PRI_MAX</code></b>, or <b><code>NULL</code></b>. If <b><code>NULL</code></b> passed, <code>pri</code> internally is set to <b><code>EIO_PRI_DEFAULT</code></b>.</p>
+	 * @param int $pri <p>The request priority: <b><code>EIO_PRI_DEFAULT</code></b>, <b><code>EIO_PRI_MIN</code></b>, <b><code>EIO_PRI_MAX</code></b>, or <b><code>null</code></b>. If <b><code>null</code></b> passed, <code>pri</code> internally is set to <b><code>EIO_PRI_DEFAULT</code></b>.</p>
 	 * @param callable $callback <p><code>callback</code> function is called when the request is done. It should match the following prototype:</p><code> void&nbsp;callback(mixed&nbsp;$data,&nbsp;int&nbsp;$result[,&nbsp;resource&nbsp;$req]); </code>   <code>data</code>  <p>is custom data passed to the request.</p>  <code>result</code>  <p>request-specific result value; basically, the value returned by corresponding system call.</p>  <code>req</code>  <p>is optional request resource which can be used with functions like <code>eio_get_last_error()</code></p>
 	 * @param mixed $data <p>Arbitrary variable passed to <code>callback</code>.</p>
-	 * @return resource <p><b>eio_mkdir()</b> returns request resource on success or <b><code>FALSE</code></b> on error.</p>
+	 * @return resource <p><b>eio_mkdir()</b> returns request resource on success or <b><code>false</code></b> on error.</p>
 	 * @link https://php.net/manual/en/function.eio-mkdir.php
 	 * @see eio_rmdir()
 	 * @since PECL eio >= 0.0.1dev
@@ -369,10 +369,10 @@ namespace {
 	 * @param string $path <p>Path for the new node(file).</p>
 	 * @param int $mode <p>Specifies both the permissions to use and the type of node to be created. It should be a combination (using bitwise OR) of one of the file types listed below and the permissions for the new node(e.g. 0640). Possible file types are: <b><code>EIO_S_IFREG</code></b>(regular file), <b><code>EIO_S_IFCHR</code></b>(character file), <b><code>EIO_S_IFBLK</code></b>(block special file), <b><code>EIO_S_IFIFO</code></b>(FIFO - named pipe) and <b><code>EIO_S_IFSOCK</code></b>(UNIX domain socket). To specify permissions <i>EIO_S_I&#42;</i> constants could be used.</p>
 	 * @param int $dev <p>If the file type is <b><code>EIO_S_IFCHR</code></b> or <b><code>EIO_S_IFBLK</code></b> then dev specifies the major and minor numbers of the newly created device special file. Otherwise <code>dev</code> ignored. See <i>mknod(2) man page for details</i>.</p>
-	 * @param int $pri <p>The request priority: <b><code>EIO_PRI_DEFAULT</code></b>, <b><code>EIO_PRI_MIN</code></b>, <b><code>EIO_PRI_MAX</code></b>, or <b><code>NULL</code></b>. If <b><code>NULL</code></b> passed, <code>pri</code> internally is set to <b><code>EIO_PRI_DEFAULT</code></b>.</p>
+	 * @param int $pri <p>The request priority: <b><code>EIO_PRI_DEFAULT</code></b>, <b><code>EIO_PRI_MIN</code></b>, <b><code>EIO_PRI_MAX</code></b>, or <b><code>null</code></b>. If <b><code>null</code></b> passed, <code>pri</code> internally is set to <b><code>EIO_PRI_DEFAULT</code></b>.</p>
 	 * @param callable $callback <p><code>callback</code> function is called when the request is done. It should match the following prototype:</p><code> void&nbsp;callback(mixed&nbsp;$data,&nbsp;int&nbsp;$result[,&nbsp;resource&nbsp;$req]); </code>   <code>data</code>  <p>is custom data passed to the request.</p>  <code>result</code>  <p>request-specific result value; basically, the value returned by corresponding system call.</p>  <code>req</code>  <p>is optional request resource which can be used with functions like <code>eio_get_last_error()</code></p>
 	 * @param mixed $data <p>Arbitrary variable passed to <code>callback</code>.</p>
-	 * @return resource <p><b>eio_mknod()</b> returns request resource on success or <b><code>FALSE</code></b> on error.</p>
+	 * @return resource <p><b>eio_mknod()</b> returns request resource on success or <b><code>false</code></b> on error.</p>
 	 * @link https://php.net/manual/en/function.eio-mknod.php
 	 * @see eio_open()
 	 * @since PECL eio >= 0.0.1dev
@@ -382,10 +382,10 @@ namespace {
 	/**
 	 * Does nothing, except go through the whole request cycle
 	 * <p><b>eio_nop()</b> does nothing, except go through the whole request cycle. Could be useful in debugging.</p>
-	 * @param int $pri <p>The request priority: <b><code>EIO_PRI_DEFAULT</code></b>, <b><code>EIO_PRI_MIN</code></b>, <b><code>EIO_PRI_MAX</code></b>, or <b><code>NULL</code></b>. If <b><code>NULL</code></b> passed, <code>pri</code> internally is set to <b><code>EIO_PRI_DEFAULT</code></b>.</p>
+	 * @param int $pri <p>The request priority: <b><code>EIO_PRI_DEFAULT</code></b>, <b><code>EIO_PRI_MIN</code></b>, <b><code>EIO_PRI_MAX</code></b>, or <b><code>null</code></b>. If <b><code>null</code></b> passed, <code>pri</code> internally is set to <b><code>EIO_PRI_DEFAULT</code></b>.</p>
 	 * @param callable $callback <p><code>callback</code> function is called when the request is done. It should match the following prototype:</p><code> void&nbsp;callback(mixed&nbsp;$data,&nbsp;int&nbsp;$result[,&nbsp;resource&nbsp;$req]); </code>   <code>data</code>  <p>is custom data passed to the request.</p>  <code>result</code>  <p>request-specific result value; basically, the value returned by corresponding system call.</p>  <code>req</code>  <p>is optional request resource which can be used with functions like <code>eio_get_last_error()</code></p>
 	 * @param mixed $data <p>Arbitrary variable passed to <code>callback</code>.</p>
-	 * @return resource <p><b>eio_nop()</b> returns request resource on success or <b><code>FALSE</code></b> on error.</p>
+	 * @return resource <p><b>eio_nop()</b> returns request resource on success or <b><code>false</code></b> on error.</p>
 	 * @link https://php.net/manual/en/function.eio-nop.php
 	 * @see eio_busy()
 	 * @since PECL eio >= 0.0.1dev
@@ -436,7 +436,7 @@ namespace {
 	 * @param string $path <p>Path of the file to be opened.</p><p><b>Warning</b></p><p>In some SAPIs(e.g. <i>PHP-FPM</i>) it could fail, if you don't specify full path.</p>
 	 * @param int $flags <p>One of <i>EIO_O_&#42;</i> constants, or their combinations. <i>EIO_O_&#42;</i> constants have the same meaning, as their corresponding <i>O_&#42;</i> counterparts defined in <code>fnctl.h</code> C header file. Default is <b><code>EIO_O_RDWR</code></b>.</p>
 	 * @param int $mode <p>One of <i>EIO_S_I&#42;</i> constants, or their combination (via bitwise OR operator). The constants have the same meaning as their <i>S_I&#42;</i> counterparts defined in sys/stat.h C header file. Required, if a file is created. Otherwise ignored.</p>
-	 * @param int $pri <p>The request priority: <b><code>EIO_PRI_DEFAULT</code></b>, <b><code>EIO_PRI_MIN</code></b>, <b><code>EIO_PRI_MAX</code></b>, or <b><code>NULL</code></b>. If <b><code>NULL</code></b> passed, <code>pri</code> internally is set to <b><code>EIO_PRI_DEFAULT</code></b>.</p>
+	 * @param int $pri <p>The request priority: <b><code>EIO_PRI_DEFAULT</code></b>, <b><code>EIO_PRI_MIN</code></b>, <b><code>EIO_PRI_MAX</code></b>, or <b><code>null</code></b>. If <b><code>null</code></b> passed, <code>pri</code> internally is set to <b><code>EIO_PRI_DEFAULT</code></b>.</p>
 	 * @param callable $callback <p><code>callback</code> function is called when the request is done. It should match the following prototype:</p><code> void&nbsp;callback(mixed&nbsp;$data,&nbsp;int&nbsp;$result[,&nbsp;resource&nbsp;$req]); </code>   <code>data</code>  <p>is custom data passed to the request.</p>  <code>result</code>  <p>request-specific result value; basically, the value returned by corresponding system call.</p>  <code>req</code>  <p>is optional request resource which can be used with functions like <code>eio_get_last_error()</code></p>
 	 * @param mixed $data <p>Arbitrary variable passed to <code>callback</code>.</p>
 	 * @return resource <p><b>eio_open()</b> returns file descriptor in <code>result</code> argument of <code>callback</code> on success; otherwise, <code>result</code> is equal to <b><code>-1</code></b>.</p>
@@ -462,7 +462,7 @@ namespace {
 	 * @param mixed $fd <p>Stream, Socket resource, or numeric file descriptor</p>
 	 * @param int $length <p>Maximum number of bytes to read.</p>
 	 * @param int $offset <p>Offset within the file.</p>
-	 * @param int $pri <p>The request priority: <b><code>EIO_PRI_DEFAULT</code></b>, <b><code>EIO_PRI_MIN</code></b>, <b><code>EIO_PRI_MAX</code></b>, or <b><code>NULL</code></b>. If <b><code>NULL</code></b> passed, <code>pri</code> internally is set to <b><code>EIO_PRI_DEFAULT</code></b>.</p>
+	 * @param int $pri <p>The request priority: <b><code>EIO_PRI_DEFAULT</code></b>, <b><code>EIO_PRI_MIN</code></b>, <b><code>EIO_PRI_MAX</code></b>, or <b><code>null</code></b>. If <b><code>null</code></b> passed, <code>pri</code> internally is set to <b><code>EIO_PRI_DEFAULT</code></b>.</p>
 	 * @param callable $callback <p><code>callback</code> function is called when the request is done. It should match the following prototype:</p><code> void&nbsp;callback(mixed&nbsp;$data,&nbsp;int&nbsp;$result[,&nbsp;resource&nbsp;$req]); </code>   <code>data</code>  <p>is custom data passed to the request.</p>  <code>result</code>  <p>request-specific result value; basically, the value returned by corresponding system call.</p>  <code>req</code>  <p>is optional request resource which can be used with functions like <code>eio_get_last_error()</code></p>
 	 * @param mixed $data <p>Arbitrary variable passed to <code>callback</code>.</p>
 	 * @return resource <p><b>eio_read()</b> stores read bytes in <code>result</code> argument of <code>callback</code> function.</p>
@@ -478,10 +478,10 @@ namespace {
 	 * @param mixed $fd <p>Stream, Socket resource, or numeric file descriptor</p>
 	 * @param int $offset <p>Starting point from which data is to be read.</p>
 	 * @param int $length <p>Number of bytes to be read.</p>
-	 * @param int $pri <p>The request priority: <b><code>EIO_PRI_DEFAULT</code></b>, <b><code>EIO_PRI_MIN</code></b>, <b><code>EIO_PRI_MAX</code></b>, or <b><code>NULL</code></b>. If <b><code>NULL</code></b> passed, <code>pri</code> internally is set to <b><code>EIO_PRI_DEFAULT</code></b>.</p>
+	 * @param int $pri <p>The request priority: <b><code>EIO_PRI_DEFAULT</code></b>, <b><code>EIO_PRI_MIN</code></b>, <b><code>EIO_PRI_MAX</code></b>, or <b><code>null</code></b>. If <b><code>null</code></b> passed, <code>pri</code> internally is set to <b><code>EIO_PRI_DEFAULT</code></b>.</p>
 	 * @param callable $callback <p><code>callback</code> function is called when the request is done. It should match the following prototype:</p><code> void&nbsp;callback(mixed&nbsp;$data,&nbsp;int&nbsp;$result[,&nbsp;resource&nbsp;$req]); </code>   <code>data</code>  <p>is custom data passed to the request.</p>  <code>result</code>  <p>request-specific result value; basically, the value returned by corresponding system call.</p>  <code>req</code>  <p>is optional request resource which can be used with functions like <code>eio_get_last_error()</code></p>
 	 * @param mixed $data <p>Arbitrary variable passed to <code>callback</code>.</p>
-	 * @return resource <p><b>eio_readahead()</b> returns request resource on success or <b><code>FALSE</code></b> on error.</p>
+	 * @return resource <p><b>eio_readahead()</b> returns request resource on success or <b><code>false</code></b> on error.</p>
 	 * @link https://php.net/manual/en/function.eio-readahead.php
 	 * @since PECL eio >= 0.0.1dev
 	 */
@@ -492,10 +492,10 @@ namespace {
 	 * <p>Reads through a whole directory(via the <code>opendir</code>, <code>readdir</code> and <code>closedir</code> system calls) and returns either the names or an array in <code>result</code> argument of <code>callback</code> function, depending on the <code>flags</code> argument.</p>
 	 * @param string $path <p>Directory path.</p>
 	 * @param int $flags <p>Combination of <i>EIO_READDIR_&#42;</i> constants.</p>
-	 * @param int $pri <p>The request priority: <b><code>EIO_PRI_DEFAULT</code></b>, <b><code>EIO_PRI_MIN</code></b>, <b><code>EIO_PRI_MAX</code></b>, or <b><code>NULL</code></b>. If <b><code>NULL</code></b> passed, <code>pri</code> internally is set to <b><code>EIO_PRI_DEFAULT</code></b>.</p>
+	 * @param int $pri <p>The request priority: <b><code>EIO_PRI_DEFAULT</code></b>, <b><code>EIO_PRI_MIN</code></b>, <b><code>EIO_PRI_MAX</code></b>, or <b><code>null</code></b>. If <b><code>null</code></b> passed, <code>pri</code> internally is set to <b><code>EIO_PRI_DEFAULT</code></b>.</p>
 	 * @param callable $callback <p><code>callback</code> function is called when the request is done. It should match the following prototype:</p><code> void&nbsp;callback(mixed&nbsp;$data,&nbsp;int&nbsp;$result[,&nbsp;resource&nbsp;$req]); </code>   <code>data</code>  <p>is custom data passed to the request.</p>  <code>result</code>  <p>request-specific result value; basically, the value returned by corresponding system call.</p>  <code>req</code>  <p>is optional request resource which can be used with functions like <code>eio_get_last_error()</code></p>
 	 * @param string $data <p>Arbitrary variable passed to <code>callback</code>.</p>
-	 * @return resource <p><b>eio_readdir()</b> returns request resource on success, or <b><code>FALSE</code></b> on error. Sets <code>result</code> argument of <code>callback</code> function according to <code>flags</code>:</p>  <b><code>EIO_READDIR_DENTS</code></b> (<code>int</code>)    <b>eio_readdir()</b> flag. If specified, the result argument of the callback becomes an array with the following keys: <code>'names'</code> - array of directory names <code>'dents'</code> - array of <code>struct eio_dirent</code>-like arrays having the following keys each: <code>'name'</code> - the directory name; <code>'type'</code> - one of <i>EIO_DT_&#42;</i> constants; <code>'inode'</code> - the inode number, if available, otherwise unspecified;    <b><code>EIO_READDIR_DIRS_FIRST</code></b> (<code>int</code>)    When this flag is specified, the names will be returned in an order where likely directories come first, in optimal stat order.    <b><code>EIO_READDIR_STAT_ORDER</code></b> (<code>int</code>)    When this flag is specified, then the names will be returned in an order suitable for <code>stat</code>'ing each one. When planning to <code>stat()</code> all files in the given directory, the returned order will likely be fastest.    <b><code>EIO_READDIR_FOUND_UNKNOWN</code></b> (<code>int</code>)      <p>Node types:</p>  <b><code>EIO_DT_UNKNOWN</code></b> (<code>int</code>)    Unknown node type(very common). Further <code>stat()</code> needed.    <b><code>EIO_DT_FIFO</code></b> (<code>int</code>)    FIFO node type    <b><code>EIO_DT_CHR</code></b> (<code>int</code>)    Node type    <b><code>EIO_DT_MPC</code></b> (<code>int</code>)    Multiplexed char device (v7+coherent) node type    <b><code>EIO_DT_DIR</code></b> (<code>int</code>)    Directory node type    <b><code>EIO_DT_NAM</code></b> (<code>int</code>)    Xenix special named file node type    <b><code>EIO_DT_BLK</code></b> (<code>int</code>)    Node type    <b><code>EIO_DT_MPB</code></b> (<code>int</code>)    Multiplexed block device (v7+coherent)    <b><code>EIO_DT_REG</code></b> (<code>int</code>)    Node type    <b><code>EIO_DT_NWK</code></b> (<code>int</code>)       <b><code>EIO_DT_CMP</code></b> (<code>int</code>)    HP-UX network special node type    <b><code>EIO_DT_LNK</code></b> (<code>int</code>)    Link node type    <b><code>EIO_DT_SOCK</code></b> (<code>int</code>)    Socket node type    <b><code>EIO_DT_DOOR</code></b> (<code>int</code>)    Solaris door node type    <b><code>EIO_DT_WHT</code></b> (<code>int</code>)    Node type    <b><code>EIO_DT_MAX</code></b> (<code>int</code>)    Highest node type value
+	 * @return resource <p><b>eio_readdir()</b> returns request resource on success, or <b><code>false</code></b> on error. Sets <code>result</code> argument of <code>callback</code> function according to <code>flags</code>:</p>  <b><code>EIO_READDIR_DENTS</code></b> (<code>int</code>)    <b>eio_readdir()</b> flag. If specified, the result argument of the callback becomes an array with the following keys: <code>'names'</code> - array of directory names <code>'dents'</code> - array of <code>struct eio_dirent</code>-like arrays having the following keys each: <code>'name'</code> - the directory name; <code>'type'</code> - one of <i>EIO_DT_&#42;</i> constants; <code>'inode'</code> - the inode number, if available, otherwise unspecified;    <b><code>EIO_READDIR_DIRS_FIRST</code></b> (<code>int</code>)    When this flag is specified, the names will be returned in an order where likely directories come first, in optimal stat order.    <b><code>EIO_READDIR_STAT_ORDER</code></b> (<code>int</code>)    When this flag is specified, then the names will be returned in an order suitable for <code>stat</code>'ing each one. When planning to <code>stat()</code> all files in the given directory, the returned order will likely be fastest.    <b><code>EIO_READDIR_FOUND_UNKNOWN</code></b> (<code>int</code>)      <p>Node types:</p>  <b><code>EIO_DT_UNKNOWN</code></b> (<code>int</code>)    Unknown node type(very common). Further <code>stat()</code> needed.    <b><code>EIO_DT_FIFO</code></b> (<code>int</code>)    FIFO node type    <b><code>EIO_DT_CHR</code></b> (<code>int</code>)    Node type    <b><code>EIO_DT_MPC</code></b> (<code>int</code>)    Multiplexed char device (v7+coherent) node type    <b><code>EIO_DT_DIR</code></b> (<code>int</code>)    Directory node type    <b><code>EIO_DT_NAM</code></b> (<code>int</code>)    Xenix special named file node type    <b><code>EIO_DT_BLK</code></b> (<code>int</code>)    Node type    <b><code>EIO_DT_MPB</code></b> (<code>int</code>)    Multiplexed block device (v7+coherent)    <b><code>EIO_DT_REG</code></b> (<code>int</code>)    Node type    <b><code>EIO_DT_NWK</code></b> (<code>int</code>)       <b><code>EIO_DT_CMP</code></b> (<code>int</code>)    HP-UX network special node type    <b><code>EIO_DT_LNK</code></b> (<code>int</code>)    Link node type    <b><code>EIO_DT_SOCK</code></b> (<code>int</code>)    Socket node type    <b><code>EIO_DT_DOOR</code></b> (<code>int</code>)    Solaris door node type    <b><code>EIO_DT_WHT</code></b> (<code>int</code>)    Node type    <b><code>EIO_DT_MAX</code></b> (<code>int</code>)    Highest node type value
 	 * @link https://php.net/manual/en/function.eio-readdir.php
 	 * @since PECL eio >= 0.0.1dev
 	 */
@@ -504,10 +504,10 @@ namespace {
 	/**
 	 * Read value of a symbolic link
 	 * @param string $path <p>Source symbolic link path</p>
-	 * @param int $pri <p>The request priority: <b><code>EIO_PRI_DEFAULT</code></b>, <b><code>EIO_PRI_MIN</code></b>, <b><code>EIO_PRI_MAX</code></b>, or <b><code>NULL</code></b>. If <b><code>NULL</code></b> passed, <code>pri</code> internally is set to <b><code>EIO_PRI_DEFAULT</code></b>.</p>
+	 * @param int $pri <p>The request priority: <b><code>EIO_PRI_DEFAULT</code></b>, <b><code>EIO_PRI_MIN</code></b>, <b><code>EIO_PRI_MAX</code></b>, or <b><code>null</code></b>. If <b><code>null</code></b> passed, <code>pri</code> internally is set to <b><code>EIO_PRI_DEFAULT</code></b>.</p>
 	 * @param callable $callback <p><code>callback</code> function is called when the request is done. It should match the following prototype:</p><code> void&nbsp;callback(mixed&nbsp;$data,&nbsp;int&nbsp;$result[,&nbsp;resource&nbsp;$req]); </code>   <code>data</code>  <p>is custom data passed to the request.</p>  <code>result</code>  <p>request-specific result value; basically, the value returned by corresponding system call.</p>  <code>req</code>  <p>is optional request resource which can be used with functions like <code>eio_get_last_error()</code></p>
 	 * @param string $data <p>Arbitrary variable passed to <code>callback</code>.</p>
-	 * @return resource <p><b>eio_readlink()</b> returns request resource on success or <b><code>FALSE</code></b> on error.</p>
+	 * @return resource <p><b>eio_readlink()</b> returns request resource on success or <b><code>false</code></b> on error.</p>
 	 * @link https://php.net/manual/en/function.eio-readlink.php
 	 * @see eio_symlink()
 	 * @since PECL eio >= 0.0.1dev
@@ -532,10 +532,10 @@ namespace {
 	 * <p><b>eio_rename()</b> renames or moves a file to new location.</p>
 	 * @param string $path <p>Source path</p>
 	 * @param string $new_path <p>Target path</p>
-	 * @param int $pri <p>The request priority: <b><code>EIO_PRI_DEFAULT</code></b>, <b><code>EIO_PRI_MIN</code></b>, <b><code>EIO_PRI_MAX</code></b>, or <b><code>NULL</code></b>. If <b><code>NULL</code></b> passed, <code>pri</code> internally is set to <b><code>EIO_PRI_DEFAULT</code></b>.</p>
+	 * @param int $pri <p>The request priority: <b><code>EIO_PRI_DEFAULT</code></b>, <b><code>EIO_PRI_MIN</code></b>, <b><code>EIO_PRI_MAX</code></b>, or <b><code>null</code></b>. If <b><code>null</code></b> passed, <code>pri</code> internally is set to <b><code>EIO_PRI_DEFAULT</code></b>.</p>
 	 * @param callable $callback <p><code>callback</code> function is called when the request is done. It should match the following prototype:</p><code> void&nbsp;callback(mixed&nbsp;$data,&nbsp;int&nbsp;$result[,&nbsp;resource&nbsp;$req]); </code>   <code>data</code>  <p>is custom data passed to the request.</p>  <code>result</code>  <p>request-specific result value; basically, the value returned by corresponding system call.</p>  <code>req</code>  <p>is optional request resource which can be used with functions like <code>eio_get_last_error()</code></p>
 	 * @param mixed $data <p>Arbitrary variable passed to <code>callback</code>.</p>
-	 * @return resource <p><b>eio_rename()</b> returns request resource on success or <b><code>FALSE</code></b> on error.</p>
+	 * @return resource <p><b>eio_rename()</b> returns request resource on success or <b><code>false</code></b> on error.</p>
 	 * @link https://php.net/manual/en/function.eio-rename.php
 	 * @since PECL eio >= 0.0.1dev
 	 */
@@ -545,10 +545,10 @@ namespace {
 	 * Remove a directory
 	 * <p><b>eio_rmdir()</b> removes a directory.</p>
 	 * @param string $path <p>Directory path</p>
-	 * @param int $pri <p>The request priority: <b><code>EIO_PRI_DEFAULT</code></b>, <b><code>EIO_PRI_MIN</code></b>, <b><code>EIO_PRI_MAX</code></b>, or <b><code>NULL</code></b>. If <b><code>NULL</code></b> passed, <code>pri</code> internally is set to <b><code>EIO_PRI_DEFAULT</code></b>.</p>
+	 * @param int $pri <p>The request priority: <b><code>EIO_PRI_DEFAULT</code></b>, <b><code>EIO_PRI_MIN</code></b>, <b><code>EIO_PRI_MAX</code></b>, or <b><code>null</code></b>. If <b><code>null</code></b> passed, <code>pri</code> internally is set to <b><code>EIO_PRI_DEFAULT</code></b>.</p>
 	 * @param callable $callback <p><code>callback</code> function is called when the request is done. It should match the following prototype:</p><code> void&nbsp;callback(mixed&nbsp;$data,&nbsp;int&nbsp;$result[,&nbsp;resource&nbsp;$req]); </code>   <code>data</code>  <p>is custom data passed to the request.</p>  <code>result</code>  <p>request-specific result value; basically, the value returned by corresponding system call.</p>  <code>req</code>  <p>is optional request resource which can be used with functions like <code>eio_get_last_error()</code></p>
 	 * @param mixed $data <p>Arbitrary variable passed to <code>callback</code>.</p>
-	 * @return resource <p><b>eio_rmdir()</b> returns request resource on success or <b><code>FALSE</code></b> on error.</p>
+	 * @return resource <p><b>eio_rmdir()</b> returns request resource on success or <b><code>false</code></b> on error.</p>
 	 * @link https://php.net/manual/en/function.eio-rmdir.php
 	 * @see eio_mkdir()
 	 * @since PECL eio >= 0.0.1dev
@@ -561,10 +561,10 @@ namespace {
 	 * @param mixed $fd <p>Stream, Socket resource, or numeric file descriptor</p>
 	 * @param int $offset <p>Starting point from which data is to be read.</p>
 	 * @param int $whence
-	 * @param int $pri <p>The request priority: <b><code>EIO_PRI_DEFAULT</code></b>, <b><code>EIO_PRI_MIN</code></b>, <b><code>EIO_PRI_MAX</code></b>, or <b><code>NULL</code></b>. If <b><code>NULL</code></b> passed, <code>pri</code> internally is set to <b><code>EIO_PRI_DEFAULT</code></b>.</p>
+	 * @param int $pri <p>The request priority: <b><code>EIO_PRI_DEFAULT</code></b>, <b><code>EIO_PRI_MIN</code></b>, <b><code>EIO_PRI_MAX</code></b>, or <b><code>null</code></b>. If <b><code>null</code></b> passed, <code>pri</code> internally is set to <b><code>EIO_PRI_DEFAULT</code></b>.</p>
 	 * @param callable $callback <p><code>callback</code> function is called when the request is done. It should match the following prototype:</p><code> void&nbsp;callback(mixed&nbsp;$data,&nbsp;int&nbsp;$result[,&nbsp;resource&nbsp;$req]); </code>   <code>data</code>  <p>is custom data passed to the request.</p>  <code>result</code>  <p>request-specific result value; basically, the value returned by corresponding system call.</p>  <code>req</code>  <p>is optional request resource which can be used with functions like <code>eio_get_last_error()</code></p>
 	 * @param mixed $data <p>Arbitrary variable passed to <code>callback</code>.</p>
-	 * @return resource <p><b>eio_seek()</b> returns request resource on success or <b><code>FALSE</code></b> on error.</p>
+	 * @return resource <p><b>eio_seek()</b> returns request resource on success or <b><code>false</code></b> on error.</p>
 	 * @link https://php.net/manual/en/function.eio-seek.php
 	 * @since PECL eio >= 0.5.0b
 	 */
@@ -577,14 +577,14 @@ namespace {
 	 * @param mixed $in_fd <p>Input stream, Socket resource, or file descriptor. Should be opened for reading.</p>
 	 * @param int $offset <p>Offset within the source file.</p>
 	 * @param int $length <p>Number of bytes to copy.</p>
-	 * @param int $pri <p>The request priority: <b><code>EIO_PRI_DEFAULT</code></b>, <b><code>EIO_PRI_MIN</code></b>, <b><code>EIO_PRI_MAX</code></b>, or <b><code>NULL</code></b>. If <b><code>NULL</code></b> passed, <code>pri</code> internally is set to <b><code>EIO_PRI_DEFAULT</code></b>.</p>
+	 * @param int $pri <p>The request priority: <b><code>EIO_PRI_DEFAULT</code></b>, <b><code>EIO_PRI_MIN</code></b>, <b><code>EIO_PRI_MAX</code></b>, or <b><code>null</code></b>. If <b><code>null</code></b> passed, <code>pri</code> internally is set to <b><code>EIO_PRI_DEFAULT</code></b>.</p>
 	 * @param callable $callback <p><code>callback</code> function is called when the request is done. It should match the following prototype:</p><code> void&nbsp;callback(mixed&nbsp;$data,&nbsp;int&nbsp;$result[,&nbsp;resource&nbsp;$req]); </code>   <code>data</code>  <p>is custom data passed to the request.</p>  <code>result</code>  <p>request-specific result value; basically, the value returned by corresponding system call.</p>  <code>req</code>  <p>is optional request resource which can be used with functions like <code>eio_get_last_error()</code></p>
 	 * @param string $data <p>Arbitrary variable passed to <code>callback</code>.</p>
-	 * @return resource <p><b>eio_sendfile()</b> returns request resource on success or <b><code>FALSE</code></b> on error.</p>
+	 * @return resource <p><b>eio_sendfile()</b> returns request resource on success or <b><code>false</code></b> on error.</p>
 	 * @link https://php.net/manual/en/function.eio-sendfile.php
 	 * @since PECL eio >= 0.0.1dev
 	 */
-	function eio_sendfile(mixed $out_fd, mixed $in_fd, int $offset, int $length, int $pri = NULL, callable $callback = NULL, string $data = NULL) {}
+	function eio_sendfile(mixed $out_fd, mixed $in_fd, int $offset, int $length, int $pri = null, callable $callback = null, string $data = null) {}
 
 	/**
 	 * Set maximum number of idle threads
@@ -639,10 +639,10 @@ namespace {
 	 * Get file status
 	 * <p><b>eio_stat()</b> returns file status information in <code>result</code> argument of <code>callback</code></p>
 	 * @param string $path <p>The file path</p>
-	 * @param int $pri <p>The request priority: <b><code>EIO_PRI_DEFAULT</code></b>, <b><code>EIO_PRI_MIN</code></b>, <b><code>EIO_PRI_MAX</code></b>, or <b><code>NULL</code></b>. If <b><code>NULL</code></b> passed, <code>pri</code> internally is set to <b><code>EIO_PRI_DEFAULT</code></b>.</p>
+	 * @param int $pri <p>The request priority: <b><code>EIO_PRI_DEFAULT</code></b>, <b><code>EIO_PRI_MIN</code></b>, <b><code>EIO_PRI_MAX</code></b>, or <b><code>null</code></b>. If <b><code>null</code></b> passed, <code>pri</code> internally is set to <b><code>EIO_PRI_DEFAULT</code></b>.</p>
 	 * @param callable $callback <p><code>callback</code> function is called when the request is done. It should match the following prototype:</p><code> void&nbsp;callback(mixed&nbsp;$data,&nbsp;int&nbsp;$result[,&nbsp;resource&nbsp;$req]); </code>   <code>data</code>  <p>is custom data passed to the request.</p>  <code>result</code>  <p>request-specific result value; basically, the value returned by corresponding system call.</p>  <code>req</code>  <p>is optional request resource which can be used with functions like <code>eio_get_last_error()</code></p>
 	 * @param mixed $data <p>Arbitrary variable passed to <code>callback</code>.</p>
-	 * @return resource <p><b>eio_stat()</b> returns request resource on success or <b><code>FALSE</code></b> on error. On success assigns <code>result</code> argument of <code>callback</code> to an array.</p>
+	 * @return resource <p><b>eio_stat()</b> returns request resource on success or <b><code>false</code></b> on error. On success assigns <code>result</code> argument of <code>callback</code> to an array.</p>
 	 * @link https://php.net/manual/en/function.eio-stat.php
 	 * @see eio_lstat(), eio_fstat()
 	 * @since PECL eio >= 0.0.1dev
@@ -653,24 +653,24 @@ namespace {
 	 * Get file system statistics
 	 * <p><b>eio_statvfs()</b> returns file system statistics information in <code>result</code> argument of <code>callback</code></p>
 	 * @param string $path <p>Pathname of any file within the mounted file system</p>
-	 * @param int $pri <p>The request priority: <b><code>EIO_PRI_DEFAULT</code></b>, <b><code>EIO_PRI_MIN</code></b>, <b><code>EIO_PRI_MAX</code></b>, or <b><code>NULL</code></b>. If <b><code>NULL</code></b> passed, <code>pri</code> internally is set to <b><code>EIO_PRI_DEFAULT</code></b>.</p>
+	 * @param int $pri <p>The request priority: <b><code>EIO_PRI_DEFAULT</code></b>, <b><code>EIO_PRI_MIN</code></b>, <b><code>EIO_PRI_MAX</code></b>, or <b><code>null</code></b>. If <b><code>null</code></b> passed, <code>pri</code> internally is set to <b><code>EIO_PRI_DEFAULT</code></b>.</p>
 	 * @param callable $callback <p><code>callback</code> function is called when the request is done. It should match the following prototype:</p><code> void&nbsp;callback(mixed&nbsp;$data,&nbsp;int&nbsp;$result[,&nbsp;resource&nbsp;$req]); </code>   <code>data</code>  <p>is custom data passed to the request.</p>  <code>result</code>  <p>request-specific result value; basically, the value returned by corresponding system call.</p>  <code>req</code>  <p>is optional request resource which can be used with functions like <code>eio_get_last_error()</code></p>
 	 * @param mixed $data <p>Arbitrary variable passed to <code>callback</code>.</p>
-	 * @return resource <p><b>eio_statvfs()</b> returns request resource on success or <b><code>FALSE</code></b> on error. On success assigns <code>result</code> argument of <code>callback</code> to an array.</p>
+	 * @return resource <p><b>eio_statvfs()</b> returns request resource on success or <b><code>false</code></b> on error. On success assigns <code>result</code> argument of <code>callback</code> to an array.</p>
 	 * @link https://php.net/manual/en/function.eio-statvfs.php
 	 * @since PECL eio >= 0.0.1dev
 	 */
-	function eio_statvfs(string $path, int $pri, callable $callback, mixed $data = NULL) {}
+	function eio_statvfs(string $path, int $pri, callable $callback, mixed $data = null) {}
 
 	/**
 	 * Create a symbolic link
 	 * <p><b>eio_symlink()</b> creates a symbolic link <code>new_path</code> to <code>path</code>.</p>
 	 * @param string $path <p>Source path</p>
 	 * @param string $new_path <p>Target path</p>
-	 * @param int $pri <p>The request priority: <b><code>EIO_PRI_DEFAULT</code></b>, <b><code>EIO_PRI_MIN</code></b>, <b><code>EIO_PRI_MAX</code></b>, or <b><code>NULL</code></b>. If <b><code>NULL</code></b> passed, <code>pri</code> internally is set to <b><code>EIO_PRI_DEFAULT</code></b>.</p>
+	 * @param int $pri <p>The request priority: <b><code>EIO_PRI_DEFAULT</code></b>, <b><code>EIO_PRI_MIN</code></b>, <b><code>EIO_PRI_MAX</code></b>, or <b><code>null</code></b>. If <b><code>null</code></b> passed, <code>pri</code> internally is set to <b><code>EIO_PRI_DEFAULT</code></b>.</p>
 	 * @param callable $callback <p><code>callback</code> function is called when the request is done. It should match the following prototype:</p><code> void&nbsp;callback(mixed&nbsp;$data,&nbsp;int&nbsp;$result[,&nbsp;resource&nbsp;$req]); </code>   <code>data</code>  <p>is custom data passed to the request.</p>  <code>result</code>  <p>request-specific result value; basically, the value returned by corresponding system call.</p>  <code>req</code>  <p>is optional request resource which can be used with functions like <code>eio_get_last_error()</code></p>
 	 * @param mixed $data <p>Arbitrary variable passed to <code>callback</code>.</p>
-	 * @return resource <p><b>eio_symlink()</b> returns request resource on success or <b><code>FALSE</code></b> on error.</p>
+	 * @return resource <p><b>eio_symlink()</b> returns request resource on success or <b><code>false</code></b> on error.</p>
 	 * @link https://php.net/manual/en/function.eio-symlink.php
 	 * @see eio_link()
 	 * @since PECL eio >= 0.0.1dev
@@ -682,7 +682,7 @@ namespace {
 	 * @param int $pri
 	 * @param callable $callback
 	 * @param mixed $data
-	 * @return resource <p><b>eio_sync()</b> returns request resource on success or <b><code>FALSE</code></b> on error.</p>
+	 * @return resource <p><b>eio_sync()</b> returns request resource on success or <b><code>false</code></b> on error.</p>
 	 * @link https://php.net/manual/en/function.eio-sync.php
 	 * @since PECL eio >= 0.0.1dev
 	 */
@@ -695,10 +695,10 @@ namespace {
 	 * @param int $offset <p>The starting byte of the file range to be synchronized</p>
 	 * @param int $nbytes <p>Specifies the length of the range to be synchronized, in bytes. If <code>nbytes</code> is zero, then all bytes from <code>offset</code> through to the end of file are synchronized.</p>
 	 * @param int $flags <p>A bit-mask. Can include any of the following values: <b><code>EIO_SYNC_FILE_RANGE_WAIT_BEFORE</code></b>, <b><code>EIO_SYNC_FILE_RANGE_WRITE</code></b>, <b><code>EIO_SYNC_FILE_RANGE_WAIT_AFTER</code></b>. These flags have the same meaning as their <i>SYNC_FILE_RANGE_&#42;</i> counterparts(see <code>SYNC_FILE_RANGE(2)</code> man page).</p>
-	 * @param int $pri <p>The request priority: <b><code>EIO_PRI_DEFAULT</code></b>, <b><code>EIO_PRI_MIN</code></b>, <b><code>EIO_PRI_MAX</code></b>, or <b><code>NULL</code></b>. If <b><code>NULL</code></b> passed, <code>pri</code> internally is set to <b><code>EIO_PRI_DEFAULT</code></b>.</p>
+	 * @param int $pri <p>The request priority: <b><code>EIO_PRI_DEFAULT</code></b>, <b><code>EIO_PRI_MIN</code></b>, <b><code>EIO_PRI_MAX</code></b>, or <b><code>null</code></b>. If <b><code>null</code></b> passed, <code>pri</code> internally is set to <b><code>EIO_PRI_DEFAULT</code></b>.</p>
 	 * @param callable $callback <p><code>callback</code> function is called when the request is done. It should match the following prototype:</p><code> void&nbsp;callback(mixed&nbsp;$data,&nbsp;int&nbsp;$result[,&nbsp;resource&nbsp;$req]); </code>   <code>data</code>  <p>is custom data passed to the request.</p>  <code>result</code>  <p>request-specific result value; basically, the value returned by corresponding system call.</p>  <code>req</code>  <p>is optional request resource which can be used with functions like <code>eio_get_last_error()</code></p>
 	 * @param mixed $data <p>Arbitrary variable passed to <code>callback</code>.</p>
-	 * @return resource <p><b>eio_sync_file_range()</b> returns request resource on success or <b><code>FALSE</code></b> on error.</p>
+	 * @return resource <p><b>eio_sync_file_range()</b> returns request resource on success or <b><code>false</code></b> on error.</p>
 	 * @link https://php.net/manual/en/function.eio-sync-file-range.php
 	 * @since PECL eio >= 0.0.1dev
 	 */
@@ -707,10 +707,10 @@ namespace {
 	/**
 	 * Calls Linux' syncfs syscall, if available
 	 * @param mixed $fd <p>File descriptor</p>
-	 * @param int $pri <p>The request priority: <b><code>EIO_PRI_DEFAULT</code></b>, <b><code>EIO_PRI_MIN</code></b>, <b><code>EIO_PRI_MAX</code></b>, or <b><code>NULL</code></b>. If <b><code>NULL</code></b> passed, <code>pri</code> internally is set to <b><code>EIO_PRI_DEFAULT</code></b>.</p>
+	 * @param int $pri <p>The request priority: <b><code>EIO_PRI_DEFAULT</code></b>, <b><code>EIO_PRI_MIN</code></b>, <b><code>EIO_PRI_MAX</code></b>, or <b><code>null</code></b>. If <b><code>null</code></b> passed, <code>pri</code> internally is set to <b><code>EIO_PRI_DEFAULT</code></b>.</p>
 	 * @param callable $callback <p><code>callback</code> function is called when the request is done. It should match the following prototype:</p><code> void&nbsp;callback(mixed&nbsp;$data,&nbsp;int&nbsp;$result[,&nbsp;resource&nbsp;$req]); </code>   <code>data</code>  <p>is custom data passed to the request.</p>  <code>result</code>  <p>request-specific result value; basically, the value returned by corresponding system call.</p>  <code>req</code>  <p>is optional request resource which can be used with functions like <code>eio_get_last_error()</code></p>
 	 * @param mixed $data <p>Arbitrary variable passed to <code>callback</code>.</p>
-	 * @return resource <p><b>eio_syncfs()</b> returns request resource on success or <b><code>FALSE</code></b> on error.</p>
+	 * @return resource <p><b>eio_syncfs()</b> returns request resource on success or <b><code>false</code></b> on error.</p>
 	 * @link https://php.net/manual/en/function.eio-syncfs.php
 	 * @since PECL eio >= 0.0.1dev
 	 */
@@ -721,10 +721,10 @@ namespace {
 	 * <p><b>eio_truncate()</b> causes the regular file named by <code>path</code> to be truncated to a size of precisely <code>length</code> bytes</p>
 	 * @param string $path <p>File path</p>
 	 * @param int $offset <p>Offset from beginning of the file.</p>
-	 * @param int $pri <p>The request priority: <b><code>EIO_PRI_DEFAULT</code></b>, <b><code>EIO_PRI_MIN</code></b>, <b><code>EIO_PRI_MAX</code></b>, or <b><code>NULL</code></b>. If <b><code>NULL</code></b> passed, <code>pri</code> internally is set to <b><code>EIO_PRI_DEFAULT</code></b>.</p>
+	 * @param int $pri <p>The request priority: <b><code>EIO_PRI_DEFAULT</code></b>, <b><code>EIO_PRI_MIN</code></b>, <b><code>EIO_PRI_MAX</code></b>, or <b><code>null</code></b>. If <b><code>null</code></b> passed, <code>pri</code> internally is set to <b><code>EIO_PRI_DEFAULT</code></b>.</p>
 	 * @param callable $callback <p><code>callback</code> function is called when the request is done. It should match the following prototype:</p><code> void&nbsp;callback(mixed&nbsp;$data,&nbsp;int&nbsp;$result[,&nbsp;resource&nbsp;$req]); </code>   <code>data</code>  <p>is custom data passed to the request.</p>  <code>result</code>  <p>request-specific result value; basically, the value returned by corresponding system call.</p>  <code>req</code>  <p>is optional request resource which can be used with functions like <code>eio_get_last_error()</code></p>
 	 * @param mixed $data <p>Arbitrary variable passed to <code>callback</code>.</p>
-	 * @return resource <p><code>eio_busy()</code> returns request resource on success or <b><code>FALSE</code></b> on error.</p>
+	 * @return resource <p><code>eio_busy()</code> returns request resource on success or <b><code>false</code></b> on error.</p>
 	 * @link https://php.net/manual/en/function.eio-truncate.php
 	 * @see eio_ftruncate()
 	 * @since PECL eio >= 0.0.1dev
@@ -735,10 +735,10 @@ namespace {
 	 * Delete a name and possibly the file it refers to
 	 * <p><b>eio_unlink()</b> deletes a name from the file system.</p>
 	 * @param string $path <p>Path to file</p>
-	 * @param int $pri <p>The request priority: <b><code>EIO_PRI_DEFAULT</code></b>, <b><code>EIO_PRI_MIN</code></b>, <b><code>EIO_PRI_MAX</code></b>, or <b><code>NULL</code></b>. If <b><code>NULL</code></b> passed, <code>pri</code> internally is set to <b><code>EIO_PRI_DEFAULT</code></b>.</p>
+	 * @param int $pri <p>The request priority: <b><code>EIO_PRI_DEFAULT</code></b>, <b><code>EIO_PRI_MIN</code></b>, <b><code>EIO_PRI_MAX</code></b>, or <b><code>null</code></b>. If <b><code>null</code></b> passed, <code>pri</code> internally is set to <b><code>EIO_PRI_DEFAULT</code></b>.</p>
 	 * @param callable $callback <p><code>callback</code> function is called when the request is done. It should match the following prototype:</p><code> void&nbsp;callback(mixed&nbsp;$data,&nbsp;int&nbsp;$result[,&nbsp;resource&nbsp;$req]); </code>   <code>data</code>  <p>is custom data passed to the request.</p>  <code>result</code>  <p>request-specific result value; basically, the value returned by corresponding system call.</p>  <code>req</code>  <p>is optional request resource which can be used with functions like <code>eio_get_last_error()</code></p>
 	 * @param mixed $data <p>Arbitrary variable passed to <code>callback</code>.</p>
-	 * @return resource <p><b>eio_unlink()</b> returns request resource on success or <b><code>FALSE</code></b> on error.</p>
+	 * @return resource <p><b>eio_unlink()</b> returns request resource on success or <b><code>false</code></b> on error.</p>
 	 * @link https://php.net/manual/en/function.eio-unlink.php
 	 * @since PECL eio >= 0.0.1dev
 	 */
@@ -749,10 +749,10 @@ namespace {
 	 * @param string $path <p>Path to the file.</p>
 	 * @param float $atime <p>Access time</p>
 	 * @param float $mtime <p>Modification time</p>
-	 * @param int $pri <p>The request priority: <b><code>EIO_PRI_DEFAULT</code></b>, <b><code>EIO_PRI_MIN</code></b>, <b><code>EIO_PRI_MAX</code></b>, or <b><code>NULL</code></b>. If <b><code>NULL</code></b> passed, <code>pri</code> internally is set to <b><code>EIO_PRI_DEFAULT</code></b>.</p>
+	 * @param int $pri <p>The request priority: <b><code>EIO_PRI_DEFAULT</code></b>, <b><code>EIO_PRI_MIN</code></b>, <b><code>EIO_PRI_MAX</code></b>, or <b><code>null</code></b>. If <b><code>null</code></b> passed, <code>pri</code> internally is set to <b><code>EIO_PRI_DEFAULT</code></b>.</p>
 	 * @param callable $callback <p><code>callback</code> function is called when the request is done. It should match the following prototype:</p><code> void&nbsp;callback(mixed&nbsp;$data,&nbsp;int&nbsp;$result[,&nbsp;resource&nbsp;$req]); </code>   <code>data</code>  <p>is custom data passed to the request.</p>  <code>result</code>  <p>request-specific result value; basically, the value returned by corresponding system call.</p>  <code>req</code>  <p>is optional request resource which can be used with functions like <code>eio_get_last_error()</code></p>
 	 * @param mixed $data <p>Arbitrary variable passed to <code>callback</code>.</p>
-	 * @return resource <p><b>eio_utime()</b> returns request resource on success or <b><code>FALSE</code></b> on error.</p>
+	 * @return resource <p><b>eio_utime()</b> returns request resource on success or <b><code>false</code></b> on error.</p>
 	 * @link https://php.net/manual/en/function.eio-utime.php
 	 * @see eio_futime()
 	 * @since PECL eio >= 0.0.1dev
@@ -766,10 +766,10 @@ namespace {
 	 * @param string $str <p>Source string</p>
 	 * @param int $length <p>Maximum number of bytes to write.</p>
 	 * @param int $offset <p>Offset from the beginning of file.</p>
-	 * @param int $pri <p>The request priority: <b><code>EIO_PRI_DEFAULT</code></b>, <b><code>EIO_PRI_MIN</code></b>, <b><code>EIO_PRI_MAX</code></b>, or <b><code>NULL</code></b>. If <b><code>NULL</code></b> passed, <code>pri</code> internally is set to <b><code>EIO_PRI_DEFAULT</code></b>.</p>
+	 * @param int $pri <p>The request priority: <b><code>EIO_PRI_DEFAULT</code></b>, <b><code>EIO_PRI_MIN</code></b>, <b><code>EIO_PRI_MAX</code></b>, or <b><code>null</code></b>. If <b><code>null</code></b> passed, <code>pri</code> internally is set to <b><code>EIO_PRI_DEFAULT</code></b>.</p>
 	 * @param callable $callback <p><code>callback</code> function is called when the request is done. It should match the following prototype:</p><code> void&nbsp;callback(mixed&nbsp;$data,&nbsp;int&nbsp;$result[,&nbsp;resource&nbsp;$req]); </code>   <code>data</code>  <p>is custom data passed to the request.</p>  <code>result</code>  <p>request-specific result value; basically, the value returned by corresponding system call.</p>  <code>req</code>  <p>is optional request resource which can be used with functions like <code>eio_get_last_error()</code></p>
 	 * @param mixed $data <p>Arbitrary variable passed to <code>callback</code>.</p>
-	 * @return resource <p><b>eio_write()</b> returns request resource on success or <b><code>FALSE</code></b> on error.</p>
+	 * @return resource <p><b>eio_write()</b> returns request resource on success or <b><code>false</code></b> on error.</p>
 	 * @link https://php.net/manual/en/function.eio-write.php
 	 * @see eio_open()
 	 * @since PECL eio >= 0.0.1dev

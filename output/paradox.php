@@ -8,7 +8,7 @@ namespace {
 	 * Closes a paradox database
 	 * <p>Closes the paradox database. This function will not close the file. You will have to call <code>fclose()</code> afterwards.</p>
 	 * @param resource $pxdoc <p>Resource identifier of the paradox database as returned by <code>px_new()</code>.</p>
-	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.px-close.php
 	 * @see px_open_fp(), px_new()
 	 * @since PECL paradox >= 1.0.0
@@ -21,7 +21,7 @@ namespace {
 	 * @param resource $pxdoc <p>Resource identifier of the paradox database as returned by <code>px_new()</code>.</p>
 	 * @param resource $file <p>File handle as returned by <code>fopen()</code>.</p>
 	 * @param array $fielddesc <p><b>fielddesc</b> is an array containing one element for each field specification. A field specification is an array itself with either two or three elements.The first element is always a string value used as the name of the field. It may not be larger than ten characters. The second element contains the field type which is one of the constants listed in the table Constants for field types. In the case of a character field or bcd field, you will have to provide a third element specifying the length respectively the precesion of the field. If your field specification contains blob fields, you will have to make sure to either make the field large enough for all field values to fit or specify a blob file with <code>px_set_blob_file()</code> for storing the blobs. If this is not done the field data is truncated.</p>
-	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.px-create-fp.php
 	 * @see px_new(), px_put_record(), fopen()
 	 * @since PECL paradox >= 1.0.0
@@ -34,7 +34,7 @@ namespace {
 	 * @param resource $pxdoc <p>Resource identifier of the paradox database as returned by <code>px_new()</code>.</p>
 	 * @param int $value <p>Value as stored in paradox database field of type PX_FIELD_DATE.</p>
 	 * @param string $format <p>String format similar to the format used by <code>date()</code>. The placeholders support by this function is a subset of those supported by <code>date()</code> (Y, y, m, n, d, j, L).</p>
-	 * @return string <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+	 * @return string <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.px-date2string.php
 	 * @see px_timestamp2string(), jdtogregorian()
 	 * @since PECL paradox >= 1.4.0
@@ -45,7 +45,7 @@ namespace {
 	 * Deletes resource of paradox database
 	 * <p>Deletes the resource of the paradox file and frees all memory.</p>
 	 * @param resource $pxdoc <p>Resource identifier of the paradox database as returned by <code>px_new()</code>.</p>
-	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.px-delete.php
 	 * @since PECL paradox >= 1.0.0
 	 */
@@ -56,7 +56,7 @@ namespace {
 	 * <p>This function deletes a record from the database. It does not free the space in the database file but just marks it as deleted. Inserting a new record afterwards will reuse the space.</p><p><b>Note</b>:</p><p>This function is only available if pxlib &gt;= 0.6.0 is used.</p>
 	 * @param resource $pxdoc <p>Resource identifier of the paradox database as returned by <code>px_new()</code>.</p>
 	 * @param int $num <p>The record number is an artificial number counting records in the order as they are stored in the database. The first record has number 0.</p>
-	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.px-delete-record.php
 	 * @since PECL paradox >= 1.4.0
 	 */
@@ -87,7 +87,7 @@ namespace {
 	 * <p>Gets various parameters.</p>
 	 * @param resource $pxdoc <p>Resource identifier of the paradox database as returned by <code>px_new()</code>.</p>
 	 * @param string $name <p>The <code>name</code> can be one of the following:</p>   tablename  <p>The name of the table as it will be stored in the database header.</p>   targetencoding  <p>The encoding for the output. Data which is being read from character fields with <code>px_get_record()</code> or <code>px_retrieve_record()</code> is recoded into the targetencoding. If it is not set, then the data will be delivered as stored in the database file.</p>   inputencoding  <p>The encoding of the input data which is to be stored into the database. When storing data of character fields in the database, the data is expected to be delivered in this encoding.</p>
-	 * @return string|false <p>Returns the value of the parameter or <b><code>FALSE</code></b> on failure.</p>
+	 * @return string|false <p>Returns the value of the parameter or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.px-get-parameter.php
 	 * @since PECL paradox >= 1.1.0
 	 */
@@ -121,7 +121,7 @@ namespace {
 	 * <p>Gets various values.</p>
 	 * @param resource $pxdoc <p>Resource identifier of the paradox database as returned by <code>px_new()</code>.</p>
 	 * @param string $name <p><code>name</code> can be one of the following.</p>  numprimkeys  <p>The number of primary keys. Paradox databases always use the first <code>numprimkeys</code> fields for the primary index.</p>
-	 * @return float|false <p>Returns the value of the parameter or <b><code>FALSE</code></b> on failure.</p>
+	 * @return float|false <p>Returns the value of the parameter or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.px-get-value.php
 	 * @since PECL paradox >= 1.1.0
 	 */
@@ -132,7 +132,7 @@ namespace {
 	 * <p>Inserts a new record into the database. The record is not necessarily inserted at the end of the database, but may be inserted at any position depending on where the first free slot is found.</p><p>The record data is passed as an array of field values. The elements in the array must correspond to the fields in the database. If the array has less elements than fields in the database, the remaining fields will be set to null.</p><p>Most field values can be passed as its equivalent php type e.g. a long value is used for fields of type PX_FIELD_LONG, PX_FIELD_SHORT and PX_FIELD_AUTOINC, a double values is used for fields of type PX_FIELD_CURRENCY and PX_FIELD_NUMBER. Field values for blob and alpha fields are passed as strings.</p><p>Fields of type PX_FIELD_TIME and PX_FIELD_DATE both require a long value. In the first case this is the number of milliseconds since midnight. In the second case this is the number of days since 1.1.0000. Below there are two examples to convert the current date or timestamp into a value suitable for one of paradox's date/time fields.</p><p><b>Note</b>:</p><p>This function is only available if pxlib &gt;= 0.6.0 is used.</p>
 	 * @param resource $pxdoc <p>Resource identifier of the paradox database as returned by <code>px_new()</code>.</p>
 	 * @param array $data <p>Associated or indexed array containing the field values as e.g. returned by <code>px_retrieve_record()</code>.</p>
-	 * @return int <p>Returns <b><code>FALSE</code></b> on failure or the record number in case of success.</p>
+	 * @return int <p>Returns <b><code>false</code></b> on failure or the record number in case of success.</p>
 	 * @link https://php.net/manual/en/function.px-insert-record.php
 	 * @since PECL paradox >= 1.4.0
 	 */
@@ -141,7 +141,7 @@ namespace {
 	/**
 	 * Create a new paradox object
 	 * <p>Create a new paradox object. You will have to call this function before any further functions. <b>px_new()</b> does not create any file on the disk, it just creates an instance of a paradox object. This function must not be called if the object oriented interface is used. Use <code>new paradox_db()</code> instead.</p>
-	 * @return resource <p>Returns <b><code>FALSE</code></b> on failure.</p>
+	 * @return resource <p>Returns <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.px-new.php
 	 * @see px_delete(), px_open_fp()
 	 * @since PECL paradox >= 1.0.0
@@ -173,7 +173,7 @@ namespace {
 	 * <p>Open an existing paradox database file. The actual file has to be opened before with <code>fopen()</code>. This function can also be used to open primary index files and tread them like a paradox database. This is supported for those who would like to investigate a primary index. It cannot be used to accelerate access to a database file.</p>
 	 * @param resource $pxdoc <p>Resource identifier of the paradox database as returned by <code>px_new()</code>.</p>
 	 * @param resource $file <p><code>file</code> is the return value from <code>fopen()</code> with the actual database file as parameter. Make sure the database is writable if you plan to update or insert records.</p>
-	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.px-open-fp.php
 	 * @see fopen(), px_new()
 	 * @since PECL paradox >= 1.0.0
@@ -186,7 +186,7 @@ namespace {
 	 * @param resource $pxdoc <p>Resource identifier of the paradox database as returned by <code>px_new()</code>.</p>
 	 * @param array $record <p>Associated or indexed array containing the field values as e.g. returned by <code>px_retrieve_record()</code>.</p>
 	 * @param int $recpos <p>This optional parameter may be used to specify a record number greater than the current number of records in the database. The function will add as many empty records as needed. There is hardly any need for this parameter.</p>
-	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.px-put-record.php
 	 * @since PECL paradox >= 1.0.0
 	 */
@@ -210,7 +210,7 @@ namespace {
 	 * <p>Sets the name of the file where blobs are going to be read from or written into. Without calling this function, <code>px_get_record()</code> or <code>px_retrieve_record()</code> will only return data in blob fields if the data is part of the record and not stored in the blob file. Blob data is stored in the record if it is small enough to fit in the size of the blob field.</p><p>Calling <code>px_put_record()</code>, <code>px_insert_record()</code>, or <code>px_update_record()</code> without calling <b>px_set_blob_file()</b> will result in truncated blob fields unless the data fits into the database file.</p><p>Calling this function twice will close the first blob file and open the new one.</p>
 	 * @param resource $pxdoc <p>Resource identifier of the paradox database as returned by <code>px_new()</code>.</p>
 	 * @param string $filename <p>The name of the file. Its extension should be <code>.MB</code>.</p>
-	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.px-set-blob-file.php
 	 * @since PECL paradox >= 1.3.0
 	 */
@@ -222,7 +222,7 @@ namespace {
 	 * @param resource $pxdoc <p>Resource identifier of the paradox database as returned by <code>px_new()</code>.</p>
 	 * @param string $name <p>Depending on the parameter you want to set, <code>name</code> can be one of the following.</p>   tablename  <p>The name of the table as it will be stored in the database header.</p>   targetencoding  <p>The encoding for the output. Data which is being read from character fields is recoded into the targetencoding.</p>   inputencoding  <p>The encoding of the input data which is to be stored into the database.</p>
 	 * @param string $value <p>The value of parameter to set. For inputencoding and targetencoding this must be the name of the encoding as understood by iconv or recode, e.g. iso-8859-1, utf-8, cp850.</p>
-	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.px-set-parameter.php
 	 * @see px_get_info()
 	 * @since PECL paradox >= 1.1.0
@@ -234,7 +234,7 @@ namespace {
 	 * <p>Sets the table name of a paradox database, which was created with <code>px_create_fp()</code>. This function is deprecated use <code>px_set_parameter()</code> instead.</p>
 	 * @param resource $pxdoc <p>Resource identifier of the paradox database as returned by <code>px_new()</code>.</p>
 	 * @param string $name
-	 * @return void|false <p>Returns <b><code>NULL</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+	 * @return void|false <p>Returns <b><code>null</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.px-set-tablename.php
 	 * @since PECL paradox >= 1.0.0
 	 */
@@ -245,7 +245,7 @@ namespace {
 	 * <p>Set the encoding for data retrieved from a character field. All character fields will be recoded to the encoding set by this function. If the encoding is not set, the character data will be returned in the DOS code page encoding as specified in the database file. The <code>encoding</code> can be any string identifier known to iconv or recode. On Unix systems run <code>iconv -l</code> for a list of available encodings.</p><p>This function is deprecated and should be replaced by calling <code>px_set_parameter()</code>.</p><p>See also <code>px_get_info()</code> to determine the DOS code page as stored in the database file.</p>
 	 * @param resource $pxdoc <p>Resource identifier of the paradox database as returned by <code>px_new()</code>.</p>
 	 * @param string $encoding <p>The encoding for the output. Data which is being read from character fields is recoded into the targetencoding.</p>
-	 * @return bool <p>Returns <b><code>FALSE</code></b> if the encoding could not be set, e.g. the encoding is unknown, or pxlib does not support recoding at all. In the second case a warning will be issued.</p>
+	 * @return bool <p>Returns <b><code>false</code></b> if the encoding could not be set, e.g. the encoding is unknown, or pxlib does not support recoding at all. In the second case a warning will be issued.</p>
 	 * @link https://php.net/manual/en/function.px-set-targetencoding.php
 	 * @since PECL paradox >= 1.0.0
 	 */
@@ -257,7 +257,7 @@ namespace {
 	 * @param resource $pxdoc <p>Resource identifier of the paradox database as returned by <code>px_new()</code>.</p>
 	 * @param string $name <p><code>name</code> can be one of the following.</p>   numprimkeys  <p>The number of primary keys. Paradox databases always use the first <b>numprimkeys</b> fields for the primary index.</p>
 	 * @param float $value
-	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.px-set-value.php
 	 * @since PECL paradox >= 1.1.0
 	 */
@@ -269,7 +269,7 @@ namespace {
 	 * @param resource $pxdoc <p>Resource identifier of the paradox database.</p>
 	 * @param float $value <p>Value as stored in paradox database field of type PX_FIELD_TIME, or PX_FIELD_TIMESTAMP.</p>
 	 * @param string $format <p>String format similar to the format used by <code>date()</code>. The placeholders support by this function is a subset of those supported by <code>date()</code> (Y, y, m, n, d, j, H, h, G, g, i, s, A, a, L).</p>
-	 * @return string <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+	 * @return string <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.px-timestamp2string.php
 	 * @see px_date2string(), jdtogregorian()
 	 * @since PECL paradox >= 1.4.0
@@ -282,7 +282,7 @@ namespace {
 	 * @param resource $pxdoc <p>Resource identifier of the paradox database as returned by <code>px_new()</code>.</p>
 	 * @param array $data <p>Associated array containing the field values as returned by <code>px_retrieve_record()</code>.</p>
 	 * @param int $num <p>The record number is an artificial number counting records in the order as they are stored in the database. The first record has number 0.</p>
-	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.px-update-record.php
 	 * @since PECL paradox >= 1.4.0
 	 */

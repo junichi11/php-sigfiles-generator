@@ -25,7 +25,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.dio-fcntl.php
 	 * @since PHP 4 >= 4.2.0, PHP 5 < 5.1.0
 	 */
-	function dio_fcntl($fd, int $cmd, mixed $args = NULL): mixed {}
+	function dio_fcntl($fd, int $cmd, mixed $args = null): mixed {}
 
 	/**
 	 * Opens a file (creating it if necessary) at a lower level than the C library input/ouput stream functions allow
@@ -33,7 +33,7 @@ namespace {
 	 * @param string $filename <p>The pathname of the file to open.</p>
 	 * @param int $flags <p>The <code>flags</code> parameter is a bitwise-ORed value comprising flags from the following list. This value <i>must</i> include one of <b><code>O_RDONLY</code></b>, <b><code>O_WRONLY</code></b>, or <b><code>O_RDWR</code></b>. Additionally, it may include any combination of the other flags from this list.</p><ul> <li> <p><b><code>O_RDONLY</code></b> - opens the file for read access.</p> </li> <li> <p><b><code>O_WRONLY</code></b> - opens the file for write access.</p> </li> <li> <p><b><code>O_RDWR</code></b> - opens the file for both reading and writing.</p> </li> <li> <p><b><code>O_CREAT</code></b> - creates the file, if it doesn't already exist.</p> </li> <li> <p><b><code>O_EXCL</code></b> - if both <b><code>O_CREAT</code></b> and <b><code>O_EXCL</code></b> are set and the file already exists, <b>dio_open()</b> will fail.</p> </li> <li> <p><b><code>O_TRUNC</code></b> - if the file exists and is opened for write access, the file will be truncated to zero length.</p> </li> <li> <p><b><code>O_APPEND</code></b> - write operations write data at the end of the file.</p> </li> <li> <p><b><code>O_NONBLOCK</code></b> - sets non blocking mode.</p> </li> <li> <p><b><code>O_NOCTTY</code></b> - prevent the OS from assigning the opened file as the process's controlling terminal when opening a TTY device file.</p> </li> </ul>
 	 * @param int $mode <p>If <code>flags</code> contains <b><code>O_CREAT</code></b>, <code>mode</code> will set the permissions of the file (creation permissions). <code>mode</code> is required for correct operation when <b><code>O_CREAT</code></b> is specified in <code>flags</code> and is ignored otherwise.</p> <p>The actual permissions assigned to the created file will be affected by the process's <i>umask</i> setting as per usual.</p>
-	 * @return resource <p>A file descriptor or <b><code>FALSE</code></b> on error.</p>
+	 * @return resource <p>A file descriptor or <b><code>false</code></b> on error.</p>
 	 * @link https://php.net/manual/en/function.dio-open.php
 	 * @see dio_close()
 	 * @since PHP 4 >= 4.2.0, PHP 5 < 5.1.0
@@ -68,7 +68,7 @@ namespace {
 	 * Gets stat information about the file descriptor fd
 	 * <p><b>dio_stat()</b> returns information about the given file descriptor.</p>
 	 * @param resource $fd <p>The file descriptor returned by <code>dio_open()</code>.</p>
-	 * @return array <p>Returns an associative array with the following keys:</p><ul> <li> <p>"device" - device</p> </li> <li> <p>"inode" - inode</p> </li> <li> <p>"mode" - mode</p> </li> <li> <p>"nlink" - number of hard links</p> </li> <li> <p>"uid" - user id</p> </li> <li> <p>"gid" - group id</p> </li> <li> <p>"device_type" - device type (if inode device)</p> </li> <li> <p>"size" - total size in bytes</p> </li> <li> <p>"blocksize" - blocksize</p> </li> <li> <p>"blocks" - number of blocks allocated</p> </li> <li> <p>"atime" - time of last access</p> </li> <li> <p>"mtime" - time of last modification</p> </li> <li> <p>"ctime" - time of last change</p> </li> </ul> On error <b>dio_stat()</b> returns <b><code>NULL</code></b>.
+	 * @return array <p>Returns an associative array with the following keys:</p><ul> <li> <p>"device" - device</p> </li> <li> <p>"inode" - inode</p> </li> <li> <p>"mode" - mode</p> </li> <li> <p>"nlink" - number of hard links</p> </li> <li> <p>"uid" - user id</p> </li> <li> <p>"gid" - group id</p> </li> <li> <p>"device_type" - device type (if inode device)</p> </li> <li> <p>"size" - total size in bytes</p> </li> <li> <p>"blocksize" - blocksize</p> </li> <li> <p>"blocks" - number of blocks allocated</p> </li> <li> <p>"atime" - time of last access</p> </li> <li> <p>"mtime" - time of last modification</p> </li> <li> <p>"ctime" - time of last change</p> </li> </ul> On error <b>dio_stat()</b> returns <b><code>null</code></b>.
 	 * @link https://php.net/manual/en/function.dio-stat.php
 	 * @since PHP 4 >= 4.2.0, PHP 5 < 5.1.0
 	 */
@@ -90,7 +90,7 @@ namespace {
 	 * <p><b>dio_truncate()</b> truncates a file to at most <code>offset</code> bytes in size.</p><p>If the file previously was larger than this size, the extra data is lost. If the file previously was shorter, it is unspecified whether the file is left unchanged or is extended. In the latter case the extended part reads as zero bytes.</p>
 	 * @param resource $fd <p>The file descriptor returned by <code>dio_open()</code>.</p>
 	 * @param int $offset <p>The offset in bytes.</p>
-	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.dio-truncate.php
 	 * @since PHP 4 >= 4.2.0, PHP 5 < 5.1.0
 	 */

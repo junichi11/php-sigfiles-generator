@@ -54,7 +54,7 @@ namespace {
 		 * @link https://php.net/manual/en/error.construct.php
 		 * @since PHP 7, PHP 8
 		 */
-		public function __construct(string $message = "", int $code = 0, \Throwable $previous = NULL) {}
+		public function __construct(string $message = "", int $code = 0, \Throwable $previous = null) {}
 
 		/**
 		 * String representation of the error
@@ -104,7 +104,7 @@ namespace {
 		/**
 		 * Returns previous Throwable
 		 * <p>Returns previous Throwable (the third parameter of <code>Error::__construct()</code>).</p>
-		 * @return Throwable <p>Returns the previous Throwable if available or <b><code>NULL</code></b> otherwise.</p>
+		 * @return Throwable <p>Returns the previous Throwable if available or <b><code>null</code></b> otherwise.</p>
 		 * @link https://php.net/manual/en/error.getprevious.php
 		 * @since PHP 7, PHP 8
 		 */

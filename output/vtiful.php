@@ -50,7 +50,7 @@ namespace Vtiful\Kernel {
 		 * @link https://php.net/manual/en/vtiful-kernel-excel.constMemory.php
 		 * @since PECL xlswriter >= 1.2.1
 		 */
-		public function constMemory(string $fileName, string $sheetName = NULL) {}
+		public function constMemory(string $fileName, string $sheetName = null) {}
 
 		/**
 		 * Vtiful\Kernel\Excel data
@@ -71,7 +71,7 @@ namespace Vtiful\Kernel {
 		 * @link https://php.net/manual/en/vtiful-kernel-excel.filename.php
 		 * @since PECL xlswriter >= 1.2.1
 		 */
-		public function fileName(string $fileName, string $sheetName = NULL) {}
+		public function fileName(string $fileName, string $sheetName = null) {}
 
 		/**
 		 * Vtiful\Kernel\Excel getHandle
@@ -127,7 +127,7 @@ namespace Vtiful\Kernel {
 		 * @link https://php.net/manual/en/vtiful-kernel-excel.insertText.php
 		 * @since PECL xlswriter >= 1.2.1
 		 */
-		public function insertText(int $row, int $column, string $data, string $format = NULL) {}
+		public function insertText(int $row, int $column, string $data, string $format = null) {}
 
 		/**
 		 * Vtiful\Kernel\Excel mergeCells
@@ -159,7 +159,7 @@ namespace Vtiful\Kernel {
 		 * @link https://php.net/manual/en/vtiful-kernel-excel.setColumn.php
 		 * @since PECL xlswriter >= 1.2.1
 		 */
-		public function setColumn(string $range, float $width, $format = NULL) {}
+		public function setColumn(string $range, float $width, $format = null) {}
 
 		/**
 		 * Vtiful\Kernel\Excel setRow
@@ -171,7 +171,7 @@ namespace Vtiful\Kernel {
 		 * @link https://php.net/manual/en/vtiful-kernel-excel.setRow.php
 		 * @since PECL xlswriter >= 1.2.1
 		 */
-		public function setRow(string $range, float $height, $format = NULL) {}
+		public function setRow(string $range, float $height, $format = null) {}
 	}
 
 	/**

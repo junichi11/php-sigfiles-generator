@@ -33,7 +33,7 @@ namespace {
 		/**
 		 * Gets the current value
 		 * <p>Gets the current value.</p>
-		 * @return mixed <p>The current value if it is valid or <b><code>NULL</code></b> otherwise.</p>
+		 * @return mixed <p>The current value if it is valid or <b><code>null</code></b> otherwise.</p>
 		 * @link https://php.net/manual/en/appenditerator.current.php
 		 * @since PHP 5 >= 5.1.0, PHP 7
 		 */
@@ -51,7 +51,7 @@ namespace {
 		/**
 		 * Gets the inner iterator
 		 * <p>This method returns the current inner iterator.</p>
-		 * @return Iterator <p>The current inner iterator, or <b><code>NULL</code></b> if there is not one.</p>
+		 * @return Iterator <p>The current inner iterator, or <b><code>null</code></b> if there is not one.</p>
 		 * @link https://php.net/manual/en/appenditerator.getinneriterator.php
 		 * @since PHP 5 >= 5.1.0, PHP 7
 		 */
@@ -69,7 +69,7 @@ namespace {
 		/**
 		 * Gets the current key
 		 * <p>Get the current key.</p>
-		 * @return scalar <p>The current key if it is valid or <b><code>NULL</code></b> otherwise.</p>
+		 * @return scalar <p>The current key if it is valid or <b><code>null</code></b> otherwise.</p>
 		 * @link https://php.net/manual/en/appenditerator.key.php
 		 * @since PHP 5 >= 5.1.0, PHP 7
 		 */
@@ -96,7 +96,7 @@ namespace {
 		/**
 		 * Checks validity of the current element
 		 * <p>Checks validity of the current element.</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b> if the current iteration is valid, <b><code>FALSE</code></b> otherwise.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> if the current iteration is valid, <b><code>false</code></b> otherwise.</p>
 		 * @link https://php.net/manual/en/appenditerator.valid.php
 		 * @since PHP 5 >= 5.1.0, PHP 7
 		 */
@@ -240,7 +240,7 @@ namespace {
 		 * Check if offset exists
 		 * <p>Checks if the offset exists.</p><p>This function is currently not documented; only its argument list is available.</p>
 		 * @param mixed $index <p>The offset being checked.</p>
-		 * @return bool <p><b><code>TRUE</code></b> if the offset exists, otherwise <b><code>FALSE</code></b></p>
+		 * @return bool <p><b><code>true</code></b> if the offset exists, otherwise <b><code>false</code></b></p>
 		 * @link https://php.net/manual/en/arrayiterator.offsetexists.php
 		 * @since PHP 5, PHP 7
 		 */
@@ -350,7 +350,7 @@ namespace {
 		/**
 		 * Check whether array contains more entries
 		 * <p>Checks if the <code>array</code> contains any more entries.</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b> if the iterator is valid, otherwise <b><code>FALSE</code></b></p>
+		 * @return bool <p>Returns <b><code>true</code></b> if the iterator is valid, otherwise <b><code>false</code></b></p>
 		 * @link https://php.net/manual/en/arrayiterator.valid.php
 		 * @since PHP 5, PHP 7
 		 */
@@ -401,11 +401,12 @@ namespace {
 		/**
 		 * Sort the entries by value
 		 * <p>Sorts the entries such that the keys maintain their correlation with the entries they are associated with. This is used mainly when sorting associative arrays where the actual element order is significant.</p>
+		 * @param int $flags <p>The optional second parameter <code>flags</code> may be used to modify the sorting behavior using these values:</p> <p>Sorting type flags:</p><ul> <li> <b><code>SORT_REGULAR</code></b> - compare items normally; the details are described in the comparison operators section </li> <li> <b><code>SORT_NUMERIC</code></b> - compare items numerically </li> <li> <b><code>SORT_STRING</code></b> - compare items as strings </li> <li>  <b><code>SORT_LOCALE_STRING</code></b> - compare items as strings, based on the current locale. It uses the locale, which can be changed using <code>setlocale()</code>  </li> <li>  <b><code>SORT_NATURAL</code></b> - compare items as strings using "natural ordering" like <code>natsort()</code>  </li> <li>  <b><code>SORT_FLAG_CASE</code></b> - can be combined (bitwise OR) with <b><code>SORT_STRING</code></b> or <b><code>SORT_NATURAL</code></b> to sort strings case-insensitively  </li> </ul>
 		 * @return void <p>No value is returned.</p>
 		 * @link https://php.net/manual/en/arrayobject.asort.php
 		 * @since PHP 5 >= 5.2.0, PHP 7
 		 */
-		public function asort(): void {}
+		public function asort(int $flags = SORT_REGULAR): void {}
 
 		/**
 		 * Get the number of public properties in the ArrayObject
@@ -465,11 +466,12 @@ namespace {
 		/**
 		 * Sort the entries by key
 		 * <p>Sorts the entries by key, maintaining key to entry correlations. This is useful mainly for associative arrays.</p>
+		 * @param int $flags <p>The optional second parameter <code>flags</code> may be used to modify the sorting behavior using these values:</p> <p>Sorting type flags:</p><ul> <li> <b><code>SORT_REGULAR</code></b> - compare items normally; the details are described in the comparison operators section </li> <li> <b><code>SORT_NUMERIC</code></b> - compare items numerically </li> <li> <b><code>SORT_STRING</code></b> - compare items as strings </li> <li>  <b><code>SORT_LOCALE_STRING</code></b> - compare items as strings, based on the current locale. It uses the locale, which can be changed using <code>setlocale()</code>  </li> <li>  <b><code>SORT_NATURAL</code></b> - compare items as strings using "natural ordering" like <code>natsort()</code>  </li> <li>  <b><code>SORT_FLAG_CASE</code></b> - can be combined (bitwise OR) with <b><code>SORT_STRING</code></b> or <b><code>SORT_NATURAL</code></b> to sort strings case-insensitively  </li> </ul>
 		 * @return void <p>No value is returned.</p>
 		 * @link https://php.net/manual/en/arrayobject.ksort.php
 		 * @since PHP 5 >= 5.2.0, PHP 7
 		 */
-		public function ksort(): void {}
+		public function ksort(int $flags = SORT_REGULAR): void {}
 
 		/**
 		 * Sort an array using a case insensitive "natural order" algorithm
@@ -492,7 +494,7 @@ namespace {
 		/**
 		 * Returns whether the requested index exists
 		 * @param mixed $index <p>The index being checked.</p>
-		 * @return bool <p><b><code>TRUE</code></b> if the requested index exists, otherwise <b><code>FALSE</code></b></p>
+		 * @return bool <p><b><code>true</code></b> if the requested index exists, otherwise <b><code>false</code></b></p>
 		 * @link https://php.net/manual/en/arrayobject.offsetexists.php
 		 * @since PHP 5, PHP 7
 		 */
@@ -501,7 +503,7 @@ namespace {
 		/**
 		 * Returns the value at the specified index
 		 * @param mixed $index <p>The index with the value.</p>
-		 * @return mixed <p>The value at the specified index or <b><code>NULL</code></b>.</p>
+		 * @return mixed <p>The value at the specified index or <b><code>null</code></b>.</p>
 		 * @link https://php.net/manual/en/arrayobject.offsetget.php
 		 * @since PHP 5, PHP 7
 		 */
@@ -640,7 +642,7 @@ namespace {
 		 * @link https://php.net/manual/en/exception.construct.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
-		public function __construct(string $message = "", int $code = 0, \Throwable $previous = NULL) {}
+		public function __construct(string $message = "", int $code = 0, \Throwable $previous = null) {}
 
 		/**
 		 * String representation of the exception
@@ -690,7 +692,7 @@ namespace {
 		/**
 		 * Returns previous Exception
 		 * <p>Returns previous exception (the third parameter of <code>Exception::__construct()</code>).</p>
-		 * @return Throwable <p>Returns the previous Throwable if available or <b><code>NULL</code></b> otherwise.</p>
+		 * @return Throwable <p>Returns the previous Throwable if available or <b><code>null</code></b> otherwise.</p>
 		 * @link https://php.net/manual/en/exception.getprevious.php
 		 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8
 		 */
@@ -765,7 +767,7 @@ namespace {
 		 * @link https://php.net/manual/en/exception.construct.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
-		public function __construct(string $message = "", int $code = 0, \Throwable $previous = NULL) {}
+		public function __construct(string $message = "", int $code = 0, \Throwable $previous = null) {}
 
 		/**
 		 * String representation of the exception
@@ -815,7 +817,7 @@ namespace {
 		/**
 		 * Returns previous Exception
 		 * <p>Returns previous exception (the third parameter of <code>Exception::__construct()</code>).</p>
-		 * @return Throwable <p>Returns the previous Throwable if available or <b><code>NULL</code></b> otherwise.</p>
+		 * @return Throwable <p>Returns the previous Throwable if available or <b><code>null</code></b> otherwise.</p>
 		 * @link https://php.net/manual/en/exception.getprevious.php
 		 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8
 		 */
@@ -951,7 +953,7 @@ namespace {
 		/**
 		 * Check whether the inner iterator has a valid next element
 		 * <p>This function is currently not documented; only its argument list is available.</p>
-		 * @return void <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+		 * @return void <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/cachingiterator.hasnext.php
 		 * @since PHP 5, PHP 7
 		 */
@@ -979,7 +981,7 @@ namespace {
 		 * The offsetExists purpose
 		 * <p>This function is currently not documented; only its argument list is available.</p>
 		 * @param mixed $index <p>The index being checked.</p>
-		 * @return void <p>Returns <b><code>TRUE</code></b> if an entry referenced by the offset exists, <b><code>FALSE</code></b> otherwise.</p>
+		 * @return void <p>Returns <b><code>true</code></b> if an entry referenced by the offset exists, <b><code>false</code></b> otherwise.</p>
 		 * @link https://php.net/manual/en/cachingiterator.offsetexists.php
 		 * @since PHP 5 >= 5.2.0, PHP 7
 		 */
@@ -1038,7 +1040,7 @@ namespace {
 		/**
 		 * Check whether the current element is valid
 		 * <p>This function is currently not documented; only its argument list is available.</p><p>Check whether the current element is valid.</p>
-		 * @return void <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+		 * @return void <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/cachingiterator.valid.php
 		 * @since PHP 5, PHP 7
 		 */
@@ -1055,7 +1057,7 @@ namespace {
 		 * Create a filtered iterator from another iterator
 		 * <p>Creates a filtered iterator using the <code>callback</code> to determine which items are accepted or rejected.</p>
 		 * @param \Iterator $iterator <p>The iterator to be filtered.</p>
-		 * @param callable $callback <p>The callback, which should return <b><code>TRUE</code></b> to accept the current item or <b><code>FALSE</code></b> otherwise. See Examples.</p> <p>May be any valid <code>callable</code> value.</p>
+		 * @param callable $callback <p>The callback, which should return <b><code>true</code></b> to accept the current item or <b><code>false</code></b> otherwise. See Examples.</p> <p>May be any valid <code>callable</code> value.</p>
 		 * @return self <p>No value is returned.</p>
 		 * @link https://php.net/manual/en/callbackfilteriterator.construct.php
 		 * @since PHP 5 >= 5.4.0, PHP 7
@@ -1064,8 +1066,8 @@ namespace {
 
 		/**
 		 * Calls the callback with the current value, the current key and the inner iterator as arguments
-		 * <p>This method calls the callback with the current value, current key and the inner iterator.</p><p>The callback is expected to return <b><code>TRUE</code></b> if the current item is to be accepted, or <b><code>FALSE</code></b> otherwise.</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b> to accept the current item, or <b><code>FALSE</code></b> otherwise.</p>
+		 * <p>This method calls the callback with the current value, current key and the inner iterator.</p><p>The callback is expected to return <b><code>true</code></b> if the current item is to be accepted, or <b><code>false</code></b> otherwise.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> to accept the current item, or <b><code>false</code></b> otherwise.</p>
 		 * @link https://php.net/manual/en/callbackfilteriterator.accept.php
 		 * @since PHP 5 >= 5.4.0, PHP 7
 		 */
@@ -1123,7 +1125,7 @@ namespace {
 		/**
 		 * Check whether the current element is valid
 		 * <p>This function is currently not documented; only its argument list is available.</p><p>Checks whether the current element is valid.</p>
-		 * @return bool <p><b><code>TRUE</code></b> if the current element is valid, otherwise <b><code>FALSE</code></b></p>
+		 * @return bool <p><b><code>true</code></b> if the current element is valid, otherwise <b><code>false</code></b></p>
 		 * @link https://php.net/manual/en/filteriterator.valid.php
 		 * @since PHP 5 >= 5.1.0, PHP 7
 		 */
@@ -1201,7 +1203,7 @@ namespace {
 		 * @see basename(), pathinfo()
 		 * @since PHP 5 >= 5.2.2, PHP 7
 		 */
-		public function getBasename(string $suffix = NULL): string {}
+		public function getBasename(string $suffix = null): string {}
 
 		/**
 		 * Get inode change time of the current DirectoryIterator item
@@ -1324,7 +1326,7 @@ namespace {
 		/**
 		 * Determine if current DirectoryIterator item is a directory
 		 * <p>Determines if the current DirectoryIterator item is a directory.</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b> if it is a directory, otherwise <b><code>FALSE</code></b></p>
+		 * @return bool <p>Returns <b><code>true</code></b> if it is a directory, otherwise <b><code>false</code></b></p>
 		 * @link https://php.net/manual/en/directoryiterator.isdir.php
 		 * @since PHP 5, PHP 7
 		 */
@@ -1333,7 +1335,7 @@ namespace {
 		/**
 		 * Determine if current DirectoryIterator item is '.' or '..'
 		 * <p>Determines if the current DirectoryIterator item is a directory and either <code>.</code> or <code>..</code></p>
-		 * @return bool <p><b><code>TRUE</code></b> if the entry is <code>.</code> or <code>..</code>, otherwise <b><code>FALSE</code></b></p>
+		 * @return bool <p><b><code>true</code></b> if the entry is <code>.</code> or <code>..</code>, otherwise <b><code>false</code></b></p>
 		 * @link https://php.net/manual/en/directoryiterator.isdot.php
 		 * @since PHP 5, PHP 7
 		 */
@@ -1342,7 +1344,7 @@ namespace {
 		/**
 		 * Determine if current DirectoryIterator item is executable
 		 * <p>Determines if the current DirectoryIterator item is executable.</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b> if the entry is executable, otherwise <b><code>FALSE</code></b></p>
+		 * @return bool <p>Returns <b><code>true</code></b> if the entry is executable, otherwise <b><code>false</code></b></p>
 		 * @link https://php.net/manual/en/directoryiterator.isexecutable.php
 		 * @since PHP 5, PHP 7
 		 */
@@ -1351,7 +1353,7 @@ namespace {
 		/**
 		 * Determine if current DirectoryIterator item is a regular file
 		 * <p>Determines if the current DirectoryIterator item is a regular file.</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b> if the file exists and is a regular file (not a <code>link</code> or <code>dir</code>), otherwise <b><code>FALSE</code></b></p>
+		 * @return bool <p>Returns <b><code>true</code></b> if the file exists and is a regular file (not a <code>link</code> or <code>dir</code>), otherwise <b><code>false</code></b></p>
 		 * @link https://php.net/manual/en/directoryiterator.isfile.php
 		 * @since PHP 5, PHP 7
 		 */
@@ -1360,7 +1362,7 @@ namespace {
 		/**
 		 * Determine if current DirectoryIterator item is a symbolic link
 		 * <p>Determines if the current DirectoryIterator item is a symbolic link.</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b> if the item is a symbolic link, otherwise <b><code>FALSE</code></b></p>
+		 * @return bool <p>Returns <b><code>true</code></b> if the item is a symbolic link, otherwise <b><code>false</code></b></p>
 		 * @link https://php.net/manual/en/directoryiterator.islink.php
 		 * @since PHP 5, PHP 7
 		 */
@@ -1369,7 +1371,7 @@ namespace {
 		/**
 		 * Determine if current DirectoryIterator item can be read
 		 * <p>Determines if the current DirectoryIterator item is readable.</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b> if the file is readable, otherwise <b><code>FALSE</code></b></p>
+		 * @return bool <p>Returns <b><code>true</code></b> if the file is readable, otherwise <b><code>false</code></b></p>
 		 * @link https://php.net/manual/en/directoryiterator.isreadable.php
 		 * @since PHP 5, PHP 7
 		 */
@@ -1378,7 +1380,7 @@ namespace {
 		/**
 		 * Determine if current DirectoryIterator item can be written to
 		 * <p>Determines if the current DirectoryIterator item is writable.</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b> if the file/directory is writable, otherwise <b><code>FALSE</code></b></p>
+		 * @return bool <p>Returns <b><code>true</code></b> if the file/directory is writable, otherwise <b><code>false</code></b></p>
 		 * @link https://php.net/manual/en/directoryiterator.iswritable.php
 		 * @since PHP 5, PHP 7
 		 */
@@ -1424,7 +1426,7 @@ namespace {
 		/**
 		 * Check whether current DirectoryIterator position is a valid file
 		 * <p>Check whether current DirectoryIterator position is a valid file.</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b> if the position is valid, otherwise <b><code>FALSE</code></b></p>
+		 * @return bool <p>Returns <b><code>true</code></b> if the position is valid, otherwise <b><code>false</code></b></p>
 		 * @link https://php.net/manual/en/directoryiterator.valid.php
 		 * @since PHP 5, PHP 7
 		 */
@@ -1481,7 +1483,7 @@ namespace {
 		 * @link https://php.net/manual/en/exception.construct.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
-		public function __construct(string $message = "", int $code = 0, \Throwable $previous = NULL) {}
+		public function __construct(string $message = "", int $code = 0, \Throwable $previous = null) {}
 
 		/**
 		 * String representation of the exception
@@ -1531,7 +1533,7 @@ namespace {
 		/**
 		 * Returns previous Exception
 		 * <p>Returns previous exception (the third parameter of <code>Exception::__construct()</code>).</p>
-		 * @return Throwable <p>Returns the previous Throwable if available or <b><code>NULL</code></b> otherwise.</p>
+		 * @return Throwable <p>Returns the previous Throwable if available or <b><code>null</code></b> otherwise.</p>
 		 * @link https://php.net/manual/en/exception.getprevious.php
 		 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8
 		 */
@@ -1602,7 +1604,7 @@ namespace {
 		/**
 		 * The valid() method
 		 * <p>The EmptyIterator valid() method.</p><p>This function is currently not documented; only its argument list is available.</p>
-		 * @return bool <p><b><code>FALSE</code></b></p>
+		 * @return bool <p><b><code>false</code></b></p>
 		 * @link https://php.net/manual/en/emptyiterator.valid.php
 		 * @since PHP 5 >= 5.1.0, PHP 7
 		 */
@@ -1730,7 +1732,7 @@ namespace {
 		 * @see basename(), pathinfo()
 		 * @since PHP 5 >= 5.2.2, PHP 7
 		 */
-		public function getBasename(string $suffix = NULL): string {}
+		public function getBasename(string $suffix = null): string {}
 
 		/**
 		 * Get inode change time of the current DirectoryIterator item
@@ -1862,7 +1864,7 @@ namespace {
 		/**
 		 * Determine if current DirectoryIterator item is a directory
 		 * <p>Determines if the current DirectoryIterator item is a directory.</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b> if it is a directory, otherwise <b><code>FALSE</code></b></p>
+		 * @return bool <p>Returns <b><code>true</code></b> if it is a directory, otherwise <b><code>false</code></b></p>
 		 * @link https://php.net/manual/en/directoryiterator.isdir.php
 		 * @since PHP 5, PHP 7
 		 */
@@ -1871,7 +1873,7 @@ namespace {
 		/**
 		 * Determine if current DirectoryIterator item is '.' or '..'
 		 * <p>Determines if the current DirectoryIterator item is a directory and either <code>.</code> or <code>..</code></p>
-		 * @return bool <p><b><code>TRUE</code></b> if the entry is <code>.</code> or <code>..</code>, otherwise <b><code>FALSE</code></b></p>
+		 * @return bool <p><b><code>true</code></b> if the entry is <code>.</code> or <code>..</code>, otherwise <b><code>false</code></b></p>
 		 * @link https://php.net/manual/en/directoryiterator.isdot.php
 		 * @since PHP 5, PHP 7
 		 */
@@ -1880,7 +1882,7 @@ namespace {
 		/**
 		 * Determine if current DirectoryIterator item is executable
 		 * <p>Determines if the current DirectoryIterator item is executable.</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b> if the entry is executable, otherwise <b><code>FALSE</code></b></p>
+		 * @return bool <p>Returns <b><code>true</code></b> if the entry is executable, otherwise <b><code>false</code></b></p>
 		 * @link https://php.net/manual/en/directoryiterator.isexecutable.php
 		 * @since PHP 5, PHP 7
 		 */
@@ -1889,7 +1891,7 @@ namespace {
 		/**
 		 * Determine if current DirectoryIterator item is a regular file
 		 * <p>Determines if the current DirectoryIterator item is a regular file.</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b> if the file exists and is a regular file (not a <code>link</code> or <code>dir</code>), otherwise <b><code>FALSE</code></b></p>
+		 * @return bool <p>Returns <b><code>true</code></b> if the file exists and is a regular file (not a <code>link</code> or <code>dir</code>), otherwise <b><code>false</code></b></p>
 		 * @link https://php.net/manual/en/directoryiterator.isfile.php
 		 * @since PHP 5, PHP 7
 		 */
@@ -1898,7 +1900,7 @@ namespace {
 		/**
 		 * Determine if current DirectoryIterator item is a symbolic link
 		 * <p>Determines if the current DirectoryIterator item is a symbolic link.</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b> if the item is a symbolic link, otherwise <b><code>FALSE</code></b></p>
+		 * @return bool <p>Returns <b><code>true</code></b> if the item is a symbolic link, otherwise <b><code>false</code></b></p>
 		 * @link https://php.net/manual/en/directoryiterator.islink.php
 		 * @since PHP 5, PHP 7
 		 */
@@ -1907,7 +1909,7 @@ namespace {
 		/**
 		 * Determine if current DirectoryIterator item can be read
 		 * <p>Determines if the current DirectoryIterator item is readable.</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b> if the file is readable, otherwise <b><code>FALSE</code></b></p>
+		 * @return bool <p>Returns <b><code>true</code></b> if the file is readable, otherwise <b><code>false</code></b></p>
 		 * @link https://php.net/manual/en/directoryiterator.isreadable.php
 		 * @since PHP 5, PHP 7
 		 */
@@ -1916,7 +1918,7 @@ namespace {
 		/**
 		 * Determine if current DirectoryIterator item can be written to
 		 * <p>Determines if the current DirectoryIterator item is writable.</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b> if the file/directory is writable, otherwise <b><code>FALSE</code></b></p>
+		 * @return bool <p>Returns <b><code>true</code></b> if the file/directory is writable, otherwise <b><code>false</code></b></p>
 		 * @link https://php.net/manual/en/directoryiterator.iswritable.php
 		 * @since PHP 5, PHP 7
 		 */
@@ -1966,12 +1968,12 @@ namespace {
 		 * @link https://php.net/manual/en/filesystemiterator.setflags.php
 		 * @since PHP 5 >= 5.3.0, PHP 7
 		 */
-		public function setFlags(int $flags = NULL): void {}
+		public function setFlags(int $flags = null): void {}
 
 		/**
 		 * Check whether current DirectoryIterator position is a valid file
 		 * <p>Check whether current DirectoryIterator position is a valid file.</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b> if the position is valid, otherwise <b><code>FALSE</code></b></p>
+		 * @return bool <p>Returns <b><code>true</code></b> if the position is valid, otherwise <b><code>false</code></b></p>
 		 * @link https://php.net/manual/en/directoryiterator.valid.php
 		 * @since PHP 5, PHP 7
 		 */
@@ -1998,7 +2000,7 @@ namespace {
 		/**
 		 * Check whether the current element of the iterator is acceptable
 		 * <p>Returns whether the current element of the iterator is acceptable through this filter.</p>
-		 * @return bool <p><b><code>TRUE</code></b> if the current element is acceptable, otherwise <b><code>FALSE</code></b>.</p>
+		 * @return bool <p><b><code>true</code></b> if the current element is acceptable, otherwise <b><code>false</code></b>.</p>
 		 * @link https://php.net/manual/en/filteriterator.accept.php
 		 * @since PHP 5 >= 5.1.0, PHP 7
 		 */
@@ -2056,7 +2058,7 @@ namespace {
 		/**
 		 * Check whether the current element is valid
 		 * <p>This function is currently not documented; only its argument list is available.</p><p>Checks whether the current element is valid.</p>
-		 * @return bool <p><b><code>TRUE</code></b> if the current element is valid, otherwise <b><code>FALSE</code></b></p>
+		 * @return bool <p><b><code>true</code></b> if the current element is valid, otherwise <b><code>false</code></b></p>
 		 * @link https://php.net/manual/en/filteriterator.valid.php
 		 * @since PHP 5 >= 5.1.0, PHP 7
 		 */
@@ -2144,7 +2146,7 @@ namespace {
 		 * @link https://php.net/manual/en/filesystemiterator.setflags.php
 		 * @since PHP 5 >= 5.3.0, PHP 7
 		 */
-		public function setFlags(int $flags = NULL): void {}
+		public function setFlags(int $flags = null): void {}
 	}
 
 	/**
@@ -2212,7 +2214,7 @@ namespace {
 		/**
 		 * Checks if the iterator is valid
 		 * <p>Checks if the iterator is valid.</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b> if the iterator is valid, otherwise <b><code>FALSE</code></b></p>
+		 * @return bool <p>Returns <b><code>true</code></b> if the iterator is valid, otherwise <b><code>false</code></b></p>
 		 * @link https://php.net/manual/en/iteratoriterator.valid.php
 		 * @see iterator_count()
 		 * @since PHP 5 >= 5.1.0, PHP 7
@@ -2270,7 +2272,7 @@ namespace {
 		 * @link https://php.net/manual/en/exception.construct.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
-		public function __construct(string $message = "", int $code = 0, \Throwable $previous = NULL) {}
+		public function __construct(string $message = "", int $code = 0, \Throwable $previous = null) {}
 
 		/**
 		 * String representation of the exception
@@ -2320,7 +2322,7 @@ namespace {
 		/**
 		 * Returns previous Exception
 		 * <p>Returns previous exception (the third parameter of <code>Exception::__construct()</code>).</p>
-		 * @return Throwable <p>Returns the previous Throwable if available or <b><code>NULL</code></b> otherwise.</p>
+		 * @return Throwable <p>Returns the previous Throwable if available or <b><code>null</code></b> otherwise.</p>
 		 * @link https://php.net/manual/en/exception.getprevious.php
 		 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8
 		 */
@@ -2410,7 +2412,7 @@ namespace {
 		/**
 		 * Checks if the iterator is valid
 		 * <p>Checks if the iterator is valid.</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b> if the iterator is valid, otherwise <b><code>FALSE</code></b></p>
+		 * @return bool <p>Returns <b><code>true</code></b> if the iterator is valid, otherwise <b><code>false</code></b></p>
 		 * @link https://php.net/manual/en/iteratoriterator.valid.php
 		 * @see iterator_count()
 		 * @since PHP 5 >= 5.1.0, PHP 7
@@ -2468,7 +2470,7 @@ namespace {
 		 * @link https://php.net/manual/en/exception.construct.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
-		public function __construct(string $message = "", int $code = 0, \Throwable $previous = NULL) {}
+		public function __construct(string $message = "", int $code = 0, \Throwable $previous = null) {}
 
 		/**
 		 * String representation of the exception
@@ -2518,7 +2520,7 @@ namespace {
 		/**
 		 * Returns previous Exception
 		 * <p>Returns previous exception (the third parameter of <code>Exception::__construct()</code>).</p>
-		 * @return Throwable <p>Returns the previous Throwable if available or <b><code>NULL</code></b> otherwise.</p>
+		 * @return Throwable <p>Returns the previous Throwable if available or <b><code>null</code></b> otherwise.</p>
 		 * @link https://php.net/manual/en/exception.getprevious.php
 		 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8
 		 */
@@ -2565,7 +2567,7 @@ namespace {
 		/**
 		 * Get current element
 		 * <p>Gets the current element of the inner Iterator.</p>
-		 * @return mixed <p>Returns the current element or <b><code>NULL</code></b> if there is none.</p>
+		 * @return mixed <p>Returns the current element or <b><code>null</code></b> if there is none.</p>
 		 * @link https://php.net/manual/en/limititerator.current.php
 		 * @since PHP 5 >= 5.1.0, PHP 7
 		 */
@@ -2629,7 +2631,7 @@ namespace {
 		/**
 		 * Check whether the current element is valid
 		 * <p>Checks whether the current element is valid.</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/limititerator.valid.php
 		 * @since PHP 5 >= 5.1.0, PHP 7
 		 */
@@ -2686,7 +2688,7 @@ namespace {
 		 * @link https://php.net/manual/en/exception.construct.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
-		public function __construct(string $message = "", int $code = 0, \Throwable $previous = NULL) {}
+		public function __construct(string $message = "", int $code = 0, \Throwable $previous = null) {}
 
 		/**
 		 * String representation of the exception
@@ -2736,7 +2738,7 @@ namespace {
 		/**
 		 * Returns previous Exception
 		 * <p>Returns previous exception (the third parameter of <code>Exception::__construct()</code>).</p>
-		 * @return Throwable <p>Returns the previous Throwable if available or <b><code>NULL</code></b> otherwise.</p>
+		 * @return Throwable <p>Returns the previous Throwable if available or <b><code>null</code></b> otherwise.</p>
 		 * @link https://php.net/manual/en/exception.getprevious.php
 		 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8
 		 */
@@ -2806,18 +2808,18 @@ namespace {
 		 * Attaches iterator information
 		 * <p>Attaches iterator information.</p><p>This function is currently not documented; only its argument list is available.</p>
 		 * @param \Iterator $iterator <p>The new iterator to attach.</p>
-		 * @param string $infos <p>The associative information for the Iterator, which must be an <code>int</code>, a <code>string</code>, or <b><code>NULL</code></b>.</p>
+		 * @param string $infos <p>The associative information for the Iterator, which must be an <code>int</code>, a <code>string</code>, or <b><code>null</code></b>.</p>
 		 * @return void <p>Description...</p>
 		 * @link https://php.net/manual/en/multipleiterator.attachiterator.php
 		 * @since PHP 5 >= 5.3.0, PHP 7
 		 */
-		public function attachIterator(\Iterator $iterator, string $infos = NULL): void {}
+		public function attachIterator(\Iterator $iterator, string $infos = null): void {}
 
 		/**
 		 * Checks if an iterator is attached
 		 * <p>Checks if an iterator is attached or not.</p><p>This function is currently not documented; only its argument list is available.</p>
 		 * @param \Iterator $iterator <p>The iterator to check.</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/multipleiterator.containsiterator.php
 		 * @since PHP 5 >= 5.3.0, PHP 7
 		 */
@@ -2835,7 +2837,7 @@ namespace {
 		/**
 		 * Gets the registered iterator instances
 		 * <p>Get the registered iterator instances current() result.</p><p>This function is currently not documented; only its argument list is available.</p>
-		 * @return array <p>An <code>array</code> containing the current values of each attached iterator, or <b><code>FALSE</code></b> if no iterators are attached.</p>
+		 * @return array <p>An <code>array</code> containing the current values of each attached iterator, or <b><code>false</code></b> if no iterators are attached.</p>
 		 * @link https://php.net/manual/en/multipleiterator.current.php
 		 * @since PHP 5 >= 5.3.0, PHP 7
 		 */
@@ -2863,7 +2865,7 @@ namespace {
 		/**
 		 * Gets the registered iterator instances
 		 * <p>Get the registered iterator instances key() result.</p><p>This function is currently not documented; only its argument list is available.</p>
-		 * @return array <p>An <code>array</code> of all registered iterator instances, or <b><code>FALSE</code></b> if no sub iterator is attached.</p>
+		 * @return array <p>An <code>array</code> of all registered iterator instances, or <b><code>false</code></b> if no sub iterator is attached.</p>
 		 * @link https://php.net/manual/en/multipleiterator.key.php
 		 * @since PHP 5 >= 5.3.0, PHP 7
 		 */
@@ -2900,7 +2902,7 @@ namespace {
 		/**
 		 * Checks the validity of sub iterators
 		 * <p>Checks the validity of sub iterators.</p><p>This function is currently not documented; only its argument list is available.</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b> if one or all sub iterators are valid depending on flags, otherwise <b><code>FALSE</code></b></p>
+		 * @return bool <p>Returns <b><code>true</code></b> if one or all sub iterators are valid depending on flags, otherwise <b><code>false</code></b></p>
 		 * @link https://php.net/manual/en/multipleiterator.valid.php
 		 * @since PHP 5 >= 5.3.0, PHP 7
 		 */
@@ -2972,7 +2974,7 @@ namespace {
 		/**
 		 * Validates the iterator
 		 * <p>Checks whether the iterator is valid.</p><p>This function is currently not documented; only its argument list is available.</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/norewinditerator.valid.php
 		 * @since PHP 5 >= 5.1.0, PHP 7
 		 */
@@ -3007,7 +3009,7 @@ namespace {
 		/**
 		 * Return the key of the current element
 		 * <p>Returns the key of the current element.</p>
-		 * @return scalar <p>Returns scalar on success, or <b><code>NULL</code></b> on failure.</p>
+		 * @return scalar <p>Returns scalar on success, or <b><code>null</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/iterator.key.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
@@ -3034,7 +3036,7 @@ namespace {
 		/**
 		 * Checks if current position is valid
 		 * <p>This method is called after <code>Iterator::rewind()</code> and <code>Iterator::next()</code> to check if the current position is valid.</p>
-		 * @return bool <p>The return value will be casted to <code>bool</code> and then evaluated. Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+		 * @return bool <p>The return value will be casted to <code>bool</code> and then evaluated. Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/iterator.valid.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
@@ -3091,7 +3093,7 @@ namespace {
 		 * @link https://php.net/manual/en/exception.construct.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
-		public function __construct(string $message = "", int $code = 0, \Throwable $previous = NULL) {}
+		public function __construct(string $message = "", int $code = 0, \Throwable $previous = null) {}
 
 		/**
 		 * String representation of the exception
@@ -3141,7 +3143,7 @@ namespace {
 		/**
 		 * Returns previous Exception
 		 * <p>Returns previous exception (the third parameter of <code>Exception::__construct()</code>).</p>
-		 * @return Throwable <p>Returns the previous Throwable if available or <b><code>NULL</code></b> otherwise.</p>
+		 * @return Throwable <p>Returns the previous Throwable if available or <b><code>null</code></b> otherwise.</p>
 		 * @link https://php.net/manual/en/exception.getprevious.php
 		 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8
 		 */
@@ -3216,7 +3218,7 @@ namespace {
 		 * @link https://php.net/manual/en/exception.construct.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
-		public function __construct(string $message = "", int $code = 0, \Throwable $previous = NULL) {}
+		public function __construct(string $message = "", int $code = 0, \Throwable $previous = null) {}
 
 		/**
 		 * String representation of the exception
@@ -3266,7 +3268,7 @@ namespace {
 		/**
 		 * Returns previous Exception
 		 * <p>Returns previous exception (the third parameter of <code>Exception::__construct()</code>).</p>
-		 * @return Throwable <p>Returns the previous Throwable if available or <b><code>NULL</code></b> otherwise.</p>
+		 * @return Throwable <p>Returns the previous Throwable if available or <b><code>null</code></b> otherwise.</p>
 		 * @link https://php.net/manual/en/exception.getprevious.php
 		 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8
 		 */
@@ -3341,7 +3343,7 @@ namespace {
 		 * @link https://php.net/manual/en/exception.construct.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
-		public function __construct(string $message = "", int $code = 0, \Throwable $previous = NULL) {}
+		public function __construct(string $message = "", int $code = 0, \Throwable $previous = null) {}
 
 		/**
 		 * String representation of the exception
@@ -3391,7 +3393,7 @@ namespace {
 		/**
 		 * Returns previous Exception
 		 * <p>Returns previous exception (the third parameter of <code>Exception::__construct()</code>).</p>
-		 * @return Throwable <p>Returns the previous Throwable if available or <b><code>NULL</code></b> otherwise.</p>
+		 * @return Throwable <p>Returns the previous Throwable if available or <b><code>null</code></b> otherwise.</p>
 		 * @link https://php.net/manual/en/exception.getprevious.php
 		 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8
 		 */
@@ -3436,7 +3438,7 @@ namespace {
 		/**
 		 * Determines acceptability
 		 * <p>Determines if the current element has children.</p><p>This function is currently not documented; only its argument list is available.</p>
-		 * @return bool <p><b><code>TRUE</code></b> if the current element is acceptable, otherwise <b><code>FALSE</code></b>.</p>
+		 * @return bool <p><b><code>true</code></b> if the current element is acceptable, otherwise <b><code>false</code></b>.</p>
 		 * @link https://php.net/manual/en/parentiterator.accept.php
 		 * @since PHP 5 >= 5.1.0, PHP 7
 		 */
@@ -3463,7 +3465,7 @@ namespace {
 		/**
 		 * Check whether the inner iterator's current element has children
 		 * <p>Check whether the inner iterator's current element has children.</p><p>This function is currently not documented; only its argument list is available.</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/parentiterator.haschildren.php
 		 * @since PHP 5 >= 5.1.0, PHP 7
 		 */
@@ -3538,7 +3540,7 @@ namespace {
 		 * @link https://php.net/manual/en/exception.construct.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
-		public function __construct(string $message = "", int $code = 0, \Throwable $previous = NULL) {}
+		public function __construct(string $message = "", int $code = 0, \Throwable $previous = null) {}
 
 		/**
 		 * String representation of the exception
@@ -3588,7 +3590,7 @@ namespace {
 		/**
 		 * Returns previous Exception
 		 * <p>Returns previous exception (the third parameter of <code>Exception::__construct()</code>).</p>
-		 * @return Throwable <p>Returns the previous Throwable if available or <b><code>NULL</code></b> otherwise.</p>
+		 * @return Throwable <p>Returns the previous Throwable if available or <b><code>null</code></b> otherwise.</p>
 		 * @link https://php.net/manual/en/exception.getprevious.php
 		 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8
 		 */
@@ -3705,7 +3707,7 @@ namespace {
 		/**
 		 * Returns whether current entry is an array or an object
 		 * <p>Returns whether current entry is an <code>array</code> or an <code>object</code> for which an iterator can be obtained via <code>RecursiveArrayIterator::getChildren()</code>.</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b> if the current entry is an <code>array</code> or an <code>object</code>, otherwise <b><code>FALSE</code></b> is returned.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> if the current entry is an <code>array</code> or an <code>object</code>, otherwise <b><code>false</code></b> is returned.</p>
 		 * @link https://php.net/manual/en/recursivearrayiterator.haschildren.php
 		 * @see RecursiveArrayIterator::getChildren()
 		 * @since PHP 5 >= 5.1.0, PHP 7
@@ -3763,7 +3765,7 @@ namespace {
 		 * Check if offset exists
 		 * <p>Checks if the offset exists.</p><p>This function is currently not documented; only its argument list is available.</p>
 		 * @param mixed $index <p>The offset being checked.</p>
-		 * @return bool <p><b><code>TRUE</code></b> if the offset exists, otherwise <b><code>FALSE</code></b></p>
+		 * @return bool <p><b><code>true</code></b> if the offset exists, otherwise <b><code>false</code></b></p>
 		 * @link https://php.net/manual/en/arrayiterator.offsetexists.php
 		 * @since PHP 5, PHP 7
 		 */
@@ -3873,7 +3875,7 @@ namespace {
 		/**
 		 * Check whether array contains more entries
 		 * <p>Checks if the <code>array</code> contains any more entries.</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b> if the iterator is valid, otherwise <b><code>FALSE</code></b></p>
+		 * @return bool <p>Returns <b><code>true</code></b> if the iterator is valid, otherwise <b><code>false</code></b></p>
 		 * @link https://php.net/manual/en/arrayiterator.valid.php
 		 * @since PHP 5, PHP 7
 		 */
@@ -3964,7 +3966,7 @@ namespace {
 		/**
 		 * Check whether the current element of the inner iterator has children
 		 * <p>This function is currently not documented; only its argument list is available.</p>
-		 * @return bool <p><b><code>TRUE</code></b> if the inner iterator has children, otherwise <b><code>FALSE</code></b></p>
+		 * @return bool <p><b><code>true</code></b> if the inner iterator has children, otherwise <b><code>false</code></b></p>
 		 * @link https://php.net/manual/en/recursivecachingiterator.haschildren.php
 		 * @since PHP 5 >= 5.1.0, PHP 7
 		 */
@@ -3973,7 +3975,7 @@ namespace {
 		/**
 		 * Check whether the inner iterator has a valid next element
 		 * <p>This function is currently not documented; only its argument list is available.</p>
-		 * @return void <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+		 * @return void <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/cachingiterator.hasnext.php
 		 * @since PHP 5, PHP 7
 		 */
@@ -4001,7 +4003,7 @@ namespace {
 		 * The offsetExists purpose
 		 * <p>This function is currently not documented; only its argument list is available.</p>
 		 * @param mixed $index <p>The index being checked.</p>
-		 * @return void <p>Returns <b><code>TRUE</code></b> if an entry referenced by the offset exists, <b><code>FALSE</code></b> otherwise.</p>
+		 * @return void <p>Returns <b><code>true</code></b> if an entry referenced by the offset exists, <b><code>false</code></b> otherwise.</p>
 		 * @link https://php.net/manual/en/cachingiterator.offsetexists.php
 		 * @since PHP 5 >= 5.2.0, PHP 7
 		 */
@@ -4060,7 +4062,7 @@ namespace {
 		/**
 		 * Check whether the current element is valid
 		 * <p>This function is currently not documented; only its argument list is available.</p><p>Check whether the current element is valid.</p>
-		 * @return void <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+		 * @return void <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/cachingiterator.valid.php
 		 * @since PHP 5, PHP 7
 		 */
@@ -4077,7 +4079,7 @@ namespace {
 		 * Create a RecursiveCallbackFilterIterator from a RecursiveIterator
 		 * <p>Creates a filtered iterator from a <code>RecursiveIterator</code> using the <code>callback</code> to determine which items are accepted or rejected.</p>
 		 * @param \RecursiveIterator $iterator <p>The recursive iterator to be filtered.</p>
-		 * @param string $callback <p>The callback, which should return <b><code>TRUE</code></b> to accept the current item or <b><code>FALSE</code></b> otherwise. See Examples.</p> <p>May be any valid <code>callable</code> value.</p>
+		 * @param string $callback <p>The callback, which should return <b><code>true</code></b> to accept the current item or <b><code>false</code></b> otherwise. See Examples.</p> <p>May be any valid <code>callable</code> value.</p>
 		 * @return self <p>No value is returned.</p>
 		 * @link https://php.net/manual/en/recursivecallbackfilteriterator.construct.php
 		 * @since PHP 5 >= 5.4.0, PHP 7
@@ -4086,8 +4088,8 @@ namespace {
 
 		/**
 		 * Calls the callback with the current value, the current key and the inner iterator as arguments
-		 * <p>This method calls the callback with the current value, current key and the inner iterator.</p><p>The callback is expected to return <b><code>TRUE</code></b> if the current item is to be accepted, or <b><code>FALSE</code></b> otherwise.</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b> to accept the current item, or <b><code>FALSE</code></b> otherwise.</p>
+		 * <p>This method calls the callback with the current value, current key and the inner iterator.</p><p>The callback is expected to return <b><code>true</code></b> if the current item is to be accepted, or <b><code>false</code></b> otherwise.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> to accept the current item, or <b><code>false</code></b> otherwise.</p>
 		 * @link https://php.net/manual/en/callbackfilteriterator.accept.php
 		 * @since PHP 5 >= 5.4.0, PHP 7
 		 */
@@ -4104,8 +4106,8 @@ namespace {
 
 		/**
 		 * Check whether the inner iterator's current element has children
-		 * <p>Returns <b><code>TRUE</code></b> if the current element has children, <b><code>FALSE</code></b> otherwise.</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b> if the current element has children, <b><code>FALSE</code></b> otherwise.</p>
+		 * <p>Returns <b><code>true</code></b> if the current element has children, <b><code>false</code></b> otherwise.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> if the current element has children, <b><code>false</code></b> otherwise.</p>
 		 * @link https://php.net/manual/en/recursivecallbackfilteriterator.haschildren.php
 		 * @since PHP 5 >= 5.4.0, PHP 7
 		 */
@@ -4183,7 +4185,7 @@ namespace {
 		 * @link https://php.net/manual/en/recursivedirectoryiterator.haschildren.php
 		 * @since PHP 5, PHP 7
 		 */
-		public function hasChildren(bool $allow_links = FALSE): bool {}
+		public function hasChildren(bool $allow_links = false): bool {}
 
 		/**
 		 * Return path and filename of current dir entry
@@ -4220,7 +4222,7 @@ namespace {
 		 * @link https://php.net/manual/en/filesystemiterator.setflags.php
 		 * @since PHP 5 >= 5.3.0, PHP 7
 		 */
-		public function setFlags(int $flags = NULL): void {}
+		public function setFlags(int $flags = null): void {}
 	}
 
 	/**
@@ -4243,7 +4245,7 @@ namespace {
 		/**
 		 * Check whether the current element of the iterator is acceptable
 		 * <p>Returns whether the current element of the iterator is acceptable through this filter.</p>
-		 * @return bool <p><b><code>TRUE</code></b> if the current element is acceptable, otherwise <b><code>FALSE</code></b>.</p>
+		 * @return bool <p><b><code>true</code></b> if the current element is acceptable, otherwise <b><code>false</code></b>.</p>
 		 * @link https://php.net/manual/en/filteriterator.accept.php
 		 * @since PHP 5 >= 5.1.0, PHP 7
 		 */
@@ -4280,7 +4282,7 @@ namespace {
 		/**
 		 * Check whether the inner iterator's current element has children
 		 * <p>Check whether the inner iterator's current element has children.</p>
-		 * @return bool <p><b><code>TRUE</code></b> if the inner iterator has children, otherwise <b><code>FALSE</code></b></p>
+		 * @return bool <p><b><code>true</code></b> if the inner iterator has children, otherwise <b><code>false</code></b></p>
 		 * @link https://php.net/manual/en/recursivefilteriterator.haschildren.php
 		 * @since PHP 5 >= 5.1.0, PHP 7
 		 */
@@ -4319,7 +4321,7 @@ namespace {
 		/**
 		 * Check whether the current element is valid
 		 * <p>This function is currently not documented; only its argument list is available.</p><p>Checks whether the current element is valid.</p>
-		 * @return bool <p><b><code>TRUE</code></b> if the current element is valid, otherwise <b><code>FALSE</code></b></p>
+		 * @return bool <p><b><code>true</code></b> if the current element is valid, otherwise <b><code>false</code></b></p>
 		 * @link https://php.net/manual/en/filteriterator.valid.php
 		 * @since PHP 5 >= 5.1.0, PHP 7
 		 */
@@ -4355,7 +4357,7 @@ namespace {
 		/**
 		 * Returns if an iterator can be created for the current entry
 		 * <p>Returns if an iterator can be created for the current entry. <code>RecursiveIterator::getChildren()</code>.</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b> if the current entry can be iterated over, otherwise returns <b><code>FALSE</code></b>.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> if the current entry can be iterated over, otherwise returns <b><code>false</code></b>.</p>
 		 * @link https://php.net/manual/en/recursiveiterator.haschildren.php
 		 * @see RecursiveIterator::getChildren()
 		 * @since PHP 5 >= 5.1.0, PHP 7
@@ -4365,7 +4367,7 @@ namespace {
 		/**
 		 * Return the key of the current element
 		 * <p>Returns the key of the current element.</p>
-		 * @return scalar <p>Returns scalar on success, or <b><code>NULL</code></b> on failure.</p>
+		 * @return scalar <p>Returns scalar on success, or <b><code>null</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/iterator.key.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
@@ -4392,7 +4394,7 @@ namespace {
 		/**
 		 * Checks if current position is valid
 		 * <p>This method is called after <code>Iterator::rewind()</code> and <code>Iterator::next()</code> to check if the current position is valid.</p>
-		 * @return bool <p>The return value will be casted to <code>bool</code> and then evaluated. Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+		 * @return bool <p>The return value will be casted to <code>bool</code> and then evaluated. Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/iterator.valid.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
@@ -4472,7 +4474,7 @@ namespace {
 		/**
 		 * Has children
 		 * <p>Called for each element to test whether it has children.</p><p>This function is currently not documented; only its argument list is available.</p>
-		 * @return bool <p><b><code>TRUE</code></b> if the element has children, otherwise <b><code>FALSE</code></b></p>
+		 * @return bool <p><b><code>true</code></b> if the element has children, otherwise <b><code>false</code></b></p>
 		 * @link https://php.net/manual/en/recursiveiteratoriterator.callhaschildren.php
 		 * @since PHP 5 >= 5.1.0, PHP 7
 		 */
@@ -4498,7 +4500,7 @@ namespace {
 
 		/**
 		 * End Iteration
-		 * <p>Called when the iteration ends (when <code>RecursiveIteratorIterator::valid()</code> first returns <b><code>FALSE</code></b>.</p><p>This function is currently not documented; only its argument list is available.</p>
+		 * <p>Called when the iteration ends (when <code>RecursiveIteratorIterator::valid()</code> first returns <b><code>false</code></b>.</p><p>This function is currently not documented; only its argument list is available.</p>
 		 * @return void <p>No value is returned.</p>
 		 * @link https://php.net/manual/en/recursiveiteratoriterator.enditeration.php
 		 * @since PHP 5 >= 5.1.0, PHP 7
@@ -4526,7 +4528,7 @@ namespace {
 		/**
 		 * Get max depth
 		 * <p>Gets the maximum allowable depth.</p><p>This function is currently not documented; only its argument list is available.</p>
-		 * @return mixed <p>The maximum accepted depth, or <b><code>FALSE</code></b> if any depth is allowed.</p>
+		 * @return mixed <p>The maximum accepted depth, or <b><code>false</code></b> if any depth is allowed.</p>
 		 * @link https://php.net/manual/en/recursiveiteratoriterator.getmaxdepth.php
 		 * @since PHP 5 >= 5.1.0, PHP 7
 		 */
@@ -4540,7 +4542,7 @@ namespace {
 		 * @link https://php.net/manual/en/recursiveiteratoriterator.getsubiterator.php
 		 * @since PHP 5, PHP 7
 		 */
-		public function getSubIterator(int $level = NULL): \RecursiveIterator {}
+		public function getSubIterator(int $level = null): \RecursiveIterator {}
 
 		/**
 		 * Access the current key
@@ -4591,7 +4593,7 @@ namespace {
 		/**
 		 * Check whether the current position is valid
 		 * <p>This function is currently not documented; only its argument list is available.</p>
-		 * @return bool <p><b><code>TRUE</code></b> if the current position is valid, otherwise <b><code>FALSE</code></b></p>
+		 * @return bool <p><b><code>true</code></b> if the current position is valid, otherwise <b><code>false</code></b></p>
 		 * @link https://php.net/manual/en/recursiveiteratoriterator.valid.php
 		 * @since PHP 5, PHP 7
 		 */
@@ -4623,7 +4625,7 @@ namespace {
 		/**
 		 * Get accept status
 		 * <p>Matches <code>(string)</code> <b>RegexIterator::current()</b> (or <b>RegexIterator::key()</b> if the RegexIterator::USE_KEY flag is set) against the regular expression.</p>
-		 * @return bool <p><b><code>TRUE</code></b> if a match, <b><code>FALSE</code></b> otherwise.</p>
+		 * @return bool <p><b><code>true</code></b> if a match, <b><code>false</code></b> otherwise.</p>
 		 * @link https://php.net/manual/en/regexiterator.accept.php
 		 * @since PHP 5 >= 5.2.0, PHP 7
 		 */
@@ -4678,7 +4680,7 @@ namespace {
 		/**
 		 * Returns whether an iterator can be obtained for the current entry
 		 * <p>Returns whether an iterator can be obtained for the current entry. This iterator can be obtained via <code>RecursiveRegexIterator::getChildren()</code>.</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b> if an iterator can be obtained for the current entry, otherwise returns <b><code>FALSE</code></b>.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> if an iterator can be obtained for the current entry, otherwise returns <b><code>false</code></b>.</p>
 		 * @link https://php.net/manual/en/recursiveregexiterator.haschildren.php
 		 * @see RecursiveRegexIterator::getChildren()
 		 * @since PHP 5 >= 5.2.0, PHP 7
@@ -4814,7 +4816,7 @@ namespace {
 		/**
 		 * Has children
 		 * <p>Called for each element to test whether it has children.</p><p>This function is currently not documented; only its argument list is available.</p>
-		 * @return bool <p><b><code>TRUE</code></b> if there are children, otherwise <b><code>FALSE</code></b></p>
+		 * @return bool <p><b><code>true</code></b> if there are children, otherwise <b><code>false</code></b></p>
 		 * @link https://php.net/manual/en/recursivetreeiterator.callhaschildren.php
 		 * @since PHP 5 >= 5.3.0, PHP 7
 		 */
@@ -4840,7 +4842,7 @@ namespace {
 
 		/**
 		 * End iteration
-		 * <p>Called when the iteration ends (when <code>RecursiveTreeIterator::valid()</code> first returns <b><code>FALSE</code></b>)</p><p>This function is currently not documented; only its argument list is available.</p>
+		 * <p>Called when the iteration ends (when <code>RecursiveTreeIterator::valid()</code> first returns <b><code>false</code></b>)</p><p>This function is currently not documented; only its argument list is available.</p>
 		 * @return void <p>No value is returned.</p>
 		 * @link https://php.net/manual/en/recursivetreeiterator.enditeration.php
 		 * @since PHP 5 >= 5.3.0, PHP 7
@@ -4877,7 +4879,7 @@ namespace {
 		/**
 		 * Get max depth
 		 * <p>Gets the maximum allowable depth.</p><p>This function is currently not documented; only its argument list is available.</p>
-		 * @return mixed <p>The maximum accepted depth, or <b><code>FALSE</code></b> if any depth is allowed.</p>
+		 * @return mixed <p>The maximum accepted depth, or <b><code>false</code></b> if any depth is allowed.</p>
 		 * @link https://php.net/manual/en/recursiveiteratoriterator.getmaxdepth.php
 		 * @since PHP 5 >= 5.1.0, PHP 7
 		 */
@@ -4909,7 +4911,7 @@ namespace {
 		 * @link https://php.net/manual/en/recursiveiteratoriterator.getsubiterator.php
 		 * @since PHP 5, PHP 7
 		 */
-		public function getSubIterator(int $level = NULL): \RecursiveIterator {}
+		public function getSubIterator(int $level = null): \RecursiveIterator {}
 
 		/**
 		 * Get the key of the current element
@@ -4981,7 +4983,7 @@ namespace {
 		/**
 		 * Check validity
 		 * <p>Check whether the current position is valid.</p><p>This function is currently not documented; only its argument list is available.</p>
-		 * @return bool <p><b><code>TRUE</code></b> if the current position is valid, otherwise <b><code>FALSE</code></b></p>
+		 * @return bool <p><b><code>true</code></b> if the current position is valid, otherwise <b><code>false</code></b></p>
 		 * @link https://php.net/manual/en/recursivetreeiterator.valid.php
 		 * @since PHP 5 >= 5.3.0, PHP 7
 		 */
@@ -5049,7 +5051,7 @@ namespace {
 		/**
 		 * Get accept status
 		 * <p>Matches <code>(string)</code> <b>RegexIterator::current()</b> (or <b>RegexIterator::key()</b> if the RegexIterator::USE_KEY flag is set) against the regular expression.</p>
-		 * @return bool <p><b><code>TRUE</code></b> if a match, <b><code>FALSE</code></b> otherwise.</p>
+		 * @return bool <p><b><code>true</code></b> if a match, <b><code>false</code></b> otherwise.</p>
 		 * @link https://php.net/manual/en/regexiterator.accept.php
 		 * @since PHP 5 >= 5.2.0, PHP 7
 		 */
@@ -5173,7 +5175,7 @@ namespace {
 		/**
 		 * Check whether the current element is valid
 		 * <p>This function is currently not documented; only its argument list is available.</p><p>Checks whether the current element is valid.</p>
-		 * @return bool <p><b><code>TRUE</code></b> if the current element is valid, otherwise <b><code>FALSE</code></b></p>
+		 * @return bool <p><b><code>true</code></b> if the current element is valid, otherwise <b><code>false</code></b></p>
 		 * @link https://php.net/manual/en/filteriterator.valid.php
 		 * @since PHP 5 >= 5.1.0, PHP 7
 		 */
@@ -5230,7 +5232,7 @@ namespace {
 		 * @link https://php.net/manual/en/exception.construct.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
-		public function __construct(string $message = "", int $code = 0, \Throwable $previous = NULL) {}
+		public function __construct(string $message = "", int $code = 0, \Throwable $previous = null) {}
 
 		/**
 		 * String representation of the exception
@@ -5280,7 +5282,7 @@ namespace {
 		/**
 		 * Returns previous Exception
 		 * <p>Returns previous exception (the third parameter of <code>Exception::__construct()</code>).</p>
-		 * @return Throwable <p>Returns the previous Throwable if available or <b><code>NULL</code></b> otherwise.</p>
+		 * @return Throwable <p>Returns the previous Throwable if available or <b><code>null</code></b> otherwise.</p>
 		 * @link https://php.net/manual/en/exception.getprevious.php
 		 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8
 		 */
@@ -5324,7 +5326,7 @@ namespace {
 		/**
 		 * Return the key of the current element
 		 * <p>Returns the key of the current element.</p>
-		 * @return scalar <p>Returns scalar on success, or <b><code>NULL</code></b> on failure.</p>
+		 * @return scalar <p>Returns scalar on success, or <b><code>null</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/iterator.key.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
@@ -5361,7 +5363,7 @@ namespace {
 		/**
 		 * Checks if current position is valid
 		 * <p>This method is called after <code>Iterator::rewind()</code> and <code>Iterator::next()</code> to check if the current position is valid.</p>
-		 * @return bool <p>The return value will be casted to <code>bool</code> and then evaluated. Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+		 * @return bool <p>The return value will be casted to <code>bool</code> and then evaluated. Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/iterator.valid.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
@@ -5481,7 +5483,7 @@ namespace {
 		/**
 		 * Returns whether the requested $index exists
 		 * @param mixed $index <p>The index being checked.</p>
-		 * @return bool <p><b><code>TRUE</code></b> if the requested <code>index</code> exists, otherwise <b><code>FALSE</code></b></p>
+		 * @return bool <p><b><code>true</code></b> if the requested <code>index</code> exists, otherwise <b><code>false</code></b></p>
 		 * @link https://php.net/manual/en/spldoublylinkedlist.offsetexists.php
 		 * @since PHP 5 >= 5.3.0, PHP 7
 		 */
@@ -5610,7 +5612,7 @@ namespace {
 		/**
 		 * Check whether the doubly linked list contains more nodes
 		 * <p>Checks if the doubly linked list contains any more nodes.</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b> if the doubly linked list contains any more nodes, <b><code>FALSE</code></b> otherwise.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> if the doubly linked list contains any more nodes, <b><code>false</code></b> otherwise.</p>
 		 * @link https://php.net/manual/en/spldoublylinkedlist.valid.php
 		 * @since PHP 5 >= 5.3.0, PHP 7
 		 */
@@ -5661,7 +5663,7 @@ namespace {
 		 * @link https://php.net/manual/en/splfileinfo.getbasename.php
 		 * @since PHP 5 >= 5.2.2, PHP 7
 		 */
-		public function getBasename(string $suffix = NULL): string {}
+		public function getBasename(string $suffix = null): string {}
 
 		/**
 		 * Gets the inode change time
@@ -5691,7 +5693,7 @@ namespace {
 		 * @link https://php.net/manual/en/splfileinfo.getfileinfo.php
 		 * @since PHP 5 >= 5.1.2, PHP 7
 		 */
-		public function getFileInfo(string $class_name = NULL): \SplFileInfo {}
+		public function getFileInfo(string $class_name = null): \SplFileInfo {}
 
 		/**
 		 * Gets the filename
@@ -5768,7 +5770,7 @@ namespace {
 		 * @link https://php.net/manual/en/splfileinfo.getpathinfo.php
 		 * @since PHP 5 >= 5.1.2, PHP 7
 		 */
-		public function getPathInfo(string $class_name = NULL): \SplFileInfo {}
+		public function getPathInfo(string $class_name = null): \SplFileInfo {}
 
 		/**
 		 * Gets the path to the file
@@ -5791,7 +5793,7 @@ namespace {
 		/**
 		 * Gets absolute path to file
 		 * <p>This method expands all symbolic links, resolves relative references and returns the real path to the file.</p>
-		 * @return string <p>Returns the path to the file, or <b><code>FALSE</code></b> if the file does not exist.</p>
+		 * @return string <p>Returns the path to the file, or <b><code>false</code></b> if the file does not exist.</p>
 		 * @link https://php.net/manual/en/splfileinfo.getrealpath.php
 		 * @since PHP 5 >= 5.2.2, PHP 7
 		 */
@@ -5810,7 +5812,7 @@ namespace {
 		/**
 		 * Gets file type
 		 * <p>Returns the type of the file referenced.</p>
-		 * @return string <p>A <code>string</code> representing the type of the entry. May be one of <code>file</code>, <code>link</code>, or <code>dir</code></p>
+		 * @return string <p>A <code>string</code> representing the type of the entry. May be one of <code>file</code>, <code>link</code>, <code>dir</code>, <code>block</code>, <code>fifo</code>, <code>char</code>, <code>socket</code>, or <code>unknown</code></p>
 		 * @link https://php.net/manual/en/splfileinfo.gettype.php
 		 * @since PHP 5 >= 5.1.2, PHP 7
 		 */
@@ -5819,7 +5821,7 @@ namespace {
 		/**
 		 * Tells if the file is a directory
 		 * <p>This method can be used to determine if the file is a directory.</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b> if a directory, <b><code>FALSE</code></b> otherwise.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> if a directory, <b><code>false</code></b> otherwise.</p>
 		 * @link https://php.net/manual/en/splfileinfo.isdir.php
 		 * @since PHP 5 >= 5.1.2, PHP 7
 		 */
@@ -5828,7 +5830,7 @@ namespace {
 		/**
 		 * Tells if the file is executable
 		 * <p>Checks if the file is executable.</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b> if executable, <b><code>FALSE</code></b> otherwise.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> if executable, <b><code>false</code></b> otherwise.</p>
 		 * @link https://php.net/manual/en/splfileinfo.isexecutable.php
 		 * @since PHP 5 >= 5.1.2, PHP 7
 		 */
@@ -5837,7 +5839,7 @@ namespace {
 		/**
 		 * Tells if the object references a regular file
 		 * <p>Checks if the file referenced by this SplFileInfo object exists and is a regular file.</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b> if the file exists and is a regular file (not a link), <b><code>FALSE</code></b> otherwise.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> if the file exists and is a regular file (not a link), <b><code>false</code></b> otherwise.</p>
 		 * @link https://php.net/manual/en/splfileinfo.isfile.php
 		 * @since PHP 5 >= 5.1.2, PHP 7
 		 */
@@ -5846,7 +5848,7 @@ namespace {
 		/**
 		 * Tells if the file is a link
 		 * <p>Use this method to check if the file referenced by the SplFileInfo object is a link.</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b> if the file is a link, <b><code>FALSE</code></b> otherwise.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> if the file is a link, <b><code>false</code></b> otherwise.</p>
 		 * @link https://php.net/manual/en/splfileinfo.islink.php
 		 * @since PHP 5 >= 5.1.2, PHP 7
 		 */
@@ -5855,7 +5857,7 @@ namespace {
 		/**
 		 * Tells if file is readable
 		 * <p>Check if the file is readable.</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b> if readable, <b><code>FALSE</code></b> otherwise.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> if readable, <b><code>false</code></b> otherwise.</p>
 		 * @link https://php.net/manual/en/splfileinfo.isreadable.php
 		 * @since PHP 5 >= 5.1.2, PHP 7
 		 */
@@ -5864,7 +5866,7 @@ namespace {
 		/**
 		 * Tells if the entry is writable
 		 * <p>Checks if the current entry is writable.</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b> if writable, <b><code>FALSE</code></b> otherwise;</p>
+		 * @return bool <p>Returns <b><code>true</code></b> if writable, <b><code>false</code></b> otherwise;</p>
 		 * @link https://php.net/manual/en/splfileinfo.iswritable.php
 		 * @since PHP 5 >= 5.1.2, PHP 7
 		 */
@@ -5874,14 +5876,14 @@ namespace {
 		 * Gets an SplFileObject object for the file
 		 * <p>Creates an SplFileObject <code>object</code> of the file. This is useful because SplFileObject contains additional methods for manipulating the file whereas SplFileInfo is only useful for gaining information, like whether the file is writable.</p>
 		 * @param string $open_mode <p>The mode for opening the file. See the <code>fopen()</code> documentation for descriptions of possible modes. The default is read only.</p>
-		 * @param bool $use_include_path <p>When set to <b><code>TRUE</code></b>, the filename is also searched for within the include_path</p>
+		 * @param bool $use_include_path <p>When set to <b><code>true</code></b>, the filename is also searched for within the include_path</p>
 		 * @param resource $context <p>Refer to the context section of the manual for a description of <code>contexts</code>.</p>
 		 * @return SplFileObject <p>The opened file as an SplFileObject <code>object</code>.</p>
 		 * @link https://php.net/manual/en/splfileinfo.openfile.php
 		 * @see stream_context_create(), fopen()
 		 * @since PHP 5 >= 5.1.2, PHP 7
 		 */
-		public function openFile(string $open_mode = "r", bool $use_include_path = FALSE, $context = NULL): \SplFileObject {}
+		public function openFile(string $open_mode = "r", bool $use_include_path = false, $context = null): \SplFileObject {}
 
 		/**
 		 * Sets the class used with SplFileInfo::openFile()
@@ -5947,7 +5949,7 @@ namespace {
 		 * @see fopen()
 		 * @since PHP 5 >= 5.1.0, PHP 7
 		 */
-		public function __construct(string $filename, string $open_mode = "r", bool $use_include_path = FALSE, $context = NULL) {}
+		public function __construct(string $filename, string $open_mode = "r", bool $use_include_path = false, $context = null) {}
 
 		/**
 		 * Returns the path to the file as a string
@@ -5970,7 +5972,7 @@ namespace {
 		/**
 		 * Reached end of file
 		 * <p>Determine whether the end of file has been reached</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b> if file is at EOF, <b><code>FALSE</code></b> otherwise.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> if file is at EOF, <b><code>false</code></b> otherwise.</p>
 		 * @link https://php.net/manual/en/splfileobject.eof.php
 		 * @see feof()
 		 * @since PHP 5 >= 5.1.0, PHP 7
@@ -5980,7 +5982,7 @@ namespace {
 		/**
 		 * Flushes the output to the file
 		 * <p>Forces a write of all buffered output to the file.</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/splfileobject.fflush.php
 		 * @since PHP 5 >= 5.1.0, PHP 7
 		 */
@@ -5989,7 +5991,7 @@ namespace {
 		/**
 		 * Gets character from file
 		 * <p>Gets a character from the file.</p>
-		 * @return string <p>Returns a string containing a single character read from the file or <b><code>FALSE</code></b> on EOF.</p><p><b>Warning</b></p><p>This function may return Boolean <b><code>FALSE</code></b>, but may also return a non-Boolean value which evaluates to <b><code>FALSE</code></b>. Please read the section on Booleans for more information. Use the === operator for testing the return value of this function.</p>
+		 * @return string <p>Returns a string containing a single character read from the file or <b><code>false</code></b> on EOF.</p><p><b>Warning</b></p><p>This function may return Boolean <b><code>false</code></b>, but may also return a non-Boolean value which evaluates to <b><code>false</code></b>. Please read the section on Booleans for more information. Use the === operator for testing the return value of this function.</p>
 		 * @link https://php.net/manual/en/splfileobject.fgetc.php
 		 * @since PHP 5 >= 5.1.0, PHP 7
 		 */
@@ -6001,7 +6003,7 @@ namespace {
 		 * @param string $delimiter <p>The field delimiter (one character only). Defaults as a comma or the value set using <code>SplFileObject::setCsvControl()</code>.</p>
 		 * @param string $enclosure <p>The field enclosure character (one character only). Defaults as a double quotation mark or the value set using <code>SplFileObject::setCsvControl()</code>.</p>
 		 * @param string $escape <p>The escape character (at most one character). Defaults as a backslash (<code>\</code>) or the value set using <code>SplFileObject::setCsvControl()</code>. An empty string (<code>""</code>) disables the proprietary escape mechanism.</p> <p><b>Note</b>:  Usually an <code>enclosure</code> character is escpaped inside a field by doubling it; however, the <code>escape</code> character can be used as an alternative. So for the default parameter values <code>""</code> and <code>\"</code> have the same meaning. Other than allowing to escape the <code>enclosure</code> character the <code>escape</code> character has no special meaning; it isn't even meant to escape itself. </p>
-		 * @return array <p>Returns an indexed array containing the fields read, or <b><code>FALSE</code></b> on error.</p><p><b>Note</b>:</p><p>A blank line in a CSV file will be returned as an array comprising a single <b><code>NULL</code></b> field unless using <b><code>SplFileObject::SKIP_EMPTY | SplFileObject::DROP_NEW_LINE</code></b>, in which case empty lines are skipped.</p>
+		 * @return array <p>Returns an indexed array containing the fields read, or <b><code>false</code></b> on error.</p><p><b>Note</b>:</p><p>A blank line in a CSV file will be returned as an array comprising a single <b><code>null</code></b> field unless using <b><code>SplFileObject::SKIP_EMPTY | SplFileObject::DROP_NEW_LINE</code></b>, in which case empty lines are skipped.</p>
 		 * @link https://php.net/manual/en/splfileobject.fgetcsv.php
 		 * @since PHP 5 >= 5.1.0, PHP 7
 		 */
@@ -6010,7 +6012,7 @@ namespace {
 		/**
 		 * Gets line from file
 		 * <p>Gets a line from the file.</p>
-		 * @return string <p>Returns a string containing the next line from the file, or <b><code>FALSE</code></b> on error.</p>
+		 * @return string <p>Returns a string containing the next line from the file, or <b><code>false</code></b> on error.</p>
 		 * @link https://php.net/manual/en/splfileobject.fgets.php
 		 * @see fgets()
 		 * @since PHP 5 >= 5.1.0, PHP 7
@@ -6021,24 +6023,24 @@ namespace {
 		 * Gets line from file and strip HTML tags
 		 * <p>Identical to <code>SplFileObject::fgets()</code>, except that <b>SplFileObject::fgetss()</b> attempts to strip any HTML and PHP tags from the text it reads. The function retains the parsing state from call to call, and as such is not equivalent to calling <code>strip_tags()</code> on the return value of <code>SplFileObject::fgets()</code>.</p>
 		 * @param string $allowable_tags <p>Optional parameter to specify tags which should not be stripped.</p>
-		 * @return string <p>Returns a string containing the next line of the file with HTML and PHP code stripped, or <b><code>FALSE</code></b> on error.</p>
+		 * @return string <p>Returns a string containing the next line of the file with HTML and PHP code stripped, or <b><code>false</code></b> on error.</p>
 		 * @link https://php.net/manual/en/splfileobject.fgetss.php
 		 * @see fgetss()
 		 * @since PHP 5 >= 5.1.0, PHP 7
 		 */
-		public function fgetss(string $allowable_tags = NULL): string {}
+		public function fgetss(string $allowable_tags = null): string {}
 
 		/**
 		 * Portable file locking
 		 * <p>Locks or unlocks the file in the same portable way as <code>flock()</code>.</p>
 		 * @param int $operation <p><code>operation</code> is one of the following:</p><ul> <li>  <b><code>LOCK_SH</code></b> to acquire a shared lock (reader).  </li> <li>  <b><code>LOCK_EX</code></b> to acquire an exclusive lock (writer).  </li> <li>  <b><code>LOCK_UN</code></b> to release a lock (shared or exclusive).  </li> </ul> <p>It is also possible to add <b><code>LOCK_NB</code></b> as a bitmask to one of the above operations, if <code>flock()</code> should not block during the locking attempt.</p>
-		 * @param int $wouldblock <p>Set to <b><code>TRUE</code></b> if the lock would block (EWOULDBLOCK errno condition).</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+		 * @param int $wouldblock <p>Set to <b><code>true</code></b> if the lock would block (EWOULDBLOCK errno condition).</p>
+		 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/splfileobject.flock.php
 		 * @see flock()
 		 * @since PHP 5 >= 5.1.0, PHP 7
 		 */
-		public function flock(int $operation, int &$wouldblock = NULL): bool {}
+		public function flock(int $operation, int &$wouldblock = null): bool {}
 
 		/**
 		 * Output all remaining data on a file pointer
@@ -6057,7 +6059,7 @@ namespace {
 		 * @param string $delimiter <p>The optional <code>delimiter</code> parameter sets the field delimiter (one character only).</p>
 		 * @param string $enclosure <p>The optional <code>enclosure</code> parameter sets the field enclosure (one character only).</p>
 		 * @param string $escape <p>The optional <code>escape</code> parameter sets the escape character (at most one character). An empty string (<code>""</code>) disables the proprietary escape mechanism.</p>
-		 * @return int|false <p>Returns the length of the written string or <b><code>FALSE</code></b> on failure.</p><p>Returns <b><code>FALSE</code></b>, and does not write the CSV line to the file, if the <code>delimiter</code> or <code>enclosure</code> parameter is not a single character.</p>
+		 * @return int|false <p>Returns the length of the written string or <b><code>false</code></b> on failure.</p><p>Returns <b><code>false</code></b>, and does not write the CSV line to the file, if the <code>delimiter</code> or <code>enclosure</code> parameter is not a single character.</p>
 		 * @link https://php.net/manual/en/splfileobject.fputcsv.php
 		 * @see fputcsv()
 		 * @since PHP 5 >= 5.4.0, PHP 7
@@ -6068,7 +6070,7 @@ namespace {
 		 * Read from file
 		 * <p>Reads the given number of bytes from the file.</p>
 		 * @param int $length <p>The number of bytes to read.</p>
-		 * @return string|false <p>Returns the string read from the file or <b><code>FALSE</code></b> on failure.</p>
+		 * @return string|false <p>Returns the string read from the file or <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/splfileobject.fread.php
 		 * @see fread()
 		 * @since PHP 5 >= 5.5.11, PHP 7
@@ -6078,7 +6080,7 @@ namespace {
 		/**
 		 * Parses input from file according to a format
 		 * <p>Reads a line from the file and interprets it according to the specified <code>format</code>, which is described in the documentation for <code>sprintf()</code>.</p><p>Any whitespace in the <code>format</code> string matches any whitespace in the line from the file. This means that even a tab <code>\t</code> in the format string can match a single space character in the input stream.</p>
-		 * @param string $format <p>The format string is composed of zero or more directives: ordinary characters (excluding <code>%</code>) that are copied directly to the result and <i>conversion specifications</i>, each of which results in fetching its own parameter.</p> <p>A conversion specification follows this prototype: <code>%[argnum$][flags][width][.precision]specifier</code>.</p> <p></p>Argnum <p>An integer followed by a dollar sign <code>$</code>, to specify which number argument to treat in the conversion.</p> <p></p> <b>Flags</b>   Flag Description     <code>-</code>  Left-justify within the given field width; Right justification is the default    <code>+</code>  Prefix positive numbers with a plus sign <code>+</code>; Default only negative are prefixed with a negative sign.    <code> </code>(space)  Pads the result with spaces. This is the default.    <code>0</code>  Only left-pads numbers with zeros. With <code>s</code> specifiers this can also right-pad with zeros.    <code>'</code>(char)  Pads the result with the character (char).     <p></p>Width <p>An integer that says how many characters (minimum) this conversion should result in.</p> <p></p>Precision <p>A period <code>.</code> followed by an integer who's meaning depends on the specifier:</p><ul> <li>  For <code>e</code>, <code>E</code>, <code>f</code> and <code>F</code> specifiers: this is the number of digits to be printed after the decimal point (by default, this is 6).  </li> <li>  For <code>g</code> and <code>G</code> specifiers: this is the maximum number of significant digits to be printed.  </li> <li>  For <code>s</code> specifier: it acts as a cutoff point, setting a maximum character limit to the string.  </li> </ul> <p><b>Note</b>:  If the period is specified without an explicit value for precision, 0 is assumed. </p> <p><b>Note</b>:  Attempting to use a position specifier greater than <b><code>PHP_INT_MAX</code></b> will generate warnings. </p> <p></p> <b>Specifiers</b>   Specifier Description     <code>%</code>  A literal percent character. No argument is required.    <code>b</code>  The argument is treated as an integer and presented as a binary number.    <code>c</code>  The argument is treated as an integer and presented as the character with that ASCII.    <code>d</code>  The argument is treated as an integer and presented as a (signed) decimal number.    <code>e</code>  The argument is treated as scientific notation (e.g. 1.2e+2). The precision specifier stands for the number of digits after the decimal point since PHP 5.2.1. In earlier versions, it was taken as number of significant digits (one less).    <code>E</code>  Like the <code>e</code> specifier but uses uppercase letter (e.g. 1.2E+2).    <code>f</code>  The argument is treated as a float and presented as a floating-point number (locale aware).    <code>F</code>  The argument is treated as a float and presented as a floating-point number (non-locale aware). Available as of PHP 5.0.3.    <code>g</code>  <p>General format.</p> <p>Let P equal the precision if nonzero, 6 if the precision is omitted, or 1 if the precision is zero. Then, if a conversion with style E would have an exponent of X:</p> <p>If P &gt; X &ge; &minus;4, the conversion is with style f and precision P &minus; (X + 1). Otherwise, the conversion is with style e and precision P &minus; 1.</p>    <code>G</code>  Like the <code>g</code> specifier but uses <code>E</code> and <code>f</code>.    <code>o</code>  The argument is treated as an integer and presented as an octal number.    <code>s</code>  The argument is treated and presented as a string.    <code>u</code>  The argument is treated as an integer and presented as an unsigned decimal number.    <code>x</code>  The argument is treated as an integer and presented as a hexadecimal number (with lowercase letters).    <code>X</code>  The argument is treated as an integer and presented as a hexadecimal number (with uppercase letters).     <p><b>Warning</b></p> <p>The <code>c</code> type specifier ignores padding and width</p>  <p><b>Warning</b></p> <p>Attempting to use a combination of the string and width specifiers with character sets that require more than one byte per character may result in unexpected results</p>  <p>Variables will be co-erced to a suitable type for the specifier:</p> <b>Type Handling</b>   Type Specifiers     <code>string</code> <code>s</code>   <code>integer</code>  <code>d</code>, <code>u</code>, <code>c</code>, <code>o</code>, <code>x</code>, <code>X</code>, <code>b</code>    <code>double</code>  <code>g</code>, <code>G</code>, <code>e</code>, <code>E</code>, <code>f</code>, <code>F</code>
+		 * @param string $format <p>The format string is composed of zero or more directives: ordinary characters (excluding <code>%</code>) that are copied directly to the result and <i>conversion specifications</i>, each of which results in fetching its own parameter.</p> <p>A conversion specification follows this prototype: <code>%[argnum$][flags][width][.precision]specifier</code>.</p> <p></p>Argnum <p>An integer followed by a dollar sign <code>$</code>, to specify which number argument to treat in the conversion.</p> <p></p> <b>Flags</b>   Flag Description     <code>-</code>  Left-justify within the given field width; Right justification is the default    <code>+</code>  Prefix positive numbers with a plus sign <code>+</code>; Default only negative are prefixed with a negative sign.    <code> </code>(space)  Pads the result with spaces. This is the default.    <code>0</code>  Only left-pads numbers with zeros. With <code>s</code> specifiers this can also right-pad with zeros.    <code>'</code>(char)  Pads the result with the character (char).     <p></p>Width <p>An integer that says how many characters (minimum) this conversion should result in.</p> <p></p>Precision <p>A period <code>.</code> followed by an integer who's meaning depends on the specifier:</p><ul> <li>  For <code>e</code>, <code>E</code>, <code>f</code> and <code>F</code> specifiers: this is the number of digits to be printed after the decimal point (by default, this is 6).  </li> <li>  For <code>g</code> and <code>G</code> specifiers: this is the maximum number of significant digits to be printed.  </li> <li>  For <code>s</code> specifier: it acts as a cutoff point, setting a maximum character limit to the string.  </li> </ul> <p><b>Note</b>:  If the period is specified without an explicit value for precision, 0 is assumed. </p> <p><b>Note</b>:  Attempting to use a position specifier greater than <b><code>PHP_INT_MAX</code></b> will generate warnings. </p> <p></p> <b>Specifiers</b>   Specifier Description     <code>%</code>  A literal percent character. No argument is required.    <code>b</code>  The argument is treated as an integer and presented as a binary number.    <code>c</code>  The argument is treated as an integer and presented as the character with that ASCII.    <code>d</code>  The argument is treated as an integer and presented as a (signed) decimal number.    <code>e</code>  The argument is treated as scientific notation (e.g. 1.2e+2). The precision specifier stands for the number of digits after the decimal point since PHP 5.2.1. In earlier versions, it was taken as number of significant digits (one less).    <code>E</code>  Like the <code>e</code> specifier but uses uppercase letter (e.g. 1.2E+2).    <code>f</code>  The argument is treated as a float and presented as a floating-point number (locale aware).    <code>F</code>  The argument is treated as a float and presented as a floating-point number (non-locale aware). Available as of PHP 5.0.3.    <code>g</code>  <p>General format.</p> <p>Let P equal the precision if nonzero, 6 if the precision is omitted, or 1 if the precision is zero. Then, if a conversion with style E would have an exponent of X:</p> <p>If P &gt; X &ge; &minus;4, the conversion is with style f and precision P &minus; (X + 1). Otherwise, the conversion is with style e and precision P &minus; 1.</p>    <code>G</code>  Like the <code>g</code> specifier but uses <code>E</code> and <code>f</code>.    <code>h</code>  Like the <code>g</code> specifier but uses <code>F</code>. Available as of PHP 8.0.0.    <code>H</code>  Like the <code>g</code> specifier but uses <code>E</code> and <code>F</code>. Available as of PHP 8.0.0.    <code>o</code>  The argument is treated as an integer and presented as an octal number.    <code>s</code>  The argument is treated and presented as a string.    <code>u</code>  The argument is treated as an integer and presented as an unsigned decimal number.    <code>x</code>  The argument is treated as an integer and presented as a hexadecimal number (with lowercase letters).    <code>X</code>  The argument is treated as an integer and presented as a hexadecimal number (with uppercase letters).     <p><b>Warning</b></p> <p>The <code>c</code> type specifier ignores padding and width</p>  <p><b>Warning</b></p> <p>Attempting to use a combination of the string and width specifiers with character sets that require more than one byte per character may result in unexpected results</p>  <p>Variables will be co-erced to a suitable type for the specifier:</p> <b>Type Handling</b>   Type Specifiers     <code>string</code> <code>s</code>   <code>integer</code>  <code>d</code>, <code>u</code>, <code>c</code>, <code>o</code>, <code>x</code>, <code>X</code>, <code>b</code>    <code>double</code>  <code>g</code>, <code>G</code>, <code>e</code>, <code>E</code>, <code>f</code>, <code>F</code>
 		 * @param mixed $vars <p>The optional assigned values.</p>
 		 * @return mixed <p>If only one parameter is passed to this method, the values parsed will be returned as an array. Otherwise, if optional parameters are passed, the function will return the number of assigned values. The optional parameters must be passed by reference.</p>
 		 * @link https://php.net/manual/en/splfileobject.fscanf.php
@@ -6112,7 +6114,7 @@ namespace {
 		/**
 		 * Return current file position
 		 * <p>Returns the position of the file pointer which represents the current offset in the file stream.</p>
-		 * @return int <p>Returns the position of the file pointer as an integer, or <b><code>FALSE</code></b> on error.</p>
+		 * @return int <p>Returns the position of the file pointer as an integer, or <b><code>false</code></b> on error.</p>
 		 * @link https://php.net/manual/en/splfileobject.ftell.php
 		 * @see ftell()
 		 * @since PHP 5 >= 5.1.0, PHP 7
@@ -6123,7 +6125,7 @@ namespace {
 		 * Truncates the file to a given length
 		 * <p>Truncates the file to <code>size</code> bytes.</p>
 		 * @param int $size <p>The size to truncate to.</p> <p><b>Note</b>:</p><p>If <code>size</code> is larger than the file it is extended with null bytes.</p> <p>If <code>size</code> is smaller than the file, the extra data will be lost.</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/splfileobject.ftruncate.php
 		 * @see ftruncate()
 		 * @since PHP 5 >= 5.1.0, PHP 7
@@ -6135,12 +6137,12 @@ namespace {
 		 * <p>Writes the contents of <code>string</code> to the file</p>
 		 * @param string $str <p>The string to be written to the file.</p>
 		 * @param int $length <p>If the <code>length</code> argument is given, writing will stop after <code>length</code> bytes have been written or the end of <code>string</code> is reached, whichever comes first.</p>
-		 * @return int <p>Returns the number of bytes written, or <b><code>FALSE</code></b> on error.</p>
+		 * @return int <p>Returns the number of bytes written, or <b><code>false</code></b> on error.</p>
 		 * @link https://php.net/manual/en/splfileobject.fwrite.php
 		 * @see fwrite()
 		 * @since PHP 5 >= 5.1.0, PHP 7
 		 */
-		public function fwrite(string $str, int $length = NULL): int {}
+		public function fwrite(string $str, int $length = null): int {}
 
 		/**
 		 * Gets last access time of the file
@@ -6160,7 +6162,7 @@ namespace {
 		 * @link https://php.net/manual/en/splfileinfo.getbasename.php
 		 * @since PHP 5 >= 5.2.2, PHP 7
 		 */
-		public function getBasename(string $suffix = NULL): string {}
+		public function getBasename(string $suffix = null): string {}
 
 		/**
 		 * Gets the inode change time
@@ -6174,7 +6176,7 @@ namespace {
 
 		/**
 		 * No purpose
-		 * <p>An SplFileObject does not have children so this method returns <b><code>NULL</code></b>.</p>
+		 * <p>An SplFileObject does not have children so this method returns <b><code>null</code></b>.</p>
 		 * @return void <p>No value is returned.</p>
 		 * @link https://php.net/manual/en/splfileobject.getchildren.php
 		 * @since PHP 5 >= 5.1.0, PHP 7
@@ -6208,7 +6210,7 @@ namespace {
 		 * @link https://php.net/manual/en/splfileinfo.getfileinfo.php
 		 * @since PHP 5 >= 5.1.2, PHP 7
 		 */
-		public function getFileInfo(string $class_name = NULL): \SplFileInfo {}
+		public function getFileInfo(string $class_name = null): \SplFileInfo {}
 
 		/**
 		 * Gets the filename
@@ -6303,7 +6305,7 @@ namespace {
 		 * @link https://php.net/manual/en/splfileinfo.getpathinfo.php
 		 * @since PHP 5 >= 5.1.2, PHP 7
 		 */
-		public function getPathInfo(string $class_name = NULL): \SplFileInfo {}
+		public function getPathInfo(string $class_name = null): \SplFileInfo {}
 
 		/**
 		 * Gets the path to the file
@@ -6326,7 +6328,7 @@ namespace {
 		/**
 		 * Gets absolute path to file
 		 * <p>This method expands all symbolic links, resolves relative references and returns the real path to the file.</p>
-		 * @return string <p>Returns the path to the file, or <b><code>FALSE</code></b> if the file does not exist.</p>
+		 * @return string <p>Returns the path to the file, or <b><code>false</code></b> if the file does not exist.</p>
 		 * @link https://php.net/manual/en/splfileinfo.getrealpath.php
 		 * @since PHP 5 >= 5.2.2, PHP 7
 		 */
@@ -6345,7 +6347,7 @@ namespace {
 		/**
 		 * Gets file type
 		 * <p>Returns the type of the file referenced.</p>
-		 * @return string <p>A <code>string</code> representing the type of the entry. May be one of <code>file</code>, <code>link</code>, or <code>dir</code></p>
+		 * @return string <p>A <code>string</code> representing the type of the entry. May be one of <code>file</code>, <code>link</code>, <code>dir</code>, <code>block</code>, <code>fifo</code>, <code>char</code>, <code>socket</code>, or <code>unknown</code></p>
 		 * @link https://php.net/manual/en/splfileinfo.gettype.php
 		 * @since PHP 5 >= 5.1.2, PHP 7
 		 */
@@ -6353,8 +6355,8 @@ namespace {
 
 		/**
 		 * SplFileObject does not have children
-		 * <p>An SplFileObject does not have children so this method always return <b><code>FALSE</code></b>.</p>
-		 * @return bool <p>Returns <b><code>FALSE</code></b></p>
+		 * <p>An SplFileObject does not have children so this method always return <b><code>false</code></b>.</p>
+		 * @return bool <p>Returns <b><code>false</code></b></p>
 		 * @link https://php.net/manual/en/splfileobject.haschildren.php
 		 * @since PHP 5 >= 5.1.2, PHP 7
 		 */
@@ -6363,7 +6365,7 @@ namespace {
 		/**
 		 * Tells if the file is a directory
 		 * <p>This method can be used to determine if the file is a directory.</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b> if a directory, <b><code>FALSE</code></b> otherwise.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> if a directory, <b><code>false</code></b> otherwise.</p>
 		 * @link https://php.net/manual/en/splfileinfo.isdir.php
 		 * @since PHP 5 >= 5.1.2, PHP 7
 		 */
@@ -6372,7 +6374,7 @@ namespace {
 		/**
 		 * Tells if the file is executable
 		 * <p>Checks if the file is executable.</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b> if executable, <b><code>FALSE</code></b> otherwise.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> if executable, <b><code>false</code></b> otherwise.</p>
 		 * @link https://php.net/manual/en/splfileinfo.isexecutable.php
 		 * @since PHP 5 >= 5.1.2, PHP 7
 		 */
@@ -6381,7 +6383,7 @@ namespace {
 		/**
 		 * Tells if the object references a regular file
 		 * <p>Checks if the file referenced by this SplFileInfo object exists and is a regular file.</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b> if the file exists and is a regular file (not a link), <b><code>FALSE</code></b> otherwise.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> if the file exists and is a regular file (not a link), <b><code>false</code></b> otherwise.</p>
 		 * @link https://php.net/manual/en/splfileinfo.isfile.php
 		 * @since PHP 5 >= 5.1.2, PHP 7
 		 */
@@ -6390,7 +6392,7 @@ namespace {
 		/**
 		 * Tells if the file is a link
 		 * <p>Use this method to check if the file referenced by the SplFileInfo object is a link.</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b> if the file is a link, <b><code>FALSE</code></b> otherwise.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> if the file is a link, <b><code>false</code></b> otherwise.</p>
 		 * @link https://php.net/manual/en/splfileinfo.islink.php
 		 * @since PHP 5 >= 5.1.2, PHP 7
 		 */
@@ -6399,7 +6401,7 @@ namespace {
 		/**
 		 * Tells if file is readable
 		 * <p>Check if the file is readable.</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b> if readable, <b><code>FALSE</code></b> otherwise.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> if readable, <b><code>false</code></b> otherwise.</p>
 		 * @link https://php.net/manual/en/splfileinfo.isreadable.php
 		 * @since PHP 5 >= 5.1.2, PHP 7
 		 */
@@ -6408,7 +6410,7 @@ namespace {
 		/**
 		 * Tells if the entry is writable
 		 * <p>Checks if the current entry is writable.</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b> if writable, <b><code>FALSE</code></b> otherwise;</p>
+		 * @return bool <p>Returns <b><code>true</code></b> if writable, <b><code>false</code></b> otherwise;</p>
 		 * @link https://php.net/manual/en/splfileinfo.iswritable.php
 		 * @since PHP 5 >= 5.1.2, PHP 7
 		 */
@@ -6436,14 +6438,14 @@ namespace {
 		 * Gets an SplFileObject object for the file
 		 * <p>Creates an SplFileObject <code>object</code> of the file. This is useful because SplFileObject contains additional methods for manipulating the file whereas SplFileInfo is only useful for gaining information, like whether the file is writable.</p>
 		 * @param string $open_mode <p>The mode for opening the file. See the <code>fopen()</code> documentation for descriptions of possible modes. The default is read only.</p>
-		 * @param bool $use_include_path <p>When set to <b><code>TRUE</code></b>, the filename is also searched for within the include_path</p>
+		 * @param bool $use_include_path <p>When set to <b><code>true</code></b>, the filename is also searched for within the include_path</p>
 		 * @param resource $context <p>Refer to the context section of the manual for a description of <code>contexts</code>.</p>
 		 * @return SplFileObject <p>The opened file as an SplFileObject <code>object</code>.</p>
 		 * @link https://php.net/manual/en/splfileinfo.openfile.php
 		 * @see stream_context_create(), fopen()
 		 * @since PHP 5 >= 5.1.2, PHP 7
 		 */
-		public function openFile(string $open_mode = "r", bool $use_include_path = FALSE, $context = NULL): \SplFileObject {}
+		public function openFile(string $open_mode = "r", bool $use_include_path = false, $context = null): \SplFileObject {}
 
 		/**
 		 * Rewind the file to the first line
@@ -6519,7 +6521,7 @@ namespace {
 		/**
 		 * Not at EOF
 		 * <p>Check whether EOF has been reached.</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b> if not reached EOF, <b><code>FALSE</code></b> otherwise.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> if not reached EOF, <b><code>false</code></b> otherwise.</p>
 		 * @link https://php.net/manual/en/splfileobject.valid.php
 		 * @since PHP 5 >= 5.1.0, PHP 7
 		 */
@@ -6527,7 +6529,7 @@ namespace {
 	}
 
 	/**
-	 * <p>The SplFixedArray class provides the main functionalities of array. The main differences between a SplFixedArray and a normal PHP array is that the SplFixedArray is of fixed length and allows only integers within the range as indexes. The advantage is that it uses less memory than a standard <code>array</code>.</p>
+	 * <p>The SplFixedArray class provides the main functionalities of array. The main difference between a SplFixedArray and a normal PHP array is that the SplFixedArray must be resized manually and allows only integers within the range as indexes. The advantage is that it uses less memory than a standard <code>array</code>.</p>
 	 * @link https://php.net/manual/en/class.splfixedarray.php
 	 * @since PHP 5 >= 5.3.0, PHP 7
 	 */
@@ -6535,7 +6537,7 @@ namespace {
 
 		/**
 		 * Constructs a new fixed array
-		 * <p>Initializes a fixed array with a number of <b><code>NULL</code></b> values equal to <code>size</code>.</p>
+		 * <p>Initializes a fixed array with a number of <b><code>null</code></b> values equal to <code>size</code>.</p>
 		 * @param int $size <p>The size of the fixed array. This expects a number between <code>0</code> and <b><code>PHP_INT_MAX</code></b>.</p>
 		 * @return self <p>No value is returned.</p>
 		 * @link https://php.net/manual/en/splfixedarray.construct.php
@@ -6579,7 +6581,7 @@ namespace {
 		 * @link https://php.net/manual/en/splfixedarray.fromarray.php
 		 * @since PHP 5 >= 5.3.0, PHP 7
 		 */
-		public static function fromArray(array $array, bool $save_indexes = TRUE): \SplFixedArray {}
+		public static function fromArray(array $array, bool $save_indexes = true): \SplFixedArray {}
 
 		/**
 		 * Gets the size of the array
@@ -6612,7 +6614,7 @@ namespace {
 		 * Returns whether the requested index exists
 		 * <p>Checks whether the requested index <code>index</code> exists.</p>
 		 * @param int $index <p>The index being checked.</p>
-		 * @return bool <p><b><code>TRUE</code></b> if the requested <code>index</code> exists, otherwise <b><code>FALSE</code></b></p>
+		 * @return bool <p><b><code>true</code></b> if the requested <code>index</code> exists, otherwise <b><code>false</code></b></p>
 		 * @link https://php.net/manual/en/splfixedarray.offsetexists.php
 		 * @since PHP 5 >= 5.3.0, PHP 7
 		 */
@@ -6660,9 +6662,9 @@ namespace {
 
 		/**
 		 * Change the size of an array
-		 * <p>Change the size of an array to the new size of <code>size</code>. If <code>size</code> is less than the current array size, any values after the new size will be discarded. If <code>size</code> is greater than the current array size, the array will be padded with <b><code>NULL</code></b> values.</p>
+		 * <p>Change the size of an array to the new size of <code>size</code>. If <code>size</code> is less than the current array size, any values after the new size will be discarded. If <code>size</code> is greater than the current array size, the array will be padded with <b><code>null</code></b> values.</p>
 		 * @param int $size <p>The new array size. This should be a value between <code>0</code> and <b><code>PHP_INT_MAX</code></b>.</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/splfixedarray.setsize.php
 		 * @since PHP 5 >= 5.3.0, PHP 7
 		 */
@@ -6680,7 +6682,7 @@ namespace {
 		/**
 		 * Check whether the array contains more elements
 		 * <p>Checks if the array contains any more elements.</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b> if the array contains any more elements, <b><code>FALSE</code></b> otherwise.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> if the array contains any more elements, <b><code>false</code></b> otherwise.</p>
 		 * @link https://php.net/manual/en/splfixedarray.valid.php
 		 * @since PHP 5 >= 5.3.0, PHP 7
 		 */
@@ -6751,7 +6753,7 @@ namespace {
 
 		/**
 		 * Tells if the heap is in a corrupted state
-		 * @return bool <p>Returns <b><code>TRUE</code></b> if the heap is corrupted, <b><code>FALSE</code></b> otherwise.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> if the heap is corrupted, <b><code>false</code></b> otherwise.</p>
 		 * @link https://php.net/manual/en/splheap.iscorrupted.php
 		 * @since PHP 7
 		 */
@@ -6811,7 +6813,7 @@ namespace {
 		/**
 		 * Check whether the heap contains more nodes
 		 * <p>Checks if the heap contains any more nodes.</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b> if the heap contains any more nodes, <b><code>FALSE</code></b> otherwise.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> if the heap contains any more nodes, <b><code>false</code></b> otherwise.</p>
 		 * @link https://php.net/manual/en/splheap.valid.php
 		 * @since PHP 5 >= 5.3.0, PHP 7
 		 */
@@ -6873,7 +6875,7 @@ namespace {
 
 		/**
 		 * Tells if the heap is in a corrupted state
-		 * @return bool <p>Returns <b><code>TRUE</code></b> if the heap is corrupted, <b><code>FALSE</code></b> otherwise.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> if the heap is corrupted, <b><code>false</code></b> otherwise.</p>
 		 * @link https://php.net/manual/en/splheap.iscorrupted.php
 		 * @since PHP 7
 		 */
@@ -6933,7 +6935,7 @@ namespace {
 		/**
 		 * Check whether the heap contains more nodes
 		 * <p>Checks if the heap contains any more nodes.</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b> if the heap contains any more nodes, <b><code>FALSE</code></b> otherwise.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> if the heap contains any more nodes, <b><code>false</code></b> otherwise.</p>
 		 * @link https://php.net/manual/en/splheap.valid.php
 		 * @since PHP 5 >= 5.3.0, PHP 7
 		 */
@@ -6995,7 +6997,7 @@ namespace {
 
 		/**
 		 * Tells if the heap is in a corrupted state
-		 * @return bool <p>Returns <b><code>TRUE</code></b> if the heap is corrupted, <b><code>FALSE</code></b> otherwise.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> if the heap is corrupted, <b><code>false</code></b> otherwise.</p>
 		 * @link https://php.net/manual/en/splheap.iscorrupted.php
 		 * @since PHP 7
 		 */
@@ -7055,7 +7057,7 @@ namespace {
 		/**
 		 * Check whether the heap contains more nodes
 		 * <p>Checks if the heap contains any more nodes.</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b> if the heap contains any more nodes, <b><code>FALSE</code></b> otherwise.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> if the heap contains any more nodes, <b><code>false</code></b> otherwise.</p>
 		 * @link https://php.net/manual/en/splheap.valid.php
 		 * @since PHP 5 >= 5.3.0, PHP 7
 		 */
@@ -7088,13 +7090,13 @@ namespace {
 		 * @link https://php.net/manual/en/splobjectstorage.attach.php
 		 * @since PHP 5 >= 5.1.0, PHP 7
 		 */
-		public function attach(object $object, mixed $data = NULL): void {}
+		public function attach(object $object, mixed $data = null): void {}
 
 		/**
 		 * Checks if the storage contains a specific object
 		 * <p>Checks if the storage contains the <code>object</code> provided.</p>
 		 * @param object $object <p>The <code>object</code> to look for.</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b> if the <code>object</code> is in the storage, <b><code>FALSE</code></b> otherwise.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> if the <code>object</code> is in the storage, <b><code>false</code></b> otherwise.</p>
 		 * @link https://php.net/manual/en/splobjectstorage.contains.php
 		 * @since PHP 5 >= 5.1.0, PHP 7
 		 */
@@ -7170,7 +7172,7 @@ namespace {
 		 * Checks whether an object exists in the storage
 		 * <p>Checks whether an <code>object</code> exists in the storage.</p><p><b>Note</b>:</p><p><b>SplObjectStorage::offsetExists()</b> is an alias of <code>SplObjectStorage::contains()</code>.</p>
 		 * @param object $object <p>The <code>object</code> to look for.</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b> if the <code>object</code> exists in the storage, and <b><code>FALSE</code></b> otherwise.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> if the <code>object</code> exists in the storage, and <b><code>false</code></b> otherwise.</p>
 		 * @link https://php.net/manual/en/splobjectstorage.offsetexists.php
 		 * @since PHP 5 >= 5.3.0, PHP 7
 		 */
@@ -7195,7 +7197,7 @@ namespace {
 		 * @link https://php.net/manual/en/splobjectstorage.offsetset.php
 		 * @since PHP 5 >= 5.3.0, PHP 7
 		 */
-		public function offsetSet(object $object, mixed $data = NULL): void {}
+		public function offsetSet(object $object, mixed $data = null): void {}
 
 		/**
 		 * Removes an object from the storage
@@ -7268,7 +7270,7 @@ namespace {
 		/**
 		 * Returns if the current iterator entry is valid
 		 * <p>Returns if the current iterator entry is valid.</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b> if the iterator entry is valid, <b><code>FALSE</code></b> otherwise.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> if the iterator entry is valid, <b><code>false</code></b> otherwise.</p>
 		 * @link https://php.net/manual/en/splobjectstorage.valid.php
 		 * @since PHP 5 >= 5.1.0, PHP 7
 		 */
@@ -7360,7 +7362,7 @@ namespace {
 		 * <p>Insert <code>value</code> with the priority <code>priority</code> in the queue.</p>
 		 * @param mixed $value <p>The value to insert.</p>
 		 * @param mixed $priority <p>The associated priority.</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b>.</p>
+		 * @return bool <p>Returns <b><code>true</code></b>.</p>
 		 * @link https://php.net/manual/en/splpriorityqueue.insert.php
 		 * @since PHP 5 >= 5.3.0, PHP 7
 		 */
@@ -7368,7 +7370,7 @@ namespace {
 
 		/**
 		 * Tells if the priority queue is in a corrupted state
-		 * @return bool <p>Returns <b><code>TRUE</code></b> if the priority queue is corrupted, <b><code>FALSE</code></b> otherwise.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> if the priority queue is corrupted, <b><code>false</code></b> otherwise.</p>
 		 * @link https://php.net/manual/en/splpriorityqueue.iscorrupted.php
 		 * @since PHP 5 >= 5.3.0, PHP 7
 		 */
@@ -7437,7 +7439,7 @@ namespace {
 		/**
 		 * Check whether the queue contains more nodes
 		 * <p>Checks if the queue contains any more nodes.</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b> if the queue contains any more nodes, <b><code>FALSE</code></b> otherwise.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> if the queue contains any more nodes, <b><code>false</code></b> otherwise.</p>
 		 * @link https://php.net/manual/en/splpriorityqueue.valid.php
 		 * @since PHP 5 >= 5.3.0, PHP 7
 		 */
@@ -7552,7 +7554,7 @@ namespace {
 		/**
 		 * Returns whether the requested $index exists
 		 * @param mixed $index <p>The index being checked.</p>
-		 * @return bool <p><b><code>TRUE</code></b> if the requested <code>index</code> exists, otherwise <b><code>FALSE</code></b></p>
+		 * @return bool <p><b><code>true</code></b> if the requested <code>index</code> exists, otherwise <b><code>false</code></b></p>
 		 * @link https://php.net/manual/en/spldoublylinkedlist.offsetexists.php
 		 * @since PHP 5 >= 5.3.0, PHP 7
 		 */
@@ -7681,7 +7683,7 @@ namespace {
 		/**
 		 * Check whether the doubly linked list contains more nodes
 		 * <p>Checks if the doubly linked list contains any more nodes.</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b> if the doubly linked list contains any more nodes, <b><code>FALSE</code></b> otherwise.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> if the doubly linked list contains any more nodes, <b><code>false</code></b> otherwise.</p>
 		 * @link https://php.net/manual/en/spldoublylinkedlist.valid.php
 		 * @since PHP 5 >= 5.3.0, PHP 7
 		 */
@@ -7777,7 +7779,7 @@ namespace {
 		/**
 		 * Returns whether the requested $index exists
 		 * @param mixed $index <p>The index being checked.</p>
-		 * @return bool <p><b><code>TRUE</code></b> if the requested <code>index</code> exists, otherwise <b><code>FALSE</code></b></p>
+		 * @return bool <p><b><code>true</code></b> if the requested <code>index</code> exists, otherwise <b><code>false</code></b></p>
 		 * @link https://php.net/manual/en/spldoublylinkedlist.offsetexists.php
 		 * @since PHP 5 >= 5.3.0, PHP 7
 		 */
@@ -7906,7 +7908,7 @@ namespace {
 		/**
 		 * Check whether the doubly linked list contains more nodes
 		 * <p>Checks if the doubly linked list contains any more nodes.</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b> if the doubly linked list contains any more nodes, <b><code>FALSE</code></b> otherwise.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> if the doubly linked list contains any more nodes, <b><code>false</code></b> otherwise.</p>
 		 * @link https://php.net/manual/en/spldoublylinkedlist.valid.php
 		 * @since PHP 5 >= 5.3.0, PHP 7
 		 */
@@ -7965,7 +7967,7 @@ namespace {
 		 * @link https://php.net/manual/en/spltempfileobject.construct.php
 		 * @since PHP 5 >= 5.1.2, PHP 7
 		 */
-		public function __construct(int $max_memory = NULL) {}
+		public function __construct(int $max_memory = null) {}
 
 		/**
 		 * Retrieve current line of file
@@ -7979,7 +7981,7 @@ namespace {
 		/**
 		 * Reached end of file
 		 * <p>Determine whether the end of file has been reached</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b> if file is at EOF, <b><code>FALSE</code></b> otherwise.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> if file is at EOF, <b><code>false</code></b> otherwise.</p>
 		 * @link https://php.net/manual/en/splfileobject.eof.php
 		 * @see feof()
 		 * @since PHP 5 >= 5.1.0, PHP 7
@@ -7989,7 +7991,7 @@ namespace {
 		/**
 		 * Flushes the output to the file
 		 * <p>Forces a write of all buffered output to the file.</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/splfileobject.fflush.php
 		 * @since PHP 5 >= 5.1.0, PHP 7
 		 */
@@ -7998,7 +8000,7 @@ namespace {
 		/**
 		 * Gets character from file
 		 * <p>Gets a character from the file.</p>
-		 * @return string <p>Returns a string containing a single character read from the file or <b><code>FALSE</code></b> on EOF.</p><p><b>Warning</b></p><p>This function may return Boolean <b><code>FALSE</code></b>, but may also return a non-Boolean value which evaluates to <b><code>FALSE</code></b>. Please read the section on Booleans for more information. Use the === operator for testing the return value of this function.</p>
+		 * @return string <p>Returns a string containing a single character read from the file or <b><code>false</code></b> on EOF.</p><p><b>Warning</b></p><p>This function may return Boolean <b><code>false</code></b>, but may also return a non-Boolean value which evaluates to <b><code>false</code></b>. Please read the section on Booleans for more information. Use the === operator for testing the return value of this function.</p>
 		 * @link https://php.net/manual/en/splfileobject.fgetc.php
 		 * @since PHP 5 >= 5.1.0, PHP 7
 		 */
@@ -8010,7 +8012,7 @@ namespace {
 		 * @param string $delimiter <p>The field delimiter (one character only). Defaults as a comma or the value set using <code>SplFileObject::setCsvControl()</code>.</p>
 		 * @param string $enclosure <p>The field enclosure character (one character only). Defaults as a double quotation mark or the value set using <code>SplFileObject::setCsvControl()</code>.</p>
 		 * @param string $escape <p>The escape character (at most one character). Defaults as a backslash (<code>\</code>) or the value set using <code>SplFileObject::setCsvControl()</code>. An empty string (<code>""</code>) disables the proprietary escape mechanism.</p> <p><b>Note</b>:  Usually an <code>enclosure</code> character is escpaped inside a field by doubling it; however, the <code>escape</code> character can be used as an alternative. So for the default parameter values <code>""</code> and <code>\"</code> have the same meaning. Other than allowing to escape the <code>enclosure</code> character the <code>escape</code> character has no special meaning; it isn't even meant to escape itself. </p>
-		 * @return array <p>Returns an indexed array containing the fields read, or <b><code>FALSE</code></b> on error.</p><p><b>Note</b>:</p><p>A blank line in a CSV file will be returned as an array comprising a single <b><code>NULL</code></b> field unless using <b><code>SplFileObject::SKIP_EMPTY | SplFileObject::DROP_NEW_LINE</code></b>, in which case empty lines are skipped.</p>
+		 * @return array <p>Returns an indexed array containing the fields read, or <b><code>false</code></b> on error.</p><p><b>Note</b>:</p><p>A blank line in a CSV file will be returned as an array comprising a single <b><code>null</code></b> field unless using <b><code>SplFileObject::SKIP_EMPTY | SplFileObject::DROP_NEW_LINE</code></b>, in which case empty lines are skipped.</p>
 		 * @link https://php.net/manual/en/splfileobject.fgetcsv.php
 		 * @since PHP 5 >= 5.1.0, PHP 7
 		 */
@@ -8019,7 +8021,7 @@ namespace {
 		/**
 		 * Gets line from file
 		 * <p>Gets a line from the file.</p>
-		 * @return string <p>Returns a string containing the next line from the file, or <b><code>FALSE</code></b> on error.</p>
+		 * @return string <p>Returns a string containing the next line from the file, or <b><code>false</code></b> on error.</p>
 		 * @link https://php.net/manual/en/splfileobject.fgets.php
 		 * @see fgets()
 		 * @since PHP 5 >= 5.1.0, PHP 7
@@ -8030,24 +8032,24 @@ namespace {
 		 * Gets line from file and strip HTML tags
 		 * <p>Identical to <code>SplFileObject::fgets()</code>, except that <b>SplFileObject::fgetss()</b> attempts to strip any HTML and PHP tags from the text it reads. The function retains the parsing state from call to call, and as such is not equivalent to calling <code>strip_tags()</code> on the return value of <code>SplFileObject::fgets()</code>.</p>
 		 * @param string $allowable_tags <p>Optional parameter to specify tags which should not be stripped.</p>
-		 * @return string <p>Returns a string containing the next line of the file with HTML and PHP code stripped, or <b><code>FALSE</code></b> on error.</p>
+		 * @return string <p>Returns a string containing the next line of the file with HTML and PHP code stripped, or <b><code>false</code></b> on error.</p>
 		 * @link https://php.net/manual/en/splfileobject.fgetss.php
 		 * @see fgetss()
 		 * @since PHP 5 >= 5.1.0, PHP 7
 		 */
-		public function fgetss(string $allowable_tags = NULL): string {}
+		public function fgetss(string $allowable_tags = null): string {}
 
 		/**
 		 * Portable file locking
 		 * <p>Locks or unlocks the file in the same portable way as <code>flock()</code>.</p>
 		 * @param int $operation <p><code>operation</code> is one of the following:</p><ul> <li>  <b><code>LOCK_SH</code></b> to acquire a shared lock (reader).  </li> <li>  <b><code>LOCK_EX</code></b> to acquire an exclusive lock (writer).  </li> <li>  <b><code>LOCK_UN</code></b> to release a lock (shared or exclusive).  </li> </ul> <p>It is also possible to add <b><code>LOCK_NB</code></b> as a bitmask to one of the above operations, if <code>flock()</code> should not block during the locking attempt.</p>
-		 * @param int $wouldblock <p>Set to <b><code>TRUE</code></b> if the lock would block (EWOULDBLOCK errno condition).</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+		 * @param int $wouldblock <p>Set to <b><code>true</code></b> if the lock would block (EWOULDBLOCK errno condition).</p>
+		 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/splfileobject.flock.php
 		 * @see flock()
 		 * @since PHP 5 >= 5.1.0, PHP 7
 		 */
-		public function flock(int $operation, int &$wouldblock = NULL): bool {}
+		public function flock(int $operation, int &$wouldblock = null): bool {}
 
 		/**
 		 * Output all remaining data on a file pointer
@@ -8066,7 +8068,7 @@ namespace {
 		 * @param string $delimiter <p>The optional <code>delimiter</code> parameter sets the field delimiter (one character only).</p>
 		 * @param string $enclosure <p>The optional <code>enclosure</code> parameter sets the field enclosure (one character only).</p>
 		 * @param string $escape <p>The optional <code>escape</code> parameter sets the escape character (at most one character). An empty string (<code>""</code>) disables the proprietary escape mechanism.</p>
-		 * @return int|false <p>Returns the length of the written string or <b><code>FALSE</code></b> on failure.</p><p>Returns <b><code>FALSE</code></b>, and does not write the CSV line to the file, if the <code>delimiter</code> or <code>enclosure</code> parameter is not a single character.</p>
+		 * @return int|false <p>Returns the length of the written string or <b><code>false</code></b> on failure.</p><p>Returns <b><code>false</code></b>, and does not write the CSV line to the file, if the <code>delimiter</code> or <code>enclosure</code> parameter is not a single character.</p>
 		 * @link https://php.net/manual/en/splfileobject.fputcsv.php
 		 * @see fputcsv()
 		 * @since PHP 5 >= 5.4.0, PHP 7
@@ -8077,7 +8079,7 @@ namespace {
 		 * Read from file
 		 * <p>Reads the given number of bytes from the file.</p>
 		 * @param int $length <p>The number of bytes to read.</p>
-		 * @return string|false <p>Returns the string read from the file or <b><code>FALSE</code></b> on failure.</p>
+		 * @return string|false <p>Returns the string read from the file or <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/splfileobject.fread.php
 		 * @see fread()
 		 * @since PHP 5 >= 5.5.11, PHP 7
@@ -8087,7 +8089,7 @@ namespace {
 		/**
 		 * Parses input from file according to a format
 		 * <p>Reads a line from the file and interprets it according to the specified <code>format</code>, which is described in the documentation for <code>sprintf()</code>.</p><p>Any whitespace in the <code>format</code> string matches any whitespace in the line from the file. This means that even a tab <code>\t</code> in the format string can match a single space character in the input stream.</p>
-		 * @param string $format <p>The format string is composed of zero or more directives: ordinary characters (excluding <code>%</code>) that are copied directly to the result and <i>conversion specifications</i>, each of which results in fetching its own parameter.</p> <p>A conversion specification follows this prototype: <code>%[argnum$][flags][width][.precision]specifier</code>.</p> <p></p>Argnum <p>An integer followed by a dollar sign <code>$</code>, to specify which number argument to treat in the conversion.</p> <p></p> <b>Flags</b>   Flag Description     <code>-</code>  Left-justify within the given field width; Right justification is the default    <code>+</code>  Prefix positive numbers with a plus sign <code>+</code>; Default only negative are prefixed with a negative sign.    <code> </code>(space)  Pads the result with spaces. This is the default.    <code>0</code>  Only left-pads numbers with zeros. With <code>s</code> specifiers this can also right-pad with zeros.    <code>'</code>(char)  Pads the result with the character (char).     <p></p>Width <p>An integer that says how many characters (minimum) this conversion should result in.</p> <p></p>Precision <p>A period <code>.</code> followed by an integer who's meaning depends on the specifier:</p><ul> <li>  For <code>e</code>, <code>E</code>, <code>f</code> and <code>F</code> specifiers: this is the number of digits to be printed after the decimal point (by default, this is 6).  </li> <li>  For <code>g</code> and <code>G</code> specifiers: this is the maximum number of significant digits to be printed.  </li> <li>  For <code>s</code> specifier: it acts as a cutoff point, setting a maximum character limit to the string.  </li> </ul> <p><b>Note</b>:  If the period is specified without an explicit value for precision, 0 is assumed. </p> <p><b>Note</b>:  Attempting to use a position specifier greater than <b><code>PHP_INT_MAX</code></b> will generate warnings. </p> <p></p> <b>Specifiers</b>   Specifier Description     <code>%</code>  A literal percent character. No argument is required.    <code>b</code>  The argument is treated as an integer and presented as a binary number.    <code>c</code>  The argument is treated as an integer and presented as the character with that ASCII.    <code>d</code>  The argument is treated as an integer and presented as a (signed) decimal number.    <code>e</code>  The argument is treated as scientific notation (e.g. 1.2e+2). The precision specifier stands for the number of digits after the decimal point since PHP 5.2.1. In earlier versions, it was taken as number of significant digits (one less).    <code>E</code>  Like the <code>e</code> specifier but uses uppercase letter (e.g. 1.2E+2).    <code>f</code>  The argument is treated as a float and presented as a floating-point number (locale aware).    <code>F</code>  The argument is treated as a float and presented as a floating-point number (non-locale aware). Available as of PHP 5.0.3.    <code>g</code>  <p>General format.</p> <p>Let P equal the precision if nonzero, 6 if the precision is omitted, or 1 if the precision is zero. Then, if a conversion with style E would have an exponent of X:</p> <p>If P &gt; X &ge; &minus;4, the conversion is with style f and precision P &minus; (X + 1). Otherwise, the conversion is with style e and precision P &minus; 1.</p>    <code>G</code>  Like the <code>g</code> specifier but uses <code>E</code> and <code>f</code>.    <code>o</code>  The argument is treated as an integer and presented as an octal number.    <code>s</code>  The argument is treated and presented as a string.    <code>u</code>  The argument is treated as an integer and presented as an unsigned decimal number.    <code>x</code>  The argument is treated as an integer and presented as a hexadecimal number (with lowercase letters).    <code>X</code>  The argument is treated as an integer and presented as a hexadecimal number (with uppercase letters).     <p><b>Warning</b></p> <p>The <code>c</code> type specifier ignores padding and width</p>  <p><b>Warning</b></p> <p>Attempting to use a combination of the string and width specifiers with character sets that require more than one byte per character may result in unexpected results</p>  <p>Variables will be co-erced to a suitable type for the specifier:</p> <b>Type Handling</b>   Type Specifiers     <code>string</code> <code>s</code>   <code>integer</code>  <code>d</code>, <code>u</code>, <code>c</code>, <code>o</code>, <code>x</code>, <code>X</code>, <code>b</code>    <code>double</code>  <code>g</code>, <code>G</code>, <code>e</code>, <code>E</code>, <code>f</code>, <code>F</code>
+		 * @param string $format <p>The format string is composed of zero or more directives: ordinary characters (excluding <code>%</code>) that are copied directly to the result and <i>conversion specifications</i>, each of which results in fetching its own parameter.</p> <p>A conversion specification follows this prototype: <code>%[argnum$][flags][width][.precision]specifier</code>.</p> <p></p>Argnum <p>An integer followed by a dollar sign <code>$</code>, to specify which number argument to treat in the conversion.</p> <p></p> <b>Flags</b>   Flag Description     <code>-</code>  Left-justify within the given field width; Right justification is the default    <code>+</code>  Prefix positive numbers with a plus sign <code>+</code>; Default only negative are prefixed with a negative sign.    <code> </code>(space)  Pads the result with spaces. This is the default.    <code>0</code>  Only left-pads numbers with zeros. With <code>s</code> specifiers this can also right-pad with zeros.    <code>'</code>(char)  Pads the result with the character (char).     <p></p>Width <p>An integer that says how many characters (minimum) this conversion should result in.</p> <p></p>Precision <p>A period <code>.</code> followed by an integer who's meaning depends on the specifier:</p><ul> <li>  For <code>e</code>, <code>E</code>, <code>f</code> and <code>F</code> specifiers: this is the number of digits to be printed after the decimal point (by default, this is 6).  </li> <li>  For <code>g</code> and <code>G</code> specifiers: this is the maximum number of significant digits to be printed.  </li> <li>  For <code>s</code> specifier: it acts as a cutoff point, setting a maximum character limit to the string.  </li> </ul> <p><b>Note</b>:  If the period is specified without an explicit value for precision, 0 is assumed. </p> <p><b>Note</b>:  Attempting to use a position specifier greater than <b><code>PHP_INT_MAX</code></b> will generate warnings. </p> <p></p> <b>Specifiers</b>   Specifier Description     <code>%</code>  A literal percent character. No argument is required.    <code>b</code>  The argument is treated as an integer and presented as a binary number.    <code>c</code>  The argument is treated as an integer and presented as the character with that ASCII.    <code>d</code>  The argument is treated as an integer and presented as a (signed) decimal number.    <code>e</code>  The argument is treated as scientific notation (e.g. 1.2e+2). The precision specifier stands for the number of digits after the decimal point since PHP 5.2.1. In earlier versions, it was taken as number of significant digits (one less).    <code>E</code>  Like the <code>e</code> specifier but uses uppercase letter (e.g. 1.2E+2).    <code>f</code>  The argument is treated as a float and presented as a floating-point number (locale aware).    <code>F</code>  The argument is treated as a float and presented as a floating-point number (non-locale aware). Available as of PHP 5.0.3.    <code>g</code>  <p>General format.</p> <p>Let P equal the precision if nonzero, 6 if the precision is omitted, or 1 if the precision is zero. Then, if a conversion with style E would have an exponent of X:</p> <p>If P &gt; X &ge; &minus;4, the conversion is with style f and precision P &minus; (X + 1). Otherwise, the conversion is with style e and precision P &minus; 1.</p>    <code>G</code>  Like the <code>g</code> specifier but uses <code>E</code> and <code>f</code>.    <code>h</code>  Like the <code>g</code> specifier but uses <code>F</code>. Available as of PHP 8.0.0.    <code>H</code>  Like the <code>g</code> specifier but uses <code>E</code> and <code>F</code>. Available as of PHP 8.0.0.    <code>o</code>  The argument is treated as an integer and presented as an octal number.    <code>s</code>  The argument is treated and presented as a string.    <code>u</code>  The argument is treated as an integer and presented as an unsigned decimal number.    <code>x</code>  The argument is treated as an integer and presented as a hexadecimal number (with lowercase letters).    <code>X</code>  The argument is treated as an integer and presented as a hexadecimal number (with uppercase letters).     <p><b>Warning</b></p> <p>The <code>c</code> type specifier ignores padding and width</p>  <p><b>Warning</b></p> <p>Attempting to use a combination of the string and width specifiers with character sets that require more than one byte per character may result in unexpected results</p>  <p>Variables will be co-erced to a suitable type for the specifier:</p> <b>Type Handling</b>   Type Specifiers     <code>string</code> <code>s</code>   <code>integer</code>  <code>d</code>, <code>u</code>, <code>c</code>, <code>o</code>, <code>x</code>, <code>X</code>, <code>b</code>    <code>double</code>  <code>g</code>, <code>G</code>, <code>e</code>, <code>E</code>, <code>f</code>, <code>F</code>
 		 * @param mixed $vars <p>The optional assigned values.</p>
 		 * @return mixed <p>If only one parameter is passed to this method, the values parsed will be returned as an array. Otherwise, if optional parameters are passed, the function will return the number of assigned values. The optional parameters must be passed by reference.</p>
 		 * @link https://php.net/manual/en/splfileobject.fscanf.php
@@ -8121,7 +8123,7 @@ namespace {
 		/**
 		 * Return current file position
 		 * <p>Returns the position of the file pointer which represents the current offset in the file stream.</p>
-		 * @return int <p>Returns the position of the file pointer as an integer, or <b><code>FALSE</code></b> on error.</p>
+		 * @return int <p>Returns the position of the file pointer as an integer, or <b><code>false</code></b> on error.</p>
 		 * @link https://php.net/manual/en/splfileobject.ftell.php
 		 * @see ftell()
 		 * @since PHP 5 >= 5.1.0, PHP 7
@@ -8132,7 +8134,7 @@ namespace {
 		 * Truncates the file to a given length
 		 * <p>Truncates the file to <code>size</code> bytes.</p>
 		 * @param int $size <p>The size to truncate to.</p> <p><b>Note</b>:</p><p>If <code>size</code> is larger than the file it is extended with null bytes.</p> <p>If <code>size</code> is smaller than the file, the extra data will be lost.</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/splfileobject.ftruncate.php
 		 * @see ftruncate()
 		 * @since PHP 5 >= 5.1.0, PHP 7
@@ -8144,16 +8146,16 @@ namespace {
 		 * <p>Writes the contents of <code>string</code> to the file</p>
 		 * @param string $str <p>The string to be written to the file.</p>
 		 * @param int $length <p>If the <code>length</code> argument is given, writing will stop after <code>length</code> bytes have been written or the end of <code>string</code> is reached, whichever comes first.</p>
-		 * @return int <p>Returns the number of bytes written, or <b><code>FALSE</code></b> on error.</p>
+		 * @return int <p>Returns the number of bytes written, or <b><code>false</code></b> on error.</p>
 		 * @link https://php.net/manual/en/splfileobject.fwrite.php
 		 * @see fwrite()
 		 * @since PHP 5 >= 5.1.0, PHP 7
 		 */
-		public function fwrite(string $str, int $length = NULL): int {}
+		public function fwrite(string $str, int $length = null): int {}
 
 		/**
 		 * No purpose
-		 * <p>An SplFileObject does not have children so this method returns <b><code>NULL</code></b>.</p>
+		 * <p>An SplFileObject does not have children so this method returns <b><code>null</code></b>.</p>
 		 * @return void <p>No value is returned.</p>
 		 * @link https://php.net/manual/en/splfileobject.getchildren.php
 		 * @since PHP 5 >= 5.1.0, PHP 7
@@ -8189,8 +8191,8 @@ namespace {
 
 		/**
 		 * SplFileObject does not have children
-		 * <p>An SplFileObject does not have children so this method always return <b><code>FALSE</code></b>.</p>
-		 * @return bool <p>Returns <b><code>FALSE</code></b></p>
+		 * <p>An SplFileObject does not have children so this method always return <b><code>false</code></b>.</p>
+		 * @return bool <p>Returns <b><code>false</code></b></p>
 		 * @link https://php.net/manual/en/splfileobject.haschildren.php
 		 * @since PHP 5 >= 5.1.2, PHP 7
 		 */
@@ -8268,7 +8270,7 @@ namespace {
 		/**
 		 * Not at EOF
 		 * <p>Check whether EOF has been reached.</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b> if not reached EOF, <b><code>FALSE</code></b> otherwise.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> if not reached EOF, <b><code>false</code></b> otherwise.</p>
 		 * @link https://php.net/manual/en/splfileobject.valid.php
 		 * @since PHP 5 >= 5.1.0, PHP 7
 		 */
@@ -8325,7 +8327,7 @@ namespace {
 		 * @link https://php.net/manual/en/exception.construct.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
-		public function __construct(string $message = "", int $code = 0, \Throwable $previous = NULL) {}
+		public function __construct(string $message = "", int $code = 0, \Throwable $previous = null) {}
 
 		/**
 		 * String representation of the exception
@@ -8375,7 +8377,7 @@ namespace {
 		/**
 		 * Returns previous Exception
 		 * <p>Returns previous exception (the third parameter of <code>Exception::__construct()</code>).</p>
-		 * @return Throwable <p>Returns the previous Throwable if available or <b><code>NULL</code></b> otherwise.</p>
+		 * @return Throwable <p>Returns the previous Throwable if available or <b><code>null</code></b> otherwise.</p>
 		 * @link https://php.net/manual/en/exception.getprevious.php
 		 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8
 		 */
@@ -8450,7 +8452,7 @@ namespace {
 		 * @link https://php.net/manual/en/exception.construct.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
-		public function __construct(string $message = "", int $code = 0, \Throwable $previous = NULL) {}
+		public function __construct(string $message = "", int $code = 0, \Throwable $previous = null) {}
 
 		/**
 		 * String representation of the exception
@@ -8500,7 +8502,7 @@ namespace {
 		/**
 		 * Returns previous Exception
 		 * <p>Returns previous exception (the third parameter of <code>Exception::__construct()</code>).</p>
-		 * @return Throwable <p>Returns the previous Throwable if available or <b><code>NULL</code></b> otherwise.</p>
+		 * @return Throwable <p>Returns the previous Throwable if available or <b><code>null</code></b> otherwise.</p>
 		 * @link https://php.net/manual/en/exception.getprevious.php
 		 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8
 		 */
@@ -8530,49 +8532,49 @@ namespace {
 	 * <p>This function returns an array with the names of the interfaces that the given <code>class</code> and its parents implement.</p>
 	 * @param mixed $class <p>An object (class instance) or a string (class or interface name).</p>
 	 * @param bool $autoload <p>Whether to allow this function to load the class automatically through the <code>__autoload()</code> magic method.</p>
-	 * @return array <p>An array on success, or <b><code>FALSE</code></b> on error.</p>
+	 * @return array <p>An array on success, or <b><code>false</code></b> on error.</p>
 	 * @link https://php.net/manual/en/function.class-implements.php
 	 * @see class_parents(), get_declared_interfaces()
 	 * @since PHP 5, PHP 7
 	 */
-	function class_implements(mixed $class, bool $autoload = TRUE): array {}
+	function class_implements(mixed $class, bool $autoload = true): array {}
 
 	/**
 	 * Return the parent classes of the given class
 	 * <p>This function returns an array with the name of the parent classes of the given <code>class</code>.</p>
 	 * @param mixed $class <p>An object (class instance) or a string (class name).</p>
 	 * @param bool $autoload <p>Whether to allow this function to load the class automatically through the <code>__autoload()</code> magic method.</p>
-	 * @return array <p>An array on success, or <b><code>FALSE</code></b> on error.</p>
+	 * @return array <p>An array on success, or <b><code>false</code></b> on error.</p>
 	 * @link https://php.net/manual/en/function.class-parents.php
 	 * @see class_implements()
 	 * @since PHP 5, PHP 7
 	 */
-	function class_parents(mixed $class, bool $autoload = TRUE): array {}
+	function class_parents(mixed $class, bool $autoload = true): array {}
 
 	/**
 	 * Return the traits used by the given class
 	 * <p>This function returns an array with the names of the traits that the given <code>class</code> uses. This does however not include any traits used by a parent class.</p>
 	 * @param mixed $class <p>An object (class instance) or a string (class name).</p>
 	 * @param bool $autoload <p>Whether to allow this function to load the class automatically through the <code>__autoload()</code> magic method.</p>
-	 * @return array <p>An array on success, or <b><code>FALSE</code></b> on error.</p>
+	 * @return array <p>An array on success, or <b><code>false</code></b> on error.</p>
 	 * @link https://php.net/manual/en/function.class-uses.php
 	 * @see class_parents(), get_declared_traits()
 	 * @since PHP 5 >= 5.4.0, PHP 7
 	 */
-	function class_uses(mixed $class, bool $autoload = TRUE): array {}
+	function class_uses(mixed $class, bool $autoload = true): array {}
 
 	/**
 	 * Call a function for every element in an iterator
 	 * <p>Calls a function for every element in an iterator.</p>
 	 * @param \Traversable $iterator <p>The iterator object to iterate over.</p>
-	 * @param callable $function <p>The callback function to call on every element. This function only receives the given <code>args</code>, so it is nullary by default. If <code>count($args) === 3</code>, for instance, the callback function is ternary.</p><p><b>Note</b>:  The function must return <b><code>TRUE</code></b> in order to continue iterating over the <code>iterator</code>. </p>
+	 * @param callable $function <p>The callback function to call on every element. This function only receives the given <code>args</code>, so it is nullary by default. If <code>count($args) === 3</code>, for instance, the callback function is ternary.</p><p><b>Note</b>:  The function must return <b><code>true</code></b> in order to continue iterating over the <code>iterator</code>. </p>
 	 * @param array $args <p>An <code>array</code> of arguments; each element of <code>args</code> is passed to the callback <code>function</code> as separate argument.</p>
 	 * @return int <p>Returns the iteration count.</p>
 	 * @link https://php.net/manual/en/function.iterator-apply.php
 	 * @see array_walk()
 	 * @since PHP 5 >= 5.1.0, PHP 7
 	 */
-	function iterator_apply(\Traversable $iterator, callable $function, array $args = NULL): int {}
+	function iterator_apply(\Traversable $iterator, callable $function, array $args = null): int {}
 
 	/**
 	 * Count the elements in an iterator
@@ -8588,12 +8590,12 @@ namespace {
 	 * Copy the iterator into an array
 	 * <p>Copy the elements of an iterator into an array.</p>
 	 * @param \Traversable $iterator <p>The iterator being copied.</p>
-	 * @param bool $use_keys <p>Whether to use the iterator element keys as index.</p> <p>In PHP 5.5 and later, if a key is an <code>array</code> or <code>object</code>, a warning will be generated. <b><code>NULL</code></b> keys will be converted to an empty string, <code>float</code> keys will be truncated to their <code>int</code> counterpart, <code>resource</code> keys will generate a warning and be converted to their resource ID, and <code>bool</code> keys will be converted to integers.</p> <p><b>Note</b>:</p><p>If this parameter is not set or set to <b><code>TRUE</code></b>, duplicate keys will be overwritten. The last value with a given key will be in the returned <code>array</code>. Set this parameter to <b><code>FALSE</code></b> to get all the values in any case.</p>
+	 * @param bool $use_keys <p>Whether to use the iterator element keys as index.</p> <p>In PHP 5.5 and later, if a key is an <code>array</code> or <code>object</code>, a warning will be generated. <b><code>null</code></b> keys will be converted to an empty string, <code>float</code> keys will be truncated to their <code>int</code> counterpart, <code>resource</code> keys will generate a warning and be converted to their resource ID, and <code>bool</code> keys will be converted to integers.</p> <p><b>Note</b>:</p><p>If this parameter is not set or set to <b><code>true</code></b>, duplicate keys will be overwritten. The last value with a given key will be in the returned <code>array</code>. Set this parameter to <b><code>false</code></b> to get all the values in any case.</p>
 	 * @return array <p>An <code>array</code> containing the elements of the <code>iterator</code>.</p>
 	 * @link https://php.net/manual/en/function.iterator-to-array.php
 	 * @since PHP 5 >= 5.1.0, PHP 7
 	 */
-	function iterator_to_array(\Traversable $iterator, bool $use_keys = TRUE): array {}
+	function iterator_to_array(\Traversable $iterator, bool $use_keys = true): array {}
 
 	/**
 	 * Default implementation for __autoload()
@@ -8624,12 +8626,12 @@ namespace {
 	 * @link https://php.net/manual/en/function.spl-autoload-extensions.php
 	 * @since PHP 5 >= 5.1.0, PHP 7
 	 */
-	function spl_autoload_extensions(string $file_extensions = NULL): string {}
+	function spl_autoload_extensions(string $file_extensions = null): string {}
 
 	/**
 	 * Return all registered __autoload() functions
 	 * <p>Get all registered __autoload() functions.</p>
-	 * @return array <p>An <code>array</code> of all registered __autoload functions. If the autoload queue is not activated then the return value is <b><code>FALSE</code></b>. If no function is registered the return value will be an empty array.</p>
+	 * @return array <p>An <code>array</code> of all registered __autoload functions. If the autoload queue is not activated then the return value is <b><code>false</code></b>. If no function is registered the return value will be an empty array.</p>
 	 * @link https://php.net/manual/en/function.spl-autoload-functions.php
 	 * @since PHP 5 >= 5.1.0, PHP 7
 	 */
@@ -8641,18 +8643,18 @@ namespace {
 	 * @param callable $autoload_function <p>The autoload function being registered. If no parameter is provided, then the default implementation of <code>spl_autoload()</code> will be registered.</p>
 	 * @param bool $throw <p>This parameter specifies whether <b>spl_autoload_register()</b> should throw exceptions when the <code>autoload_function</code> cannot be registered.</p>
 	 * @param bool $prepend <p>If true, <b>spl_autoload_register()</b> will prepend the autoloader on the autoload queue instead of appending it.</p>
-	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.spl-autoload-register.php
 	 * @see __autoload()
 	 * @since PHP 5 >= 5.1.0, PHP 7
 	 */
-	function spl_autoload_register(callable $autoload_function = NULL, bool $throw = TRUE, bool $prepend = FALSE): bool {}
+	function spl_autoload_register(callable $autoload_function = null, bool $throw = true, bool $prepend = false): bool {}
 
 	/**
 	 * Unregister given function as __autoload() implementation
 	 * <p>Removes a function from the autoload queue. If the queue is activated and empty after removing the given function then it will be deactivated.</p><p>When this function results in the queue being deactivated, any __autoload function that previously existed will not be reactivated.</p>
 	 * @param mixed $autoload_function <p>The autoload function being unregistered.</p>
-	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.spl-autoload-unregister.php
 	 * @since PHP 5 >= 5.1.0, PHP 7
 	 */

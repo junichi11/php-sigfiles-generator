@@ -15,7 +15,7 @@ namespace {
 	 * @see bcsub()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function bcadd(string $num1, string $num2, int|null $scale = NULL): string {}
+	function bcadd(string $num1, string $num2, int|null $scale = null): string {}
 
 	/**
 	 * Compare two arbitrary precision numbers
@@ -27,7 +27,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.bccomp.php
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function bccomp(string $num1, string $num2, int|null $scale = NULL): int {}
+	function bccomp(string $num1, string $num2, int|null $scale = null): int {}
 
 	/**
 	 * Divide two arbitrary precision numbers
@@ -35,12 +35,12 @@ namespace {
 	 * @param string $num1 <p>The dividend, as a string.</p>
 	 * @param string $num2 <p>The divisor, as a string.</p>
 	 * @param int|null $scale <p>This optional parameter is used to set the number of digits after the decimal place in the result. If omitted, it will default to the scale set globally with the <code>bcscale()</code> function, or fallback to <code>0</code> if this has not been set.</p>
-	 * @return string <p>Returns the result of the division as a string, or <b><code>NULL</code></b> if <code>num2</code> is <code>0</code>.</p>
+	 * @return string <p>Returns the result of the division as a string, or <b><code>null</code></b> if <code>num2</code> is <code>0</code>.</p>
 	 * @link https://php.net/manual/en/function.bcdiv.php
 	 * @see bcmul()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function bcdiv(string $num1, string $num2, int|null $scale = NULL): string {}
+	function bcdiv(string $num1, string $num2, int|null $scale = null): string {}
 
 	/**
 	 * Get modulus of an arbitrary precision number
@@ -48,12 +48,12 @@ namespace {
 	 * @param string $num1 <p>The dividend, as a string.</p>
 	 * @param string $num2 <p>The divisor, as a string.</p>
 	 * @param int|null $scale
-	 * @return string <p>Returns the modulus as a string, or <b><code>NULL</code></b> if <code>num2</code> is <code>0</code>.</p>
+	 * @return string <p>Returns the modulus as a string, or <b><code>null</code></b> if <code>num2</code> is <code>0</code>.</p>
 	 * @link https://php.net/manual/en/function.bcmod.php
 	 * @see bcdiv()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function bcmod(string $num1, string $num2, int|null $scale = NULL): string {}
+	function bcmod(string $num1, string $num2, int|null $scale = null): string {}
 
 	/**
 	 * Multiply two arbitrary precision numbers
@@ -66,7 +66,7 @@ namespace {
 	 * @see bcdiv()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function bcmul(string $num1, string $num2, int|null $scale = NULL): string {}
+	function bcmul(string $num1, string $num2, int|null $scale = null): string {}
 
 	/**
 	 * Raise an arbitrary precision number to another
@@ -79,7 +79,7 @@ namespace {
 	 * @see bcpowmod(), bcsqrt()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function bcpow(string $num, string $exponent, int|null $scale = NULL): string {}
+	function bcpow(string $num, string $exponent, int|null $scale = null): string {}
 
 	/**
 	 * Raise an arbitrary precision number to another, reduced by a specified modulus
@@ -88,12 +88,12 @@ namespace {
 	 * @param string $exponent <p>The exponent, as an non-negative, integral string (i.e. the scale has to be zero).</p>
 	 * @param string $modulus <p>The modulus, as an integral string (i.e. the scale has to be zero).</p>
 	 * @param int|null $scale <p>This optional parameter is used to set the number of digits after the decimal place in the result. If omitted, it will default to the scale set globally with the <code>bcscale()</code> function, or fallback to <code>0</code> if this has not been set.</p>
-	 * @return string <p>Returns the result as a string, or <b><code>FALSE</code></b> if <code>modulus</code> is <code>0</code> or <code>exponent</code> is negative.</p>
+	 * @return string <p>Returns the result as a string, or <b><code>false</code></b> if <code>modulus</code> is <code>0</code> or <code>exponent</code> is negative.</p>
 	 * @link https://php.net/manual/en/function.bcpowmod.php
 	 * @see bcpow(), bcmod()
 	 * @since PHP 5, PHP 7
 	 */
-	function bcpowmod(string $num, string $exponent, string $modulus, int|null $scale = NULL): string {}
+	function bcpowmod(string $num, string $exponent, string $modulus, int|null $scale = null): string {}
 
 	/**
 	 * Set or get default scale parameter for all bc math functions
@@ -110,12 +110,12 @@ namespace {
 	 * <p>Return the square root of the <code>num</code>.</p>
 	 * @param string $num <p>The operand, as a string.</p>
 	 * @param int|null $scale <p>This optional parameter is used to set the number of digits after the decimal place in the result. If omitted, it will default to the scale set globally with the <code>bcscale()</code> function, or fallback to <code>0</code> if this has not been set.</p>
-	 * @return string <p>Returns the square root as a string, or <b><code>NULL</code></b> if <code>num</code> is negative.</p>
+	 * @return string <p>Returns the square root as a string, or <b><code>null</code></b> if <code>num</code> is negative.</p>
 	 * @link https://php.net/manual/en/function.bcsqrt.php
 	 * @see bcpow()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function bcsqrt(string $num, int|null $scale = NULL): string {}
+	function bcsqrt(string $num, int|null $scale = null): string {}
 
 	/**
 	 * Subtract one arbitrary precision number from another
@@ -128,6 +128,6 @@ namespace {
 	 * @see bcadd()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function bcsub(string $num1, string $num2, int|null $scale = NULL): string {}
+	function bcsub(string $num1, string $num2, int|null $scale = null): string {}
 
 }

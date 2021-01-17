@@ -10,7 +10,7 @@ namespace {
 	 * @param resource $packet_id <p>A WDDX packet, returned by <code>wddx_packet_start()</code>.</p>
 	 * @param mixed $var_name <p>Can be either a string naming a variable or an array containing strings naming the variables or another array, etc.</p>
 	 * @param mixed $var_names
-	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.wddx-add-vars.php
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
@@ -40,29 +40,29 @@ namespace {
 	 * Starts a new WDDX packet with structure inside it
 	 * <p>Start a new WDDX packet for incremental addition of variables. It automatically creates a structure definition inside the packet to contain the variables.</p>
 	 * @param string $comment <p>An optional comment string.</p>
-	 * @return resource <p>Returns a packet ID for use in later functions, or <b><code>FALSE</code></b> on error.</p>
+	 * @return resource <p>Returns a packet ID for use in later functions, or <b><code>false</code></b> on error.</p>
 	 * @link https://php.net/manual/en/function.wddx-packet-start.php
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function wddx_packet_start(string $comment = NULL) {}
+	function wddx_packet_start(string $comment = null) {}
 
 	/**
 	 * Serialize a single value into a WDDX packet
 	 * <p>Creates a WDDX packet from a single given value.</p>
 	 * @param mixed $var <p>The value to be serialized</p>
 	 * @param string $comment <p>An optional comment string that appears in the packet header.</p>
-	 * @return string <p>Returns the WDDX packet, or <b><code>FALSE</code></b> on error.</p>
+	 * @return string <p>Returns the WDDX packet, or <b><code>false</code></b> on error.</p>
 	 * @link https://php.net/manual/en/function.wddx-serialize-value.php
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function wddx_serialize_value(mixed $var, string $comment = NULL): string {}
+	function wddx_serialize_value(mixed $var, string $comment = null): string {}
 
 	/**
 	 * Serialize variables into a WDDX packet
 	 * <p>Creates a WDDX packet with a structure that contains the serialized representation of the passed variables.</p>
 	 * @param mixed $var_name <p>Can be either a string naming a variable or an array containing strings naming the variables or another array, etc.</p>
 	 * @param mixed $var_names
-	 * @return string <p>Returns the WDDX packet, or <b><code>FALSE</code></b> on error.</p>
+	 * @return string <p>Returns the WDDX packet, or <b><code>false</code></b> on error.</p>
 	 * @link https://php.net/manual/en/function.wddx-serialize-vars.php
 	 * @since PHP 4, PHP 5, PHP 7
 	 */

@@ -49,7 +49,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.trader-adosc.php
 	 * @since PECL trader >= 0.2.0
 	 */
-	function trader_adosc(array $high, array $low, array $close, array $volume, int $fastPeriod = NULL, int $slowPeriod = NULL): array {}
+	function trader_adosc(array $high, array $low, array $close, array $volume, int $fastPeriod = null, int $slowPeriod = null): array {}
 
 	/**
 	 * Average Directional Movement Index
@@ -61,7 +61,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.trader-adx.php
 	 * @since PECL trader >= 0.2.0
 	 */
-	function trader_adx(array $high, array $low, array $close, int $timePeriod = NULL): array {}
+	function trader_adx(array $high, array $low, array $close, int $timePeriod = null): array {}
 
 	/**
 	 * Average Directional Movement Index Rating
@@ -73,7 +73,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.trader-adxr.php
 	 * @since PECL trader >= 0.2.0
 	 */
-	function trader_adxr(array $high, array $low, array $close, int $timePeriod = NULL): array {}
+	function trader_adxr(array $high, array $low, array $close, int $timePeriod = null): array {}
 
 	/**
 	 * Absolute Price Oscillator
@@ -85,7 +85,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.trader-apo.php
 	 * @since PECL trader >= 0.2.0
 	 */
-	function trader_apo(array $real, int $fastPeriod = NULL, int $slowPeriod = NULL, int $mAType = NULL): array {}
+	function trader_apo(array $real, int $fastPeriod = null, int $slowPeriod = null, int $mAType = null): array {}
 
 	/**
 	 * Aroon
@@ -96,7 +96,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.trader-aroon.php
 	 * @since PECL trader >= 0.2.0
 	 */
-	function trader_aroon(array $high, array $low, int $timePeriod = NULL): array {}
+	function trader_aroon(array $high, array $low, int $timePeriod = null): array {}
 
 	/**
 	 * Aroon Oscillator
@@ -107,7 +107,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.trader-aroonosc.php
 	 * @since PECL trader >= 0.2.0
 	 */
-	function trader_aroonosc(array $high, array $low, int $timePeriod = NULL): array {}
+	function trader_aroonosc(array $high, array $low, int $timePeriod = null): array {}
 
 	/**
 	 * Vector Trigonometric ASin
@@ -139,7 +139,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.trader-atr.php
 	 * @since PECL trader >= 0.2.0
 	 */
-	function trader_atr(array $high, array $low, array $close, int $timePeriod = NULL): array {}
+	function trader_atr(array $high, array $low, array $close, int $timePeriod = null): array {}
 
 	/**
 	 * Average Price
@@ -164,7 +164,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.trader-bbands.php
 	 * @since PECL trader >= 0.2.0
 	 */
-	function trader_bbands(array $real, int $timePeriod = NULL, float $nbDevUp = NULL, float $nbDevDn = NULL, int $mAType = NULL): array {}
+	function trader_bbands(array $real, int $timePeriod = null, float $nbDevUp = null, float $nbDevDn = null, int $mAType = null): array {}
 
 	/**
 	 * Beta
@@ -175,7 +175,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.trader-beta.php
 	 * @since PECL trader >= 0.2.0
 	 */
-	function trader_beta(array $real0, array $real1, int $timePeriod = NULL): array {}
+	function trader_beta(array $real0, array $real1, int $timePeriod = null): array {}
 
 	/**
 	 * Balance Of Power
@@ -199,7 +199,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.trader-cci.php
 	 * @since PECL trader >= 0.2.0
 	 */
-	function trader_cci(array $high, array $low, array $close, int $timePeriod = NULL): array {}
+	function trader_cci(array $high, array $low, array $close, int $timePeriod = null): array {}
 
 	/**
 	 * Two Crows
@@ -296,7 +296,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.trader-cdlabandonedbaby.php
 	 * @since PECL trader >= 0.2.0
 	 */
-	function trader_cdlabandonedbaby(array $open, array $high, array $low, array $close, float $penetration = NULL): array {}
+	function trader_cdlabandonedbaby(array $open, array $high, array $low, array $close, float $penetration = null): array {}
 
 	/**
 	 * Advance Block
@@ -381,7 +381,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.trader-cdldarkcloudcover.php
 	 * @since PECL trader >= 0.2.0
 	 */
-	function trader_cdldarkcloudcover(array $open, array $high, array $low, array $close, float $penetration = NULL): array {}
+	function trader_cdldarkcloudcover(array $open, array $high, array $low, array $close, float $penetration = null): array {}
 
 	/**
 	 * Doji
@@ -442,7 +442,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.trader-cdleveningdojistar.php
 	 * @since PECL trader >= 0.2.0
 	 */
-	function trader_cdleveningdojistar(array $open, array $high, array $low, array $close, float $penetration = NULL): array {}
+	function trader_cdleveningdojistar(array $open, array $high, array $low, array $close, float $penetration = null): array {}
 
 	/**
 	 * Evening Star
@@ -455,7 +455,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.trader-cdleveningstar.php
 	 * @since PECL trader >= 0.2.0
 	 */
-	function trader_cdleveningstar(array $open, array $high, array $low, array $close, float $penetration = NULL): array {}
+	function trader_cdleveningstar(array $open, array $high, array $low, array $close, float $penetration = null): array {}
 
 	/**
 	 * Up/Down-gap side-by-side white lines
@@ -708,7 +708,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.trader-cdlmathold.php
 	 * @since PECL trader >= 0.2.0
 	 */
-	function trader_cdlmathold(array $open, array $high, array $low, array $close, float $penetration = NULL): array {}
+	function trader_cdlmathold(array $open, array $high, array $low, array $close, float $penetration = null): array {}
 
 	/**
 	 * Morning Doji Star
@@ -721,7 +721,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.trader-cdlmorningdojistar.php
 	 * @since PECL trader >= 0.2.0
 	 */
-	function trader_cdlmorningdojistar(array $open, array $high, array $low, array $close, float $penetration = NULL): array {}
+	function trader_cdlmorningdojistar(array $open, array $high, array $low, array $close, float $penetration = null): array {}
 
 	/**
 	 * Morning Star
@@ -734,7 +734,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.trader-cdlmorningstar.php
 	 * @since PECL trader >= 0.2.0
 	 */
-	function trader_cdlmorningstar(array $open, array $high, array $low, array $close, float $penetration = NULL): array {}
+	function trader_cdlmorningstar(array $open, array $high, array $low, array $close, float $penetration = null): array {}
 
 	/**
 	 * On-Neck Pattern
@@ -958,7 +958,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.trader-cmo.php
 	 * @since PECL trader >= 0.2.0
 	 */
-	function trader_cmo(array $real, int $timePeriod = NULL): array {}
+	function trader_cmo(array $real, int $timePeriod = null): array {}
 
 	/**
 	 * Pearson's Correlation Coefficient (r)
@@ -969,7 +969,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.trader-correl.php
 	 * @since PECL trader >= 0.2.0
 	 */
-	function trader_correl(array $real0, array $real1, int $timePeriod = NULL): array {}
+	function trader_correl(array $real0, array $real1, int $timePeriod = null): array {}
 
 	/**
 	 * Vector Trigonometric Cos
@@ -999,7 +999,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.trader-dema.php
 	 * @since PECL trader >= 0.2.0
 	 */
-	function trader_dema(array $real, int $timePeriod = NULL): array {}
+	function trader_dema(array $real, int $timePeriod = null): array {}
 
 	/**
 	 * Vector Arithmetic Div
@@ -1022,7 +1022,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.trader-dx.php
 	 * @since PECL trader >= 0.2.0
 	 */
-	function trader_dx(array $high, array $low, array $close, int $timePeriod = NULL): array {}
+	function trader_dx(array $high, array $low, array $close, int $timePeriod = null): array {}
 
 	/**
 	 * Exponential Moving Average
@@ -1032,7 +1032,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.trader-ema.php
 	 * @since PECL trader >= 0.2.0
 	 */
-	function trader_ema(array $real, int $timePeriod = NULL): array {}
+	function trader_ema(array $real, int $timePeriod = null): array {}
 
 	/**
 	 * Get error code
@@ -1144,7 +1144,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.trader-kama.php
 	 * @since PECL trader >= 0.2.0
 	 */
-	function trader_kama(array $real, int $timePeriod = NULL): array {}
+	function trader_kama(array $real, int $timePeriod = null): array {}
 
 	/**
 	 * Linear Regression
@@ -1154,7 +1154,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.trader-linearreg.php
 	 * @since PECL trader >= 0.2.0
 	 */
-	function trader_linearreg(array $real, int $timePeriod = NULL): array {}
+	function trader_linearreg(array $real, int $timePeriod = null): array {}
 
 	/**
 	 * Linear Regression Angle
@@ -1164,7 +1164,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.trader-linearreg-angle.php
 	 * @since PECL trader >= 0.2.0
 	 */
-	function trader_linearreg_angle(array $real, int $timePeriod = NULL): array {}
+	function trader_linearreg_angle(array $real, int $timePeriod = null): array {}
 
 	/**
 	 * Linear Regression Intercept
@@ -1174,7 +1174,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.trader-linearreg-intercept.php
 	 * @since PECL trader >= 0.2.0
 	 */
-	function trader_linearreg_intercept(array $real, int $timePeriod = NULL): array {}
+	function trader_linearreg_intercept(array $real, int $timePeriod = null): array {}
 
 	/**
 	 * Linear Regression Slope
@@ -1184,7 +1184,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.trader-linearreg-slope.php
 	 * @since PECL trader >= 0.2.0
 	 */
-	function trader_linearreg_slope(array $real, int $timePeriod = NULL): array {}
+	function trader_linearreg_slope(array $real, int $timePeriod = null): array {}
 
 	/**
 	 * Vector Log Natural
@@ -1215,7 +1215,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.trader-ma.php
 	 * @since PECL trader >= 0.2.0
 	 */
-	function trader_ma(array $real, int $timePeriod = NULL, int $mAType = NULL): array {}
+	function trader_ma(array $real, int $timePeriod = null, int $mAType = null): array {}
 
 	/**
 	 * Moving Average Convergence/Divergence
@@ -1227,7 +1227,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.trader-macd.php
 	 * @since PECL trader >= 0.2.0
 	 */
-	function trader_macd(array $real, int $fastPeriod = NULL, int $slowPeriod = NULL, int $signalPeriod = NULL): array {}
+	function trader_macd(array $real, int $fastPeriod = null, int $slowPeriod = null, int $signalPeriod = null): array {}
 
 	/**
 	 * MACD with controllable MA type
@@ -1242,7 +1242,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.trader-macdext.php
 	 * @since PECL trader >= 0.2.0
 	 */
-	function trader_macdext(array $real, int $fastPeriod = NULL, int $fastMAType = NULL, int $slowPeriod = NULL, int $slowMAType = NULL, int $signalPeriod = NULL, int $signalMAType = NULL): array {}
+	function trader_macdext(array $real, int $fastPeriod = null, int $fastMAType = null, int $slowPeriod = null, int $slowMAType = null, int $signalPeriod = null, int $signalMAType = null): array {}
 
 	/**
 	 * Moving Average Convergence/Divergence Fix 12/26
@@ -1252,7 +1252,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.trader-macdfix.php
 	 * @since PECL trader >= 0.2.0
 	 */
-	function trader_macdfix(array $real, int $signalPeriod = NULL): array {}
+	function trader_macdfix(array $real, int $signalPeriod = null): array {}
 
 	/**
 	 * MESA Adaptive Moving Average
@@ -1263,7 +1263,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.trader-mama.php
 	 * @since PECL trader >= 0.2.0
 	 */
-	function trader_mama(array $real, float $fastLimit = NULL, float $slowLimit = NULL): array {}
+	function trader_mama(array $real, float $fastLimit = null, float $slowLimit = null): array {}
 
 	/**
 	 * Moving average with variable period
@@ -1276,7 +1276,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.trader-mavp.php
 	 * @since PECL trader >= 0.2.0
 	 */
-	function trader_mavp(array $real, array $periods, int $minPeriod = NULL, int $maxPeriod = NULL, int $mAType = NULL): array {}
+	function trader_mavp(array $real, array $periods, int $minPeriod = null, int $maxPeriod = null, int $mAType = null): array {}
 
 	/**
 	 * Highest value over a specified period
@@ -1286,7 +1286,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.trader-max.php
 	 * @since PECL trader >= 0.2.0
 	 */
-	function trader_max(array $real, int $timePeriod = NULL): array {}
+	function trader_max(array $real, int $timePeriod = null): array {}
 
 	/**
 	 * Index of highest value over a specified period
@@ -1296,7 +1296,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.trader-maxindex.php
 	 * @since PECL trader >= 0.2.0
 	 */
-	function trader_maxindex(array $real, int $timePeriod = NULL): array {}
+	function trader_maxindex(array $real, int $timePeriod = null): array {}
 
 	/**
 	 * Median Price
@@ -1319,7 +1319,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.trader-mfi.php
 	 * @since PECL trader >= 0.2.0
 	 */
-	function trader_mfi(array $high, array $low, array $close, array $volume, int $timePeriod = NULL): array {}
+	function trader_mfi(array $high, array $low, array $close, array $volume, int $timePeriod = null): array {}
 
 	/**
 	 * MidPoint over period
@@ -1329,7 +1329,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.trader-midpoint.php
 	 * @since PECL trader >= 0.2.0
 	 */
-	function trader_midpoint(array $real, int $timePeriod = NULL): array {}
+	function trader_midpoint(array $real, int $timePeriod = null): array {}
 
 	/**
 	 * Midpoint Price over period
@@ -1340,7 +1340,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.trader-midprice.php
 	 * @since PECL trader >= 0.2.0
 	 */
-	function trader_midprice(array $high, array $low, int $timePeriod = NULL): array {}
+	function trader_midprice(array $high, array $low, int $timePeriod = null): array {}
 
 	/**
 	 * Lowest value over a specified period
@@ -1350,7 +1350,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.trader-min.php
 	 * @since PECL trader >= 0.2.0
 	 */
-	function trader_min(array $real, int $timePeriod = NULL): array {}
+	function trader_min(array $real, int $timePeriod = null): array {}
 
 	/**
 	 * Index of lowest value over a specified period
@@ -1360,7 +1360,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.trader-minindex.php
 	 * @since PECL trader >= 0.2.0
 	 */
-	function trader_minindex(array $real, int $timePeriod = NULL): array {}
+	function trader_minindex(array $real, int $timePeriod = null): array {}
 
 	/**
 	 * Lowest and highest values over a specified period
@@ -1370,7 +1370,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.trader-minmax.php
 	 * @since PECL trader >= 0.2.0
 	 */
-	function trader_minmax(array $real, int $timePeriod = NULL): array {}
+	function trader_minmax(array $real, int $timePeriod = null): array {}
 
 	/**
 	 * Indexes of lowest and highest values over a specified period
@@ -1380,7 +1380,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.trader-minmaxindex.php
 	 * @since PECL trader >= 0.2.0
 	 */
-	function trader_minmaxindex(array $real, int $timePeriod = NULL): array {}
+	function trader_minmaxindex(array $real, int $timePeriod = null): array {}
 
 	/**
 	 * Minus Directional Indicator
@@ -1392,7 +1392,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.trader-minus-di.php
 	 * @since PECL trader >= 0.2.0
 	 */
-	function trader_minus_di(array $high, array $low, array $close, int $timePeriod = NULL): array {}
+	function trader_minus_di(array $high, array $low, array $close, int $timePeriod = null): array {}
 
 	/**
 	 * Minus Directional Movement
@@ -1403,7 +1403,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.trader-minus-dm.php
 	 * @since PECL trader >= 0.2.0
 	 */
-	function trader_minus_dm(array $high, array $low, int $timePeriod = NULL): array {}
+	function trader_minus_dm(array $high, array $low, int $timePeriod = null): array {}
 
 	/**
 	 * Momentum
@@ -1413,7 +1413,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.trader-mom.php
 	 * @since PECL trader >= 0.2.0
 	 */
-	function trader_mom(array $real, int $timePeriod = NULL): array {}
+	function trader_mom(array $real, int $timePeriod = null): array {}
 
 	/**
 	 * Vector Arithmetic Mult
@@ -1436,7 +1436,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.trader-natr.php
 	 * @since PECL trader >= 0.2.0
 	 */
-	function trader_natr(array $high, array $low, array $close, int $timePeriod = NULL): array {}
+	function trader_natr(array $high, array $low, array $close, int $timePeriod = null): array {}
 
 	/**
 	 * On Balance Volume
@@ -1458,7 +1458,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.trader-plus-di.php
 	 * @since PECL trader >= 0.2.0
 	 */
-	function trader_plus_di(array $high, array $low, array $close, int $timePeriod = NULL): array {}
+	function trader_plus_di(array $high, array $low, array $close, int $timePeriod = null): array {}
 
 	/**
 	 * Plus Directional Movement
@@ -1469,7 +1469,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.trader-plus-dm.php
 	 * @since PECL trader >= 0.2.0
 	 */
-	function trader_plus_dm(array $high, array $low, int $timePeriod = NULL): array {}
+	function trader_plus_dm(array $high, array $low, int $timePeriod = null): array {}
 
 	/**
 	 * Percentage Price Oscillator
@@ -1481,7 +1481,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.trader-ppo.php
 	 * @since PECL trader >= 0.2.0
 	 */
-	function trader_ppo(array $real, int $fastPeriod = NULL, int $slowPeriod = NULL, int $mAType = NULL): array {}
+	function trader_ppo(array $real, int $fastPeriod = null, int $slowPeriod = null, int $mAType = null): array {}
 
 	/**
 	 * Rate of change : ((price/prevPrice)-1)&#42;100
@@ -1491,7 +1491,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.trader-roc.php
 	 * @since PECL trader >= 0.2.0
 	 */
-	function trader_roc(array $real, int $timePeriod = NULL): array {}
+	function trader_roc(array $real, int $timePeriod = null): array {}
 
 	/**
 	 * Rate of change Percentage: (price-prevPrice)/prevPrice
@@ -1501,7 +1501,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.trader-rocp.php
 	 * @since PECL trader >= 0.2.0
 	 */
-	function trader_rocp(array $real, int $timePeriod = NULL): array {}
+	function trader_rocp(array $real, int $timePeriod = null): array {}
 
 	/**
 	 * Rate of change ratio: (price/prevPrice)
@@ -1511,7 +1511,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.trader-rocr.php
 	 * @since PECL trader >= 0.2.0
 	 */
-	function trader_rocr(array $real, int $timePeriod = NULL): array {}
+	function trader_rocr(array $real, int $timePeriod = null): array {}
 
 	/**
 	 * Rate of change ratio 100 scale: (price/prevPrice)&#42;100
@@ -1521,7 +1521,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.trader-rocr100.php
 	 * @since PECL trader >= 0.2.0
 	 */
-	function trader_rocr100(array $real, int $timePeriod = NULL): array {}
+	function trader_rocr100(array $real, int $timePeriod = null): array {}
 
 	/**
 	 * Relative Strength Index
@@ -1531,7 +1531,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.trader-rsi.php
 	 * @since PECL trader >= 0.2.0
 	 */
-	function trader_rsi(array $real, int $timePeriod = NULL): array {}
+	function trader_rsi(array $real, int $timePeriod = null): array {}
 
 	/**
 	 * Parabolic SAR
@@ -1543,7 +1543,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.trader-sar.php
 	 * @since PECL trader >= 0.2.0
 	 */
-	function trader_sar(array $high, array $low, float $acceleration = NULL, float $maximum = NULL): array {}
+	function trader_sar(array $high, array $low, float $acceleration = null, float $maximum = null): array {}
 
 	/**
 	 * Parabolic SAR - Extended
@@ -1561,7 +1561,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.trader-sarext.php
 	 * @since PECL trader >= 0.2.0
 	 */
-	function trader_sarext(array $high, array $low, float $startValue = NULL, float $offsetOnReverse = NULL, float $accelerationInitLong = NULL, float $accelerationLong = NULL, float $accelerationMaxLong = NULL, float $accelerationInitShort = NULL, float $accelerationShort = NULL, float $accelerationMaxShort = NULL): array {}
+	function trader_sarext(array $high, array $low, float $startValue = null, float $offsetOnReverse = null, float $accelerationInitLong = null, float $accelerationLong = null, float $accelerationMaxLong = null, float $accelerationInitShort = null, float $accelerationShort = null, float $accelerationMaxShort = null): array {}
 
 	/**
 	 * Set compatibility mode
@@ -1612,7 +1612,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.trader-sma.php
 	 * @since PECL trader >= 0.2.0
 	 */
-	function trader_sma(array $real, int $timePeriod = NULL): array {}
+	function trader_sma(array $real, int $timePeriod = null): array {}
 
 	/**
 	 * Vector Square Root
@@ -1633,7 +1633,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.trader-stddev.php
 	 * @since PECL trader >= 0.2.0
 	 */
-	function trader_stddev(array $real, int $timePeriod = NULL, float $nbDev = NULL): array {}
+	function trader_stddev(array $real, int $timePeriod = null, float $nbDev = null): array {}
 
 	/**
 	 * Stochastic
@@ -1649,7 +1649,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.trader-stoch.php
 	 * @since PECL trader >= 0.2.0
 	 */
-	function trader_stoch(array $high, array $low, array $close, int $fastK_Period = NULL, int $slowK_Period = NULL, int $slowK_MAType = NULL, int $slowD_Period = NULL, int $slowD_MAType = NULL): array {}
+	function trader_stoch(array $high, array $low, array $close, int $fastK_Period = null, int $slowK_Period = null, int $slowK_MAType = null, int $slowD_Period = null, int $slowD_MAType = null): array {}
 
 	/**
 	 * Stochastic Fast
@@ -1663,7 +1663,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.trader-stochf.php
 	 * @since PECL trader >= 0.2.0
 	 */
-	function trader_stochf(array $high, array $low, array $close, int $fastK_Period = NULL, int $fastD_Period = NULL, int $fastD_MAType = NULL): array {}
+	function trader_stochf(array $high, array $low, array $close, int $fastK_Period = null, int $fastD_Period = null, int $fastD_MAType = null): array {}
 
 	/**
 	 * Stochastic Relative Strength Index
@@ -1676,7 +1676,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.trader-stochrsi.php
 	 * @since PECL trader >= 0.2.0
 	 */
-	function trader_stochrsi(array $real, int $timePeriod = NULL, int $fastK_Period = NULL, int $fastD_Period = NULL, int $fastD_MAType = NULL): array {}
+	function trader_stochrsi(array $real, int $timePeriod = null, int $fastK_Period = null, int $fastD_Period = null, int $fastD_MAType = null): array {}
 
 	/**
 	 * Vector Arithmetic Subtraction
@@ -1697,7 +1697,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.trader-sum.php
 	 * @since PECL trader >= 0.2.0
 	 */
-	function trader_sum(array $real, int $timePeriod = NULL): array {}
+	function trader_sum(array $real, int $timePeriod = null): array {}
 
 	/**
 	 * Triple Exponential Moving Average (T3)
@@ -1708,7 +1708,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.trader-t3.php
 	 * @since PECL trader >= 0.2.0
 	 */
-	function trader_t3(array $real, int $timePeriod = NULL, float $vFactor = NULL): array {}
+	function trader_t3(array $real, int $timePeriod = null, float $vFactor = null): array {}
 
 	/**
 	 * Vector Trigonometric Tan
@@ -1738,7 +1738,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.trader-tema.php
 	 * @since PECL trader >= 0.2.0
 	 */
-	function trader_tema(array $real, int $timePeriod = NULL): array {}
+	function trader_tema(array $real, int $timePeriod = null): array {}
 
 	/**
 	 * True Range
@@ -1759,7 +1759,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.trader-trima.php
 	 * @since PECL trader >= 0.2.0
 	 */
-	function trader_trima(array $real, int $timePeriod = NULL): array {}
+	function trader_trima(array $real, int $timePeriod = null): array {}
 
 	/**
 	 * 1-day Rate-Of-Change (ROC) of a Triple Smooth EMA
@@ -1769,7 +1769,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.trader-trix.php
 	 * @since PECL trader >= 0.2.0
 	 */
-	function trader_trix(array $real, int $timePeriod = NULL): array {}
+	function trader_trix(array $real, int $timePeriod = null): array {}
 
 	/**
 	 * Time Series Forecast
@@ -1779,7 +1779,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.trader-tsf.php
 	 * @since PECL trader >= 0.2.0
 	 */
-	function trader_tsf(array $real, int $timePeriod = NULL): array {}
+	function trader_tsf(array $real, int $timePeriod = null): array {}
 
 	/**
 	 * Typical Price
@@ -1804,7 +1804,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.trader-ultosc.php
 	 * @since PECL trader >= 0.2.0
 	 */
-	function trader_ultosc(array $high, array $low, array $close, int $timePeriod1 = NULL, int $timePeriod2 = NULL, int $timePeriod3 = NULL): array {}
+	function trader_ultosc(array $high, array $low, array $close, int $timePeriod1 = null, int $timePeriod2 = null, int $timePeriod3 = null): array {}
 
 	/**
 	 * Variance
@@ -1815,7 +1815,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.trader-var.php
 	 * @since PECL trader >= 0.2.0
 	 */
-	function trader_var(array $real, int $timePeriod = NULL, float $nbDev = NULL): array {}
+	function trader_var(array $real, int $timePeriod = null, float $nbDev = null): array {}
 
 	/**
 	 * Weighted Close Price
@@ -1838,7 +1838,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.trader-willr.php
 	 * @since PECL trader >= 0.2.0
 	 */
-	function trader_willr(array $high, array $low, array $close, int $timePeriod = NULL): array {}
+	function trader_willr(array $high, array $low, array $close, int $timePeriod = null): array {}
 
 	/**
 	 * Weighted Moving Average
@@ -1848,7 +1848,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.trader-wma.php
 	 * @since PECL trader >= 0.2.0
 	 */
-	function trader_wma(array $real, int $timePeriod = NULL): array {}
+	function trader_wma(array $real, int $timePeriod = null): array {}
 
 	define('TRADER_COMPATIBILITY_DEFAULT', null);
 

@@ -18,22 +18,22 @@ namespace {
 
 	/**
 	 * Call a callback with an array of parameters
-	 * <p>Calls the <code>callback</code> given by the first parameter with the parameters in <code>param_arr</code>.</p>
+	 * <p>Calls the <code>callback</code> given by the first parameter with the parameters in <code>args</code>.</p>
 	 * @param callable $callback <p>The <code>callable</code> to be called.</p>
-	 * @param array $param_arr <p>The parameters to be passed to the callback, as an indexed array.</p>
-	 * @return mixed <p>Returns the return value of the callback, or <b><code>FALSE</code></b> on error.</p>
+	 * @param array $args <p>The parameters to be passed to the callback, as an indexed array.</p>
+	 * @return mixed <p>Returns the return value of the callback, or <b><code>false</code></b> on error.</p>
 	 * @link https://php.net/manual/en/function.call-user-func-array.php
 	 * @see call_user_func()
 	 * @since PHP 4 >= 4.0.4, PHP 5, PHP 7
 	 */
-	function call_user_func_array(callable $callback, array $param_arr): mixed {}
+	function call_user_func_array(callable $callback, array $args): mixed {}
 
 	/**
 	 * Create an anonymous (lambda-style) function
 	 * <p>Creates an anonymous function from the parameters passed, and returns a unique name for it.</p><p>This function internally performs an <code>eval()</code> and as such has the same security issues as <code>eval()</code>. Additionally it has bad performance and memory usage characteristics.</p><p>If you are using PHP 5.3.0 or newer a native anonymous function should be used instead.</p>
 	 * @param string $args <p>The function arguments.</p>
 	 * @param string $code <p>The function code.</p>
-	 * @return string <p>Returns a unique function name as a string, or <b><code>FALSE</code></b> on error.</p>
+	 * @return string <p>Returns a unique function name as a string, or <b><code>false</code></b> on error.</p>
 	 * @link https://php.net/manual/en/function.create-function.php
 	 * @since PHP 4 >= 4.0.1, PHP 5, PHP 7
 	 */
@@ -41,33 +41,33 @@ namespace {
 
 	/**
 	 * Call a static method
-	 * <p>Calls a user defined function or method given by the <code>function</code> parameter, with the following arguments. This function must be called within a method context, it can't be used outside a class. It uses the late static binding.</p>
-	 * @param callable $function <p>The function or method to be called. This parameter may be an array, with the name of the class, and the method, or a string, with a function name.</p>
+	 * <p>Calls a user defined function or method given by the <code>callback</code> parameter, with the following arguments. This function must be called within a method context, it can't be used outside a class. It uses the late static binding.</p>
+	 * @param callable $callback <p>The function or method to be called. This parameter may be an array, with the name of the class, and the method, or a string, with a function name.</p>
 	 * @param mixed $args <p>Zero or more parameters to be passed to the function.</p>
-	 * @return mixed <p>Returns the function result, or <b><code>FALSE</code></b> on error.</p>
+	 * @return mixed <p>Returns the function result, or <b><code>false</code></b> on error.</p>
 	 * @link https://php.net/manual/en/function.forward-static-call.php
 	 * @see forward_static_call_array(), call_user_func_array(), call_user_func(), is_callable()
 	 * @since PHP 5 >= 5.3.0, PHP 7
 	 */
-	function forward_static_call(callable $function, mixed ...$args): mixed {}
+	function forward_static_call(callable $callback, mixed ...$args): mixed {}
 
 	/**
 	 * Call a static method and pass the arguments as array
-	 * <p>Calls a user defined function or method given by the <code>function</code> parameter. This function must be called within a method context, it can't be used outside a class. It uses the late static binding. All arguments of the forwarded method are passed as values, and as an array, similarly to <code>call_user_func_array()</code>.</p>
-	 * @param callable $function <p>The function or method to be called. This parameter may be an <code>array</code>, with the name of the class, and the method, or a <code>string</code>, with a function name.</p>
-	 * @param array $parameters
-	 * @return mixed <p>Returns the function result, or <b><code>FALSE</code></b> on error.</p>
+	 * <p>Calls a user defined function or method given by the <code>callback</code> parameter. This function must be called within a method context, it can't be used outside a class. It uses the late static binding. All arguments of the forwarded method are passed as values, and as an array, similarly to <code>call_user_func_array()</code>.</p>
+	 * @param callable $callback <p>The function or method to be called. This parameter may be an <code>array</code>, with the name of the class, and the method, or a <code>string</code>, with a function name.</p>
+	 * @param array $args
+	 * @return mixed <p>Returns the function result, or <b><code>false</code></b> on error.</p>
 	 * @link https://php.net/manual/en/function.forward-static-call-array.php
 	 * @see forward_static_call(), call_user_func(), call_user_func_array(), is_callable()
 	 * @since PHP 5 >= 5.3.0, PHP 7
 	 */
-	function forward_static_call_array(callable $function, array $parameters): mixed {}
+	function forward_static_call_array(callable $callback, array $args): mixed {}
 
 	/**
 	 * Return an item from the argument list
 	 * <p>Gets the specified argument from a user-defined function's argument list.</p><p>This function may be used in conjunction with <code>func_get_args()</code> and <code>func_num_args()</code> to allow user-defined functions to accept variable-length argument lists.</p>
 	 * @param int $arg_num <p>The argument offset. Function arguments are counted starting from zero.</p>
-	 * @return mixed <p>Returns the specified argument, or <b><code>FALSE</code></b> on error.</p>
+	 * @return mixed <p>Returns the specified argument, or <b><code>false</code></b> on error.</p>
 	 * @link https://php.net/manual/en/function.func-get-arg.php
 	 * @see func_get_args(), func_num_args()
 	 * @since PHP 4, PHP 5, PHP 7
@@ -95,10 +95,10 @@ namespace {
 	function func_num_args(): int {}
 
 	/**
-	 * Return TRUE if the given function has been defined
+	 * Return true if the given function has been defined
 	 * <p>Checks the list of defined functions, both built-in (internal) and user-defined, for <code>function_name</code>.</p>
 	 * @param string $function_name <p>The function name, as a string.</p>
-	 * @return bool <p>Returns <b><code>TRUE</code></b> if <code>function_name</code> exists and is a function, <b><code>FALSE</code></b> otherwise.</p><p><b>Note</b>:</p><p>This function will return <b><code>FALSE</code></b> for constructs, such as <code>include_once</code> and <code>echo</code>.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> if <code>function_name</code> exists and is a function, <b><code>false</code></b> otherwise.</p><p><b>Note</b>:</p><p>This function will return <b><code>false</code></b> for constructs, such as <code>include_once</code> and <code>echo</code>.</p>
 	 * @link https://php.net/manual/en/function.function-exists.php
 	 * @see method_exists(), is_callable(), get_defined_functions(), class_exists(), extension_loaded()
 	 * @since PHP 4, PHP 5, PHP 7
@@ -114,7 +114,7 @@ namespace {
 	 * @see function_exists(), get_defined_vars(), get_defined_constants(), get_declared_classes()
 	 * @since PHP 4 >= 4.0.4, PHP 5, PHP 7
 	 */
-	function get_defined_functions(bool $exclude_disabled = FALSE): array {}
+	function get_defined_functions(bool $exclude_disabled = false): array {}
 
 	/**
 	 * Register a function for execution on shutdown
@@ -130,25 +130,25 @@ namespace {
 
 	/**
 	 * Register a function for execution on each tick
-	 * <p>Registers the given <code>function</code> to be executed when a tick is called.</p>
-	 * @param callable $function <p>The function to register.</p>
+	 * <p>Registers the given <code>callback</code> to be executed when a tick is called.</p>
+	 * @param callable $callback <p>The function to register.</p>
 	 * @param mixed $args
-	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.register-tick-function.php
 	 * @see unregister_tick_function()
 	 * @since PHP 4 >= 4.0.3, PHP 5, PHP 7
 	 */
-	function register_tick_function(callable $function, mixed ...$args): bool {}
+	function register_tick_function(callable $callback, mixed ...$args): bool {}
 
 	/**
 	 * De-register a function for execution on each tick
 	 * <p>De-registers the function <code>function</code> so it is no longer executed when a tick is called.</p>
-	 * @param callable $function <p>The function to de-register.</p>
+	 * @param callable $callback <p>The function to de-register.</p>
 	 * @return void <p>No value is returned.</p>
 	 * @link https://php.net/manual/en/function.unregister-tick-function.php
 	 * @see register_tick_function()
 	 * @since PHP 4 >= 4.0.3, PHP 5, PHP 7
 	 */
-	function unregister_tick_function(callable $function): void {}
+	function unregister_tick_function(callable $callback): void {}
 
 }

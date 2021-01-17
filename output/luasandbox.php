@@ -178,7 +178,7 @@ namespace {
 
 		/**
 		 * Wrap a PHP callable in a LuaSandboxFunction
-		 * <p>Wraps a PHP callable in a LuaSandboxFunction, so it can be passed into Lua as an anonymous function.</p><p>The function must return either an array of values (which may be empty), or <b><code>NULL</code></b> which is equivalent to returning the empty array.</p><p>Exceptions will be raised as errors in Lua, however only LuaSandboxRuntimeError exceptions may be caught inside Lua with <code>pcall()</code> or <code>xpcall()</code>.</p><p>For more information about calling Lua functions and the return values, see <code>LuaSandboxFunction::call()</code>.</p>
+		 * <p>Wraps a PHP callable in a LuaSandboxFunction, so it can be passed into Lua as an anonymous function.</p><p>The function must return either an array of values (which may be empty), or <b><code>null</code></b> which is equivalent to returning the empty array.</p><p>Exceptions will be raised as errors in Lua, however only LuaSandboxRuntimeError exceptions may be caught inside Lua with <code>pcall()</code> or <code>xpcall()</code>.</p><p>For more information about calling Lua functions and the return values, see <code>LuaSandboxFunction::call()</code>.</p>
 		 * @param callable $function <p>Callable to wrap.</p>
 		 * @return LuaSandboxFunction <p>Returns a LuaSandboxFunction.</p>
 		 * @link https://php.net/manual/en/luasandbox.wrapphpfunction.php
@@ -299,7 +299,7 @@ namespace {
 		/**
 		 * Returns previous Exception
 		 * <p>Returns previous exception (the third parameter of <code>Exception::__construct()</code>).</p>
-		 * @return Throwable <p>Returns the previous Throwable if available or <b><code>NULL</code></b> otherwise.</p>
+		 * @return Throwable <p>Returns the previous Throwable if available or <b><code>null</code></b> otherwise.</p>
 		 * @link https://php.net/manual/en/exception.getprevious.php
 		 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8
 		 */
@@ -412,7 +412,7 @@ namespace {
 		/**
 		 * Returns previous Exception
 		 * <p>Returns previous exception (the third parameter of <code>Exception::__construct()</code>).</p>
-		 * @return Throwable <p>Returns the previous Throwable if available or <b><code>NULL</code></b> otherwise.</p>
+		 * @return Throwable <p>Returns the previous Throwable if available or <b><code>null</code></b> otherwise.</p>
 		 * @link https://php.net/manual/en/exception.getprevious.php
 		 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8
 		 */
@@ -526,7 +526,7 @@ namespace {
 		/**
 		 * Returns previous Exception
 		 * <p>Returns previous exception (the third parameter of <code>Exception::__construct()</code>).</p>
-		 * @return Throwable <p>Returns the previous Throwable if available or <b><code>NULL</code></b> otherwise.</p>
+		 * @return Throwable <p>Returns the previous Throwable if available or <b><code>null</code></b> otherwise.</p>
 		 * @link https://php.net/manual/en/exception.getprevious.php
 		 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8
 		 */
@@ -561,7 +561,7 @@ namespace {
 
 		/**
 		 * Call a Lua function
-		 * <p>Calls a Lua function.</p><p>Errors considered to be the fault of the PHP code will result in the function returning <code>false</code> and <b><code>E_WARNING</code></b> being raised, for example, a <code>resource</code> type being used as an argument. Lua errors will result in a LuaSandboxRuntimeError exception being thrown.</p><p>PHP and Lua types are converted as follows:</p><p></p><p>PHP <b><code>NULL</code></b> is Lua <code>nil</code>, and vice versa.</p><p>PHP <code>int</code>s and <code>float</code>s are converted to Lua numbers. Infinity and <b><code>NAN</code></b> are supported.</p><p>Lua numbers without a fractional part between approximately <code>-2&#42;&#42;53</code> and <code>2&#42;&#42;53</code> are converted to PHP <code>int</code>s, with others being converted to PHP <code>float</code>s.</p><p>PHP <code>bool</code>s are Lua booleans, and vice versa.</p><p>PHP <code>string</code>s are Lua strings, and vice versa.</p><p>Lua functions are PHP LuaSandboxFunction objects, and vice versa. General PHP <code>callable</code>s are not supported.</p><p>PHP <code>array</code>s are converted to Lua tables, and vice versa.</p><p></p><p>Note that Lua typically indexes arrays from 1, while PHP indexes arrays from 0. No adjustment is made for these differing conventions.</p><p>Self-referential arrays are not supported in either direction.</p><p>PHP references are dereferenced.</p><p>Lua <code>__pairs</code> and <code>__ipairs</code> are processed. <code>__index</code> is ignored.</p><p>When converting from PHP to Lua, integer keys between <code>-2&#42;&#42;53</code> and <code>2&#42;&#42;53</code> are represented as Lua numbers. All other keys are represented as Lua strings.</p><p>When converting from Lua to PHP, keys other than strings and numbers will result in an error, as will collisions when converting numbers to strings or vice versa (since PHP considers things like <code>$a[0]</code> and <code>$a["0"]</code> as being equivalent).</p><p>All other types are unsupported and will raise an error/exception, including general PHP <code>object</code>s and Lua userdata and thread types.</p><p>Lua functions inherently return a list of results. So on success, this method returns an <code>array</code> containing all of the values returned by Lua, with <code>int</code> keys starting from zero. Lua may return no results, in which case an empty array is returned.</p>
+		 * <p>Calls a Lua function.</p><p>Errors considered to be the fault of the PHP code will result in the function returning <code>false</code> and <b><code>E_WARNING</code></b> being raised, for example, a <code>resource</code> type being used as an argument. Lua errors will result in a LuaSandboxRuntimeError exception being thrown.</p><p>PHP and Lua types are converted as follows:</p><p></p><p>PHP <b><code>null</code></b> is Lua <code>nil</code>, and vice versa.</p><p>PHP <code>int</code>s and <code>float</code>s are converted to Lua numbers. Infinity and <b><code>NAN</code></b> are supported.</p><p>Lua numbers without a fractional part between approximately <code>-2&#42;&#42;53</code> and <code>2&#42;&#42;53</code> are converted to PHP <code>int</code>s, with others being converted to PHP <code>float</code>s.</p><p>PHP <code>bool</code>s are Lua booleans, and vice versa.</p><p>PHP <code>string</code>s are Lua strings, and vice versa.</p><p>Lua functions are PHP LuaSandboxFunction objects, and vice versa. General PHP <code>callable</code>s are not supported.</p><p>PHP <code>array</code>s are converted to Lua tables, and vice versa.</p><p></p><p>Note that Lua typically indexes arrays from 1, while PHP indexes arrays from 0. No adjustment is made for these differing conventions.</p><p>Self-referential arrays are not supported in either direction.</p><p>PHP references are dereferenced.</p><p>Lua <code>__pairs</code> and <code>__ipairs</code> are processed. <code>__index</code> is ignored.</p><p>When converting from PHP to Lua, integer keys between <code>-2&#42;&#42;53</code> and <code>2&#42;&#42;53</code> are represented as Lua numbers. All other keys are represented as Lua strings.</p><p>When converting from Lua to PHP, keys other than strings and numbers will result in an error, as will collisions when converting numbers to strings or vice versa (since PHP considers things like <code>$a[0]</code> and <code>$a["0"]</code> as being equivalent).</p><p>All other types are unsupported and will raise an error/exception, including general PHP <code>object</code>s and Lua userdata and thread types.</p><p>Lua functions inherently return a list of results. So on success, this method returns an <code>array</code> containing all of the values returned by Lua, with <code>int</code> keys starting from zero. Lua may return no results, in which case an empty array is returned.</p>
 		 * @param string $args <p>Arguments passed to the function.</p>
 		 * @return array|bool <p>Returns an <code>array</code> of values returned by the function, which may be empty, or <code>false</code> on error.</p>
 		 * @link https://php.net/manual/en/luasandboxfunction.call.php
@@ -667,7 +667,7 @@ namespace {
 		/**
 		 * Returns previous Exception
 		 * <p>Returns previous exception (the third parameter of <code>Exception::__construct()</code>).</p>
-		 * @return Throwable <p>Returns the previous Throwable if available or <b><code>NULL</code></b> otherwise.</p>
+		 * @return Throwable <p>Returns the previous Throwable if available or <b><code>null</code></b> otherwise.</p>
 		 * @link https://php.net/manual/en/exception.getprevious.php
 		 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8
 		 */
@@ -781,7 +781,7 @@ namespace {
 		/**
 		 * Returns previous Exception
 		 * <p>Returns previous exception (the third parameter of <code>Exception::__construct()</code>).</p>
-		 * @return Throwable <p>Returns the previous Throwable if available or <b><code>NULL</code></b> otherwise.</p>
+		 * @return Throwable <p>Returns the previous Throwable if available or <b><code>null</code></b> otherwise.</p>
 		 * @link https://php.net/manual/en/exception.getprevious.php
 		 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8
 		 */
@@ -894,7 +894,7 @@ namespace {
 		/**
 		 * Returns previous Exception
 		 * <p>Returns previous exception (the third parameter of <code>Exception::__construct()</code>).</p>
-		 * @return Throwable <p>Returns the previous Throwable if available or <b><code>NULL</code></b> otherwise.</p>
+		 * @return Throwable <p>Returns the previous Throwable if available or <b><code>null</code></b> otherwise.</p>
 		 * @link https://php.net/manual/en/exception.getprevious.php
 		 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8
 		 */
@@ -1007,7 +1007,7 @@ namespace {
 		/**
 		 * Returns previous Exception
 		 * <p>Returns previous exception (the third parameter of <code>Exception::__construct()</code>).</p>
-		 * @return Throwable <p>Returns the previous Throwable if available or <b><code>NULL</code></b> otherwise.</p>
+		 * @return Throwable <p>Returns the previous Throwable if available or <b><code>null</code></b> otherwise.</p>
 		 * @link https://php.net/manual/en/exception.getprevious.php
 		 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8
 		 */

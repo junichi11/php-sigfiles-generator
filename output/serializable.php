@@ -15,7 +15,7 @@ namespace {
 		/**
 		 * String representation of object
 		 * <p>Should return the string representation of the object.</p>
-		 * @return string <p>Returns the string representation of the object or <b><code>NULL</code></b></p>
+		 * @return string <p>Returns the string representation of the object or <b><code>null</code></b></p>
 		 * @link https://php.net/manual/en/serializable.serialize.php
 		 * @since PHP 5 >= 5.1.0, PHP 7, PHP 8
 		 */

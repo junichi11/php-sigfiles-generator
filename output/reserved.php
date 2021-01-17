@@ -89,12 +89,12 @@ namespace {
 	/**
 	 * See Booleans.
 	 */
-	define('FALSE', false);
+	define('false', false);
 
 	/**
 	 * See Null.
 	 */
-	define('NULL', null);
+	define('null', null);
 
 	define('PEAR_EXTENSION_DIR', '/usr/lib/php/20190902');
 
@@ -258,6 +258,6 @@ namespace {
 	/**
 	 * See Booleans.
 	 */
-	define('TRUE', true);
+	define('true', true);
 
 }

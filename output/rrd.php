@@ -21,7 +21,7 @@ namespace {
 		 * @link https://php.net/manual/en/rrdcreator.construct.php
 		 * @since PECL rrd >= 0.9.0
 		 */
-		public function __construct(string $path, string $startTime = NULL, int $step = 0) {}
+		public function __construct(string $path, string $startTime = null, int $step = 0) {}
 
 		/**
 		 * Adds RRA - archive of data values for each data source
@@ -46,7 +46,7 @@ namespace {
 		/**
 		 * Saves the RRD database to a file
 		 * <p>Saves the RRD database into file, which name is defined by <code>RRDCreator::__construct()</code>.</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/rrdcreator.save.php
 		 * @since PECL rrd >= 0.9.0
 		 */
@@ -73,7 +73,7 @@ namespace {
 		/**
 		 * Saves the result of query into image
 		 * <p>Saves the result of RRD database query into image defined by <code>RRDGraph::__construct()</code>.</p>
-		 * @return array <p>Array with information about generated image is returned, <b><code>FALSE</code></b> if error occurs.</p>
+		 * @return array <p>Array with information about generated image is returned, <b><code>false</code></b> if error occurs.</p>
 		 * @link https://php.net/manual/en/rrdgraph.save.php
 		 * @since PECL rrd >= 0.9.0
 		 */
@@ -82,7 +82,7 @@ namespace {
 		/**
 		 * Saves the RRD database query into image and returns the verbose information about generated graph
 		 * <p>Saves the RRD database query into image file defined by method <code>RRDGraph::__construct()</code> and returns the verbose information about generated graph, if "-" is used as image filename, image data are also returned in result array.</p>
-		 * @return array <p>Array with detailed information about generated image is returned, optionally with image data, <b><code>FALSE</code></b> if error occurs.</p>
+		 * @return array <p>Array with detailed information about generated image is returned, optionally with image data, <b><code>false</code></b> if error occurs.</p>
 		 * @link https://php.net/manual/en/rrdgraph.saveverbose.php
 		 * @since PECL rrd >= 0.9.0
 		 */
@@ -120,7 +120,7 @@ namespace {
 		 * <p>Updates the RRD file defined via <code>RRDUpdater::__construct()</code>. The file is updated with a specific values.</p>
 		 * @param array $values <p>Data for update. Key is data source name.</p>
 		 * @param string $time <p>Time value for updating the RRD with a particulat data. Default value is current time.</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/rrdupdater.update.php
 		 * @since PECL rrd >= 0.9.0
 		 */
@@ -132,7 +132,7 @@ namespace {
 	 * <p>Creates the rdd database file.</p>
 	 * @param string $filename <p>Filename for newly created rrd file.</p>
 	 * @param array $options <p>Options for rrd create - list of strings. See man page of rrd create for whole list of options.</p>
-	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.rrd-create.php
 	 * @since PECL rrd >= 0.9.0
 	 */
@@ -163,7 +163,7 @@ namespace {
 	 * <p>Returns the first data sample from the specified RRA of the RRD file.</p>
 	 * @param string $file <p>RRD database file name.</p>
 	 * @param int $raaindex <p>The index number of the RRA that is to be examined. Default value is 0.</p>
-	 * @return int <p>Integer number of unix timestamp, <b><code>FALSE</code></b> if some error occurs.</p>
+	 * @return int <p>Integer number of unix timestamp, <b><code>false</code></b> if some error occurs.</p>
 	 * @link https://php.net/manual/en/function.rrd-first.php
 	 * @since PECL rrd >= 0.9.0
 	 */
@@ -174,7 +174,7 @@ namespace {
 	 * <p>Creates image for a particular data from RRD file.</p>
 	 * @param string $filename <p>The filename to output the graph to. This will generally end in either <code>.png</code>, <code>.svg</code> or <code>.eps</code>, depending on the format you want to output.</p>
 	 * @param array $options <p>Options for generating image. See man page of rrd graph for all possible options. All options (data definitions, variable defintions, etc.) are allowed.</p>
-	 * @return array <p>Array with information about generated image is returned, <b><code>FALSE</code></b> when error occurs.</p>
+	 * @return array <p>Array with information about generated image is returned, <b><code>false</code></b> when error occurs.</p>
 	 * @link https://php.net/manual/en/function.rrd-graph.php
 	 * @since PECL rrd >= 0.9.0
 	 */
@@ -184,7 +184,7 @@ namespace {
 	 * Gets information about rrd file
 	 * <p>Returns information about particular RRD database file.</p>
 	 * @param string $filename
-	 * @return array <p>Array with information about requsted RRD file, <b><code>FALSE</code></b> when error occurs.</p>
+	 * @return array <p>Array with information about requsted RRD file, <b><code>false</code></b> when error occurs.</p>
 	 * @link https://php.net/manual/en/function.rrd-info.php
 	 * @since PECL rrd >= 0.9.0
 	 */
@@ -204,7 +204,7 @@ namespace {
 	 * Gets information about last updated data
 	 * <p>Gets array of the UNIX timestamp and the values stored for each date in the most recent update of the RRD database file.</p>
 	 * @param string $filename
-	 * @return array <p>Array of information about last update, <b><code>FALSE</code></b> when error occurs.</p>
+	 * @return array <p>Array of information about last update, <b><code>false</code></b> when error occurs.</p>
 	 * @link https://php.net/manual/en/function.rrd-lastupdate.php
 	 * @since PECL rrd >= 0.9.0
 	 */
@@ -216,18 +216,18 @@ namespace {
 	 * @param string $xml_file <p>XML filename with the dump of the original RRD database file.</p>
 	 * @param string $rrd_file <p>Restored RRD database file name.</p>
 	 * @param array $options <p>Array of options for restoring. See man page for rrd restore.</p>
-	 * @return bool <p>Returns <b><code>TRUE</code></b> on success, <b><code>FALSE</code></b> otherwise.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> on success, <b><code>false</code></b> otherwise.</p>
 	 * @link https://php.net/manual/en/function.rrd-restore.php
 	 * @since PECL rrd >= 0.9.0
 	 */
-	function rrd_restore(string $xml_file, string $rrd_file, array $options = NULL): bool {}
+	function rrd_restore(string $xml_file, string $rrd_file, array $options = null): bool {}
 
 	/**
 	 * Tunes some RRD database file header options
 	 * <p>Change some options in the RRD dabase header file. E.g. renames the source for the data etc.</p>
 	 * @param string $filename <p>RRD database file name.</p>
 	 * @param array $options <p>Options with RRD database file properties which will be changed. See rrd tune man page for details.</p>
-	 * @return bool <p>Returns <b><code>TRUE</code></b> on success, <b><code>FALSE</code></b> otherwise.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> on success, <b><code>false</code></b> otherwise.</p>
 	 * @link https://php.net/manual/en/function.rrd-tune.php
 	 * @since PECL rrd >= 0.9.0
 	 */
@@ -238,7 +238,7 @@ namespace {
 	 * <p>Updates the RRD database file. The input data is time interpolated according to the properties of the RRD database file.</p>
 	 * @param string $filename <p>RRD database file name. This database will be updated.</p>
 	 * @param array $options <p>Options for updating the RRD database. This is list of strings. See man page of rrd update for whole list of options.</p>
-	 * @return bool <p>Returns <b><code>TRUE</code></b> on success, <b><code>FALSE</code></b> when error occurs.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> on success, <b><code>false</code></b> when error occurs.</p>
 	 * @link https://php.net/manual/en/function.rrd-update.php
 	 * @since PECL rrd >= 0.9.0
 	 */
@@ -257,7 +257,7 @@ namespace {
 	 * Exports the information about RRD database
 	 * <p>Exports the information about RRD database file. This data can be converted to XML file via user space PHP script and then restored back as RRD database file.</p>
 	 * @param array $options <p>Array of options for the export, see rrd xport man page.</p>
-	 * @return array <p>Array with information about RRD database file, <b><code>FALSE</code></b> when error occurs.</p>
+	 * @return array <p>Array with information about RRD database file, <b><code>false</code></b> when error occurs.</p>
 	 * @link https://php.net/manual/en/function.rrd-xport.php
 	 * @since PECL rrd >= 0.9.0
 	 */

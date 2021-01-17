@@ -14,17 +14,17 @@ namespace {
 		/**
 		 * Creates a new SimpleXMLElement object
 		 * <p>Creates a new SimpleXMLElement object.</p>
-		 * @param string $data <p>A well-formed XML string or the path or URL to an XML document if <code>data_is_url</code> is <b><code>TRUE</code></b>.</p>
+		 * @param string $data <p>A well-formed XML string or the path or URL to an XML document if <code>data_is_url</code> is <b><code>true</code></b>.</p>
 		 * @param int $options <p>Optionally used to specify additional Libxml parameters, which affect reading of XML documents. Options which affect the output of XML documents (e.g. <b><code>LIBXML_NOEMPTYTAG</code></b>) are silently ignored.</p> <p><b>Note</b>:</p><p>It may be necessary to pass <b><code>LIBXML_PARSEHUGE</code></b> to be able to process deeply nested XML or very large text nodes.</p>
-		 * @param bool $data_is_url <p>By default, <code>data_is_url</code> is <b><code>FALSE</code></b>. Use <b><code>TRUE</code></b> to specify that <code>data</code> is a path or URL to an XML document instead of <code>string</code> data.</p>
+		 * @param bool $data_is_url <p>By default, <code>data_is_url</code> is <b><code>false</code></b>. Use <b><code>true</code></b> to specify that <code>data</code> is a path or URL to an XML document instead of <code>string</code> data.</p>
 		 * @param string $ns <p>Namespace prefix or URI.</p>
-		 * @param bool $is_prefix <p><b><code>TRUE</code></b> if <code>ns</code> is a prefix, <b><code>FALSE</code></b> if it's a URI; defaults to <b><code>FALSE</code></b>.</p>
+		 * @param bool $is_prefix <p><b><code>true</code></b> if <code>ns</code> is a prefix, <b><code>false</code></b> if it's a URI; defaults to <b><code>false</code></b>.</p>
 		 * @return self <p>Returns a <code>SimpleXMLElement</code> object representing <code>data</code>.</p>
 		 * @link https://php.net/manual/en/simplexmlelement.construct.php
 		 * @see simplexml_load_string(), simplexml_load_file(), libxml_use_internal_errors()
 		 * @since PHP 5, PHP 7
 		 */
-		final public function __construct(string $data, int $options = 0, bool $data_is_url = FALSE, string $ns = "", bool $is_prefix = FALSE) {}
+		final public function __construct(string $data, int $options = 0, bool $data_is_url = false, string $ns = "", bool $is_prefix = false) {}
 
 		/**
 		 * Returns the string content
@@ -45,7 +45,7 @@ namespace {
 		 * @link https://php.net/manual/en/simplexmlelement.addattribute.php
 		 * @since PHP 5 >= 5.1.3, PHP 7
 		 */
-		public function addAttribute(string $name, string $value = NULL, string $namespace = NULL): void {}
+		public function addAttribute(string $name, string $value = null, string $namespace = null): void {}
 
 		/**
 		 * Adds a child element to the XML node
@@ -57,40 +57,40 @@ namespace {
 		 * @link https://php.net/manual/en/simplexmlelement.addchild.php
 		 * @since PHP 5 >= 5.1.3, PHP 7
 		 */
-		public function addChild(string $name, string $value = NULL, string $namespace = NULL): \SimpleXMLElement {}
+		public function addChild(string $name, string $value = null, string $namespace = null): \SimpleXMLElement {}
 
 		/**
 		 * Return a well-formed XML string based on SimpleXML element
 		 * <p>The <code>asXML</code> method formats the parent object's data in XML version 1.0.</p>
 		 * @param string $filename <p>If specified, the function writes the data to the file rather than returning it.</p>
-		 * @return mixed <p>If the <code>filename</code> isn't specified, this function returns a <code>string</code> on success and <b><code>FALSE</code></b> on error. If the parameter is specified, it returns <b><code>TRUE</code></b> if the file was written successfully and <b><code>FALSE</code></b> otherwise.</p>
+		 * @return mixed <p>If the <code>filename</code> isn't specified, this function returns a <code>string</code> on success and <b><code>false</code></b> on error. If the parameter is specified, it returns <b><code>true</code></b> if the file was written successfully and <b><code>false</code></b> otherwise.</p>
 		 * @link https://php.net/manual/en/simplexmlelement.asxml.php
 		 * @since PHP 5, PHP 7
 		 */
-		public function asXML(string $filename = NULL): mixed {}
+		public function asXML(string $filename = null): mixed {}
 
 		/**
 		 * Identifies an element's attributes
 		 * <p>This function provides the attributes and values defined within an xml tag.</p><p><b>Note</b>: SimpleXML has made a rule of adding iterative properties to most methods. They cannot be viewed using <code>var_dump()</code> or anything else which can examine objects.</p>
 		 * @param string $ns <p>An optional namespace for the retrieved attributes</p>
-		 * @param bool $is_prefix <p>Default to <b><code>FALSE</code></b></p>
-		 * @return SimpleXMLElement <p>Returns a SimpleXMLElement object that can be iterated over to loop through the attributes on the tag.</p><p>Returns <b><code>NULL</code></b> if called on a SimpleXMLElement object that already represents an attribute and not a tag.</p>
+		 * @param bool $is_prefix <p>Default to <b><code>false</code></b></p>
+		 * @return SimpleXMLElement <p>Returns a SimpleXMLElement object that can be iterated over to loop through the attributes on the tag.</p><p>Returns <b><code>null</code></b> if called on a SimpleXMLElement object that already represents an attribute and not a tag.</p>
 		 * @link https://php.net/manual/en/simplexmlelement.attributes.php
 		 * @since PHP 5, PHP 7
 		 */
-		public function attributes(string $ns = NULL, bool $is_prefix = FALSE): \SimpleXMLElement {}
+		public function attributes(string $ns = null, bool $is_prefix = false): \SimpleXMLElement {}
 
 		/**
 		 * Finds children of given node
 		 * <p>This method finds the children of an element. The result follows normal iteration rules.</p><p><b>Note</b>: SimpleXML has made a rule of adding iterative properties to most methods. They cannot be viewed using <code>var_dump()</code> or anything else which can examine objects.</p>
 		 * @param string $ns <p>An XML namespace.</p>
-		 * @param bool $is_prefix <p>If <code>is_prefix</code> is <b><code>TRUE</code></b>, <code>ns</code> will be regarded as a prefix. If <b><code>FALSE</code></b>, <code>ns</code> will be regarded as a namespace URL.</p>
+		 * @param bool $is_prefix <p>If <code>is_prefix</code> is <b><code>true</code></b>, <code>ns</code> will be regarded as a prefix. If <b><code>false</code></b>, <code>ns</code> will be regarded as a namespace URL.</p>
 		 * @return SimpleXMLElement <p>Returns a SimpleXMLElement element, whether the node has children or not.</p>
 		 * @link https://php.net/manual/en/simplexmlelement.children.php
 		 * @see count()
 		 * @since PHP 5, PHP 7
 		 */
-		public function children(string $ns = NULL, bool $is_prefix = FALSE): \SimpleXMLElement {}
+		public function children(string $ns = null, bool $is_prefix = false): \SimpleXMLElement {}
 
 		/**
 		 * Counts the children of an element
@@ -110,7 +110,7 @@ namespace {
 		 * @link https://php.net/manual/en/simplexmlelement.getdocnamespaces.php
 		 * @since PHP 5 >= 5.1.2, PHP 7
 		 */
-		public function getDocNamespaces(bool $recursive = FALSE, bool $from_root = TRUE): array {}
+		public function getDocNamespaces(bool $recursive = false, bool $from_root = true): array {}
 
 		/**
 		 * Gets the name of the XML element
@@ -129,14 +129,14 @@ namespace {
 		 * @link https://php.net/manual/en/simplexmlelement.getnamespaces.php
 		 * @since PHP 5 >= 5.1.2, PHP 7
 		 */
-		public function getNamespaces(bool $recursive = FALSE): array {}
+		public function getNamespaces(bool $recursive = false): array {}
 
 		/**
 		 * Creates a prefix/ns context for the next XPath query
 		 * <p>Creates a prefix/ns context for the next XPath query. In particular, this is helpful if the provider of the given XML document alters the namespace prefixes. <code>registerXPathNamespace</code> will create a prefix for the associated namespace, allowing one to access nodes in that namespace without the need to change code to allow for the new prefixes dictated by the provider.</p>
 		 * @param string $prefix <p>The namespace prefix to use in the XPath query for the namespace given in <code>ns</code>.</p>
 		 * @param string $ns <p>The namespace to use for the XPath query. This must match a namespace in use by the XML document or the XPath query using <code>prefix</code> will not return any results.</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/simplexmlelement.registerxpathnamespace.php
 		 * @since PHP 5 >= 5.1.0, PHP 7
 		 */
@@ -146,7 +146,7 @@ namespace {
 		 * Runs XPath query on XML data
 		 * <p>The <code>xpath</code> method searches the SimpleXML node for children matching the XPath <code>path</code>.</p>
 		 * @param string $path <p>An XPath path</p>
-		 * @return array <p>Returns an <code>array</code> of SimpleXMLElement objects or <b><code>FALSE</code></b> in case of an error.</p>
+		 * @return array <p>Returns an <code>array</code> of SimpleXMLElement objects or <b><code>false</code></b> in case of an error.</p>
 		 * @link https://php.net/manual/en/simplexmlelement.xpath.php
 		 * @since PHP 5, PHP 7
 		 */
@@ -163,17 +163,17 @@ namespace {
 		/**
 		 * Creates a new SimpleXMLElement object
 		 * <p>Creates a new SimpleXMLElement object.</p>
-		 * @param string $data <p>A well-formed XML string or the path or URL to an XML document if <code>data_is_url</code> is <b><code>TRUE</code></b>.</p>
+		 * @param string $data <p>A well-formed XML string or the path or URL to an XML document if <code>data_is_url</code> is <b><code>true</code></b>.</p>
 		 * @param int $options <p>Optionally used to specify additional Libxml parameters, which affect reading of XML documents. Options which affect the output of XML documents (e.g. <b><code>LIBXML_NOEMPTYTAG</code></b>) are silently ignored.</p> <p><b>Note</b>:</p><p>It may be necessary to pass <b><code>LIBXML_PARSEHUGE</code></b> to be able to process deeply nested XML or very large text nodes.</p>
-		 * @param bool $data_is_url <p>By default, <code>data_is_url</code> is <b><code>FALSE</code></b>. Use <b><code>TRUE</code></b> to specify that <code>data</code> is a path or URL to an XML document instead of <code>string</code> data.</p>
+		 * @param bool $data_is_url <p>By default, <code>data_is_url</code> is <b><code>false</code></b>. Use <b><code>true</code></b> to specify that <code>data</code> is a path or URL to an XML document instead of <code>string</code> data.</p>
 		 * @param string $ns <p>Namespace prefix or URI.</p>
-		 * @param bool $is_prefix <p><b><code>TRUE</code></b> if <code>ns</code> is a prefix, <b><code>FALSE</code></b> if it's a URI; defaults to <b><code>FALSE</code></b>.</p>
+		 * @param bool $is_prefix <p><b><code>true</code></b> if <code>ns</code> is a prefix, <b><code>false</code></b> if it's a URI; defaults to <b><code>false</code></b>.</p>
 		 * @return self <p>Returns a <code>SimpleXMLElement</code> object representing <code>data</code>.</p>
 		 * @link https://php.net/manual/en/simplexmlelement.construct.php
 		 * @see simplexml_load_string(), simplexml_load_file(), libxml_use_internal_errors()
 		 * @since PHP 5, PHP 7
 		 */
-		final public function __construct(string $data, int $options = 0, bool $data_is_url = FALSE, string $ns = "", bool $is_prefix = FALSE) {}
+		final public function __construct(string $data, int $options = 0, bool $data_is_url = false, string $ns = "", bool $is_prefix = false) {}
 
 		/**
 		 * Returns the string content
@@ -194,7 +194,7 @@ namespace {
 		 * @link https://php.net/manual/en/simplexmlelement.addattribute.php
 		 * @since PHP 5 >= 5.1.3, PHP 7
 		 */
-		public function addAttribute(string $name, string $value = NULL, string $namespace = NULL): void {}
+		public function addAttribute(string $name, string $value = null, string $namespace = null): void {}
 
 		/**
 		 * Adds a child element to the XML node
@@ -206,40 +206,40 @@ namespace {
 		 * @link https://php.net/manual/en/simplexmlelement.addchild.php
 		 * @since PHP 5 >= 5.1.3, PHP 7
 		 */
-		public function addChild(string $name, string $value = NULL, string $namespace = NULL): \SimpleXMLElement {}
+		public function addChild(string $name, string $value = null, string $namespace = null): \SimpleXMLElement {}
 
 		/**
 		 * Return a well-formed XML string based on SimpleXML element
 		 * <p>The <code>asXML</code> method formats the parent object's data in XML version 1.0.</p>
 		 * @param string $filename <p>If specified, the function writes the data to the file rather than returning it.</p>
-		 * @return mixed <p>If the <code>filename</code> isn't specified, this function returns a <code>string</code> on success and <b><code>FALSE</code></b> on error. If the parameter is specified, it returns <b><code>TRUE</code></b> if the file was written successfully and <b><code>FALSE</code></b> otherwise.</p>
+		 * @return mixed <p>If the <code>filename</code> isn't specified, this function returns a <code>string</code> on success and <b><code>false</code></b> on error. If the parameter is specified, it returns <b><code>true</code></b> if the file was written successfully and <b><code>false</code></b> otherwise.</p>
 		 * @link https://php.net/manual/en/simplexmlelement.asxml.php
 		 * @since PHP 5, PHP 7
 		 */
-		public function asXML(string $filename = NULL): mixed {}
+		public function asXML(string $filename = null): mixed {}
 
 		/**
 		 * Identifies an element's attributes
 		 * <p>This function provides the attributes and values defined within an xml tag.</p><p><b>Note</b>: SimpleXML has made a rule of adding iterative properties to most methods. They cannot be viewed using <code>var_dump()</code> or anything else which can examine objects.</p>
 		 * @param string $ns <p>An optional namespace for the retrieved attributes</p>
-		 * @param bool $is_prefix <p>Default to <b><code>FALSE</code></b></p>
-		 * @return SimpleXMLElement <p>Returns a SimpleXMLElement object that can be iterated over to loop through the attributes on the tag.</p><p>Returns <b><code>NULL</code></b> if called on a SimpleXMLElement object that already represents an attribute and not a tag.</p>
+		 * @param bool $is_prefix <p>Default to <b><code>false</code></b></p>
+		 * @return SimpleXMLElement <p>Returns a SimpleXMLElement object that can be iterated over to loop through the attributes on the tag.</p><p>Returns <b><code>null</code></b> if called on a SimpleXMLElement object that already represents an attribute and not a tag.</p>
 		 * @link https://php.net/manual/en/simplexmlelement.attributes.php
 		 * @since PHP 5, PHP 7
 		 */
-		public function attributes(string $ns = NULL, bool $is_prefix = FALSE): \SimpleXMLElement {}
+		public function attributes(string $ns = null, bool $is_prefix = false): \SimpleXMLElement {}
 
 		/**
 		 * Finds children of given node
 		 * <p>This method finds the children of an element. The result follows normal iteration rules.</p><p><b>Note</b>: SimpleXML has made a rule of adding iterative properties to most methods. They cannot be viewed using <code>var_dump()</code> or anything else which can examine objects.</p>
 		 * @param string $ns <p>An XML namespace.</p>
-		 * @param bool $is_prefix <p>If <code>is_prefix</code> is <b><code>TRUE</code></b>, <code>ns</code> will be regarded as a prefix. If <b><code>FALSE</code></b>, <code>ns</code> will be regarded as a namespace URL.</p>
+		 * @param bool $is_prefix <p>If <code>is_prefix</code> is <b><code>true</code></b>, <code>ns</code> will be regarded as a prefix. If <b><code>false</code></b>, <code>ns</code> will be regarded as a namespace URL.</p>
 		 * @return SimpleXMLElement <p>Returns a SimpleXMLElement element, whether the node has children or not.</p>
 		 * @link https://php.net/manual/en/simplexmlelement.children.php
 		 * @see count()
 		 * @since PHP 5, PHP 7
 		 */
-		public function children(string $ns = NULL, bool $is_prefix = FALSE): \SimpleXMLElement {}
+		public function children(string $ns = null, bool $is_prefix = false): \SimpleXMLElement {}
 
 		/**
 		 * Counts the children of an element
@@ -252,8 +252,8 @@ namespace {
 
 		/**
 		 * Returns the current element
-		 * <p>This method returns the current element as a SimpleXMLIterator object or <b><code>NULL</code></b>.</p>
-		 * @return mixed <p>Returns the current element as a SimpleXMLIterator object or <b><code>NULL</code></b> on failure.</p>
+		 * <p>This method returns the current element as a SimpleXMLIterator object or <b><code>null</code></b>.</p>
+		 * @return mixed <p>Returns the current element as a SimpleXMLIterator object or <b><code>null</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/simplexmliterator.current.php
 		 * @since PHP 5, PHP 7
 		 */
@@ -277,7 +277,7 @@ namespace {
 		 * @link https://php.net/manual/en/simplexmlelement.getdocnamespaces.php
 		 * @since PHP 5 >= 5.1.2, PHP 7
 		 */
-		public function getDocNamespaces(bool $recursive = FALSE, bool $from_root = TRUE): array {}
+		public function getDocNamespaces(bool $recursive = false, bool $from_root = true): array {}
 
 		/**
 		 * Gets the name of the XML element
@@ -296,12 +296,12 @@ namespace {
 		 * @link https://php.net/manual/en/simplexmlelement.getnamespaces.php
 		 * @since PHP 5 >= 5.1.2, PHP 7
 		 */
-		public function getNamespaces(bool $recursive = FALSE): array {}
+		public function getNamespaces(bool $recursive = false): array {}
 
 		/**
 		 * Checks whether the current element has sub elements
 		 * <p>This method checks whether the current SimpleXMLIterator element has sub-elements.</p>
-		 * @return bool <p><b><code>TRUE</code></b> if the current element has sub-elements, otherwise <b><code>FALSE</code></b></p>
+		 * @return bool <p><b><code>true</code></b> if the current element has sub-elements, otherwise <b><code>false</code></b></p>
 		 * @link https://php.net/manual/en/simplexmliterator.haschildren.php
 		 * @since PHP 5, PHP 7
 		 */
@@ -310,7 +310,7 @@ namespace {
 		/**
 		 * Return current key
 		 * <p>This method gets the XML tag name of the current element.</p>
-		 * @return mixed <p>Returns the XML tag name of the element referenced by the current SimpleXMLIterator object or <b><code>FALSE</code></b></p>
+		 * @return mixed <p>Returns the XML tag name of the element referenced by the current SimpleXMLIterator object or <b><code>false</code></b></p>
 		 * @link https://php.net/manual/en/simplexmliterator.key.php
 		 * @since PHP 5, PHP 7
 		 */
@@ -330,7 +330,7 @@ namespace {
 		 * <p>Creates a prefix/ns context for the next XPath query. In particular, this is helpful if the provider of the given XML document alters the namespace prefixes. <code>registerXPathNamespace</code> will create a prefix for the associated namespace, allowing one to access nodes in that namespace without the need to change code to allow for the new prefixes dictated by the provider.</p>
 		 * @param string $prefix <p>The namespace prefix to use in the XPath query for the namespace given in <code>ns</code>.</p>
 		 * @param string $ns <p>The namespace to use for the XPath query. This must match a namespace in use by the XML document or the XPath query using <code>prefix</code> will not return any results.</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/simplexmlelement.registerxpathnamespace.php
 		 * @since PHP 5 >= 5.1.0, PHP 7
 		 */
@@ -348,7 +348,7 @@ namespace {
 		/**
 		 * Check whether the current element is valid
 		 * <p>This method checks if the current element is valid after calls to <code>SimpleXMLIterator::rewind()</code> or <code>SimpleXMLIterator::next()</code>.</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b> if the current element is valid, otherwise <b><code>FALSE</code></b></p>
+		 * @return bool <p>Returns <b><code>true</code></b> if the current element is valid, otherwise <b><code>false</code></b></p>
 		 * @link https://php.net/manual/en/simplexmliterator.valid.php
 		 * @since PHP 5, PHP 7
 		 */
@@ -358,7 +358,7 @@ namespace {
 		 * Runs XPath query on XML data
 		 * <p>The <code>xpath</code> method searches the SimpleXML node for children matching the XPath <code>path</code>.</p>
 		 * @param string $path <p>An XPath path</p>
-		 * @return array <p>Returns an <code>array</code> of SimpleXMLElement objects or <b><code>FALSE</code></b> in case of an error.</p>
+		 * @return array <p>Returns an <code>array</code> of SimpleXMLElement objects or <b><code>false</code></b> in case of an error.</p>
 		 * @link https://php.net/manual/en/simplexmlelement.xpath.php
 		 * @since PHP 5, PHP 7
 		 */
@@ -370,7 +370,7 @@ namespace {
 	 * <p>This function takes a node of a DOM document and makes it into a SimpleXML node. This new object can then be used as a native SimpleXML element.</p>
 	 * @param \DOMNode $node <p>A DOM Element node</p>
 	 * @param string $class_name <p>You may use this optional parameter so that <b>simplexml_import_dom()</b> will return an object of the specified class. That class should extend the <code>SimpleXMLElement</code> class.</p>
-	 * @return SimpleXMLElement|false <p>Returns a <code>SimpleXMLElement</code> or <b><code>FALSE</code></b> on failure.</p><p><b>Warning</b></p><p>This function may return Boolean <b><code>FALSE</code></b>, but may also return a non-Boolean value which evaluates to <b><code>FALSE</code></b>. Please read the section on Booleans for more information. Use the === operator for testing the return value of this function.</p>
+	 * @return SimpleXMLElement|false <p>Returns a <code>SimpleXMLElement</code> or <b><code>false</code></b> on failure.</p><p><b>Warning</b></p><p>This function may return Boolean <b><code>false</code></b>, but may also return a non-Boolean value which evaluates to <b><code>false</code></b>. Please read the section on Booleans for more information. Use the === operator for testing the return value of this function.</p>
 	 * @link https://php.net/manual/en/function.simplexml-import-dom.php
 	 * @see dom_import_simplexml()
 	 * @since PHP 5, PHP 7
@@ -384,13 +384,13 @@ namespace {
 	 * @param string $class_name <p>You may use this optional parameter so that <b>simplexml_load_file()</b> will return an object of the specified class. That class should extend the <code>SimpleXMLElement</code> class.</p>
 	 * @param int $options <p>Since PHP 5.1.0 and Libxml 2.6.0, you may also use the <code>options</code> parameter to specify additional Libxml parameters.</p>
 	 * @param string $ns <p>Namespace prefix or URI.</p>
-	 * @param bool $is_prefix <p><b><code>TRUE</code></b> if <code>ns</code> is a prefix, <b><code>FALSE</code></b> if it's a URI; defaults to <b><code>FALSE</code></b>.</p>
-	 * @return SimpleXMLElement|false <p>Returns an <code>object</code> of class <code>SimpleXMLElement</code> with properties containing the data held within the XML document, or <b><code>FALSE</code></b> on failure.</p><p><b>Warning</b></p><p>This function may return Boolean <b><code>FALSE</code></b>, but may also return a non-Boolean value which evaluates to <b><code>FALSE</code></b>. Please read the section on Booleans for more information. Use the === operator for testing the return value of this function.</p>
+	 * @param bool $is_prefix <p><b><code>true</code></b> if <code>ns</code> is a prefix, <b><code>false</code></b> if it's a URI; defaults to <b><code>false</code></b>.</p>
+	 * @return SimpleXMLElement|false <p>Returns an <code>object</code> of class <code>SimpleXMLElement</code> with properties containing the data held within the XML document, or <b><code>false</code></b> on failure.</p><p><b>Warning</b></p><p>This function may return Boolean <b><code>false</code></b>, but may also return a non-Boolean value which evaluates to <b><code>false</code></b>. Please read the section on Booleans for more information. Use the === operator for testing the return value of this function.</p>
 	 * @link https://php.net/manual/en/function.simplexml-load-file.php
 	 * @see simplexml_load_string(), libxml_use_internal_errors()
 	 * @since PHP 5, PHP 7
 	 */
-	function simplexml_load_file(string $filename, string $class_name = "SimpleXMLElement", int $options = 0, string $ns = "", bool $is_prefix = FALSE): \SimpleXMLElement|false {}
+	function simplexml_load_file(string $filename, string $class_name = "SimpleXMLElement", int $options = 0, string $ns = "", bool $is_prefix = false): \SimpleXMLElement|false {}
 
 	/**
 	 * Interprets a string of XML into an object
@@ -399,12 +399,12 @@ namespace {
 	 * @param string $class_name <p>You may use this optional parameter so that <b>simplexml_load_string()</b> will return an object of the specified class. That class should extend the <code>SimpleXMLElement</code> class.</p>
 	 * @param int $options <p>Since PHP 5.1.0 and Libxml 2.6.0, you may also use the <code>options</code> parameter to specify additional Libxml parameters.</p>
 	 * @param string $ns <p>Namespace prefix or URI.</p>
-	 * @param bool $is_prefix <p><b><code>TRUE</code></b> if <code>ns</code> is a prefix, <b><code>FALSE</code></b> if it's a URI; defaults to <b><code>FALSE</code></b>.</p>
-	 * @return SimpleXMLElement|false <p>Returns an <code>object</code> of class <code>SimpleXMLElement</code> with properties containing the data held within the xml document, or <b><code>FALSE</code></b> on failure.</p><p><b>Warning</b></p><p>This function may return Boolean <b><code>FALSE</code></b>, but may also return a non-Boolean value which evaluates to <b><code>FALSE</code></b>. Please read the section on Booleans for more information. Use the === operator for testing the return value of this function.</p>
+	 * @param bool $is_prefix <p><b><code>true</code></b> if <code>ns</code> is a prefix, <b><code>false</code></b> if it's a URI; defaults to <b><code>false</code></b>.</p>
+	 * @return SimpleXMLElement|false <p>Returns an <code>object</code> of class <code>SimpleXMLElement</code> with properties containing the data held within the xml document, or <b><code>false</code></b> on failure.</p><p><b>Warning</b></p><p>This function may return Boolean <b><code>false</code></b>, but may also return a non-Boolean value which evaluates to <b><code>false</code></b>. Please read the section on Booleans for more information. Use the === operator for testing the return value of this function.</p>
 	 * @link https://php.net/manual/en/function.simplexml-load-string.php
 	 * @see simplexml_load_file(), libxml_use_internal_errors()
 	 * @since PHP 5, PHP 7
 	 */
-	function simplexml_load_string(string $data, string $class_name = "SimpleXMLElement", int $options = 0, string $ns = "", bool $is_prefix = FALSE): \SimpleXMLElement|false {}
+	function simplexml_load_string(string $data, string $class_name = "SimpleXMLElement", int $options = 0, string $ns = "", bool $is_prefix = false): \SimpleXMLElement|false {}
 
 }

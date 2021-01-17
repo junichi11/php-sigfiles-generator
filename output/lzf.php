@@ -8,7 +8,7 @@ namespace {
 	 * LZF compression
 	 * <p><b>lzf_compress()</b> compresses the given <code>data</code> string using LZF encoding.</p>
 	 * @param string $data <p>The string to compress.</p>
-	 * @return string <p>Returns the compressed data or <b><code>FALSE</code></b> if an error occurred.</p>
+	 * @return string <p>Returns the compressed data or <b><code>false</code></b> if an error occurred.</p>
 	 * @link https://php.net/manual/en/function.lzf-compress.php
 	 * @see lzf_decompress()
 	 * @since PECL lzf >= 0.1.0
@@ -19,7 +19,7 @@ namespace {
 	 * LZF decompression
 	 * <p><code>lzf_compress()</code> decompresses the given <code>data</code> string containing lzf encoded data.</p>
 	 * @param string $data <p>The compressed string.</p>
-	 * @return string <p>Returns the decompressed data or <b><code>FALSE</code></b> if an error occurred.</p>
+	 * @return string <p>Returns the decompressed data or <b><code>false</code></b> if an error occurred.</p>
 	 * @link https://php.net/manual/en/function.lzf-decompress.php
 	 * @see lzf_compress()
 	 * @since PECL lzf >= 0.1.0

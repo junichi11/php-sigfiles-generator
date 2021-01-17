@@ -61,13 +61,13 @@ namespace {
 	/**
 	 * Disable the ability to load external entities
 	 * <p>Disable/enable the ability to load external entities. Note that disabling the loading of external entities may cause general issues with loading XML documents. However, as of libxml 2.9.0 entity substitution is disabled by default, so there is no need to disable the loading of external entities.</p>
-	 * @param bool $disable <p>Disable (<b><code>TRUE</code></b>) or enable (<b><code>FALSE</code></b>) libxml extensions (such as DOM, XMLWriter and XMLReader) to load external entities.</p>
+	 * @param bool $disable <p>Disable (<b><code>true</code></b>) or enable (<b><code>false</code></b>) libxml extensions (such as DOM, XMLWriter and XMLReader) to load external entities.</p>
 	 * @return bool <p>Returns the previous value.</p>
 	 * @link https://php.net/manual/en/function.libxml-disable-entity-loader.php
 	 * @see libxml_use_internal_errors()
 	 * @since PHP 5 >= 5.2.11, PHP 7
 	 */
-	function libxml_disable_entity_loader(bool $disable = TRUE): bool {}
+	function libxml_disable_entity_loader(bool $disable = true): bool {}
 
 	/**
 	 * Retrieve array of errors
@@ -82,7 +82,7 @@ namespace {
 	/**
 	 * Retrieve last error from libxml
 	 * <p>Retrieve last error from libxml.</p>
-	 * @return LibXMLError|false <p>Returns a <code>LibXMLError</code> object if there is any error in the buffer, <b><code>FALSE</code></b> otherwise.</p>
+	 * @return LibXMLError|false <p>Returns a <code>LibXMLError</code> object if there is any error in the buffer, <b><code>false</code></b> otherwise.</p>
 	 * @link https://php.net/manual/en/function.libxml-get-last-error.php
 	 * @see libxml_get_errors(), libxml_clear_errors()
 	 * @since PHP 5 >= 5.1.0, PHP 7
@@ -92,8 +92,8 @@ namespace {
 	/**
 	 * Changes the default external entity loader
 	 * <p>Changes the default external entity loader.</p>
-	 * @param callable|null $resolver_function <p>A <code>callable</code> that takes three arguments. Two strings, a public id and system id, and a context (an array with four keys) as the third argument. This callback should return a resource, a string from which a resource can be opened, or <b><code>NULL</code></b>.</p>
-	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+	 * @param callable|null $resolver_function <p>A <code>callable</code> that takes three arguments. Two strings, a public id and system id, and a context (an array with four keys) as the third argument. This callback should return a resource, a string from which a resource can be opened, or <b><code>null</code></b>.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.libxml-set-external-entity-loader.php
 	 * @see libxml_disable_entity_loader()
 	 * @since PHP 5 >= 5.4.0, PHP 7
@@ -114,13 +114,13 @@ namespace {
 	/**
 	 * Disable libxml errors and allow user to fetch error information as needed
 	 * <p><b>libxml_use_internal_errors()</b> allows you to disable standard libxml errors and enable user error handling.</p>
-	 * @param bool|null $use_errors <p>Enable (<b><code>TRUE</code></b>) user error handling or disable (<b><code>FALSE</code></b>) user error handling. Disabling will also clear any existing libxml errors.</p>
+	 * @param bool|null $use_errors <p>Enable (<b><code>true</code></b>) user error handling or disable (<b><code>false</code></b>) user error handling. Disabling will also clear any existing libxml errors.</p>
 	 * @return bool <p>This function returns the previous value of <code>use_errors</code>.</p>
 	 * @link https://php.net/manual/en/function.libxml-use-internal-errors.php
 	 * @see libxml_clear_errors(), libxml_get_errors()
 	 * @since PHP 5 >= 5.1.0, PHP 7
 	 */
-	function libxml_use_internal_errors(bool|null $use_errors = NULL): bool {}
+	function libxml_use_internal_errors(bool|null $use_errors = null): bool {}
 
 	/**
 	 * Allows line numbers greater than 65535 to be reported correctly.  <p><b>Note</b>:</p><p>Only available as of PHP 7.0.0 with Libxml &gt;= 2.9.0</p>

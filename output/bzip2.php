@@ -8,7 +8,7 @@ namespace {
 	 * Close a bzip2 file
 	 * <p>Closes the given bzip2 file pointer.</p>
 	 * @param resource $bz <p>The file pointer. It must be valid and must point to a file successfully opened by <code>bzopen()</code>.</p>
-	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.bzclose.php
 	 * @see bzopen()
 	 * @since PHP 4 >= 4.0.4, PHP 5, PHP 7
@@ -32,13 +32,13 @@ namespace {
 	 * Decompresses bzip2 encoded data
 	 * <p><b>bzdecompress()</b> decompresses the given string containing bzip2 encoded data.</p>
 	 * @param string $data <p>The string to decompress.</p>
-	 * @param bool $use_less_memory <p>If <b><code>TRUE</code></b>, an alternative decompression algorithm will be used which uses less memory (the maximum memory requirement drops to around 2300K) but works at roughly half the speed.</p> <p>See the bzip2 documentation for more information about this feature.</p>
-	 * @return string|int|false <p>The decompressed string, or <b><code>FALSE</code></b> or an error number if an error occurred.</p>
+	 * @param bool $use_less_memory <p>If <b><code>true</code></b>, an alternative decompression algorithm will be used which uses less memory (the maximum memory requirement drops to around 2300K) but works at roughly half the speed.</p> <p>See the bzip2 documentation for more information about this feature.</p>
+	 * @return string|int|false <p>The decompressed string, or <b><code>false</code></b> or an error number if an error occurred.</p>
 	 * @link https://php.net/manual/en/function.bzdecompress.php
 	 * @see bzcompress()
 	 * @since PHP 4 >= 4.0.4, PHP 5, PHP 7
 	 */
-	function bzdecompress(string $data, bool $use_less_memory = FALSE): string|int|false {}
+	function bzdecompress(string $data, bool $use_less_memory = false): string|int|false {}
 
 	/**
 	 * Returns a bzip2 error number
@@ -74,10 +74,10 @@ namespace {
 	function bzerrstr($bz): string {}
 
 	/**
-	 * Force a write of all buffered data
-	 * <p>Forces a write of all buffered bzip2 data for the file pointer <code>bz</code>.</p>
+	 * Do nothing
+	 * <p>This function is supposed to force a write of all buffered bzip2 data for the file pointer <code>bz</code>, but is implemented as null function in libbz2, and as such does nothing.</p>
 	 * @param resource $bz <p>The file pointer. It must be valid and must point to a file successfully opened by <code>bzopen()</code>.</p>
-	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.bzflush.php
 	 * @see bzread(), bzwrite()
 	 * @since PHP 4 >= 4.0.4, PHP 5, PHP 7
@@ -88,8 +88,8 @@ namespace {
 	 * Opens a bzip2 compressed file
 	 * <p><b>bzopen()</b> opens a bzip2 (.bz2) file for reading or writing.</p>
 	 * @param string|resource $file <p>The name of the file to open, or an existing stream resource.</p>
-	 * @param string $mode <p>The modes <code>'r'</code> (read), and <code>'w'</code> (write) are supported. Everything else will cause <b>bzopen()</b> to return <b><code>FALSE</code></b>.</p>
-	 * @return resource|false <p>If the open fails, <b>bzopen()</b> returns <b><code>FALSE</code></b>, otherwise it returns a pointer to the newly opened file.</p>
+	 * @param string $mode <p>The modes <code>'r'</code> (read), and <code>'w'</code> (write) are supported. Everything else will cause <b>bzopen()</b> to return <b><code>false</code></b>.</p>
+	 * @return resource|false <p>If the open fails, <b>bzopen()</b> returns <b><code>false</code></b>, otherwise it returns a pointer to the newly opened file.</p>
 	 * @link https://php.net/manual/en/function.bzopen.php
 	 * @see bzclose()
 	 * @since PHP 4 >= 4.0.4, PHP 5, PHP 7
@@ -101,7 +101,7 @@ namespace {
 	 * <p><b>bzread()</b> reads from the given bzip2 file pointer.</p><p>Reading stops when <code>length</code> (uncompressed) bytes have been read or EOF is reached, whichever comes first.</p>
 	 * @param resource $bz <p>The file pointer. It must be valid and must point to a file successfully opened by <code>bzopen()</code>.</p>
 	 * @param int $length <p>If not specified, <b>bzread()</b> will read 1024 (uncompressed) bytes at a time. A maximum of 8192 uncompressed bytes will be read at a time.</p>
-	 * @return string|false <p>Returns the uncompressed data, or <b><code>FALSE</code></b> on error.</p>
+	 * @return string|false <p>Returns the uncompressed data, or <b><code>false</code></b> on error.</p>
 	 * @link https://php.net/manual/en/function.bzread.php
 	 * @see bzwrite(), feof(), bzopen()
 	 * @since PHP 4 >= 4.0.4, PHP 5, PHP 7
@@ -114,11 +114,11 @@ namespace {
 	 * @param resource $bz <p>The file pointer. It must be valid and must point to a file successfully opened by <code>bzopen()</code>.</p>
 	 * @param string $data <p>The written data.</p>
 	 * @param int|null $length <p>If supplied, writing will stop after <code>length</code> (uncompressed) bytes have been written or the end of <code>data</code> is reached, whichever comes first.</p>
-	 * @return int|false <p>Returns the number of bytes written, or <b><code>FALSE</code></b> on error.</p>
+	 * @return int|false <p>Returns the number of bytes written, or <b><code>false</code></b> on error.</p>
 	 * @link https://php.net/manual/en/function.bzwrite.php
 	 * @see bzread(), bzopen()
 	 * @since PHP 4 >= 4.0.4, PHP 5, PHP 7
 	 */
-	function bzwrite($bz, string $data, int|null $length = NULL): int|false {}
+	function bzwrite($bz, string $data, int|null $length = null): int|false {}
 
 }

@@ -5,9 +5,17 @@
 namespace {
 
 	/**
+	 * <p>A fully opaque class which replaces <code>gd</code> resources as of PHP 8.0.0.</p>
+	 * @link https://php.net/manual/en/class.gdimage.php
+	 * @since PHP 8
+	 */
+	final class GdImage {
+	}
+
+	/**
 	 * Retrieve information about the currently installed GD library
 	 * <p>Gets information about the version and capabilities of the installed GD library.</p>
-	 * @return array <p>Returns an associative array.</p> <b>Elements of array returned by <b>gd_info()</b></b>   Attribute Meaning     GD Version <code>string</code> value describing the installed <code>libgd</code> version.   FreeType Support <code>bool</code> value. <b><code>TRUE</code></b> if FreeType Support is installed.   FreeType Linkage <code>string</code> value describing the way in which FreeType was linked. Expected values are: 'with freetype', 'with TTF library', and 'with unknown library'. This element will only be defined if <code>FreeType Support</code> evaluated to <b><code>TRUE</code></b>.   GIF Read Support <code>bool</code> value. <b><code>TRUE</code></b> if support for <i>reading</i> <code>GIF</code> images is included.   GIF Create Support <code>bool</code> value. <b><code>TRUE</code></b> if support for <i>creating</i> <code>GIF</code> images is included.   JPEG Support <code>bool</code> value. <b><code>TRUE</code></b> if <code>JPEG</code> support is included.   PNG Support <code>bool</code> value. <b><code>TRUE</code></b> if <code>PNG</code> support is included.   WBMP Support <code>bool</code> value. <b><code>TRUE</code></b> if <code>WBMP</code> support is included.   XBM Support <code>bool</code> value. <b><code>TRUE</code></b> if <code>XBM</code> support is included.   WebP Support <code>bool</code> value. <b><code>TRUE</code></b> if <code>WebP</code> support is included.
+	 * @return array <p>Returns an associative array.</p> <b>Elements of array returned by <b>gd_info()</b></b>   Attribute Meaning     GD Version <code>string</code> value describing the installed <code>libgd</code> version.   FreeType Support <code>bool</code> value. <b><code>true</code></b> if FreeType Support is installed.   FreeType Linkage <code>string</code> value describing the way in which FreeType was linked. Expected values are: 'with freetype', 'with TTF library', and 'with unknown library'. This element will only be defined if <code>FreeType Support</code> evaluated to <b><code>true</code></b>.   GIF Read Support <code>bool</code> value. <b><code>true</code></b> if support for <i>reading</i> <code>GIF</code> images is included.   GIF Create Support <code>bool</code> value. <b><code>true</code></b> if support for <i>creating</i> <code>GIF</code> images is included.   JPEG Support <code>bool</code> value. <b><code>true</code></b> if <code>JPEG</code> support is included.   PNG Support <code>bool</code> value. <b><code>true</code></b> if <code>PNG</code> support is included.   WBMP Support <code>bool</code> value. <b><code>true</code></b> if <code>WBMP</code> support is included.   XBM Support <code>bool</code> value. <b><code>true</code></b> if <code>XBM</code> support is included.   WebP Support <code>bool</code> value. <b><code>true</code></b> if <code>WebP</code> support is included.
 	 * @link https://php.net/manual/en/function.gd-info.php
 	 * @see imagepng(), imagejpeg(), imagegif(), imagewbmp(), imagewebp(), imagetypes()
 	 * @since PHP 4 >= 4.3.0, PHP 5, PHP 7
@@ -16,27 +24,27 @@ namespace {
 
 	/**
 	 * Get the size of an image
-	 * <p>The <b>getimagesize()</b> function will determine the size of any supported given image file and return the dimensions along with the file type and a <code>height/width</code> text string to be used inside a normal HTML <code>IMG</code> tag and the correspondent HTTP content type.</p><p><b>getimagesize()</b> can also return some more information in <code>imageinfo</code> parameter.</p><p>This function expects <code>filename</code> to be a valid image file. If a non-image file is supplied, it may be incorrectly detected as an image and the function will return successfully, but the array may contain nonsensical values.</p><p>Do not use <b>getimagesize()</b> to check that a given file is a valid image. Use a purpose-built solution such as the Fileinfo extension instead.</p><p><b>Note</b>:  Note that JPC and JP2 are capable of having components with different bit depths. In this case, the value for "bits" is the highest bit depth encountered. Also, JP2 files may contain <code>multiple JPEG 2000 codestreams</code>. In this case, <b>getimagesize()</b> returns the values for the first codestream it encounters in the root of the file. </p><p><b>Note</b>:  The information about icons are retrieved from the icon with the highest bitrate. </p><p><b>Note</b>:  GIF images consist of one or more frames, where each frame may only occupy part of the image. The size of the image which is reported by <b>getimagesize()</b> is the overall size (read from the logical screen descriptor). </p>
+	 * <p>The <b>getimagesize()</b> function will determine the size of any supported given image file and return the dimensions along with the file type and a <code>height/width</code> text string to be used inside a normal HTML <code>IMG</code> tag and the correspondent HTTP content type.</p><p><b>getimagesize()</b> can also return some more information in <code>image_info</code> parameter.</p><p>This function expects <code>filename</code> to be a valid image file. If a non-image file is supplied, it may be incorrectly detected as an image and the function will return successfully, but the array may contain nonsensical values.</p><p>Do not use <b>getimagesize()</b> to check that a given file is a valid image. Use a purpose-built solution such as the Fileinfo extension instead.</p><p><b>Note</b>:  Note that JPC and JP2 are capable of having components with different bit depths. In this case, the value for "bits" is the highest bit depth encountered. Also, JP2 files may contain <code>multiple JPEG 2000 codestreams</code>. In this case, <b>getimagesize()</b> returns the values for the first codestream it encounters in the root of the file. </p><p><b>Note</b>:  The information about icons are retrieved from the icon with the highest bitrate. </p><p><b>Note</b>:  GIF images consist of one or more frames, where each frame may only occupy part of the image. The size of the image which is reported by <b>getimagesize()</b> is the overall size (read from the logical screen descriptor). </p>
 	 * @param string $filename <p>This parameter specifies the file you wish to retrieve information about. It can reference a local file or (configuration permitting) a remote file using one of the supported streams.</p>
-	 * @param array $imageinfo <p>This optional parameter allows you to extract some extended information from the image file. Currently, this will return the different JPG APP markers as an associative array. Some programs use these APP markers to embed text information in images. A very common one is to embed IPTC information in the APP13 marker. You can use the <code>iptcparse()</code> function to parse the binary APP13 marker into something readable.</p> <p><b>Note</b>:</p><p>The <code>imageinfo</code> only supports JFIF files.</p>
-	 * @return array <p>Returns an array with up to 7 elements. Not all image types will include the <code>channels</code> and <code>bits</code> elements.</p><p>Index 0 and 1 contains respectively the width and the height of the image.</p><p><b>Note</b>:</p><p>Some formats may contain no image or may contain multiple images. In these cases, <b>getimagesize()</b> might not be able to properly determine the image size. <b>getimagesize()</b> will return zero for width and height in these cases.</p> <p>Index 2 is one of the IMAGETYPE_XXX constants indicating the type of the image.</p><p>Index 3 is a text string with the correct <code>height="yyy" width="xxx"</code> string that can be used directly in an IMG tag.</p><p><code>mime</code> is the correspondant MIME type of the image. This information can be used to deliver images with the correct HTTP <code>Content-type</code> header:</p> <p><b>Example #1 <b>getimagesize()</b> and MIME types</b></p>  <code> &lt;&#63;php<br>$size&nbsp;=&nbsp;getimagesize($filename);<br>$fp&nbsp;=&nbsp;fopen($filename,&nbsp;"rb");<br>if&nbsp;($size&nbsp;&amp;&amp;&nbsp;$fp)&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;header("Content-type:&nbsp;{$size['mime']}");<br>&nbsp;&nbsp;&nbsp;&nbsp;fpassthru($fp);<br>&nbsp;&nbsp;&nbsp;&nbsp;exit;<br>}&nbsp;else&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;error<br>}<br>&#63;&gt;  </code>  <p><code>channels</code> will be 3 for RGB pictures and 4 for CMYK pictures.</p><p><code>bits</code> is the number of bits for each color.</p><p>For some image types, the presence of <code>channels</code> and <code>bits</code> values can be a bit confusing. As an example, GIF always uses 3 channels per pixel, but the number of bits per pixel cannot be calculated for an animated GIF with a global color table.</p><p>On failure, <b><code>FALSE</code></b> is returned.</p>
+	 * @param array $image_info <p>This optional parameter allows you to extract some extended information from the image file. Currently, this will return the different JPG APP markers as an associative array. Some programs use these APP markers to embed text information in images. A very common one is to embed IPTC information in the APP13 marker. You can use the <code>iptcparse()</code> function to parse the binary APP13 marker into something readable.</p> <p><b>Note</b>:</p><p>The <code>image_info</code> only supports JFIF files.</p>
+	 * @return array|false <p>Returns an array with up to 7 elements. Not all image types will include the <code>channels</code> and <code>bits</code> elements.</p><p>Index 0 and 1 contains respectively the width and the height of the image.</p><p><b>Note</b>:</p><p>Some formats may contain no image or may contain multiple images. In these cases, <b>getimagesize()</b> might not be able to properly determine the image size. <b>getimagesize()</b> will return zero for width and height in these cases.</p> <p>Index 2 is one of the IMAGETYPE_XXX constants indicating the type of the image.</p><p>Index 3 is a text string with the correct <code>height="yyy" width="xxx"</code> string that can be used directly in an IMG tag.</p><p><code>mime</code> is the correspondant MIME type of the image. This information can be used to deliver images with the correct HTTP <code>Content-type</code> header:</p> <p><b>Example #1 <b>getimagesize()</b> and MIME types</b></p>  <code> &lt;&#63;php<br>$size&nbsp;=&nbsp;getimagesize($filename);<br>$fp&nbsp;=&nbsp;fopen($filename,&nbsp;"rb");<br>if&nbsp;($size&nbsp;&amp;&amp;&nbsp;$fp)&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;header("Content-type:&nbsp;{$size['mime']}");<br>&nbsp;&nbsp;&nbsp;&nbsp;fpassthru($fp);<br>&nbsp;&nbsp;&nbsp;&nbsp;exit;<br>}&nbsp;else&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;error<br>}<br>&#63;&gt;  </code>  <p><code>channels</code> will be 3 for RGB pictures and 4 for CMYK pictures.</p><p><code>bits</code> is the number of bits for each color.</p><p>For some image types, the presence of <code>channels</code> and <code>bits</code> values can be a bit confusing. As an example, GIF always uses 3 channels per pixel, but the number of bits per pixel cannot be calculated for an animated GIF with a global color table.</p><p>On failure, <b><code>false</code></b> is returned.</p>
 	 * @link https://php.net/manual/en/function.getimagesize.php
 	 * @see image_type_to_mime_type(), exif_imagetype(), exif_read_data(), exif_thumbnail(), imagesx(), imagesy()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function getimagesize(string $filename, array &$imageinfo = NULL): array {}
+	function getimagesize(string $filename, array &$image_info = null): array|false {}
 
 	/**
 	 * Get the size of an image from a string
 	 * <p>Identical to <code>getimagesize()</code> except that <b>getimagesizefromstring()</b> accepts a string instead of a file name as the first parameter.</p><p>See the <code>getimagesize()</code> documentation for details on how this function works.</p>
-	 * @param string $imagedata <p>The image data, as a string.</p>
-	 * @param array $imageinfo <p>See <code>getimagesize()</code>.</p>
-	 * @return array <p>See <code>getimagesize()</code>.</p>
+	 * @param string $string <p>The image data, as a string.</p>
+	 * @param array $image_info <p>See <code>getimagesize()</code>.</p>
+	 * @return array|false <p>See <code>getimagesize()</code>.</p>
 	 * @link https://php.net/manual/en/function.getimagesizefromstring.php
 	 * @see getimagesize()
 	 * @since PHP 5 >= 5.4.0, PHP 7
 	 */
-	function getimagesizefromstring(string $imagedata, array &$imageinfo = NULL): array {}
+	function getimagesizefromstring(string $string, array &$image_info = null): array|false {}
 
 	/**
 	 * Output image to browser or file
@@ -44,34 +52,34 @@ namespace {
 	 * @param resource $image <p>An image resource, returned by one of the image creation functions, such as <code>imagecreatetruecolor()</code>.</p>
 	 * @param string $filename <p>Path to the saved file. If not given, the raw image stream will be output directly.</p>
 	 * @param int $foreground <p>You can set the foreground color with this parameter by setting an identifier obtained from <code>imagecolorallocate()</code>. The default foreground color is black.</p>
-	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p><b>Caution</b><p>However, if libgd fails to output the image, this function returns <b><code>TRUE</code></b>.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p><b>Caution</b><p>However, if libgd fails to output the image, this function returns <b><code>true</code></b>.</p>
 	 * @link https://php.net/manual/en/function.image2wbmp.php
 	 * @see imagewbmp()
 	 * @since PHP 4 >= 4.0.5, PHP 5, PHP 7
 	 */
-	function image2wbmp($image, string $filename = NULL, int $foreground = NULL): bool {}
+	function image2wbmp($image, string $filename = null, int $foreground = null): bool {}
 
 	/**
 	 * Get file extension for image type
 	 * <p>Returns the extension for the given <code>IMAGETYPE_XXX</code> constant.</p>
-	 * @param int $imagetype <p>One of the <code>IMAGETYPE_XXX</code> constant.</p>
-	 * @param bool $include_dot <p>Whether to prepend a dot to the extension or not. Default to <b><code>TRUE</code></b>.</p>
-	 * @return string <p>A string with the extension corresponding to the given image type.</p>
+	 * @param int $image_type <p>One of the <code>IMAGETYPE_XXX</code> constant.</p>
+	 * @param bool $include_dot <p>Whether to prepend a dot to the extension or not. Default to <b><code>true</code></b>.</p>
+	 * @return string|false <p>A string with the extension corresponding to the given image type, or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.image-type-to-extension.php
 	 * @since PHP 5 >= 5.2.0, PHP 7
 	 */
-	function image_type_to_extension(int $imagetype, bool $include_dot = TRUE): string {}
+	function image_type_to_extension(int $image_type, bool $include_dot = true): string|false {}
 
 	/**
 	 * Get Mime-Type for image-type returned by getimagesize, exif_read_data, exif_thumbnail, exif_imagetype
 	 * <p>The <b>image_type_to_mime_type()</b> function will determine the Mime-Type for an IMAGETYPE constant.</p>
-	 * @param int $imagetype <p>One of the <code>IMAGETYPE_XXX</code> constants.</p>
-	 * @return string <p>The returned values are as follows</p> <b>Returned values Constants</b>   <code>imagetype</code> Returned value     <b><code>IMAGETYPE_GIF</code></b> <code>image/gif</code>   <b><code>IMAGETYPE_JPEG</code></b> <code>image/jpeg</code>   <b><code>IMAGETYPE_PNG</code></b> <code>image/png</code>   <b><code>IMAGETYPE_SWF</code></b> <code>application/x-shockwave-flash</code>   <b><code>IMAGETYPE_PSD</code></b> <code>image/psd</code>   <b><code>IMAGETYPE_BMP</code></b> <code>image/bmp</code>   <b><code>IMAGETYPE_TIFF_II</code></b> (intel byte order) <code>image/tiff</code>    <b><code>IMAGETYPE_TIFF_MM</code></b> (motorola byte order)  <code>image/tiff</code>   <b><code>IMAGETYPE_JPC</code></b> <code>application/octet-stream</code>   <b><code>IMAGETYPE_JP2</code></b> <code>image/jp2</code>   <b><code>IMAGETYPE_JPX</code></b> <code>application/octet-stream</code>   <b><code>IMAGETYPE_JB2</code></b> <code>application/octet-stream</code>   <b><code>IMAGETYPE_SWC</code></b> <code>application/x-shockwave-flash</code>   <b><code>IMAGETYPE_IFF</code></b> <code>image/iff</code>   <b><code>IMAGETYPE_WBMP</code></b> <code>image/vnd.wap.wbmp</code>   <b><code>IMAGETYPE_XBM</code></b> <code>image/xbm</code>   <b><code>IMAGETYPE_ICO</code></b> <code>image/vnd.microsoft.icon</code>   <b><code>IMAGETYPE_WEBP</code></b> <code>image/webp</code>
+	 * @param int $image_type <p>One of the <code>IMAGETYPE_XXX</code> constants.</p>
+	 * @return string <p>The returned values are as follows</p> <b>Returned values Constants</b>   <code>image_type</code> Returned value     <b><code>IMAGETYPE_GIF</code></b> <code>image/gif</code>   <b><code>IMAGETYPE_JPEG</code></b> <code>image/jpeg</code>   <b><code>IMAGETYPE_PNG</code></b> <code>image/png</code>   <b><code>IMAGETYPE_SWF</code></b> <code>application/x-shockwave-flash</code>   <b><code>IMAGETYPE_PSD</code></b> <code>image/psd</code>   <b><code>IMAGETYPE_BMP</code></b> <code>image/bmp</code>   <b><code>IMAGETYPE_TIFF_II</code></b> (intel byte order) <code>image/tiff</code>    <b><code>IMAGETYPE_TIFF_MM</code></b> (motorola byte order)  <code>image/tiff</code>   <b><code>IMAGETYPE_JPC</code></b> <code>application/octet-stream</code>   <b><code>IMAGETYPE_JP2</code></b> <code>image/jp2</code>   <b><code>IMAGETYPE_JPX</code></b> <code>application/octet-stream</code>   <b><code>IMAGETYPE_JB2</code></b> <code>application/octet-stream</code>   <b><code>IMAGETYPE_SWC</code></b> <code>application/x-shockwave-flash</code>   <b><code>IMAGETYPE_IFF</code></b> <code>image/iff</code>   <b><code>IMAGETYPE_WBMP</code></b> <code>image/vnd.wap.wbmp</code>   <b><code>IMAGETYPE_XBM</code></b> <code>image/xbm</code>   <b><code>IMAGETYPE_ICO</code></b> <code>image/vnd.microsoft.icon</code>   <b><code>IMAGETYPE_WEBP</code></b> <code>image/webp</code>
 	 * @link https://php.net/manual/en/function.image-type-to-mime-type.php
 	 * @see getimagesize(), exif_imagetype(), exif_read_data(), exif_thumbnail()
 	 * @since PHP 4 >= 4.3.0, PHP 5, PHP 7
 	 */
-	function image_type_to_mime_type(int $imagetype): string {}
+	function image_type_to_mime_type(int $image_type): string {}
 
 	/**
 	 * Return an image containing the affine transformed src image, using an optional clipping area
@@ -79,18 +87,18 @@ namespace {
 	 * @param resource $image <p>An image resource, returned by one of the image creation functions, such as <code>imagecreatetruecolor()</code>.</p>
 	 * @param array $affine <p>Array with keys 0 to 5.</p>
 	 * @param array $clip <p>Array with keys "x", "y", "width" and "height".</p>
-	 * @return resource|false <p>Return affined image resource on success or <b><code>FALSE</code></b> on failure.</p>
+	 * @return resource|false <p>Return affined image resource on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.imageaffine.php
 	 * @since PHP 5 >= 5.5.0, PHP 7
 	 */
-	function imageaffine($image, array $affine, array $clip = NULL) {}
+	function imageaffine($image, array $affine, array $clip = null) {}
 
 	/**
 	 * Concatenate two affine transformation matrices
 	 * <p>Returns the concatenation of two affine transformation matrices, what is useful if multiple transformations should be applied to the same image in one go.</p>
 	 * @param array $m1 <p>An affine transformation matrix (an array with keys <code>0</code> to <code>5</code> and float values).</p>
 	 * @param array $m2 <p>An affine transformation matrix (an array with keys <code>0</code> to <code>5</code> and float values).</p>
-	 * @return array|false <p>An affine transformation matrix (an array with keys <code>0</code> to <code>5</code> and float values) or <b><code>FALSE</code></b> on failure.</p>
+	 * @return array|false <p>An affine transformation matrix (an array with keys <code>0</code> to <code>5</code> and float values) or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.imageaffinematrixconcat.php
 	 * @see imageaffine(), imageaffinematrixget()
 	 * @since PHP 5 >= 5.5.0, PHP 7
@@ -102,19 +110,19 @@ namespace {
 	 * <p>Returns an affine transformation matrix.</p>
 	 * @param int $type <p>One of the <b><code>IMG_AFFINE_&#42;</code></b> constants.</p>
 	 * @param mixed $options <p>If <code>type</code> is <b><code>IMG_AFFINE_TRANSLATE</code></b> or <b><code>IMG_AFFINE_SCALE</code></b>, <code>options</code> has to be an <code>array</code> with keys <code>x</code> and <code>y</code>, both having <code>float</code> values.</p> <p>If <code>type</code> is <b><code>IMG_AFFINE_ROTATE</code></b>, <b><code>IMG_AFFINE_SHEAR_HORIZONTAL</code></b> or <b><code>IMG_AFFINE_SHEAR_VERTICAL</code></b>, <code>options</code> has to be a <code>float</code> specifying the angle.</p>
-	 * @return array|false <p>An affine transformation matrix (an array with keys <code>0</code> to <code>5</code> and float values) or <b><code>FALSE</code></b> on failure.</p>
+	 * @return array|false <p>An affine transformation matrix (an array with keys <code>0</code> to <code>5</code> and float values) or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.imageaffinematrixget.php
 	 * @see imageaffine(), imageaffinematrixconcat()
 	 * @since PHP 5 >= 5.5.0, PHP 7
 	 */
-	function imageaffinematrixget(int $type, mixed $options = NULL): array|false {}
+	function imageaffinematrixget(int $type, mixed $options = null): array|false {}
 
 	/**
 	 * Set the blending mode for an image
 	 * <p><b>imagealphablending()</b> allows for two different modes of drawing on truecolor images. In blending mode, the alpha channel component of the color supplied to all drawing function, such as <code>imagesetpixel()</code> determines how much of the underlying color should be allowed to shine through. As a result, gd automatically blends the existing color at that point with the drawing color, and stores the result in the image. The resulting pixel is opaque. In non-blending mode, the drawing color is copied literally with its alpha channel information, replacing the destination pixel. Blending mode is not available when drawing on palette images.</p>
 	 * @param resource $image <p>An image resource, returned by one of the image creation functions, such as <code>imagecreatetruecolor()</code>.</p>
-	 * @param bool $blendmode <p>Whether to enable the blending mode or not. On true color images the default value is <b><code>TRUE</code></b> otherwise the default value is <b><code>FALSE</code></b></p>
-	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+	 * @param bool $blendmode <p>Whether to enable the blending mode or not. On true color images the default value is <b><code>true</code></b> otherwise the default value is <b><code>false</code></b></p>
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.imagealphablending.php
 	 * @since PHP 4 >= 4.0.6, PHP 5, PHP 7
 	 */
@@ -125,7 +133,7 @@ namespace {
 	 * <p>Activate the fast drawing antialiased methods for lines and wired polygons. It does not support alpha components. It works using a direct blend operation. It works only with truecolor images.</p><p>Thickness and styled are not supported.</p><p>Using antialiased primitives with transparent background color can end with some unexpected results. The blend method uses the background color as any other colors. The lack of alpha component support does not allow an alpha based antialiasing method.</p>
 	 * @param resource $image <p>An image resource, returned by one of the image creation functions, such as <code>imagecreatetruecolor()</code>.</p>
 	 * @param bool $enabled <p>Whether to enable antialiasing or not.</p>
-	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.imageantialias.php
 	 * @see imagecreatetruecolor()
 	 * @since PHP 4 >= 4.3.2, PHP 5, PHP 7
@@ -143,7 +151,7 @@ namespace {
 	 * @param int $start <p>The arc start angle, in degrees.</p>
 	 * @param int $end <p>The arc end angle, in degrees. 0&deg; is located at the three-o'clock position, and the arc is drawn clockwise.</p>
 	 * @param int $color <p>A color identifier created with <code>imagecolorallocate()</code>.</p>
-	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.imagearc.php
 	 * @see imagefilledarc(), imageellipse(), imagefilledellipse()
 	 * @since PHP 4, PHP 5, PHP 7
@@ -154,13 +162,13 @@ namespace {
 	 * Output a BMP image to browser or file
 	 * <p>Outputs or saves a BMP version of the given <code>image</code>.</p>
 	 * @param resource $image <p>An image resource, returned by one of the image creation functions, such as <code>imagecreatetruecolor()</code>.</p>
-	 * @param mixed $to <p>The path or an open stream resource (which is automatically being closed after this function returns) to save the file to. If not set or <b><code>NULL</code></b>, the raw image stream will be outputted directly.</p> <p><b>Note</b>:</p><p><b><code>NULL</code></b> is invalid if the <code>compressed</code> arguments is not used.</p>
+	 * @param mixed $to <p>The path or an open stream resource (which is automatically being closed after this function returns) to save the file to. If not set or <b><code>null</code></b>, the raw image stream will be outputted directly.</p> <p><b>Note</b>:</p><p><b><code>null</code></b> is invalid if the <code>compressed</code> arguments is not used.</p>
 	 * @param bool $compressed <p>Whether the BMP should be compressed with run-length encoding (RLE), or not.</p>
-	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p><b>Caution</b><p>However, if libgd fails to output the image, this function returns <b><code>TRUE</code></b>.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p><b>Caution</b><p>However, if libgd fails to output the image, this function returns <b><code>true</code></b>.</p>
 	 * @link https://php.net/manual/en/function.imagebmp.php
 	 * @since PHP 7 >= 7.2.0
 	 */
-	function imagebmp($image, mixed $to = NULL, bool $compressed = TRUE): bool {}
+	function imagebmp($image, mixed $to = null, bool $compressed = true): bool {}
 
 	/**
 	 * Draw a character horizontally
@@ -171,7 +179,7 @@ namespace {
 	 * @param int $y <p>y-coordinate of the start.</p>
 	 * @param string $c <p>The character to draw.</p>
 	 * @param int $color <p>A color identifier created with <code>imagecolorallocate()</code>.</p>
-	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.imagechar.php
 	 * @see imagecharup(), imageloadfont()
 	 * @since PHP 4, PHP 5, PHP 7
@@ -187,7 +195,7 @@ namespace {
 	 * @param int $y <p>y-coordinate of the start.</p>
 	 * @param string $c <p>The character to draw.</p>
 	 * @param int $color <p>A color identifier created with <code>imagecolorallocate()</code>.</p>
-	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.imagecharup.php
 	 * @see imagechar(), imageloadfont()
 	 * @since PHP 4, PHP 5, PHP 7
@@ -201,7 +209,7 @@ namespace {
 	 * @param int $red <p>Value of red component.</p>
 	 * @param int $green <p>Value of green component.</p>
 	 * @param int $blue <p>Value of blue component.</p>
-	 * @return int <p>A color identifier or <b><code>FALSE</code></b> if the allocation failed.</p><p><b>Warning</b></p><p>This function may return Boolean <b><code>FALSE</code></b>, but may also return a non-Boolean value which evaluates to <b><code>FALSE</code></b>. Please read the section on Booleans for more information. Use the === operator for testing the return value of this function.</p>
+	 * @return int <p>A color identifier or <b><code>false</code></b> if the allocation failed.</p><p><b>Warning</b></p><p>This function may return Boolean <b><code>false</code></b>, but may also return a non-Boolean value which evaluates to <b><code>false</code></b>. Please read the section on Booleans for more information. Use the === operator for testing the return value of this function.</p>
 	 * @link https://php.net/manual/en/function.imagecolorallocate.php
 	 * @see imagecolorallocatealpha(), imagecolordeallocate()
 	 * @since PHP 4, PHP 5, PHP 7
@@ -216,7 +224,7 @@ namespace {
 	 * @param int $green <p>Value of green component.</p>
 	 * @param int $blue <p>Value of blue component.</p>
 	 * @param int $alpha <p>A value between <code>0</code> and <code>127</code>. <code>0</code> indicates completely opaque while <code>127</code> indicates completely transparent.</p>
-	 * @return int <p>A color identifier or <b><code>FALSE</code></b> if the allocation failed.</p><p><b>Warning</b></p><p>This function may return Boolean <b><code>FALSE</code></b>, but may also return a non-Boolean value which evaluates to <b><code>FALSE</code></b>. Please read the section on Booleans for more information. Use the === operator for testing the return value of this function.</p>
+	 * @return int <p>A color identifier or <b><code>false</code></b> if the allocation failed.</p><p><b>Warning</b></p><p>This function may return Boolean <b><code>false</code></b>, but may also return a non-Boolean value which evaluates to <b><code>false</code></b>. Please read the section on Booleans for more information. Use the === operator for testing the return value of this function.</p>
 	 * @link https://php.net/manual/en/function.imagecolorallocatealpha.php
 	 * @see imagecolorallocate(), imagecolordeallocate()
 	 * @since PHP 4 >= 4.3.2, PHP 5, PHP 7
@@ -229,7 +237,7 @@ namespace {
 	 * @param resource $image <p>An image resource, returned by one of the image creation functions, such as <code>imagecreatetruecolor()</code>.</p>
 	 * @param int $x <p>x-coordinate of the point.</p>
 	 * @param int $y <p>y-coordinate of the point.</p>
-	 * @return int|false <p>Returns the index of the color or <b><code>FALSE</code></b> on failure.</p><p><b>Warning</b></p><p>This function may return Boolean <b><code>FALSE</code></b>, but may also return a non-Boolean value which evaluates to <b><code>FALSE</code></b>. Please read the section on Booleans for more information. Use the === operator for testing the return value of this function.</p>
+	 * @return int|false <p>Returns the index of the color or <b><code>false</code></b> on failure.</p><p><b>Warning</b></p><p>This function may return Boolean <b><code>false</code></b>, but may also return a non-Boolean value which evaluates to <b><code>false</code></b>. Please read the section on Booleans for more information. Use the === operator for testing the return value of this function.</p>
 	 * @link https://php.net/manual/en/function.imagecolorat.php
 	 * @see imagecolorset(), imagecolorsforindex(), imagesetpixel()
 	 * @since PHP 4, PHP 5, PHP 7
@@ -284,7 +292,7 @@ namespace {
 	 * <p>De-allocates a color previously allocated with <code>imagecolorallocate()</code> or <code>imagecolorallocatealpha()</code>.</p>
 	 * @param resource $image <p>An image resource, returned by one of the image creation functions, such as <code>imagecreatetruecolor()</code>.</p>
 	 * @param int $color <p>The color identifier.</p>
-	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.imagecolordeallocate.php
 	 * @see imagecolorallocate(), imagecolorallocatealpha()
 	 * @since PHP 4, PHP 5, PHP 7
@@ -325,7 +333,7 @@ namespace {
 	 * <p>Makes the colors of the palette version of an image more closely match the true color version.</p>
 	 * @param resource $image1 <p>A truecolor image resource.</p>
 	 * @param resource $image2 <p>A palette image resource pointing to an image that has the same size as <code>image1</code>.</p>
-	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.imagecolormatch.php
 	 * @see imagecreatetruecolor()
 	 * @since PHP 4 >= 4.3.0, PHP 5, PHP 7
@@ -417,7 +425,7 @@ namespace {
 	 * @param array $matrix <p>A 3x3 matrix: an array of three arrays of three floats.</p>
 	 * @param float $div <p>The divisor of the result of the convolution, used for normalization.</p>
 	 * @param float $offset <p>Color offset.</p>
-	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.imageconvolution.php
 	 * @see imagefilter()
 	 * @since PHP 5 >= 5.1.0, PHP 7
@@ -435,7 +443,7 @@ namespace {
 	 * @param int $src_y <p>y-coordinate of source point.</p>
 	 * @param int $src_w <p>Source width.</p>
 	 * @param int $src_h <p>Source height.</p>
-	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.imagecopy.php
 	 * @see imagecrop()
 	 * @since PHP 4, PHP 5, PHP 7
@@ -454,7 +462,7 @@ namespace {
 	 * @param int $src_w <p>Source width.</p>
 	 * @param int $src_h <p>Source height.</p>
 	 * @param int $pct <p>The two images will be merged according to <code>pct</code> which can range from 0 to 100. When <code>pct</code> = 0, no action is taken, when 100 this function behaves identically to <code>imagecopy()</code> for pallete images, except for ignoring alpha components, while it implements alpha transparency for true colour images.</p>
-	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.imagecopymerge.php
 	 * @since PHP 4 >= 4.0.1, PHP 5, PHP 7
 	 */
@@ -472,7 +480,7 @@ namespace {
 	 * @param int $src_w <p>Source width.</p>
 	 * @param int $src_h <p>Source height.</p>
 	 * @param int $pct <p>The <code>src_im</code> will be changed to grayscale according to <code>pct</code> where 0 is fully grayscale and 100 is unchanged. When <code>pct</code> = 100 this function behaves identically to <code>imagecopy()</code> for pallete images, except for ignoring alpha components, while it implements alpha transparency for true colour images.</p>
-	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.imagecopymergegray.php
 	 * @since PHP 4 >= 4.0.6, PHP 5, PHP 7
 	 */
@@ -491,7 +499,7 @@ namespace {
 	 * @param int $dst_h <p>Destination height.</p>
 	 * @param int $src_w <p>Source width.</p>
 	 * @param int $src_h <p>Source height.</p>
-	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.imagecopyresampled.php
 	 * @see imagecopyresized(), imagescale(), imagecrop()
 	 * @since PHP 4 >= 4.0.6, PHP 5, PHP 7
@@ -511,7 +519,7 @@ namespace {
 	 * @param int $dst_h <p>Destination height.</p>
 	 * @param int $src_w <p>Source width.</p>
 	 * @param int $src_h <p>Source height.</p>
-	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.imagecopyresized.php
 	 * @see imagecopyresampled(), imagescale(), imagecrop()
 	 * @since PHP 4, PHP 5, PHP 7
@@ -523,7 +531,7 @@ namespace {
 	 * <p><b>imagecreate()</b> returns an image identifier representing a blank image of specified size.</p><p>In general, we recommend the use of <code>imagecreatetruecolor()</code> instead of <b>imagecreate()</b> so that image processing occurs on the highest quality image possible. If you want to output a palette image, then <code>imagetruecolortopalette()</code> should be called immediately before saving the image with <code>imagepng()</code> or <code>imagegif()</code>.</p>
 	 * @param int $width <p>The image width.</p>
 	 * @param int $height <p>The image height.</p>
-	 * @return resource <p>Returns an image resource identifier on success, <b><code>FALSE</code></b> on errors.</p>
+	 * @return resource <p>Returns an image resource identifier on success, <b><code>false</code></b> on errors.</p>
 	 * @link https://php.net/manual/en/function.imagecreate.php
 	 * @see imagedestroy(), imagecreatetruecolor()
 	 * @since PHP 4, PHP 5, PHP 7
@@ -534,7 +542,7 @@ namespace {
 	 * Create a new image from file or URL
 	 * <p><b>imagecreatefrombmp()</b> returns an image identifier representing the image obtained from the given filename.</p><p>A URL can be used as a filename with this function if the fopen wrappers have been enabled. See <code>fopen()</code> for more details on how to specify the filename. See the Supported Protocols and Wrappers for links to information about what abilities the various wrappers have, notes on their usage, and information on any predefined variables they may provide.</p>
 	 * @param string $filename <p>Path to the BMP image.</p>
-	 * @return resource <p>Returns an image resource identifier on success, <b><code>FALSE</code></b> on errors.</p>
+	 * @return resource <p>Returns an image resource identifier on success, <b><code>false</code></b> on errors.</p>
 	 * @link https://php.net/manual/en/function.imagecreatefrombmp.php
 	 * @since PHP 7 >= 7.2.0
 	 */
@@ -544,7 +552,7 @@ namespace {
 	 * Create a new image from GD file or URL
 	 * <p>Create a new image from GD file or URL.</p><p>A URL can be used as a filename with this function if the fopen wrappers have been enabled. See <code>fopen()</code> for more details on how to specify the filename. See the Supported Protocols and Wrappers for links to information about what abilities the various wrappers have, notes on their usage, and information on any predefined variables they may provide.</p>
 	 * @param string $filename <p>Path to the GD file.</p>
-	 * @return resource <p>Returns an image resource identifier on success, <b><code>FALSE</code></b> on errors.</p>
+	 * @return resource <p>Returns an image resource identifier on success, <b><code>false</code></b> on errors.</p>
 	 * @link https://php.net/manual/en/function.imagecreatefromgd.php
 	 * @since PHP 4 >= 4.0.7, PHP 5, PHP 7
 	 */
@@ -554,7 +562,7 @@ namespace {
 	 * Create a new image from GD2 file or URL
 	 * <p>Create a new image from GD2 file or URL.</p><p>A URL can be used as a filename with this function if the fopen wrappers have been enabled. See <code>fopen()</code> for more details on how to specify the filename. See the Supported Protocols and Wrappers for links to information about what abilities the various wrappers have, notes on their usage, and information on any predefined variables they may provide.</p>
 	 * @param string $filename <p>Path to the GD2 image.</p>
-	 * @return resource <p>Returns an image resource identifier on success, <b><code>FALSE</code></b> on errors.</p>
+	 * @return resource <p>Returns an image resource identifier on success, <b><code>false</code></b> on errors.</p>
 	 * @link https://php.net/manual/en/function.imagecreatefromgd2.php
 	 * @since PHP 4 >= 4.0.7, PHP 5, PHP 7
 	 */
@@ -568,7 +576,7 @@ namespace {
 	 * @param int $srcY <p>y-coordinate of source point.</p>
 	 * @param int $width <p>Source width.</p>
 	 * @param int $height <p>Source height.</p>
-	 * @return resource <p>Returns an image resource identifier on success, <b><code>FALSE</code></b> on errors.</p>
+	 * @return resource <p>Returns an image resource identifier on success, <b><code>false</code></b> on errors.</p>
 	 * @link https://php.net/manual/en/function.imagecreatefromgd2part.php
 	 * @since PHP 4 >= 4.0.7, PHP 5, PHP 7
 	 */
@@ -578,7 +586,7 @@ namespace {
 	 * Create a new image from file or URL
 	 * <p><b>imagecreatefromgif()</b> returns an image identifier representing the image obtained from the given filename.</p><p>When reading GIF files into memory, only the first frame is returned in the image resource pointer. The size of the image is not necessarily what is reported by <code>getimagesize()</code>.</p><p>A URL can be used as a filename with this function if the fopen wrappers have been enabled. See <code>fopen()</code> for more details on how to specify the filename. See the Supported Protocols and Wrappers for links to information about what abilities the various wrappers have, notes on their usage, and information on any predefined variables they may provide.</p>
 	 * @param string $filename <p>Path to the GIF image.</p>
-	 * @return resource <p>Returns an image resource identifier on success, <b><code>FALSE</code></b> on errors.</p>
+	 * @return resource <p>Returns an image resource identifier on success, <b><code>false</code></b> on errors.</p>
 	 * @link https://php.net/manual/en/function.imagecreatefromgif.php
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
@@ -588,7 +596,7 @@ namespace {
 	 * Create a new image from file or URL
 	 * <p><b>imagecreatefromjpeg()</b> returns an image identifier representing the image obtained from the given filename.</p><p>A URL can be used as a filename with this function if the fopen wrappers have been enabled. See <code>fopen()</code> for more details on how to specify the filename. See the Supported Protocols and Wrappers for links to information about what abilities the various wrappers have, notes on their usage, and information on any predefined variables they may provide.</p>
 	 * @param string $filename <p>Path to the JPEG image.</p>
-	 * @return resource <p>Returns an image resource identifier on success, <b><code>FALSE</code></b> on errors.</p>
+	 * @return resource <p>Returns an image resource identifier on success, <b><code>false</code></b> on errors.</p>
 	 * @link https://php.net/manual/en/function.imagecreatefromjpeg.php
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
@@ -598,7 +606,7 @@ namespace {
 	 * Create a new image from file or URL
 	 * <p><b>imagecreatefrompng()</b> returns an image identifier representing the image obtained from the given filename.</p><p>A URL can be used as a filename with this function if the fopen wrappers have been enabled. See <code>fopen()</code> for more details on how to specify the filename. See the Supported Protocols and Wrappers for links to information about what abilities the various wrappers have, notes on their usage, and information on any predefined variables they may provide.</p>
 	 * @param string $filename <p>Path to the PNG image.</p>
-	 * @return resource <p>Returns an image resource identifier on success, <b><code>FALSE</code></b> on errors.</p>
+	 * @return resource <p>Returns an image resource identifier on success, <b><code>false</code></b> on errors.</p>
 	 * @link https://php.net/manual/en/function.imagecreatefrompng.php
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
@@ -606,9 +614,9 @@ namespace {
 
 	/**
 	 * Create a new image from the image stream in the string
-	 * <p><b>imagecreatefromstring()</b> returns an image identifier representing the image obtained from the given <code>image</code>. These types will be automatically detected if your build of PHP supports them: JPEG, PNG, GIF, BMP, WBMP, and GD2.</p>
+	 * <p><b>imagecreatefromstring()</b> returns an image identifier representing the image obtained from the given <code>image</code>. These types will be automatically detected if your build of PHP supports them: JPEG, PNG, GIF, BMP, WBMP, GD2, and WEBP.</p>
 	 * @param string $image <p>A string containing the image data.</p>
-	 * @return resource <p>An image resource will be returned on success. <b><code>FALSE</code></b> is returned if the image type is unsupported, the data is not in a recognised format, or the image is corrupt and cannot be loaded.</p>
+	 * @return resource <p>An image resource will be returned on success. <b><code>false</code></b> is returned if the image type is unsupported, the data is not in a recognised format, or the image is corrupt and cannot be loaded.</p>
 	 * @link https://php.net/manual/en/function.imagecreatefromstring.php
 	 * @see imagecreatefromjpeg(), imagecreatefrompng(), imagecreatefromgif(), imagecreatetruecolor()
 	 * @since PHP 4 >= 4.0.4, PHP 5, PHP 7
@@ -619,7 +627,7 @@ namespace {
 	 * Create a new image from file or URL
 	 * <p><b>imagecreatefromwbmp()</b> returns an image identifier representing the image obtained from the given filename.</p><p><b>Note</b>:  WBMP images are Wireless Bitmaps, not Windows Bitmaps. The latter can be loaded with <code>imagecreatefrombmp()</code>. </p><p>A URL can be used as a filename with this function if the fopen wrappers have been enabled. See <code>fopen()</code> for more details on how to specify the filename. See the Supported Protocols and Wrappers for links to information about what abilities the various wrappers have, notes on their usage, and information on any predefined variables they may provide.</p>
 	 * @param string $filename <p>Path to the WBMP image.</p>
-	 * @return resource <p>Returns an image resource identifier on success, <b><code>FALSE</code></b> on errors.</p>
+	 * @return resource <p>Returns an image resource identifier on success, <b><code>false</code></b> on errors.</p>
 	 * @link https://php.net/manual/en/function.imagecreatefromwbmp.php
 	 * @since PHP 4 >= 4.0.1, PHP 5, PHP 7
 	 */
@@ -629,7 +637,7 @@ namespace {
 	 * Create a new image from file or URL
 	 * <p><b>imagecreatefromwebp()</b> returns an image identifier representing the image obtained from the given filename.</p><p>A URL can be used as a filename with this function if the fopen wrappers have been enabled. See <code>fopen()</code> for more details on how to specify the filename. See the Supported Protocols and Wrappers for links to information about what abilities the various wrappers have, notes on their usage, and information on any predefined variables they may provide.</p>
 	 * @param string $filename <p>Path to the WebP image.</p>
-	 * @return resource <p>Returns an image resource identifier on success, <b><code>FALSE</code></b> on errors.</p>
+	 * @return resource <p>Returns an image resource identifier on success, <b><code>false</code></b> on errors.</p>
 	 * @link https://php.net/manual/en/function.imagecreatefromwebp.php
 	 * @since PHP 5 >= 5.4.0, PHP 7
 	 */
@@ -639,7 +647,7 @@ namespace {
 	 * Create a new image from file or URL
 	 * <p><b>imagecreatefromxbm()</b> returns an image identifier representing the image obtained from the given filename.</p><p>A URL can be used as a filename with this function if the fopen wrappers have been enabled. See <code>fopen()</code> for more details on how to specify the filename. See the Supported Protocols and Wrappers for links to information about what abilities the various wrappers have, notes on their usage, and information on any predefined variables they may provide.</p>
 	 * @param string $filename <p>Path to the XBM image.</p>
-	 * @return resource <p>Returns an image resource identifier on success, <b><code>FALSE</code></b> on errors.</p>
+	 * @return resource <p>Returns an image resource identifier on success, <b><code>false</code></b> on errors.</p>
 	 * @link https://php.net/manual/en/function.imagecreatefromxbm.php
 	 * @since PHP 4 >= 4.0.1, PHP 5, PHP 7
 	 */
@@ -649,7 +657,7 @@ namespace {
 	 * Create a new image from file or URL
 	 * <p><b>imagecreatefromxpm()</b> returns an image identifier representing the image obtained from the given filename.</p><p>A URL can be used as a filename with this function if the fopen wrappers have been enabled. See <code>fopen()</code> for more details on how to specify the filename. See the Supported Protocols and Wrappers for links to information about what abilities the various wrappers have, notes on their usage, and information on any predefined variables they may provide.</p>
 	 * @param string $filename <p>Path to the XPM image.</p>
-	 * @return resource <p>Returns an image resource identifier on success, <b><code>FALSE</code></b> on errors.</p>
+	 * @return resource <p>Returns an image resource identifier on success, <b><code>false</code></b> on errors.</p>
 	 * @link https://php.net/manual/en/function.imagecreatefromxpm.php
 	 * @since PHP 4 >= 4.0.1, PHP 5, PHP 7
 	 */
@@ -660,7 +668,7 @@ namespace {
 	 * <p><b>imagecreatetruecolor()</b> returns an image identifier representing a black image of the specified size.</p>
 	 * @param int $width <p>Image width.</p>
 	 * @param int $height <p>Image height.</p>
-	 * @return resource <p>Returns an image resource identifier on success, <b><code>FALSE</code></b> on errors.</p>
+	 * @return resource <p>Returns an image resource identifier on success, <b><code>false</code></b> on errors.</p>
 	 * @link https://php.net/manual/en/function.imagecreatetruecolor.php
 	 * @see imagedestroy(), imagecreate()
 	 * @since PHP 4 >= 4.0.6, PHP 5, PHP 7
@@ -672,7 +680,7 @@ namespace {
 	 * <p>Crops an image to the given rectangular area and returns the resulting image. The given <code>image</code> is not modified.</p>
 	 * @param resource $image <p>An image resource, returned by one of the image creation functions, such as <code>imagecreatetruecolor()</code>.</p>
 	 * @param array $rect <p>The cropping rectangle as <code>array</code> with keys <code>x</code>, <code>y</code>, <code>width</code> and <code>height</code>.</p>
-	 * @return resource|false <p>Return cropped image resource on success or <b><code>FALSE</code></b> on failure.</p>
+	 * @return resource|false <p>Return cropped image resource on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.imagecrop.php
 	 * @see imagecropauto()
 	 * @since PHP 5 >= 5.5.0, PHP 7
@@ -686,7 +694,7 @@ namespace {
 	 * @param int $mode <p>One of the following constants:</p>   <b><code>IMG_CROP_DEFAULT</code></b>   Same as <b><code>IMG_CROP_TRANSPARENT</code></b>. Before PHP 7.4.0, the bundled libgd fell back to <b><code>IMG_CROP_SIDES</code></b>, if the image had no transparent color.    <b><code>IMG_CROP_TRANSPARENT</code></b>   Crops out a transparent background.    <b><code>IMG_CROP_BLACK</code></b>   Crops out a black background.    <b><code>IMG_CROP_WHITE</code></b>   Crops out a white background.    <b><code>IMG_CROP_SIDES</code></b>   Uses the 4 corners of the image to attempt to detect the background to crop.    <b><code>IMG_CROP_THRESHOLD</code></b>   Crops an image using the given <code>threshold</code> and <code>color</code>.
 	 * @param float $threshold <p>Specifies the tolerance in percent to be used while comparing the image color and the color to crop. The method used to calculate the color difference is based on the color distance in the RGB(a) cube.</p> <p>Used only in <b><code>IMG_CROP_THRESHOLD</code></b> mode.</p> <p><b>Note</b>:  Before PHP 7.4.0, the bundled libgd used a somewhat different algorithm, so the same <code>threshold</code> yielded different results for system and bundled libgd. </p>
 	 * @param int $color <p>Either an RGB color value or a palette index.</p> <p>Used only in <b><code>IMG_CROP_THRESHOLD</code></b> mode.</p>
-	 * @return resource|false <p>Returns a cropped image resource on success or <b><code>FALSE</code></b> on failure. If the complete image was cropped, <code>imagecrop()</code> returns <b><code>FALSE</code></b>.</p>
+	 * @return resource|false <p>Returns a cropped image resource on success or <b><code>false</code></b> on failure. If the complete image was cropped, <code>imagecrop()</code> returns <b><code>false</code></b>.</p>
 	 * @link https://php.net/manual/en/function.imagecropauto.php
 	 * @see imagecrop()
 	 * @since PHP 5 >= 5.5.0, PHP 7
@@ -702,7 +710,7 @@ namespace {
 	 * @param int $x2 <p>Bottom right x coordinate.</p>
 	 * @param int $y2 <p>Bottom right y coordinate.</p>
 	 * @param int $color <p>The fill color. A color identifier created with <code>imagecolorallocate()</code>.</p>
-	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.imagedashedline.php
 	 * @see imagesetstyle(), imageline()
 	 * @since PHP 4, PHP 5, PHP 7
@@ -713,7 +721,7 @@ namespace {
 	 * Destroy an image
 	 * <p><b>imagedestroy()</b> frees any memory associated with image <code>image</code>.</p>
 	 * @param resource $image <p>An image resource, returned by one of the image creation functions, such as <code>imagecreatetruecolor()</code>.</p>
-	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.imagedestroy.php
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
@@ -728,7 +736,7 @@ namespace {
 	 * @param int $width <p>The ellipse width.</p>
 	 * @param int $height <p>The ellipse height.</p>
 	 * @param int $color <p>The color of the ellipse. A color identifier created with <code>imagecolorallocate()</code>.</p>
-	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.imageellipse.php
 	 * @see imagefilledellipse(), imagearc()
 	 * @since PHP 4 >= 4.0.6, PHP 5, PHP 7
@@ -742,7 +750,7 @@ namespace {
 	 * @param int $x <p>x-coordinate of start point.</p>
 	 * @param int $y <p>y-coordinate of start point.</p>
 	 * @param int $color <p>The fill color. A color identifier created with <code>imagecolorallocate()</code>.</p>
-	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.imagefill.php
 	 * @see imagecolorallocate()
 	 * @since PHP 4, PHP 5, PHP 7
@@ -761,7 +769,7 @@ namespace {
 	 * @param int $end <p>The arc end angle, in degrees. 0&deg; is located at the three-o'clock position, and the arc is drawn clockwise.</p>
 	 * @param int $color <p>A color identifier created with <code>imagecolorallocate()</code>.</p>
 	 * @param int $style <p>A bitwise OR of the following possibilities:</p><ol> <li><b><code>IMG_ARC_PIE</code></b></li> <li><b><code>IMG_ARC_CHORD</code></b></li> <li><b><code>IMG_ARC_NOFILL</code></b></li> <li><b><code>IMG_ARC_EDGED</code></b></li> </ol> <b><code>IMG_ARC_PIE</code></b> and <b><code>IMG_ARC_CHORD</code></b> are mutually exclusive; <b><code>IMG_ARC_CHORD</code></b> just connects the starting and ending angles with a straight line, while <b><code>IMG_ARC_PIE</code></b> produces a rounded edge. <b><code>IMG_ARC_NOFILL</code></b> indicates that the arc or chord should be outlined, not filled. <b><code>IMG_ARC_EDGED</code></b>, used together with <b><code>IMG_ARC_NOFILL</code></b>, indicates that the beginning and ending angles should be connected to the center - this is a good way to outline (rather than fill) a 'pie slice'.
-	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.imagefilledarc.php
 	 * @since PHP 4 >= 4.0.6, PHP 5, PHP 7
 	 */
@@ -776,7 +784,7 @@ namespace {
 	 * @param int $width <p>The ellipse width.</p>
 	 * @param int $height <p>The ellipse height.</p>
 	 * @param int $color <p>The fill color. A color identifier created with <code>imagecolorallocate()</code>.</p>
-	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.imagefilledellipse.php
 	 * @see imageellipse(), imagefilledarc()
 	 * @since PHP 4 >= 4.0.6, PHP 5, PHP 7
@@ -785,12 +793,12 @@ namespace {
 
 	/**
 	 * Draw a filled polygon
-	 * <p><b>imagefilledpolygon()</b> creates a filled polygon in the given <code>image</code>.</p>
+	 * <p>Alternative signature (as of PHP 8.0.0)</p><p><b>imagefilledpolygon()</b> creates a filled polygon in the given <code>image</code>.</p>
 	 * @param resource $image <p>An image resource, returned by one of the image creation functions, such as <code>imagecreatetruecolor()</code>.</p>
 	 * @param array $points <p>An array containing the <code>x</code> and <code>y</code> coordinates of the polygons vertices consecutively.</p>
-	 * @param int $num_points <p>Total number of points (vertices), which must be at least 3.</p>
+	 * @param int $num_points <p>Total number of points (vertices), which must be at least 3.</p>  If this parameter is omitted as per the second signature, <code>points</code> must have an even number of elements, and <code>num_points</code> is assumed to be <code>count($points)/2</code>.
 	 * @param int $color <p>A color identifier created with <code>imagecolorallocate()</code>.</p>
-	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.imagefilledpolygon.php
 	 * @see imagepolygon()
 	 * @since PHP 4, PHP 5, PHP 7
@@ -806,7 +814,7 @@ namespace {
 	 * @param int $x2 <p>x-coordinate for point 2.</p>
 	 * @param int $y2 <p>y-coordinate for point 2.</p>
 	 * @param int $color <p>The fill color. A color identifier created with <code>imagecolorallocate()</code>.</p>
-	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.imagefilledrectangle.php
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
@@ -820,7 +828,7 @@ namespace {
 	 * @param int $y <p>y-coordinate of start.</p>
 	 * @param int $border <p>The border color. A color identifier created with <code>imagecolorallocate()</code>.</p>
 	 * @param int $color <p>The fill color. A color identifier created with <code>imagecolorallocate()</code>.</p>
-	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.imagefilltoborder.php
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
@@ -832,22 +840,22 @@ namespace {
 	 * @param resource $image <p>An image resource, returned by one of the image creation functions, such as <code>imagecreatetruecolor()</code>.</p>
 	 * @param int $filtertype <p><code>filtertype</code> can be one of the following:</p><ul> <li>  <b><code>IMG_FILTER_NEGATE</code></b>: Reverses all colors of the image.  </li> <li>  <b><code>IMG_FILTER_GRAYSCALE</code></b>: Converts the image into grayscale by changing the red, green and blue components to their weighted sum using the same coefficients as the REC.601 luma (Y') calculation. The alpha components are retained. For palette images the result may differ due to palette limitations.  </li> <li>  <b><code>IMG_FILTER_BRIGHTNESS</code></b>: Changes the brightness of the image. Use <code>arg1</code> to set the level of brightness. The range for the brightness is -255 to 255.  </li> <li>  <b><code>IMG_FILTER_CONTRAST</code></b>: Changes the contrast of the image. Use <code>arg1</code> to set the level of contrast.  </li> <li>  <b><code>IMG_FILTER_COLORIZE</code></b>: Like <b><code>IMG_FILTER_GRAYSCALE</code></b>, except you can specify the color. Use <code>arg1</code>, <code>arg2</code> and <code>arg3</code> in the form of <code>red</code>, <code>green</code>, <code>blue</code> and <code>arg4</code> for the <code>alpha</code> channel. The range for each color is 0 to 255.  </li> <li>  <b><code>IMG_FILTER_EDGEDETECT</code></b>: Uses edge detection to highlight the edges in the image.  </li> <li>  <b><code>IMG_FILTER_EMBOSS</code></b>: Embosses the image.  </li> <li>  <b><code>IMG_FILTER_GAUSSIAN_BLUR</code></b>: Blurs the image using the Gaussian method.  </li> <li>  <b><code>IMG_FILTER_SELECTIVE_BLUR</code></b>: Blurs the image.  </li> <li>  <b><code>IMG_FILTER_MEAN_REMOVAL</code></b>: Uses mean removal to achieve a "sketchy" effect.  </li> <li>  <b><code>IMG_FILTER_SMOOTH</code></b>: Makes the image smoother. Use <code>arg1</code> to set the level of smoothness.  </li> <li>  <b><code>IMG_FILTER_PIXELATE</code></b>: Applies pixelation effect to the image, use <code>arg1</code> to set the block size and <code>arg2</code> to set the pixelation effect mode.  </li> <li>  <b><code>IMG_FILTER_SCATTER</code></b>: Applies scatter effect to the image, use <code>arg1</code> and <code>arg2</code> to define the effect strength and additionally <code>arg3</code> to only apply the on select pixel colors.  </li> </ul>
 	 * @param int $arg1 <p></p><ul> <li>  <b><code>IMG_FILTER_BRIGHTNESS</code></b>: Brightness level.  </li> <li>  <b><code>IMG_FILTER_CONTRAST</code></b>: Contrast level.  </li> <li>  <b><code>IMG_FILTER_COLORIZE</code></b>: Value of red component.  </li> <li>  <b><code>IMG_FILTER_SMOOTH</code></b>: Smoothness level.  </li> <li>  <b><code>IMG_FILTER_PIXELATE</code></b>: Block size in pixels.  </li> <li>  <b><code>IMG_FILTER_SCATTER</code></b>: Effect substraction level. This must not be higher or equal to the addition level set with <code>arg2</code>.  </li> </ul>
-	 * @param int $arg2 <p></p><ul> <li>  <b><code>IMG_FILTER_COLORIZE</code></b>: Value of green component.  </li> <li>  <b><code>IMG_FILTER_PIXELATE</code></b>: Whether to use advanced pixelation effect or not (defaults to <b><code>FALSE</code></b>).  </li> <li>  <b><code>IMG_FILTER_SCATTER</code></b>: Effect addition level.  </li> </ul>
+	 * @param int $arg2 <p></p><ul> <li>  <b><code>IMG_FILTER_COLORIZE</code></b>: Value of green component.  </li> <li>  <b><code>IMG_FILTER_PIXELATE</code></b>: Whether to use advanced pixelation effect or not (defaults to <b><code>false</code></b>).  </li> <li>  <b><code>IMG_FILTER_SCATTER</code></b>: Effect addition level.  </li> </ul>
 	 * @param int $arg3 <p></p><ul> <li>  <b><code>IMG_FILTER_COLORIZE</code></b>: Value of blue component.  </li> <li>  <b><code>IMG_FILTER_SCATTER</code></b>: Optional array indexed color values to apply effect at.  </li> </ul>
 	 * @param int $arg4 <p></p><ul> <li>  <b><code>IMG_FILTER_COLORIZE</code></b>: Alpha channel, A value between 0 and 127. 0 indicates completely opaque while 127 indicates completely transparent.  </li> </ul>
-	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.imagefilter.php
 	 * @see imageconvolution()
 	 * @since PHP 5, PHP 7
 	 */
-	function imagefilter($image, int $filtertype, int $arg1 = NULL, int $arg2 = NULL, int $arg3 = NULL, int $arg4 = NULL): bool {}
+	function imagefilter($image, int $filtertype, int $arg1 = null, int $arg2 = null, int $arg3 = null, int $arg4 = null): bool {}
 
 	/**
 	 * Flips an image using a given mode
 	 * <p>Flips the <code>image</code> image using the given <code>mode</code>.</p>
 	 * @param resource $image <p>An image resource, returned by one of the image creation functions, such as <code>imagecreatetruecolor()</code>.</p>
 	 * @param int $mode <p>Flip mode, this can be one of the <b><code>IMG_FLIP_&#42;</code></b> constants:</p> <p></p>   Constant Meaning     <b><code>IMG_FLIP_HORIZONTAL</code></b>  Flips the image horizontally.    <b><code>IMG_FLIP_VERTICAL</code></b>  Flips the image vertically.    <b><code>IMG_FLIP_BOTH</code></b>  Flips the image both horizontally and vertically.
-	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.imageflip.php
 	 * @since PHP 5 >= 5.5.0, PHP 7
 	 */
@@ -888,7 +896,7 @@ namespace {
 	 * @see imagefttext(), imagettfbbox()
 	 * @since PHP 4 >= 4.0.7, PHP 5, PHP 7
 	 */
-	function imageftbbox(float $size, float $angle, string $fontfile, string $text, array $extrainfo = NULL): array {}
+	function imageftbbox(float $size, float $angle, string $fontfile, string $text, array $extrainfo = null): array {}
 
 	/**
 	 * Write text to the image using fonts using FreeType 2
@@ -907,7 +915,7 @@ namespace {
 	 * @see imageftbbox(), imagettftext()
 	 * @since PHP 4 >= 4.0.7, PHP 5, PHP 7
 	 */
-	function imagefttext($image, float $size, float $angle, int $x, int $y, int $color, string $fontfile, string $text, array $extrainfo = NULL): array {}
+	function imagefttext($image, float $size, float $angle, int $x, int $y, int $color, string $fontfile, string $text, array $extrainfo = null): array {}
 
 	/**
 	 * Apply a gamma correction to a GD image
@@ -915,7 +923,7 @@ namespace {
 	 * @param resource $image <p>An image resource, returned by one of the image creation functions, such as <code>imagecreatetruecolor()</code>.</p>
 	 * @param float $inputgamma <p>The input gamma.</p>
 	 * @param float $outputgamma <p>The output gamma.</p>
-	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.imagegammacorrect.php
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
@@ -925,8 +933,8 @@ namespace {
 	 * Output GD image to browser or file
 	 * <p>Outputs a GD image to the given <code>to</code>.</p>
 	 * @param resource $image <p>An image resource, returned by one of the image creation functions, such as <code>imagecreatetruecolor()</code>.</p>
-	 * @param mixed $to <p>The path or an open stream resource (which is automatically being closed after this function returns) to save the file to. If not set or <b><code>NULL</code></b>, the raw image stream will be outputted directly.</p>
-	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p><b>Caution</b><p>However, if libgd fails to output the image, this function returns <b><code>TRUE</code></b>.</p>
+	 * @param mixed $to <p>The path or an open stream resource (which is automatically being closed after this function returns) to save the file to. If not set or <b><code>null</code></b>, the raw image stream will be outputted directly.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p><b>Caution</b><p>However, if libgd fails to output the image, this function returns <b><code>true</code></b>.</p>
 	 * @link https://php.net/manual/en/function.imagegd.php
 	 * @see imagegd2()
 	 * @since PHP 4 >= 4.0.7, PHP 5, PHP 7
@@ -937,10 +945,10 @@ namespace {
 	 * Output GD2 image to browser or file
 	 * <p>Outputs a GD2 image to the given <code>to</code>.</p>
 	 * @param resource $image <p>An image resource, returned by one of the image creation functions, such as <code>imagecreatetruecolor()</code>.</p>
-	 * @param mixed $to <p>The path or an open stream resource (which is automatically being closed after this function returns) to save the file to. If not set or <b><code>NULL</code></b>, the raw image stream will be outputted directly.</p>
+	 * @param mixed $to <p>The path or an open stream resource (which is automatically being closed after this function returns) to save the file to. If not set or <b><code>null</code></b>, the raw image stream will be outputted directly.</p>
 	 * @param int $chunk_size <p>Chunk size.</p>
 	 * @param int $type <p>Either <b><code>IMG_GD2_RAW</code></b> or <b><code>IMG_GD2_COMPRESSED</code></b>. Default is <b><code>IMG_GD2_RAW</code></b>.</p>
-	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p><b>Caution</b><p>However, if libgd fails to output the image, this function returns <b><code>TRUE</code></b>.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p><b>Caution</b><p>However, if libgd fails to output the image, this function returns <b><code>true</code></b>.</p>
 	 * @link https://php.net/manual/en/function.imagegd2.php
 	 * @see imagegd()
 	 * @since PHP 4 >= 4.0.7, PHP 5, PHP 7
@@ -973,18 +981,18 @@ namespace {
 	 * Output image to browser or file
 	 * <p><b>imagegif()</b> creates the GIF file in <code>to</code> from the image <code>image</code>. The <code>image</code> argument is the return from the <code>imagecreate()</code> or <code>imagecreatefrom&#42;</code> function.</p><p>The image format will be GIF87a unless the image has been made transparent with <code>imagecolortransparent()</code>, in which case the image format will be GIF89a.</p>
 	 * @param resource $image <p>An image resource, returned by one of the image creation functions, such as <code>imagecreatetruecolor()</code>.</p>
-	 * @param mixed $to <p>The path or an open stream resource (which is automatically being closed after this function returns) to save the file to. If not set or <b><code>NULL</code></b>, the raw image stream will be outputted directly.</p>
-	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p><b>Caution</b><p>However, if libgd fails to output the image, this function returns <b><code>TRUE</code></b>.</p>
+	 * @param mixed $to <p>The path or an open stream resource (which is automatically being closed after this function returns) to save the file to. If not set or <b><code>null</code></b>, the raw image stream will be outputted directly.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p><b>Caution</b><p>However, if libgd fails to output the image, this function returns <b><code>true</code></b>.</p>
 	 * @link https://php.net/manual/en/function.imagegif.php
 	 * @see imagepng(), imagewbmp(), imagejpeg(), imagetypes()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function imagegif($image, mixed $to = NULL): bool {}
+	function imagegif($image, mixed $to = null): bool {}
 
 	/**
 	 * Captures the whole screen
 	 * <p>Grabs a screenshot of the whole screen.</p><p><b>Note</b>:</p><p>This function is only available on Windows.</p>
-	 * @return resource <p>Returns an image resource identifier on success, <b><code>FALSE</code></b> on failure.</p>
+	 * @return resource <p>Returns an image resource identifier on success, <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.imagegrabscreen.php
 	 * @see imagegrabwindow()
 	 * @since PHP 5 >= 5.2.2, PHP 7
@@ -996,7 +1004,7 @@ namespace {
 	 * <p>Grabs a window or its client area using a windows handle (HWND property in COM instance)</p><p><b>Note</b>:</p><p>This function is only available on Windows.</p>
 	 * @param int $window_handle <p>The HWND window ID.</p>
 	 * @param int $client_area <p>Include the client area of the application window.</p>
-	 * @return resource <p>Returns an image resource identifier on success, <b><code>FALSE</code></b> on failure.</p>
+	 * @return resource <p>Returns an image resource identifier on success, <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.imagegrabwindow.php
 	 * @see imagegrabscreen()
 	 * @since PHP 5 >= 5.2.2, PHP 7
@@ -1018,7 +1026,7 @@ namespace {
 	 * Finds whether an image is a truecolor image
 	 * <p><b>imageistruecolor()</b> finds whether the image <code>image</code> is a truecolor image.</p>
 	 * @param resource $image <p>An image resource, returned by one of the image creation functions, such as <code>imagecreatetruecolor()</code>.</p>
-	 * @return bool <p>Returns <b><code>TRUE</code></b> if the <code>image</code> is truecolor, <b><code>FALSE</code></b> otherwise.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> if the <code>image</code> is truecolor, <b><code>false</code></b> otherwise.</p>
 	 * @link https://php.net/manual/en/function.imageistruecolor.php
 	 * @see imagecreatetruecolor(), imagepalettetotruecolor()
 	 * @since PHP 4 >= 4.3.2, PHP 5, PHP 7
@@ -1029,21 +1037,21 @@ namespace {
 	 * Output image to browser or file
 	 * <p><b>imagejpeg()</b> creates a JPEG file from the given <code>image</code>.</p>
 	 * @param resource $image <p>An image resource, returned by one of the image creation functions, such as <code>imagecreatetruecolor()</code>.</p>
-	 * @param mixed $to <p>The path or an open stream resource (which is automatically being closed after this function returns) to save the file to. If not set or <b><code>NULL</code></b>, the raw image stream will be outputted directly.</p>
+	 * @param mixed $to <p>The path or an open stream resource (which is automatically being closed after this function returns) to save the file to. If not set or <b><code>null</code></b>, the raw image stream will be outputted directly.</p>
 	 * @param int $quality <p><code>quality</code> is optional, and ranges from 0 (worst quality, smaller file) to 100 (best quality, biggest file). The default (<code>-1</code>) uses the default IJG quality value (about 75).</p>
-	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p><b>Caution</b><p>However, if libgd fails to output the image, this function returns <b><code>TRUE</code></b>.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p><b>Caution</b><p>However, if libgd fails to output the image, this function returns <b><code>true</code></b>.</p>
 	 * @link https://php.net/manual/en/function.imagejpeg.php
 	 * @see imagepng(), imagegif(), imagewbmp(), imageinterlace(), imagetypes()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function imagejpeg($image, mixed $to = NULL, int $quality = -1): bool {}
+	function imagejpeg($image, mixed $to = null, int $quality = -1): bool {}
 
 	/**
 	 * Set the alpha blending flag to use layering effects
 	 * <p>Set the alpha blending flag to use layering effects.</p>
 	 * @param resource $image <p>An image resource, returned by one of the image creation functions, such as <code>imagecreatetruecolor()</code>.</p>
-	 * @param int $effect <p>One of the following constants:</p>  <b><code>IMG_EFFECT_REPLACE</code></b>   Use pixel replacement (equivalent of passing <b><code>TRUE</code></b> to <code>imagealphablending()</code>)    <b><code>IMG_EFFECT_ALPHABLEND</code></b>   Use normal pixel blending (equivalent of passing <b><code>FALSE</code></b> to <code>imagealphablending()</code>)    <b><code>IMG_EFFECT_NORMAL</code></b>   Same as <b><code>IMG_EFFECT_ALPHABLEND</code></b>.    <b><code>IMG_EFFECT_OVERLAY</code></b>   Overlay has the effect that black background pixels will remain black, white background pixels will remain white, but grey background pixels will take the colour of the foreground pixel.    <b><code>IMG_EFFECT_MULTIPLY</code></b>   Overlays with a multiply effect.
-	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+	 * @param int $effect <p>One of the following constants:</p>  <b><code>IMG_EFFECT_REPLACE</code></b>   Use pixel replacement (equivalent of passing <b><code>true</code></b> to <code>imagealphablending()</code>)    <b><code>IMG_EFFECT_ALPHABLEND</code></b>   Use normal pixel blending (equivalent of passing <b><code>false</code></b> to <code>imagealphablending()</code>)    <b><code>IMG_EFFECT_NORMAL</code></b>   Same as <b><code>IMG_EFFECT_ALPHABLEND</code></b>.    <b><code>IMG_EFFECT_OVERLAY</code></b>   Overlay has the effect that black background pixels will remain black, white background pixels will remain white, but grey background pixels will take the colour of the foreground pixel.    <b><code>IMG_EFFECT_MULTIPLY</code></b>   Overlays with a multiply effect.
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.imagelayereffect.php
 	 * @since PHP 4 >= 4.3.0, PHP 5, PHP 7
 	 */
@@ -1058,7 +1066,7 @@ namespace {
 	 * @param int $x2 <p>x-coordinate for second point.</p>
 	 * @param int $y2 <p>y-coordinate for second point.</p>
 	 * @param int $color <p>The line color. A color identifier created with <code>imagecolorallocate()</code>.</p>
-	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.imageline.php
 	 * @see imagecreatetruecolor(), imagecolorallocate()
 	 * @since PHP 4, PHP 5, PHP 7
@@ -1069,7 +1077,7 @@ namespace {
 	 * Load a new font
 	 * <p><b>imageloadfont()</b> loads a user-defined bitmap and returns its identifier.</p>
 	 * @param string $file <p>The font file format is currently binary and architecture dependent. This means you should generate the font files on the same type of CPU as the machine you are running PHP on.</p> <p></p> <b>Font file format</b>   byte position C data type description     byte 0-3 int number of characters in the font   byte 4-7 int  value of first character in the font (often 32 for space)    byte 8-11 int pixel width of each character   byte 12-15 int pixel height of each character   byte 16- char  array with character data, one byte per pixel in each character, for a total of (nchars&#42;width&#42;height) bytes.
-	 * @return int <p>The font identifier which is always bigger than 5 to avoid conflicts with built-in fonts or <b><code>FALSE</code></b> on errors.</p>
+	 * @return int <p>The font identifier which is always bigger than 5 to avoid conflicts with built-in fonts or <b><code>false</code></b> on errors.</p>
 	 * @link https://php.net/manual/en/function.imageloadfont.php
 	 * @see imagefontwidth(), imagefontheight()
 	 * @since PHP 4, PHP 5, PHP 7
@@ -1078,12 +1086,12 @@ namespace {
 
 	/**
 	 * Draws an open polygon
-	 * <p><b>imageopenpolygon()</b> draws an open polygon on the given <code>image</code>. Contrary to <code>imagepolygon()</code>, no line is drawn between the last and the first point.</p>
+	 * <p>Alternative signature (as of PHP 8.0.0)</p><p><b>imageopenpolygon()</b> draws an open polygon on the given <code>image</code>. Contrary to <code>imagepolygon()</code>, no line is drawn between the last and the first point.</p>
 	 * @param resource $image <p>An image resource, returned by one of the image creation functions, such as <code>imagecreatetruecolor()</code>.</p>
 	 * @param array $points <p>An array containing the polygon's vertices, e.g.:</p>   points[0] = x0   points[1] = y0   points[2] = x1   points[3] = y1
-	 * @param int $num_points <p>Total number of points (vertices), which must be at least 3.</p>
+	 * @param int $num_points <p>Total number of points (vertices), which must be at least 3.</p>  If this parameter is omitted as per the second signature, <code>points</code> must have an even number of elements, and <code>num_points</code> is assumed to be <code>count($points)/2</code>.
 	 * @param int $color <p>A color identifier created with <code>imagecolorallocate()</code>.</p>
-	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.imageopenpolygon.php
 	 * @see imagepolygon()
 	 * @since PHP 7 >= 7.2.0
@@ -1105,7 +1113,7 @@ namespace {
 	 * Converts a palette based image to true color
 	 * <p>Converts a palette based image, created by functions like <code>imagecreate()</code> to a true color image, like <code>imagecreatetruecolor()</code>.</p>
 	 * @param resource $src
-	 * @return bool <p>Returns <b><code>TRUE</code></b> if the convertion was complete, or if the source image already is a true color image, otherwise <b><code>FALSE</code></b> is returned.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> if the convertion was complete, or if the source image already is a true color image, otherwise <b><code>false</code></b> is returned.</p>
 	 * @link https://php.net/manual/en/function.imagepalettetotruecolor.php
 	 * @see imagecreatetruecolor(), imageistruecolor()
 	 * @since PHP 5 >= 5.5.0, PHP 7
@@ -1116,24 +1124,24 @@ namespace {
 	 * Output a PNG image to either the browser or a file
 	 * <p>Outputs or saves a PNG image from the given <code>image</code>.</p>
 	 * @param resource $image <p>An image resource, returned by one of the image creation functions, such as <code>imagecreatetruecolor()</code>.</p>
-	 * @param mixed $to <p>The path or an open stream resource (which is automatically being closed after this function returns) to save the file to. If not set or <b><code>NULL</code></b>, the raw image stream will be outputted directly.</p> <p><b>Note</b>:</p><p><b><code>NULL</code></b> is invalid if the <code>quality</code> and <code>filters</code> arguments are not used.</p>
+	 * @param mixed $to <p>The path or an open stream resource (which is automatically being closed after this function returns) to save the file to. If not set or <b><code>null</code></b>, the raw image stream will be outputted directly.</p> <p><b>Note</b>:</p><p><b><code>null</code></b> is invalid if the <code>quality</code> and <code>filters</code> arguments are not used.</p>
 	 * @param int $quality <p>Compression level: from 0 (no compression) to 9. The default (<code>-1</code>) uses the zlib compression default. For more information see the zlib manual.</p>
 	 * @param int $filters <p>Allows reducing the PNG file size. It is a bitmask field which may be set to any combination of the <code>PNG_FILTER_XXX</code> constants. <b><code>PNG_NO_FILTER</code></b> or <b><code>PNG_ALL_FILTERS</code></b> may also be used to respectively disable or activate all filters. The default value (<code>-1</code>) disables filtering.</p> <b>Caution</b> <p>The <code>filters</code> parameter is ignored by system libgd.</p>
-	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p><b>Caution</b><p>However, if libgd fails to output the image, this function returns <b><code>TRUE</code></b>.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p><b>Caution</b><p>However, if libgd fails to output the image, this function returns <b><code>true</code></b>.</p>
 	 * @link https://php.net/manual/en/function.imagepng.php
 	 * @see imagegif(), imagewbmp(), imagejpeg(), imagetypes(), imagesavealpha()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function imagepng($image, mixed $to = NULL, int $quality = -1, int $filters = -1): bool {}
+	function imagepng($image, mixed $to = null, int $quality = -1, int $filters = -1): bool {}
 
 	/**
 	 * Draws a polygon
-	 * <p><b>imagepolygon()</b> creates a polygon in the given <code>image</code>.</p>
+	 * <p>Alternative signature (as of PHP 8.0.0)</p><p><b>imagepolygon()</b> creates a polygon in the given <code>image</code>.</p>
 	 * @param resource $image <p>An image resource, returned by one of the image creation functions, such as <code>imagecreatetruecolor()</code>.</p>
 	 * @param array $points <p>An array containing the polygon's vertices, e.g.:</p>   points[0] = x0   points[1] = y0   points[2] = x1   points[3] = y1
-	 * @param int $num_points <p>Total number of points (vertices), which must be at least 3.</p>
+	 * @param int $num_points <p>Total number of points (vertices), which must be at least 3.</p>  If this parameter is omitted as per the second signature, <code>points</code> must have an even number of elements, and <code>num_points</code> is assumed to be <code>count($points)/2</code>.
 	 * @param int $color <p>A color identifier created with <code>imagecolorallocate()</code>.</p>
-	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.imagepolygon.php
 	 * @see imagefilledpolygon(), imageopenpolygon(), imagecreate(), imagecreatetruecolor()
 	 * @since PHP 4, PHP 5, PHP 7
@@ -1149,7 +1157,7 @@ namespace {
 	 * @param int $x2 <p>Bottom right x coordinate.</p>
 	 * @param int $y2 <p>Bottom right y coordinate.</p>
 	 * @param int $color <p>A color identifier created with <code>imagecolorallocate()</code>.</p>
-	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.imagerectangle.php
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
@@ -1159,7 +1167,7 @@ namespace {
 	 * Get or set the resolution of the image
 	 * <p><b>imageresolution()</b> allows to set and get the resolution of an image in DPI (dots per inch). If none of the optional parameters is given, the current resolution is returned as indexed array. If only <code>res_x</code> is given, the horizontal and vertical resolution are set to this value. If both optional parameters are given, the horizontal and vertical resolution are set to these values, respectively.</p><p>The resolution is only used as meta information when images are read from and written to formats supporting this kind of information (curently PNG and JPEG). It does not affect any drawing operations. The default resolution for new images is 96 DPI.</p>
 	 * @param resource $image <p>An image resource, returned by one of the image creation functions, such as <code>imagecreatetruecolor()</code>.</p>
-	 * @return mixed <p>When used as getter (first signature), it returns an indexed array of the horizontal and vertical resolution on success, or <b><code>FALSE</code></b> on failure. When used as setter (second signature), it returns <b><code>TRUE</code></b> on success, or <b><code>FALSE</code></b> on failure.</p>
+	 * @return mixed <p>When used as getter (first signature), it returns an indexed array of the horizontal and vertical resolution on success, or <b><code>false</code></b> on failure. When used as setter (second signature), it returns <b><code>true</code></b> on success, or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.imageresolution.php
 	 * @since PHP 7 >= 7.2.0
 	 */
@@ -1172,7 +1180,7 @@ namespace {
 	 * @param float $angle <p>Rotation angle, in degrees. The rotation angle is interpreted as the number of degrees to rotate the image anticlockwise.</p>
 	 * @param int $bgd_color <p>Specifies the color of the uncovered zone after the rotation</p>
 	 * @param int $dummy <p>This parameter is unused.</p>
-	 * @return resource|false <p>Returns an image resource for the rotated image, or <b><code>FALSE</code></b> on failure.</p>
+	 * @return resource|false <p>Returns an image resource for the rotated image, or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.imagerotate.php
 	 * @see imagesetinterpolation()
 	 * @since PHP 4 >= 4.3.0, PHP 5, PHP 7
@@ -1183,8 +1191,8 @@ namespace {
 	 * Whether to retain full alpha channel information when saving PNG images
 	 * <p><b>imagesavealpha()</b> sets the flag which determines whether to retain full alpha channel information (as opposed to single-color transparency) when saving PNG images.</p><p>Alphablending has to be disabled (<code>imagealphablending($im, false)</code>) to retain the alpha-channel in the first place.</p>
 	 * @param resource $image <p>An image resource, returned by one of the image creation functions, such as <code>imagecreatetruecolor()</code>.</p>
-	 * @param bool $saveflag <p>Whether to save the alpha channel or not. Defaults to <b><code>FALSE</code></b>.</p>
-	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+	 * @param bool $saveflag <p>Whether to save the alpha channel or not. Defaults to <b><code>false</code></b>.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.imagesavealpha.php
 	 * @see imagealphablending()
 	 * @since PHP 4 >= 4.3.2, PHP 5, PHP 7
@@ -1198,7 +1206,7 @@ namespace {
 	 * @param int $new_width <p>The width to scale the image to.</p>
 	 * @param int $new_height <p>The height to scale the image to. If omitted or negative, the aspect ratio will be preserved.</p>
 	 * @param int $mode <p>One of <b><code>IMG_NEAREST_NEIGHBOUR</code></b>, <b><code>IMG_BILINEAR_FIXED</code></b>, <b><code>IMG_BICUBIC</code></b>, <b><code>IMG_BICUBIC_FIXED</code></b> or anything else (will use two pass).</p><p><b>Note</b>:  <b><code>IMG_WEIGHTED4</code></b> is not yet supported. </p>
-	 * @return resource|false <p>Return the scaled image resource on success or <b><code>FALSE</code></b> on failure.</p>
+	 * @return resource|false <p>Return the scaled image resource on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.imagescale.php
 	 * @see imagecopyresized(), imagecopyresampled()
 	 * @since PHP 5 >= 5.5.0, PHP 7
@@ -1210,7 +1218,7 @@ namespace {
 	 * <p><b>imagesetbrush()</b> sets the brush image to be used by all line drawing functions (such as <code>imageline()</code> and <code>imagepolygon()</code>) when drawing with the special colors <b><code>IMG_COLOR_BRUSHED</code></b> or <b><code>IMG_COLOR_STYLEDBRUSHED</code></b>.</p><p>You need not take special action when you are finished with a brush, but if you destroy the brush image (or let PHP destroy it), you must not use the <b><code>IMG_COLOR_BRUSHED</code></b> or <b><code>IMG_COLOR_STYLEDBRUSHED</code></b> colors until you have set a new brush image!</p>
 	 * @param resource $image <p>An image resource, returned by one of the image creation functions, such as <code>imagecreatetruecolor()</code>.</p>
 	 * @param resource $brush <p>An image resource.</p>
-	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.imagesetbrush.php
 	 * @since PHP 4 >= 4.0.6, PHP 5, PHP 7
 	 */
@@ -1224,7 +1232,7 @@ namespace {
 	 * @param int $y1 <p>The y-coordinate of the upper left corner.</p>
 	 * @param int $x2 <p>The x-coordinate of the lower right corner.</p>
 	 * @param int $y2 <p>The y-coordinate of the lower right corner.</p>
-	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.imagesetclip.php
 	 * @see imagegetclip()
 	 * @since PHP 7 >= 7.2.0
@@ -1236,7 +1244,7 @@ namespace {
 	 * <p>Sets the interpolation method, setting an interpolation method affects the rendering of various functions in GD, such as the <code>imagerotate()</code> function.</p>
 	 * @param resource $image <p>An image resource, returned by one of the image creation functions, such as <code>imagecreatetruecolor()</code>.</p>
 	 * @param int $method <p>The interpolation method, which can be one of the following:</p><ul> <li>  <b><code>IMG_BELL</code></b>: Bell filter.  </li> <li>  <b><code>IMG_BESSEL</code></b>: Bessel filter.  </li> <li>  <b><code>IMG_BICUBIC</code></b>: Bicubic interpolation.  </li> <li>  <b><code>IMG_BICUBIC_FIXED</code></b>: Fixed point implementation of the bicubic interpolation.  </li> <li>  <b><code>IMG_BILINEAR_FIXED</code></b>: Fixed point implementation of the bilinear interpolation (<code>default (also on image creation)</code>).  </li> <li>  <b><code>IMG_BLACKMAN</code></b>: Blackman window function.  </li> <li>  <b><code>IMG_BOX</code></b>: Box blur filter.  </li> <li>  <b><code>IMG_BSPLINE</code></b>: Spline interpolation.  </li> <li>  <b><code>IMG_CATMULLROM</code></b>: Cubic Hermite spline interpolation.  </li> <li>  <b><code>IMG_GAUSSIAN</code></b>: Gaussian function.  </li> <li>  <b><code>IMG_GENERALIZED_CUBIC</code></b>: Generalized cubic spline fractal interpolation.  </li> <li>  <b><code>IMG_HERMITE</code></b>: Hermite interpolation.  </li> <li>  <b><code>IMG_HAMMING</code></b>: Hamming filter.  </li> <li>  <b><code>IMG_HANNING</code></b>: Hanning filter.  </li> <li>  <b><code>IMG_MITCHELL</code></b>: Mitchell filter.  </li> <li>  <b><code>IMG_POWER</code></b>: Power interpolation.  </li> <li>  <b><code>IMG_QUADRATIC</code></b>: Inverse quadratic interpolation.  </li> <li>  <b><code>IMG_SINC</code></b>: Sinc function.  </li> <li>  <b><code>IMG_NEAREST_NEIGHBOUR</code></b>: Nearest neighbour interpolation.  </li> <li>  <b><code>IMG_WEIGHTED4</code></b>: Weighting filter.  </li> <li>  <b><code>IMG_TRIANGLE</code></b>: Triangle interpolation.  </li> </ul>
-	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.imagesetinterpolation.php
 	 * @see imagegetinterpolation()
 	 * @since PHP 5 >= 5.5.0, PHP 7
@@ -1250,7 +1258,7 @@ namespace {
 	 * @param int $x <p>x-coordinate.</p>
 	 * @param int $y <p>y-coordinate.</p>
 	 * @param int $color <p>A color identifier created with <code>imagecolorallocate()</code>.</p>
-	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.imagesetpixel.php
 	 * @see imagecreatetruecolor(), imagecolorallocate(), imagecolorat()
 	 * @since PHP 4, PHP 5, PHP 7
@@ -1262,7 +1270,7 @@ namespace {
 	 * <p><b>imagesetstyle()</b> sets the style to be used by all line drawing functions (such as <code>imageline()</code> and <code>imagepolygon()</code>) when drawing with the special color <b><code>IMG_COLOR_STYLED</code></b> or lines of images with color <b><code>IMG_COLOR_STYLEDBRUSHED</code></b>.</p>
 	 * @param resource $image <p>An image resource, returned by one of the image creation functions, such as <code>imagecreatetruecolor()</code>.</p>
 	 * @param array $style <p>An array of pixel colors. You can use the <b><code>IMG_COLOR_TRANSPARENT</code></b> constant to add a transparent pixel. Note that <code>style</code> must not be an empty <code>array</code>.</p>
-	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.imagesetstyle.php
 	 * @see imagesetbrush(), imageline()
 	 * @since PHP 4 >= 4.0.6, PHP 5, PHP 7
@@ -1274,7 +1282,7 @@ namespace {
 	 * <p><b>imagesetthickness()</b> sets the thickness of the lines drawn when drawing rectangles, polygons, arcs etc. to <code>thickness</code> pixels.</p>
 	 * @param resource $image <p>An image resource, returned by one of the image creation functions, such as <code>imagecreatetruecolor()</code>.</p>
 	 * @param int $thickness <p>Thickness, in pixels.</p>
-	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.imagesetthickness.php
 	 * @since PHP 4 >= 4.0.6, PHP 5, PHP 7
 	 */
@@ -1285,7 +1293,7 @@ namespace {
 	 * <p><b>imagesettile()</b> sets the tile image to be used by all region filling functions (such as <code>imagefill()</code> and <code>imagefilledpolygon()</code>) when filling with the special color <b><code>IMG_COLOR_TILED</code></b>.</p><p>A tile is an image used to fill an area with a repeated pattern. <i>Any</i> GD image can be used as a tile, and by setting the transparent color index of the tile image with <code>imagecolortransparent()</code>, a tile allows certain parts of the underlying area to shine through can be created.</p><p>You need not take special action when you are finished with a tile, but if you destroy the tile image (or let PHP destroy it), you must not use the <b><code>IMG_COLOR_TILED</code></b> color until you have set a new tile image!</p>
 	 * @param resource $image <p>An image resource, returned by one of the image creation functions, such as <code>imagecreatetruecolor()</code>.</p>
 	 * @param resource $tile <p>The image resource to be used as a tile.</p>
-	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.imagesettile.php
 	 * @since PHP 4 >= 4.0.6, PHP 5, PHP 7
 	 */
@@ -1300,7 +1308,7 @@ namespace {
 	 * @param int $y <p>y-coordinate of the upper left corner.</p>
 	 * @param string $string <p>The string to be written.</p>
 	 * @param int $color <p>A color identifier created with <code>imagecolorallocate()</code>.</p>
-	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.imagestring.php
 	 * @see imagestringup(), imageloadfont(), imagettftext()
 	 * @since PHP 4, PHP 5, PHP 7
@@ -1316,7 +1324,7 @@ namespace {
 	 * @param int $y <p>y-coordinate of the bottom left corner.</p>
 	 * @param string $string <p>The string to be written.</p>
 	 * @param int $color <p>A color identifier created with <code>imagecolorallocate()</code>.</p>
-	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.imagestringup.php
 	 * @see imagestring(), imageloadfont()
 	 * @since PHP 4, PHP 5, PHP 7
@@ -1327,7 +1335,7 @@ namespace {
 	 * Get image width
 	 * <p>Returns the width of the given <code>image</code> resource.</p>
 	 * @param resource $image <p>An image resource, returned by one of the image creation functions, such as <code>imagecreatetruecolor()</code>.</p>
-	 * @return int <p>Return the width of the <code>image</code> or <b><code>FALSE</code></b> on errors.</p>
+	 * @return int <p>Return the width of the <code>image</code> or <b><code>false</code></b> on errors.</p>
 	 * @link https://php.net/manual/en/function.imagesx.php
 	 * @see imagecreatetruecolor(), getimagesize(), imagesy()
 	 * @since PHP 4, PHP 5, PHP 7
@@ -1338,7 +1346,7 @@ namespace {
 	 * Get image height
 	 * <p>Returns the height of the given <code>image</code> resource.</p>
 	 * @param resource $image <p>An image resource, returned by one of the image creation functions, such as <code>imagecreatetruecolor()</code>.</p>
-	 * @return int <p>Return the height of the <code>image</code> or <b><code>FALSE</code></b> on errors.</p>
+	 * @return int <p>Return the height of the <code>image</code> or <b><code>false</code></b> on errors.</p>
 	 * @link https://php.net/manual/en/function.imagesy.php
 	 * @see imagecreatetruecolor(), getimagesize(), imagesx()
 	 * @since PHP 4, PHP 5, PHP 7
@@ -1349,9 +1357,9 @@ namespace {
 	 * Convert a true color image to a palette image
 	 * <p><b>imagetruecolortopalette()</b> converts a truecolor image to a palette image. The code for this function was originally drawn from the Independent JPEG Group library code, which is excellent. The code has been modified to preserve as much alpha channel information as possible in the resulting palette, in addition to preserving colors as well as possible. This does not work as well as might be hoped. It is usually best to simply produce a truecolor output image instead, which guarantees the highest output quality.</p>
 	 * @param resource $image <p>An image resource, returned by one of the image creation functions, such as <code>imagecreatetruecolor()</code>.</p>
-	 * @param bool $dither <p>Indicates if the image should be dithered - if it is <b><code>TRUE</code></b> then dithering will be used which will result in a more speckled image but with better color approximation.</p>
+	 * @param bool $dither <p>Indicates if the image should be dithered - if it is <b><code>true</code></b> then dithering will be used which will result in a more speckled image but with better color approximation.</p>
 	 * @param int $ncolors <p>Sets the maximum number of colors that should be retained in the palette.</p>
-	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.imagetruecolortopalette.php
 	 * @since PHP 4 >= 4.0.6, PHP 5, PHP 7
 	 */
@@ -1364,7 +1372,7 @@ namespace {
 	 * @param float $angle <p>Angle in degrees in which <code>text</code> will be measured.</p>
 	 * @param string $fontfile <p>The path to the TrueType font you wish to use.</p> <p>Depending on which version of the GD library PHP is using, <i>when <code>fontfile</code> does not begin with a leading <code>/</code> then <code>.ttf</code> will be appended</i> to the filename and the library will attempt to search for that filename along a library-defined font path.</p> <p>When using versions of the GD library lower than 2.0.18, a <code>space</code> character, rather than a semicolon, was used as the 'path separator' for different font files. Unintentional use of this feature will result in the warning message: <code>Warning: Could not find/open font</code>. For these affected versions, the only solution is moving the font to a path which does not contain spaces.</p> <p>In many cases where a font resides in the same directory as the script using it the following trick will alleviate any include problems.</p> <code> &lt;&#63;php<br>//&nbsp;Set&nbsp;the&nbsp;environment&nbsp;variable&nbsp;for&nbsp;GD<br>putenv('GDFONTPATH='&nbsp;.&nbsp;realpath('.'));<br><br>//&nbsp;Name&nbsp;the&nbsp;font&nbsp;to&nbsp;be&nbsp;used&nbsp;(note&nbsp;the&nbsp;lack&nbsp;of&nbsp;the&nbsp;.ttf&nbsp;extension)<br>$font&nbsp;=&nbsp;'SomeFont';<br>&#63;&gt;  </code>  <p><b>Note</b>:</p><p>Note that open_basedir does <i>not</i> apply to <code>fontfile</code>.</p>
 	 * @param string $text <p>The string to be measured.</p>
-	 * @return array <p><b>imagettfbbox()</b> returns an array with 8 elements representing four points making the bounding box of the text on success and <b><code>FALSE</code></b> on error.</p>   key contents     0 lower left corner, X position   1 lower left corner, Y position   2 lower right corner, X position   3 lower right corner, Y position   4 upper right corner, X position   5 upper right corner, Y position   6 upper left corner, X position   7 upper left corner, Y position   <p>The points are relative to the <i>text</i> regardless of the <code>angle</code>, so "upper left" means in the top left-hand corner seeing the text horizontally.</p>
+	 * @return array <p><b>imagettfbbox()</b> returns an array with 8 elements representing four points making the bounding box of the text on success and <b><code>false</code></b> on error.</p>   key contents     0 lower left corner, X position   1 lower left corner, Y position   2 lower right corner, X position   3 lower right corner, Y position   4 upper right corner, X position   5 upper right corner, Y position   6 upper left corner, X position   7 upper left corner, Y position   <p>The points are relative to the <i>text</i> regardless of the <code>angle</code>, so "upper left" means in the top left-hand corner seeing the text horizontally.</p>
 	 * @link https://php.net/manual/en/function.imagettfbbox.php
 	 * @see imagettftext(), imageftbbox()
 	 * @since PHP 4, PHP 5, PHP 7
@@ -1382,7 +1390,7 @@ namespace {
 	 * @param int $color <p>The color index. Using the negative of a color index has the effect of turning off antialiasing. See <code>imagecolorallocate()</code>.</p>
 	 * @param string $fontfile <p>The path to the TrueType font you wish to use.</p> <p>Depending on which version of the GD library PHP is using, <i>when <code>fontfile</code> does not begin with a leading <code>/</code> then <code>.ttf</code> will be appended</i> to the filename and the library will attempt to search for that filename along a library-defined font path.</p> <p>When using versions of the GD library lower than 2.0.18, a <code>space</code> character, rather than a semicolon, was used as the 'path separator' for different font files. Unintentional use of this feature will result in the warning message: <code>Warning: Could not find/open font</code>. For these affected versions, the only solution is moving the font to a path which does not contain spaces.</p> <p>In many cases where a font resides in the same directory as the script using it the following trick will alleviate any include problems.</p> <code> &lt;&#63;php<br>//&nbsp;Set&nbsp;the&nbsp;environment&nbsp;variable&nbsp;for&nbsp;GD<br>putenv('GDFONTPATH='&nbsp;.&nbsp;realpath('.'));<br><br>//&nbsp;Name&nbsp;the&nbsp;font&nbsp;to&nbsp;be&nbsp;used&nbsp;(note&nbsp;the&nbsp;lack&nbsp;of&nbsp;the&nbsp;.ttf&nbsp;extension)<br>$font&nbsp;=&nbsp;'SomeFont';<br>&#63;&gt;  </code>  <p><b>Note</b>:</p><p>Note that open_basedir does <i>not</i> apply to <code>fontfile</code>.</p>
 	 * @param string $text <p>The text string in UTF-8 encoding.</p> <p>May include decimal numeric character references (of the form: &amp;#8364;) to access characters in a font beyond position 127. The hexadecimal format (like &amp;#xA9;) is supported. Strings in UTF-8 encoding can be passed directly.</p> <p>Named entities, such as &amp;copy;, are not supported. Consider using <code>html_entity_decode()</code> to decode these named entities into UTF-8 strings.</p> <p>If a character is used in the string which is not supported by the font, a hollow rectangle will replace the character.</p>
-	 * @return array <p>Returns an array with 8 elements representing four points making the bounding box of the text. The order of the points is lower left, lower right, upper right, upper left. The points are relative to the text regardless of the angle, so "upper left" means in the top left-hand corner when you see the text horizontally. Returns <b><code>FALSE</code></b> on error.</p>
+	 * @return array <p>Returns an array with 8 elements representing four points making the bounding box of the text. The order of the points is lower left, lower right, upper right, upper left. The points are relative to the text regardless of the angle, so "upper left" means in the top left-hand corner when you see the text horizontally. Returns <b><code>false</code></b> on error.</p>
 	 * @link https://php.net/manual/en/function.imagettftext.php
 	 * @see imagettfbbox(), imagefttext()
 	 * @since PHP 4, PHP 5, PHP 7
@@ -1403,60 +1411,60 @@ namespace {
 	 * Output image to browser or file
 	 * <p><b>imagewbmp()</b> outputs or save a WBMP version of the given <code>image</code>.</p>
 	 * @param resource $image <p>An image resource, returned by one of the image creation functions, such as <code>imagecreatetruecolor()</code>.</p>
-	 * @param mixed $to <p>The path or an open stream resource (which is automatically being closed after this function returns) to save the file to. If not set or <b><code>NULL</code></b>, the raw image stream will be outputted directly.</p>
+	 * @param mixed $to <p>The path or an open stream resource (which is automatically being closed after this function returns) to save the file to. If not set or <b><code>null</code></b>, the raw image stream will be outputted directly.</p>
 	 * @param int $foreground <p>You can set the foreground color with this parameter by setting an identifier obtained from <code>imagecolorallocate()</code>. The default foreground color is black.</p>
-	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p><b>Caution</b><p>However, if libgd fails to output the image, this function returns <b><code>TRUE</code></b>.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p><b>Caution</b><p>However, if libgd fails to output the image, this function returns <b><code>true</code></b>.</p>
 	 * @link https://php.net/manual/en/function.imagewbmp.php
 	 * @see image2wbmp(), imagepng(), imagegif(), imagejpeg(), imagetypes()
 	 * @since PHP 4 >= 4.0.1, PHP 5, PHP 7
 	 */
-	function imagewbmp($image, mixed $to = NULL, int $foreground = NULL): bool {}
+	function imagewbmp($image, mixed $to = null, int $foreground = null): bool {}
 
 	/**
 	 * Output a WebP image to browser or file
 	 * <p>Outputs or saves a WebP version of the given <code>image</code>.</p>
 	 * @param resource $image <p>An image resource, returned by one of the image creation functions, such as <code>imagecreatetruecolor()</code>.</p>
-	 * @param mixed $to <p>The path or an open stream resource (which is automatically being closed after this function returns) to save the file to. If not set or <b><code>NULL</code></b>, the raw image stream will be outputted directly.</p>
+	 * @param mixed $to <p>The path or an open stream resource (which is automatically being closed after this function returns) to save the file to. If not set or <b><code>null</code></b>, the raw image stream will be outputted directly.</p>
 	 * @param int $quality <p><code>quality</code> ranges from 0 (worst quality, smaller file) to 100 (best quality, biggest file).</p>
-	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p><b>Caution</b><p>However, if libgd fails to output the image, this function returns <b><code>TRUE</code></b>.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p><b>Caution</b><p>However, if libgd fails to output the image, this function returns <b><code>true</code></b>.</p>
 	 * @link https://php.net/manual/en/function.imagewebp.php
 	 * @since PHP 5 >= 5.4.0, PHP 7
 	 */
-	function imagewebp($image, mixed $to = NULL, int $quality = 80): bool {}
+	function imagewebp($image, mixed $to = null, int $quality = 80): bool {}
 
 	/**
 	 * Output an XBM image to browser or file
 	 * <p>Outputs or save an XBM version of the given <code>image</code>.</p><p><b>Note</b>:  <b>imagexbm()</b> doesn't apply any padding, so the image width has to be a multiple of 8. This restriction does no longer apply as of PHP 7.0.9. </p>
 	 * @param resource $image <p>An image resource, returned by one of the image creation functions, such as <code>imagecreatetruecolor()</code>.</p>
-	 * @param mixed $filename <p>The path to save the file to, given as <code>string</code>. If <b><code>NULL</code></b>, the raw image stream will be output directly.</p> <p>The <code>filename</code> (without the .xbm extension) is also used for the C identifiers of the XBM, whereby non alphanumeric characters of the current locale are substituted by underscores. If <code>filename</code> is set to <b><code>NULL</code></b>, <code>image</code> is used to build the C identifiers.</p>
+	 * @param mixed $filename <p>The path to save the file to, given as <code>string</code>. If <b><code>null</code></b>, the raw image stream will be output directly.</p> <p>The <code>filename</code> (without the .xbm extension) is also used for the C identifiers of the XBM, whereby non alphanumeric characters of the current locale are substituted by underscores. If <code>filename</code> is set to <b><code>null</code></b>, <code>image</code> is used to build the C identifiers.</p>
 	 * @param int $foreground <p>You can set the foreground color with this parameter by setting an identifier obtained from <code>imagecolorallocate()</code>. The default foreground color is black. All other colors are treated as background.</p>
-	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p><b>Caution</b><p>However, if libgd fails to output the image, this function returns <b><code>TRUE</code></b>.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p><b>Caution</b><p>However, if libgd fails to output the image, this function returns <b><code>true</code></b>.</p>
 	 * @link https://php.net/manual/en/function.imagexbm.php
 	 * @since PHP 5, PHP 7
 	 */
-	function imagexbm($image, mixed $filename, int $foreground = NULL): bool {}
+	function imagexbm($image, mixed $filename, int $foreground = null): bool {}
 
 	/**
 	 * Embeds binary IPTC data into a JPEG image
 	 * <p>Embeds binary IPTC data into a JPEG image.</p>
-	 * @param string $iptcdata <p>The data to be written.</p>
-	 * @param string $jpeg_file_name <p>Path to the JPEG image.</p>
+	 * @param string $iptc_data <p>The data to be written.</p>
+	 * @param string $filename <p>Path to the JPEG image.</p>
 	 * @param int $spool <p>Spool flag. If the spool flag is less than 2 then the JPEG will be returned as a string. Otherwise the JPEG will be printed to STDOUT.</p>
-	 * @return mixed <p>If <code>spool</code> is less than 2, the JPEG will be returned, or <b><code>FALSE</code></b> on failure. Otherwise returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+	 * @return string|bool <p>If <code>spool</code> is less than 2, the JPEG will be returned, or <b><code>false</code></b> on failure. Otherwise returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.iptcembed.php
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function iptcembed(string $iptcdata, string $jpeg_file_name, int $spool = 0): mixed {}
+	function iptcembed(string $iptc_data, string $filename, int $spool = 0): string|bool {}
 
 	/**
 	 * Parse a binary IPTC block into single tags
 	 * <p>Parses an IPTC block into its single tags.</p>
-	 * @param string $iptcblock <p>A binary IPTC block.</p>
-	 * @return array <p>Returns an array using the tagmarker as an index and the value as the value. It returns <b><code>FALSE</code></b> on error or if no IPTC data was found.</p>
+	 * @param string $iptc_block <p>A binary IPTC block.</p>
+	 * @return array|false <p>Returns an array using the tagmarker as an index and the value as the value. It returns <b><code>false</code></b> on error or if no IPTC data was found.</p>
 	 * @link https://php.net/manual/en/function.iptcparse.php
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function iptcparse(string $iptcblock): array {}
+	function iptcparse(string $iptc_block): array|false {}
 
 	/**
 	 * Convert JPEG image file to WBMP image file
@@ -1466,7 +1474,7 @@ namespace {
 	 * @param int $dest_height <p>Destination image height.</p>
 	 * @param int $dest_width <p>Destination image width.</p>
 	 * @param int $threshold <p>Threshold value, between 0 and 8 (inclusive).</p>
-	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p><b>Caution</b><p>However, if libgd fails to output the image, this function returns <b><code>TRUE</code></b>.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p><b>Caution</b><p>However, if libgd fails to output the image, this function returns <b><code>true</code></b>.</p>
 	 * @link https://php.net/manual/en/function.jpeg2wbmp.php
 	 * @see png2wbmp()
 	 * @since PHP 4 >= 4.0.5, PHP 5, PHP 7
@@ -1481,7 +1489,7 @@ namespace {
 	 * @param int $dest_height <p>Destination image height.</p>
 	 * @param int $dest_width <p>Destination image width.</p>
 	 * @param int $threshold <p>Threshold value, between 0 and 8 (inclusive).</p>
-	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p><b>Caution</b><p>However, if libgd fails to output the image, this function returns <b><code>TRUE</code></b>.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p><b>Caution</b><p>However, if libgd fails to output the image, this function returns <b><code>true</code></b>.</p>
 	 * @link https://php.net/manual/en/function.png2wbmp.php
 	 * @see jpeg2wbmp()
 	 * @since PHP 4 >= 4.0.5, PHP 5, PHP 7

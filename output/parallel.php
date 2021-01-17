@@ -391,7 +391,7 @@ namespace parallel {
 		 * @link https://php.net/manual/en/parallel-sync.notify.php
 		 * @since 1.1.0
 		 */
-		public function notify(bool $all = NULL) {}
+		public function notify(bool $all = null) {}
 
 		/**
 		 * Access

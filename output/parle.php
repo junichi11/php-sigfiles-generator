@@ -24,7 +24,7 @@ namespace Parle {
 		public $position;
 
 		/**
-		 * @var mixed <p>If applicable - the Parle\Token related to the error, otherwise <b><code>NULL</code></b>.</p>
+		 * @var mixed <p>If applicable - the Parle\Token related to the error, otherwise <b><code>null</code></b>.</p>
 		 * @link https://php.net/manual/en/class.parle-errorinfo.php#parle-errorinfo.props.token
 		 */
 		public $token;
@@ -71,7 +71,7 @@ namespace Parle {
 		 * @var bool <p>Start of input flag.</p>
 		 * @link https://php.net/manual/en/class.parle-lexer.php#parle-lexer.props.bol
 		 */
-		public $bol = FALSE;
+		public $bol = false;
 
 		/**
 		 * @var int <p>Lexer flags.</p>
@@ -274,7 +274,7 @@ namespace Parle {
 		/**
 		 * Returns previous Exception
 		 * <p>Returns previous exception (the third parameter of <code>Exception::__construct()</code>).</p>
-		 * @return Throwable <p>Returns the previous Throwable if available or <b><code>NULL</code></b> otherwise.</p>
+		 * @return Throwable <p>Returns the previous Throwable if available or <b><code>null</code></b> otherwise.</p>
 		 * @link https://php.net/manual/en/exception.getprevious.php
 		 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8
 		 */
@@ -462,7 +462,7 @@ namespace Parle {
 		 * @link https://php.net/manual/en/parle-parser.reset.php
 		 * @since PECL parle >= 0.7.1
 		 */
-		public function reset(int $tokenId = NULL): void {}
+		public function reset(int $tokenId = null): void {}
 
 		/**
 		 * Declare a token with right-associativity
@@ -612,7 +612,7 @@ namespace Parle {
 		/**
 		 * Returns previous Exception
 		 * <p>Returns previous exception (the third parameter of <code>Exception::__construct()</code>).</p>
-		 * @return Throwable <p>Returns the previous Throwable if available or <b><code>NULL</code></b> otherwise.</p>
+		 * @return Throwable <p>Returns the previous Throwable if available or <b><code>null</code></b> otherwise.</p>
 		 * @link https://php.net/manual/en/exception.getprevious.php
 		 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8
 		 */
@@ -678,7 +678,7 @@ namespace Parle {
 		 * @var bool <p>Start of input flag.</p>
 		 * @link https://php.net/manual/en/class.parle-rlexer.php#parle-rlexer.props.bol
 		 */
-		public $bol = FALSE;
+		public $bol = false;
 
 		/**
 		 * @var int <p>Lexer flags.</p>
@@ -967,7 +967,7 @@ namespace Parle {
 		 * @link https://php.net/manual/en/parle-rparser.reset.php
 		 * @since PECL parle >= 0.7.1
 		 */
-		public function reset(int $tokenId = NULL): void {}
+		public function reset(int $tokenId = null): void {}
 
 		/**
 		 * Declare a token with right-associativity
@@ -987,7 +987,7 @@ namespace Parle {
 		 * @link https://php.net/manual/en/parle-rparser.sigil.php
 		 * @since PECL parle >= 0.7.0
 		 */
-		public function sigil(int $idx = NULL): string {}
+		public function sigil(int $idx = null): string {}
 
 		/**
 		 * Declare a token
@@ -1041,7 +1041,7 @@ namespace Parle {
 		 * @var bool <p>Whether the stack is empty, readonly.</p>
 		 * @link https://php.net/manual/en/class.parle-stack.php#parle-stack.props.empty
 		 */
-		public $empty = TRUE;
+		public $empty = true;
 
 		/**
 		 * @var int <p>Stack size, readonly.</p>

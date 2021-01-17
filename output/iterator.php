@@ -23,7 +23,7 @@ namespace {
 		/**
 		 * Return the key of the current element
 		 * <p>Returns the key of the current element.</p>
-		 * @return scalar <p>Returns scalar on success, or <b><code>NULL</code></b> on failure.</p>
+		 * @return scalar <p>Returns scalar on success, or <b><code>null</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/iterator.key.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
@@ -50,7 +50,7 @@ namespace {
 		/**
 		 * Checks if current position is valid
 		 * <p>This method is called after <code>Iterator::rewind()</code> and <code>Iterator::next()</code> to check if the current position is valid.</p>
-		 * @return bool <p>The return value will be casted to <code>bool</code> and then evaluated. Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+		 * @return bool <p>The return value will be casted to <code>bool</code> and then evaluated. Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/iterator.valid.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */

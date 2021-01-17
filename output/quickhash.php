@@ -51,24 +51,24 @@ namespace {
 		 * @link https://php.net/manual/en/quickhashinthash.construct.php
 		 * @since PECL quickhash >= Unknown
 		 */
-		public function __construct(int $size, int $options = NULL) {}
+		public function __construct(int $size, int $options = null) {}
 
 		/**
 		 * This method adds a new entry to the hash
 		 * <p>This method adds a new entry to the hash, and returns whether the entry was added. Entries are by default always added unless QuickHashIntHash::CHECK_FOR_DUPES has been passed when the hash was created.</p>
 		 * @param int $key <p>The key of the entry to add.</p>
 		 * @param int $value <p>The optional value of the entry to add. If no value is specified, <code>1</code> will be used.</p>
-		 * @return bool <p><b><code>TRUE</code></b> when the entry was added, and <b><code>FALSE</code></b> if the entry was not added.</p>
+		 * @return bool <p><b><code>true</code></b> when the entry was added, and <b><code>false</code></b> if the entry was not added.</p>
 		 * @link https://php.net/manual/en/quickhashinthash.add.php
 		 * @since PECL quickhash >= Unknown
 		 */
-		public function add(int $key, int $value = NULL): bool {}
+		public function add(int $key, int $value = null): bool {}
 
 		/**
 		 * This method deletes am entry from the hash
-		 * <p>This method deletes an entry from the hash, and returns whether the entry was deleted or not. Associated memory structures will not be freed immediately, but rather when the hash itself is freed.</p><p>Elements can not be deleted when the hash is used in an iterator. The method will not throw an exception, but simply return <b><code>FALSE</code></b> like would happen with any other deletion failure.</p>
+		 * <p>This method deletes an entry from the hash, and returns whether the entry was deleted or not. Associated memory structures will not be freed immediately, but rather when the hash itself is freed.</p><p>Elements can not be deleted when the hash is used in an iterator. The method will not throw an exception, but simply return <b><code>false</code></b> like would happen with any other deletion failure.</p>
 		 * @param int $key <p>The key of the entry to delete.</p>
-		 * @return bool <p><b><code>TRUE</code></b> when the entry was deleted, and <b><code>FALSE</code></b> if the entry was not deleted.</p>
+		 * @return bool <p><b><code>true</code></b> when the entry was deleted, and <b><code>false</code></b> if the entry was not deleted.</p>
 		 * @link https://php.net/manual/en/quickhashinthash.delete.php
 		 * @since PECL quickhash >= Unknown
 		 */
@@ -78,7 +78,7 @@ namespace {
 		 * This method checks whether a key is part of the hash
 		 * <p>This method checks whether an entry with the provided key exists in the hash.</p>
 		 * @param int $key <p>The key of the entry to check for whether it exists in the hash.</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b> when the entry was found, or <b><code>FALSE</code></b> when the entry is not found.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> when the entry was found, or <b><code>false</code></b> when the entry is not found.</p>
 		 * @link https://php.net/manual/en/quickhashinthash.exists.php
 		 * @since PECL quickhash >= Unknown
 		 */
@@ -88,7 +88,7 @@ namespace {
 		 * This method retrieves a value from the hash by its key
 		 * <p>This method retrieves a value from the hash by its key.</p>
 		 * @param int $key <p>The key of the entry to add.</p>
-		 * @return int <p>The value if the key exists, or <b><code>NULL</code></b> if the key wasn't part of the hash.</p>
+		 * @return int <p>The value if the key exists, or <b><code>null</code></b> if the key wasn't part of the hash.</p>
 		 * @link https://php.net/manual/en/quickhashinthash.get.php
 		 * @since PECL quickhash >= Unknown
 		 */
@@ -112,7 +112,7 @@ namespace {
 		 * @link https://php.net/manual/en/quickhashinthash.loadfromfile.php
 		 * @since PECL quickhash >= Unknown
 		 */
-		public static function loadFromFile(string $filename, int $options = NULL): \QuickHashIntHash {}
+		public static function loadFromFile(string $filename, int $options = null): \QuickHashIntHash {}
 
 		/**
 		 * This factory method creates a hash from a string
@@ -123,7 +123,7 @@ namespace {
 		 * @link https://php.net/manual/en/quickhashinthash.loadfromstring.php
 		 * @since PECL quickhash >= Unknown
 		 */
-		public static function loadFromString(string $contents, int $options = NULL): \QuickHashIntHash {}
+		public static function loadFromString(string $contents, int $options = null): \QuickHashIntHash {}
 
 		/**
 		 * This method stores an in-memory hash to disk
@@ -160,7 +160,7 @@ namespace {
 		 * <p>This method updates an entry with a new value, and returns whether the entry was update. If there are duplicate keys, only the first found element will get an updated value. Use QuickHashIntHash::CHECK_FOR_DUPES during hash creation to prevent duplicate keys from being part of the hash.</p>
 		 * @param int $key <p>The key of the entry to add.</p>
 		 * @param int $value <p>The new value to update the entry with.</p>
-		 * @return bool <p><b><code>TRUE</code></b> when the entry was found and updated, and <b><code>FALSE</code></b> if the entry was not part of the hash already.</p>
+		 * @return bool <p><b><code>true</code></b> when the entry was found and updated, and <b><code>false</code></b> if the entry was not part of the hash already.</p>
 		 * @link https://php.net/manual/en/quickhashinthash.update.php
 		 * @since PECL quickhash >= Unknown
 		 */
@@ -214,13 +214,13 @@ namespace {
 		 * @link https://php.net/manual/en/quickhashintset.construct.php
 		 * @since PECL quickhash >= Unknown
 		 */
-		public function __construct(int $size, int $options = NULL) {}
+		public function __construct(int $size, int $options = null) {}
 
 		/**
 		 * This method adds a new entry to the set
 		 * <p>This method adds a new entry to the set, and returns whether the entry was added. Entries are by default always added unless QuickHashIntSet::CHECK_FOR_DUPES has been passed when the set was created.</p>
 		 * @param int $key <p>The key of the entry to add.</p>
-		 * @return bool <p><b><code>TRUE</code></b> when the entry was added, and <b><code>FALSE</code></b> if the entry was not added.</p>
+		 * @return bool <p><b><code>true</code></b> when the entry was added, and <b><code>false</code></b> if the entry was not added.</p>
 		 * @link https://php.net/manual/en/quickhashintset.add.php
 		 * @since PECL quickhash >= Unknown
 		 */
@@ -230,7 +230,7 @@ namespace {
 		 * This method deletes an entry from the set
 		 * <p>This method deletes an entry from the set, and returns whether the entry was deleted or not. Associated memory structures will not be freed immediately, but rather when the set itself is freed.</p>
 		 * @param int $key <p>The key of the entry to delete.</p>
-		 * @return bool <p><b><code>TRUE</code></b> when the entry was deleted, and <b><code>FALSE</code></b> if the entry was not deleted.</p>
+		 * @return bool <p><b><code>true</code></b> when the entry was deleted, and <b><code>false</code></b> if the entry was not deleted.</p>
 		 * @link https://php.net/manual/en/quickhashintset.delete.php
 		 * @since PECL quickhash >= Unknown
 		 */
@@ -240,7 +240,7 @@ namespace {
 		 * This method checks whether a key is part of the set
 		 * <p>This method checks whether an entry with the provided key exists in the set.</p>
 		 * @param int $key <p>The key of the entry to check for whether it exists in the set.</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b> when the entry was found, or <b><code>FALSE</code></b> when the entry is not found.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> when the entry was found, or <b><code>false</code></b> when the entry is not found.</p>
 		 * @link https://php.net/manual/en/quickhashintset.exists.php
 		 * @since PECL quickhash >= Unknown
 		 */
@@ -265,7 +265,7 @@ namespace {
 		 * @link https://php.net/manual/en/quickhashintset.loadfromfile.php
 		 * @since PECL quickhash >= Unknown
 		 */
-		public static function loadFromFile(string $filename, int $size = NULL, int $options = NULL): \QuickHashIntSet {}
+		public static function loadFromFile(string $filename, int $size = null, int $options = null): \QuickHashIntSet {}
 
 		/**
 		 * This factory method creates a set from a string
@@ -277,7 +277,7 @@ namespace {
 		 * @link https://php.net/manual/en/quickhashintset.loadfromstring.php
 		 * @since PECL quickhash >= Unknown
 		 */
-		public static function loadFromString(string $contents, int $size = NULL, int $options = NULL): \QuickHashIntSet {}
+		public static function loadFromString(string $contents, int $size = null, int $options = null): \QuickHashIntSet {}
 
 		/**
 		 * This method stores an in-memory set to disk
@@ -353,7 +353,7 @@ namespace {
 		 * <p>This method adds a new entry to the hash, and returns whether the entry was added. Entries are by default always added unless QuickHashIntStringHash::CHECK_FOR_DUPES has been passed when the hash was created.</p>
 		 * @param int $key <p>The key of the entry to add.</p>
 		 * @param string $value <p>The value of the entry to add. If a non-string is passed, it will be converted to a string automatically if possible.</p>
-		 * @return bool <p><b><code>TRUE</code></b> when the entry was added, and <b><code>FALSE</code></b> if the entry was not added.</p>
+		 * @return bool <p><b><code>true</code></b> when the entry was added, and <b><code>false</code></b> if the entry was not added.</p>
 		 * @link https://php.net/manual/en/quickhashintstringhash.add.php
 		 * @since PECL quickhash >= Unknown
 		 */
@@ -361,9 +361,9 @@ namespace {
 
 		/**
 		 * This method deletes am entry from the hash
-		 * <p>This method deletes an entry from the hash, and returns whether the entry was deleted or not. Associated memory structures will not be freed immediately, but rather when the hash itself is freed.</p><p>Elements can not be deleted when the hash is used in an iterator. The method will not throw an exception, but simply return <b><code>FALSE</code></b> like would happen with any other deletion failure.</p>
+		 * <p>This method deletes an entry from the hash, and returns whether the entry was deleted or not. Associated memory structures will not be freed immediately, but rather when the hash itself is freed.</p><p>Elements can not be deleted when the hash is used in an iterator. The method will not throw an exception, but simply return <b><code>false</code></b> like would happen with any other deletion failure.</p>
 		 * @param int $key <p>The key of the entry to delete.</p>
-		 * @return bool <p><b><code>TRUE</code></b> when the entry was deleted, and <b><code>FALSE</code></b> if the entry was not deleted.</p>
+		 * @return bool <p><b><code>true</code></b> when the entry was deleted, and <b><code>false</code></b> if the entry was not deleted.</p>
 		 * @link https://php.net/manual/en/quickhashintstringhash.delete.php
 		 * @since PECL quickhash >= Unknown
 		 */
@@ -373,7 +373,7 @@ namespace {
 		 * This method checks whether a key is part of the hash
 		 * <p>This method checks whether an entry with the provided key exists in the hash.</p>
 		 * @param int $key <p>The key of the entry to check for whether it exists in the hash.</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b> when the entry was found, or <b><code>FALSE</code></b> when the entry is not found.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> when the entry was found, or <b><code>false</code></b> when the entry is not found.</p>
 		 * @link https://php.net/manual/en/quickhashintstringhash.exists.php
 		 * @since PECL quickhash >= Unknown
 		 */
@@ -383,7 +383,7 @@ namespace {
 		 * This method retrieves a value from the hash by its key
 		 * <p>This method retrieves a value from the hash by its key.</p>
 		 * @param int $key <p>The key of the entry to add.</p>
-		 * @return mixed <p>The value if the key exists, or <b><code>NULL</code></b> if the key wasn't part of the hash.</p>
+		 * @return mixed <p>The value if the key exists, or <b><code>null</code></b> if the key wasn't part of the hash.</p>
 		 * @link https://php.net/manual/en/quickhashintstringhash.get.php
 		 * @since PECL quickhash >= Unknown
 		 */
@@ -457,7 +457,7 @@ namespace {
 		 * <p>This method updates an entry with a new value, and returns whether the entry was update. If there are duplicate keys, only the first found element will get an updated value. Use QuickHashIntStringHash::CHECK_FOR_DUPES during hash creation to prevent duplicate keys from being part of the hash.</p>
 		 * @param int $key <p>The key of the entry to add.</p>
 		 * @param string $value <p>The new value for the entry. If a non-string is passed, it will be converted to a string automatically if possible.</p>
-		 * @return bool <p><b><code>TRUE</code></b> when the entry was found and updated, and <b><code>FALSE</code></b> if the entry was not part of the hash already.</p>
+		 * @return bool <p><b><code>true</code></b> when the entry was found and updated, and <b><code>false</code></b> if the entry was not part of the hash already.</p>
 		 * @link https://php.net/manual/en/quickhashintstringhash.update.php
 		 * @since PECL quickhash >= Unknown
 		 */
@@ -500,7 +500,7 @@ namespace {
 		 * <p>This method adds a new entry to the hash, and returns whether the entry was added. Entries are by default always added unless QuickHashStringIntHash::CHECK_FOR_DUPES has been passed when the hash was created.</p>
 		 * @param string $key <p>The key of the entry to add.</p>
 		 * @param int $value <p>The value of the entry to add.</p>
-		 * @return bool <p><b><code>TRUE</code></b> when the entry was added, and <b><code>FALSE</code></b> if the entry was not added.</p>
+		 * @return bool <p><b><code>true</code></b> when the entry was added, and <b><code>false</code></b> if the entry was not added.</p>
 		 * @link https://php.net/manual/en/quickhashstringinthash.add.php
 		 * @since No version information available, might only be in Git
 		 */
@@ -508,9 +508,9 @@ namespace {
 
 		/**
 		 * This method deletes am entry from the hash
-		 * <p>This method deletes an entry from the hash, and returns whether the entry was deleted or not. Associated memory structures will not be freed immediately, but rather when the hash itself is freed.</p><p>Elements can not be deleted when the hash is used in an iterator. The method will not throw an exception, but simply return <b><code>FALSE</code></b> like would happen with any other deletion failure.</p>
+		 * <p>This method deletes an entry from the hash, and returns whether the entry was deleted or not. Associated memory structures will not be freed immediately, but rather when the hash itself is freed.</p><p>Elements can not be deleted when the hash is used in an iterator. The method will not throw an exception, but simply return <b><code>false</code></b> like would happen with any other deletion failure.</p>
 		 * @param string $key <p>The key of the entry to delete.</p>
-		 * @return bool <p><b><code>TRUE</code></b> when the entry was deleted, and <b><code>FALSE</code></b> if the entry was not deleted.</p>
+		 * @return bool <p><b><code>true</code></b> when the entry was deleted, and <b><code>false</code></b> if the entry was not deleted.</p>
 		 * @link https://php.net/manual/en/quickhashstringinthash.delete.php
 		 * @since No version information available, might only be in Git
 		 */
@@ -520,7 +520,7 @@ namespace {
 		 * This method checks whether a key is part of the hash
 		 * <p>This method checks whether an entry with the provided key exists in the hash.</p>
 		 * @param string $key <p>The key of the entry to check for whether it exists in the hash.</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b> when the entry was found, or <b><code>FALSE</code></b> when the entry is not found.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> when the entry was found, or <b><code>false</code></b> when the entry is not found.</p>
 		 * @link https://php.net/manual/en/quickhashstringinthash.exists.php
 		 * @since No version information available, might only be in Git
 		 */
@@ -530,7 +530,7 @@ namespace {
 		 * This method retrieves a value from the hash by its key
 		 * <p>This method retrieves a value from the hash by its key.</p>
 		 * @param string $key <p>The key of the entry to add.</p>
-		 * @return mixed <p>The value if the key exists, or <b><code>NULL</code></b> if the key wasn't part of the hash.</p>
+		 * @return mixed <p>The value if the key exists, or <b><code>null</code></b> if the key wasn't part of the hash.</p>
 		 * @link https://php.net/manual/en/quickhashstringinthash.get.php
 		 * @since No version information available, might only be in Git
 		 */
@@ -604,7 +604,7 @@ namespace {
 		 * <p>This method updates an entry with a new value, and returns whether the entry was update. If there are duplicate keys, only the first found element will get an updated value. Use QuickHashStringIntHash::CHECK_FOR_DUPES during hash creation to prevent duplicate keys from being part of the hash.</p>
 		 * @param string $key <p>The key of the entry to add.</p>
 		 * @param int $value <p>The new value for the entry. If a non-string is passed, it will be converted to a string automatically if possible.</p>
-		 * @return bool <p><b><code>TRUE</code></b> when the entry was found and updated, and <b><code>FALSE</code></b> if the entry was not part of the hash already.</p>
+		 * @return bool <p><b><code>true</code></b> when the entry was found and updated, and <b><code>false</code></b> if the entry was not part of the hash already.</p>
 		 * @link https://php.net/manual/en/quickhashstringinthash.update.php
 		 * @since No version information available, might only be in Git
 		 */

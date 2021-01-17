@@ -60,7 +60,7 @@ namespace {
 		/**
 		 * Returns the previous Throwable
 		 * <p>Returns any previous Throwable (for example, one provided as the third parameter to <code>Exception::__construct()</code>).</p>
-		 * @return Throwable <p>Returns the previous Throwable if available, or <b><code>NULL</code></b> otherwise.</p>
+		 * @return Throwable <p>Returns the previous Throwable if available, or <b><code>null</code></b> otherwise.</p>
 		 * @link https://php.net/manual/en/throwable.getprevious.php
 		 * @since PHP 7, PHP 8
 		 */

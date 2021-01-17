@@ -15,7 +15,7 @@ namespace {
 		 * <p>Gets a parameter if previously set by <code>XSLTProcessor::setParameter()</code>.</p>
 		 * @param string $namespace <p>The namespace URI of the XSLT parameter.</p>
 		 * @param string $name <p>The local name of the XSLT parameter.</p>
-		 * @return string|false <p>The value of the parameter (as a string), or <b><code>FALSE</code></b> if it's not set.</p>
+		 * @return string|false <p>The value of the parameter (as a string), or <b><code>false</code></b> if it's not set.</p>
 		 * @link https://php.net/manual/en/xsltprocessor.getparameter.php
 		 * @see XSLTProcessor::setParameter(), XSLTProcessor::removeParameter()
 		 * @since PHP 5, PHP 7
@@ -34,7 +34,7 @@ namespace {
 		/**
 		 * Determine if PHP has EXSLT support
 		 * <p>This method determines if PHP was built with the EXSLT library.</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/xsltprocessor.hasexsltsupport.php
 		 * @since PHP 5 >= 5.0.4, PHP 7
 		 */
@@ -44,7 +44,7 @@ namespace {
 		 * Import stylesheet
 		 * <p>This method imports the stylesheet into the XSLTProcessor for transformations.</p>
 		 * @param object $stylesheet <p>The imported style sheet as a DOMDocument or SimpleXMLElement object.</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/xsltprocessor.importstylesheet.php
 		 * @since PHP 5, PHP 7
 		 */
@@ -58,14 +58,14 @@ namespace {
 		 * @link https://php.net/manual/en/xsltprocessor.registerphpfunctions.php
 		 * @since PHP 5 >= 5.0.4, PHP 7
 		 */
-		public function registerPHPFunctions(array|string|null $functions = NULL): void {}
+		public function registerPHPFunctions(array|string|null $functions = null): void {}
 
 		/**
 		 * Remove parameter
 		 * <p>Removes a parameter, if set. This will make the processor use the default value for the parameter as specified in the stylesheet.</p>
 		 * @param string $namespace <p>The namespace URI of the XSLT parameter.</p>
 		 * @param string $name <p>The local name of the XSLT parameter.</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/xsltprocessor.removeparameter.php
 		 * @see XSLTProcessor::setParameter(), XSLTProcessor::getParameter()
 		 * @since PHP 5, PHP 7
@@ -78,7 +78,7 @@ namespace {
 		 * @param string $namespace <p>The namespace URI of the XSLT parameter.</p>
 		 * @param string $name <p>The local name of the XSLT parameter.</p>
 		 * @param string $value <p>The new value of the XSLT parameter.</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/xsltprocessor.setparameter.php
 		 * @see XSLTProcessor::getParameter(), XSLTProcessor::removeParameter()
 		 * @since PHP 5, PHP 7
@@ -89,7 +89,7 @@ namespace {
 		 * Sets profiling output file
 		 * <p>Sets the file to output profiling information when processing a stylesheet.</p>
 		 * @param string|null $filename <p>Path to the file to dump profiling information.</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/xsltprocessor.setprofiling.php
 		 * @since PHP >= 5.3.0
 		 */
@@ -110,19 +110,19 @@ namespace {
 		 * <p>Transforms the source node to a DOMDocument applying the stylesheet given by the <code>XSLTProcessor::importStylesheet()</code> method.</p>
 		 * @param object $document <p>The node to be transformed.</p>
 		 * @param string|null $returnClass
-		 * @return DOMDocument|false <p>The resulting DOMDocument or <b><code>FALSE</code></b> on error.</p>
+		 * @return DOMDocument|false <p>The resulting DOMDocument or <b><code>false</code></b> on error.</p>
 		 * @link https://php.net/manual/en/xsltprocessor.transformtodoc.php
 		 * @see XSLTProcessor::transformToUri(), XSLTProcessor::transformToXml()
 		 * @since PHP 5, PHP 7
 		 */
-		public function transformToDoc(object $document, string|null $returnClass = NULL): \DOMDocument|false {}
+		public function transformToDoc(object $document, string|null $returnClass = null): \DOMDocument|false {}
 
 		/**
 		 * Transform to URI
 		 * <p>Transforms the source node to an URI applying the stylesheet given by the <code>XSLTProcessor::importStylesheet()</code> method.</p>
 		 * @param \DOMDocument $doc <p>The document to transform.</p>
 		 * @param string $uri <p>The target URI for the transformation.</p>
-		 * @return int <p>Returns the number of bytes written or <b><code>FALSE</code></b> if an error occurred.</p>
+		 * @return int <p>Returns the number of bytes written or <b><code>false</code></b> if an error occurred.</p>
 		 * @link https://php.net/manual/en/xsltprocessor.transformtouri.php
 		 * @see XSLTProcessor::transformToDoc(), XSLTProcessor::transformToXml()
 		 * @since PHP 5, PHP 7
@@ -133,7 +133,7 @@ namespace {
 		 * Transform to XML
 		 * <p>Transforms the source node to a string applying the stylesheet given by the <code>xsltprocessor::importStylesheet()</code> method.</p>
 		 * @param object $document <p>The <code>DOMDocument</code> or <code>SimpleXMLElement</code> object to be transformed.</p>
-		 * @return string|false|null <p>The result of the transformation as a string or <b><code>FALSE</code></b> on error.</p>
+		 * @return string|false|null <p>The result of the transformation as a string or <b><code>false</code></b> on error.</p>
 		 * @link https://php.net/manual/en/xsltprocessor.transformtoxml.php
 		 * @see XSLTProcessor::transformToDoc(), XSLTProcessor::transformToUri()
 		 * @since PHP 5, PHP 7

@@ -15,19 +15,19 @@ namespace {
 		 * @var bool
 		 * @link https://php.net/manual/en/class.splbool.php
 		 */
-		const __default = FALSE;
+		const __default = false;
 
 		/**
 		 * @var bool
 		 * @link https://php.net/manual/en/class.splbool.php
 		 */
-		const false = FALSE;
+		const false = false;
 
 		/**
 		 * @var bool
 		 * @link https://php.net/manual/en/class.splbool.php
 		 */
-		const true = TRUE;
+		const true = true;
 
 		/**
 		 * Returns all consts (possible values) as an array
@@ -37,7 +37,7 @@ namespace {
 		 * @link https://php.net/manual/en/splenum.getconstlist.php
 		 * @since PECL spl_types >= 0.1.0
 		 */
-		public function getConstList(bool $include_default = FALSE): array {}
+		public function getConstList(bool $include_default = false): array {}
 	}
 
 	/**
@@ -51,7 +51,7 @@ namespace {
 		 * @var NULL
 		 * @link https://php.net/manual/en/class.splenum.php
 		 */
-		const __default = NULL;
+		const __default = null;
 
 		/**
 		 * Creates a new value of some type
@@ -62,7 +62,7 @@ namespace {
 		 * @link https://php.net/manual/en/spltype.construct.php
 		 * @since PECL spl_types >= 0.1.0
 		 */
-		public function __construct(mixed $initial_value = NULL, bool $strict = NULL) {}
+		public function __construct(mixed $initial_value = null, bool $strict = null) {}
 
 		/**
 		 * Returns all consts (possible values) as an array
@@ -72,7 +72,7 @@ namespace {
 		 * @link https://php.net/manual/en/splenum.getconstlist.php
 		 * @since PECL spl_types >= 0.1.0
 		 */
-		public function getConstList(bool $include_default = FALSE): array {}
+		public function getConstList(bool $include_default = false): array {}
 	}
 
 	/**
@@ -97,7 +97,7 @@ namespace {
 		 * @link https://php.net/manual/en/spltype.construct.php
 		 * @since PECL spl_types >= 0.1.0
 		 */
-		public function __construct(mixed $initial_value = NULL, bool $strict = NULL) {}
+		public function __construct(mixed $initial_value = null, bool $strict = null) {}
 	}
 
 	/**
@@ -122,7 +122,7 @@ namespace {
 		 * @link https://php.net/manual/en/spltype.construct.php
 		 * @since PECL spl_types >= 0.1.0
 		 */
-		public function __construct(mixed $initial_value = NULL, bool $strict = NULL) {}
+		public function __construct(mixed $initial_value = null, bool $strict = null) {}
 	}
 
 	/**
@@ -147,7 +147,7 @@ namespace {
 		 * @link https://php.net/manual/en/spltype.construct.php
 		 * @since PECL spl_types >= 0.1.0
 		 */
-		public function __construct(mixed $initial_value = NULL, bool $strict = NULL) {}
+		public function __construct(mixed $initial_value = null, bool $strict = null) {}
 	}
 
 	/**
@@ -161,7 +161,7 @@ namespace {
 		 * @var NULL
 		 * @link https://php.net/manual/en/class.spltype.php
 		 */
-		const __default = NULL;
+		const __default = null;
 
 		/**
 		 * Creates a new value of some type
@@ -172,7 +172,7 @@ namespace {
 		 * @link https://php.net/manual/en/spltype.construct.php
 		 * @since PECL spl_types >= 0.1.0
 		 */
-		public function __construct(mixed $initial_value = NULL, bool $strict = NULL) {}
+		public function __construct(mixed $initial_value = null, bool $strict = null) {}
 	}
 
 }

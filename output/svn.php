@@ -8,19 +8,19 @@ namespace {
 	 * Schedules the addition of an item in a working directory
 	 * <p>Adds the file, directory or symbolic link at <code>path</code> to the working directory. The item will be added to the repository the next time you call <code>svn_commit()</code> on the working copy.</p>
 	 * @param string $path <p>Path of item to add.</p> <p><b>Note</b>: Relative paths will be resolved as if the current working directory was the one that contains the PHP binary. To use the calling script's working directory, use <code>realpath()</code> or dirname(__FILE__).</p>
-	 * @param bool $recursive <p>If item is directory, whether or not to recursively add all of its contents. Default is <b><code>TRUE</code></b></p>
-	 * @param bool $force <p>If true, Subversion will recurse into already versioned directories in order to add unversioned files that may be hiding in those directories. Default is <b><code>FALSE</code></b></p>
-	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+	 * @param bool $recursive <p>If item is directory, whether or not to recursively add all of its contents. Default is <b><code>true</code></b></p>
+	 * @param bool $force <p>If true, Subversion will recurse into already versioned directories in order to add unversioned files that may be hiding in those directories. Default is <b><code>false</code></b></p>
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.svn-add.php
 	 * @since PECL svn >= 0.1.0
 	 */
-	function svn_add(string $path, bool $recursive = TRUE, bool $force = FALSE): bool {}
+	function svn_add(string $path, bool $recursive = true, bool $force = false): bool {}
 
 	/**
 	 * Retrieves authentication parameter
 	 * <p>Retrieves authentication parameter at <code>key</code>. For a list of valid keys and their meanings, consult the authentication constants list.</p>
 	 * @param string $key <p>String key name. Use the authentication constants defined by this extension to specify a key.</p>
-	 * @return string <p>Returns the string value of the parameter at <code>key</code>; returns <b><code>NULL</code></b> if parameter does not exist.</p>
+	 * @return string <p>Returns the string value of the parameter at <code>key</code>; returns <b><code>null</code></b> if parameter does not exist.</p>
 	 * @link https://php.net/manual/en/function.svn-auth-get-parameter.php
 	 * @see svn_auth_set_parameter()
 	 * @since PECL svn >= 0.1.0
@@ -56,11 +56,11 @@ namespace {
 	 * <p>Returns the contents of the URL <code>repos_url</code> to a file in the repository, optionally at revision number <code>revision_no</code>.</p>
 	 * @param string $repos_url <p>String URL path to item in a repository.</p>
 	 * @param int $revision_no <p>Integer revision number of item to retrieve, default is the HEAD revision.</p>
-	 * @return string <p>Returns the string contents of the item from the repository on success, and <b><code>FALSE</code></b> on failure.</p>
+	 * @return string <p>Returns the string contents of the item from the repository on success, and <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.svn-cat.php
 	 * @since PECL svn >= 0.1.0
 	 */
-	function svn_cat(string $repos_url, int $revision_no = NULL): string {}
+	function svn_cat(string $repos_url, int $revision_no = null): string {}
 
 	/**
 	 * Checks out a working copy from the repository
@@ -69,18 +69,18 @@ namespace {
 	 * @param string $targetpath <p>String local path to directory to check out in to</p> <p><b>Note</b>: Relative paths will be resolved as if the current working directory was the one that contains the PHP binary. To use the calling script's working directory, use <code>realpath()</code> or dirname(__FILE__).</p>
 	 * @param int $revision <p>Integer revision number of repository to check out. Default is HEAD, the most recent revision.</p>
 	 * @param int $flags <p>Any combination of <b><code>SVN_NON_RECURSIVE</code></b> and <b><code>SVN_IGNORE_EXTERNALS</code></b>.</p>
-	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.svn-checkout.php
 	 * @see svn_add(), svn_commit(), svn_status(), svn_update()
 	 * @since PECL svn >= 0.1.0
 	 */
-	function svn_checkout(string $repos, string $targetpath, int $revision = NULL, int $flags = 0): bool {}
+	function svn_checkout(string $repos, string $targetpath, int $revision = null, int $flags = 0): bool {}
 
 	/**
 	 * Recursively cleanup a working copy directory, finishing incomplete operations and removing locks
 	 * <p>Recursively cleanup working copy directory <code>workingdir</code>, finishing any incomplete operations and removing working copy locks. Use when a working copy is in limbo and needs to be usable again.</p>
 	 * @param string $workingdir <p>String path to local working directory to cleanup</p> <p><b>Note</b>: Relative paths will be resolved as if the current working directory was the one that contains the PHP binary. To use the calling script's working directory, use <code>realpath()</code> or dirname(__FILE__).</p>
-	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.svn-cleanup.php
 	 * @since PECL svn >= 0.1.0
 	 */
@@ -97,27 +97,27 @@ namespace {
 
 	/**
 	 * Sends changes from the local working copy to the repository
-	 * <p>Commits changes made in the local working copy files enumerated in the <code>targets</code> array to the repository, with the log message <code>log</code>. Directories in the <code>targets</code> array will be recursively committed unless <code>recursive</code> is set to <b><code>FALSE</code></b>.</p><p><b>Note</b>:  This function does not have any parameters for specifying authentication, so a username and password must be set using <code>svn_auth_set_parameter()</code> </p>
+	 * <p>Commits changes made in the local working copy files enumerated in the <code>targets</code> array to the repository, with the log message <code>log</code>. Directories in the <code>targets</code> array will be recursively committed unless <code>recursive</code> is set to <b><code>false</code></b>.</p><p><b>Note</b>:  This function does not have any parameters for specifying authentication, so a username and password must be set using <code>svn_auth_set_parameter()</code> </p>
 	 * @param string $log <p>String log text to commit</p>
 	 * @param array $targets <p>Array of local paths of files to be committed</p> <p><b>Warning</b></p> <p>This parameter must be an array, a string for a single target is not acceptable.</p>  <p><b>Note</b>: Relative paths will be resolved as if the current working directory was the one that contains the PHP binary. To use the calling script's working directory, use <code>realpath()</code> or dirname(__FILE__).</p>
-	 * @param bool $recursive <p>Boolean flag to disable recursive committing of directories in the <code>targets</code> array. Default is <b><code>TRUE</code></b>.</p>
-	 * @return array <p>Returns array in form of:</p> <pre>array( 0 =&gt; integer revision number of commit 1 =&gt; string ISO 8601 date and time of commit 2 =&gt; name of committer )</pre>  <p>Returns <b><code>FALSE</code></b> on failure.</p>
+	 * @param bool $recursive <p>Boolean flag to disable recursive committing of directories in the <code>targets</code> array. Default is <b><code>true</code></b>.</p>
+	 * @return array <p>Returns array in form of:</p> <pre>array( 0 =&gt; integer revision number of commit 1 =&gt; string ISO 8601 date and time of commit 2 =&gt; name of committer )</pre>  <p>Returns <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.svn-commit.php
 	 * @see svn_auth_set_parameter()
 	 * @since PECL svn >= 0.1.0
 	 */
-	function svn_commit(string $log, array $targets, bool $recursive = TRUE): array {}
+	function svn_commit(string $log, array $targets, bool $recursive = true): array {}
 
 	/**
 	 * Delete items from a working copy or repository
 	 * <p>Deletes the file, directory or symbolic link at <code>path</code> from the working directory. The item will be deleted from the repository the next time you call <code>svn_commit()</code> on the working copy.</p>
 	 * @param string $path <p>Path of item to delete.</p> <p><b>Note</b>: Relative paths will be resolved as if the current working directory was the one that contains the PHP binary. To use the calling script's working directory, use <code>realpath()</code> or dirname(__FILE__).</p>
-	 * @param bool $force <p>If <b><code>TRUE</code></b>, the file will be deleted even if it has local modifications. Otherwise, local modifications will result in a failure. Default is <b><code>FALSE</code></b></p>
-	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+	 * @param bool $force <p>If <b><code>true</code></b>, the file will be deleted even if it has local modifications. Otherwise, local modifications will result in a failure. Default is <b><code>false</code></b></p>
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.svn-delete.php
 	 * @since PECL svn >= 0.4.0
 	 */
-	function svn_delete(string $path, bool $force = FALSE): bool {}
+	function svn_delete(string $path, bool $force = false): bool {}
 
 	/**
 	 * Recursively diffs two paths
@@ -126,7 +126,7 @@ namespace {
 	 * @param int $rev1 <p>First path's revision number. Use <b><code>SVN_REVISION_HEAD</code></b> to specify the most recent revision.</p>
 	 * @param string $path2 <p>Second path to diff. See <code>path1</code> for description.</p>
 	 * @param int $rev2 <p>Second path's revision number. See <code>rev1</code> for description.</p>
-	 * @return array <p>Returns an array-list consisting of two streams: the first is the diff output and the second contains error stream output. The streams can be read using <code>fread()</code>. Returns <b><code>FALSE</code></b> or <b><code>NULL</code></b> on error.</p><p>The diff output will, by default, be in the form of Subversion's custom unified diff format, but an external diff engine may be used depending on Subversion's configuration.</p>
+	 * @return array <p>Returns an array-list consisting of two streams: the first is the diff output and the second contains error stream output. The streams can be read using <code>fread()</code>. Returns <b><code>false</code></b> or <b><code>null</code></b> on error.</p><p>The diff output will, by default, be in the form of Subversion's custom unified diff format, but an external diff engine may be used depending on Subversion's configuration.</p>
 	 * @link https://php.net/manual/en/function.svn-diff.php
 	 * @since PECL svn >= 0.1.0
 	 */
@@ -137,14 +137,14 @@ namespace {
 	 * <p>Export the contents of either a working copy or repository into a 'clean' directory.</p>
 	 * @param string $frompath <p>The path to the current repository.</p>
 	 * @param string $topath <p>The path to the new repository.</p>
-	 * @param bool $working_copy <p>If <b><code>TRUE</code></b>, it will export uncommitted files from the working copy.</p>
+	 * @param bool $working_copy <p>If <b><code>true</code></b>, it will export uncommitted files from the working copy.</p>
 	 * @param int $revision_no
-	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.svn-export.php
 	 * @see svn_import()
 	 * @since PECL svn >= 0.3.0
 	 */
-	function svn_export(string $frompath, string $topath, bool $working_copy = TRUE, int $revision_no = -1): bool {}
+	function svn_export(string $frompath, string $topath, bool $working_copy = true, int $revision_no = -1): bool {}
 
 	/**
 	 * Abort a transaction, returns true if everything is okay, false otherwise
@@ -397,11 +397,11 @@ namespace {
 
 	/**
 	 * Imports an unversioned path into a repository
-	 * <p>Commits unversioned <code>path</code> into repository at <code>url</code>. If <code>path</code> is a directory and <code>nonrecursive</code> is <b><code>FALSE</code></b>, the directory will be imported recursively.</p>
+	 * <p>Commits unversioned <code>path</code> into repository at <code>url</code>. If <code>path</code> is a directory and <code>nonrecursive</code> is <b><code>false</code></b>, the directory will be imported recursively.</p>
 	 * @param string $path <p>Path of file or directory to import.</p> <p><b>Note</b>: Relative paths will be resolved as if the current working directory was the one that contains the PHP binary. To use the calling script's working directory, use <code>realpath()</code> or dirname(__FILE__).</p>
 	 * @param string $url <p>Repository URL to import into.</p>
 	 * @param bool $nonrecursive <p>Whether or not to refrain from recursively processing directories.</p>
-	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.svn-import.php
 	 * @see svn_add()
 	 * @since PECL svn >= 0.2.0
@@ -420,7 +420,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.svn-log.php
 	 * @since PECL svn >= 0.1.0
 	 */
-	function svn_log(string $repos_url, int $start_revision = NULL, int $end_revision = NULL, int $limit = 0, int $flags = SVN_DISCOVER_CHANGED_PATHS | SVN_STOP_ON_COPY): array {}
+	function svn_log(string $repos_url, int $start_revision = null, int $end_revision = null, int $limit = 0, int $flags = SVN_DISCOVER_CHANGED_PATHS | SVN_STOP_ON_COPY): array {}
 
 	/**
 	 * Returns list of directory contents in repository URL, optionally at revision number
@@ -433,19 +433,19 @@ namespace {
 	 * @link https://php.net/manual/en/function.svn-ls.php
 	 * @since PECL svn >= 0.1.0
 	 */
-	function svn_ls(string $repos_url, int $revision_no = SVN_REVISION_HEAD, bool $recurse = FALSE, bool $peg = FALSE): array {}
+	function svn_ls(string $repos_url, int $revision_no = SVN_REVISION_HEAD, bool $recurse = false, bool $peg = false): array {}
 
 	/**
 	 * Creates a directory in a working copy or repository
 	 * <p>Creates a directory in a working copy or repository.</p>
 	 * @param string $path <p>The path to the working copy or repository.</p>
 	 * @param string $log_message
-	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.svn-mkdir.php
 	 * @see svn_add()
 	 * @since PECL svn >= 0.4.0
 	 */
-	function svn_mkdir(string $path, string $log_message = NULL): bool {}
+	function svn_mkdir(string $path, string $log_message = null): bool {}
 
 	/**
 	 * Create a new subversion repository at path
@@ -457,7 +457,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.svn-repos-create.php
 	 * @since PECL svn >= 0.1.0
 	 */
-	function svn_repos_create(string $path, array $config = NULL, array $fsconfig = NULL) {}
+	function svn_repos_create(string $path, array $config = null, array $fsconfig = null) {}
 
 	/**
 	 * Gets a handle on the filesystem for a repository
@@ -529,19 +529,19 @@ namespace {
 	 * <p>Revert any local changes to the path in a working copy.</p>
 	 * @param string $path <p>The path to the working repository.</p>
 	 * @param bool $recursive <p>Optionally make recursive changes.</p>
-	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.svn-revert.php
 	 * @see svn_delete(), svn_export()
 	 * @since PECL svn >= 0.3.0
 	 */
-	function svn_revert(string $path, bool $recursive = FALSE): bool {}
+	function svn_revert(string $path, bool $recursive = false): bool {}
 
 	/**
 	 * Returns the status of working copy files and directories
 	 * <p>Returns the status of working copy files and directories, giving modifications, additions, deletions and other changes to items in the working copy.</p>
 	 * @param string $path <p>Local path to file or directory to retrieve status of.</p> <p><b>Note</b>: Relative paths will be resolved as if the current working directory was the one that contains the PHP binary. To use the calling script's working directory, use <code>realpath()</code> or dirname(__FILE__).</p>
 	 * @param int $flags <p>Any combination of <b><code>Svn::NON_RECURSIVE</code></b>, <b><code>Svn::ALL</code></b> (regardless of modification status), <b><code>Svn::SHOW_UPDATES</code></b> (entries will be added for items that are out-of-date), <b><code>Svn::NO_IGNORE</code></b> (disregard <code>svn:ignore</code> properties when scanning for new files) and <b><code>Svn::IGNORE_EXTERNALS</code></b>.</p>
-	 * @return array <p>Returns a numerically indexed array of associative arrays detailing the status of items in the repository:</p> <pre>Array ( [0] =&gt; Array ( // information on item ) [1] =&gt; ... )</pre>  <p>The information on the item is an associative array that can contain the following keys:</p>  path   String path to file/directory of this entry on local filesystem.    text_status   Status of item's text. Refer to status constants for possible values.    repos_text_status   Status of item's text in repository. Only accurate if <code>update</code> was set to <b><code>TRUE</code></b>. Refer to status constants for possible values.    prop_status   Status of item's properties. Refer to status constants for possible values.    repos_prop_status   Status of item's property in repository. Only accurate if <code>update</code> was set to <b><code>TRUE</code></b>. Refer to status constants for possible values.    locked   Whether or not the item is locked. (Only set if <b><code>TRUE</code></b>.)    copied   Whether or not the item was copied (scheduled for addition with history). (Only set if <b><code>TRUE</code></b>.)    switched   Whether or not the item was switched using the switch command. (Only set if <b><code>TRUE</code></b>)   <p>These keys are only set if the item is versioned:</p>  name   Base name of item in repository.    url   URL of item in repository.    repos   Base URL of repository.    revision   Integer revision of item in working copy.    kind   Type of item, i.e. file or directory. Refer to type constants for possible values.    schedule   Scheduled action for item, i.e. addition or deletion. Constants for these magic numbers are not available, they can be emulated by using:   <code> &lt;&#63;php<br>if&nbsp;(!defined('svn_wc_schedule_normal'))&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;define('svn_wc_schedule_normal',&nbsp;&nbsp;0);&nbsp;//&nbsp;nothing&nbsp;special<br>&nbsp;&nbsp;&nbsp;&nbsp;define('svn_wc_schedule_add',&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1);&nbsp;//&nbsp;item&nbsp;will&nbsp;be&nbsp;added<br>&nbsp;&nbsp;&nbsp;&nbsp;define('svn_wc_schedule_delete',&nbsp;&nbsp;2);&nbsp;//&nbsp;item&nbsp;will&nbsp;be&nbsp;deleted<br>&nbsp;&nbsp;&nbsp;&nbsp;define('svn_wc_schedule_replace',&nbsp;3);&nbsp;//&nbsp;item&nbsp;will&nbsp;be&nbsp;added&nbsp;and&nbsp;deleted<br>}<br>&#63;&gt;  </code>    deleted   Whether or not the item was deleted, but parent revision lags behind. (Only set if <b><code>TRUE</code></b>.)    absent   Whether or not the item is absent, that is, Subversion knows that there should be something there but there isn't. (Only set if <b><code>TRUE</code></b>.)    incomplete   Whether or not the entries file for a directory is incomplete. (Only set if <b><code>TRUE</code></b>.)    cmt_date   Integer Unix timestamp of last commit date. (Unaffected by <code>update</code>.)    cmt_rev   Integer revision of last commit. (Unaffected by <code>update</code>.)    cmt_author   String author of last commit. (Unaffected by <code>update</code>.)    prop_time   Integer Unix timestamp of last up-to-date time for properties    text_time   Integer Unix timestamp of last up-to-date time for text
+	 * @return array <p>Returns a numerically indexed array of associative arrays detailing the status of items in the repository:</p> <pre>Array ( [0] =&gt; Array ( // information on item ) [1] =&gt; ... )</pre>  <p>The information on the item is an associative array that can contain the following keys:</p>  path   String path to file/directory of this entry on local filesystem.    text_status   Status of item's text. Refer to status constants for possible values.    repos_text_status   Status of item's text in repository. Only accurate if <code>update</code> was set to <b><code>true</code></b>. Refer to status constants for possible values.    prop_status   Status of item's properties. Refer to status constants for possible values.    repos_prop_status   Status of item's property in repository. Only accurate if <code>update</code> was set to <b><code>true</code></b>. Refer to status constants for possible values.    locked   Whether or not the item is locked. (Only set if <b><code>true</code></b>.)    copied   Whether or not the item was copied (scheduled for addition with history). (Only set if <b><code>true</code></b>.)    switched   Whether or not the item was switched using the switch command. (Only set if <b><code>true</code></b>)   <p>These keys are only set if the item is versioned:</p>  name   Base name of item in repository.    url   URL of item in repository.    repos   Base URL of repository.    revision   Integer revision of item in working copy.    kind   Type of item, i.e. file or directory. Refer to type constants for possible values.    schedule   Scheduled action for item, i.e. addition or deletion. Constants for these magic numbers are not available, they can be emulated by using:   <code> &lt;&#63;php<br>if&nbsp;(!defined('svn_wc_schedule_normal'))&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;define('svn_wc_schedule_normal',&nbsp;&nbsp;0);&nbsp;//&nbsp;nothing&nbsp;special<br>&nbsp;&nbsp;&nbsp;&nbsp;define('svn_wc_schedule_add',&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1);&nbsp;//&nbsp;item&nbsp;will&nbsp;be&nbsp;added<br>&nbsp;&nbsp;&nbsp;&nbsp;define('svn_wc_schedule_delete',&nbsp;&nbsp;2);&nbsp;//&nbsp;item&nbsp;will&nbsp;be&nbsp;deleted<br>&nbsp;&nbsp;&nbsp;&nbsp;define('svn_wc_schedule_replace',&nbsp;3);&nbsp;//&nbsp;item&nbsp;will&nbsp;be&nbsp;added&nbsp;and&nbsp;deleted<br>}<br>&#63;&gt;  </code>    deleted   Whether or not the item was deleted, but parent revision lags behind. (Only set if <b><code>true</code></b>.)    absent   Whether or not the item is absent, that is, Subversion knows that there should be something there but there isn't. (Only set if <b><code>true</code></b>.)    incomplete   Whether or not the entries file for a directory is incomplete. (Only set if <b><code>true</code></b>.)    cmt_date   Integer Unix timestamp of last commit date. (Unaffected by <code>update</code>.)    cmt_rev   Integer revision of last commit. (Unaffected by <code>update</code>.)    cmt_author   String author of last commit. (Unaffected by <code>update</code>.)    prop_time   Integer Unix timestamp of last up-to-date time for properties    text_time   Integer Unix timestamp of last up-to-date time for text
 	 * @link https://php.net/manual/en/function.svn-status.php
 	 * @see svn_update(), svn_log()
 	 * @since PECL svn >= 0.1.0
@@ -554,12 +554,12 @@ namespace {
 	 * @param string $path <p>Path to local working copy.</p> <p><b>Note</b>: Relative paths will be resolved as if the current working directory was the one that contains the PHP binary. To use the calling script's working directory, use <code>realpath()</code> or dirname(__FILE__).</p>
 	 * @param int $revno <p>Revision number to update to, default is <b><code>SVN_REVISION_HEAD</code></b>.</p>
 	 * @param bool $recurse <p>Whether or not to recursively update directories.</p>
-	 * @return int <p>Returns new revision number on success, returns <b><code>FALSE</code></b> on failure.</p>
+	 * @return int <p>Returns new revision number on success, returns <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.svn-update.php
 	 * @see svn_checkout(), svn_commit()
 	 * @since PECL svn >= 0.1.0
 	 */
-	function svn_update(string $path, int $revno = SVN_REVISION_HEAD, bool $recurse = TRUE): int {}
+	function svn_update(string $path, int $revno = SVN_REVISION_HEAD, bool $recurse = true): int {}
 
 	/**
 	 * Custom property for ignoring SSL cert verification errors

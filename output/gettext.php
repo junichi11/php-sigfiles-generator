@@ -106,7 +106,7 @@ namespace {
 	/**
 	 * Sets the default domain
 	 * <p>This function sets the domain to search within when calls are made to <code>gettext()</code>, usually the named after an application.</p>
-	 * @param string|null $domain <p>The new message domain, or <b><code>NULL</code></b> to get the current setting without changing it</p>
+	 * @param string|null $domain <p>The new message domain, or <b><code>null</code></b> to get the current setting without changing it</p>
 	 * @return string <p>If successful, this function returns the current message domain, after possibly changing it.</p>
 	 * @link https://php.net/manual/en/function.textdomain.php
 	 * @since PHP 4, PHP 5, PHP 7

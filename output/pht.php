@@ -226,7 +226,7 @@ namespace pht {
 		/**
 		 * Function threading
 		 * <p>Adds a new function task to a pht\Threads internal task queue.</p>
-		 * @param callable $func <p>The function to be threaded. If it is bound to an instance, then <code>$this</code> will become <b><code>NULL</code></b>.</p>
+		 * @param callable $func <p>The function to be threaded. If it is bound to an instance, then <code>$this</code> will become <b><code>null</code></b>.</p>
 		 * @param mixed $funcArgs <p>An optional list of arguments for the function. These arguments will be serialised (since they are being passed to another thread).</p>
 		 * @return void <p>No return value.</p>
 		 * @link https://php.net/manual/en/pht-thread.addFunctionTask.php

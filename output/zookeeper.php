@@ -351,7 +351,7 @@ namespace {
 		 * @link https://php.net/manual/en/zookeeper.construct.php
 		 * @since PECL zookeeper >= 0.1.0
 		 */
-		public function __construct(string $host = '', callable $watcher_cb = NULL, int $recv_timeout = 10000) {}
+		public function __construct(string $host = '', callable $watcher_cb = null, int $recv_timeout = 10000) {}
 
 		/**
 		 * Specify application credentials
@@ -359,11 +359,11 @@ namespace {
 		 * @param string $scheme <p>The id of authentication scheme. Natively supported: "digest" password-based authentication</p>
 		 * @param string $cert <p>Application credentials. The actual value depends on the scheme.</p>
 		 * @param callable $completion_cb <p>The routine to invoke when the request completes. One of the following result codes may be passed into the completion callback: - ZOK operation completed successfully - ZAUTHFAILED authentication failed</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/zookeeper.addauth.php
 		 * @since PECL zookeeper >= 0.1.0
 		 */
-		public function addAuth(string $scheme, string $cert, callable $completion_cb = NULL): bool {}
+		public function addAuth(string $scheme, string $cert, callable $completion_cb = null): bool {}
 
 		/**
 		 * Close the zookeeper handle and free up any resources
@@ -383,7 +383,7 @@ namespace {
 		 * @link https://php.net/manual/en/zookeeper.connect.php
 		 * @since PECL zookeeper >= 0.2.0
 		 */
-		public function connect(string $host, callable $watcher_cb = NULL, int $recv_timeout = 10000): void {}
+		public function connect(string $host, callable $watcher_cb = null, int $recv_timeout = 10000): void {}
 
 		/**
 		 * Create a node synchronously
@@ -396,13 +396,13 @@ namespace {
 		 * @link https://php.net/manual/en/zookeeper.create.php
 		 * @since PECL zookeeper >= 0.1.0
 		 */
-		public function create(string $path, string $value, array $acls, int $flags = NULL): string {}
+		public function create(string $path, string $value, array $acls, int $flags = null): string {}
 
 		/**
 		 * Delete a node in zookeeper synchronously
 		 * @param string $path <p>The name of the node. Expressed as a file name with slashes separating ancestors of the node.</p>
 		 * @param int $version <p>The expected version of the node. The function will fail if the actual version of the node does not match the expected version. If -1 is used the version check will not take place.</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/zookeeper.delete.php
 		 * @since PECL zookeeper >= 0.2.0
 		 */
@@ -416,7 +416,7 @@ namespace {
 		 * @link https://php.net/manual/en/zookeeper.exists.php
 		 * @since PECL zookeeper >= 0.1.0
 		 */
-		public function exists(string $path, callable $watcher_cb = NULL): array {}
+		public function exists(string $path, callable $watcher_cb = null): array {}
 
 		/**
 		 * Gets the data associated with a node synchronously
@@ -428,7 +428,7 @@ namespace {
 		 * @link https://php.net/manual/en/zookeeper.get.php
 		 * @since PECL zookeeper >= 0.1.0
 		 */
-		public function get(string $path, callable $watcher_cb = NULL, array &$stat = NULL, int $max_size = 0): string {}
+		public function get(string $path, callable $watcher_cb = null, array &$stat = null, int $max_size = 0): string {}
 
 		/**
 		 * Gets the acl associated with a node synchronously
@@ -447,7 +447,7 @@ namespace {
 		 * @link https://php.net/manual/en/zookeeper.getchildren.php
 		 * @since PECL zookeeper >= 0.1.0
 		 */
-		public function getChildren(string $path, callable $watcher_cb = NULL): array {}
+		public function getChildren(string $path, callable $watcher_cb = null): array {}
 
 		/**
 		 * Return the client session id, only valid if the connections is currently connected (ie. last watcher state is ZOO_CONNECTED_STATE)
@@ -496,18 +496,18 @@ namespace {
 		 * @param string $value <p>The data to be stored in the node.</p>
 		 * @param int $version <p>The expected version of the node. The function will fail if the actual version of the node does not match the expected version. If -1 is used the version check will not take place.</p>
 		 * @param array $stat <p>If not NULL, will hold the value of stat for the path on return.</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/zookeeper.set.php
 		 * @since PECL zookeeper >= 0.1.0
 		 */
-		public function set(string $path, string $value, int $version = -1, array &$stat = NULL): bool {}
+		public function set(string $path, string $value, int $version = -1, array &$stat = null): bool {}
 
 		/**
 		 * Sets the acl associated with a node synchronously
 		 * @param string $path <p>The name of the node. Expressed as a file name with slashes separating ancestors of the node.</p>
 		 * @param int $version <p>The expected version of the path.</p>
 		 * @param array $acl <p>The acl to be set on the path.</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/zookeeper.setacl.php
 		 * @since PECL zookeeper >= 0.1.0
 		 */
@@ -516,7 +516,7 @@ namespace {
 		/**
 		 * Sets the debugging level for the library
 		 * @param int $logLevel <p>ZooKeeper log level constants.</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/zookeeper.setdebuglevel.php
 		 * @since PECL zookeeper >= 0.1.0
 		 */
@@ -526,7 +526,7 @@ namespace {
 		 * Enable/disable quorum endpoint order randomization
 		 * <p>If passed a true value, will make the client connect to quorum peers in the order as specified in the zookeeper_init() call. A false value causes zookeeper_init() to permute the peer endpoints which is good for more even client connection distribution among the quorum peers. ZooKeeper C Client uses false by default.</p>
 		 * @param bool $yesOrNo <p>Disable/enable quorum endpoint order randomization.</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/zookeeper.setdeterministicconnorder.php
 		 * @since PECL zookeeper >= 0.1.0
 		 */
@@ -536,7 +536,7 @@ namespace {
 		 * Sets the stream to be used by the library for logging
 		 * <p>The zookeeper library uses stderr as its default log stream. Application must make sure the stream is writable. Passing in NULL resets the stream to its default value (stderr).</p>
 		 * @param resource $stream <p>The stream to be used by the library for logging.</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/zookeeper.setlogstream.php
 		 * @since PECL zookeeper >= 0.1.0
 		 */
@@ -545,7 +545,7 @@ namespace {
 		/**
 		 * Set a watcher function
 		 * @param callable $watcher_cb <p>A watch will be set at the server to notify the client if the node changes.</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/zookeeper.setwatcher.php
 		 * @since PECL zookeeper >= 0.1.0
 		 */
@@ -640,7 +640,7 @@ namespace {
 		/**
 		 * Returns previous Exception
 		 * <p>Returns previous exception (the third parameter of <code>Exception::__construct()</code>).</p>
-		 * @return Throwable <p>Returns the previous Throwable if available or <b><code>NULL</code></b> otherwise.</p>
+		 * @return Throwable <p>Returns the previous Throwable if available or <b><code>null</code></b> otherwise.</p>
 		 * @link https://php.net/manual/en/exception.getprevious.php
 		 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8
 		 */
@@ -681,7 +681,7 @@ namespace {
 		 * @link https://php.net/manual/en/zookeeperconfig.add.php
 		 * @since PECL zookeeper >= 0.6.0, ZooKeeper >= 3.5.0
 		 */
-		public function add(string $members, int $version = -1, array &$stat = NULL): void {}
+		public function add(string $members, int $version = -1, array &$stat = null): void {}
 
 		/**
 		 * Gets the last committed configuration of the ZooKeeper cluster as it is known to the server to which the client is connected, synchronously
@@ -691,7 +691,7 @@ namespace {
 		 * @link https://php.net/manual/en/zookeeperconfig.get.php
 		 * @since PECL zookeeper >= 0.6.0, ZooKeeper >= 3.5.0
 		 */
-		public function get(callable $watcher_cb = NULL, array &$stat = NULL): string {}
+		public function get(callable $watcher_cb = null, array &$stat = null): string {}
 
 		/**
 		 * Remove servers from the ensemble
@@ -702,7 +702,7 @@ namespace {
 		 * @link https://php.net/manual/en/zookeeperconfig.remove.php
 		 * @since PECL zookeeper >= 0.6.0, ZooKeeper >= 3.5.0
 		 */
-		public function remove(string $id_list, int $version = -1, array &$stat = NULL): void {}
+		public function remove(string $id_list, int $version = -1, array &$stat = null): void {}
 
 		/**
 		 * Change ZK cluster ensemble membership and roles of ensemble peers
@@ -713,7 +713,7 @@ namespace {
 		 * @link https://php.net/manual/en/zookeeperconfig.set.php
 		 * @since PECL zookeeper >= 0.6.0, ZooKeeper >= 3.5.0
 		 */
-		public function set(string $members, int $version = -1, array &$stat = NULL): void {}
+		public function set(string $members, int $version = -1, array &$stat = null): void {}
 	}
 
 	/**
@@ -804,7 +804,7 @@ namespace {
 		/**
 		 * Returns previous Exception
 		 * <p>Returns previous exception (the third parameter of <code>Exception::__construct()</code>).</p>
-		 * @return Throwable <p>Returns the previous Throwable if available or <b><code>NULL</code></b> otherwise.</p>
+		 * @return Throwable <p>Returns the previous Throwable if available or <b><code>null</code></b> otherwise.</p>
 		 * @link https://php.net/manual/en/exception.getprevious.php
 		 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8
 		 */
@@ -917,7 +917,7 @@ namespace {
 		/**
 		 * Returns previous Exception
 		 * <p>Returns previous exception (the third parameter of <code>Exception::__construct()</code>).</p>
-		 * @return Throwable <p>Returns the previous Throwable if available or <b><code>NULL</code></b> otherwise.</p>
+		 * @return Throwable <p>Returns the previous Throwable if available or <b><code>null</code></b> otherwise.</p>
 		 * @link https://php.net/manual/en/exception.getprevious.php
 		 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8
 		 */
@@ -1030,7 +1030,7 @@ namespace {
 		/**
 		 * Returns previous Exception
 		 * <p>Returns previous exception (the third parameter of <code>Exception::__construct()</code>).</p>
-		 * @return Throwable <p>Returns the previous Throwable if available or <b><code>NULL</code></b> otherwise.</p>
+		 * @return Throwable <p>Returns the previous Throwable if available or <b><code>null</code></b> otherwise.</p>
 		 * @link https://php.net/manual/en/exception.getprevious.php
 		 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8
 		 */
@@ -1143,7 +1143,7 @@ namespace {
 		/**
 		 * Returns previous Exception
 		 * <p>Returns previous exception (the third parameter of <code>Exception::__construct()</code>).</p>
-		 * @return Throwable <p>Returns the previous Throwable if available or <b><code>NULL</code></b> otherwise.</p>
+		 * @return Throwable <p>Returns the previous Throwable if available or <b><code>null</code></b> otherwise.</p>
 		 * @link https://php.net/manual/en/exception.getprevious.php
 		 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8
 		 */
@@ -1256,7 +1256,7 @@ namespace {
 		/**
 		 * Returns previous Exception
 		 * <p>Returns previous exception (the third parameter of <code>Exception::__construct()</code>).</p>
-		 * @return Throwable <p>Returns the previous Throwable if available or <b><code>NULL</code></b> otherwise.</p>
+		 * @return Throwable <p>Returns the previous Throwable if available or <b><code>null</code></b> otherwise.</p>
 		 * @link https://php.net/manual/en/exception.getprevious.php
 		 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8
 		 */
@@ -1369,7 +1369,7 @@ namespace {
 		/**
 		 * Returns previous Exception
 		 * <p>Returns previous exception (the third parameter of <code>Exception::__construct()</code>).</p>
-		 * @return Throwable <p>Returns the previous Throwable if available or <b><code>NULL</code></b> otherwise.</p>
+		 * @return Throwable <p>Returns the previous Throwable if available or <b><code>null</code></b> otherwise.</p>
 		 * @link https://php.net/manual/en/exception.getprevious.php
 		 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8
 		 */

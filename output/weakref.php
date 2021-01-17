@@ -59,7 +59,7 @@ namespace {
 		 * Checks whether a certain object is in the map
 		 * <p>Checks whether the passed object is referenced in the map.</p>
 		 * @param object $object <p>Object to check for.</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b> if the object is contained in the map, <b><code>FALSE</code></b> otherwise.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> if the object is contained in the map, <b><code>false</code></b> otherwise.</p>
 		 * @link https://php.net/manual/en/weakmap.offsetexists.php
 		 * @since PECL weakref >= 0.2.0
 		 */
@@ -69,7 +69,7 @@ namespace {
 		 * Returns the value pointed to by a certain object
 		 * <p>Returns the value pointed to by a certain object.</p>
 		 * @param object $object <p>Some object contained as key in the map.</p>
-		 * @return mixed <p>Returns the value associated to the object passed as argument, <b><code>NULL</code></b> otherwise.</p>
+		 * @return mixed <p>Returns the value associated to the object passed as argument, <b><code>null</code></b> otherwise.</p>
 		 * @link https://php.net/manual/en/weakmap.offsetget.php
 		 * @since PECL weakref >= 0.2.0
 		 */
@@ -108,7 +108,7 @@ namespace {
 		/**
 		 * Returns whether the iterator is still on a valid map element
 		 * <p>Returns whether the iterator is still on a valid map element.</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b> if the iterator is on a valid element that can be accessed, <b><code>FALSE</code></b> otherwise.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> if the iterator is on a valid element that can be accessed, <b><code>false</code></b> otherwise.</p>
 		 * @link https://php.net/manual/en/weakmap.valid.php
 		 * @since PECL weakref >= 0.2.0
 		 */
@@ -137,7 +137,7 @@ namespace {
 		/**
 		 * Acquires a strong reference on that object
 		 * <p>Acquires a strong reference on that object, virtually turning the weak reference into a strong one.</p><p>The Weakref instance maintains an internal acquired counter to track outstanding strong references. If the call to <b>Weakref::acquire()</b> is successful, this counter will be incremented by one.</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b> if the reference was valid and could be turned into a strong reference, <b><code>FALSE</code></b> otherwise.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> if the reference was valid and could be turned into a strong reference, <b><code>false</code></b> otherwise.</p>
 		 * @link https://php.net/manual/en/weakref.acquire.php
 		 * @since PECL weakref >= 0.1.0
 		 */
@@ -146,7 +146,7 @@ namespace {
 		/**
 		 * Returns the object pointed to by the weak reference
 		 * <p>Returns the object pointed to by the weak reference.</p>
-		 * @return object <p>Returns the object if the reference is still valid, <b><code>NULL</code></b> otherwise.</p>
+		 * @return object <p>Returns the object if the reference is still valid, <b><code>null</code></b> otherwise.</p>
 		 * @link https://php.net/manual/en/weakref.get.php
 		 * @since PECL weakref >= 0.1.0
 		 */
@@ -155,7 +155,7 @@ namespace {
 		/**
 		 * Releases a previously acquired reference
 		 * <p>Releases a previously acquired reference, potentially turning a strong reference back into a weak reference.</p><p>The Weakref instance maintains an internal acquired counter to track outstanding strong references. If the call to <b>Weakref::release()</b> is successful, this counter will be decremented by one. Once this counter reaches zero, the strong reference is turned back into a weak reference.</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b> if the reference was previously acquired and thus could be released, <b><code>FALSE</code></b> otherwise.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> if the reference was previously acquired and thus could be released, <b><code>false</code></b> otherwise.</p>
 		 * @link https://php.net/manual/en/weakref.release.php
 		 * @since PECL weakref >= 0.1.0
 		 */
@@ -164,7 +164,7 @@ namespace {
 		/**
 		 * Checks whether the object referenced still exists
 		 * <p>Checks whether the object referenced still exists.</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b> if the object still exists and is thus still accessible via <code>Weakref::get()</code>, <b><code>FALSE</code></b> otherwise.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> if the object still exists and is thus still accessible via <code>Weakref::get()</code>, <b><code>false</code></b> otherwise.</p>
 		 * @link https://php.net/manual/en/weakref.valid.php
 		 * @since PECL weakref >= 0.1.0
 		 */

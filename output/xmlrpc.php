@@ -26,7 +26,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.xmlrpc-decode-request.php
 	 * @since PHP 4 >= 4.1.0, PHP 5, PHP 7
 	 */
-	function xmlrpc_decode_request(string $xml, string &$method, string $encoding = NULL): mixed {}
+	function xmlrpc_decode_request(string $xml, string &$method, string $encoding = null): mixed {}
 
 	/**
 	 * Generates XML for a PHP value
@@ -49,7 +49,7 @@ namespace {
 	 * @see stream_context_create(), file_get_contents(), xmlrpc_decode()
 	 * @since PHP 4 >= 4.1.0, PHP 5, PHP 7
 	 */
-	function xmlrpc_encode_request(string $method, mixed $params, array $output_options = NULL): string {}
+	function xmlrpc_encode_request(string $method, mixed $params, array $output_options = null): string {}
 
 	/**
 	 * Gets xmlrpc type for a PHP value
@@ -66,7 +66,7 @@ namespace {
 	 * Determines if an array value represents an XMLRPC fault
 	 * <p>This function is <i>EXPERIMENTAL</i>. The behaviour of this function, its name, and surrounding documentation may change without notice in a future release of PHP. This function should be used at your own risk.</p>
 	 * @param array $arg <p>Array returned by <code>xmlrpc_decode()</code>.</p>
-	 * @return bool <p>Returns <b><code>TRUE</code></b> if the argument means fault, <b><code>FALSE</code></b> otherwise. Fault description is available in <code>$arg["faultString"]</code>, fault code is in <code>$arg["faultCode"]</code>.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> if the argument means fault, <b><code>false</code></b> otherwise. Fault description is available in <code>$arg["faultString"]</code>, fault code is in <code>$arg["faultCode"]</code>.</p>
 	 * @link https://php.net/manual/en/function.xmlrpc-is-fault.php
 	 * @see xmlrpc_decode()
 	 * @since PHP 4 >= 4.3.0, PHP 5, PHP 7
@@ -105,7 +105,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.xmlrpc-server-call-method.php
 	 * @since PHP 4 >= 4.1.0, PHP 5, PHP 7
 	 */
-	function xmlrpc_server_call_method($server, string $xml, mixed $user_data, array $output_options = NULL): string {}
+	function xmlrpc_server_call_method($server, string $xml, mixed $user_data, array $output_options = null): string {}
 
 	/**
 	 * Creates an xmlrpc server
@@ -154,7 +154,7 @@ namespace {
 	 * <p>Sets xmlrpc type, base64 or datetime, for a PHP string value.</p><p>This function is <i>EXPERIMENTAL</i>. The behaviour of this function, its name, and surrounding documentation may change without notice in a future release of PHP. This function should be used at your own risk.</p>
 	 * @param string $value <p>Value to set the type</p>
 	 * @param string $type <p>'base64' or 'datetime'</p>
-	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure. If successful, <code>value</code> is converted to an object.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure. If successful, <code>value</code> is converted to an object.</p>
 	 * @link https://php.net/manual/en/function.xmlrpc-set-type.php
 	 * @since PHP 4 >= 4.1.0, PHP 5, PHP 7
 	 */
