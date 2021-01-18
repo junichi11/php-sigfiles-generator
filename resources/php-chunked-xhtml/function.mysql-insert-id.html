@@ -48,8 +48,8 @@ Alternatives to this function include:</p>
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>mysql_insert_id</strong></span>
-    ([ <span class="methodparam"><span class="type">resource</span> <code class="parameter">$link_identifier</code><span class="initializer"> = NULL</span></span>
-  ] ) : <span class="type">int</span></div>
+    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$link_identifier</code><span class="initializer"> = NULL</span></span>
+   ) : <span class="type">int</span></div>
 
   <p class="para rdfs-comment">
    Retrieves the ID generated for an AUTO_INCREMENT column by the previous 
@@ -86,7 +86,7 @@ with no arguments. If no connection is found or established, an
   <p class="para">
    The ID generated for an AUTO_INCREMENT column by the previous 
    query on success, <code class="literal">0</code> if the previous
-   query does not generate an AUTO_INCREMENT value, or <strong><code>FALSE</code></strong> if
+   query does not generate an AUTO_INCREMENT value, or <strong><code>false</code></strong> if
    no MySQL connection was established.
   </p>
  </div>
@@ -95,7 +95,7 @@ with no arguments. If no connection is found or established, an
  <div class="refsect1 examples" id="refsect1-function.mysql-insert-id-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-1981">
+   <div class="example" id="example-1994">
     <p><strong>Example #1 <span class="function"><strong>mysql_insert_id()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

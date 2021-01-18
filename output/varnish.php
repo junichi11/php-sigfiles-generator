@@ -17,11 +17,11 @@ namespace {
 		 * @link https://php.net/manual/en/varnishadmin.construct.php
 		 * @since PECL varnish >= 0.3
 		 */
-		public function __construct(array $args = NULL) {}
+		public function __construct(array $args = null) {}
 
 		/**
 		 * Authenticate on a varnish instance
-		 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/varnishadmin.auth.php
 		 * @since PECL varnish >= 0.3
 		 */
@@ -55,7 +55,7 @@ namespace {
 
 		/**
 		 * Connect to a varnish instance administration interface
-		 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/varnishadmin.connect.php
 		 * @since PECL varnish >= 0.3
 		 */
@@ -63,7 +63,7 @@ namespace {
 
 		/**
 		 * Disconnect from a varnish instance administration interface
-		 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/varnishadmin.disconnect.php
 		 * @since PECL varnish >= 1.0.0
 		 */
@@ -87,7 +87,7 @@ namespace {
 
 		/**
 		 * Check if the varnish slave process is currently running
-		 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/varnishadmin.isrunning.php
 		 * @since PECL varnish >= 0.3
 		 */
@@ -499,7 +499,7 @@ namespace {
 		 * @link https://php.net/manual/en/varnishlog.construct.php
 		 * @since PECL varnish >= 0.6
 		 */
-		public function __construct(array $args = NULL) {}
+		public function __construct(array $args = null) {}
 
 		/**
 		 * Get next log line
@@ -532,7 +532,7 @@ namespace {
 		 * @link https://php.net/manual/en/varnishstat.construct.php
 		 * @since PECL varnish >= 0.3
 		 */
-		public function __construct(array $args = NULL) {}
+		public function __construct(array $args = null) {}
 
 		/**
 		 * Get the current varnish instance statistics snapshot

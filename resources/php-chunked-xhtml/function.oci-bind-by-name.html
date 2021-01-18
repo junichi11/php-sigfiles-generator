@@ -36,10 +36,10 @@
    <span class="methodname"><strong>oci_bind_by_name</strong></span>
     ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$statement</code></span>
    , <span class="methodparam"><span class="type">string</span> <code class="parameter">$bv_name</code></span>
-   , <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter reference">&$variable</code></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$maxlength</code><span class="initializer"> = -1</span></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$type</code><span class="initializer"> = SQLT_CHR</span></span>
-  ]] ) : <span class="type">bool</span></div>
+   , <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter reference">&$variable</code></span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$maxlength</code><span class="initializer"> = -1</span></span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$type</code><span class="initializer"> = SQLT_CHR</span></span>
+   ) : <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
    Binds a PHP variable <code class="parameter">variable</code> to the Oracle
@@ -287,7 +287,7 @@
  <div class="refsect1 returnvalues" id="refsect1-function.oci-bind-by-name-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns <strong><code>TRUE</code></strong> on success or <strong><code>FALSE</code></strong> on failure.
+   Returns <strong><code>true</code></strong> on success or <strong><code>false</code></strong> on failure.
   </p>
  </div>
 
@@ -295,7 +295,7 @@
  <div class="refsect1 examples" id="refsect1-function.oci-bind-by-name-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-2206">
+   <div class="example" id="example-2219">
     <p><strong>Example #1 Inserting data with <span class="function"><strong>oci_bind_by_name()</strong></span></strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -308,7 +308,7 @@
   </p>
 
   <p class="para">
-   <div class="example" id="example-2207">
+   <div class="example" id="example-2220">
     <p><strong>Example #2 Binding once for multiple executions</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -321,7 +321,7 @@
   </p>
 
   <p class="para">
-   <div class="example" id="example-2208">
+   <div class="example" id="example-2221">
     <p><strong>Example #3 Binding with a <span class="function"><strong>foreach()</strong></span> loop</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -334,7 +334,7 @@
   </p>
 
   <p class="para">
-   <div class="example" id="example-2209">
+   <div class="example" id="example-2222">
     <p><strong>Example #4 Binding in a WHERE clause</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -347,7 +347,7 @@
   </p>
 
   <p class="para">
-   <div class="example" id="example-2210">
+   <div class="example" id="example-2223">
     <p><strong>Example #5 Binding with a LIKE clause</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -360,7 +360,7 @@
   </p>
 
   <p class="para">
-   <div class="example" id="example-2211">
+   <div class="example" id="example-2224">
     <p><strong>Example #6 Binding with REGEXP_LIKE</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -380,7 +380,7 @@
   </p>
 
   <p class="para">
-   <div class="example" id="example-2212">
+   <div class="example" id="example-2225">
     <p><strong>Example #7 Binding Multiple Values in an IN Clause</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -393,7 +393,7 @@
   </p>
 
   <p class="para">
-   <div class="example" id="example-2213">
+   <div class="example" id="example-2226">
     <p><strong>Example #8 Binding a ROWID returned by a query</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -406,7 +406,7 @@
   </p>
 
   <p class="para">
-   <div class="example" id="example-2214">
+   <div class="example" id="example-2227">
     <p><strong>Example #9 Binding a ROWID on INSERT</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -419,7 +419,7 @@
   </p>
 
   <p class="para">
-   <div class="example" id="example-2215">
+   <div class="example" id="example-2228">
     <p><strong>Example #10 Binding for a PL/SQL stored function</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -432,7 +432,7 @@
   </p>
 
   <p class="para">
-  <div class="example" id="example-2216">
+  <div class="example" id="example-2229">
    <p><strong>Example #11 Binding parameters for a PL/SQL stored procedure</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -445,7 +445,7 @@
   </p>
 
   <p class="para">
-  <div class="example" id="example-2217">
+  <div class="example" id="example-2230">
    <p><strong>Example #12 Binding a CLOB column</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -458,7 +458,7 @@
   </p>
 
   <p class="para">
-  <div class="example" id="example-2218">
+  <div class="example" id="example-2231">
    <p><strong>Example #13 Binding a PL/SQL BOOLEAN</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -476,7 +476,7 @@
  <div class="refsect1 returnvalues" id="refsect1-function.oci-bind-by-name-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns <strong><code>TRUE</code></strong> on success or <strong><code>FALSE</code></strong> on failure.
+   Returns <strong><code>true</code></strong> on success or <strong><code>false</code></strong> on failure.
   </p>
  </div>
 

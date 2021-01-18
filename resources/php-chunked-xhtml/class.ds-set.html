@@ -111,7 +111,7 @@
     <div class="classsynopsisinfo classsynopsisinfo_comment">/* Methods */</div>
     <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="ds-set.add.html" class="methodname">add</a></span>
-    ( <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">...$values</code></span>
+    ( <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">...$values</code></span>
    ) : <span class="type"><span class="type void">void</span></span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="ds-set.allocate.html" class="methodname">allocate</a></span>
@@ -127,7 +127,7 @@
    ) : <span class="type"><span class="type void">void</span></span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="ds-set.contains.html" class="methodname">contains</a></span>
-    ( <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">...$values</code></span>
+    ( <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">...$values</code></span>
    ) : <span class="type">bool</span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="ds-set.copy.html" class="methodname">copy</a></span>
@@ -139,16 +139,16 @@
    ) : <span class="type"><a href="class.ds-set.html" class="type Ds\Set">Ds\Set</a></span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="ds-set.filter.html" class="methodname">filter</a></span>
-    ([ <span class="methodparam"><span class="type"><a href="language.types.callable.html" class="type callable">callable</a></span> <code class="parameter">$callback</code></span>
-  ] ) : <span class="type"><a href="class.ds-set.html" class="type Ds\Set">Ds\Set</a></span></div>
+    ( <span class="methodparam"><span class="type"><a href="language.types.callable.html" class="type callable">callable</a></span> <code class="parameter">$callback</code> = ?</span>
+   ) : <span class="type"><a href="class.ds-set.html" class="type Ds\Set">Ds\Set</a></span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="ds-set.first.html" class="methodname">first</a></span>
     (
-   ) : <span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span></div>
+   ) : <span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="ds-set.get.html" class="methodname">get</a></span>
     ( <span class="methodparam"><span class="type">int</span> <code class="parameter">$index</code></span>
-   ) : <span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span></div>
+   ) : <span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="ds-set.intersect.html" class="methodname">intersect</a></span>
     ( <span class="methodparam"><span class="type"><a href="class.ds-set.html" class="type Ds\Set">Ds\Set</a></span> <code class="parameter">$set</code></span>
@@ -159,24 +159,24 @@
    ) : <span class="type">bool</span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="ds-set.join.html" class="methodname">join</a></span>
-    ([ <span class="methodparam"><span class="type">string</span> <code class="parameter">$glue</code></span>
-  ] ) : <span class="type">string</span></div>
+    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$glue</code> = ?</span>
+   ) : <span class="type">string</span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="ds-set.last.html" class="methodname">last</a></span>
     (
-   ) : <span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span></div>
+   ) : <span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="ds-set.merge.html" class="methodname">merge</a></span>
-    ( <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">$values</code></span>
+    ( <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$values</code></span>
    ) : <span class="type"><a href="class.ds-set.html" class="type Ds\Set">Ds\Set</a></span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="ds-set.reduce.html" class="methodname">reduce</a></span>
     ( <span class="methodparam"><span class="type"><a href="language.types.callable.html" class="type callable">callable</a></span> <code class="parameter">$callback</code></span>
-   [, <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">$initial</code></span>
-  ] ) : <span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span></div>
+   , <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$initial</code> = ?</span>
+   ) : <span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="ds-set.remove.html" class="methodname">remove</a></span>
-    ( <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">...$values</code></span>
+    ( <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">...$values</code></span>
    ) : <span class="type"><span class="type void">void</span></span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="ds-set.reverse.html" class="methodname">reverse</a></span>
@@ -189,16 +189,16 @@
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="ds-set.slice.html" class="methodname">slice</a></span>
     ( <span class="methodparam"><span class="type">int</span> <code class="parameter">$index</code></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$length</code></span>
-  ] ) : <span class="type"><a href="class.ds-set.html" class="type Ds\Set">Ds\Set</a></span></div>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$length</code> = ?</span>
+   ) : <span class="type"><a href="class.ds-set.html" class="type Ds\Set">Ds\Set</a></span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="ds-set.sort.html" class="methodname">sort</a></span>
-    ([ <span class="methodparam"><span class="type"><a href="language.types.callable.html" class="type callable">callable</a></span> <code class="parameter">$comparator</code></span>
-  ] ) : <span class="type"><span class="type void">void</span></span></div>
+    ( <span class="methodparam"><span class="type"><a href="language.types.callable.html" class="type callable">callable</a></span> <code class="parameter">$comparator</code> = ?</span>
+   ) : <span class="type"><span class="type void">void</span></span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="ds-set.sorted.html" class="methodname">sorted</a></span>
-    ([ <span class="methodparam"><span class="type"><a href="language.types.callable.html" class="type callable">callable</a></span> <code class="parameter">$comparator</code></span>
-  ] ) : <span class="type"><a href="class.ds-set.html" class="type Ds\Set">Ds\Set</a></span></div>
+    ( <span class="methodparam"><span class="type"><a href="language.types.callable.html" class="type callable">callable</a></span> <code class="parameter">$comparator</code> = ?</span>
+   ) : <span class="type"><a href="class.ds-set.html" class="type Ds\Set">Ds\Set</a></span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="ds-set.sum.html" class="methodname">sum</a></span>
     (

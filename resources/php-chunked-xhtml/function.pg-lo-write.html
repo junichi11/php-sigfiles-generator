@@ -36,8 +36,8 @@
    <span class="methodname"><strong>pg_lo_write</strong></span>
     ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$large_object</code></span>
    , <span class="methodparam"><span class="type">string</span> <code class="parameter">$data</code></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$len</code></span>
-  ] ) : <span class="type">int</span></div>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$len</code> = ?</span>
+   ) : <span class="type">int</span></div>
 
   <p class="para rdfs-comment">
    <span class="function"><strong>pg_lo_write()</strong></span> writes data into a large object
@@ -109,7 +109,7 @@
  <div class="refsect1 returnvalues" id="refsect1-function.pg-lo-write-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   The number of bytes written to the large object, or <strong><code>FALSE</code></strong> on error.
+   The number of bytes written to the large object, or <strong><code>false</code></strong> on error.
   </p>
  </div>
 
@@ -117,7 +117,7 @@
  <div class="refsect1 examples" id="refsect1-function.pg-lo-write-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-2361">
+   <div class="example" id="example-2374">
     <p><strong>Example #1 <span class="function"><strong>pg_lo_write()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

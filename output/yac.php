@@ -30,7 +30,7 @@ namespace {
 		 * Getter
 		 * <p>Retrieve values from cache</p>
 		 * @param string $key <p><code>string</code> key</p>
-		 * @return mixed <p>mixed on success, <b><code>NULL</code></b> on failure</p>
+		 * @return mixed <p>mixed on success, <b><code>null</code></b> on failure</p>
 		 * @link https://php.net/manual/en/yac.getter.php
 		 * @since PECL yac >= 1.0.0
 		 */
@@ -53,7 +53,7 @@ namespace {
 		 * @param string $keys <p><code>string</code> key</p>
 		 * @param mixed $value <p>mixed value, All php value type could be stored except resource</p>
 		 * @param int $ttl <p>expire time</p>
-		 * @return bool <p><code>bool</code>, <b><code>TRUE</code></b> on success, <b><code>FALSE</code></b> on failure</p><p><b>Note</b>:</p><p><b>Yac::add()</b> may fail if cas lock could not obtain, so, if you need the value to be stored properly, you may write codes like:</p> <p><b>Example #1 Make sure the item is stored</b></p>  <code> while(!$yac-&gt;set("key",&nbsp;"vale)); </code>
+		 * @return bool <p><code>bool</code>, <b><code>true</code></b> on success, <b><code>false</code></b> on failure</p><p><b>Note</b>:</p><p><b>Yac::add()</b> may fail if cas lock could not obtain, so, if you need the value to be stored properly, you may write codes like:</p> <p><b>Example #1 Make sure the item is stored</b></p>  <code> while(!$yac-&gt;set("key",&nbsp;"vale)); </code>
 		 * @link https://php.net/manual/en/yac.add.php
 		 * @since PECL yac >= 1.0.0
 		 */
@@ -68,7 +68,7 @@ namespace {
 		 * @link https://php.net/manual/en/yac.delete.php
 		 * @since PECL yac >= 1.0.0
 		 */
-		public function delete(string|array $keys, int $ttl = NULL): bool {}
+		public function delete(string|array $keys, int $ttl = null): bool {}
 
 		/**
 		 * Dump cache
@@ -93,12 +93,12 @@ namespace {
 		 * Retrieve values from cache
 		 * <p>Retrieve values from cache</p>
 		 * @param string|array $key <p><code>string</code> keys, or <code>array</code> of multiple keys.</p>
-		 * @param int $cas <p>if not <b><code>NULL</code></b>, it will be set to the retrieved item's cas.</p>
+		 * @param int $cas <p>if not <b><code>null</code></b>, it will be set to the retrieved item's cas.</p>
 		 * @return mixed <p>mixed on success, false on failure</p>
 		 * @link https://php.net/manual/en/yac.get.php
 		 * @since PECL yac >= 1.0.0
 		 */
-		public function get(string|array $key, int &$cas = NULL): mixed {}
+		public function get(string|array $key, int &$cas = null): mixed {}
 
 		/**
 		 * Status of cache

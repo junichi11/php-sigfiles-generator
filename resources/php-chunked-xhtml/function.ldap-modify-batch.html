@@ -34,11 +34,11 @@
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>ldap_modify_batch</strong></span>
-    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$link_identifier</code></span>
+    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$ldap</code></span>
    , <span class="methodparam"><span class="type">string</span> <code class="parameter">$dn</code></span>
-   , <span class="methodparam"><span class="type">array</span> <code class="parameter">$entry</code></span>
-   [, <span class="methodparam"><span class="type">array</span> <code class="parameter">$serverctrls</code><span class="initializer"> = array()</span></span>
-  ] ) : <span class="type">bool</span></div>
+   , <span class="methodparam"><span class="type">array</span> <code class="parameter">$modifications_info</code></span>
+   , <span class="methodparam"><span class="type"><span class="type">array</span>|<span class="type">null</span></span> <code class="parameter">$controls</code><span class="initializer"> = <strong><code>null</code></strong></span></span>
+   ) : <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
    Modifies an existing entry in the LDAP directory. Allows detailed
@@ -54,7 +54,7 @@
 
     
      <dt>
-<code class="parameter">link_identifier</code></dt>
+<code class="parameter">ldap</code></dt>
 
      <dd>
 
@@ -78,7 +78,7 @@
     
     
      <dt>
-<code class="parameter">entry</code></dt>
+<code class="parameter">modifications_info</code></dt>
 
      <dd>
 
@@ -165,7 +165,7 @@
     
     
      <dt>
-<code class="parameter">serverctrls</code></dt>
+<code class="parameter">controls</code></dt>
 
      <dd>
 
@@ -184,7 +184,7 @@
  <div class="refsect1 returnvalues" id="refsect1-function.ldap-modify-batch-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns <strong><code>TRUE</code></strong> on success or <strong><code>FALSE</code></strong> on failure.
+   Returns <strong><code>true</code></strong> on success or <strong><code>false</code></strong> on failure.
   </p>
  </div>
 
@@ -204,9 +204,16 @@
 
      <tbody class="tbody">
       <tr>
+ <td>8.0.0</td>
+ <td>
+  <code class="parameter">controls</code> is nullable now; previously, it defaulted to <code class="literal">[]</code>.
+ </td>
+</tr>
+
+      <tr>
        <td>7.3</td>
        <td>
-        Support for <code class="parameter">serverctrls</code> added
+        Support for <code class="parameter">controls</code> added
        </td>
       </tr>
 
@@ -221,7 +228,7 @@
  <div class="refsect1 examples" id="refsect1-function.ldap-modify-batch-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-4839">
+   <div class="example" id="example-4861">
     <p><strong>Example #1 Add a telephone number to a contact</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -231,7 +238,7 @@
     </div>
 
    </div>
-   <div class="example" id="example-4840">
+   <div class="example" id="example-4862">
     <p><strong>Example #2 Rename a user</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -241,7 +248,7 @@
     </div>
 
    </div>
-   <div class="example" id="example-4841">
+   <div class="example" id="example-4863">
     <p><strong>Example #3 Add two e-mail addresses to a user</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -251,7 +258,7 @@
     </div>
 
    </div>
-   <div class="example" id="example-4842">
+   <div class="example" id="example-4864">
     <p><strong>Example #4 Change a user&#039;s password</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -261,7 +268,7 @@
     </div>
 
    </div>
-   <div class="example" id="example-4843">
+   <div class="example" id="example-4865">
     <p><strong>Example #5 Change a user&#039;s password (Active Directory)</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

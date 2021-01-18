@@ -2,7 +2,7 @@
 <html>
  <head>
   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-  <title>Set the value of quick_print within the UCD SNMP library</title>
+  <title>Set the value of enable within the NET-SNMP library</title>
 <link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-base.css" />
 <link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-medium.css" />
 
@@ -19,14 +19,14 @@
   <ul class="breadcrumbs-container">
     <li><a href="index.html">PHP Manual</a></li>
     <li><a href="ref.snmp.html">SNMP Functions</a></li>
-    <li>Set the value of quick_print within the UCD SNMP library</li>
+    <li>Set the value of enable within the NET-SNMP library</li>
   </ul>
 </div>
 <div id="layout">
   <div id="layout-content"><div id="function.snmp-set-quick-print" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">snmp_set_quick_print</h1>
-  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">snmp_set_quick_print</span> &mdash; <span class="dc-title">Set the value of <code class="parameter">quick_print</code> within the UCD <acronym title="Simple Network Management Protocol">SNMP</acronym> library
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">snmp_set_quick_print</span> &mdash; <span class="dc-title">Set the value of <code class="parameter">enable</code> within the NET-<acronym title="Simple Network Management Protocol">SNMP</acronym> library
   </span></p>
 
  </div>
@@ -34,21 +34,21 @@
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>snmp_set_quick_print</strong></span>
-    ( <span class="methodparam"><span class="type">bool</span> <code class="parameter">$quick_print</code></span>
+    ( <span class="methodparam"><span class="type">bool</span> <code class="parameter">$enable</code></span>
    ) : <span class="type">bool</span></div>
 
 
   <p class="para rdfs-comment">
-   Sets the value of <code class="parameter">quick_print</code> within the UCD <acronym title="Simple Network Management Protocol">SNMP</acronym> library.  When this
+   Sets the value of <code class="parameter">enable</code> within the NET-<acronym title="Simple Network Management Protocol">SNMP</acronym> library.  When this
    is set (1), the <acronym title="Simple Network Management Protocol">SNMP</acronym> library will return &#039;quick printed&#039; values.  This
-   means that just the value will be printed.  When <code class="parameter">quick_print</code> is not
-   enabled (default) the UCD <acronym title="Simple Network Management Protocol">SNMP</acronym> library prints extra information
+   means that just the value will be printed.  When <code class="parameter">enable</code> is not
+   enabled (default) the NET-<acronym title="Simple Network Management Protocol">SNMP</acronym> library prints extra information
    including the type of the value (i.e. IpAddress or OID).  Additionally, 
    if quick_print is not enabled, the library prints additional hex values 
    for all strings of three characters or less.
   </p>
   <p class="para">
-   By default the UCD <acronym title="Simple Network Management Protocol">SNMP</acronym> library returns verbose values, quick_print is
+   By default the NET-<acronym title="Simple Network Management Protocol">SNMP</acronym> library returns verbose values, quick_print is
    used to return only the value.
   </p>
   <p class="para">
@@ -65,7 +65,7 @@
 
     
      <dt>
-<code class="parameter">quick_print</code></dt>
+<code class="parameter">enable</code></dt>
 
      <dd>
 
@@ -95,7 +95,7 @@
    rather than displaying it.
   </p>
   <p class="para">  
-   <div class="example" id="example-4955">
+   <div class="example" id="example-4977">
     <p><strong>Example #1 Using <span class="function"><strong>snmp_set_quick_print()</strong></span></strong></p>
     <div class="example-contents"> 
 <div class="phpcode"><code><span style="color: #000000">
@@ -121,7 +121,7 @@ something similar to:</p></div>
   <h3 class="title">See Also</h3>
   <p class="para">
    <ul class="simplelist">
-    <li class="member"><span class="function"><a href="function.snmp-get-quick-print.html" class="function" rel="rdfs-seeAlso">snmp_get_quick_print()</a> - Fetches the current value of the UCD library's quick_print setting</span></li>
+    <li class="member"><span class="function"><a href="function.snmp-get-quick-print.html" class="function" rel="rdfs-seeAlso">snmp_get_quick_print()</a> - Fetches the current value of the NET-SNMP library's quick_print setting</span></li>
    </ul>
   </p>
  </div>

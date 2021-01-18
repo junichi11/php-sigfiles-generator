@@ -34,7 +34,7 @@
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>fpassthru</strong></span>
-    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$handle</code></span>
+    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$stream</code></span>
    ) : <span class="type">int</span></div>
 
   <p class="para rdfs-comment">
@@ -62,7 +62,7 @@
 
     
      <dt>
-<code class="parameter">handle</code></dt>
+<code class="parameter">stream</code></dt>
 
      <dd>
 
@@ -83,8 +83,8 @@ a file successfully opened by <span class="function"><a href="function.fopen.htm
   <h3 class="title">Return Values</h3>
   <p class="para">
    If an error occurs, <span class="function"><strong>fpassthru()</strong></span> returns
-   <strong><code>FALSE</code></strong>.  Otherwise, <span class="function"><strong>fpassthru()</strong></span> returns
-   the number of characters read from <code class="parameter">handle</code>
+   <strong><code>false</code></strong>.  Otherwise, <span class="function"><strong>fpassthru()</strong></span> returns
+   the number of characters read from <code class="parameter">stream</code>
    and passed through to the output.
   </p>
  </div>
@@ -93,7 +93,7 @@ a file successfully opened by <span class="function"><a href="function.fopen.htm
  <div class="refsect1 examples" id="refsect1-function.fpassthru-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-2641">
+   <div class="example" id="example-2656">
     <p><strong>Example #1 Using <span class="function"><strong>fpassthru()</strong></span> with binary files</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

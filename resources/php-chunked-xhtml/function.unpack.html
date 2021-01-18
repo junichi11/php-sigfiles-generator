@@ -35,9 +35,9 @@
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>unpack</strong></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$format</code></span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$data</code></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$offset</code><span class="initializer"> = 0</span></span>
-  ] ) : <span class="type"><span class="type">array</span>|<span class="type"><span class="type false">false</span></span></span></div>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$string</code></span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$offset</code><span class="initializer"> = 0</span></span>
+   ) : <span class="type"><span class="type">array</span>|<span class="type"><span class="type false">false</span></span></span></div>
 
   <p class="para rdfs-comment">
    Unpacks from a binary string into an array according to the given
@@ -72,7 +72,7 @@
     
     
      <dt>
-<code class="parameter">data</code></dt>
+<code class="parameter">string</code></dt>
 
      <dd>
 
@@ -104,7 +104,7 @@
   <h3 class="title">Return Values</h3>
   <p class="para">
    Returns an associative array containing unpacked elements of binary
-   string,  or <strong><code>FALSE</code></strong> on failure.
+   string,  or <strong><code>false</code></strong> on failure.
   </p>
  </div>
 
@@ -168,7 +168,7 @@
  <div class="refsect1 examples" id="refsect1-function.unpack-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-3999">
+   <div class="example" id="example-4014">
     <p><strong>Example #1 <span class="function"><strong>unpack()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -191,7 +191,7 @@ Array
   </p>
 
   <p class="para">
-   <div class="example" id="example-4000">
+   <div class="example" id="example-4015">
     <p><strong>Example #2 <span class="function"><strong>unpack()</strong></span> example with a repeater</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -233,7 +233,7 @@ Array
     overwritten because the numbering restarts from <code class="literal">1</code> for each element.
    </p>
    <p class="para">
-    <div class="example" id="example-4001">
+    <div class="example" id="example-4016">
      <p><strong>Example #3 <span class="function"><strong>unpack()</strong></span> example with unnamed keys</strong></p>
      <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

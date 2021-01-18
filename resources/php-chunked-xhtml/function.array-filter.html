@@ -35,14 +35,14 @@
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>array_filter</strong></span>
     ( <span class="methodparam"><span class="type">array</span> <code class="parameter">$array</code></span>
-   [, <span class="methodparam"><span class="type"><a href="language.types.callable.html" class="type callable">callable</a></span> <code class="parameter">$callback</code></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$flag</code><span class="initializer"> = 0</span></span>
-  ]] ) : <span class="type">array</span></div>
+   , <span class="methodparam"><span class="type"><span class="type"><a href="language.types.callable.html" class="type callable">callable</a></span>|<span class="type">null</span></span> <code class="parameter">$callback</code><span class="initializer"> = <strong><code>null</code></strong></span></span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$mode</code><span class="initializer"> = 0</span></span>
+   ) : <span class="type">array</span></div>
 
   <p class="para rdfs-comment">
    Iterates over each value in the <code class="parameter">array</code>
    passing them to the <code class="parameter">callback</code> function.
-   If the <code class="parameter">callback</code> function returns <strong><code>TRUE</code></strong>, the
+   If the <code class="parameter">callback</code> function returns <strong><code>true</code></strong>, the
    current value from <code class="parameter">array</code> is returned into
    the result <span class="type">array</span>.
   </p>
@@ -92,7 +92,7 @@
 
     
      <dt>
-<code class="parameter">flag</code></dt>
+<code class="parameter">mode</code></dt>
 
      <dd>
 
@@ -143,9 +143,16 @@
 
     <tbody class="tbody">
      <tr>
+      <td>8.0.0</td>
+      <td>
+       <code class="parameter">callback</code> is nullable now.
+      </td>
+     </tr>
+
+     <tr>
       <td>5.6.0</td>
       <td>
-       Added optional <code class="parameter">flag</code> parameter and constants 
+       Added optional <code class="parameter">mode</code> parameter and constants 
        <strong><code>ARRAY_FILTER_USE_KEY</code></strong> and 
        <strong><code>ARRAY_FILTER_USE_BOTH</code></strong>
       </td>
@@ -163,7 +170,7 @@
  <div class="refsect1 examples" id="refsect1-function.array-filter-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-5403">
+   <div class="example" id="example-5424">
     <p><strong>Example #1 <span class="function"><strong>array_filter()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -193,7 +200,7 @@ Array
 </pre></div>
     </div>
    </div>
-   <div class="example" id="example-5404">
+   <div class="example" id="example-5425">
     <p><strong>Example #2 <span class="function"><strong>array_filter()</strong></span> without
     <code class="parameter">callback</code></strong></p>
     <div class="example-contents">
@@ -214,9 +221,9 @@ Array
 </pre></div>
     </div>
    </div>
-   <div class="example" id="example-5405">
+   <div class="example" id="example-5426">
     <p><strong>Example #3 <span class="function"><strong>array_filter()</strong></span> with 
-    <code class="parameter">flag</code></strong></p>
+    <code class="parameter">mode</code></strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
 <span style="color: #0000BB">&lt;?php<br /><br />$arr&nbsp;</span><span style="color: #007700">=&nbsp;[</span><span style="color: #DD0000">'a'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'b'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">2</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'c'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">3</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'d'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">4</span><span style="color: #007700">];<br /><br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">array_filter</span><span style="color: #007700">(</span><span style="color: #0000BB">$arr</span><span style="color: #007700">,&nbsp;function(</span><span style="color: #0000BB">$k</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$k&nbsp;</span><span style="color: #007700">==&nbsp;</span><span style="color: #DD0000">'b'</span><span style="color: #007700">;<br />},&nbsp;</span><span style="color: #0000BB">ARRAY_FILTER_USE_KEY</span><span style="color: #007700">));<br /><br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">array_filter</span><span style="color: #007700">(</span><span style="color: #0000BB">$arr</span><span style="color: #007700">,&nbsp;function(</span><span style="color: #0000BB">$v</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$k</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$k&nbsp;</span><span style="color: #007700">==&nbsp;</span><span style="color: #DD0000">'b'&nbsp;</span><span style="color: #007700">||&nbsp;</span><span style="color: #0000BB">$v&nbsp;</span><span style="color: #007700">==&nbsp;</span><span style="color: #0000BB">4</span><span style="color: #007700">;<br />},&nbsp;</span><span style="color: #0000BB">ARRAY_FILTER_USE_BOTH</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">?&gt;</span>

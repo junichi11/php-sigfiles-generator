@@ -35,8 +35,8 @@ namespace {
 
 		/**
 		 * Get a weakly referenced Object
-		 * <p>Gets a weakly referenced object. If the object has already been destroyed, <b><code>NULL</code></b> is returned.</p>
-		 * @return object|null <p>Returns the referenced <code>object</code>, or <b><code>NULL</code></b> if the object has been destroyed.</p>
+		 * <p>Gets a weakly referenced object. If the object has already been destroyed, <b><code>null</code></b> is returned.</p>
+		 * @return object|null <p>Returns the referenced <code>object</code>, or <b><code>null</code></b> if the object has been destroyed.</p>
 		 * @link https://php.net/manual/en/weakreference.get.php
 		 * @since PHP 7 >= 7.4.0
 		 */

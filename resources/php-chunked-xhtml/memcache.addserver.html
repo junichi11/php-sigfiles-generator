@@ -35,15 +35,15 @@
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>Memcache::addServer</strong></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$host</code></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$port</code><span class="initializer"> = 11211</span></span>
-   [, <span class="methodparam"><span class="type">bool</span> <code class="parameter">$persistent</code></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$weight</code></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$timeout</code></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$retry_interval</code></span>
-   [, <span class="methodparam"><span class="type">bool</span> <code class="parameter">$status</code></span>
-   [, <span class="methodparam"><span class="type"><a href="language.types.callable.html" class="type callable">callable</a></span> <code class="parameter">$failure_callback</code></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$timeoutms</code></span>
-  ]]]]]]]] ) : <span class="type">bool</span></div>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$port</code><span class="initializer"> = 11211</span></span>
+   , <span class="methodparam"><span class="type">bool</span> <code class="parameter">$persistent</code> = ?</span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$weight</code> = ?</span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$timeout</code> = ?</span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$retry_interval</code> = ?</span>
+   , <span class="methodparam"><span class="type">bool</span> <code class="parameter">$status</code> = ?</span>
+   , <span class="methodparam"><span class="type"><a href="language.types.callable.html" class="type callable">callable</a></span> <code class="parameter">$failure_callback</code> = ?</span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$timeoutms</code> = ?</span>
+   ) : <span class="type">bool</span></div>
 
   
   <p class="para rdfs-comment">
@@ -122,7 +122,7 @@
      <dd>
 
       <p class="para">
-       Controls the use of a persistent connection. Default to <strong><code>TRUE</code></strong>.
+       Controls the use of a persistent connection. Default to <strong><code>true</code></strong>.
       </p>
      </dd>
 
@@ -186,11 +186,11 @@
 
       <p class="para">
        Controls if the server should be flagged as online. Setting this parameter
-       to <strong><code>FALSE</code></strong> and <code class="parameter">retry_interval</code> to -1 allows a failed 
+       to <strong><code>false</code></strong> and <code class="parameter">retry_interval</code> to -1 allows a failed 
        server to be kept in the pool so as not to affect the key distribution 
        algorithm. Requests for this server will then failover or fail immediately 
        depending on the <code class="parameter">memcache.allow_failover</code> setting.
-       Default to <strong><code>TRUE</code></strong>, meaning the server should be considered online.
+       Default to <strong><code>true</code></strong>, meaning the server should be considered online.
       </p>
      </dd>
 
@@ -245,7 +245,7 @@
  <div class="refsect1 returnvalues" id="refsect1-memcache.addserver-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns <strong><code>TRUE</code></strong> on success or <strong><code>FALSE</code></strong> on failure.
+   Returns <strong><code>true</code></strong> on success or <strong><code>false</code></strong> on failure.
   </p>
  </div>
 
@@ -253,7 +253,7 @@
 <div class="refsect1 examples" id="refsect1-memcache.addserver-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-4852">
+   <div class="example" id="example-4874">
     <p><strong>Example #1 <span class="function"><strong>Memcache::addServer()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

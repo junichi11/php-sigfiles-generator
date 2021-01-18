@@ -70,10 +70,10 @@
     <div class="classsynopsisinfo classsynopsisinfo_comment">/* Methods */</div>
     <div class="methodsynopsis dc-description">
    <span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><a href="mongodb-driver-manager.construct.html" class="methodname">__construct</a></span>
-    ([ <span class="methodparam"><span class="type">string</span> <code class="parameter">$uri</code><span class="initializer"> = &quot;mongodb://127.0.0.1/&quot;</span></span>
-   [, <span class="methodparam"><span class="type">array</span> <code class="parameter">$uriOptions</code><span class="initializer"> = array()</span></span>
-   [, <span class="methodparam"><span class="type">array</span> <code class="parameter">$driverOptions</code><span class="initializer"> = array()</span></span>
-  ]]] )</div>
+    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$uri</code><span class="initializer"> = &quot;mongodb://127.0.0.1/&quot;</span></span>
+   , <span class="methodparam"><span class="type">array</span> <code class="parameter">$uriOptions</code><span class="initializer"> = array()</span></span>
+   , <span class="methodparam"><span class="type">array</span> <code class="parameter">$driverOptions</code><span class="initializer"> = array()</span></span>
+   )</div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><a href="mongodb-driver-manager.createclientencryption.html" class="methodname">createClientEncryption</a></span>
     ( <span class="methodparam"><span class="type">array</span> <code class="parameter">$options</code></span>
@@ -82,38 +82,38 @@
    <span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><a href="mongodb-driver-manager.executebulkwrite.html" class="methodname">executeBulkWrite</a></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$namespace</code></span>
    , <span class="methodparam"><span class="type"><a href="class.mongodb-driver-bulkwrite.html" class="type MongoDB\Driver\BulkWrite">MongoDB\Driver\BulkWrite</a></span> <code class="parameter">$bulk</code></span>
-   [, <span class="methodparam"><span class="type">array</span> <code class="parameter">$options</code><span class="initializer"> = array()</span></span>
-  ] ) : <span class="type"><a href="class.mongodb-driver-writeresult.html" class="type MongoDB\Driver\WriteResult">MongoDB\Driver\WriteResult</a></span></div>
+   , <span class="methodparam"><span class="type">array</span> <code class="parameter">$options</code><span class="initializer"> = array()</span></span>
+   ) : <span class="type"><a href="class.mongodb-driver-writeresult.html" class="type MongoDB\Driver\WriteResult">MongoDB\Driver\WriteResult</a></span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><a href="mongodb-driver-manager.executecommand.html" class="methodname">executeCommand</a></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$db</code></span>
    , <span class="methodparam"><span class="type"><a href="class.mongodb-driver-command.html" class="type MongoDB\Driver\Command">MongoDB\Driver\Command</a></span> <code class="parameter">$command</code></span>
-   [, <span class="methodparam"><span class="type">array</span> <code class="parameter">$options</code><span class="initializer"> = array()</span></span>
-  ] ) : <span class="type"><a href="class.mongodb-driver-cursor.html" class="type MongoDB\Driver\Cursor">MongoDB\Driver\Cursor</a></span></div>
+   , <span class="methodparam"><span class="type">array</span> <code class="parameter">$options</code><span class="initializer"> = array()</span></span>
+   ) : <span class="type"><a href="class.mongodb-driver-cursor.html" class="type MongoDB\Driver\Cursor">MongoDB\Driver\Cursor</a></span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><a href="mongodb-driver-manager.executequery.html" class="methodname">executeQuery</a></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$namespace</code></span>
    , <span class="methodparam"><span class="type"><a href="class.mongodb-driver-query.html" class="type MongoDB\Driver\Query">MongoDB\Driver\Query</a></span> <code class="parameter">$query</code></span>
-   [, <span class="methodparam"><span class="type">array</span> <code class="parameter">$options</code><span class="initializer"> = array()</span></span>
-  ] ) : <span class="type"><a href="class.mongodb-driver-cursor.html" class="type MongoDB\Driver\Cursor">MongoDB\Driver\Cursor</a></span></div>
+   , <span class="methodparam"><span class="type">array</span> <code class="parameter">$options</code><span class="initializer"> = array()</span></span>
+   ) : <span class="type"><a href="class.mongodb-driver-cursor.html" class="type MongoDB\Driver\Cursor">MongoDB\Driver\Cursor</a></span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><a href="mongodb-driver-manager.executereadcommand.html" class="methodname">executeReadCommand</a></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$db</code></span>
    , <span class="methodparam"><span class="type"><a href="class.mongodb-driver-command.html" class="type MongoDB\Driver\Command">MongoDB\Driver\Command</a></span> <code class="parameter">$command</code></span>
-   [, <span class="methodparam"><span class="type">array</span> <code class="parameter">$options</code><span class="initializer"> = array()</span></span>
-  ] ) : <span class="type"><a href="class.mongodb-driver-cursor.html" class="type MongoDB\Driver\Cursor">MongoDB\Driver\Cursor</a></span></div>
+   , <span class="methodparam"><span class="type">array</span> <code class="parameter">$options</code><span class="initializer"> = array()</span></span>
+   ) : <span class="type"><a href="class.mongodb-driver-cursor.html" class="type MongoDB\Driver\Cursor">MongoDB\Driver\Cursor</a></span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><a href="mongodb-driver-manager.executereadwritecommand.html" class="methodname">executeReadWriteCommand</a></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$db</code></span>
    , <span class="methodparam"><span class="type"><a href="class.mongodb-driver-command.html" class="type MongoDB\Driver\Command">MongoDB\Driver\Command</a></span> <code class="parameter">$command</code></span>
-   [, <span class="methodparam"><span class="type">array</span> <code class="parameter">$options</code><span class="initializer"> = array()</span></span>
-  ] ) : <span class="type"><a href="class.mongodb-driver-cursor.html" class="type MongoDB\Driver\Cursor">MongoDB\Driver\Cursor</a></span></div>
+   , <span class="methodparam"><span class="type">array</span> <code class="parameter">$options</code><span class="initializer"> = array()</span></span>
+   ) : <span class="type"><a href="class.mongodb-driver-cursor.html" class="type MongoDB\Driver\Cursor">MongoDB\Driver\Cursor</a></span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><a href="mongodb-driver-manager.executewritecommand.html" class="methodname">executeWriteCommand</a></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$db</code></span>
    , <span class="methodparam"><span class="type"><a href="class.mongodb-driver-command.html" class="type MongoDB\Driver\Command">MongoDB\Driver\Command</a></span> <code class="parameter">$command</code></span>
-   [, <span class="methodparam"><span class="type">array</span> <code class="parameter">$options</code><span class="initializer"> = array()</span></span>
-  ] ) : <span class="type"><a href="class.mongodb-driver-cursor.html" class="type MongoDB\Driver\Cursor">MongoDB\Driver\Cursor</a></span></div>
+   , <span class="methodparam"><span class="type">array</span> <code class="parameter">$options</code><span class="initializer"> = array()</span></span>
+   ) : <span class="type"><a href="class.mongodb-driver-cursor.html" class="type MongoDB\Driver\Cursor">MongoDB\Driver\Cursor</a></span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><a href="mongodb-driver-manager.getreadconcern.html" class="methodname">getReadConcern</a></span>
     (
@@ -136,8 +136,8 @@
    ) : <span class="type"><a href="class.mongodb-driver-server.html" class="type MongoDB\Driver\Server">MongoDB\Driver\Server</a></span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><a href="mongodb-driver-manager.startsession.html" class="methodname">startSession</a></span>
-    ([ <span class="methodparam"><span class="type">array</span> <code class="parameter">$options</code></span>
-  ] ) : <span class="type"><a href="class.mongodb-driver-session.html" class="type MongoDB\Driver\Session">MongoDB\Driver\Session</a></span></div>
+    ( <span class="methodparam"><span class="type">array</span> <code class="parameter">$options</code> = ?</span>
+   ) : <span class="type"><a href="class.mongodb-driver-session.html" class="type MongoDB\Driver\Session">MongoDB\Driver\Session</a></span></div>
 
    }</div>
 

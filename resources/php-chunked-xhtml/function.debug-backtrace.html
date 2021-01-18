@@ -34,9 +34,9 @@
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>debug_backtrace</strong></span>
-    ([ <span class="methodparam"><span class="type">int</span> <code class="parameter">$options</code><span class="initializer"> = DEBUG_BACKTRACE_PROVIDE_OBJECT</span></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$limit</code><span class="initializer"> = 0</span></span>
-  ]] ) : <span class="type">array</span></div>
+    ( <span class="methodparam"><span class="type">int</span> <code class="parameter">$options</code><span class="initializer"> = DEBUG_BACKTRACE_PROVIDE_OBJECT</span></span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$limit</code><span class="initializer"> = 0</span></span>
+   ) : <span class="type">array</span></div>
 
   <p class="para rdfs-comment">
    <span class="function"><strong>debug_backtrace()</strong></span> generates a PHP backtrace.
@@ -80,7 +80,7 @@
         
        </table>
 
-       Before 5.3.6, the only values recognized are <strong><code>TRUE</code></strong> or <strong><code>FALSE</code></strong>, which are the same as 
+       Before 5.3.6, the only values recognized are <strong><code>true</code></strong> or <strong><code>false</code></strong>, which are the same as 
        setting or not setting the <strong><code>DEBUG_BACKTRACE_PROVIDE_OBJECT</code></strong> option respectively.
       </p>
      </dd>
@@ -198,7 +198,7 @@
  <div class="refsect1 examples" id="refsect1-function.debug-backtrace-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-470">
+   <div class="example" id="example-484">
     <p><strong>Example #1 <span class="function"><strong>debug_backtrace()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

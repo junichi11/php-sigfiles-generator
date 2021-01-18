@@ -91,6 +91,7 @@
 <li><a href="function.apcu-exists.html" class="index">apcu_exists</a> - Checks if entry exists</li>
 <li><a href="function.apcu-fetch.html" class="index">apcu_fetch</a> - Fetch a stored variable from the cache</li>
 <li><a href="function.apcu-inc.html" class="index">apcu_inc</a> - Increase a stored number</li>
+<li><a href="function.apcu-key-info.html" class="index">apcu_key_info</a> - Get detailed information about the cache key</li>
 <li><a href="function.apcu-sma-info.html" class="index">apcu_sma_info</a> - Retrieves APCu Shared Memory Allocation information</li>
 <li><a href="function.apcu-store.html" class="index">apcu_store</a> - Cache a variable in the data store</li>
 <li><a href="appenditerator.append.html" class="index">AppendIterator::append</a> - Appends an iterator</li>
@@ -210,7 +211,7 @@
 <li><a href="function.asin.html" class="index">asin</a> - Arc sine</li>
 <li><a href="function.asinh.html" class="index">asinh</a> - Inverse hyperbolic sine</li>
 <li><a href="function.asort.html" class="index">asort</a> - Sort an array and maintain index association</li>
-<li><a href="function.assert.html" class="index">assert</a> - Checks if assertion is FALSE</li>
+<li><a href="function.assert.html" class="index">assert</a> - Checks if assertion is false</li>
 <li><a href="function.assert-options.html" class="index">assert_options</a> - Set/get the various assert flags</li>
 <li><a href="function.atan.html" class="index">atan</a> - Arc tangent</li>
 <li><a href="function.atan2.html" class="index">atan2</a> - Arc tangent of two variables</li>
@@ -247,7 +248,7 @@
 <li><a href="function.bzerrno.html" class="index">bzerrno</a> - Returns a bzip2 error number</li>
 <li><a href="function.bzerror.html" class="index">bzerror</a> - Returns the bzip2 error number and error string in an array</li>
 <li><a href="function.bzerrstr.html" class="index">bzerrstr</a> - Returns a bzip2 error string</li>
-<li><a href="function.bzflush.html" class="index">bzflush</a> - Force a write of all buffered data</li>
+<li><a href="function.bzflush.html" class="index">bzflush</a> - Do nothing</li>
 <li><a href="function.bzopen.html" class="index">bzopen</a> - Opens a bzip2 compressed file</li>
 <li><a href="function.bzread.html" class="index">bzread</a> - Binary safe bzip2 file read</li>
 <li><a href="function.bzwrite.html" class="index">bzwrite</a> - Binary safe bzip2 file write</li>
@@ -481,22 +482,6 @@
 <li><a href="function.cosh.html" class="index">cosh</a> - Hyperbolic cosine</li>
 <li><a href="function.count.html" class="index">count</a> - Count all elements in an array, or something in an object</li>
 <li><a href="countable.count.html" class="index">Countable::count</a> - Count elements of an object</li>
-<li><a href="internals2.counter.counter-class.bumpvalue.html" class="index">Counter::bumpValue</a> - Change the current value of a counter</li>
-<li><a href="internals2.counter.counter-class.getmeta.html" class="index">Counter::getMeta</a> - Return a piece of metainformation about a counter</li>
-<li><a href="internals2.counter.counter-class.getnamed.html" class="index">Counter::getNamed</a> - Retrieve an existing named counter</li>
-<li><a href="internals2.counter.counter-class.getvalue.html" class="index">Counter::getValue</a> - Get the current value of a counter</li>
-<li><a href="internals2.counter.counter-class.resetvalue.html" class="index">Counter::resetValue</a> - Reset the current value of a counter</li>
-<li><a href="internals2.counter.counter-class.setcounterclass.html" class="index">Counter::setCounterClass</a> - Set the class returned by Counter::getNamed</li>
-<li><a href="internals2.counter.counter-class.construct.html" class="index">Counter::__construct</a> - Creates an instance of a Counter which maintains a single numeric value</li>
-<li><a href="internals2.counter.function.counter-bump.html" class="index">counter_bump</a> - Update the current value of the basic counter</li>
-<li><a href="internals2.counter.function.counter-bump-value.html" class="index">counter_bump_value</a> - Change the current value of a counter resource</li>
-<li><a href="internals2.counter.function.counter-create.html" class="index">counter_create</a> - Creates a counter which maintains a single numeric value</li>
-<li><a href="internals2.counter.function.counter-get.html" class="index">counter_get</a> - Get the current value of the basic counter</li>
-<li><a href="internals2.counter.function.counter-get-meta.html" class="index">counter_get_meta</a> - Return a piece of metainformation about a counter resource</li>
-<li><a href="internals2.counter.function.counter-get-named.html" class="index">counter_get_named</a> - Retrieve an existing named counter as a resource</li>
-<li><a href="internals2.counter.function.counter-get-value.html" class="index">counter_get_value</a> - Get the current value of a counter resource</li>
-<li><a href="internals2.counter.function.counter-reset.html" class="index">counter_reset</a> - Reset the current value of the basic counter</li>
-<li><a href="internals2.counter.function.counter-reset-value.html" class="index">counter_reset_value</a> - Reset the current value of a counter resource</li>
 <li><a href="function.count-chars.html" class="index">count_chars</a> - Return information about characters used in a string</li>
 <li><a href="function.crc32.html" class="index">crc32</a> - Calculates the crc32 polynomial of a string</li>
 <li><a href="function.create-function.html" class="index">create_function</a> - Create an anonymous (lambda-style) function</li>
@@ -673,6 +658,7 @@
    DateTime object</li>
 <li><a href="datetime.createfromformat.html" class="index">DateTime::createFromFormat</a> - Parses a time string according to a specified format</li>
 <li><a href="datetime.createfromimmutable.html" class="index">DateTime::createFromImmutable</a> - Returns new DateTime object encapsulating the given DateTimeImmutable object</li>
+<li><a href="datetime.createfrominterface.html" class="index">DateTime::createFromInterface</a> - Returns new DateTime object encapsulating the given DateTimeInterface object</li>
 <li><a href="datetime.diff.html" class="index">DateTime::diff</a> - Returns the difference between two DateTime objects</li>
 <li><a href="datetime.format.html" class="index">DateTime::format</a> - Returns date formatted according to given format</li>
 <li><a href="datetime.getlasterrors.html" class="index">DateTime::getLastErrors</a> - Returns the warnings and errors</li>
@@ -692,6 +678,7 @@
 <li><a href="datetime.wakeup.html" class="index">DateTime::__wakeup</a> - The __wakeup handler</li>
 <li><a href="datetimeimmutable.add.html" class="index">DateTimeImmutable::add</a> - Adds an amount of days, months, years, hours, minutes and seconds</li>
 <li><a href="datetimeimmutable.createfromformat.html" class="index">DateTimeImmutable::createFromFormat</a> - Parses a time string according to a specified format</li>
+<li><a href="datetimeimmutable.createfrominterface.html" class="index">DateTimeImmutable::createFromInterface</a> - Returns new DateTimeImmutable object encapsulating the given DateTimeInterface object</li>
 <li><a href="datetimeimmutable.createfrommutable.html" class="index">DateTimeImmutable::createFromMutable</a> - Returns new DateTimeImmutable object encapsulating the given DateTime object</li>
 <li><a href="datetimeimmutable.getlasterrors.html" class="index">DateTimeImmutable::getLastErrors</a> - Returns the warnings and errors</li>
 <li><a href="datetimeimmutable.modify.html" class="index">DateTimeImmutable::modify</a> - Creates a new object with modified timestamp</li>
@@ -1347,12 +1334,14 @@
 <li><a href="function.enchant-broker-request-pwl-dict.html" class="index">enchant_broker_request_pwl_dict</a> - Creates a dictionary using a PWL file</li>
 <li><a href="function.enchant-broker-set-dict-path.html" class="index">enchant_broker_set_dict_path</a> - Set the directory path for a given backend</li>
 <li><a href="function.enchant-broker-set-ordering.html" class="index">enchant_broker_set_ordering</a> - Declares a preference of dictionaries to use for the language</li>
-<li><a href="function.enchant-dict-add-to-personal.html" class="index">enchant_dict_add_to_personal</a> - Add a word to personal word list</li>
+<li><a href="function.enchant-dict-add.html" class="index">enchant_dict_add</a> - Add a word to personal word list</li>
+<li><a href="function.enchant-dict-add-to-personal.html" class="index">enchant_dict_add_to_personal</a> - Alias of enchant_dict_add</li>
 <li><a href="function.enchant-dict-add-to-session.html" class="index">enchant_dict_add_to_session</a> - Add 'word' to this spell-checking session</li>
 <li><a href="function.enchant-dict-check.html" class="index">enchant_dict_check</a> - Check whether a word is correctly spelled or not</li>
 <li><a href="function.enchant-dict-describe.html" class="index">enchant_dict_describe</a> - Describes an individual dictionary</li>
 <li><a href="function.enchant-dict-get-error.html" class="index">enchant_dict_get_error</a> - Returns the last error of the current spelling-session</li>
-<li><a href="function.enchant-dict-is-in-session.html" class="index">enchant_dict_is_in_session</a> - Whether or not 'word' exists in this spelling-session</li>
+<li><a href="function.enchant-dict-is-added.html" class="index">enchant_dict_is_added</a> - Whether or not 'word' exists in this spelling-session</li>
+<li><a href="function.enchant-dict-is-in-session.html" class="index">enchant_dict_is_in_session</a> - Alias of enchant_dict_is_added</li>
 <li><a href="function.enchant-dict-quick-check.html" class="index">enchant_dict_quick_check</a> - Check the word is correctly spelled and provide suggestions</li>
 <li><a href="function.enchant-dict-store-replacement.html" class="index">enchant_dict_store_replacement</a> - Add a correction for a word</li>
 <li><a href="function.enchant-dict-suggest.html" class="index">enchant_dict_suggest</a> - Will return a list of values if any of those pre-conditions are not met</li>
@@ -1970,6 +1959,7 @@
 <li><a href="function.fdf-set-target-frame.html" class="index">fdf_set_target_frame</a> - Set target frame for form display</li>
 <li><a href="function.fdf-set-value.html" class="index">fdf_set_value</a> - Set the value of a field</li>
 <li><a href="function.fdf-set-version.html" class="index">fdf_set_version</a> - Sets version number for a FDF file</li>
+<li><a href="function.fdiv.html" class="index">fdiv</a> - Divides two numbers, according to IEEE 754</li>
 <li><a href="function.feof.html" class="index">feof</a> - Tests for end-of-file on a file pointer</li>
 <li><a href="ffi.addr.html" class="index">FFI::addr</a> - Creates an unmanaged pointer to C data</li>
 <li><a href="ffi.alignof.html" class="index">FFI::alignof</a> - Gets the alignment</li>
@@ -2103,7 +2093,7 @@
 <li><a href="function.ftp-ssl-connect.html" class="index">ftp_ssl_connect</a> - Opens a Secure SSL-FTP connection</li>
 <li><a href="function.ftp-systype.html" class="index">ftp_systype</a> - Returns the system type identifier of the remote FTP server</li>
 <li><a href="function.ftruncate.html" class="index">ftruncate</a> - Truncates a file to a given length</li>
-<li><a href="function.function-exists.html" class="index">function_exists</a> - Return TRUE if the given function has been defined</li>
+<li><a href="function.function-exists.html" class="index">function_exists</a> - Return true if the given function has been defined</li>
 <li><a href="function.func-get-arg.html" class="index">func_get_arg</a> - Return an item from the argument list</li>
 <li><a href="function.func-get-args.html" class="index">func_get_args</a> - Returns an array comprising a function's argument list</li>
 <li><a href="function.func-num-args.html" class="index">func_num_args</a> - Returns the number of arguments passed to the function</li>
@@ -2715,22 +2705,6 @@
 <li><a href="function.idn-to-ascii.html" class="index">idn_to_ascii</a> - Convert domain name to IDNA ASCII form</li>
 <li><a href="function.idn-to-utf8.html" class="index">idn_to_utf8</a> - Convert domain name from IDNA ASCII to Unicode</li>
 <li><a href="function.ignore-user-abort.html" class="index">ignore_user_abort</a> - Set whether a client disconnect should abort script execution</li>
-<li><a href="function.iis-add-server.html" class="index">iis_add_server</a> - Creates a new virtual web server</li>
-<li><a href="function.iis-get-dir-security.html" class="index">iis_get_dir_security</a> - Gets Directory Security</li>
-<li><a href="function.iis-get-script-map.html" class="index">iis_get_script_map</a> - Gets script mapping on a virtual directory for a specific extension</li>
-<li><a href="function.iis-get-server-by-comment.html" class="index">iis_get_server_by_comment</a> - Return the instance number associated with the Comment</li>
-<li><a href="function.iis-get-server-by-path.html" class="index">iis_get_server_by_path</a> - Return the instance number associated with the Path</li>
-<li><a href="function.iis-get-server-rights.html" class="index">iis_get_server_rights</a> - Gets server rights</li>
-<li><a href="function.iis-get-service-state.html" class="index">iis_get_service_state</a> - Returns the state for the service defined by ServiceId</li>
-<li><a href="function.iis-remove-server.html" class="index">iis_remove_server</a> - Removes the virtual web server indicated by ServerInstance</li>
-<li><a href="function.iis-set-app-settings.html" class="index">iis_set_app_settings</a> - Creates application scope for a virtual directory</li>
-<li><a href="function.iis-set-dir-security.html" class="index">iis_set_dir_security</a> - Sets Directory Security</li>
-<li><a href="function.iis-set-script-map.html" class="index">iis_set_script_map</a> - Sets script mapping on a virtual directory</li>
-<li><a href="function.iis-set-server-rights.html" class="index">iis_set_server_rights</a> - Sets server rights</li>
-<li><a href="function.iis-start-server.html" class="index">iis_start_server</a> - Starts the virtual web server</li>
-<li><a href="function.iis-start-service.html" class="index">iis_start_service</a> - Starts the service defined by ServiceId</li>
-<li><a href="function.iis-stop-server.html" class="index">iis_stop_server</a> - Stops the virtual web server</li>
-<li><a href="function.iis-stop-service.html" class="index">iis_stop_service</a> - Stops the service defined by ServiceId</li>
 <li><a href="function.image2wbmp.html" class="index">image2wbmp</a> - Output image to browser or file</li>
 <li><a href="function.imageaffine.html" class="index">imageaffine</a> - Return an image containing the affine transformed src image, using an optional clipping area</li>
 <li><a href="function.imageaffinematrixconcat.html" class="index">imageaffinematrixconcat</a> - Concatenate two affine transformation matrices</li>
@@ -2963,7 +2937,6 @@
 <li><a href="imagick.getimageinterpolatemethod.html" class="index">Imagick::getImageInterpolateMethod</a> - Returns the interpolation method</li>
 <li><a href="imagick.getimageiterations.html" class="index">Imagick::getImageIterations</a> - Gets the image iterations</li>
 <li><a href="imagick.getimagelength.html" class="index">Imagick::getImageLength</a> - Returns the image length in bytes</li>
-<li><a href="imagick.getimagemagicklicense.html" class="index">Imagick::getImageMagickLicense</a> - Returns a string containing the ImageMagick license</li>
 <li><a href="imagick.getimagematte.html" class="index">Imagick::getImageMatte</a> - Return if the image has a matte channel</li>
 <li><a href="imagick.getimagemattecolor.html" class="index">Imagick::getImageMatteColor</a> - Returns the image matte color</li>
 <li><a href="imagick.getimagemimetype.html" class="index">Imagick::getImageMimeType</a> - Description</li>
@@ -3685,7 +3658,7 @@
 <li><a href="function.ip2long.html" class="index">ip2long</a> - Converts a string containing an (IPv4) Internet Protocol dotted address into a long integer</li>
 <li><a href="function.iptcembed.html" class="index">iptcembed</a> - Embeds binary IPTC data into a JPEG image</li>
 <li><a href="function.iptcparse.html" class="index">iptcparse</a> - Parse a binary IPTC block into single tags</li>
-<li><a href="function.isset.html" class="index">isset</a> - Determine if a variable is declared and is different than NULL</li>
+<li><a href="function.isset.html" class="index">isset</a> - Determine if a variable is declared and is different than null</li>
 <li><a href="function.is-a.html" class="index">is_a</a> - Checks if the object is of this class or has this class as one of its parents</li>
 <li><a href="function.is-array.html" class="index">is_array</a> - Finds whether a variable is an array</li>
 <li><a href="function.is-bool.html" class="index">is_bool</a> - Finds out whether a variable is a boolean</li>
@@ -3704,7 +3677,7 @@
 <li><a href="function.is-link.html" class="index">is_link</a> - Tells whether the filename is a symbolic link</li>
 <li><a href="function.is-long.html" class="index">is_long</a> - Alias of is_int</li>
 <li><a href="function.is-nan.html" class="index">is_nan</a> - Finds whether a value is not a number</li>
-<li><a href="function.is-null.html" class="index">is_null</a> - Finds whether a variable is NULL</li>
+<li><a href="function.is-null.html" class="index">is_null</a> - Finds whether a variable is null</li>
 <li><a href="function.is-numeric.html" class="index">is_numeric</a> - Finds whether a variable is a number or a numeric string</li>
 <li><a href="function.is-object.html" class="index">is_object</a> - Finds whether a variable is an object</li>
 <li><a href="function.is-readable.html" class="index">is_readable</a> - Tells whether a file exists and is readable</li>
@@ -3751,28 +3724,6 @@
 <li><a href="function.json-encode.html" class="index">json_encode</a> - Returns the JSON representation of a value</li>
 <li><a href="function.json-last-error.html" class="index">json_last_error</a> - Returns the last error occurred</li>
 <li><a href="function.json-last-error-msg.html" class="index">json_last_error_msg</a> - Returns the error string of the last json_encode() or json_decode() call</li>
-<li><a href="judy.bycount.html" class="index">Judy::byCount</a> - Locate the Nth index present in the Judy array</li>
-<li><a href="judy.count.html" class="index">Judy::count</a> - Count the number of elements in the Judy array</li>
-<li><a href="judy.first.html" class="index">Judy::first</a> - Search for the first index in the Judy array</li>
-<li><a href="judy.firstempty.html" class="index">Judy::firstEmpty</a> - Search for the first absent index in the Judy array</li>
-<li><a href="judy.free.html" class="index">Judy::free</a> - Free the entire Judy array</li>
-<li><a href="judy.gettype.html" class="index">Judy::getType</a> - Return the type of the current Judy array</li>
-<li><a href="judy.last.html" class="index">Judy::last</a> - Search for the last index in the Judy array</li>
-<li><a href="judy.lastempty.html" class="index">Judy::lastEmpty</a> - Search for the last absent index in the Judy array</li>
-<li><a href="judy.memoryusage.html" class="index">Judy::memoryUsage</a> - Return the memory used by the Judy array</li>
-<li><a href="judy.next.html" class="index">Judy::next</a> - Search for the next index in the Judy array</li>
-<li><a href="judy.nextempty.html" class="index">Judy::nextEmpty</a> - Search for the next absent index in the Judy array</li>
-<li><a href="judy.offsetexists.html" class="index">Judy::offsetExists</a> - Whether a offset exists</li>
-<li><a href="judy.offsetget.html" class="index">Judy::offsetGet</a> - Offset to retrieve</li>
-<li><a href="judy.offsetset.html" class="index">Judy::offsetSet</a> - Offset to set</li>
-<li><a href="judy.offsetunset.html" class="index">Judy::offsetUnset</a> - Offset to unset</li>
-<li><a href="judy.prev.html" class="index">Judy::prev</a> - Search for the previous index in the Judy array</li>
-<li><a href="judy.prevempty.html" class="index">Judy::prevEmpty</a> - Search for the previous absent index in the Judy array</li>
-<li><a href="judy.size.html" class="index">Judy::size</a> - Return the size of the current Judy array</li>
-<li><a href="judy.construct.html" class="index">Judy::__construct</a> - Construct a new Judy object</li>
-<li><a href="judy.destruct.html" class="index">Judy::__destruct</a> - Destruct a Judy object</li>
-<li><a href="function.judy-type.html" class="index">judy_type</a> - Return the type of a Judy array</li>
-<li><a href="function.judy-version.html" class="index">judy_version</a> - Return or print the current PHP Judy version</li>
 <li><a href="function.juliantojd.html" class="index">juliantojd</a> - Converts a Julian Calendar date to Julian Day Count</li>
 </ul></li>
 <li class='gen-index index-for-k'>k<ul id='refentry-index-for-k'>
@@ -4688,7 +4639,7 @@
 <li><a href="mysqli.use-result.html" class="index">mysqli::use_result</a> - Initiate a result set retrieval</li>
 <li><a href="mysqli.construct.html" class="index">mysqli::__construct</a> - Open a new connection to the MySQL server</li>
 <li><a href="function.mysqli-connect.html" class="index">mysqli_connect</a> - Alias of mysqli::__construct</li>
-<li><a href="mysqli-driver.report-mode.html" class="index">mysqli_driver::$report_mode</a> - Enables or disables internal report functions</li>
+<li><a href="mysqli-driver.report-mode.html" class="index">mysqli_driver::$report_mode</a> - Sets mysqli error reporting mode</li>
 <li><a href="mysqli-driver.embedded-server-end.html" class="index">mysqli_driver::embedded_server_end</a> - Stop embedded server</li>
 <li><a href="mysqli-driver.embedded-server-start.html" class="index">mysqli_driver::embedded_server_start</a> - Initialize and start embedded server</li>
 <li><a href="function.mysqli-escape-string.html" class="index">mysqli_escape_string</a> - Alias of mysqli_real_escape_string</li>
@@ -4716,10 +4667,10 @@
 <li><a href="mysqli-stmt.errno.html" class="index">mysqli_stmt::$errno</a> - Returns the error code for the most recent statement call</li>
 <li><a href="mysqli-stmt.error.html" class="index">mysqli_stmt::$error</a> - Returns a string description for last statement error</li>
 <li><a href="mysqli-stmt.error-list.html" class="index">mysqli_stmt::$error_list</a> - Returns a list of errors from the last statement executed</li>
-<li><a href="mysqli-stmt.field-count.html" class="index">mysqli_stmt::$field_count</a> - Returns the number of field in the given statement</li>
+<li><a href="mysqli-stmt.field-count.html" class="index">mysqli_stmt::$field_count</a> - Returns the number of columns in the given statement</li>
 <li><a href="mysqli-stmt.insert-id.html" class="index">mysqli_stmt::$insert_id</a> - Get the ID generated from the previous INSERT operation</li>
 <li><a href="mysqli-stmt.num-rows.html" class="index">mysqli_stmt::$num_rows</a> - Return the number of rows in statements result set</li>
-<li><a href="mysqli-stmt.param-count.html" class="index">mysqli_stmt::$param_count</a> - Returns the number of parameter for the given statement</li>
+<li><a href="mysqli-stmt.param-count.html" class="index">mysqli_stmt::$param_count</a> - Returns the number of parameters for the given statement</li>
 <li><a href="mysqli-stmt.sqlstate.html" class="index">mysqli_stmt::$sqlstate</a> - Returns SQLSTATE error from previous statement operation</li>
 <li><a href="mysqli-stmt.attr-get.html" class="index">mysqli_stmt::attr_get</a> - Used to get the current value of a statement attribute</li>
 <li><a href="mysqli-stmt.attr-set.html" class="index">mysqli_stmt::attr_set</a> - Used to modify the behavior of a prepared statement</li>
@@ -5053,9 +5004,6 @@
 <li><a href="normalizer.isnormalized.html" class="index">Normalizer::isNormalized</a> - Checks if the provided string is already in the specified normalization
    form</li>
 <li><a href="normalizer.normalize.html" class="index">Normalizer::normalize</a> - Normalizes the input provided and returns the normalized string</li>
-<li><a href="function.nsapi-request-headers.html" class="index">nsapi_request_headers</a> - Fetch all HTTP request headers</li>
-<li><a href="function.nsapi-response-headers.html" class="index">nsapi_response_headers</a> - Fetch all HTTP response headers</li>
-<li><a href="function.nsapi-virtual.html" class="index">nsapi_virtual</a> - Perform an NSAPI sub-request</li>
 <li><a href="numberformatter.create.html" class="index">NumberFormatter::create</a> - Create a number formatter</li>
 <li><a href="numberformatter.format.html" class="index">NumberFormatter::format</a> - Format a number</li>
 <li><a href="numberformatter.formatcurrency.html" class="index">NumberFormatter::formatCurrency</a> - Format a currency value</li>
@@ -5232,7 +5180,7 @@
 <li><a href="function.oci-fetch-assoc.html" class="index">oci_fetch_assoc</a> - Returns the next row from a query as an associative array</li>
 <li><a href="function.oci-fetch-object.html" class="index">oci_fetch_object</a> - Returns the next row from a query as an object</li>
 <li><a href="function.oci-fetch-row.html" class="index">oci_fetch_row</a> - Returns the next row from a query as a numeric array</li>
-<li><a href="function.oci-field-is-null.html" class="index">oci_field_is_null</a> - Checks if a field in the currently fetched row is NULL</li>
+<li><a href="function.oci-field-is-null.html" class="index">oci_field_is_null</a> - Checks if a field in the currently fetched row is null</li>
 <li><a href="function.oci-field-name.html" class="index">oci_field_name</a> - Returns the name of a field from the statement</li>
 <li><a href="function.oci-field-precision.html" class="index">oci_field_precision</a> - Tell the precision of a field</li>
 <li><a href="function.oci-field-scale.html" class="index">oci_field_scale</a> - Tell the scale of the field</li>
@@ -5347,6 +5295,11 @@
 <li><a href="function.opendir.html" class="index">opendir</a> - Open directory handle</li>
 <li><a href="function.openlog.html" class="index">openlog</a> - Open connection to system logger</li>
 <li><a href="function.openssl-cipher-iv-length.html" class="index">openssl_cipher_iv_length</a> - Gets the cipher iv length</li>
+<li><a href="function.openssl-cms-decrypt.html" class="index">openssl_cms_decrypt</a> - Decrypt a CMS message</li>
+<li><a href="function.openssl-cms-encrypt.html" class="index">openssl_cms_encrypt</a> - Encrypt a CMS message</li>
+<li><a href="function.openssl-cms-read.html" class="index">openssl_cms_read</a> - Export the CMS file to an array of PEM certificates</li>
+<li><a href="function.openssl-cms-sign.html" class="index">openssl_cms_sign</a> - Sign a file</li>
+<li><a href="function.openssl-cms-verify.html" class="index">openssl_cms_verify</a> - Verify a CMS signature</li>
 <li><a href="function.openssl-csr-export.html" class="index">openssl_csr_export</a> - Exports a CSR as a string</li>
 <li><a href="function.openssl-csr-export-to-file.html" class="index">openssl_csr_export_to_file</a> - Exports a CSR to a file</li>
 <li><a href="function.openssl-csr-get-public-key.html" class="index">openssl_csr_get_public_key</a> - Returns the public key of a CSR</li>
@@ -5736,8 +5689,8 @@
 <li><a href="phar.running.html" class="index">Phar::running</a> - Returns the full path on disk or full phar URL to the currently executing Phar archive</li>
 <li><a href="phar.setalias.html" class="index">Phar::setAlias</a> - Set the alias for the Phar archive</li>
 <li><a href="phar.setdefaultstub.html" class="index">Phar::setDefaultStub</a> - Used to set the PHP loader or bootstrap stub of a Phar archive to the default loader</li>
-<li><a href="phardata.setmetadata.html" class="index">Phar::setMetadata</a> - Sets phar archive meta-data</li>
-<li><a href="phardata.setsignaturealgorithm.html" class="index">Phar::setSignatureAlgorithm</a> - Set the signature algorithm for a phar and apply it</li>
+<li><a href="phar.setmetadata.html" class="index">Phar::setMetadata</a> - Sets phar archive meta-data</li>
+<li><a href="phar.setsignaturealgorithm.html" class="index">Phar::setSignatureAlgorithm</a> - Set the signature algorithm for a phar and apply it</li>
 <li><a href="phar.setstub.html" class="index">Phar::setStub</a> - Used to set the PHP loader or bootstrap stub of a Phar archive</li>
 <li><a href="phar.startbuffering.html" class="index">Phar::startBuffering</a> - Start buffering Phar write operations, do not modify the Phar object on disk</li>
 <li><a href="phar.stopbuffering.html" class="index">Phar::stopBuffering</a> - Stop buffering write requests to the Phar archive, and save changes to disk</li>
@@ -5765,6 +5718,8 @@
 <li><a href="phardata.offsetunset.html" class="index">PharData::offsetUnset</a> - Remove a file from a tar/zip archive</li>
 <li><a href="phardata.setalias.html" class="index">PharData::setAlias</a> - Dummy function (Phar::setAlias is not valid for PharData)</li>
 <li><a href="phardata.setdefaultstub.html" class="index">PharData::setDefaultStub</a> - Dummy function (Phar::setDefaultStub is not valid for PharData)</li>
+<li><a href="phardata.setmetadata.html" class="index">PharData::setMetadata</a> - Sets phar archive meta-data</li>
+<li><a href="phardata.setsignaturealgorithm.html" class="index">PharData::setSignatureAlgorithm</a> - Set the signature algorithm for a phar and apply it</li>
 <li><a href="phardata.setstub.html" class="index">PharData::setStub</a> - Dummy function (Phar::setStub is not valid for PharData)</li>
 <li><a href="phardata.construct.html" class="index">PharData::__construct</a> - Construct a non-executable tar or zip archive object</li>
 <li><a href="pharfileinfo.chmod.html" class="index">PharFileInfo::chmod</a> - Sets file-specific permission bits</li>
@@ -5795,6 +5750,12 @@
 <li><a href="function.phpdbg-prompt.html" class="index">phpdbg_prompt</a> - Sets the command prompt</li>
 <li><a href="function.phpdbg-start-oplog.html" class="index">phpdbg_start_oplog</a> - Description</li>
 <li><a href="function.phpinfo.html" class="index">phpinfo</a> - Outputs information about PHP's configuration</li>
+<li><a href="phptoken.gettokenname.html" class="index">PhpToken::getTokenName</a> - Returns the name of the token.</li>
+<li><a href="phptoken.is.html" class="index">PhpToken::is</a> - Tells whether the token is of given kind.</li>
+<li><a href="phptoken.isignorable.html" class="index">PhpToken::isIgnorable</a> - Tells whether the token would be ignored by the PHP parser.</li>
+<li><a href="phptoken.tokenize.html" class="index">PhpToken::tokenize</a> - Splits given source into PHP tokens, represented by PhpToken objects.</li>
+<li><a href="phptoken.construct.html" class="index">PhpToken::__construct</a> - Returns a new PhpToken object</li>
+<li><a href="phptoken.tostring.html" class="index">PhpToken::__toString</a> - Returns the textual content of the token.</li>
 <li><a href="function.phpversion.html" class="index">phpversion</a> - Gets the current PHP version</li>
 <li><a href="function.php-ini-loaded-file.html" class="index">php_ini_loaded_file</a> - Retrieve a path to the loaded php.ini file</li>
 <li><a href="function.php-ini-scanned-files.html" class="index">php_ini_scanned_files</a> - Return a list of .ini files parsed from the additional ini dir</li>
@@ -6376,6 +6337,7 @@
 <li><a href="reflectionmethod.construct.html" class="index">ReflectionMethod::__construct</a> - Constructs a ReflectionMethod</li>
 <li><a href="reflectionmethod.tostring.html" class="index">ReflectionMethod::__toString</a> - Returns the string representation of the Reflection method object</li>
 <li><a href="reflectionnamedtype.getname.html" class="index">ReflectionNamedType::getName</a> - Get the text of the type hint</li>
+<li><a href="reflectionnamedtype.isbuiltin.html" class="index">ReflectionNamedType::isBuiltin</a> - Checks if it is a built-in type</li>
 <li><a href="reflectionobject.export.html" class="index">ReflectionObject::export</a> - Export</li>
 <li><a href="reflectionobject.construct.html" class="index">ReflectionObject::__construct</a> - Constructs a ReflectionObject</li>
 <li><a href="reflectionparameter.allowsnull.html" class="index">ReflectionParameter::allowsNull</a> - Checks if null is allowed</li>
@@ -6424,8 +6386,8 @@
 <li><a href="reflectionreference.fromarrayelement.html" class="index">ReflectionReference::fromArrayElement</a> - Create a ReflectionReference from an array element</li>
 <li><a href="reflectionreference.getid.html" class="index">ReflectionReference::getId</a> - Get unique ID of a reference</li>
 <li><a href="reflectiontype.allowsnull.html" class="index">ReflectionType::allowsNull</a> - Checks if null is allowed</li>
-<li><a href="reflectiontype.isbuiltin.html" class="index">ReflectionType::isBuiltin</a> - Checks if it is a built-in type</li>
 <li><a href="reflectiontype.tostring.html" class="index">ReflectionType::__toString</a> - To string</li>
+<li><a href="reflectionuniontype.gettypes.html" class="index">ReflectionUnionType::getTypes</a> - Returns the types included in the union type</li>
 <li><a href="reflectionzendextension.export.html" class="index">ReflectionZendExtension::export</a> - Export</li>
 <li><a href="reflectionzendextension.getauthor.html" class="index">ReflectionZendExtension::getAuthor</a> - Gets author</li>
 <li><a href="reflectionzendextension.getcopyright.html" class="index">ReflectionZendExtension::getCopyright</a> - Gets copyright</li>
@@ -6550,78 +6512,6 @@
 <li><a href="mysql-xdevapi-schemaobject.getschema.html" class="index">SchemaObject::getSchema</a> - Get schema object</li>
 <li><a href="function.scoutapm-get-calls.html" class="index">scoutapm_get_calls</a> - Returns a list of instrumented calls that have occurred</li>
 <li><a href="function.scoutapm-list-instrumented-functions.html" class="index">scoutapm_list_instrumented_functions</a> - List functions scoutapm will instrument.</li>
-<li><a href="sdo-das-changesummary.beginlogging.html" class="index">SDO_DAS_ChangeSummary::beginLogging</a> - Begin change logging</li>
-<li><a href="sdo-das-changesummary.endlogging.html" class="index">SDO_DAS_ChangeSummary::endLogging</a> - End change logging</li>
-<li><a href="sdo-das-changesummary.getchangeddataobjects.html" class="index">SDO_DAS_ChangeSummary::getChangedDataObjects</a> - Get the changed data objects from a change summary</li>
-<li><a href="sdo-das-changesummary.getchangetype.html" class="index">SDO_DAS_ChangeSummary::getChangeType</a> - Get the type of change made to an SDO_DataObject</li>
-<li><a href="sdo-das-changesummary.getoldcontainer.html" class="index">SDO_DAS_ChangeSummary::getOldContainer</a> - Get the old container for a deleted SDO_DataObject</li>
-<li><a href="sdo-das-changesummary.getoldvalues.html" class="index">SDO_DAS_ChangeSummary::getOldValues</a> - Get the old values for a given changed SDO_DataObject</li>
-<li><a href="sdo-das-changesummary.islogging.html" class="index">SDO_DAS_ChangeSummary::isLogging</a> - Test to see whether change logging is switched on</li>
-<li><a href="sdo-das-datafactory.addpropertytotype.html" class="index">SDO_DAS_DataFactory::addPropertyToType</a> - Adds a property to a type</li>
-<li><a href="sdo-das-datafactory.addtype.html" class="index">SDO_DAS_DataFactory::addType</a> - Add a new type to a model</li>
-<li><a href="sdo-das-datafactory.getdatafactory.html" class="index">SDO_DAS_DataFactory::getDataFactory</a> - Get a data factory instance</li>
-<li><a href="sdo-das-dataobject.getchangesummary.html" class="index">SDO_DAS_DataObject::getChangeSummary</a> - Get a data object's change summary</li>
-<li><a href="sdo-das-relational.applychanges.html" class="index">SDO_DAS_Relational::applyChanges</a> - Applies the changes made to a data graph back to the database</li>
-<li><a href="sdo-das-relational.createrootdataobject.html" class="index">SDO_DAS_Relational::createRootDataObject</a> - Returns the special root object in an otherwise 
-   empty data graph. Used when creating a data graph from scratch</li>
-<li><a href="sdo-das-relational.executepreparedquery.html" class="index">SDO_DAS_Relational::executePreparedQuery</a> - Executes an SQL query passed as a prepared statement, with a 
-   list of values to substitute for placeholders, and return the 
-   results as a normalised data graph</li>
-<li><a href="sdo-das-relational.executequery.html" class="index">SDO_DAS_Relational::executeQuery</a> - Executes a given SQL query against a relational database 
-   and returns the results as a normalised data graph</li>
-<li><a href="sdo-das-relational.construct.html" class="index">SDO_DAS_Relational::__construct</a> - Creates an instance of a Relational Data Access Service</li>
-<li><a href="sdo-das-setting.getlistindex.html" class="index">SDO_DAS_Setting::getListIndex</a> - Get the list index for a changed many-valued property</li>
-<li><a href="sdo-das-setting.getpropertyindex.html" class="index">SDO_DAS_Setting::getPropertyIndex</a> - Get the property index for a changed property</li>
-<li><a href="sdo-das-setting.getpropertyname.html" class="index">SDO_DAS_Setting::getPropertyName</a> - Get the property name for a changed property</li>
-<li><a href="sdo-das-setting.getvalue.html" class="index">SDO_DAS_Setting::getValue</a> - Get the old value for the changed property</li>
-<li><a href="sdo-das-setting.isset.html" class="index">SDO_DAS_Setting::isSet</a> - Test whether a property was set prior to being modified</li>
-<li><a href="sdo-das-xml.addtypes.html" class="index">SDO_DAS_XML::addTypes</a> - To load a second or subsequent schema file to a SDO_DAS_XML object</li>
-<li><a href="sdo-das-xml.create.html" class="index">SDO_DAS_XML::create</a> - To create SDO_DAS_XML object for a given schema file</li>
-<li><a href="sdo-das-xml.createdataobject.html" class="index">SDO_DAS_XML::createDataObject</a> - Creates SDO_DataObject for a given namespace URI and type name</li>
-<li><a href="sdo-das-xml.createdocument.html" class="index">SDO_DAS_XML::createDocument</a> - Creates an XML Document object from scratch, without the need to load a document from a file or string</li>
-<li><a href="sdo-das-xml.loadfile.html" class="index">SDO_DAS_XML::loadFile</a> - Returns SDO_DAS_XML_Document object for a given path to xml instance document</li>
-<li><a href="sdo-das-xml.loadstring.html" class="index">SDO_DAS_XML::loadString</a> - Returns SDO_DAS_XML_Document for a given xml instance string</li>
-<li><a href="sdo-das-xml.savefile.html" class="index">SDO_DAS_XML::saveFile</a> - Saves the SDO_DAS_XML_Document object to a file</li>
-<li><a href="sdo-das-xml.savestring.html" class="index">SDO_DAS_XML::saveString</a> - Saves the SDO_DAS_XML_Document object to a string</li>
-<li><a href="sdo-das-xml-document.getrootdataobject.html" class="index">SDO_DAS_XML_Document::getRootDataObject</a> - Returns the root SDO_DataObject</li>
-<li><a href="sdo-das-xml-document.getrootelementname.html" class="index">SDO_DAS_XML_Document::getRootElementName</a> - Returns root element's name</li>
-<li><a href="sdo-das-xml-document.getrootelementuri.html" class="index">SDO_DAS_XML_Document::getRootElementURI</a> - Returns root element's URI string</li>
-<li><a href="sdo-das-xml-document.setencoding.html" class="index">SDO_DAS_XML_Document::setEncoding</a> - Sets the given string as encoding</li>
-<li><a href="sdo-das-xml-document.setxmldeclaration.html" class="index">SDO_DAS_XML_Document::setXMLDeclaration</a> - Sets the xml declaration</li>
-<li><a href="sdo-das-xml-document.setxmlversion.html" class="index">SDO_DAS_XML_Document::setXMLVersion</a> - Sets the given string as xml version</li>
-<li><a href="sdo-datafactory.create.html" class="index">SDO_DataFactory::create</a> - Create an SDO_DataObject</li>
-<li><a href="sdo-dataobject.clear.html" class="index">SDO_DataObject::clear</a> - Clear an SDO_DataObject's properties</li>
-<li><a href="sdo-dataobject.createdataobject.html" class="index">SDO_DataObject::createDataObject</a> - Create a child SDO_DataObject</li>
-<li><a href="sdo-dataobject.getcontainer.html" class="index">SDO_DataObject::getContainer</a> - Get a data object's container</li>
-<li><a href="sdo-dataobject.getsequence.html" class="index">SDO_DataObject::getSequence</a> - Get the sequence for a data object</li>
-<li><a href="sdo-dataobject.gettypename.html" class="index">SDO_DataObject::getTypeName</a> - Return the name of the type for a data object</li>
-<li><a href="sdo-dataobject.gettypenamespaceuri.html" class="index">SDO_DataObject::getTypeNamespaceURI</a> - Return the namespace URI of the type for a data object</li>
-<li><a href="sdo-exception.getcause.html" class="index">SDO_Exception::getCause</a> - Get the cause of the exception</li>
-<li><a href="sdo-list.insert.html" class="index">SDO_List::insert</a> - Insert into a list</li>
-<li><a href="sdo-model-property.getcontainingtype.html" class="index">SDO_Model_Property::getContainingType</a> - Get the SDO_Model_Type which contains this property</li>
-<li><a href="sdo-model-property.getdefault.html" class="index">SDO_Model_Property::getDefault</a> - Get the default value for the property</li>
-<li><a href="sdo-model-property.getname.html" class="index">SDO_Model_Property::getName</a> - Get the name of the SDO_Model_Property</li>
-<li><a href="sdo-model-property.gettype.html" class="index">SDO_Model_Property::getType</a> - Get the SDO_Model_Type of the property</li>
-<li><a href="sdo-model-property.iscontainment.html" class="index">SDO_Model_Property::isContainment</a> - Test to see if the property defines a containment relationship</li>
-<li><a href="sdo-model-property.ismany.html" class="index">SDO_Model_Property::isMany</a> - Test to see if the property is many-valued</li>
-<li><a href="sdo-model-reflectiondataobject.export.html" class="index">SDO_Model_ReflectionDataObject::export</a> - Get a string describing the SDO_DataObject</li>
-<li><a href="sdo-model-reflectiondataobject.getcontainmentproperty.html" class="index">SDO_Model_ReflectionDataObject::getContainmentProperty</a> - Get the property which defines the containment relationship to the data object</li>
-<li><a href="sdo-model-reflectiondataobject.getinstanceproperties.html" class="index">SDO_Model_ReflectionDataObject::getInstanceProperties</a> - Get the instance properties of the SDO_DataObject</li>
-<li><a href="sdo-model-reflectiondataobject.gettype.html" class="index">SDO_Model_ReflectionDataObject::getType</a> - Get the SDO_Model_Type for the SDO_DataObject</li>
-<li><a href="sdo-model-reflectiondataobject.construct.html" class="index">SDO_Model_ReflectionDataObject::__construct</a> - Construct an SDO_Model_ReflectionDataObject</li>
-<li><a href="sdo-model-type.getbasetype.html" class="index">SDO_Model_Type::getBaseType</a> - Get the base type for this type</li>
-<li><a href="sdo-model-type.getname.html" class="index">SDO_Model_Type::getName</a> - Get the name of the type</li>
-<li><a href="sdo-model-type.getnamespaceuri.html" class="index">SDO_Model_Type::getNamespaceURI</a> - Get the namespace URI of the type</li>
-<li><a href="sdo-model-type.getproperties.html" class="index">SDO_Model_Type::getProperties</a> - Get the SDO_Model_Property objects defined for the type</li>
-<li><a href="sdo-model-type.getproperty.html" class="index">SDO_Model_Type::getProperty</a> - Get an SDO_Model_Property of the type</li>
-<li><a href="sdo-model-type.isabstracttype.html" class="index">SDO_Model_Type::isAbstractType</a> - Test to see if this SDO_Model_Type is an abstract data type</li>
-<li><a href="sdo-model-type.isdatatype.html" class="index">SDO_Model_Type::isDataType</a> - Test to see if this SDO_Model_Type is a primitive data type</li>
-<li><a href="sdo-model-type.isinstance.html" class="index">SDO_Model_Type::isInstance</a> - Test for an SDO_DataObject being an instance of this SDO_Model_Type</li>
-<li><a href="sdo-model-type.isopentype.html" class="index">SDO_Model_Type::isOpenType</a> - Test to see if this type is an open type</li>
-<li><a href="sdo-model-type.issequencedtype.html" class="index">SDO_Model_Type::isSequencedType</a> - Test to see if this is a sequenced type</li>
-<li><a href="sdo-sequence.getproperty.html" class="index">SDO_Sequence::getProperty</a> - Return the property for the specified sequence index</li>
-<li><a href="sdo-sequence.insert.html" class="index">SDO_Sequence::insert</a> - Insert into a sequence</li>
-<li><a href="sdo-sequence.move.html" class="index">SDO_Sequence::move</a> - Move an item to another sequence position</li>
 <li><a href="seaslog.alert.html" class="index">SeasLog::alert</a> - Record alert log information</li>
 <li><a href="seaslog.analyzercount.html" class="index">SeasLog::analyzerCount</a> - Get log count by level, log_path and key_word</li>
 <li><a href="seaslog.analyzerdetail.html" class="index">SeasLog::analyzerDetail</a> - Get log detail by level, log_path, key_word, start, limit, order</li>
@@ -6802,13 +6692,13 @@
 <li><a href="function.snmpset.html" class="index">snmpset</a> - Set the value of an SNMP object</li>
 <li><a href="function.snmpwalk.html" class="index">snmpwalk</a> - Fetch all the SNMP objects from an agent</li>
 <li><a href="function.snmpwalkoid.html" class="index">snmpwalkoid</a> - Query for a tree of information about a network entity</li>
-<li><a href="function.snmp-get-quick-print.html" class="index">snmp_get_quick_print</a> - Fetches the current value of the UCD library's quick_print setting</li>
+<li><a href="function.snmp-get-quick-print.html" class="index">snmp_get_quick_print</a> - Fetches the current value of the NET-SNMP library's quick_print setting</li>
 <li><a href="function.snmp-get-valueretrieval.html" class="index">snmp_get_valueretrieval</a> - Return the method how the SNMP values will be returned</li>
 <li><a href="function.snmp-read-mib.html" class="index">snmp_read_mib</a> - Reads and parses a MIB file into the active MIB tree</li>
 <li><a href="function.snmp-set-enum-print.html" class="index">snmp_set_enum_print</a> - Return all values that are enums with their enum value instead of the raw integer</li>
 <li><a href="function.snmp-set-oid-numeric-print.html" class="index">snmp_set_oid_numeric_print</a> - Set the OID output format</li>
 <li><a href="function.snmp-set-oid-output-format.html" class="index">snmp_set_oid_output_format</a> - Set the OID output format</li>
-<li><a href="function.snmp-set-quick-print.html" class="index">snmp_set_quick_print</a> - Set the value of quick_print within the UCD SNMP library</li>
+<li><a href="function.snmp-set-quick-print.html" class="index">snmp_set_quick_print</a> - Set the value of enable within the NET-SNMP library</li>
 <li><a href="function.snmp-set-valueretrieval.html" class="index">snmp_set_valueretrieval</a> - Specify the method how the SNMP values will be returned</li>
 <li><a href="soapclient.soapclient.html" class="index">SoapClient::SoapClient</a> - SoapClient constructor</li>
 <li><a href="soapclient.call.html" class="index">SoapClient::__call</a> - Calls a SOAP function (deprecated)</li>
@@ -6852,13 +6742,13 @@
 <li><a href="function.socket-addrinfo-lookup.html" class="index">socket_addrinfo_lookup</a> - Get array with contents of getaddrinfo about the given hostname</li>
 <li><a href="function.socket-bind.html" class="index">socket_bind</a> - Binds a name to a socket</li>
 <li><a href="function.socket-clear-error.html" class="index">socket_clear_error</a> - Clears the error on the socket or the last error code</li>
-<li><a href="function.socket-close.html" class="index">socket_close</a> - Closes a socket resource</li>
+<li><a href="function.socket-close.html" class="index">socket_close</a> - Closes a Socket instance</li>
 <li><a href="function.socket-cmsg-space.html" class="index">socket_cmsg_space</a> - Calculate message buffer size</li>
 <li><a href="function.socket-connect.html" class="index">socket_connect</a> - Initiates a connection on a socket</li>
 <li><a href="function.socket-create.html" class="index">socket_create</a> - Create a socket (endpoint for communication)</li>
 <li><a href="function.socket-create-listen.html" class="index">socket_create_listen</a> - Opens a socket on port to accept connections</li>
 <li><a href="function.socket-create-pair.html" class="index">socket_create_pair</a> - Creates a pair of indistinguishable sockets and stores them in an array</li>
-<li><a href="function.socket-export-stream.html" class="index">socket_export_stream</a> - Export a socket extension resource into a stream that encapsulates a socket</li>
+<li><a href="function.socket-export-stream.html" class="index">socket_export_stream</a> - Export a socket into a stream that encapsulates a socket</li>
 <li><a href="function.socket-getopt.html" class="index">socket_getopt</a> - Alias of socket_get_option</li>
 <li><a href="function.socket-getpeername.html" class="index">socket_getpeername</a> - Queries the remote side of the given socket which may either result in host/port or in a Unix filesystem path, dependent on its type</li>
 <li><a href="function.socket-getsockname.html" class="index">socket_getsockname</a> - Queries the local side of the given socket which may either result in host/port or in a Unix filesystem path, dependent on its type</li>
@@ -6876,7 +6766,7 @@
 <li><a href="function.socket-sendmsg.html" class="index">socket_sendmsg</a> - Send a message</li>
 <li><a href="function.socket-sendto.html" class="index">socket_sendto</a> - Sends a message to a socket, whether it is connected or not</li>
 <li><a href="function.socket-setopt.html" class="index">socket_setopt</a> - Alias of socket_set_option</li>
-<li><a href="function.socket-set-block.html" class="index">socket_set_block</a> - Sets blocking mode on a socket resource</li>
+<li><a href="function.socket-set-block.html" class="index">socket_set_block</a> - Sets blocking mode on a socket</li>
 <li><a href="function.socket-set-blocking.html" class="index">socket_set_blocking</a> - Alias of stream_set_blocking</li>
 <li><a href="function.socket-set-nonblock.html" class="index">socket_set_nonblock</a> - Sets nonblocking mode for file descriptor fd</li>
 <li><a href="function.socket-set-option.html" class="index">socket_set_option</a> - Sets socket options for the socket</li>
@@ -7664,7 +7554,10 @@
 <li><a href="function.ssh2-exec.html" class="index">ssh2_exec</a> - Execute a command on a remote server</li>
 <li><a href="function.ssh2-fetch-stream.html" class="index">ssh2_fetch_stream</a> - Fetch an extended data stream</li>
 <li><a href="function.ssh2-fingerprint.html" class="index">ssh2_fingerprint</a> - Retrieve fingerprint of remote server</li>
+<li><a href="function.ssh2-forward-accept.html" class="index">ssh2_forward_accept</a> - Accept a connection created by a listener</li>
+<li><a href="function.ssh2-forward-listen.html" class="index">ssh2_forward_listen</a> - Bind a port on the remote server and listen for connections</li>
 <li><a href="function.ssh2-methods-negotiated.html" class="index">ssh2_methods_negotiated</a> - Return list of negotiated methods</li>
+<li><a href="function.ssh2-poll.html" class="index">ssh2_poll</a> - Poll the channels/listeners/streams for events</li>
 <li><a href="function.ssh2-publickey-add.html" class="index">ssh2_publickey_add</a> - Add an authorized publickey</li>
 <li><a href="function.ssh2-publickey-init.html" class="index">ssh2_publickey_init</a> - Initialize Publickey subsystem</li>
 <li><a href="function.ssh2-publickey-list.html" class="index">ssh2_publickey_list</a> - List currently authorized publickeys</li>
@@ -7690,6 +7583,75 @@
 <li><a href="mysql-xdevapi-statement.getresult.html" class="index">Statement::getResult</a> - Get result</li>
 <li><a href="mysql-xdevapi-statement.hasmoreresults.html" class="index">Statement::hasMoreResults</a> - Check if more results</li>
 <li><a href="mysql-xdevapi-statement.construct.html" class="index">Statement::__construct</a> - Description constructor</li>
+<li><a href="function.stats-absolute-deviation.html" class="index">stats_absolute_deviation</a> - Returns the absolute deviation of an array of values</li>
+<li><a href="function.stats-cdf-beta.html" class="index">stats_cdf_beta</a> - Calculates any one parameter of the beta distribution given values for the others</li>
+<li><a href="function.stats-cdf-binomial.html" class="index">stats_cdf_binomial</a> - Calculates any one parameter of the binomial distribution given values for the others</li>
+<li><a href="function.stats-cdf-cauchy.html" class="index">stats_cdf_cauchy</a> - Calculates any one parameter of the Cauchy distribution given values for the others</li>
+<li><a href="function.stats-cdf-chisquare.html" class="index">stats_cdf_chisquare</a> - Calculates any one parameter of the chi-square distribution given values for the others</li>
+<li><a href="function.stats-cdf-exponential.html" class="index">stats_cdf_exponential</a> - Calculates any one parameter of the exponential distribution given values for the others</li>
+<li><a href="function.stats-cdf-f.html" class="index">stats_cdf_f</a> - Calculates any one parameter of the F distribution given values for the others</li>
+<li><a href="function.stats-cdf-gamma.html" class="index">stats_cdf_gamma</a> - Calculates any one parameter of the gamma distribution given values for the others</li>
+<li><a href="function.stats-cdf-laplace.html" class="index">stats_cdf_laplace</a> - Calculates any one parameter of the Laplace distribution given values for the others</li>
+<li><a href="function.stats-cdf-logistic.html" class="index">stats_cdf_logistic</a> - Calculates any one parameter of the logistic distribution given values for the others</li>
+<li><a href="function.stats-cdf-negative-binomial.html" class="index">stats_cdf_negative_binomial</a> - Calculates any one parameter of the negative binomial distribution given values for the others</li>
+<li><a href="function.stats-cdf-noncentral-chisquare.html" class="index">stats_cdf_noncentral_chisquare</a> - Calculates any one parameter of the non-central chi-square distribution given values for the others</li>
+<li><a href="function.stats-cdf-noncentral-f.html" class="index">stats_cdf_noncentral_f</a> - Calculates any one parameter of the non-central F distribution given values for the others</li>
+<li><a href="function.stats-cdf-noncentral-t.html" class="index">stats_cdf_noncentral_t</a> - Calculates any one parameter of the non-central t-distribution give values for the others</li>
+<li><a href="function.stats-cdf-normal.html" class="index">stats_cdf_normal</a> - Calculates any one parameter of the normal distribution given values for the others</li>
+<li><a href="function.stats-cdf-poisson.html" class="index">stats_cdf_poisson</a> - Calculates any one parameter of the Poisson distribution given values for the others</li>
+<li><a href="function.stats-cdf-t.html" class="index">stats_cdf_t</a> - Calculates any one parameter of the t-distribution given values for the others</li>
+<li><a href="function.stats-cdf-uniform.html" class="index">stats_cdf_uniform</a> - Calculates any one parameter of the uniform distribution given values for the others</li>
+<li><a href="function.stats-cdf-weibull.html" class="index">stats_cdf_weibull</a> - Calculates any one parameter of the Weibull distribution given values for the others</li>
+<li><a href="function.stats-covariance.html" class="index">stats_covariance</a> - Computes the covariance of two data sets</li>
+<li><a href="function.stats-dens-beta.html" class="index">stats_dens_beta</a> - Probability density function of the beta distribution</li>
+<li><a href="function.stats-dens-cauchy.html" class="index">stats_dens_cauchy</a> - Probability density function of the Cauchy distribution</li>
+<li><a href="function.stats-dens-chisquare.html" class="index">stats_dens_chisquare</a> - Probability density function of the chi-square distribution</li>
+<li><a href="function.stats-dens-exponential.html" class="index">stats_dens_exponential</a> - Probability density function of the exponential distribution</li>
+<li><a href="function.stats-dens-f.html" class="index">stats_dens_f</a> - Probability density function of the F distribution</li>
+<li><a href="function.stats-dens-gamma.html" class="index">stats_dens_gamma</a> - Probability density function of the gamma distribution</li>
+<li><a href="function.stats-dens-laplace.html" class="index">stats_dens_laplace</a> - Probability density function of the Laplace distribution</li>
+<li><a href="function.stats-dens-logistic.html" class="index">stats_dens_logistic</a> - Probability density function of the logistic distribution</li>
+<li><a href="function.stats-dens-normal.html" class="index">stats_dens_normal</a> - Probability density function of the normal distribution</li>
+<li><a href="function.stats-dens-pmf-binomial.html" class="index">stats_dens_pmf_binomial</a> - Probability mass function of the binomial distribution</li>
+<li><a href="function.stats-dens-pmf-hypergeometric.html" class="index">stats_dens_pmf_hypergeometric</a> - Probability mass function of the hypergeometric distribution</li>
+<li><a href="function.stats-dens-pmf-negative-binomial.html" class="index">stats_dens_pmf_negative_binomial</a> - Probability mass function of the negative binomial distribution</li>
+<li><a href="function.stats-dens-pmf-poisson.html" class="index">stats_dens_pmf_poisson</a> - Probability mass function of the Poisson distribution</li>
+<li><a href="function.stats-dens-t.html" class="index">stats_dens_t</a> - Probability density function of the t-distribution</li>
+<li><a href="function.stats-dens-uniform.html" class="index">stats_dens_uniform</a> - Probability density function of the uniform distribution</li>
+<li><a href="function.stats-dens-weibull.html" class="index">stats_dens_weibull</a> - Probability density function of the Weibull distribution</li>
+<li><a href="function.stats-harmonic-mean.html" class="index">stats_harmonic_mean</a> - Returns the harmonic mean of an array of values</li>
+<li><a href="function.stats-kurtosis.html" class="index">stats_kurtosis</a> - Computes the kurtosis of the data in the array</li>
+<li><a href="function.stats-rand-gen-beta.html" class="index">stats_rand_gen_beta</a> - Generates a random deviate from the beta distribution</li>
+<li><a href="function.stats-rand-gen-chisquare.html" class="index">stats_rand_gen_chisquare</a> - Generates a random deviate from the chi-square distribution</li>
+<li><a href="function.stats-rand-gen-exponential.html" class="index">stats_rand_gen_exponential</a> - Generates a random deviate from the exponential distribution</li>
+<li><a href="function.stats-rand-gen-f.html" class="index">stats_rand_gen_f</a> - Generates a random deviate from the F distribution</li>
+<li><a href="function.stats-rand-gen-funiform.html" class="index">stats_rand_gen_funiform</a> - Generates uniform float between low (exclusive) and high (exclusive)</li>
+<li><a href="function.stats-rand-gen-gamma.html" class="index">stats_rand_gen_gamma</a> - Generates a random deviate from the gamma distribution</li>
+<li><a href="function.stats-rand-gen-ibinomial.html" class="index">stats_rand_gen_ibinomial</a> - Generates a random deviate from the binomial distribution</li>
+<li><a href="function.stats-rand-gen-ibinomial-negative.html" class="index">stats_rand_gen_ibinomial_negative</a> - Generates a random deviate from the negative binomial distribution</li>
+<li><a href="function.stats-rand-gen-int.html" class="index">stats_rand_gen_int</a> - Generates random integer between 1 and 2147483562</li>
+<li><a href="function.stats-rand-gen-ipoisson.html" class="index">stats_rand_gen_ipoisson</a> - Generates a single random deviate from a Poisson distribution</li>
+<li><a href="function.stats-rand-gen-iuniform.html" class="index">stats_rand_gen_iuniform</a> - Generates integer uniformly distributed between LOW (inclusive) and HIGH (inclusive)</li>
+<li><a href="function.stats-rand-gen-noncentral-chisquare.html" class="index">stats_rand_gen_noncentral_chisquare</a> - Generates a random deviate from the non-central chi-square distribution</li>
+<li><a href="function.stats-rand-gen-noncentral-f.html" class="index">stats_rand_gen_noncentral_f</a> - Generates a random deviate from the noncentral F distribution</li>
+<li><a href="function.stats-rand-gen-noncentral-t.html" class="index">stats_rand_gen_noncentral_t</a> - Generates a single random deviate from a non-central t-distribution</li>
+<li><a href="function.stats-rand-gen-normal.html" class="index">stats_rand_gen_normal</a> - Generates a single random deviate from a normal distribution</li>
+<li><a href="function.stats-rand-gen-t.html" class="index">stats_rand_gen_t</a> - Generates a single random deviate from a t-distribution</li>
+<li><a href="function.stats-rand-get-seeds.html" class="index">stats_rand_get_seeds</a> - Get the seed values of the random number generator</li>
+<li><a href="function.stats-rand-phrase-to-seeds.html" class="index">stats_rand_phrase_to_seeds</a> - Generate two seeds for the RGN random number generator</li>
+<li><a href="function.stats-rand-ranf.html" class="index">stats_rand_ranf</a> - Generates a random floating point number between 0 and 1</li>
+<li><a href="function.stats-rand-setall.html" class="index">stats_rand_setall</a> - Set seed values to the random generator</li>
+<li><a href="function.stats-skew.html" class="index">stats_skew</a> - Computes the skewness of the data in the array</li>
+<li><a href="function.stats-standard-deviation.html" class="index">stats_standard_deviation</a> - Returns the standard deviation</li>
+<li><a href="function.stats-stat-binomial-coef.html" class="index">stats_stat_binomial_coef</a> - Returns a binomial coefficient</li>
+<li><a href="function.stats-stat-correlation.html" class="index">stats_stat_correlation</a> - Returns the Pearson correlation coefficient of two data sets</li>
+<li><a href="function.stats-stat-factorial.html" class="index">stats_stat_factorial</a> - Returns the factorial of an integer</li>
+<li><a href="function.stats-stat-independent-t.html" class="index">stats_stat_independent_t</a> - Returns the t-value from the independent two-sample t-test</li>
+<li><a href="function.stats-stat-innerproduct.html" class="index">stats_stat_innerproduct</a> - Returns the inner product of two vectors</li>
+<li><a href="function.stats-stat-paired-t.html" class="index">stats_stat_paired_t</a> - Returns the t-value of the dependent t-test for paired samples</li>
+<li><a href="function.stats-stat-percentile.html" class="index">stats_stat_percentile</a> - Returns the percentile value</li>
+<li><a href="function.stats-stat-powersum.html" class="index">stats_stat_powersum</a> - Returns the power sum of a vector</li>
+<li><a href="function.stats-variance.html" class="index">stats_variance</a> - Returns the variance</li>
 <li><a href="stomp.abort.html" class="index">Stomp::abort</a> - Rolls back a transaction in progress</li>
 <li><a href="stomp.ack.html" class="index">Stomp::ack</a> - Acknowledges consumption of a message</li>
 <li><a href="stomp.begin.html" class="index">Stomp::begin</a> - Starts a transaction</li>
@@ -9064,48 +9026,48 @@
 <li><a href="function.xmlrpc-server-register-introspection-callback.html" class="index">xmlrpc_server_register_introspection_callback</a> - Register a PHP function to generate documentation</li>
 <li><a href="function.xmlrpc-server-register-method.html" class="index">xmlrpc_server_register_method</a> - Register a PHP function to resource method matching method_name</li>
 <li><a href="function.xmlrpc-set-type.html" class="index">xmlrpc_set_type</a> - Sets xmlrpc type, base64 or datetime, for a PHP string value</li>
-<li><a href="function.xmlwriter-end-attribute.html" class="index">XMLWriter::endAttribute</a> - End attribute</li>
-<li><a href="function.xmlwriter-end-cdata.html" class="index">XMLWriter::endCdata</a> - End current CDATA</li>
-<li><a href="function.xmlwriter-end-comment.html" class="index">XMLWriter::endComment</a> - Create end comment</li>
-<li><a href="function.xmlwriter-end-document.html" class="index">XMLWriter::endDocument</a> - End current document</li>
-<li><a href="function.xmlwriter-end-dtd.html" class="index">XMLWriter::endDtd</a> - End current DTD</li>
-<li><a href="function.xmlwriter-end-dtd-attlist.html" class="index">XMLWriter::endDtdAttlist</a> - End current DTD AttList</li>
-<li><a href="function.xmlwriter-end-dtd-element.html" class="index">XMLWriter::endDtdElement</a> - End current DTD element</li>
-<li><a href="function.xmlwriter-end-dtd-entity.html" class="index">XMLWriter::endDtdEntity</a> - End current DTD Entity</li>
-<li><a href="function.xmlwriter-end-element.html" class="index">XMLWriter::endElement</a> - End current element</li>
-<li><a href="function.xmlwriter-end-pi.html" class="index">XMLWriter::endPi</a> - End current PI</li>
-<li><a href="function.xmlwriter-flush.html" class="index">XMLWriter::flush</a> - Flush current buffer</li>
-<li><a href="function.xmlwriter-full-end-element.html" class="index">XMLWriter::fullEndElement</a> - End current element</li>
-<li><a href="function.xmlwriter-open-memory.html" class="index">XMLWriter::openMemory</a> - Create new xmlwriter using memory for string output</li>
-<li><a href="function.xmlwriter-open-uri.html" class="index">XMLWriter::openUri</a> - Create new xmlwriter using source uri for output</li>
-<li><a href="function.xmlwriter-output-memory.html" class="index">XMLWriter::outputMemory</a> - Returns current buffer</li>
-<li><a href="function.xmlwriter-set-indent.html" class="index">XMLWriter::setIndent</a> - Toggle indentation on/off</li>
-<li><a href="function.xmlwriter-set-indent-string.html" class="index">XMLWriter::setIndentString</a> - Set string used for indenting</li>
-<li><a href="function.xmlwriter-start-attribute.html" class="index">XMLWriter::startAttribute</a> - Create start attribute</li>
-<li><a href="function.xmlwriter-start-attribute-ns.html" class="index">XMLWriter::startAttributeNs</a> - Create start namespaced attribute</li>
-<li><a href="function.xmlwriter-start-cdata.html" class="index">XMLWriter::startCdata</a> - Create start CDATA tag</li>
-<li><a href="function.xmlwriter-start-comment.html" class="index">XMLWriter::startComment</a> - Create start comment</li>
-<li><a href="function.xmlwriter-start-document.html" class="index">XMLWriter::startDocument</a> - Create document tag</li>
-<li><a href="function.xmlwriter-start-dtd.html" class="index">XMLWriter::startDtd</a> - Create start DTD tag</li>
-<li><a href="function.xmlwriter-start-dtd-attlist.html" class="index">XMLWriter::startDtdAttlist</a> - Create start DTD AttList</li>
-<li><a href="function.xmlwriter-start-dtd-element.html" class="index">XMLWriter::startDtdElement</a> - Create start DTD element</li>
-<li><a href="function.xmlwriter-start-dtd-entity.html" class="index">XMLWriter::startDtdEntity</a> - Create start DTD Entity</li>
-<li><a href="function.xmlwriter-start-element.html" class="index">XMLWriter::startElement</a> - Create start element tag</li>
-<li><a href="function.xmlwriter-start-element-ns.html" class="index">XMLWriter::startElementNs</a> - Create start namespaced element tag</li>
-<li><a href="function.xmlwriter-start-pi.html" class="index">XMLWriter::startPi</a> - Create start PI tag</li>
-<li><a href="function.xmlwriter-text.html" class="index">XMLWriter::text</a> - Write text</li>
-<li><a href="function.xmlwriter-write-attribute.html" class="index">XMLWriter::writeAttribute</a> - Write full attribute</li>
-<li><a href="function.xmlwriter-write-attribute-ns.html" class="index">XMLWriter::writeAttributeNs</a> - Write full namespaced attribute</li>
-<li><a href="function.xmlwriter-write-cdata.html" class="index">XMLWriter::writeCdata</a> - Write full CDATA tag</li>
-<li><a href="function.xmlwriter-write-comment.html" class="index">XMLWriter::writeComment</a> - Write full comment tag</li>
-<li><a href="function.xmlwriter-write-dtd.html" class="index">XMLWriter::writeDtd</a> - Write full DTD tag</li>
-<li><a href="function.xmlwriter-write-dtd-attlist.html" class="index">XMLWriter::writeDtdAttlist</a> - Write full DTD AttList tag</li>
-<li><a href="function.xmlwriter-write-dtd-element.html" class="index">XMLWriter::writeDtdElement</a> - Write full DTD element tag</li>
-<li><a href="function.xmlwriter-write-dtd-entity.html" class="index">XMLWriter::writeDtdEntity</a> - Write full DTD Entity tag</li>
-<li><a href="function.xmlwriter-write-element.html" class="index">XMLWriter::writeElement</a> - Write full element tag</li>
-<li><a href="function.xmlwriter-write-element-ns.html" class="index">XMLWriter::writeElementNs</a> - Write full namespaced element tag</li>
-<li><a href="function.xmlwriter-write-pi.html" class="index">XMLWriter::writePi</a> - Writes a PI</li>
-<li><a href="function.xmlwriter-write-raw.html" class="index">XMLWriter::writeRaw</a> - Write a raw XML text</li>
+<li><a href="xmlwriter.endattribute.html" class="index">XMLWriter::endAttribute</a> - End attribute</li>
+<li><a href="xmlwriter.endcdata.html" class="index">XMLWriter::endCdata</a> - End current CDATA</li>
+<li><a href="xmlwriter.endcomment.html" class="index">XMLWriter::endComment</a> - Create end comment</li>
+<li><a href="xmlwriter.enddocument.html" class="index">XMLWriter::endDocument</a> - End current document</li>
+<li><a href="xmlwriter.enddtd.html" class="index">XMLWriter::endDtd</a> - End current DTD</li>
+<li><a href="xmlwriter.enddtdattlist.html" class="index">XMLWriter::endDtdAttlist</a> - End current DTD AttList</li>
+<li><a href="xmlwriter.enddtdelement.html" class="index">XMLWriter::endDtdElement</a> - End current DTD element</li>
+<li><a href="xmlwriter.enddtdentity.html" class="index">XMLWriter::endDtdEntity</a> - End current DTD Entity</li>
+<li><a href="xmlwriter.endelement.html" class="index">XMLWriter::endElement</a> - End current element</li>
+<li><a href="xmlwriter.endpi.html" class="index">XMLWriter::endPi</a> - End current PI</li>
+<li><a href="xmlwriter.flush.html" class="index">XMLWriter::flush</a> - Flush current buffer</li>
+<li><a href="xmlwriter.fullendelement.html" class="index">XMLWriter::fullEndElement</a> - End current element</li>
+<li><a href="xmlwriter.openmemory.html" class="index">XMLWriter::openMemory</a> - Create new xmlwriter using memory for string output</li>
+<li><a href="xmlwriter.openuri.html" class="index">XMLWriter::openUri</a> - Create new xmlwriter using source uri for output</li>
+<li><a href="xmlwriter.outputmemory.html" class="index">XMLWriter::outputMemory</a> - Returns current buffer</li>
+<li><a href="xmlwriter.setindent.html" class="index">XMLWriter::setIndent</a> - Toggle indentation on/off</li>
+<li><a href="xmlwriter.setindentstring.html" class="index">XMLWriter::setIndentString</a> - Set string used for indenting</li>
+<li><a href="xmlwriter.startattribute.html" class="index">XMLWriter::startAttribute</a> - Create start attribute</li>
+<li><a href="xmlwriter.startattributens.html" class="index">XMLWriter::startAttributeNs</a> - Create start namespaced attribute</li>
+<li><a href="xmlwriter.startcdata.html" class="index">XMLWriter::startCdata</a> - Create start CDATA tag</li>
+<li><a href="xmlwriter.startcomment.html" class="index">XMLWriter::startComment</a> - Create start comment</li>
+<li><a href="xmlwriter.startdocument.html" class="index">XMLWriter::startDocument</a> - Create document tag</li>
+<li><a href="xmlwriter.startdtd.html" class="index">XMLWriter::startDtd</a> - Create start DTD tag</li>
+<li><a href="xmlwriter.startdtdattlist.html" class="index">XMLWriter::startDtdAttlist</a> - Create start DTD AttList</li>
+<li><a href="xmlwriter.startdtdelement.html" class="index">XMLWriter::startDtdElement</a> - Create start DTD element</li>
+<li><a href="xmlwriter.startdtdentity.html" class="index">XMLWriter::startDtdEntity</a> - Create start DTD Entity</li>
+<li><a href="xmlwriter.startelement.html" class="index">XMLWriter::startElement</a> - Create start element tag</li>
+<li><a href="xmlwriter.startelementns.html" class="index">XMLWriter::startElementNs</a> - Create start namespaced element tag</li>
+<li><a href="xmlwriter.startpi.html" class="index">XMLWriter::startPi</a> - Create start PI tag</li>
+<li><a href="xmlwriter.text.html" class="index">XMLWriter::text</a> - Write text</li>
+<li><a href="xmlwriter.writeattribute.html" class="index">XMLWriter::writeAttribute</a> - Write full attribute</li>
+<li><a href="xmlwriter.writeattributens.html" class="index">XMLWriter::writeAttributeNs</a> - Write full namespaced attribute</li>
+<li><a href="xmlwriter.writecdata.html" class="index">XMLWriter::writeCdata</a> - Write full CDATA tag</li>
+<li><a href="xmlwriter.writecomment.html" class="index">XMLWriter::writeComment</a> - Write full comment tag</li>
+<li><a href="xmlwriter.writedtd.html" class="index">XMLWriter::writeDtd</a> - Write full DTD tag</li>
+<li><a href="xmlwriter.writedtdattlist.html" class="index">XMLWriter::writeDtdAttlist</a> - Write full DTD AttList tag</li>
+<li><a href="xmlwriter.writedtdelement.html" class="index">XMLWriter::writeDtdElement</a> - Write full DTD element tag</li>
+<li><a href="xmlwriter.writedtdentity.html" class="index">XMLWriter::writeDtdEntity</a> - Write full DTD Entity tag</li>
+<li><a href="xmlwriter.writeelement.html" class="index">XMLWriter::writeElement</a> - Write full element tag</li>
+<li><a href="xmlwriter.writeelementns.html" class="index">XMLWriter::writeElementNs</a> - Write full namespaced element tag</li>
+<li><a href="xmlwriter.writepi.html" class="index">XMLWriter::writePi</a> - Writes a PI</li>
+<li><a href="xmlwriter.writeraw.html" class="index">XMLWriter::writeRaw</a> - Write a raw XML text</li>
 <li><a href="function.xml-error-string.html" class="index">xml_error_string</a> - Get XML parser error string</li>
 <li><a href="function.xml-get-current-byte-index.html" class="index">xml_get_current_byte_index</a> - Get current byte index for an XML parser</li>
 <li><a href="function.xml-get-current-column-number.html" class="index">xml_get_current_column_number</a> - Get current column number for an XML parser</li>

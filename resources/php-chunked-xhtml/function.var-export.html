@@ -26,7 +26,7 @@
   <div id="layout-content"><div id="function.var-export" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">var_export</h1>
-  <p class="verinfo">(PHP 4 &gt;= 4.2.0, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">var_export</span> &mdash; <span class="dc-title">Outputs or returns a parsable string representation of a variable</span></p>
+  <p class="verinfo">(PHP 4 &gt;= 4.2.0, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">var_export</span> &mdash; <span class="dc-title">Outputs or returns a parsable string representation of a variable</span></p>
 
  </div>
 
@@ -34,9 +34,9 @@
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>var_export</strong></span>
-    ( <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">$expression</code></span>
-   [, <span class="methodparam"><span class="type">bool</span> <code class="parameter">$return</code><span class="initializer"> = <strong><code>FALSE</code></strong></span></span>
-  ] ) : <span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span></div>
+    ( <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$value</code></span>
+   , <span class="methodparam"><span class="type">bool</span> <code class="parameter">$return</code><span class="initializer"> = <strong><code>false</code></strong></span></span>
+   ) : <span class="type"><span class="type">string</span>|<span class="type">null</span></span></div>
 
   <p class="simpara">
    <span class="function"><strong>var_export()</strong></span> gets structured information about the 
@@ -53,7 +53,7 @@
 
     
      <dt>
-<code class="parameter">expression</code></dt>
+<code class="parameter">value</code></dt>
 
      <dd>
 
@@ -70,7 +70,7 @@
      <dd>
 
       <p class="para">
-       If used and set to <strong><code>TRUE</code></strong>, <span class="function"><strong>var_export()</strong></span> will return
+       If used and set to <strong><code>true</code></strong>, <span class="function"><strong>var_export()</strong></span> will return
        the variable representation instead of outputting it.
       </p>
      </dd>
@@ -86,8 +86,8 @@
   <h3 class="title">Return Values</h3>
   <p class="para">
    Returns the variable representation when the <code class="parameter">return</code> 
-   parameter is used and evaluates to <strong><code>TRUE</code></strong>. Otherwise, this function will
-   return <strong><code>NULL</code></strong>.
+   parameter is used and evaluates to <strong><code>true</code></strong>. Otherwise, this function will
+   return <strong><code>null</code></strong>.
   </p>
  </div>
 
@@ -137,7 +137,7 @@ is used, this function uses internal output buffering so it cannot be used insid
  <div class="refsect1 examples" id="refsect1-function.var-export-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-5775">
+   <div class="example" id="example-5799">
     <p><strong>Example #1 <span class="function"><strong>var_export()</strong></span> Examples</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -177,7 +177,7 @@ array (
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-5776">
+   <div class="example" id="example-5800">
     <p><strong>Example #2 Exporting stdClass (since PHP 7.3.0)</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -198,7 +198,7 @@ array (
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-5777">
+   <div class="example" id="example-5801">
     <p><strong>Example #3 Exporting classes (since PHP 5.1.0)</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -218,7 +218,7 @@ A::__set_state(array(
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-5778">
+   <div class="example" id="example-5802">
     <p><strong>Example #4 Using <a href="language.oop5.magic.html#object.set-state" class="link">__set_state()</a> (since PHP 5.1.0)</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

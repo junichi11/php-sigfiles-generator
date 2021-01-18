@@ -33,11 +33,11 @@
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><strong>DOMElement::removeAttributeNode</strong></span>
-    ( <span class="methodparam"><span class="type"><a href="class.domattr.html" class="type DOMAttr">DOMAttr</a></span> <code class="parameter">$oldnode</code></span>
-   ) : <span class="type">bool</span></div>
+    ( <span class="methodparam"><span class="type"><a href="class.domattr.html" class="type DOMAttr">DOMAttr</a></span> <code class="parameter">$attr</code></span>
+   ) : <span class="type"><span class="type"><a href="class.domattr.html" class="type DOMAttr">DOMAttr</a></span>|<span class="type"><span class="type false">false</span></span></span></div>
 
   <p class="para rdfs-comment">
-   Removes attribute <code class="parameter">oldnode</code> from the element.
+   Removes attribute <code class="parameter">attr</code> from the element.
   </p>
  </div>
 
@@ -48,7 +48,7 @@
 
     
      <dt>
-<code class="parameter">oldnode</code></dt>
+<code class="parameter">attr</code></dt>
 
      <dd>
 
@@ -66,7 +66,7 @@
  <div class="refsect1 returnvalues" id="refsect1-domelement.removeattributenode-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns <strong><code>TRUE</code></strong> on success or <strong><code>FALSE</code></strong> on failure.
+   Returns <strong><code>true</code></strong> on success or <strong><code>false</code></strong> on failure.
   </p>
  </div>
 
@@ -94,7 +94,7 @@
      <dd>
 
       <p class="para">
-       Raised if <code class="parameter">oldnode</code> is not an attribute of the element.
+       Raised if <code class="parameter">attr</code> is not an attribute of the element.
       </p>
      </dd>
 

@@ -35,11 +35,11 @@
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>fgetcsv</strong></span>
     ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$handle</code></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$length</code><span class="initializer"> = 0</span></span>
-   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$delimiter</code><span class="initializer"> = &quot;,&quot;</span></span>
-   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$enclosure</code><span class="initializer"> = &#039;&quot;&#039;</span></span>
-   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$escape</code><span class="initializer"> = &quot;\\&quot;</span></span>
-  ]]]] ) : <span class="type">array</span></div>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$length</code><span class="initializer"> = 0</span></span>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$delimiter</code><span class="initializer"> = &quot;,&quot;</span></span>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$enclosure</code><span class="initializer"> = &#039;&quot;&#039;</span></span>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$escape</code><span class="initializer"> = &quot;\\&quot;</span></span>
+   ) : <span class="type">array</span></div>
 
   <p class="para rdfs-comment">
    Similar to <span class="function"><a href="function.fgets.html" class="function">fgets()</a></span> except that
@@ -169,8 +169,8 @@ computer, enabling the
 <a href="filesystem.configuration.html#ini.auto-detect-line-endings" class="link">auto_detect_line_endings</a>
 run-time configuration option may help resolve the problem.</span></p></blockquote>
   <p class="para">
-   <span class="function"><strong>fgetcsv()</strong></span> returns <strong><code>NULL</code></strong> if an invalid
-   <code class="parameter">handle</code> is supplied or <strong><code>FALSE</code></strong> on other errors,
+   <span class="function"><strong>fgetcsv()</strong></span> returns <strong><code>null</code></strong> if an invalid
+   <code class="parameter">handle</code> is supplied or <strong><code>false</code></strong> on other errors,
    including end of file.
   </p>
  </div>
@@ -209,7 +209,7 @@ run-time configuration option may help resolve the problem.</span></p></blockquo
  <div class="refsect1 examples" id="refsect1-function.fgetcsv-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-2616">
+   <div class="example" id="example-2631">
     <p><strong>Example #1 Read and print the entire contents of a CSV file</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

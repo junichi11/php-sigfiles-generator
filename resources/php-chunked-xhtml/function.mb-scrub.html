@@ -34,9 +34,9 @@
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>mb_scrub</strong></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$str</code></span>
-   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$encoding</code></span>
-  ] ) : <span class="type">string</span></div>
+    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$string</code></span>
+   , <span class="methodparam"><span class="type"><span class="type">string</span>|<span class="type">null</span></span> <code class="parameter">$encoding</code><span class="initializer"> = <strong><code>null</code></strong></span></span>
+   ) : <span class="type">string</span></div>
 
   <p class="para rdfs-comment">
 
@@ -55,7 +55,7 @@ currently not documented; only its argument list is available.
 
    
     <dt>
-<code class="parameter">str</code></dt>
+<code class="parameter">string</code></dt>
 
     <dd>
 
@@ -87,6 +87,33 @@ currently not documented; only its argument list is available.
   <p class="para">
    
   </p>
+ </div>
+
+
+ <div class="refsect1 changelog" id="refsect1-function.mb-scrub-changelog">
+  <h3 class="title">Changelog</h3>
+  <table class="doctable informaltable">
+   
+    <thead>
+     <tr>
+      <th>Version</th>
+      <th>Description</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+ <td>8.0.0</td>
+ <td>
+  <code class="parameter">encoding</code> is nullable now.
+ </td>
+</tr>
+
+    </tbody>
+   
+  </table>
+
  </div>
 
 

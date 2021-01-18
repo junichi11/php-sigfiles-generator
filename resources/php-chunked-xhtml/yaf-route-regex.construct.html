@@ -36,10 +36,10 @@
    <span class="modifier">public</span> <span class="methodname"><strong>Yaf_Route_Regex::__construct</strong></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$match</code></span>
    , <span class="methodparam"><span class="type">array</span> <code class="parameter">$route</code></span>
-   [, <span class="methodparam"><span class="type">array</span> <code class="parameter">$map</code></span>
-   [, <span class="methodparam"><span class="type">array</span> <code class="parameter">$verify</code></span>
-   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$reverse</code></span>
-  ]]] )</div>
+   , <span class="methodparam"><span class="type">array</span> <code class="parameter">$map</code> = ?</span>
+   , <span class="methodparam"><span class="type">array</span> <code class="parameter">$verify</code> = ?</span>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$reverse</code> = ?</span>
+   )</div>
 
   <p class="para rdfs-comment">
   </p>
@@ -60,7 +60,7 @@
      <p class="para">
        A complete Regex pattern, will be used to match a request uri, if
        doesn&#039;t matched, <a href="class.yaf-route-regex.html" class="classname">Yaf_Route_Regex</a> will return
-       <strong><code>FALSE</code></strong>.
+       <strong><code>false</code></strong>.
      </p>
     </dd>
 
@@ -140,7 +140,7 @@
 
  <div class="refsect1 examples" id="refsect1-yaf-route-regex.construct-examples">
   <h3 class="title">Examples</h3>
-  <div class="example" id="example-4419">
+  <div class="example" id="example-4441">
    <p><strong>Example #1 <span class="function"><strong>Yaf_Route_Regex()</strong></span>example</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -150,7 +150,7 @@
    </div>
 
   </div>
-  <div class="example" id="example-4420">
+  <div class="example" id="example-4442">
    <p><strong>Example #2 <span class="function"><strong>Yaf_Route_Regex(as of 2.3.0)()</strong></span>example</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -160,7 +160,7 @@
    </div>
 
   </div>
-  <div class="example" id="example-4421">
+  <div class="example" id="example-4443">
    <p><strong>Example #3 <span class="function"><strong>Yaf_Route_Regex and named capture ground(as of 2.3.0)()</strong></span>example</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -170,7 +170,7 @@
    </div>
 
   </div>
-  <div class="example" id="example-4422">
+  <div class="example" id="example-4444">
    <p><strong>Example #4 <span class="function"><strong>Yaf_Route_Regex()</strong></span>example</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

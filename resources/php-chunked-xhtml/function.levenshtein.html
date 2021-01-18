@@ -34,41 +34,30 @@
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>levenshtein</strong></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$str1</code></span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$str2</code></span>
-   ) : <span class="type">int</span></div>
-
-  <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>levenshtein</strong></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$str1</code></span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$str2</code></span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$cost_ins</code></span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$cost_rep</code></span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$cost_del</code></span>
+    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$string1</code></span>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$string2</code></span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$insertion_cost</code><span class="initializer"> = 1</span></span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$replacement_cost</code><span class="initializer"> = 1</span></span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$deletion_cost</code><span class="initializer"> = 1</span></span>
    ) : <span class="type">int</span></div>
 
   <p class="para rdfs-comment">
    The Levenshtein distance is defined as the minimal number of
    characters you have to replace, insert or delete to transform
-   <code class="parameter">str1</code> into <code class="parameter">str2</code>.
+   <code class="parameter">string1</code> into <code class="parameter">string2</code>.
    The complexity of the algorithm is <code class="literal">O(m*n)</code>,
    where <code class="literal">n</code> and <code class="literal">m</code> are the
-   length of <code class="parameter">str1</code> and
-   <code class="parameter">str2</code> (rather good when compared to
-   <span class="function"><a href="function.similar-text.html" class="function">similar_text()</a></span>, which is O(max(n,m)**3),
+   length of <code class="parameter">string1</code> and
+   <code class="parameter">string2</code> (rather good when compared to
+   <span class="function"><a href="function.similar-text.html" class="function">similar_text()</a></span>, which is <code class="literal">O(max(n,m)**3)</code>,
    but still expensive).
   </p>
   <p class="para">
-   In its simplest form the function will take only the two
-   strings as parameter and will calculate just the number of
-   insert, replace and delete operations needed to transform
-   <code class="parameter">str1</code> into <code class="parameter">str2</code>.
-  </p>
-  <p class="para">
-   A second variant will take three additional parameters that
-   define the cost of insert, replace and delete operations.  This
-   is more general and adaptive than variant one, but not as
-   efficient.
+   If <code class="parameter">insertion_cost</code>, <code class="parameter">replacement_cost</code>
+   and/or <code class="parameter">deletion_cost</code> are unequal to <code class="literal">1</code>,
+   the algorithm adapts to choose the cheapest transforms.
+   E.g. if <code class="code">$insertion_cost + $deletion_cost &lt; $replacement_cost</code>,
+   no replacements will be done, but rather inserts and deletions instead.
   </p>
  </div>
 
@@ -80,7 +69,7 @@
 
     
      <dt>
-<code class="parameter">str1</code></dt>
+<code class="parameter">string1</code></dt>
 
      <dd>
 
@@ -92,7 +81,7 @@
     
     
      <dt>
-<code class="parameter">str2</code></dt>
+<code class="parameter">string2</code></dt>
 
      <dd>
 
@@ -104,7 +93,7 @@
     
     
      <dt>
-<code class="parameter">cost_ins</code></dt>
+<code class="parameter">insertion_cost</code></dt>
 
      <dd>
 
@@ -116,7 +105,7 @@
     
     
      <dt>
-<code class="parameter">cost_rep</code></dt>
+<code class="parameter">replacement_cost</code></dt>
 
      <dd>
 
@@ -128,7 +117,7 @@
     
     
      <dt>
-<code class="parameter">cost_del</code></dt>
+<code class="parameter">deletion_cost</code></dt>
 
      <dd>
 
@@ -153,11 +142,39 @@
   </p>
  </div>
 
- 
+
+ <div class="refsect1 changelog" id="refsect1-function.levenshtein-changelog">
+  <h3 class="title">Changelog</h3>
+  <table class="doctable informaltable">
+   
+    <thead>
+     <tr>
+      <th>Version</th>
+      <th>Description</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+      <td>8.0.0</td>
+      <td>
+       Prior to this version, <span class="function"><strong>levenshtein()</strong></span> had to be called
+       with either two or five arguments.
+      </td>
+     </tr>
+
+    </tbody>
+   
+  </table>
+
+ </div>
+
+
  <div class="refsect1 examples" id="refsect1-function.levenshtein-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-5286">
+   <div class="example" id="example-5307">
     <p><strong>Example #1 <span class="function"><strong>levenshtein()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

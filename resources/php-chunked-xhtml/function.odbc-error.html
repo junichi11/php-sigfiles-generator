@@ -33,8 +33,8 @@
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>odbc_error</strong></span>
-    ([ <span class="methodparam"><span class="type">resource</span> <code class="parameter">$connection_id</code></span>
-  ] ) : <span class="type">string</span></div>
+    ( <span class="methodparam"><span class="type"><span class="type">resource</span>|<span class="type">null</span></span> <code class="parameter">$odbc</code><span class="initializer"> = <strong><code>null</code></strong></span></span>
+   ) : <span class="type">string</span></div>
 
   <p class="simpara">
    Returns a six-digit ODBC state, or an empty string if there has been no
@@ -49,7 +49,7 @@
 
     
      <dt>
-<code class="parameter">connection_id</code></dt>
+<code class="parameter">odbc</code></dt>
 
      <dd>
 
@@ -66,15 +66,43 @@ see <span class="function"><a href="function.odbc-connect.html" class="function"
  <div class="refsect1 returnvalues" id="refsect1-function.odbc-error-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   If <code class="parameter">connection_id</code> is specified, the last state
+   If <code class="parameter">odbc</code> is specified, the last state
    of that connection is returned, else the last state of any connection
    is returned.
   </p>
   <p class="para">
    This function returns meaningful value only if last odbc query failed
-   (i.e. <span class="function"><a href="function.odbc-exec.html" class="function">odbc_exec()</a></span> returned <strong><code>FALSE</code></strong>).
+   (i.e. <span class="function"><a href="function.odbc-exec.html" class="function">odbc_exec()</a></span> returned <strong><code>false</code></strong>).
   </p>
  </div>
+
+
+ <div class="refsect1 changelog" id="refsect1-function.odbc-error-changelog">
+  <h3 class="title">Changelog</h3>
+  <table class="doctable informaltable">
+   
+    <thead>
+     <tr>
+      <th>Version</th>
+      <th>Description</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+      <td>8.0.0</td>
+      <td>
+       <code class="parameter">odbc</code> is nullable now.
+      </td>
+     </tr>
+
+    </tbody>
+   
+  </table>
+
+ </div>
+
 
  <div class="refsect1 seealso" id="refsect1-function.odbc-error-seealso">
   <h3 class="title">See Also</h3>

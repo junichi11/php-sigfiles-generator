@@ -39,20 +39,20 @@
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$funcname</code></span>
    , <span class="methodparam"><span class="type">string</span> <code class="parameter">$arglist</code></span>
    , <span class="methodparam"><span class="type">string</span> <code class="parameter">$code</code></span>
-   [, <span class="methodparam"><span class="type">bool</span> <code class="parameter">$return_by_reference</code><span class="initializer"> = <strong><code>NULL</code></strong></span></span>
-   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$doc_comment</code><span class="initializer"> = <strong><code>NULL</code></strong></span></span>
-   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$return_type</code></span>
-   [, <span class="methodparam"><span class="type">bool</span> <code class="parameter">$is_strict</code></span>
-  ]]]] ) : <span class="type">bool</span></div>
+   , <span class="methodparam"><span class="type">bool</span> <code class="parameter">$return_by_reference</code><span class="initializer"> = <strong><code>null</code></strong></span></span>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$doc_comment</code><span class="initializer"> = <strong><code>null</code></strong></span></span>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$return_type</code> = ?</span>
+   , <span class="methodparam"><span class="type">bool</span> <code class="parameter">$is_strict</code> = ?</span>
+   ) : <span class="type">bool</span></div>
 
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>runkit7_function_add</strong></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$funcname</code></span>
    , <span class="methodparam"><span class="type"><a href="class.closure.html" class="type Closure">Closure</a></span> <code class="parameter">$closure</code></span>
-   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$doc_comment</code><span class="initializer"> = <strong><code>NULL</code></strong></span></span>
-   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$return_type</code></span>
-   [, <span class="methodparam"><span class="type">bool</span> <code class="parameter">$is_strict</code></span>
-  ]]] ) : <span class="type">bool</span></div>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$doc_comment</code><span class="initializer"> = <strong><code>null</code></strong></span></span>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$return_type</code> = ?</span>
+   , <span class="methodparam"><span class="type">bool</span> <code class="parameter">$is_strict</code> = ?</span>
+   ) : <span class="type">bool</span></div>
 
  </div>
 
@@ -165,7 +165,7 @@
  <div class="refsect1 returnvalues" id="refsect1-function.runkit7-function-add-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns <strong><code>TRUE</code></strong> on success or <strong><code>FALSE</code></strong> on failure.
+   Returns <strong><code>true</code></strong> on success or <strong><code>false</code></strong> on failure.
    
   </p>
  </div>
@@ -173,7 +173,7 @@
  <div class="refsect1 examples" id="refsect1-function.runkit7-function-add-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-558">
+   <div class="example" id="example-571">
     <p><strong>Example #1 A <span class="function"><strong>runkit7_function_add()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

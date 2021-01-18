@@ -44,8 +44,8 @@
    <span class="methodname"><strong>ResourceBundle::create</strong></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$locale</code></span>
    , <span class="methodparam"><span class="type">string</span> <code class="parameter">$bundlename</code></span>
-   [, <span class="methodparam"><span class="type">bool</span> <code class="parameter">$fallback</code></span>
-  ] ) : <span class="type"><a href="class.resourcebundle.html" class="type ResourceBundle">ResourceBundle</a></span></div>
+   , <span class="methodparam"><span class="type">bool</span> <code class="parameter">$fallback</code> = ?</span>
+   ) : <span class="type"><a href="class.resourcebundle.html" class="type ResourceBundle">ResourceBundle</a></span></div>
 
   <p class="para rdfs-comment">
    Procedural style
@@ -55,8 +55,8 @@
    <span class="methodname"><strong>resourcebundle_create</strong></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$locale</code></span>
    , <span class="methodparam"><span class="type">string</span> <code class="parameter">$bundlename</code></span>
-   [, <span class="methodparam"><span class="type">bool</span> <code class="parameter">$fallback</code></span>
-  ] ) : <span class="type"><a href="class.resourcebundle.html" class="type ResourceBundle">ResourceBundle</a></span></div>
+   , <span class="methodparam"><span class="type">bool</span> <code class="parameter">$fallback</code> = ?</span>
+   ) : <span class="type"><a href="class.resourcebundle.html" class="type ResourceBundle">ResourceBundle</a></span></div>
 
   <p class="para rdfs-comment">
    Object oriented style (constructor):
@@ -66,8 +66,8 @@
     <span class="methodname"><strong>ResourceBundle::__construct</strong></span>
      ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$locale</code></span>
     , <span class="methodparam"><span class="type">string</span> <code class="parameter">$bundlename</code></span>
-    [, <span class="methodparam"><span class="type">bool</span> <code class="parameter">$fallback</code></span>
-   ] )</div>
+    , <span class="methodparam"><span class="type">bool</span> <code class="parameter">$fallback</code> = ?</span>
+    )</div>
 
   <p class="para rdfs-comment">
    Creates a resource bundle.
@@ -126,14 +126,14 @@
  <div class="refsect1 returnvalues" id="refsect1-resourcebundle.create-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns <a href="class.resourcebundle.html" class="classname">ResourceBundle</a> object or <strong><code>NULL</code></strong> on error.
+   Returns <a href="class.resourcebundle.html" class="classname">ResourceBundle</a> object or <strong><code>null</code></strong> on error.
   </p>
  </div>
 
 
  <div class="refsect1 examples" id="refsect1-resourcebundle.create-examples">
   <h3 class="title">Examples</h3>
-  <div class="example" id="example-2924">
+  <div class="example" id="example-2939">
    <p><strong>Example #1 <span class="function"><strong>resourcebundle_create()</strong></span> example</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -143,7 +143,7 @@
    </div>
 
   </div>
-  <div class="example" id="example-2925">
+  <div class="example" id="example-2940">
    <p><strong>Example #2 <span class="function"><strong>ResourceBundle::create()</strong></span> example</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

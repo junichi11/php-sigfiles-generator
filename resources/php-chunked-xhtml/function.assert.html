@@ -2,7 +2,7 @@
 <html>
  <head>
   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-  <title>Checks if assertion is FALSE</title>
+  <title>Checks if assertion is false</title>
 <link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-base.css" />
 <link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-medium.css" />
 
@@ -19,14 +19,14 @@
   <ul class="breadcrumbs-container">
     <li><a href="index.html">PHP Manual</a></li>
     <li><a href="ref.info.html">PHP Options/Info Functions</a></li>
-    <li>Checks if assertion is FALSE</li>
+    <li>Checks if assertion is false</li>
   </ul>
 </div>
 <div id="layout">
   <div id="layout-content"><div id="function.assert" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">assert</h1>
-  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">assert</span> &mdash; <span class="dc-title">Checks if assertion is <strong><code>FALSE</code></strong></span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">assert</span> &mdash; <span class="dc-title">Checks if assertion is <strong><code>false</code></strong></span></p>
 
  </div>
 
@@ -35,21 +35,21 @@
   <p class="para">PHP 5 and 7</p>
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>assert</strong></span>
-    ( <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">$assertion</code></span>
-   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$description</code></span>
-  ] ) : <span class="type">bool</span></div>
+    ( <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$assertion</code></span>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$description</code> = ?</span>
+   ) : <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">PHP 7</p>
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>assert</strong></span>
-    ( <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">$assertion</code></span>
-   [, <span class="methodparam"><span class="type"><a href="class.throwable.html" class="type Throwable">Throwable</a></span> <code class="parameter">$exception</code></span>
-  ] ) : <span class="type">bool</span></div>
+    ( <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$assertion</code></span>
+   , <span class="methodparam"><span class="type"><a href="class.throwable.html" class="type Throwable">Throwable</a></span> <code class="parameter">$exception</code> = ?</span>
+   ) : <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
    <span class="function"><strong>assert()</strong></span> will check the given
    <code class="parameter">assertion</code> and take appropriate action if
-   its result is <strong><code>FALSE</code></strong>.
+   its result is <strong><code>false</code></strong>.
   </p>
   <div class="refsect2 unknown-descriptioo" id="refsect2-function.assert-unknown-descriptioo">
    <h4 class="title">Traditional assertions (PHP 5 and 7)</h4>
@@ -60,12 +60,12 @@
     this condition will not show up as parameter to the assertion function
     which you may have defined with <span class="function"><a href="function.assert-options.html" class="function">assert_options()</a></span>.
     The condition is converted to a string before calling that handler
-    function, and the boolean <strong><code>FALSE</code></strong> is converted as the empty string.
+    function, and the boolean <strong><code>false</code></strong> is converted as the empty string.
    </p>
    <p class="para">
     Assertions should be used as a debugging feature only. You may
     use them for sanity-checks that test for conditions that should
-    always be <strong><code>TRUE</code></strong> and that indicate some programming errors if not
+    always be <strong><code>true</code></strong> and that indicate some programming errors if not
     or to check for the presence of certain features like extension
     functions or certain system limits and features.
    </p>
@@ -257,7 +257,7 @@
  <div class="refsect1 returnvalues" id="refsect1-function.assert-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   <strong><code>FALSE</code></strong> if the assertion is false, <strong><code>TRUE</code></strong> otherwise.
+   <strong><code>false</code></strong> if the assertion is false, <strong><code>true</code></strong> otherwise.
   </p>
  </div>
 
@@ -312,7 +312,7 @@
   <div class="refsect2 unknown-examplet" id="refsect2-function.assert-unknown-examplet">
    <h4 class="title">Traditional assertions (PHP 5 and 7)</h4>
    <p class="para">
-    <div class="example" id="example-505">
+    <div class="example" id="example-519">
      <p><strong>Example #1 Handle a failed assertion with a custom handler</strong></p>
      <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -324,7 +324,7 @@
     </div>
    </p>
    <p class="para">
-    <div class="example" id="example-506">
+    <div class="example" id="example-520">
      <p><strong>Example #2 Using a custom handler to print a description</strong></p>
      <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -346,7 +346,7 @@
 
   <div class="refsect2 unknown-unknown-exampleu" id="refsect2-function.assert-unknown-unknown-exampleu">
    <h4 class="title">Expectations (PHP 7 only)</h4>
-   <div class="example" id="example-507">
+   <div class="example" id="example-521">
     <p><strong>Example #3 Expectations without a custom exception</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -390,7 +390,7 @@ Stack trace:
 </pre></div>
     </div>
    </div>
-   <div class="example" id="example-508">
+   <div class="example" id="example-522">
     <p><strong>Example #4 Expectations with a custom exception</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

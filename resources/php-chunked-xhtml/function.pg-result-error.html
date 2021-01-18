@@ -50,7 +50,7 @@
    detail on result errors than <span class="function"><strong>pg_result_error()</strong></span>.
   </p>
   <p class="para">
-   Because <span class="function"><a href="function.pg-query.html" class="function">pg_query()</a></span> returns <strong><code>FALSE</code></strong> if the query fails,
+   Because <span class="function"><a href="function.pg-query.html" class="function">pg_query()</a></span> returns <strong><code>false</code></strong> if the query fails,
    you must use <span class="function"><a href="function.pg-send-query.html" class="function">pg_send_query()</a></span> and
    <span class="function"><a href="function.pg-get-result.html" class="function">pg_get_result()</a></span> to get the result handle.
   </p>
@@ -86,7 +86,7 @@
   <h3 class="title">Return Values</h3>
   <p class="para">
    Returns a <span class="type">string</span>. Returns empty string if there is no error. If there is an error associated with the
-   <code class="parameter">result</code> parameter, returns <strong><code>FALSE</code></strong>.
+   <code class="parameter">result</code> parameter, returns <strong><code>false</code></strong>.
   </p>
  </div>
 
@@ -94,7 +94,7 @@
  <div class="refsect1 examples" id="refsect1-function.pg-result-error-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-2376">
+   <div class="example" id="example-2389">
     <p><strong>Example #1 <span class="function"><strong>pg_result_error()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

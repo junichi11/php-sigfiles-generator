@@ -35,9 +35,9 @@
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>iconv_mime_decode</strong></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$string</code></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$mode</code><span class="initializer"> = 0</span></span>
-   [, <span class="methodparam"><span class="type"><span class="type">string</span>|<span class="type">null</span></span> <code class="parameter">$encoding</code><span class="initializer"> = <strong><code>NULL</code></strong></span></span>
-  ]] ) : <span class="type"><span class="type">string</span>|<span class="type"><span class="type false">false</span></span></span></div>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$mode</code><span class="initializer"> = 0</span></span>
+   , <span class="methodparam"><span class="type"><span class="type">string</span>|<span class="type">null</span></span> <code class="parameter">$encoding</code><span class="initializer"> = <strong><code>null</code></strong></span></span>
+   ) : <span class="type"><span class="type">string</span>|<span class="type"><span class="type false">false</span></span></span></div>
 
   <p class="para rdfs-comment">
    Decodes a <code class="literal">MIME</code> header field.
@@ -124,7 +124,7 @@
 
       <p class="para">
        The optional <code class="parameter">encoding</code> parameter specifies the
-       character set to represent the result by. If omitted or <strong><code>NULL</code></strong>,
+       character set to represent the result by. If omitted or <strong><code>null</code></strong>,
        <a href="iconv.configuration.html" class="link">iconv.internal_encoding</a>
        will be used.
       </p>
@@ -141,7 +141,7 @@
   <h3 class="title">Return Values</h3>
   <p class="para">
    Returns a decoded <code class="literal">MIME</code> field on success,
-   or <strong><code>FALSE</code></strong> if an error occurs during the decoding.
+   or <strong><code>false</code></strong> if an error occurs during the decoding.
   </p>
  </div>
 
@@ -176,7 +176,7 @@
  <div class="refsect1 examples" id="refsect1-function.iconv-mime-decode-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-2735">
+   <div class="example" id="example-2750">
     <p><strong>Example #1 <span class="function"><strong>iconv_mime_decode()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

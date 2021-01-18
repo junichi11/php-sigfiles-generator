@@ -33,8 +33,8 @@
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>iptcparse</strong></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$iptcblock</code></span>
-   ) : <span class="type">array</span></div>
+    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$iptc_block</code></span>
+   ) : <span class="type"><span class="type">array</span>|<span class="type"><span class="type false">false</span></span></span></div>
 
   <p class="para rdfs-comment">
    Parses an <a href="http://www.iptc.org/" class="link external">&raquo;&nbsp;IPTC</a> block into its single tags.
@@ -48,7 +48,7 @@
 
     
      <dt>
-<code class="parameter">iptcblock</code></dt>
+<code class="parameter">iptc_block</code></dt>
 
      <dd>
 
@@ -67,14 +67,14 @@
   <h3 class="title">Return Values</h3>
   <p class="para">
    Returns an array using the tagmarker as an index and the value as the
-   value. It returns <strong><code>FALSE</code></strong> on error or if no IPTC data was found. 
+   value. It returns <strong><code>false</code></strong> on error or if no IPTC data was found. 
   </p>
  </div>
 
  <div class="refsect1 examples" id="refsect1-function.iptcparse-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-3199">
+   <div class="example" id="example-3214">
     <p><strong>Example #1 iptcparse() used together with <span class="function"><a href="function.getimagesize.html" class="function">getimagesize()</a></span></strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

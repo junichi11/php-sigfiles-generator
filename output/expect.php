@@ -15,13 +15,13 @@ namespace {
 	 * @see expect_popen()
 	 * @since PECL expect >= 0.1.0
 	 */
-	function expect_expectl($expect, array $cases, array &$match = NULL): int {}
+	function expect_expectl($expect, array $cases, array &$match = null): int {}
 
 	/**
 	 * Execute command via Bourne shell, and open the PTY stream to the process
 	 * <p>Execute command via Bourne shell, and open the PTY stream to the process.</p>
 	 * @param string $command <p>Command to execute.</p>
-	 * @return resource <p>Returns an open PTY stream to the processes <code>stdio</code>, <code>stdout</code>, and <code>stderr</code>.</p><p>On failure this function returns <b><code>FALSE</code></b>.</p>
+	 * @return resource <p>Returns an open PTY stream to the processes <code>stdio</code>, <code>stdout</code>, and <code>stderr</code>.</p><p>On failure this function returns <b><code>false</code></b>.</p>
 	 * @link https://php.net/manual/en/function.expect-popen.php
 	 * @see popen()
 	 * @since PECL expect >= 0.1.0

@@ -36,9 +36,9 @@
    <span class="methodname"><strong>preg_split</strong></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$pattern</code></span>
    , <span class="methodparam"><span class="type">string</span> <code class="parameter">$subject</code></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$limit</code><span class="initializer"> = -1</span></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code><span class="initializer"> = 0</span></span>
-  ]] ) : <span class="type"><span class="type">array</span>|<span class="type"><span class="type false">false</span></span></span></div>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$limit</code><span class="initializer"> = -1</span></span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code><span class="initializer"> = 0</span></span>
+   ) : <span class="type"><span class="type">array</span>|<span class="type"><span class="type false">false</span></span></span></div>
 
   <p class="para rdfs-comment">
    Split the given string by a regular expression.
@@ -158,7 +158,7 @@
   <h3 class="title">Return Values</h3>
   <p class="para">
    Returns an array containing substrings of <code class="parameter">subject</code>
-   split along boundaries matched by <code class="parameter">pattern</code>,  or <strong><code>FALSE</code></strong> on failure.
+   split along boundaries matched by <code class="parameter">pattern</code>,  or <strong><code>false</code></strong> on failure.
   </p>
  </div>
 
@@ -166,7 +166,7 @@
  <div class="refsect1 examples" id="refsect1-function.preg-split-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-5244">
+   <div class="example" id="example-5265">
     <p><strong>Example #1 <span class="function"><strong>preg_split()</strong></span> example : Get the parts of a search string</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -189,7 +189,7 @@ Array
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-5245">
+   <div class="example" id="example-5266">
     <p><strong>Example #2 Splitting a string into component characters</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -215,7 +215,7 @@ Array
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-5246">
+   <div class="example" id="example-5267">
     <p><strong>Example #3 Splitting a string into matches and their offsets</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

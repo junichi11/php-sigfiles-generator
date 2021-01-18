@@ -34,11 +34,11 @@
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>xml_parse_into_struct</strong></span>
-    ( <span class="methodparam"><span class="type"><span class="type XmlParser">XmlParser</span></span> <code class="parameter">$parser</code></span>
+    ( <span class="methodparam"><span class="type"><a href="class.xmlparser.html" class="type XMLParser">XMLParser</a></span> <code class="parameter">$parser</code></span>
    , <span class="methodparam"><span class="type">string</span> <code class="parameter">$data</code></span>
    , <span class="methodparam"><span class="type">array</span> <code class="parameter reference">&$values</code></span>
-   [, <span class="methodparam"><span class="type">array</span> <code class="parameter reference">&$index</code><span class="initializer"> = <strong><code>NULL</code></strong></span></span>
-  ] ) : <span class="type">int</span></div>
+   , <span class="methodparam"><span class="type">array</span> <code class="parameter reference">&$index</code><span class="initializer"> = <strong><code>null</code></strong></span></span>
+   ) : <span class="type">int</span></div>
 
   <p class="para rdfs-comment">
    This function parses an XML string into 2 parallel array structures, one
@@ -112,7 +112,7 @@
   <h3 class="title">Return Values</h3>
   <p class="para">
    <span class="function"><strong>xml_parse_into_struct()</strong></span> returns 0 for failure and 1 for
-   success. This is not the same as <strong><code>FALSE</code></strong> and <strong><code>TRUE</code></strong>, be careful with
+   success. This is not the same as <strong><code>false</code></strong> and <strong><code>true</code></strong>, be careful with
    operators such as ===.
   </p>
  </div>
@@ -134,7 +134,7 @@
      <tr>
  <td>8.0.0</td>
  <td>
-  <code class="parameter">parser</code> expects an <strong class="classname">XMLParser</strong>
+  <code class="parameter">parser</code> expects an <a href="class.xmlparser.html" class="classname">XMLParser</a>
   instance now; previously, a <span class="type">resource</span> was expected.
  </td>
 </tr>
@@ -154,7 +154,7 @@
    <code class="literal">note</code> tag embedded inside a
    <code class="literal">para</code> tag, and then we parse this and print out
    the structures generated:
-   <div class="example" id="example-5990">
+   <div class="example" id="example-5973">
     <p><strong>Example #1 <span class="function"><strong>xml_parse_into_struct()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -222,7 +222,7 @@ Array
    fashion. Thus, we can create objects representing the data
    in the XML file easily. Let&#039;s consider the following XML file
    representing a small database of aminoacids information:
-   <div class="example" id="example-5991">
+   <div class="example" id="example-5974">
     <p><strong>Example #2 moldb.xml - small database of molecular information</strong></p>
     <div class="example-contents">
 <div class="xmlcode"><pre class="xmlcode">&lt;?xml version=&quot;1.0&quot;?&gt;
@@ -249,7 +249,7 @@ Array
    </div>
    And some code to parse the document and generate the appropriate
    objects:
-   <div class="example" id="example-5992">
+   <div class="example" id="example-5975">
     <p><strong>Example #3 
      parsemoldb.php - parses moldb.xml into an array of
      molecular objects

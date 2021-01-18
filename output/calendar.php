@@ -55,26 +55,26 @@ namespace {
 	/**
 	 * Get Unix timestamp for midnight on Easter of a given year
 	 * <p>Returns the Unix timestamp corresponding to midnight on Easter of the given year.</p><p>This function will generate a warning if the year is outside of the range for Unix timestamps (i.e. typically before 1970 or after 2037 on 32bit systems).</p><p>The date of Easter Day was defined by the Council of Nicaea in AD325 as the Sunday after the first full moon which falls on or after the Spring Equinox. The Equinox is assumed to always fall on 21st March, so the calculation reduces to determining the date of the full moon and the date of the following Sunday. The algorithm used here was introduced around the year 532 by Dionysius Exiguus. Under the Julian Calendar (for years before 1753) a simple 19-year cycle is used to track the phases of the Moon. Under the Gregorian Calendar (for years after 1753 - devised by Clavius and Lilius, and introduced by Pope Gregory XIII in October 1582, and into Britain and its then colonies in September 1752) two correction factors are added to make the cycle more accurate.</p>
-	 * @param int|null $year <p>The year as a number between 1970 an 2037. If omitted or <b><code>NULL</code></b>, defaults to the current year according to the local time.</p>
+	 * @param int|null $year <p>The year as a number between 1970 an 2037. If omitted or <b><code>null</code></b>, defaults to the current year according to the local time.</p>
 	 * @param int $mode <p>Allows Easter dates to be calculated based on the Julian calendar when set to <b><code>CAL_EASTER_ALWAYS_JULIAN</code></b>. See also calendar constants.</p>
 	 * @return int <p>The easter date as a unix timestamp.</p>
 	 * @link https://php.net/manual/en/function.easter-date.php
 	 * @see easter_days()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function easter_date(int|null $year = NULL, int $mode = CAL_EASTER_DEFAULT): int {}
+	function easter_date(int|null $year = null, int $mode = CAL_EASTER_DEFAULT): int {}
 
 	/**
 	 * Get number of days after March 21 on which Easter falls for a given year
 	 * <p>Returns the number of days after March 21 on which Easter falls for a given year. If no year is specified, the current year is assumed.</p><p>This function can be used instead of <code>easter_date()</code> to calculate Easter for years which fall outside the range of Unix timestamps (i.e. before 1970 or after 2037).</p><p>The date of Easter Day was defined by the Council of Nicaea in AD325 as the Sunday after the first full moon which falls on or after the Spring Equinox. The Equinox is assumed to always fall on 21st March, so the calculation reduces to determining the date of the full moon and the date of the following Sunday. The algorithm used here was introduced around the year 532 by Dionysius Exiguus. Under the Julian Calendar (for years before 1753) a simple 19-year cycle is used to track the phases of the Moon. Under the Gregorian Calendar (for years after 1753 - devised by Clavius and Lilius, and introduced by Pope Gregory XIII in October 1582, and into Britain and its then colonies in September 1752) two correction factors are added to make the cycle more accurate.</p>
-	 * @param int|null $year <p>The year as a positive number. If omitted or <b><code>NULL</code></b>, defaults to the current year according to the local time.</p>
+	 * @param int|null $year <p>The year as a positive number. If omitted or <b><code>null</code></b>, defaults to the current year according to the local time.</p>
 	 * @param int $mode <p>Allows Easter dates to be calculated based on the Gregorian calendar during the years 1582 - 1752 when set to <b><code>CAL_EASTER_ROMAN</code></b>. See the calendar constants for more valid constants.</p>
 	 * @return int <p>The number of days after March 21st that the Easter Sunday is in the given <code>year</code>.</p>
 	 * @link https://php.net/manual/en/function.easter-days.php
 	 * @see easter_date()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function easter_days(int|null $year = NULL, int $mode = CAL_EASTER_DEFAULT): int {}
+	function easter_days(int|null $year = null, int $mode = CAL_EASTER_DEFAULT): int {}
 
 	/**
 	 * Converts a date from the French Republican Calendar to a Julian Day Count
@@ -150,14 +150,14 @@ namespace {
 	 * Converts a Julian day count to a Jewish calendar date
 	 * <p>Converts a Julian Day Count to the Jewish Calendar.</p>
 	 * @param int $julian_day
-	 * @param bool $hebrew <p>If the <code>hebrew</code> parameter is set to <b><code>TRUE</code></b>, the <code>flags</code> parameter is used for Hebrew, ISO-8859-8 encoded string based, output format.</p>
+	 * @param bool $hebrew <p>If the <code>hebrew</code> parameter is set to <b><code>true</code></b>, the <code>flags</code> parameter is used for Hebrew, ISO-8859-8 encoded string based, output format.</p>
 	 * @param int $flags <p>A bitmask which may consist of <b><code>CAL_JEWISH_ADD_ALAFIM_GERESH</code></b>, <b><code>CAL_JEWISH_ADD_ALAFIM</code></b> and <b><code>CAL_JEWISH_ADD_GERESHAYIM</code></b>.</p>
 	 * @return string <p>The Jewish date as a string in the form "month/day/year", or an ISO-8859-8 encoded Hebrew date string, according to the <code>hebrew</code> parameter.</p>
 	 * @link https://php.net/manual/en/function.jdtojewish.php
 	 * @see jewishtojd(), cal_from_jd()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function jdtojewish(int $julian_day, bool $hebrew = FALSE, int $flags = 0): string {}
+	function jdtojewish(int $julian_day, bool $hebrew = false, int $flags = 0): string {}
 
 	/**
 	 * Converts a Julian Day Count to a Julian Calendar Date
@@ -211,12 +211,12 @@ namespace {
 	 * Convert Unix timestamp to Julian Day
 	 * <p>Return the Julian Day for a Unix <code>timestamp</code> (seconds since 1.1.1970), or for the current day if no <code>timestamp</code> is given. Either way, the time is regarded as local time (not UTC).</p>
 	 * @param int|null $timestamp <p>A unix timestamp to convert.</p>
-	 * @return int|false <p>A julian day number as integer, or <b><code>FALSE</code></b> on failure.</p>
+	 * @return int|false <p>A julian day number as integer, or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.unixtojd.php
 	 * @see jdtounix()
 	 * @since PHP 4, PHP 5, PHP 7
 	 */
-	function unixtojd(int|null $timestamp = NULL): int|false {}
+	function unixtojd(int|null $timestamp = null): int|false {}
 
 	/**
 	 * For <code>jddayofweek()</code>: the day of the week as <code>int</code>, where <code>0</code> means Sunday and <code>6</code> means Saturday.

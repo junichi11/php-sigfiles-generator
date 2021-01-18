@@ -33,10 +33,10 @@
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>iptcembed</strong></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$iptcdata</code></span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$jpeg_file_name</code></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$spool</code><span class="initializer"> = 0</span></span>
-  ] ) : <span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span></div>
+    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$iptc_data</code></span>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$filename</code></span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$spool</code><span class="initializer"> = 0</span></span>
+   ) : <span class="type"><span class="type">string</span>|<span class="type">bool</span></span></div>
 
   <p class="para rdfs-comment">
    Embeds binary IPTC data into a JPEG image.
@@ -50,7 +50,7 @@
 
     
      <dt>
-<code class="parameter">iptcdata</code></dt>
+<code class="parameter">iptc_data</code></dt>
 
      <dd>
 
@@ -62,7 +62,7 @@
     
     
      <dt>
-<code class="parameter">jpeg_file_name</code></dt>
+<code class="parameter">filename</code></dt>
 
      <dd>
 
@@ -94,14 +94,14 @@
   <h3 class="title">Return Values</h3>
   <p class="para">
    If <code class="parameter">spool</code> is less than 2, the JPEG will be returned,
-    or <strong><code>FALSE</code></strong> on failure. Otherwise returns <strong><code>TRUE</code></strong> on success
-    or <strong><code>FALSE</code></strong> on failure.
+    or <strong><code>false</code></strong> on failure. Otherwise returns <strong><code>true</code></strong> on success
+    or <strong><code>false</code></strong> on failure.
   </p>
  </div>
 
  <div class="refsect1 examples" id="refsect1-function.iptcembed-examples">
   <h3 class="title">Examples</h3>
-  <div class="example" id="example-3198">
+  <div class="example" id="example-3213">
    <p><strong>Example #1 Embedding IPTC data into a JPEG</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

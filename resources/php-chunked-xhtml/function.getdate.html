@@ -34,13 +34,13 @@
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>getdate</strong></span>
-    ([ <span class="methodparam"><span class="type">int</span> <code class="parameter">$timestamp</code><span class="initializer"> = time()</span></span>
-  ] ) : <span class="type">array</span></div>
+    ( <span class="methodparam"><span class="type"><span class="type">int</span>|<span class="type">null</span></span> <code class="parameter">$timestamp</code><span class="initializer"> = <strong><code>null</code></strong></span></span>
+   ) : <span class="type">array</span></div>
 
   <p class="para rdfs-comment">
    Returns an associative <span class="type">array</span> containing the date
    information of the <code class="parameter">timestamp</code>, or the current
-   local time if no <code class="parameter">timestamp</code> is given.
+   local time if <code class="parameter">timestamp</code> is omitted or <strong><code>null</code></strong>.
   </p>
  </div>
 
@@ -58,7 +58,7 @@
 <p class="para">
 The optional <code class="parameter">timestamp</code> parameter is an
 <span class="type">int</span> Unix timestamp that defaults to the current
-local time if a <code class="parameter">timestamp</code> is not given. In other
+local time if <code class="parameter">timestamp</code> is omitted or <strong><code>null</code></strong>. In other
 words, it defaults to the value of <span class="function"><a href="function.time.html" class="function">time()</a></span>.
 </p></dd>
 
@@ -170,10 +170,39 @@ words, it defaults to the value of <span class="function"><a href="function.time
  </div>
 
 
+ <div class="refsect1 changelog" id="refsect1-function.getdate-changelog">
+  <h3 class="title">Changelog</h3>
+  <p class="para">
+   <table class="doctable informaltable">
+    
+     <thead>
+      <tr>
+       <th>Version</th>
+       <th>Description</th>
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr>
+       <td>8.0.0</td>
+       <td>
+        <code class="parameter">timestamp</code> is nullable now.
+       </td>
+      </tr>
+
+     </tbody>
+    
+   </table>
+
+  </p>
+ </div>
+
+
  <div class="refsect1 examples" id="refsect1-function.getdate-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-2560">
+   <div class="example" id="example-2575">
     <p><strong>Example #1 <span class="function"><strong>getdate()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

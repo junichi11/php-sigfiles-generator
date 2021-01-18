@@ -40,7 +40,7 @@
    <span class="function"><strong>imagecreatefromstring()</strong></span> returns an image identifier
    representing the image obtained from the given <code class="parameter">image</code>.
    These types will be automatically detected if your build of PHP supports 
-   them: JPEG, PNG, GIF, BMP, WBMP, and GD2.
+   them: JPEG, PNG, GIF, BMP, WBMP, GD2, and WEBP.
   </p>
  </div>
 
@@ -69,10 +69,37 @@
  <div class="refsect1 returnvalues" id="refsect1-function.imagecreatefromstring-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   An image resource will be returned on success. <strong><code>FALSE</code></strong> is returned if
+   An image resource will be returned on success. <strong><code>false</code></strong> is returned if
    the image type is unsupported, the data is not in a recognised format,
    or the image is corrupt and cannot be loaded.
   </p>
+ </div>
+
+
+ <div class="refsect1 changelog" id="refsect1-function.imagecreatefromstring-changelog">
+  <h3 class="title">Changelog</h3>
+  <table class="doctable informaltable">
+   
+    <thead>
+     <tr>
+      <th>Version</th>
+      <th>Description</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+      <td>7.3.0</td>
+      <td>
+       WEBP is supported now (if supported by the libgd in use).
+      </td>
+     </tr>
+
+    </tbody>
+   
+  </table>
+
  </div>
 
 
@@ -88,7 +115,7 @@
  <div class="refsect1 examples" id="refsect1-function.imagecreatefromstring-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-3120">
+   <div class="example" id="example-3135">
     <p><strong>Example #1 <span class="function"><strong>imagecreatefromstring()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

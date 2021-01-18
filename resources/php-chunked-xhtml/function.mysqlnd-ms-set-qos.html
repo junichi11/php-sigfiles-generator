@@ -35,11 +35,11 @@
   <div class="methodsynopsis dc-description">
    
    <span class="methodname"><strong>mysqlnd_ms_set_qos</strong></span>
-    ( <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">$connection</code></span>
+    ( <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$connection</code></span>
    , <span class="methodparam"><span class="type">int</span> <code class="parameter">$service_level</code></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$service_level_option</code></span>
-   [, <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">$option_value</code></span>
-  ]] ) : <span class="type">bool</span></div>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$service_level_option</code> = ?</span>
+   , <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$option_value</code> = ?</span>
+   ) : <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
    Sets the quality of service needed from the cluster. A database cluster delivers
@@ -182,8 +182,8 @@
  <div class="refsect1 returnvalues" id="refsect1-function.mysqlnd-ms-set-qos-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns <strong><code>TRUE</code></strong> if the connections service level
-   has been switched to the requested. Otherwise, returns <strong><code>FALSE</code></strong>
+   Returns <strong><code>true</code></strong> if the connections service level
+   has been switched to the requested. Otherwise, returns <strong><code>false</code></strong>
   </p>
  </div>
 
@@ -208,7 +208,7 @@ Please note, all MySQL 5.6 production versions do not provide
  <div class="refsect1 examples" id="refsect1-function.mysqlnd-ms-set-qos-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-2103">
+   <div class="example" id="example-2116">
     <p><strong>Example #1 <span class="function"><strong>mysqlnd_ms_set_qos()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

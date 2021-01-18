@@ -34,9 +34,9 @@
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>stream_wrapper_register</strong></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$protocol</code></span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$classname</code></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code> <span class="initializer"> = 0</span></span>
-  ] ) : <span class="type">bool</span></div>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$class</code></span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code><span class="initializer"> = 0</span></span>
+   ) : <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
    Allows you to implement your own protocol handlers and streams for use
@@ -65,7 +65,7 @@
     
     
      <dt>
-<code class="parameter">classname</code></dt>
+<code class="parameter">class</code></dt>
 
      <dd>
 
@@ -98,10 +98,10 @@
  <div class="refsect1 returnvalues" id="refsect1-function.stream-wrapper-register-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns <strong><code>TRUE</code></strong> on success or <strong><code>FALSE</code></strong> on failure.
+   Returns <strong><code>true</code></strong> on success or <strong><code>false</code></strong> on failure.
   </p>
   <p class="para">
-   <span class="function"><strong>stream_wrapper_register()</strong></span> will return <strong><code>FALSE</code></strong> if the
+   <span class="function"><strong>stream_wrapper_register()</strong></span> will return <strong><code>false</code></strong> if the
    <code class="parameter">protocol</code> already has a handler.
   </p>
  </div>

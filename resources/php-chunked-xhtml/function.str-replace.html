@@ -34,11 +34,11 @@
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>str_replace</strong></span>
-    ( <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">$search</code></span>
-   , <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">$replace</code></span>
-   , <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">$subject</code></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter reference">&$count</code></span>
-  ] ) : <span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span></div>
+    ( <span class="methodparam"><span class="type"><span class="type">array</span>|<span class="type">string</span></span> <code class="parameter">$search</code></span>
+   , <span class="methodparam"><span class="type"><span class="type">array</span>|<span class="type">string</span></span> <code class="parameter">$replace</code></span>
+   , <span class="methodparam"><span class="type"><span class="type">string</span>|<span class="type">array</span></span> <code class="parameter">$subject</code></span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter reference">&$count</code><span class="initializer"> = <strong><code>null</code></strong></span></span>
+   ) : <span class="type"><span class="type">string</span>|<span class="type">array</span></span></div>
 
   <p class="para rdfs-comment">
    This function returns a string or an array with all occurrences of
@@ -146,7 +146,7 @@
  <div class="refsect1 examples" id="refsect1-function.str-replace-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-5328">
+   <div class="example" id="example-5349">
     <p><strong>Example #1 Basic <span class="function"><strong>str_replace()</strong></span> examples</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -158,7 +158,7 @@
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-5329">
+   <div class="example" id="example-5350">
     <p><strong>Example #2 Examples of potential <span class="function"><strong>str_replace()</strong></span> gotchas</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

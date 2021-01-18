@@ -34,10 +34,10 @@
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>imagepng</strong></span>
     ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$image</code></span>
-   [, <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">$to</code><span class="initializer"> = <strong><code>NULL</code></strong></span></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$quality</code><span class="initializer"> = -1</span></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$filters</code><span class="initializer"> = -1</span></span>
-  ]]] ) : <span class="type">bool</span></div>
+   , <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$to</code><span class="initializer"> = <strong><code>null</code></strong></span></span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$quality</code><span class="initializer"> = -1</span></span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$filters</code><span class="initializer"> = -1</span></span>
+   ) : <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
    Outputs or saves a <acronym title="Portable Network Graphics">PNG</acronym> image from the given 
@@ -63,10 +63,10 @@ such as <span class="function"><a href="function.imagecreatetruecolor.html" clas
 
      <dd>
 
-      <p class="para">The path or an open stream resource (which is automatically being closed after this function returns) to save the file to. If not set or <strong><code>NULL</code></strong>, the raw image stream will be outputted directly.</p>
+      <p class="para">The path or an open stream resource (which is automatically being closed after this function returns) to save the file to. If not set or <strong><code>null</code></strong>, the raw image stream will be outputted directly.</p>
       <blockquote class="note"><p><strong class="note">Note</strong>: 
        <p class="para">
-        <strong><code>NULL</code></strong> is invalid if the <code class="parameter">quality</code> and
+        <strong><code>null</code></strong> is invalid if the <code class="parameter">quality</code> and
         <code class="parameter">filters</code> arguments are not used.
        </p>
       </p></blockquote>
@@ -117,9 +117,9 @@ such as <span class="function"><a href="function.imagecreatetruecolor.html" clas
  <div class="refsect1 returnvalues" id="refsect1-function.imagepng-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns <strong><code>TRUE</code></strong> on success or <strong><code>FALSE</code></strong> on failure.
+   Returns <strong><code>true</code></strong> on success or <strong><code>false</code></strong> on failure.
   </p>
-  <div class="caution"><strong class="caution">Caution</strong><p class="simpara">However, if libgd fails to output the image, this function returns <strong><code>TRUE</code></strong>.</p></div>
+  <div class="caution"><strong class="caution">Caution</strong><p class="simpara">However, if libgd fails to output the image, this function returns <strong><code>true</code></strong>.</p></div>
  </div>
 
 

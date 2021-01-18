@@ -34,10 +34,10 @@
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
    <span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><strong>MongoDB\Driver\Manager::__construct</strong></span>
-    ([ <span class="methodparam"><span class="type">string</span> <code class="parameter">$uri</code><span class="initializer"> = &quot;mongodb://127.0.0.1/&quot;</span></span>
-   [, <span class="methodparam"><span class="type">array</span> <code class="parameter">$uriOptions</code><span class="initializer"> = array()</span></span>
-   [, <span class="methodparam"><span class="type">array</span> <code class="parameter">$driverOptions</code><span class="initializer"> = array()</span></span>
-  ]]] )</div>
+    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$uri</code><span class="initializer"> = &quot;mongodb://127.0.0.1/&quot;</span></span>
+   , <span class="methodparam"><span class="type">array</span> <code class="parameter">$uriOptions</code><span class="initializer"> = array()</span></span>
+   , <span class="methodparam"><span class="type">array</span> <code class="parameter">$driverOptions</code><span class="initializer"> = array()</span></span>
+   )</div>
 
   <p class="para rdfs-comment">
    Constructs a new <a href="class.mongodb-driver-manager.html" class="classname">MongoDB\Driver\Manager</a> object with the specified options.
@@ -215,11 +215,11 @@
           <td><span class="type">bool</span></td>
           <td>
            <p class="para">
-            If <strong><code>TRUE</code></strong>, the driver will resolve the real hostname for the server
+            If <strong><code>true</code></strong>, the driver will resolve the real hostname for the server
             IP address before authenticating via SASL. Some underlying GSSAPI
             layers already do this, but the functionality may be disabled in
             their config (e.g. <code class="literal">krb.conf</code>). Defaults to
-            <strong><code>FALSE</code></strong>.
+            <strong><code>false</code></strong>.
            </p>
            <p class="para">
             This option is a deprecated alias for the
@@ -266,9 +266,9 @@
             default, providing a single member in the connection string will
             establish a direct connection or discover additional members
             depending on whether the <code class="literal">&quot;replicaSet&quot;</code> URI option
-            is omitted or present, respectively. Specify <strong><code>FALSE</code></strong> to force
+            is omitted or present, respectively. Specify <strong><code>false</code></strong> to force
             discovery to occur (if <code class="literal">&quot;replicaSet&quot;</code> is omitted)
-            or specify <strong><code>TRUE</code></strong> to force a direct connection (if
+            or specify <strong><code>true</code></strong> to force a direct connection (if
             <code class="literal">&quot;replicaSet&quot;</code> is present).
            </p>
           </td>
@@ -317,7 +317,7 @@
           <td>
            <p class="para">
             Corresponds to the default write concern&#039;s
-            <code class="parameter">journal</code> parameter. If <strong><code>TRUE</code></strong>, writes will
+            <code class="parameter">journal</code> parameter. If <strong><code>true</code></strong>, writes will
             require acknowledgement from MongoDB that the operation has been
             written to the journal. For details, see
             <a href="class.mongodb-driver-writeconcern.html" class="classname">MongoDB\Driver\WriteConcern</a>.
@@ -429,7 +429,7 @@
             Specifies whether or not the driver should automatically retry
             certain read operations that fail due to transient network errors
             or replica set elections. This functionality requires MongoDB 3.6+.
-            Defaults to <strong><code>TRUE</code></strong>.
+            Defaults to <strong><code>true</code></strong>.
            </p>
            <p class="para">
             See the
@@ -447,7 +447,7 @@
             Specifies whether or not the driver should automatically retry
             certain write operations that fail due to transient network errors
             or replica set elections. This functionality requires MongoDB 3.6+.
-            Defaults to <strong><code>TRUE</code></strong>.
+            Defaults to <strong><code>true</code></strong>.
            </p>
            <p class="para">
             See
@@ -462,8 +462,8 @@
           <td><span class="type">bool</span></td>
           <td>
            <p class="para">
-            If <strong><code>TRUE</code></strong>, specifies <code class="literal">1</code> for the default write
-            concern&#039;s <code class="parameter">w</code> parameter. If <strong><code>FALSE</code></strong>,
+            If <strong><code>true</code></strong>, specifies <code class="literal">1</code> for the default write
+            concern&#039;s <code class="parameter">w</code> parameter. If <strong><code>false</code></strong>,
             <code class="literal">0</code> is specified. For details, see
             <a href="class.mongodb-driver-writeconcern.html" class="classname">MongoDB\Driver\WriteConcern</a>.
            </p>
@@ -489,12 +489,12 @@
           <td><span class="type">bool</span></td>
           <td>
            <p class="para">
-            When <strong><code>TRUE</code></strong>, instructs the driver to scan the MongoDB deployment
+            When <strong><code>true</code></strong>, instructs the driver to scan the MongoDB deployment
             exactly once after server selection fails and then either select a
-            server or raise an error. When <strong><code>FALSE</code></strong>, the driver blocks and
+            server or raise an error. When <strong><code>false</code></strong>, the driver blocks and
             searches for a server up to the
             <code class="literal">&quot;serverSelectionTimeoutMS&quot;</code> value. Defaults to
-            <strong><code>TRUE</code></strong>.
+            <strong><code>true</code></strong>.
            </p>
           </td>
          </tr>
@@ -505,7 +505,7 @@
           <td>
            <p class="para">
             Specifies <code class="literal">&quot;secondaryPreferred&quot;</code> for the read
-            preference mode if <strong><code>TRUE</code></strong>. For details, see
+            preference mode if <strong><code>true</code></strong>. For details, see
             <a href="class.mongodb-driver-readpreference.html" class="classname">MongoDB\Driver\ReadPreference</a>.
            </p>
            <p class="para">
@@ -543,8 +543,8 @@
           <td><span class="type">bool</span></td>
           <td>
            <p class="para">
-            Initiates the connection with TLS/SSL if <strong><code>TRUE</code></strong>. Defaults to
-            <strong><code>FALSE</code></strong>.
+            Initiates the connection with TLS/SSL if <strong><code>true</code></strong>. Defaults to
+            <strong><code>false</code></strong>.
            </p>
            <p class="para">
             This option is a deprecated alias for the <code class="literal">&quot;tls&quot;</code>
@@ -558,8 +558,8 @@
           <td><span class="type">bool</span></td>
           <td>
            <p class="para">
-            Initiates the connection with TLS/SSL if <strong><code>TRUE</code></strong>. Defaults to
-            <strong><code>FALSE</code></strong>.
+            Initiates the connection with TLS/SSL if <strong><code>true</code></strong>. Defaults to
+            <strong><code>false</code></strong>.
            </p>
           </td>
          </tr>
@@ -570,7 +570,7 @@
           <td>
            <p class="para">
             Specifies whether or not the driver should error when the server&#039;s
-            TLS certificate is invalid. Defaults to <strong><code>FALSE</code></strong>.
+            TLS certificate is invalid. Defaults to <strong><code>false</code></strong>.
            </p>
            <div class="warning"><strong class="warning">Warning</strong>
             <p class="simpara">
@@ -587,7 +587,7 @@
            <p class="para">
             Specifies whether or not the driver should error when there is a
             mismatch between the server&#039;s hostname and the hostname specified by
-            the TLS certificate. Defaults to <strong><code>FALSE</code></strong>.
+            the TLS certificate. Defaults to <strong><code>false</code></strong>.
            </p>
            <div class="warning"><strong class="warning">Warning</strong>
             <p class="simpara">
@@ -640,8 +640,8 @@
           <td><span class="type">bool</span></td>
           <td>
            <p class="para">
-            If <strong><code>TRUE</code></strong>, the driver will not attempt to check certificate
-            revocation status (e.g. OCSP, CRL). Defaults to <strong><code>FALSE</code></strong>.
+            If <strong><code>true</code></strong>, the driver will not attempt to check certificate
+            revocation status (e.g. OCSP, CRL). Defaults to <strong><code>false</code></strong>.
            </p>
           </td>
          </tr>
@@ -651,9 +651,9 @@
           <td><span class="type">bool</span></td>
           <td>
            <p class="para">
-            If <strong><code>TRUE</code></strong>, the driver will not attempt to contact an OCSP responder
+            If <strong><code>true</code></strong>, the driver will not attempt to contact an OCSP responder
             endpoint if needed (i.e. an OCSP response is not stapled). Defaults
-            to <strong><code>FALSE</code></strong>.
+            to <strong><code>false</code></strong>.
            </p>
           </td>
          </tr>
@@ -663,11 +663,11 @@
           <td><span class="type">bool</span></td>
           <td>
            <p class="para">
-            Relax TLS constraints as much as possible. Specifying <strong><code>TRUE</code></strong> for
-            this option has the same effect as specifying <strong><code>TRUE</code></strong> for both the
+            Relax TLS constraints as much as possible. Specifying <strong><code>true</code></strong> for
+            this option has the same effect as specifying <strong><code>true</code></strong> for both the
             <code class="literal">&quot;tlsAllowInvalidCertificates&quot;</code> and
             <code class="literal">&quot;tlsAllowInvalidHostnames&quot;</code> URI options. Defaults
-            to <strong><code>FALSE</code></strong>.
+            to <strong><code>false</code></strong>.
            </p>
            <div class="warning"><strong class="warning">Warning</strong>
             <p class="simpara">
@@ -764,7 +764,7 @@
           <td><span class="type">bool</span></td>
           <td>
            <p class="para">
-            Disables hostname validation if <strong><code>TRUE</code></strong>. Defaults to <strong><code>FALSE</code></strong>.
+            Disables hostname validation if <strong><code>true</code></strong>. Defaults to <strong><code>false</code></strong>.
            </p>
            <p class="para">
             Allowing invalid hostnames may expose the driver to a
@@ -820,7 +820,7 @@
           <td><span class="type">array</span></td>
           <td>
            <p class="para">
-            A document containing the configuration for one or more KMS providers, which are used to encrypt data keys. Currently <code class="literal">aws</code> or <code class="literal">local</code>are supported and at least one must be specified.
+            A document containing the configuration for one or more KMS providers, which are used to encrypt data keys. Currently <code class="literal">aws</code> or <code class="literal">local</code> are supported and at least one must be specified.
            </p>
            <p class="para">
             The format for <code class="literal">aws</code> is as follows:
@@ -879,7 +879,7 @@
                 <td>bypassAutoEncryption</td>
                 <td><span class="type">bool</span></td>
                 <td>
-                 With this option set to <strong><code>TRUE</code></strong>, <code class="literal">mongocryptd</code>
+                 With this option set to <strong><code>true</code></strong>, <code class="literal">mongocryptd</code>
                  will not be spawned automatically. This is used to disable
                  automatic encryption.
                 </td>
@@ -1067,7 +1067,7 @@
           <td><span class="type">bool</span></td>
           <td>
            <p class="para">
-            Disables certificate validation if <strong><code>TRUE</code></strong>. Defaults to <strong><code>FALSE</code></strong>
+            Disables certificate validation if <strong><code>true</code></strong>. Defaults to <strong><code>false</code></strong>
            </p>
            <p class="para">
             This option is a deprecated alias for the
@@ -1153,12 +1153,12 @@
          <code class="literal">&quot;tlsInsecure&quot;</code> URI options.
         </p>
         <p class="para">
-         The <code class="literal">&quot;retryWrites&quot;</code> URI option defaults to <strong><code>TRUE</code></strong>.
+         The <code class="literal">&quot;retryWrites&quot;</code> URI option defaults to <strong><code>true</code></strong>.
         </p>
         <p class="para">
          Specifying any SSL or TLS URI option via the connection string or
          <code class="parameter">uriOptions</code> parameter will now implicitly enable
-         TLS unless <code class="literal">ssl</code> or <code class="literal">tls</code> is <strong><code>FALSE</code></strong>.
+         TLS unless <code class="literal">ssl</code> or <code class="literal">tls</code> is <strong><code>false</code></strong>.
          TLS is <em class="emphasis">not</em> implicitly enabled for any options in
          the <code class="parameter">driverOptions</code> parameter, which is unchanged
          from previous versions.

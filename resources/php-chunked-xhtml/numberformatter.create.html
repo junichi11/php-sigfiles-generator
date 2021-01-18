@@ -44,8 +44,8 @@
    <span class="methodname"><strong>NumberFormatter::create</strong></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$locale</code></span>
    , <span class="methodparam"><span class="type">int</span> <code class="parameter">$style</code></span>
-   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$pattern</code></span>
-  ] ) : <span class="type"><a href="class.numberformatter.html" class="type NumberFormatter">NumberFormatter</a></span></div>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$pattern</code> = ?</span>
+   ) : <span class="type"><a href="class.numberformatter.html" class="type NumberFormatter">NumberFormatter</a></span></div>
 
   <p class="para rdfs-comment">
    Procedural style
@@ -55,8 +55,8 @@
    <span class="methodname"><strong>numfmt_create</strong></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$locale</code></span>
    , <span class="methodparam"><span class="type">int</span> <code class="parameter">$style</code></span>
-   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$pattern</code></span>
-  ] ) : <span class="type"><a href="class.numberformatter.html" class="type NumberFormatter">NumberFormatter</a></span></div>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$pattern</code> = ?</span>
+   ) : <span class="type"><a href="class.numberformatter.html" class="type NumberFormatter">NumberFormatter</a></span></div>
 
   <p class="para rdfs-comment">
    Object oriented style (constructor):
@@ -66,8 +66,8 @@
     <span class="methodname"><strong>NumberFormatter::__construct</strong></span>
      ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$locale</code></span>
     , <span class="methodparam"><span class="type">int</span> <code class="parameter">$style</code></span>
-    [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$pattern</code></span>
-   ] )</div>
+    , <span class="methodparam"><span class="type">string</span> <code class="parameter">$pattern</code> = ?</span>
+    )</div>
 
   <p class="para rdfs-comment">
    Creates a number formatter.
@@ -136,14 +136,14 @@
  <div class="refsect1 returnvalues" id="refsect1-numberformatter.create-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns <a href="class.numberformatter.html" class="classname">NumberFormatter</a> object or <strong><code>FALSE</code></strong> on error.
+   Returns <a href="class.numberformatter.html" class="classname">NumberFormatter</a> object or <strong><code>false</code></strong> on error.
   </p>
  </div>
 
 
  <div class="refsect1 examples" id="refsect1-numberformatter.create-examples">
   <h3 class="title">Examples</h3>
-  <div class="example" id="example-2760">
+  <div class="example" id="example-2775">
    <p><strong>Example #1 <span class="function"><strong>numfmt_create()</strong></span> example</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -153,7 +153,7 @@
    </div>
 
   </div>
-  <div class="example" id="example-2761">
+  <div class="example" id="example-2776">
    <p><strong>Example #2 <span class="function"><strong>NumberFormatter::create()</strong></span> example</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

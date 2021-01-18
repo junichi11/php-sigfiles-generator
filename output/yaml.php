@@ -16,7 +16,7 @@ namespace {
 	 * @see yaml_emit_file(), yaml_parse()
 	 * @since PECL yaml >= 0.5.0
 	 */
-	function yaml_emit(mixed $data, int $encoding = YAML_ANY_ENCODING, int $linebreak = YAML_ANY_BREAK, array $callbacks = NULL): string {}
+	function yaml_emit(mixed $data, int $encoding = YAML_ANY_ENCODING, int $linebreak = YAML_ANY_BREAK, array $callbacks = null): string {}
 
 	/**
 	 * Send the YAML representation of a value to a file
@@ -26,12 +26,12 @@ namespace {
 	 * @param int $encoding <p>Output character encoding chosen from <b><code>YAML_ANY_ENCODING</code></b>, <b><code>YAML_UTF8_ENCODING</code></b>, <b><code>YAML_UTF16LE_ENCODING</code></b>, <b><code>YAML_UTF16BE_ENCODING</code></b>.</p>
 	 * @param int $linebreak <p>Output linebreak style chosen from <b><code>YAML_ANY_BREAK</code></b>, <b><code>YAML_CR_BREAK</code></b>, <b><code>YAML_LN_BREAK</code></b>, <b><code>YAML_CRLN_BREAK</code></b>.</p>
 	 * @param array $callbacks <p>Content handlers for emitting YAML nodes. Associative <code>array</code> of classname =&gt; <code>callable</code> mappings. See emit callbacks for more details.</p>
-	 * @return bool <p>Returns <b><code>TRUE</code></b> on success.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> on success.</p>
 	 * @link https://php.net/manual/en/function.yaml-emit-file.php
 	 * @see yaml_emit(), yaml_parse()
 	 * @since PECL yaml >= 0.5.0
 	 */
-	function yaml_emit_file(string $filename, mixed $data, int $encoding = YAML_ANY_ENCODING, int $linebreak = YAML_ANY_BREAK, array $callbacks = NULL): bool {}
+	function yaml_emit_file(string $filename, mixed $data, int $encoding = YAML_ANY_ENCODING, int $linebreak = YAML_ANY_BREAK, array $callbacks = null): bool {}
 
 	/**
 	 * Parse a YAML stream
@@ -40,12 +40,12 @@ namespace {
 	 * @param int $pos <p>Document to extract from stream (<code>-1</code> for all documents, <code>0</code> for first document, ...).</p>
 	 * @param int $ndocs <p>If <code>ndocs</code> is provided, then it is filled with the number of documents found in stream.</p>
 	 * @param array $callbacks <p>Content handlers for YAML nodes. Associative <code>array</code> of YAML tag =&gt; <code>callable</code> mappings. See parse callbacks for more details.</p>
-	 * @return mixed <p>Returns the value encoded in <code>input</code> in appropriate PHP type or <b><code>FALSE</code></b> on failure. If <code>pos</code> is <code>-1</code> an <code>array</code> will be returned with one entry for each document found in the stream.</p>
+	 * @return mixed <p>Returns the value encoded in <code>input</code> in appropriate PHP type or <b><code>false</code></b> on failure. If <code>pos</code> is <code>-1</code> an <code>array</code> will be returned with one entry for each document found in the stream.</p>
 	 * @link https://php.net/manual/en/function.yaml-parse.php
 	 * @see yaml_parse_file(), yaml_parse_url(), yaml_emit()
 	 * @since PECL yaml >= 0.4.0
 	 */
-	function yaml_parse(string $input, int $pos = 0, int &$ndocs = NULL, array $callbacks = NULL): mixed {}
+	function yaml_parse(string $input, int $pos = 0, int &$ndocs = null, array $callbacks = null): mixed {}
 
 	/**
 	 * Parse a YAML stream from a file
@@ -54,12 +54,12 @@ namespace {
 	 * @param int $pos <p>Document to extract from stream (<code>-1</code> for all documents, <code>0</code> for first document, ...).</p>
 	 * @param int $ndocs <p>If <code>ndocs</code> is provided, then it is filled with the number of documents found in stream.</p>
 	 * @param array $callbacks <p>Content handlers for YAML nodes. Associative <code>array</code> of YAML tag =&gt; <code>callable</code> mappings. See parse callbacks for more details.</p>
-	 * @return mixed <p>Returns the value encoded in <code>input</code> in appropriate PHP type or <b><code>FALSE</code></b> on failure. If <code>pos</code> is <code>-1</code> an <code>array</code> will be returned with one entry for each document found in the stream.</p>
+	 * @return mixed <p>Returns the value encoded in <code>input</code> in appropriate PHP type or <b><code>false</code></b> on failure. If <code>pos</code> is <code>-1</code> an <code>array</code> will be returned with one entry for each document found in the stream.</p>
 	 * @link https://php.net/manual/en/function.yaml-parse-file.php
 	 * @see yaml_parse(), yaml_parse_url(), yaml_emit()
 	 * @since PECL yaml >= 0.4.0
 	 */
-	function yaml_parse_file(string $filename, int $pos = 0, int &$ndocs = NULL, array $callbacks = NULL): mixed {}
+	function yaml_parse_file(string $filename, int $pos = 0, int &$ndocs = null, array $callbacks = null): mixed {}
 
 	/**
 	 * Parse a Yaml stream from a URL
@@ -68,12 +68,12 @@ namespace {
 	 * @param int $pos <p>Document to extract from stream (<code>-1</code> for all documents, <code>0</code> for first document, ...).</p>
 	 * @param int $ndocs <p>If <code>ndocs</code> is provided, then it is filled with the number of documents found in stream.</p>
 	 * @param array $callbacks <p>Content handlers for YAML nodes. Associative <code>array</code> of YAML tag =&gt; <code>callable</code> mappings. See parse callbacks for more</p>
-	 * @return mixed <p>Returns the value encoded in <code>input</code> in appropriate PHP type or <b><code>FALSE</code></b> on failure. If <code>pos</code> is <code>-1</code> an <code>array</code> will be returned with one entry for each document found in the stream.</p>
+	 * @return mixed <p>Returns the value encoded in <code>input</code> in appropriate PHP type or <b><code>false</code></b> on failure. If <code>pos</code> is <code>-1</code> an <code>array</code> will be returned with one entry for each document found in the stream.</p>
 	 * @link https://php.net/manual/en/function.yaml-parse-url.php
 	 * @see yaml_parse(), yaml_parse_file(), yaml_emit()
 	 * @since PECL yaml >= 0.4.0
 	 */
-	function yaml_parse_url(string $url, int $pos = 0, int &$ndocs = NULL, array $callbacks = NULL): mixed {}
+	function yaml_parse_url(string $url, int $pos = 0, int &$ndocs = null, array $callbacks = null): mixed {}
 
 	/**
 	 * Let emitter choose linebreak character.

@@ -73,19 +73,19 @@
    ) : <span class="type">bool</span></div>
 <div class="methodsynopsis dc-description">
    <span class="methodname"><a href="oci-lob.erase.html" class="methodname">erase</a></span>
-    ([ <span class="methodparam"><span class="type">int</span> <code class="parameter">$offset</code></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$length</code></span>
-  ]] ) : <span class="type"><span class="type">int</span>|<span class="type"><span class="type false">false</span></span></span></div>
+    ( <span class="methodparam"><span class="type">int</span> <code class="parameter">$offset</code> = ?</span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$length</code> = ?</span>
+   ) : <span class="type"><span class="type">int</span>|<span class="type"><span class="type false">false</span></span></span></div>
 <div class="methodsynopsis dc-description">
    <span class="methodname"><a href="oci-lob.export.html" class="methodname">export</a></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$filename</code></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$start</code></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$length</code></span>
-  ]] ) : <span class="type">bool</span></div>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$start</code> = ?</span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$length</code> = ?</span>
+   ) : <span class="type">bool</span></div>
 <div class="methodsynopsis dc-description">
    <span class="methodname"><a href="oci-lob.flush.html" class="methodname">flush</a></span>
-    ([ <span class="methodparam"><span class="type">int</span> <code class="parameter">$flag</code></span>
-  ] ) : <span class="type">bool</span></div>
+    ( <span class="methodparam"><span class="type">int</span> <code class="parameter">$flag</code> = ?</span>
+   ) : <span class="type">bool</span></div>
 <div class="methodsynopsis dc-description">
    <span class="methodname"><a href="oci-lob.free.html" class="methodname">free</a></span>
     (
@@ -113,13 +113,13 @@
 <div class="methodsynopsis dc-description">
    <span class="methodname"><a href="oci-lob.save.html" class="methodname">save</a></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$data</code></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$offset</code></span>
-  ] ) : <span class="type">bool</span></div>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$offset</code> = ?</span>
+   ) : <span class="type">bool</span></div>
 <div class="methodsynopsis dc-description">
    <span class="methodname"><a href="oci-lob.seek.html" class="methodname">seek</a></span>
     ( <span class="methodparam"><span class="type">int</span> <code class="parameter">$offset</code></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$whence</code><span class="initializer"> = <strong><code>OCI_SEEK_SET</code></strong></span></span>
-  ] ) : <span class="type">bool</span></div>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$whence</code><span class="initializer"> = <strong><code>OCI_SEEK_SET</code></strong></span></span>
+   ) : <span class="type">bool</span></div>
 <div class="methodsynopsis dc-description">
    <span class="methodname"><a href="oci-lob.setbuffering.html" class="methodname">setBuffering</a></span>
     ( <span class="methodparam"><span class="type">bool</span> <code class="parameter">$on_off</code></span>
@@ -134,18 +134,18 @@
    ) : <span class="type">int</span></div>
 <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>Lob::truncate</strong></span>
-    ([ <span class="methodparam"><span class="type">int</span> <code class="parameter">$length</code><span class="initializer"> = 0</span></span>
-  ] ) : <span class="type">bool</span></div>
+    ( <span class="methodparam"><span class="type">int</span> <code class="parameter">$length</code><span class="initializer"> = 0</span></span>
+   ) : <span class="type">bool</span></div>
 <div class="methodsynopsis dc-description">
    <span class="methodname"><a href="oci-lob.write.html" class="methodname">write</a></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$data</code></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$length</code></span>
-  ] ) : <span class="type"><span class="type">int</span>|<span class="type"><span class="type false">false</span></span></span></div>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$length</code> = ?</span>
+   ) : <span class="type"><span class="type">int</span>|<span class="type"><span class="type false">false</span></span></span></div>
 <div class="methodsynopsis dc-description">
    <span class="methodname"><a href="oci-lob.writetemporary.html" class="methodname">writeTemporary</a></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$data</code></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$lob_type</code><span class="initializer"> = OCI_TEMP_CLOB</span></span>
-  ] ) : <span class="type">bool</span></div>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$lob_type</code><span class="initializer"> = OCI_TEMP_CLOB</span></span>
+   ) : <span class="type">bool</span></div>
 
    }</div>
 

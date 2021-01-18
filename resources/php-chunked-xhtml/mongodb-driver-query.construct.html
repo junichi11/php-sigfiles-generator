@@ -35,8 +35,8 @@
   <div class="methodsynopsis dc-description">
    <span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><strong>MongoDB\Driver\Query::__construct</strong></span>
     ( <span class="methodparam"><span class="type"><span class="type">array</span>|<span class="type">object</span></span> <code class="parameter">$filter</code></span>
-   [, <span class="methodparam"><span class="type">array</span> <code class="parameter">$queryOptions</code></span>
-  ] )</div>
+   , <span class="methodparam"><span class="type">array</span> <code class="parameter">$queryOptions</code> = ?</span>
+   )</div>
 
   <p class="para rdfs-comment">
    Constructs a new <a href="class.mongodb-driver-query.html" class="classname">MongoDB\Driver\Query</a>, which is an
@@ -204,7 +204,7 @@
           <td><span class="type">bool</span></td>
           <td>
            <p class="para">
-            If <strong><code>TRUE</code></strong>, the returned <a href="class.mongodb-driver-cursor.html" class="classname">MongoDB\Driver\Cursor</a>
+            If <strong><code>true</code></strong>, the returned <a href="class.mongodb-driver-cursor.html" class="classname">MongoDB\Driver\Cursor</a>
             will contain a single document that describes the process and
             indexes used to return the query.
            </p>
@@ -249,7 +249,7 @@
            </p>
            <p class="para">
             A negative limit is will be interpreted as a positive limit with the
-            <code class="literal">&quot;singleBatch&quot;</code> option set to <strong><code>TRUE</code></strong>. This behavior
+            <code class="literal">&quot;singleBatch&quot;</code> option set to <strong><code>true</code></strong>. This behavior
             is supported for backwards compatibility, but should be considered
             deprecated.
            </p>
@@ -415,8 +415,8 @@
           <td><span class="type">bool</span></td>
           <td>
            <p class="para">
-            If <strong><code>TRUE</code></strong>, returns only the index keys in the resulting documents.
-            Default value is <strong><code>FALSE</code></strong>. If <strong><code>TRUE</code></strong> and the find command does not
+            If <strong><code>true</code></strong>, returns only the index keys in the resulting documents.
+            Default value is <strong><code>false</code></strong>. If <strong><code>true</code></strong> and the find command does not
             use an index, the returned documents will be empty.
            </p>
            <p class="para">
@@ -432,7 +432,7 @@
           <td>
            <p class="para">
             Determines whether to return the record identifier for each
-            document. If <strong><code>TRUE</code></strong>, adds a top-level <code class="literal">&quot;$recordId&quot;</code>
+            document. If <strong><code>true</code></strong>, adds a top-level <code class="literal">&quot;$recordId&quot;</code>
             field to the returned documents.
            </p>
            <p class="para">
@@ -447,7 +447,7 @@
           <td><span class="type">bool</span></td>
           <td>
            Determines whether to close the cursor after the first batch.
-           Defaults to <strong><code>FALSE</code></strong>.
+           Defaults to <strong><code>false</code></strong>.
           </td>
          </tr>
 
@@ -609,7 +609,7 @@
 
  <div class="refsect1 examples" id="refsect1-mongodb-driver-query.construct-examples">
   <h3 class="title">Examples</h3>
-  <div class="example" id="example-1518">
+  <div class="example" id="example-1530">
    <p><strong>Example #1 <span class="function"><strong>MongoDB\Driver\Query::__construct()</strong></span> example</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

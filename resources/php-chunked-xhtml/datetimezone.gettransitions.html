@@ -35,17 +35,17 @@
   <p class="para">Object oriented style</p>
   <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><strong>DateTimeZone::getTransitions</strong></span>
-    ([ <span class="methodparam"><span class="type">int</span> <code class="parameter">$timestampBegin</code><span class="initializer"> = <strong><code>PHP_INT_MIN</code></strong></span></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$timestampEnd</code><span class="initializer"> = <strong><code>PHP_INT_MAX</code></strong></span></span>
-  ]] ) : <span class="type"><span class="type">array</span>|<span class="type"><span class="type false">false</span></span></span></div>
+    ( <span class="methodparam"><span class="type">int</span> <code class="parameter">$timestampBegin</code><span class="initializer"> = <strong><code>PHP_INT_MIN</code></strong></span></span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$timestampEnd</code><span class="initializer"> = <strong><code>PHP_INT_MAX</code></strong></span></span>
+   ) : <span class="type"><span class="type">array</span>|<span class="type"><span class="type false">false</span></span></span></div>
 
   <p class="para rdfs-comment">Procedural style</p>
   <div class="methodsynopsis dc-description">
    <span class="methodname"><a href="function.timezone-transitions-get.html" class="methodname">timezone_transitions_get</a></span>
     ( <span class="methodparam"><span class="type"><a href="class.datetimezone.html" class="type DateTimeZone">DateTimeZone</a></span> <code class="parameter">$object</code></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$timestampBegin</code><span class="initializer"> = <strong><code>PHP_INT_MIN</code></strong></span></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$timestampEnd</code><span class="initializer"> = <strong><code>PHP_INT_MAX</code></strong></span></span>
-  ]] ) : <span class="type"><span class="type">array</span>|<span class="type"><span class="type false">false</span></span></span></div>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$timestampBegin</code><span class="initializer"> = <strong><code>PHP_INT_MIN</code></strong></span></span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$timestampEnd</code><span class="initializer"> = <strong><code>PHP_INT_MAX</code></strong></span></span>
+   ) : <span class="type"><span class="type">array</span>|<span class="type"><span class="type false">false</span></span></span></div>
 
  </div>
 
@@ -96,7 +96,7 @@ returned by <span class="function"><a href="function.timezone-open.html" class="
   <h3 class="title">Return Values</h3>
   <p class="para">
    Returns a numerically indexed array of
-   transition arrays on success,  or <strong><code>FALSE</code></strong> on failure.
+   transition arrays on success,  or <strong><code>false</code></strong> on failure.
    <table class="doctable table">
     <caption><strong>Transition Array Structure</strong></caption>
     
@@ -151,7 +151,7 @@ returned by <span class="function"><a href="function.timezone-open.html" class="
  <div class="refsect1 examples" id="refsect1-datetimezone.gettransitions-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-2528">
+   <div class="example" id="example-2543">
     <p><strong>Example #1 A <span class="function"><a href="function.timezone-transitions-get.html" class="function">timezone_transitions_get()</a></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

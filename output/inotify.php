@@ -20,7 +20,7 @@ namespace {
 	/**
 	 * Initialize an inotify instance
 	 * <p>Initialize an inotify instance for use with <code>inotify_add_watch()</code></p>
-	 * @return resource <p>A stream resource or <b><code>FALSE</code></b> on error.</p>
+	 * @return resource <p>A stream resource or <b><code>false</code></b> on error.</p>
 	 * @link https://php.net/manual/en/function.inotify-init.php
 	 * @see inotify_add_watch(), inotify_rm_watch(), inotify_queue_len(), inotify_read(), fclose()
 	 * @since PECL inotify >= 0.1.2
@@ -42,7 +42,7 @@ namespace {
 	 * Read events from an inotify instance
 	 * <p>Read inotify events from an inotify instance.</p>
 	 * @param resource $inotify_instance <p>Resource returned by <code>inotify_init()</code></p>
-	 * @return array <p>An array of inotify events or <b><code>FALSE</code></b> if no events was pending and <code>inotify_instance</code> is non-blocking. Each event is an array with the following keys:</p><ul> <li>wd is a watch descriptor returned by <code>inotify_add_watch()</code></li> <li>mask is a bit mask of events</li> <li>cookie is a unique id to connect related events (e.g. <b><code>IN_MOVE_FROM</code></b> and <b><code>IN_MOVE_TO</code></b>)</li> <li>name is the name of a file (e.g. if a file was modified in a watched directory)</li> </ul>
+	 * @return array <p>An array of inotify events or <b><code>false</code></b> if no events was pending and <code>inotify_instance</code> is non-blocking. Each event is an array with the following keys:</p><ul> <li>wd is a watch descriptor returned by <code>inotify_add_watch()</code></li> <li>mask is a bit mask of events</li> <li>cookie is a unique id to connect related events (e.g. <b><code>IN_MOVE_FROM</code></b> and <b><code>IN_MOVE_TO</code></b>)</li> <li>name is the name of a file (e.g. if a file was modified in a watched directory)</li> </ul>
 	 * @link https://php.net/manual/en/function.inotify-read.php
 	 * @see inotify_init(), stream_select(), stream_set_blocking(), inotify_queue_len()
 	 * @since PECL inotify >= 0.1.2
@@ -54,7 +54,7 @@ namespace {
 	 * <p><b>inotify_rm_watch()</b> removes the watch <code>watch_descriptor</code> from the inotify instance <code>inotify_instance</code>.</p>
 	 * @param resource $inotify_instance <p>Resource returned by <code>inotify_init()</code></p>
 	 * @param int $watch_descriptor <p>Watch to remove from the instance</p>
-	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.inotify-rm-watch.php
 	 * @see inotify_init()
 	 * @since PECL inotify >= 0.1.2

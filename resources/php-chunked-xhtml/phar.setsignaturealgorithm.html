@@ -33,10 +33,10 @@
  <div class="refsect1 description" id="refsect1-phar.setsignaturealgorithm-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><a href="phardata.setsignaturealgorithm.html" class="methodname">Phar::setSignatureAlgorithm</a></span>
+   <span class="modifier">public</span> <span class="methodname"><strong>Phar::setSignatureAlgorithm</strong></span>
     ( <span class="methodparam"><span class="type">int</span> <code class="parameter">$sigtype</code></span>
-   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$privatekey</code></span>
-  ] ) : <span class="type"><span class="type void">void</span></span></div>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$privatekey</code> = ?</span>
+   ) : <span class="type"><span class="type void">void</span></span></div>
 
   <blockquote class="note"><p><strong class="note">Note</strong>: <p class="para">This
 method requires the <var class="filename">php.ini</var> setting <code class="literal">phar.readonly</code> to be
@@ -54,7 +54,7 @@ objects.  Otherwise, a <a href="class.pharexception.html" class="classname">Phar
    automatically, <code class="literal">SHA1</code> by default.  data tar- or zip-based archives
    (archives created with the <a href="class.phardata.html" class="classname">PharData</a> class) must have
    their signature created and set explicitly via
-   <span class="function"><a href="phardata.setsignaturealgorithm.html" class="function">Phar::setSignatureAlgorithm()</a></span>.
+   <span class="function"><strong>Phar::setSignatureAlgorithm()</strong></span>.
   </p>
  </div>
 

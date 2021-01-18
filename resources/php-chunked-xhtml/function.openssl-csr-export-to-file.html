@@ -10,7 +10,7 @@
  <body class="docs"><div class="navbar navbar-fixed-top">
   <div class="navbar-inner clearfix">
     <ul class="nav" style="width: 100%">
-      <li style="float: left;"><a href="function.openssl-cipher-iv-length.html">« openssl_cipher_iv_length</a></li>
+      <li style="float: left;"><a href="function.openssl-cms-verify.html">« openssl_cms_verify</a></li>
       <li style="float: right;"><a href="function.openssl-csr-export.html">openssl_csr_export »</a></li>
     </ul>
   </div>
@@ -34,10 +34,10 @@
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>openssl_csr_export_to_file</strong></span>
-    ( <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">$csr</code></span>
+    ( <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$csr</code></span>
    , <span class="methodparam"><span class="type">string</span> <code class="parameter">$outfilename</code></span>
-   [, <span class="methodparam"><span class="type">bool</span> <code class="parameter">$notext</code><span class="initializer"> = <strong><code>TRUE</code></strong></span></span>
-  ] ) : <span class="type">bool</span></div>
+   , <span class="methodparam"><span class="type">bool</span> <code class="parameter">$notext</code><span class="initializer"> = <strong><code>true</code></strong></span></span>
+   ) : <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
    <span class="function"><strong>openssl_csr_export_to_file()</strong></span> takes the Certificate
@@ -84,9 +84,9 @@
 
       <p class="para">
  The optional parameter <code class="parameter">notext</code> affects
- the verbosity of the output; if it is <strong><code>FALSE</code></strong>, then additional human-readable
+ the verbosity of the output; if it is <strong><code>false</code></strong>, then additional human-readable
  information is included in the output. The default value of
- <code class="parameter">notext</code> is <strong><code>TRUE</code></strong>.
+ <code class="parameter">notext</code> is <strong><code>true</code></strong>.
 </p>
      </dd>
 
@@ -100,7 +100,7 @@
  <div class="refsect1 returnvalues" id="refsect1-function.openssl-csr-export-to-file-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns <strong><code>TRUE</code></strong> on success or <strong><code>FALSE</code></strong> on failure.
+   Returns <strong><code>true</code></strong> on success or <strong><code>false</code></strong> on failure.
   </p>
  </div>
 
@@ -108,7 +108,7 @@
  <div class="refsect1 examples" id="refsect1-function.openssl-csr-export-to-file-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-898">
+   <div class="example" id="example-910">
     <p><strong>Example #1 openssl_csr_export_to_file() example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

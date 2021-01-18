@@ -35,7 +35,7 @@ namespace {
 		 * @link https://php.net/manual/en/yaf-controller-abstract.display.php
 		 * @since Yaf >=1.0.0
 		 */
-		protected function display(string $tpl, array $parameters = NULL): bool {}
+		protected function display(string $tpl, array $parameters = null): bool {}
 
 		/**
 		 * Action entry point
@@ -56,7 +56,7 @@ namespace {
 		 * @link https://php.net/manual/en/yaf-controller-abstract.forward.php
 		 * @since Yaf >=1.0.0
 		 */
-		public function forward(string $action, array $paramters = NULL): void {}
+		public function forward(string $action, array $paramters = null): void {}
 
 		/**
 		 * Retrieve controller object
@@ -162,7 +162,7 @@ namespace {
 		 * @link https://php.net/manual/en/yaf-controller-abstract.initview.php
 		 * @since Yaf >=1.0.0
 		 */
-		public function initView(array $options = NULL): void {}
+		public function initView(array $options = null): void {}
 
 		/**
 		 * Redirect to a URL
@@ -182,7 +182,7 @@ namespace {
 		 * @link https://php.net/manual/en/yaf-controller-abstract.render.php
 		 * @since Yaf >=1.0.0
 		 */
-		protected function render(string $tpl, array $parameters = NULL): string {}
+		protected function render(string $tpl, array $parameters = null): string {}
 
 		/**
 		 * The setViewpath purpose
@@ -249,7 +249,7 @@ namespace {
 		 * @link https://php.net/manual/en/yaf-application.construct.php
 		 * @since Yaf >=1.0.0
 		 */
-		public function __construct(mixed $config, string $envrion = NULL) {}
+		public function __construct(mixed $config, string $envrion = null) {}
 
 		/**
 		 * The __destruct purpose
@@ -262,7 +262,7 @@ namespace {
 		/**
 		 * Retrieve an Application instance
 		 * <p>Retrieve the Yaf_Application instance. Alternatively, we also could use <code>Yaf_Dispatcher::getApplication()</code>.</p>
-		 * @return mixed <p>A Yaf_Application instance, if no Yaf_Application was initialized before, <b><code>NULL</code></b> will be returned.</p>
+		 * @return mixed <p>A Yaf_Application instance, if no Yaf_Application was initialized before, <b><code>null</code></b> will be returned.</p>
 		 * @link https://php.net/manual/en/yaf-application.app.php
 		 * @since Yaf >=1.0.0
 		 */
@@ -276,7 +276,7 @@ namespace {
 		 * @link https://php.net/manual/en/yaf-application.bootstrap.php
 		 * @since Yaf >=1.0.0
 		 */
-		public function bootstrap(\Yaf_Bootstrap_Abstract $bootstrap = NULL): void {}
+		public function bootstrap(\Yaf_Bootstrap_Abstract $bootstrap = null): void {}
 
 		/**
 		 * Clear the last error info
@@ -444,7 +444,7 @@ namespace {
 	/**
 	 * <p>Yaf_Config_Ini enables developers to store configuration data in a familiar INI format and read them in the application by using nested object property syntax. The INI format is specialized to provide both the ability to have a hierarchy of configuration data keys and inheritance between configuration data sections. Configuration data hierarchies are supported by separating the keys with the dot or period character ("."). A section may extend or inherit from another section by following the section name with a colon character (":") and the name of the section from which data are to be inherited.</p>
 	 * <p><b>Note</b>:</p>
-	 * <p>Yaf_Config_Ini utilizes the &raquo; parse_ini_file() PHP function. Please review this documentation to be aware of its specific behaviors, which propagate to Yaf_Config_Ini, such as how the special values of "<b><code>TRUE</code></b>", "<b><code>FALSE</code></b>", "yes", "no", and "<b><code>NULL</code></b>" are handled.</p>
+	 * <p>Yaf_Config_Ini utilizes the &raquo; parse_ini_file() PHP function. Please review this documentation to be aware of its specific behaviors, which propagate to Yaf_Config_Ini, such as how the special values of "<b><code>true</code></b>", "<b><code>false</code></b>", "yes", "no", and "<b><code>null</code></b>" are handled.</p>
 	 * @link https://php.net/manual/en/class.yaf-config-ini.php
 	 * @since Yaf >=1.0.0
 	 */
@@ -459,7 +459,7 @@ namespace {
 		 * @link https://php.net/manual/en/yaf-config-ini.construct.php
 		 * @since Yaf >=1.0.0
 		 */
-		public function __construct(string $config_file, string $section = NULL) {}
+		public function __construct(string $config_file, string $section = null) {}
 
 		/**
 		 * Retrieve a element
@@ -469,7 +469,7 @@ namespace {
 		 * @link https://php.net/manual/en/yaf-config-ini.get.php
 		 * @since Yaf >=1.0.0
 		 */
-		public function __get(string $name = NULL): void {}
+		public function __get(string $name = null): void {}
 
 		/**
 		 * Determine if a key is exists
@@ -657,7 +657,7 @@ namespace {
 		 * @link https://php.net/manual/en/yaf-config-simple.get.php
 		 * @since Yaf >=1.0.0
 		 */
-		public function __get(string $name = NULL): void {}
+		public function __get(string $name = null): void {}
 
 		/**
 		 * The __isset purpose
@@ -886,7 +886,7 @@ namespace {
 		 * @link https://php.net/manual/en/yaf-controller-abstract.display.php
 		 * @since Yaf >=1.0.0
 		 */
-		protected function display(string $tpl, array $parameters = NULL): bool {}
+		protected function display(string $tpl, array $parameters = null): bool {}
 
 		/**
 		 * Foward to another action
@@ -897,7 +897,7 @@ namespace {
 		 * @link https://php.net/manual/en/yaf-controller-abstract.forward.php
 		 * @since Yaf >=1.0.0
 		 */
-		public function forward(string $action, array $paramters = NULL): void {}
+		public function forward(string $action, array $paramters = null): void {}
 
 		/**
 		 * The getInvokeArg purpose
@@ -985,7 +985,7 @@ namespace {
 		 * @link https://php.net/manual/en/yaf-controller-abstract.initview.php
 		 * @since Yaf >=1.0.0
 		 */
-		public function initView(array $options = NULL): void {}
+		public function initView(array $options = null): void {}
 
 		/**
 		 * Redirect to a URL
@@ -1005,7 +1005,7 @@ namespace {
 		 * @link https://php.net/manual/en/yaf-controller-abstract.render.php
 		 * @since Yaf >=1.0.0
 		 */
-		protected function render(string $tpl, array $parameters = NULL): string {}
+		protected function render(string $tpl, array $parameters = null): string {}
 
 		/**
 		 * The setViewpath purpose
@@ -1101,27 +1101,27 @@ namespace {
 
 		/**
 		 * Switch on/off autorendering
-		 * <p>Yaf_Dispatcher will render automatically after dispatches a incoming request, you can prevent the rendering by calling this method with <code>flag</code> <b><code>TRUE</code></b></p><p><b>Note</b>:</p><p>you can simply return <b><code>FALSE</code></b> in a action to prevent the auto-rendering of that action</p>
+		 * <p>Yaf_Dispatcher will render automatically after dispatches a incoming request, you can prevent the rendering by calling this method with <code>flag</code> <b><code>true</code></b></p><p><b>Note</b>:</p><p>you can simply return <b><code>false</code></b> in a action to prevent the auto-rendering of that action</p>
 		 * @param bool $flag <p>bool</p><p><b>Note</b>:</p><p>since 2.2.0, if this parameter is not given, then the current state will be renturned</p>
 		 * @return Yaf_Dispatcher
 		 * @link https://php.net/manual/en/yaf-dispatcher.autorender.php
 		 * @since Yaf >=1.0.0
 		 */
-		public function autoRender(bool $flag = NULL): \Yaf_Dispatcher {}
+		public function autoRender(bool $flag = null): \Yaf_Dispatcher {}
 
 		/**
 		 * Switch on/off exception catching
-		 * <p>While the application.dispatcher.throwException is On(you can also calling to <b>Yaf_Dispatcher::throwException(TRUE)()</b> to enable it), Yaf will throw Exception whe error occurrs instead of trigger error.</p><p>then if you enable <b>Yaf_Dispatcher::catchException()</b>(also can enabled by set application.dispatcher.catchException), all uncaught Exceptions will be caught by ErrorController::error if you have defined one.</p>
+		 * <p>While the application.dispatcher.throwException is On(you can also calling to <b>Yaf_Dispatcher::throwException(TRUE)()</b> to enable it), Yaf will throw Exception when error occurrs instead of trigger error.</p><p>then if you enable <b>Yaf_Dispatcher::catchException()</b>(also can enabled by set application.dispatcher.catchException), all uncaught Exceptions will be caught by ErrorController::error if you have defined one.</p>
 		 * @param bool $flag <p>bool</p>
 		 * @return Yaf_Dispatcher
 		 * @link https://php.net/manual/en/yaf-dispatcher.catchexception.php
 		 * @since Yaf >=1.0.0
 		 */
-		public function catchException(bool $flag = NULL): \Yaf_Dispatcher {}
+		public function catchException(bool $flag = null): \Yaf_Dispatcher {}
 
 		/**
 		 * Disable view rendering
-		 * <p>disable view engine, used in some app that user will output by theirself</p><p><b>Note</b>:</p><p>you can simply return <b><code>FALSE</code></b> in a action to prevent the auto-rendering of that action</p>
+		 * <p>disable view engine, used in some app that user will output by theirself</p><p><b>Note</b>:</p><p>you can simply return <b><code>false</code></b> in a action to prevent the auto-rendering of that action</p>
 		 * @return bool
 		 * @link https://php.net/manual/en/yaf-dispatcher.disableview.php
 		 * @since Yaf >=1.0.0
@@ -1153,7 +1153,7 @@ namespace {
 		 * @link https://php.net/manual/en/yaf-dispatcher.flushinstantly.php
 		 * @since Yaf >=1.0.0
 		 */
-		public function flushInstantly(bool $flag = NULL): \Yaf_Dispatcher {}
+		public function flushInstantly(bool $flag = null): \Yaf_Dispatcher {}
 
 		/**
 		 * Retrive the application
@@ -1223,7 +1223,7 @@ namespace {
 		 * @link https://php.net/manual/en/yaf-dispatcher.initview.php
 		 * @since Yaf >=1.0.0
 		 */
-		public function initView(string $templates_dir, array $options = NULL): \Yaf_View_Interface {}
+		public function initView(string $templates_dir, array $options = null): \Yaf_View_Interface {}
 
 		/**
 		 * Register a plugin
@@ -1293,7 +1293,7 @@ namespace {
 
 		/**
 		 * Set a custom view engine
-		 * <p>This method proviods a solution for that if you want use a custom view engine instead of Yaf_View_Simple</p>
+		 * <p>This method provides a solution if you want use a custom view engine instead of Yaf_View_Simple</p>
 		 * @param \Yaf_View_Interface $view <p>A Yaf_View_Interface instance</p>
 		 * @return Yaf_Dispatcher
 		 * @link https://php.net/manual/en/yaf-dispatcher.setview.php
@@ -1309,7 +1309,7 @@ namespace {
 		 * @link https://php.net/manual/en/yaf-dispatcher.throwexception.php
 		 * @since Yaf >=1.0.0
 		 */
-		public function throwException(bool $flag = NULL): \Yaf_Dispatcher {}
+		public function throwException(bool $flag = null): \Yaf_Dispatcher {}
 	}
 
 	/**
@@ -1661,7 +1661,7 @@ namespace {
 	/**
 	 * <p><b>Yaf_Loader</b> introduces a comprehensive autoloading solution for Yaf.</p>
 	 * <p>The first time an instance of Yaf_Application is retrieved, <b>Yaf_Loader</b> will instance a singleton, and registers itself with spl_autoload. You retrieve an instance using the <code>Yaf_Loader::getInstance()</code></p>
-	 * <p><b>Yaf_Loader</b> attempt to load a class only one shot, if failed, depend on yaf.use_spl_auload, if this config is On <code>Yaf_Loader::autoload()</code> will return <b><code>FALSE</code></b>, thus give the chance to other autoload function. if it is Off (by default), <code>Yaf_Loader::autoload()</code> will return <b><code>TRUE</code></b>, and more important is that a very useful warning will be triggered (very useful to find out why a class could not be loaded).</p>
+	 * <p><b>Yaf_Loader</b> attempt to load a class only one shot, if failed, depend on yaf.use_spl_auload, if this config is On <code>Yaf_Loader::autoload()</code> will return <b><code>false</code></b>, thus give the chance to other autoload function. if it is Off (by default), <code>Yaf_Loader::autoload()</code> will return <b><code>true</code></b>, and more important is that a very useful warning will be triggered (very useful to find out why a class could not be loaded).</p>
 	 * <p><b>Note</b>:</p>
 	 * <p>Please keep yaf.use_spl_autoload Off unless there is some library have their own autoload mechanism and impossible to rewrite it.</p>
 	 * <p>By default, <b>Yaf_Loader</b> assume all library (class defined script) store in the global library directory, which is defined in the php.ini(yaf.library).</p>
@@ -1751,7 +1751,7 @@ namespace {
 		 * @link https://php.net/manual/en/yaf-loader.getlibrarypath.php
 		 * @since Yaf >=2.1.4
 		 */
-		public function getLibraryPath(bool $is_global = FALSE): \Yaf_Loader {}
+		public function getLibraryPath(bool $is_global = false): \Yaf_Loader {}
 
 		/**
 		 * Retrive all register namespaces info
@@ -1766,7 +1766,7 @@ namespace {
 		 * Retieve path of a registered namespace
 		 * <p>retrieve path of a registered namespace</p>
 		 * @param string $namespaces
-		 * @return string <p><code>string</code> path, if the namespace is not registered, then <b><code>NULL</code></b> default library will be returned</p>
+		 * @return string <p><code>string</code> path, if the namespace is not registered, then <b><code>null</code></b> default library will be returned</p>
 		 * @link https://php.net/manual/en/yaf-loader.getnamespacepath.php
 		 * @since Yaf >=3.2.0
 		 */
@@ -1809,7 +1809,7 @@ namespace {
 		 * @link https://php.net/manual/en/yaf-loader.registernamespace.php
 		 * @since Yaf >=3.2.0
 		 */
-		public function registerNamespace(string|array $namespaces, string $path = NULL): bool {}
+		public function registerNamespace(string|array $namespaces, string $path = null): bool {}
 
 		/**
 		 * Change the library path
@@ -1820,7 +1820,7 @@ namespace {
 		 * @link https://php.net/manual/en/yaf-loader.setlibrarypath.php
 		 * @since Yaf >=2.1.4
 		 */
-		public function setLibraryPath(string $directory, bool $is_global = FALSE): \Yaf_Loader {}
+		public function setLibraryPath(string $directory, bool $is_global = false): \Yaf_Loader {}
 	}
 
 	/**
@@ -2107,7 +2107,7 @@ namespace {
 		 * @link https://php.net/manual/en/yaf-request-abstract.getenv.php
 		 * @since Yaf >=1.0.0
 		 */
-		public function getEnv(string $name, string $default = NULL): void {}
+		public function getEnv(string $name, string $default = null): void {}
 
 		/**
 		 * The getException purpose
@@ -2151,7 +2151,7 @@ namespace {
 		 * @link https://php.net/manual/en/yaf-request-abstract.getparam.php
 		 * @since Yaf >=1.0.0
 		 */
-		public function getParam(string $name, string $default = NULL): mixed {}
+		public function getParam(string $name, string $default = null): mixed {}
 
 		/**
 		 * Retrieve all calling parameters
@@ -2179,7 +2179,7 @@ namespace {
 		 * @link https://php.net/manual/en/yaf-request-abstract.getserver.php
 		 * @since Yaf >=1.0.0
 		 */
-		public function getServer(string $name, string $default = NULL): void {}
+		public function getServer(string $name, string $default = null): void {}
 
 		/**
 		 * Determine if request is CLI request
@@ -2257,7 +2257,7 @@ namespace {
 		 * Set action name
 		 * <p>set action name to request, this is usually used by custom router to set route result controller name.</p>
 		 * @param string $action <p><code>string</code>, action name, it should in lower case style, like "index" or "foo_bar"</p>
-		 * @param bool $format_name <p>this is introduced in Yaf 3.2.0, by default Yaf will format the name into lower case style, if this is set to <b><code>FALSE</code></b> , Yaf will set the original name to request.</p>
+		 * @param bool $format_name <p>this is introduced in Yaf 3.2.0, by default Yaf will format the name into lower case style, if this is set to <b><code>false</code></b> , Yaf will set the original name to request.</p>
 		 * @return void
 		 * @link https://php.net/manual/en/yaf-request-abstract.setactionname.php
 		 * @since Yaf >=1.0.0
@@ -2278,7 +2278,7 @@ namespace {
 		 * Set controller name
 		 * <p>set controller name to request, this is usually used by custom router to set route result controller name.</p>
 		 * @param string $controller <p><code>string</code>, controller name, this should be in camel style, like "Index" or "Foo_Bar"</p>
-		 * @param bool $format_name <p>this is introduced in Yaf 3.2.0, by default Yaf will format the name into camel mode, if this is set to <b><code>FALSE</code></b> , Yaf will set the original name to request.</p>
+		 * @param bool $format_name <p>this is introduced in Yaf 3.2.0, by default Yaf will format the name into camel mode, if this is set to <b><code>false</code></b> , Yaf will set the original name to request.</p>
 		 * @return void
 		 * @link https://php.net/manual/en/yaf-request-abstract.setcontrollername.php
 		 * @since Yaf >=1.0.0
@@ -2298,7 +2298,7 @@ namespace {
 		 * Set module name
 		 * <p>set module name to request, this is usually used by custom router to set route result module name.</p>
 		 * @param string $module <p><code>string</code> module name, it should be in camel style, like "Index" or "Foo_Bar"</p>
-		 * @param bool $format_name <p>this is introduced in Yaf 3.2.0, by default Yaf will format the name into camel mode, if this is set to <b><code>FALSE</code></b> , Yaf will set the original name to request.</p>
+		 * @param bool $format_name <p>this is introduced in Yaf 3.2.0, by default Yaf will format the name into camel mode, if this is set to <b><code>false</code></b> , Yaf will set the original name to request.</p>
 		 * @return void
 		 * @link https://php.net/manual/en/yaf-request-abstract.setmodulename.php
 		 * @since Yaf >=1.0.0
@@ -2314,7 +2314,7 @@ namespace {
 		 * @link https://php.net/manual/en/yaf-request-abstract.setparam.php
 		 * @since Yaf >=1.0.0
 		 */
-		public function setParam(string $name, string $value = NULL): bool {}
+		public function setParam(string $name, string $value = null): bool {}
 
 		/**
 		 * The setRequestUri purpose
@@ -2334,7 +2334,7 @@ namespace {
 		 * @link https://php.net/manual/en/yaf-request-abstract.setrouted.php
 		 * @since Yaf >=1.0.0
 		 */
-		public function setRouted(string $flag = NULL): void {}
+		public function setRouted(string $flag = null): void {}
 	}
 
 	/**
@@ -2357,7 +2357,7 @@ namespace {
 		 * @link https://php.net/manual/en/yaf-request-http.construct.php
 		 * @since Yaf >=1.0.0
 		 */
-		public function __construct(string $request_uri = NULL, string $base_uri = NULL) {}
+		public function __construct(string $request_uri = null, string $base_uri = null) {}
 
 		/**
 		 * Remove all params
@@ -2377,7 +2377,7 @@ namespace {
 		 * @link https://php.net/manual/en/yaf-request-http.get.php
 		 * @since Yaf >=1.0.0
 		 */
-		public function get(string $name, string $default = NULL): mixed {}
+		public function get(string $name, string $default = null): mixed {}
 
 		/**
 		 * The getActionName purpose
@@ -2415,7 +2415,7 @@ namespace {
 		 * @link https://php.net/manual/en/yaf-request-http.getcookie.php
 		 * @since Yaf >=1.0.0
 		 */
-		public function getCookie(string $name, string $default = NULL): mixed {}
+		public function getCookie(string $name, string $default = null): mixed {}
 
 		/**
 		 * Retrieve ENV varialbe
@@ -2426,7 +2426,7 @@ namespace {
 		 * @link https://php.net/manual/en/yaf-request-abstract.getenv.php
 		 * @since Yaf >=1.0.0
 		 */
-		public function getEnv(string $name, string $default = NULL): void {}
+		public function getEnv(string $name, string $default = null): void {}
 
 		/**
 		 * The getException purpose
@@ -2479,7 +2479,7 @@ namespace {
 		 * @link https://php.net/manual/en/yaf-request-abstract.getparam.php
 		 * @since Yaf >=1.0.0
 		 */
-		public function getParam(string $name, string $default = NULL): mixed {}
+		public function getParam(string $name, string $default = null): mixed {}
 
 		/**
 		 * Retrieve all calling parameters
@@ -2498,7 +2498,7 @@ namespace {
 		 * @link https://php.net/manual/en/yaf-request-http.getpost.php
 		 * @since Yaf >=1.0.0
 		 */
-		public function getPost(string $name, string $default = NULL): mixed {}
+		public function getPost(string $name, string $default = null): mixed {}
 
 		/**
 		 * Fetch a query parameter
@@ -2509,7 +2509,7 @@ namespace {
 		 * @link https://php.net/manual/en/yaf-request-http.getquery.php
 		 * @since Yaf >=1.0.0
 		 */
-		public function getQuery(string $name, string $default = NULL): mixed {}
+		public function getQuery(string $name, string $default = null): mixed {}
 
 		/**
 		 * Retrieve Raw request body
@@ -2547,7 +2547,7 @@ namespace {
 		 * @link https://php.net/manual/en/yaf-request-abstract.getserver.php
 		 * @since Yaf >=1.0.0
 		 */
-		public function getServer(string $name, string $default = NULL): void {}
+		public function getServer(string $name, string $default = null): void {}
 
 		/**
 		 * Determine if request is CLI request
@@ -2626,7 +2626,7 @@ namespace {
 		 * Set action name
 		 * <p>set action name to request, this is usually used by custom router to set route result controller name.</p>
 		 * @param string $action <p><code>string</code>, action name, it should in lower case style, like "index" or "foo_bar"</p>
-		 * @param bool $format_name <p>this is introduced in Yaf 3.2.0, by default Yaf will format the name into lower case style, if this is set to <b><code>FALSE</code></b> , Yaf will set the original name to request.</p>
+		 * @param bool $format_name <p>this is introduced in Yaf 3.2.0, by default Yaf will format the name into lower case style, if this is set to <b><code>false</code></b> , Yaf will set the original name to request.</p>
 		 * @return void
 		 * @link https://php.net/manual/en/yaf-request-abstract.setactionname.php
 		 * @since Yaf >=1.0.0
@@ -2647,7 +2647,7 @@ namespace {
 		 * Set controller name
 		 * <p>set controller name to request, this is usually used by custom router to set route result controller name.</p>
 		 * @param string $controller <p><code>string</code>, controller name, this should be in camel style, like "Index" or "Foo_Bar"</p>
-		 * @param bool $format_name <p>this is introduced in Yaf 3.2.0, by default Yaf will format the name into camel mode, if this is set to <b><code>FALSE</code></b> , Yaf will set the original name to request.</p>
+		 * @param bool $format_name <p>this is introduced in Yaf 3.2.0, by default Yaf will format the name into camel mode, if this is set to <b><code>false</code></b> , Yaf will set the original name to request.</p>
 		 * @return void
 		 * @link https://php.net/manual/en/yaf-request-abstract.setcontrollername.php
 		 * @since Yaf >=1.0.0
@@ -2667,7 +2667,7 @@ namespace {
 		 * Set module name
 		 * <p>set module name to request, this is usually used by custom router to set route result module name.</p>
 		 * @param string $module <p><code>string</code> module name, it should be in camel style, like "Index" or "Foo_Bar"</p>
-		 * @param bool $format_name <p>this is introduced in Yaf 3.2.0, by default Yaf will format the name into camel mode, if this is set to <b><code>FALSE</code></b> , Yaf will set the original name to request.</p>
+		 * @param bool $format_name <p>this is introduced in Yaf 3.2.0, by default Yaf will format the name into camel mode, if this is set to <b><code>false</code></b> , Yaf will set the original name to request.</p>
 		 * @return void
 		 * @link https://php.net/manual/en/yaf-request-abstract.setmodulename.php
 		 * @since Yaf >=1.0.0
@@ -2683,7 +2683,7 @@ namespace {
 		 * @link https://php.net/manual/en/yaf-request-abstract.setparam.php
 		 * @since Yaf >=1.0.0
 		 */
-		public function setParam(string $name, string $value = NULL): bool {}
+		public function setParam(string $name, string $value = null): bool {}
 
 		/**
 		 * The setRequestUri purpose
@@ -2703,7 +2703,7 @@ namespace {
 		 * @link https://php.net/manual/en/yaf-request-abstract.setrouted.php
 		 * @since Yaf >=1.0.0
 		 */
-		public function setRouted(string $flag = NULL): void {}
+		public function setRouted(string $flag = null): void {}
 	}
 
 	/**
@@ -2737,7 +2737,7 @@ namespace {
 		 * @link https://php.net/manual/en/yaf-request-simple.construct.php
 		 * @since Yaf >=1.0.0
 		 */
-		public function __construct(string $method = NULL, string $module = NULL, string $controller = NULL, string $action = NULL, array $params = NULL) {}
+		public function __construct(string $method = null, string $module = null, string $controller = null, string $action = null, array $params = null) {}
 
 		/**
 		 * Remove all params
@@ -2802,7 +2802,7 @@ namespace {
 		 * @link https://php.net/manual/en/yaf-request-abstract.getenv.php
 		 * @since Yaf >=1.0.0
 		 */
-		public function getEnv(string $name, string $default = NULL): void {}
+		public function getEnv(string $name, string $default = null): void {}
 
 		/**
 		 * The getException purpose
@@ -2855,7 +2855,7 @@ namespace {
 		 * @link https://php.net/manual/en/yaf-request-abstract.getparam.php
 		 * @since Yaf >=1.0.0
 		 */
-		public function getParam(string $name, string $default = NULL): mixed {}
+		public function getParam(string $name, string $default = null): mixed {}
 
 		/**
 		 * Retrieve all calling parameters
@@ -2910,7 +2910,7 @@ namespace {
 		 * @link https://php.net/manual/en/yaf-request-abstract.getserver.php
 		 * @since Yaf >=1.0.0
 		 */
-		public function getServer(string $name, string $default = NULL): void {}
+		public function getServer(string $name, string $default = null): void {}
 
 		/**
 		 * Determine if request is CLI request
@@ -2988,7 +2988,7 @@ namespace {
 		 * Set action name
 		 * <p>set action name to request, this is usually used by custom router to set route result controller name.</p>
 		 * @param string $action <p><code>string</code>, action name, it should in lower case style, like "index" or "foo_bar"</p>
-		 * @param bool $format_name <p>this is introduced in Yaf 3.2.0, by default Yaf will format the name into lower case style, if this is set to <b><code>FALSE</code></b> , Yaf will set the original name to request.</p>
+		 * @param bool $format_name <p>this is introduced in Yaf 3.2.0, by default Yaf will format the name into lower case style, if this is set to <b><code>false</code></b> , Yaf will set the original name to request.</p>
 		 * @return void
 		 * @link https://php.net/manual/en/yaf-request-abstract.setactionname.php
 		 * @since Yaf >=1.0.0
@@ -3009,7 +3009,7 @@ namespace {
 		 * Set controller name
 		 * <p>set controller name to request, this is usually used by custom router to set route result controller name.</p>
 		 * @param string $controller <p><code>string</code>, controller name, this should be in camel style, like "Index" or "Foo_Bar"</p>
-		 * @param bool $format_name <p>this is introduced in Yaf 3.2.0, by default Yaf will format the name into camel mode, if this is set to <b><code>FALSE</code></b> , Yaf will set the original name to request.</p>
+		 * @param bool $format_name <p>this is introduced in Yaf 3.2.0, by default Yaf will format the name into camel mode, if this is set to <b><code>false</code></b> , Yaf will set the original name to request.</p>
 		 * @return void
 		 * @link https://php.net/manual/en/yaf-request-abstract.setcontrollername.php
 		 * @since Yaf >=1.0.0
@@ -3029,7 +3029,7 @@ namespace {
 		 * Set module name
 		 * <p>set module name to request, this is usually used by custom router to set route result module name.</p>
 		 * @param string $module <p><code>string</code> module name, it should be in camel style, like "Index" or "Foo_Bar"</p>
-		 * @param bool $format_name <p>this is introduced in Yaf 3.2.0, by default Yaf will format the name into camel mode, if this is set to <b><code>FALSE</code></b> , Yaf will set the original name to request.</p>
+		 * @param bool $format_name <p>this is introduced in Yaf 3.2.0, by default Yaf will format the name into camel mode, if this is set to <b><code>false</code></b> , Yaf will set the original name to request.</p>
 		 * @return void
 		 * @link https://php.net/manual/en/yaf-request-abstract.setmodulename.php
 		 * @since Yaf >=1.0.0
@@ -3045,7 +3045,7 @@ namespace {
 		 * @link https://php.net/manual/en/yaf-request-abstract.setparam.php
 		 * @since Yaf >=1.0.0
 		 */
-		public function setParam(string $name, string $value = NULL): bool {}
+		public function setParam(string $name, string $value = null): bool {}
 
 		/**
 		 * The setRequestUri purpose
@@ -3065,7 +3065,7 @@ namespace {
 		 * @link https://php.net/manual/en/yaf-request-abstract.setrouted.php
 		 * @since Yaf >=1.0.0
 		 */
-		public function setRouted(string $flag = NULL): void {}
+		public function setRouted(string $flag = null): void {}
 	}
 
 	/**
@@ -3133,7 +3133,7 @@ namespace {
 		 * @link https://php.net/manual/en/yaf-response-abstract.appendbody.php
 		 * @since Yaf >=1.0.0
 		 */
-		public function appendBody(string $content, string $key = NULL): bool {}
+		public function appendBody(string $content, string $key = null): bool {}
 
 		/**
 		 * Discard all exists response body
@@ -3143,7 +3143,7 @@ namespace {
 		 * @link https://php.net/manual/en/yaf-response-abstract.clearbody.php
 		 * @since Yaf >=1.0.0
 		 */
-		public function clearBody(string $key = NULL): bool {}
+		public function clearBody(string $key = null): bool {}
 
 		/**
 		 * Discard all set headers
@@ -3156,12 +3156,12 @@ namespace {
 		/**
 		 * Retrieve a exists content
 		 * <p>Retrieve a exists content</p>
-		 * @param string $key <p>the content key, if you don't specific, then Yaf_Response_Abstract::DEFAULT_BODY will be used. if you pass in a <b><code>NULL</code></b>, then all contents will be returned as a array</p><p><b>Note</b>:</p><p>this parameter is introduced as of 2.2.0</p>
+		 * @param string $key <p>the content key, if you don't specific, then Yaf_Response_Abstract::DEFAULT_BODY will be used. if you pass in a <b><code>null</code></b>, then all contents will be returned as a array</p><p><b>Note</b>:</p><p>this parameter is introduced as of 2.2.0</p>
 		 * @return mixed
 		 * @link https://php.net/manual/en/yaf-response-abstract.getbody.php
 		 * @since Yaf >=1.0.0
 		 */
-		public function getBody(string $key = NULL): mixed {}
+		public function getBody(string $key = null): mixed {}
 
 		/**
 		 * The getHeader purpose
@@ -3181,7 +3181,7 @@ namespace {
 		 * @link https://php.net/manual/en/yaf-response-abstract.prependbody.php
 		 * @since Yaf >=1.0.0
 		 */
-		public function prependBody(string $content, string $key = NULL): bool {}
+		public function prependBody(string $content, string $key = null): bool {}
 
 		/**
 		 * Send response
@@ -3210,7 +3210,7 @@ namespace {
 		 * @link https://php.net/manual/en/yaf-response-abstract.setbody.php
 		 * @since Yaf >=1.0.0
 		 */
-		public function setBody(string $content, string $key = NULL): bool {}
+		public function setBody(string $content, string $key = null): bool {}
 
 		/**
 		 * Set reponse header
@@ -3222,7 +3222,7 @@ namespace {
 		 * @link https://php.net/manual/en/yaf-response-abstract.setheader.php
 		 * @since Yaf >=1.0.0
 		 */
-		public function setHeader(string $name, string $value, bool $replace = NULL): bool {}
+		public function setHeader(string $name, string $value, bool $replace = null): bool {}
 
 		/**
 		 * The setRedirect purpose
@@ -3250,11 +3250,11 @@ namespace {
 		 * @link https://php.net/manual/en/yaf-route-interface.assemble.php
 		 * @since Yaf >=2.3.0
 		 */
-		abstract public function assemble(array $info, array $query = NULL): string;
+		abstract public function assemble(array $info, array $query = null): string;
 
 		/**
 		 * Route a request
-		 * <p><b>Yaf_Route_Interface::route()</b> is the only method that a custom route should implement.</p><p><b>Note</b>:</p><p>since of 2.3.0, there is another method should also be implemented, see <code>Yaf_Route_Interface::assemble()</code>.</p><p>if this method return <b><code>TRUE</code></b>, then the route process will be end. otherwise, Yaf_Router will call next route in the route stack to route request.</p><p>This method would set the route result to the parameter request, by calling <code>Yaf_Request_Abstract::setControllerName()</code>, <code>Yaf_Request_Abstract::setActionName()</code> and <code>Yaf_Request_Abstract::setModuleName()</code>.</p><p>This method should also call <code>Yaf_Request_Abstract::setRouted()</code> to make the request routed at last.</p>
+		 * <p><b>Yaf_Route_Interface::route()</b> is the only method that a custom route should implement.</p><p><b>Note</b>:</p><p>since of 2.3.0, there is another method should also be implemented, see <code>Yaf_Route_Interface::assemble()</code>.</p><p>if this method return <b><code>true</code></b>, then the route process will be end. otherwise, Yaf_Router will call next route in the route stack to route request.</p><p>This method would set the route result to the parameter request, by calling <code>Yaf_Request_Abstract::setControllerName()</code>, <code>Yaf_Request_Abstract::setActionName()</code> and <code>Yaf_Request_Abstract::setModuleName()</code>.</p><p>This method should also call <code>Yaf_Request_Abstract::setRouted()</code> to make the request routed at last.</p>
 		 * @param \Yaf_Request_Abstract $request <p>A Yaf_Request_Abstract instance.</p>
 		 * @return bool
 		 * @link https://php.net/manual/en/yaf-route-interface.route.php
@@ -3291,7 +3291,7 @@ namespace {
 		 * @link https://php.net/manual/en/yaf-route-map.construct.php
 		 * @since Yaf >=1.0.0
 		 */
-		public function __construct(string $controller_prefer = 'FALSE', string $delimiter = "") {}
+		public function __construct(string $controller_prefer = 'false', string $delimiter = "") {}
 
 		/**
 		 * Assemble a url
@@ -3302,7 +3302,7 @@ namespace {
 		 * @link https://php.net/manual/en/yaf-route-map.assemble.php
 		 * @since Yaf >=2.3.0
 		 */
-		public function assemble(array $info, array $query = NULL): string {}
+		public function assemble(array $info, array $query = null): string {}
 
 		/**
 		 * The route purpose
@@ -3348,7 +3348,7 @@ namespace {
 
 		/**
 		 * Yaf_Route_Regex constructor
-		 * @param string $match <p>A complete Regex pattern, will be used to match a request uri, if doesn't matched, Yaf_Route_Regex will return <b><code>FALSE</code></b>.</p>
+		 * @param string $match <p>A complete Regex pattern, will be used to match a request uri, if doesn't matched, Yaf_Route_Regex will return <b><code>false</code></b>.</p>
 		 * @param array $route <p>When the match pattern matches the request uri, Yaf_Route_Regex will use this to decide which m/c/a to routed.</p> <p>either of m/c/a in this array is optianl, if you don't assgian a specific value, it will be routed to default.</p>
 		 * @param array $map <p>A array to assign name to the captrues in the match result.</p>
 		 * @param array $verify
@@ -3357,7 +3357,7 @@ namespace {
 		 * @link https://php.net/manual/en/yaf-route-regex.construct.php
 		 * @since Yaf >=1.0.0
 		 */
-		public function __construct(string $match, array $route, array $map = NULL, array $verify = NULL, string $reverse = NULL) {}
+		public function __construct(string $match, array $route, array $map = null, array $verify = null, string $reverse = null) {}
 
 		/**
 		 * Assemble a url
@@ -3368,13 +3368,13 @@ namespace {
 		 * @link https://php.net/manual/en/yaf-route-regex.assemble.php
 		 * @since Yaf >=2.3.0
 		 */
-		public function assemble(array $info, array $query = NULL): string {}
+		public function assemble(array $info, array $query = null): string {}
 
 		/**
 		 * The route purpose
 		 * <p>Route a incoming request.</p><p>This function is currently not documented; only its argument list is available.</p>
 		 * @param \Yaf_Request_Abstract $request
-		 * @return bool <p>If the pattern given by the first parameter of <b>Yaf_Route_Regex::_construct()</b> matche the request uri, return <b><code>TRUE</code></b>, otherwise return <b><code>FALSE</code></b>.</p>
+		 * @return bool <p>If the pattern given by the first parameter of <b>Yaf_Route_Regex::_construct()</b> matche the request uri, return <b><code>true</code></b>, otherwise return <b><code>false</code></b>.</p>
 		 * @link https://php.net/manual/en/yaf-route-regex.route.php
 		 * @since Yaf >=1.0.0
 		 */
@@ -3408,14 +3408,14 @@ namespace {
 
 		/**
 		 * Yaf_Route_Rewrite constructor
-		 * @param string $match <p>A pattern, will be used to match a request uri, if it doesn't match, Yaf_Route_Rewrite will return <b><code>FALSE</code></b>.</p> <p>You can use :name style to name segments matched, and use &#42; to match the rest of the URL segments.</p>
+		 * @param string $match <p>A pattern, will be used to match a request uri, if it doesn't match, Yaf_Route_Rewrite will return <b><code>false</code></b>.</p> <p>You can use :name style to name segments matched, and use &#42; to match the rest of the URL segments.</p>
 		 * @param array $route <p>When the match pattern matches the request uri, Yaf_Route_Rewrite will use this to decide which module/controller/action is the destination.</p> <p>Either of module/controller/action in this array is optional, if you don't assign a specific value, it will be routed to default.</p>
 		 * @param array $verify
 		 * @return self
 		 * @link https://php.net/manual/en/yaf-route-rewrite.construct.php
 		 * @since Yaf >=1.0.0
 		 */
-		public function __construct(string $match, array $route, array $verify = NULL) {}
+		public function __construct(string $match, array $route, array $verify = null) {}
 
 		/**
 		 * Assemble a url
@@ -3426,7 +3426,7 @@ namespace {
 		 * @link https://php.net/manual/en/yaf-route-rewrite.assemble.php
 		 * @since Yaf >=2.3.0
 		 */
-		public function assemble(array $info, array $query = NULL): string {}
+		public function assemble(array $info, array $query = null): string {}
 
 		/**
 		 * The route purpose
@@ -3441,7 +3441,7 @@ namespace {
 	/**
 	 * <p><b>Yaf_Route_Simple</b> will match the query string, and find the route info.</p>
 	 * <p>all you need to do is tell <b>Yaf_Route_Simple</b> what key in the $_GET is module, what key is controller, and what key is action.</p>
-	 * <p><code>Yaf_Route_Simple::route()</code> will always return <b><code>TRUE</code></b>, so it is important put <b>Yaf_Route_Simple</b> in the front of the Route stack, otherwise all the other routes will not be called.</p>
+	 * <p><code>Yaf_Route_Simple::route()</code> will always return <b><code>true</code></b>, so it is important put <b>Yaf_Route_Simple</b> in the front of the Route stack, otherwise all the other routes will not be called.</p>
 	 * @link https://php.net/manual/en/class.yaf-route-simple.php
 	 * @since Yaf >=1.0.0
 	 */
@@ -3471,7 +3471,7 @@ namespace {
 		 * @param string $module_name <p>The key name of the module info.</p>
 		 * @param string $controller_name <p>the key name of the controller info.</p>
 		 * @param string $action_name <p>the key name of the action info.</p>
-		 * @return self <p>Always return <b><code>TRUE</code></b>.</p>
+		 * @return self <p>Always return <b><code>true</code></b>.</p>
 		 * @link https://php.net/manual/en/yaf-route-simple.construct.php
 		 * @since Yaf >=1.0.0
 		 */
@@ -3486,13 +3486,13 @@ namespace {
 		 * @link https://php.net/manual/en/yaf-route-simple.assemble.php
 		 * @since Yaf >=2.3.0
 		 */
-		public function assemble(array $info, array $query = NULL): string {}
+		public function assemble(array $info, array $query = null): string {}
 
 		/**
 		 * Route a request
 		 * <p>see <code>Yaf_Route_Simple::__construct()</code></p><p>This function is currently not documented; only its argument list is available.</p>
 		 * @param \Yaf_Request_Abstract $request
-		 * @return bool <p>always be <b><code>TRUE</code></b></p>
+		 * @return bool <p>always be <b><code>true</code></b></p>
 		 * @link https://php.net/manual/en/yaf-route-simple.route.php
 		 * @since Yaf >=1.0.0
 		 */
@@ -3517,7 +3517,7 @@ namespace {
 		 * @link https://php.net/manual/en/yaf-route-static.assemble.php
 		 * @since Yaf >=2.3.0
 		 */
-		public function assemble(array $info, array $query = NULL): string {}
+		public function assemble(array $info, array $query = null): string {}
 
 		/**
 		 * The match purpose
@@ -3533,7 +3533,7 @@ namespace {
 		 * Route a request
 		 * <p></p><p>This function is currently not documented; only its argument list is available.</p>
 		 * @param \Yaf_Request_Abstract $request
-		 * @return bool <p>always be <b><code>TRUE</code></b></p>
+		 * @return bool <p>always be <b><code>true</code></b></p>
 		 * @link https://php.net/manual/en/yaf-route-static.route.php
 		 * @since Yaf >=1.0.0
 		 */
@@ -3571,13 +3571,13 @@ namespace {
 		 * @link https://php.net/manual/en/yaf-route-supervar.assemble.php
 		 * @since Yaf >=2.3.0
 		 */
-		public function assemble(array $info, array $query = NULL): string {}
+		public function assemble(array $info, array $query = null): string {}
 
 		/**
 		 * The route purpose
 		 * <p></p><p>This function is currently not documented; only its argument list is available.</p>
 		 * @param \Yaf_Request_Abstract $request
-		 * @return bool <p>If there is a key(which was defined in <code>Yaf_Route_Supervar::__construct()</code>) in $_GET, return <b><code>TRUE</code></b>. otherwise return <b><code>FALSE</code></b>.</p>
+		 * @return bool <p>If there is a key(which was defined in <code>Yaf_Route_Supervar::__construct()</code>) in $_GET, return <b><code>true</code></b>. otherwise return <b><code>false</code></b>.</p>
 		 * @link https://php.net/manual/en/yaf-route-supervar.route.php
 		 * @since Yaf >=1.0.0
 		 */
@@ -3627,7 +3627,7 @@ namespace {
 
 		/**
 		 * Add new Route into Router
-		 * <p>defaultly, Yaf_Router using a Yaf_Route_Static as its defualt route. you can add new routes into router's route stack by calling this method.</p><p>the newer route will be called before the older(route stack), and if the newer router return <b><code>TRUE</code></b>, the router process will be end. otherwise, the older one will be called.</p>
+		 * <p>defaultly, Yaf_Router using a Yaf_Route_Static as its defualt route. you can add new routes into router's route stack by calling this method.</p><p>the newer route will be called before the older(route stack), and if the newer router return <b><code>true</code></b>, the router process will be end. otherwise, the older one will be called.</p>
 		 * @param string $name
 		 * @param \Yaf_Route_Abstract $route
 		 * @return bool
@@ -3638,7 +3638,7 @@ namespace {
 
 		/**
 		 * Get the effective route name
-		 * <p>Get the name of the route which is effective in the route process.</p><p><b>Note</b>:</p><p>You should call this method after the route process finished, since before that, this method will always return <b><code>NULL</code></b>.</p>
+		 * <p>Get the name of the route which is effective in the route process.</p><p><b>Note</b>:</p><p>You should call this method after the route process finished, since before that, this method will always return <b><code>null</code></b>.</p>
 		 * @return string <p>String, the name of the effective route.</p>
 		 * @link https://php.net/manual/en/yaf-router.getcurrentroute.php
 		 * @since Yaf >=1.0.0
@@ -3899,7 +3899,7 @@ namespace {
 		 * @link https://php.net/manual/en/yaf-view-interface.assign.php
 		 * @since Yaf >=1.0.0
 		 */
-		abstract public function assign(string $name, string $value = NULL): bool;
+		abstract public function assign(string $name, string $value = null): bool;
 
 		/**
 		 * Render and output a template
@@ -3910,7 +3910,7 @@ namespace {
 		 * @link https://php.net/manual/en/yaf-view-interface.display.php
 		 * @since Yaf >=1.0.0
 		 */
-		abstract public function display(string $tpl, array $tpl_vars = NULL): bool;
+		abstract public function display(string $tpl, array $tpl_vars = null): bool;
 
 		/**
 		 * The getScriptPath purpose
@@ -3930,7 +3930,7 @@ namespace {
 		 * @link https://php.net/manual/en/yaf-view-interface.render.php
 		 * @since Yaf >=1.0.0
 		 */
-		abstract public function render(string $tpl, array $tpl_vars = NULL): string;
+		abstract public function render(string $tpl, array $tpl_vars = null): string;
 
 		/**
 		 * The setScriptPath purpose
@@ -3970,7 +3970,7 @@ namespace {
 		 * @link https://php.net/manual/en/yaf-view-simple.construct.php
 		 * @since Yaf >=1.0.0
 		 */
-		final public function __construct(string $template_dir, array $options = NULL) {}
+		final public function __construct(string $template_dir, array $options = null) {}
 
 		/**
 		 * Retrieve assigned variable
@@ -3980,7 +3980,7 @@ namespace {
 		 * @link https://php.net/manual/en/yaf-view-simple.get.php
 		 * @since Yaf >=1.0.0
 		 */
-		public function __get(string $name = NULL): void {}
+		public function __get(string $name = null): void {}
 
 		/**
 		 * The __isset purpose
@@ -4011,7 +4011,7 @@ namespace {
 		 * @link https://php.net/manual/en/yaf-view-simple.assign.php
 		 * @since Yaf >=1.0.0
 		 */
-		public function assign(string $name, mixed $value = NULL): bool {}
+		public function assign(string $name, mixed $value = null): bool {}
 
 		/**
 		 * The assignRef purpose
@@ -4032,7 +4032,7 @@ namespace {
 		 * @link https://php.net/manual/en/yaf-view-simple.clear.php
 		 * @since Yaf >=2.2.0
 		 */
-		public function clear(string $name = NULL): bool {}
+		public function clear(string $name = null): bool {}
 
 		/**
 		 * Render and display
@@ -4043,7 +4043,7 @@ namespace {
 		 * @link https://php.net/manual/en/yaf-view-simple.display.php
 		 * @since Yaf >=1.0.0
 		 */
-		public function display(string $tpl, array $tpl_vars = NULL): bool {}
+		public function display(string $tpl, array $tpl_vars = null): bool {}
 
 		/**
 		 * Render template
@@ -4054,7 +4054,7 @@ namespace {
 		 * @link https://php.net/manual/en/yaf-view-simple.eval.php
 		 * @since Yaf >=2.2.0
 		 */
-		public function eval(string $tpl_content, array $tpl_vars = NULL): string {}
+		public function eval(string $tpl_content, array $tpl_vars = null): string {}
 
 		/**
 		 * Get templates directory
@@ -4073,7 +4073,7 @@ namespace {
 		 * @link https://php.net/manual/en/yaf-view-simple.render.php
 		 * @since Yaf >=1.0.0
 		 */
-		public function render(string $tpl, array $tpl_vars = NULL): string {}
+		public function render(string $tpl, array $tpl_vars = null): string {}
 
 		/**
 		 * Set tempaltes directory

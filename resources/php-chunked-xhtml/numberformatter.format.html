@@ -41,8 +41,8 @@
    
    <span class="methodname"><strong>NumberFormatter::format</strong></span>
     ( <span class="methodparam"><span class="type"><span class="type">int</span>|<span class="type">float</span></span> <code class="parameter">$value</code></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$type</code></span>
-  ] ) : <span class="type">string</span></div>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$type</code> = ?</span>
+   ) : <span class="type">string</span></div>
 
   <p class="para rdfs-comment">
    Procedural style
@@ -52,8 +52,8 @@
    <span class="methodname"><strong>numfmt_format</strong></span>
     ( <span class="methodparam"><span class="type"><a href="class.numberformatter.html" class="type NumberFormatter">NumberFormatter</a></span> <code class="parameter">$fmt</code></span>
    , <span class="methodparam"><span class="type"><span class="type">int</span>|<span class="type">float</span></span> <code class="parameter">$value</code></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$type</code></span>
-  ] ) : <span class="type">string</span></div>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$type</code> = ?</span>
+   ) : <span class="type">string</span></div>
 
   <p class="para rdfs-comment">
    Format a numeric value according to the formatter rules.
@@ -115,14 +115,14 @@
  <div class="refsect1 returnvalues" id="refsect1-numberformatter.format-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns the string containing formatted value, or <strong><code>FALSE</code></strong> on error.
+   Returns the string containing formatted value, or <strong><code>false</code></strong> on error.
   </p>
  </div>
 
 
  <div class="refsect1 examples" id="refsect1-numberformatter.format-examples">
   <h3 class="title">Examples</h3>
-  <div class="example" id="example-2764">
+  <div class="example" id="example-2779">
    <p><strong>Example #1 <span class="function"><strong>numfmt_format()</strong></span> example</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -132,7 +132,7 @@
    </div>
 
   </div>
-  <div class="example" id="example-2765">
+  <div class="example" id="example-2780">
    <p><strong>Example #2 OO example</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

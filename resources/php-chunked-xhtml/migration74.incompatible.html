@@ -80,7 +80,7 @@
     will be invoked with the <strong><code>STREAM_OPTION_READ_BUFFER</code></strong> option.
     Custom stream wrapper implementations may need to implement the
     <span class="methodname"><a href="streamwrapper.stream-set-option.html" class="methodname">streamWrapper::stream_set_option()</a></span> method to
-    avoid a warning (always returning <strong><code>FALSE</code></strong> is a sufficient implementation).
+    avoid a warning (always returning <strong><code>false</code></strong> is a sufficient implementation).
    </p>
   </div>
 
@@ -105,7 +105,7 @@
    <ul class="itemizedlist">
     <li class="listitem">
      <span class="simpara">
-      <strong><code>PASSWORD_DEFAULT</code></strong> was int 1; now is <strong><code>NULL</code></strong>
+      <strong><code>PASSWORD_DEFAULT</code></strong> was int 1; now is <strong><code>null</code></strong>
      </span>
     </li>
     <li class="listitem">
@@ -148,7 +148,7 @@
 
    <p class="para">
     <span class="function"><a href="function.fread.html" class="function">fread()</a></span> and <span class="function"><a href="function.fwrite.html" class="function">fwrite()</a></span> will now
-    return <strong><code>FALSE</code></strong> if the operation failed.
+    return <strong><code>false</code></strong> if the operation failed.
     Previously an empty string or 0 was returned.
     EAGAIN/EWOULDBLOCK are not considered failures.
    </p>
@@ -198,7 +198,7 @@
   <p class="para">
    Comparison of <a href="class.dateinterval.html" class="classname">DateInterval</a> objects
    (using <code class="literal">==</code>, <code class="literal">&lt;</code>, and so on) will now generate
-   a warning and always return <strong><code>FALSE</code></strong>. Previously all <a href="class.dateinterval.html" class="classname">DateInterval</a>
+   a warning and always return <strong><code>false</code></strong>. Previously all <a href="class.dateinterval.html" class="classname">DateInterval</a>
    objects were considered equal, unless they had properties.
   </p>
  </div>
@@ -236,7 +236,7 @@
    requested bytes is less than or equal to zero, and an <a href="class.exception.html" class="classname">Exception</a>
    is thrown if sufficient randomness cannot be gathered.
    The <code class="literal">$crypto_strong output</code> argument is guaranteed to always
-   be <strong><code>TRUE</code></strong> if the function does not throw, so explicitly checking it is not necessary.
+   be <strong><code>true</code></strong> if the function does not throw, so explicitly checking it is not necessary.
   </p>
  </div>
 
@@ -245,7 +245,7 @@
 
   <p class="para">
    When <strong><code>PREG_UNMATCHED_AS_NULL</code></strong> mode is used, trailing
-   unmatched capturing groups will now also be set to <strong><code>NULL</code></strong> (or
+   unmatched capturing groups will now also be set to <strong><code>null</code></strong> (or
    <code class="literal">[null, -1]</code> if offset capture is enabled).
    This means that the size of the <code class="literal">$matches</code> will always be the same.
   </p>
@@ -300,7 +300,8 @@
    </li>
    <li class="listitem">
     <span class="simpara">
-     Potentially others working on object properties as a list.
+     Potentially others working on object properties as a list,
+     e.g. <span class="function"><a href="function.array-walk.html" class="function">array_walk()</a></span>.
     </span>
    </li>
   </ul>

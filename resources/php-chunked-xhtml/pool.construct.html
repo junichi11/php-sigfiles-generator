@@ -35,9 +35,9 @@
   <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><strong>Pool::__construct</strong></span>
     ( <span class="methodparam"><span class="type">int</span> <code class="parameter">$size</code></span>
-   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$class</code></span>
-   [, <span class="methodparam"><span class="type">array</span> <code class="parameter">$ctor</code></span>
-  ]] ) : <span class="type"><a href="class.pool.html" class="type Pool">Pool</a></span></div>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$class</code> = ?</span>
+   , <span class="methodparam"><span class="type">array</span> <code class="parameter">$ctor</code> = ?</span>
+   ) : <span class="type"><a href="class.pool.html" class="type Pool">Pool</a></span></div>
 
   <p class="para rdfs-comment">
    Construct a new pool of workers. Pools lazily create their threads, which
@@ -104,7 +104,7 @@
  <div class="refsect1 examples" id="refsect1-pool.construct-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-3836">
+   <div class="example" id="example-3852">
     <p><strong>Example #1 Creating Pools</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

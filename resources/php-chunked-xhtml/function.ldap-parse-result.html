@@ -34,14 +34,14 @@
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>ldap_parse_result</strong></span>
-    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$link</code></span>
+    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$ldap</code></span>
    , <span class="methodparam"><span class="type">resource</span> <code class="parameter">$result</code></span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter reference">&$errcode</code></span>
-   [, <span class="methodparam"><span class="type">string</span> <code class="parameter reference">&$matcheddn</code></span>
-   [, <span class="methodparam"><span class="type">string</span> <code class="parameter reference">&$errmsg</code></span>
-   [, <span class="methodparam"><span class="type">array</span> <code class="parameter reference">&$referrals</code></span>
-   [, <span class="methodparam"><span class="type">array</span> <code class="parameter reference">&$serverctrls</code></span>
-  ]]]] ) : <span class="type">bool</span></div>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter reference">&$error_code</code></span>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter reference">&$matched_dn</code><span class="initializer"> = <strong><code>null</code></strong></span></span>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter reference">&$error_message</code><span class="initializer"> = <strong><code>null</code></strong></span></span>
+   , <span class="methodparam"><span class="type">array</span> <code class="parameter reference">&$referrals</code><span class="initializer"> = <strong><code>null</code></strong></span></span>
+   , <span class="methodparam"><span class="type">array</span> <code class="parameter reference">&$controls</code><span class="initializer"> = <strong><code>null</code></strong></span></span>
+   ) : <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
    Parses an LDAP search result.
@@ -56,7 +56,7 @@
 
     
      <dt>
-<code class="parameter">link</code></dt>
+<code class="parameter">ldap</code></dt>
 
      <dd>
 
@@ -81,7 +81,7 @@
     
     
      <dt>
-<code class="parameter">errcode</code></dt>
+<code class="parameter">error_code</code></dt>
 
      <dd>
 
@@ -94,20 +94,20 @@
     
     
      <dt>
-<code class="parameter">matcheddn</code></dt>
+<code class="parameter">matched_dn</code></dt>
 
      <dd>
 
       <p class="para">
        A reference to a variable that will be set to a matched DN if one was
-       recognised within the request, otherwise it will be set to <strong><code>NULL</code></strong>.
+       recognised within the request, otherwise it will be set to <strong><code>null</code></strong>.
       </p>
      </dd>
 
     
     
      <dt>
-<code class="parameter">errmsg</code></dt>
+<code class="parameter">error_message</code></dt>
 
      <dd>
 
@@ -134,7 +134,7 @@
     
     
      <dt>
-<code class="parameter">serverctrls</code></dt>
+<code class="parameter">controls</code></dt>
 
      <dd>
 
@@ -153,7 +153,7 @@
  <div class="refsect1 returnvalues" id="refsect1-function.ldap-parse-result-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns <strong><code>TRUE</code></strong> on success or <strong><code>FALSE</code></strong> on failure.
+   Returns <strong><code>true</code></strong> on success or <strong><code>false</code></strong> on failure.
   </p>
  </div>
 
@@ -175,7 +175,7 @@
       <tr>
        <td>7.3</td>
        <td>
-        Support for <code class="parameter">serverctrls</code> added
+        Support for <code class="parameter">controls</code> added
        </td>
       </tr>
 

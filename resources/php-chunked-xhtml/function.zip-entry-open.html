@@ -29,14 +29,21 @@
   <p class="verinfo">(PHP 4 &gt;= 4.1.0, PHP 5 &gt;= 5.2.0, PHP 7, PECL zip &gt;= 1.0.0)</p><p class="refpurpose"><span class="refname">zip_entry_open</span> &mdash; <span class="dc-title">Open a directory entry for reading</span></p>
 
  </div>
+
+ <div id="function.zip-entry-open-refsynopsisdiv">
+   <div class="warning"><strong class="warning">Warning</strong><p class="simpara">This function has been
+<em class="emphasis">DEPRECATED</em> as of PHP 8.0.0. Relying on this function
+is highly discouraged.</p></div>
+ </div>
+
  <div class="refsect1 description" id="refsect1-function.zip-entry-open-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>zip_entry_open</strong></span>      
-    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$zip</code></span>
+   <span class="methodname"><strong>zip_entry_open</strong></span>
+    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$zip_dp</code></span>
    , <span class="methodparam"><span class="type">resource</span> <code class="parameter">$zip_entry</code></span>
-   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$mode</code></span>
-  ] ) : <span class="type">bool</span></div>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$mode</code><span class="initializer"> = &quot;rb&quot;</span></span>
+   ) : <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
    Opens a directory entry in a zip file for reading.
@@ -50,7 +57,7 @@
 
     
      <dt>
-<code class="parameter">zip</code></dt>
+<code class="parameter">zip_dp</code></dt>
 
      <dd>
 
@@ -100,7 +107,7 @@
  <div class="refsect1 returnvalues" id="refsect1-function.zip-entry-open-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns <strong><code>TRUE</code></strong> on success or <strong><code>FALSE</code></strong> on failure.
+   Returns <strong><code>true</code></strong> on success or <strong><code>false</code></strong> on failure.
   </p>
   <blockquote class="note"><p><strong class="note">Note</strong>: 
    <p class="para">

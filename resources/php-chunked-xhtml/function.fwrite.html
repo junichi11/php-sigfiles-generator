@@ -36,8 +36,8 @@
    <span class="methodname"><strong>fwrite</strong></span>
     ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$handle</code></span>
    , <span class="methodparam"><span class="type">string</span> <code class="parameter">$string</code></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$length</code></span>
-  ] ) : <span class="type">int</span></div>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$length</code> = ?</span>
+   ) : <span class="type">int</span></div>
 
   <p class="simpara">
    <span class="function"><strong>fwrite()</strong></span> writes the contents of
@@ -106,7 +106,7 @@ that is typically created using <span class="function"><a href="function.fopen.h
   <h3 class="title">Return Values</h3>
   <p class="simpara">
    <span class="function"><strong>fwrite()</strong></span> returns the number of bytes
-   written, or <strong><code>FALSE</code></strong> on error.
+   written, or <strong><code>false</code></strong> on error.
   </p>
  </div>
 
@@ -164,7 +164,7 @@ that is typically created using <span class="function"><a href="function.fopen.h
  <div class="refsect1 examples" id="refsect1-function.fwrite-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-2652">
+   <div class="example" id="example-2667">
     <p><strong>Example #1 A simple <span class="function"><strong>fwrite()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

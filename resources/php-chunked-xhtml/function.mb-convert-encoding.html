@@ -34,16 +34,16 @@
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>mb_convert_encoding</strong></span>
-    ( <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">$val</code></span>
+    ( <span class="methodparam"><span class="type"><span class="type">array</span>|<span class="type">string</span></span> <code class="parameter">$string</code></span>
    , <span class="methodparam"><span class="type">string</span> <code class="parameter">$to_encoding</code></span>
-   [, <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">$from_encoding</code><span class="initializer"> = mb_internal_encoding()</span></span>
-  ] ) : <span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span></div>
+   , <span class="methodparam"><span class="type"><span class="type">array</span>|<span class="type">string</span>|<span class="type">null</span></span> <code class="parameter">$from_encoding</code><span class="initializer"> = <strong><code>null</code></strong></span></span>
+   ) : <span class="type"><span class="type">array</span>|<span class="type">string</span>|<span class="type"><span class="type false">false</span></span></span></div>
 
   <p class="para rdfs-comment">
-   Converts the character encoding of <code class="parameter">val</code>
+   Converts the character encoding of <code class="parameter">string</code>
    to <code class="parameter">to_encoding</code>
    from optionally <code class="parameter">from_encoding</code>.
-   If <code class="parameter">val</code> is an <span class="type">array</span>, all its <span class="type">string</span> values will be
+   If <code class="parameter">string</code> is an <span class="type">array</span>, all its <span class="type">string</span> values will be
    converted recursively.
   </p>
  </div>
@@ -56,7 +56,7 @@
 
     
      <dt>
-<code class="parameter">val</code></dt>
+<code class="parameter">string</code></dt>
 
      <dd>
 
@@ -73,7 +73,7 @@
      <dd>
 
       <p class="para">
-       The type of encoding that <code class="parameter">val</code> is being converted to.
+       The type of encoding that <code class="parameter">string</code> is being converted to.
       </p>
      </dd>
 
@@ -107,15 +107,50 @@
  <div class="refsect1 returnvalues" id="refsect1-function.mb-convert-encoding-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   The encoded <span class="type">string</span> or <span class="type">array</span>.
+   The encoded <span class="type">string</span> or <span class="type">array</span> on success,  or <strong><code>false</code></strong> on failure.
   </p>
+ </div>
+
+
+ <div class="refsect1 changelog" id="refsect1-function.mb-convert-encoding-changelog">
+  <h3 class="title">Changelog</h3>
+  <table class="doctable informaltable">
+   
+    <thead>
+     <tr>
+      <th>Version</th>
+      <th>Description</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+      <td>8.0.0</td>
+      <td>
+       <code class="parameter">from_encoding</code> is nullable now.
+      </td>
+     </tr>
+
+     <tr>
+      <td>7.2.0</td>
+      <td>
+       This function now also accepts an <span class="type">array</span> as <code class="parameter">string</code>.
+       Formerly, only <span class="type">string</span>s have been supported.
+      </td>
+     </tr>
+
+    </tbody>
+   
+  </table>
+
  </div>
 
 
  <div class="refsect1 examples" id="refsect1-function.mb-convert-encoding-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-3019">
+   <div class="example" id="example-3034">
     <p><strong>Example #1 <span class="function"><strong>mb_convert_encoding()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -139,32 +174,4 @@
  </div>
 
  
- <div class="refsect1 changelog" id="refsect1-function.mb-convert-encoding-changelog">
-  <h3 class="title">Changelog</h3>
-  <table class="doctable informaltable">
-   
-    <thead>
-     <tr>
-      <th>Version</th>
-      <th>Description</th>
-     </tr>
-
-    </thead>
-
-    <tbody class="tbody">
-     <tr>
-      <td>7.2.0</td>
-      <td>
-       This function now also accepts an <span class="type">array</span> as <code class="parameter">val</code>.
-       Formerly, only <span class="type">string</span>s have been supported.
-      </td>
-     </tr>
-
-    </tbody>
-   
-  </table>
-
- </div>
-
-
 </div></div></div></body></html>

@@ -34,10 +34,10 @@
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><strong>SplFileInfo::openFile</strong></span>
-    ([ <span class="methodparam"><span class="type">string</span> <code class="parameter">$open_mode</code><span class="initializer"> = &quot;r&quot;</span></span>
-   [, <span class="methodparam"><span class="type">bool</span> <code class="parameter">$use_include_path</code><span class="initializer"> = <strong><code>FALSE</code></strong></span></span>
-   [, <span class="methodparam"><span class="type">resource</span> <code class="parameter">$context</code><span class="initializer"> = <strong><code>NULL</code></strong></span></span>
-  ]]] ) : <span class="type"><a href="class.splfileobject.html" class="type SplFileObject">SplFileObject</a></span></div>
+    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$open_mode</code><span class="initializer"> = &quot;r&quot;</span></span>
+   , <span class="methodparam"><span class="type">bool</span> <code class="parameter">$use_include_path</code><span class="initializer"> = <strong><code>false</code></strong></span></span>
+   , <span class="methodparam"><span class="type">resource</span> <code class="parameter">$context</code><span class="initializer"> = <strong><code>null</code></strong></span></span>
+   ) : <span class="type"><a href="class.splfileobject.html" class="type SplFileObject">SplFileObject</a></span></div>
 
   <p class="para rdfs-comment">
    Creates an <a href="class.splfileobject.html" class="classname">SplFileObject</a> <span class="type">object</span> of
@@ -75,7 +75,7 @@
      <dd>
 
       <p class="para">
-       When set to <strong><code>TRUE</code></strong>, the filename is also
+       When set to <strong><code>true</code></strong>, the filename is also
 searched for within the <a href="ini.core.html#ini.include-path" class="link">include_path</a>
       </p>
      </dd>
@@ -120,7 +120,7 @@ section of the manual for a description of <code class="literal">contexts</code>
  <div class="refsect1 examples" id="refsect1-splfileinfo.openfile-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-4190">
+   <div class="example" id="example-4205">
     <p><strong>Example #1 <span class="methodname"><strong>SplFileInfo::openFile()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

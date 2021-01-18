@@ -36,7 +36,7 @@
    <span class="methodname"><strong>time_nanosleep</strong></span>
     ( <span class="methodparam"><span class="type">int</span> <code class="parameter">$seconds</code></span>
    , <span class="methodparam"><span class="type">int</span> <code class="parameter">$nanoseconds</code></span>
-   ) : <span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span></div>
+   ) : <span class="type"><span class="type">array</span>|<span class="type">bool</span></span></div>
 
   <p class="para rdfs-comment">
    Delays program execution for the given number of
@@ -89,7 +89,7 @@
  <div class="refsect1 returnvalues" id="refsect1-function.time-nanosleep-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns <strong><code>TRUE</code></strong> on success or <strong><code>FALSE</code></strong> on failure.
+   Returns <strong><code>true</code></strong> on success or <strong><code>false</code></strong> on failure.
   </p>
   <p class="para">
    If the delay was interrupted by a signal, an associative array will be
@@ -115,7 +115,7 @@
  <div class="refsect1 examples" id="refsect1-function.time-nanosleep-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-3996">
+   <div class="example" id="example-4011">
     <p><strong>Example #1 <span class="function"><strong>time_nanosleep()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

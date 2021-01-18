@@ -10,7 +10,7 @@
  <body class="docs"><div class="navbar navbar-fixed-top">
   <div class="navbar-inner clearfix">
     <ul class="nav" style="width: 100%">
-      <li style="float: left;"><a href="phardata.setmetadata.html">« Phar::setMetadata</a></li>
+      <li style="float: left;"><a href="phardata.setmetadata.html">« PharData::setMetadata</a></li>
       <li style="float: right;"><a href="phardata.setstub.html">PharData::setStub »</a></li>
     </ul>
   </div>
@@ -25,15 +25,15 @@
 <div id="layout">
   <div id="layout-content"><div id="phardata.setsignaturealgorithm" class="refentry">
  <div class="refnamediv">
-  <h1 class="refname">Phar::setSignatureAlgorithm</h1>
-  <p class="verinfo">(PHP 5 &gt;= 5.3.0, PHP 7, PECL phar &gt;= 1.1.0)</p><p class="refpurpose"><span class="refname">Phar::setSignatureAlgorithm</span> &mdash; <span class="dc-title">Set the signature algorithm for a phar and apply it</span></p>
+  <h1 class="refname">PharData::setSignatureAlgorithm</h1>
+  <p class="verinfo">(No version information available, might only be in Git)</p><p class="refpurpose"><span class="refname">PharData::setSignatureAlgorithm</span> &mdash; <span class="dc-title">Set the signature algorithm for a phar and apply it</span></p>
 
  </div>
 
  <div class="refsect1 description" id="refsect1-phardata.setsignaturealgorithm-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><strong>Phar::setSignatureAlgorithm</strong></span>
+   <span class="modifier">public</span> <span class="methodname"><strong>PharData::setSignatureAlgorithm</strong></span>
     ( <span class="methodparam"><span class="type">int</span> <code class="parameter">$sigtype</code></span>
    ) : <span class="type"><span class="type void">void</span></span></div>
 
@@ -46,8 +46,7 @@ objects.  Otherwise, a <a href="class.pharexception.html" class="classname">Phar
    Set the signature algorithm for a phar and apply it.  The
    signature algorithm must be one of <code class="literal">Phar::MD5</code>,
    <code class="literal">Phar::SHA1</code>, <code class="literal">Phar::SHA256</code>,
-   <code class="literal">Phar::SHA512</code>, or <code class="literal">Phar::PGP</code>
-   (pgp not yet supported and falls back to SHA-1).
+   <code class="literal">Phar::SHA512</code>, or <code class="literal">Phar::OPENSSL</code>.
   </p>
  </div>
 
@@ -66,7 +65,7 @@ objects.  Otherwise, a <a href="class.pharexception.html" class="classname">Phar
       <p class="para">
        One of <code class="literal">Phar::MD5</code>,
    <code class="literal">Phar::SHA1</code>, <code class="literal">Phar::SHA256</code>,
-   <code class="literal">Phar::SHA512</code>, or <code class="literal">Phar::PGP</code>
+   <code class="literal">Phar::SHA512</code>, or <code class="literal">Phar::OPENSSL</code>
       </p>
      </dd>
 

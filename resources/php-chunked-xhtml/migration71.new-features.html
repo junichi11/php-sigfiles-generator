@@ -32,7 +32,7 @@
   <p class="para">
    Type declarations for parameters and return values can now be marked as
    nullable by prefixing the type name with a question mark. This signifies
-   that as well as the specified type, <strong><code>NULL</code></strong> can be passed as an argument, or
+   that as well as the specified type, <strong><code>null</code></strong> can be passed as an argument, or
    returned as a value, respectively.
   </p>
 
@@ -63,7 +63,7 @@ Uncaught Error: Too few arguments to function test(), 0 passed in...
   <p class="para">
    A <span class="type"><span class="type void">void</span></span> return type has been introduced. Functions declared with
    void as their return type must either omit their return statement altogether,
-   or use an empty return statement. <strong><code>NULL</code></strong> is not a valid return value for a
+   or use an empty return statement. <strong><code>null</code></strong> is not a valid return value for a
    void function.
   </p>
 
@@ -87,7 +87,7 @@ int(1)
 
   <p class="para">
    Attempting to use a void function&#039;s return value simply evaluates to
-   <strong><code>NULL</code></strong>, with no warnings emitted. The reason for this is because warnings
+   <strong><code>null</code></strong>, with no warnings emitted. The reason for this is because warnings
    would implicate the use of generic higher order functions.
   </p>
  </div>

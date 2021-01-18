@@ -37,8 +37,8 @@
   </p>
   <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><strong>IntlCalendar::isWeekend</strong></span>
-    ([ <span class="methodparam"><span class="type">float</span> <code class="parameter">$date</code><span class="initializer"> = NULL</span></span>
-  ] ) : <span class="type">bool</span></div>
+    ( <span class="methodparam"><span class="type">float</span> <code class="parameter">$date</code><span class="initializer"> = NULL</span></span>
+   ) : <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
    Procedural style
@@ -46,8 +46,8 @@
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>intlcal_is_weekend</strong></span>
     ( <span class="methodparam"><span class="type"><a href="class.intlcalendar.html" class="type IntlCalendar">IntlCalendar</a></span> <code class="parameter">$cal</code></span>
-   [, <span class="methodparam"><span class="type">float</span> <code class="parameter">$date</code><span class="initializer"> = NULL</span></span>
-  ] ) : <span class="type">bool</span></div>
+   , <span class="methodparam"><span class="type">float</span> <code class="parameter">$date</code><span class="initializer"> = NULL</span></span>
+   ) : <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
    Returns whether either the obejctʼs current time or the provided timestamp
@@ -83,7 +83,7 @@
 
      <p class="para">
       An optional timestamp representing the number of milliseconds since the
-      epoch, excluding leap seconds. If <strong><code>NULL</code></strong>, this objectʼs current time is
+      epoch, excluding leap seconds. If <strong><code>null</code></strong>, this objectʼs current time is
       used instead.
      </p>
     </dd>
@@ -101,7 +101,7 @@
    in a weekend.
   </p>
   <p class="para">
-   The value <strong><code>FALSE</code></strong> may also be returned on failure, for instance after giving
+   The value <strong><code>false</code></strong> may also be returned on failure, for instance after giving
    a date out of bounds on non-lenient mode; use <a href="intl.configuration.html#ini.intl.use-exceptions" class="link">exceptions</a> or query
    <span class="function"><a href="function.intl-get-error-code.html" class="function">intl_get_error_code()</a></span> to disambiguate.
   </p>
@@ -112,7 +112,7 @@
  <div class="refsect1 examples" id="refsect1-intlcalendar.isweekend-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-2875">
+   <div class="example" id="example-2890">
    <p><strong>Example #1 <span class="function"><strong>IntlCalendar::isWeekend()</strong></span></strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

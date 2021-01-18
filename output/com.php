@@ -91,7 +91,7 @@ namespace {
 		/**
 		 * Returns previous Exception
 		 * <p>Returns previous exception (the third parameter of <code>Exception::__construct()</code>).</p>
-		 * @return Throwable <p>Returns the previous Throwable if available or <b><code>NULL</code></b> otherwise.</p>
+		 * @return Throwable <p>Returns the previous Throwable if available or <b><code>null</code></b> otherwise.</p>
 		 * @link https://php.net/manual/en/exception.getprevious.php
 		 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8
 		 */
@@ -144,7 +144,7 @@ namespace {
 		/**
 		 * Initialize object to default state
 		 * <p>Initializes an object to a default state.</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/compersisthelper.initnew.php
 		 * @since PHP 5, PHP 7
 		 */
@@ -155,7 +155,7 @@ namespace {
 		 * <p>Opens the specified file and initializes an object from the file contents.</p>
 		 * @param string $filename The name of the file from which to load the object.
 		 * @param int $flags The access mode to be used when opening the file. Possible values are taken from the STGM enumeration. The method can treat this value as a suggestion, adding more restrictive permissions if necessary. If <code>flags</code> is <code>0</code>, the implementation is supposed to open the file using whatever default permissions are used when a user opens the file.
-		 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/compersisthelper.loadfromfile.php
 		 * @since PHP 5, PHP 7
 		 */
@@ -165,7 +165,7 @@ namespace {
 		 * Load object from stream
 		 * <p>Initializes an object from the stream where it was saved previously.</p>
 		 * @param resource $stream The stream resource from which to load the object.
-		 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/compersisthelper.loadfromstream.php
 		 * @since PHP 5, PHP 7
 		 */
@@ -175,18 +175,18 @@ namespace {
 		 * Save object to file
 		 * <p>Saves a copy of the object to the specified file.</p>
 		 * @param string|null $filename The name of the file to which to save the object.
-		 * @param bool $remember Indicates whether the <code>filename</code> parameter is to be used as the current working file. If <b><code>TRUE</code></b>, <code>filename</code> becomes the current file and the object is supposed to clear its dirty flag after the save. If <b><code>FALSE</code></b>, this save operation is a "Save A Copy As ..." operation. In this case, the current file is unchanged and the object is not supposed to clear its dirty flag.
-		 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+		 * @param bool $remember Indicates whether the <code>filename</code> parameter is to be used as the current working file. If <b><code>true</code></b>, <code>filename</code> becomes the current file and the object is supposed to clear its dirty flag after the save. If <b><code>false</code></b>, this save operation is a "Save A Copy As ..." operation. In this case, the current file is unchanged and the object is not supposed to clear its dirty flag.
+		 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/compersisthelper.savetofile.php
 		 * @since PHP 5, PHP 7
 		 */
-		public function SaveToFile(string|null $filename, bool $remember = TRUE): bool {}
+		public function SaveToFile(string|null $filename, bool $remember = true): bool {}
 
 		/**
 		 * Save object to stream
 		 * <p>Saves an object to the specified stream.</p>
 		 * @param resource $stream The stream resource to which to save the object.
-		 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/compersisthelper.savetostream.php
 		 * @since PHP 5, PHP 7
 		 */
@@ -195,18 +195,18 @@ namespace {
 		/**
 		 * Construct a COMPersistHelper object
 		 * <p>Constructs a persistence helper object, usually associated with a <code>variant</code>.</p>
-		 * @param \variant|null $variant A COM object which implements <b>IDispatch</b>. To be able to successfully call any of COMPersistHelper's methods, the object has to implement <b>IPersistFile</b>, <b>IPersistStream</b> and/or <b>IPersistStreamInit</b>.   Passing <b><code>NULL</code></b> as <code>variant</code> is only useful if the object is to be loaded from a stream by calling <code>COMPersistHelper::LoadFromStream()</code>.
+		 * @param \variant|null $variant A COM object which implements <b>IDispatch</b>. To be able to successfully call any of COMPersistHelper's methods, the object has to implement <b>IPersistFile</b>, <b>IPersistStream</b> and/or <b>IPersistStreamInit</b>.   Passing <b><code>null</code></b> as <code>variant</code> is only useful if the object is to be loaded from a stream by calling <code>COMPersistHelper::LoadFromStream()</code>.
 		 * @return self
 		 * @link https://php.net/manual/en/compersisthelper.construct.php
 		 * @since PHP 5, PHP 7
 		 */
-		public function __construct(\variant|null $variant = NULL) {}
+		public function __construct(\variant|null $variant = null) {}
 	}
 
 	/**
 	 * Generate a globally unique identifier (GUID)
 	 * <p>Generates a Globally Unique Identifier (GUID).</p><p>A GUID is generated in the same way as DCE UUID's, except that the Microsoft convention is to enclose a GUID in curly braces.</p>
-	 * @return string|false <p>Returns the GUID as a string, or <b><code>FALSE</code></b> on failure.</p>
+	 * @return string|false <p>Returns the GUID as a string, or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.com-create-guid.php
 	 * @since PHP 5, PHP 7
 	 */
@@ -218,12 +218,12 @@ namespace {
 	 * @param \variant $variant
 	 * @param object $sink_object <p><code>sink_object</code> should be an instance of a class with methods named after those of the desired dispinterface; you may use <code>com_print_typeinfo()</code> to help generate a template class for this purpose.</p>
 	 * @param array|string|null $sink_interface <p>PHP will attempt to use the default dispinterface type specified by the typelibrary associated with <code>variant</code>, but you may override this choice by setting <code>sink_interface</code> to the name of the dispinterface that you want to use.</p>
-	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.com-event-sink.php
 	 * @see com_print_typeinfo(), com_message_pump()
 	 * @since PHP 4 >= 4.2.0, PHP 5, PHP 7
 	 */
-	function com_event_sink(\variant $variant, object $sink_object, array|string|null $sink_interface = NULL): bool {}
+	function com_event_sink(\variant $variant, object $sink_object, array|string|null $sink_interface = null): bool {}
 
 	/**
 	 * Returns a handle to an already running instance of a COM object
@@ -234,24 +234,24 @@ namespace {
 	 * @link https://php.net/manual/en/function.com-get-active-object.php
 	 * @since PHP 5, PHP 7
 	 */
-	function com_get_active_object(string $prog_id, int|null $codepage = NULL): \variant {}
+	function com_get_active_object(string $prog_id, int|null $codepage = null): \variant {}
 
 	/**
 	 * Loads a Typelib
 	 * <p>Loads a type-library and registers its constants in the engine, as though they were defined using <code>define()</code>.</p><p>Note that it is much more efficient to use the  configuration setting to pre-load and register the constants, although not so flexible.</p><p>If you have turned on , then PHP will attempt to automatically register the constants associated with a COM object when you instantiate it. This depends on the interfaces provided by the COM object itself, and may not always be possible.</p>
 	 * @param string $typelib <p><code>typelib</code> can be one of the following:</p><ul> <li> <p>The filename of a <code>.tlb</code> file or the executable module that contains the type library.</p> </li> <li> <p>The type library GUID, followed by its version number, for example <code>{00000200-0000-0010-8000-00AA006D2EA4},2,0</code>.</p> </li> <li> <p>The type library name, e.g. <code>Microsoft OLE DB ActiveX Data Objects 1.0 Library</code>.</p> </li> </ul> PHP will attempt to resolve the type library in this order, as the process gets more and more expensive as you progress down the list; searching for the type library by name is handled by physically enumerating the registry until we find a match.
 	 * @param bool $case_insensitive <p>The <code>case_insensitive</code> behaves inversely to the parameter <code>$case_insensitive</code> in the <code>define()</code> function.</p>
-	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.com-load-typelib.php
 	 * @since PHP 4 >= 4.1.0, PHP 5, PHP 7
 	 */
-	function com_load_typelib(string $typelib, bool $case_insensitive = TRUE): bool {}
+	function com_load_typelib(string $typelib, bool $case_insensitive = true): bool {}
 
 	/**
 	 * Process COM messages, sleeping for up to timeoutms milliseconds
 	 * <p>This function will sleep for up to <code>timeout_milliseconds</code> milliseconds, or until a message arrives in the queue.</p><p>The purpose of this function is to route COM calls between apartments and handle various synchronization issues. This allows your script to wait efficiently for events to be triggered, while still handling other events or running other code in the background. You should use it in a loop, as demonstrated by the example in the <code>com_event_sink()</code> function, until you are finished using event bound COM objects.</p>
-	 * @param int $timeout_milliseconds <p>The timeout, in milliseconds.</p> <p>If you do not specify a value for <code>timeout_milliseconds</code>, then 0 will be assumed. A 0 value means that no waiting will be performed; if there are messages pending they will be dispatched as before; if there are no messages pending, the function will return <b><code>FALSE</code></b> immediately without sleeping.</p>
-	 * @return bool <p>If a message or messages arrives before the timeout, they will be dispatched, and the function will return <b><code>TRUE</code></b>. If the timeout occurs and no messages were processed, the return value will be <b><code>FALSE</code></b>.</p>
+	 * @param int $timeout_milliseconds <p>The timeout, in milliseconds.</p> <p>If you do not specify a value for <code>timeout_milliseconds</code>, then 0 will be assumed. A 0 value means that no waiting will be performed; if there are messages pending they will be dispatched as before; if there are no messages pending, the function will return <b><code>false</code></b> immediately without sleeping.</p>
+	 * @return bool <p>If a message or messages arrives before the timeout, they will be dispatched, and the function will return <b><code>true</code></b>. If the timeout occurs and no messages were processed, the return value will be <b><code>false</code></b>.</p>
 	 * @link https://php.net/manual/en/function.com-message-pump.php
 	 * @since PHP 4 >= 4.2.0, PHP 5, PHP 7
 	 */
@@ -262,13 +262,13 @@ namespace {
 	 * <p>The purpose of this function is to help generate a skeleton class for use as an event sink. You may also use it to generate a dump of any COM object, provided that it supports enough of the introspection interfaces, and that you know the name of the interface you want to display.</p>
 	 * @param \variant|string $variant <p><code>variant</code> should be either an instance of a COM object, or be the name of a typelibrary (which will be resolved according to the rules set out in <code>com_load_typelib()</code>).</p>
 	 * @param string|null $dispatch_interface <p>The name of an <code>IDispatch</code> descendant interface that you want to display.</p>
-	 * @param bool $display_sink <p>If set to <b><code>TRUE</code></b>, the corresponding sink interface will be displayed instead.</p>
-	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+	 * @param bool $display_sink <p>If set to <b><code>true</code></b>, the corresponding sink interface will be displayed instead.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.com-print-typeinfo.php
 	 * @see com_event_sink(), com_load_typelib()
 	 * @since PHP 4 >= 4.2.0, PHP 5, PHP 7
 	 */
-	function com_print_typeinfo(\variant|string $variant, string|null $dispatch_interface = NULL, bool $display_sink = FALSE): bool {}
+	function com_print_typeinfo(\variant|string $variant, string|null $dispatch_interface = null, bool $display_sink = false): bool {}
 
 	/**
 	 * Returns the absolute value of a variant
@@ -298,7 +298,7 @@ namespace {
 	 * <p>Performs a bitwise AND operation. Note that this is slightly different from a regular AND operation.</p>
 	 * @param mixed $left <p>The left operand.</p>
 	 * @param mixed $right <p>The right operand.</p>
-	 * @return variant <b>Variant AND Rules</b>   If <code>left</code> is If <code>right</code> is then the result is    <b><code>TRUE</code></b><b><code>TRUE</code></b><b><code>TRUE</code></b> <b><code>TRUE</code></b><b><code>FALSE</code></b><b><code>FALSE</code></b> <b><code>TRUE</code></b><b><code>NULL</code></b><b><code>NULL</code></b> <b><code>FALSE</code></b><b><code>TRUE</code></b><b><code>FALSE</code></b> <b><code>FALSE</code></b><b><code>FALSE</code></b><b><code>FALSE</code></b> <b><code>FALSE</code></b><b><code>NULL</code></b><b><code>FALSE</code></b> <b><code>NULL</code></b><b><code>TRUE</code></b><b><code>NULL</code></b> <b><code>NULL</code></b><b><code>FALSE</code></b><b><code>FALSE</code></b> <b><code>NULL</code></b><b><code>NULL</code></b><b><code>NULL</code></b>
+	 * @return variant <b>Variant AND Rules</b>   If <code>left</code> is If <code>right</code> is then the result is    <b><code>true</code></b><b><code>true</code></b><b><code>true</code></b> <b><code>true</code></b><b><code>false</code></b><b><code>false</code></b> <b><code>true</code></b><b><code>null</code></b><b><code>null</code></b> <b><code>false</code></b><b><code>true</code></b><b><code>false</code></b> <b><code>false</code></b><b><code>false</code></b><b><code>false</code></b> <b><code>false</code></b><b><code>null</code></b><b><code>false</code></b> <b><code>null</code></b><b><code>true</code></b><b><code>null</code></b> <b><code>null</code></b><b><code>false</code></b><b><code>false</code></b> <b><code>null</code></b><b><code>null</code></b><b><code>null</code></b>
 	 * @link https://php.net/manual/en/function.variant-and.php
 	 * @see variant_or()
 	 * @since PHP 5, PHP 7
@@ -335,7 +335,7 @@ namespace {
 	 * @param mixed $right <p>The right operand.</p>
 	 * @param int $locale_id <p>A valid Locale Identifier to use when comparing strings (this affects string collation).</p>
 	 * @param int $flags <p><code>flags</code> can be one or more of the following values OR'd together, and affects string comparisons:</p> <b>Variant Comparision Flags</b>   value meaning     <b><code>NORM_IGNORECASE</code></b> Compare case insensitively   <b><code>NORM_IGNORENONSPACE</code></b> Ignore nonspacing characters   <b><code>NORM_IGNORESYMBOLS</code></b> Ignore symbols   <b><code>NORM_IGNOREWIDTH</code></b> Ignore string width   <b><code>NORM_IGNOREKANATYPE</code></b> Ignore Kana type   <b><code>NORM_IGNOREKASHIDA</code></b> Ignore Arabic kashida characters
-	 * @return int <p>Returns one of the following:</p> <b>Variant Comparision Results</b>   value meaning     <b><code>VARCMP_LT</code></b> <code>left</code> is less than <code>right</code>    <b><code>VARCMP_EQ</code></b> <code>left</code> is equal to <code>right</code>    <b><code>VARCMP_GT</code></b> <code>left</code> is greater than <code>right</code>    <b><code>VARCMP_NULL</code></b> Either <code>left</code>, <code>right</code> or both are <b><code>NULL</code></b>
+	 * @return int <p>Returns one of the following:</p> <b>Variant Comparision Results</b>   value meaning     <b><code>VARCMP_LT</code></b> <code>left</code> is less than <code>right</code>    <b><code>VARCMP_EQ</code></b> <code>left</code> is equal to <code>right</code>    <b><code>VARCMP_GT</code></b> <code>left</code> is greater than <code>right</code>    <b><code>VARCMP_NULL</code></b> Either <code>left</code>, <code>right</code> or both are <b><code>null</code></b>
 	 * @link https://php.net/manual/en/function.variant-cmp.php
 	 * @since PHP 5, PHP 7
 	 */
@@ -356,7 +356,7 @@ namespace {
 	 * Converts a variant date/time value to Unix timestamp
 	 * <p>Converts <code>variant</code> from a <b><code>VT_DATE</code></b> (or similar) value into a Unix timestamp. This allows easier interopability between the Unix-ish parts of PHP and COM.</p>
 	 * @param \variant $variant <p>The variant.</p>
-	 * @return int|null <p>Returns a unix timestamp, or <b><code>NULL</code></b> on failure.</p>
+	 * @return int|null <p>Returns a unix timestamp, or <b><code>null</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.variant-date-to-timestamp.php
 	 * @see variant_date_from_timestamp(), date(), strftime()
 	 * @since PHP 5, PHP 7
@@ -380,7 +380,7 @@ namespace {
 	 * <p>Performs a bitwise equivalence on two variants.</p>
 	 * @param mixed $left <p>The left operand.</p>
 	 * @param mixed $right <p>The right operand.</p>
-	 * @return variant <p>If each bit in <code>left</code> is equal to the corresponding bit in <code>right</code> then <b><code>TRUE</code></b> is returned, otherwise <b><code>FALSE</code></b> is returned.</p>
+	 * @return variant <p>If each bit in <code>left</code> is equal to the corresponding bit in <code>right</code> then <b><code>true</code></b> is returned, otherwise <b><code>false</code></b> is returned.</p>
 	 * @link https://php.net/manual/en/function.variant-eqv.php
 	 * @since PHP 5, PHP 7
 	 */
@@ -425,7 +425,7 @@ namespace {
 	 * <p>Performs a bitwise implication operation.</p>
 	 * @param mixed $left <p>The left operand.</p>
 	 * @param mixed $right <p>The right operand.</p>
-	 * @return variant <b>Variant Implication Table</b>   If <code>left</code> is If <code>right</code> is then the result is    <b><code>TRUE</code></b><b><code>TRUE</code></b><b><code>TRUE</code></b> <b><code>TRUE</code></b><b><code>FALSE</code></b><b><code>FALSE</code></b> <b><code>TRUE</code></b><b><code>NULL</code></b><b><code>TRUE</code></b> <b><code>FALSE</code></b><b><code>TRUE</code></b><b><code>TRUE</code></b> <b><code>FALSE</code></b><b><code>FALSE</code></b><b><code>TRUE</code></b> <b><code>FALSE</code></b><b><code>NULL</code></b><b><code>TRUE</code></b> <b><code>NULL</code></b><b><code>TRUE</code></b><b><code>TRUE</code></b> <b><code>NULL</code></b><b><code>FALSE</code></b><b><code>NULL</code></b> <b><code>NULL</code></b><b><code>NULL</code></b><b><code>NULL</code></b>
+	 * @return variant <b>Variant Implication Table</b>   If <code>left</code> is If <code>right</code> is then the result is    <b><code>true</code></b><b><code>true</code></b><b><code>true</code></b> <b><code>true</code></b><b><code>false</code></b><b><code>false</code></b> <b><code>true</code></b><b><code>null</code></b><b><code>true</code></b> <b><code>false</code></b><b><code>true</code></b><b><code>true</code></b> <b><code>false</code></b><b><code>false</code></b><b><code>true</code></b> <b><code>false</code></b><b><code>null</code></b><b><code>true</code></b> <b><code>null</code></b><b><code>true</code></b><b><code>true</code></b> <b><code>null</code></b><b><code>false</code></b><b><code>null</code></b> <b><code>null</code></b><b><code>null</code></b><b><code>null</code></b>
 	 * @link https://php.net/manual/en/function.variant-imp.php
 	 * @since PHP 5, PHP 7
 	 */
@@ -480,7 +480,7 @@ namespace {
 	 * Performs bitwise not negation on a variant
 	 * <p>Performs bitwise not negation on <code>value</code> and returns the result.</p>
 	 * @param mixed $value <p>The variant.</p>
-	 * @return variant <p>Returns the bitwise not negation. If <code>value</code> is <b><code>NULL</code></b>, the result will also be <b><code>NULL</code></b>.</p>
+	 * @return variant <p>Returns the bitwise not negation. If <code>value</code> is <b><code>null</code></b>, the result will also be <b><code>null</code></b>.</p>
 	 * @link https://php.net/manual/en/function.variant-not.php
 	 * @since PHP 5, PHP 7
 	 */
@@ -491,7 +491,7 @@ namespace {
 	 * <p>Performs a bitwise OR operation. Note that this is slightly different from a regular OR operation.</p>
 	 * @param mixed $left <p>The left operand.</p>
 	 * @param mixed $right <p>The right operand.</p>
-	 * @return variant <b>Variant OR Rules</b>   If <code>left</code> is If <code>right</code> is then the result is    <b><code>TRUE</code></b><b><code>TRUE</code></b><b><code>TRUE</code></b> <b><code>TRUE</code></b><b><code>FALSE</code></b><b><code>TRUE</code></b> <b><code>TRUE</code></b><b><code>NULL</code></b><b><code>TRUE</code></b> <b><code>FALSE</code></b><b><code>TRUE</code></b><b><code>TRUE</code></b> <b><code>FALSE</code></b><b><code>FALSE</code></b><b><code>FALSE</code></b> <b><code>FALSE</code></b><b><code>NULL</code></b><b><code>NULL</code></b> <b><code>NULL</code></b><b><code>TRUE</code></b><b><code>TRUE</code></b> <b><code>NULL</code></b><b><code>FALSE</code></b><b><code>NULL</code></b> <b><code>NULL</code></b><b><code>NULL</code></b><b><code>NULL</code></b>
+	 * @return variant <b>Variant OR Rules</b>   If <code>left</code> is If <code>right</code> is then the result is    <b><code>true</code></b><b><code>true</code></b><b><code>true</code></b> <b><code>true</code></b><b><code>false</code></b><b><code>true</code></b> <b><code>true</code></b><b><code>null</code></b><b><code>true</code></b> <b><code>false</code></b><b><code>true</code></b><b><code>true</code></b> <b><code>false</code></b><b><code>false</code></b><b><code>false</code></b> <b><code>false</code></b><b><code>null</code></b><b><code>null</code></b> <b><code>null</code></b><b><code>true</code></b><b><code>true</code></b> <b><code>null</code></b><b><code>false</code></b><b><code>null</code></b> <b><code>null</code></b><b><code>null</code></b><b><code>null</code></b>
 	 * @link https://php.net/manual/en/function.variant-or.php
 	 * @see variant_and(), variant_xor()
 	 * @since PHP 5, PHP 7
@@ -515,7 +515,7 @@ namespace {
 	 * <p>Returns the value of <code>value</code> rounded to <code>decimals</code> decimal places.</p>
 	 * @param mixed $value <p>The variant.</p>
 	 * @param int $decimals <p>Number of decimal places.</p>
-	 * @return variant|null <p>Returns the rounded value, or <b><code>NULL</code></b> on failure.</p>
+	 * @return variant|null <p>Returns the rounded value, or <b><code>null</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.variant-round.php
 	 * @see round()
 	 * @since PHP 5, PHP 7
@@ -562,7 +562,7 @@ namespace {
 	 * <p>Performs a logical exclusion.</p>
 	 * @param mixed $left <p>The left operand.</p>
 	 * @param mixed $right <p>The right operand.</p>
-	 * @return variant <b>Variant XOR Rules</b>   If <code>left</code> is If <code>right</code> is then the result is    <b><code>TRUE</code></b><b><code>TRUE</code></b><b><code>FALSE</code></b> <b><code>TRUE</code></b><b><code>FALSE</code></b><b><code>TRUE</code></b> <b><code>FALSE</code></b><b><code>TRUE</code></b><b><code>TRUE</code></b> <b><code>FALSE</code></b><b><code>FALSE</code></b><b><code>FALSE</code></b> <b><code>NULL</code></b><b><code>NULL</code></b><b><code>NULL</code></b>
+	 * @return variant <b>Variant XOR Rules</b>   If <code>left</code> is If <code>right</code> is then the result is    <b><code>true</code></b><b><code>true</code></b><b><code>false</code></b> <b><code>true</code></b><b><code>false</code></b><b><code>true</code></b> <b><code>false</code></b><b><code>true</code></b><b><code>true</code></b> <b><code>false</code></b><b><code>false</code></b><b><code>false</code></b> <b><code>null</code></b><b><code>null</code></b><b><code>null</code></b>
 	 * @link https://php.net/manual/en/function.variant-xor.php
 	 * @see variant_or(), variant_and()
 	 * @since PHP 5, PHP 7

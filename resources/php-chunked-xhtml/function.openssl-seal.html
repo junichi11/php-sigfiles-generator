@@ -38,9 +38,9 @@
    , <span class="methodparam"><span class="type">string</span> <code class="parameter reference">&$sealed_data</code></span>
    , <span class="methodparam"><span class="type">array</span> <code class="parameter reference">&$env_keys</code></span>
    , <span class="methodparam"><span class="type">array</span> <code class="parameter">$pub_key_ids</code></span>
-   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$method</code><span class="initializer"> = &quot;RC4&quot;</span></span>
-   [, <span class="methodparam"><span class="type">string</span> <code class="parameter reference">&$iv</code></span>
-  ]] ) : <span class="type">int</span></div>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$method</code><span class="initializer"> = &quot;RC4&quot;</span></span>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter reference">&$iv</code> = ?</span>
+   ) : <span class="type">int</span></div>
 
   <p class="para rdfs-comment">
    <span class="function"><strong>openssl_seal()</strong></span> seals (encrypts)
@@ -148,7 +148,7 @@
  <div class="refsect1 returnvalues" id="refsect1-function.openssl-seal-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns the length of the sealed data on success, or <strong><code>FALSE</code></strong> on error.
+   Returns the length of the sealed data on success, or <strong><code>false</code></strong> on error.
    If successful the sealed data is returned in
    <code class="parameter">sealed_data</code>, and the envelope keys in
    <code class="parameter">env_keys</code>.
@@ -159,7 +159,7 @@
  <div class="refsect1 examples" id="refsect1-function.openssl-seal-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-921">
+   <div class="example" id="example-934">
     <p><strong>Example #1 <span class="function"><strong>openssl_seal()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

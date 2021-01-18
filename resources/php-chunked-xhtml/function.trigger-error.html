@@ -35,8 +35,8 @@
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>trigger_error</strong></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$error_msg</code></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$error_type</code><span class="initializer"> = E_USER_NOTICE</span></span>
-  ] ) : <span class="type">bool</span></div>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$error_type</code><span class="initializer"> = E_USER_NOTICE</span></span>
+   ) : <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
    Used to trigger a user error condition, it can be used in conjunction
@@ -92,8 +92,8 @@
  <div class="refsect1 returnvalues" id="refsect1-function.trigger-error-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   This function returns <strong><code>FALSE</code></strong> if wrong <code class="parameter">error_type</code> is
-   specified, <strong><code>TRUE</code></strong> otherwise.
+   This function returns <strong><code>false</code></strong> if wrong <code class="parameter">error_type</code> is
+   specified, <strong><code>true</code></strong> otherwise.
   </p>
  </div>
 
@@ -101,7 +101,7 @@
  <div class="refsect1 examples" id="refsect1-function.trigger-error-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-480">
+   <div class="example" id="example-494">
     <p><strong>Example #1 <span class="function"><strong>trigger_error()</strong></span> example</strong></p>
     <div class="example-contents"><p>
      See <span class="function"><a href="function.set-error-handler.html" class="function">set_error_handler()</a></span> for a more extensive example.

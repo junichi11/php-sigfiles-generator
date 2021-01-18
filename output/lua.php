@@ -22,11 +22,11 @@ namespace {
 		 * @param callable $lua_func <p>Function name in lua</p>
 		 * @param array $args <p>Arguments passed to the Lua function</p>
 		 * @param int $use_self <p>Whether to use <code>self</code></p>
-		 * @return mixed <p>Returns result of the called function, <b><code>NULL</code></b> for wrong arguments or <b><code>FALSE</code></b> on other failure.</p>
+		 * @return mixed <p>Returns result of the called function, <b><code>null</code></b> for wrong arguments or <b><code>false</code></b> on other failure.</p>
 		 * @link https://php.net/manual/en/lua.call.php
 		 * @since PECL lua >=0.9.0
 		 */
-		public function __call(callable $lua_func, array $args = NULL, int $use_self = 0): mixed {}
+		public function __call(callable $lua_func, array $args = null, int $use_self = 0): mixed {}
 
 		/**
 		 * Lua constructor
@@ -43,7 +43,7 @@ namespace {
 		 * <p></p><p>This function is currently not documented; only its argument list is available.</p>
 		 * @param string $name
 		 * @param string $value
-		 * @return mixed <p>Returns $this or <b><code>NULL</code></b> on failure.</p>
+		 * @return mixed <p>Returns $this or <b><code>null</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/lua.assign.php
 		 * @since PECL lua >=0.9.0
 		 */
@@ -55,17 +55,17 @@ namespace {
 		 * @param callable $lua_func <p>Function name in lua</p>
 		 * @param array $args <p>Arguments passed to the Lua function</p>
 		 * @param int $use_self <p>Whether to use <code>self</code></p>
-		 * @return mixed <p>Returns result of the called function, <b><code>NULL</code></b> for wrong arguments or <b><code>FALSE</code></b> on other failure.</p>
+		 * @return mixed <p>Returns result of the called function, <b><code>null</code></b> for wrong arguments or <b><code>false</code></b> on other failure.</p>
 		 * @link https://php.net/manual/en/lua.call.php
 		 * @since PECL lua >=0.9.0
 		 */
-		public function call(callable $lua_func, array $args = NULL, int $use_self = 0): mixed {}
+		public function call(callable $lua_func, array $args = null, int $use_self = 0): mixed {}
 
 		/**
 		 * Evaluate a string as Lua code
 		 * <p></p><p>This function is currently not documented; only its argument list is available.</p>
 		 * @param string $statements
-		 * @return mixed <p>Returns result of evaled code, <b><code>NULL</code></b> for wrong arguments or <b><code>FALSE</code></b> on other failure.</p>
+		 * @return mixed <p>Returns result of evaled code, <b><code>null</code></b> for wrong arguments or <b><code>false</code></b> on other failure.</p>
 		 * @link https://php.net/manual/en/lua.eval.php
 		 * @since PECL lua >=0.9.0
 		 */
@@ -84,7 +84,7 @@ namespace {
 		 * Parse a Lua script file
 		 * <p></p><p>This function is currently not documented; only its argument list is available.</p>
 		 * @param string $file
-		 * @return mixed <p>Returns result of included code, <b><code>NULL</code></b> for wrong arguments or <b><code>FALSE</code></b> on other failure.</p>
+		 * @return mixed <p>Returns result of included code, <b><code>null</code></b> for wrong arguments or <b><code>false</code></b> on other failure.</p>
 		 * @link https://php.net/manual/en/lua.include.php
 		 * @since PECL lua >=0.9.0
 		 */
@@ -95,7 +95,7 @@ namespace {
 		 * <p>Register a PHP function to Lua as a function named "$name"</p>
 		 * @param string $name
 		 * @param callable $function <p>A valid PHP function callback</p>
-		 * @return mixed <p>Returns $this, <b><code>NULL</code></b> for wrong arguments or <b><code>FALSE</code></b> on other failure.</p>
+		 * @return mixed <p>Returns $this, <b><code>null</code></b> for wrong arguments or <b><code>false</code></b> on other failure.</p>
 		 * @link https://php.net/manual/en/lua.registercallback.php
 		 * @since No version information available, might only be in Git
 		 */

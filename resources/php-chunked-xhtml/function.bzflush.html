@@ -2,7 +2,7 @@
 <html>
  <head>
   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-  <title>Force a write of all buffered data</title>
+  <title>Do nothing</title>
 <link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-base.css" />
 <link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-medium.css" />
 
@@ -19,14 +19,14 @@
   <ul class="breadcrumbs-container">
     <li><a href="index.html">PHP Manual</a></li>
     <li><a href="ref.bzip2.html">Bzip2 Functions</a></li>
-    <li>Force a write of all buffered data</li>
+    <li>Do nothing</li>
   </ul>
 </div>
 <div id="layout">
   <div id="layout-content"><div id="function.bzflush" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">bzflush</h1>
-  <p class="verinfo">(PHP 4 &gt;= 4.0.4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">bzflush</span> &mdash; <span class="dc-title">Force a write of all buffered data</span></p>
+  <p class="verinfo">(PHP 4 &gt;= 4.0.4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">bzflush</span> &mdash; <span class="dc-title">Do nothing</span></p>
 
  </div>
  <div class="refsect1 description" id="refsect1-function.bzflush-description">
@@ -37,8 +37,9 @@
    ) : <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
-   Forces a write of all buffered bzip2 data for the file pointer
-   <code class="parameter">bz</code>.
+   This function is supposed to force a write of all buffered bzip2 data for the file pointer
+   <code class="parameter">bz</code>,
+   but is implemented as null function in libbz2, and as such does nothing.
   </p>
  </div>
 
@@ -68,7 +69,7 @@
  <div class="refsect1 returnvalues" id="refsect1-function.bzflush-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns <strong><code>TRUE</code></strong> on success or <strong><code>FALSE</code></strong> on failure.
+   Returns <strong><code>true</code></strong> on success or <strong><code>false</code></strong> on failure.
   </p>
  </div>
 

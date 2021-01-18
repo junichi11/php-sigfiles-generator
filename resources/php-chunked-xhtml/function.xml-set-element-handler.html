@@ -34,7 +34,7 @@
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>xml_set_element_handler</strong></span>
-    ( <span class="methodparam"><span class="type"><span class="type XmlParser">XmlParser</span></span> <code class="parameter">$parser</code></span>
+    ( <span class="methodparam"><span class="type"><a href="class.xmlparser.html" class="type XMLParser">XMLParser</a></span> <code class="parameter">$parser</code></span>
    , <span class="methodparam"><span class="type"><a href="language.types.callable.html" class="type callable">callable</a></span> <code class="parameter">$start_handler</code></span>
    , <span class="methodparam"><span class="type"><a href="language.types.callable.html" class="type callable">callable</a></span> <code class="parameter">$end_handler</code></span>
    ) : <span class="type">bool</span></div>
@@ -77,7 +77,7 @@
        must accept three parameters:
        <div class="methodsynopsis dc-description">
         <span class="methodname"><span class="replaceable">start_element_handler</span></span>
-         ( <span class="methodparam"><span class="type"><span class="type XMLParser">XMLParser</span></span> <code class="parameter">$parser</code></span>
+         ( <span class="methodparam"><span class="type"><a href="class.xmlparser.html" class="type XMLParser">XMLParser</a></span> <code class="parameter">$parser</code></span>
         , <span class="methodparam"><span class="type">string</span> <code class="parameter">$name</code></span>
         , <span class="methodparam"><span class="type">array</span> <code class="parameter">$attribs</code></span>
         )</div>
@@ -154,7 +154,7 @@ supplied.</span></p></blockquote>
        must accept two parameters:
        <div class="methodsynopsis dc-description">
         <span class="methodname"><span class="replaceable">end_element_handler</span></span>
-         ( <span class="methodparam"><span class="type"><span class="type XMLParser">XMLParser</span></span> <code class="parameter">$parser</code></span>
+         ( <span class="methodparam"><span class="type"><a href="class.xmlparser.html" class="type XMLParser">XMLParser</a></span> <code class="parameter">$parser</code></span>
         , <span class="methodparam"><span class="type">string</span> <code class="parameter">$name</code></span>
         )</div>
 
@@ -191,7 +191,7 @@ supplied.</span></p></blockquote>
 
       </p>
       <p class="para">
-       If a handler function is set to an empty string, or <strong><code>FALSE</code></strong>, the handler
+       If a handler function is set to an empty string, or <strong><code>false</code></strong>, the handler
        in question is disabled.
       </p>
      </dd>
@@ -206,7 +206,7 @@ supplied.</span></p></blockquote>
  <div class="refsect1 returnvalues" id="refsect1-function.xml-set-element-handler-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns <strong><code>TRUE</code></strong> on success or <strong><code>FALSE</code></strong> on failure.
+   Returns <strong><code>true</code></strong> on success or <strong><code>false</code></strong> on failure.
   </p>
  </div>
 
@@ -227,7 +227,7 @@ supplied.</span></p></blockquote>
       <tr>
  <td>8.0.0</td>
  <td>
-  <code class="parameter">parser</code> expects an <strong class="classname">XMLParser</strong>
+  <code class="parameter">parser</code> expects an <a href="class.xmlparser.html" class="classname">XMLParser</a>
   instance now; previously, a <span class="type">resource</span> was expected.
  </td>
 </tr>

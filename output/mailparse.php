@@ -35,20 +35,20 @@ namespace {
 	 * @see mailparse_msg_extract_part_file(), mailparse_msg_extract_whole_part_file()
 	 * @since PECL mailparse >= 0.9.0
 	 */
-	function mailparse_msg_extract_part($mimemail, string $msgbody, callable $callbackfunc = NULL): void {}
+	function mailparse_msg_extract_part($mimemail, string $msgbody, callable $callbackfunc = null): void {}
 
 	/**
 	 * Extracts/decodes a message section
 	 * <p>Extracts/decodes a message section from the supplied filename.</p><p>The contents of the section will be decoded according to their transfer encoding - base64, quoted-printable and uuencoded text are supported.</p>
 	 * @param resource $mimemail <p>A valid <code>MIME</code> resource, created with <code>mailparse_msg_create()</code>.</p>
 	 * @param mixed $filename <p>Can be a file name or a valid stream resource.</p>
-	 * @param callable $callbackfunc <p>If set, this must be either a valid callback that will be passed the extracted section, or <b><code>NULL</code></b> to make this function return the extracted section.</p> <p>If not specified, the contents will be sent to "stdout".</p>
-	 * @return string <p>If <code>callbackfunc</code> is not <b><code>NULL</code></b> returns <b><code>TRUE</code></b> on success.</p><p>If <code>callbackfunc</code> is set to <b><code>NULL</code></b>, returns the extracted section as a string.</p><p>Returns <b><code>FALSE</code></b> on error.</p>
+	 * @param callable $callbackfunc <p>If set, this must be either a valid callback that will be passed the extracted section, or <b><code>null</code></b> to make this function return the extracted section.</p> <p>If not specified, the contents will be sent to "stdout".</p>
+	 * @return string <p>If <code>callbackfunc</code> is not <b><code>null</code></b> returns <b><code>true</code></b> on success.</p><p>If <code>callbackfunc</code> is set to <b><code>null</code></b>, returns the extracted section as a string.</p><p>Returns <b><code>false</code></b> on error.</p>
 	 * @link https://php.net/manual/en/function.mailparse-msg-extract-part-file.php
 	 * @see mailparse_msg_extract_part(), mailparse_msg_extract_whole_part_file()
 	 * @since PECL mailparse >= 0.9.0
 	 */
-	function mailparse_msg_extract_part_file($mimemail, mixed $filename, callable $callbackfunc = NULL): string {}
+	function mailparse_msg_extract_part_file($mimemail, mixed $filename, callable $callbackfunc = null): string {}
 
 	/**
 	 * Extracts a message section including headers without decoding the transfer encoding
@@ -61,13 +61,13 @@ namespace {
 	 * @see mailparse_msg_extract_part(), mailparse_msg_extract_part_file()
 	 * @since PECL mailparse >= 0.9.0
 	 */
-	function mailparse_msg_extract_whole_part_file($mimemail, string $filename, callable $callbackfunc = NULL): string {}
+	function mailparse_msg_extract_whole_part_file($mimemail, string $filename, callable $callbackfunc = null): string {}
 
 	/**
 	 * Frees a MIME resource
 	 * <p>Frees a <code>MIME</code> resource.</p>
 	 * @param resource $mimemail <p>A valid <code>MIME</code> resource allocated by <code>mailparse_msg_create()</code> or <code>mailparse_msg_parse_file()</code>.</p>
-	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.mailparse-msg-free.php
 	 * @see mailparse_msg_create(), mailparse_msg_parse_file()
 	 * @since PECL mailparse >= 0.9.0
@@ -110,7 +110,7 @@ namespace {
 	 * <p>Incrementally parse data into the supplied mime mail resource.</p><p>This function allow you to stream portions of a file at a time, rather than read and parse the whole thing.</p>
 	 * @param resource $mimemail <p>A valid <code>MIME</code> resource.</p>
 	 * @param string $data <p><b>Note</b>:</p><p>The final chunk of <code>data</code> is supposed to end with a newline (<code>CRLF</code>); otherwise the last line of the message will not be parsed.</p>
-	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.mailparse-msg-parse.php
 	 * @since PECL mailparse >= 0.9.0
 	 */
@@ -120,7 +120,7 @@ namespace {
 	 * Parses a file
 	 * <p>Parses a file. This is the optimal way of parsing a mail file that you have on disk.</p>
 	 * @param string $filename <p>Path to the file holding the message. The file is opened and streamed through the parser.</p> <p><b>Note</b>:</p><p>The message contained in <code>filename</code> is supposed to end with a newline (<code>CRLF</code>); otherwise the last line of the message will not be parsed.</p>
-	 * @return resource <p>Returns a <code>MIME</code> resource representing the structure, or <b><code>FALSE</code></b> on error.</p>
+	 * @return resource <p>Returns a <code>MIME</code> resource representing the structure, or <b><code>false</code></b> on error.</p>
 	 * @link https://php.net/manual/en/function.mailparse-msg-parse-file.php
 	 * @see mailparse_msg_free(), mailparse_msg_create()
 	 * @since PECL mailparse >= 0.9.0
@@ -131,7 +131,7 @@ namespace {
 	 * Parse RFC 822 compliant addresses
 	 * <p>Parses a RFC 822 compliant recipient list, such as that found in the <code>To:</code> header.</p>
 	 * @param string $addresses <p>A string containing addresses, like in: <code>Wez Furlong &lt;wez@example.com&gt;, doe@example.com</code></p> <p><b>Note</b>:</p><p>This string must not include the header name.</p>
-	 * @return array <p>Returns an array of associative arrays with the following keys for each recipient:</p>   <code>display</code>  The recipient name, for display purpose. If this part is not set for a recipient, this key will hold the same value as <code>address</code>.    <code>address</code> The email address   <code>is_group</code> <b><code>TRUE</code></b> if the recipient is a newsgroup, <b><code>FALSE</code></b> otherwise.
+	 * @return array <p>Returns an array of associative arrays with the following keys for each recipient:</p>   <code>display</code>  The recipient name, for display purpose. If this part is not set for a recipient, this key will hold the same value as <code>address</code>.    <code>address</code> The email address   <code>is_group</code> <b><code>true</code></b> if the recipient is a newsgroup, <b><code>false</code></b> otherwise.
 	 * @link https://php.net/manual/en/function.mailparse-rfc822-parse-addresses.php
 	 * @since PECL mailparse >= 0.9.0
 	 */
@@ -143,7 +143,7 @@ namespace {
 	 * @param resource $sourcefp <p>A valid file handle. The file is streamed through the parser.</p>
 	 * @param resource $destfp <p>The destination file handle in which the encoded data will be written.</p>
 	 * @param string $encoding <p>One of the character encodings supported by the mbstring module.</p>
-	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.mailparse-stream-encode.php
 	 * @since PECL mailparse >= 0.9.0
 	 */

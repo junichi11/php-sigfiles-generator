@@ -47,12 +47,12 @@
     <span class="type">int</span>
      <code class="parameter">$port</code>
    </span>
-   [, <span class="methodparam">
+   , <span class="methodparam">
     <span class="type">int</span>
      <code class="parameter">$family</code>
     <span class="initializer"> = EventUtil::AF_UNSPEC</span>
    </span>
-  ] ) : <span class="type">bool</span></div>
+   ) : <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
    Resolves the DNS name hostname, looking for addresses of type
@@ -67,7 +67,7 @@
   </p>
   <p class="para">
    <code class="parameter">dns_base</code>
-   is optional. May be <strong><code>NULL</code></strong>, or an object created with
+   is optional. May be <strong><code>null</code></strong>, or an object created with
    <span class="methodname"><a href="eventdnsbase.construct.html" class="methodname">EventDnsBase::__construct()</a></span>
    . For asyncronous hostname resolving pass a valid event dns base resource.
    Otherwise the hostname resolving will block.
@@ -111,7 +111,7 @@
      <p class="para">
       Object of
       <a href="class.eventdnsbase.html" class="classname">EventDnsBase</a>
-      in case if DNS is to be resolved asyncronously. Otherwise <strong><code>NULL</code></strong>.
+      in case if DNS is to be resolved asyncronously. Otherwise <strong><code>null</code></strong>.
      </p>
     </dd>
 
@@ -180,13 +180,13 @@
  <div class="refsect1 returnvalues" id="refsect1-eventbufferevent.connecthost-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns <strong><code>TRUE</code></strong> on success. Otherwise <strong><code>FALSE</code></strong>.
+   Returns <strong><code>true</code></strong> on success. Otherwise <strong><code>false</code></strong>.
   </p>
  </div>
 
  <div class="refsect1 examples" id="refsect1-eventbufferevent.connecthost-examples">
   <h3 class="title">Examples</h3>
-  <div class="example" id="example-4731">
+  <div class="example" id="example-4753">
    <p><strong>Example #1 
     <span class="function"><strong>EventBufferEvent::connectHost()</strong></span> example</strong></p>
    <div class="example-contents">

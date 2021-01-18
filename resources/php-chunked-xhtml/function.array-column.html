@@ -33,14 +33,14 @@
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>array_column</strong></span>
-    ( <span class="methodparam"><span class="type">array</span> <code class="parameter">$input</code></span>
-   , <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">$column_key</code></span>
-   [, <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">$index_key</code><span class="initializer"> = <strong><code>NULL</code></strong></span></span>
-  ] ) : <span class="type">array</span></div>
+    ( <span class="methodparam"><span class="type">array</span> <code class="parameter">$array</code></span>
+   , <span class="methodparam"><span class="type"><span class="type">int</span>|<span class="type">string</span>|<span class="type">null</span></span> <code class="parameter">$column_key</code></span>
+   , <span class="methodparam"><span class="type"><span class="type">int</span>|<span class="type">string</span>|<span class="type">null</span></span> <code class="parameter">$index_key</code><span class="initializer"> = <strong><code>null</code></strong></span></span>
+   ) : <span class="type">array</span></div>
 
   <p class="para rdfs-comment">
    <span class="function"><strong>array_column()</strong></span> returns the values from a single column of
-   the <code class="parameter">input</code>, identified by the
+   the <code class="parameter">array</code>, identified by the
    <code class="parameter">column_key</code>. Optionally, an
    <code class="parameter">index_key</code> may be provided to index the values in the
    returned array by the values from the <code class="parameter">index_key</code>
@@ -55,7 +55,7 @@
 
     
      <dt>
-<code class="parameter">input</code></dt>
+<code class="parameter">array</code></dt>
 
      <dd>
 
@@ -79,7 +79,7 @@
       <p class="para">
        The column of values to return. This value may be an integer key of the
        column you wish to retrieve, or it may be a string key name for an
-       associative array or property name. It may also be <strong><code>NULL</code></strong> to return
+       associative array or property name. It may also be <strong><code>null</code></strong> to return
        complete arrays or objects (this is useful together with
        <code class="parameter">index_key</code> to reindex the array).
       </p>
@@ -131,7 +131,7 @@
       <tr>
        <td>7.0.0</td>
        <td>
-        Added the ability for the <code class="parameter">input</code> parameter to be
+        Added the ability for the <code class="parameter">array</code> parameter to be
         an array of objects.
        </td>
       </tr>
@@ -146,7 +146,7 @@
  <div class="refsect1 examples" id="refsect1-function.array-column-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-5388">
+   <div class="example" id="example-5409">
     <p><strong>Example #1 Get the column of first names from a recordset</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -170,7 +170,7 @@ Array
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-5389">
+   <div class="example" id="example-5410">
     <p><strong>Example #2 
      Get the column of last names from a recordset, indexed by the &quot;id&quot; column
     </strong></p>
@@ -196,7 +196,7 @@ Array
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-5390">
+   <div class="example" id="example-5411">
     <p><strong>Example #3 
      Get the column of usernames from the public &quot;username&quot; property of an
      object
@@ -222,7 +222,7 @@ Array
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-5391">
+   <div class="example" id="example-5412">
     <p><strong>Example #4 
      Get the column of names from the private &quot;name&quot; property of an object
      using the magic <span class="function"><strong>__get()</strong></span> method.

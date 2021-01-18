@@ -35,8 +35,8 @@
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>array_unique</strong></span>
     ( <span class="methodparam"><span class="type">array</span> <code class="parameter">$array</code></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$sort_flags</code><span class="initializer"> = SORT_STRING</span></span>
-  ] ) : <span class="type">array</span></div>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code><span class="initializer"> = <strong><code>SORT_STRING</code></strong></span></span>
+   ) : <span class="type">array</span></div>
 
   <p class="para rdfs-comment">
    Takes an input <code class="parameter">array</code> and returns a new array
@@ -44,7 +44,7 @@
   </p>
   <p class="para">
    Note that keys are preserved. If multiple elements compare equal under
-   the given <code class="parameter">sort_flags</code>, then the key and value of
+   the given <code class="parameter">flags</code>, then the key and value of
    the first equal element will be retained.
   </p>
   <blockquote class="note"><p><strong class="note">Note</strong>: 
@@ -76,12 +76,12 @@
     
     
      <dt>
-<code class="parameter">sort_flags</code></dt>
+<code class="parameter">flags</code></dt>
 
      <dd>
 
       <p class="para">
-       The optional second parameter <code class="parameter">sort_flags</code>
+       The optional second parameter <code class="parameter">flags</code>
        may be used to modify the sorting behavior using these values:
       </p>
       <p class="para">
@@ -138,7 +138,7 @@
       <tr>
        <td>7.2.0</td>
        <td>
-        If <code class="parameter">sort_flags</code> is <strong><code>SORT_STRING</code></strong>,
+        If <code class="parameter">flags</code> is <strong><code>SORT_STRING</code></strong>,
         formerly <code class="parameter">array</code> has been copied and non-unique
         elements have been removed (without packing the array afterwards), but
         now a new array is built by adding the unique elements. This can result
@@ -157,7 +157,7 @@
  <div class="refsect1 examples" id="refsect1-function.array-unique-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-5456">
+   <div class="example" id="example-5477">
     <p><strong>Example #1 <span class="function"><strong>array_unique()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -180,7 +180,7 @@ Array
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-5457">
+   <div class="example" id="example-5478">
     <p><strong>Example #2 <span class="function"><strong>array_unique()</strong></span> and types</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

@@ -24,7 +24,7 @@
 </div>
 <div id="layout">
   <div id="layout-content"><div id="control-structures.elseif" class="sect1">
- <h2 class="title"><code class="literal">elseif</code>/<code class="literal">else if</code></h2>
+ <h2 class="title">elseif/else if</h2>
  <p class="verinfo">(PHP 4, PHP 5, PHP 7, PHP 8)</p>
  <p class="para">
   <code class="literal">elseif</code>, as its name suggests, is a combination
@@ -32,10 +32,10 @@
   <code class="literal">else</code>, it extends an <code class="literal">if</code>
   statement to execute a different statement in case the original
   <code class="literal">if</code> expression evaluates to
-  <strong><code>FALSE</code></strong>.  However, unlike
+  <strong><code>false</code></strong>.  However, unlike
   <code class="literal">else</code>, it will execute that alternative
   expression only if the <code class="literal">elseif</code> conditional
-  expression evaluates to <strong><code>TRUE</code></strong>.  For example, the
+  expression evaluates to <strong><code>true</code></strong>.  For example, the
   following code would display <span class="computeroutput">a is bigger than
   b</span>, <span class="computeroutput">a equal to b</span>
   or <span class="computeroutput">a is smaller than b</span>:
@@ -53,7 +53,7 @@
   There may be several <code class="literal">elseif</code>s within the same
   <code class="literal">if</code> statement.  The first
   <code class="literal">elseif</code> expression (if any) that evaluates to
-  <strong><code>TRUE</code></strong> would be executed.  In PHP, you can also
+  <strong><code>true</code></strong> would be executed.  In PHP, you can also
   write &#039;else if&#039; (in two words) and the behavior would be identical
   to the one of &#039;elseif&#039; (in a single word).  The syntactic meaning
   is slightly different (if you&#039;re familiar with C, this is the same
@@ -64,9 +64,9 @@
   The <code class="literal">elseif</code> statement is only executed if the
   preceding <code class="literal">if</code> expression and any preceding
   <code class="literal">elseif</code> expressions evaluated to
-  <strong><code>FALSE</code></strong>, and the current
+  <strong><code>false</code></strong>, and the current
   <code class="literal">elseif</code> expression evaluated to
-  <strong><code>TRUE</code></strong>.
+  <strong><code>true</code></strong>.
  </p>
  <blockquote class="note"><p><strong class="note">Note</strong>: 
   <span class="simpara">

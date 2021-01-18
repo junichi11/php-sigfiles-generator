@@ -34,9 +34,9 @@
   <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><strong>MongoDB::command</strong></span>
     ( <span class="methodparam"><span class="type">array</span> <code class="parameter">$command</code></span>
-   [, <span class="methodparam"><span class="type">array</span> <code class="parameter">$options</code><span class="initializer"> = array()</span></span>
-   [, <span class="methodparam"><span class="type">string</span> <code class="parameter reference">&$hash</code></span>
-  ]] ) : <span class="type">array</span></div>
+   , <span class="methodparam"><span class="type">array</span> <code class="parameter">$options</code><span class="initializer"> = array()</span></span>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter reference">&$hash</code> = ?</span>
+   ) : <span class="type">array</span></div>
 
   <p class="para rdfs-comment">
    Almost everything that is not a CRUD operation can be done with a database
@@ -186,7 +186,7 @@
 
  <div class="refsect1 examples" id="refsect1-mongodb.command-examples">
   <h3 class="title">Examples</h3>
-  <div class="example" id="example-1363">
+  <div class="example" id="example-1375">
    <p><strong>Example #1 <span class="function"><strong>MongoDB::command()</strong></span> &quot;distinct&quot; example</strong></p>
    <div class="example-contents"><p>
     Finding all of the distinct values for a key.
@@ -207,7 +207,7 @@ something similar to:</p></div>
    </div>
   </div>
 
-  <div class="example" id="example-1364">
+  <div class="example" id="example-1376">
    <p><strong>Example #2 <span class="function"><strong>MongoDB::command()</strong></span> &quot;distinct&quot; example</strong></p>
    <div class="example-contents"><p>
     Finding all of the distinct values for a key, where the value is larger
@@ -228,7 +228,7 @@ something similar to:</p></div>
    </div>
   </div>
 
-  <div class="example" id="example-1365">
+  <div class="example" id="example-1377">
    <p><strong>Example #3 <span class="function"><strong>MongoDB::command()</strong></span> MapReduce example</strong></p>
    <div class="example-contents"><p>
     Get all users with at least on &quot;sale&quot; event, and how many times each
@@ -273,7 +273,7 @@ User 4af467e4fd543cce7b0ea8e2 had 1 sale(s).<br />
    </p></blockquote>
   </div>
 
-  <div class="example" id="example-1366">
+  <div class="example" id="example-1378">
    <p><strong>Example #4 <span class="function"><strong>MongoDB::command()</strong></span> &quot;geoNear&quot; example</strong></p>
    <div class="example-contents"><p>
     This example shows how to use the geoNear command.

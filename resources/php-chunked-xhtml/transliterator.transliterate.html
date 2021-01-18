@@ -37,18 +37,18 @@
   <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><strong>Transliterator::transliterate</strong></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$subject</code></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$start</code></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$end</code></span>
-  ]] ) : <span class="type"><span class="type">string</span>|<span class="type"><span class="type false">false</span></span></span></div>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$start</code> = ?</span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$end</code> = ?</span>
+   ) : <span class="type"><span class="type">string</span>|<span class="type"><span class="type false">false</span></span></span></div>
 
   <p class="para rdfs-comment">Procedural style</p>
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>transliterator_transliterate</strong></span>
-    ( <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">$transliterator</code></span>
+    ( <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$transliterator</code></span>
    , <span class="methodparam"><span class="type">string</span> <code class="parameter">$subject</code></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$start</code></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$end</code></span>
-  ]] )</div>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$start</code> = ?</span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$end</code> = ?</span>
+   )</div>
 
   <p class="para rdfs-comment">
    Transforms a string or part thereof using an ICU transliterator.
@@ -122,7 +122,7 @@
  <div class="refsect1 returnvalues" id="refsect1-transliterator.transliterate-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   The transformed string on success,  or <strong><code>FALSE</code></strong> on failure.
+   The transformed string on success,  or <strong><code>false</code></strong> on failure.
   </p>
  </div>
 
@@ -130,7 +130,7 @@
  <div class="refsect1 examples" id="refsect1-transliterator.transliterate-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-2937">
+   <div class="example" id="example-2952">
     <p><strong>Example #1 Converting escaped UTF-16 code units</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

@@ -36,9 +36,9 @@
    <span class="modifier">public</span> <span class="methodname"><strong>Memcached::getDelayedByKey</strong></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$server_key</code></span>
    , <span class="methodparam"><span class="type">array</span> <code class="parameter">$keys</code></span>
-   [, <span class="methodparam"><span class="type">bool</span> <code class="parameter">$with_cas</code></span>
-   [, <span class="methodparam"><span class="type"><a href="language.types.callable.html" class="type callable">callable</a></span> <code class="parameter">$value_cb</code></span>
-  ]] ) : <span class="type">bool</span></div>
+   , <span class="methodparam"><span class="type">bool</span> <code class="parameter">$with_cas</code> = ?</span>
+   , <span class="methodparam"><span class="type"><a href="language.types.callable.html" class="type callable">callable</a></span> <code class="parameter">$value_cb</code> = ?</span>
+   ) : <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
    <span class="function"><strong>Memcached::getDelayedByKey()</strong></span> is functionally equivalent to
@@ -97,7 +97,7 @@
      <dd>
 
       <p class="para">
-       The result callback or <strong><code>NULL</code></strong>.
+       The result callback or <strong><code>null</code></strong>.
       </p>
      </dd>
 
@@ -111,7 +111,7 @@
  <div class="refsect1 returnvalues" id="refsect1-memcached.getdelayedbykey-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns <strong><code>TRUE</code></strong> on success or <strong><code>FALSE</code></strong> on failure.
+   Returns <strong><code>true</code></strong> on success or <strong><code>false</code></strong> on failure.
    Use <span class="methodname"><a href="memcached.getresultcode.html" class="methodname">Memcached::getResultCode()</a></span> if necessary.
   </p>
  </div>

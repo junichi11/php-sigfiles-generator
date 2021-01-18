@@ -147,8 +147,8 @@
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="yaf-request-abstract.getenv.html" class="methodname">getEnv</a></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$name</code></span>
-   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$default</code></span>
-  ] ) : <span class="type"><span class="type void">void</span></span></div>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$default</code> = ?</span>
+   ) : <span class="type"><span class="type void">void</span></span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="yaf-request-abstract.getexception.html" class="methodname">getException</a></span>
     (
@@ -168,8 +168,8 @@
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="yaf-request-abstract.getparam.html" class="methodname">getParam</a></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$name</code></span>
-   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$default</code></span>
-  ] ) : <span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span></div>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$default</code> = ?</span>
+   ) : <span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="yaf-request-abstract.getparams.html" class="methodname">getParams</a></span>
     (
@@ -181,8 +181,8 @@
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="yaf-request-abstract.getserver.html" class="methodname">getServer</a></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$name</code></span>
-   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$default</code></span>
-  ] ) : <span class="type"><span class="type void">void</span></span></div>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$default</code> = ?</span>
+   ) : <span class="type"><span class="type void">void</span></span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="yaf-request-abstract.iscli.html" class="methodname">isCli</a></span>
     (
@@ -222,8 +222,8 @@
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="yaf-request-abstract.setactionname.html" class="methodname">setActionName</a></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$action</code></span>
-   [, <span class="methodparam"><span class="type">bool</span> <code class="parameter">$format_name</code><span class="initializer"> = true</span></span>
-  ] ) : <span class="type"><span class="type void">void</span></span></div>
+   , <span class="methodparam"><span class="type">bool</span> <code class="parameter">$format_name</code><span class="initializer"> = true</span></span>
+   ) : <span class="type"><span class="type void">void</span></span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="yaf-request-abstract.setbaseuri.html" class="methodname">setBaseUri</a></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$uir</code></span>
@@ -231,8 +231,8 @@
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="yaf-request-abstract.setcontrollername.html" class="methodname">setControllerName</a></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$controller</code></span>
-   [, <span class="methodparam"><span class="type">bool</span> <code class="parameter">$format_name</code><span class="initializer"> = true</span></span>
-  ] ) : <span class="type"><span class="type void">void</span></span></div>
+   , <span class="methodparam"><span class="type">bool</span> <code class="parameter">$format_name</code><span class="initializer"> = true</span></span>
+   ) : <span class="type"><span class="type void">void</span></span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="yaf-request-abstract.setdispatched.html" class="methodname">setDispatched</a></span>
     (
@@ -240,21 +240,21 @@
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="yaf-request-abstract.setmodulename.html" class="methodname">setModuleName</a></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$module</code></span>
-   [, <span class="methodparam"><span class="type">bool</span> <code class="parameter">$format_name</code><span class="initializer"> = true</span></span>
-  ] ) : <span class="type"><span class="type void">void</span></span></div>
+   , <span class="methodparam"><span class="type">bool</span> <code class="parameter">$format_name</code><span class="initializer"> = true</span></span>
+   ) : <span class="type"><span class="type void">void</span></span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="yaf-request-abstract.setparam.html" class="methodname">setParam</a></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$name</code></span>
-   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$value</code></span>
-  ] ) : <span class="type">bool</span></div>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$value</code> = ?</span>
+   ) : <span class="type">bool</span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="yaf-request-abstract.setrequesturi.html" class="methodname">setRequestUri</a></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$uir</code></span>
    ) : <span class="type"><span class="type void">void</span></span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="yaf-request-abstract.setrouted.html" class="methodname">setRouted</a></span>
-    ([ <span class="methodparam"><span class="type">string</span> <code class="parameter">$flag</code></span>
-  ] ) : <span class="type"><span class="type void">void</span></span></div>
+    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$flag</code> = ?</span>
+   ) : <span class="type"><span class="type void">void</span></span></div>
 
    }</div>
 

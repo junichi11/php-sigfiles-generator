@@ -10,7 +10,7 @@
  <body class="docs"><div class="navbar navbar-fixed-top">
   <div class="navbar-inner clearfix">
     <ul class="nav" style="width: 100%">
-      <li style="float: left;"><a href="datetime.createfromimmutable.html">« DateTime::createFromImmutable</a></li>
+      <li style="float: left;"><a href="datetime.createfrominterface.html">« DateTime::createFromInterface</a></li>
       <li style="float: right;"><a href="datetime.modify.html">DateTime::modify »</a></li>
     </ul>
   </div>
@@ -37,13 +37,13 @@
   <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="modifier">static</span> <span class="methodname"><strong>DateTime::getLastErrors</strong></span>
     (
-   ) : <span class="type">array</span></div>
+   ) : <span class="type"><span class="type">array</span>|<span class="type"><span class="type false">false</span></span></span></div>
 
   <p class="para rdfs-comment">Procedural style</p>
   <div class="methodsynopsis dc-description">
    <span class="methodname"><a href="function.date-get-last-errors.html" class="methodname">date_get_last_errors</a></span>
     (
-   ) : <span class="type">array</span></div>
+   ) : <span class="type"><span class="type">array</span>|<span class="type"><span class="type false">false</span></span></span></div>
 
   <p class="para rdfs-comment">
    Returns an array of warnings and errors found while parsing
@@ -61,14 +61,15 @@
  <div class="refsect1 returnvalues" id="refsect1-datetime.getlasterrors-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns array containing info about warnings and errors.
+   Returns array containing info about warnings and errors, or <strong><code>false</code></strong> if there
+   are neither warnings nor errors.
   </p>
  </div>
 
 
  <div class="refsect1 examples" id="refsect1-datetime.getlasterrors-examples">
   <h3 class="title">Examples</h3>
-  <div class="example" id="example-2502">
+  <div class="example" id="example-2516">
    <p><strong>Example #1 <span class="function"><strong>DateTime::getLastErrors()</strong></span> example</strong></p>
    <div class="example-contents"><p>Object oriented style</p></div>
    <div class="example-contents">

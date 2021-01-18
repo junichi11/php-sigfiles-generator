@@ -34,9 +34,9 @@
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>headers_sent</strong></span>
-    ([ <span class="methodparam"><span class="type">string</span> <code class="parameter reference">&$file</code></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter reference">&$line</code></span>
-  ]] ) : <span class="type">bool</span></div>
+    ( <span class="methodparam"><span class="type">string</span> <code class="parameter reference">&$filename</code><span class="initializer"> = <strong><code>null</code></strong></span></span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter reference">&$line</code><span class="initializer"> = <strong><code>null</code></strong></span></span>
+   ) : <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
    Checks if or where headers have been sent.
@@ -57,15 +57,15 @@
 
     
      <dt>
-<code class="parameter">file</code></dt>
+<code class="parameter">filename</code></dt>
 
      <dd>
 
       <p class="para">
-       If the optional <code class="parameter">file</code> and
+       If the optional <code class="parameter">filename</code> and
        <code class="parameter">line</code> parameters are set, 
        <span class="function"><strong>headers_sent()</strong></span> will put the PHP source file name
-       and line number where output started in the <code class="parameter">file</code>
+       and line number where output started in the <code class="parameter">filename</code>
        and <code class="parameter">line</code> variables.
       </p>
      </dd>
@@ -92,8 +92,8 @@
  <div class="refsect1 returnvalues" id="refsect1-function.headers-sent-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   <span class="function"><strong>headers_sent()</strong></span> will return <strong><code>FALSE</code></strong> if no HTTP headers
-   have already been sent or <strong><code>TRUE</code></strong> otherwise.
+   <span class="function"><strong>headers_sent()</strong></span> will return <strong><code>false</code></strong> if no HTTP headers
+   have already been sent or <strong><code>true</code></strong> otherwise.
   </p>
  </div>
 
@@ -101,7 +101,7 @@
  <div class="refsect1 examples" id="refsect1-function.headers-sent-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-4932">
+   <div class="example" id="example-4954">
     <p><strong>Example #1 Examples using <span class="function"><strong>headers_sent()</strong></span></strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

@@ -13,7 +13,7 @@ namespace CommonMark {
 	 * @link https://php.net/manual/en/function.commonmark-parse.php
 	 * @since cmark >= 1.0.0
 	 */
-	function Parse(string $content, int $options = NULL): \CommonMark\Node {}
+	function Parse(string $content, int $options = null): \CommonMark\Node {}
 
 	/**
 	 * Rendering
@@ -25,7 +25,7 @@ namespace CommonMark {
 	 * @link https://php.net/manual/en/function.commonmark-render.php
 	 * @since cmark >= 1.0.0
 	 */
-	function Render(\CommonMark\Node $node, int $options = NULL, int $width = NULL): string {}
+	function Render(\CommonMark\Node $node, int $options = null, int $width = null): string {}
 
 }
 
@@ -40,7 +40,7 @@ namespace CommonMark\Render {
 	 * @link https://php.net/manual/en/function.commonmark-render-html.php
 	 * @since cmark >= 1.0.0
 	 */
-	function HTML(\CommonMark\Node $node, int $options = NULL): string {}
+	function HTML(\CommonMark\Node $node, int $options = null): string {}
 
 	/**
 	 * Rendering
@@ -52,7 +52,7 @@ namespace CommonMark\Render {
 	 * @link https://php.net/manual/en/function.commonmark-render-latex.php
 	 * @since cmark >= 1.0.0
 	 */
-	function Latex(\CommonMark\Node $node, int $options = NULL, int $width = NULL): string {}
+	function Latex(\CommonMark\Node $node, int $options = null, int $width = null): string {}
 
 	/**
 	 * Rendering
@@ -64,7 +64,7 @@ namespace CommonMark\Render {
 	 * @link https://php.net/manual/en/function.commonmark-render-man.php
 	 * @since cmark >= 1.0.0
 	 */
-	function Man(\CommonMark\Node $node, int $options = NULL, int $width = NULL): string {}
+	function Man(\CommonMark\Node $node, int $options = null, int $width = null): string {}
 
 	/**
 	 * Rendering
@@ -75,6 +75,6 @@ namespace CommonMark\Render {
 	 * @link https://php.net/manual/en/function.commonmark-render-xml.php
 	 * @since cmark >= 1.0.0
 	 */
-	function XML(\CommonMark\Node $node, int $options = NULL): string {}
+	function XML(\CommonMark\Node $node, int $options = null): string {}
 
 }

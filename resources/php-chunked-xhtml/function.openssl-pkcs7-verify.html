@@ -36,12 +36,12 @@
    <span class="methodname"><strong>openssl_pkcs7_verify</strong></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$filename</code></span>
    , <span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code></span>
-   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$outfilename</code></span>
-   [, <span class="methodparam"><span class="type">array</span> <code class="parameter">$cainfo</code></span>
-   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$extracerts</code></span>
-   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$content</code></span>
-   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$p7bfilename</code></span>
-  ]]]]] ) : <span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span></div>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$outfilename</code> = ?</span>
+   , <span class="methodparam"><span class="type">array</span> <code class="parameter">$cainfo</code> = ?</span>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$extracerts</code> = ?</span>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$content</code> = ?</span>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$p7bfilename</code> = ?</span>
+   ) : <span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span></div>
 
   <p class="para rdfs-comment">
    <span class="function"><strong>openssl_pkcs7_verify()</strong></span> reads the S/MIME message
@@ -158,7 +158,7 @@
  <div class="refsect1 returnvalues" id="refsect1-function.openssl-pkcs7-verify-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns <strong><code>TRUE</code></strong> if the signature is verified, <strong><code>FALSE</code></strong> if it is not correct
+   Returns <strong><code>true</code></strong> if the signature is verified, <strong><code>false</code></strong> if it is not correct
    (the message has been tampered with, or the signing certificate is invalid),
    or -1 on error.
   </p>

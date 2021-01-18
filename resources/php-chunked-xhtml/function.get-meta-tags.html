@@ -35,8 +35,8 @@
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>get_meta_tags</strong></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$filename</code></span>
-   [, <span class="methodparam"><span class="type">bool</span> <code class="parameter">$use_include_path</code><span class="initializer"> = <strong><code>FALSE</code></strong></span></span>
-  ] ) : <span class="type">array</span></div>
+   , <span class="methodparam"><span class="type">bool</span> <code class="parameter">$use_include_path</code><span class="initializer"> = <strong><code>false</code></strong></span></span>
+   ) : <span class="type"><span class="type">array</span>|<span class="type"><span class="type false">false</span></span></span></div>
 
   <p class="para rdfs-comment">
    Opens <code class="parameter">filename</code> and parses it line by line for
@@ -62,7 +62,7 @@
        <acronym title="Uniform Resource Locator">URL</acronym>.
       </p>
       <p class="para">
-       <div class="example" id="example-4334">
+       <div class="example" id="example-4356">
         <p><strong>Example #1 What <span class="function"><strong>get_meta_tags()</strong></span> parses</strong></p>
         <div class="example-contents">
 <div class="htmlcode"><pre class="htmlcode">&lt;meta name=&quot;author&quot; content=&quot;name&quot;&gt;
@@ -87,7 +87,7 @@
      <dd>
 
       <p class="para">
-       Setting <code class="parameter">use_include_path</code> to <strong><code>TRUE</code></strong> will result
+       Setting <code class="parameter">use_include_path</code> to <strong><code>true</code></strong> will result
        in PHP trying to open the file along the standard include path as per
        the <a href="ini.core.html#ini.include-path" class="link">include_path</a> directive.
        This is used for local files, not URLs.
@@ -114,13 +114,16 @@
    &#039;_&#039;, the rest is converted to lower case.  If two meta tags have the same
    name, only the last one is returned.
   </p>
+  <p class="para">
+   Returns <strong><code>false</code></strong> on failure.
+  </p>
  </div>
 
 
  <div class="refsect1 examples" id="refsect1-function.get-meta-tags-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-4335">
+   <div class="example" id="example-4357">
     <p><strong>Example #2 What <span class="function"><strong>get_meta_tags()</strong></span> returns</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

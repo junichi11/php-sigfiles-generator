@@ -117,14 +117,14 @@ such as <span class="function"><a href="function.imagecreatetruecolor.html" clas
  <div class="refsect1 returnvalues" id="refsect1-function.imagefilltoborder-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns <strong><code>TRUE</code></strong> on success or <strong><code>FALSE</code></strong> on failure.
+   Returns <strong><code>true</code></strong> on success or <strong><code>false</code></strong> on failure.
   </p>
  </div>
 
  <div class="refsect1 examples" id="refsect1-function.imagefilltoborder-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-3137">
+   <div class="example" id="example-3152">
     <p><strong>Example #1 Filling an ellipse with a color</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -144,5 +144,18 @@ something similar to:</p></div>
    </div>
   </p>
  </div>
+
+
+ <div class="refsect1 notes" id="refsect1-function.imagefilltoborder-notes">
+  <h3 class="title">Notes</h3>
+  <p class="simpara">
+   The algorithm does not explicitly remember which pixels have
+   already been set, but rather infers that from the color of the
+   pixel, so it cannot distinguish between freshly set pixels and
+   pixels that are already there.  That means chosing any fill color
+   that is already used in the image may yield undesired results.
+  </p>
+ </div>
+
 
 </div></div></div></body></html>

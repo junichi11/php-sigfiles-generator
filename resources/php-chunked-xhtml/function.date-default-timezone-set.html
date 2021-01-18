@@ -35,22 +35,13 @@
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>date_default_timezone_set</strong></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$timezoneID</code></span>
+    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$timezoneId</code></span>
    ) : <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
    <span class="function"><strong>date_default_timezone_set()</strong></span> sets the default timezone
    used by all date/time functions.
   </p>
-  <blockquote class="note"><p><strong class="note">Note</strong>: 
-   <p class="para">
-    Since PHP 5.1.0 (when the date/time functions were rewritten), every call
-    to a date/time function will generate a <strong><code>E_NOTICE</code></strong> if
-    the timezone isn&#039;t valid, and/or a <strong><code>E_WARNING</code></strong> message
-    if using the system settings or the <var class="varname">TZ</var> environment
-    variable.
-   </p>
-  </p></blockquote>
   <p class="para">
    Instead of using this function to set the default timezone in your script,
    you can also use the INI setting <a href="datetime.configuration.html#ini.date.timezone" class="link">date.timezone</a> to set the default
@@ -66,7 +57,7 @@
 
     
      <dt>
-<code class="parameter">timezoneID</code></dt>
+<code class="parameter">timezoneId</code></dt>
 
      <dd>
 
@@ -88,8 +79,8 @@
  <div class="refsect1 returnvalues" id="refsect1-function.date-default-timezone-set-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   This function returns <strong><code>FALSE</code></strong> if the
-   <code class="parameter">timezoneID</code> isn&#039;t valid, or <strong><code>TRUE</code></strong>
+   This function returns <strong><code>false</code></strong> if the
+   <code class="parameter">timezoneId</code> isn&#039;t valid, or <strong><code>true</code></strong>
    otherwise.
   </p>
  </div>
@@ -98,7 +89,7 @@
  <div class="refsect1 examples" id="refsect1-function.date-default-timezone-set-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-2545">
+   <div class="example" id="example-2560">
     <p><strong>Example #1 Getting the default timezone</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

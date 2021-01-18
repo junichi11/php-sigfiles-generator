@@ -38,9 +38,9 @@
    , <span class="methodparam"><span class="type">string</span> <code class="parameter">$password</code></span>
    , <span class="methodparam"><span class="type">string</span> <code class="parameter">$salt</code></span>
    , <span class="methodparam"><span class="type">int</span> <code class="parameter">$iterations</code></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$length</code><span class="initializer"> = 0</span></span>
-   [, <span class="methodparam"><span class="type">bool</span> <code class="parameter">$binary</code><span class="initializer"> = <strong><code>FALSE</code></strong></span></span>
-  ]] ) : <span class="type">string</span></div>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$length</code><span class="initializer"> = 0</span></span>
+   , <span class="methodparam"><span class="type">bool</span> <code class="parameter">$binary</code><span class="initializer"> = <strong><code>false</code></strong></span></span>
+   ) : <span class="type">string</span></div>
 
  </div>
 
@@ -108,8 +108,8 @@
 
       <p class="para">
        The length of the output string. If <code class="parameter">binary</code>
-       is <strong><code>TRUE</code></strong> this corresponds to the byte-length of the derived key, if
-       <code class="parameter">binary</code> is <strong><code>FALSE</code></strong> this corresponds to twice the
+       is <strong><code>true</code></strong> this corresponds to the byte-length of the derived key, if
+       <code class="parameter">binary</code> is <strong><code>false</code></strong> this corresponds to twice the
        byte-length of the derived key (as every byte of the key is returned as
        two hexits).
       </p>
@@ -127,7 +127,7 @@
      <dd>
 
       <p class="para">
-       When set to <strong><code>TRUE</code></strong>, outputs raw binary data. <strong><code>FALSE</code></strong> outputs lowercase
+       When set to <strong><code>true</code></strong>, outputs raw binary data. <strong><code>false</code></strong> outputs lowercase
        hexits.
       </p>
      </dd>
@@ -143,7 +143,7 @@
   <h3 class="title">Return Values</h3>
   <p class="para">
    Returns a string containing the derived key as lowercase hexits unless
-   <code class="parameter">binary</code> is set to <strong><code>TRUE</code></strong> in which case the raw
+   <code class="parameter">binary</code> is set to <strong><code>true</code></strong> in which case the raw
    binary representation of the derived key is returned.
   </p>
  </div>
@@ -191,7 +191,7 @@
  <div class="refsect1 examples" id="refsect1-function.hash-pbkdf2-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-873">
+   <div class="example" id="example-885">
     <p><strong>Example #1 <span class="function"><strong>hash_pbkdf2()</strong></span> example, basic usage</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

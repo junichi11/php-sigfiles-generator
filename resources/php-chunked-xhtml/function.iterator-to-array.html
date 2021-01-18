@@ -35,8 +35,8 @@
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>iterator_to_array</strong></span>
     ( <span class="methodparam"><span class="type"><a href="class.traversable.html" class="type Traversable">Traversable</a></span> <code class="parameter">$iterator</code></span>
-   [, <span class="methodparam"><span class="type">bool</span> <code class="parameter">$use_keys</code><span class="initializer"> = <strong><code>TRUE</code></strong></span></span>
-  ] ) : <span class="type">array</span></div>
+   , <span class="methodparam"><span class="type">bool</span> <code class="parameter">$use_keys</code><span class="initializer"> = <strong><code>true</code></strong></span></span>
+   ) : <span class="type">array</span></div>
 
   <p class="para rdfs-comment">
    Copy the elements of an iterator into an array.
@@ -72,7 +72,7 @@
       </p>
       <p class="para">
        In PHP 5.5 and later, if a key is an <span class="type">array</span> or
-       <span class="type">object</span>, a warning will be generated. <strong><code>NULL</code></strong> keys will be
+       <span class="type">object</span>, a warning will be generated. <strong><code>null</code></strong> keys will be
        converted to an empty string, <span class="type">float</span> keys will be
        truncated to their <span class="type">int</span> counterpart,
        <span class="type">resource</span> keys will generate a warning and be converted to
@@ -81,9 +81,9 @@
       </p>
       <blockquote class="note"><p><strong class="note">Note</strong>: 
        <p class="para">
-        If this parameter is not set or set to <strong><code>TRUE</code></strong>, duplicate keys will be
+        If this parameter is not set or set to <strong><code>true</code></strong>, duplicate keys will be
         overwritten. The last value with a given key will be in the returned
-        <span class="type">array</span>. Set this parameter to <strong><code>FALSE</code></strong> to get all the values
+        <span class="type">array</span>. Set this parameter to <strong><code>false</code></strong> to get all the values
         in any case.
        </p>
       </p></blockquote>

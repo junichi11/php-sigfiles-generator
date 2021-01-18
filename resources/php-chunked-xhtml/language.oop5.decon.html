@@ -30,7 +30,7 @@
    <h3 class="title">Constructor</h3>
    <div class="methodsynopsis dc-description" id="object.construct">
     <span class="methodname"><strong>__construct</strong></span>
-     ( <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">...$values</code><span class="initializer"> = &quot;&quot;</span></span>
+     ( <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">...$values</code><span class="initializer"> = &quot;&quot;</span></span>
     ) : <span class="type"><span class="type void">void</span></span></div>
 
    <p class="para">
@@ -49,7 +49,7 @@
      as private).
     </span>
    </p></blockquote>
-   <div class="example" id="language.oop5.basic.class.class.object">
+   <div class="example" id="language.oop5.basic.class.class.name">
     <p><strong>Example #1 Constructors in inheritance</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -60,10 +60,10 @@
 
    </div>
    <p class="para">
-    Unlike with other methods, PHP will not generate an
-    <strong><code>E_STRICT</code></strong> level error message when
-    <a href="language.oop5.decon.html#object.construct" class="link">__construct()</a> is overridden with different parameters
-    than the parent <a href="language.oop5.decon.html#object.construct" class="link">__construct()</a> method has.
+    Unlike other methods, <a href="language.oop5.decon.html#object.construct" class="link">__construct()</a>
+    is exempt from the usual
+    <a href="language.oop5.basic.html#language.oop.lsp" class="link">signature compatibility rules</a>
+    when being extended.
    </p>
    <p class="para">
     Constructors are ordinary methods which are called during the instantiation of their
@@ -71,7 +71,7 @@
     may be required, may have a type, and may have a default value. Constructor arguments
     are called by placing the arguments in parentheses after the class name.
    </p>
-   <div class="example" id="example-210">
+   <div class="example" id="language.oop5.basic.class.class.fail">
     <p><strong>Example #2 Using constructor arguments</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -109,7 +109,7 @@
      a property in the constructor but otherwise not operated upon.  Constructor promotion
      provides a short-hand for that use case.  The example above could be rewritten as the following.
     </p>
-    <div class="example" id="example-211">
+    <div class="example" id="language.oop5.basic.class.class.object">
      <p><strong>Example #3 Using constructor property promotion</strong></p>
      <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -152,7 +152,7 @@
      desirable to allow an object to be constructed in different ways with different inputs.
      The recommended way to do so is by using static methods as constructor wrappers.
     </p>
-    <div class="example" id="example-212">
+    <div class="example" id="example-220">
      <p><strong>Example #4 Using static creation methods</strong></p>
      <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -164,10 +164,10 @@
     </div>
     <p class="para">
      The constructor may be made private or protected to prevent it from being called externally.
-     If so, only a static method will be able to instantiate the class.  Because they are in the
+     If so, only a static method will be able to instantiate the class. Because they are in the
      same class definition they have access to private methods, even if not of the same object
-     instance.  The private constructor is optional and may or may not make sense depending on
-     the use case..
+     instance. The private constructor is optional and may or may not make sense depending on
+     the use case.
     </p>
     <p class="para">
      The three public static methods then demonstrate different ways of instantiating the object.
@@ -195,12 +195,12 @@
     ) : <span class="type"><span class="type void">void</span></span></div>
 
    <p class="para">
-    PHP 5 introduces a destructor concept similar to that of other
+    PHP possesses a destructor concept similar to that of other
     object-oriented languages, such as C++. The destructor method will be
     called as soon as there are no other references to a particular object,
     or in any order during the shutdown sequence.
    </p>
-   <div class="example" id="example-213">
+   <div class="example" id="example-221">
     <p><strong>Example #5 Destructor Example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

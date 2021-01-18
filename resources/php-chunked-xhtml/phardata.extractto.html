@@ -33,11 +33,11 @@
  <div class="refsect1 description" id="refsect1-phardata.extractto-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>PharData::extractTo</strong></span>
+   <span class="modifier">public</span> <span class="methodname"><strong>PharData::extractTo</strong></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$pathto</code></span>
-   [, <span class="methodparam"><span class="type"><span class="type">string</span>|<span class="type">array</span>|<span class="type">null</span></span> <code class="parameter">$files</code><span class="initializer"> = <strong><code>NULL</code></strong></span></span>
-   [, <span class="methodparam"><span class="type">bool</span> <code class="parameter">$overwrite</code><span class="initializer"> = <strong><code>FALSE</code></strong></span></span>
-  ]] ) : <span class="type">bool</span></div>
+   , <span class="methodparam"><span class="type"><span class="type">string</span>|<span class="type">array</span>|<span class="type">null</span></span> <code class="parameter">$files</code><span class="initializer"> = <strong><code>null</code></strong></span></span>
+   , <span class="methodparam"><span class="type">bool</span> <code class="parameter">$overwrite</code><span class="initializer"> = <strong><code>false</code></strong></span></span>
+   ) : <span class="type">bool</span></div>
 
 
   <p class="para rdfs-comment">
@@ -89,7 +89,7 @@
      <dd>
 
       <p class="para">
-       Set to <strong><code>TRUE</code></strong> to enable overwriting existing files
+       Set to <strong><code>true</code></strong> to enable overwriting existing files
       </p>
      </dd>
 
@@ -103,7 +103,7 @@
  <div class="refsect1 returnvalues" id="refsect1-phardata.extractto-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   returns <strong><code>TRUE</code></strong> on success, but it is better to check for thrown exception,
+   returns <strong><code>true</code></strong> on success, but it is better to check for thrown exception,
    and assume success if none is thrown.
   </p>
  </div>
@@ -122,7 +122,7 @@
  <div class="refsect1 examples" id="refsect1-phardata.extractto-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-746">
+   <div class="example" id="example-758">
     <p><strong>Example #1 A <span class="function"><strong>PharData::extractTo()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

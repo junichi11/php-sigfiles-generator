@@ -37,9 +37,9 @@
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><strong>MongoCollection::find</strong></span>
-    ([ <span class="methodparam"><span class="type">array</span> <code class="parameter">$query</code><span class="initializer"> = array()</span></span>
-   [, <span class="methodparam"><span class="type">array</span> <code class="parameter">$fields</code><span class="initializer"> = array()</span></span>
-  ]] ) : <span class="type"><a href="class.mongocursor.html" class="type MongoCursor">MongoCursor</a></span></div>
+    ( <span class="methodparam"><span class="type">array</span> <code class="parameter">$query</code><span class="initializer"> = array()</span></span>
+   , <span class="methodparam"><span class="type">array</span> <code class="parameter">$fields</code><span class="initializer"> = array()</span></span>
+   ) : <span class="type"><a href="class.mongocursor.html" class="type MongoCursor">MongoCursor</a></span></div>
 
  </div>
 
@@ -106,7 +106,7 @@
 
  <div class="refsect1 examples" id="refsect1-mongocollection.find-examples">
   <h3 class="title">Examples</h3>
-   <div class="example" id="example-1407">
+   <div class="example" id="example-1419">
    <p><strong>Example #1 <span class="function"><strong>MongoCollection::find()</strong></span> example</strong></p>
    <div class="example-contents"><p>This example demonstrates basic search options.</p></div>
    <div class="example-contents">
@@ -181,7 +181,7 @@ array(4) {
      See <a href="class.mongocursor.html" class="classname">MongoCursor</a> for more information how to work with cursors.
    </p></div>
   </div>
-  <div class="example" id="example-1408">
+  <div class="example" id="example-1420">
    <p><strong>Example #2 <span class="function"><strong>MongoCollection::find()</strong></span> example</strong></p>
    <div class="example-contents"><p>This example demonstrates how to search for a range.</p></div>
    <div class="example-contents">
@@ -218,7 +218,7 @@ array(2) {
      See <a href="class.mongocursor.html" class="classname">MongoCursor</a> for more information how to work with cursors.
    </p></div>
   </div>
-  <div class="example" id="example-1409">
+  <div class="example" id="example-1421">
    <p><strong>Example #3 <span class="function"><strong>MongoCollection::find()</strong></span> example using $where</strong></p>
    <div class="example-contents"><p>This example demonstrates how to search a collection using javascript code to reduce the resultset.</p></div>
    <div class="example-contents">
@@ -245,7 +245,7 @@ array(3) {
 </pre></div>
    </div>
   </div>
-  <div class="example" id="example-1410">
+  <div class="example" id="example-1422">
    <p><strong>Example #4 <span class="function"><strong>MongoCollection::find()</strong></span> example using $in</strong></p>
    <div class="example-contents"><p>This example demonstrates how to search a collection using the $in operator.</p></div>
    <div class="example-contents">
@@ -273,7 +273,7 @@ array(3) {
    </div>
   </div>
 
-  <div class="example" id="example-1411">
+  <div class="example" id="example-1423">
    <p><strong>Example #5 Getting results as an array</strong></p>
    <div class="example-contents"><p>
     This returns a <a href="class.mongocursor.html" class="classname">MongoCursor</a>.  Often, when people are 
@@ -334,7 +334,7 @@ array(3) {
    <div class="example-contents"><p>
     Also, certain system collections do not have an <code class="literal">_id</code> 
     field.  If you are dealing with a collection that might have documents 
-    without <code class="literal">_id</code>s, pass <strong><code>FALSE</code></strong> as the second argument to
+    without <code class="literal">_id</code>s, pass <strong><code>false</code></strong> as the second argument to
     <span class="function"><a href="function.iterator-to-array.html" class="function">iterator_to_array()</a></span> (so that it will not try to use the
     non-existent <code class="literal">_id</code> values as keys).
    </p></div>

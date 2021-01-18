@@ -34,12 +34,12 @@
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>imap_open</strong></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$mailbox</code></span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$username</code></span>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$user</code></span>
    , <span class="methodparam"><span class="type">string</span> <code class="parameter">$password</code></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$options</code><span class="initializer"> = 0</span></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$n_retries</code><span class="initializer"> = 0</span></span>
-   [, <span class="methodparam"><span class="type">array</span> <code class="parameter">$params</code><span class="initializer"> = array()</span></span>
-  ]]] ) : <span class="type">resource</span></div>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code><span class="initializer"> = 0</span></span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$retries</code><span class="initializer"> = 0</span></span>
+   , <span class="methodparam"><span class="type">array</span> <code class="parameter">$options</code><span class="initializer"> = []</span></span>
+   ) : <span class="type"><span class="type">resource</span>|<span class="type"><span class="type false">false</span></span></span></div>
 
   <p class="para rdfs-comment">
    Opens an <acronym title="Internet Message Access Protocol">IMAP</acronym> stream to a <code class="parameter">mailbox</code>.
@@ -223,7 +223,7 @@ Passing untrusted data to this parameter is <em class="emphasis">insecure</em>, 
     
     
      <dt>
-<code class="parameter">username</code></dt>
+<code class="parameter">user</code></dt>
 
      <dd>
 
@@ -240,19 +240,19 @@ Passing untrusted data to this parameter is <em class="emphasis">insecure</em>, 
      <dd>
 
       <p class="para">
-       The password associated with the <code class="parameter">username</code>
+       The password associated with the <code class="parameter">user</code>
       </p>
      </dd>
 
     
     
      <dt>
-<code class="parameter">options</code></dt>
+<code class="parameter">flags</code></dt>
 
      <dd>
 
       <p class="para">
-       The <code class="parameter">options</code> are a bit mask with one or more of
+       The <code class="parameter">flags</code> are a bit mask with one or more of
        the following:
        <ul class="itemizedlist">
         <li class="listitem">
@@ -312,7 +312,7 @@ Passing untrusted data to this parameter is <em class="emphasis">insecure</em>, 
     
     
      <dt>
-<code class="parameter">n_retries</code></dt>
+<code class="parameter">retries</code></dt>
 
      <dd>
 
@@ -324,7 +324,7 @@ Passing untrusted data to this parameter is <em class="emphasis">insecure</em>, 
     
     
      <dt>
-<code class="parameter">params</code></dt>
+<code class="parameter">options</code></dt>
 
      <dd>
 
@@ -350,7 +350,7 @@ Passing untrusted data to this parameter is <em class="emphasis">insecure</em>, 
  <div class="refsect1 returnvalues" id="refsect1-function.imap-open-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns an IMAP stream on success or <strong><code>FALSE</code></strong> on error.
+   Returns an IMAP stream on success or <strong><code>false</code></strong> on error.
   </p>
  </div>
 
@@ -358,7 +358,7 @@ Passing untrusted data to this parameter is <em class="emphasis">insecure</em>, 
  <div class="refsect1 examples" id="refsect1-function.imap-open-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-3490">
+   <div class="example" id="example-3505">
     <p><strong>Example #1 Different use of <span class="function"><strong>imap_open()</strong></span></strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -368,7 +368,7 @@ Passing untrusted data to this parameter is <em class="emphasis">insecure</em>, 
     </div>
 
    </div>
-   <div class="example" id="example-3491">
+   <div class="example" id="example-3506">
     <p><strong>Example #2 <span class="function"><strong>imap_open()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

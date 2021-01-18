@@ -35,8 +35,8 @@
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>sprintf</strong></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$format</code></span>
-   , <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">...$values</code></span>
-   ) : <span class="type"><span class="type">string</span>|<span class="type"><span class="type false">false</span></span></span></div>
+   , <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">...$values</code></span>
+   ) : <span class="type">string</span></div>
 
   <p class="para rdfs-comment">
    Returns a string produced according to the formatting string
@@ -296,6 +296,22 @@
       </tr>
 
       <tr>
+       <td><code class="literal">h</code></td>
+       <td>
+        Like the <code class="literal">g</code> specifier but uses <code class="literal">F</code>.
+        Available as of PHP 8.0.0.
+       </td>
+      </tr>
+
+      <tr>
+       <td><code class="literal">H</code></td>
+       <td>
+        Like the <code class="literal">g</code> specifier but uses
+        <code class="literal">E</code> and <code class="literal">F</code>. Available as of PHP 8.0.0.
+       </td>
+      </tr>
+
+      <tr>
        <td><code class="literal">o</code></td>
        <td>
         The argument is treated as an integer and presented
@@ -426,14 +442,41 @@
   <h3 class="title">Return Values</h3>
   <p class="para">
    Returns a string produced according to the formatting string
-   <code class="parameter">format</code>,  or <strong><code>FALSE</code></strong> on failure.
+   <code class="parameter">format</code>.
   </p>
+ </div>
+
+
+ <div class="refsect1 changelog" id="refsect1-function.sprintf-changelog">
+  <h3 class="title">Changelog</h3>
+  <table class="doctable informaltable">
+   
+    <thead>
+     <tr>
+      <th>Version</th>
+      <th>Description</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+      <td>8.0.0</td>
+      <td>
+       This function no longer returns <strong><code>false</code></strong> on failure.
+      </td>
+     </tr>
+
+    </tbody>
+   
+  </table>
+
  </div>
 
 
  <div class="refsect1 examples" id="refsect1-function.sprintf-examples">
   <h3 class="title">Examples</h3>
-  <div class="example" id="example-5313">
+  <div class="example" id="example-5334">
    <p><strong>Example #1 Argument swapping</strong></p>
    <div class="example-contents"><p>
     The format string supports argument numbering/swapping.
@@ -495,7 +538,7 @@ There are 5 monkeys in the tree
    </p></div>
   </div>
 
-  <div class="example" id="example-5314">
+  <div class="example" id="example-5335">
    <p><strong>Example #2 Specifying padding character</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -512,7 +555,7 @@ There are 5 monkeys in the tree
 </pre></div>
    </div>
   </div>
-  <div class="example" id="example-5315">
+  <div class="example" id="example-5336">
    <p><strong>Example #3 Position specifier with other specifiers</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -528,7 +571,7 @@ The tree contains 0005 monkeys
 </pre></div>
    </div>
   </div>
-  <div class="example" id="example-5316">
+  <div class="example" id="example-5337">
    <p><strong>Example #4 <span class="function"><strong>sprintf()</strong></span>: zero-padded integers</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -538,7 +581,7 @@ The tree contains 0005 monkeys
    </div>
 
   </div>
-  <div class="example" id="example-5317">
+  <div class="example" id="example-5338">
    <p><strong>Example #5 <span class="function"><strong>sprintf()</strong></span>: formatting currency</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -555,7 +598,7 @@ The tree contains 0005 monkeys
 </pre></div>
    </div>
   </div>
-  <div class="example" id="example-5318">
+  <div class="example" id="example-5339">
    <p><strong>Example #6 <span class="function"><strong>sprintf()</strong></span>: scientific notation</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

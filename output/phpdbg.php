@@ -75,21 +75,21 @@ namespace {
 	 * 
 	 * <p></p><p>This function is currently not documented; only its argument list is available.</p>
 	 * @param array $options
-	 * @return array
+	 * @return array|null
 	 * @link https://php.net/manual/en/function.phpdbg-end-oplog.php
 	 * @since PHP 7
 	 */
-	function phpdbg_end_oplog(array $options = NULL): array {}
+	function phpdbg_end_oplog(array $options = []): array|null {}
 
 	/**
 	 * Attempts to set the execution context
 	 * <p></p><p>This function is currently not documented; only its argument list is available.</p>
 	 * @param string $context
-	 * @return mixed <p>If the execution context was set previously it is returned. If the execution context was not set previously <b><code>TRUE</code></b> is returned. If the request to set the context fails, <b><code>FALSE</code></b> is returned, and an <b><code>E_WARNING</code></b> raised.</p>
+	 * @return string|bool <p>If the execution context was set previously it is returned. If the execution context was not set previously <b><code>true</code></b> is returned. If the request to set the context fails, <b><code>false</code></b> is returned, and an <b><code>E_WARNING</code></b> raised.</p>
 	 * @link https://php.net/manual/en/function.phpdbg-exec.php
 	 * @since PHP 5 >= 5.6.0, PHP 7
 	 */
-	function phpdbg_exec(string $context = NULL): mixed {}
+	function phpdbg_exec(string $context): string|bool {}
 
 	/**
 	 * 
@@ -99,7 +99,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.phpdbg-get-executable.php
 	 * @since PHP 7
 	 */
-	function phpdbg_get_executable(array $options = NULL): array {}
+	function phpdbg_get_executable(array $options = []): array {}
 
 	/**
 	 * Sets the command prompt

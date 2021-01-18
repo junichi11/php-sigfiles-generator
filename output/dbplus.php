@@ -26,7 +26,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.dbplus-aql.php
 	 * @since PHP 4 <= 4.3.0, PECL dbplus >= 0.9
 	 */
-	function dbplus_aql(string $query, string $server = NULL, string $dbpath = NULL) {}
+	function dbplus_aql(string $query, string $server = null, string $dbpath = null) {}
 
 	/**
 	 * Get/Set database virtual current directory
@@ -36,13 +36,13 @@ namespace {
 	 * @link https://php.net/manual/en/function.dbplus-chdir.php
 	 * @since PHP 4 <= 4.3.0, PECL dbplus >= 0.9
 	 */
-	function dbplus_chdir(string $newdir = NULL): string {}
+	function dbplus_chdir(string $newdir = null): string {}
 
 	/**
 	 * Close a relation
 	 * <p>Closes a relation previously opened by <code>dbplus_open()</code>.</p>
 	 * @param resource $relation <p>A relation opened by <code>dbplus_open()</code>.</p>
-	 * @return mixed <p>Returns <b><code>TRUE</code></b> on success or <b><code>DBPLUS_ERR_UNKNOWN</code></b> on failure.</p>
+	 * @return mixed <p>Returns <b><code>true</code></b> on success or <b><code>DBPLUS_ERR_UNKNOWN</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.dbplus-close.php
 	 * @since PHP 4 <= 4.3.0, PECL dbplus >= 0.9
 	 */
@@ -68,7 +68,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.dbplus-errcode.php
 	 * @since PHP 4 <= 4.3.0, PECL dbplus >= 0.9
 	 */
-	function dbplus_errcode(int $errno = NULL): string {}
+	function dbplus_errcode(int $errno = null): string {}
 
 	/**
 	 * Get error code for last operation
@@ -263,37 +263,37 @@ namespace {
 	 * @link https://php.net/manual/en/function.dbplus-rcreate.php
 	 * @since PHP 4 <= 4.3.0, PECL dbplus >= 0.9
 	 */
-	function dbplus_rcreate(string $name, mixed $domlist, bool $overwrite = NULL) {}
+	function dbplus_rcreate(string $name, mixed $domlist, bool $overwrite = null) {}
 
 	/**
 	 * Creates an exact but empty copy of a relation including indices
 	 * <p><b>dbplus_rcrtexact()</b> will create an exact but empty copy of the given <code>relation</code> under a new <code>name</code>.</p>
 	 * @param string $name
 	 * @param resource $relation <p>The copied relation, opened by <code>dbplus_open()</code>.</p>
-	 * @param bool $overwrite <p>An existing relation by the same <code>name</code> will only be overwritten if this parameter is set to <b><code>TRUE</code></b> and no other process is currently using the relation.</p>
+	 * @param bool $overwrite <p>An existing relation by the same <code>name</code> will only be overwritten if this parameter is set to <b><code>true</code></b> and no other process is currently using the relation.</p>
 	 * @return mixed <p>Returns resource on success or <b><code>DBPLUS_ERR_UNKNOWN</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.dbplus-rcrtexact.php
 	 * @since PHP 4 <= 4.3.0, PECL dbplus >= 0.9
 	 */
-	function dbplus_rcrtexact(string $name, $relation, bool $overwrite = NULL): mixed {}
+	function dbplus_rcrtexact(string $name, $relation, bool $overwrite = null): mixed {}
 
 	/**
 	 * Creates an empty copy of a relation with default indices
 	 * <p><code>dbplus_rcrtexact()</code> will create an empty copy of the given <code>relation</code> under a new <code>name</code>, but with default indices.</p>
 	 * @param string $name
 	 * @param resource $relation <p>The copied relation, opened by <code>dbplus_open()</code>.</p>
-	 * @param int $overwrite <p>An existing relation by the same <code>name</code> will only be overwritten if this parameter is set to <b><code>TRUE</code></b> and no other process is currently using the relation.</p>
+	 * @param int $overwrite <p>An existing relation by the same <code>name</code> will only be overwritten if this parameter is set to <b><code>true</code></b> and no other process is currently using the relation.</p>
 	 * @return mixed <p>Returns resource on success or <b><code>DBPLUS_ERR_UNKNOWN</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.dbplus-rcrtlike.php
 	 * @since PHP 4 <= 4.3.0, PECL dbplus >= 0.9
 	 */
-	function dbplus_rcrtlike(string $name, $relation, int $overwrite = NULL): mixed {}
+	function dbplus_rcrtlike(string $name, $relation, int $overwrite = null): mixed {}
 
 	/**
 	 * Resolve host information for relation
 	 * <p><b>dbplus_resolve()</b> will try to resolve the given <code>relation_name</code> and find out internal server id, real hostname and the database path on this host.</p>
 	 * @param string $relation_name <p>The relation name.</p>
-	 * @return array <p>Returns an array containing these values under the keys <code>sid</code>, <code>host</code> and <code>host_path</code> or <b><code>FALSE</code></b> on error.</p>
+	 * @return array <p>Returns an array containing these values under the keys <code>sid</code>, <code>host</code> and <code>host_path</code> or <b><code>false</code></b> on error.</p>
 	 * @link https://php.net/manual/en/function.dbplus-resolve.php
 	 * @see dbplus_tcl()
 	 * @since PHP 4 <= 4.3.0, PECL dbplus >= 0.9
@@ -341,7 +341,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.dbplus-rquery.php
 	 * @since PHP 4 <= 4.3.0, PECL dbplus >= 0.9
 	 */
-	function dbplus_rquery(string $query, string $dbpath = NULL) {}
+	function dbplus_rquery(string $query, string $dbpath = null) {}
 
 	/**
 	 * Rename a relation
@@ -428,7 +428,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.dbplus-sql.php
 	 * @since PHP 4 <= 4.3.0, PECL dbplus >= 0.9
 	 */
-	function dbplus_sql(string $query, string $server = NULL, string $dbpath = NULL) {}
+	function dbplus_sql(string $query, string $server = null, string $dbpath = null) {}
 
 	/**
 	 * Execute TCL code on server side
@@ -452,7 +452,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.dbplus-tremove.php
 	 * @since PHP 4 <= 4.3.0, PECL dbplus >= 0.9
 	 */
-	function dbplus_tremove($relation, array $tuple, array &$current = NULL): int {}
+	function dbplus_tremove($relation, array $tuple, array &$current = null): int {}
 
 	/**
 	 * Undo

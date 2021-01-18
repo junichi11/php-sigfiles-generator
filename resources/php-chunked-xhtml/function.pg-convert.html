@@ -39,8 +39,8 @@
     ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$connection</code></span>
    , <span class="methodparam"><span class="type">string</span> <code class="parameter">$table_name</code></span>
    , <span class="methodparam"><span class="type">array</span> <code class="parameter">$assoc_array</code></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$options</code><span class="initializer"> = 0</span></span>
-  ] ) : <span class="type">array</span></div>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$options</code><span class="initializer"> = 0</span></span>
+   ) : <span class="type">array</span></div>
 
   <p class="para rdfs-comment">
    <span class="function"><strong>pg_convert()</strong></span> checks and converts the values in
@@ -50,18 +50,18 @@
    as many columns as <code class="parameter">assoc_array</code> has elements. The
    fieldnames in <code class="parameter">table_name</code> must match the indices in
    <code class="parameter">assoc_array</code> and the corresponding datatypes must be
-   compatible. Returns an array with the converted values on success, <strong><code>FALSE</code></strong>
+   compatible. Returns an array with the converted values on success, <strong><code>false</code></strong>
    otherwise.
   </p>
   <blockquote class="note"><p><strong class="note">Note</strong>: 
    <p class="para">
     Since PHP 5.6.0, it accepts boolean values, converting them to PostgreSQL
-    booleans. String representations of boolean values are also supported. <strong><code>NULL</code></strong> is
+    booleans. String representations of boolean values are also supported. <strong><code>null</code></strong> is
     converted to PostgreSQL NULL.
    </p>
    <p class="para">
     Prior to PHP 5.6.0, if there are boolean fields in <code class="parameter">table_name</code> 
-    don&#039;t use the constant <strong><code>TRUE</code></strong> in <code class="parameter">assoc_array</code>. It will be
+    don&#039;t use the constant <strong><code>true</code></strong> in <code class="parameter">assoc_array</code>. It will be
     converted to the string &#039;TRUE&#039; which is not a valid entry for boolean fields
     in PostgreSQL. Use one of &quot;t&quot;, &quot;true&quot;, 1, &quot;y&quot;, &quot;yes&quot; instead.
    </p>
@@ -133,7 +133,7 @@
  <div class="refsect1 returnvalues" id="refsect1-function.pg-convert-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   An <span class="type">array</span> of converted values, or <strong><code>FALSE</code></strong> on error.
+   An <span class="type">array</span> of converted values, or <strong><code>false</code></strong> on error.
   </p>
  </div>
 
@@ -141,7 +141,7 @@
  <div class="refsect1 examples" id="refsect1-function.pg-convert-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-2315">
+   <div class="example" id="example-2328">
     <p><strong>Example #1 <span class="function"><strong>pg_convert()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

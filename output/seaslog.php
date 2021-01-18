@@ -29,7 +29,7 @@ namespace {
 		 * @link https://php.net/manual/en/seaslog.alert.php
 		 * @since PECL seaslog >=1.0.0
 		 */
-		public static function alert(string $message, array $content = NULL, string $logger = NULL): bool {}
+		public static function alert(string $message, array $content = null, string $logger = null): bool {}
 
 		/**
 		 * Get log count by level, log_path and key_word
@@ -41,7 +41,7 @@ namespace {
 		 * @link https://php.net/manual/en/seaslog.analyzercount.php
 		 * @since PECL seaslog >=1.1.6
 		 */
-		public static function analyzerCount(string $level, string $log_path = NULL, string $key_word = NULL): mixed {}
+		public static function analyzerCount(string $level, string $log_path = null, string $key_word = null): mixed {}
 
 		/**
 		 * Get log detail by level, log_path, key_word, start, limit, order
@@ -56,7 +56,7 @@ namespace {
 		 * @link https://php.net/manual/en/seaslog.analyzerdetail.php
 		 * @since PECL seaslog >=1.1.6
 		 */
-		public static function analyzerDetail(string $level, string $log_path = NULL, string $key_word = NULL, int $start = NULL, int $limit = NULL, int $order = NULL): mixed {}
+		public static function analyzerDetail(string $level, string $log_path = null, string $key_word = null, int $start = null, int $limit = null, int $order = null): mixed {}
 
 		/**
 		 * Manually release stream flow from logger
@@ -79,7 +79,7 @@ namespace {
 		 * @link https://php.net/manual/en/seaslog.critical.php
 		 * @since PECL seaslog >=1.0.0
 		 */
-		public static function critical(string $message, array $content = NULL, string $logger = NULL): bool {}
+		public static function critical(string $message, array $content = null, string $logger = null): bool {}
 
 		/**
 		 * Record debug log information
@@ -91,7 +91,7 @@ namespace {
 		 * @link https://php.net/manual/en/seaslog.debug.php
 		 * @since PECL seaslog >=1.0.0
 		 */
-		public static function debug(string $message, array $content = NULL, string $logger = NULL): bool {}
+		public static function debug(string $message, array $content = null, string $logger = null): bool {}
 
 		/**
 		 * Record emergency log information
@@ -103,7 +103,7 @@ namespace {
 		 * @link https://php.net/manual/en/seaslog.emergency.php
 		 * @since PECL seaslog >=1.0.0
 		 */
-		public static function emergency(string $message, array $content = NULL, string $logger = NULL): bool {}
+		public static function emergency(string $message, array $content = null, string $logger = null): bool {}
 
 		/**
 		 * Record error log information
@@ -115,7 +115,7 @@ namespace {
 		 * @link https://php.net/manual/en/seaslog.error.php
 		 * @since PECL seaslog >=1.0.0
 		 */
-		public static function error(string $message, array $content = NULL, string $logger = NULL): bool {}
+		public static function error(string $message, array $content = null, string $logger = null): bool {}
 
 		/**
 		 * Flush logs buffer, dump to appender file, or send to remote api with tcp/udp
@@ -199,7 +199,7 @@ namespace {
 		 * @link https://php.net/manual/en/seaslog.info.php
 		 * @since PECL seaslog >=1.0.0
 		 */
-		public static function info(string $message, array $content = NULL, string $logger = NULL): bool {}
+		public static function info(string $message, array $content = null, string $logger = null): bool {}
 
 		/**
 		 * The Common Record Log Function
@@ -212,7 +212,7 @@ namespace {
 		 * @link https://php.net/manual/en/seaslog.log.php
 		 * @since PECL seaslog >=1.0.0
 		 */
-		public static function log(string $level, string $message = NULL, array $content = NULL, string $logger = NULL): bool {}
+		public static function log(string $level, string $message = null, array $content = null, string $logger = null): bool {}
 
 		/**
 		 * Record notice log information
@@ -224,7 +224,7 @@ namespace {
 		 * @link https://php.net/manual/en/seaslog.notice.php
 		 * @since PECL seaslog >=1.0.0
 		 */
-		public static function notice(string $message, array $content = NULL, string $logger = NULL): bool {}
+		public static function notice(string $message, array $content = null, string $logger = null): bool {}
 
 		/**
 		 * Set SeasLog base path
@@ -287,7 +287,7 @@ namespace {
 		 * @link https://php.net/manual/en/seaslog.warning.php
 		 * @since PECL seaslog >=1.0.0
 		 */
-		public static function warning(string $message, array $content = NULL, string $logger = NULL): bool {}
+		public static function warning(string $message, array $content = null, string $logger = null): bool {}
 	}
 
 	/**

@@ -31,13 +31,13 @@
  </div>
  <div class="refsect1 description" id="refsect1-tidy.construct-description">
   <h3 class="title">Description</h3>
-  <div class="methodsynopsis dc-description">
+  <div class="constructorsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><strong>tidy::__construct</strong></span>
-    ([ <span class="methodparam"><span class="type">string</span> <code class="parameter">$filename</code></span>
-   [, <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">$config</code></span>
-   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$encoding</code></span>
-   [, <span class="methodparam"><span class="type">bool</span> <code class="parameter">$use_include_path</code></span>
-  ]]]] )</div>
+    ( <span class="methodparam"><span class="type"><span class="type">string</span>|<span class="type">null</span></span> <code class="parameter">$filename</code><span class="initializer"> = <strong><code>null</code></strong></span></span>
+   , <span class="methodparam"><span class="type"><span class="type">array</span>|<span class="type">string</span>|<span class="type">null</span></span> <code class="parameter">$config</code><span class="initializer"> = <strong><code>null</code></strong></span></span>
+   , <span class="methodparam"><span class="type"><span class="type">string</span>|<span class="type">null</span></span> <code class="parameter">$encoding</code><span class="initializer"> = <strong><code>null</code></strong></span></span>
+   , <span class="methodparam"><span class="type">bool</span> <code class="parameter">$useIncludePath</code><span class="initializer"> = <strong><code>false</code></strong></span></span>
+   )</div>
 
   <p class="para rdfs-comment">
    Constructs a new <a href="class.tidy.html" class="classname">tidy</a> object.
@@ -102,7 +102,7 @@
     
     
      <dt>
-<code class="parameter">use_include_path</code></dt>
+<code class="parameter">useIncludePath</code></dt>
 
      <dd>
 
@@ -126,10 +126,38 @@
  </div>
 
 
+ <div class="refsect1 changelog" id="refsect1-tidy.construct-changelog">
+  <h3 class="title">Changelog</h3>
+  <table class="doctable informaltable">
+   
+    <thead>
+     <tr>
+      <th>Version</th>
+      <th>Description</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+      <td>8.0.0</td>
+      <td>
+       <code class="parameter">filename</code>, <code class="parameter">config</code>,
+       <code class="parameter">encoding</code> and <code class="parameter">useIncludePath</code> are nullable now.
+      </td>
+     </tr>
+
+    </tbody>
+   
+  </table>
+
+ </div>
+
+
  <div class="refsect1 examples" id="refsect1-tidy.construct-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-4296">
+   <div class="example" id="example-4311">
     <p><strong>Example #1 <span class="function"><strong>tidy::__construct()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

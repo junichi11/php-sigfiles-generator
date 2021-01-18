@@ -34,11 +34,11 @@
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><strong>MongoCollection::group</strong></span>
-    ( <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">$keys</code></span>
+    ( <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$keys</code></span>
    , <span class="methodparam"><span class="type">array</span> <code class="parameter">$initial</code></span>
    , <span class="methodparam"><span class="type"><a href="class.mongocode.html" class="type MongoCode">MongoCode</a></span> <code class="parameter">$reduce</code></span>
-   [, <span class="methodparam"><span class="type">array</span> <code class="parameter">$options</code><span class="initializer"> = array()</span></span>
-  ] ) : <span class="type">array</span></div>
+   , <span class="methodparam"><span class="type">array</span> <code class="parameter">$options</code><span class="initializer"> = array()</span></span>
+   ) : <span class="type">array</span></div>
 
  </div>
 
@@ -182,7 +182,7 @@
 
  <div class="refsect1 examples" id="refsect1-mongocollection.group-examples">
   <h3 class="title">Examples</h3>
-  <div class="example" id="example-1421">
+  <div class="example" id="example-1433">
    <p><strong>Example #1 <span class="function"><strong>MongoCollection::group()</strong></span> example</strong></p>
    <div class="example-contents"><p>
     This groups documents by category and creates a list of names within that
@@ -204,7 +204,7 @@ something similar to:</p></div>
    </div>
   </div>
 
-  <div class="example" id="example-1422">
+  <div class="example" id="example-1434">
    <p><strong>Example #2 <span class="function"><strong>MongoCollection::group()</strong></span> example</strong></p>
    <div class="example-contents"><p>
     This example doesn&#039;t use any key, so every document will be its own group.
@@ -242,7 +242,7 @@ array(4) {
    </div>
   </div>
 
-  <div class="example" id="example-1423">
+  <div class="example" id="example-1435">
    <p><strong>Example #3 Passing a <code class="parameter">keys</code> function</strong></p>
    <div class="example-contents"><p>
     If you want to group by something other than a field name, you can pass

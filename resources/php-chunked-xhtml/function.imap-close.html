@@ -33,9 +33,9 @@
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>imap_close</strong></span>
-    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$imap_stream</code></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$flag</code><span class="initializer"> = 0</span></span>
-  ] ) : <span class="type">bool</span></div>
+    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$imap</code></span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code><span class="initializer"> = 0</span></span>
+   ) : <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
    Closes the imap stream.
@@ -49,14 +49,14 @@
 
     <dt>
 <code class="parameter">
-imap_stream</code></dt>
+imap</code></dt>
 <dd>
 <p class="para">An IMAP stream returned by
 <span class="function"><a href="function.imap-open.html" class="function">imap_open()</a></span>.</p></dd>
 
     
      <dt>
-<code class="parameter">flag</code></dt>
+<code class="parameter">flags</code></dt>
 
      <dd>
 
@@ -77,7 +77,7 @@ imap_stream</code></dt>
  <div class="refsect1 returnvalues" id="refsect1-function.imap-close-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns <strong><code>TRUE</code></strong> on success or <strong><code>FALSE</code></strong> on failure.
+   Returns <strong><code>true</code></strong> on success or <strong><code>false</code></strong> on failure.
   </p>
  </div>
 

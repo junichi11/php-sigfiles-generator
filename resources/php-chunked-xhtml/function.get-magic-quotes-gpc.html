@@ -44,15 +44,7 @@ is highly discouraged.</p></div>
    ) : <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
-   Returns the current configuration setting of <a href="info.configuration.html#ini.magic-quotes-gpc" class="link">magic_quotes_gpc</a> 
-  </p>
-  <p class="para">
-   Keep in mind that attempting to set <a href="info.configuration.html#ini.magic-quotes-gpc" class="link">
-   magic_quotes_gpc</a> at runtime will not work.
-  </p>
-  <p class="para">
-   For more information about magic_quotes, see this
-   <a href="security.magicquotes.html" class="link">security section</a>.
+   Always returns <strong><code>false</code></strong>.
   </p>
  </div>
 
@@ -60,8 +52,7 @@ is highly discouraged.</p></div>
  <div class="refsect1 returnvalues" id="refsect1-function.get-magic-quotes-gpc-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns 0 if magic_quotes_gpc is off, 1 otherwise. 
-   Or always returns <strong><code>FALSE</code></strong> as of PHP 5.4.0. 
+   Always returns <strong><code>false</code></strong>.
   </p>
  </div>
 
@@ -91,23 +82,6 @@ is highly discouraged.</p></div>
     
    </table>
 
-  </p>
- </div>
-
-
- <div class="refsect1 examples" id="refsect1-function.get-magic-quotes-gpc-examples">
-  <h3 class="title">Examples</h3>
-  <p class="para">
-   <div class="example" id="example-521">
-    <p><strong>Example #1 <span class="function"><strong>get_magic_quotes_gpc()</strong></span> example</strong></p>
-    <div class="example-contents">
-<div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;If&nbsp;magic&nbsp;quotes&nbsp;are&nbsp;enabled<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #0000BB">$_POST</span><span style="color: #007700">[</span><span style="color: #DD0000">'lastname'</span><span style="color: #007700">];&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;O\'reilly<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #0000BB">addslashes</span><span style="color: #007700">(</span><span style="color: #0000BB">$_POST</span><span style="color: #007700">[</span><span style="color: #DD0000">'lastname'</span><span style="color: #007700">]);&nbsp;</span><span style="color: #FF8000">//&nbsp;O\\\'reilly<br /><br />//&nbsp;Usage&nbsp;across&nbsp;all&nbsp;PHP&nbsp;versions<br /></span><span style="color: #007700">if&nbsp;(</span><span style="color: #0000BB">get_magic_quotes_gpc</span><span style="color: #007700">())&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$lastname&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">stripslashes</span><span style="color: #007700">(</span><span style="color: #0000BB">$_POST</span><span style="color: #007700">[</span><span style="color: #DD0000">'lastname'</span><span style="color: #007700">]);<br />}<br />else&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$lastname&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$_POST</span><span style="color: #007700">[</span><span style="color: #DD0000">'lastname'</span><span style="color: #007700">];<br />}<br /><br /></span><span style="color: #FF8000">//&nbsp;If&nbsp;using&nbsp;MySQL<br /></span><span style="color: #0000BB">$lastname&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">mysql_real_escape_string</span><span style="color: #007700">(</span><span style="color: #0000BB">$lastname</span><span style="color: #007700">);<br /><br />echo&nbsp;</span><span style="color: #0000BB">$lastname</span><span style="color: #007700">;&nbsp;</span><span style="color: #FF8000">//&nbsp;O\'reilly<br /></span><span style="color: #0000BB">$sql&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">"INSERT&nbsp;INTO&nbsp;lastnames&nbsp;(lastname)&nbsp;VALUES&nbsp;('</span><span style="color: #0000BB">$lastname</span><span style="color: #DD0000">')"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">?&gt;</span>
-</span>
-</code></div>
-    </div>
-
-   </div>
   </p>
  </div>
 

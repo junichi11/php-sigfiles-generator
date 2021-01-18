@@ -34,11 +34,11 @@
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>gmp_perfect_power</strong></span>
-    ( <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">$a</code></span>
+    ( <span class="methodparam"><span class="type"><span class="type"><a href="class.gmp.html" class="type GMP">GMP</a></span>|<span class="type">int</span>|<span class="type">string</span></span> <code class="parameter">$num</code></span>
    ) : <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
-   Checks whether <code class="parameter">a</code> is a perfect power.
+   Checks whether <code class="parameter">num</code> is a perfect power.
   </p>
  </div>
 
@@ -49,11 +49,11 @@
 
    
     <dt>
-<code class="parameter">a</code></dt>
+<code class="parameter">num</code></dt>
 
     <dd>
 
-     <p class="para">Either a GMP number <span class="type">resource</span> in PHP 5.5 and earlier, a <a href="class.gmp.html" class="classname">GMP</a> object in PHP 5.6 and later, or a numeric string provided that it is possible to convert the latter to a number.</p>
+     <p class="para">A <a href="class.gmp.html" class="classname">GMP</a> object, an <span class="type">int</span> or a numeric <span class="type">string</span>.</p>
     </dd>
 
    
@@ -65,7 +65,7 @@
  <div class="refsect1 returnvalues" id="refsect1-function.gmp-perfect-power-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns <strong><code>TRUE</code></strong> if <code class="parameter">a</code> is a perfect power, <strong><code>FALSE</code></strong> otherwise.
+   Returns <strong><code>true</code></strong> if <code class="parameter">num</code> is a perfect power, <strong><code>false</code></strong> otherwise.
   </p>
  </div>
 

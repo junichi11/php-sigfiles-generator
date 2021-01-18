@@ -22,12 +22,12 @@ namespace {
 		 * @link https://php.net/manual/en/stomp.construct.php
 		 * @since PECL stomp >= 0.1.0
 		 */
-		public function __construct(string $broker = 'ini_get("stomp.default_broker_uri")', string $username = NULL, string $password = NULL, array $headers = NULL) {}
+		public function __construct(string $broker = 'ini_get("stomp.default_broker_uri")', string $username = null, string $password = null, array $headers = null) {}
 
 		/**
 		 * Closes stomp connection
 		 * <p>Closes a previously opened connection.</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/stomp.destruct.php
 		 * @since PECL stomp >= 0.1.0
 		 */
@@ -38,49 +38,49 @@ namespace {
 		 * <p>Rolls back a transaction in progress.</p>
 		 * @param string $transaction_id <p>The transaction to abort.</p>
 		 * @param array $headers <p>Associative array containing the additional headers (example: receipt).</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/stomp.abort.php
 		 * @since PECL stomp >= 0.1.0
 		 */
-		public function abort(string $transaction_id, array $headers = NULL): bool {}
+		public function abort(string $transaction_id, array $headers = null): bool {}
 
 		/**
 		 * Acknowledges consumption of a message
 		 * <p>Acknowledges consumption of a message from a subscription using client acknowledgment.</p>
 		 * @param mixed $msg <p>The message/messageId to be acknowledged.</p>
 		 * @param array $headers <p>Associative array containing the additional headers (example: receipt).</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/stomp.ack.php
 		 * @since PECL stomp >= 0.1.0
 		 */
-		public function ack(mixed $msg, array $headers = NULL): bool {}
+		public function ack(mixed $msg, array $headers = null): bool {}
 
 		/**
 		 * Starts a transaction
 		 * <p>Starts a transaction.</p>
 		 * @param string $transaction_id <p>The transaction id.</p>
 		 * @param array $headers <p>Associative array containing the additional headers (example: receipt).</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/stomp.begin.php
 		 * @since PECL stomp >= 0.1.0
 		 */
-		public function begin(string $transaction_id, array $headers = NULL): bool {}
+		public function begin(string $transaction_id, array $headers = null): bool {}
 
 		/**
 		 * Commits a transaction in progress
 		 * <p>Commits a transaction in progress.</p>
 		 * @param string $transaction_id <p>The transaction id.</p>
 		 * @param array $headers <p>Associative array containing the additional headers (example: receipt).</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/stomp.commit.php
 		 * @since PECL stomp >= 0.1.0
 		 */
-		public function commit(string $transaction_id, array $headers = NULL): bool {}
+		public function commit(string $transaction_id, array $headers = null): bool {}
 
 		/**
 		 * Gets the last stomp error
 		 * <p>Gets the last stomp error.</p>
-		 * @return string <p>Returns an error string or <b><code>FALSE</code></b> if no error occurred.</p>
+		 * @return string <p>Returns an error string or <b><code>false</code></b> if no error occurred.</p>
 		 * @link https://php.net/manual/en/stomp.error.php
 		 * @since PECL stomp >= 0.1.0
 		 */
@@ -98,7 +98,7 @@ namespace {
 		/**
 		 * Gets the current stomp session ID
 		 * <p>Gets the current stomp session ID.</p>
-		 * @return string|false <p><code>string</code> session id on success or <b><code>FALSE</code></b> on failure.</p>
+		 * @return string|false <p><code>string</code> session id on success or <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/stomp.getsessionid.php
 		 * @since PECL stomp >= 0.1.0
 		 */
@@ -107,7 +107,7 @@ namespace {
 		/**
 		 * Indicates whether or not there is a frame ready to read
 		 * <p>Indicates whether or not there is a frame ready to read.</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b> if a frame is ready to read, or <b><code>FALSE</code></b> otherwise.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> if a frame is ready to read, or <b><code>false</code></b> otherwise.</p>
 		 * @link https://php.net/manual/en/stomp.hasframe.php
 		 * @since PECL stomp >= 0.1.0
 		 */
@@ -129,11 +129,11 @@ namespace {
 		 * @param string $destination <p>Where to send the message</p>
 		 * @param mixed $msg <p>Message to send.</p>
 		 * @param array $headers <p>Associative array containing the additional headers (example: receipt).</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/stomp.send.php
 		 * @since PECL stomp >= 0.1.0
 		 */
-		public function send(string $destination, mixed $msg, array $headers = NULL): bool {}
+		public function send(string $destination, mixed $msg, array $headers = null): bool {}
 
 		/**
 		 * Sets read timeout
@@ -144,29 +144,29 @@ namespace {
 		 * @link https://php.net/manual/en/stomp.setreadtimeout.php
 		 * @since PECL stomp >= 0.3.0
 		 */
-		public function setReadTimeout(int $seconds, int $microseconds = NULL): void {}
+		public function setReadTimeout(int $seconds, int $microseconds = null): void {}
 
 		/**
 		 * Registers to listen to a given destination
 		 * <p>Registers to listen to a given destination.</p>
 		 * @param string $destination <p>Destination to subscribe to.</p>
 		 * @param array $headers <p>Associative array containing the additional headers (example: receipt).</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/stomp.subscribe.php
 		 * @since PECL stomp >= 0.1.0
 		 */
-		public function subscribe(string $destination, array $headers = NULL): bool {}
+		public function subscribe(string $destination, array $headers = null): bool {}
 
 		/**
 		 * Removes an existing subscription
 		 * <p>Removes an existing subscription.</p>
 		 * @param string $destination <p>Subscription to remove.</p>
 		 * @param array $headers <p>Associative array containing the additional headers (example: receipt).</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/stomp.unsubscribe.php
 		 * @since PECL stomp >= 0.1.0
 		 */
-		public function unsubscribe(string $destination, array $headers = NULL): bool {}
+		public function unsubscribe(string $destination, array $headers = null): bool {}
 	}
 
 	/**
@@ -242,7 +242,7 @@ namespace {
 		/**
 		 * Returns previous Exception
 		 * <p>Returns previous exception (the third parameter of <code>Exception::__construct()</code>).</p>
-		 * @return Throwable <p>Returns the previous Throwable if available or <b><code>NULL</code></b> otherwise.</p>
+		 * @return Throwable <p>Returns the previous Throwable if available or <b><code>null</code></b> otherwise.</p>
 		 * @link https://php.net/manual/en/exception.getprevious.php
 		 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8
 		 */
@@ -302,7 +302,7 @@ namespace {
 		 * @link https://php.net/manual/en/stompframe.construct.php
 		 * @since PECL stomp >= 0.1.0
 		 */
-		public function __construct(string $command = NULL, array $headers = NULL, string $body = NULL) {}
+		public function __construct(string $command = null, array $headers = null, string $body = null) {}
 	}
 
 	/**
@@ -311,11 +311,11 @@ namespace {
 	 * @param resource $link <p>The stomp link identifier returned by <code>stomp_connect()</code>.</p>
 	 * @param string $transaction_id <p>The transaction to abort.</p>
 	 * @param array $headers <p>Associative array containing the additional headers (example: receipt).</p>
-	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/stomp.abort.php
 	 * @since PECL stomp >= 0.1.0
 	 */
-	function stomp_abort($link, string $transaction_id, array $headers = NULL): bool {}
+	function stomp_abort($link, string $transaction_id, array $headers = null): bool {}
 
 	/**
 	 * Acknowledges consumption of a message
@@ -323,11 +323,11 @@ namespace {
 	 * @param resource $link <p>The stomp link identifier returned by <code>stomp_connect()</code>.</p>
 	 * @param mixed $msg <p>The message/messageId to be acknowledged.</p>
 	 * @param array $headers <p>Associative array containing the additional headers (example: receipt).</p>
-	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/stomp.ack.php
 	 * @since PECL stomp >= 0.1.0
 	 */
-	function stomp_ack($link, mixed $msg, array $headers = NULL): bool {}
+	function stomp_ack($link, mixed $msg, array $headers = null): bool {}
 
 	/**
 	 * Starts a transaction
@@ -335,17 +335,17 @@ namespace {
 	 * @param resource $link <p>The stomp link identifier returned by <code>stomp_connect()</code>.</p>
 	 * @param string $transaction_id <p>The transaction id.</p>
 	 * @param array $headers <p>Associative array containing the additional headers (example: receipt).</p>
-	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/stomp.begin.php
 	 * @since PECL stomp >= 0.1.0
 	 */
-	function stomp_begin($link, string $transaction_id, array $headers = NULL): bool {}
+	function stomp_begin($link, string $transaction_id, array $headers = null): bool {}
 
 	/**
 	 * Closes stomp connection
 	 * <p>Closes a previously opened connection.</p>
 	 * @param resource $link <p>The stomp link identifier returned by <code>stomp_connect()</code>.</p>
-	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/stomp.destruct.php
 	 * @since PECL stomp >= 0.1.0
 	 */
@@ -357,11 +357,11 @@ namespace {
 	 * @param resource $link <p>The stomp link identifier returned by <code>stomp_connect()</code>.</p>
 	 * @param string $transaction_id <p>The transaction id.</p>
 	 * @param array $headers <p>Associative array containing the additional headers (example: receipt).</p>
-	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/stomp.commit.php
 	 * @since PECL stomp >= 0.1.0
 	 */
-	function stomp_commit($link, string $transaction_id, array $headers = NULL): bool {}
+	function stomp_commit($link, string $transaction_id, array $headers = null): bool {}
 
 	/**
 	 * Opens a connection
@@ -374,12 +374,12 @@ namespace {
 	 * @link https://php.net/manual/en/stomp.construct.php
 	 * @since PECL stomp >= 0.1.0
 	 */
-	function stomp_connect(string $broker = 'ini_get("stomp.default_broker_uri")', string $username = NULL, string $password = NULL, array $headers = NULL) {}
+	function stomp_connect(string $broker = 'ini_get("stomp.default_broker_uri")', string $username = null, string $password = null, array $headers = null) {}
 
 	/**
 	 * Returns a string description of the last connect error
 	 * <p>Returns a string description of the last connect error.</p>
-	 * @return string <p>A string that describes the error, or <b><code>NULL</code></b> if no error occurred.</p>
+	 * @return string <p>A string that describes the error, or <b><code>null</code></b> if no error occurred.</p>
 	 * @link https://php.net/manual/en/function.stomp-connect-error.php
 	 * @since PECL stomp >= 0.3.0
 	 */
@@ -389,7 +389,7 @@ namespace {
 	 * Gets the last stomp error
 	 * <p>Gets the last stomp error.</p>
 	 * @param resource $link <p>The stomp link identifier returned by <code>stomp_connect()</code>.</p>
-	 * @return string <p>Returns an error string or <b><code>FALSE</code></b> if no error occurred.</p>
+	 * @return string <p>Returns an error string or <b><code>false</code></b> if no error occurred.</p>
 	 * @link https://php.net/manual/en/stomp.error.php
 	 * @since PECL stomp >= 0.1.0
 	 */
@@ -409,7 +409,7 @@ namespace {
 	 * Gets the current stomp session ID
 	 * <p>Gets the current stomp session ID.</p>
 	 * @param resource $link <p>The stomp link identifier returned by <code>stomp_connect()</code>.</p>
-	 * @return string|false <p><code>string</code> session id on success or <b><code>FALSE</code></b> on failure.</p>
+	 * @return string|false <p><code>string</code> session id on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/stomp.getsessionid.php
 	 * @since PECL stomp >= 0.1.0
 	 */
@@ -419,7 +419,7 @@ namespace {
 	 * Indicates whether or not there is a frame ready to read
 	 * <p>Indicates whether or not there is a frame ready to read.</p>
 	 * @param resource $link <p>The stomp link identifier returned by <code>stomp_connect()</code>.</p>
-	 * @return bool <p>Returns <b><code>TRUE</code></b> if a frame is ready to read, or <b><code>FALSE</code></b> otherwise.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> if a frame is ready to read, or <b><code>false</code></b> otherwise.</p>
 	 * @link https://php.net/manual/en/stomp.hasframe.php
 	 * @since PECL stomp >= 0.1.0
 	 */
@@ -442,11 +442,11 @@ namespace {
 	 * @param string $destination <p>Where to send the message</p>
 	 * @param mixed $msg <p>Message to send.</p>
 	 * @param array $headers <p>Associative array containing the additional headers (example: receipt).</p>
-	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/stomp.send.php
 	 * @since PECL stomp >= 0.1.0
 	 */
-	function stomp_send($link, string $destination, mixed $msg, array $headers = NULL): bool {}
+	function stomp_send($link, string $destination, mixed $msg, array $headers = null): bool {}
 
 	/**
 	 * Sets read timeout
@@ -458,7 +458,7 @@ namespace {
 	 * @link https://php.net/manual/en/stomp.setreadtimeout.php
 	 * @since PECL stomp >= 0.3.0
 	 */
-	function stomp_set_read_timeout($link, int $seconds, int $microseconds = NULL): void {}
+	function stomp_set_read_timeout($link, int $seconds, int $microseconds = null): void {}
 
 	/**
 	 * Registers to listen to a given destination
@@ -466,11 +466,11 @@ namespace {
 	 * @param resource $link <p>The stomp link identifier returned by <code>stomp_connect()</code>.</p>
 	 * @param string $destination <p>Destination to subscribe to.</p>
 	 * @param array $headers <p>Associative array containing the additional headers (example: receipt).</p>
-	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/stomp.subscribe.php
 	 * @since PECL stomp >= 0.1.0
 	 */
-	function stomp_subscribe($link, string $destination, array $headers = NULL): bool {}
+	function stomp_subscribe($link, string $destination, array $headers = null): bool {}
 
 	/**
 	 * Removes an existing subscription
@@ -478,11 +478,11 @@ namespace {
 	 * @param resource $link <p>The stomp link identifier returned by <code>stomp_connect()</code>.</p>
 	 * @param string $destination <p>Subscription to remove.</p>
 	 * @param array $headers <p>Associative array containing the additional headers (example: receipt).</p>
-	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/stomp.unsubscribe.php
 	 * @since PECL stomp >= 0.1.0
 	 */
-	function stomp_unsubscribe($link, string $destination, array $headers = NULL): bool {}
+	function stomp_unsubscribe($link, string $destination, array $headers = null): bool {}
 
 	/**
 	 * Gets the current stomp extension version

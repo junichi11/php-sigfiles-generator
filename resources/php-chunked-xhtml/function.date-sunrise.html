@@ -35,12 +35,12 @@
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>date_sunrise</strong></span>
     ( <span class="methodparam"><span class="type">int</span> <code class="parameter">$timestamp</code></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$returnFormat</code><span class="initializer"> = SUNFUNCS_RET_STRING</span></span>
-   [, <span class="methodparam"><span class="type">float</span> <code class="parameter">$latitude</code><span class="initializer"> = ini_get(&quot;date.default_latitude&quot;)</span></span>
-   [, <span class="methodparam"><span class="type">float</span> <code class="parameter">$longitude</code><span class="initializer"> = ini_get(&quot;date.default_longitude&quot;)</span></span>
-   [, <span class="methodparam"><span class="type">float</span> <code class="parameter">$zenith</code><span class="initializer"> = ini_get(&quot;date.sunrise_zenith&quot;)</span></span>
-   [, <span class="methodparam"><span class="type">float</span> <code class="parameter">$utcOffset</code><span class="initializer"> = 0</span></span>
-  ]]]]] ) : <span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span></div>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$returnFormat</code><span class="initializer"> = <strong><code>SUNFUNCS_RET_STRING</code></strong></span></span>
+   , <span class="methodparam"><span class="type"><span class="type">float</span>|<span class="type">null</span></span> <code class="parameter">$latitude</code><span class="initializer"> = <strong><code>null</code></strong></span></span>
+   , <span class="methodparam"><span class="type"><span class="type">float</span>|<span class="type">null</span></span> <code class="parameter">$longitude</code><span class="initializer"> = <strong><code>null</code></strong></span></span>
+   , <span class="methodparam"><span class="type"><span class="type">float</span>|<span class="type">null</span></span> <code class="parameter">$zenith</code><span class="initializer"> = <strong><code>null</code></strong></span></span>
+   , <span class="methodparam"><span class="type"><span class="type">float</span>|<span class="type">null</span></span> <code class="parameter">$utcOffset</code><span class="initializer"> = 0</span></span>
+   ) : <span class="type"><span class="type">string</span>|<span class="type">int</span>|<span class="type">float</span>|<span class="type"><span class="type false">false</span></span></span></div>
 
   <p class="para rdfs-comment">
    <span class="function"><strong>date_sunrise()</strong></span> returns the sunrise time for a given
@@ -214,7 +214,7 @@
   <h3 class="title">Return Values</h3>
   <p class="para">
    Returns the sunrise time in a specified <code class="parameter">returnFormat</code> on
-   success or <strong><code>FALSE</code></strong> on failure. One potential reason for failure is that the
+   success or <strong><code>false</code></strong> on failure. One potential reason for failure is that the
    sun does not rise at all, which happens inside the polar circles for part of
    the year.
   </p>
@@ -234,10 +234,40 @@ variable. See also <span class="function"><a href="function.date-default-timezon
  </div>
 
 
+ <div class="refsect1 changelog" id="refsect1-function.date-sunrise-changelog">
+  <h3 class="title">Changelog</h3>
+  <p class="para">
+   <table class="doctable informaltable">
+    
+     <thead>
+      <tr>
+       <th>Version</th>
+       <th>Description</th>
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr>
+       <td>8.0.0</td>
+       <td>
+        <code class="parameter">latitude</code>, <code class="parameter">longitude</code>,
+        <code class="parameter">zenith</code> and <code class="parameter">latitude</code> are nullable now.
+       </td>
+      </tr>
+
+     </tbody>
+    
+   </table>
+
+  </p>
+ </div>
+
+
  <div class="refsect1 examples" id="refsect1-function.date-sunrise-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-2552">
+   <div class="example" id="example-2567">
     <p><strong>Example #1 <span class="function"><strong>date_sunrise()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -254,7 +284,7 @@ Mon Dec 20 2004, sunrise time : 08:54
 </pre></div>
     </div>
    </div>
-   <div class="example" id="example-2553">
+   <div class="example" id="example-2568">
     <p><strong>Example #2 No sunrise</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

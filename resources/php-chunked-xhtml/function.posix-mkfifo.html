@@ -34,8 +34,8 @@
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>posix_mkfifo</strong></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$pathname</code></span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$mode</code></span>
+    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$filename</code></span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$permissions</code></span>
    ) : <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
@@ -53,7 +53,7 @@
 
     
      <dt>
-<code class="parameter">pathname</code></dt>
+<code class="parameter">filename</code></dt>
 
      <dd>
 
@@ -65,12 +65,12 @@
     
     
      <dt>
-<code class="parameter">mode</code></dt>
+<code class="parameter">permissions</code></dt>
 
      <dd>
 
       <p class="para">
-       The second parameter <code class="parameter">mode</code> has to be given in
+       The second parameter <code class="parameter">permissions</code> has to be given in
        octal notation (e.g. 0644). The permission of the newly created
        <code class="literal">FIFO</code> also depends on the setting of the current
        <span class="function"><a href="function.umask.html" class="function">umask()</a></span>. The permissions of the created file are
@@ -88,7 +88,7 @@
  <div class="refsect1 returnvalues" id="refsect1-function.posix-mkfifo-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns <strong><code>TRUE</code></strong> on success or <strong><code>FALSE</code></strong> on failure.
+   Returns <strong><code>true</code></strong> on success or <strong><code>false</code></strong> on failure.
   </p>
  </div>
 

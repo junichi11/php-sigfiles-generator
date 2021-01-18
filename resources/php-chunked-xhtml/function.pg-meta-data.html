@@ -38,8 +38,8 @@
    <span class="methodname"><strong>pg_meta_data</strong></span>
     ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$connection</code></span>
    , <span class="methodparam"><span class="type">string</span> <code class="parameter">$table_name</code></span>
-   [, <span class="methodparam"><span class="type">bool</span> <code class="parameter">$extended</code><span class="initializer"> = <strong><code>FALSE</code></strong></span></span>
-  ] ) : <span class="type">array</span></div>
+   , <span class="methodparam"><span class="type">bool</span> <code class="parameter">$extended</code><span class="initializer"> = <strong><code>false</code></strong></span></span>
+   ) : <span class="type">array</span></div>
 
   <p class="para rdfs-comment">
    <span class="function"><strong>pg_meta_data()</strong></span> returns table definition for
@@ -84,7 +84,7 @@
      <dd>
 
       <p class="para">
-       Flag for returning extended meta data. Default to <strong><code>FALSE</code></strong>.
+       Flag for returning extended meta data. Default to <strong><code>false</code></strong>.
       </p>
      </dd>
 
@@ -98,7 +98,7 @@
  <div class="refsect1 returnvalues" id="refsect1-function.pg-meta-data-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   An <span class="type">array</span> of the table definition, or <strong><code>FALSE</code></strong> on error.
+   An <span class="type">array</span> of the table definition, or <strong><code>false</code></strong> on error.
   </p>
  </div>
 
@@ -106,7 +106,7 @@
  <div class="refsect1 examples" id="refsect1-function.pg-meta-data-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-2362">
+   <div class="example" id="example-2375">
     <p><strong>Example #1 Getting table metadata</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

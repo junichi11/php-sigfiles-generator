@@ -74,12 +74,12 @@
  <div class="refsect1 returnvalues" id="refsect1-function.file-exists-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns <strong><code>TRUE</code></strong> if the file or directory specified by
-   <code class="parameter">filename</code> exists; <strong><code>FALSE</code></strong> otherwise.
+   Returns <strong><code>true</code></strong> if the file or directory specified by
+   <code class="parameter">filename</code> exists; <strong><code>false</code></strong> otherwise.
   </p>
   <blockquote class="note"><p><strong class="note">Note</strong>: 
    <p class="para">
-    This function will return <strong><code>FALSE</code></strong> for symlinks pointing to non-existing
+    This function will return <strong><code>false</code></strong> for symlinks pointing to non-existing
     files.
    </p>
   </p></blockquote>
@@ -99,7 +99,7 @@
  <div class="refsect1 examples" id="refsect1-function.file-exists-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-2619">
+   <div class="example" id="example-2634">
     <p><strong>Example #1 Testing whether a file exists</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -141,6 +141,7 @@ can also be used with <em class="emphasis">some</em> URL wrappers.  Refer to
     <li class="member"><span class="function"><a href="function.is-writable.html" class="function" rel="rdfs-seeAlso">is_writable()</a> - Tells whether the filename is writable</span></li>
     <li class="member"><span class="function"><a href="function.is-file.html" class="function" rel="rdfs-seeAlso">is_file()</a> - Tells whether the filename is a regular file</span></li>
     <li class="member"><span class="function"><a href="function.file.html" class="function" rel="rdfs-seeAlso">file()</a> - Reads entire file into an array</span></li>
+    <li class="member"><a href="class.splfileinfo.html" class="classname">SplFileInfo</a></li>
    </ul>
   </p>
  </div>

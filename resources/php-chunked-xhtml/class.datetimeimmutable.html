@@ -141,9 +141,9 @@
     <div class="classsynopsisinfo classsynopsisinfo_comment">/* Methods */</div>
     <div class="constructorsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="datetimeimmutable.construct.html" class="methodname">__construct</a></span>
-    ([ <span class="methodparam"><span class="type">string</span> <code class="parameter">$datetime</code><span class="initializer"> = &quot;now&quot;</span></span>
-   [, <span class="methodparam"><span class="type"><a href="class.datetimezone.html" class="type DateTimeZone">DateTimeZone</a></span> <code class="parameter">$timezone</code><span class="initializer"> = <strong><code>NULL</code></strong></span></span>
-  ]] )</div>
+    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$datetime</code><span class="initializer"> = &quot;now&quot;</span></span>
+   , <span class="methodparam"><span class="type"><span class="type"><a href="class.datetimezone.html" class="type DateTimeZone">DateTimeZone</a></span>|<span class="type">null</span></span> <code class="parameter">$timezone</code><span class="initializer"> = <strong><code>null</code></strong></span></span>
+   )</div>
 
     <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="datetimeimmutable.add.html" class="methodname">add</a></span>
@@ -153,8 +153,12 @@
    <span class="modifier">public</span> <span class="modifier">static</span> <span class="methodname"><a href="datetimeimmutable.createfromformat.html" class="methodname">createFromFormat</a></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$format</code></span>
    , <span class="methodparam"><span class="type">string</span> <code class="parameter">$datetime</code></span>
-   [, <span class="methodparam"><span class="type"><a href="class.datetimezone.html" class="type DateTimeZone">DateTimeZone</a></span> <code class="parameter">$timezone</code></span>
-  ] ) : <span class="type"><a href="class.datetimeimmutable.html" class="type DateTimeImmutable">DateTimeImmutable</a></span></div>
+   , <span class="methodparam"><span class="type"><span class="type"><a href="class.datetimezone.html" class="type DateTimeZone">DateTimeZone</a></span>|<span class="type">null</span></span> <code class="parameter">$timezone</code><span class="initializer"> = <strong><code>null</code></strong></span></span>
+   ) : <span class="type"><span class="type"><a href="class.datetimeimmutable.html" class="type DateTimeImmutable">DateTimeImmutable</a></span>|<span class="type"><span class="type false">false</span></span></span></div>
+<div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="modifier">static</span> <span class="methodname"><a href="datetimeimmutable.createfrominterface.html" class="methodname">createFromInterface</a></span>
+    ( <span class="methodparam"><span class="type"><a href="class.datetimeinterface.html" class="type DateTimeInterface">DateTimeInterface</a></span> <code class="parameter">$object</code></span>
+   ) : <span class="type"><a href="class.datetimeimmutable.html" class="type DateTimeImmutable">DateTimeImmutable</a></span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="modifier">static</span> <span class="methodname"><a href="datetimeimmutable.createfrommutable.html" class="methodname">createFromMutable</a></span>
     ( <span class="methodparam"><span class="type"><a href="class.datetime.html" class="type DateTime">DateTime</a></span> <code class="parameter">$object</code></span>
@@ -162,7 +166,7 @@
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="modifier">static</span> <span class="methodname"><a href="datetimeimmutable.getlasterrors.html" class="methodname">getLastErrors</a></span>
     (
-   ) : <span class="type">array</span></div>
+   ) : <span class="type"><span class="type">array</span>|<span class="type"><span class="type false">false</span></span></span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="datetimeimmutable.modify.html" class="methodname">modify</a></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$modifier</code></span>
@@ -181,15 +185,15 @@
    <span class="modifier">public</span> <span class="methodname"><a href="datetimeimmutable.setisodate.html" class="methodname">setISODate</a></span>
     ( <span class="methodparam"><span class="type">int</span> <code class="parameter">$year</code></span>
    , <span class="methodparam"><span class="type">int</span> <code class="parameter">$week</code></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$day</code><span class="initializer"> = 1</span></span>
-  ] ) : <span class="type"><a href="class.datetimeimmutable.html" class="type DateTimeImmutable">DateTimeImmutable</a></span></div>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$dayOfWeek</code><span class="initializer"> = 1</span></span>
+   ) : <span class="type"><a href="class.datetimeimmutable.html" class="type DateTimeImmutable">DateTimeImmutable</a></span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="datetimeimmutable.settime.html" class="methodname">setTime</a></span>
     ( <span class="methodparam"><span class="type">int</span> <code class="parameter">$hour</code></span>
    , <span class="methodparam"><span class="type">int</span> <code class="parameter">$minute</code></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$second</code><span class="initializer"> = 0</span></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$microsecond</code><span class="initializer"> = 0</span></span>
-  ]] ) : <span class="type"><a href="class.datetimeimmutable.html" class="type DateTimeImmutable">DateTimeImmutable</a></span></div>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$second</code><span class="initializer"> = 0</span></span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$microsecond</code><span class="initializer"> = 0</span></span>
+   ) : <span class="type"><a href="class.datetimeimmutable.html" class="type DateTimeImmutable">DateTimeImmutable</a></span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="datetimeimmutable.settimestamp.html" class="methodname">setTimestamp</a></span>
     ( <span class="methodparam"><span class="type">int</span> <code class="parameter">$timestamp</code></span>
@@ -206,16 +210,16 @@
     <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="datetime.diff.html" class="methodname">diff</a></span>
     ( <span class="methodparam"><span class="type"><a href="class.datetimeinterface.html" class="type DateTimeInterface">DateTimeInterface</a></span> <code class="parameter">$targetObject</code></span>
-   [, <span class="methodparam"><span class="type">bool</span> <code class="parameter">$absolute</code><span class="initializer"> = <strong><code>FALSE</code></strong></span></span>
-  ] ) : <span class="type"><span class="type"><a href="class.dateinterval.html" class="type DateInterval">DateInterval</a></span>|<span class="type"><span class="type false">false</span></span></span></div>
+   , <span class="methodparam"><span class="type">bool</span> <code class="parameter">$absolute</code><span class="initializer"> = <strong><code>false</code></strong></span></span>
+   ) : <span class="type"><span class="type"><a href="class.dateinterval.html" class="type DateInterval">DateInterval</a></span>|<span class="type"><span class="type false">false</span></span></span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="datetime.format.html" class="methodname">format</a></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$format</code></span>
-   ) : <span class="type"><span class="type">string</span>|<span class="type"><span class="type false">false</span></span></span></div>
+   ) : <span class="type">string</span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="datetime.getoffset.html" class="methodname">getOffset</a></span>
     (
-   ) : <span class="type"><span class="type">int</span>|<span class="type"><span class="type false">false</span></span></span></div>
+   ) : <span class="type">int</span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="datetime.gettimestamp.html" class="methodname">getTimestamp</a></span>
     (
@@ -227,7 +231,7 @@
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="datetime.wakeup.html" class="methodname">__wakeup</a></span>
     (
-   )</div>
+   ) : <span class="type"><span class="type void">void</span></span></div>
 
    }</div>
 
@@ -328,7 +332,6 @@
 
 
 
-
-<h2>Table of Contents</h2><ul class="chunklist chunklist_reference"><li><a href="datetimeimmutable.add.html">DateTimeImmutable::add</a> — Adds an amount of days, months, years, hours, minutes and seconds</li><li><a href="datetimeimmutable.construct.html">DateTimeImmutable::__construct</a> — Returns new DateTimeImmutable object</li><li><a href="datetimeimmutable.createfromformat.html">DateTimeImmutable::createFromFormat</a> — Parses a time string according to a specified format</li><li><a href="datetimeimmutable.createfrommutable.html">DateTimeImmutable::createFromMutable</a> — Returns new DateTimeImmutable object encapsulating the given DateTime object</li><li><a href="datetimeimmutable.getlasterrors.html">DateTimeImmutable::getLastErrors</a> — Returns the warnings and errors</li><li><a href="datetimeimmutable.modify.html">DateTimeImmutable::modify</a> — Creates a new object with modified timestamp</li><li><a href="datetimeimmutable.set-state.html">DateTimeImmutable::__set_state</a> — The __set_state handler</li><li><a href="datetimeimmutable.setdate.html">DateTimeImmutable::setDate</a> — Sets the date</li><li><a href="datetimeimmutable.setisodate.html">DateTimeImmutable::setISODate</a> — Sets the ISO date</li><li><a href="datetimeimmutable.settime.html">DateTimeImmutable::setTime</a> — Sets the time</li><li><a href="datetimeimmutable.settimestamp.html">DateTimeImmutable::setTimestamp</a> — Sets the date and time based on a Unix timestamp</li><li><a href="datetimeimmutable.settimezone.html">DateTimeImmutable::setTimezone</a> — Sets the time zone</li><li><a href="datetimeimmutable.sub.html">DateTimeImmutable::sub</a> — Subtracts an amount of days, months, years, hours, minutes and seconds</li></ul>
+<h2>Table of Contents</h2><ul class="chunklist chunklist_reference"><li><a href="datetimeimmutable.add.html">DateTimeImmutable::add</a> — Adds an amount of days, months, years, hours, minutes and seconds</li><li><a href="datetimeimmutable.construct.html">DateTimeImmutable::__construct</a> — Returns new DateTimeImmutable object</li><li><a href="datetimeimmutable.createfromformat.html">DateTimeImmutable::createFromFormat</a> — Parses a time string according to a specified format</li><li><a href="datetimeimmutable.createfrominterface.html">DateTimeImmutable::createFromInterface</a> — Returns new DateTimeImmutable object encapsulating the given DateTimeInterface object</li><li><a href="datetimeimmutable.createfrommutable.html">DateTimeImmutable::createFromMutable</a> — Returns new DateTimeImmutable object encapsulating the given DateTime object</li><li><a href="datetimeimmutable.getlasterrors.html">DateTimeImmutable::getLastErrors</a> — Returns the warnings and errors</li><li><a href="datetimeimmutable.modify.html">DateTimeImmutable::modify</a> — Creates a new object with modified timestamp</li><li><a href="datetimeimmutable.set-state.html">DateTimeImmutable::__set_state</a> — The __set_state handler</li><li><a href="datetimeimmutable.setdate.html">DateTimeImmutable::setDate</a> — Sets the date</li><li><a href="datetimeimmutable.setisodate.html">DateTimeImmutable::setISODate</a> — Sets the ISO date</li><li><a href="datetimeimmutable.settime.html">DateTimeImmutable::setTime</a> — Sets the time</li><li><a href="datetimeimmutable.settimestamp.html">DateTimeImmutable::setTimestamp</a> — Sets the date and time based on a Unix timestamp</li><li><a href="datetimeimmutable.settimezone.html">DateTimeImmutable::setTimezone</a> — Sets the time zone</li><li><a href="datetimeimmutable.sub.html">DateTimeImmutable::sub</a> — Subtracts an amount of days, months, years, hours, minutes and seconds</li></ul>
 </div>
 </div></div></body></html>

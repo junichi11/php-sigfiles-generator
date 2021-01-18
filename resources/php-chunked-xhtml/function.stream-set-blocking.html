@@ -34,7 +34,7 @@
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>stream_set_blocking</strong></span>
     ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$stream</code></span>
-   , <span class="methodparam"><span class="type">bool</span> <code class="parameter">$mode</code></span>
+   , <span class="methodparam"><span class="type">bool</span> <code class="parameter">$enable</code></span>
    ) : <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
@@ -66,13 +66,13 @@
     
     
      <dt>
-<code class="parameter">mode</code></dt>
+<code class="parameter">enable</code></dt>
 
      <dd>
 
       <p class="para">
-       If <code class="parameter">mode</code> is <strong><code>FALSE</code></strong>, the given stream
-       will be switched to non-blocking mode, and if <strong><code>TRUE</code></strong>, it
+       If <code class="parameter">enable</code> is <strong><code>false</code></strong>, the given stream
+       will be switched to non-blocking mode, and if <strong><code>true</code></strong>, it
        will be switched to blocking mode.  This affects calls like
        <span class="function"><a href="function.fgets.html" class="function">fgets()</a></span> and <span class="function"><a href="function.fread.html" class="function">fread()</a></span>
        that read from the stream.  In non-blocking mode an
@@ -92,7 +92,7 @@
  <div class="refsect1 returnvalues" id="refsect1-function.stream-set-blocking-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns <strong><code>TRUE</code></strong> on success or <strong><code>FALSE</code></strong> on failure.
+   Returns <strong><code>true</code></strong> on success or <strong><code>false</code></strong> on failure.
   </p>
  </div>
 

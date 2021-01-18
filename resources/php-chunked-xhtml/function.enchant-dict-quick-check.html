@@ -33,13 +33,13 @@
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>enchant_dict_quick_check</strong></span>
-    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$dict</code></span>
+    ( <span class="methodparam"><span class="type"><a href="class.enchantdictionary.html" class="type EnchantDictionary">EnchantDictionary</a></span> <code class="parameter">$dictionary</code></span>
    , <span class="methodparam"><span class="type">string</span> <code class="parameter">$word</code></span>
-   [, <span class="methodparam"><span class="type">array</span> <code class="parameter reference">&$suggestions</code></span>
-  ] ) : <span class="type">bool</span></div>
+   , <span class="methodparam"><span class="type">array</span> <code class="parameter reference">&$suggestions</code><span class="initializer"> = <strong><code>null</code></strong></span></span>
+   ) : <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
-   If the word is correctly spelled return <strong><code>TRUE</code></strong>, otherwise return <strong><code>FALSE</code></strong>, if suggestions variable
+   If the word is correctly spelled return <strong><code>true</code></strong>, otherwise return <strong><code>false</code></strong>, if suggestions variable
    is provided, fill it with spelling alternatives.
   </p>
  </div>
@@ -51,12 +51,13 @@
 
     
      <dt>
-<code class="parameter">dict</code></dt>
+<code class="parameter">dictionary</code></dt>
 
      <dd>
 
       <p class="para">
-       Dictionary resource
+       An Enchant dictionary returned by <span class="function"><a href="function.enchant-broker-request-dict.html" class="function">enchant_broker_request_dict()</a></span>
+       or <span class="function"><a href="function.enchant-broker-request-pwl-dict.html" class="function">enchant_broker_request_pwl_dict()</a></span>.
       </p>
      </dd>
 
@@ -94,15 +95,43 @@
  <div class="refsect1 returnvalues" id="refsect1-function.enchant-dict-quick-check-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns <strong><code>TRUE</code></strong> if the word is correctly spelled or <strong><code>FALSE</code></strong>
+   Returns <strong><code>true</code></strong> if the word is correctly spelled or <strong><code>false</code></strong>
   </p>
+ </div>
+
+
+ <div class="refsect1 changelog" id="refsect1-function.enchant-dict-quick-check-changelog">
+  <h3 class="title">Changelog</h3>
+  <table class="doctable informaltable">
+   
+    <thead>
+     <tr>
+      <th>Version</th>
+      <th>Description</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+ <td>8.0.0</td>
+ <td>
+  <code class="parameter">dictionary</code> expects an <a href="class.enchantdictionary.html" class="classname">EnchantDictionary</a> instance now;
+  previoulsy, a <a href="language.types.resource.html" class="link">resource</a> was expected.
+ </td>
+</tr>
+
+    </tbody>
+   
+  </table>
+
  </div>
 
 
  <div class="refsect1 examples" id="refsect1-function.enchant-dict-quick-check-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-2726">
+   <div class="example" id="example-2741">
     <p><strong>Example #1 A <span class="function"><strong>enchant_dict_quick_check()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

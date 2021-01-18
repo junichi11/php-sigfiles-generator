@@ -38,8 +38,8 @@
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$database</code></span>
    , <span class="methodparam"><span class="type">string</span> <code class="parameter">$username</code></span>
    , <span class="methodparam"><span class="type">string</span> <code class="parameter">$password</code></span>
-   [, <span class="methodparam"><span class="type">array</span> <code class="parameter">$options</code></span>
-  ] ) : <span class="type">resource</span></div>
+   , <span class="methodparam"><span class="type">array</span> <code class="parameter">$options</code> = ?</span>
+   ) : <span class="type">resource</span></div>
 
 
 
@@ -55,7 +55,7 @@
 
   <p class="para">
    Calling <span class="function"><a href="function.db2-close.html" class="function">db2_close()</a></span> on a persistent connection always
-   returns <strong><code>TRUE</code></strong>, but the underlying DB2 client connection remains open and
+   returns <strong><code>true</code></strong>, but the underlying DB2 client connection remains open and
    waiting to serve the next matching <span class="function"><strong>db2_pconnect()</strong></span>
    request.
   </p>
@@ -544,7 +544,7 @@ db2set DB2COMM=TCPIP</pre>
    connection resource that exactly matches the
    <code class="parameter">database</code>, <code class="parameter">username</code>, and
    <code class="parameter">password</code> parameters. If the connection attempt fails,
-   <span class="function"><strong>db2_pconnect()</strong></span> returns <strong><code>FALSE</code></strong>.
+   <span class="function"><strong>db2_pconnect()</strong></span> returns <strong><code>false</code></strong>.
   </p>
  </div>
 
@@ -612,7 +612,7 @@ db2set DB2COMM=TCPIP</pre>
  <div class="refsect1 examples" id="refsect1-function.db2-pconnect-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-1261">
+   <div class="example" id="example-1273">
     <p><strong>Example #1 A <span class="function"><strong>db2_pconnect()</strong></span> example</strong></p>
     <div class="example-contents"><p>
      In the following example, the first call to
@@ -636,7 +636,7 @@ Second persistent connection succeeded.
 </pre></div>
     </div>
    </div>
-   <div class="example" id="example-1262">
+   <div class="example" id="example-1274">
     <p><strong>Example #2 Using trusted context</strong></p>
     <div class="example-contents"><p>
      The following example shows how to enable trusted context, switch 

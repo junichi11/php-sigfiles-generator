@@ -34,14 +34,14 @@
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>is_soap_fault</strong></span>
-    ( <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">$object</code></span>
+    ( <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$object</code></span>
    ) : <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
    This function is useful to check if the SOAP call failed, but
    without using exceptions. To use it, create a 
    <a href="class.soapclient.html" class="classname">SoapClient</a> object with the <code class="literal">exceptions</code>
-   option set to zero or <strong><code>FALSE</code></strong>.
+   option set to zero or <strong><code>false</code></strong>.
    In this case, the SOAP method will return a special 
    <a href="class.soapfault.html" class="classname">SoapFault</a> object which encapsulates the fault 
    details (faultcode, faultstring, faultactor and faultdetails).
@@ -82,7 +82,7 @@
   <h3 class="title">Return Values</h3>
   
   <p class="para">
-   This will return <strong><code>TRUE</code></strong> on error, and <strong><code>FALSE</code></strong> otherwise.
+   This will return <strong><code>true</code></strong> on error, and <strong><code>false</code></strong> otherwise.
   </p>
  </div>
 
@@ -90,7 +90,7 @@
  <div class="refsect1 examples" id="refsect1-function.is-soap-fault-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-5792">
+   <div class="example" id="example-5816">
     <p><strong>Example #1 <span class="function"><strong>is_soap_fault()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -100,7 +100,7 @@
     </div>
 
    </div>
-   <div class="example" id="example-5793">
+   <div class="example" id="example-5817">
     <p><strong>Example #2 SOAP&#039;s standard method for error reporting is exceptions</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

@@ -34,11 +34,11 @@
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>posix_isatty</strong></span>
-    ( <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">$fd</code></span>
+    ( <span class="methodparam"><span class="type"><span class="type">resource</span>|<span class="type">int</span></span> <code class="parameter">$file_descriptor</code></span>
    ) : <span class="type">bool</span></div>
 
    <p class="para rdfs-comment">
-    Determines if the file descriptor <code class="parameter">fd</code> refers to a valid
+    Determines if the file descriptor <code class="parameter">file_descriptor</code> refers to a valid
     terminal type device.
   </p>
  </div>
@@ -76,8 +76,8 @@
  <div class="refsect1 returnvalues" id="refsect1-function.posix-isatty-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns <strong><code>TRUE</code></strong> if <code class="parameter">fd</code> is an open descriptor connected
-   to a terminal and <strong><code>FALSE</code></strong> otherwise.
+   Returns <strong><code>true</code></strong> if <code class="parameter">file_descriptor</code> is an open descriptor connected
+   to a terminal and <strong><code>false</code></strong> otherwise.
   </p>
  </div>
 

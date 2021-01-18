@@ -36,9 +36,9 @@
    <span class="methodname"><strong>fbsql_change_user</strong></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$user</code></span>
    , <span class="methodparam"><span class="type">string</span> <code class="parameter">$password</code></span>
-   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$database</code></span>
-   [, <span class="methodparam"><span class="type">resource</span> <code class="parameter">$link_identifier</code></span>
-  ]] ) : <span class="type">bool</span></div>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$database</code> = ?</span>
+   , <span class="methodparam"><span class="type">resource</span> <code class="parameter">$link_identifier</code> = ?</span>
+   ) : <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
    <span class="function"><strong>fbsql_change_user()</strong></span> changes the logged in user of the
@@ -111,7 +111,7 @@ such link is found it will try to create one as if
  <div class="refsect1 returnvalues" id="refsect1-function.fbsql-change-user-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns <strong><code>TRUE</code></strong> on success or <strong><code>FALSE</code></strong> on failure.
+   Returns <strong><code>true</code></strong> on success or <strong><code>false</code></strong> on failure.
   </p>
  </div>
 

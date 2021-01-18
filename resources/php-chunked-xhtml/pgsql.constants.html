@@ -57,7 +57,9 @@ been compiled into PHP or dynamically loaded at runtime.
    <dd>
 
     <span class="simpara">
-     Long libpq version that includes compiler information.
+     Prior to PHP 8.0.0, the long libpq version that includes compiler information.
+     As of PHP 8.0.0, the value is identical to <strong><code>PGSQL_LIBPQ_VERSION</code></strong>,
+     and using <strong><code>PGSQL_LIBPQ_VERSION_STR</code></strong> is deprecated.
     </span>
    </dd>
 
@@ -928,7 +930,7 @@ been compiled into PHP or dynamically loaded at runtime.
 
     <span class="simpara">
      Passed to <span class="function"><a href="function.pg-convert.html" class="function">pg_convert()</a></span>.
-     Ignore conversion of <strong><code>NULL</code></strong> into SQL <code class="literal">NOT NULL</code> columns.
+     Ignore conversion of <strong><code>null</code></strong> into SQL <code class="literal">NOT NULL</code> columns.
     </span>
    </dd>
 

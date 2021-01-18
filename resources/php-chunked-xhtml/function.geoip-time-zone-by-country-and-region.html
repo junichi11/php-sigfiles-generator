@@ -34,8 +34,8 @@
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>geoip_time_zone_by_country_and_region</strong></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$country_code</code></span>
-   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$region_code</code></span>
-  ] ) : <span class="type">string</span></div>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$region_code</code> = ?</span>
+   ) : <span class="type">string</span></div>
 
 
   <p class="para rdfs-comment">
@@ -97,7 +97,7 @@
  <div class="refsect1 returnvalues" id="refsect1-function.geoip-time-zone-by-country-and-region-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns the time zone on success, or <strong><code>FALSE</code></strong> if the country and region code
+   Returns the time zone on success, or <strong><code>false</code></strong> if the country and region code
    combo cannot be found.
   </p>
  </div>
@@ -106,7 +106,7 @@
  <div class="refsect1 examples" id="refsect1-function.geoip-time-zone-by-country-and-region-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-3936">
+   <div class="example" id="example-3952">
     <p><strong>Example #1 A <span class="function"><strong>geoip_time_zone_by_country_and_region()</strong></span> example using region code for US/Canada</strong></p>
     <div class="example-contents"><p>
      This will print the time zone for country CA (Canada), region QC (Quebec).
@@ -125,7 +125,7 @@ Time zone for CA/QC is: America/Montreal
 </pre></div>
     </div>
    </div>
-   <div class="example" id="example-3937">
+   <div class="example" id="example-3953">
     <p><strong>Example #2 A <span class="function"><strong>geoip_time_zone_by_country_and_region()</strong></span> example using FIPS codes</strong></p>
     <div class="example-contents"><p>
      This will print the time zone for country JP (Japan), region 01 (Aichi).

@@ -34,14 +34,14 @@
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>vfprintf</strong></span>
-    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$handle</code></span>
+    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$stream</code></span>
    , <span class="methodparam"><span class="type">string</span> <code class="parameter">$format</code></span>
-   , <span class="methodparam"><span class="type">array</span> <code class="parameter">$args</code></span>
+   , <span class="methodparam"><span class="type">array</span> <code class="parameter">$values</code></span>
    ) : <span class="type">int</span></div>
 
   <p class="para rdfs-comment">
    Write a string produced according to <code class="parameter">format</code> to the
-   stream resource specified by <code class="parameter">handle</code>.
+   stream resource specified by <code class="parameter">stream</code>.
   </p>
   <p class="para">
    Operates as <span class="function"><a href="function.fprintf.html" class="function">fprintf()</a></span> but accepts an array of
@@ -57,7 +57,7 @@
 
     
      <dt>
-<code class="parameter">handle</code></dt>
+<code class="parameter">stream</code></dt>
 
      <dd>
 
@@ -312,6 +312,22 @@
       </tr>
 
       <tr>
+       <td><code class="literal">h</code></td>
+       <td>
+        Like the <code class="literal">g</code> specifier but uses <code class="literal">F</code>.
+        Available as of PHP 8.0.0.
+       </td>
+      </tr>
+
+      <tr>
+       <td><code class="literal">H</code></td>
+       <td>
+        Like the <code class="literal">g</code> specifier but uses
+        <code class="literal">E</code> and <code class="literal">F</code>. Available as of PHP 8.0.0.
+       </td>
+      </tr>
+
+      <tr>
        <td><code class="literal">o</code></td>
        <td>
         The argument is treated as an integer and presented
@@ -423,7 +439,7 @@
 
     
      <dt>
-<code class="parameter">args</code></dt>
+<code class="parameter">values</code></dt>
 
      <dd>
 
@@ -449,7 +465,7 @@
  <div class="refsect1 examples" id="refsect1-function.vfprintf-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-5380">
+   <div class="example" id="example-5401">
     <p><strong>Example #1 <span class="function"><strong>vfprintf()</strong></span>: zero-padded integers</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

@@ -34,8 +34,8 @@
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>win32_create_service</strong></span>
     ( <span class="methodparam"><span class="type">array</span> <code class="parameter">$details</code></span>
-   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$machine</code></span>
-  ] ) : <span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span></div>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$machine</code> = ?</span>
+   ) : <span class="type"><span class="type void">void</span></span></div>
 
   <p class="para rdfs-comment">
    Attempts to add a service into the SCM database. Administrative
@@ -215,7 +215,7 @@
          <dd>
 
           <p class="para">
-           If <code class="parameter">delayed_start</code> is set to <strong><code>TRUE</code></strong>, then this
+           If <code class="parameter">delayed_start</code> is set to <strong><code>true</code></strong>, then this
            will inform the SCM that this service should be started after other
            auto-start services are started plus a short delay.
           </p>
@@ -355,11 +355,11 @@
          <dd>
 
           <p class="para">
-           Set this parameter at <strong><code>TRUE</code></strong> to enable the recovery settings, <strong><code>FALSE</code></strong> 
+           Set this parameter at <strong><code>true</code></strong> to enable the recovery settings, <strong><code>false</code></strong> 
            to disable. 
           </p>
           <p class="para">
-           The default value is <strong><code>FALSE</code></strong>
+           The default value is <strong><code>false</code></strong>
           </p>
          </dd>
 
@@ -419,15 +419,74 @@
  <div class="refsect1 returnvalues" id="refsect1-function.win32-create-service-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns <strong><code>WIN32_NO_ERROR</code></strong> on success, <strong><code>FALSE</code></strong> if there is a problem with the parameters or a <a href="win32service.constants.errors.html" class="link">Win32 Error Code</a> on failure.
+   No value is returned.
+  </p>
+  <p class="para">
+   Prior to version 1.0.0, returned <strong><code>WIN32_NO_ERROR</code></strong> on success, <strong><code>false</code></strong> if there is a problem with the parameters or a <a href="win32service.constants.errors.html" class="link">Win32 Error Code</a> on failure.
   </p>
  </div>
+
+
+ <div class="refsect1 errors" id="refsect1-function.win32-create-service-errors">
+  <h3 class="title">Errors/Exceptions</h3>
+  <p class="para">
+   A <a href="class.valueerror.html" class="classname">ValueError</a> is thrown if the; 
+   value of <code class="parameter">service</code> parameter is empty.
+  </p>
+  <p class="para">
+   A <a href="class.valueerror.html" class="classname">ValueError</a> is thrown if the; 
+   value of <code class="parameter">path</code> parameter is missing or empty.
+  </p>
+  <p class="para">
+   A <a href="class.valueerror.html" class="classname">ValueError</a> is thrown if the; 
+   value of <code class="parameter">svc_type</code> parameter is wrong.
+  </p>
+  <p class="para">
+   A <a href="class.valueerror.html" class="classname">ValueError</a> is thrown if the; 
+   value of <code class="parameter">start_type</code> parameter is wrong.
+  </p>
+  <p class="para">
+   A <a href="class.valueerror.html" class="classname">ValueError</a> is thrown if the; 
+   value of <code class="parameter">error_control</code> parameter is wrong.
+  </p>
+  <p class="para">
+   A <a href="class.valueerror.html" class="classname">ValueError</a> is thrown if the; 
+   value of <code class="parameter">base_priority</code> parameter  is wrong.
+  </p>
+  <p class="para">
+   A <a href="class.valueerror.html" class="classname">ValueError</a> is thrown if the; 
+   value of <code class="parameter">recovery_delay</code> parameter is not between 
+   0 and PHP_INT_MAX.
+  </p>
+  <p class="para">
+   A <a href="class.valueerror.html" class="classname">ValueError</a> is thrown if the; 
+   value of <code class="parameter">recovery_action_1</code> parameter is wrong.
+  </p>
+  <p class="para">
+   A <a href="class.valueerror.html" class="classname">ValueError</a> is thrown if the; 
+   value of <code class="parameter">recovery_action_2</code> parameter is wrong.
+  </p>
+  <p class="para">
+   A <a href="class.valueerror.html" class="classname">ValueError</a> is thrown if the; 
+   value of <code class="parameter">recovery_action_3</code> parameter is wrong.
+  </p>
+  <p class="para">
+   A <a href="class.valueerror.html" class="classname">ValueError</a> is thrown if the; 
+   value of <code class="parameter">recovery_reset_period</code> parameter is not 
+   between 0 and PHP_INT_MAX.
+  </p>
+  <p class="para">
+   A <a href="class.win32serviceexception.html" class="classname">Win32ServiceException</a> is thrown on error.
+  </p>
+ </div>
+
+
 
 
  <div class="refsect1 examples" id="refsect1-function.win32-create-service-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-5844">
+   <div class="example" id="example-5868">
     <p><strong>Example #1 A <span class="function"><strong>win32_create_service()</strong></span> example</strong></p>
     <div class="example-contents"><p>
      Create a service with the short name &#039;dummyphp&#039;.
@@ -442,7 +501,7 @@
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-5845">
+   <div class="example" id="example-5869">
     <p><strong>Example #2 A <span class="function"><strong>win32_create_service()</strong></span> example with dependencies</strong></p>
     <div class="example-contents"><p>
      Create a service with the short name &#039;dummyphp&#039; and dependencies.
@@ -457,7 +516,7 @@
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-5846">
+   <div class="example" id="example-5870">
     <p><strong>Example #3 A <span class="function"><strong>win32_create_service()</strong></span> example with recovery</strong></p>
     <div class="example-contents"><p>
      Create a service with the short name &#039;dummyphp&#039; and recovery settings.
@@ -489,6 +548,31 @@
      </thead>
 
      <tbody class="tbody">
+      <tr>
+       <td>PECL win32service 1.0.0</td>
+       <td>
+        Throws a <a href="class.valueerror.html" class="classname">ValueError</a> on invalid data in parameters,
+        previously <strong><code>false</code></strong> was returned.
+       </td>
+      </tr>
+
+      <tr>
+       <td>PECL win32service 1.0.0</td>
+       <td>
+        Throws a <a href="class.win32serviceexception.html" class="classname">Win32ServiceException</a> on error,
+        previously a 
+        <a href="win32service.constants.errors.html" class="link">Win32 Error Code</a>
+        was returned.
+       </td>
+      </tr>
+
+      <tr>
+       <td>PECL win32service 1.0.0</td>
+       <td>
+        The return type is now <span class="type"><span class="type void">void</span></span>, previously it was <span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span>.
+       </td>
+      </tr>
+
       <tr>
        <td>PECL win32service 0.4.0</td>
        <td>

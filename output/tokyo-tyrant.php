@@ -260,14 +260,14 @@ namespace {
 		/**
 		 * Construct a new TokyoTyrant object
 		 * <p>Constructs a new TokyoTyrant object and optionally connects to the database</p>
-		 * @param string $host <p>The hostname. Default: <b><code>NULL</code></b></p>
+		 * @param string $host <p>The hostname. Default: <b><code>null</code></b></p>
 		 * @param int $port <p>port number. Default: 1978</p>
-		 * @param array $options <p>Connection options: timeout (default: 5.0), reconnect (default: <b><code>TRUE</code></b>) and persistent (default: <b><code>TRUE</code></b>)</p>
+		 * @param array $options <p>Connection options: timeout (default: 5.0), reconnect (default: <b><code>true</code></b>) and persistent (default: <b><code>true</code></b>)</p>
 		 * @return self <p>Throws TokyoTyrantException if connection to database fails</p>
 		 * @link https://php.net/manual/en/tokyotyrant.construct.php
 		 * @since PECL tokyo_tyrant >= 0.1.0
 		 */
-		public function __construct(string $host = NULL, int $port = TokyoTyrant::RDBDEF_PORT, array $options = NULL) {}
+		public function __construct(string $host = null, int $port = TokyoTyrant::RDBDEF_PORT, array $options = null) {}
 
 		/**
 		 * Adds to a numeric key
@@ -286,12 +286,12 @@ namespace {
 		 * <p>Connects to a remote database</p>
 		 * @param string $host <p>The hostname</p>
 		 * @param int $port <p>The port. Default: 1978</p>
-		 * @param array $options <p>Connection options: timeout (default: 5.0), reconnect (default: <b><code>TRUE</code></b>) and persistent (default: <b><code>TRUE</code></b>)</p>
+		 * @param array $options <p>Connection options: timeout (default: 5.0), reconnect (default: <b><code>true</code></b>) and persistent (default: <b><code>true</code></b>)</p>
 		 * @return TokyoTyrant <p>This method returns the current object and throws TokyoTyrantException on failure.</p>
 		 * @link https://php.net/manual/en/tokyotyrant.connect.php
 		 * @since PECL tokyo_tyrant >= 0.1.0
 		 */
-		public function connect(string $host, int $port = TokyoTyrant::RDBDEF_PORT, array $options = NULL): \TokyoTyrant {}
+		public function connect(string $host, int $port = TokyoTyrant::RDBDEF_PORT, array $options = null): \TokyoTyrant {}
 
 		/**
 		 * Connects to a database
@@ -395,7 +395,7 @@ namespace {
 		 * @link https://php.net/manual/en/tokyotyrant.putcat.php
 		 * @since PECL tokyo_tyrant >= 0.1.0
 		 */
-		public function putCat(mixed $keys, string $value = NULL): \TokyoTyrant {}
+		public function putCat(mixed $keys, string $value = null): \TokyoTyrant {}
 
 		/**
 		 * Puts a record
@@ -406,7 +406,7 @@ namespace {
 		 * @link https://php.net/manual/en/tokyotyrant.putkeep.php
 		 * @since PECL tokyo_tyrant >= 0.1.0
 		 */
-		public function putKeep(mixed $keys, string $value = NULL): \TokyoTyrant {}
+		public function putKeep(mixed $keys, string $value = null): \TokyoTyrant {}
 
 		/**
 		 * Puts value
@@ -436,17 +436,17 @@ namespace {
 		 * <p>Restore the database from the update log.</p><p>This method is not supported on 32bit platforms.</p>
 		 * @param string $log_dir <p>Directory where the log is</p>
 		 * @param int $timestamp <p>Beginning timestamp with microseconds</p>
-		 * @param bool $check_consistency <p>Whether to check consistency: Default: <b><code>TRUE</code></b></p>
+		 * @param bool $check_consistency <p>Whether to check consistency: Default: <b><code>true</code></b></p>
 		 * @return mixed <p>This method returns the current object and throws TokyoTyrantException on failure.</p>
 		 * @link https://php.net/manual/en/tokyotyrant.restore.php
 		 * @since PECL tokyo_tyrant >= 0.1.0
 		 */
-		public function restore(string $log_dir, int $timestamp, bool $check_consistency = TRUE): mixed {}
+		public function restore(string $log_dir, int $timestamp, bool $check_consistency = true): mixed {}
 
 		/**
 		 * Set the replication master
 		 * <p>Sets the replication master of the database</p><p>This method is not supported on 32bit platforms.</p>
-		 * @param string $host <p>Hostname of the replication master. If <b><code>NULL</code></b> the replication is disabled.</p>
+		 * @param string $host <p>Hostname of the replication master. If <b><code>null</code></b> the replication is disabled.</p>
 		 * @param int $port <p>Port of the replication master</p>
 		 * @param int $timestamp <p>Beginning timestamp with microseconds</p>
 		 * @param bool $check_consistency <p>Whether to check consistency.</p>
@@ -454,7 +454,7 @@ namespace {
 		 * @link https://php.net/manual/en/tokyotyrant.setmaster.php
 		 * @since PECL tokyo_tyrant >= 0.1.0
 		 */
-		public function setMaster(string $host, int $port, int $timestamp, bool $check_consistency = TRUE): mixed {}
+		public function setMaster(string $host, int $port, int $timestamp, bool $check_consistency = true): mixed {}
 
 		/**
 		 * Returns the size of the value
@@ -593,7 +593,7 @@ namespace {
 		/**
 		 * Returns previous Exception
 		 * <p>Returns previous exception (the third parameter of <code>Exception::__construct()</code>).</p>
-		 * @return Throwable <p>Returns the previous Throwable if available or <b><code>NULL</code></b> otherwise.</p>
+		 * @return Throwable <p>Returns the previous Throwable if available or <b><code>null</code></b> otherwise.</p>
 		 * @link https://php.net/manual/en/exception.getprevious.php
 		 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8
 		 */
@@ -652,12 +652,12 @@ namespace {
 		 * <p>Connects to a remote database</p>
 		 * @param string $host <p>The hostname</p>
 		 * @param int $port <p>The port. Default: 1978</p>
-		 * @param array $options <p>Connection options: timeout (default: 5.0), reconnect (default: <b><code>TRUE</code></b>) and persistent (default: <b><code>TRUE</code></b>)</p>
+		 * @param array $options <p>Connection options: timeout (default: 5.0), reconnect (default: <b><code>true</code></b>) and persistent (default: <b><code>true</code></b>)</p>
 		 * @return TokyoTyrant <p>This method returns the current object and throws TokyoTyrantException on failure.</p>
 		 * @link https://php.net/manual/en/tokyotyrant.connect.php
 		 * @since PECL tokyo_tyrant >= 0.1.0
 		 */
-		public function connect(string $host, int $port = TokyoTyrant::RDBDEF_PORT, array $options = NULL): \TokyoTyrant {}
+		public function connect(string $host, int $port = TokyoTyrant::RDBDEF_PORT, array $options = null): \TokyoTyrant {}
 
 		/**
 		 * Connects to a database
@@ -788,7 +788,7 @@ namespace {
 		 * @link https://php.net/manual/en/tokyotyrant.putcat.php
 		 * @since PECL tokyo_tyrant >= 0.1.0
 		 */
-		public function putCat(mixed $keys, string $value = NULL): \TokyoTyrant {}
+		public function putCat(mixed $keys, string $value = null): \TokyoTyrant {}
 
 		/**
 		 * Puts a record
@@ -799,7 +799,7 @@ namespace {
 		 * @link https://php.net/manual/en/tokyotyrant.putkeep.php
 		 * @since PECL tokyo_tyrant >= 0.1.0
 		 */
-		public function putKeep(mixed $keys, string $value = NULL): \TokyoTyrant {}
+		public function putKeep(mixed $keys, string $value = null): \TokyoTyrant {}
 
 		/**
 		 * Puts value
@@ -829,12 +829,12 @@ namespace {
 		 * <p>Restore the database from the update log.</p><p>This method is not supported on 32bit platforms.</p>
 		 * @param string $log_dir <p>Directory where the log is</p>
 		 * @param int $timestamp <p>Beginning timestamp with microseconds</p>
-		 * @param bool $check_consistency <p>Whether to check consistency: Default: <b><code>TRUE</code></b></p>
+		 * @param bool $check_consistency <p>Whether to check consistency: Default: <b><code>true</code></b></p>
 		 * @return mixed <p>This method returns the current object and throws TokyoTyrantException on failure.</p>
 		 * @link https://php.net/manual/en/tokyotyrant.restore.php
 		 * @since PECL tokyo_tyrant >= 0.1.0
 		 */
-		public function restore(string $log_dir, int $timestamp, bool $check_consistency = TRUE): mixed {}
+		public function restore(string $log_dir, int $timestamp, bool $check_consistency = true): mixed {}
 
 		/**
 		 * Rewinds the iterator
@@ -848,7 +848,7 @@ namespace {
 		/**
 		 * Set the replication master
 		 * <p>Sets the replication master of the database</p><p>This method is not supported on 32bit platforms.</p>
-		 * @param string $host <p>Hostname of the replication master. If <b><code>NULL</code></b> the replication is disabled.</p>
+		 * @param string $host <p>Hostname of the replication master. If <b><code>null</code></b> the replication is disabled.</p>
 		 * @param int $port <p>Port of the replication master</p>
 		 * @param int $timestamp <p>Beginning timestamp with microseconds</p>
 		 * @param bool $check_consistency <p>Whether to check consistency.</p>
@@ -856,7 +856,7 @@ namespace {
 		 * @link https://php.net/manual/en/tokyotyrant.setmaster.php
 		 * @since PECL tokyo_tyrant >= 0.1.0
 		 */
-		public function setMaster(string $host, int $port, int $timestamp, bool $check_consistency = TRUE): mixed {}
+		public function setMaster(string $host, int $port, int $timestamp, bool $check_consistency = true): mixed {}
 
 		/**
 		 * Returns the size of the value
@@ -900,7 +900,7 @@ namespace {
 		/**
 		 * Rewinds the iterator
 		 * <p>Checks whether the internal pointer points to valid element.</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b> if the current item is valid and <b><code>FALSE</code></b> if not.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> if the current item is valid and <b><code>false</code></b> if not.</p>
 		 * @link https://php.net/manual/en/tokyotyrantiterator.valid.php
 		 * @since PECL tokyo_tyrant >= 0.2.0
 		 */
@@ -1013,7 +1013,7 @@ namespace {
 		/**
 		 * Rewinds the iterator
 		 * <p>Rewind the resultset and executes the query if it has not been executed. Part of the Iterator interface.</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b></p>
+		 * @return bool <p>Returns <b><code>true</code></b></p>
 		 * @link https://php.net/manual/en/tokyotyrantquery.rewind.php
 		 * @since PECL tokyo_tyrant >= 0.1.0
 		 */
@@ -1037,7 +1037,7 @@ namespace {
 		 * @link https://php.net/manual/en/tokyotyrantquery.setlimit.php
 		 * @since PECL tokyo_tyrant >= 0.1.0
 		 */
-		public function setLimit(int $max = NULL, int $skip = NULL): mixed {}
+		public function setLimit(int $max = null, int $skip = null): mixed {}
 
 		/**
 		 * Orders results
@@ -1053,7 +1053,7 @@ namespace {
 		/**
 		 * Checks the validity of current item
 		 * <p>Checks if the current item is valid. Part of the Iterator interface</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b> if the current item is valid and <b><code>FALSE</code></b> if not.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> if the current item is valid and <b><code>false</code></b> if not.</p>
 		 * @link https://php.net/manual/en/tokyotyrantquery.valid.php
 		 * @since PECL tokyo_tyrant >= 0.1.0
 		 */
@@ -1070,14 +1070,14 @@ namespace {
 		/**
 		 * Construct a new TokyoTyrant object
 		 * <p>Constructs a new TokyoTyrant object and optionally connects to the database</p>
-		 * @param string $host <p>The hostname. Default: <b><code>NULL</code></b></p>
+		 * @param string $host <p>The hostname. Default: <b><code>null</code></b></p>
 		 * @param int $port <p>port number. Default: 1978</p>
-		 * @param array $options <p>Connection options: timeout (default: 5.0), reconnect (default: <b><code>TRUE</code></b>) and persistent (default: <b><code>TRUE</code></b>)</p>
+		 * @param array $options <p>Connection options: timeout (default: 5.0), reconnect (default: <b><code>true</code></b>) and persistent (default: <b><code>true</code></b>)</p>
 		 * @return self <p>Throws TokyoTyrantException if connection to database fails</p>
 		 * @link https://php.net/manual/en/tokyotyrant.construct.php
 		 * @since PECL tokyo_tyrant >= 0.1.0
 		 */
-		public function __construct(string $host = NULL, int $port = TokyoTyrant::RDBDEF_PORT, array $options = NULL) {}
+		public function __construct(string $host = null, int $port = TokyoTyrant::RDBDEF_PORT, array $options = null) {}
 
 		/**
 		 * Adds a record
@@ -1089,19 +1089,19 @@ namespace {
 		 * @link https://php.net/manual/en/tokyotyranttable.add.php
 		 * @since PECL tokyo_tyrant >= 0.1.0
 		 */
-		public function add(string $key, mixed $increment, string $type = NULL): void {}
+		public function add(string $key, mixed $increment, string $type = null): void {}
 
 		/**
 		 * Connect to a database
 		 * <p>Connects to a remote database</p>
 		 * @param string $host <p>The hostname</p>
 		 * @param int $port <p>The port. Default: 1978</p>
-		 * @param array $options <p>Connection options: timeout (default: 5.0), reconnect (default: <b><code>TRUE</code></b>) and persistent (default: <b><code>TRUE</code></b>)</p>
+		 * @param array $options <p>Connection options: timeout (default: 5.0), reconnect (default: <b><code>true</code></b>) and persistent (default: <b><code>true</code></b>)</p>
 		 * @return TokyoTyrant <p>This method returns the current object and throws TokyoTyrantException on failure.</p>
 		 * @link https://php.net/manual/en/tokyotyrant.connect.php
 		 * @since PECL tokyo_tyrant >= 0.1.0
 		 */
-		public function connect(string $host, int $port = TokyoTyrant::RDBDEF_PORT, array $options = NULL): \TokyoTyrant {}
+		public function connect(string $host, int $port = TokyoTyrant::RDBDEF_PORT, array $options = null): \TokyoTyrant {}
 
 		/**
 		 * Connects to a database
@@ -1205,7 +1205,7 @@ namespace {
 
 		/**
 		 * Store a row
-		 * <p>Puts a new row into the database. This method parameters are <code>key</code> which is the primary key of the row, passing <b><code>NULL</code></b> will generate a new unique id. <code>value</code> is an array containing the row contents which is usually key value pairs.</p>
+		 * <p>Puts a new row into the database. This method parameters are <code>key</code> which is the primary key of the row, passing <b><code>null</code></b> will generate a new unique id. <code>value</code> is an array containing the row contents which is usually key value pairs.</p>
 		 * @param string $key <p>The primary key of the row</p>
 		 * @param array $columns <p>The row contents</p>
 		 * @return int <p>Returns the primary key on success and throws TokyoTyrantException on error</p>
@@ -1217,7 +1217,7 @@ namespace {
 		/**
 		 * Concatenates to a row
 		 * <p>This method can be used to add new columns to existing records. Existing keys will be left unmodified but any new columns will be appended to the row. Passing null as key will generate a new row.</p>
-		 * @param string $key <p>The primary key of the row or <b><code>NULL</code></b></p>
+		 * @param string $key <p>The primary key of the row or <b><code>null</code></b></p>
 		 * @param array $columns <p>Array of row contents</p>
 		 * @return void <p>Returns the primary key and throws TokyoTyrantException on error.</p>
 		 * @link https://php.net/manual/en/tokyotyranttable.putcat.php
@@ -1228,7 +1228,7 @@ namespace {
 		/**
 		 * Put a new record
 		 * <p>Puts a new record into the database. If the key already exists this method throws an exception indicating that the records exists.</p>
-		 * @param string $key <p>The primary key of the row or <b><code>NULL</code></b></p>
+		 * @param string $key <p>The primary key of the row or <b><code>null</code></b></p>
 		 * @param array $columns <p>Array of the row contents</p>
 		 * @return void <p>Returns the primary key and throws TokyoTyrantException on error.</p>
 		 * @link https://php.net/manual/en/tokyotyranttable.putkeep.php
@@ -1245,7 +1245,7 @@ namespace {
 		 * @link https://php.net/manual/en/tokyotyranttable.putnr.php
 		 * @since PECL tokyo_tyrant >= 0.1.0
 		 */
-		public function putNr(mixed $keys, string $value = NULL): void {}
+		public function putNr(mixed $keys, string $value = null): void {}
 
 		/**
 		 * Concatenates to a record
@@ -1264,12 +1264,12 @@ namespace {
 		 * <p>Restore the database from the update log.</p><p>This method is not supported on 32bit platforms.</p>
 		 * @param string $log_dir <p>Directory where the log is</p>
 		 * @param int $timestamp <p>Beginning timestamp with microseconds</p>
-		 * @param bool $check_consistency <p>Whether to check consistency: Default: <b><code>TRUE</code></b></p>
+		 * @param bool $check_consistency <p>Whether to check consistency: Default: <b><code>true</code></b></p>
 		 * @return mixed <p>This method returns the current object and throws TokyoTyrantException on failure.</p>
 		 * @link https://php.net/manual/en/tokyotyrant.restore.php
 		 * @since PECL tokyo_tyrant >= 0.1.0
 		 */
-		public function restore(string $log_dir, int $timestamp, bool $check_consistency = TRUE): mixed {}
+		public function restore(string $log_dir, int $timestamp, bool $check_consistency = true): mixed {}
 
 		/**
 		 * Sets index
@@ -1285,7 +1285,7 @@ namespace {
 		/**
 		 * Set the replication master
 		 * <p>Sets the replication master of the database</p><p>This method is not supported on 32bit platforms.</p>
-		 * @param string $host <p>Hostname of the replication master. If <b><code>NULL</code></b> the replication is disabled.</p>
+		 * @param string $host <p>Hostname of the replication master. If <b><code>null</code></b> the replication is disabled.</p>
 		 * @param int $port <p>Port of the replication master</p>
 		 * @param int $timestamp <p>Beginning timestamp with microseconds</p>
 		 * @param bool $check_consistency <p>Whether to check consistency.</p>
@@ -1293,7 +1293,7 @@ namespace {
 		 * @link https://php.net/manual/en/tokyotyrant.setmaster.php
 		 * @since PECL tokyo_tyrant >= 0.1.0
 		 */
-		public function setMaster(string $host, int $port, int $timestamp, bool $check_consistency = TRUE): mixed {}
+		public function setMaster(string $host, int $port, int $timestamp, bool $check_consistency = true): mixed {}
 
 		/**
 		 * Returns the size of the value

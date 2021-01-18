@@ -33,9 +33,9 @@
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>count</strong></span>
-    ( <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">$array_or_countable</code></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$mode</code><span class="initializer"> = COUNT_NORMAL</span></span>
-  ] ) : <span class="type">int</span></div>
+    ( <span class="methodparam"><span class="type"><span class="type"><a href="class.countable.html" class="type Countable">Countable</a></span>|<span class="type">array</span></span> <code class="parameter">$value</code></span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$mode</code><span class="initializer"> = <strong><code>COUNT_NORMAL</code></strong></span></span>
+   ) : <span class="type">int</span></div>
 
   <p class="para rdfs-comment">
    Counts all elements in an array, or something in an object.
@@ -62,7 +62,7 @@
 
     
      <dt>
-<code class="parameter">array_or_countable</code></dt>
+<code class="parameter">value</code></dt>
 
      <dd>
 
@@ -103,11 +103,11 @@
  <div class="refsect1 returnvalues" id="refsect1-function.count-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns the number of elements in <code class="parameter">array_or_countable</code>.
+   Returns the number of elements in <code class="parameter">value</code>.
    When the parameter is neither an array nor an object with
    implemented <a href="class.countable.html" class="classname">Countable</a> interface,
    <code class="literal">1</code> will be returned.
-   There is one exception, if <code class="parameter">array_or_countable</code> is <strong><code>NULL</code></strong>,
+   There is one exception, if <code class="parameter">value</code> is <strong><code>null</code></strong>,
    <code class="literal">0</code> will be returned.
   </p>
  </div>
@@ -115,7 +115,7 @@
  <div class="refsect1 examples" id="refsect1-function.count-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-5469">
+   <div class="example" id="example-5490">
     <p><strong>Example #1 <span class="function"><strong>count()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -140,7 +140,7 @@ int(1)
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-5470">
+   <div class="example" id="example-5491">
     <p><strong>Example #2 Recursive <span class="function"><strong>count()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -170,7 +170,7 @@ int(1)
       <td>7.2.0</td>
       <td>
        <span class="function"><strong>count()</strong></span> will now yield a warning on invalid countable types 
-       passed to the <code class="parameter">array_or_countable</code> parameter.
+       passed to the <code class="parameter">value</code> parameter.
       </td>
      </tr>
 
@@ -185,7 +185,7 @@ int(1)
   <p class="para">
    <ul class="simplelist">
     <li class="member"><span class="function"><a href="function.is-array.html" class="function" rel="rdfs-seeAlso">is_array()</a> - Finds whether a variable is an array</span></li>
-    <li class="member"><span class="function"><a href="function.isset.html" class="function" rel="rdfs-seeAlso">isset()</a> - Determine if a variable is declared and is different than NULL</span></li>
+    <li class="member"><span class="function"><a href="function.isset.html" class="function" rel="rdfs-seeAlso">isset()</a> - Determine if a variable is declared and is different than null</span></li>
     <li class="member"><span class="function"><a href="function.empty.html" class="function" rel="rdfs-seeAlso">empty()</a> - Determine whether a variable is empty</span></li>
     <li class="member"><span class="function"><a href="function.strlen.html" class="function" rel="rdfs-seeAlso">strlen()</a> - Get string length</span></li>
     <li class="member"><span class="function"><a href="function.is-countable.html" class="function" rel="rdfs-seeAlso">is_countable()</a> - Verify that the contents of a variable is a countable value</span></li>

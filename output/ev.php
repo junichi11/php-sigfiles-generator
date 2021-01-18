@@ -309,13 +309,13 @@ namespace {
 
 		/**
 		 * Begin checking for events and calling callbacks for the default loop
-		 * <p>Begin checking for events and calling callbacks <i>for the default loop</i> . Returns when a callback calls <code>Ev::stop()</code> method, or the flags are nonzero(in which case the return value is true) or when there are no active watchers which reference the loop( <code>EvWatcher::keepalive()</code> is <b><code>TRUE</code></b>), in which case the return value will be <b><code>FALSE</code></b>. The return value can generally be interpreted as <i>if <b><code>TRUE</code></b>, there is more work left to do</i> .</p>
+		 * <p>Begin checking for events and calling callbacks <i>for the default loop</i> . Returns when a callback calls <code>Ev::stop()</code> method, or the flags are nonzero(in which case the return value is true) or when there are no active watchers which reference the loop( <code>EvWatcher::keepalive()</code> is <b><code>true</code></b>), in which case the return value will be <b><code>false</code></b>. The return value can generally be interpreted as <i>if <b><code>true</code></b>, there is more work left to do</i> .</p>
 		 * @param int $flags <p>Optional parameter <code>flags</code> can be one of the following:</p> <b> List for possible values of <code>flags</code> </b>    <code>flags</code>  Description      <b><code>0</code></b>  The default behavior described above    <b><code>Ev::RUN_ONCE</code></b>  Block at most one(wait, but don't loop)    <b><code>Ev::RUN_NOWAIT</code></b>  Don't block at all(fetch/handle events, but don't wait)    <p>See the run flag constants .</p>
 		 * @return void <p>No value is returned.</p>
 		 * @link https://php.net/manual/en/ev.run.php
 		 * @since PECL ev >= 0.2.0
 		 */
-		final public static function run(int $flags = NULL): void {}
+		final public static function run(int $flags = null): void {}
 
 		/**
 		 * Block the process for the given number of seconds
@@ -335,7 +335,7 @@ namespace {
 		 * @link https://php.net/manual/en/ev.stop.php
 		 * @since PECL ev >= 0.2.0
 		 */
-		final public static function stop(int $how = NULL): void {}
+		final public static function stop(int $how = null): void {}
 
 		/**
 		 * Returns the set of backends supported by current libev configuration
@@ -386,7 +386,7 @@ namespace {
 	class EvCheck extends \EvWatcher {
 
 		/**
-		 * @var mixed <p><i>Readonly</i> . <b><code>TRUE</code></b> if the watcher is active. <b><code>FALSE</code></b> otherwise.</p>
+		 * @var mixed <p><i>Readonly</i> . <b><code>true</code></b> if the watcher is active. <b><code>false</code></b> otherwise.</p>
 		 * @link https://php.net/manual/en/class.evwatcher.php#evwatcher.props.is-active
 		 */
 		public $is_active;
@@ -398,7 +398,7 @@ namespace {
 		public $data;
 
 		/**
-		 * @var mixed <p><i>Readonly</i> .<b><code>TRUE</code></b> if the watcher is pending, i.e. it has outstanding events, but its callback has not yet been invoked. <b><code>FALSE</code></b> otherwise. As long, as a watcher is pending(but not active), one must <i>not</i> change its priority.</p>
+		 * @var mixed <p><i>Readonly</i> .<b><code>true</code></b> if the watcher is pending, i.e. it has outstanding events, but its callback has not yet been invoked. <b><code>false</code></b> otherwise. As long, as a watcher is pending(but not active), one must <i>not</i> change its priority.</p>
 		 * @link https://php.net/manual/en/class.evwatcher.php#evwatcher.props.is-pending
 		 */
 		public $is_pending;
@@ -419,7 +419,7 @@ namespace {
 		 * @link https://php.net/manual/en/evcheck.construct.php
 		 * @since PECL ev >= 0.2.0
 		 */
-		public function __construct(callable $callback, mixed $data = NULL, int $priority = NULL) {}
+		public function __construct(callable $callback, mixed $data = null, int $priority = null) {}
 
 		/**
 		 * Clear watcher pending status
@@ -440,7 +440,7 @@ namespace {
 		 * @link https://php.net/manual/en/evcheck.createstopped.php
 		 * @since PECL ev >= 0.2.0
 		 */
-		final public static function createStopped(string $callback, string $data = NULL, string $priority = NULL): object {}
+		final public static function createStopped(string $callback, string $data = null, string $priority = null): object {}
 
 		/**
 		 * Feeds the given revents set into the event loop
@@ -473,13 +473,13 @@ namespace {
 
 		/**
 		 * Configures whether to keep the loop from returning
-		 * <p>Configures whether to keep the loop from returning. With keepalive <code>value</code> set to <b><code>FALSE</code></b> the watcher won't keep <code>Ev::run()</code> / <code>EvLoop::run()</code> from returning even though the watcher is active.</p><p>Watchers have keepalive <code>value</code> <b><code>TRUE</code></b> by default.</p><p>Clearing keepalive status is useful when returning from <code>Ev::run()</code> / <code>EvLoop::run()</code> just because of the watcher is undesirable. It could be a long running UDP socket watcher or so.</p>
-		 * @param bool $value <p>With keepalive <code>value</code> set to <b><code>FALSE</code></b> the watcher won't keep <code>Ev::run()</code> / <code>EvLoop::run()</code> from returning even though the watcher is active.</p>
+		 * <p>Configures whether to keep the loop from returning. With keepalive <code>value</code> set to <b><code>false</code></b> the watcher won't keep <code>Ev::run()</code> / <code>EvLoop::run()</code> from returning even though the watcher is active.</p><p>Watchers have keepalive <code>value</code> <b><code>true</code></b> by default.</p><p>Clearing keepalive status is useful when returning from <code>Ev::run()</code> / <code>EvLoop::run()</code> just because of the watcher is undesirable. It could be a long running UDP socket watcher or so.</p>
+		 * @param bool $value <p>With keepalive <code>value</code> set to <b><code>false</code></b> the watcher won't keep <code>Ev::run()</code> / <code>EvLoop::run()</code> from returning even though the watcher is active.</p>
 		 * @return bool <p>Returns the previous state.</p>
 		 * @link https://php.net/manual/en/evwatcher.keepalive.php
 		 * @since PECL ev >= 0.2.0
 		 */
-		public function keepalive(bool $value = NULL): bool {}
+		public function keepalive(bool $value = null): bool {}
 
 		/**
 		 * Sets new callback for the watcher
@@ -537,7 +537,7 @@ namespace {
 		public $rstatus;
 
 		/**
-		 * @var mixed <p><i>Readonly</i> . <b><code>TRUE</code></b> if the watcher is active. <b><code>FALSE</code></b> otherwise.</p>
+		 * @var mixed <p><i>Readonly</i> . <b><code>true</code></b> if the watcher is active. <b><code>false</code></b> otherwise.</p>
 		 * @link https://php.net/manual/en/class.evwatcher.php#evwatcher.props.is-active
 		 */
 		public $is_active;
@@ -549,7 +549,7 @@ namespace {
 		public $data;
 
 		/**
-		 * @var mixed <p><i>Readonly</i> .<b><code>TRUE</code></b> if the watcher is pending, i.e. it has outstanding events, but its callback has not yet been invoked. <b><code>FALSE</code></b> otherwise. As long, as a watcher is pending(but not active), one must <i>not</i> change its priority.</p>
+		 * @var mixed <p><i>Readonly</i> .<b><code>true</code></b> if the watcher is pending, i.e. it has outstanding events, but its callback has not yet been invoked. <b><code>false</code></b> otherwise. As long, as a watcher is pending(but not active), one must <i>not</i> change its priority.</p>
 		 * @link https://php.net/manual/en/class.evwatcher.php#evwatcher.props.is-pending
 		 */
 		public $is_pending;
@@ -562,9 +562,9 @@ namespace {
 
 		/**
 		 * Constructs the EvChild watcher object
-		 * <p>Constructs the EvChild watcher object.</p><p>Call the callback when a status change for process ID <code>pid</code> (or any <i>PID</i> if <code>pid</code> is <b><code>0</code></b> ) has been received(a status change happens when the process terminates or is killed, or, when <code>trace</code> is <b><code>TRUE</code></b>, additionally when it is stopped or continued). In other words, when the process receives a <b><code>SIGCHLD</code></b> , <i>Ev</i> will fetch the outstanding exit/wait status for all changed/zombie children and call the callback.</p><p>It is valid to install a child watcher after an EvChild has exited but before the event loop has started its next iteration. For example, first one calls <code>fork</code> , then the new child process might exit, and only then an EvChild watcher is installed in the parent for the new <i>PID</i> .</p><p>You can access both exit/tracing status and <code>pid</code> by using the rstatus and rpid properties of the watcher object.</p><p>The number of <i>PID</i> watchers per <i>PID</i> is unlimited. All of them will be called.</p><p>The <code>EvChild::createStopped()</code> method doesn't start(activate) the newly created watcher.</p>
+		 * <p>Constructs the EvChild watcher object.</p><p>Call the callback when a status change for process ID <code>pid</code> (or any <i>PID</i> if <code>pid</code> is <b><code>0</code></b> ) has been received(a status change happens when the process terminates or is killed, or, when <code>trace</code> is <b><code>true</code></b>, additionally when it is stopped or continued). In other words, when the process receives a <b><code>SIGCHLD</code></b> , <i>Ev</i> will fetch the outstanding exit/wait status for all changed/zombie children and call the callback.</p><p>It is valid to install a child watcher after an EvChild has exited but before the event loop has started its next iteration. For example, first one calls <code>fork</code> , then the new child process might exit, and only then an EvChild watcher is installed in the parent for the new <i>PID</i> .</p><p>You can access both exit/tracing status and <code>pid</code> by using the rstatus and rpid properties of the watcher object.</p><p>The number of <i>PID</i> watchers per <i>PID</i> is unlimited. All of them will be called.</p><p>The <code>EvChild::createStopped()</code> method doesn't start(activate) the newly created watcher.</p>
 		 * @param int $pid <p>Wait for status changes of process PID(or any process if PID is specified as <b><code>0</code></b> ).</p>
-		 * @param bool $trace <p>If <b><code>FALSE</code></b>, only activate the watcher when the process terminates. Otherwise(<b><code>TRUE</code></b>) additionally activate the watcher when the process is stopped or continued.</p>
+		 * @param bool $trace <p>If <b><code>false</code></b>, only activate the watcher when the process terminates. Otherwise(<b><code>true</code></b>) additionally activate the watcher when the process is stopped or continued.</p>
 		 * @param callable $callback <p>See Watcher callbacks .</p>
 		 * @param mixed $data <p>Custom data associated with the watcher.</p>
 		 * @param int $priority <p>Watcher priority</p>
@@ -572,7 +572,7 @@ namespace {
 		 * @link https://php.net/manual/en/evchild.construct.php
 		 * @since PECL ev >= 0.2.0
 		 */
-		public function __construct(int $pid, bool $trace, callable $callback, mixed $data = NULL, int $priority = 0) {}
+		public function __construct(int $pid, bool $trace, callable $callback, mixed $data = null, int $priority = 0) {}
 
 		/**
 		 * Clear watcher pending status
@@ -595,7 +595,7 @@ namespace {
 		 * @link https://php.net/manual/en/evchild.createstopped.php
 		 * @since PECL ev >= 0.2.0
 		 */
-		final public static function createStopped(int $pid, bool $trace, callable $callback, mixed $data = NULL, int $priority = NULL): object {}
+		final public static function createStopped(int $pid, bool $trace, callable $callback, mixed $data = null, int $priority = null): object {}
 
 		/**
 		 * Feeds the given revents set into the event loop
@@ -628,13 +628,13 @@ namespace {
 
 		/**
 		 * Configures whether to keep the loop from returning
-		 * <p>Configures whether to keep the loop from returning. With keepalive <code>value</code> set to <b><code>FALSE</code></b> the watcher won't keep <code>Ev::run()</code> / <code>EvLoop::run()</code> from returning even though the watcher is active.</p><p>Watchers have keepalive <code>value</code> <b><code>TRUE</code></b> by default.</p><p>Clearing keepalive status is useful when returning from <code>Ev::run()</code> / <code>EvLoop::run()</code> just because of the watcher is undesirable. It could be a long running UDP socket watcher or so.</p>
-		 * @param bool $value <p>With keepalive <code>value</code> set to <b><code>FALSE</code></b> the watcher won't keep <code>Ev::run()</code> / <code>EvLoop::run()</code> from returning even though the watcher is active.</p>
+		 * <p>Configures whether to keep the loop from returning. With keepalive <code>value</code> set to <b><code>false</code></b> the watcher won't keep <code>Ev::run()</code> / <code>EvLoop::run()</code> from returning even though the watcher is active.</p><p>Watchers have keepalive <code>value</code> <b><code>true</code></b> by default.</p><p>Clearing keepalive status is useful when returning from <code>Ev::run()</code> / <code>EvLoop::run()</code> just because of the watcher is undesirable. It could be a long running UDP socket watcher or so.</p>
+		 * @param bool $value <p>With keepalive <code>value</code> set to <b><code>false</code></b> the watcher won't keep <code>Ev::run()</code> / <code>EvLoop::run()</code> from returning even though the watcher is active.</p>
 		 * @return bool <p>Returns the previous state.</p>
 		 * @link https://php.net/manual/en/evwatcher.keepalive.php
 		 * @since PECL ev >= 0.2.0
 		 */
-		public function keepalive(bool $value = NULL): bool {}
+		public function keepalive(bool $value = null): bool {}
 
 		/**
 		 * Configures the watcher
@@ -699,7 +699,7 @@ namespace {
 		 * @link https://php.net/manual/en/evembed.construct.php
 		 * @since PECL ev >= 0.2.0
 		 */
-		public function __construct(object $other, callable $callback = NULL, mixed $data = NULL, int $priority = NULL) {}
+		public function __construct(object $other, callable $callback = null, mixed $data = null, int $priority = null) {}
 
 		/**
 		 * Clear watcher pending status
@@ -721,7 +721,7 @@ namespace {
 		 * @link https://php.net/manual/en/evembed.createstopped.php
 		 * @since PECL ev >= 0.2.0
 		 */
-		final public static function createStopped(object $other, callable $callback = NULL, mixed $data = NULL, int $priority = NULL): void {}
+		final public static function createStopped(object $other, callable $callback = null, mixed $data = null, int $priority = null): void {}
 
 		/**
 		 * Feeds the given revents set into the event loop
@@ -754,13 +754,13 @@ namespace {
 
 		/**
 		 * Configures whether to keep the loop from returning
-		 * <p>Configures whether to keep the loop from returning. With keepalive <code>value</code> set to <b><code>FALSE</code></b> the watcher won't keep <code>Ev::run()</code> / <code>EvLoop::run()</code> from returning even though the watcher is active.</p><p>Watchers have keepalive <code>value</code> <b><code>TRUE</code></b> by default.</p><p>Clearing keepalive status is useful when returning from <code>Ev::run()</code> / <code>EvLoop::run()</code> just because of the watcher is undesirable. It could be a long running UDP socket watcher or so.</p>
-		 * @param bool $value <p>With keepalive <code>value</code> set to <b><code>FALSE</code></b> the watcher won't keep <code>Ev::run()</code> / <code>EvLoop::run()</code> from returning even though the watcher is active.</p>
+		 * <p>Configures whether to keep the loop from returning. With keepalive <code>value</code> set to <b><code>false</code></b> the watcher won't keep <code>Ev::run()</code> / <code>EvLoop::run()</code> from returning even though the watcher is active.</p><p>Watchers have keepalive <code>value</code> <b><code>true</code></b> by default.</p><p>Clearing keepalive status is useful when returning from <code>Ev::run()</code> / <code>EvLoop::run()</code> just because of the watcher is undesirable. It could be a long running UDP socket watcher or so.</p>
+		 * @param bool $value <p>With keepalive <code>value</code> set to <b><code>false</code></b> the watcher won't keep <code>Ev::run()</code> / <code>EvLoop::run()</code> from returning even though the watcher is active.</p>
 		 * @return bool <p>Returns the previous state.</p>
 		 * @link https://php.net/manual/en/evwatcher.keepalive.php
 		 * @since PECL ev >= 0.2.0
 		 */
-		public function keepalive(bool $value = NULL): bool {}
+		public function keepalive(bool $value = null): bool {}
 
 		/**
 		 * Configures the watcher
@@ -818,7 +818,7 @@ namespace {
 	class EvFork extends \EvWatcher {
 
 		/**
-		 * @var mixed <p><i>Readonly</i> . <b><code>TRUE</code></b> if the watcher is active. <b><code>FALSE</code></b> otherwise.</p>
+		 * @var mixed <p><i>Readonly</i> . <b><code>true</code></b> if the watcher is active. <b><code>false</code></b> otherwise.</p>
 		 * @link https://php.net/manual/en/class.evwatcher.php#evwatcher.props.is-active
 		 */
 		public $is_active;
@@ -830,7 +830,7 @@ namespace {
 		public $data;
 
 		/**
-		 * @var mixed <p><i>Readonly</i> .<b><code>TRUE</code></b> if the watcher is pending, i.e. it has outstanding events, but its callback has not yet been invoked. <b><code>FALSE</code></b> otherwise. As long, as a watcher is pending(but not active), one must <i>not</i> change its priority.</p>
+		 * @var mixed <p><i>Readonly</i> .<b><code>true</code></b> if the watcher is pending, i.e. it has outstanding events, but its callback has not yet been invoked. <b><code>false</code></b> otherwise. As long, as a watcher is pending(but not active), one must <i>not</i> change its priority.</p>
 		 * @link https://php.net/manual/en/class.evwatcher.php#evwatcher.props.is-pending
 		 */
 		public $is_pending;
@@ -851,7 +851,7 @@ namespace {
 		 * @link https://php.net/manual/en/evfork.construct.php
 		 * @since PECL ev >= 0.2.0
 		 */
-		public function __construct(callable $callback, mixed $data = NULL, int $priority = 0) {}
+		public function __construct(callable $callback, mixed $data = null, int $priority = 0) {}
 
 		/**
 		 * Clear watcher pending status
@@ -872,7 +872,7 @@ namespace {
 		 * @link https://php.net/manual/en/evfork.createstopped.php
 		 * @since PECL ev >= 0.2.0
 		 */
-		final public static function createStopped(string $callback, string $data = NULL, string $priority = NULL): object {}
+		final public static function createStopped(string $callback, string $data = null, string $priority = null): object {}
 
 		/**
 		 * Feeds the given revents set into the event loop
@@ -905,13 +905,13 @@ namespace {
 
 		/**
 		 * Configures whether to keep the loop from returning
-		 * <p>Configures whether to keep the loop from returning. With keepalive <code>value</code> set to <b><code>FALSE</code></b> the watcher won't keep <code>Ev::run()</code> / <code>EvLoop::run()</code> from returning even though the watcher is active.</p><p>Watchers have keepalive <code>value</code> <b><code>TRUE</code></b> by default.</p><p>Clearing keepalive status is useful when returning from <code>Ev::run()</code> / <code>EvLoop::run()</code> just because of the watcher is undesirable. It could be a long running UDP socket watcher or so.</p>
-		 * @param bool $value <p>With keepalive <code>value</code> set to <b><code>FALSE</code></b> the watcher won't keep <code>Ev::run()</code> / <code>EvLoop::run()</code> from returning even though the watcher is active.</p>
+		 * <p>Configures whether to keep the loop from returning. With keepalive <code>value</code> set to <b><code>false</code></b> the watcher won't keep <code>Ev::run()</code> / <code>EvLoop::run()</code> from returning even though the watcher is active.</p><p>Watchers have keepalive <code>value</code> <b><code>true</code></b> by default.</p><p>Clearing keepalive status is useful when returning from <code>Ev::run()</code> / <code>EvLoop::run()</code> just because of the watcher is undesirable. It could be a long running UDP socket watcher or so.</p>
+		 * @param bool $value <p>With keepalive <code>value</code> set to <b><code>false</code></b> the watcher won't keep <code>Ev::run()</code> / <code>EvLoop::run()</code> from returning even though the watcher is active.</p>
 		 * @return bool <p>Returns the previous state.</p>
 		 * @link https://php.net/manual/en/evwatcher.keepalive.php
 		 * @since PECL ev >= 0.2.0
 		 */
-		public function keepalive(bool $value = NULL): bool {}
+		public function keepalive(bool $value = null): bool {}
 
 		/**
 		 * Sets new callback for the watcher
@@ -953,7 +953,7 @@ namespace {
 	class EvIdle extends \EvWatcher {
 
 		/**
-		 * @var mixed <p><i>Readonly</i> . <b><code>TRUE</code></b> if the watcher is active. <b><code>FALSE</code></b> otherwise.</p>
+		 * @var mixed <p><i>Readonly</i> . <b><code>true</code></b> if the watcher is active. <b><code>false</code></b> otherwise.</p>
 		 * @link https://php.net/manual/en/class.evwatcher.php#evwatcher.props.is-active
 		 */
 		public $is_active;
@@ -965,7 +965,7 @@ namespace {
 		public $data;
 
 		/**
-		 * @var mixed <p><i>Readonly</i> .<b><code>TRUE</code></b> if the watcher is pending, i.e. it has outstanding events, but its callback has not yet been invoked. <b><code>FALSE</code></b> otherwise. As long, as a watcher is pending(but not active), one must <i>not</i> change its priority.</p>
+		 * @var mixed <p><i>Readonly</i> .<b><code>true</code></b> if the watcher is pending, i.e. it has outstanding events, but its callback has not yet been invoked. <b><code>false</code></b> otherwise. As long, as a watcher is pending(but not active), one must <i>not</i> change its priority.</p>
 		 * @link https://php.net/manual/en/class.evwatcher.php#evwatcher.props.is-pending
 		 */
 		public $is_pending;
@@ -986,7 +986,7 @@ namespace {
 		 * @link https://php.net/manual/en/evidle.construct.php
 		 * @since PECL ev >= 0.2.0
 		 */
-		public function __construct(callable $callback, mixed $data = NULL, int $priority = NULL) {}
+		public function __construct(callable $callback, mixed $data = null, int $priority = null) {}
 
 		/**
 		 * Clear watcher pending status
@@ -1007,7 +1007,7 @@ namespace {
 		 * @link https://php.net/manual/en/evidle.createstopped.php
 		 * @since PECL ev >= 0.2.0
 		 */
-		final public static function createStopped(string $callback, mixed $data = NULL, int $priority = NULL): object {}
+		final public static function createStopped(string $callback, mixed $data = null, int $priority = null): object {}
 
 		/**
 		 * Feeds the given revents set into the event loop
@@ -1040,13 +1040,13 @@ namespace {
 
 		/**
 		 * Configures whether to keep the loop from returning
-		 * <p>Configures whether to keep the loop from returning. With keepalive <code>value</code> set to <b><code>FALSE</code></b> the watcher won't keep <code>Ev::run()</code> / <code>EvLoop::run()</code> from returning even though the watcher is active.</p><p>Watchers have keepalive <code>value</code> <b><code>TRUE</code></b> by default.</p><p>Clearing keepalive status is useful when returning from <code>Ev::run()</code> / <code>EvLoop::run()</code> just because of the watcher is undesirable. It could be a long running UDP socket watcher or so.</p>
-		 * @param bool $value <p>With keepalive <code>value</code> set to <b><code>FALSE</code></b> the watcher won't keep <code>Ev::run()</code> / <code>EvLoop::run()</code> from returning even though the watcher is active.</p>
+		 * <p>Configures whether to keep the loop from returning. With keepalive <code>value</code> set to <b><code>false</code></b> the watcher won't keep <code>Ev::run()</code> / <code>EvLoop::run()</code> from returning even though the watcher is active.</p><p>Watchers have keepalive <code>value</code> <b><code>true</code></b> by default.</p><p>Clearing keepalive status is useful when returning from <code>Ev::run()</code> / <code>EvLoop::run()</code> just because of the watcher is undesirable. It could be a long running UDP socket watcher or so.</p>
+		 * @param bool $value <p>With keepalive <code>value</code> set to <b><code>false</code></b> the watcher won't keep <code>Ev::run()</code> / <code>EvLoop::run()</code> from returning even though the watcher is active.</p>
 		 * @return bool <p>Returns the previous state.</p>
 		 * @link https://php.net/manual/en/evwatcher.keepalive.php
 		 * @since PECL ev >= 0.2.0
 		 */
-		public function keepalive(bool $value = NULL): bool {}
+		public function keepalive(bool $value = null): bool {}
 
 		/**
 		 * Sets new callback for the watcher
@@ -1101,7 +1101,7 @@ namespace {
 		public $events;
 
 		/**
-		 * @var mixed <p><i>Readonly</i> . <b><code>TRUE</code></b> if the watcher is active. <b><code>FALSE</code></b> otherwise.</p>
+		 * @var mixed <p><i>Readonly</i> . <b><code>true</code></b> if the watcher is active. <b><code>false</code></b> otherwise.</p>
 		 * @link https://php.net/manual/en/class.evwatcher.php#evwatcher.props.is-active
 		 */
 		public $is_active;
@@ -1113,7 +1113,7 @@ namespace {
 		public $data;
 
 		/**
-		 * @var mixed <p><i>Readonly</i> .<b><code>TRUE</code></b> if the watcher is pending, i.e. it has outstanding events, but its callback has not yet been invoked. <b><code>FALSE</code></b> otherwise. As long, as a watcher is pending(but not active), one must <i>not</i> change its priority.</p>
+		 * @var mixed <p><i>Readonly</i> .<b><code>true</code></b> if the watcher is pending, i.e. it has outstanding events, but its callback has not yet been invoked. <b><code>false</code></b> otherwise. As long, as a watcher is pending(but not active), one must <i>not</i> change its priority.</p>
 		 * @link https://php.net/manual/en/class.evwatcher.php#evwatcher.props.is-pending
 		 */
 		public $is_pending;
@@ -1136,7 +1136,7 @@ namespace {
 		 * @link https://php.net/manual/en/evio.construct.php
 		 * @since PECL ev >= 0.2.0
 		 */
-		public function __construct(mixed $fd, int $events, callable $callback, mixed $data = NULL, int $priority = NULL) {}
+		public function __construct(mixed $fd, int $events, callable $callback, mixed $data = null, int $priority = null) {}
 
 		/**
 		 * Clear watcher pending status
@@ -1159,7 +1159,7 @@ namespace {
 		 * @link https://php.net/manual/en/evio.createstopped.php
 		 * @since PECL ev >= 0.2.0
 		 */
-		final public static function createStopped(mixed $fd, int $events, callable $callback, mixed $data = NULL, int $priority = 0): \EvIo {}
+		final public static function createStopped(mixed $fd, int $events, callable $callback, mixed $data = null, int $priority = 0): \EvIo {}
 
 		/**
 		 * Feeds the given revents set into the event loop
@@ -1192,13 +1192,13 @@ namespace {
 
 		/**
 		 * Configures whether to keep the loop from returning
-		 * <p>Configures whether to keep the loop from returning. With keepalive <code>value</code> set to <b><code>FALSE</code></b> the watcher won't keep <code>Ev::run()</code> / <code>EvLoop::run()</code> from returning even though the watcher is active.</p><p>Watchers have keepalive <code>value</code> <b><code>TRUE</code></b> by default.</p><p>Clearing keepalive status is useful when returning from <code>Ev::run()</code> / <code>EvLoop::run()</code> just because of the watcher is undesirable. It could be a long running UDP socket watcher or so.</p>
-		 * @param bool $value <p>With keepalive <code>value</code> set to <b><code>FALSE</code></b> the watcher won't keep <code>Ev::run()</code> / <code>EvLoop::run()</code> from returning even though the watcher is active.</p>
+		 * <p>Configures whether to keep the loop from returning. With keepalive <code>value</code> set to <b><code>false</code></b> the watcher won't keep <code>Ev::run()</code> / <code>EvLoop::run()</code> from returning even though the watcher is active.</p><p>Watchers have keepalive <code>value</code> <b><code>true</code></b> by default.</p><p>Clearing keepalive status is useful when returning from <code>Ev::run()</code> / <code>EvLoop::run()</code> just because of the watcher is undesirable. It could be a long running UDP socket watcher or so.</p>
+		 * @param bool $value <p>With keepalive <code>value</code> set to <b><code>false</code></b> the watcher won't keep <code>Ev::run()</code> / <code>EvLoop::run()</code> from returning even though the watcher is active.</p>
 		 * @return bool <p>Returns the previous state.</p>
 		 * @link https://php.net/manual/en/evwatcher.keepalive.php
 		 * @since PECL ev >= 0.2.0
 		 */
-		public function keepalive(bool $value = NULL): bool {}
+		public function keepalive(bool $value = null): bool {}
 
 		/**
 		 * Configures the watcher
@@ -1262,7 +1262,7 @@ namespace {
 		public $backend;
 
 		/**
-		 * @var mixed <p><i>Readonly</i> . <b><code>TRUE</code></b> if it is the default event loop.</p>
+		 * @var mixed <p><i>Readonly</i> . <b><code>true</code></b> if it is the default event loop.</p>
 		 * @link https://php.net/manual/en/class.evloop.php#evloop.props.is-default-loop
 		 */
 		public $is_default_loop;
@@ -1308,7 +1308,7 @@ namespace {
 		 * @link https://php.net/manual/en/evloop.construct.php
 		 * @since PECL ev >= 0.2.0
 		 */
-		public function __construct(int $flags = NULL, mixed $data = NULL, float $io_interval = 0.0, float $timeout_interval = 0.0) {}
+		public function __construct(int $flags = null, mixed $data = NULL, float $io_interval = 0.0, float $timeout_interval = 0.0) {}
 
 		/**
 		 * Returns an integer describing the backend used by libev
@@ -1329,7 +1329,7 @@ namespace {
 		 * @link https://php.net/manual/en/evloop.check.php
 		 * @since PECL ev >= 0.2.0
 		 */
-		final public function check(string $callback, string $data = NULL, string $priority = NULL): \EvCheck {}
+		final public function check(string $callback, string $data = null, string $priority = null): \EvCheck {}
 
 		/**
 		 * Creates EvChild object associated with the current event loop
@@ -1343,7 +1343,7 @@ namespace {
 		 * @link https://php.net/manual/en/evloop.child.php
 		 * @since PECL ev >= 0.2.0
 		 */
-		final public function child(string $pid, string $trace, string $callback, string $data = NULL, string $priority = NULL): \EvChild {}
+		final public function child(string $pid, string $trace, string $callback, string $data = null, string $priority = null): \EvChild {}
 
 		/**
 		 * Returns or creates the default event loop
@@ -1369,7 +1369,7 @@ namespace {
 		 * @link https://php.net/manual/en/evloop.embed.php
 		 * @since PECL ev >= 0.2.0
 		 */
-		final public function embed(string $other, string $callback = NULL, string $data = NULL, string $priority = NULL): \EvEmbed {}
+		final public function embed(string $other, string $callback = null, string $data = null, string $priority = null): \EvEmbed {}
 
 		/**
 		 * Creates EvFork watcher object associated with the current event loop instance
@@ -1381,7 +1381,7 @@ namespace {
 		 * @link https://php.net/manual/en/evloop.fork.php
 		 * @since PECL ev >= 0.2.0
 		 */
-		final public function fork(callable $callback, mixed $data = NULL, int $priority = 0): \EvFork {}
+		final public function fork(callable $callback, mixed $data = null, int $priority = 0): \EvFork {}
 
 		/**
 		 * Creates EvIdle watcher object associated with the current event loop instance
@@ -1393,7 +1393,7 @@ namespace {
 		 * @link https://php.net/manual/en/evloop.idle.php
 		 * @since PECL ev >= 0.2.0
 		 */
-		final public function idle(callable $callback, mixed $data = NULL, int $priority = 0): \EvIdle {}
+		final public function idle(callable $callback, mixed $data = null, int $priority = 0): \EvIdle {}
 
 		/**
 		 * Invoke all pending watchers while resetting their pending state
@@ -1416,7 +1416,7 @@ namespace {
 		 * @link https://php.net/manual/en/evloop.io.php
 		 * @since PECL ev >= 0.2.0
 		 */
-		final public function io(mixed $fd, int $events, callable $callback, mixed $data = NULL, int $priority = 0): \EvIo {}
+		final public function io(mixed $fd, int $events, callable $callback, mixed $data = null, int $priority = 0): \EvIo {}
 
 		/**
 		 * Must be called after a fork
@@ -1457,7 +1457,7 @@ namespace {
 		 * @link https://php.net/manual/en/evloop.periodic.php
 		 * @since PECL ev >= 0.2.0
 		 */
-		final public function periodic(float $offset, float $interval, callable $callback, mixed $data = NULL, int $priority = 0): \EvPeriodic {}
+		final public function periodic(float $offset, float $interval, callable $callback, mixed $data = null, int $priority = 0): \EvPeriodic {}
 
 		/**
 		 * Creates EvPrepare watcher object associated with the current event loop instance
@@ -1469,7 +1469,7 @@ namespace {
 		 * @link https://php.net/manual/en/evloop.prepare.php
 		 * @since PECL ev >= 0.2.0
 		 */
-		final public function prepare(callable $callback, mixed $data = NULL, int $priority = 0): \EvPrepare {}
+		final public function prepare(callable $callback, mixed $data = null, int $priority = 0): \EvPrepare {}
 
 		/**
 		 * Resume previously suspended default event loop
@@ -1482,7 +1482,7 @@ namespace {
 
 		/**
 		 * Begin checking for events and calling callbacks for the loop
-		 * <p>Begin checking for events and calling callbacks for the current event loop. Returns when a callback calls <code>Ev::stop()</code> method, or the flags are nonzero(in which case the return value is true) or when there are no active watchers which reference the loop( <code>EvWatcher::keepalive()</code> is <b><code>TRUE</code></b>), in which case the return value will be <b><code>FALSE</code></b>. The return value can generally be interpreted as <i>if <b><code>TRUE</code></b>, there is more work left to do</i> .</p>
+		 * <p>Begin checking for events and calling callbacks for the current event loop. Returns when a callback calls <code>Ev::stop()</code> method, or the flags are nonzero(in which case the return value is true) or when there are no active watchers which reference the loop( <code>EvWatcher::keepalive()</code> is <b><code>true</code></b>), in which case the return value will be <b><code>false</code></b>. The return value can generally be interpreted as <i>if <b><code>true</code></b>, there is more work left to do</i> .</p>
 		 * @param int $flags <p>Optional parameter <code>flags</code> can be one of the following:</p> <b> List for possible values of <code>flags</code> </b>    <code>flags</code>  Description      <b><code>0</code></b>  The default behavior described above    <b><code>Ev::RUN_ONCE</code></b>  Block at most one(wait, but don't loop)    <b><code>Ev::RUN_NOWAIT</code></b>  Don't block at all(fetch/handle events, but don't wait)    <p>See the run flag constants .</p>
 		 * @return void <p>No value is returned.</p>
 		 * @link https://php.net/manual/en/evloop.run.php
@@ -1501,7 +1501,7 @@ namespace {
 		 * @link https://php.net/manual/en/evloop.signal.php
 		 * @since PECL ev >= 0.2.0
 		 */
-		final public function signal(int $signum, callable $callback, mixed $data = NULL, int $priority = 0): \EvSignal {}
+		final public function signal(int $signum, callable $callback, mixed $data = null, int $priority = 0): \EvSignal {}
 
 		/**
 		 * Creates EvStat watcher object associated with the current event loop instance
@@ -1515,7 +1515,7 @@ namespace {
 		 * @link https://php.net/manual/en/evloop.stat.php
 		 * @since PECL ev >= 0.2.0
 		 */
-		final public function stat(string $path, float $interval, callable $callback, mixed $data = NULL, int $priority = 0): \EvStat {}
+		final public function stat(string $path, float $interval, callable $callback, mixed $data = null, int $priority = 0): \EvStat {}
 
 		/**
 		 * Stops the event loop
@@ -1525,7 +1525,7 @@ namespace {
 		 * @link https://php.net/manual/en/evloop.stop.php
 		 * @since PECL ev >= 0.2.0
 		 */
-		public function stop(int $how = NULL): void {}
+		public function stop(int $how = null): void {}
 
 		/**
 		 * Suspend the loop
@@ -1548,7 +1548,7 @@ namespace {
 		 * @link https://php.net/manual/en/evloop.timer.php
 		 * @since PECL ev >= 0.2.0
 		 */
-		final public function timer(float $after, float $repeat, callable $callback, mixed $data = NULL, int $priority = 0): \EvTimer {}
+		final public function timer(float $after, float $repeat, callable $callback, mixed $data = null, int $priority = 0): \EvTimer {}
 
 		/**
 		 * Performs internal consistency checks(for debugging)
@@ -1583,7 +1583,7 @@ namespace {
 		public $interval;
 
 		/**
-		 * @var mixed <p><i>Readonly</i> . <b><code>TRUE</code></b> if the watcher is active. <b><code>FALSE</code></b> otherwise.</p>
+		 * @var mixed <p><i>Readonly</i> . <b><code>true</code></b> if the watcher is active. <b><code>false</code></b> otherwise.</p>
 		 * @link https://php.net/manual/en/class.evwatcher.php#evwatcher.props.is-active
 		 */
 		public $is_active;
@@ -1595,7 +1595,7 @@ namespace {
 		public $data;
 
 		/**
-		 * @var mixed <p><i>Readonly</i> .<b><code>TRUE</code></b> if the watcher is pending, i.e. it has outstanding events, but its callback has not yet been invoked. <b><code>FALSE</code></b> otherwise. As long, as a watcher is pending(but not active), one must <i>not</i> change its priority.</p>
+		 * @var mixed <p><i>Readonly</i> .<b><code>true</code></b> if the watcher is pending, i.e. it has outstanding events, but its callback has not yet been invoked. <b><code>false</code></b> otherwise. As long, as a watcher is pending(but not active), one must <i>not</i> change its priority.</p>
 		 * @link https://php.net/manual/en/class.evwatcher.php#evwatcher.props.is-pending
 		 */
 		public $is_pending;
@@ -1611,7 +1611,7 @@ namespace {
 		 * <p>Constructs EvPeriodic watcher object and starts it automatically. <code>EvPeriodic::createStopped()</code> method creates stopped periodic watcher.</p>
 		 * @param float $offset <p>See Periodic watcher operation modes</p>
 		 * @param string $interval <p>See Periodic watcher operation modes</p>
-		 * @param callable $reschedule_cb <p>Reschedule callback. You can pass <b><code>NULL</code></b>. See Periodic watcher operation modes</p>
+		 * @param callable $reschedule_cb <p>Reschedule callback. You can pass <b><code>null</code></b>. See Periodic watcher operation modes</p>
 		 * @param callable $callback <p>See Watcher callbacks .</p>
 		 * @param mixed $data <p>Custom data associated with the watcher.</p>
 		 * @param int $priority <p>Watcher priority</p>
@@ -1619,7 +1619,7 @@ namespace {
 		 * @link https://php.net/manual/en/evperiodic.construct.php
 		 * @since PECL ev >= 0.2.0
 		 */
-		public function __construct(float $offset, string $interval, callable $reschedule_cb, callable $callback, mixed $data = NULL, int $priority = 0) {}
+		public function __construct(float $offset, string $interval, callable $reschedule_cb, callable $callback, mixed $data = null, int $priority = 0) {}
 
 		/**
 		 * Simply stops and restarts the periodic watcher again
@@ -1653,7 +1653,7 @@ namespace {
 		 * <p>Create EvPeriodic object. Unlike <code>EvPeriodic::__construct()</code> this method doesn't start the watcher automatically.</p>
 		 * @param float $offset <p>See Periodic watcher operation modes</p>
 		 * @param float $interval <p>See Periodic watcher operation modes</p>
-		 * @param callable $reschedule_cb <p>Reschedule callback. You can pass <b><code>NULL</code></b>. See Periodic watcher operation modes</p>
+		 * @param callable $reschedule_cb <p>Reschedule callback. You can pass <b><code>null</code></b>. See Periodic watcher operation modes</p>
 		 * @param callable $callback <p>See Watcher callbacks .</p>
 		 * @param mixed $data <p>Custom data associated with the watcher.</p>
 		 * @param int $priority <p>Watcher priority</p>
@@ -1661,7 +1661,7 @@ namespace {
 		 * @link https://php.net/manual/en/evperiodic.createstopped.php
 		 * @since PECL ev >= 0.2.0
 		 */
-		final public static function createStopped(float $offset, float $interval, callable $reschedule_cb, callable $callback, mixed $data = NULL, int $priority = 0): \EvPeriodic {}
+		final public static function createStopped(float $offset, float $interval, callable $reschedule_cb, callable $callback, mixed $data = null, int $priority = 0): \EvPeriodic {}
 
 		/**
 		 * Feeds the given revents set into the event loop
@@ -1694,13 +1694,13 @@ namespace {
 
 		/**
 		 * Configures whether to keep the loop from returning
-		 * <p>Configures whether to keep the loop from returning. With keepalive <code>value</code> set to <b><code>FALSE</code></b> the watcher won't keep <code>Ev::run()</code> / <code>EvLoop::run()</code> from returning even though the watcher is active.</p><p>Watchers have keepalive <code>value</code> <b><code>TRUE</code></b> by default.</p><p>Clearing keepalive status is useful when returning from <code>Ev::run()</code> / <code>EvLoop::run()</code> just because of the watcher is undesirable. It could be a long running UDP socket watcher or so.</p>
-		 * @param bool $value <p>With keepalive <code>value</code> set to <b><code>FALSE</code></b> the watcher won't keep <code>Ev::run()</code> / <code>EvLoop::run()</code> from returning even though the watcher is active.</p>
+		 * <p>Configures whether to keep the loop from returning. With keepalive <code>value</code> set to <b><code>false</code></b> the watcher won't keep <code>Ev::run()</code> / <code>EvLoop::run()</code> from returning even though the watcher is active.</p><p>Watchers have keepalive <code>value</code> <b><code>true</code></b> by default.</p><p>Clearing keepalive status is useful when returning from <code>Ev::run()</code> / <code>EvLoop::run()</code> just because of the watcher is undesirable. It could be a long running UDP socket watcher or so.</p>
+		 * @param bool $value <p>With keepalive <code>value</code> set to <b><code>false</code></b> the watcher won't keep <code>Ev::run()</code> / <code>EvLoop::run()</code> from returning even though the watcher is active.</p>
 		 * @return bool <p>Returns the previous state.</p>
 		 * @link https://php.net/manual/en/evwatcher.keepalive.php
 		 * @since PECL ev >= 0.2.0
 		 */
-		public function keepalive(bool $value = NULL): bool {}
+		public function keepalive(bool $value = null): bool {}
 
 		/**
 		 * Configures the watcher
@@ -1754,7 +1754,7 @@ namespace {
 	class EvPrepare extends \EvWatcher {
 
 		/**
-		 * @var mixed <p><i>Readonly</i> . <b><code>TRUE</code></b> if the watcher is active. <b><code>FALSE</code></b> otherwise.</p>
+		 * @var mixed <p><i>Readonly</i> . <b><code>true</code></b> if the watcher is active. <b><code>false</code></b> otherwise.</p>
 		 * @link https://php.net/manual/en/class.evwatcher.php#evwatcher.props.is-active
 		 */
 		public $is_active;
@@ -1766,7 +1766,7 @@ namespace {
 		public $data;
 
 		/**
-		 * @var mixed <p><i>Readonly</i> .<b><code>TRUE</code></b> if the watcher is pending, i.e. it has outstanding events, but its callback has not yet been invoked. <b><code>FALSE</code></b> otherwise. As long, as a watcher is pending(but not active), one must <i>not</i> change its priority.</p>
+		 * @var mixed <p><i>Readonly</i> .<b><code>true</code></b> if the watcher is pending, i.e. it has outstanding events, but its callback has not yet been invoked. <b><code>false</code></b> otherwise. As long, as a watcher is pending(but not active), one must <i>not</i> change its priority.</p>
 		 * @link https://php.net/manual/en/class.evwatcher.php#evwatcher.props.is-pending
 		 */
 		public $is_pending;
@@ -1787,7 +1787,7 @@ namespace {
 		 * @link https://php.net/manual/en/evprepare.construct.php
 		 * @since PECL ev >= 0.2.0
 		 */
-		public function __construct(string $callback, string $data = NULL, string $priority = NULL) {}
+		public function __construct(string $callback, string $data = null, string $priority = null) {}
 
 		/**
 		 * Clear watcher pending status
@@ -1808,7 +1808,7 @@ namespace {
 		 * @link https://php.net/manual/en/evprepare.createstopped.php
 		 * @since PECL ev >= 0.2.0
 		 */
-		final public static function createStopped(callable $callback, mixed $data = NULL, int $priority = 0): \EvPrepare {}
+		final public static function createStopped(callable $callback, mixed $data = null, int $priority = 0): \EvPrepare {}
 
 		/**
 		 * Feeds the given revents set into the event loop
@@ -1841,13 +1841,13 @@ namespace {
 
 		/**
 		 * Configures whether to keep the loop from returning
-		 * <p>Configures whether to keep the loop from returning. With keepalive <code>value</code> set to <b><code>FALSE</code></b> the watcher won't keep <code>Ev::run()</code> / <code>EvLoop::run()</code> from returning even though the watcher is active.</p><p>Watchers have keepalive <code>value</code> <b><code>TRUE</code></b> by default.</p><p>Clearing keepalive status is useful when returning from <code>Ev::run()</code> / <code>EvLoop::run()</code> just because of the watcher is undesirable. It could be a long running UDP socket watcher or so.</p>
-		 * @param bool $value <p>With keepalive <code>value</code> set to <b><code>FALSE</code></b> the watcher won't keep <code>Ev::run()</code> / <code>EvLoop::run()</code> from returning even though the watcher is active.</p>
+		 * <p>Configures whether to keep the loop from returning. With keepalive <code>value</code> set to <b><code>false</code></b> the watcher won't keep <code>Ev::run()</code> / <code>EvLoop::run()</code> from returning even though the watcher is active.</p><p>Watchers have keepalive <code>value</code> <b><code>true</code></b> by default.</p><p>Clearing keepalive status is useful when returning from <code>Ev::run()</code> / <code>EvLoop::run()</code> just because of the watcher is undesirable. It could be a long running UDP socket watcher or so.</p>
+		 * @param bool $value <p>With keepalive <code>value</code> set to <b><code>false</code></b> the watcher won't keep <code>Ev::run()</code> / <code>EvLoop::run()</code> from returning even though the watcher is active.</p>
 		 * @return bool <p>Returns the previous state.</p>
 		 * @link https://php.net/manual/en/evwatcher.keepalive.php
 		 * @since PECL ev >= 0.2.0
 		 */
-		public function keepalive(bool $value = NULL): bool {}
+		public function keepalive(bool $value = null): bool {}
 
 		/**
 		 * Sets new callback for the watcher
@@ -1894,7 +1894,7 @@ namespace {
 		public $signum;
 
 		/**
-		 * @var mixed <p><i>Readonly</i> . <b><code>TRUE</code></b> if the watcher is active. <b><code>FALSE</code></b> otherwise.</p>
+		 * @var mixed <p><i>Readonly</i> . <b><code>true</code></b> if the watcher is active. <b><code>false</code></b> otherwise.</p>
 		 * @link https://php.net/manual/en/class.evwatcher.php#evwatcher.props.is-active
 		 */
 		public $is_active;
@@ -1906,7 +1906,7 @@ namespace {
 		public $data;
 
 		/**
-		 * @var mixed <p><i>Readonly</i> .<b><code>TRUE</code></b> if the watcher is pending, i.e. it has outstanding events, but its callback has not yet been invoked. <b><code>FALSE</code></b> otherwise. As long, as a watcher is pending(but not active), one must <i>not</i> change its priority.</p>
+		 * @var mixed <p><i>Readonly</i> .<b><code>true</code></b> if the watcher is pending, i.e. it has outstanding events, but its callback has not yet been invoked. <b><code>false</code></b> otherwise. As long, as a watcher is pending(but not active), one must <i>not</i> change its priority.</p>
 		 * @link https://php.net/manual/en/class.evwatcher.php#evwatcher.props.is-pending
 		 */
 		public $is_pending;
@@ -1928,7 +1928,7 @@ namespace {
 		 * @link https://php.net/manual/en/evsignal.construct.php
 		 * @since PECL ev >= 0.2.0
 		 */
-		public function __construct(int $signum, callable $callback, mixed $data = NULL, int $priority = 0) {}
+		public function __construct(int $signum, callable $callback, mixed $data = null, int $priority = 0) {}
 
 		/**
 		 * Clear watcher pending status
@@ -1950,7 +1950,7 @@ namespace {
 		 * @link https://php.net/manual/en/evsignal.createstopped.php
 		 * @since PECL ev >= 0.2.0
 		 */
-		final public static function createStopped(int $signum, callable $callback, mixed $data = NULL, int $priority = 0): \EvSignal {}
+		final public static function createStopped(int $signum, callable $callback, mixed $data = null, int $priority = 0): \EvSignal {}
 
 		/**
 		 * Feeds the given revents set into the event loop
@@ -1983,13 +1983,13 @@ namespace {
 
 		/**
 		 * Configures whether to keep the loop from returning
-		 * <p>Configures whether to keep the loop from returning. With keepalive <code>value</code> set to <b><code>FALSE</code></b> the watcher won't keep <code>Ev::run()</code> / <code>EvLoop::run()</code> from returning even though the watcher is active.</p><p>Watchers have keepalive <code>value</code> <b><code>TRUE</code></b> by default.</p><p>Clearing keepalive status is useful when returning from <code>Ev::run()</code> / <code>EvLoop::run()</code> just because of the watcher is undesirable. It could be a long running UDP socket watcher or so.</p>
-		 * @param bool $value <p>With keepalive <code>value</code> set to <b><code>FALSE</code></b> the watcher won't keep <code>Ev::run()</code> / <code>EvLoop::run()</code> from returning even though the watcher is active.</p>
+		 * <p>Configures whether to keep the loop from returning. With keepalive <code>value</code> set to <b><code>false</code></b> the watcher won't keep <code>Ev::run()</code> / <code>EvLoop::run()</code> from returning even though the watcher is active.</p><p>Watchers have keepalive <code>value</code> <b><code>true</code></b> by default.</p><p>Clearing keepalive status is useful when returning from <code>Ev::run()</code> / <code>EvLoop::run()</code> just because of the watcher is undesirable. It could be a long running UDP socket watcher or so.</p>
+		 * @param bool $value <p>With keepalive <code>value</code> set to <b><code>false</code></b> the watcher won't keep <code>Ev::run()</code> / <code>EvLoop::run()</code> from returning even though the watcher is active.</p>
 		 * @return bool <p>Returns the previous state.</p>
 		 * @link https://php.net/manual/en/evwatcher.keepalive.php
 		 * @since PECL ev >= 0.2.0
 		 */
-		public function keepalive(bool $value = NULL): bool {}
+		public function keepalive(bool $value = null): bool {}
 
 		/**
 		 * Configures the watcher
@@ -2054,7 +2054,7 @@ namespace {
 		public $interval;
 
 		/**
-		 * @var mixed <p><i>Readonly</i> . <b><code>TRUE</code></b> if the watcher is active. <b><code>FALSE</code></b> otherwise.</p>
+		 * @var mixed <p><i>Readonly</i> . <b><code>true</code></b> if the watcher is active. <b><code>false</code></b> otherwise.</p>
 		 * @link https://php.net/manual/en/class.evwatcher.php#evwatcher.props.is-active
 		 */
 		public $is_active;
@@ -2066,7 +2066,7 @@ namespace {
 		public $data;
 
 		/**
-		 * @var mixed <p><i>Readonly</i> .<b><code>TRUE</code></b> if the watcher is pending, i.e. it has outstanding events, but its callback has not yet been invoked. <b><code>FALSE</code></b> otherwise. As long, as a watcher is pending(but not active), one must <i>not</i> change its priority.</p>
+		 * @var mixed <p><i>Readonly</i> .<b><code>true</code></b> if the watcher is pending, i.e. it has outstanding events, but its callback has not yet been invoked. <b><code>false</code></b> otherwise. As long, as a watcher is pending(but not active), one must <i>not</i> change its priority.</p>
 		 * @link https://php.net/manual/en/class.evwatcher.php#evwatcher.props.is-pending
 		 */
 		public $is_pending;
@@ -2089,7 +2089,7 @@ namespace {
 		 * @link https://php.net/manual/en/evstat.construct.php
 		 * @since PECL ev >= 0.2.0
 		 */
-		public function __construct(string $path, float $interval, callable $callback, mixed $data = NULL, int $priority = 0) {}
+		public function __construct(string $path, float $interval, callable $callback, mixed $data = null, int $priority = 0) {}
 
 		/**
 		 * Returns the values most recently detected by Ev
@@ -2121,7 +2121,7 @@ namespace {
 		 * @link https://php.net/manual/en/evstat.createstopped.php
 		 * @since PECL ev >= 0.2.0
 		 */
-		final public static function createStopped(string $path, float $interval, callable $callback, mixed $data = NULL, int $priority = 0): void {}
+		final public static function createStopped(string $path, float $interval, callable $callback, mixed $data = null, int $priority = 0): void {}
 
 		/**
 		 * Feeds the given revents set into the event loop
@@ -2154,13 +2154,13 @@ namespace {
 
 		/**
 		 * Configures whether to keep the loop from returning
-		 * <p>Configures whether to keep the loop from returning. With keepalive <code>value</code> set to <b><code>FALSE</code></b> the watcher won't keep <code>Ev::run()</code> / <code>EvLoop::run()</code> from returning even though the watcher is active.</p><p>Watchers have keepalive <code>value</code> <b><code>TRUE</code></b> by default.</p><p>Clearing keepalive status is useful when returning from <code>Ev::run()</code> / <code>EvLoop::run()</code> just because of the watcher is undesirable. It could be a long running UDP socket watcher or so.</p>
-		 * @param bool $value <p>With keepalive <code>value</code> set to <b><code>FALSE</code></b> the watcher won't keep <code>Ev::run()</code> / <code>EvLoop::run()</code> from returning even though the watcher is active.</p>
+		 * <p>Configures whether to keep the loop from returning. With keepalive <code>value</code> set to <b><code>false</code></b> the watcher won't keep <code>Ev::run()</code> / <code>EvLoop::run()</code> from returning even though the watcher is active.</p><p>Watchers have keepalive <code>value</code> <b><code>true</code></b> by default.</p><p>Clearing keepalive status is useful when returning from <code>Ev::run()</code> / <code>EvLoop::run()</code> just because of the watcher is undesirable. It could be a long running UDP socket watcher or so.</p>
+		 * @param bool $value <p>With keepalive <code>value</code> set to <b><code>false</code></b> the watcher won't keep <code>Ev::run()</code> / <code>EvLoop::run()</code> from returning even though the watcher is active.</p>
 		 * @return bool <p>Returns the previous state.</p>
 		 * @link https://php.net/manual/en/evwatcher.keepalive.php
 		 * @since PECL ev >= 0.2.0
 		 */
-		public function keepalive(bool $value = NULL): bool {}
+		public function keepalive(bool $value = null): bool {}
 
 		/**
 		 * Returns the previous set of values returned by EvStat::attr
@@ -2204,7 +2204,7 @@ namespace {
 		/**
 		 * Initiates the stat call
 		 * <p>Initiates the stat call(updates internal cache). It stats(using <code>lstat</code> ) the path specified in the watcher and sets to the values found.</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b> if path exists. Otherwise <b><code>FALSE</code></b>.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> if path exists. Otherwise <b><code>false</code></b>.</p>
 		 * @link https://php.net/manual/en/evstat.stat.php
 		 * @since PECL ev >= 0.2.0
 		 */
@@ -2243,7 +2243,7 @@ namespace {
 		public $remaining;
 
 		/**
-		 * @var mixed <p><i>Readonly</i> . <b><code>TRUE</code></b> if the watcher is active. <b><code>FALSE</code></b> otherwise.</p>
+		 * @var mixed <p><i>Readonly</i> . <b><code>true</code></b> if the watcher is active. <b><code>false</code></b> otherwise.</p>
 		 * @link https://php.net/manual/en/class.evwatcher.php#evwatcher.props.is-active
 		 */
 		public $is_active;
@@ -2255,7 +2255,7 @@ namespace {
 		public $data;
 
 		/**
-		 * @var mixed <p><i>Readonly</i> .<b><code>TRUE</code></b> if the watcher is pending, i.e. it has outstanding events, but its callback has not yet been invoked. <b><code>FALSE</code></b> otherwise. As long, as a watcher is pending(but not active), one must <i>not</i> change its priority.</p>
+		 * @var mixed <p><i>Readonly</i> .<b><code>true</code></b> if the watcher is pending, i.e. it has outstanding events, but its callback has not yet been invoked. <b><code>false</code></b> otherwise. As long, as a watcher is pending(but not active), one must <i>not</i> change its priority.</p>
 		 * @link https://php.net/manual/en/class.evwatcher.php#evwatcher.props.is-pending
 		 */
 		public $is_pending;
@@ -2278,7 +2278,7 @@ namespace {
 		 * @link https://php.net/manual/en/evtimer.construct.php
 		 * @since PECL ev >= 0.2.0
 		 */
-		public function __construct(float $after, float $repeat, callable $callback, mixed $data = NULL, int $priority = 0) {}
+		public function __construct(float $after, float $repeat, callable $callback, mixed $data = null, int $priority = 0) {}
 
 		/**
 		 * Restarts the timer watcher
@@ -2310,7 +2310,7 @@ namespace {
 		 * @link https://php.net/manual/en/evtimer.createstopped.php
 		 * @since PECL ev >= 0.2.0
 		 */
-		final public static function createStopped(float $after, float $repeat, callable $callback, mixed $data = NULL, int $priority = 0): \EvTimer {}
+		final public static function createStopped(float $after, float $repeat, callable $callback, mixed $data = null, int $priority = 0): \EvTimer {}
 
 		/**
 		 * Feeds the given revents set into the event loop
@@ -2343,13 +2343,13 @@ namespace {
 
 		/**
 		 * Configures whether to keep the loop from returning
-		 * <p>Configures whether to keep the loop from returning. With keepalive <code>value</code> set to <b><code>FALSE</code></b> the watcher won't keep <code>Ev::run()</code> / <code>EvLoop::run()</code> from returning even though the watcher is active.</p><p>Watchers have keepalive <code>value</code> <b><code>TRUE</code></b> by default.</p><p>Clearing keepalive status is useful when returning from <code>Ev::run()</code> / <code>EvLoop::run()</code> just because of the watcher is undesirable. It could be a long running UDP socket watcher or so.</p>
-		 * @param bool $value <p>With keepalive <code>value</code> set to <b><code>FALSE</code></b> the watcher won't keep <code>Ev::run()</code> / <code>EvLoop::run()</code> from returning even though the watcher is active.</p>
+		 * <p>Configures whether to keep the loop from returning. With keepalive <code>value</code> set to <b><code>false</code></b> the watcher won't keep <code>Ev::run()</code> / <code>EvLoop::run()</code> from returning even though the watcher is active.</p><p>Watchers have keepalive <code>value</code> <b><code>true</code></b> by default.</p><p>Clearing keepalive status is useful when returning from <code>Ev::run()</code> / <code>EvLoop::run()</code> just because of the watcher is undesirable. It could be a long running UDP socket watcher or so.</p>
+		 * @param bool $value <p>With keepalive <code>value</code> set to <b><code>false</code></b> the watcher won't keep <code>Ev::run()</code> / <code>EvLoop::run()</code> from returning even though the watcher is active.</p>
 		 * @return bool <p>Returns the previous state.</p>
 		 * @link https://php.net/manual/en/evwatcher.keepalive.php
 		 * @since PECL ev >= 0.2.0
 		 */
-		public function keepalive(bool $value = NULL): bool {}
+		public function keepalive(bool $value = null): bool {}
 
 		/**
 		 * Configures the watcher
@@ -2399,7 +2399,7 @@ namespace {
 	abstract class EvWatcher {
 
 		/**
-		 * @var mixed <p><i>Readonly</i> . <b><code>TRUE</code></b> if the watcher is active. <b><code>FALSE</code></b> otherwise.</p>
+		 * @var mixed <p><i>Readonly</i> . <b><code>true</code></b> if the watcher is active. <b><code>false</code></b> otherwise.</p>
 		 * @link https://php.net/manual/en/class.evwatcher.php#evwatcher.props.is-active
 		 */
 		public $is_active;
@@ -2411,7 +2411,7 @@ namespace {
 		public $data;
 
 		/**
-		 * @var mixed <p><i>Readonly</i> .<b><code>TRUE</code></b> if the watcher is pending, i.e. it has outstanding events, but its callback has not yet been invoked. <b><code>FALSE</code></b> otherwise. As long, as a watcher is pending(but not active), one must <i>not</i> change its priority.</p>
+		 * @var mixed <p><i>Readonly</i> .<b><code>true</code></b> if the watcher is pending, i.e. it has outstanding events, but its callback has not yet been invoked. <b><code>false</code></b> otherwise. As long, as a watcher is pending(but not active), one must <i>not</i> change its priority.</p>
 		 * @link https://php.net/manual/en/class.evwatcher.php#evwatcher.props.is-pending
 		 */
 		public $is_pending;
@@ -2471,13 +2471,13 @@ namespace {
 
 		/**
 		 * Configures whether to keep the loop from returning
-		 * <p>Configures whether to keep the loop from returning. With keepalive <code>value</code> set to <b><code>FALSE</code></b> the watcher won't keep <code>Ev::run()</code> / <code>EvLoop::run()</code> from returning even though the watcher is active.</p><p>Watchers have keepalive <code>value</code> <b><code>TRUE</code></b> by default.</p><p>Clearing keepalive status is useful when returning from <code>Ev::run()</code> / <code>EvLoop::run()</code> just because of the watcher is undesirable. It could be a long running UDP socket watcher or so.</p>
-		 * @param bool $value <p>With keepalive <code>value</code> set to <b><code>FALSE</code></b> the watcher won't keep <code>Ev::run()</code> / <code>EvLoop::run()</code> from returning even though the watcher is active.</p>
+		 * <p>Configures whether to keep the loop from returning. With keepalive <code>value</code> set to <b><code>false</code></b> the watcher won't keep <code>Ev::run()</code> / <code>EvLoop::run()</code> from returning even though the watcher is active.</p><p>Watchers have keepalive <code>value</code> <b><code>true</code></b> by default.</p><p>Clearing keepalive status is useful when returning from <code>Ev::run()</code> / <code>EvLoop::run()</code> just because of the watcher is undesirable. It could be a long running UDP socket watcher or so.</p>
+		 * @param bool $value <p>With keepalive <code>value</code> set to <b><code>false</code></b> the watcher won't keep <code>Ev::run()</code> / <code>EvLoop::run()</code> from returning even though the watcher is active.</p>
 		 * @return bool <p>Returns the previous state.</p>
 		 * @link https://php.net/manual/en/evwatcher.keepalive.php
 		 * @since PECL ev >= 0.2.0
 		 */
-		public function keepalive(bool $value = NULL): bool {}
+		public function keepalive(bool $value = null): bool {}
 
 		/**
 		 * Sets new callback for the watcher

@@ -34,9 +34,9 @@
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>socket_listen</strong></span>
-    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$socket</code></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$backlog</code><span class="initializer"> = 0</span></span>
-  ] ) : <span class="type">bool</span></div>
+    ( <span class="methodparam"><span class="type"><a href="class.socket.html" class="type Socket">Socket</a></span> <code class="parameter">$socket</code></span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$backlog</code><span class="initializer"> = 0</span></span>
+   ) : <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
    After the socket <code class="parameter">socket</code> has been created
@@ -64,7 +64,7 @@
      <dd>
 
       <p class="para">
-       A valid socket resource created with <span class="function"><a href="function.socket-create.html" class="function">socket_create()</a></span>
+       A <a href="class.socket.html" class="classname">Socket</a> instance created with <span class="function"><a href="function.socket-create.html" class="function">socket_create()</a></span>
        or <span class="function"><a href="function.socket-addrinfo-bind.html" class="function">socket_addrinfo_bind()</a></span>
       </p>
      </dd>
@@ -106,11 +106,39 @@
  <div class="refsect1 returnvalues" id="refsect1-function.socket-listen-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns <strong><code>TRUE</code></strong> on success or <strong><code>FALSE</code></strong> on failure. The error code can be retrieved with
+   Returns <strong><code>true</code></strong> on success or <strong><code>false</code></strong> on failure. The error code can be retrieved with
    <span class="function"><a href="function.socket-last-error.html" class="function">socket_last_error()</a></span>. This code may be passed to
    <span class="function"><a href="function.socket-strerror.html" class="function">socket_strerror()</a></span> to get a textual explanation of the
    error.
   </p>
+ </div>
+
+
+ <div class="refsect1 changelog" id="refsect1-function.socket-listen-changelog">
+  <h3 class="title">Changelog</h3>
+  <table class="doctable informaltable">
+   
+    <thead>
+     <tr>
+      <th>Version</th>
+      <th>Description</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+  <td>8.0.0</td>
+  <td>
+   <code class="parameter">socket</code> is a <a href="class.socket.html" class="classname">Socket</a> instance now;
+   previously, it was a <span class="type">resource</span>.
+  </td>
+ </tr>
+
+    </tbody>
+   
+  </table>
+
  </div>
 
 

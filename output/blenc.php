@@ -14,7 +14,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.blenc-encrypt.php
 	 * @since PECL blenc >= 5
 	 */
-	function blenc_encrypt(string $plaintext, string $encodedfile, string $encryption_key = NULL): string {}
+	function blenc_encrypt(string $plaintext, string $encodedfile, string $encryption_key = null): string {}
 
 	define('BLENC_EXT_VERSION', null);
 

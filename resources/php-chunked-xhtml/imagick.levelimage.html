@@ -26,19 +26,19 @@
   <div id="layout-content"><div id="imagick.levelimage" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">Imagick::levelImage</h1>
-  <p class="verinfo">(PECL imagick 2.0.0)</p><p class="refpurpose"><span class="refname">Imagick::levelImage</span> &mdash; <span class="dc-title">Adjusts the levels of an image</span></p>
+  <p class="verinfo">(PECL imagick 2, PECL imagick 3)</p><p class="refpurpose"><span class="refname">Imagick::levelImage</span> &mdash; <span class="dc-title">Adjusts the levels of an image</span></p>
 
  </div>
 
  <div class="refsect1 description" id="refsect1-imagick.levelimage-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>Imagick::levelImage</strong></span>
+   <span class="modifier">public</span> <span class="methodname"><strong>Imagick::levelImage</strong></span>
     ( <span class="methodparam"><span class="type">float</span> <code class="parameter">$blackPoint</code></span>
    , <span class="methodparam"><span class="type">float</span> <code class="parameter">$gamma</code></span>
    , <span class="methodparam"><span class="type">float</span> <code class="parameter">$whitePoint</code></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$channel</code><span class="initializer"> = Imagick::CHANNEL_DEFAULT</span></span>
-  ] ) : <span class="type">bool</span></div>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$channel</code><span class="initializer"> = Imagick::CHANNEL_DEFAULT</span></span>
+   ) : <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
    Adjusts the levels of an image by scaling the colors falling
@@ -119,7 +119,7 @@
  <div class="refsect1 returnvalues" id="refsect1-imagick.levelimage-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns <strong><code>TRUE</code></strong> on success.
+   Returns <strong><code>true</code></strong> on success.
   </p>
  </div>
 
@@ -137,7 +137,7 @@
  <div class="refsect1 examples" id="refsect1-imagick.levelimage-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-    <div class="example" id="example-3273">
+    <div class="example" id="example-3288">
       <p><strong>Example #1  <span class="function"><strong>Imagick::levelImage()</strong></span></strong></p>
       <div class="example-contents">
       <div class="phpcode"><code><span style="color: #000000">

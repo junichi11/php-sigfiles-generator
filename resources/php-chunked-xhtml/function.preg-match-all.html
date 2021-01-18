@@ -36,10 +36,10 @@
    <span class="methodname"><strong>preg_match_all</strong></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$pattern</code></span>
    , <span class="methodparam"><span class="type">string</span> <code class="parameter">$subject</code></span>
-   [, <span class="methodparam"><span class="type">array</span> <code class="parameter reference">&$matches</code><span class="initializer"> = <strong><code>NULL</code></strong></span></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code><span class="initializer"> = <strong><code>PREG_PATTERN_ORDER</code></strong></span></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$offset</code><span class="initializer"> = 0</span></span>
-  ]]] ) : <span class="type"><span class="type">int</span>|<span class="type"><span class="type false">false</span></span>|<span class="type">null</span></span></div>
+   , <span class="methodparam"><span class="type">array</span> <code class="parameter reference">&$matches</code><span class="initializer"> = <strong><code>null</code></strong></span></span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code><span class="initializer"> = <strong><code>PREG_PATTERN_ORDER</code></strong></span></span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$offset</code><span class="initializer"> = 0</span></span>
+   ) : <span class="type"><span class="type">int</span>|<span class="type"><span class="type false">false</span></span>|<span class="type">null</span></span></div>
 
   <p class="para rdfs-comment">
    Searches <code class="parameter">subject</code> for all matches to the regular
@@ -282,7 +282,7 @@ Array
          <dd>
 
           <p class="para">
-           If this flag is passed, unmatched subpatterns are reported as <strong><code>NULL</code></strong>;
+           If this flag is passed, unmatched subpatterns are reported as <strong><code>null</code></strong>;
            otherwise they are reported as an empty <span class="type">string</span>.
           </p>
          </dd>
@@ -333,7 +333,7 @@ Array
   <h3 class="title">Return Values</h3>
   <p class="para">
    Returns the number of full pattern matches (which might be zero),
-   or <strong><code>FALSE</code></strong> if an error occurred.
+   or <strong><code>false</code></strong> if an error occurred.
   </p>
  </div>
 
@@ -371,7 +371,7 @@ Array
  <div class="refsect1 examples" id="refsect1-function.preg-match-all-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-5226">
+   <div class="example" id="example-5247">
     <p><strong>Example #1 Getting all phone numbers out of some text.</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -383,7 +383,7 @@ Array
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-5227">
+   <div class="example" id="example-5248">
     <p><strong>Example #2 Find matching HTML tags (greedy)</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -411,7 +411,7 @@ part 4: &lt;/a&gt;
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-5228">
+   <div class="example" id="example-5249">
     <p><strong>Example #3 Using named subpattern</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

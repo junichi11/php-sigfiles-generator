@@ -33,9 +33,9 @@
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>mt_srand</strong></span>
-    ([ <span class="methodparam"><span class="type">int</span> <code class="parameter">$seed</code></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$mode</code><span class="initializer"> = MT_RAND_MT19937</span></span>
-  ]] ) : <span class="type"><span class="type void">void</span></span></div>
+    ( <span class="methodparam"><span class="type">int</span> <code class="parameter">$seed</code><span class="initializer"> = 0</span></span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$mode</code><span class="initializer"> = <strong><code>MT_RAND_MT19937</code></strong></span></span>
+   ) : <span class="type"><span class="type void">void</span></span></div>
 
   <p class="para rdfs-comment">
    Seeds the random number generator with
@@ -162,7 +162,7 @@ to seed the random number generator with <span class="function"><a href="functio
  <div class="refsect1 examples" id="refsect1-function.mt-srand-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-3594">
+   <div class="example" id="example-3610">
     <p><strong>Example #1 <span class="function"><strong>mt_srand()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

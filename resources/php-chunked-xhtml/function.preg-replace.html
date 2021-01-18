@@ -37,9 +37,9 @@
     ( <span class="methodparam"><span class="type"><span class="type">string</span>|<span class="type">array</span></span> <code class="parameter">$pattern</code></span>
    , <span class="methodparam"><span class="type"><span class="type">string</span>|<span class="type">array</span></span> <code class="parameter">$replacement</code></span>
    , <span class="methodparam"><span class="type"><span class="type">string</span>|<span class="type">array</span></span> <code class="parameter">$subject</code></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$limit</code><span class="initializer"> = -1</span></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter reference">&$count</code><span class="initializer"> = <strong><code>NULL</code></strong></span></span>
-  ]] ) : <span class="type"><span class="type">string</span>|<span class="type">array</span>|<span class="type">null</span></span></div>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$limit</code><span class="initializer"> = -1</span></span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter reference">&$count</code><span class="initializer"> = <strong><code>null</code></strong></span></span>
+   ) : <span class="type"><span class="type">string</span>|<span class="type">array</span>|<span class="type">null</span></span></div>
 
   <p class="para rdfs-comment">
    Searches <code class="parameter">subject</code> for matches to
@@ -187,7 +187,7 @@
   <p class="para">
    If matches are found, the new <code class="parameter">subject</code> will
    be returned, otherwise <code class="parameter">subject</code> will be
-   returned unchanged or <strong><code>NULL</code></strong> if an error occurred.
+   returned unchanged or <strong><code>null</code></strong> if an error occurred.
   </p>
  </div>
 
@@ -205,7 +205,7 @@
  <div class="refsect1 examples" id="refsect1-function.preg-replace-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-5239">
+   <div class="example" id="example-5260">
     <p><strong>Example #1 Using backreferences followed by numeric literals</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -223,7 +223,7 @@ April1,2003
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-5240">
+   <div class="example" id="example-5261">
     <p><strong>Example #2 Using indexed arrays with <span class="function"><strong>preg_replace()</strong></span></strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -257,7 +257,7 @@ The slow black bear jumps over the lazy dog.
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-5241">
+   <div class="example" id="example-5262">
     <p><strong>Example #3 Replacing several values</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -275,7 +275,7 @@ $startDate = 5/27/1999
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-5242">
+   <div class="example" id="example-5263">
     <p><strong>Example #4 Strip whitespace</strong></p>
     <div class="example-contents"><p>
      This example strips excess whitespace from a string.
@@ -290,7 +290,7 @@ $startDate = 5/27/1999
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-5243">
+   <div class="example" id="example-5264">
     <p><strong>Example #5 Using the <code class="parameter">count</code> parameter</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

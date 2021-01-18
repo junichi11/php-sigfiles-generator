@@ -33,14 +33,14 @@
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>imap_mail_move</strong></span>
-    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$imap_stream</code></span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$msglist</code></span>
+    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$imap</code></span>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$message_nums</code></span>
    , <span class="methodparam"><span class="type">string</span> <code class="parameter">$mailbox</code></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$options</code><span class="initializer"> = 0</span></span>
-  ] ) : <span class="type">bool</span></div>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code><span class="initializer"> = 0</span></span>
+   ) : <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
-   Moves mail messages specified by <code class="parameter">msglist</code> to the
+   Moves mail messages specified by <code class="parameter">message_nums</code> to the
    specified <code class="parameter">mailbox</code>. 
   </p>
  </div>
@@ -52,19 +52,19 @@
 
     <dt>
 <code class="parameter">
-imap_stream</code></dt>
+imap</code></dt>
 <dd>
 <p class="para">An IMAP stream returned by
 <span class="function"><a href="function.imap-open.html" class="function">imap_open()</a></span>.</p></dd>
 
     
      <dt>
-<code class="parameter">msglist</code></dt>
+<code class="parameter">message_nums</code></dt>
 
      <dd>
 
       <p class="para">
-       <code class="parameter">msglist</code> is a range not just message numbers
+       <code class="parameter">message_nums</code> is a range not just message numbers
        (as described in <a href="http://www.faqs.org/rfcs/rfc2060" class="link external">&raquo;&nbsp;RFC2060</a>).
       </p>
      </dd>
@@ -89,12 +89,12 @@ Passing untrusted data to this parameter is <em class="emphasis">insecure</em>, 
     
     
      <dt>
-<code class="parameter">options</code></dt>
+<code class="parameter">flags</code></dt>
 
      <dd>
 
       <p class="para">
-       <code class="parameter">options</code> is a bitmask and may contain the single option:
+       <code class="parameter">flags</code> is a bitmask and may contain the single option:
        <ul class="itemizedlist">
         <li class="listitem">
          <span class="simpara">
@@ -115,7 +115,7 @@ Passing untrusted data to this parameter is <em class="emphasis">insecure</em>, 
  <div class="refsect1 returnvalues" id="refsect1-function.imap-mail-move-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns <strong><code>TRUE</code></strong> on success or <strong><code>FALSE</code></strong> on failure.
+   Returns <strong><code>true</code></strong> on success or <strong><code>false</code></strong> on failure.
   </p>
  </div>
 

@@ -34,8 +34,8 @@
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>stream_set_chunk_size</strong></span>
-    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$fp</code></span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$chunk_size</code></span>
+    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$stream</code></span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$size</code></span>
    ) : <span class="type">int</span></div>
 
   <p class="para rdfs-comment">
@@ -50,7 +50,7 @@
 
    
     <dt>
-<code class="parameter">fp</code></dt>
+<code class="parameter">stream</code></dt>
 
     <dd>
 
@@ -62,7 +62,7 @@
    
    
     <dt>
-<code class="parameter">chunk_size</code></dt>
+<code class="parameter">size</code></dt>
 
     <dd>
 
@@ -83,7 +83,7 @@
    Returns the previous chunk size on success.
   </p>
   <p class="para">
-   Will return <strong><code>FALSE</code></strong> if <code class="parameter">chunk_size</code> is less than 1 or
+   Will return <strong><code>false</code></strong> if <code class="parameter">size</code> is less than 1 or
    greater than <strong><code>PHP_INT_MAX</code></strong>.
   </p>
  </div>
@@ -92,7 +92,7 @@
  <div class="refsect1 errors" id="refsect1-function.stream-set-chunk-size-errors">
   <h3 class="title">Errors/Exceptions</h3>
   <p class="para">
-   Will emit an <strong><code>E_WARNING</code></strong> level error if <code class="parameter">chunk_size</code>
+   Will emit an <strong><code>E_WARNING</code></strong> level error if <code class="parameter">size</code>
    is less than 1 or greater than <strong><code>PHP_INT_MAX</code></strong>.
   </p>
  </div>

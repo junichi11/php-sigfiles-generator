@@ -34,8 +34,8 @@
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><strong>SoapServer::handle</strong></span>
-    ([ <span class="methodparam"><span class="type">string</span> <code class="parameter">$soap_request</code></span>
-  ] ) : <span class="type"><span class="type void">void</span></span></div>
+    ( <span class="methodparam"><span class="type"><span class="type">string</span>|<span class="type">null</span></span> <code class="parameter">$request</code><span class="initializer"> = <strong><code>null</code></strong></span></span>
+   ) : <span class="type"><span class="type void">void</span></span></div>
 
   <p class="para rdfs-comment">
    Processes a SOAP request, calls necessary functions, and sends a response 
@@ -51,7 +51,7 @@
 
     
      <dt>
-<code class="parameter">soap_request</code></dt>
+<code class="parameter">request</code></dt>
 
      <dd>
 
@@ -79,7 +79,7 @@
  <div class="refsect1 examples" id="refsect1-soapserver.handle-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-5808">
+   <div class="example" id="example-5832">
     <p><strong>Example #1 <span class="function"><strong>SoapServer::handle()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -90,6 +90,33 @@
 
    </div>
   </p>
+ </div>
+
+
+ <div class="refsect1 changelog" id="refsect1-soapserver.handle-changelog">
+  <h3 class="title">Changelog</h3>
+  <table class="doctable informaltable">
+   
+    <thead>
+     <tr>
+      <th>Version</th>
+      <th>Description</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+      <td>8.0.0</td>
+      <td>
+       <code class="parameter">request</code> is now nullable.
+      </td>
+     </tr>
+
+    </tbody>
+   
+  </table>
+
  </div>
 
 

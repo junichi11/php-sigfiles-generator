@@ -26,45 +26,45 @@ namespace {
 		/**
 		 * Gets the alignment
 		 * <p>Gets the alignment of the given FFI\CData or FFI\CType object.</p>
-		 * @param mixed $ptr <p>The handle of the C data or type.</p>
+		 * @param \FFI\CData|\FFI\CType $ptr <p>The handle of the C data or type.</p>
 		 * @return int <p>Returns the alignment of the given FFI\CData or FFI\CType object.</p>
 		 * @link https://php.net/manual/en/ffi.alignof.php
 		 * @since PHP 7 >= 7.4.0
 		 */
-		public static function alignof(mixed &$ptr): int {}
+		public static function alignof(\FFI\CData|\FFI\CType &$ptr): int {}
 
 		/**
 		 * Dynamically constructs a new C array type
-		 * <p>Dynamically constructs a new C array type with elements of type defined by <code>type</code>, and dimensions specified by <code>dims</code>. In the following example <code>$t1</code> and <code>$t2</code> are equivalent array types:</p>
+		 * <p>Dynamically constructs a new C array type with elements of type defined by <code>type</code>, and dimensions specified by <code>dimensions</code>. In the following example <code>$t1</code> and <code>$t2</code> are equivalent array types:</p>
 		 * @param \FFI\CType $type <p>A valid C declaration as <code>string</code>, or an instance of FFI\CType which has already been created.</p>
-		 * @param array $dims <p>The dimensions of the type as <code>array</code>.</p>
+		 * @param array $dimensions <p>The dimensions of the type as <code>array</code>.</p>
 		 * @return FFI\CType <p>Returns the freshly created FFI\CType object.</p>
 		 * @link https://php.net/manual/en/ffi.arraytype.php
 		 * @since PHP 7 >= 7.4.0
 		 */
-		public static function arrayType(\FFI\CType $type, array $dims): \FFI\CType {}
+		public static function arrayType(\FFI\CType $type, array $dimensions): \FFI\CType {}
 
 		/**
 		 * Performs a C type cast
 		 * <p><b>FFI::cast()</b> creates a new FFI\CData object, that references the same C data structure, but is associated with a different type. The resulting object does not own the C data, and the source <code>ptr</code> must survive the result. The C type may be specified as a <code>string</code> with any valid C type declaration or as FFI\CType object, created before. If this method is called statically, it must only use predefined C type names (e.g. <code>int</code>, <code>char</code>, etc.); if the method is called as instance method, any type declared for the instance is allowed.</p>
-		 * @param mixed $type <p>A valid C declaration as <code>string</code>, or an instance of FFI\CType which has already been created.</p>
-		 * @param \FFI\CData $ptr <p>The handle of the pointer to a C data structure.</p>
-		 * @return FFI\CData <p>Returns the freshly created FFI\CData object.</p>
+		 * @param \FFI\CType|string $type <p>A valid C declaration as <code>string</code>, or an instance of FFI\CType which has already been created.</p>
+		 * @param \FFI\CData|int|float|bool|null $ptr <p>The handle of the pointer to a C data structure.</p>
+		 * @return FFI\CData|null <p>Returns the freshly created FFI\CData object.</p>
 		 * @link https://php.net/manual/en/ffi.cast.php
 		 * @since PHP 7 >= 7.4.0
 		 */
-		public static function cast(mixed $type, \FFI\CData &$ptr): \FFI\CData {}
+		public static function cast(\FFI\CType|string $type, \FFI\CData|int|float|bool|null &$ptr): \FFI\CData|null {}
 
 		/**
 		 * Creates a new FFI object
 		 * <p>Creates a new FFI object.</p>
 		 * @param string $code <p>A string containing a sequence of declarations in regular C language (types, structures, functions, variables, etc). Actually, this string may be copy-pasted from C header files.</p> <p><b>Note</b>:</p><p>C preprocessor directives are not supported, i.e. <code>#include</code>, <code>#define</code> and CPP macros do not work.</p>
-		 * @param string $lib <p>The name of a shared library file, to be loaded and linked with the definitions.</p> <p><b>Note</b>:</p><p>If <code>lib</code> is omitted, platforms supporting <code>RTLD_DEFAULT</code> attempt to lookup symbols declared in <code>code</code> in the normal global scope. Other systems will fail to resolve these symbols.</p>
+		 * @param string|null $lib <p>The name of a shared library file, to be loaded and linked with the definitions.</p> <p><b>Note</b>:</p><p>If <code>lib</code> is omitted, platforms supporting <code>RTLD_DEFAULT</code> attempt to lookup symbols declared in <code>code</code> in the normal global scope. Other systems will fail to resolve these symbols.</p>
 		 * @return FFI <p>Returns the freshly created FFI object.</p>
 		 * @link https://php.net/manual/en/ffi.cdef.php
 		 * @since PHP 7 >= 7.4.0
 		 */
-		public static function cdef(string $code = "", string $lib = NULL): \FFI {}
+		public static function cdef(string $code = "", string|null $lib = null): \FFI {}
 
 		/**
 		 * Releases an unmanaged data structure
@@ -90,100 +90,100 @@ namespace {
 		 * Loads C declarations from a C header file
 		 * <p>Loads C declarations from a C header file. It is possible to specify shared libraries that should be loaded, using special <code>FFI_LIB</code> defines in the loaded C header file.</p>
 		 * @param string $filename <p>The name of a C header file.</p> <p>C preprocessor directives are not supported, i.e. <code>#include</code>, <code>#define</code> and CPP macros do not work, except for special cases listed below.</p> <p>The header file <i>should</i> contain a <code>#define</code> statement for the <code>FFI_SCOPE</code> variable, e.g.: <code>#define FFI_SCOPE "MYLIB"</code>. Refer to the class introduction for details.</p> <p>The header file <i>may</i> contain a <code>#define</code> statement for the <code>FFI_LIB</code> variable to specify the library it exposes. If it is a system library only the file name is required, e.g.: <code>#define FFI_LIB "libc.so.6"</code>. If it is a custom library, a relative path is required, e.g.: <code>#define FFI_LIB "./mylib.so"</code>.</p>
-		 * @return FFI <p>Returns the freshly created FFI object.</p>
+		 * @return FFI|null <p>Returns the freshly created FFI object, or <b><code>null</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/ffi.load.php
 		 * @since PHP 7 >= 7.4.0
 		 */
-		public static function load(string $filename): \FFI {}
+		public static function load(string $filename): \FFI|null {}
 
 		/**
 		 * Compares memory areas
 		 * <p>Compares <code>size</code> bytes from the memory areas <code>ptr1</code> and <code>ptr2</code>. Both <code>ptr1</code> and <code>ptr2</code> can be any native data structures (FFI\CData) or PHP <code>string</code>s.</p>
-		 * @param mixed $ptr1 <p>The start of one memory area.</p>
-		 * @param mixed $ptr2 <p>The start of another memory area.</p>
+		 * @param string|\FFI\CData $ptr1 <p>The start of one memory area.</p>
+		 * @param string|\FFI\CData $ptr2 <p>The start of another memory area.</p>
 		 * @param int $size <p>The number of bytes to compare.</p>
 		 * @return int <p>Returns &lt; <code>0</code> if the contents of the memory area starting at <code>ptr1</code> are considered less than the contents of the memory area starting at <code>ptr2</code>, &gt; <code>0</code> if the contents of the first memory area are considered greater than the second, and <code>0</code> if they are equal.</p>
 		 * @link https://php.net/manual/en/ffi.memcmp.php
 		 * @since PHP 7 >= 7.4.0
 		 */
-		public static function memcmp(mixed &$ptr1, mixed &$ptr2, int $size): int {}
+		public static function memcmp(string|\FFI\CData &$ptr1, string|\FFI\CData &$ptr2, int $size): int {}
 
 		/**
 		 * Copies one memory area to another
-		 * <p>Copies <code>size</code> bytes from the memory area <code>src</code> to the memory area <code>dst</code>. Both <code>src</code> and <code>dst</code> can be any native data structures (FFI\CData) or PHP <code>string</code>s.</p>
-		 * @param \FFI\CData $dst <p>The start of the memory area to copy to.</p>
-		 * @param mixed $src <p>The start of the memory area to copy from.</p>
+		 * <p>Copies <code>size</code> bytes from the memory area <code>from</code> to the memory area <code>to</code>.</p>
+		 * @param \FFI\CData $to <p>The start of the memory area to copy to.</p>
+		 * @param \FFI\CData|string $from <p>The start of the memory area to copy from.</p>
 		 * @param int $size <p>The number of bytes to copy.</p>
 		 * @return void <p>No value is returned.</p>
 		 * @link https://php.net/manual/en/ffi.memcpy.php
 		 * @since PHP 7 >= 7.4.0
 		 */
-		public static function memcpy(\FFI\CData &$dst, mixed &$src, int $size): void {}
+		public static function memcpy(\FFI\CData &$to, \FFI\CData|string &$from, int $size): void {}
 
 		/**
 		 * Fills a memory area
-		 * <p>Fills <code>size</code> bytes of the memory area pointed to by <code>ptr</code> with the given byte <code>ch</code>.</p>
+		 * <p>Fills <code>size</code> bytes of the memory area pointed to by <code>ptr</code> with the given byte <code>value</code>.</p>
 		 * @param \FFI\CData $ptr <p>The start of the memory area to fill.</p>
-		 * @param int $ch <p>The byte to fill with.</p>
+		 * @param int $value <p>The byte to fill with.</p>
 		 * @param int $size <p>The number of bytes to fill.</p>
 		 * @return void <p>No value is returned.</p>
 		 * @link https://php.net/manual/en/ffi.memset.php
 		 * @since PHP 7 >= 7.4.0
 		 */
-		public static function memset(\FFI\CData &$ptr, int $ch, int $size): void {}
+		public static function memset(\FFI\CData &$ptr, int $value, int $size): void {}
 
 		/**
 		 * Creates a C data structure
 		 * <p>Creates a native data structure of the given C type. If this method is called statically, it must only use predefined C type names (e.g. <code>int</code>, <code>char</code>, etc.); if the method is called as instance method, any type declared for the instance is allowed.</p>
-		 * @param mixed $type <p><code>type</code> is a valid C declaration as <code>string</code>, or an instance of FFI\CType which has already been created.</p>
+		 * @param \FFI\CType|string $type <p><code>type</code> is a valid C declaration as <code>string</code>, or an instance of FFI\CType which has already been created.</p>
 		 * @param bool $owned <p>Whether to create owned (i.e. managed) or unmanaged data. Managed data lives together with the returned FFI\CData object, and is released when the last reference to that object is released by regular PHP reference counting or GC. Unmanaged data should be released by calling <code>FFI::free()</code>, when no longer needed.</p>
 		 * @param bool $persistent <p>Whether to allocate the C data structure permanently on the system heap (using <b>malloc()</b>), or on the PHP request heap (using <b>emalloc()</b>).</p>
-		 * @return FFI\CData <p>Returns the freshly created FFI\CData object.</p>
+		 * @return FFI\CData|null <p>Returns the freshly created FFI\CData object, or <b><code>null</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/ffi.new.php
 		 * @since PHP 7 >= 7.4.0
 		 */
-		public static function new(mixed $type, bool $owned = TRUE, bool $persistent = FALSE): \FFI\CData {}
+		public static function new(\FFI\CType|string $type, bool $owned = true, bool $persistent = false): \FFI\CData|null {}
 
 		/**
 		 * Instantiates an FFI object with C declarations parsed during preloading
 		 * <p>Instantiates an FFI object with C declarations parsed during preloading.</p><p>The <b>FFI::scope()</b> method is safe to call multiple times for the same scope. Multiple references to the same scope may be loaded at the same time.</p>
-		 * @param string $scope_name <p>The scope name defined by a special <code>FFI_SCOPE</code> define.</p>
+		 * @param string $name <p>The scope name defined by a special <code>FFI_SCOPE</code> define.</p>
 		 * @return FFI <p>Returns the freshly created FFI object.</p>
 		 * @link https://php.net/manual/en/ffi.scope.php
 		 * @since PHP 7 >= 7.4.0
 		 */
-		public static function scope(string $scope_name): \FFI {}
+		public static function scope(string $name): \FFI {}
 
 		/**
 		 * Gets the size of C data or types
 		 * <p>Returns the size of the given FFI\CData or FFI\CType object.</p>
-		 * @param mixed $ptr <p>The handle of the C data or type.</p>
+		 * @param \FFI\CData|\FFI\CType $ptr <p>The handle of the C data or type.</p>
 		 * @return int <p>The size of the memory area pointed at by <code>ptr</code>.</p>
 		 * @link https://php.net/manual/en/ffi.sizeof.php
 		 * @since PHP 7 >= 7.4.0
 		 */
-		public static function sizeof(mixed &$ptr): int {}
+		public static function sizeof(\FFI\CData|\FFI\CType &$ptr): int {}
 
 		/**
 		 * Creates a PHP string from a memory area
 		 * <p>Creates a PHP <code>string</code> from <code>size</code> bytes of the memory area pointed to by <code>ptr</code>.</p>
 		 * @param \FFI\CData $ptr <p>The start of the memory area from which to create a <code>string</code>.</p>
-		 * @param int $size <p>The number of bytes to copy to the <code>string</code>. If <code>size</code> is omitted, <code>ptr</code> must be a zero terminated array of C <code>chars</code>.</p>
+		 * @param int|null $size <p>The number of bytes to copy to the <code>string</code>. If <code>size</code> is omitted, <code>ptr</code> must be a zero terminated array of C <code>chars</code>.</p>
 		 * @return string <p>The freshly created PHP <code>string</code>.</p>
 		 * @link https://php.net/manual/en/ffi.string.php
 		 * @since PHP 7 >= 7.4.0
 		 */
-		public static function string(\FFI\CData &$ptr, int $size = NULL): string {}
+		public static function string(\FFI\CData &$ptr, int|null $size = null): string {}
 
 		/**
 		 * Creates an FFI\CType object from a C declaration
 		 * <p>This function creates and returns a FFI\CType object for the given <code>string</code> containing a C type declaration. If this method is called statically, it must only use predefined C type names (e.g. <code>int</code>, <code>char</code>, etc.); if the method is called as instance method, any type declared for the instance is allowed.</p>
-		 * @param mixed $type <p>A valid C declaration as <code>string</code>, or an instance of FFI\CType which has already been created.</p>
-		 * @return FFI\CType <p>Returns the freshly created FFI\CType object.</p>
+		 * @param string $type <p>A valid C declaration as <code>string</code>, or an instance of FFI\CType which has already been created.</p>
+		 * @return FFI\CType|null <p>Returns the freshly created FFI\CType object, or <b><code>null</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/ffi.type.php
 		 * @since PHP 7 >= 7.4.0
 		 */
-		public static function type(mixed $type): \FFI\CType {}
+		public static function type(string $type): \FFI\CType|null {}
 
 		/**
 		 * Gets the FFI\CType of FFI\CData
@@ -303,7 +303,7 @@ namespace FFI {
 		/**
 		 * Returns previous Throwable
 		 * <p>Returns previous Throwable (the third parameter of <code>Error::__construct()</code>).</p>
-		 * @return Throwable <p>Returns the previous Throwable if available or <b><code>NULL</code></b> otherwise.</p>
+		 * @return Throwable <p>Returns the previous Throwable if available or <b><code>null</code></b> otherwise.</p>
 		 * @link https://php.net/manual/en/error.getprevious.php
 		 * @since PHP 7, PHP 8
 		 */

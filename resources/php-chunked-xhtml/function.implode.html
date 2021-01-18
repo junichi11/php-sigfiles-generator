@@ -34,26 +34,26 @@
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>implode</strong></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$glue</code></span>
-   , <span class="methodparam"><span class="type">array</span> <code class="parameter">$pieces</code></span>
+    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$separator</code></span>
+   , <span class="methodparam"><span class="type">array</span> <code class="parameter">$array</code></span>
    ) : <span class="type">string</span></div>
 
+  <p class="simpara">Alternative signature (not supported with named arguments):</p>
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>implode</strong></span>
-    ( <span class="methodparam"><span class="type">array</span> <code class="parameter">$pieces</code></span>
+    ( <span class="methodparam"><span class="type">array</span> <code class="parameter">$array</code></span>
+   ) : <span class="type">string</span></div>
+
+  <p class="simpara">Legacy signature (deprecated as of PHP 7.4.0, removed as of PHP 8.0.0):</p>
+  <div class="methodsynopsis dc-description">
+   <span class="methodname"><strong>implode</strong></span>
+    ( <span class="methodparam"><span class="type">array</span> <code class="parameter">$array</code></span>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$separator</code></span>
    ) : <span class="type">string</span></div>
 
   <p class="para rdfs-comment">
-   Join array elements with a <code class="parameter">glue</code> string.
+   Join array elements with a <code class="parameter">separator</code> string.
   </p>
-  <blockquote class="note"><p><strong class="note">Note</strong>: 
-   <p class="para">
-    <span class="function"><strong>implode()</strong></span> can, for historical reasons, accept
-    its parameters in either order. For consistency with
-    <span class="function"><a href="function.explode.html" class="function">explode()</a></span>, however, it is <em class="emphasis">deprecated</em> not
-    to use the documented order of arguments.
-   </p>
-  </p></blockquote>
  </div>
 
 
@@ -64,7 +64,7 @@
 
     
      <dt>
-<code class="parameter">glue</code></dt>
+<code class="parameter">separator</code></dt>
 
      <dd>
 
@@ -76,7 +76,7 @@
     
     
      <dt>
-<code class="parameter">pieces</code></dt>
+<code class="parameter">array</code></dt>
 
      <dd>
 
@@ -96,7 +96,7 @@
   <h3 class="title">Return Values</h3>
   <p class="para">
    Returns a string containing a string representation of all the array
-   elements in the same order, with the glue string between each element.
+   elements in the same order, with the separator string between each element.
   </p>
  </div>
 
@@ -115,10 +115,18 @@
 
     <tbody class="tbody">
      <tr>
+      <td>8.0.0</td>
+      <td>
+       Passing the <code class="parameter">separator</code> after the <code class="parameter">array</code>
+       is no longer supported.
+      </td>
+     </tr>
+
+     <tr>
       <td>7.4.0</td>
       <td>
-       Passing the <code class="parameter">glue</code> after the <code class="parameter">pieces</code>
-       (i.e. not using the documented order of parameters) has been deprecated.
+       Passing the <code class="parameter">separator</code> after the <code class="parameter">array</code>
+       (i.e. using the legacy signature) has been deprecated.
       </td>
      </tr>
 
@@ -132,7 +140,7 @@
  <div class="refsect1 examples" id="refsect1-function.implode-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-5284">
+   <div class="example" id="example-5305">
     <p><strong>Example #1 <span class="function"><strong>implode()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

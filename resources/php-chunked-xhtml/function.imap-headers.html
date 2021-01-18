@@ -33,8 +33,8 @@
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>imap_headers</strong></span>
-    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$imap_stream</code></span>
-   ) : <span class="type">array</span></div>
+    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$imap</code></span>
+   ) : <span class="type"><span class="type">array</span>|<span class="type"><span class="type false">false</span></span></span></div>
 
   <p class="para rdfs-comment">
    Returns headers for all messages in a mailbox.
@@ -48,7 +48,7 @@
 
     <dt>
 <code class="parameter">
-imap_stream</code></dt>
+imap</code></dt>
 <dd>
 <p class="para">An IMAP stream returned by
 <span class="function"><a href="function.imap-open.html" class="function">imap_open()</a></span>.</p></dd>
@@ -63,6 +63,7 @@ imap_stream</code></dt>
   <p class="para">
    Returns an array of string formatted with header info. One
    element per mail message.
+   Returns <strong><code>false</code></strong> on failure.
   </p>
  </div>
 

@@ -32,9 +32,9 @@
 
  <div class="refsect1 description" id="refsect1-reflectionfunction.construct-description">
   <h3 class="title">Description</h3>
-  <div class="methodsynopsis dc-description">
+  <div class="constructorsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><strong>ReflectionFunction::__construct</strong></span>
-    ( <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">$name</code></span>
+    ( <span class="methodparam"><span class="type"><span class="type"><a href="class.closure.html" class="type Closure">Closure</a></span>|<span class="type">string</span></span> <code class="parameter">$function</code></span>
    )</div>
 
   <p class="para rdfs-comment">
@@ -50,7 +50,7 @@
 
     
      <dt>
-<code class="parameter">name</code></dt>
+<code class="parameter">function</code></dt>
 
      <dd>
 
@@ -77,7 +77,7 @@
  <div class="refsect1 errors" id="refsect1-reflectionfunction.construct-errors">
   <h3 class="title">Errors/Exceptions</h3>
   <p class="para">
-   A <a href="class.reflectionexception.html" class="classname">ReflectionException</a> if the <code class="parameter">name</code>
+   A <a href="class.reflectionexception.html" class="classname">ReflectionException</a> if the <code class="parameter">function</code>
    parameter does not contain a valid function.
   </p>
  </div>
@@ -86,7 +86,7 @@
  <div class="refsect1 examples" id="refsect1-reflectionfunction.construct-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-5687">
+   <div class="example" id="example-5708">
     <p><strong>Example #1 <span class="methodname"><strong>ReflectionFunction::__construct()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

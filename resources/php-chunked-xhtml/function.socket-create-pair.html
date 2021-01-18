@@ -37,12 +37,12 @@
     ( <span class="methodparam"><span class="type">int</span> <code class="parameter">$domain</code></span>
    , <span class="methodparam"><span class="type">int</span> <code class="parameter">$type</code></span>
    , <span class="methodparam"><span class="type">int</span> <code class="parameter">$protocol</code></span>
-   , <span class="methodparam"><span class="type">array</span> <code class="parameter reference">&$fd</code></span>
+   , <span class="methodparam"><span class="type">array</span> <code class="parameter reference">&$pair</code></span>
    ) : <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
    <span class="function"><strong>socket_create_pair()</strong></span> creates two connected and
-   indistinguishable sockets, and stores them in <code class="parameter">fd</code>.
+   indistinguishable sockets, and stores them in <code class="parameter">pair</code>.
    This function is commonly used in IPC (InterProcess Communication).
   </p>
  </div>
@@ -105,12 +105,12 @@
     
     
      <dt>
-<code class="parameter">fd</code></dt>
+<code class="parameter">pair</code></dt>
 
      <dd>
 
       <p class="para">
-       Reference to an array in which the two socket resources will be inserted.
+       Reference to an array in which the two <a href="class.socket.html" class="classname">Socket</a> instances will be inserted.
       </p>
      </dd>
 
@@ -124,8 +124,36 @@
  <div class="refsect1 returnvalues" id="refsect1-function.socket-create-pair-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns <strong><code>TRUE</code></strong> on success or <strong><code>FALSE</code></strong> on failure.
+   Returns <strong><code>true</code></strong> on success or <strong><code>false</code></strong> on failure.
   </p>
+ </div>
+
+
+ <div class="refsect1 changelog" id="refsect1-function.socket-create-pair-changelog">
+  <h3 class="title">Changelog</h3>
+  <table class="doctable informaltable">
+   
+    <thead>
+     <tr>
+      <th>Version</th>
+      <th>Description</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+      <td>8.0.0</td>
+      <td>
+       <code class="parameter">pair</code> is a reference to an array of <a href="class.socket.html" class="classname">Socket</a> instances now;
+       previously, it was a reference to an array of <span class="type">resource</span>s.
+      </td>
+     </tr>
+
+    </tbody>
+   
+  </table>
+
  </div>
 
 

@@ -34,8 +34,8 @@
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>token_get_all</strong></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$code</code></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code><span class="initializer"> = 0</span></span>
-  ] ) : <span class="type">array</span></div>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code><span class="initializer"> = 0</span></span>
+   ) : <span class="type">array</span></div>
 
   <p class="para rdfs-comment">
    <span class="function"><strong>token_get_all()</strong></span> parses the given <code class="parameter">code</code> 
@@ -104,7 +104,7 @@
  <div class="refsect1 examples" id="refsect1-function.token-get-all-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-4326">
+   <div class="example" id="example-4348">
     <p><strong>Example #1 <span class="function"><strong>token_get_all()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -126,7 +126,7 @@ Line 1: T_CLOSE_TAG (&#039;?&gt;&#039;)
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-4327">
+   <div class="example" id="example-4349">
     <p><strong>Example #2 <span class="function"><strong>token_get_all()</strong></span> incorrect usage example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -150,7 +150,7 @@ Line 1: T_INLINE_HTML (&#039;/* comment */&#039;)
    PHP tags in a normal file.
   </p>
   <p class="para">
-   <div class="example" id="example-4328">
+   <div class="example" id="example-4350">
     <p><strong>Example #3 
      <span class="function"><strong>token_get_all()</strong></span> on a class using a reserved word example
     </strong></p>
@@ -188,6 +188,7 @@ T_LNUMBER
   <h3 class="title">See Also</h3>
   <p class="para">
    <ul class="simplelist">
+    <li class="member"><span class="function"><a href="phptoken.tokenize.html" class="function" rel="rdfs-seeAlso">PhpToken::tokenize()</a> - Splits given source into PHP tokens, represented by PhpToken objects.</span></li>
     <li class="member"><span class="function"><a href="function.token-name.html" class="function" rel="rdfs-seeAlso">token_name()</a> - Get the symbolic name of a given PHP token</span></li>
    </ul>
   </p>

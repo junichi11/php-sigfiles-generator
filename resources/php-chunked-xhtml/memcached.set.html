@@ -35,9 +35,9 @@
   <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><strong>Memcached::set</strong></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$key</code></span>
-   , <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">$value</code></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$expiration</code></span>
-  ] ) : <span class="type">bool</span></div>
+   , <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$value</code></span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$expiration</code> = ?</span>
+   ) : <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
    <span class="function"><strong>Memcached::set()</strong></span> stores the <code class="parameter">value</code>
@@ -104,7 +104,7 @@
  <div class="refsect1 returnvalues" id="refsect1-memcached.set-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns <strong><code>TRUE</code></strong> on success or <strong><code>FALSE</code></strong> on failure.
+   Returns <strong><code>true</code></strong> on success or <strong><code>false</code></strong> on failure.
    Use <span class="methodname"><a href="memcached.getresultcode.html" class="methodname">Memcached::getResultCode()</a></span> if necessary.
   </p>
  </div>
@@ -113,7 +113,7 @@
  <div class="refsect1 examples" id="refsect1-memcached.set-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-4897">
+   <div class="example" id="example-4919">
     <p><strong>Example #1 <span class="function"><strong>Memcached::set()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

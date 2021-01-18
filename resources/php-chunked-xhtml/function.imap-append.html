@@ -33,15 +33,15 @@
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>imap_append</strong></span>
-    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$imap_stream</code></span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$mailbox</code></span>
+    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$imap</code></span>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$folder</code></span>
    , <span class="methodparam"><span class="type">string</span> <code class="parameter">$message</code></span>
-   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$options</code><span class="initializer"> = <strong><code>NULL</code></strong></span></span>
-   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$internal_date</code><span class="initializer"> = <strong><code>NULL</code></strong></span></span>
-  ]] ) : <span class="type">bool</span></div>
+   , <span class="methodparam"><span class="type"><span class="type">string</span>|<span class="type">null</span></span> <code class="parameter">$options</code><span class="initializer"> = <strong><code>null</code></strong></span></span>
+   , <span class="methodparam"><span class="type"><span class="type">string</span>|<span class="type">null</span></span> <code class="parameter">$internal_date</code><span class="initializer"> = <strong><code>null</code></strong></span></span>
+   ) : <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
-   Appends a string <code class="parameter">message</code> to the specified <code class="parameter">mailbox</code>. 
+   Appends a string <code class="parameter">message</code> to the specified <code class="parameter">folder</code>. 
   </p>
  </div>
 
@@ -52,14 +52,14 @@
 
     <dt>
 <code class="parameter">
-imap_stream</code></dt>
+imap</code></dt>
 <dd>
 <p class="para">An IMAP stream returned by
 <span class="function"><a href="function.imap-open.html" class="function">imap_open()</a></span>.</p></dd>
 
     
      <dt>
-<code class="parameter">mailbox</code></dt>
+<code class="parameter">folder</code></dt>
 
      <dd>
 
@@ -99,7 +99,7 @@ Passing untrusted data to this parameter is <em class="emphasis">insecure</em>, 
 
       <p class="para">
        If provided, the <code class="parameter">options</code> will also be written
-       to the <code class="parameter">mailbox</code>
+       to the <code class="parameter">folder</code>
       </p>
      </dd>
 
@@ -124,15 +124,42 @@ Passing untrusted data to this parameter is <em class="emphasis">insecure</em>, 
  <div class="refsect1 returnvalues" id="refsect1-function.imap-append-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns <strong><code>TRUE</code></strong> on success or <strong><code>FALSE</code></strong> on failure.
+   Returns <strong><code>true</code></strong> on success or <strong><code>false</code></strong> on failure.
   </p>
+ </div>
+
+
+ <div class="refsect1 changelog" id="refsect1-function.imap-append-changelog">
+  <h3 class="title">Changelog</h3>
+  <table class="doctable informaltable">
+   
+    <thead>
+     <tr>
+      <th>Version</th>
+      <th>Description</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+      <td>8.0.0</td>
+      <td>
+       <code class="parameter">options</code> and <code class="parameter">internal_date</code> are now nullable.
+      </td>
+     </tr>
+
+    </tbody>
+   
+  </table>
+
  </div>
 
 
  <div class="refsect1 examples" id="refsect1-function.imap-append-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-3475">
+   <div class="example" id="example-3490">
     <p><strong>Example #1 <span class="function"><strong>imap_append()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

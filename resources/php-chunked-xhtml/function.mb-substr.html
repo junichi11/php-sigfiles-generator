@@ -34,18 +34,18 @@
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>mb_substr</strong></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$str</code></span>
+    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$string</code></span>
    , <span class="methodparam"><span class="type">int</span> <code class="parameter">$start</code></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$length</code><span class="initializer"> = NULL</span></span>
-   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$encoding</code><span class="initializer"> = mb_internal_encoding()</span></span>
-  ]] ) : <span class="type">string</span></div>
+   , <span class="methodparam"><span class="type"><span class="type">int</span>|<span class="type">null</span></span> <code class="parameter">$length</code><span class="initializer"> = <strong><code>null</code></strong></span></span>
+   , <span class="methodparam"><span class="type"><span class="type">string</span>|<span class="type">null</span></span> <code class="parameter">$encoding</code><span class="initializer"> = <strong><code>null</code></strong></span></span>
+   ) : <span class="type">string</span></div>
 
   <p class="para rdfs-comment">
    Performs a multi-byte safe
    <span class="function"><a href="function.substr.html" class="function">substr()</a></span> operation based on
    number of characters. Position is
    counted from the beginning of
-   <code class="parameter">str</code>. First character&#039;s position is
+   <code class="parameter">string</code>. First character&#039;s position is
    0. Second character position is 1, and so on. 
   </p>
  </div>
@@ -58,7 +58,7 @@
 
     
      <dt>
-<code class="parameter">str</code></dt>
+<code class="parameter">string</code></dt>
 
      <dd>
 
@@ -77,7 +77,7 @@
       <p class="para">
        If <code class="parameter">start</code> is non-negative, the returned string
        will start at the <code class="parameter">start</code>&#039;th position in
-       <code class="parameter">str</code>, counting from zero. For instance,
+       <code class="parameter">string</code>, counting from zero. For instance,
        in the string &#039;<code class="literal">abcdef</code>&#039;, the character at
        position <code class="literal">0</code> is &#039;<code class="literal">a</code>&#039;, the
        character at position <code class="literal">2</code> is
@@ -86,7 +86,7 @@
       <p class="para">
        If <code class="parameter">start</code> is negative, the returned string
        will start at the <code class="parameter">start</code>&#039;th character
-       from the end of <code class="parameter">str</code>.
+       from the end of <code class="parameter">string</code>.
       </p>
      </dd>
 
@@ -98,7 +98,7 @@
      <dd>
 
       <p class="para">
-       Maximum number of characters to use from <code class="parameter">str</code>. If
+       Maximum number of characters to use from <code class="parameter">string</code>. If
        omitted or <code class="literal">NULL</code> is passed, extract all characters to
        the end of the string.
       </p>
@@ -112,7 +112,7 @@
      <dd>
 
       <p class="para">The <code class="parameter">encoding</code>
-parameter is the character encoding. If it is omitted, the internal character
+parameter is the character encoding. If it is omitted or <strong><code>null</code></strong>, the internal character
 encoding value will be used.</p>
      </dd>
 
@@ -127,10 +127,37 @@ encoding value will be used.</p>
   <h3 class="title">Return Values</h3>
   <p class="para">
    <span class="function"><strong>mb_substr()</strong></span> returns the portion of
-   <code class="parameter">str</code> specified by the
+   <code class="parameter">string</code> specified by the
    <code class="parameter">start</code> and
    <code class="parameter">length</code> parameters.
   </p>
+ </div>
+
+
+ <div class="refsect1 changelog" id="refsect1-function.mb-substr-changelog">
+  <h3 class="title">Changelog</h3>
+  <table class="doctable informaltable">
+   
+    <thead>
+     <tr>
+      <th>Version</th>
+      <th>Description</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+ <td>8.0.0</td>
+ <td>
+  <code class="parameter">encoding</code> is nullable now.
+ </td>
+</tr>
+
+    </tbody>
+   
+  </table>
+
  </div>
 
 

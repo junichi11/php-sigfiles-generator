@@ -228,21 +228,21 @@
      <span class="modifier">public</span>
      <span class="type"><a href="class.mongocollection.html" class="type MongoCollection">MongoCollection</a></span>
       <var class="varname">$<var class="varname">chunks</var></var>
-     <span class="initializer"> = <strong><code>NULL</code></strong></span>
+     <span class="initializer"> = <strong><code>null</code></strong></span>
     ;</div>
 
     <div class="fieldsynopsis">
      <span class="modifier">protected</span>
      <span class="type">string</span>
       <var class="varname">$<var class="varname">filesName</var></var>
-     <span class="initializer"> = <strong><code>NULL</code></strong></span>
+     <span class="initializer"> = <strong><code>null</code></strong></span>
     ;</div>
 
     <div class="fieldsynopsis">
      <span class="modifier">protected</span>
      <span class="type">string</span>
       <var class="varname">$<var class="varname">chunksName</var></var>
-     <span class="initializer"> = <strong><code>NULL</code></strong></span>
+     <span class="initializer"> = <strong><code>null</code></strong></span>
     ;</div>
 
 
@@ -250,12 +250,12 @@
     <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="mongogridfs.construct.html" class="methodname">__construct</a></span>
     ( <span class="methodparam"><span class="type"><a href="class.mongodb.html" class="type MongoDB">MongoDB</a></span> <code class="parameter">$db</code></span>
-   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$prefix</code><span class="initializer"> = &quot;fs&quot;</span></span>
-   [, <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">$chunks</code><span class="initializer"> = &quot;fs&quot;</span></span>
-  ]] )</div>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$prefix</code><span class="initializer"> = &quot;fs&quot;</span></span>
+   , <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$chunks</code><span class="initializer"> = &quot;fs&quot;</span></span>
+   )</div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="mongogridfs.delete.html" class="methodname">delete</a></span>
-    ( <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">$id</code></span>
+    ( <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$id</code></span>
    ) : <span class="type"><span class="type">bool</span>|<span class="type">array</span></span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="mongogridfs.drop.html" class="methodname">drop</a></span>
@@ -263,46 +263,46 @@
    ) : <span class="type">array</span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="mongogridfs.find.html" class="methodname">find</a></span>
-    ([ <span class="methodparam"><span class="type">array</span> <code class="parameter">$query</code><span class="initializer"> = array()</span></span>
-   [, <span class="methodparam"><span class="type">array</span> <code class="parameter">$fields</code><span class="initializer"> = array()</span></span>
-  ]] ) : <span class="type"><a href="class.mongogridfscursor.html" class="type MongoGridFSCursor">MongoGridFSCursor</a></span></div>
+    ( <span class="methodparam"><span class="type">array</span> <code class="parameter">$query</code><span class="initializer"> = array()</span></span>
+   , <span class="methodparam"><span class="type">array</span> <code class="parameter">$fields</code><span class="initializer"> = array()</span></span>
+   ) : <span class="type"><a href="class.mongogridfscursor.html" class="type MongoGridFSCursor">MongoGridFSCursor</a></span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="mongogridfs.findone.html" class="methodname">findOne</a></span>
-    ([ <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">$query</code><span class="initializer"> = array()</span></span>
-   [, <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">$fields</code><span class="initializer"> = array()</span></span>
-  ]] ) : <span class="type"><a href="class.mongogridfsfile.html" class="type MongoGridFSFile">MongoGridFSFile</a></span></div>
+    ( <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$query</code><span class="initializer"> = array()</span></span>
+   , <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$fields</code><span class="initializer"> = array()</span></span>
+   ) : <span class="type"><a href="class.mongogridfsfile.html" class="type MongoGridFSFile">MongoGridFSFile</a></span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="mongogridfs.get.html" class="methodname">get</a></span>
-    ( <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">$id</code></span>
+    ( <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$id</code></span>
    ) : <span class="type"><a href="class.mongogridfsfile.html" class="type MongoGridFSFile">MongoGridFSFile</a></span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="mongogridfs.put.html" class="methodname">put</a></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$filename</code></span>
-   [, <span class="methodparam"><span class="type">array</span> <code class="parameter">$metadata</code><span class="initializer"> = array()</span></span>
-   [, <span class="methodparam"><span class="type">array</span> <code class="parameter">$options</code><span class="initializer"> = array()</span></span>
-  ]] ) : <span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span></div>
+   , <span class="methodparam"><span class="type">array</span> <code class="parameter">$metadata</code><span class="initializer"> = array()</span></span>
+   , <span class="methodparam"><span class="type">array</span> <code class="parameter">$options</code><span class="initializer"> = array()</span></span>
+   ) : <span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="mongogridfs.remove.html" class="methodname">remove</a></span>
-    ([ <span class="methodparam"><span class="type">array</span> <code class="parameter">$criteria</code><span class="initializer"> = array()</span></span>
-   [, <span class="methodparam"><span class="type">array</span> <code class="parameter">$options</code><span class="initializer"> = array()</span></span>
-  ]] ) : <span class="type"><span class="type">bool</span>|<span class="type">array</span></span></div>
+    ( <span class="methodparam"><span class="type">array</span> <code class="parameter">$criteria</code><span class="initializer"> = array()</span></span>
+   , <span class="methodparam"><span class="type">array</span> <code class="parameter">$options</code><span class="initializer"> = array()</span></span>
+   ) : <span class="type"><span class="type">bool</span>|<span class="type">array</span></span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="mongogridfs.storebytes.html" class="methodname">storeBytes</a></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$bytes</code></span>
-   [, <span class="methodparam"><span class="type">array</span> <code class="parameter">$metadata</code><span class="initializer"> = array()</span></span>
-   [, <span class="methodparam"><span class="type">array</span> <code class="parameter">$options</code><span class="initializer"> = array()</span></span>
-  ]] ) : <span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span></div>
+   , <span class="methodparam"><span class="type">array</span> <code class="parameter">$metadata</code><span class="initializer"> = array()</span></span>
+   , <span class="methodparam"><span class="type">array</span> <code class="parameter">$options</code><span class="initializer"> = array()</span></span>
+   ) : <span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="mongogridfs.storefile.html" class="methodname">storeFile</a></span>
     ( <span class="methodparam"><span class="type"><span class="type">string</span>|<span class="type">resource</span></span> <code class="parameter">$filename</code></span>
-   [, <span class="methodparam"><span class="type">array</span> <code class="parameter">$metadata</code><span class="initializer"> = array()</span></span>
-   [, <span class="methodparam"><span class="type">array</span> <code class="parameter">$options</code><span class="initializer"> = array()</span></span>
-  ]] ) : <span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span></div>
+   , <span class="methodparam"><span class="type">array</span> <code class="parameter">$metadata</code><span class="initializer"> = array()</span></span>
+   , <span class="methodparam"><span class="type">array</span> <code class="parameter">$options</code><span class="initializer"> = array()</span></span>
+   ) : <span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="mongogridfs.storeupload.html" class="methodname">storeUpload</a></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$name</code></span>
-   [, <span class="methodparam"><span class="type">array</span> <code class="parameter">$metadata</code></span>
-  ] ) : <span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span></div>
+   , <span class="methodparam"><span class="type">array</span> <code class="parameter">$metadata</code> = ?</span>
+   ) : <span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span></div>
 
    }</div>
 

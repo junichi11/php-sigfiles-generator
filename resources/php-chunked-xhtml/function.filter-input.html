@@ -35,9 +35,9 @@
    <span class="methodname"><strong>filter_input</strong></span>
     ( <span class="methodparam"><span class="type">int</span> <code class="parameter">$type</code></span>
    , <span class="methodparam"><span class="type">string</span> <code class="parameter">$var_name</code></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$filter</code><span class="initializer"> = <strong><code>FILTER_DEFAULT</code></strong></span></span>
-   [, <span class="methodparam"><span class="type"><span class="type">array</span>|<span class="type">int</span></span> <code class="parameter">$options</code><span class="initializer"> = 0</span></span>
-  ]] ) : <span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span></div>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$filter</code><span class="initializer"> = <strong><code>FILTER_DEFAULT</code></strong></span></span>
+   , <span class="methodparam"><span class="type"><span class="type">array</span>|<span class="type">int</span></span> <code class="parameter">$options</code><span class="initializer"> = 0</span></span>
+   ) : <span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span></div>
 
 
  </div>
@@ -115,10 +115,10 @@
  <div class="refsect1 returnvalues" id="refsect1-function.filter-input-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Value of the requested variable on success, <strong><code>FALSE</code></strong> if the filter fails,
-   or <strong><code>NULL</code></strong> if the <code class="parameter">var_name</code> variable is not set.
+   Value of the requested variable on success, <strong><code>false</code></strong> if the filter fails,
+   or <strong><code>null</code></strong> if the <code class="parameter">var_name</code> variable is not set.
    If the flag <strong><code>FILTER_NULL_ON_FAILURE</code></strong> is used, it
-   returns <strong><code>FALSE</code></strong> if the variable is not set and <strong><code>NULL</code></strong> if the filter fails.
+   returns <strong><code>false</code></strong> if the variable is not set and <strong><code>null</code></strong> if the filter fails.
    </p>
  </div>
 
@@ -126,7 +126,7 @@
  <div class="refsect1 examples" id="refsect1-function.filter-input-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-5555">
+   <div class="example" id="example-5576">
     <p><strong>Example #1 A <span class="function"><strong>filter_input()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

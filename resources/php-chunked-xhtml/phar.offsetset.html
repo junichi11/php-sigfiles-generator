@@ -109,7 +109,7 @@ objects.  Otherwise, a <a href="class.pharexception.html" class="classname">Phar
  <div class="refsect1 examples" id="refsect1-phar.offsetset-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-719">
+   <div class="example" id="example-731">
     <p><strong>Example #1 A <span class="function"><strong>Phar::offsetSet()</strong></span> example</strong></p>
     <div class="example-contents"><p>
      offsetSet should not be accessed directly, but instead used
@@ -124,6 +124,19 @@ objects.  Otherwise, a <a href="class.pharexception.html" class="classname">Phar
 
    </div>
   </p>
+ </div>
+
+
+ <div class="refsect1 notes" id="refsect1-phar.offsetset-notes">
+  <h3 class="title">Notes</h3>
+  <blockquote class="note"><p><strong class="note">Note</strong>: 
+ <span class="simpara">
+  <span class="function"><a href="phar.addfile.html" class="function">Phar::addFile()</a></span>, <span class="function"><a href="phar.addfromstring.html" class="function">Phar::addFromString()</a></span> and <span class="function"><strong>Phar::offsetSet()</strong></span>
+  save a new phar archive each time they are called. If performance is a concern,
+  <span class="function"><a href="phar.buildfromdirectory.html" class="function">Phar::buildFromDirectory()</a></span> or <span class="function"><a href="phar.buildfromiterator.html" class="function">Phar::buildFromIterator()</a></span>
+  should be used instead.
+ </span>
+</p></blockquote>
  </div>
 
 

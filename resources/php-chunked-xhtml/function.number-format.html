@@ -34,38 +34,14 @@
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>number_format</strong></span>
-    ( <span class="methodparam"><span class="type">float</span> <code class="parameter">$number</code></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$decimals</code><span class="initializer"> = 0</span></span>
-  ] ) : <span class="type">string</span></div>
-
-  <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>number_format</strong></span>
-    ( <span class="methodparam"><span class="type">float</span> <code class="parameter">$number</code></span>
+    ( <span class="methodparam"><span class="type">float</span> <code class="parameter">$num</code></span>
    , <span class="methodparam"><span class="type">int</span> <code class="parameter">$decimals</code><span class="initializer"> = 0</span></span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$dec_point</code><span class="initializer"> = &quot;.&quot;</span></span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$thousands_sep</code><span class="initializer"> = &quot;,&quot;</span></span>
+   , <span class="methodparam"><span class="type"><span class="type">string</span>|<span class="type">null</span></span> <code class="parameter">$decimal_separator</code><span class="initializer"> = &quot;.&quot;</span></span>
+   , <span class="methodparam"><span class="type"><span class="type">string</span>|<span class="type">null</span></span> <code class="parameter">$thousands_separator</code><span class="initializer"> = &quot;,&quot;</span></span>
    ) : <span class="type">string</span></div>
 
   <p class="para rdfs-comment">
-   This function accepts either one, two, or four parameters (not three):
-  </p>
-  <p class="para">
-   If only one parameter is given,
-   <code class="parameter">number</code> will be formatted without decimals,
-   but with a comma (&quot;,&quot;) between every group of thousands.
-  </p>
-  <p class="para">
-   If two parameters are given, <code class="parameter">number</code> will
-   be formatted with <code class="parameter">decimals</code> decimals with a
-   dot (&quot;.&quot;) in front, and a comma (&quot;,&quot;) between every group of
-   thousands.
-  </p>
-  <p class="para">
-   If all four parameters are given, <code class="parameter">number</code>
-   will be formatted with <code class="parameter">decimals</code> decimals,
-   <code class="parameter">dec_point</code> instead of a dot (&quot;.&quot;) before
-   the decimals and <code class="parameter">thousands_sep</code> instead of
-   a comma (&quot;,&quot;) between every group of thousands.
+   Formats a number with grouped thousands and optionally decimal digits.
   </p>
  </div>
 
@@ -77,7 +53,7 @@
 
     
      <dt>
-<code class="parameter">number</code></dt>
+<code class="parameter">num</code></dt>
 
      <dd>
 
@@ -94,14 +70,16 @@
      <dd>
 
       <p class="para">
-       Sets the number of decimal points.
+       Sets the number of decimal digits.
+       If <code class="literal">0</code>, the <code class="parameter">decimal_separator</code> is
+       omitted from the return value.
       </p>
      </dd>
 
     
     
      <dt>
-<code class="parameter">dec_point</code></dt>
+<code class="parameter">decimal_separator</code></dt>
 
      <dd>
 
@@ -113,7 +91,7 @@
     
     
      <dt>
-<code class="parameter">thousands_sep</code></dt>
+<code class="parameter">thousands_separator</code></dt>
 
      <dd>
 
@@ -132,7 +110,7 @@
  <div class="refsect1 returnvalues" id="refsect1-function.number-format-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   A formatted version of <code class="parameter">number</code>.
+   A formatted version of <code class="parameter">num</code>.
   </p>
  </div>
 
@@ -152,11 +130,19 @@
 
      <tbody class="tbody">
       <tr>
+       <td>8.0.0</td>
+       <td>
+        Prior to this version, <span class="function"><strong>number_format()</strong></span> accepted
+        one, two, or four parameters (but not three).
+       </td>
+      </tr>
+
+      <tr>
        <td>7.2.0</td>
        <td>
         <span class="function"><strong>number_format()</strong></span> was changed to not being able to return 
         <code class="literal">-0</code>, previously <code class="literal">-0</code> could be returned 
-        for cases like where <code class="parameter">number</code> would be <code class="literal">-0.01</code>.
+        for cases like where <code class="parameter">num</code> would be <code class="literal">-0.01</code>.
        </td>
       </tr>
 
@@ -171,7 +157,7 @@
  <div class="refsect1 examples" id="refsect1-function.number-format-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-5298">
+   <div class="example" id="example-5319">
     <p><strong>Example #1 <span class="function"><strong>number_format()</strong></span> Example</strong></p>
     <div class="example-contents"><p>
      For instance, French notation usually use two decimals,

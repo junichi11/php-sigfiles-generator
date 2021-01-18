@@ -92,7 +92,7 @@ namespace {
 		/**
 		 * Returns previous Exception
 		 * <p>Returns previous exception (the third parameter of <code>Exception::__construct()</code>).</p>
-		 * @return Throwable <p>Returns the previous Throwable if available or <b><code>NULL</code></b> otherwise.</p>
+		 * @return Throwable <p>Returns the previous Throwable if available or <b><code>null</code></b> otherwise.</p>
 		 * @link https://php.net/manual/en/exception.getprevious.php
 		 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8
 		 */
@@ -138,15 +138,15 @@ namespace {
 	 * Decodes a JSON string
 	 * <p>Takes a JSON encoded string and converts it into a PHP variable.</p>
 	 * @param string $json <p>The <code>json</code> <code>string</code> being decoded.</p> <p>This function only works with UTF-8 encoded strings.</p> <p><b>Note</b>:</p><p>PHP implements a superset of JSON as specified in the original RFC 7159.</p>
-	 * @param bool|null $associative <p>When <b><code>TRUE</code></b>, JSON objects will be returned as associative <code>array</code>s; when <b><code>FALSE</code></b>, JSON objects will be returned as <code>object</code>s. When <b><code>NULL</code></b>, JSON objects will be returned as associative <code>array</code>s or <code>object</code>s depending on whether <b><code>JSON_OBJECT_AS_ARRAY</code></b> is set in the <code>flags</code>.</p>
-	 * @param int $depth <p>User specified recursion depth.</p>
+	 * @param bool|null $associative <p>When <b><code>true</code></b>, JSON objects will be returned as associative <code>array</code>s; when <b><code>false</code></b>, JSON objects will be returned as <code>object</code>s. When <b><code>null</code></b>, JSON objects will be returned as associative <code>array</code>s or <code>object</code>s depending on whether <b><code>JSON_OBJECT_AS_ARRAY</code></b> is set in the <code>flags</code>.</p>
+	 * @param int $depth <p>Maximum nesting depth of the structure being decoded.</p>
 	 * @param int $flags <p>Bitmask of <b><code>JSON_BIGINT_AS_STRING</code></b>, <b><code>JSON_INVALID_UTF8_IGNORE</code></b>, <b><code>JSON_INVALID_UTF8_SUBSTITUTE</code></b>, <b><code>JSON_OBJECT_AS_ARRAY</code></b>, <b><code>JSON_THROW_ON_ERROR</code></b>. The behaviour of these constants is described on the JSON constants page.</p>
-	 * @return mixed <p>Returns the value encoded in <code>json</code> in appropriate PHP type. Values <code>true</code>, <code>false</code> and <code>null</code> are returned as <b><code>TRUE</code></b>, <b><code>FALSE</code></b> and <b><code>NULL</code></b> respectively. <b><code>NULL</code></b> is returned if the <code>json</code> cannot be decoded or if the encoded data is deeper than the recursion limit.</p>
+	 * @return mixed <p>Returns the value encoded in <code>json</code> in appropriate PHP type. Values <code>true</code>, <code>false</code> and <code>null</code> are returned as <b><code>true</code></b>, <b><code>false</code></b> and <b><code>null</code></b> respectively. <b><code>null</code></b> is returned if the <code>json</code> cannot be decoded or if the encoded data is deeper than the nesting limit.</p>
 	 * @link https://php.net/manual/en/function.json-decode.php
 	 * @see json_encode(), json_last_error()
 	 * @since PHP 5 >= 5.2.0, PHP 7, PECL json >= 1.2.0
 	 */
-	function json_decode(string $json, bool|null $associative = NULL, int $depth = 512, int $flags = 0): mixed {}
+	function json_decode(string $json, bool|null $associative = null, int $depth = 512, int $flags = 0): mixed {}
 
 	/**
 	 * Returns the JSON representation of a value
@@ -154,7 +154,7 @@ namespace {
 	 * @param mixed $value <p>The <code>value</code> being encoded. Can be any type except a resource.</p> <p>All string data must be UTF-8 encoded.</p> <p><b>Note</b>:</p><p>PHP implements a superset of JSON as specified in the original RFC 7159.</p>
 	 * @param int $flags <p>Bitmask consisting of <b><code>JSON_FORCE_OBJECT</code></b>, <b><code>JSON_HEX_QUOT</code></b>, <b><code>JSON_HEX_TAG</code></b>, <b><code>JSON_HEX_AMP</code></b>, <b><code>JSON_HEX_APOS</code></b>, <b><code>JSON_INVALID_UTF8_IGNORE</code></b>, <b><code>JSON_INVALID_UTF8_SUBSTITUTE</code></b>, <b><code>JSON_NUMERIC_CHECK</code></b>, <b><code>JSON_PARTIAL_OUTPUT_ON_ERROR</code></b>, <b><code>JSON_PRESERVE_ZERO_FRACTION</code></b>, <b><code>JSON_PRETTY_PRINT</code></b>, <b><code>JSON_UNESCAPED_LINE_TERMINATORS</code></b>, <b><code>JSON_UNESCAPED_SLASHES</code></b>, <b><code>JSON_UNESCAPED_UNICODE</code></b>, <b><code>JSON_THROW_ON_ERROR</code></b>. The behaviour of these constants is described on the JSON constants page.</p>
 	 * @param int $depth <p>Set the maximum depth. Must be greater than zero.</p>
-	 * @return string|false <p>Returns a JSON encoded <code>string</code> on success or <b><code>FALSE</code></b> on failure.</p>
+	 * @return string|false <p>Returns a JSON encoded <code>string</code> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.json-encode.php
 	 * @see json_decode(), json_last_error(), serialize()
 	 * @since PHP 5 >= 5.2.0, PHP 7, PECL json >= 1.2.0
@@ -212,7 +212,7 @@ namespace {
 	define('JSON_ERROR_NONE', 0);
 
 	/**
-	 * The object or array passed to <code>json_encode()</code> include recursive references and cannot be encoded. If the <b><code>JSON_PARTIAL_OUTPUT_ON_ERROR</code></b> option was given, <b><code>NULL</code></b> will be encoded in the place of the recursive reference. Available as of PHP 5.5.0.
+	 * The object or array passed to <code>json_encode()</code> include recursive references and cannot be encoded. If the <b><code>JSON_PARTIAL_OUTPUT_ON_ERROR</code></b> option was given, <b><code>null</code></b> will be encoded in the place of the recursive reference. Available as of PHP 5.5.0.
 	 */
 	define('JSON_ERROR_RECURSION', 6);
 
@@ -227,7 +227,7 @@ namespace {
 	define('JSON_ERROR_SYNTAX', 4);
 
 	/**
-	 * A value of an unsupported type was given to <code>json_encode()</code>, such as a resource. If the <b><code>JSON_PARTIAL_OUTPUT_ON_ERROR</code></b> option was given, <b><code>NULL</code></b> will be encoded in the place of the unsupported value. Available as of PHP 5.5.0.
+	 * A value of an unsupported type was given to <code>json_encode()</code>, such as a resource. If the <b><code>JSON_PARTIAL_OUTPUT_ON_ERROR</code></b> option was given, <b><code>null</code></b> will be encoded in the place of the unsupported value. Available as of PHP 5.5.0.
 	 */
 	define('JSON_ERROR_UNSUPPORTED_TYPE', 8);
 
@@ -282,7 +282,7 @@ namespace {
 	define('JSON_NUMERIC_CHECK', 32);
 
 	/**
-	 * Decodes JSON objects as PHP array. This option can be added automatically by calling <code>json_decode()</code> with the second parameter equal to <b><code>TRUE</code></b>. Available as of PHP 5.4.0.
+	 * Decodes JSON objects as PHP array. This option can be added automatically by calling <code>json_decode()</code> with the second parameter equal to <b><code>true</code></b>. Available as of PHP 5.4.0.
 	 */
 	define('JSON_OBJECT_AS_ARRAY', 1);
 

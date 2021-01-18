@@ -43,7 +43,7 @@
    introduction.
   </p>
   <p class="para">
-   <div class="example" id="example-2034">
+   <div class="example" id="example-2047">
     <p><strong>Example #1 Recap: quality of service to request read your writes</strong></p>
     <div class="example-contents"><div class="phpcode"><code><span style="color: #000000">
 /*&nbsp;Request&nbsp;session&nbsp;consistency:&nbsp;read&nbsp;your&nbsp;writes&nbsp;*/<br />if&nbsp;(!mysqlnd_ms_set_qos($mysqli,&nbsp;MYSQLND_MS_QOS_CONSISTENCY_SESSION))<br />&nbsp;&nbsp;die(sprintf("[%d]&nbsp;%s\n",&nbsp;$mysqli-&gt;errno,&nbsp;$mysqli-&gt;error));</span>
@@ -67,7 +67,7 @@
    of a database query is slower than a local cache access.
   </p>
   <p class="para">
-   <div class="example" id="example-2035">
+   <div class="example" id="example-2048">
     <p><strong>Example #2 Plugin config: no special entries for caching</strong></p>
     <div class="example-contents">
 <div class="inicode"><pre class="inicode">{
@@ -92,7 +92,7 @@
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-2036">
+   <div class="example" id="example-2049">
     <p><strong>Example #3 Caching a slave request</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -120,7 +120,7 @@
    The TTL is calculated individually for every cached query.
   </p>
   <p class="para">
-   <div class="example" id="example-2037">
+   <div class="example" id="example-2050">
     <p><strong>Example #4 Read your writes and caching combined</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

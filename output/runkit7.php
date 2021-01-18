@@ -9,29 +9,29 @@ namespace {
 	 * @param string $constname <p>Name of constant to declare. Either a string to indicate a global constant, or <code>classname::constname</code> to indicate a class constant.</p>
 	 * @param mixed $value <p>NULL, Bool, Long, Double, String, Array, or Resource value to store in the new constant.</p>
 	 * @param int $newVisibility <p>Visibility of the constant, for class constants. Public by default. One of the <b><code>RUNKIT7_ACC_&#42;</code></b> constants.</p>
-	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.runkit7-constant-add.php
 	 * @see define(), runkit7_constant_redefine(), runkit7_constant_remove()
 	 * @since PECL runkit7 >= Unknown
 	 */
-	function runkit7_constant_add(string $constname, mixed $value, int $newVisibility = NULL): bool {}
+	function runkit7_constant_add(string $constname, mixed $value, int $newVisibility = null): bool {}
 
 	/**
 	 * Redefine an already defined constant
 	 * @param string $constname <p>Constant to redefine. Either the name of a global constant, or <code>classname::constname</code> indicating class constant.</p>
 	 * @param mixed $value <p>Value to assign to the constant.</p>
 	 * @param string $newVisibility <p>The new visibility of the constant, for class constants. Unchanged by default. One of the <b><code>RUNKIT7_ACC_&#42;</code></b> constants.</p>
-	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.runkit7-constant-redefine.php
 	 * @see runkit7_constant_add(), runkit7_constant_remove()
 	 * @since PECL runkit7 >= Unknown
 	 */
-	function runkit7_constant_redefine(string $constname, mixed $value, string $newVisibility = NULL): bool {}
+	function runkit7_constant_redefine(string $constname, mixed $value, string $newVisibility = null): bool {}
 
 	/**
 	 * Remove/Delete an already defined constant
 	 * @param string $constname <p>Name of the constant to remove. Either the name of a global constant, or <code>classname::constname</code> indicating a class constant.</p>
-	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.runkit7-constant-remove.php
 	 * @see define(), runkit7_constant_add(), runkit7_constant_redefine()
 	 * @since PECL runkit7 >= Unknown
@@ -47,18 +47,18 @@ namespace {
 	 * @param string $doc_comment <p>The doc comment of the function.</p>
 	 * @param string $return_type <p>The return type of the function.</p>
 	 * @param bool $is_strict <p>Whether the function should behave as if it were declared in a file with <code>strict_types=1</code></p>
-	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.runkit7-function-add.php
 	 * @see create_function(), runkit7_function_redefine(), runkit7_function_copy(), runkit7_function_rename(), runkit7_function_remove(), runkit7_method_add()
 	 * @since PECL runkit7 >= Unknown
 	 */
-	function runkit7_function_add(string $funcname, string $arglist, string $code, bool $return_by_reference = NULL, string $doc_comment = NULL, string $return_type = NULL, bool $is_strict = NULL): bool {}
+	function runkit7_function_add(string $funcname, string $arglist, string $code, bool $return_by_reference = null, string $doc_comment = null, string $return_type = null, bool $is_strict = null): bool {}
 
 	/**
 	 * Copy a function to a new function name
 	 * @param string $funcname <p>Name of the existing function</p>
 	 * @param string $targetname <p>Name of the new function to copy the definition to</p>
-	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.runkit7-function-copy.php
 	 * @see runkit7_function_add(), runkit7_function_redefine(), runkit7_function_rename(), runkit7_function_remove()
 	 * @since PECL runkit7 >= Unknown
@@ -75,18 +75,18 @@ namespace {
 	 * @param string $doc_comment <p>The doc comment of the function.</p>
 	 * @param string $return_type <p>The return type of the function.</p>
 	 * @param string $is_strict <p>Whether the function behaves as if it was declared in a file with <code>strict_types=1</code></p>
-	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.runkit7-function-redefine.php
 	 * @see runkit7_function_add(), runkit7_function_copy(), runkit7_function_rename(), runkit7_function_remove(), runkit7_method_redefine()
 	 * @since PECL runkit7 >= Unknown
 	 */
-	function runkit7_function_redefine(string $funcname, string $arglist, string $code, bool $return_by_reference = NULL, string $doc_comment = NULL, string $return_type = NULL, string $is_strict = NULL): bool {}
+	function runkit7_function_redefine(string $funcname, string $arglist, string $code, bool $return_by_reference = null, string $doc_comment = null, string $return_type = null, string $is_strict = null): bool {}
 
 	/**
 	 * Remove a function definition
 	 * <p><b>Note</b>: By default, only userspace functions may be removed, renamed, or modified. In order to override internal functions, you must enable the <code>runkit.internal_override</code> setting in php.ini.</p>
 	 * @param string $funcname <p>Name of the function to be deleted</p>
-	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.runkit7-function-remove.php
 	 * @see runkit7_function_add(), runkit7_function_copy(), runkit7_function_redefine(), runkit7_function_rename()
 	 * @since PECL runkit7 >= Unknown
@@ -98,7 +98,7 @@ namespace {
 	 * <p><b>Note</b>: By default, only userspace functions may be removed, renamed, or modified. In order to override internal functions, you must enable the <code>runkit.internal_override</code> setting in php.ini.</p>
 	 * @param string $funcname <p>Current function name</p>
 	 * @param string $newname <p>New function name</p>
-	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.runkit7-function-rename.php
 	 * @see runkit7_function_add(), runkit7_function_copy(), runkit7_function_redefine(), runkit7_function_remove()
 	 * @since PECL runkit7 >= Unknown
@@ -110,11 +110,11 @@ namespace {
 	 * <p>Similar to <code>include</code>. However, any code residing outside of a function or class is simply ignored. Additionally, depending on the value of <code>flags</code>, any functions or classes which already exist in the currently running environment may be automatically overwritten by their new definitions.</p>
 	 * @param string $filename <p>Filename to import function and class definitions from</p>
 	 * @param int $flags <p>Bitwise OR of the <code>RUNKIT7_IMPORT_&#42;</code> family of constants.</p>
-	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.runkit7-import.php
 	 * @since PECL runkit7 >= Unknown
 	 */
-	function runkit7_import(string $filename, int $flags = NULL): bool {}
+	function runkit7_import(string $filename, int $flags = null): bool {}
 
 	/**
 	 * Dynamically adds a new method to a given class
@@ -126,12 +126,12 @@ namespace {
 	 * @param string $doc_comment <p>The doc comment of the method.</p>
 	 * @param string $return_type <p>The return type of the method.</p>
 	 * @param bool $is_strict <p>Whether the method behaves as if it were declared in a file with <code>strict_types=1</code></p>
-	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.runkit7-method-add.php
 	 * @see runkit7_method_copy(), runkit7_method_redefine(), runkit7_method_remove(), runkit7_method_rename(), runkit7_function_add()
 	 * @since PECL runkit7 >= Unknown
 	 */
-	function runkit7_method_add(string $classname, string $methodname, string $args, string $code, int $flags = RUNKIT7_ACC_PUBLIC, string $doc_comment = NULL, string $return_type = NULL, bool $is_strict = NULL): bool {}
+	function runkit7_method_add(string $classname, string $methodname, string $args, string $code, int $flags = RUNKIT7_ACC_PUBLIC, string $doc_comment = null, string $return_type = null, bool $is_strict = null): bool {}
 
 	/**
 	 * Copies a method from class to another
@@ -144,7 +144,7 @@ namespace {
 	 * @see runkit7_method_add(), runkit7_method_redefine(), runkit7_method_remove(), runkit7_method_rename(), runkit7_function_copy()
 	 * @since PECL runkit7 >= Unknown
 	 */
-	function runkit7_method_copy(string $dClass, string $dMethod, string $sClass, string $sMethod = NULL): bool {}
+	function runkit7_method_copy(string $dClass, string $dMethod, string $sClass, string $sMethod = null): bool {}
 
 	/**
 	 * Dynamically changes the code of the given method
@@ -156,19 +156,19 @@ namespace {
 	 * @param string $doc_comment <p>The doc comment of the method.</p>
 	 * @param string $return_type <p>The return type of the method.</p>
 	 * @param bool $is_strict <p>Whether the method behaves as if it was declared in a file with <code>strict_types=1</code>.</p>
-	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.runkit7-method-redefine.php
 	 * @see runkit7_method_add(), runkit7_method_copy(), runkit7_method_remove(), runkit7_method_rename(), runkit7_function_redefine()
 	 * @since PECL runkit7 >= Unknown
 	 */
-	function runkit7_method_redefine(string $classname, string $methodname, string $args, string $code, int $flags = RUNKIT7_ACC_PUBLIC, string $doc_comment = NULL, string $return_type = NULL, bool $is_strict = NULL): bool {}
+	function runkit7_method_redefine(string $classname, string $methodname, string $args, string $code, int $flags = RUNKIT7_ACC_PUBLIC, string $doc_comment = null, string $return_type = null, bool $is_strict = null): bool {}
 
 	/**
 	 * Dynamically removes the given method
 	 * <p><b>Note</b>: This function cannot be used to manipulate the currently running (or chained) method.</p>
 	 * @param string $classname <p>The class in which to remove the method</p>
 	 * @param string $methodname <p>The name of the method to remove</p>
-	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.runkit7-method-remove.php
 	 * @see runkit7_method_add(), runkit7_method_copy(), runkit7_method_redefine(), runkit7_method_rename(), runkit7_function_remove()
 	 * @since PECL runkit7 >= Unknown
@@ -181,7 +181,7 @@ namespace {
 	 * @param string $classname <p>The class in which to rename the method</p>
 	 * @param string $methodname <p>The name of the method to rename</p>
 	 * @param string $newname <p>The new name to give to the renamed method</p>
-	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.runkit7-method-rename.php
 	 * @see runkit7_method_add(), runkit7_method_copy(), runkit7_method_redefine(), runkit7_method_remove(), runkit7_function_rename()
 	 * @since PECL runkit7 >= Unknown

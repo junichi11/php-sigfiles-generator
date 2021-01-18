@@ -35,8 +35,8 @@
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>fgets</strong></span>
     ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$handle</code></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$length</code></span>
-  ] ) : <span class="type">string</span></div>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$length</code> = ?</span>
+   ) : <span class="type">string</span></div>
 
   <p class="para rdfs-comment">
    Gets a line from file pointer.
@@ -88,10 +88,10 @@ a file successfully opened by <span class="function"><a href="function.fopen.htm
   <p class="para">
    Returns a string of up to <code class="parameter">length</code> - 1 bytes read from
    the file pointed to by <code class="parameter">handle</code>. If there is no more data 
-   to read in the file pointer, then <strong><code>FALSE</code></strong> is returned.
+   to read in the file pointer, then <strong><code>false</code></strong> is returned.
   </p>
   <p class="para">
-   If an error occurs, <strong><code>FALSE</code></strong> is returned.
+   If an error occurs, <strong><code>false</code></strong> is returned.
   </p>
  </div>
 
@@ -99,7 +99,7 @@ a file successfully opened by <span class="function"><a href="function.fopen.htm
  <div class="refsect1 examples" id="refsect1-function.fgets-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-2617">
+   <div class="example" id="example-2632">
     <p><strong>Example #1 Reading a file line by line</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

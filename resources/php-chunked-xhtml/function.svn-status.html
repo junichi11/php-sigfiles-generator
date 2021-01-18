@@ -35,8 +35,8 @@
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>svn_status</strong></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$path</code></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code><span class="initializer"> = 0</span></span>
-  ] ) : <span class="type">array</span></div>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code><span class="initializer"> = 0</span></span>
+   ) : <span class="type">array</span></div>
 
   <p class="para rdfs-comment">
    Returns the status of working copy files and directories, giving modifications,
@@ -139,7 +139,7 @@
 
       <span class="simpara">
        Status of item&#039;s text in repository. Only accurate if
-       <code class="parameter">update</code> was set to <strong><code>TRUE</code></strong>.
+       <code class="parameter">update</code> was set to <strong><code>true</code></strong>.
        Refer to <a href="svn.constants.html#svn.constants.status" class="link">status constants</a> for possible values.
       </span>
      </dd>
@@ -165,7 +165,7 @@
 
       <span class="simpara">
        Status of item&#039;s property in repository. Only accurate if
-       <code class="parameter">update</code> was set to <strong><code>TRUE</code></strong>. Refer to <a href="svn.constants.html#svn.constants.status" class="link">status constants</a> for possible values.
+       <code class="parameter">update</code> was set to <strong><code>true</code></strong>. Refer to <a href="svn.constants.html#svn.constants.status" class="link">status constants</a> for possible values.
       </span>
      </dd>
 
@@ -177,7 +177,7 @@
      <dd>
 
       <span class="simpara">
-       Whether or not the item is locked. (Only set if <strong><code>TRUE</code></strong>.)
+       Whether or not the item is locked. (Only set if <strong><code>true</code></strong>.)
       </span>
      </dd>
 
@@ -190,7 +190,7 @@
 
       <span class="simpara">
        Whether or not the item was copied (scheduled for addition with
-       history). (Only set if <strong><code>TRUE</code></strong>.)
+       history). (Only set if <strong><code>true</code></strong>.)
       </span>
      </dd>
 
@@ -203,7 +203,7 @@
 
       <span class="simpara">
        Whether or not the item was switched using the switch command.
-       (Only set if <strong><code>TRUE</code></strong>)
+       (Only set if <strong><code>true</code></strong>)
       </span>
      </dd>
 
@@ -304,7 +304,7 @@
 
       <span class="simpara">
        Whether or not the item was deleted, but parent revision lags
-       behind. (Only set if <strong><code>TRUE</code></strong>.)
+       behind. (Only set if <strong><code>true</code></strong>.)
       </span>
      </dd>
 
@@ -318,7 +318,7 @@
       <span class="simpara">
        Whether or not the item is absent, that is, Subversion knows that
        there should be something there but there isn&#039;t. (Only set if
-       <strong><code>TRUE</code></strong>.)
+       <strong><code>true</code></strong>.)
       </span>
      </dd>
 
@@ -331,7 +331,7 @@
 
       <span class="simpara">
        Whether or not the entries file for a directory is incomplete.
-       (Only set if <strong><code>TRUE</code></strong>.)
+       (Only set if <strong><code>true</code></strong>.)
       </span>
      </dd>
 
@@ -419,7 +419,7 @@ This function should be used at your own risk.
  <div class="refsect1 examples" id="refsect1-function.svn-status-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-5074">
+   <div class="example" id="example-5096">
     <p><strong>Example #1 Basic example</strong></p>
     <div class="example-contents"><p>
      This example demonstrates a basic, theoretical usage of this function.

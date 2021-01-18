@@ -40,10 +40,10 @@ is highly discouraged.</p></div>
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="modifier">static</span> <span class="methodname"><strong>ReflectionClassConstant::export</strong></span>
-    ( <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">$class</code></span>
+    ( <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$class</code></span>
    , <span class="methodparam"><span class="type">string</span> <code class="parameter">$name</code></span>
-   [, <span class="methodparam"><span class="type">bool</span> <code class="parameter">$return</code></span>
-  ] ) : <span class="type">string</span></div>
+   , <span class="methodparam"><span class="type">bool</span> <code class="parameter">$return</code> = ?</span>
+   ) : <span class="type">string</span></div>
 
   <p class="para rdfs-comment">
    Exports a reflection.
@@ -92,8 +92,8 @@ currently not documented; only its argument list is available.
      <dd>
 
       <p class="para">
-       Setting to <strong><code>TRUE</code></strong> will return the export,
-as opposed to emitting it. Setting to <strong><code>FALSE</code></strong> (the default) will do the opposite.
+       Setting to <strong><code>true</code></strong> will return the export,
+as opposed to emitting it. Setting to <strong><code>false</code></strong> (the default) will do the opposite.
       </p>
      </dd>
 

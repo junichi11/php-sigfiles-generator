@@ -37,8 +37,8 @@
   </p>
   <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><strong>IntlDateFormatter::getLocale</strong></span>
-    ([ <span class="methodparam"><span class="type">int</span> <code class="parameter">$which</code></span>
-  ] ) : <span class="type">string</span></div>
+    ( <span class="methodparam"><span class="type">int</span> <code class="parameter">$which</code> = ?</span>
+   ) : <span class="type">string</span></div>
 
   <p class="para rdfs-comment">
    Procedural style
@@ -46,8 +46,8 @@
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>datefmt_get_locale</strong></span>
     ( <span class="methodparam"><span class="type"><a href="class.intldateformatter.html" class="type IntlDateFormatter">IntlDateFormatter</a></span> <code class="parameter">$fmt</code></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$which</code></span>
-  ] ) : <span class="type">string</span></div>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$which</code> = ?</span>
+   ) : <span class="type">string</span></div>
 
   <p class="para rdfs-comment">
    Get locale used by the formatter.
@@ -74,7 +74,7 @@
     
     
      <dt>
-<code class="parameter">hich</code></dt>
+<code class="parameter">which</code></dt>
 
      <dd>
 
@@ -104,17 +104,17 @@
  
  <div class="refsect1 examples" id="refsect1-intldateformatter.getlocale-examples">
   <h3 class="title">Examples</h3>
-  <div class="example" id="example-2896">
+  <div class="example" id="example-2911">
    <p><strong>Example #1 <span class="function"><strong>datefmt_get_locale()</strong></span> example</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$fmt&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">datefmt_create</span><span style="color: #007700">(<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'en_US'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">IntlDateFormatter</span><span style="color: #007700">::</span><span style="color: #0000BB">FULL</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">IntlDateFormatter</span><span style="color: #007700">::</span><span style="color: #0000BB">FULL</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'America/Los_Angeles'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">IntlDateFormatter</span><span style="color: #007700">::</span><span style="color: #0000BB">GREGORIAN<br /></span><span style="color: #007700">);<br />echo&nbsp;</span><span style="color: #DD0000">'locale&nbsp;of&nbsp;the&nbsp;formatter&nbsp;is&nbsp;:&nbsp;"&nbsp;.&nbsp;datefmt_get_locale($fmt);<br />echo&nbsp;'</span><span style="color: #0000BB">First&nbsp;Formatted&nbsp;output&nbsp;is&nbsp;</span><span style="color: #DD0000">"&nbsp;.&nbsp;datefmt_format(</span><span style="color: #0000BB">$fmt</span><span style="color: #DD0000">,&nbsp;0);<br /><br /></span><span style="color: #0000BB">$fmt</span><span style="color: #DD0000">&nbsp;=&nbsp;datefmt_create(<br />&nbsp;&nbsp;&nbsp;&nbsp;'de-DE',<br />&nbsp;&nbsp;&nbsp;&nbsp;IntlDateFormatter::FULL,<br />&nbsp;&nbsp;&nbsp;&nbsp;IntlDateFormatter::FULL,<br />&nbsp;&nbsp;&nbsp;&nbsp;'America/Los_Angeles',<br />&nbsp;&nbsp;&nbsp;&nbsp;IntlDateFormatter::GREGORIAN<br />);<br />echo&nbsp;'locale&nbsp;of&nbsp;the&nbsp;formatter&nbsp;is&nbsp;:&nbsp;'&nbsp;.&nbsp;datefmt_get_locale(</span><span style="color: #0000BB">$fmt</span><span style="color: #DD0000">);<br />echo&nbsp;'Second&nbsp;Formatted&nbsp;output&nbsp;is&nbsp;'&nbsp;.&nbsp;datefmt_format(</span><span style="color: #0000BB">$fmt</span><span style="color: #DD0000">,&nbsp;0);<br /><br />?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$fmt&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">datefmt_create</span><span style="color: #007700">(<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'en_US'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">IntlDateFormatter</span><span style="color: #007700">::</span><span style="color: #0000BB">FULL</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">IntlDateFormatter</span><span style="color: #007700">::</span><span style="color: #0000BB">FULL</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'America/Los_Angeles'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">IntlDateFormatter</span><span style="color: #007700">::</span><span style="color: #0000BB">GREGORIAN<br /></span><span style="color: #007700">);<br />echo&nbsp;</span><span style="color: #DD0000">'locale&nbsp;of&nbsp;the&nbsp;formatter&nbsp;is&nbsp;:&nbsp;'&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">datefmt_get_locale</span><span style="color: #007700">(</span><span style="color: #0000BB">$fmt</span><span style="color: #007700">);<br />echo&nbsp;</span><span style="color: #DD0000">'First&nbsp;Formatted&nbsp;output&nbsp;is&nbsp;'&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">datefmt_format</span><span style="color: #007700">(</span><span style="color: #0000BB">$fmt</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$fmt&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">datefmt_create</span><span style="color: #007700">(<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'de-DE'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">IntlDateFormatter</span><span style="color: #007700">::</span><span style="color: #0000BB">FULL</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">IntlDateFormatter</span><span style="color: #007700">::</span><span style="color: #0000BB">FULL</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'America/Los_Angeles'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">IntlDateFormatter</span><span style="color: #007700">::</span><span style="color: #0000BB">GREGORIAN<br /></span><span style="color: #007700">);<br />echo&nbsp;</span><span style="color: #DD0000">'locale&nbsp;of&nbsp;the&nbsp;formatter&nbsp;is&nbsp;:&nbsp;'&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">datefmt_get_locale</span><span style="color: #007700">(</span><span style="color: #0000BB">$fmt</span><span style="color: #007700">);<br />echo&nbsp;</span><span style="color: #DD0000">'Second&nbsp;Formatted&nbsp;output&nbsp;is&nbsp;'&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">datefmt_format</span><span style="color: #007700">(</span><span style="color: #0000BB">$fmt</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
 
   </div>
-  <div class="example" id="example-2897">
+  <div class="example" id="example-2912">
    <p><strong>Example #2 OO example</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

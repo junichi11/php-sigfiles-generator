@@ -47,7 +47,7 @@
   <p class="para">
    When you create a connection to the database, the driver will not immediately
    decide on a secondary to use. Thus, after you connect, this function will
-   return <strong><code>NULL</code></strong> even if there are secondaries available. When you first do a
+   return <strong><code>null</code></strong> even if there are secondaries available. When you first do a
    query with slaveOkay set, at that point the driver will choose a secondary
    for this connection. At that point, this function will return the chosen
    secondary.
@@ -73,7 +73,7 @@
    The address of the secondary this connection is using for reads.
   </p>
   <p class="para">
-   This returns <strong><code>NULL</code></strong> if this is not connected to a replica set or not yet
+   This returns <strong><code>null</code></strong> if this is not connected to a replica set or not yet
    initialized.
   </p>
  </div>

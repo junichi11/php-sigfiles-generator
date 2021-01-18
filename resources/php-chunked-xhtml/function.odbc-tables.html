@@ -34,12 +34,12 @@
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>odbc_tables</strong></span>
-    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$connection_id</code></span>
-   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$catalog</code></span>
-   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$schema</code></span>
-   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$name</code></span>
-   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$types</code></span>
-  ]]]] ) : <span class="type"><span class="type">resource</span>|<span class="type"><span class="type false">false</span></span></span></div>
+    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$odbc</code></span>
+   , <span class="methodparam"><span class="type"><span class="type">string</span>|<span class="type">null</span></span> <code class="parameter">$catalog</code><span class="initializer"> = <strong><code>null</code></strong></span></span>
+   , <span class="methodparam"><span class="type"><span class="type">string</span>|<span class="type">null</span></span> <code class="parameter">$schema</code><span class="initializer"> = <strong><code>null</code></strong></span></span>
+   , <span class="methodparam"><span class="type"><span class="type">string</span>|<span class="type">null</span></span> <code class="parameter">$table</code><span class="initializer"> = <strong><code>null</code></strong></span></span>
+   , <span class="methodparam"><span class="type"><span class="type">string</span>|<span class="type">null</span></span> <code class="parameter">$types</code><span class="initializer"> = <strong><code>null</code></strong></span></span>
+   ) : <span class="type"><span class="type">resource</span>|<span class="type"><span class="type false">false</span></span></span></div>
 
   <p class="para rdfs-comment">
    Lists all tables in the requested range.
@@ -48,14 +48,14 @@
    To support enumeration of qualifiers, owners, and table types,
    the following special semantics for the
    <code class="parameter">catalog</code>, <code class="parameter">schema</code>,
-   <code class="parameter">name</code>, and
+   <code class="parameter">table</code>, and
    <code class="parameter">table_type</code> are available:
    <ul class="itemizedlist">
     <li class="listitem">
      <span class="simpara">
       If <code class="parameter">catalog</code> is a single percent
       character (%) and <code class="parameter">schema</code> and
-      <code class="parameter">name</code> are empty strings, then the result
+      <code class="parameter">table</code> are empty strings, then the result
       set contains a list of valid qualifiers for the data
       source. (All columns except the TABLE_QUALIFIER column contain
       NULLs.)
@@ -65,7 +65,7 @@
      <span class="simpara">
       If <code class="parameter">schema</code> is a single percent character
       (%) and <code class="parameter">catalog</code> and
-      <code class="parameter">name</code> are empty strings, then the result
+      <code class="parameter">table</code> are empty strings, then the result
       set contains a list of valid owners for the data source. (All
       columns except the TABLE_OWNER column contain
       NULLs.)
@@ -75,7 +75,7 @@
      <span class="simpara">
       If <code class="parameter">table_type</code> is a single percent
       character (%) and <code class="parameter">catalog</code>,
-      <code class="parameter">schema</code> and <code class="parameter">name</code>
+      <code class="parameter">schema</code> and <code class="parameter">table</code>
       are empty strings, then the result set contains a list of
       valid table types for the data source. (All columns except the
       TABLE_TYPE column contain NULLs.)
@@ -93,7 +93,7 @@
 
     
      <dt>
-<code class="parameter">connection_id</code></dt>
+<code class="parameter">odbc</code></dt>
 
      <dd>
 
@@ -131,7 +131,7 @@ and <code class="literal">_</code> to match a single character.
     
     
      <dt>
-<code class="parameter">name</code></dt>
+<code class="parameter">table</code></dt>
 
      <dd>
 
@@ -172,7 +172,7 @@ and <code class="literal">_</code> to match a single character.
   <h3 class="title">Return Values</h3>
   <p class="para">
    Returns an ODBC result identifier containing the information 
-    or <strong><code>FALSE</code></strong> on failure.
+    or <strong><code>false</code></strong> on failure.
   </p>
   <p class="para">
    The result set has the following columns:
@@ -189,6 +189,34 @@ and <code class="literal">_</code> to match a single character.
    The result set is ordered by <code class="literal">TABLE_TYPE</code>, <code class="literal">TABLE_CAT</code>,
    <code class="literal">TABLE_SCHEM</code> and <code class="literal">TABLE_NAME</code>.
   </p>
+ </div>
+
+
+ <div class="refsect1 changelog" id="refsect1-function.odbc-tables-changelog">
+  <h3 class="title">Changelog</h3>
+  <table class="doctable informaltable">
+   
+    <thead>
+     <tr>
+      <th>Version</th>
+      <th>Description</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+      <td>8.0.0</td>
+      <td>
+       <code class="parameter">schema</code>, <code class="parameter">table</code> and <code class="parameter">types</code>
+       are now nullable.
+      </td>
+     </tr>
+
+    </tbody>
+   
+  </table>
+
  </div>
 
 

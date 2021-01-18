@@ -34,13 +34,8 @@
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>mb_language</strong></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$language</code></span>
-   ) : <span class="type">bool</span></div>
-
-  <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>mb_language</strong></span>
-    (
-   ) : <span class="type">string</span></div>
+    ( <span class="methodparam"><span class="type"><span class="type">string</span>|<span class="type">null</span></span> <code class="parameter">$language</code><span class="initializer"> = <strong><code>null</code></strong></span></span>
+   ) : <span class="type"><span class="type">string</span>|<span class="type">bool</span></span></div>
 
   <p class="para rdfs-comment">
    Set/Get the current language.
@@ -179,10 +174,37 @@
   <p class="para">
    If <code class="parameter">language</code> is set and
    <code class="parameter">language</code> is valid, it returns
-   <strong><code>TRUE</code></strong>. Otherwise, it returns <strong><code>FALSE</code></strong>. 
-   When <code class="parameter">language</code> is omitted, it returns the language
+   <strong><code>true</code></strong>. Otherwise, it returns <strong><code>false</code></strong>. 
+   When <code class="parameter">language</code> is omitted or <strong><code>null</code></strong>, it returns the language
    name as a <span class="type">string</span>.
   </p>
+ </div>
+
+
+ <div class="refsect1 changelog" id="refsect1-function.mb-language-changelog">
+  <h3 class="title">Changelog</h3>
+  <table class="doctable informaltable">
+   
+    <thead>
+     <tr>
+      <th>Version</th>
+      <th>Description</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+      <td>8.0.0</td>
+      <td>
+       <code class="parameter">language</code> is nullable now.
+      </td>
+     </tr>
+
+    </tbody>
+   
+  </table>
+
  </div>
 
 

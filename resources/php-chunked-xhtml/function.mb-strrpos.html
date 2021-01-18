@@ -36,9 +36,9 @@
    <span class="methodname"><strong>mb_strrpos</strong></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$haystack</code></span>
    , <span class="methodparam"><span class="type">string</span> <code class="parameter">$needle</code></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$offset</code><span class="initializer"> = 0</span></span>
-   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$encoding</code><span class="initializer"> = mb_internal_encoding()</span></span>
-  ]] ) : <span class="type">int</span></div>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$offset</code><span class="initializer"> = 0</span></span>
+   , <span class="methodparam"><span class="type"><span class="type">string</span>|<span class="type">null</span></span> <code class="parameter">$encoding</code><span class="initializer"> = <strong><code>null</code></strong></span></span>
+   ) : <span class="type"><span class="type">int</span>|<span class="type"><span class="type false">false</span></span></span></div>
 
   <p class="para rdfs-comment">
    Performs a multibyte safe
@@ -102,7 +102,7 @@
      <dd>
 
       <p class="para">The <code class="parameter">encoding</code>
-parameter is the character encoding. If it is omitted, the internal character
+parameter is the character encoding. If it is omitted or <strong><code>null</code></strong>, the internal character
 encoding value will be used.</p>
      </dd>
 
@@ -119,7 +119,7 @@ encoding value will be used.</p>
    Returns the numeric position of
    the last occurrence of <code class="parameter">needle</code> in the
    <code class="parameter">haystack</code> <span class="type">string</span>. If
-   <code class="parameter">needle</code> is not found, it returns <strong><code>FALSE</code></strong>.
+   <code class="parameter">needle</code> is not found, it returns <strong><code>false</code></strong>.
   </p>
  </div>
 
@@ -135,6 +135,33 @@ encoding value will be used.</p>
     removed in the future.
    </span>
   </p></blockquote>
+ </div>
+
+
+ <div class="refsect1 changelog" id="refsect1-function.mb-strrpos-changelog">
+  <h3 class="title">Changelog</h3>
+  <table class="doctable informaltable">
+   
+    <thead>
+     <tr>
+      <th>Version</th>
+      <th>Description</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+ <td>8.0.0</td>
+ <td>
+  <code class="parameter">encoding</code> is nullable now.
+ </td>
+</tr>
+
+    </tbody>
+   
+  </table>
+
  </div>
 
 

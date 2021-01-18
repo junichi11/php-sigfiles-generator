@@ -77,9 +77,9 @@
    <span class="modifier">public</span> <span class="methodname"><a href="oauth.construct.html" class="methodname">__construct</a></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$consumer_key</code></span>
    , <span class="methodparam"><span class="type">string</span> <code class="parameter">$consumer_secret</code></span>
-   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$signature_method</code><span class="initializer"> = <strong><code>OAUTH_SIG_METHOD_HMACSHA1</code></strong></span></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$auth_type</code><span class="initializer"> = 0</span></span>
-  ]] )</div>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$signature_method</code><span class="initializer"> = <strong><code>OAUTH_SIG_METHOD_HMACSHA1</code></strong></span></span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$auth_type</code><span class="initializer"> = 0</span></span>
+   )</div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="oauth.destruct.html" class="methodname">__destruct</a></span>
     (
@@ -111,23 +111,23 @@
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="oauth.fetch.html" class="methodname">fetch</a></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$protected_resource_url</code></span>
-   [, <span class="methodparam"><span class="type">array</span> <code class="parameter">$extra_parameters</code></span>
-   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$http_method</code></span>
-   [, <span class="methodparam"><span class="type">array</span> <code class="parameter">$http_headers</code></span>
-  ]]] ) : <span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span></div>
+   , <span class="methodparam"><span class="type">array</span> <code class="parameter">$extra_parameters</code> = ?</span>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$http_method</code> = ?</span>
+   , <span class="methodparam"><span class="type">array</span> <code class="parameter">$http_headers</code> = ?</span>
+   ) : <span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="oauth.generatesignature.html" class="methodname">generateSignature</a></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$http_method</code></span>
    , <span class="methodparam"><span class="type">string</span> <code class="parameter">$url</code></span>
-   [, <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">$extra_parameters</code></span>
-  ] ) : <span class="type"><span class="type">string</span>|<span class="type"><span class="type false">false</span></span></span></div>
+   , <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$extra_parameters</code> = ?</span>
+   ) : <span class="type"><span class="type">string</span>|<span class="type"><span class="type false">false</span></span></span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="oauth.getaccesstoken.html" class="methodname">getAccessToken</a></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$access_token_url</code></span>
-   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$auth_session_handle</code></span>
-   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$verifier_token</code></span>
-   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$http_method</code></span>
-  ]]] ) : <span class="type">array</span></div>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$auth_session_handle</code> = ?</span>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$verifier_token</code> = ?</span>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$http_method</code> = ?</span>
+   ) : <span class="type">array</span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="oauth.getcapath.html" class="methodname">getCAPath</a></span>
     (
@@ -148,27 +148,27 @@
    <span class="modifier">public</span> <span class="methodname"><a href="oauth.getrequestheader.html" class="methodname">getRequestHeader</a></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$http_method</code></span>
    , <span class="methodparam"><span class="type">string</span> <code class="parameter">$url</code></span>
-   [, <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">$extra_parameters</code></span>
-  ] ) : <span class="type"><span class="type">string</span>|<span class="type"><span class="type false">false</span></span></span></div>
+   , <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$extra_parameters</code> = ?</span>
+   ) : <span class="type"><span class="type">string</span>|<span class="type"><span class="type false">false</span></span></span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="oauth.getrequesttoken.html" class="methodname">getRequestToken</a></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$request_token_url</code></span>
-   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$callback_url</code></span>
-   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$http_method</code></span>
-  ]] ) : <span class="type">array</span></div>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$callback_url</code> = ?</span>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$http_method</code> = ?</span>
+   ) : <span class="type">array</span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="oauth.setauthtype.html" class="methodname">setAuthType</a></span>
     ( <span class="methodparam"><span class="type">int</span> <code class="parameter">$auth_type</code></span>
    ) : <span class="type">bool</span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="oauth.setcapath.html" class="methodname">setCAPath</a></span>
-    ([ <span class="methodparam"><span class="type">string</span> <code class="parameter">$ca_path</code></span>
-   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$ca_info</code></span>
-  ]] ) : <span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span></div>
+    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$ca_path</code> = ?</span>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$ca_info</code> = ?</span>
+   ) : <span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="oauth.setnonce.html" class="methodname">setNonce</a></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$nonce</code></span>
-   ) : <span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span></div>
+   ) : <span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="oauth.setrequestengine.html" class="methodname">setRequestEngine</a></span>
     ( <span class="methodparam"><span class="type">int</span> <code class="parameter">$reqengine</code></span>
@@ -176,7 +176,7 @@
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="oauth.setrsacertificate.html" class="methodname">setRSACertificate</a></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$cert</code></span>
-   ) : <span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span></div>
+   ) : <span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="oauth.setsslchecks.html" class="methodname">setSSLChecks</a></span>
     ( <span class="methodparam"><span class="type">int</span> <code class="parameter">$sslcheck</code></span>
@@ -184,7 +184,7 @@
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="oauth.settimestamp.html" class="methodname">setTimestamp</a></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$timestamp</code></span>
-   ) : <span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span></div>
+   ) : <span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="oauth.settoken.html" class="methodname">setToken</a></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$token</code></span>

@@ -34,11 +34,11 @@
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>ingres_pconnect</strong></span>
-    ([ <span class="methodparam"><span class="type">string</span> <code class="parameter">$database</code></span>
-   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$username</code></span>
-   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$password</code></span>
-   [, <span class="methodparam"><span class="type">array</span> <code class="parameter">$options</code></span>
-  ]]]] ) : <span class="type"><span class="type">resource</span>|<span class="type"><span class="type false">false</span></span></span></div>
+    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$database</code> = ?</span>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$username</code> = ?</span>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$password</code> = ?</span>
+   , <span class="methodparam"><span class="type">array</span> <code class="parameter">$options</code> = ?</span>
+   ) : <span class="type"><span class="type">resource</span>|<span class="type"><span class="type false">false</span></span></span></div>
 
   <p class="para rdfs-comment">
    Open a persistent connection to an Ingres database.
@@ -125,7 +125,7 @@
  <div class="refsect1 returnvalues" id="refsect1-function.ingres-pconnect-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns an Ingres link resource on success or <strong><code>FALSE</code></strong> on failure
+   Returns an Ingres link resource on success or <strong><code>false</code></strong> on failure
   </p>
  </div>
 

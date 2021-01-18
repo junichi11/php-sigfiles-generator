@@ -37,12 +37,12 @@ namespace {
 	 * @param string $username <p>The username</p>
 	 * @param string $password <p>The password</p>
 	 * @param int $persistent <p>The <code>persistent</code> parameter can be set to <b><code>DBX_PERSISTENT</code></b>, if so, a persistent connection will be created.</p>
-	 * @return object <p>Returns an object on success, <b><code>FALSE</code></b> on error. If a connection has been made but the database could not be selected, the connection is closed and <b><code>FALSE</code></b> is returned.</p><p>The returned object has three properties:</p>  database    It is the name of the currently selected database.    handle   <p>It is a valid handle for the connected database, and as such it can be used in module-specific functions (if required).</p>  <code> &lt;&#63;php<br>$link&nbsp;=&nbsp;dbx_connect(DBX_MYSQL,&nbsp;"localhost",&nbsp;"db",&nbsp;"username",&nbsp;"password");<br>mysql_close($link-&gt;handle);&nbsp;//&nbsp;dbx_close($link)&nbsp;would&nbsp;be&nbsp;better&nbsp;here<br>&#63;&gt;  </code>     module    It is used internally by dbx only, and is actually the module number mentioned above.
+	 * @return object <p>Returns an object on success, <b><code>false</code></b> on error. If a connection has been made but the database could not be selected, the connection is closed and <b><code>false</code></b> is returned.</p><p>The returned object has three properties:</p>  database    It is the name of the currently selected database.    handle   <p>It is a valid handle for the connected database, and as such it can be used in module-specific functions (if required).</p>  <code> &lt;&#63;php<br>$link&nbsp;=&nbsp;dbx_connect(DBX_MYSQL,&nbsp;"localhost",&nbsp;"db",&nbsp;"username",&nbsp;"password");<br>mysql_close($link-&gt;handle);&nbsp;//&nbsp;dbx_close($link)&nbsp;would&nbsp;be&nbsp;better&nbsp;here<br>&#63;&gt;  </code>     module    It is used internally by dbx only, and is actually the module number mentioned above.
 	 * @link https://php.net/manual/en/function.dbx-connect.php
 	 * @see dbx_close()
 	 * @since PHP 4 >= 4.0.6, PHP 5 < 5.1.0, PECL dbx >= 1.1.0
 	 */
-	function dbx_connect(mixed $module, string $host, string $database, string $username, string $password, int $persistent = NULL): object {}
+	function dbx_connect(mixed $module, string $host, string $database, string $username, string $password, int $persistent = null): object {}
 
 	/**
 	 * Report the error message of the latest function call in the module
@@ -59,7 +59,7 @@ namespace {
 	 * <p>Escape the given string so that it can safely be used in an sql-statement.</p>
 	 * @param object $link_identifier <p>The DBX link object returned by <code>dbx_connect()</code></p>
 	 * @param string $text <p>The string to escape.</p>
-	 * @return string <p>Returns the text, escaped where necessary (such as quotes, backslashes etc). On error, <b><code>NULL</code></b> is returned.</p>
+	 * @return string <p>Returns the text, escaped where necessary (such as quotes, backslashes etc). On error, <b><code>null</code></b> is returned.</p>
 	 * @link https://php.net/manual/en/function.dbx-escape-string.php
 	 * @see dbx_query()
 	 * @since PHP 4 >= 4.3.0, PHP 5 < 5.1.0, PECL dbx >= 1.1.0
@@ -88,14 +88,14 @@ namespace {
 	 * @see dbx_escape_string(), dbx_fetch_row(), dbx_connect()
 	 * @since PHP 4 >= 4.0.6, PHP 5 < 5.1.0, PECL dbx >= 1.1.0
 	 */
-	function dbx_query(object $link_identifier, string $sql_statement, int $flags = NULL): mixed {}
+	function dbx_query(object $link_identifier, string $sql_statement, int $flags = null): mixed {}
 
 	/**
 	 * Sort a result from a dbx_query by a custom sort function
 	 * <p>Sort a result from a <code>dbx_query()</code> call with a custom sort function.</p>
 	 * @param object $result <p>A result set returned by <code>dbx_query()</code>.</p>
 	 * @param string $user_compare_function <p>The user-defined comparison function. It must accept two arguments and return an integer less than, equal to, or greater than zero if the first argument is considered to be respectively less than, equal to, or greater than the second.</p>
-	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.dbx-sort.php
 	 * @see dbx_compare()
 	 * @since PHP 4 >= 4.0.6, PHP 5 < 5.1.0, PECL dbx >= 1.1.0

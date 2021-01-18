@@ -49,8 +49,8 @@ Alternatives to this function include:</p>
    <span class="methodname"><strong>mysql_db_name</strong></span>
     ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$result</code></span>
    , <span class="methodparam"><span class="type">int</span> <code class="parameter">$row</code></span>
-   [, <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">$field</code><span class="initializer"> = NULL</span></span>
-  ] ) : <span class="type">string</span></div>
+   , <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$field</code><span class="initializer"> = NULL</span></span>
+   ) : <span class="type">string</span></div>
 
   <p class="para rdfs-comment">
    Retrieve the database name from a call to 
@@ -109,7 +109,7 @@ Alternatives to this function include:</p>
  <div class="refsect1 returnvalues" id="refsect1-function.mysql-db-name-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns the database name on success, and <strong><code>FALSE</code></strong> on failure. If <strong><code>FALSE</code></strong>
+   Returns the database name on success, and <strong><code>false</code></strong> on failure. If <strong><code>false</code></strong>
    is returned, use <span class="function"><a href="function.mysql-error.html" class="function">mysql_error()</a></span> to determine the nature
    of the error.
   </p>
@@ -149,7 +149,7 @@ Alternatives to this function include:</p>
  <div class="refsect1 examples" id="refsect1-function.mysql-db-name-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-1954">
+   <div class="example" id="example-1967">
     <p><strong>Example #1 <span class="function"><strong>mysql_db_name()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

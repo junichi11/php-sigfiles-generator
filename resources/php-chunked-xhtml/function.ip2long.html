@@ -34,8 +34,8 @@
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>ip2long</strong></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$ip_address</code></span>
-   ) : <span class="type">int</span></div>
+    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$ip</code></span>
+   ) : <span class="type"><span class="type">int</span>|<span class="type"><span class="type false">false</span></span></span></div>
 
   <p class="para rdfs-comment">
    The function <span class="function"><strong>ip2long()</strong></span> generates a long integer
@@ -57,7 +57,7 @@
 
     
      <dt>
-<code class="parameter">ip_address</code></dt>
+<code class="parameter">ip</code></dt>
 
      <dd>
 
@@ -76,7 +76,7 @@
  <div class="refsect1 returnvalues" id="refsect1-function.ip2long-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns the long integer or <strong><code>FALSE</code></strong> if <code class="parameter">ip_address</code>
+   Returns the long integer or <strong><code>false</code></strong> if <code class="parameter">ip</code>
    is invalid.
   </p>
  </div>
@@ -85,7 +85,7 @@
  <div class="refsect1 examples" id="refsect1-function.ip2long-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-4937">
+   <div class="example" id="example-4959">
     <p><strong>Example #1 <span class="function"><strong>ip2long()</strong></span> Example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -97,7 +97,7 @@
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-4938">
+   <div class="example" id="example-4960">
     <p><strong>Example #2 Displaying an IP address</strong></p>
     <div class="example-contents"><p>
      This second example shows how to print a converted address with the
@@ -128,7 +128,7 @@
   </p></blockquote>
   <blockquote class="note"><p><strong class="note">Note</strong>: 
    <p class="para">
-    <span class="function"><strong>ip2long()</strong></span> will return <strong><code>FALSE</code></strong> for the IP
+    <span class="function"><strong>ip2long()</strong></span> will return <strong><code>false</code></strong> for the IP
     <code class="literal">255.255.255.255</code> in PHP 5 &lt;= 5.0.2, and <code class="literal">-1</code>
     on 64-bits systems in PHP 5 &lt;=5.2.4. It was fixed in
     PHP 5.2.5 where it returns <code class="literal">4294967295</code>. 32-bit systems

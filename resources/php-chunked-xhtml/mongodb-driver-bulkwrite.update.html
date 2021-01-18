@@ -36,8 +36,8 @@
    <span class="modifier">public</span> <span class="methodname"><strong>MongoDB\Driver\BulkWrite::update</strong></span>
     ( <span class="methodparam"><span class="type"><span class="type">array</span>|<span class="type">object</span></span> <code class="parameter">$filter</code></span>
    , <span class="methodparam"><span class="type"><span class="type">array</span>|<span class="type">object</span></span> <code class="parameter">$newObj</code></span>
-   [, <span class="methodparam"><span class="type">array</span> <code class="parameter">$updateOptions</code></span>
-  ] ) : <span class="type"><span class="type void">void</span></span></div>
+   , <span class="methodparam"><span class="type">array</span> <code class="parameter">$updateOptions</code> = ?</span>
+   ) : <span class="type"><span class="type void">void</span></span></div>
 
   <p class="para rdfs-comment">
    Adds an update operation to the
@@ -164,11 +164,11 @@
           <td>multi</td>
           <td><span class="type">bool</span></td>
           <td>
-           Update only the first matching document if <strong><code>FALSE</code></strong>, or all
-           matching documents <strong><code>TRUE</code></strong>. This option cannot be <strong><code>TRUE</code></strong> if
+           Update only the first matching document if <strong><code>false</code></strong>, or all
+           matching documents <strong><code>true</code></strong>. This option cannot be <strong><code>true</code></strong> if
            <code class="parameter">newObj</code> is a replacement document.
           </td>
-          <td><strong><code>FALSE</code></strong></td>
+          <td><strong><code>false</code></strong></td>
          </tr>
 
          <tr>
@@ -182,7 +182,7 @@
            <code class="parameter">newObj</code> will be applied to
            <code class="parameter">filter</code> to create the new document.
           </td>
-          <td><strong><code>FALSE</code></strong></td>
+          <td><strong><code>false</code></strong></td>
          </tr>
 
         </tbody>
@@ -277,7 +277,7 @@
 
  <div class="refsect1 examples" id="refsect1-mongodb-driver-bulkwrite.update-examples">
   <h3 class="title">Examples</h3>
-  <div class="example" id="example-1525">
+  <div class="example" id="example-1537">
    <p><strong>Example #1 <span class="function"><strong>MongoDB\Driver\BulkWrite::update()</strong></span> example</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

@@ -54,7 +54,7 @@ namespace {
 		 * @link https://php.net/manual/en/exception.construct.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
-		public function __construct(string $message = "", int $code = 0, \Throwable $previous = NULL) {}
+		public function __construct(string $message = "", int $code = 0, \Throwable $previous = null) {}
 
 		/**
 		 * String representation of the exception
@@ -104,7 +104,7 @@ namespace {
 		/**
 		 * Returns previous Exception
 		 * <p>Returns previous exception (the third parameter of <code>Exception::__construct()</code>).</p>
-		 * @return Throwable <p>Returns the previous Throwable if available or <b><code>NULL</code></b> otherwise.</p>
+		 * @return Throwable <p>Returns the previous Throwable if available or <b><code>null</code></b> otherwise.</p>
 		 * @link https://php.net/manual/en/exception.getprevious.php
 		 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8
 		 */

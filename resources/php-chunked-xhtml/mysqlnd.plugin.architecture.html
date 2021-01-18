@@ -591,14 +591,4 @@ static MY_CONN_PROPERTIES** get_conn_properties(const MYSQLND *conn TSRMLS_DC) {
    free your memory and call the parent implementation immediately
    following this.
   </p>
-  <div class="caution"><strong class="caution">Caution</strong>
-   <p class="para">
-    Due to a bug in PHP versions 5.3.0 to 5.3.3, plugins do not
-    associate plugin data with a persistent connection. This is because
-    <code class="literal">ext/mysql</code> and <code class="literal">ext/mysqli</code> do
-    not trigger all the necessary <code class="literal">mysqlnd</code>
-    <code class="literal">end_psession()</code> method calls and the plugin may
-    therefore leak memory. This has been fixed in PHP 5.3.4.
-   </p>
-  </div>
  </div></div></div></body></html>

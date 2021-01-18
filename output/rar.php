@@ -24,7 +24,7 @@ namespace {
 		/**
 		 * Close RAR archive and free all resources
 		 * <p>Close RAR archive and free all allocated resources.</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/rararchive.close.php
 		 * @since PECL rar >= 2.0.0
 		 */
@@ -33,7 +33,7 @@ namespace {
 		/**
 		 * Get comment text from the RAR archive
 		 * <p>Get the (global) comment stored in the RAR archive. It may be up to 64 KiB long.</p><p><b>Note</b>:</p><p>This extension does not support comments at the entry level.</p>
-		 * @return string <p>Returns the comment or <b><code>NULL</code></b> if there is none.</p><p><b>Note</b>:</p><p>RAR has currently no support for unicode comments. The encoding of the result of this function is not specified, but it will probably be Windows-1252.</p>
+		 * @return string <p>Returns the comment or <b><code>null</code></b> if there is none.</p><p><b>Note</b>:</p><p>RAR has currently no support for unicode comments. The encoding of the result of this function is not specified, but it will probably be Windows-1252.</p>
 		 * @link https://php.net/manual/en/rararchive.getcomment.php
 		 * @since PECL rar >= 2.0.0
 		 */
@@ -42,7 +42,7 @@ namespace {
 		/**
 		 * Get full list of entries from the RAR archive
 		 * <p>Get entries list (files and directories) from the RAR archive.</p><p><b>Note</b>:</p><p>If the archive has entries with the same name, this method, together with <code>RarArchive</code> <code>foreach</code> iteration and array-like access with numeric indexes, are the only ones to access all the entries (i.e., <code>RarArchive::getEntry()</code> and the  <code>rar://</code> wrapper are insufficient).</p>
-		 * @return array|false <p><b>rar_list()</b> returns array of <code>RarEntry</code> objects or <b><code>FALSE</code></b> on failure.</p>
+		 * @return array|false <p><b>rar_list()</b> returns array of <code>RarEntry</code> objects or <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/rararchive.getentries.php
 		 * @since PECL rar >= 2.0.0
 		 */
@@ -52,7 +52,7 @@ namespace {
 		 * Get entry object from the RAR archive
 		 * <p>Get entry object (file or directory) from the RAR archive.</p><p><b>Note</b>:</p><p>You can also get entry objects using <code>RarArchive::getEntries()</code>.</p><p>Note that a RAR archive can have multiple entries with the same name; this method will retrieve only the first.</p>
 		 * @param string $entryname <p>Path to the entry within the RAR archive.</p> <p><b>Note</b>:</p><p>The path must be the same returned by <code>RarEntry::getName()</code>.</p>
-		 * @return RarEntry|false <p>Returns the matching <code>RarEntry</code> object or <b><code>FALSE</code></b> on failure.</p>
+		 * @return RarEntry|false <p>Returns the matching <code>RarEntry</code> object or <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/rararchive.getentry.php
 		 * @since PECL rar >= 2.0.0
 		 */
@@ -61,7 +61,7 @@ namespace {
 		/**
 		 * Test whether an archive is broken (incomplete)
 		 * <p>This function determines whether an archive is incomplete, i.e., if a volume is missing or a volume is truncated.</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b> if the archive is broken, <b><code>FALSE</code></b> otherwise. This function may also return <b><code>FALSE</code></b> if the passed file has already been closed. The only way to tell the two cases apart is to enable exceptions with <code>RarException::setUsingExceptions()</code>; however, this should be unnecessary as a program should not operate on closed files.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> if the archive is broken, <b><code>false</code></b> otherwise. This function may also return <b><code>false</code></b> if the passed file has already been closed. The only way to tell the two cases apart is to enable exceptions with <code>RarException::setUsingExceptions()</code>; however, this should be unnecessary as a program should not operate on closed files.</p>
 		 * @link https://php.net/manual/en/rararchive.isbroken.php
 		 * @since PECL rar >= 3.0.0
 		 */
@@ -70,7 +70,7 @@ namespace {
 		/**
 		 * Check whether the RAR archive is solid
 		 * <p>Check whether the RAR archive is solid. Individual file extraction is slower on solid archives.</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b> if the archive is solid, <b><code>FALSE</code></b> otherwise.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> if the archive is solid, <b><code>false</code></b> otherwise.</p>
 		 * @link https://php.net/manual/en/rararchive.issolid.php
 		 * @since PECL rar >= 2.0.0
 		 */
@@ -81,8 +81,8 @@ namespace {
 		 * <p>Open specified RAR archive and return <code>RarArchive</code> instance representing it.</p><p><b>Note</b>:</p><p>If opening a multi-volume archive, the path of the first volume should be passed as the first parameter. Otherwise, not all files will be shown. This is by design.</p>
 		 * @param string $filename <p>Path to the Rar archive.</p>
 		 * @param string $password <p>A plain password, if needed to decrypt the headers. It will also be used by default if encrypted files are found. Note that the files may have different passwords in respect to the headers and among them.</p>
-		 * @param callable $volume_callback <p>A function that receives one parameter &ndash; the path of the volume that was not found &ndash; and returns a string with the correct path for such volume or <b><code>NULL</code></b> if such volume does not exist or is not known. The programmer should ensure the passed function doesn't cause loops as this function is called repeatedly if the path returned in a previous call did not correspond to the needed volume. Specifying this parameter omits the notice that would otherwise be emitted whenever a volume is not found; an implementation that only returns <b><code>NULL</code></b> can therefore be used to merely omit such notices.</p>
-		 * @return RarArchive|false <p>Returns the requested <code>RarArchive</code> instance or <b><code>FALSE</code></b> on failure.</p>
+		 * @param callable $volume_callback <p>A function that receives one parameter &ndash; the path of the volume that was not found &ndash; and returns a string with the correct path for such volume or <b><code>null</code></b> if such volume does not exist or is not known. The programmer should ensure the passed function doesn't cause loops as this function is called repeatedly if the path returned in a previous call did not correspond to the needed volume. Specifying this parameter omits the notice that would otherwise be emitted whenever a volume is not found; an implementation that only returns <b><code>null</code></b> can therefore be used to merely omit such notices.</p>
+		 * @return RarArchive|false <p>Returns the requested <code>RarArchive</code> instance or <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/rararchive.open.php
 		 * @since PECL rar >= 2.0.0
 		 */
@@ -91,8 +91,8 @@ namespace {
 		/**
 		 * Whether opening broken archives is allowed
 		 * <p>This method defines whether broken archives can be read or all the operations that attempt to extract the archive entries will fail. Broken archives are archives for which no error is detected when the file is opened but an error occurs when reading the entries.</p>
-		 * @param bool $allow_broken <p>Whether to allow reading broken files (<b><code>TRUE</code></b>) or not (<b><code>FALSE</code></b>).</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b> or <b><code>FALSE</code></b> on failure. It will only fail if the file has already been closed.</p>
+		 * @param bool $allow_broken <p>Whether to allow reading broken files (<b><code>true</code></b>) or not (<b><code>false</code></b>).</p>
+		 * @return bool <p>Returns <b><code>true</code></b> or <b><code>false</code></b> on failure. It will only fail if the file has already been closed.</p>
 		 * @link https://php.net/manual/en/rararchive.setallowbroken.php
 		 * @since PECL rar >= 3.0.0
 		 */
@@ -366,18 +366,18 @@ namespace {
 		 * <p><b>RarEntry::extract()</b> extracts the entry's data. It will create new file in the specified <code>dir</code> with the name identical to the entry's name, unless the second argument is specified. See below for more information.</p>
 		 * @param string $dir <p>Path to the directory where files should be extracted. This parameter is considered if and only if <code>filepath</code> is not. If both parameters are empty an extraction to the current directory will be attempted.</p>
 		 * @param string $filepath <p>Path (relative or absolute) containing the directory and filename of the extracted file. This parameter overrides both the parameter <code>dir</code> and the original file name.</p>
-		 * @param string $password <p>The password used to encrypt this entry. If the entry is not encrypted, this value will not be used and can be omitted. If this parameter is omitted and the entry is encrypted, the password given to <code>rar_open()</code>, if any, will be used. If a wrong password is given, either explicitly or implicitly via <code>rar_open()</code>, CRC checking will fail and this method will fail and return <b><code>FALSE</code></b>. If no password is given and one is required, this method will fail and return <b><code>FALSE</code></b>. You can check whether an entry is encrypted with <code>RarEntry::isEncrypted()</code>.</p>
-		 * @param bool $extended_data <p>If <b><code>TRUE</code></b>, extended information such as NTFS ACLs and Unix owner information will be set in the extract files, as long as it's present in the archive.</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+		 * @param string $password <p>The password used to encrypt this entry. If the entry is not encrypted, this value will not be used and can be omitted. If this parameter is omitted and the entry is encrypted, the password given to <code>rar_open()</code>, if any, will be used. If a wrong password is given, either explicitly or implicitly via <code>rar_open()</code>, CRC checking will fail and this method will fail and return <b><code>false</code></b>. If no password is given and one is required, this method will fail and return <b><code>false</code></b>. You can check whether an entry is encrypted with <code>RarEntry::isEncrypted()</code>.</p>
+		 * @param bool $extended_data <p>If <b><code>true</code></b>, extended information such as NTFS ACLs and Unix owner information will be set in the extract files, as long as it's present in the archive.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/rarentry.extract.php
 		 * @since PECL rar >= 0.1
 		 */
-		public function extract(string $dir, string $filepath = "", string $password = NULL, bool $extended_data = FALSE): bool {}
+		public function extract(string $dir, string $filepath = "", string $password = NULL, bool $extended_data = false): bool {}
 
 		/**
 		 * Get attributes of the entry
 		 * <p>Returns the OS-dependent attributes of the archive entry.</p>
-		 * @return int <p>Returns the attributes or <b><code>FALSE</code></b> on error.</p>
+		 * @return int <p>Returns the attributes or <b><code>false</code></b> on error.</p>
 		 * @link https://php.net/manual/en/rarentry.getattr.php
 		 * @since PECL rar >= 0.1
 		 */
@@ -386,7 +386,7 @@ namespace {
 		/**
 		 * Get CRC of the entry
 		 * <p>Returns an hexadecimal string representation of the CRC of the archive entry.</p>
-		 * @return string <p>Returns the CRC of the archive entry or <b><code>FALSE</code></b> on error.</p>
+		 * @return string <p>Returns the CRC of the archive entry or <b><code>false</code></b> on error.</p>
 		 * @link https://php.net/manual/en/rarentry.getcrc.php
 		 * @since PECL rar >= 0.1
 		 */
@@ -395,7 +395,7 @@ namespace {
 		/**
 		 * Get entry last modification time
 		 * <p>Gets entry last modification time.</p>
-		 * @return string <p>Returns entry last modification time as string in format <code>YYYY-MM-DD HH:II:SS</code>, or <b><code>FALSE</code></b> on error.</p>
+		 * @return string <p>Returns entry last modification time as string in format <code>YYYY-MM-DD HH:II:SS</code>, or <b><code>false</code></b> on error.</p>
 		 * @link https://php.net/manual/en/rarentry.getfiletime.php
 		 * @since PECL rar >= 0.1
 		 */
@@ -404,7 +404,7 @@ namespace {
 		/**
 		 * Get entry host OS
 		 * <p>Returns the code of the host OS of the archive entry.</p>
-		 * @return int <p>Returns the code of the host OS, or <b><code>FALSE</code></b> on error.</p>
+		 * @return int <p>Returns the code of the host OS, or <b><code>false</code></b> on error.</p>
 		 * @link https://php.net/manual/en/rarentry.gethostos.php
 		 * @since PECL rar >= 0.1
 		 */
@@ -413,7 +413,7 @@ namespace {
 		/**
 		 * Get pack method of the entry
 		 * <p><b>RarEntry::getMethod()</b> returns number of the method used when adding current archive entry.</p>
-		 * @return int <p>Returns the method number or <b><code>FALSE</code></b> on error.</p>
+		 * @return int <p>Returns the method number or <b><code>false</code></b> on error.</p>
 		 * @link https://php.net/manual/en/rarentry.getmethod.php
 		 * @since PECL rar >= 0.1
 		 */
@@ -422,7 +422,7 @@ namespace {
 		/**
 		 * Get name of the entry
 		 * <p>Returns the name (with path) of the archive entry.</p>
-		 * @return string <p>Returns the entry name as a string, or <b><code>FALSE</code></b> on error.</p>
+		 * @return string <p>Returns the entry name as a string, or <b><code>false</code></b> on error.</p>
 		 * @link https://php.net/manual/en/rarentry.getname.php
 		 * @since PECL rar >= 0.1
 		 */
@@ -431,7 +431,7 @@ namespace {
 		/**
 		 * Get packed size of the entry
 		 * <p>Get packed size of the archive entry.</p><p><b>Note</b>:</p><p>Note that on platforms with 32-bit longs (that includes Windows x64), the maximum size returned is capped at 2 GiB. Check the constant <b><code>PHP_INT_MAX</code></b>.</p>
-		 * @return int <p>Returns the packed size, or <b><code>FALSE</code></b> on error.</p>
+		 * @return int <p>Returns the packed size, or <b><code>false</code></b> on error.</p>
 		 * @link https://php.net/manual/en/rarentry.getpackedsize.php
 		 * @since PECL rar >= 0.1
 		 */
@@ -440,17 +440,17 @@ namespace {
 		/**
 		 * Get file handler for entry
 		 * <p>Returns a file handler that supports read operations. This handler provides on-the-fly decompression for this entry.</p><p>The handler is not invalidated by calling <code>rar_close()</code>.</p><p>The resulting stream has no integrity verification. In particular, file corruption and decryption with a wrong a key will not be detected. It is the programmer's responsability to use the entry's CRC to check for integrity, if he so wishes.</p>
-		 * @param string $password <p>The password used to encrypt this entry. If the entry is not encrypted, this value will not be used and can be omitted. If this parameter is omitted and the entry is encrypted, the password given to <code>rar_open()</code>, if any, will be used. If a wrong password is given, either explicitly or implicitly via <code>rar_open()</code>, this method's resulting stream will produce wrong output. If no password is given and one is required, this method will fail and return <b><code>FALSE</code></b>. You can check whether an entry is encrypted with <code>RarEntry::isEncrypted()</code>.</p>
-		 * @return resource|false <p>The file handler or <b><code>FALSE</code></b> on failure.</p>
+		 * @param string $password <p>The password used to encrypt this entry. If the entry is not encrypted, this value will not be used and can be omitted. If this parameter is omitted and the entry is encrypted, the password given to <code>rar_open()</code>, if any, will be used. If a wrong password is given, either explicitly or implicitly via <code>rar_open()</code>, this method's resulting stream will produce wrong output. If no password is given and one is required, this method will fail and return <b><code>false</code></b>. You can check whether an entry is encrypted with <code>RarEntry::isEncrypted()</code>.</p>
+		 * @return resource|false <p>The file handler or <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/rarentry.getstream.php
 		 * @since PECL rar >= 2.0.0
 		 */
-		public function getStream(string $password = NULL) {}
+		public function getStream(string $password = null) {}
 
 		/**
 		 * Get unpacked size of the entry
 		 * <p>Get unpacked size of the archive entry.</p><p><b>Note</b>:</p><p>Note that on platforms with 32-bit longs (that includes Windows x64), the maximum size returned is capped at 2 GiB. Check the constant <b><code>PHP_INT_MAX</code></b>.</p>
-		 * @return int <p>Returns the unpacked size, or <b><code>FALSE</code></b> on error.</p>
+		 * @return int <p>Returns the unpacked size, or <b><code>false</code></b> on error.</p>
 		 * @link https://php.net/manual/en/rarentry.getunpackedsize.php
 		 * @since PECL rar >= 0.1
 		 */
@@ -459,7 +459,7 @@ namespace {
 		/**
 		 * Get minimum version of RAR program required to unpack the entry
 		 * <p>Returns minimum version of RAR program (e.g. WinRAR) required to unpack the entry. It is encoded as 10 &#42; major version + minor version.</p>
-		 * @return int <p>Returns the version or <b><code>FALSE</code></b> on error.</p>
+		 * @return int <p>Returns the version or <b><code>false</code></b> on error.</p>
 		 * @link https://php.net/manual/en/rarentry.getversion.php
 		 * @since PECL rar >= 0.1
 		 */
@@ -468,7 +468,7 @@ namespace {
 		/**
 		 * Test whether an entry represents a directory
 		 * <p>Tests whether the current entry is a directory.</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b> if this entry is a directory and <b><code>FALSE</code></b> otherwise.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> if this entry is a directory and <b><code>false</code></b> otherwise.</p>
 		 * @link https://php.net/manual/en/rarentry.isdirectory.php
 		 * @since PECL rar >= 2.0.0
 		 */
@@ -477,7 +477,7 @@ namespace {
 		/**
 		 * Test whether an entry is encrypted
 		 * <p>Tests whether the current entry contents are encrypted.</p><p><b>Note</b>:</p><p>The password used may differ between files inside the same RAR archive.</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b> if the current entry is encrypted and <b><code>FALSE</code></b> otherwise.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> if the current entry is encrypted and <b><code>false</code></b> otherwise.</p>
 		 * @link https://php.net/manual/en/rarentry.isencrypted.php
 		 * @since PECL rar >= 2.0.0
 		 */
@@ -549,7 +549,7 @@ namespace {
 		/**
 		 * Returns previous Exception
 		 * <p>Returns previous exception (the third parameter of <code>Exception::__construct()</code>).</p>
-		 * @return Throwable <p>Returns the previous Throwable if available or <b><code>NULL</code></b> otherwise.</p>
+		 * @return Throwable <p>Returns the previous Throwable if available or <b><code>null</code></b> otherwise.</p>
 		 * @link https://php.net/manual/en/exception.getprevious.php
 		 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8
 		 */
@@ -576,7 +576,7 @@ namespace {
 		/**
 		 * Check whether error handling with exceptions is in use
 		 * <p>Checks whether the RAR functions will emit warnings and return error values or whether they will throw exceptions in most of the circumstances (does not include some programmatic errors such as passing the wrong type of arguments).</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b> if exceptions are being used, <b><code>FALSE</code></b> otherwise.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> if exceptions are being used, <b><code>false</code></b> otherwise.</p>
 		 * @link https://php.net/manual/en/rarexception.isusingexceptions.php
 		 * @since PECL rar >= 2.0.0
 		 */
@@ -584,8 +584,8 @@ namespace {
 
 		/**
 		 * Activate and deactivate error handling with exceptions
-		 * <p>If and only if the argument is <b><code>TRUE</code></b>, then, instead of emitting warnings and returning a special value indicating error when the UnRAR library encounters an error, an exception of type <code>RarException</code> will be thrown.</p><p>Exceptions will also be thrown for the following errors, which occur outside the library (their error code will be -1):</p>
-		 * @param bool $using_exceptions <p>Should be <b><code>TRUE</code></b> to activate exception throwing, <b><code>FALSE</code></b> to deactivate (the default).</p>
+		 * <p>If and only if the argument is <b><code>true</code></b>, then, instead of emitting warnings and returning a special value indicating error when the UnRAR library encounters an error, an exception of type <code>RarException</code> will be thrown.</p><p>Exceptions will also be thrown for the following errors, which occur outside the library (their error code will be -1):</p>
+		 * @param bool $using_exceptions <p>Should be <b><code>true</code></b> to activate exception throwing, <b><code>false</code></b> to deactivate (the default).</p>
 		 * @return void
 		 * @link https://php.net/manual/en/rarexception.setusingexceptions.php
 		 * @since PECL rar >= 2.0.0
@@ -597,7 +597,7 @@ namespace {
 	 * Test whether an archive is broken (incomplete)
 	 * <p>This function determines whether an archive is incomplete, i.e., if a volume is missing or a volume is truncated.</p>
 	 * @param \RarArchive $rarfile <p>A <code>RarArchive</code> object, opened with <code>rar_open()</code>.</p>
-	 * @return bool <p>Returns <b><code>TRUE</code></b> if the archive is broken, <b><code>FALSE</code></b> otherwise. This function may also return <b><code>FALSE</code></b> if the passed file has already been closed. The only way to tell the two cases apart is to enable exceptions with <code>RarException::setUsingExceptions()</code>; however, this should be unnecessary as a program should not operate on closed files.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> if the archive is broken, <b><code>false</code></b> otherwise. This function may also return <b><code>false</code></b> if the passed file has already been closed. The only way to tell the two cases apart is to enable exceptions with <code>RarException::setUsingExceptions()</code>; however, this should be unnecessary as a program should not operate on closed files.</p>
 	 * @link https://php.net/manual/en/rararchive.isbroken.php
 	 * @since PECL rar >= 3.0.0
 	 */
@@ -607,7 +607,7 @@ namespace {
 	 * Close RAR archive and free all resources
 	 * <p>Close RAR archive and free all allocated resources.</p>
 	 * @param \RarArchive $rarfile <p>A <code>RarArchive</code> object, opened with <code>rar_open()</code>.</p>
-	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/rararchive.close.php
 	 * @since PECL rar >= 2.0.0
 	 */
@@ -617,7 +617,7 @@ namespace {
 	 * Get comment text from the RAR archive
 	 * <p>Get the (global) comment stored in the RAR archive. It may be up to 64 KiB long.</p><p><b>Note</b>:</p><p>This extension does not support comments at the entry level.</p>
 	 * @param \RarArchive $rarfile <p>A <code>RarArchive</code> object, opened with <code>rar_open()</code>.</p>
-	 * @return string <p>Returns the comment or <b><code>NULL</code></b> if there is none.</p><p><b>Note</b>:</p><p>RAR has currently no support for unicode comments. The encoding of the result of this function is not specified, but it will probably be Windows-1252.</p>
+	 * @return string <p>Returns the comment or <b><code>null</code></b> if there is none.</p><p><b>Note</b>:</p><p>RAR has currently no support for unicode comments. The encoding of the result of this function is not specified, but it will probably be Windows-1252.</p>
 	 * @link https://php.net/manual/en/rararchive.getcomment.php
 	 * @since PECL rar >= 2.0.0
 	 */
@@ -628,7 +628,7 @@ namespace {
 	 * <p>Get entry object (file or directory) from the RAR archive.</p><p><b>Note</b>:</p><p>You can also get entry objects using <code>RarArchive::getEntries()</code>.</p><p>Note that a RAR archive can have multiple entries with the same name; this method will retrieve only the first.</p>
 	 * @param \RarArchive $rarfile <p>A <code>RarArchive</code> object, opened with <code>rar_open()</code>.</p>
 	 * @param string $entryname <p>Path to the entry within the RAR archive.</p> <p><b>Note</b>:</p><p>The path must be the same returned by <code>RarEntry::getName()</code>.</p>
-	 * @return RarEntry|false <p>Returns the matching <code>RarEntry</code> object or <b><code>FALSE</code></b> on failure.</p>
+	 * @return RarEntry|false <p>Returns the matching <code>RarEntry</code> object or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/rararchive.getentry.php
 	 * @since PECL rar >= 2.0.0
 	 */
@@ -638,7 +638,7 @@ namespace {
 	 * Get full list of entries from the RAR archive
 	 * <p>Get entries list (files and directories) from the RAR archive.</p><p><b>Note</b>:</p><p>If the archive has entries with the same name, this method, together with <code>RarArchive</code> <code>foreach</code> iteration and array-like access with numeric indexes, are the only ones to access all the entries (i.e., <code>RarArchive::getEntry()</code> and the  <code>rar://</code> wrapper are insufficient).</p>
 	 * @param \RarArchive $rarfile <p>A <code>RarArchive</code> object, opened with <code>rar_open()</code>.</p>
-	 * @return array|false <p><b>rar_list()</b> returns array of <code>RarEntry</code> objects or <b><code>FALSE</code></b> on failure.</p>
+	 * @return array|false <p><b>rar_list()</b> returns array of <code>RarEntry</code> objects or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/rararchive.getentries.php
 	 * @since PECL rar >= 2.0.0
 	 */
@@ -649,8 +649,8 @@ namespace {
 	 * <p>Open specified RAR archive and return <code>RarArchive</code> instance representing it.</p><p><b>Note</b>:</p><p>If opening a multi-volume archive, the path of the first volume should be passed as the first parameter. Otherwise, not all files will be shown. This is by design.</p>
 	 * @param string $filename <p>Path to the Rar archive.</p>
 	 * @param string $password <p>A plain password, if needed to decrypt the headers. It will also be used by default if encrypted files are found. Note that the files may have different passwords in respect to the headers and among them.</p>
-	 * @param callable $volume_callback <p>A function that receives one parameter &ndash; the path of the volume that was not found &ndash; and returns a string with the correct path for such volume or <b><code>NULL</code></b> if such volume does not exist or is not known. The programmer should ensure the passed function doesn't cause loops as this function is called repeatedly if the path returned in a previous call did not correspond to the needed volume. Specifying this parameter omits the notice that would otherwise be emitted whenever a volume is not found; an implementation that only returns <b><code>NULL</code></b> can therefore be used to merely omit such notices.</p>
-	 * @return RarArchive|false <p>Returns the requested <code>RarArchive</code> instance or <b><code>FALSE</code></b> on failure.</p>
+	 * @param callable $volume_callback <p>A function that receives one parameter &ndash; the path of the volume that was not found &ndash; and returns a string with the correct path for such volume or <b><code>null</code></b> if such volume does not exist or is not known. The programmer should ensure the passed function doesn't cause loops as this function is called repeatedly if the path returned in a previous call did not correspond to the needed volume. Specifying this parameter omits the notice that would otherwise be emitted whenever a volume is not found; an implementation that only returns <b><code>null</code></b> can therefore be used to merely omit such notices.</p>
+	 * @return RarArchive|false <p>Returns the requested <code>RarArchive</code> instance or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/rararchive.open.php
 	 * @since PECL rar >= 2.0.0
 	 */
@@ -660,7 +660,7 @@ namespace {
 	 * Check whether the RAR archive is solid
 	 * <p>Check whether the RAR archive is solid. Individual file extraction is slower on solid archives.</p>
 	 * @param \RarArchive $rarfile <p>A <code>RarArchive</code> object, opened with <code>rar_open()</code>.</p>
-	 * @return bool <p>Returns <b><code>TRUE</code></b> if the archive is solid, <b><code>FALSE</code></b> otherwise.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> if the archive is solid, <b><code>false</code></b> otherwise.</p>
 	 * @link https://php.net/manual/en/rararchive.issolid.php
 	 * @since PECL rar >= 2.0.0
 	 */

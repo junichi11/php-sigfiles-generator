@@ -49,8 +49,8 @@ Alternatives to this function include:</p>
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>mysql_real_escape_string</strong></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$unescaped_string</code></span>
-   [, <span class="methodparam"><span class="type">resource</span> <code class="parameter">$link_identifier</code><span class="initializer"> = NULL</span></span>
-  ] ) : <span class="type">string</span></div>
+   , <span class="methodparam"><span class="type">resource</span> <code class="parameter">$link_identifier</code><span class="initializer"> = NULL</span></span>
+   ) : <span class="type">string</span></div>
 
   <p class="para rdfs-comment">
    Escapes special characters in the <code class="parameter">unescaped_string</code>, 
@@ -121,7 +121,7 @@ with no arguments. If no connection is found or established, an
  <div class="refsect1 returnvalues" id="refsect1-function.mysql-real-escape-string-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns the escaped string, or <strong><code>FALSE</code></strong> on error.
+   Returns the escaped string, or <strong><code>false</code></strong> on error.
   </p>
  </div>
 
@@ -139,7 +139,7 @@ with no arguments. If no connection is found or established, an
  <div class="refsect1 examples" id="refsect1-function.mysql-real-escape-string-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-1991">
+   <div class="example" id="example-2004">
     <p><strong>Example #1 Simple <span class="function"><strong>mysql_real_escape_string()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -151,7 +151,7 @@ with no arguments. If no connection is found or established, an
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-1992">
+   <div class="example" id="example-2005">
     <p><strong>Example #2 <span class="function"><strong>mysql_real_escape_string()</strong></span> requires a connection example</strong></p>
     <div class="example-contents"><p>
      This example demonstrates what happens if a MySQL connection is not
@@ -178,7 +178,7 @@ string(41) &quot;SELECT * FROM actors WHERE last_name = &#039;&#039;&quot;
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-1993">
+   <div class="example" id="example-2006">
     <p><strong>Example #3 An example SQL Injection Attack</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -209,7 +209,7 @@ SELECT * FROM users WHERE user=&#039;aidan&#039; AND password=&#039;&#039; OR &#
    <p class="para">
     A MySQL connection is required before using 
     <span class="function"><strong>mysql_real_escape_string()</strong></span> otherwise an error of
-    level <strong><code>E_WARNING</code></strong> is generated, and <strong><code>FALSE</code></strong> is 
+    level <strong><code>E_WARNING</code></strong> is generated, and <strong><code>false</code></strong> is 
     returned. If <code class="parameter">link_identifier</code> isn&#039;t defined, the
     last MySQL connection is used.
    </p>

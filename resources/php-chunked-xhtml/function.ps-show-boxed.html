@@ -41,8 +41,8 @@
    , <span class="methodparam"><span class="type">float</span> <code class="parameter">$width</code></span>
    , <span class="methodparam"><span class="type">float</span> <code class="parameter">$height</code></span>
    , <span class="methodparam"><span class="type">string</span> <code class="parameter">$hmode</code></span>
-   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$feature</code></span>
-  ] ) : <span class="type">int</span></div>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$feature</code> = ?</span>
+   ) : <span class="type">int</span></div>
 
   <p class="para rdfs-comment">
    Outputs a text in a given box. The lower left corner of the box is at
@@ -52,7 +52,7 @@
   </p>
   <p class="para">
    The text will be hyphenated if the parameter
-   <code class="parameter">hyphenation</code> is set to <strong><code>TRUE</code></strong>
+   <code class="parameter">hyphenation</code> is set to <strong><code>true</code></strong>
    and the parameter <code class="parameter">hyphendict</code> contains a valid
    filename for a hyphenation
    file. The line spacing is taken from the value <code class="literal">leading</code>.

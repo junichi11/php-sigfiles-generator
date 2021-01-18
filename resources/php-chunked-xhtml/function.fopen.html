@@ -36,9 +36,9 @@
    <span class="methodname"><strong>fopen</strong></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$filename</code></span>
    , <span class="methodparam"><span class="type">string</span> <code class="parameter">$mode</code></span>
-   [, <span class="methodparam"><span class="type">bool</span> <code class="parameter">$use_include_path</code><span class="initializer"> = <strong><code>FALSE</code></strong></span></span>
-   [, <span class="methodparam"><span class="type">resource</span> <code class="parameter">$context</code></span>
-  ]] ) : <span class="type">resource</span></div>
+   , <span class="methodparam"><span class="type">bool</span> <code class="parameter">$use_include_path</code><span class="initializer"> = <strong><code>false</code></strong></span></span>
+   , <span class="methodparam"><span class="type">resource</span> <code class="parameter">$context</code> = ?</span>
+   ) : <span class="type">resource</span></div>
 
   <p class="para rdfs-comment">
    <span class="function"><strong>fopen()</strong></span> binds a named resource, specified by
@@ -191,7 +191,7 @@
            <td>
             Create and open for writing only; place the file pointer at the
             beginning of the file.  If the file already exists, the
-            <span class="function"><strong>fopen()</strong></span> call will fail by returning <strong><code>FALSE</code></strong> and
+            <span class="function"><strong>fopen()</strong></span> call will fail by returning <strong><code>false</code></strong> and
             generating an error of level <strong><code>E_WARNING</code></strong>.  If
             the file does not exist, attempt to create it.  This is equivalent
             to specifying <code class="literal">O_EXCL|O_CREAT</code> flags for the
@@ -302,7 +302,7 @@
 
       <p class="para">
        The optional third <code class="parameter">use_include_path</code> parameter
-       can be set to &#039;1&#039; or <strong><code>TRUE</code></strong> if you want to search for the file in the
+       can be set to &#039;1&#039; or <strong><code>true</code></strong> if you want to search for the file in the
        <a href="ini.core.html#ini.include-path" class="link">include_path</a>, too.
       </p>
      </dd>
@@ -330,7 +330,7 @@ with PHP 5.0.0. For a description of <code class="literal">contexts</code>, refe
   <h3 class="title">Return Values</h3>
   <p class="para">
    Returns a file pointer resource on success,
-    or <strong><code>FALSE</code></strong> on failure
+    or <strong><code>false</code></strong> on failure
   </p>
  </div>
 
@@ -375,7 +375,7 @@ Upon failure, an <strong><code>E_WARNING</code></strong> is emitted.
  <div class="refsect1 examples" id="refsect1-function.fopen-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-2640">
+   <div class="example" id="example-2655">
     <p><strong>Example #1 <span class="function"><strong>fopen()</strong></span> examples</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

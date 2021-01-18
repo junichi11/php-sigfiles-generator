@@ -35,9 +35,9 @@
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>getmxrr</strong></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$hostname</code></span>
-   , <span class="methodparam"><span class="type">array</span> <code class="parameter reference">&$mxhosts</code></span>
-   [, <span class="methodparam"><span class="type">array</span> <code class="parameter reference">&$weight</code></span>
-  ] ) : <span class="type">bool</span></div>
+   , <span class="methodparam"><span class="type">array</span> <code class="parameter reference">&$hosts</code></span>
+   , <span class="methodparam"><span class="type">array</span> <code class="parameter reference">&$weights</code><span class="initializer"> = <strong><code>null</code></strong></span></span>
+   ) : <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
    Searches DNS for MX records corresponding to 
@@ -65,25 +65,25 @@
     
     
      <dt>
-<code class="parameter">mxhosts</code></dt>
+<code class="parameter">hosts</code></dt>
 
      <dd>
 
       <p class="para">
        A list of the MX records found is placed into the array
-       <code class="parameter">mxhosts</code>. 
+       <code class="parameter">hosts</code>. 
       </p>
      </dd>
 
     
     
      <dt>
-<code class="parameter">weight</code></dt>
+<code class="parameter">weights</code></dt>
 
      <dd>
 
       <p class="para">
-       If the <code class="parameter">weight</code> array is given, it will be filled
+       If the <code class="parameter">weights</code> array is given, it will be filled
        with the weight information gathered.
       </p>
      </dd>
@@ -98,7 +98,7 @@
  <div class="refsect1 returnvalues" id="refsect1-function.getmxrr-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns <strong><code>TRUE</code></strong> if any records are found; returns <strong><code>FALSE</code></strong> if no records
+   Returns <strong><code>true</code></strong> if any records are found; returns <strong><code>false</code></strong> if no records
    were found or if an error occurred.
   </p>
  </div>

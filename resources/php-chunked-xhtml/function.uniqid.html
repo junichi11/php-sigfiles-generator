@@ -34,9 +34,9 @@
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>uniqid</strong></span>
-    ([ <span class="methodparam"><span class="type">string</span> <code class="parameter">$prefix</code><span class="initializer"> = &quot;&quot;</span></span>
-   [, <span class="methodparam"><span class="type">bool</span> <code class="parameter">$more_entropy</code><span class="initializer"> = <strong><code>FALSE</code></strong></span></span>
-  ]] ) : <span class="type">string</span></div>
+    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$prefix</code><span class="initializer"> = &quot;&quot;</span></span>
+   , <span class="methodparam"><span class="type">bool</span> <code class="parameter">$more_entropy</code><span class="initializer"> = <strong><code>false</code></strong></span></span>
+   ) : <span class="type">string</span></div>
 
   <p class="para rdfs-comment">
    Gets a prefixed unique identifier based on the current time in
@@ -78,7 +78,7 @@ cryptographically secure value, consider using <span class="function"><a href="f
       <p class="para">
        With an empty <code class="parameter">prefix</code>, the returned string will
        be 13 characters long.  If <code class="parameter">more_entropy</code> is
-       <strong><code>TRUE</code></strong>, it will be 23 characters.
+       <strong><code>true</code></strong>, it will be 23 characters.
       </p>
      </dd>
 
@@ -90,7 +90,7 @@ cryptographically secure value, consider using <span class="function"><a href="f
      <dd>
 
       <p class="para">
-       If set to <strong><code>TRUE</code></strong>, <span class="function"><strong>uniqid()</strong></span> will add additional
+       If set to <strong><code>true</code></strong>, <span class="function"><strong>uniqid()</strong></span> will add additional
        entropy (using the combined linear congruential generator) at the end
        of the return value, which increases the likelihood that the result
        will be unique.
@@ -121,7 +121,7 @@ cryptographically secure value, consider using <span class="function"><a href="f
  <div class="refsect1 examples" id="refsect1-function.uniqid-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-3998">
+   <div class="example" id="example-4013">
     <p><strong>Example #1 <span class="function"><strong>uniqid()</strong></span> Example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -140,7 +140,7 @@ cryptographically secure value, consider using <span class="function"><a href="f
   <blockquote class="note"><p><strong class="note">Note</strong>: 
    <p class="para">
     Under Cygwin, the <code class="parameter">more_entropy</code> must be set 
-    to <strong><code>TRUE</code></strong> for this function to work.
+    to <strong><code>true</code></strong> for this function to work.
    </p>
   </p></blockquote>
 

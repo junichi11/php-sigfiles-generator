@@ -34,13 +34,13 @@
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>str_repeat</strong></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$input</code></span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$multiplier</code></span>
+    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$string</code></span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$times</code></span>
    ) : <span class="type">string</span></div>
 
   <p class="para rdfs-comment">
-   Returns <code class="parameter">input</code> repeated
-   <code class="parameter">multiplier</code> times.
+   Returns <code class="parameter">string</code> repeated
+   <code class="parameter">times</code> times.
   </p>
  </div>
 
@@ -52,7 +52,7 @@
 
     
      <dt>
-<code class="parameter">input</code></dt>
+<code class="parameter">string</code></dt>
 
      <dd>
 
@@ -64,17 +64,17 @@
     
     
      <dt>
-<code class="parameter">multiplier</code></dt>
+<code class="parameter">times</code></dt>
 
      <dd>
 
       <p class="para">
-       Number of time the <code class="parameter">input</code> string should be
+       Number of time the <code class="parameter">string</code> string should be
        repeated.
       </p>
       <p class="para">
-       <code class="parameter">multiplier</code> has to be greater than or equal to 0.
-       If the <code class="parameter">multiplier</code> is set to 0, the function
+       <code class="parameter">times</code> has to be greater than or equal to 0.
+       If the <code class="parameter">times</code> is set to 0, the function
        will return an empty string.
       </p>
      </dd>
@@ -97,7 +97,7 @@
  <div class="refsect1 examples" id="refsect1-function.str-repeat-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-5327">
+   <div class="example" id="example-5348">
     <p><strong>Example #1 <span class="function"><strong>str_repeat()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

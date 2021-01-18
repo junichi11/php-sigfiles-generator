@@ -35,9 +35,9 @@
    <span class="methodname"><strong>stream_filter_prepend</strong></span>
     ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$stream</code></span>
    , <span class="methodparam"><span class="type">string</span> <code class="parameter">$filtername</code></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$read_write</code></span>
-   [, <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">$params</code></span>
-  ]] ) : <span class="type">resource</span></div>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$read_write</code> = ?</span>
+   , <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$params</code> = ?</span>
+   ) : <span class="type">resource</span></div>
 
   <p class="para rdfs-comment">
    Adds <code class="parameter">filtername</code> to the list of filters
@@ -123,13 +123,13 @@
  <div class="refsect1 returnvalues" id="refsect1-function.stream-filter-prepend-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns a resource on success or <strong><code>FALSE</code></strong> on failure. The resource can be
+   Returns a resource on success or <strong><code>false</code></strong> on failure. The resource can be
    used to refer to this filter instance during a call to
    <span class="function"><a href="function.stream-filter-remove.html" class="function">stream_filter_remove()</a></span>.
   </p>
 
   <p class="para">
-   <strong><code>FALSE</code></strong> is returned if <code class="parameter">stream</code> is not a resource or
+   <strong><code>false</code></strong> is returned if <code class="parameter">stream</code> is not a resource or
    if <code class="parameter">filtername</code> cannot be located.
   </p>
  </div>

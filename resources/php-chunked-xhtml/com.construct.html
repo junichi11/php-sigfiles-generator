@@ -35,10 +35,10 @@
   <div class="constructorsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><strong>com::__construct</strong></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$module_name</code></span>
-   [, <span class="methodparam"><span class="type"><span class="type">array</span>|<span class="type">string</span>|<span class="type">null</span></span> <code class="parameter">$server_name</code><span class="initializer"> = <strong><code>NULL</code></strong></span></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$codepage</code><span class="initializer"> = <strong><code>CP_ACP</code></strong></span></span>
-   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$typelib</code><span class="initializer"> = &quot;&quot;</span></span>
-  ]]] )</div>
+   , <span class="methodparam"><span class="type"><span class="type">array</span>|<span class="type">string</span>|<span class="type">null</span></span> <code class="parameter">$server_name</code><span class="initializer"> = <strong><code>null</code></strong></span></span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$codepage</code><span class="initializer"> = <strong><code>CP_ACP</code></strong></span></span>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$typelib</code><span class="initializer"> = &quot;&quot;</span></span>
+   )</div>
 
   <p class="para rdfs-comment">
    Constructs a new com object.
@@ -85,15 +85,15 @@
 
      <span class="simpara">
       The name of the DCOM server on which the component should be loaded and
-      run.  If <strong><code>NULL</code></strong>, the object is run using the default for the
+      run.  If <strong><code>null</code></strong>, the object is run using the default for the
       application.  The default is typically to run it on the local machine,
       although the administrator might have configured the application to
       launch on a different machine.
      </span>
      <span class="simpara">
-      If you specify a non-<strong><code>NULL</code></strong> value for server, PHP will refuse to load
+      If you specify a non-<strong><code>null</code></strong> value for server, PHP will refuse to load
       the object unless the <a href="com.configuration.html#ini.com.allow-dcom" class="xref"></a> configuration option
-      is set to <strong><code>TRUE</code></strong>.
+      is set to <strong><code>true</code></strong>.
      </span>
      <p class="para">
       If <code class="parameter">server_name</code> is an array, it should contain the

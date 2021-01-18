@@ -34,10 +34,10 @@
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>exif_read_data</strong></span>
     ( <span class="methodparam"><span class="type"><span class="type">resource</span>|<span class="type">string</span></span> <code class="parameter">$file</code></span>
-   [, <span class="methodparam"><span class="type"><span class="type">string</span>|<span class="type">null</span></span> <code class="parameter">$required_sections</code><span class="initializer"> = <strong><code>NULL</code></strong></span></span>
-   [, <span class="methodparam"><span class="type">bool</span> <code class="parameter">$as_arrays</code><span class="initializer"> = <strong><code>FALSE</code></strong></span></span>
-   [, <span class="methodparam"><span class="type">bool</span> <code class="parameter">$read_thumbnail</code><span class="initializer"> = <strong><code>FALSE</code></strong></span></span>
-  ]]] ) : <span class="type"><span class="type">array</span>|<span class="type"><span class="type false">false</span></span></span></div>
+   , <span class="methodparam"><span class="type"><span class="type">string</span>|<span class="type">null</span></span> <code class="parameter">$required_sections</code><span class="initializer"> = <strong><code>null</code></strong></span></span>
+   , <span class="methodparam"><span class="type">bool</span> <code class="parameter">$as_arrays</code><span class="initializer"> = <strong><code>false</code></strong></span></span>
+   , <span class="methodparam"><span class="type">bool</span> <code class="parameter">$read_thumbnail</code><span class="initializer"> = <strong><code>false</code></strong></span></span>
+   ) : <span class="type"><span class="type">array</span>|<span class="type"><span class="type false">false</span></span></span></div>
 
   <p class="para rdfs-comment">
    <span class="function"><strong>exif_read_data()</strong></span> reads the
@@ -117,7 +117,7 @@
       <p class="para">
        Is a comma separated list of sections that need to be present in file 
        to produce a result <span class="type">array</span>.  If none of the requested 
-       sections could be found the return value is <strong><code>FALSE</code></strong>.
+       sections could be found the return value is <strong><code>false</code></strong>.
        <table class="doctable informaltable">
         
          <tbody class="tbody">
@@ -204,7 +204,7 @@
      <dd>
 
       <p class="para">
-       When set to <strong><code>TRUE</code></strong> the thumbnail itself is read.  Otherwise, only the
+       When set to <strong><code>true</code></strong> the thumbnail itself is read.  Otherwise, only the
        tagged data is read.
       </p>
      </dd>
@@ -221,9 +221,20 @@
    It returns an associative <span class="type">array</span> where the array indexes are 
    the header names and the array values are the values associated with 
    those headers. If no data can be returned, 
-   <span class="function"><strong>exif_read_data()</strong></span> will return <strong><code>FALSE</code></strong>.
+   <span class="function"><strong>exif_read_data()</strong></span> will return <strong><code>false</code></strong>.
   </p>
  </div>
+
+
+ <div class="refsect1 errors" id="refsect1-function.exif-read-data-errors">
+  <h3 class="title">Errors/Exceptions</h3>
+  <p class="para">
+   Errors of level <strong><code>E_WARNING</code></strong> and/or <strong><code>E_NOTICE</code></strong>
+   may be raised for unsupported tags or other potential error conditions, but the
+   function still tries to read all comprehensible information.
+  </p>
+ </div>
+
 
  <div class="refsect1 changelog" id="refsect1-function.exif-read-data-changelog">
   <h3 class="title">Changelog</h3>
@@ -328,7 +339,7 @@
  <div class="refsect1 examples" id="refsect1-function.exif-read-data-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-3062">
+   <div class="example" id="example-3077">
     <p><strong>Example #1 <span class="function"><strong>exif_read_data()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -377,7 +388,7 @@ THUMBNAIL.Thumbnail.Height: 1
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-3063">
+   <div class="example" id="example-3078">
     <p><strong>Example #2 <span class="function"><strong>exif_read_data()</strong></span> with streams available as of PHP 7.2.0</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

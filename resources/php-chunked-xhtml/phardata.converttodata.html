@@ -34,11 +34,11 @@
  <div class="refsect1 description" id="refsect1-phardata.converttodata-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>PharData::convertToData</strong></span>
-    ([ <span class="methodparam"><span class="type">int</span> <code class="parameter">$format</code></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$compression</code></span>
-   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$extension</code></span>
-  ]]] ) : <span class="type"><a href="class.phardata.html" class="type PharData">PharData</a></span></div>
+   <span class="modifier">public</span> <span class="methodname"><strong>PharData::convertToData</strong></span>
+    ( <span class="methodparam"><span class="type">int</span> <code class="parameter">$format</code> = ?</span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$compression</code> = ?</span>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$extension</code> = ?</span>
+   ) : <span class="type"><a href="class.phardata.html" class="type PharData">PharData</a></span></div>
 
 
   <p class="para rdfs-comment">
@@ -73,7 +73,7 @@
 
       <p class="para">
        This should be one of <code class="literal">Phar::TAR</code>
-       or <code class="literal">Phar::ZIP</code>.  If set to <strong><code>NULL</code></strong>, the existing file format
+       or <code class="literal">Phar::ZIP</code>.  If set to <strong><code>null</code></strong>, the existing file format
        will be preserved.
       </p>
      </dd>
@@ -145,7 +145,7 @@
  <div class="refsect1 examples" id="refsect1-phardata.converttodata-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-739">
+   <div class="example" id="example-751">
     <p><strong>Example #1 A <span class="function"><strong>PharData::convertToData()</strong></span> example</strong></p>
     <div class="example-contents"><p>
      Using PharData::convertToData():

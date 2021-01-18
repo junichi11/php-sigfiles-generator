@@ -34,9 +34,9 @@
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>clearstatcache</strong></span>
-    ([ <span class="methodparam"><span class="type">bool</span> <code class="parameter">$clear_realpath_cache</code><span class="initializer"> = <strong><code>FALSE</code></strong></span></span>
-   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$filename</code></span>
-  ]] ) : <span class="type"><span class="type void">void</span></span></div>
+    ( <span class="methodparam"><span class="type">bool</span> <code class="parameter">$clear_realpath_cache</code><span class="initializer"> = <strong><code>false</code></strong></span></span>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$filename</code><span class="initializer"> = &quot;&quot;</span></span>
+   ) : <span class="type"><span class="type void">void</span></span></div>
 
   <p class="para rdfs-comment">
    When you use <span class="function"><a href="function.stat.html" class="function">stat()</a></span>, <span class="function"><a href="function.lstat.html" class="function">lstat()</a></span>, or
@@ -53,8 +53,8 @@
   <p class="para">
    You should also note that PHP doesn&#039;t cache information about non-existent
    files. So, if you call <span class="function"><a href="function.file-exists.html" class="function">file_exists()</a></span> on a file that
-   doesn&#039;t exist, it will return <strong><code>FALSE</code></strong> until you create the file. If you
-   create the file, it will return <strong><code>TRUE</code></strong> even if you then delete the file.
+   doesn&#039;t exist, it will return <strong><code>false</code></strong> until you create the file. If you
+   create the file, it will return <strong><code>true</code></strong> even if you then delete the file.
    However <span class="function"><a href="function.unlink.html" class="function">unlink()</a></span> clears the cache automatically.
   </p>
   <blockquote class="note"><p><strong class="note">Note</strong>: 
@@ -113,7 +113,7 @@
 
       <p class="para">
        Clear the realpath and the stat cache for a specific filename only; only
-       used if <code class="parameter">clear_realpath_cache</code> is <strong><code>TRUE</code></strong>.
+       used if <code class="parameter">clear_realpath_cache</code> is <strong><code>true</code></strong>.
       </p>
      </dd>
 
@@ -135,7 +135,7 @@
  <div class="refsect1 examples" id="refsect1-function.clearstatcache-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-2606">
+   <div class="example" id="example-2621">
     <p><strong>Example #1 <span class="function"><strong>clearstatcache()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

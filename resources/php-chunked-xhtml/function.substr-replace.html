@@ -34,18 +34,18 @@
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>substr_replace</strong></span>
-    ( <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">$string</code></span>
-   , <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">$replacement</code></span>
-   , <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">$start</code></span>
-   [, <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">$length</code></span>
-  ] ) : <span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span></div>
+    ( <span class="methodparam"><span class="type"><span class="type">array</span>|<span class="type">string</span></span> <code class="parameter">$string</code></span>
+   , <span class="methodparam"><span class="type"><span class="type">array</span>|<span class="type">string</span></span> <code class="parameter">$replace</code></span>
+   , <span class="methodparam"><span class="type"><span class="type">array</span>|<span class="type">int</span></span> <code class="parameter">$offset</code></span>
+   , <span class="methodparam"><span class="type"><span class="type">array</span>|<span class="type">int</span>|<span class="type">null</span></span> <code class="parameter">$length</code><span class="initializer"> = <strong><code>null</code></strong></span></span>
+   ) : <span class="type"><span class="type">string</span>|<span class="type">array</span></span></div>
 
   <p class="para rdfs-comment">
    <span class="function"><strong>substr_replace()</strong></span> replaces a copy of
    <code class="parameter">string</code> delimited by the
-   <code class="parameter">start</code> and (optionally)
+   <code class="parameter">offset</code> and (optionally)
    <code class="parameter">length</code> parameters with the string given in
-   <code class="parameter">replacement</code>. 
+   <code class="parameter">replace</code>. 
   </p>
  </div>
 
@@ -67,7 +67,7 @@
       <p class="para">
        An <span class="type">array</span> of <span class="type">string</span>s can be provided, in which
        case the replacements will occur on each string in turn. In this case,
-       the <code class="parameter">replacement</code>, <code class="parameter">start</code>
+       the <code class="parameter">replace</code>, <code class="parameter">offset</code>
        and <code class="parameter">length</code> parameters may be provided either as
        scalar values to be applied to each input string in turn, or as
        <span class="type">array</span>s, in which case the corresponding array element will
@@ -78,7 +78,7 @@
     
     
      <dt>
-<code class="parameter">replacement</code></dt>
+<code class="parameter">replace</code></dt>
 
      <dd>
 
@@ -90,18 +90,18 @@
     
     
      <dt>
-<code class="parameter">start</code></dt>
+<code class="parameter">offset</code></dt>
 
      <dd>
 
       <p class="para">
-       If <code class="parameter">start</code> is non-negative, the replacing will
-       begin at the <code class="parameter">start</code>&#039;th offset into
+       If <code class="parameter">offset</code> is non-negative, the replacing will
+       begin at the <code class="parameter">offset</code>&#039;th offset into
        <code class="parameter">string</code>.
       </p>
       <p class="para">
-       If <code class="parameter">start</code> is negative, the replacing will
-       begin at the <code class="parameter">start</code>&#039;th character from the
+       If <code class="parameter">offset</code> is negative, the replacing will
+       begin at the <code class="parameter">offset</code>&#039;th character from the
        end of <code class="parameter">string</code>.
       </p>
      </dd>
@@ -122,9 +122,9 @@
        <code class="parameter">string</code> ); i.e. end the replacing at the
        end of <code class="parameter">string</code>. Of course, if
        <code class="parameter">length</code> is zero then this function will have the
-       effect of inserting <code class="parameter">replacement</code> into
+       effect of inserting <code class="parameter">replace</code> into
        <code class="parameter">string</code> at the given
-       <code class="parameter">start</code> offset.
+       <code class="parameter">offset</code> offset.
       </p>
      </dd>
 
@@ -144,10 +144,39 @@
  </div>
 
 
+ <div class="refsect1 changelog" id="refsect1-function.substr-replace-changelog">
+  <h3 class="title">Changelog</h3>
+  <p class="para">
+   <table class="doctable informaltable">
+    
+     <thead>
+      <tr>
+       <th>Version</th>
+       <th>Description</th>
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr>
+       <td>8.0.0</td>
+       <td>
+        <code class="parameter">length</code> is nullable now.
+       </td>
+      </tr>
+
+     </tbody>
+    
+   </table>
+
+  </p>
+ </div>
+
+
  <div class="refsect1 examples" id="refsect1-function.substr-replace-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-5367">
+   <div class="example" id="example-5388">
     <p><strong>Example #1 Simple <span class="function"><strong>substr_replace()</strong></span> examples</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -159,7 +188,7 @@
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-5368">
+   <div class="example" id="example-5389">
     <p><strong>Example #2 
      Using <span class="function"><strong>substr_replace()</strong></span> to replace multiple strings at
      once

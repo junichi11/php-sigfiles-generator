@@ -26,14 +26,14 @@
   <div id="layout-content"><div id="imagick.distortimage" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">Imagick::distortImage</h1>
-  <p class="verinfo">(PECL imagick 2.0.1)</p><p class="refpurpose"><span class="refname">Imagick::distortImage</span> &mdash; <span class="dc-title">Distorts an image using various distortion methods</span></p>
+  <p class="verinfo">(PECL imagick 2 &gt;= 2.0.1, PECL imagick 3)</p><p class="refpurpose"><span class="refname">Imagick::distortImage</span> &mdash; <span class="dc-title">Distorts an image using various distortion methods</span></p>
 
  </div>
 
  <div class="refsect1 description" id="refsect1-imagick.distortimage-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>Imagick::distortImage</strong></span>
+   <span class="modifier">public</span> <span class="methodname"><strong>Imagick::distortImage</strong></span>
     ( <span class="methodparam"><span class="type">int</span> <code class="parameter">$method</code></span>
    , <span class="methodparam"><span class="type">array</span> <code class="parameter">$arguments</code></span>
    , <span class="methodparam"><span class="type">bool</span> <code class="parameter">$bestfit</code></span>
@@ -42,7 +42,7 @@
   <p class="para rdfs-comment">
    Distorts an image using various distortion methods, by mapping color
    lookups of the source image to a new destination image usually of the same
-   size as the source image, unless &#039;bestfit&#039; is set to <strong><code>TRUE</code></strong>.
+   size as the source image, unless &#039;bestfit&#039; is set to <strong><code>true</code></strong>.
   </p>
   <p class="para">
    If &#039;bestfit&#039; is enabled, and distortion allows it, the destination image
@@ -107,7 +107,7 @@
  <div class="refsect1 returnvalues" id="refsect1-imagick.distortimage-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns <strong><code>TRUE</code></strong> on success.
+   Returns <strong><code>true</code></strong> on success.
   </p>
  </div>
 
@@ -123,7 +123,7 @@
  <div class="refsect1 examples" id="refsect1-imagick.distortimage-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-3240">
+   <div class="example" id="example-3255">
     <p><strong>Example #1 Using <span class="function"><strong>Imagick::distortImage()</strong></span>:</strong></p>
     <div class="example-contents"><p>
      Distort an image and display to the browser.

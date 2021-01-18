@@ -34,12 +34,12 @@
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>chr</strong></span>
-    ( <span class="methodparam"><span class="type">int</span> <code class="parameter">$bytevalue</code></span>
+    ( <span class="methodparam"><span class="type">int</span> <code class="parameter">$codepoint</code></span>
    ) : <span class="type">string</span></div>
 
   <p class="para rdfs-comment">
    Returns a one-character string containing the character specified
-   by interpreting <code class="parameter">bytevalue</code> as an unsigned integer.
+   by interpreting <code class="parameter">codepoint</code> as an unsigned integer.
   </p>
   <p class="para">
    This can be used to create a one-character string in a single-byte encoding such as ASCII, ISO-8859, or Windows 1252, by passing the position of a desired character in the encoding&#039;s mapping table. However, note that this function is not aware of any string encoding, and in particular cannot be passed a Unicode code point value to generate a string in a multibyte encoding like UTF-8 or UTF-16.
@@ -57,7 +57,7 @@
 
     
      <dt>
-<code class="parameter">bytevalue</code></dt>
+<code class="parameter">codepoint</code></dt>
 
      <dd>
 
@@ -107,7 +107,7 @@ while&nbsp;($bytevalue&nbsp;&lt;&nbsp;0)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;$by
      <tr>
       <td>7.4.0</td>
       <td>
-       The function no longer silently accepts unsupported <code class="parameter">bytevalue</code>s,
+       The function no longer silently accepts unsupported <code class="parameter">codepoint</code>s,
        and casts these to <code class="literal">0</code>.
       </td>
      </tr>
@@ -122,7 +122,7 @@ while&nbsp;($bytevalue&nbsp;&lt;&nbsp;0)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;$by
  <div class="refsect1 examples" id="refsect1-function.chr-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-5260">
+   <div class="example" id="example-5281">
     <p><strong>Example #1 <span class="function"><strong>chr()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -132,7 +132,7 @@ while&nbsp;($bytevalue&nbsp;&lt;&nbsp;0)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;$by
     </div>
 
    </div>
-   <div class="example" id="example-5261">
+   <div class="example" id="example-5282">
     <p><strong>Example #2 Overflow behavior</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -150,7 +150,7 @@ aA
    </div>
   </p>
   <p class="para"> 
-   <div class="example" id="example-5262">
+   <div class="example" id="example-5283">
     <p><strong>Example #3 Building a UTF-8 string from individual bytes</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

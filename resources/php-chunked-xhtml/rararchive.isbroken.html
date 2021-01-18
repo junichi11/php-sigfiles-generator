@@ -77,8 +77,8 @@
  <div class="refsect1 returnvalues" id="refsect1-rararchive.isbroken-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns <strong><code>TRUE</code></strong> if the archive is broken, <strong><code>FALSE</code></strong> otherwise. This function may also
-   return <strong><code>FALSE</code></strong> if the passed file has already been closed. The only way
+   Returns <strong><code>true</code></strong> if the archive is broken, <strong><code>false</code></strong> otherwise. This function may also
+   return <strong><code>false</code></strong> if the passed file has already been closed. The only way
    to tell the two cases apart is to enable
    exceptions with <span class="methodname"><a href="rarexception.setusingexceptions.html" class="methodname">RarException::setUsingExceptions()</a></span>; however,
    this should be unnecessary as a program should not operate on closed files.
@@ -89,7 +89,7 @@
  <div class="refsect1 examples" id="refsect1-rararchive.isbroken-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-773">
+   <div class="example" id="example-785">
     <p><strong>Example #1 Object oriented style</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -108,7 +108,7 @@ bool(true)
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-774">
+   <div class="example" id="example-786">
     <p><strong>Example #2 Procedural style</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

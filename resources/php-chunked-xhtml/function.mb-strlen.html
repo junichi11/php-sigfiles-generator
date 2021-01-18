@@ -34,9 +34,9 @@
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>mb_strlen</strong></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$str</code></span>
-   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$encoding</code><span class="initializer"> = mb_internal_encoding()</span></span>
-  ] ) : <span class="type">int</span></div>
+    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$string</code></span>
+   , <span class="methodparam"><span class="type"><span class="type">string</span>|<span class="type">null</span></span> <code class="parameter">$encoding</code><span class="initializer"> = <strong><code>null</code></strong></span></span>
+   ) : <span class="type">int</span></div>
 
   <p class="para rdfs-comment">
    Gets the length of a <span class="type">string</span>.
@@ -51,7 +51,7 @@
 
     
      <dt>
-<code class="parameter">str</code></dt>
+<code class="parameter">string</code></dt>
 
      <dd>
 
@@ -68,7 +68,7 @@
      <dd>
 
       <p class="para">The <code class="parameter">encoding</code>
-parameter is the character encoding. If it is omitted, the internal character
+parameter is the character encoding. If it is omitted or <strong><code>null</code></strong>, the internal character
 encoding value will be used.</p>
      </dd>
 
@@ -83,7 +83,7 @@ encoding value will be used.</p>
   <h3 class="title">Return Values</h3>
   <p class="para">
    Returns the number of characters in
-   <span class="type">string</span> <code class="parameter">str</code> having character encoding
+   <span class="type">string</span> <code class="parameter">string</code> having character encoding
    <code class="parameter">encoding</code>. A multi-byte character is
    counted as 1.
   </p>
@@ -96,6 +96,33 @@ encoding value will be used.</p>
    If the encoding is unknown, an error of level
    <strong><code>E_WARNING</code></strong> is generated.
   </p>
+ </div>
+
+
+ <div class="refsect1 changelog" id="refsect1-function.mb-strlen-changelog">
+  <h3 class="title">Changelog</h3>
+  <table class="doctable informaltable">
+   
+    <thead>
+     <tr>
+      <th>Version</th>
+      <th>Description</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+ <td>8.0.0</td>
+ <td>
+  <code class="parameter">encoding</code> is nullable now.
+ </td>
+</tr>
+
+    </tbody>
+   
+  </table>
+
  </div>
 
 

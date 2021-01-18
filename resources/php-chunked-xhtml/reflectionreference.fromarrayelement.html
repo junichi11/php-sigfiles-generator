@@ -35,8 +35,8 @@
   <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="modifier">static</span> <span class="methodname"><strong>ReflectionReference::fromArrayElement</strong></span>
     ( <span class="methodparam"><span class="type">array</span> <code class="parameter">$array</code></span>
-   , <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">$key</code></span>
-   ) : <span class="type"><a href="class.reflectionreference.html" class="type ReflectionReference">ReflectionReference</a></span></div>
+   , <span class="methodparam"><span class="type"><span class="type">int</span>|<span class="type">string</span></span> <code class="parameter">$key</code></span>
+   ) : <span class="type"><span class="type"><a href="class.reflectionreference.html" class="type ReflectionReference">ReflectionReference</a></span>|<span class="type">null</span></span></div>
 
   <p class="para rdfs-comment">
    Creates a <a href="class.reflectionreference.html" class="classname">ReflectionReference</a> from an array element.
@@ -81,7 +81,7 @@
   <h3 class="title">Return Values</h3>
   <p class="para">
    Returns a <strong class="classname">ReflectionReference </strong> instance if
-   <code class="literal">$array[$key]</code> is a reference, or <strong><code>NULL</code></strong> otherwise.
+   <code class="literal">$array[$key]</code> is a reference, or <strong><code>null</code></strong> otherwise.
   </p>
  </div>
 

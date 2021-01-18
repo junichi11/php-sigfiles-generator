@@ -35,8 +35,8 @@
   <div class="methodsynopsis dc-description">
    <span class="modifier">final</span> <span class="modifier">public</span> <span class="modifier">static</span> <span class="methodname"><strong>OAuthProvider::generateToken</strong></span>
     ( <span class="methodparam"><span class="type">int</span> <code class="parameter">$size</code></span>
-   [, <span class="methodparam"><span class="type">bool</span> <code class="parameter">$strong</code><span class="initializer"> = <strong><code>FALSE</code></strong></span></span>
-  ] ) : <span class="type">string</span></div>
+   , <span class="methodparam"><span class="type">bool</span> <code class="parameter">$strong</code><span class="initializer"> = <strong><code>false</code></strong></span></span>
+   ) : <span class="type">string</span></div>
 
   <p class="para rdfs-comment">
    Generates a <span class="type">string</span> of pseudo-random bytes.
@@ -67,7 +67,7 @@
     <dd>
 
      <p class="para">
-      Setting to <strong><code>TRUE</code></strong> means <code class="literal">/dev/random</code> will be used for
+      Setting to <strong><code>true</code></strong> means <code class="literal">/dev/random</code> will be used for
       entropy, as otherwise the non-blocking <code class="literal">/dev/urandom</code> is used.
       This parameter is ignored on Windows.
      </p>
@@ -90,7 +90,7 @@
  <div class="refsect1 errors" id="refsect1-oauthprovider.generatetoken-errors">
   <h3 class="title">Errors/Exceptions</h3>
   <p class="para">
-   If the <code class="parameter">strong</code> parameter is <strong><code>TRUE</code></strong>, then an
+   If the <code class="parameter">strong</code> parameter is <strong><code>true</code></strong>, then an
    <strong><code>E_WARNING</code></strong> level error will be emitted when the
    fallback <span class="function"><a href="function.rand.html" class="function">rand()</a></span> implementation is used to fill
    the remaining random bytes (e.g., when not enough random data was found,
@@ -101,7 +101,7 @@
 
  <div class="refsect1 examples" id="refsect1-oauthprovider.generatetoken-examples">
   <h3 class="title">Examples</h3>
-  <div class="example" id="example-5788">
+  <div class="example" id="example-5812">
    <p><strong>Example #1 <span class="function"><strong>OAuthProvider::generateToken()</strong></span> example</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

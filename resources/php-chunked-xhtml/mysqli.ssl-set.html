@@ -60,13 +60,6 @@
    nothing unless OpenSSL support is enabled.
   </p>
 
-  <p class="para">
-    Note that MySQL Native Driver does not support SSL before PHP 5.3.3, 
-    so calling this function when using MySQL Native Driver will result 
-    in an error. MySQL Native Driver is enabled by default on Microsoft 
-    Windows from PHP version 5.3 onwards.
-  </p>
-
  </div>
 
 
@@ -153,7 +146,7 @@ returned by <span class="function"><a href="function.mysqli-connect.html" class=
  <div class="refsect1 returnvalues" id="refsect1-mysqli.ssl-set-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   This function always returns <strong><code>TRUE</code></strong> value. If SSL setup is
+   This function always returns <strong><code>true</code></strong> value. If SSL setup is
    incorrect <span class="function"><a href="mysqli.real-connect.html" class="function">mysqli_real_connect()</a></span> will return an error
    when you attempt to connect.
   </p>

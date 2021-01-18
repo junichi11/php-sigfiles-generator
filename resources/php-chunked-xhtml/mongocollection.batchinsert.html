@@ -35,8 +35,8 @@
   <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><strong>MongoCollection::batchInsert</strong></span>
     ( <span class="methodparam"><span class="type">array</span> <code class="parameter">$a</code></span>
-   [, <span class="methodparam"><span class="type">array</span> <code class="parameter">$options</code><span class="initializer"> = array()</span></span>
-  ] ) : <span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span></div>
+   , <span class="methodparam"><span class="type">array</span> <code class="parameter">$options</code><span class="initializer"> = array()</span></span>
+   ) : <span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span></div>
 
  </div>
 
@@ -86,7 +86,7 @@
           <code class="literal">&quot;continueOnError&quot;</code>
          </p>
          <p class="para">
-          Boolean, defaults to <strong><code>FALSE</code></strong>. If set, the database will not stop
+          Boolean, defaults to <strong><code>false</code></strong>. If set, the database will not stop
           processing a bulk insert if one fails (eg due to duplicate IDs).
           This makes bulk insert behave similarly to a series of single
           inserts, except that calling <span class="function"><a href="mongodb.lasterror.html" class="function">MongoDB::lastError()</a></span>
@@ -106,8 +106,8 @@
           </p>
          </p></blockquote>
         </li>
-        <li class="listitem"><p class="para"><code class="literal">&quot;fsync&quot;</code></p><p class="para">Boolean, defaults to <strong><code>FALSE</code></strong>. If journaling is enabled, it works exactly like <code class="literal">&quot;j&quot;</code>. If journaling is not enabled, the write operation blocks until it is synced to database files on disk. If <strong><code>TRUE</code></strong>, an acknowledged insert is implied and this option will override setting <code class="literal">&quot;w&quot;</code> to <code class="literal">0</code>.</p><blockquote class="note"><p><strong class="note">Note</strong>: <span class="simpara">If journaling is enabled, users are strongly encouraged to use the <code class="literal">&quot;j&quot;</code> option instead of <code class="literal">&quot;fsync&quot;</code>. Do not use <code class="literal">&quot;fsync&quot;</code> and <code class="literal">&quot;j&quot;</code> simultaneously, as that will result in an error.</span></p></blockquote></li>
-        <li class="listitem"><p class="para"><code class="literal">&quot;j&quot;</code></p><p class="para">Boolean, defaults to <strong><code>FALSE</code></strong>. Forces the write operation to block until it is synced to the journal on disk. If <strong><code>TRUE</code></strong>, an acknowledged write is implied and this option will override setting <code class="literal">&quot;w&quot;</code> to <code class="literal">0</code>.</p><blockquote class="note"><p><strong class="note">Note</strong>: <span class="simpara">If this option is used and journaling is disabled, MongoDB 2.6+ will raise an error and the write will fail; older server versions will simply ignore the option.</span></p></blockquote></li>
+        <li class="listitem"><p class="para"><code class="literal">&quot;fsync&quot;</code></p><p class="para">Boolean, defaults to <strong><code>false</code></strong>. If journaling is enabled, it works exactly like <code class="literal">&quot;j&quot;</code>. If journaling is not enabled, the write operation blocks until it is synced to database files on disk. If <strong><code>true</code></strong>, an acknowledged insert is implied and this option will override setting <code class="literal">&quot;w&quot;</code> to <code class="literal">0</code>.</p><blockquote class="note"><p><strong class="note">Note</strong>: <span class="simpara">If journaling is enabled, users are strongly encouraged to use the <code class="literal">&quot;j&quot;</code> option instead of <code class="literal">&quot;fsync&quot;</code>. Do not use <code class="literal">&quot;fsync&quot;</code> and <code class="literal">&quot;j&quot;</code> simultaneously, as that will result in an error.</span></p></blockquote></li>
+        <li class="listitem"><p class="para"><code class="literal">&quot;j&quot;</code></p><p class="para">Boolean, defaults to <strong><code>false</code></strong>. Forces the write operation to block until it is synced to the journal on disk. If <strong><code>true</code></strong>, an acknowledged write is implied and this option will override setting <code class="literal">&quot;w&quot;</code> to <code class="literal">0</code>.</p><blockquote class="note"><p><strong class="note">Note</strong>: <span class="simpara">If this option is used and journaling is disabled, MongoDB 2.6+ will raise an error and the write will fail; older server versions will simply ignore the option.</span></p></blockquote></li>
         <li class="listitem"><p class="para"><code class="literal">&quot;socketTimeoutMS&quot;</code></p><p class="para">This option specifies the time limit, in milliseconds, for socket communication. If the server does not respond within the timeout period, a <a href="class.mongocursortimeoutexception.html" class="classname">MongoCursorTimeoutException</a> will be thrown and there will be no way to determine if the server actually handled the write or not. A value of <code class="literal">-1</code> may be specified to block indefinitely. The default value for <a href="class.mongoclient.html" class="classname">MongoClient</a> is <code class="literal">30000</code> (30 seconds).</p></li>
         <li class="listitem"><p class="para"><code class="literal">&quot;w&quot;</code></p><p class="para">See <a href="mongo.writeconcerns.html" class="link">Write Concerns</a>. The default value for <a href="class.mongoclient.html" class="classname">MongoClient</a> is <code class="literal">1</code>.</p></li>
         <li class="listitem"><p class="para"><code class="literal">&quot;wTimeoutMS&quot;</code></p><p class="para">This option specifies the time limit, in milliseconds, for <a href="mongo.writeconcerns.html" class="link">write concern</a> acknowledgement. It is only applicable when <code class="literal">&quot;w&quot;</code> is greater than <code class="literal">1</code>, as the timeout pertains to replication. If the write concern is not satisfied within the time limit, a <a href="class.mongocursorexception.html" class="classname">MongoCursorException</a> will be thrown. A value of <code class="literal">0</code> may be specified to block indefinitely. The default value for <a href="class.mongoclient.html" class="classname">MongoClient</a> is <code class="literal">10000</code> (ten seconds).</p></li>
@@ -135,8 +135,8 @@
   <p class="para">
    If the <code class="literal">w</code> parameter is set to acknowledge the write,
    returns an associative array with the status of the inserts (&quot;ok&quot;) and any
-   error that may have occurred (&quot;err&quot;).  Otherwise, returns <strong><code>TRUE</code></strong> if the
-   batch insert was successfully sent, <strong><code>FALSE</code></strong> otherwise.
+   error that may have occurred (&quot;err&quot;).  Otherwise, returns <strong><code>true</code></strong> if the
+   batch insert was successfully sent, <strong><code>false</code></strong> otherwise.
   </p>
  </div>
 
@@ -229,7 +229,7 @@
 
  <div class="refsect1 examples" id="refsect1-mongocollection.batchinsert-examples">
   <h3 class="title">Examples</h3>
-  <div class="example" id="example-1392">
+  <div class="example" id="example-1404">
    <p><strong>Example #1 <span class="function"><strong>MongoCollection::batchInsert()</strong></span> example</strong></p>
    <div class="example-contents"><p>
     Batch insertion is a quick way to add many elements to the database at once
@@ -257,7 +257,7 @@ string(5) &quot;user3&quot;
    </div>
   </div>
 
-  <div class="example" id="example-1393">
+  <div class="example" id="example-1405">
    <p><strong>Example #2 <span class="function"><strong>MongoCollection::batchInsert()</strong></span> example with
    ignoring errors</strong></p>
    <div class="example-contents">

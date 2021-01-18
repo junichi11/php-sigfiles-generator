@@ -190,7 +190,7 @@ namespace {
 		 * @link https://php.net/manual/en/svm.train.php
 		 * @since PECL svm >= 0.1.0
 		 */
-		public function train(array $problem, array $weights = NULL): \SVMModel {}
+		public function train(array $problem, array $weights = null): \SVMModel {}
 	}
 
 	/**
@@ -208,7 +208,7 @@ namespace {
 		 * @link https://php.net/manual/en/svmmodel.construct.php
 		 * @since PECL svm >= 0.1.0
 		 */
-		public function __construct(string $filename = NULL) {}
+		public function __construct(string $filename = null) {}
 
 		/**
 		 * Returns true if the model has probability information

@@ -35,12 +35,12 @@
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>opcache_invalidate</strong></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$filename</code></span>
-   [, <span class="methodparam"><span class="type">bool</span> <code class="parameter">$force</code><span class="initializer"> = <strong><code>FALSE</code></strong></span></span>
-  ] ) : <span class="type">bool</span></div>
+   , <span class="methodparam"><span class="type">bool</span> <code class="parameter">$force</code><span class="initializer"> = <strong><code>false</code></strong></span></span>
+   ) : <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
    This function invalidates a particular script from the opcode cache. If
-   <code class="parameter">force</code> is unset or <strong><code>FALSE</code></strong>, the script will only be
+   <code class="parameter">force</code> is unset or <strong><code>false</code></strong>, the script will only be
    invalidated if the modification time of the script is newer than the cached
    opcodes.
   </p>
@@ -70,7 +70,7 @@
     <dd>
 
      <p class="para">
-      If set to <strong><code>TRUE</code></strong>, the script will be invalidated regardless of whether
+      If set to <strong><code>true</code></strong>, the script will be invalidated regardless of whether
       invalidation is necessary.
      </p>
     </dd>
@@ -84,8 +84,8 @@
  <div class="refsect1 returnvalues" id="refsect1-function.opcache-invalidate-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns <strong><code>TRUE</code></strong> if the opcode cache for <code class="parameter">filename</code> was
-   invalidated or if there was nothing to invalidate, or <strong><code>FALSE</code></strong> if the opcode
+   Returns <strong><code>true</code></strong> if the opcode cache for <code class="parameter">filename</code> was
+   invalidated or if there was nothing to invalidate, or <strong><code>false</code></strong> if the opcode
    cache is disabled.
   </p>
  </div>

@@ -8,7 +8,7 @@ namespace {
 	 * Async and non-blocking hostname to IP lookup
 	 * @param string $hostname <p>The host name.</p>
 	 * @param callable $callback callback ( <code>string</code> <code>$hostname</code> , <code>string</code> <code>$ip</code> ) : <code>mixed</code>   <code>hostname</code>  <p>The host name.</p>   <code>IP</code>  <p>The IP address.</p>
-	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.swoole-async-dns-lookup.php
 	 * @since PECL swoole >= 1.9.0
 	 */
@@ -30,7 +30,7 @@ namespace {
 	 * Read a file asynchronously
 	 * @param string $filename <p>The filename of the file being read.</p>
 	 * @param callable $callback callback ( <code>string</code> <code>$filename</code> , <code>string</code> <code>$content</code> ) : <code>mixed</code>   <code>filename</code>  <p>The name of the file.</p>   <code>content</code>  <p>The content readed from the file.</p>
-	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.swoole-async-readfile.php
 	 * @since PECL swoole >= 1.9.0
 	 */
@@ -51,11 +51,11 @@ namespace {
 	 * @param string $content <p>The content writing to the file.</p>
 	 * @param int $offset <p>The offset.</p>
 	 * @param callable $callback
-	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.swoole-async-write.php
 	 * @since PECL swoole >= 1.9.0
 	 */
-	function swoole_async_write(string $filename, string $content, int $offset = NULL, callable $callback = NULL): bool {}
+	function swoole_async_write(string $filename, string $content, int $offset = null, callable $callback = null): bool {}
 
 	/**
 	 * Write data to a file asynchronously
@@ -63,11 +63,11 @@ namespace {
 	 * @param string $content <p>The content writing to the file.</p>
 	 * @param callable $callback
 	 * @param int $flags
-	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.swoole-async-writefile.php
 	 * @since PECL swoole >= 1.9.0
 	 */
-	function swoole_async_writefile(string $filename, string $content, callable $callback = NULL, int $flags = 0): bool {}
+	function swoole_async_writefile(string $filename, string $content, callable $callback = null, int $flags = 0): bool {}
 
 	/**
 	 * Get the file description which are ready to read/write or error
@@ -107,12 +107,12 @@ namespace {
 	 * @link https://php.net/manual/en/function.swoole-event-add.php
 	 * @since PECL swoole >= 1.9.0
 	 */
-	function swoole_event_add(int $fd, callable $read_callback = NULL, callable $write_callback = NULL, int $events = 0): int {}
+	function swoole_event_add(int $fd, callable $read_callback = null, callable $write_callback = null, int $events = 0): int {}
 
 	/**
 	 * Add callback function to the next event loop
 	 * @param callable $callback
-	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.swoole-event-defer.php
 	 * @since PECL swoole >= 1.9.0
 	 */
@@ -121,7 +121,7 @@ namespace {
 	/**
 	 * Remove all event callback functions of a socket
 	 * @param int $fd
-	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.swoole-event-del.php
 	 * @since PECL swoole >= 1.9.0
 	 */
@@ -145,7 +145,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.swoole-event-set.php
 	 * @since PECL swoole >= 1.9.0
 	 */
-	function swoole_event_set(int $fd, callable $read_callback = NULL, callable $write_callback = NULL, int $events = 0): bool {}
+	function swoole_event_set(int $fd, callable $read_callback = null, callable $write_callback = null, int $events = 0): bool {}
 
 	/**
 	 * Start the event loop
@@ -159,7 +159,7 @@ namespace {
 	 * Write data to a socket
 	 * @param int $fd
 	 * @param string $data
-	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.swoole-event-write.php
 	 * @since PECL swoole >= 1.9.0
 	 */
@@ -200,7 +200,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.swoole-select.php
 	 * @since PECL swoole >= 1.9.0
 	 */
-	function swoole_select(array &$read_array, array &$write_array, array &$error_array, float $timeout = NULL): int {}
+	function swoole_select(array &$read_array, array &$write_array, array &$error_array, float $timeout = null): int {}
 
 	/**
 	 * Set the process name
@@ -231,7 +231,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.swoole-timer-after.php
 	 * @since PECL swoole >= 1.9.0
 	 */
-	function swoole_timer_after(int $ms, callable $callback, mixed $param = NULL): int {}
+	function swoole_timer_after(int $ms, callable $callback, mixed $param = null): int {}
 
 	/**
 	 * Check if a timer callback function is existed
@@ -251,7 +251,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.swoole-timer-tick.php
 	 * @since PECL swoole >= 1.9.0
 	 */
-	function swoole_timer_tick(int $ms, callable $callback, mixed $param = NULL): int {}
+	function swoole_timer_tick(int $ms, callable $callback, mixed $param = null): int {}
 
 	/**
 	 * Get the version of Swoole

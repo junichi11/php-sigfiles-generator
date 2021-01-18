@@ -35,8 +35,8 @@
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>getenv</strong></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$varname</code></span>
-   [, <span class="methodparam"><span class="type">bool</span> <code class="parameter">$local_only</code><span class="initializer"> = <strong><code>FALSE</code></strong></span></span>
-  ] ) : <span class="type">string</span></div>
+   , <span class="methodparam"><span class="type">bool</span> <code class="parameter">$local_only</code><span class="initializer"> = <strong><code>false</code></strong></span></span>
+   ) : <span class="type">string</span></div>
 
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>getenv</strong></span>
@@ -94,7 +94,7 @@
   <h3 class="title">Return Values</h3>
   <p class="para">
    Returns the value of the environment variable
-   <code class="parameter">varname</code>, or <strong><code>FALSE</code></strong> if the environment
+   <code class="parameter">varname</code>, or <strong><code>false</code></strong> if the environment
    variable <code class="parameter">varname</code> does not exist.
    If <code class="parameter">varname</code> is omitted, all environment variables are
    returned as associative <span class="type">array</span>.
@@ -154,7 +154,7 @@
  <div class="refsect1 examples" id="refsect1-function.getenv-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-525">
+   <div class="example" id="example-538">
     <p><strong>Example #1 <span class="function"><strong>getenv()</strong></span> Example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

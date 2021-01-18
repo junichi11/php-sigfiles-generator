@@ -36,9 +36,9 @@
    <span class="methodname"><strong>svn_export</strong></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$frompath</code></span>
    , <span class="methodparam"><span class="type">string</span> <code class="parameter">$topath</code></span>
-   [, <span class="methodparam"><span class="type">bool</span> <code class="parameter">$working_copy</code><span class="initializer"> = <strong><code>TRUE</code></strong></span></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$revision_no</code><span class="initializer"> = -1</span></span>
-  ]] ) : <span class="type">bool</span></div>
+   , <span class="methodparam"><span class="type">bool</span> <code class="parameter">$working_copy</code><span class="initializer"> = <strong><code>true</code></strong></span></span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$revision_no</code><span class="initializer"> = -1</span></span>
+   ) : <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
    Export the contents of either a working copy or repository into a
@@ -83,7 +83,7 @@
      <dd>
 
       <p class="para">
-       If <strong><code>TRUE</code></strong>, it will export uncommitted files from the working copy.
+       If <strong><code>true</code></strong>, it will export uncommitted files from the working copy.
       </p>
      </dd>
 
@@ -98,7 +98,7 @@
  <div class="refsect1 returnvalues" id="refsect1-function.svn-export-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns <strong><code>TRUE</code></strong> on success or <strong><code>FALSE</code></strong> on failure.
+   Returns <strong><code>true</code></strong> on success or <strong><code>false</code></strong> on failure.
   </p>
  </div>
 
@@ -106,7 +106,7 @@
  <div class="refsect1 examples" id="refsect1-function.svn-export-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-5070">
+   <div class="example" id="example-5092">
     <p><strong>Example #1 <span class="function"><strong>svn_export()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

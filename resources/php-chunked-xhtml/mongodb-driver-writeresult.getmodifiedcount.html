@@ -55,13 +55,13 @@
  <div class="refsect1 returnvalues" id="refsect1-mongodb-driver-writeresult.getmodifiedcount-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns the number of existing documents updated, or <strong><code>NULL</code></strong> if the write was
+   Returns the number of existing documents updated, or <strong><code>null</code></strong> if the write was
    not acknowledged.
   </p>
   <p class="para">
    The modified count is not available on versions of MongoDB before 2.6, which
    used the legacy wire protocol version (i.e. OP_UPDATE). If this is the case,
-   the modified count will also be <strong><code>NULL</code></strong>.
+   the modified count will also be <strong><code>null</code></strong>.
   </p>
  </div>
 
@@ -77,7 +77,7 @@
 
  <div class="refsect1 examples" id="refsect1-mongodb-driver-writeresult.getmodifiedcount-examples">
   <h3 class="title">Examples</h3>
-  <div class="example" id="example-1567">
+  <div class="example" id="example-1579">
    <p><strong>Example #1 <span class="function"><strong>MongoDB\Driver\WriteResult::getModifiedCount()</strong></span> example</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

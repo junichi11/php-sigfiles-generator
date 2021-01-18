@@ -35,8 +35,8 @@
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>gmstrftime</strong></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$format</code></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$timestamp</code><span class="initializer"> = time()</span></span>
-  ] ) : <span class="type">string</span></div>
+   , <span class="methodparam"><span class="type"><span class="type">int</span>|<span class="type">null</span></span> <code class="parameter">$timestamp</code><span class="initializer"> = <strong><code>null</code></strong></span></span>
+   ) : <span class="type"><span class="type">string</span>|<span class="type"><span class="type false">false</span></span></span></div>
 
   <p class="para rdfs-comment">
    Behaves the same as <span class="function"><a href="function.strftime.html" class="function">strftime()</a></span> except that the
@@ -72,7 +72,7 @@
 <p class="para">
 The optional <code class="parameter">timestamp</code> parameter is an
 <span class="type">int</span> Unix timestamp that defaults to the current
-local time if a <code class="parameter">timestamp</code> is not given. In other
+local time if <code class="parameter">timestamp</code> is omitted or <strong><code>null</code></strong>. In other
 words, it defaults to the value of <span class="function"><a href="function.time.html" class="function">time()</a></span>.
 </p></dd>
 
@@ -90,6 +90,36 @@ words, it defaults to the value of <span class="function"><a href="function.time
    local time if no timestamp is given.  Month and weekday names and
    other language dependent strings respect the current locale set
    with <span class="function"><a href="function.setlocale.html" class="function">setlocale()</a></span>.
+   On failure, <strong><code>false</code></strong> is returned.
+  </p>
+ </div>
+
+
+ <div class="refsect1 changelog" id="refsect1-function.gmstrftime-changelog">
+  <h3 class="title">Changelog</h3>
+  <p class="para">
+   <table class="doctable informaltable">
+    
+     <thead>
+      <tr>
+       <th>Version</th>
+       <th>Description</th>
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr>
+       <td>8.0.0</td>
+       <td>
+        <code class="parameter">timestamp</code> is nullable now.
+       </td>
+      </tr>
+
+     </tbody>
+    
+   </table>
+
   </p>
  </div>
 
@@ -97,7 +127,7 @@ words, it defaults to the value of <span class="function"><a href="function.time
  <div class="refsect1 examples" id="refsect1-function.gmstrftime-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-2564">
+   <div class="example" id="example-2579">
     <p><strong>Example #1 <span class="function"><strong>gmstrftime()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

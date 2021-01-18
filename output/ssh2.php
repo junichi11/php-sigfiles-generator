@@ -9,7 +9,7 @@ namespace {
 	 * <p>Authenticate over SSH using the ssh agent</p><p><b>Note</b>:  The <b>ssh2_auth_agent()</b> function will only be available when the ssh2 extension is compiled with libssh &gt;= 1.2.3. </p>
 	 * @param resource $session <p>An SSH connection link identifier, obtained from a call to <code>ssh2_connect()</code>.</p>
 	 * @param string $username <p>Remote user name.</p>
-	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.ssh2-auth-agent.php
 	 * @since PECL ssh2 >= 0.12
 	 */
@@ -25,18 +25,18 @@ namespace {
 	 * @param string $privkeyfile
 	 * @param string $passphrase <p>If <code>privkeyfile</code> is encrypted (which it should be), the passphrase must be provided.</p>
 	 * @param string $local_username <p>If <code>local_username</code> is omitted, then the value for <code>username</code> will be used for it.</p>
-	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.ssh2-auth-hostbased-file.php
 	 * @since PECL ssh2 >= 0.9.0
 	 */
-	function ssh2_auth_hostbased_file($session, string $username, string $hostname, string $pubkeyfile, string $privkeyfile, string $passphrase = NULL, string $local_username = NULL): bool {}
+	function ssh2_auth_hostbased_file($session, string $username, string $hostname, string $pubkeyfile, string $privkeyfile, string $passphrase = null, string $local_username = null): bool {}
 
 	/**
 	 * Authenticate as "none"
 	 * <p>Attempt "none" authentication which usually will (and should) fail. As part of the failure, this function will return an array of accepted authentication methods.</p>
 	 * @param resource $session <p>An SSH connection link identifier, obtained from a call to <code>ssh2_connect()</code>.</p>
 	 * @param string $username <p>Remote user name.</p>
-	 * @return mixed <p>Returns <b><code>TRUE</code></b> if the server does accept "none" as an authentication method, or an array of accepted authentication methods on failure.</p>
+	 * @return mixed <p>Returns <b><code>true</code></b> if the server does accept "none" as an authentication method, or an array of accepted authentication methods on failure.</p>
 	 * @link https://php.net/manual/en/function.ssh2-auth-none.php
 	 * @since PECL ssh2 >= 0.9.0
 	 */
@@ -48,7 +48,7 @@ namespace {
 	 * @param resource $session <p>An SSH connection link identifier, obtained from a call to <code>ssh2_connect()</code>.</p>
 	 * @param string $username <p>Remote user name.</p>
 	 * @param string $password <p>Password for <code>username</code></p>
-	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.ssh2-auth-password.php
 	 * @since PECL ssh2 >= 0.9.0
 	 */
@@ -62,11 +62,11 @@ namespace {
 	 * @param string $pubkeyfile <p>The public key file needs to be in OpenSSH's format. It should look something like:</p> <p>ssh-rsa AAAAB3NzaC1yc2EAAA....NX6sqSnHA8= rsa-key-20121110</p>
 	 * @param string $privkeyfile
 	 * @param string $passphrase <p>If <code>privkeyfile</code> is encrypted (which it should be), the <code>passphrase</code> must be provided.</p>
-	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.ssh2-auth-pubkey-file.php
 	 * @since PECL ssh2 >= 0.9.0
 	 */
-	function ssh2_auth_pubkey_file($session, string $username, string $pubkeyfile, string $privkeyfile, string $passphrase = NULL): bool {}
+	function ssh2_auth_pubkey_file($session, string $username, string $pubkeyfile, string $privkeyfile, string $passphrase = null): bool {}
 
 	/**
 	 * Connect to an SSH server
@@ -74,19 +74,19 @@ namespace {
 	 * @param string $host
 	 * @param int $port
 	 * @param array $methods <p><code>methods</code> may be an associative array with up to four parameters as described below.</p> <p></p> <b><code>methods</code> may be an associative array with any or all of the following parameters.</b>   Index Meaning Supported Values&#42;     kex  List of key exchange methods to advertise, comma separated in order of preference.   <code>diffie-hellman-group1-sha1</code>, <code>diffie-hellman-group14-sha1</code>, and <code>diffie-hellman-group-exchange-sha1</code>    hostkey  List of hostkey methods to advertise, comma separated in order of preference.   <code>ssh-rsa</code> and <code>ssh-dss</code>    client_to_server  Associative array containing crypt, compression, and message authentication code (MAC) method preferences for messages sent from client to server.  &nbsp;   server_to_client  Associative array containing crypt, compression, and message authentication code (MAC) method preferences for messages sent from server to client.  &nbsp;    <p>&#42; - Supported Values are dependent on methods supported by underlying library. See libssh2 documentation for additional information.</p> <p></p> <b> <code>client_to_server</code> and <code>server_to_client</code> may be an associative array with any or all of the following parameters. </b>   Index Meaning Supported Values&#42;     crypt List of crypto methods to advertise, comma separated in order of preference.  <code>rijndael-cbc@lysator.liu.se</code>, <code>aes256-cbc</code>, <code>aes192-cbc</code>, <code>aes128-cbc</code>, <code>3des-cbc</code>, <code>blowfish-cbc</code>, <code>cast128-cbc</code>, <code>arcfour</code>, and <code>none&#42;&#42;</code>    comp List of compression methods to advertise, comma separated in order of preference.  <code>zlib</code> and <code>none</code>    mac List of MAC methods to advertise, comma separated in order of preference.  <code>hmac-sha1</code>, <code>hmac-sha1-96</code>, <code>hmac-ripemd160</code>, <code>hmac-ripemd160@openssh.com</code>, and <code>none&#42;&#42;</code>     <p></p><p><b>Note</b>: <b>Crypt and MAC method "<code>none</code>"</b><br></p><p>For security reasons, <code>none</code> is disabled by the underlying libssh2 library unless explicitly enabled during build time by using the appropriate ./configure options. See documentation for the underlying library for more information.</p>
-	 * @param array $callbacks <p><code>callbacks</code> may be an associative array with any or all of the following parameters.</p> <b> Callbacks parameters </b>   Index Meaning Prototype     ignore  Name of function to call when an <b><code>SSH2_MSG_IGNORE</code></b> packet is received  void ignore_cb($message)   debug  Name of function to call when an <b><code>SSH2_MSG_DEBUG</code></b> packet is received  void debug_cb($message, $language, $always_display)   macerror  Name of function to call when a packet is received but the message authentication code failed. If the callback returns <b><code>TRUE</code></b>, the mismatch will be ignored, otherwise the connection will be terminated.  bool macerror_cb($packet)   disconnect  Name of function to call when an <b><code>SSH2_MSG_DISCONNECT</code></b> packet is received  void disconnect_cb($reason, $message, $language)
-	 * @return resource <p>Returns a resource on success, or <b><code>FALSE</code></b> on error.</p>
+	 * @param array $callbacks <p><code>callbacks</code> may be an associative array with any or all of the following parameters.</p> <b> Callbacks parameters </b>   Index Meaning Prototype     ignore  Name of function to call when an <b><code>SSH2_MSG_IGNORE</code></b> packet is received  void ignore_cb($message)   debug  Name of function to call when an <b><code>SSH2_MSG_DEBUG</code></b> packet is received  void debug_cb($message, $language, $always_display)   macerror  Name of function to call when a packet is received but the message authentication code failed. If the callback returns <b><code>true</code></b>, the mismatch will be ignored, otherwise the connection will be terminated.  bool macerror_cb($packet)   disconnect  Name of function to call when an <b><code>SSH2_MSG_DISCONNECT</code></b> packet is received  void disconnect_cb($reason, $message, $language)
+	 * @return resource <p>Returns a resource on success, or <b><code>false</code></b> on error.</p>
 	 * @link https://php.net/manual/en/function.ssh2-connect.php
 	 * @see ssh2_fingerprint(), ssh2_auth_none(), ssh2_auth_password(), ssh2_auth_pubkey_file(), ssh2_disconnect()
 	 * @since PECL ssh2 >= 0.9.0
 	 */
-	function ssh2_connect(string $host, int $port = 22, array $methods = NULL, array $callbacks = NULL) {}
+	function ssh2_connect(string $host, int $port = 22, array $methods = null, array $callbacks = null) {}
 
 	/**
 	 * Close a connection to a remote SSH server
 	 * <p>Close a connection to a remote SSH server.</p>
 	 * @param resource $session <p>An SSH connection link identifier, obtained from a call to <code>ssh2_connect()</code>.</p>
-	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.ssh2-disconnect.php
 	 * @see ssh2_connect()
 	 * @since PECL ssh2 >= 1.0
@@ -103,12 +103,12 @@ namespace {
 	 * @param int $width <p>Width of the virtual terminal.</p>
 	 * @param int $height <p>Height of the virtual terminal.</p>
 	 * @param int $width_height_type <p><code>width_height_type</code> should be one of <b><code>SSH2_TERM_UNIT_CHARS</code></b> or <b><code>SSH2_TERM_UNIT_PIXELS</code></b>.</p>
-	 * @return resource|false <p>Returns a stream on success or <b><code>FALSE</code></b> on failure.</p>
+	 * @return resource|false <p>Returns a stream on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.ssh2-exec.php
 	 * @see ssh2_connect(), ssh2_shell(), ssh2_tunnel()
 	 * @since PECL ssh2 >= 0.9.0
 	 */
-	function ssh2_exec($session, string $command, string $pty = NULL, array $env = NULL, int $width = 80, int $height = 25, int $width_height_type = SSH2_TERM_UNIT_CHARS) {}
+	function ssh2_exec($session, string $command, string $pty = null, array $env = null, int $width = 80, int $height = 25, int $width_height_type = SSH2_TERM_UNIT_CHARS) {}
 
 	/**
 	 * Fetch an extended data stream
@@ -134,6 +134,30 @@ namespace {
 	function ssh2_fingerprint($session, int $flags = SSH2_FINGERPRINT_MD5 | SSH2_FINGERPRINT_HEX): string {}
 
 	/**
+	 * Accept a connection created by a listener
+	 * <p>Accepts a connection created by a listener.</p><p>This function is currently not documented; only its argument list is available.</p>
+	 * @param resource $listener
+	 * @return resource|false <p>Returns a stream resource, or <b><code>false</code></b> on failure.</p>
+	 * @link https://php.net/manual/en/function.ssh2-forward-accept.php
+	 * @since PECL ssh2 >= 0.9.0
+	 */
+	function ssh2_forward_accept($listener) {}
+
+	/**
+	 * Bind a port on the remote server and listen for connections
+	 * <p>Binds a port on the remote server and listen for connections.</p><p>This function is currently not documented; only its argument list is available.</p>
+	 * @param resource $session <p>An SSH Session resource, obtained from a call to <code>ssh2_connect()</code>.</p>
+	 * @param int $port <p>The port of the remote server.</p>
+	 * @param string $host
+	 * @param int $max_connections
+	 * @return resource|false <p>Returns an SSH2 Listener, or <b><code>false</code></b> on failure.</p>
+	 * @link https://php.net/manual/en/function.ssh2-forward-listen.php
+	 * @see ssh2_forward_accept()
+	 * @since PECL ssh2 >= 0.9.0
+	 */
+	function ssh2_forward_listen($session, int $port, string $host = null, int $max_connections = 16) {}
+
+	/**
 	 * Return list of negotiated methods
 	 * <p>Returns list of negotiated methods.</p>
 	 * @param resource $session <p>An SSH connection link identifier, obtained from a call to <code>ssh2_connect()</code>.</p>
@@ -145,6 +169,17 @@ namespace {
 	function ssh2_methods_negotiated($session): array {}
 
 	/**
+	 * Poll the channels/listeners/streams for events
+	 * <p>Polls the channels/listeners/streams for events, and returns the number of descriptors which returned non-zero revents.</p><p>This function is currently not documented; only its argument list is available.</p>
+	 * @param array $desc <p>An indexed array of subarrays with the keys <code>'resource'</code> and <code>'events'</code>. The value of the resource is a (channel) stream or an SSH2 Listener resource. The value of the event are SSH2_POLL&#42; flags bitwise ORed together. Each subarray will be populated with an <code>'revents'</code> element on return, whose values are SSH2_POLL&#42; flags bitwise ORed together of the events that occurred.</p>
+	 * @param int $timeout <p>The timeout in seconds.</p>
+	 * @return int <p>Returns the number of descriptors which returned non-zero revents.</p>
+	 * @link https://php.net/manual/en/function.ssh2-poll.php
+	 * @since PECL ssh2 >= 0.9.0
+	 */
+	function ssh2_poll(array &$desc, int $timeout = 30): int {}
+
+	/**
 	 * Add an authorized publickey
 	 * <p><b>Note</b>: The public key subsystem is used for managing public keys on a server to which the client is <i>already</i> authenticated. To authenticate to a remote system using public key authentication, use the <code>ssh2_auth_pubkey_file()</code> function instead.</p>
 	 * @param resource $pkey <p>Publickey Subsystem resource created by <code>ssh2_publickey_init()</code>.</p>
@@ -152,18 +187,18 @@ namespace {
 	 * @param string $blob <p>Publickey blob as raw binary data</p>
 	 * @param bool $overwrite <p>If the specified key already exists, should it be overwritten&#63;</p>
 	 * @param array $attributes <p>Associative array of attributes to assign to this public key. Refer to ietf-secsh-publickey-subsystem for a list of supported attributes. To mark an attribute as mandatory, precede its name with an asterisk. If the server is unable to support an attribute marked mandatory, it will abort the add process.</p>
-	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.ssh2-publickey-add.php
 	 * @see ssh2_publickey_init(), ssh2_publickey_remove(), ssh2_publickey_list()
 	 * @since PECL ssh2 >= 0.10
 	 */
-	function ssh2_publickey_add($pkey, string $algoname, string $blob, bool $overwrite = FALSE, array $attributes = NULL): bool {}
+	function ssh2_publickey_add($pkey, string $algoname, string $blob, bool $overwrite = false, array $attributes = null): bool {}
 
 	/**
 	 * Initialize Publickey subsystem
-	 * <p>Request the Publickey subsystem from an already connected SSH2 server.</p><p>The publickey subsystem allows an already connected and authenticated client to manage the list of authorized public keys stored on the target server in an implementation agnostic manner. If the remote server does not support the publickey subsystem, the <b>ssh2_publickey_init()</b> function will return <b><code>FALSE</code></b>.</p>
+	 * <p>Request the Publickey subsystem from an already connected SSH2 server.</p><p>The publickey subsystem allows an already connected and authenticated client to manage the list of authorized public keys stored on the target server in an implementation agnostic manner. If the remote server does not support the publickey subsystem, the <b>ssh2_publickey_init()</b> function will return <b><code>false</code></b>.</p>
 	 * @param resource $session
-	 * @return resource|false <p>Returns an <code>SSH2 Publickey Subsystem</code> resource for use with all other ssh2_publickey_&#42;() methods or <b><code>FALSE</code></b> on failure.</p>
+	 * @return resource|false <p>Returns an <code>SSH2 Publickey Subsystem</code> resource for use with all other ssh2_publickey_&#42;() methods or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.ssh2-publickey-init.php
 	 * @see ssh2_publickey_add(), ssh2_publickey_remove(), ssh2_publickey_list()
 	 * @since PECL ssh2 >= 0.10
@@ -187,7 +222,7 @@ namespace {
 	 * @param resource $pkey <p>Publickey Subsystem Resource</p>
 	 * @param string $algoname <p>Publickey algorithm (e.g.): ssh-dss, ssh-rsa</p>
 	 * @param string $blob <p>Publickey blob as raw binary data</p>
-	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.ssh2-publickey-remove.php
 	 * @see ssh2_publickey_init(), ssh2_publickey_add(), ssh2_publickey_list()
 	 * @since PECL ssh2 >= 0.10
@@ -200,7 +235,7 @@ namespace {
 	 * @param resource $session <p>An SSH connection link identifier, obtained from a call to <code>ssh2_connect()</code>.</p>
 	 * @param string $remote_file <p>Path to the remote file.</p>
 	 * @param string $local_file <p>Path to the local file.</p>
-	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.ssh2-scp-recv.php
 	 * @see ssh2_scp_send(), copy()
 	 * @since PECL ssh2 >= 0.9.0
@@ -214,7 +249,7 @@ namespace {
 	 * @param string $local_file <p>Path to the local file.</p>
 	 * @param string $remote_file <p>Path to the remote file.</p>
 	 * @param int $create_mode <p>The file will be created with the mode specified by <code>create_mode</code>.</p>
-	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.ssh2-scp-send.php
 	 * @see ssh2_scp_recv(), copy()
 	 * @since PECL ssh2 >= 0.9.0
@@ -225,7 +260,7 @@ namespace {
 	 * Initialize SFTP subsystem
 	 * <p>Request the SFTP subsystem from an already connected SSH2 server.</p>
 	 * @param resource $session <p>An SSH connection link identifier, obtained from a call to <code>ssh2_connect()</code>.</p>
-	 * @return resource|false <p>This method returns an <code>SSH2 SFTP</code> resource for use with all other ssh2_sftp_&#42;() methods and the ssh2.sftp:// fopen wrapper, or <b><code>FALSE</code></b> on failure.</p>
+	 * @return resource|false <p>This method returns an <code>SSH2 SFTP</code> resource for use with all other ssh2_sftp_&#42;() methods and the ssh2.sftp:// fopen wrapper, or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.ssh2-sftp.php
 	 * @see ssh2_scp_recv(), ssh2_scp_send()
 	 * @since PECL ssh2 >= 0.9.0
@@ -238,7 +273,7 @@ namespace {
 	 * @param resource $sftp <p>An SSH2 SFTP resource opened by <code>ssh2_sftp()</code>.</p>
 	 * @param string $filename <p>Path to the file.</p>
 	 * @param int $mode <p>Permissions on the file. See the <code>chmod()</code> for more details on this parameter.</p>
-	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.ssh2-sftp-chmod.php
 	 * @see chmod(), ssh2_sftp(), ssh2_connect()
 	 * @since PECL ssh2 >= 0.12
@@ -263,13 +298,13 @@ namespace {
 	 * @param resource $sftp <p>An SSH2 SFTP resource opened by <code>ssh2_sftp()</code>.</p>
 	 * @param string $dirname <p>Path of the new directory.</p>
 	 * @param int $mode <p>Permissions on the new directory.</p>
-	 * @param bool $recursive <p>If <code>recursive</code> is <b><code>TRUE</code></b> any parent directories required for <code>dirname</code> will be automatically created as well.</p>
-	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+	 * @param bool $recursive <p>If <code>recursive</code> is <b><code>true</code></b> any parent directories required for <code>dirname</code> will be automatically created as well.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.ssh2-sftp-mkdir.php
 	 * @see mkdir(), ssh2_sftp_rmdir()
 	 * @since PECL ssh2 >= 0.9.0
 	 */
-	function ssh2_sftp_mkdir($sftp, string $dirname, int $mode = 0777, bool $recursive = FALSE): bool {}
+	function ssh2_sftp_mkdir($sftp, string $dirname, int $mode = 0777, bool $recursive = false): bool {}
 
 	/**
 	 * Return the target of a symbolic link
@@ -301,7 +336,7 @@ namespace {
 	 * @param resource $sftp <p>An SSH2 SFTP resource opened by <code>ssh2_sftp()</code>.</p>
 	 * @param string $from <p>The current file that is being renamed.</p>
 	 * @param string $to <p>The new file name that replaces <code>from</code>.</p>
-	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.ssh2-sftp-rename.php
 	 * @see rename()
 	 * @since PECL ssh2 >= 0.9.0
@@ -313,7 +348,7 @@ namespace {
 	 * <p>Removes a directory from the remote file server.</p><p>This function is similar to using <code>rmdir()</code> with the ssh2.sftp:// wrapper.</p>
 	 * @param resource $sftp <p>An SSH2 SFTP resource opened by <code>ssh2_sftp()</code>.</p>
 	 * @param string $dirname
-	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.ssh2-sftp-rmdir.php
 	 * @see rmdir(), ssh2_sftp_mkdir()
 	 * @since PECL ssh2 >= 0.9.0
@@ -338,7 +373,7 @@ namespace {
 	 * @param resource $sftp <p>An SSH2 SFTP resource opened by <code>ssh2_sftp()</code>.</p>
 	 * @param string $target <p>Target of the symbolic link.</p>
 	 * @param string $link
-	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.ssh2-sftp-symlink.php
 	 * @see ssh2_sftp_readlink(), symlink()
 	 * @since PECL ssh2 >= 0.9.0
@@ -350,7 +385,7 @@ namespace {
 	 * <p>Deletes a file on the remote filesystem.</p>
 	 * @param resource $sftp <p>An SSH2 SFTP resource opened by <code>ssh2_sftp()</code>.</p>
 	 * @param string $filename
-	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.ssh2-sftp-unlink.php
 	 * @see unlink()
 	 * @since PECL ssh2 >= 0.9.0
@@ -371,7 +406,7 @@ namespace {
 	 * @see ssh2_exec(), ssh2_tunnel(), ssh2_fetch_stream()
 	 * @since PECL ssh2 >= 0.9.0
 	 */
-	function ssh2_shell($session, string $term_type = "vanilla", array $env = NULL, int $width = 80, int $height = 25, int $width_height_type = SSH2_TERM_UNIT_CHARS) {}
+	function ssh2_shell($session, string $term_type = "vanilla", array $env = null, int $width = 80, int $height = 25, int $width_height_type = SSH2_TERM_UNIT_CHARS) {}
 
 	/**
 	 * Open a tunnel through a remote server
@@ -425,6 +460,24 @@ namespace {
 	 * Flag to <code>ssh2_fingerprint()</code> requesting hostkey fingerprint as an SHA1 hash.
 	 */
 	define('SSH2_FINGERPRINT_SHA1', null);
+
+	define('SSH2_POLL_CHANNEL_CLOSED', null);
+
+	define('SSH2_POLL_LISTENER_CLOSED', null);
+
+	define('SSH2_POLL_SESSION_CLOSED', null);
+
+	define('SSH2_POLLERR', null);
+
+	define('SSH2_POLLEXT', null);
+
+	define('SSH2_POLLHUP', null);
+
+	define('SSH2_POLLIN', null);
+
+	define('SSH2_POLLNVAL', null);
+
+	define('SSH2_POLLOUT', null);
 
 	/**
 	 * Flag to <code>ssh2_fetch_stream()</code> requesting STDERR subchannel.

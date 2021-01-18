@@ -36,8 +36,8 @@
    <span class="methodname"><strong>fbsql_db_query</strong></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$database</code></span>
    , <span class="methodparam"><span class="type">string</span> <code class="parameter">$query</code></span>
-   [, <span class="methodparam"><span class="type">resource</span> <code class="parameter">$link_identifier</code></span>
-  ] ) : <span class="type">resource</span></div>
+   , <span class="methodparam"><span class="type">resource</span> <code class="parameter">$link_identifier</code> = ?</span>
+   ) : <span class="type">resource</span></div>
 
   <p class="para rdfs-comment">
    Selects a database and executes a query on it. 
@@ -101,7 +101,7 @@ such link is found it will try to create one as if
   <h3 class="title">Return Values</h3>
   <p class="para">
    Returns a positive FrontBase result identifier to the query result, or
-   <strong><code>FALSE</code></strong> on error.
+   <strong><code>false</code></strong> on error.
   </p>
  </div>
 

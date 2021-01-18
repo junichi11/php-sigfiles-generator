@@ -65,7 +65,7 @@
    code for an operation performed on a particular statement handle.
   </p>
   <p class="para">
-   Returns <strong><code>NULL</code></strong> if no operation has been run on the database handle.
+   Returns <strong><code>null</code></strong> if no operation has been run on the database handle.
   </p>
  </div>
 
@@ -73,7 +73,7 @@
  <div class="refsect1 examples" id="refsect1-pdo.errorcode-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-997"><p><strong>Example #1 Retrieving an SQLSTATE code</strong></p>
+   <div class="example" id="example-1010"><p><strong>Example #1 Retrieving an SQLSTATE code</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
 <span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">/*&nbsp;Provoke&nbsp;an&nbsp;error&nbsp;--&nbsp;the&nbsp;BONES&nbsp;table&nbsp;does&nbsp;not&nbsp;exist&nbsp;*/<br /></span><span style="color: #0000BB">$dbh</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">exec</span><span style="color: #007700">(</span><span style="color: #DD0000">"INSERT&nbsp;INTO&nbsp;bones(skull)&nbsp;VALUES&nbsp;('lucy')"</span><span style="color: #007700">);<br /><br />echo&nbsp;</span><span style="color: #DD0000">"\nPDO::errorCode():&nbsp;"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$dbh</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">errorCode</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">?&gt;</span>

@@ -22,7 +22,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.pcntl-async-signals.php
 	 * @since PHP 7 >= 7.1.0
 	 */
-	function pcntl_async_signals(bool $on = NULL): bool {}
+	function pcntl_async_signals(bool $on = null): bool {}
 
 	/**
 	 * Alias of pcntl_get_last_error()
@@ -39,11 +39,11 @@ namespace {
 	 * @param string $path <p><code>path</code> must be the path to a binary executable or a script with a valid path pointing to an executable in the shebang ( #!/usr/local/bin/perl for example) as the first line. See your system's man execve(2) page for additional information.</p>
 	 * @param array $args <p><code>args</code> is an array of argument strings passed to the program.</p>
 	 * @param array $envs <p><code>envs</code> is an array of strings which are passed as environment to the program. The array is in the format of name =&gt; value, the key being the name of the environmental variable and the value being the value of that variable.</p>
-	 * @return void <p>Returns <b><code>NULL</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+	 * @return void <p>Returns <b><code>null</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.pcntl-exec.php
 	 * @since PHP 4 >= 4.2.0, PHP 5, PHP 7
 	 */
-	function pcntl_exec(string $path, array $args = NULL, array $envs = NULL): void {}
+	function pcntl_exec(string $path, array $args = null, array $envs = null): void {}
 
 	/**
 	 * Forks the currently running process
@@ -70,7 +70,7 @@ namespace {
 	 * <p><b>pcntl_getpriority()</b> gets the priority of <code>pid</code>. Because priority levels can differ between system types and kernel versions, please see your system's getpriority(2) man page for specific details.</p>
 	 * @param int $pid <p>If not specified, the pid of the current process is used.</p>
 	 * @param int $process_identifier <p>One of <b><code>PRIO_PGRP</code></b>, <b><code>PRIO_USER</code></b> or <b><code>PRIO_PROCESS</code></b>.</p>
-	 * @return int <p><b>pcntl_getpriority()</b> returns the priority of the process or <b><code>FALSE</code></b> on error. A lower numerical value causes more favorable scheduling.</p><p><b>Warning</b></p><p>This function may return Boolean <b><code>FALSE</code></b>, but may also return a non-Boolean value which evaluates to <b><code>FALSE</code></b>. Please read the section on Booleans for more information. Use the === operator for testing the return value of this function.</p>
+	 * @return int <p><b>pcntl_getpriority()</b> returns the priority of the process or <b><code>false</code></b> on error. A lower numerical value causes more favorable scheduling.</p><p><b>Warning</b></p><p>This function may return Boolean <b><code>false</code></b>, but may also return a non-Boolean value which evaluates to <b><code>false</code></b>. Please read the section on Booleans for more information. Use the === operator for testing the return value of this function.</p>
 	 * @link https://php.net/manual/en/function.pcntl-getpriority.php
 	 * @see pcntl_setpriority()
 	 * @since PHP 5, PHP 7
@@ -83,7 +83,7 @@ namespace {
 	 * @param int $priority <p><code>priority</code> is generally a value in the range <code>-20</code> to <code>20</code>. The default priority is <code>0</code> while a lower numerical value causes more favorable scheduling. Because priority levels can differ between system types and kernel versions, please see your system's setpriority(2) man page for specific details.</p>
 	 * @param int $pid <p>If not specified, the pid of the current process is used.</p>
 	 * @param int $process_identifier <p>One of <b><code>PRIO_PGRP</code></b>, <b><code>PRIO_USER</code></b> or <b><code>PRIO_PROCESS</code></b>.</p>
-	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.pcntl-setpriority.php
 	 * @see pcntl_getpriority()
 	 * @since PHP 5, PHP 7
@@ -94,19 +94,19 @@ namespace {
 	 * Installs a signal handler
 	 * <p>The <b>pcntl_signal()</b> function installs a new signal handler or replaces the current signal handler for the signal indicated by <code>signo</code>.</p>
 	 * @param int $signo <p>The signal number.</p>
-	 * @param callable|int $handler <p>The signal handler. This may be either a <code>callable</code>, which will be invoked to handle the signal, or either of the two global constants <b><code>SIG_IGN</code></b> or <b><code>SIG_DFL</code></b>, which will ignore the signal or restore the default signal handler respectively.</p> <p>If a <code>callable</code> is given, it must implement the following signature:</p> <p></p> handler ( <code>int</code> <code>$signo</code> , <code>mixed</code> <code>$signinfo</code> ) : void   <code>signo</code>   The signal being handled.    <code>siginfo</code>   If operating systems supports siginfo_t structures, this will be an array of signal information dependent on the signal.    <p><b>Note</b>:</p><p>Note that when you set a handler to an object method, that object's reference count is increased which makes it persist until you either change the handler to something else, or your script ends.</p>
+	 * @param callable|int $handler <p>The signal handler. This may be either a <code>callable</code>, which will be invoked to handle the signal, or either of the two global constants <b><code>SIG_IGN</code></b> or <b><code>SIG_DFL</code></b>, which will ignore the signal or restore the default signal handler respectively.</p> <p>If a <code>callable</code> is given, it must implement the following signature:</p> <p></p> handler ( <code>int</code> <code>$signo</code> , <code>mixed</code> <code>$siginfo</code> ) : void   <code>signo</code>   The signal being handled.    <code>siginfo</code>   If operating systems supports siginfo_t structures, this will be an array of signal information dependent on the signal.    <p><b>Note</b>:</p><p>Note that when you set a handler to an object method, that object's reference count is increased which makes it persist until you either change the handler to something else, or your script ends.</p>
 	 * @param bool $restart_syscalls <p>Specifies whether system call restarting should be used when this signal arrives.</p>
-	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.pcntl-signal.php
 	 * @see pcntl_fork(), pcntl_waitpid()
 	 * @since PHP 4 >= 4.1.0, PHP 5, PHP 7
 	 */
-	function pcntl_signal(int $signo, callable|int $handler, bool $restart_syscalls = TRUE): bool {}
+	function pcntl_signal(int $signo, callable|int $handler, bool $restart_syscalls = true): bool {}
 
 	/**
 	 * Calls signal handlers for pending signals
 	 * <p>The <b>pcntl_signal_dispatch()</b> function calls the signal handlers installed by <code>pcntl_signal()</code> for each pending signal.</p>
-	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.pcntl-signal-dispatch.php
 	 * @see pcntl_signal(), pcntl_sigprocmask(), pcntl_sigwaitinfo(), pcntl_sigtimedwait()
 	 * @since PHP 5 >= 5.3.0, PHP 7
@@ -130,12 +130,12 @@ namespace {
 	 * @param int $how <p>Sets the behavior of <b>pcntl_sigprocmask()</b>. Possible values:</p><ul> <li><b><code>SIG_BLOCK</code></b>: Add the signals to the currently blocked signals.</li> <li><b><code>SIG_UNBLOCK</code></b>: Remove the signals from the currently blocked signals.</li> <li><b><code>SIG_SETMASK</code></b>: Replace the currently blocked signals by the given list of signals.</li> </ul>
 	 * @param array $set <p>List of signals.</p>
 	 * @param array $oldset <p>The <code>oldset</code> parameter is set to an array containing the list of the previously blocked signals.</p>
-	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.pcntl-sigprocmask.php
 	 * @see pcntl_sigwaitinfo(), pcntl_sigtimedwait()
 	 * @since PHP 5 >= 5.3.0, PHP 7
 	 */
-	function pcntl_sigprocmask(int $how, array $set, array &$oldset = NULL): bool {}
+	function pcntl_sigprocmask(int $how, array $set, array &$oldset = null): bool {}
 
 	/**
 	 * Waits for signals, with a timeout
@@ -149,7 +149,7 @@ namespace {
 	 * @see pcntl_sigprocmask(), pcntl_sigwaitinfo()
 	 * @since PHP 5 >= 5.3.0, PHP 7
 	 */
-	function pcntl_sigtimedwait(array $set, array &$siginfo = NULL, int $seconds = 0, int $nanoseconds = 0): int {}
+	function pcntl_sigtimedwait(array $set, array &$siginfo = null, int $seconds = 0, int $nanoseconds = 0): int {}
 
 	/**
 	 * Waits for signals
@@ -161,13 +161,13 @@ namespace {
 	 * @see pcntl_sigprocmask(), pcntl_sigtimedwait()
 	 * @since PHP 5 >= 5.3.0, PHP 7
 	 */
-	function pcntl_sigwaitinfo(array $set, array &$siginfo = NULL): int {}
+	function pcntl_sigwaitinfo(array $set, array &$siginfo = null): int {}
 
 	/**
 	 * Retrieve the system error message associated with the given errno
 	 * <p></p><p>This function is currently not documented; only its argument list is available.</p>
 	 * @param int $errno
-	 * @return string|false <p>Returns error description on success or <b><code>FALSE</code></b> on failure.</p>
+	 * @return string|false <p>Returns error description on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.pcntl-strerror.php
 	 * @see pcntl_get_last_error()
 	 * @since PHP 5 >= 5.3.4, PHP 7
@@ -185,7 +185,7 @@ namespace {
 	 * @see pcntl_fork(), pcntl_signal(), pcntl_wifexited(), pcntl_wifstopped(), pcntl_wifsignaled(), pcntl_wexitstatus(), pcntl_wtermsig(), pcntl_wstopsig(), pcntl_waitpid()
 	 * @since PHP 5, PHP 7
 	 */
-	function pcntl_wait(int &$status, int $options = 0, array &$rusage = NULL): int {}
+	function pcntl_wait(int &$status, int $options = 0, array &$rusage = null): int {}
 
 	/**
 	 * Waits on or returns the status of a forked child
@@ -199,11 +199,11 @@ namespace {
 	 * @see pcntl_fork(), pcntl_signal(), pcntl_wifexited(), pcntl_wifstopped(), pcntl_wifsignaled(), pcntl_wexitstatus(), pcntl_wtermsig(), pcntl_wstopsig()
 	 * @since PHP 4 >= 4.1.0, PHP 5, PHP 7
 	 */
-	function pcntl_waitpid(int $pid, int &$status, int $options = 0, array &$rusage = NULL): int {}
+	function pcntl_waitpid(int $pid, int &$status, int $options = 0, array &$rusage = null): int {}
 
 	/**
 	 * Returns the return code of a terminated child
-	 * <p>Returns the return code of a terminated child. This function is only useful if <code>pcntl_wifexited()</code> returned <b><code>TRUE</code></b>.</p>
+	 * <p>Returns the return code of a terminated child. This function is only useful if <code>pcntl_wifexited()</code> returned <b><code>true</code></b>.</p>
 	 * @param int $status <p>The <code>status</code> parameter is the status parameter supplied to a successful call to <code>pcntl_waitpid()</code>.</p>
 	 * @return int <p>Returns the return code, as an integer.</p>
 	 * @link https://php.net/manual/en/function.pcntl-wexitstatus.php
@@ -216,7 +216,7 @@ namespace {
 	 * Checks if status code represents a normal exit
 	 * <p>Checks whether the child status code represents a normal exit.</p>
 	 * @param int $status <p>The <code>status</code> parameter is the status parameter supplied to a successful call to <code>pcntl_waitpid()</code>.</p>
-	 * @return bool <p>Returns <b><code>TRUE</code></b> if the child status code represents a normal exit, <b><code>FALSE</code></b> otherwise.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> if the child status code represents a normal exit, <b><code>false</code></b> otherwise.</p>
 	 * @link https://php.net/manual/en/function.pcntl-wifexited.php
 	 * @see pcntl_waitpid(), pcntl_wexitstatus()
 	 * @since PHP 4 >= 4.1.0, PHP 5, PHP 7
@@ -227,7 +227,7 @@ namespace {
 	 * Checks whether the status code represents a termination due to a signal
 	 * <p>Checks whether the child process exited because of a signal which was not caught.</p>
 	 * @param int $status <p>The <code>status</code> parameter is the status parameter supplied to a successful call to <code>pcntl_waitpid()</code>.</p>
-	 * @return bool <p>Returns <b><code>TRUE</code></b> if the child process exited because of a signal which was not caught, <b><code>FALSE</code></b> otherwise.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> if the child process exited because of a signal which was not caught, <b><code>false</code></b> otherwise.</p>
 	 * @link https://php.net/manual/en/function.pcntl-wifsignaled.php
 	 * @see pcntl_waitpid(), pcntl_signal()
 	 * @since PHP 4 >= 4.1.0, PHP 5, PHP 7
@@ -238,7 +238,7 @@ namespace {
 	 * Checks whether the child process is currently stopped
 	 * <p>Checks whether the child process which caused the return is currently stopped; this is only possible if the call to <code>pcntl_waitpid()</code> was done using the option <code>WUNTRACED</code>.</p>
 	 * @param int $status <p>The <code>status</code> parameter is the status parameter supplied to a successful call to <code>pcntl_waitpid()</code>.</p>
-	 * @return bool <p>Returns <b><code>TRUE</code></b> if the child process which caused the return is currently stopped, <b><code>FALSE</code></b> otherwise.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> if the child process which caused the return is currently stopped, <b><code>false</code></b> otherwise.</p>
 	 * @link https://php.net/manual/en/function.pcntl-wifstopped.php
 	 * @see pcntl_waitpid()
 	 * @since PHP 4 >= 4.1.0, PHP 5, PHP 7
@@ -247,7 +247,7 @@ namespace {
 
 	/**
 	 * Returns the signal which caused the child to stop
-	 * <p>Returns the number of the signal which caused the child to stop. This function is only useful if <code>pcntl_wifstopped()</code> returned <b><code>TRUE</code></b>.</p>
+	 * <p>Returns the number of the signal which caused the child to stop. This function is only useful if <code>pcntl_wifstopped()</code> returned <b><code>true</code></b>.</p>
 	 * @param int $status <p>The <code>status</code> parameter is the status parameter supplied to a successful call to <code>pcntl_waitpid()</code>.</p>
 	 * @return int <p>Returns the signal number.</p>
 	 * @link https://php.net/manual/en/function.pcntl-wstopsig.php
@@ -258,7 +258,7 @@ namespace {
 
 	/**
 	 * Returns the signal which caused the child to terminate
-	 * <p>Returns the number of the signal that caused the child process to terminate. This function is only useful if <code>pcntl_wifsignaled()</code> returned <b><code>TRUE</code></b>.</p>
+	 * <p>Returns the number of the signal that caused the child process to terminate. This function is only useful if <code>pcntl_wifsignaled()</code> returned <b><code>true</code></b>.</p>
 	 * @param int $status <p>The <code>status</code> parameter is the status parameter supplied to a successful call to <code>pcntl_waitpid()</code>.</p>
 	 * @return int <p>Returns the signal number, as an integer.</p>
 	 * @link https://php.net/manual/en/function.pcntl-wtermsig.php

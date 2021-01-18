@@ -36,9 +36,9 @@
    <span class="methodname"><strong>iconv_substr</strong></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$string</code></span>
    , <span class="methodparam"><span class="type">int</span> <code class="parameter">$offset</code></span>
-   [, <span class="methodparam"><span class="type"><span class="type">int</span>|<span class="type">null</span></span> <code class="parameter">$length</code><span class="initializer"> = <strong><code>NULL</code></strong></span></span>
-   [, <span class="methodparam"><span class="type"><span class="type">string</span>|<span class="type">null</span></span> <code class="parameter">$encoding</code><span class="initializer"> = <strong><code>NULL</code></strong></span></span>
-  ]] ) : <span class="type"><span class="type">string</span>|<span class="type"><span class="type false">false</span></span></span></div>
+   , <span class="methodparam"><span class="type"><span class="type">int</span>|<span class="type">null</span></span> <code class="parameter">$length</code><span class="initializer"> = <strong><code>null</code></strong></span></span>
+   , <span class="methodparam"><span class="type"><span class="type">string</span>|<span class="type">null</span></span> <code class="parameter">$encoding</code><span class="initializer"> = <strong><code>null</code></strong></span></span>
+   ) : <span class="type"><span class="type">string</span>|<span class="type"><span class="type false">false</span></span></span></div>
 
   <p class="para rdfs-comment">
    Cuts a portion of <code class="parameter">string</code> specified by the 
@@ -116,7 +116,7 @@
      <dd>
 
       <p class="para">
-       If <code class="parameter">encoding</code> parameter is omitted or <strong><code>NULL</code></strong>,
+       If <code class="parameter">encoding</code> parameter is omitted or <strong><code>null</code></strong>,
        <code class="parameter">string</code> are assumed to be encoded in
        <a href="iconv.configuration.html" class="link">iconv.internal_encoding</a>.
       </p>
@@ -144,7 +144,7 @@
   </p>
   <p class="para">
    If <code class="parameter">string</code> is shorter than <code class="parameter">offset</code>
-   characters long, <strong><code>FALSE</code></strong> will be returned.
+   characters long, <strong><code>false</code></strong> will be returned.
    If <code class="parameter">string</code> is exactly <code class="parameter">offset</code>
    characters long, an empty string will be returned.
   </p>
@@ -177,7 +177,7 @@
        <td>
         If <code class="parameter">string</code> is equal to
         <code class="parameter">offset</code> characters long, an empty string will be
-        returned. Prior to this version, <strong><code>FALSE</code></strong> was returned in this case.
+        returned. Prior to this version, <strong><code>false</code></strong> was returned in this case.
        </td>
       </tr>
 

@@ -64,7 +64,7 @@
     generator and pauses execution of the generator function.
    </p>
 
-   <div class="example" id="example-310">
+   <div class="example" id="example-318">
     <p><strong>Example #1 A simple example of yielding values</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -93,7 +93,7 @@
    <div class="caution"><strong class="caution">Caution</strong>
     <p class="para">
      The value that will be assigned to <var class="varname">$data</var> is the value
-     passed to <span class="methodname"><a href="generator.send.html" class="methodname">Generator::send()</a></span>, or <strong><code>NULL</code></strong> if 
+     passed to <span class="methodname"><a href="generator.send.html" class="methodname">Generator::send()</a></span>, or <strong><code>null</code></strong> if 
      <span class="methodname"><a href="generator.next.html" class="methodname">Generator::next()</a></span> is called instead.
     </p>
    </div>
@@ -112,7 +112,7 @@
      define an associative array, as shown below.
     </p>
 
-    <div class="example" id="example-311">
+    <div class="example" id="example-319">
      <p><strong>Example #2 Yielding a key/value pair</strong></p>
      <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -159,12 +159,12 @@ $data&nbsp;=&nbsp;(yield&nbsp;$key&nbsp;=&gt;&nbsp;$value);</span>
     <h4 class="title">Yielding null values</h4>
 
     <p class="para">
-     Yield can be called without an argument to yield a <strong><code>NULL</code></strong> value with an
+     Yield can be called without an argument to yield a <strong><code>null</code></strong> value with an
      automatic key.
     </p>
 
-    <div class="example" id="example-312">
-     <p><strong>Example #3 Yielding <strong><code>NULL</code></strong>s</strong></p>
+    <div class="example" id="example-320">
+     <p><strong>Example #3 Yielding <strong><code>null</code></strong>s</strong></p>
      <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
 <span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">function&nbsp;</span><span style="color: #0000BB">gen_three_nulls</span><span style="color: #007700">()&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;foreach&nbsp;(</span><span style="color: #0000BB">range</span><span style="color: #007700">(</span><span style="color: #0000BB">1</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">3</span><span style="color: #007700">)&nbsp;as&nbsp;</span><span style="color: #0000BB">$i</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;yield;<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />}<br /><br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">iterator_to_array</span><span style="color: #007700">(</span><span style="color: #0000BB">gen_three_nulls</span><span style="color: #007700">()));<br /></span><span style="color: #0000BB">?&gt;</span>
@@ -198,7 +198,7 @@ array(3) {
      by prepending an ampersand to the function name.
     </p>
 
-    <div class="example" id="example-313">
+    <div class="example" id="example-321">
      <p><strong>Example #4 Yielding values by reference</strong></p>
      <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -249,11 +249,11 @@ array(3) {
        A common case where this matters is <span class="function"><a href="function.iterator-to-array.html" class="function">iterator_to_array()</a></span>
        returning a keyed array by default, leading to possibly unexpected results.
        <span class="function"><a href="function.iterator-to-array.html" class="function">iterator_to_array()</a></span> has a second parameter
-       <code class="parameter">use_keys</code> which can be set to <strong><code>FALSE</code></strong> to collect
+       <code class="parameter">use_keys</code> which can be set to <strong><code>false</code></strong> to collect
        all the values while ignoring the keys returned by the <a href="class.generator.html" class="classname">Generator</a>.
       </p>
      
-      <div class="example" id="example-314">
+      <div class="example" id="example-322">
        <p><strong>Example #5 <strong class="command">yield from</strong> with <span class="function"><a href="function.iterator-to-array.html" class="function">iterator_to_array()</a></span></strong></p>
        <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -278,7 +278,7 @@ array(3) {
       </div>
     </div>
 
-    <div class="example" id="example-315">
+    <div class="example" id="example-323">
      <p><strong>Example #6 Basic use of <strong class="command">yield from</strong></strong></p>
      <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -295,7 +295,7 @@ array(3) {
      </div>
     </div>
 
-    <div class="example" id="example-316">
+    <div class="example" id="example-324">
      <p><strong>Example #7 <strong class="command">yield from</strong> and return values</strong></p>
      <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

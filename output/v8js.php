@@ -36,12 +36,12 @@ namespace {
 		 * @param string $object_name <p>The name of the object passed to Javascript.</p>
 		 * @param array $variables <p>Map of PHP variables that will be available in Javascript. Must be an associative <code>array</code> in format <code>array("name-for-js" =&gt; "name-of-php-variable")</code>. Defaults to empty array.</p>
 		 * @param array $extensions <p>List of extensions registered using <code>V8Js::registerExtension()</code> which should be available in the Javascript context of the created V8Js object.</p><p><b>Note</b>:</p><p>Extensions registered to be enabled automatically do not need to be listed in this array. Also if an extension has dependencies, those dependencies can be omitted as well. Defaults to empty array.</p>
-		 * @param bool $report_uncaught_exceptions <p>Controls whether uncaught Javascript exceptions are reported immediately or not. Defaults to <b><code>TRUE</code></b>. If set to <b><code>FALSE</code></b> the uncaught exception can be accessed using <code>V8Js::getPendingException()</code>.</p>
+		 * @param bool $report_uncaught_exceptions <p>Controls whether uncaught Javascript exceptions are reported immediately or not. Defaults to <b><code>true</code></b>. If set to <b><code>false</code></b> the uncaught exception can be accessed using <code>V8Js::getPendingException()</code>.</p>
 		 * @return self <p>Returns a new V8Js context object.</p>
 		 * @link https://php.net/manual/en/v8js.construct.php
 		 * @since PECL v8js >= 0.1.0
 		 */
-		public function __construct(string $object_name = "PHP", array $variables = array(), array $extensions = array(), bool $report_uncaught_exceptions = TRUE) {}
+		public function __construct(string $object_name = "PHP", array $variables = array(), array $extensions = array(), bool $report_uncaught_exceptions = true) {}
 
 		/**
 		 * Execute a string as Javascript code
@@ -67,7 +67,7 @@ namespace {
 		/**
 		 * Return pending uncaught Javascript exception
 		 * <p>Returns any pending uncaught Javascript exception as V8JsException left from earlier <code>V8Js::executeString()</code> call(s).</p>
-		 * @return V8JsException <p>Either V8JsException or <b><code>NULL</code></b>.</p>
+		 * @return V8JsException <p>Either V8JsException or <b><code>null</code></b>.</p>
 		 * @link https://php.net/manual/en/v8js.getpendingexception.php
 		 * @since PECL v8js >= 0.1.0
 		 */
@@ -79,12 +79,12 @@ namespace {
 		 * @param string $extension_name <p>Name of the extension to be registered.</p>
 		 * @param string $script <p>The Javascript code to be registered.</p>
 		 * @param array $dependencies <p>Array of extension names the extension to be registered depends on. Any such extension is enabled automatically when this extension is loaded.</p><p><b>Note</b>:</p><p>All extensions, including the dependencies, must be registered before any V8Js are created which use them.</p>
-		 * @param bool $auto_enable <p>If set to <b><code>TRUE</code></b>, the extension will be enabled automatically in all V8Js contexts.</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b> if extension was registered successfully, <b><code>FALSE</code></b> otherwise.</p>
+		 * @param bool $auto_enable <p>If set to <b><code>true</code></b>, the extension will be enabled automatically in all V8Js contexts.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> if extension was registered successfully, <b><code>false</code></b> otherwise.</p>
 		 * @link https://php.net/manual/en/v8js.registerextension.php
 		 * @since PECL v8js >= 0.1.0
 		 */
-		public static function registerExtension(string $extension_name, string $script, array $dependencies = array(), bool $auto_enable = FALSE): bool {}
+		public static function registerExtension(string $extension_name, string $script, array $dependencies = array(), bool $auto_enable = false): bool {}
 	}
 
 	/**
@@ -234,7 +234,7 @@ namespace {
 		/**
 		 * Returns previous Exception
 		 * <p>Returns previous exception (the third parameter of <code>Exception::__construct()</code>).</p>
-		 * @return Throwable <p>Returns the previous Throwable if available or <b><code>NULL</code></b> otherwise.</p>
+		 * @return Throwable <p>Returns the previous Throwable if available or <b><code>null</code></b> otherwise.</p>
 		 * @link https://php.net/manual/en/exception.getprevious.php
 		 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8
 		 */

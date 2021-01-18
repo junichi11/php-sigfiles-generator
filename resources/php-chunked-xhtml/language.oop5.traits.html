@@ -26,7 +26,7 @@
   <div id="layout-content"><div id="language.oop5.traits" class="sect1">
   <h2 class="title">Traits</h2>
   <p class="para">
-   As of PHP 5.4.0, PHP implements a method of code reuse called Traits.
+   PHP implements a way to reuse code called Traits.
   </p>
   <p class="para">
    Traits are a mechanism for code reuse in single inheritance languages such as
@@ -43,7 +43,7 @@
    composition of behavior; that is, the application of class members without
    requiring inheritance.
   </p>
-  <div class="example" id="example-230">
+  <div class="example" id="example-238">
     <p><strong>Example #1 Trait example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -61,7 +61,7 @@
     by a Trait. The precedence order is that members from the current class
     override Trait methods, which in turn override inherited methods.
    </p>
-   <div class="example" id="example-231">
+   <div class="example" id="example-239">
     <p><strong>Example #2 Precedence Order Example</strong></p>
     <div class="example-contents"><p>
      An inherited method from a base class is overridden by the
@@ -84,7 +84,7 @@ Hello World!
 </pre></div>
     </div>
    </div>
-   <div class="example" id="example-232">
+   <div class="example" id="example-240">
     <p><strong>Example #3 Alternate Precedence Order Example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -143,7 +143,7 @@ Hello World!
     <code class="literal">as</code> operator does not rename the method and it does not
     affect any other method either.
    </p>
-   <div class="example" id="example-234">
+   <div class="example" id="example-242">
     <p><strong>Example #5 Conflict Resolution</strong></p>
     <div class="example-contents"><p>
       In this example, Talker uses the traits A and B.
@@ -164,13 +164,6 @@ Hello World!
     </div>
 
    </div>
-   <blockquote class="note"><p><strong class="note">Note</strong>: 
-    <p class="para">
-     Prior to PHP 7.0, defining a property in a class with the same name as in a trait
-     would throw an <strong><code>E_STRICT</code></strong> if the class definition was compatible 
-     (same visibility and initial value).
-    </p>
-   </p></blockquote>
   </div>
 
   <div class="sect2" id="language.oop5.traits.visibility">
@@ -179,7 +172,7 @@ Hello World!
     Using the <code class="literal">as</code> syntax, one can also adjust the visibility
     of the method in the exhibiting class.
    </p>
-   <div class="example" id="example-235">
+   <div class="example" id="example-243">
     <p><strong>Example #6 Changing Method Visibility</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -198,7 +191,7 @@ Hello World!
     or more traits in a trait definition, it can be composed partially or
     entirely of the members defined in those other traits.
    </p>
-   <div class="example" id="example-236">
+   <div class="example" id="example-244">
     <p><strong>Example #7 Traits Composed from Traits</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -228,7 +221,7 @@ Hello World!
      with the same name; its signature may be different.
     </p>
    </div>
-   <div class="example" id="example-237">
+   <div class="example" id="example-245">
     <p><strong>Example #8 Express Requirements by Abstract Methods</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -245,7 +238,7 @@ Hello World!
    <p class="para">
     Traits can define both static members and static methods.
    </p>
-   <div class="example" id="example-238">
+   <div class="example" id="example-246">
     <p><strong>Example #9 Static Variables</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -255,7 +248,7 @@ Hello World!
     </div>
 
    </div>
-   <div class="example" id="example-239">
+   <div class="example" id="example-247">
     <p><strong>Example #10 Static Methods</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -272,7 +265,7 @@ Hello World!
    <p class="para">
     Traits can also define properties.
    </p>
-   <div class="example" id="example-240">
+   <div class="example" id="example-248">
     <p><strong>Example #11 Defining Properties</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -286,8 +279,6 @@ Hello World!
     If a trait defines a property then a class can not define a property with
     the same name unless it is compatible (same visibility and initial value),
     otherwise a fatal error is issued.
-    Before PHP 7.0.0, defining a property in the class with the same visibility
-    and initial value as in the trait, raised an E_STRICT notice.
    </p>
    <div class="example" id="language.oop5.interfaces.examples.ex1">
     <p><strong>Example #12 Conflict Resolution</strong></p>

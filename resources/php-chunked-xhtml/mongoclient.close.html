@@ -42,8 +42,8 @@ There is no equivalent for this method in the new extension.</p>
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><strong>MongoClient::close</strong></span>
-    ([ <span class="methodparam"><span class="type"><span class="type">bool</span>|<span class="type">string</span></span> <code class="parameter">$connection</code></span>
-  ] ) : <span class="type">bool</span></div>
+    ( <span class="methodparam"><span class="type"><span class="type">bool</span>|<span class="type">string</span></span> <code class="parameter">$connection</code> = ?</span>
+   ) : <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
    The <span class="function"><strong>MongoClient::close()</strong></span> method forcefully closes a
@@ -70,14 +70,14 @@ There is no equivalent for this method in the new extension.</p>
      <dd>
 
       <p class="para">
-       If connection is not given, or <strong><code>FALSE</code></strong> then connection that would be
+       If connection is not given, or <strong><code>false</code></strong> then connection that would be
        selected for writes would be closed. In a single-node configuration,
        that is then the whole connection, but if you are connected to a
        replica set, close() will <em class="emphasis">only</em> close the
        connection to the primary server.
       </p>
       <p class="para">
-       If connection is <strong><code>TRUE</code></strong> then all connections as known by the connection
+       If connection is <strong><code>true</code></strong> then all connections as known by the connection
        manager will be closed. This can include connections that are not
        referenced in the connection string used to create the object that
        you are calling close on.

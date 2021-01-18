@@ -29,12 +29,12 @@ namespace {
 	 * @param string $password <p>The user's password.</p> <b>Caution</b> <p>Using the <b><code>PASSWORD_BCRYPT</code></b> as the algorithm, will result in the <code>password</code> parameter being truncated to a maximum length of 72 characters.</p>
 	 * @param mixed $algo <p>A password algorithm constant denoting the algorithm to use when hashing the password.</p>
 	 * @param array $options <p>An associative array containing options. See the password algorithm constants for documentation on the supported options for each algorithm.</p> <p>If omitted, a random salt will be created and the default cost will be used.</p>
-	 * @return string|false <p>Returns the hashed password, or <b><code>FALSE</code></b> on failure.</p><p>The used algorithm, cost and salt are returned as part of the hash. Therefore, all information that's needed to verify the hash is included in it. This allows the <code>password_verify()</code> function to verify the hash without needing separate storage for the salt or algorithm information.</p>
+	 * @return string|false <p>Returns the hashed password, or <b><code>false</code></b> on failure.</p><p>The used algorithm, cost and salt are returned as part of the hash. Therefore, all information that's needed to verify the hash is included in it. This allows the <code>password_verify()</code> function to verify the hash without needing separate storage for the salt or algorithm information.</p>
 	 * @link https://php.net/manual/en/function.password-hash.php
 	 * @see password_verify(), crypt(), sodium_crypto_pwhash_str()
 	 * @since PHP 5 >= 5.5.0, PHP 7
 	 */
-	function password_hash(string $password, mixed $algo, array $options = NULL): string|false {}
+	function password_hash(string $password, mixed $algo, array $options = null): string|false {}
 
 	/**
 	 * Checks if the given hash matches the given options
@@ -42,18 +42,18 @@ namespace {
 	 * @param string $hash <p>A hash created by <code>password_hash()</code>.</p>
 	 * @param mixed $algo <p>A password algorithm constant denoting the algorithm to use when hashing the password.</p>
 	 * @param array $options <p>An associative array containing options. See the password algorithm constants for documentation on the supported options for each algorithm.</p>
-	 * @return bool <p>Returns <b><code>TRUE</code></b> if the hash should be rehashed to match the given <code>algo</code> and <code>options</code>, or <b><code>FALSE</code></b> otherwise.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> if the hash should be rehashed to match the given <code>algo</code> and <code>options</code>, or <b><code>false</code></b> otherwise.</p>
 	 * @link https://php.net/manual/en/function.password-needs-rehash.php
 	 * @since PHP 5 >= 5.5.0, PHP 7
 	 */
-	function password_needs_rehash(string $hash, mixed $algo, array $options = NULL): bool {}
+	function password_needs_rehash(string $hash, mixed $algo, array $options = null): bool {}
 
 	/**
 	 * Verifies that a password matches a hash
 	 * <p>Verifies that the given hash matches the given password.</p><p>Note that <code>password_hash()</code> returns the algorithm, cost and salt as part of the returned hash. Therefore, all information that's needed to verify the hash is included in it. This allows the verify function to verify the hash without needing separate storage for the salt or algorithm information.</p><p>This function is safe against timing attacks.</p>
 	 * @param string $password <p>The user's password.</p>
 	 * @param string $hash <p>A hash created by <code>password_hash()</code>.</p>
-	 * @return bool <p>Returns <b><code>TRUE</code></b> if the password and hash match, or <b><code>FALSE</code></b> otherwise.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> if the password and hash match, or <b><code>false</code></b> otherwise.</p>
 	 * @link https://php.net/manual/en/function.password-verify.php
 	 * @see password_hash(), sodium_crypto_pwhash_str_verify()
 	 * @since PHP 5 >= 5.5.0, PHP 7

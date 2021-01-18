@@ -34,9 +34,9 @@
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><strong>SoapServer::SoapServer</strong></span>
-    ( <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">$wsdl</code></span>
-   [, <span class="methodparam"><span class="type">array</span> <code class="parameter">$options</code></span>
-  ] )</div>
+    ( <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$wsdl</code></span>
+   , <span class="methodparam"><span class="type">array</span> <code class="parameter">$options</code> = ?</span>
+   )</div>
 
   <p class="para rdfs-comment">
    This constructor allows the creation of <a href="class.soapserver.html" class="classname">SoapServer</a>
@@ -58,7 +58,7 @@
 
       <p class="para">
        To use the SoapServer in WSDL mode, pass the URI of a WSDL file.
-       Otherwise, pass <strong><code>NULL</code></strong> and set the <code class="literal">uri</code> option to the
+       Otherwise, pass <strong><code>null</code></strong> and set the <code class="literal">uri</code> option to the
        target namespace for the server.
       </p>
      </dd>
@@ -101,7 +101,7 @@
        <strong><code>SOAP_USE_XSI_ARRAY_TYPE</code></strong>.
       </p>
       <p class="para">
-       The <code class="literal">send_errors</code> option can be set to <strong><code>FALSE</code></strong> to sent a
+       The <code class="literal">send_errors</code> option can be set to <strong><code>false</code></strong> to sent a
        generic error message (&quot;Internal error&quot;) instead of the specific error
        message sent otherwise.
       </p>
@@ -117,7 +117,7 @@
  <div class="refsect1 examples" id="refsect1-soapserver.soapserver-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-5810">
+   <div class="example" id="example-5834">
     <p><strong>Example #1 <span class="function"><strong>SoapServer::SoapServer()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

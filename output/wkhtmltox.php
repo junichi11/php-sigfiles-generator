@@ -20,7 +20,7 @@ namespace wkhtmltox\Image {
 		 * @link https://php.net/manual/en/wkhtmltox-image-converter.construct.php
 		 * @since wkhtmltox >= 0.1.0
 		 */
-		public function __construct(string $buffer = NULL, array $settings = NULL) {}
+		public function __construct(string $buffer = null, array $settings = null) {}
 
 		/**
 		 * Perform Image conversion
@@ -60,7 +60,7 @@ namespace wkhtmltox\PDF {
 		 * @link https://php.net/manual/en/wkhtmltox-pdf-converter.construct.php
 		 * @since wkhtmltox >= 0.1.0
 		 */
-		public function __construct(array $settings = NULL) {}
+		public function __construct(array $settings = null) {}
 
 		/**
 		 * Add an object for conversion
@@ -107,7 +107,7 @@ namespace wkhtmltox\PDF {
 		 * @link https://php.net/manual/en/wkhtmltox-pdf-object.construct.php
 		 * @since wkhtmltox >= 0.1.0
 		 */
-		public function __construct(string $buffer, array $settings = NULL) {}
+		public function __construct(string $buffer, array $settings = null) {}
 	}
 
 }

@@ -34,14 +34,14 @@
    <div class="refsect1 description" id="refsect1-function.strptime-description">
     <h3 class="title">Description</h3>
     <div class="methodsynopsis dc-description">
-     <span class="methodname"><strong>strptime</strong></span>
-      ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$date</code></span>
-     , <span class="methodparam"><span class="type">string</span> <code class="parameter">$format</code></span>
-     ) : <span class="type"><span class="type">array</span>|<span class="type"><span class="type false">false</span></span></span></div>
+   <span class="methodname"><strong>strptime</strong></span>
+    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$timestamp</code></span>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$format</code></span>
+   ) : <span class="type"><span class="type">array</span>|<span class="type"><span class="type false">false</span></span></span></div>
 
     <p class="para rdfs-comment">
      <span class="function"><strong>strptime()</strong></span> returns an array with the
-     <code class="parameter">date</code> parsed, or <strong><code>FALSE</code></strong> on error.
+     <code class="parameter">timestamp</code> parsed, or <strong><code>false</code></strong> on error.
     </p>
     <p class="para">
      Month and weekday names and other language dependent strings respect the
@@ -57,7 +57,7 @@
 
      
       <dt>
-<code class="parameter">date</code> (<span class="type">string</span>)</dt>
+<code class="parameter">timestamp</code> (<span class="type">string</span>)</dt>
 
       <dd>
 
@@ -74,7 +74,7 @@
       <dd>
 
        <p class="para">
-        The format used in <code class="parameter">date</code> (e.g. the same as
+        The format used in <code class="parameter">timestamp</code> (e.g. the same as
         used in <span class="function"><a href="function.strftime.html" class="function">strftime()</a></span>). Note that some of the format
         options available to <span class="function"><a href="function.strftime.html" class="function">strftime()</a></span> may not have any
         effect within <span class="function"><strong>strptime()</strong></span>; the exact subset that are
@@ -97,7 +97,7 @@
   <div class="refsect1 returnvalues" id="refsect1-function.strptime-returnvalues">
    <h3 class="title">Return Values</h3>
    <p class="para">
-    Returns an array or <strong><code>FALSE</code></strong> on failure.
+    Returns an array or <strong><code>false</code></strong> on failure.
    </p>
 
     <p class="para">
@@ -155,7 +155,7 @@
 
         <tr>
          <td><code class="literal">&quot;unparsed&quot;</code></td>
-         <td>the <code class="parameter">date</code> part which was not
+         <td>the <code class="parameter">timestamp</code> part which was not
           recognized using the specified <code class="parameter">format</code></td>
         </tr>
 
@@ -171,7 +171,7 @@
   <div class="refsect1 examples" id="refsect1-function.strptime-examples">
    <h3 class="title">Examples</h3>
    <p class="para">
-   <div class="example" id="example-2577">
+   <div class="example" id="example-2592">
     <p><strong>Example #1 <span class="function"><strong>strptime()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

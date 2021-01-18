@@ -49,9 +49,9 @@ Alternatives to this function include:</p>
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>mysql_fetch_object</strong></span>
     ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$result</code></span>
-   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$class_name</code></span>
-   [, <span class="methodparam"><span class="type">array</span> <code class="parameter">$params</code></span>
-  ]] ) : <span class="type">object</span></div>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$class_name</code> = ?</span>
+   , <span class="methodparam"><span class="type">array</span> <code class="parameter">$params</code> = ?</span>
+   ) : <span class="type">object</span></div>
 
   <p class="para rdfs-comment">
    Returns an object with properties that correspond to the fetched row
@@ -109,7 +109,7 @@ is being evaluated. This result comes from a call to
   <h3 class="title">Return Values</h3>
   <p class="para">
    Returns an <span class="type">object</span> with string properties that correspond to the
-   fetched row, or <strong><code>FALSE</code></strong> if there are no more rows.
+   fetched row, or <strong><code>false</code></strong> if there are no more rows.
   </p>
  </div>
 
@@ -117,7 +117,7 @@ is being evaluated. This result comes from a call to
  <div class="refsect1 examples" id="refsect1-function.mysql-fetch-object-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-1967">
+   <div class="example" id="example-1980">
     <p><strong>Example #1 <span class="function"><strong>mysql_fetch_object()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -129,7 +129,7 @@ is being evaluated. This result comes from a call to
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-1968">
+   <div class="example" id="example-1981">
     <p><strong>Example #2 <span class="function"><strong>mysql_fetch_object()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -166,7 +166,7 @@ is being evaluated. This result comes from a call to
   <blockquote class="note"><p><strong class="note">Note</strong>: <span class="simpara">Field names returned by this function
 are <em class="emphasis">case-sensitive</em>.</span></p></blockquote>
   <blockquote class="note"><p><strong class="note">Note</strong>: <span class="simpara">This function sets NULL fields to
-the PHP <strong><code>NULL</code></strong> value.</span></p></blockquote>
+the PHP <strong><code>null</code></strong> value.</span></p></blockquote>
  </div>
 
 

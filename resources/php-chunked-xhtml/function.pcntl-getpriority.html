@@ -34,9 +34,9 @@
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>pcntl_getpriority</strong></span>
-    ([ <span class="methodparam"><span class="type">int</span> <code class="parameter">$pid</code><span class="initializer"> = getmypid()</span></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$process_identifier</code><span class="initializer"> = PRIO_PROCESS</span></span>
-  ]] ) : <span class="type">int</span></div>
+    ( <span class="methodparam"><span class="type">int</span> <code class="parameter">$pid</code><span class="initializer"> = getmypid()</span></span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$process_identifier</code><span class="initializer"> = PRIO_PROCESS</span></span>
+   ) : <span class="type">int</span></div>
 
   <p class="para rdfs-comment">
    <span class="function"><strong>pcntl_getpriority()</strong></span> gets the priority of
@@ -87,12 +87,12 @@
   <h3 class="title">Return Values</h3>
   <p class="para">
    <span class="function"><strong>pcntl_getpriority()</strong></span> returns the priority of the process
-   or <strong><code>FALSE</code></strong> on error.  A lower numerical value causes more favorable
+   or <strong><code>false</code></strong> on error.  A lower numerical value causes more favorable
    scheduling.
   </p>
   <div class="warning"><strong class="warning">Warning</strong><p class="simpara">This function may
-return Boolean <strong><code>FALSE</code></strong>, but may also return a non-Boolean value which
-evaluates to <strong><code>FALSE</code></strong>. Please read the section on <a href="language.types.boolean.html" class="link">Booleans</a> for more
+return Boolean <strong><code>false</code></strong>, but may also return a non-Boolean value which
+evaluates to <strong><code>false</code></strong>. Please read the section on <a href="language.types.boolean.html" class="link">Booleans</a> for more
 information. Use <a href="language.operators.comparison.html" class="link">the ===
 operator</a> for testing the return value of this
 function.</p></div>

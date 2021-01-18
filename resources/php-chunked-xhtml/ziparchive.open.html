@@ -34,8 +34,8 @@
   <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><strong>ZipArchive::open</strong></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$filename</code></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code></span>
-  ] ) : <span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span></div>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code><span class="initializer"> = 0</span></span>
+   ) : <span class="type"><span class="type">bool</span>|<span class="type">int</span></span></div>
 
   <p class="para rdfs-comment">
    Opens a new or existing zip archive for reading, writing or modifying.
@@ -109,91 +109,96 @@
  <div class="refsect1 returnvalues" id="refsect1-ziparchive.open-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
+   Returns <strong><code>true</code></strong> on success, or one of the following error codes:
    <dl>
 
     
      <dt>
-<code class="parameter">Error codes</code></dt>
+<strong><code>ZipArchive::ER_EXISTS</code></strong></dt>
 
-      <dd>
+     <dd>
 
-      <p class="para">
-       Returns <strong><code>TRUE</code></strong> on success or the error code.
-       <ul class="itemizedlist">
-        <li class="listitem">
-         <p class="para">
-          <strong><code>ZipArchive::ER_EXISTS</code></strong>
-         </p>
-         <p class="para">
-          File already exists.
-         </p>
-        </li>
-        <li class="listitem">
-         <p class="para">
-          <strong><code>ZipArchive::ER_INCONS</code></strong>
-         </p>
-         <p class="para">
-          Zip archive inconsistent.
-         </p>
-        </li>
-        <li class="listitem">
-         <p class="para">
-          <strong><code>ZipArchive::ER_INVAL</code></strong>
-         </p>
-         <p class="para">
-          Invalid argument.
-         </p>
-        </li>
-        <li class="listitem">
-         <p class="para">
-          <strong><code>ZipArchive::ER_MEMORY</code></strong>
-         </p>
-         <p class="para">
-          Malloc failure.
-         </p>
-        </li>
-        <li class="listitem">
-         <p class="para">
-          <strong><code>ZipArchive::ER_NOENT</code></strong>
-         </p>
-         <p class="para">
-          No such file.
-         </p>
-        </li>
-        <li class="listitem">
-         <p class="para">
-          <strong><code>ZipArchive::ER_NOZIP</code></strong>
-         </p>
-         <p class="para">
-          Not a zip archive.
-         </p>
-        </li>
-        <li class="listitem">
-         <p class="para">
-          <strong><code>ZipArchive::ER_OPEN</code></strong>
-         </p>
-         <p class="para">
-          Can&#039;t open file.
-         </p>
-        </li>
-        <li class="listitem">
-         <p class="para">
-          <strong><code>ZipArchive::ER_READ</code></strong>
-         </p>
-         <p class="para">
-          Read error.
-         </p>
-        </li>
-        <li class="listitem">
-         <p class="para">
-          <strong><code>ZipArchive::ER_SEEK</code></strong>
-         </p>
-         <p class="para">
-          Seek error.
-         </p>
-        </li>
-       </ul>
-      </p>
+      <span class="simpara">File already exists.</span>
+     </dd>
+
+    
+    
+     <dt>
+<strong><code>ZipArchive::ER_INCONS</code></strong></dt>
+
+     <dd>
+
+      <span class="simpara">Zip archive inconsistent.</span>
+     </dd>
+
+    
+    
+     <dt>
+<strong><code>ZipArchive::ER_INVAL</code></strong></dt>
+
+     <dd>
+
+      <span class="simpara">Invalid argument.</span>
+     </dd>
+
+    
+    
+     <dt>
+<strong><code>ZipArchive::ER_MEMORY</code></strong></dt>
+
+     <dd>
+
+      <span class="simpara">Malloc failure.</span>
+     </dd>
+
+    
+    
+     <dt>
+<strong><code>ZipArchive::ER_NOENT</code></strong></dt>
+
+     <dd>
+
+      <span class="simpara">No such file.</span>
+     </dd>
+
+    
+    
+     <dt>
+<strong><code>ZipArchive::ER_NOZIP</code></strong></dt>
+
+     <dd>
+
+      <span class="simpara">Not a zip archive.</span>
+     </dd>
+
+    
+    
+     <dt>
+<strong><code>ZipArchive::ER_OPEN</code></strong></dt>
+
+     <dd>
+
+      <span class="simpara">Can&#039;t open file.</span>
+     </dd>
+
+    
+    
+     <dt>
+<strong><code>ZipArchive::ER_READ</code></strong></dt>
+
+     <dd>
+
+      <span class="simpara">Read error.</span>
+     </dd>
+
+    
+    
+     <dt>
+<strong><code>ZipArchive::ER_SEEK</code></strong></dt>
+
+     <dd>
+
+      <span class="simpara">Seek error.</span>
      </dd>
 
     
@@ -204,7 +209,7 @@
 
  <div class="refsect1 examples" id="refsect1-ziparchive.open-examples">
   <h3 class="title">Examples</h3>
-    <div class="example" id="example-822">
+    <div class="example" id="example-834">
      <p><strong>Example #1 Open and extract</strong></p>
      <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -214,7 +219,7 @@
      </div>
 
     </div>
-    <div class="example" id="example-823">
+    <div class="example" id="example-835">
      <p><strong>Example #2 Create an archive</strong></p>
      <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -224,7 +229,7 @@
      </div>
 
     </div>
-    <div class="example" id="example-824">
+    <div class="example" id="example-836">
      <p><strong>Example #3 Create an temporary archive</strong></p>
      <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

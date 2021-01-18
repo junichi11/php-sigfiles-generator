@@ -26,7 +26,7 @@
   <div id="layout-content"><div id="imagick.morphology" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">Imagick::morphology</h1>
-  <p class="verinfo">(No version information available, might only be in Git)</p><p class="refpurpose"><span class="refname">Imagick::morphology</span> &mdash; <span class="dc-title">Description</span></p>
+  <p class="verinfo">(PECL imagick 3 &gt;= 3.3.0)</p><p class="refpurpose"><span class="refname">Imagick::morphology</span> &mdash; <span class="dc-title">Description</span></p>
 
  </div>
 
@@ -37,8 +37,8 @@
     ( <span class="methodparam"><span class="type">int</span> <code class="parameter">$morphologyMethod</code></span>
    , <span class="methodparam"><span class="type">int</span> <code class="parameter">$iterations</code></span>
    , <span class="methodparam"><span class="type"><a href="class.imagickkernel.html" class="type ImagickKernel">ImagickKernel</a></span> <code class="parameter">$ImagickKernel</code></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$channel</code><span class="initializer"> = Imagick::CHANNEL_DEFAULT</span></span>
-  ] ) : <span class="type">bool</span></div>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$channel</code><span class="initializer"> = Imagick::CHANNEL_DEFAULT</span></span>
+   ) : <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
    Applies a user supplied kernel to the image according to the given morphology method.
@@ -109,7 +109,7 @@
  <div class="refsect1 returnvalues" id="refsect1-imagick.morphology-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns <strong><code>TRUE</code></strong> on success.
+   Returns <strong><code>true</code></strong> on success.
   </p>
  </div>
 
@@ -120,7 +120,7 @@
  <div class="refsect1 examples" id="refsect1-imagick.morphology-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-    <div class="example" id="example-3279">
+    <div class="example" id="example-3294">
       <p><strong>Example #1 Convolve <span class="function"><strong>Imagick::morphology()</strong></span></strong></p>
       <div class="example-contents">
       <div class="phpcode"><code><span style="color: #000000">
@@ -131,7 +131,7 @@
 
     </div>
 
-    <div class="example" id="example-3280">
+    <div class="example" id="example-3295">
       <p><strong>Example #2 Correlate <span class="function"><strong>Imagick::morphology()</strong></span></strong></p>
       <div class="example-contents">
       <div class="phpcode"><code><span style="color: #000000">
@@ -142,7 +142,7 @@
 
     </div>
 
-    <div class="example" id="example-3281">
+    <div class="example" id="example-3296">
       <p><strong>Example #3 Erode <span class="function"><strong>Imagick::morphology()</strong></span></strong></p>
       <div class="example-contents">
       <div class="phpcode"><code><span style="color: #000000">
@@ -153,7 +153,7 @@
 
     </div>
 
-    <div class="example" id="example-3282">
+    <div class="example" id="example-3297">
       <p><strong>Example #4 Erode Intensity <span class="function"><strong>Imagick::morphology()</strong></span></strong></p>
       <div class="example-contents">
       <div class="phpcode"><code><span style="color: #000000">
@@ -164,7 +164,7 @@
 
     </div>
 
-    <div class="example" id="example-3283">
+    <div class="example" id="example-3298">
       <p><strong>Example #5 Dilate <span class="function"><strong>Imagick::morphology()</strong></span></strong></p>
       <div class="example-contents">
       <div class="phpcode"><code><span style="color: #000000">
@@ -175,7 +175,7 @@
 
     </div>
 
-    <div class="example" id="example-3284">
+    <div class="example" id="example-3299">
       <p><strong>Example #6 Dilate intensity <span class="function"><strong>Imagick::morphology()</strong></span></strong></p>
       <div class="example-contents">
       <div class="phpcode"><code><span style="color: #000000">
@@ -186,7 +186,7 @@
 
     </div>
 
-    <div class="example" id="example-3285">
+    <div class="example" id="example-3300">
       <p><strong>Example #7 Distance with Chebyshev kernel <span class="function"><strong>Imagick::morphology()</strong></span></strong></p>
       <div class="example-contents">
       <div class="phpcode"><code><span style="color: #000000">
@@ -197,7 +197,7 @@
 
     </div>
 
-    <div class="example" id="example-3286">
+    <div class="example" id="example-3301">
       <p><strong>Example #8 Distance with Manhattan kernel <span class="function"><strong>Imagick::morphology()</strong></span></strong></p>
       <div class="example-contents">
       <div class="phpcode"><code><span style="color: #000000">
@@ -208,7 +208,7 @@
 
     </div>
 
-    <div class="example" id="example-3287">
+    <div class="example" id="example-3302">
       <p><strong>Example #9 Distance with ocatagonal kernel <span class="function"><strong>Imagick::morphology()</strong></span></strong></p>
       <div class="example-contents">
       <div class="phpcode"><code><span style="color: #000000">
@@ -219,7 +219,7 @@
 
     </div>
 
-    <div class="example" id="example-3288">
+    <div class="example" id="example-3303">
       <p><strong>Example #10 Distance with Euclidean kernel <span class="function"><strong>Imagick::morphology()</strong></span></strong></p>
       <div class="example-contents">
       <div class="phpcode"><code><span style="color: #000000">
@@ -230,7 +230,7 @@
 
     </div>
 
-    <div class="example" id="example-3289">
+    <div class="example" id="example-3304">
       <p><strong>Example #11 Edge <span class="function"><strong>Imagick::morphology()</strong></span></strong></p>
       <div class="example-contents">
       <div class="phpcode"><code><span style="color: #000000">
@@ -241,7 +241,7 @@
 
     </div>
 
-    <div class="example" id="example-3290">
+    <div class="example" id="example-3305">
       <p><strong>Example #12 Open <span class="function"><strong>Imagick::morphology()</strong></span></strong></p>
       <div class="example-contents">
       <div class="phpcode"><code><span style="color: #000000">
@@ -252,7 +252,7 @@
 
     </div>
 
-    <div class="example" id="example-3291">
+    <div class="example" id="example-3306">
       <p><strong>Example #13 Open intensity <span class="function"><strong>Imagick::morphology()</strong></span></strong></p>
       <div class="example-contents">
       <div class="phpcode"><code><span style="color: #000000">
@@ -263,7 +263,7 @@
 
     </div>
 
-    <div class="example" id="example-3292">
+    <div class="example" id="example-3307">
       <p><strong>Example #14 Close <span class="function"><strong>Imagick::morphology()</strong></span></strong></p>
       <div class="example-contents">
       <div class="phpcode"><code><span style="color: #000000">
@@ -274,7 +274,7 @@
 
     </div>
 
-    <div class="example" id="example-3293">
+    <div class="example" id="example-3308">
       <p><strong>Example #15 Close Intensity <span class="function"><strong>Imagick::morphology()</strong></span></strong></p>
       <div class="example-contents">
       <div class="phpcode"><code><span style="color: #000000">
@@ -285,7 +285,7 @@
 
     </div>
 
-    <div class="example" id="example-3294">
+    <div class="example" id="example-3309">
       <p><strong>Example #16 Smooth <span class="function"><strong>Imagick::morphology()</strong></span></strong></p>
       <div class="example-contents">
       <div class="phpcode"><code><span style="color: #000000">
@@ -296,7 +296,7 @@
 
     </div>
 
-    <div class="example" id="example-3295">
+    <div class="example" id="example-3310">
       <p><strong>Example #17 Edge in <span class="function"><strong>Imagick::morphology()</strong></span></strong></p>
       <div class="example-contents">
       <div class="phpcode"><code><span style="color: #000000">
@@ -307,7 +307,7 @@
 
     </div>
 
-    <div class="example" id="example-3296">
+    <div class="example" id="example-3311">
       <p><strong>Example #18 Edge out <span class="function"><strong>Imagick::morphology()</strong></span></strong></p>
       <div class="example-contents">
       <div class="phpcode"><code><span style="color: #000000">
@@ -318,7 +318,7 @@
 
     </div>
 
-    <div class="example" id="example-3297">
+    <div class="example" id="example-3312">
       <p><strong>Example #19 The &#039;TopHat&#039; method, or more specifically &#039;White Top Hat&#039;, returns the pixels that were removed by a Opening of the shape, that is the pixels that were removed to round off the points, and the connecting bridged between shapes. <span class="function"><strong>Imagick::morphology()</strong></span></strong></p>
       <div class="example-contents">
       <div class="phpcode"><code><span style="color: #000000">
@@ -329,7 +329,7 @@
 
     </div>
 
-    <div class="example" id="example-3298">
+    <div class="example" id="example-3313">
       <p><strong>Example #20 The &#039;BottomHat&#039; method, also known as &#039;Black TopHat&#039; is the pixels that a Closing of the shape adds to the image. That is the pixels that were used to fill in the &#039;holes&#039;, &#039;gaps&#039;, and &#039;bridges&#039;. <span class="function"><strong>Imagick::morphology()</strong></span></strong></p>
       <div class="example-contents">
       <div class="phpcode"><code><span style="color: #000000">
@@ -340,7 +340,7 @@
 
     </div>
 
-    <div class="example" id="example-3299">
+    <div class="example" id="example-3314">
       <p><strong>Example #21 Hit and Miss <span class="function"><strong>Imagick::morphology()</strong></span></strong></p>
       <div class="example-contents">
       <div class="phpcode"><code><span style="color: #000000">
@@ -351,7 +351,7 @@
 
     </div>
 
-    <div class="example" id="example-3300">
+    <div class="example" id="example-3315">
       <p><strong>Example #22 Thinning <span class="function"><strong>Imagick::morphology()</strong></span></strong></p>
       <div class="example-contents">
       <div class="phpcode"><code><span style="color: #000000">
@@ -362,7 +362,7 @@
 
     </div>
 
-    <div class="example" id="example-3301">
+    <div class="example" id="example-3316">
       <p><strong>Example #23 Thicken <span class="function"><strong>Imagick::morphology()</strong></span></strong></p>
       <div class="example-contents">
       <div class="phpcode"><code><span style="color: #000000">
@@ -373,7 +373,7 @@
 
     </div>
 
-    <div class="example" id="example-3302">
+    <div class="example" id="example-3317">
       <p><strong>Example #24 Thick to generate a convex hull <span class="function"><strong>Imagick::morphology()</strong></span></strong></p>
       <div class="example-contents">
       <div class="phpcode"><code><span style="color: #000000">
@@ -384,7 +384,7 @@
 
     </div>
 
-    <div class="example" id="example-3303">
+    <div class="example" id="example-3318">
       <p><strong>Example #25 Iterative morphology <span class="function"><strong>Imagick::morphology()</strong></span></strong></p>
       <div class="example-contents">
       <div class="phpcode"><code><span style="color: #000000">
@@ -395,7 +395,7 @@
 
     </div>
 
-    <div class="example" id="example-3304">
+    <div class="example" id="example-3319">
       <p><strong>Example #26 Helper functon to get an image silhouette <span class="function"><strong>Imagick::morphology()</strong></span></strong></p>
       <div class="example-contents">
       <div class="phpcode"><code><span style="color: #000000">

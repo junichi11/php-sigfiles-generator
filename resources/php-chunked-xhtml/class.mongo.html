@@ -103,8 +103,8 @@
    ) : <span class="type">bool</span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="mongo.setslaveokay.html" class="methodname">setSlaveOkay</a></span>
-    ([ <span class="methodparam"><span class="type">bool</span> <code class="parameter">$ok</code><span class="initializer"> = <strong><code>TRUE</code></strong></span></span>
-  ] ) : <span class="type">bool</span></div>
+    ( <span class="methodparam"><span class="type">bool</span> <code class="parameter">$ok</code><span class="initializer"> = <strong><code>true</code></strong></span></span>
+   ) : <span class="type">bool</span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="mongo.switchslave.html" class="methodname">switchSlave</a></span>
     (
@@ -114,15 +114,15 @@
     <div class="classsynopsisinfo classsynopsisinfo_comment">/* Inherited methods */</div>
     <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="mongoclient.close.html" class="methodname">MongoClient::close</a></span>
-    ([ <span class="methodparam"><span class="type"><span class="type">bool</span>|<span class="type">string</span></span> <code class="parameter">$connection</code></span>
-  ] ) : <span class="type">bool</span></div>
+    ( <span class="methodparam"><span class="type"><span class="type">bool</span>|<span class="type">string</span></span> <code class="parameter">$connection</code> = ?</span>
+   ) : <span class="type">bool</span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="mongoclient.connect.html" class="methodname">MongoClient::connect</a></span>
     (
    ) : <span class="type">bool</span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="mongoclient.dropdb.html" class="methodname">MongoClient::dropDB</a></span>
-    ( <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">$db</code></span>
+    ( <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$db</code></span>
    ) : <span class="type">array</span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="mongoclient.get.html" class="methodname">MongoClient::__get</a></span>
@@ -165,13 +165,13 @@
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="mongoclient.setreadpreference.html" class="methodname">MongoClient::setReadPreference</a></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$read_preference</code></span>
-   [, <span class="methodparam"><span class="type">array</span> <code class="parameter">$tags</code></span>
-  ] ) : <span class="type">bool</span></div>
+   , <span class="methodparam"><span class="type">array</span> <code class="parameter">$tags</code> = ?</span>
+   ) : <span class="type">bool</span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="mongoclient.setwriteconcern.html" class="methodname">MongoClient::setWriteConcern</a></span>
-    ( <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">$w</code></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$wtimeout</code></span>
-  ] ) : <span class="type">bool</span></div>
+    ( <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$w</code></span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$wtimeout</code> = ?</span>
+   ) : <span class="type">bool</span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="mongoclient.tostring.html" class="methodname">MongoClient::__toString</a></span>
     (

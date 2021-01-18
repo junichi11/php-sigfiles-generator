@@ -26,7 +26,7 @@
   <div id="layout-content"><div id="language.oop5.late-static-bindings" class="sect1">
   <h2 class="title">Late Static Bindings</h2>
   <p class="para">
-   As of PHP 5.3.0, PHP implements a feature called late static bindings which
+   PHP implements a feature called late static bindings which
    can be used to reference the called class in a context of static inheritance.
   </p>
 
@@ -63,7 +63,7 @@
     <code class="literal">__CLASS__</code> are resolved using the class in which the
     function belongs, as in where it was defined:
    </p>
-   <div class="example" id="example-258">
+   <div class="example" id="example-266">
     <p><strong>Example #1 <code class="literal">self::</code> usage</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -94,7 +94,7 @@ A
     <code class="literal">static</code> that was already reserved.
    </p>
 
-   <div class="example" id="example-259">
+   <div class="example" id="example-267">
     <p><strong>Example #2 <code class="literal">static::</code> simple usage</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -119,7 +119,7 @@ B
      can only refer to static properties.
     </p>
    </p></blockquote>
-   <div class="example" id="example-260">
+   <div class="example" id="example-268">
     <p><strong>Example #3 <code class="literal">static::</code> usage in a non-static context</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -147,7 +147,7 @@ Fatal error:  Call to private method C::foo() from context &#039;A&#039; in /tmp
      <code class="literal">parent::</code> or <code class="literal">self::</code> will forward the
      calling information.
     </p>
-    <div class="example" id="example-261">
+    <div class="example" id="example-269">
      <p><strong>Example #4 Forwarding and non-forwarding calls</strong></p>
      <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

@@ -10,7 +10,7 @@
  <body class="docs"><div class="navbar navbar-fixed-top">
   <div class="navbar-inner clearfix">
     <ul class="nav" style="width: 100%">
-      <li style="float: left;"><a href="security.magicquotes.disabling.html">« Disabling Magic Quotes</a></li>
+      <li style="float: left;"><a href="security.variables.html">« User Submitted Data</a></li>
       <li style="float: right;"><a href="security.current.html">Keeping Current »</a></li>
     </ul>
   </div>
@@ -41,7 +41,7 @@
     parse different filetypes through <acronym title="PHP: Hypertext Preprocessor">PHP</acronym>, either with an <var class="filename">.htaccess</var>
     directive, or in the apache configuration file itself. You can
     then use misleading file extensions:
-    <div class="example" id="example-401">
+    <div class="example" id="example-414">
      <p><strong>Example #1 Hiding PHP as another language</strong></p>
      <div class="example-contents">
 <div class="apache-confcode"><pre class="apache-confcode"># Make PHP code look like other code types
@@ -51,7 +51,7 @@ AddType application/x-httpd-php .asp .py .pl</pre>
 
     </div>
     Or obscure it completely:
-    <div class="example" id="example-402">
+    <div class="example" id="example-415">
      <p><strong>Example #2 Using unknown types for PHP extensions</strong></p>
      <div class="example-contents">
 <div class="apache-confcode"><pre class="apache-confcode"># Make PHP code look like unknown types
@@ -62,7 +62,7 @@ AddType application/x-httpd-php .bop .foo .133t</pre>
     </div>
     Or hide it as <acronym title="Hyper Text Markup Language">HTML</acronym> code, which has a slight performance hit because
     all <acronym title="Hyper Text Markup Language">HTML</acronym> will be parsed through the <acronym title="PHP: Hypertext Preprocessor">PHP</acronym> engine:
-    <div class="example" id="example-403">
+    <div class="example" id="example-416">
      <p><strong>Example #3 Using <acronym title="Hyper Text Markup Language">HTML</acronym> types for PHP extensions</strong></p>
      <div class="example-contents">
 <div class="apache-confcode"><pre class="apache-confcode"># Make all PHP code look like HTML

@@ -34,12 +34,12 @@
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>gmp_scan0</strong></span>
-    ( <span class="methodparam"><span class="type"><a href="class.gmp.html" class="type GMP">GMP</a></span> <code class="parameter">$a</code></span>
+    ( <span class="methodparam"><span class="type"><span class="type"><a href="class.gmp.html" class="type GMP">GMP</a></span>|<span class="type">int</span>|<span class="type">string</span></span> <code class="parameter">$num1</code></span>
    , <span class="methodparam"><span class="type">int</span> <code class="parameter">$start</code></span>
    ) : <span class="type">int</span></div>
 
   <p class="para rdfs-comment">
-   Scans <code class="parameter">a</code>, starting with bit
+   Scans <code class="parameter">num1</code>, starting with bit
    <code class="parameter">start</code>, towards more significant bits,
    until the first clear bit is found. 
   </p>
@@ -53,14 +53,14 @@
 
     
      <dt>
-<code class="parameter">a</code></dt>
+<code class="parameter">num1</code></dt>
 
      <dd>
 
       <p class="para">
        The number to scan.
       </p>
-      <p class="para">Either a GMP number <span class="type">resource</span> in PHP 5.5 and earlier, a <a href="class.gmp.html" class="classname">GMP</a> object in PHP 5.6 and later, or a numeric string provided that it is possible to convert the latter to a number.</p> 
+      <p class="para">A <a href="class.gmp.html" class="classname">GMP</a> object, an <span class="type">int</span> or a numeric <span class="type">string</span>.</p> 
      </dd>
 
     
@@ -94,7 +94,7 @@
  <div class="refsect1 examples" id="refsect1-function.gmp-scan0-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-3561">
+   <div class="example" id="example-3576">
     <p><strong>Example #1 <span class="function"><strong>gmp_scan0()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

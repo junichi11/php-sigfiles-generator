@@ -33,14 +33,14 @@
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>ftp_ssl_connect</strong></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$host</code></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$port</code><span class="initializer"> = 21</span></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$timeout</code><span class="initializer"> = 90</span></span>
-  ]] ) : <span class="type">resource</span></div>
+    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$hostname</code></span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$port</code><span class="initializer"> = 21</span></span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$timeout</code><span class="initializer"> = 90</span></span>
+   ) : <span class="type"><span class="type">resource</span>|<span class="type"><span class="type false">false</span></span></span></div>
 
   <p class="para rdfs-comment">
    <span class="function"><strong>ftp_ssl_connect()</strong></span> opens an <em class="emphasis">explicit</em> SSL-FTP connection to the
-   specified <code class="parameter">host</code>. That implies that
+   specified <code class="parameter">hostname</code>. That implies that
    <span class="function"><strong>ftp_ssl_connect()</strong></span> will succeed even if the server is not
    configured for SSL-FTP, or its certificate is invalid. Only when
    <span class="function"><a href="function.ftp-login.html" class="function">ftp_login()</a></span> is called, the client will send the
@@ -72,7 +72,7 @@
 
     
      <dt>
-<code class="parameter">host</code></dt>
+<code class="parameter">hostname</code></dt>
 
      <dd>
 
@@ -119,7 +119,7 @@
  <div class="refsect1 returnvalues" id="refsect1-function.ftp-ssl-connect-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns a SSL-FTP stream on success or <strong><code>FALSE</code></strong> on error.
+   Returns a SSL-FTP stream on success or <strong><code>false</code></strong> on error.
   </p>
  </div>
 
@@ -127,7 +127,7 @@
  <div class="refsect1 examples" id="refsect1-function.ftp-ssl-connect-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-4787">
+   <div class="example" id="example-4809">
     <p><strong>Example #1 <span class="function"><strong>ftp_ssl_connect()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

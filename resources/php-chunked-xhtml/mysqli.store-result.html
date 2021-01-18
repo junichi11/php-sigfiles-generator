@@ -36,15 +36,15 @@
   <p class="para">Object oriented style</p>
   <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><strong>mysqli::store_result</strong></span>
-    ([ <span class="methodparam"><span class="type">int</span> <code class="parameter">$option</code></span>
-  ] ) : <span class="type"><a href="class.mysqli-result.html" class="type mysqli_result">mysqli_result</a></span></div>
+    ( <span class="methodparam"><span class="type">int</span> <code class="parameter">$option</code> = ?</span>
+   ) : <span class="type"><a href="class.mysqli-result.html" class="type mysqli_result">mysqli_result</a></span></div>
 
   <p class="para rdfs-comment">Procedural style</p>
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>mysqli_store_result</strong></span>
     ( <span class="methodparam"><span class="type"><a href="class.mysqli.html" class="type mysqli">mysqli</a></span> <code class="parameter">$link</code></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$option</code></span>
-  ] ) : <span class="type"><a href="class.mysqli-result.html" class="type mysqli_result">mysqli_result</a></span></div>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$option</code> = ?</span>
+   ) : <span class="type"><a href="class.mysqli-result.html" class="type mysqli_result">mysqli_result</a></span></div>
 
   <p class="para rdfs-comment">
    Transfers the result set from the last query on the database connection
@@ -93,7 +93,7 @@ returned by <span class="function"><a href="function.mysqli-connect.html" class=
            mysqlnd will use a reference logic to avoid copying and duplicating results held in memory.
            For certain result sets, for example, result sets with many small rows, the copy approach can
            reduce the overall memory usage because PHP variables holding results may be
-           released earlier (available with mysqlnd only, since PHP 5.6.0)</td>
+           released earlier (available with mysqlnd only)</td>
           </tr>
 
          </tbody>
@@ -113,18 +113,18 @@ returned by <span class="function"><a href="function.mysqli-connect.html" class=
  <div class="refsect1 returnvalues" id="refsect1-mysqli.store-result-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns a buffered result object or <strong><code>FALSE</code></strong> if an error occurred.
+   Returns a buffered result object or <strong><code>false</code></strong> if an error occurred.
   </p>
   <blockquote class="note"><p><strong class="note">Note</strong>: 
    <p class="para">
-    <span class="function"><strong>mysqli_store_result()</strong></span> returns <strong><code>FALSE</code></strong> in case the query
+    <span class="function"><strong>mysqli_store_result()</strong></span> returns <strong><code>false</code></strong> in case the query
     didn&#039;t return a result set (if the query was, for example an INSERT
-    statement). This function also returns <strong><code>FALSE</code></strong> if the reading of the
+    statement). This function also returns <strong><code>false</code></strong> if the reading of the
     result set failed. You can check if you have got an error by checking
     if <span class="function"><a href="mysqli.error.html" class="function">mysqli_error()</a></span> doesn&#039;t return an empty string, if
     <span class="function"><a href="mysqli.errno.html" class="function">mysqli_errno()</a></span> returns a non zero value, or if
     <span class="function"><a href="mysqli.field-count.html" class="function">mysqli_field_count()</a></span> returns a non zero value.
-    Also possible reason for this function returning <strong><code>FALSE</code></strong> after
+    Also possible reason for this function returning <strong><code>false</code></strong> after
     successful call to <span class="function"><a href="mysqli.query.html" class="function">mysqli_query()</a></span> can be too large
     result set (memory for it cannot be allocated). If
     <span class="function"><a href="mysqli.field-count.html" class="function">mysqli_field_count()</a></span> returns a non-zero value, the

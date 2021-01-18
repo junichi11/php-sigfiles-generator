@@ -10,11 +10,11 @@ namespace {
 	 * @param string $daemon <p>The service name.</p>
 	 * @param string $address <p>The client remote address. Can be either an IP address or a domain name.</p>
 	 * @param string $user <p>An optional user name.</p>
-	 * @param bool $nodns <p>If <code>address</code> looks like domain name then DNS is used to resolve it to IP address; set <code>nodns</code> to <b><code>TRUE</code></b> to avoid this.</p>
-	 * @return bool <p>This function returns <b><code>TRUE</code></b> if access should be granted, <b><code>FALSE</code></b> otherwise.</p>
+	 * @param bool $nodns <p>If <code>address</code> looks like domain name then DNS is used to resolve it to IP address; set <code>nodns</code> to <b><code>true</code></b> to avoid this.</p>
+	 * @return bool <p>This function returns <b><code>true</code></b> if access should be granted, <b><code>false</code></b> otherwise.</p>
 	 * @link https://php.net/manual/en/function.tcpwrap-check.php
 	 * @since PECL tcpwrap >= 0.1.0
 	 */
-	function tcpwrap_check(string $daemon, string $address, string $user = NULL, bool $nodns = FALSE): bool {}
+	function tcpwrap_check(string $daemon, string $address, string $user = null, bool $nodns = false): bool {}
 
 }

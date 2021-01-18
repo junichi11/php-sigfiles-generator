@@ -21,7 +21,7 @@ namespace mysql_xdevapi {
 		/**
 		 * Close client
 		 * <p>Close all client connections with the server.</p>
-		 * @return bool <p><b><code>TRUE</code></b> if connections are closed.</p>
+		 * @return bool <p><b><code>true</code></b> if connections are closed.</p>
 		 * @link https://php.net/manual/en/mysql-xdevapi-client.close.php
 		 * @since No version information available, might only be in Git
 		 */

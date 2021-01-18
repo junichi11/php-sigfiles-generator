@@ -35,9 +35,9 @@
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>stristr</strong></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$haystack</code></span>
-   , <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">$needle</code></span>
-   [, <span class="methodparam"><span class="type">bool</span> <code class="parameter">$before_needle</code><span class="initializer"> = <strong><code>FALSE</code></strong></span></span>
-  ] ) : <span class="type">string</span></div>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$needle</code></span>
+   , <span class="methodparam"><span class="type">bool</span> <code class="parameter">$before_needle</code><span class="initializer"> = <strong><code>false</code></strong></span></span>
+   ) : <span class="type"><span class="type">string</span>|<span class="type"><span class="type false">false</span></span></span></div>
 
   <p class="para rdfs-comment">
    Returns all of <code class="parameter">haystack</code> starting from and including the first
@@ -71,7 +71,7 @@
 
       
  <p class="para">
-  If <code class="parameter">needle</code> is not a string, it is converted
+  Prior to PHP 8.0.0, if <code class="parameter">needle</code> is not a string, it is converted
   to an integer and applied as the ordinal value of a character.
   This behavior is deprecated as of PHP 7.3.0, and relying on it is highly
   discouraged. Depending on the intended behavior, the
@@ -89,7 +89,7 @@
      <dd>
 
       <p class="para">
-       If <strong><code>TRUE</code></strong>, <span class="function"><strong>stristr()</strong></span>
+       If <strong><code>true</code></strong>, <span class="function"><strong>stristr()</strong></span>
        returns the part of the <code class="parameter">haystack</code> before the
        first occurrence of the <code class="parameter">needle</code> (excluding needle).
       </p>
@@ -110,7 +110,7 @@
   <h3 class="title">Return Values</h3>
   <p class="para">
    Returns the matched substring. If <code class="parameter">needle</code> is not
-   found, returns <strong><code>FALSE</code></strong>.
+   found, returns <strong><code>false</code></strong>.
   </p>
  </div>
 
@@ -130,6 +130,13 @@
 
      <tbody class="tbody">
       <tr>
+       <td>8.0.0</td>
+       <td>
+        Passing an <span class="type">int</span> as <code class="parameter">needle</code> is no longer supported.
+       </td>
+      </tr>
+
+      <tr>
        <td>7.3.0</td>
        <td>
         Passing an <span class="type">int</span> as <code class="parameter">needle</code> has been deprecated.
@@ -147,7 +154,7 @@
  <div class="refsect1 examples" id="refsect1-function.stristr-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-5343">
+   <div class="example" id="example-5364">
     <p><strong>Example #1 <span class="function"><strong>stristr()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -159,7 +166,7 @@
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-5344">
+   <div class="example" id="example-5365">
     <p><strong>Example #2 Testing if a string is found or not</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -171,7 +178,7 @@
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-5345">
+   <div class="example" id="example-5366">
     <p><strong>Example #3 Using a non &quot;string&quot; needle</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

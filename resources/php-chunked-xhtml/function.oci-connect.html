@@ -36,10 +36,10 @@
    <span class="methodname"><strong>oci_connect</strong></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$username</code></span>
    , <span class="methodparam"><span class="type">string</span> <code class="parameter">$password</code></span>
-   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$connection_string</code></span>
-   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$character_set</code></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$session_mode</code></span>
-  ]]] ) : <span class="type">resource</span></div>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$connection_string</code> = ?</span>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$character_set</code> = ?</span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$session_mode</code> = ?</span>
+   ) : <span class="type">resource</span></div>
 
   <p class="para rdfs-comment">
    Returns a connection identifier needed for most other OCI8 operations.
@@ -208,7 +208,7 @@ security reasons.
  <div class="refsect1 returnvalues" id="refsect1-function.oci-connect-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns a connection identifier or <strong><code>FALSE</code></strong> on error.
+   Returns a connection identifier or <strong><code>false</code></strong> on error.
   </p>
  </div>
 
@@ -216,7 +216,7 @@ security reasons.
  <div class="refsect1 examples" id="refsect1-function.oci-connect-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-2225">
+   <div class="example" id="example-2238">
     <p><strong>Example #1 Basic <span class="function"><strong>oci_connect()</strong></span> using Easy Connect syntax</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -228,7 +228,7 @@ security reasons.
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-2226">
+   <div class="example" id="example-2239">
     <p><strong>Example #2 Basic <span class="function"><strong>oci_connect()</strong></span> using a Network Connect name</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -240,7 +240,7 @@ security reasons.
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-2227">
+   <div class="example" id="example-2240">
     <p><strong>Example #3 <span class="function"><strong>oci_connect()</strong></span> with an explicit character set</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -252,7 +252,7 @@ security reasons.
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-2228">
+   <div class="example" id="example-2241">
     <p><strong>Example #4 Using multiple calls to <span class="function"><strong>oci_connect()</strong></span></strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

@@ -42,8 +42,8 @@
    
    <span class="methodname"><strong>Locale::getDisplayRegion</strong></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$locale</code></span>
-   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$in_locale</code></span>
-  ] ) : <span class="type">string</span></div>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$in_locale</code> = ?</span>
+   ) : <span class="type">string</span></div>
 
   <p class="para rdfs-comment">
    Procedural style
@@ -52,12 +52,12 @@
    
    <span class="methodname"><strong>locale_get_display_region</strong></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$locale</code></span>
-   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$in_locale</code></span>
-  ] ) : <span class="type">string</span></div>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$in_locale</code> = ?</span>
+   ) : <span class="type">string</span></div>
 
   <p class="para rdfs-comment">
    Returns an appropriately localized display name for region of the input
-   locale. If is <strong><code>NULL</code></strong> then the default locale is used.
+   locale. If is <strong><code>null</code></strong> then the default locale is used.
   </p>
  </div>
 
@@ -109,7 +109,7 @@
 
  <div class="refsect1 examples" id="refsect1-locale.getdisplayregion-examples">
   <h3 class="title">Examples</h3>
-  <div class="example" id="example-2805">
+  <div class="example" id="example-2820">
    <p><strong>Example #1 <span class="function"><strong>locale_get_display_region()</strong></span> example</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -119,7 +119,7 @@
    </div>
 
   </div>
-  <div class="example" id="example-2806">
+  <div class="example" id="example-2821">
    <p><strong>Example #2 OO example</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

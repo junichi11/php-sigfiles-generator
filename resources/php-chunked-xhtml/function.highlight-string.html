@@ -35,8 +35,8 @@
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>highlight_string</strong></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$str</code></span>
-   [, <span class="methodparam"><span class="type">bool</span> <code class="parameter">$return</code><span class="initializer"> = <strong><code>FALSE</code></strong></span></span>
-  ] ) : <span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span></div>
+   , <span class="methodparam"><span class="type">bool</span> <code class="parameter">$return</code><span class="initializer"> = <strong><code>false</code></strong></span></span>
+   ) : <span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span></div>
 
   <p class="simpara">
    Outputs or returns html markup for a syntax highlighted version of the given PHP code
@@ -69,7 +69,7 @@
      <dd>
 
       <p class="para">
-       Set this parameter to <strong><code>TRUE</code></strong> to make this function return the
+       Set this parameter to <strong><code>true</code></strong> to make this function return the
        highlighted code.
       </p>
      </dd>
@@ -84,9 +84,9 @@
  <div class="refsect1 returnvalues" id="refsect1-function.highlight-string-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   If <code class="parameter">return</code> is set to <strong><code>TRUE</code></strong>, returns the highlighted
+   If <code class="parameter">return</code> is set to <strong><code>true</code></strong>, returns the highlighted
    code as a string instead of printing it out. Otherwise, it will return
-   <strong><code>TRUE</code></strong> on success, <strong><code>FALSE</code></strong> on failure.
+   <strong><code>true</code></strong> on success, <strong><code>false</code></strong> on failure.
   </p>
  </div>
 
@@ -94,7 +94,7 @@
  <div class="refsect1 examples" id="refsect1-function.highlight-string-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-3984">
+   <div class="example" id="example-3999">
     <p><strong>Example #1 <span class="function"><strong>highlight_string()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

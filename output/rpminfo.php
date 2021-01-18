@@ -8,7 +8,7 @@ namespace {
 	 * Add tag retrieved in query
 	 * <p>Add an additional retrieved tag in subsequent queries.</p>
 	 * @param int $tag <p>One of RPMTAG_&#42; constant, see the rpminfo constants page.</p>
-	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.rpmaddtag.php
 	 * @see rpminfo(), rpmdbinfo(), rpmdbsearch()
 	 * @since PECL rpminfo >= 0.5.0
@@ -19,13 +19,13 @@ namespace {
 	 * Get information from installed RPM
 	 * <p>Retrieve information about an installed package, from the system RPM database.</p>
 	 * @param string $nevr <p>Name with optional epoch, version and release.</p>
-	 * @param bool $full <p>If <b><code>TRUE</code></b> all information headers for the file are retrieved, else only a minimal set.</p>
+	 * @param bool $full <p>If <b><code>true</code></b> all information headers for the file are retrieved, else only a minimal set.</p>
 	 * @return array <p>An <code>array</code> of <code>array</code> of information or NULL on error.</p>
 	 * @link https://php.net/manual/en/function.rpmdbinfo.php
 	 * @see rpmaddtag()
 	 * @since PECL rpminfo >= 0.2.0
 	 */
-	function rpmdbinfo(string $nevr, bool $full = FALSE): array {}
+	function rpmdbinfo(string $nevr, bool $full = false): array {}
 
 	/**
 	 * Search RPM packages
@@ -33,26 +33,26 @@ namespace {
 	 * @param string $pattern <p>Value to search for.</p>
 	 * @param int $rpmtag <p>Search criterion, one of RPMTAG_&#42; constant, see the rpminfo constants page.</p>
 	 * @param int $rpmmire <p>Pattern type, one of RPMMIRE_&#42; constant, see the rpminfo constants page. When &lt; 0 the criterion must equals the value, and database index is used if possible.</p>
-	 * @param bool $full <p>If <b><code>TRUE</code></b> all information headers for the file are retrieved, else only a minimal set.</p>
+	 * @param bool $full <p>If <b><code>true</code></b> all information headers for the file are retrieved, else only a minimal set.</p>
 	 * @return array <p>An <code>array</code> of <code>array</code> of information or NULL on error.</p>
 	 * @link https://php.net/manual/en/function.rpmdbsearch.php
 	 * @see rpmaddtag()
 	 * @since PECL rpminfo >= 0.3.0
 	 */
-	function rpmdbsearch(string $pattern, int $rpmtag = RPMTAG_NAME, int $rpmmire = -1, bool $full = FALSE): array {}
+	function rpmdbsearch(string $pattern, int $rpmtag = RPMTAG_NAME, int $rpmmire = -1, bool $full = false): array {}
 
 	/**
 	 * Get information from a RPM file
 	 * <p>Retrieve information about a local file, a RPM package.</p>
 	 * @param string $path <p>Path of the RPM file.</p>
-	 * @param bool $full <p>If <b><code>TRUE</code></b> all information headers for the file are retrieved, else only a minimal set.</p>
+	 * @param bool $full <p>If <b><code>true</code></b> all information headers for the file are retrieved, else only a minimal set.</p>
 	 * @param string $error <p>If provided, will receive the possible error message, and will avoid a runtime warning.</p>
 	 * @return array <p>An <code>array</code> of information or NULL on error.</p>
 	 * @link https://php.net/manual/en/function.rpminfo.php
 	 * @see rpmaddtag()
 	 * @since PECL rpminfo >= 0.1.0
 	 */
-	function rpminfo(string $path, bool $full = FALSE, string &$error = NULL): array {}
+	function rpminfo(string $path, bool $full = false, string &$error = null): array {}
 
 	/**
 	 * RPM version comparison

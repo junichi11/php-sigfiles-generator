@@ -353,7 +353,7 @@ namespace UI\Controls {
 		 * @link https://php.net/manual/en/ui-controls-box.append.php
 		 * @since UI 0.9.9
 		 */
-		public function append(\Control $control, bool $stretchy = FALSE): int {}
+		public function append(\Control $control, bool $stretchy = false): int {}
 
 		/**
 		 * Delete Control
@@ -1376,7 +1376,7 @@ namespace UI\Controls {
 		 * @link https://php.net/manual/en/ui-controls-form.append.php
 		 * @since UI 0.9.9
 		 */
-		public function append(string $label, \UI\Control $control, bool $stretchy = FALSE): int {}
+		public function append(string $label, \UI\Control $control, bool $stretchy = false): int {}
 
 		/**
 		 * Delete Control
@@ -2007,7 +2007,7 @@ namespace UI\Controls {
 		 * @link https://php.net/manual/en/ui-controls-multilineentry.construct.php
 		 * @since UI 0.9.9
 		 */
-		public function __construct(int $type = NULL) {}
+		public function __construct(int $type = null) {}
 
 		/**
 		 * Append Text
@@ -3377,7 +3377,7 @@ namespace UI\Draw {
 		 * @link https://php.net/manual/en/ui-draw-color.construct.php
 		 * @since UI 0.9.9
 		 */
-		public function __construct(\UI\Draw\Color $color = NULL) {}
+		public function __construct(\UI\Draw\Color $color = null) {}
 
 		/**
 		 * Color Manipulation
@@ -4163,7 +4163,7 @@ namespace UI\Draw\Text {
 		 * @link https://php.net/manual/en/ui-draw-text-layout.setcolor.php
 		 * @since UI 0.9.9
 		 */
-		public function setColor(\UI\Draw\Color $color, int $start = 0, int $end = NULL) {}
+		public function setColor(\UI\Draw\Color $color, int $start = 0, int $end = null) {}
 
 		/**
 		 * Set Width
@@ -4267,7 +4267,7 @@ namespace UI\Exception {
 		/**
 		 * Returns previous Exception
 		 * <p>Returns previous exception (the third parameter of <code>Exception::__construct()</code>).</p>
-		 * @return Throwable <p>Returns the previous Throwable if available or <b><code>NULL</code></b> otherwise.</p>
+		 * @return Throwable <p>Returns the previous Throwable if available or <b><code>null</code></b> otherwise.</p>
 		 * @link https://php.net/manual/en/exception.getprevious.php
 		 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8
 		 */
@@ -4379,7 +4379,7 @@ namespace UI\Exception {
 		/**
 		 * Returns previous Exception
 		 * <p>Returns previous exception (the third parameter of <code>Exception::__construct()</code>).</p>
-		 * @return Throwable <p>Returns the previous Throwable if available or <b><code>NULL</code></b> otherwise.</p>
+		 * @return Throwable <p>Returns the previous Throwable if available or <b><code>null</code></b> otherwise.</p>
 		 * @link https://php.net/manual/en/exception.getprevious.php
 		 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8
 		 */
@@ -5008,7 +5008,7 @@ namespace UI {
 		 * @link https://php.net/manual/en/ui-window.construct.php
 		 * @since UI 0.9.9
 		 */
-		public function __construct(string $title, \Size $size, bool $menu = FALSE) {}
+		public function __construct(string $title, \Size $size, bool $menu = false) {}
 
 		/**
 		 * Add a Control
@@ -5290,6 +5290,6 @@ namespace UI {
 	 * @link https://php.net/manual/en/function.ui-run.php
 	 * @since UI 2.0.0
 	 */
-	function run(int $flags = NULL): void {}
+	function run(int $flags = null): void {}
 
 }

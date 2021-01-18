@@ -88,7 +88,7 @@
   <h4 class="title">Internal constructors always throw exceptions on failure</h4>
 
   <p class="para">
-   Previously, some internal classes would return <strong><code>NULL</code></strong> or an unusable object
+   Previously, some internal classes would return <strong><code>null</code></strong> or an unusable object
    when the constructor failed. All internal classes will now throw an
    <a href="class.exception.html" class="classname">Exception</a> in this case in the same way that user
    classes already had to.
@@ -851,8 +851,7 @@ string(3) &quot;foo&quot;
    <span class="function"><strong>set_magic_quotes_runtime()</strong></span>, along with its alias
    <span class="function"><strong>magic_quotes_runtime()</strong></span>, have been removed. They were
    deprecated in PHP 5.3.0, and became effectively non-functional with the
-   removal of magic quotes
-   <a href="migration54.incompatible.html" class="link">in PHP 5.4.0</a>.
+   removal of magic quotes in PHP 5.4.0.
   </p>
  </div>
 
@@ -1028,13 +1027,13 @@ Parse error: syntax error, unexpected &#039;new&#039; (T_NEW) in /tmp/test.php o
     <span class="simpara"><span class="type">string</span></span>
    </li>
    <li class="listitem">
-    <span class="simpara"><strong><code>NULL</code></strong></span>
+    <span class="simpara"><strong><code>null</code></strong></span>
    </li>
    <li class="listitem">
-    <span class="simpara"><strong><code>TRUE</code></strong></span>
+    <span class="simpara"><strong><code>true</code></strong></span>
    </li>
    <li class="listitem">
-    <span class="simpara"><strong><code>FALSE</code></strong></span>
+    <span class="simpara"><strong><code>false</code></strong></span>
    </li>
   </ul>
 
@@ -1052,7 +1051,7 @@ Parse error: syntax error, unexpected &#039;new&#039; (T_NEW) in /tmp/test.php o
     <span class="simpara"><span class="type">object</span></span>
    </li>
    <li class="listitem">
-    <span class="simpara"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span></span>
+    <span class="simpara"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span></span>
    </li>
    <li class="listitem">
     <span class="simpara"><span class="type"><span class="type numeric">numeric</span></span></span>
@@ -1279,7 +1278,7 @@ NULL
   <p class="para">
    Previously, internal functions would silently truncate numbers produced from
    float-to-integer coercions when the float was too large to represent as an
-   integer. Now, an E_WARNING will be emitted and <strong><code>NULL</code></strong> will be returned.
+   integer. Now, an E_WARNING will be emitted and <strong><code>null</code></strong> will be returned.
   </p>
  </div>
 
@@ -1288,7 +1287,7 @@ NULL
 
   <p class="para">
    Any predicate functions implemented by custom session handlers that return
-   either <strong><code>FALSE</code></strong> or <code class="literal">-1</code> will be fatal errors. If any value
+   either <strong><code>false</code></strong> or <code class="literal">-1</code> will be fatal errors. If any value
    from these functions other than a boolean, <code class="literal">-1</code>, or
    <code class="literal">0</code> is returned, then it will fail and an E_WARNING will be
    emitted.

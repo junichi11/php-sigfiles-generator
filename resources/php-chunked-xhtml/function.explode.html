@@ -34,15 +34,15 @@
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>explode</strong></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$delimiter</code></span>
+    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$separator</code></span>
    , <span class="methodparam"><span class="type">string</span> <code class="parameter">$string</code></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$limit</code><span class="initializer"> = PHP_INT_MAX</span></span>
-  ] ) : <span class="type">array</span></div>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$limit</code><span class="initializer"> = <strong><code>PHP_INT_MAX</code></strong></span></span>
+   ) : <span class="type">array</span></div>
 
   <p class="para rdfs-comment">
    Returns an array of strings, each of which is a substring of
    <code class="parameter">string</code> formed by splitting it on
-   boundaries formed by the string <code class="parameter">delimiter</code>.
+   boundaries formed by the string <code class="parameter">separator</code>.
   </p>
  </div>
 
@@ -54,7 +54,7 @@
 
     
      <dt>
-<code class="parameter">delimiter</code></dt>
+<code class="parameter">separator</code></dt>
 
      <dd>
 
@@ -105,7 +105,7 @@
     Although <span class="function"><a href="function.implode.html" class="function">implode()</a></span> can, for historical reasons,
     accept its parameters in either order,
     <span class="function"><strong>explode()</strong></span> cannot. You must ensure that the
-    <code class="parameter">delimiter</code> argument comes before the
+    <code class="parameter">separator</code> argument comes before the
     <code class="parameter">string</code> argument.
    </p>
   </p></blockquote>
@@ -117,12 +117,12 @@
   <p class="para">
    Returns an <span class="type">array</span> of <span class="type">string</span>s
    created by splitting the <code class="parameter">string</code> parameter on
-   boundaries formed by the <code class="parameter">delimiter</code>.
+   boundaries formed by the <code class="parameter">separator</code>.
   </p>
   <p class="para">
-   If <code class="parameter">delimiter</code> is an empty <span class="type">string</span> (&quot;&quot;),
-   <span class="function"><strong>explode()</strong></span> will return <strong><code>FALSE</code></strong>.
-   If <code class="parameter">delimiter</code> contains a value that is not
+   If <code class="parameter">separator</code> is an empty <span class="type">string</span> (&quot;&quot;),
+   <span class="function"><strong>explode()</strong></span> will return <strong><code>false</code></strong>.
+   If <code class="parameter">separator</code> contains a value that is not
    contained in <code class="parameter">string</code> and a negative
    <code class="parameter">limit</code> is used, then an empty <span class="type">array</span> will be
    returned, otherwise an <span class="type">array</span> containing
@@ -134,7 +134,7 @@
  <div class="refsect1 examples" id="refsect1-function.explode-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-5272">
+   <div class="example" id="example-5293">
     <p><strong>Example #1 <span class="function"><strong>explode()</strong></span> examples</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -146,7 +146,7 @@
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-5273">
+   <div class="example" id="example-5294">
     <p><strong>Example #2 <span class="function"><strong>explode()</strong></span> return examples</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -177,7 +177,7 @@ array(2)
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-5274">
+   <div class="example" id="example-5295">
     <p><strong>Example #3 <code class="parameter">limit</code> parameter examples</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

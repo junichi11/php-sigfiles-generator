@@ -49,8 +49,8 @@ Alternatives to this function include:</p>
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>mysql_list_tables</strong></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$database</code></span>
-   [, <span class="methodparam"><span class="type">resource</span> <code class="parameter">$link_identifier</code><span class="initializer"> = NULL</span></span>
-  ] ) : <span class="type"><span class="type">resource</span>|<span class="type"><span class="type false">false</span></span></span></div>
+   , <span class="methodparam"><span class="type">resource</span> <code class="parameter">$link_identifier</code><span class="initializer"> = NULL</span></span>
+   ) : <span class="type"><span class="type">resource</span>|<span class="type"><span class="type false">false</span></span></span></div>
 
   <p class="para rdfs-comment">
    Retrieves a list of table names from a MySQL database.
@@ -101,7 +101,7 @@ with no arguments. If no connection is found or established, an
  <div class="refsect1 returnvalues" id="refsect1-function.mysql-list-tables-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   A result pointer <span class="type">resource</span> on success or <strong><code>FALSE</code></strong> on failure.
+   A result pointer <span class="type">resource</span> on success or <strong><code>false</code></strong> on failure.
   </p>
   <p class="para">
    Use the <span class="function"><a href="function.mysql-tablename.html" class="function">mysql_tablename()</a></span> function to
@@ -143,7 +143,7 @@ with no arguments. If no connection is found or established, an
  <div class="refsect1 examples" id="refsect1-function.mysql-list-tables-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-1985">
+   <div class="example" id="example-1998">
     <p><strong>Example #1 <span class="function"><strong>mysql_list_tables()</strong></span> alternative example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

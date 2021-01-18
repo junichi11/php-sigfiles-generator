@@ -34,8 +34,8 @@
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>fbsql_error</strong></span>
-    ([ <span class="methodparam"><span class="type">resource</span> <code class="parameter">$link_identifier</code></span>
-  ] ) : <span class="type">string</span></div>
+    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$link_identifier</code> = ?</span>
+   ) : <span class="type">string</span></div>
 
   <p class="para rdfs-comment">
    Returns the error message from previous FrontBase operation.
@@ -86,7 +86,7 @@ such link is found it will try to create one as if
  <div class="refsect1 examples" id="refsect1-function.fbsql-error-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-1205">
+   <div class="example" id="example-1217">
     <p><strong>Example #1 <span class="function"><strong>fbsql_error()</strong></span> Example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

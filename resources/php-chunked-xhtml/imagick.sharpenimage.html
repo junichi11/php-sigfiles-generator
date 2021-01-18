@@ -26,18 +26,18 @@
   <div id="layout-content"><div id="imagick.sharpenimage" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">Imagick::sharpenImage</h1>
-  <p class="verinfo">(PECL imagick 2.0.0)</p><p class="refpurpose"><span class="refname">Imagick::sharpenImage</span> &mdash; <span class="dc-title">Sharpens an image</span></p>
+  <p class="verinfo">(PECL imagick 2, PECL imagick 3)</p><p class="refpurpose"><span class="refname">Imagick::sharpenImage</span> &mdash; <span class="dc-title">Sharpens an image</span></p>
 
  </div>
 
  <div class="refsect1 description" id="refsect1-imagick.sharpenimage-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>Imagick::sharpenImage</strong></span>
+   <span class="modifier">public</span> <span class="methodname"><strong>Imagick::sharpenImage</strong></span>
     ( <span class="methodparam"><span class="type">float</span> <code class="parameter">$radius</code></span>
    , <span class="methodparam"><span class="type">float</span> <code class="parameter">$sigma</code></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$channel</code><span class="initializer"> = Imagick::CHANNEL_DEFAULT</span></span>
-  ] ) : <span class="type">bool</span></div>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$channel</code><span class="initializer"> = Imagick::CHANNEL_DEFAULT</span></span>
+   ) : <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
    Sharpens an image. We convolve the image with a Gaussian operator
@@ -96,7 +96,7 @@
  <div class="refsect1 returnvalues" id="refsect1-imagick.sharpenimage-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns <strong><code>TRUE</code></strong> on success.
+   Returns <strong><code>true</code></strong> on success.
   </p>
  </div>
 
@@ -106,7 +106,7 @@
  <div class="refsect1 examples" id="refsect1-imagick.sharpenimage-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-    <div class="example" id="example-3361">
+    <div class="example" id="example-3376">
       <p><strong>Example #1  <span class="function"><strong>Imagick::sharpenImage()</strong></span></strong></p>
       <div class="example-contents">
       <div class="phpcode"><code><span style="color: #000000">

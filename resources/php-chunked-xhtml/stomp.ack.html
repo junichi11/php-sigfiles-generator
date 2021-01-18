@@ -36,17 +36,17 @@
   <p class="para">Object oriented style (method):</p>
    <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><strong>Stomp::ack</strong></span>
-    ( <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">$msg</code></span>
-   [, <span class="methodparam"><span class="type">array</span> <code class="parameter">$headers</code></span>
-   ] ) : <span class="type">bool</span></div>
+    ( <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$msg</code></span>
+   , <span class="methodparam"><span class="type">array</span> <code class="parameter">$headers</code> = ?</span>
+    ) : <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">Procedural style:</p>
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>stomp_ack</strong></span>
     ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$link</code></span>
-   , <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">$msg</code></span>
-   [, <span class="methodparam"><span class="type">array</span> <code class="parameter">$headers</code></span>
-  ] ) : <span class="type">bool</span></div>
+   , <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$msg</code></span>
+   , <span class="methodparam"><span class="type">array</span> <code class="parameter">$headers</code> = ?</span>
+   ) : <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
    Acknowledges consumption of a message from a subscription using client acknowledgment.
@@ -90,7 +90,7 @@
  <div class="refsect1 returnvalues" id="refsect1-stomp.ack-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns <strong><code>TRUE</code></strong> on success or <strong><code>FALSE</code></strong> on failure.
+   Returns <strong><code>true</code></strong> on success or <strong><code>false</code></strong> on failure.
   </p>
  </div>
 
@@ -105,7 +105,7 @@
  <div class="refsect1 examples" id="refsect1-stomp.ack-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-5041">
+   <div class="example" id="example-5063">
     <p><strong>Example #1 Object oriented style</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -117,7 +117,7 @@
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-5042">
+   <div class="example" id="example-5064">
     <p><strong>Example #2 Procedural style</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

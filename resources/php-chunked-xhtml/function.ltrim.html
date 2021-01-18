@@ -34,9 +34,9 @@
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>ltrim</strong></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$str</code></span>
-   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$character_mask</code></span>
-  ] ) : <span class="type">string</span></div>
+    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$string</code></span>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$characters</code><span class="initializer"> = &quot; \n\r\t\v\0&quot;</span></span>
+   ) : <span class="type">string</span></div>
 
   <p class="para rdfs-comment">
    Strip whitespace (or other characters) from the beginning of a string.
@@ -51,7 +51,7 @@
 
     
      <dt>
-<code class="parameter">str</code></dt>
+<code class="parameter">string</code></dt>
 
      <dd>
 
@@ -63,13 +63,13 @@
     
     
      <dt>
-<code class="parameter">character_mask</code></dt>
+<code class="parameter">characters</code></dt>
 
      <dd>
 
       <p class="para">
        You can also specify the characters you want to strip, by means of the
-       <code class="parameter">character_mask</code> parameter.
+       <code class="parameter">characters</code> parameter.
        Simply list all characters that you want to be stripped. With
        <code class="literal">..</code> you can specify a range of characters.
       </p>
@@ -86,7 +86,7 @@
   <h3 class="title">Return Values</h3>
   <p class="para">
    This function returns a string with whitespace stripped from the
-   beginning of <code class="parameter">str</code>.
+   beginning of <code class="parameter">string</code>.
    Without the second parameter,
    <span class="function"><strong>ltrim()</strong></span> will strip these characters:
    
@@ -122,8 +122,8 @@
      </span>
     </li>
     <li class="listitem">
-     <span class="simpara"> 
-      &quot;\x0B&quot; (<acronym title="American Standard Code for Information Interchange">ASCII</acronym> <code class="literal">11</code>
+     <span class="simpara">
+      &quot;\v&quot; (<acronym title="American Standard Code for Information Interchange">ASCII</acronym> <code class="literal">11</code>
       (<code class="literal">0x0B</code>)), a vertical tab.
      </span>
     </li>
@@ -135,7 +135,7 @@
  <div class="refsect1 examples" id="refsect1-function.ltrim-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-5288">
+   <div class="example" id="example-5309">
     <p><strong>Example #1 Usage example of <span class="function"><strong>ltrim()</strong></span></strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

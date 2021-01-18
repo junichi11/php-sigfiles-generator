@@ -54,13 +54,13 @@ namespace {
 		 * @link https://php.net/manual/en/yar-client.construct.php
 		 * @since PECL yar >= 1.0.0
 		 */
-		final public function __construct(string $url, array $options = NULL) {}
+		final public function __construct(string $url, array $options = null) {}
 
 		/**
 		 * Set calling contexts
 		 * @param int $name <p>it can be: YAR_OPT_PACKAGER, YAR_OPT_PERSISTENT (Need server support), YAR_OPT_TIMEOUT, YAR_OPT_CONNECT_TIMEOUT YAR_OPT_HEADER (Since 2.0.4)</p>
 		 * @param mixed $value
-		 * @return Yar_Client|false <p>Returns $this on success or <b><code>FALSE</code></b> on failure.</p>
+		 * @return Yar_Client|false <p>Returns $this on success or <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/yar-client.setopt.php
 		 * @since PECL yar >= 1.0.0
 		 */
@@ -130,7 +130,7 @@ namespace {
 		/**
 		 * Returns previous Exception
 		 * <p>Returns previous exception (the third parameter of <code>Exception::__construct()</code>).</p>
-		 * @return Throwable <p>Returns the previous Throwable if available or <b><code>NULL</code></b> otherwise.</p>
+		 * @return Throwable <p>Returns the previous Throwable if available or <b><code>null</code></b> otherwise.</p>
 		 * @link https://php.net/manual/en/exception.getprevious.php
 		 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8
 		 */
@@ -200,7 +200,7 @@ namespace {
 		 * @link https://php.net/manual/en/yar-concurrent-client.call.php
 		 * @since PECL yar >= 1.0.0
 		 */
-		public static function call(string $uri, string $method, array $parameters = NULL, callable $callback = NULL, callable $error_callback = NULL, array $options = NULL): int {}
+		public static function call(string $uri, string $method, array $parameters = null, callable $callback = null, callable $error_callback = null, array $options = null): int {}
 
 		/**
 		 * Send all calls
@@ -211,7 +211,7 @@ namespace {
 		 * @link https://php.net/manual/en/yar-concurrent-client.loop.php
 		 * @since PECL yar >= 1.0.0
 		 */
-		public static function loop(callable $callback = NULL, callable $error_callback = NULL): bool {}
+		public static function loop(callable $callback = null, callable $error_callback = null): bool {}
 
 		/**
 		 * Clean all registered calls
@@ -325,7 +325,7 @@ namespace {
 		/**
 		 * Returns previous Exception
 		 * <p>Returns previous exception (the third parameter of <code>Exception::__construct()</code>).</p>
-		 * @return Throwable <p>Returns the previous Throwable if available or <b><code>NULL</code></b> otherwise.</p>
+		 * @return Throwable <p>Returns the previous Throwable if available or <b><code>null</code></b> otherwise.</p>
 		 * @link https://php.net/manual/en/exception.getprevious.php
 		 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8
 		 */

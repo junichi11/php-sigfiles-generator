@@ -34,9 +34,9 @@
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>filter_input_array</strong></span>
     ( <span class="methodparam"><span class="type">int</span> <code class="parameter">$type</code></span>
-   [, <span class="methodparam"><span class="type"><span class="type">array</span>|<span class="type">int</span></span> <code class="parameter">$options</code><span class="initializer"> = <strong><code>FILTER_DEFAULT</code></strong></span></span>
-   [, <span class="methodparam"><span class="type">bool</span> <code class="parameter">$add_empty</code><span class="initializer"> = <strong><code>TRUE</code></strong></span></span>
-  ]] ) : <span class="type"><span class="type">array</span>|<span class="type"><span class="type false">false</span></span>|<span class="type">null</span></span></div>
+   , <span class="methodparam"><span class="type"><span class="type">array</span>|<span class="type">int</span></span> <code class="parameter">$options</code><span class="initializer"> = <strong><code>FILTER_DEFAULT</code></strong></span></span>
+   , <span class="methodparam"><span class="type">bool</span> <code class="parameter">$add_empty</code><span class="initializer"> = <strong><code>true</code></strong></span></span>
+   ) : <span class="type"><span class="type">array</span>|<span class="type"><span class="type false">false</span></span>|<span class="type">null</span></span></div>
 
   <p class="para rdfs-comment">
    This function is useful for retrieving many values without
@@ -93,7 +93,7 @@
      <dd>
 
       <p class="para">
-       Add missing keys as <strong><code>NULL</code></strong> to the return value.
+       Add missing keys as <strong><code>null</code></strong> to the return value.
       </p>
      </dd>
 
@@ -108,14 +108,14 @@
   <p class="para">
    An array containing the values of the requested variables on success.
    If the input array designated by <code class="parameter">type</code> is not populated,
-   the function returns <strong><code>NULL</code></strong> if the <strong><code>FILTER_NULL_ON_FAILURE</code></strong>
-   flag is not given, or <strong><code>FALSE</code></strong> otherwise. For other failures, <strong><code>FALSE</code></strong> is returned.
+   the function returns <strong><code>null</code></strong> if the <strong><code>FILTER_NULL_ON_FAILURE</code></strong>
+   flag is not given, or <strong><code>false</code></strong> otherwise. For other failures, <strong><code>false</code></strong> is returned.
   </p>
   <p class="para">
-   An array value will be <strong><code>FALSE</code></strong> if the filter fails, or <strong><code>NULL</code></strong> if 
+   An array value will be <strong><code>false</code></strong> if the filter fails, or <strong><code>null</code></strong> if 
    the variable is not set. Or if the flag <strong><code>FILTER_NULL_ON_FAILURE</code></strong>
-   is used, it returns <strong><code>FALSE</code></strong> if the variable is not set and <strong><code>NULL</code></strong> if the filter 
-   fails. If the <code class="parameter">add_empty</code> parameter is <strong><code>FALSE</code></strong>, no array
+   is used, it returns <strong><code>false</code></strong> if the variable is not set and <strong><code>null</code></strong> if the filter 
+   fails. If the <code class="parameter">add_empty</code> parameter is <strong><code>false</code></strong>, no array
    element will be added for unset variables.
   </p>
  </div>
@@ -124,7 +124,7 @@
  <div class="refsect1 examples" id="refsect1-function.filter-input-array-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-5554">
+   <div class="example" id="example-5575">
     <p><strong>Example #1 A <span class="function"><strong>filter_input_array()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

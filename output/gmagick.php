@@ -1626,7 +1626,7 @@ namespace {
 		 * @link https://php.net/manual/en/gmagick.construct.php
 		 * @since PECL gmagick >= Unknown
 		 */
-		public function __construct(string $filename = NULL) {}
+		public function __construct(string $filename = null) {}
 
 		/**
 		 * Adds new image to Gmagick object image list
@@ -1672,7 +1672,7 @@ namespace {
 		 * @link https://php.net/manual/en/gmagick.blurimage.php
 		 * @since PECL gmagick >= Unknown
 		 */
-		public function blurimage(float $radius, float $sigma, int $channel = NULL): \Gmagick {}
+		public function blurimage(float $radius, float $sigma, int $channel = null): \Gmagick {}
 
 		/**
 		 * Surrounds the image with a border
@@ -1806,7 +1806,7 @@ namespace {
 		/**
 		 * The destroy purpose
 		 * <p>Destroys the Gmagick object and frees all resources associated with it</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/gmagick.destroy.php
 		 * @since PECL gmagick >= Unknown
 		 */
@@ -2106,8 +2106,8 @@ namespace {
 
 		/**
 		 * Check if the image has a matte channel
-		 * <p>Returns <b><code>TRUE</code></b> if the image has a matte channel, otherwise <b><code>FALSE</code></b>.</p>
-		 * @return int <p>Returns <b><code>TRUE</code></b> if the image has a matte channel, otherwise <b><code>FALSE</code></b>.</p>
+		 * <p>Returns <b><code>true</code></b> if the image has a matte channel, otherwise <b><code>false</code></b>.</p>
+		 * @return int <p>Returns <b><code>true</code></b> if the image has a matte channel, otherwise <b><code>false</code></b>.</p>
 		 * @link https://php.net/manual/en/gmagick.getimagematte.php
 		 * @since PECL gmagick >= Unknown
 		 */
@@ -2392,12 +2392,12 @@ namespace {
 		 * @link https://php.net/manual/en/gmagick.newimage.php
 		 * @since PECL gmagick >= Unknown
 		 */
-		public function newimage(int $width, int $height, string $background, string $format = NULL): \Gmagick {}
+		public function newimage(int $width, int $height, string $background, string $format = null): \Gmagick {}
 
 		/**
 		 * Moves to the next image
 		 * <p>Associates the next image in the image list with an Gmagick object.</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/gmagick.nextimage.php
 		 * @since PECL gmagick >= Unknown
 		 */
@@ -2411,7 +2411,7 @@ namespace {
 		 * @link https://php.net/manual/en/gmagick.normalizeimage.php
 		 * @since PECL gmagick >= Unknown
 		 */
-		public function normalizeimage(int $channel = NULL): \Gmagick {}
+		public function normalizeimage(int $channel = null): \Gmagick {}
 
 		/**
 		 * Simulates an oil painting
@@ -2426,7 +2426,7 @@ namespace {
 		/**
 		 * Move to the previous image in the object
 		 * <p>Associates the previous image in an image list with the Gmagick object.</p>
-		 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+		 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/gmagick.previousimage.php
 		 * @since PECL gmagick >= Unknown
 		 */
@@ -2556,7 +2556,7 @@ namespace {
 		 * @link https://php.net/manual/en/gmagick.readimageblob.php
 		 * @since PECL gmagick >= Unknown
 		 */
-		public function readimageblob(string $imageContents, string $filename = NULL): \Gmagick {}
+		public function readimageblob(string $imageContents, string $filename = null): \Gmagick {}
 
 		/**
 		 * The readimagefile purpose
@@ -2567,7 +2567,7 @@ namespace {
 		 * @link https://php.net/manual/en/gmagick.readimagefile.php
 		 * @since PECL gmagick >= Unknown
 		 */
-		public function readimagefile($fp, string $filename = NULL): \Gmagick {}
+		public function readimagefile($fp, string $filename = null): \Gmagick {}
 
 		/**
 		 * Smooths the contours of an image
@@ -2623,7 +2623,7 @@ namespace {
 		 * @link https://php.net/manual/en/gmagick.resizeimage.php
 		 * @since PECL gmagick >= Unknown
 		 */
-		public function resizeimage(int $width, int $height, int $filter, float $blur, bool $fit = FALSE): \Gmagick {}
+		public function resizeimage(int $width, int $height, int $filter, float $blur, bool $fit = false): \Gmagick {}
 
 		/**
 		 * Offsets an image
@@ -2657,7 +2657,7 @@ namespace {
 		 * @link https://php.net/manual/en/gmagick.scaleimage.php
 		 * @since PECL gmagick >= Unknown
 		 */
-		public function scaleimage(int $width, int $height, bool $fit = FALSE): \Gmagick {}
+		public function scaleimage(int $width, int $height, bool $fit = false): \Gmagick {}
 
 		/**
 		 * Separates a channel from the image
@@ -3018,7 +3018,7 @@ namespace {
 		 * @link https://php.net/manual/en/gmagick.thumbnailimage.php
 		 * @since PECL gmagick >= Unknown
 		 */
-		public function thumbnailimage(int $width, int $height, bool $fit = FALSE): \Gmagick {}
+		public function thumbnailimage(int $width, int $height, bool $fit = false): \Gmagick {}
 
 		/**
 		 * Remove edges from the image
@@ -3039,7 +3039,7 @@ namespace {
 		 * @link https://php.net/manual/en/gmagick.writeimage.php
 		 * @since PECL gmagick >= Unknown
 		 */
-		public function writeimage(string $filename, bool $all_frames = FALSE): \Gmagick {}
+		public function writeimage(string $filename, bool $all_frames = false): \Gmagick {}
 	}
 
 	/**
@@ -3121,7 +3121,7 @@ namespace {
 		/**
 		 * Returns the font
 		 * <p>Returns a string specifying the font used when annotating with text.</p>
-		 * @return mixed <p>Returns a string on success and <b><code>FALSE</code></b> if no font is set.</p>
+		 * @return mixed <p>Returns a string on success and <b><code>false</code></b> if no font is set.</p>
 		 * @link https://php.net/manual/en/gmagickdraw.getfont.php
 		 * @since PECL gmagick >= Unknown
 		 */
@@ -3193,7 +3193,7 @@ namespace {
 		/**
 		 * Returns the code set used for text annotations
 		 * <p>Returns a string which specifies the code set used for text annotations.</p>
-		 * @return mixed <p>Returns a string specifying the code set or <b><code>FALSE</code></b> if text encoding is not set.</p>
+		 * @return mixed <p>Returns a string specifying the code set or <b><code>false</code></b> if text encoding is not set.</p>
 		 * @link https://php.net/manual/en/gmagickdraw.gettextencoding.php
 		 * @since PECL gmagick >= Unknown
 		 */
@@ -3417,18 +3417,18 @@ namespace {
 		 * @link https://php.net/manual/en/gmagickpixel.construct.php
 		 * @since PECL gmagick >= Unknown
 		 */
-		public function __construct(string $color = NULL) {}
+		public function __construct(string $color = null) {}
 
 		/**
 		 * Returns the color
 		 * <p>Returns the color described by the GmagickPixel object, as a <code>string</code> or an <code>array</code>. If the color has an opacity channel set, this is provided as a fourth value in the list.</p>
-		 * @param bool $as_array <p><b><code>TRUE</code></b> to indicate return of <code>array</code> instead of <code>string</code>.</p>
-		 * @param bool $normalize_array <p><b><code>TRUE</code></b> to normalize the color values.</p>
-		 * @return mixed <p>A <code>string</code> or an <code>array</code> of channel values, each normalized if <b><code>TRUE</code></b> is given as <code>normalize_array</code>. Throws <b>GmagickPixelException</b> on error.</p>
+		 * @param bool $as_array <p><b><code>true</code></b> to indicate return of <code>array</code> instead of <code>string</code>.</p>
+		 * @param bool $normalize_array <p><b><code>true</code></b> to normalize the color values.</p>
+		 * @return mixed <p>A <code>string</code> or an <code>array</code> of channel values, each normalized if <b><code>true</code></b> is given as <code>normalize_array</code>. Throws <b>GmagickPixelException</b> on error.</p>
 		 * @link https://php.net/manual/en/gmagickpixel.getcolor.php
 		 * @since PECL gmagick >= Unknown
 		 */
-		public function getcolor(bool $as_array = FALSE, bool $normalize_array = FALSE): mixed {}
+		public function getcolor(bool $as_array = false, bool $normalize_array = false): mixed {}
 
 		/**
 		 * Returns the color count associated with this color

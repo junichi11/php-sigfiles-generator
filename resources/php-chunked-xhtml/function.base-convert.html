@@ -32,23 +32,23 @@
  <div class="refsect1 description" id="refsect1-function.base-convert-description">
   <h3 class="title">Description</h3>
    <div class="methodsynopsis dc-description">
-    <span class="methodname"><strong>base_convert</strong></span>
-     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$number</code></span>
-    , <span class="methodparam"><span class="type">int</span> <code class="parameter">$frombase</code></span>
-    , <span class="methodparam"><span class="type">int</span> <code class="parameter">$tobase</code></span>
-    ) : <span class="type">string</span></div>
+   <span class="methodname"><strong>base_convert</strong></span>
+    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$num</code></span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$from_base</code></span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$to_base</code></span>
+   ) : <span class="type">string</span></div>
 
   <p class="para rdfs-comment">
-   Returns a string containing <code class="parameter">number</code>
-   represented in base <code class="parameter">tobase</code>.  The base in
-   which <code class="parameter">number</code> is given is specified in
-   <code class="parameter">frombase</code>.  Both
-   <code class="parameter">frombase</code> and <code class="parameter">tobase</code>
+   Returns a string containing <code class="parameter">num</code>
+   represented in base <code class="parameter">to_base</code>.  The base in
+   which <code class="parameter">num</code> is given is specified in
+   <code class="parameter">from_base</code>.  Both
+   <code class="parameter">from_base</code> and <code class="parameter">to_base</code>
    have to be between 2 and 36, inclusive.  Digits in numbers with a
    base higher than 10 will be represented with the letters a-z,
    with a meaning 10, b meaning 11 and z meaning 35.
    The case of the letters doesn&#039;t matter, i.e.
-   <code class="parameter">number</code> is interpreted case-insensitively.
+   <code class="parameter">num</code> is interpreted case-insensitively.
   </p>
   <div class="warning"><strong class="warning">Warning</strong>
    <p class="simpara">
@@ -67,13 +67,13 @@
 
     
      <dt>
-<code class="parameter">number</code></dt>
+<code class="parameter">num</code></dt>
 
      <dd>
 
       <p class="para">
        The number to convert. Any invalid characters in
-       <code class="parameter">number</code> are silently ignored.
+       <code class="parameter">num</code> are silently ignored.
        As of PHP 7.4.0 supplying any invalid characters is deprecated.
       </p>
      </dd>
@@ -81,24 +81,24 @@
     
     
      <dt>
-<code class="parameter">frombase</code></dt>
+<code class="parameter">from_base</code></dt>
 
      <dd>
 
       <p class="para">
-       The base <code class="parameter">number</code> is in
+       The base <code class="parameter">num</code> is in
       </p>
      </dd>
 
     
     
      <dt>
-<code class="parameter">tobase</code></dt>
+<code class="parameter">to_base</code></dt>
 
      <dd>
 
       <p class="para">
-       The base to convert <code class="parameter">number</code> to
+       The base to convert <code class="parameter">num</code> to
       </p>
      </dd>
 
@@ -111,7 +111,7 @@
  <div class="refsect1 returnvalues" id="refsect1-function.base-convert-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   <code class="parameter">number</code> converted to base <code class="parameter">tobase</code>
+   <code class="parameter">num</code> converted to base <code class="parameter">to_base</code>
   </p>
  </div>
 
@@ -147,7 +147,7 @@
  <div class="refsect1 examples" id="refsect1-function.base-convert-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-3574">
+   <div class="example" id="example-3589">
     <p><strong>Example #1 <span class="function"><strong>base_convert()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

@@ -34,10 +34,10 @@
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>socket_bind</strong></span>
-    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$socket</code></span>
+    ( <span class="methodparam"><span class="type"><a href="class.socket.html" class="type Socket">Socket</a></span> <code class="parameter">$socket</code></span>
    , <span class="methodparam"><span class="type">string</span> <code class="parameter">$address</code></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$port</code><span class="initializer"> = 0</span></span>
-  ] ) : <span class="type">bool</span></div>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$port</code><span class="initializer"> = 0</span></span>
+   ) : <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
    Binds the name given in <code class="parameter">address</code> to the socket
@@ -60,7 +60,7 @@
      <dd>
 
       <p class="para">
-       A valid socket resource created with <span class="function"><a href="function.socket-create.html" class="function">socket_create()</a></span>.
+       A <a href="class.socket.html" class="classname">Socket</a> instance created with <span class="function"><a href="function.socket-create.html" class="function">socket_create()</a></span>.
       </p>
      </dd>
 
@@ -107,7 +107,7 @@
  <div class="refsect1 returnvalues" id="refsect1-function.socket-bind-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns <strong><code>TRUE</code></strong> on success or <strong><code>FALSE</code></strong> on failure.
+   Returns <strong><code>true</code></strong> on success or <strong><code>false</code></strong> on failure.
   </p>
   <p class="para">
    The error code can be retrieved with <span class="function"><a href="function.socket-last-error.html" class="function">socket_last_error()</a></span>.
@@ -117,6 +117,34 @@
  </div>
 
 
+ <div class="refsect1 changelog" id="refsect1-function.socket-bind-changelog">
+  <h3 class="title">Changelog</h3>
+  <table class="doctable informaltable">
+   
+    <thead>
+     <tr>
+      <th>Version</th>
+      <th>Description</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+  <td>8.0.0</td>
+  <td>
+   <code class="parameter">socket</code> is a <a href="class.socket.html" class="classname">Socket</a> instance now;
+   previously, it was a <span class="type">resource</span>.
+  </td>
+ </tr>
+
+    </tbody>
+   
+  </table>
+
+ </div>
+
+ 
  <div class="refsect1 examples" id="refsect1-function.socket-bind-examples">
   <h3 class="title">Examples</h3>
   <p class="para">

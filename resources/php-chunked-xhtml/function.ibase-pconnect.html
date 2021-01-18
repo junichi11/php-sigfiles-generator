@@ -34,15 +34,15 @@
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>ibase_pconnect</strong></span>
-    ([ <span class="methodparam"><span class="type">string</span> <code class="parameter">$database</code></span>
-   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$username</code></span>
-   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$password</code></span>
-   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$charset</code></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$buffers</code></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$dialect</code></span>
-   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$role</code></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$sync</code></span>
-  ]]]]]]]] ) : <span class="type">resource</span></div>
+    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$database</code> = ?</span>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$username</code> = ?</span>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$password</code> = ?</span>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$charset</code> = ?</span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$buffers</code> = ?</span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$dialect</code> = ?</span>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$role</code> = ?</span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$sync</code> = ?</span>
+   ) : <span class="type">resource</span></div>
 
   <p class="para rdfs-comment">
    Opens a persistent connection to an InterBase database.
@@ -187,7 +187,7 @@
  <div class="refsect1 returnvalues" id="refsect1-function.ibase-pconnect-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns an InterBase link identifier on success, or <strong><code>FALSE</code></strong> on error.
+   Returns an InterBase link identifier on success, or <strong><code>false</code></strong> on error.
   </p>
  </div>
 

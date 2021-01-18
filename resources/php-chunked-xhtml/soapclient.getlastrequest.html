@@ -35,7 +35,7 @@
   <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><strong>SoapClient::__getLastRequest</strong></span>
     (
-   ) : <span class="type">string</span></div>
+   ) : <span class="type"><span class="type">string</span>|<span class="type">null</span></span></div>
 
   <p class="para rdfs-comment">
    Returns the XML sent in the last SOAP request.
@@ -43,7 +43,7 @@
   <blockquote class="note"><p><strong class="note">Note</strong>: 
    <p class="para">
     This method works only if the <a href="class.soapclient.html" class="classname">SoapClient</a> object
-    was created with the <code class="literal">trace</code> option set to <strong><code>TRUE</code></strong>.
+    was created with the <code class="literal">trace</code> option set to <strong><code>true</code></strong>.
    </p>
   </p></blockquote>
  </div>
@@ -66,7 +66,7 @@
  <div class="refsect1 examples" id="refsect1-soapclient.getlastrequest-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-5796">
+   <div class="example" id="example-5820">
     <p><strong>Example #1 SoapClient::__getLastRequest() example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

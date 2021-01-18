@@ -35,7 +35,7 @@
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>posix_getrlimit</strong></span>
     (
-   ) : <span class="type">array</span></div>
+   ) : <span class="type"><span class="type">array</span>|<span class="type"><span class="type false">false</span></span></span></div>
 
   <p class="para rdfs-comment">
    <span class="function"><strong>posix_getrlimit()</strong></span> returns an <span class="type">array</span>
@@ -154,6 +154,7 @@
     
    </table>
 
+   The function returns <strong><code>false</code></strong> on failure.
   </p>
  </div>
 
@@ -161,7 +162,7 @@
  <div class="refsect1 examples" id="refsect1-function.posix-getrlimit-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-3779">
+   <div class="example" id="example-3795">
     <p><strong>Example #1 Example use of <span class="function"><strong>posix_getrlimit()</strong></span></strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

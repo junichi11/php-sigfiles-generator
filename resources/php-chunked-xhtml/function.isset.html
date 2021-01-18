@@ -2,7 +2,7 @@
 <html>
  <head>
   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-  <title>Determine if a variable is declared and is different than NULL</title>
+  <title>Determine if a variable is declared and is different than null</title>
 <link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-base.css" />
 <link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-medium.css" />
 
@@ -19,14 +19,14 @@
   <ul class="breadcrumbs-container">
     <li><a href="index.html">PHP Manual</a></li>
     <li><a href="ref.var.html">Variable handling Functions</a></li>
-    <li>Determine if a variable is declared and is different than NULL</li>
+    <li>Determine if a variable is declared and is different than null</li>
   </ul>
 </div>
 <div id="layout">
   <div id="layout-content"><div id="function.isset" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">isset</h1>
-  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">isset</span> &mdash; <span class="dc-title">Determine if a variable is declared and is different than <strong><code>NULL</code></strong></span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">isset</span> &mdash; <span class="dc-title">Determine if a variable is declared and is different than <strong><code>null</code></strong></span></p>
 
  </div>
  
@@ -34,27 +34,27 @@
  <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>isset</strong></span>
-    ( <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">$var</code></span>
-   , <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">...$vars</code></span>
+    ( <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$var</code></span>
+   , <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">...$vars</code></span>
    ) : <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
    Determine if a variable is considered set,
-   this means if a variable is declared and is different than <strong><code>NULL</code></strong>.
+   this means if a variable is declared and is different than <strong><code>null</code></strong>.
   </p>
   <p class="para">
    If a variable has been unset with the <span class="function"><a href="function.unset.html" class="function">unset()</a></span>
    function, it is no longer considered to be set.
   </p>
   <p class="para">
-   <span class="function"><strong>isset()</strong></span> will return <strong><code>FALSE</code></strong> when checking a
-   variable that has been assigned to <strong><code>NULL</code></strong>.
+   <span class="function"><strong>isset()</strong></span> will return <strong><code>false</code></strong> when checking a
+   variable that has been assigned to <strong><code>null</code></strong>.
    Also note that a null character (<code class="literal">&quot;\0&quot;</code>) is not
-   equivalent to the PHP <strong><code>NULL</code></strong> constant.
+   equivalent to the PHP <strong><code>null</code></strong> constant.
   </p>
   <p class="para">
    If multiple parameters are supplied then <span class="function"><strong>isset()</strong></span>
-   will return <strong><code>TRUE</code></strong> only if all of the parameters are considered set.
+   will return <strong><code>true</code></strong> only if all of the parameters are considered set.
    Evaluation goes from left to right and stops as soon as an unset
    variable is encountered.
   </p>
@@ -99,8 +99,8 @@
  <div class="refsect1 returnvalues" id="refsect1-function.isset-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns <strong><code>TRUE</code></strong> if <code class="parameter">var</code> exists and has
-   any value other than <strong><code>NULL</code></strong>. <strong><code>FALSE</code></strong> otherwise.
+   Returns <strong><code>true</code></strong> if <code class="parameter">var</code> exists and has
+   any value other than <strong><code>null</code></strong>. <strong><code>false</code></strong> otherwise.
   </p>
  </div>
 
@@ -108,7 +108,7 @@
  <div class="refsect1 examples" id="refsect1-function.isset-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-5763">
+   <div class="example" id="example-5787">
     <p><strong>Example #1 <span class="function"><strong>isset()</strong></span> Examples</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -131,7 +131,7 @@
 
    </div>
   </p>
-  <div class="example" id="example-5764">
+  <div class="example" id="example-5788">
    <p><strong>Example #2 <span class="function"><strong>isset()</strong></span> on String Offsets</strong></p>
    <div class="example-contents"><p>
     PHP 5.4 changes how <span class="function"><strong>isset()</strong></span> behaves
@@ -204,7 +204,7 @@ language construct and not a function, it cannot be called using
     <li class="member"><span class="function"><a href="function.defined.html" class="function" rel="rdfs-seeAlso">defined()</a> - Checks whether a given named constant exists</span></li>
     <li class="member"><a href="types.comparisons.html" class="link">the type comparison tables</a></li>
     <li class="member"><span class="function"><a href="function.array-key-exists.html" class="function" rel="rdfs-seeAlso">array_key_exists()</a> - Checks if the given key or index exists in the array</span></li>
-    <li class="member"><span class="function"><a href="function.is-null.html" class="function" rel="rdfs-seeAlso">is_null()</a> - Finds whether a variable is NULL</span></li>
+    <li class="member"><span class="function"><a href="function.is-null.html" class="function" rel="rdfs-seeAlso">is_null()</a> - Finds whether a variable is null</span></li>
     <li class="member">the error control <a href="language.operators.errorcontrol.html" class="link">@</a> operator</li>
    </ul>
   </p>

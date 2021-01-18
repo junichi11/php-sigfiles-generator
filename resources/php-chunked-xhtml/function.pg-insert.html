@@ -39,8 +39,8 @@
     ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$connection</code></span>
    , <span class="methodparam"><span class="type">string</span> <code class="parameter">$table_name</code></span>
    , <span class="methodparam"><span class="type">array</span> <code class="parameter">$assoc_array</code></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$options</code><span class="initializer"> = PGSQL_DML_EXEC</span></span>
-  ] ) : <span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span></div>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$options</code><span class="initializer"> = PGSQL_DML_EXEC</span></span>
+   ) : <span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span></div>
 
   <p class="para rdfs-comment">
    <span class="function"><strong>pg_insert()</strong></span> inserts the values
@@ -139,7 +139,7 @@
  <div class="refsect1 returnvalues" id="refsect1-function.pg-insert-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns the connection resource on success,  or <strong><code>FALSE</code></strong> on failure. Returns <span class="type">string</span> if <strong><code>PGSQL_DML_STRING</code></strong> is passed
+   Returns the connection resource on success,  or <strong><code>false</code></strong> on failure. Returns <span class="type">string</span> if <strong><code>PGSQL_DML_STRING</code></strong> is passed
    via <code class="parameter">options</code>.
   </p>
  </div>
@@ -148,7 +148,7 @@
  <div class="refsect1 examples" id="refsect1-function.pg-insert-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-2346">
+   <div class="example" id="example-2359">
     <p><strong>Example #1 <span class="function"><strong>pg_insert()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -180,7 +180,7 @@
        <td>5.6.0</td>
        <td>
         Unless <strong><code>PGSQL_DML_STRING</code></strong> is passed, the function
-        now returns the connection resource instead of <strong><code>TRUE</code></strong> on success.
+        now returns the connection resource instead of <strong><code>true</code></strong> on success.
        </td>
       </tr>
 
@@ -188,7 +188,7 @@
        <td>5.6.0</td>
        <td>
         No longer experimental. Added <strong><code>PGSQL_DML_ESCAPE</code></strong> constant,
-        <strong><code>TRUE</code></strong>/<strong><code>FALSE</code></strong> and <strong><code>NULL</code></strong> data type support.
+        <strong><code>true</code></strong>/<strong><code>false</code></strong> and <strong><code>null</code></strong> data type support.
        </td>
       </tr>
 

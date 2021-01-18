@@ -36,8 +36,8 @@
    <span class="methodname"><strong>mb_ereg</strong></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$pattern</code></span>
    , <span class="methodparam"><span class="type">string</span> <code class="parameter">$string</code></span>
-   [, <span class="methodparam"><span class="type">array</span> <code class="parameter reference">&$regs</code></span>
-  ] ) : <span class="type">int</span></div>
+   , <span class="methodparam"><span class="type">array</span> <code class="parameter reference">&$matches</code><span class="initializer"> = <strong><code>null</code></strong></span></span>
+   ) : <span class="type">bool</span></div>
 
   <p class="simpara">
    Executes the regular expression match with multibyte support.
@@ -76,23 +76,23 @@
     
     
      <dt>
-<code class="parameter">regs</code></dt>
+<code class="parameter">matches</code></dt>
 
      <dd>
 
       <p class="para">
        If matches are found for parenthesized substrings of
        <code class="parameter">pattern</code> and the function is called with the
-       third argument <code class="parameter">regs</code>, the matches will be stored
-       in the elements of the array <code class="parameter">regs</code>.
-       If no matches are found, <code class="parameter">regs</code> is set to an empty
+       third argument <code class="parameter">matches</code>, the matches will be stored
+       in the elements of the array <code class="parameter">matches</code>.
+       If no matches are found, <code class="parameter">matches</code> is set to an empty
        array.
       </p>
       <p class="para">
-       <var class="varname">$regs[1]</var> will contain the substring which starts at
-       the first left parenthesis; <var class="varname">$regs[2]</var> will contain
+       <var class="varname">$matches[1]</var> will contain the substring which starts at
+       the first left parenthesis; <var class="varname">$matches[2]</var> will contain
        the substring starting at the second, and so on.
-       <var class="varname">$regs[0]</var> will contain a copy of the complete string
+       <var class="varname">$matches[0]</var> will contain a copy of the complete string
        matched.
       </p>
      </dd>
@@ -107,13 +107,7 @@
  <div class="refsect1 returnvalues" id="refsect1-function.mb-ereg-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns the byte length of the matched string if a match for
-   <code class="parameter">pattern</code> was found in <code class="parameter">string</code>,
-   or <strong><code>FALSE</code></strong> if no matches were found or an error occurred.
-  </p>
-  <p class="para">
-   If the optional parameter <code class="parameter">regs</code> was not passed or
-   the length of the matched string is <code class="literal">0</code>, this function returns <code class="literal">1</code>.
+   Returns whether <code class="parameter">pattern</code> matches <code class="parameter">string</code>.
   </p>
  </div>
 
@@ -132,11 +126,22 @@
 
     <tbody class="tbody">
      <tr>
+      <td>8.0.0</td>
+      <td>
+       This function returns <strong><code>true</code></strong> on success now. Previously, it returned the byte length
+       of the matched string if a match for <code class="parameter">pattern</code> was found in
+       <code class="parameter">string</code> and <code class="parameter">matches</code> was passed.
+       If the optional parameter <code class="parameter">matches</code> was not passed or
+       the length of the matched string was <code class="literal">0</code>, this function returned <code class="literal">1</code>.
+      </td>
+     </tr>
+
+     <tr>
       <td>7.1.0</td>
       <td>
-       <span class="function"><strong>mb_ereg()</strong></span> will now set <code class="parameter">regs</code> to
+       <span class="function"><strong>mb_ereg()</strong></span> will now set <code class="parameter">matches</code> to
        an empty <span class="type">array</span>, if nothing matched. Formerly,
-       <code class="parameter">regs</code> was not modified in that case.
+       <code class="parameter">matches</code> was not modified in that case.
       </td>
      </tr>
 

@@ -35,36 +35,6 @@
    <p class="para">
     Represents the result set obtained from a query against the database.
    </p>
-   
-   <p class="para">
-    <em class="emphasis">Changelog</em>
-   </p>
-
-   <table class="doctable table">
-    <caption><strong>Changelog</strong></caption>
-    
-     <thead>
-      <tr>
-       <th>Version</th>
-       <th>Description</th>
-      </tr>
-
-     </thead>
-
-     <tbody class="tbody">
-      <tr>
-       <td>5.4.0</td>
-       <td>
-        <a href="class.iterator.html" class="classname">Iterator</a> support was added, as <strong class="classname">mysqli_result</strong>
-        now implements <a href="class.traversable.html" class="classname">Traversable</a>.
-       </td>
-      </tr>
-
-     </tbody>
-    
-   </table>
-  
-   
   </div>
 
  
@@ -104,12 +74,12 @@
    ) : <span class="type">bool</span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="mysqli-result.fetch-all.html" class="methodname">fetch_all</a></span>
-    ([ <span class="methodparam"><span class="type">int</span> <code class="parameter">$resulttype</code><span class="initializer"> = MYSQLI_NUM</span></span>
-  ] ) : <span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span></div>
+    ( <span class="methodparam"><span class="type">int</span> <code class="parameter">$resulttype</code><span class="initializer"> = MYSQLI_NUM</span></span>
+   ) : <span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="mysqli-result.fetch-array.html" class="methodname">fetch_array</a></span>
-    ([ <span class="methodparam"><span class="type">int</span> <code class="parameter">$resulttype</code><span class="initializer"> = MYSQLI_BOTH</span></span>
-  ] ) : <span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span></div>
+    ( <span class="methodparam"><span class="type">int</span> <code class="parameter">$resulttype</code><span class="initializer"> = MYSQLI_BOTH</span></span>
+   ) : <span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="mysqli-result.fetch-assoc.html" class="methodname">fetch_assoc</a></span>
     (
@@ -128,13 +98,13 @@
    ) : <span class="type">array</span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="mysqli-result.fetch-object.html" class="methodname">fetch_object</a></span>
-    ([ <span class="methodparam"><span class="type">string</span> <code class="parameter">$class_name</code><span class="initializer"> = &quot;stdClass&quot;</span></span>
-   [, <span class="methodparam"><span class="type">array</span> <code class="parameter">$params</code></span>
-  ]] ) : <span class="type">object</span></div>
+    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$class_name</code><span class="initializer"> = &quot;stdClass&quot;</span></span>
+   , <span class="methodparam"><span class="type">array</span> <code class="parameter">$params</code> = ?</span>
+   ) : <span class="type">object</span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="mysqli-result.fetch-row.html" class="methodname">fetch_row</a></span>
     (
-   ) : <span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span></div>
+   ) : <span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="mysqli-result.field-seek.html" class="methodname">field_seek</a></span>
     ( <span class="methodparam"><span class="type">int</span> <code class="parameter">$fieldnr</code></span>

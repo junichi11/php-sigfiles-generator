@@ -36,13 +36,13 @@
    <span class="methodname"><strong>pg_field_is_null</strong></span>
     ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$result</code></span>
    , <span class="methodparam"><span class="type">int</span> <code class="parameter">$row</code></span>
-   , <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">$field</code></span>
+   , <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$field</code></span>
    ) : <span class="type">int</span></div>
 
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>pg_field_is_null</strong></span>
     ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$result</code></span>
-   , <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">$field</code></span>
+   , <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$field</code></span>
    ) : <span class="type">int</span></div>
 
   <p class="para rdfs-comment">
@@ -112,7 +112,7 @@
   <h3 class="title">Return Values</h3>
   <p class="para">
    Returns <code class="literal">1</code> if the field in the given row is SQL <code class="literal">NULL</code>, <code class="literal">0</code>
-   if not.  <strong><code>FALSE</code></strong> is returned if the row is out of range, or upon any other error.
+   if not.  <strong><code>false</code></strong> is returned if the row is out of range, or upon any other error.
   </p>
  </div>
 
@@ -120,7 +120,7 @@
  <div class="refsect1 examples" id="refsect1-function.pg-field-is-null-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-2333">
+   <div class="example" id="example-2346">
     <p><strong>Example #1 <span class="function"><strong>pg_field_is_null()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

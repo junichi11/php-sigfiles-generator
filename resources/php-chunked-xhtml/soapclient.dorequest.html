@@ -38,8 +38,8 @@
    , <span class="methodparam"><span class="type">string</span> <code class="parameter">$location</code></span>
    , <span class="methodparam"><span class="type">string</span> <code class="parameter">$action</code></span>
    , <span class="methodparam"><span class="type">int</span> <code class="parameter">$version</code></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$one_way</code><span class="initializer"> = 0</span></span>
-  ] ) : <span class="type">string</span></div>
+   , <span class="methodparam"><span class="type">bool</span> <code class="parameter">$oneWay</code><span class="initializer"> = <strong><code>false</code></strong></span></span>
+   ) : <span class="type"><span class="type">string</span>|<span class="type">null</span></span></div>
 
   <p class="para rdfs-comment">
    Performs SOAP request over HTTP.
@@ -106,7 +106,7 @@
     
     
      <dt>
-<code class="parameter">one_way</code></dt>
+<code class="parameter">oneWay</code></dt>
 
      <dd>
 
@@ -131,10 +131,37 @@
  </div>
 
 
+ <div class="refsect1 changelog" id="refsect1-soapclient.dorequest-changelog">
+  <h3 class="title">Changelog</h3>
+  <table class="doctable informaltable">
+   
+    <thead>
+     <tr>
+      <th>Version</th>
+      <th>Description</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+      <td>8.0.0</td>
+      <td>
+       The type of <code class="parameter">oneWay</code> is <span class="type">bool</span> now; formerly it was <span class="type">int</span>.
+      </td>
+     </tr>
+
+    </tbody>
+   
+  </table>
+
+ </div>
+
+
  <div class="refsect1 examples" id="refsect1-soapclient.dorequest-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-5794">
+   <div class="example" id="example-5818">
     <p><strong>Example #1 <span class="function"><strong>SoapClient::__doRequest()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

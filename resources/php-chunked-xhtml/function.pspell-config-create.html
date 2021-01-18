@@ -35,10 +35,10 @@
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>pspell_config_create</strong></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$language</code></span>
-   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$spelling</code></span>
-   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$jargon</code></span>
-   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$encoding</code></span>
-  ]]] ) : <span class="type">int</span></div>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$spelling</code><span class="initializer"> = &quot;&quot;</span></span>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$jargon</code><span class="initializer"> = &quot;&quot;</span></span>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$encoding</code><span class="initializer"> = &quot;&quot;</span></span>
+   ) : <span class="type">int</span></div>
 
   <p class="para rdfs-comment">
    Create a config used to open a dictionary.
@@ -132,16 +132,15 @@
  <div class="refsect1 returnvalues" id="refsect1-function.pspell-config-create-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns a pspell config identifier, or <strong><code>FALSE</code></strong> on error.
+   Returns a pspell config identifier, or <strong><code>false</code></strong> on error.
   </p>
  </div>
-
 
 
  <div class="refsect1 examples" id="refsect1-function.pspell-config-create-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-3047">
+   <div class="example" id="example-3062">
     <p><strong>Example #1 <span class="function"><strong>pspell_config_create()</strong></span></strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

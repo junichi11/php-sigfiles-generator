@@ -34,16 +34,16 @@
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>move_uploaded_file</strong></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$filename</code></span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$destination</code></span>
+    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$from</code></span>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$to</code></span>
    ) : <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
    This function checks to ensure that the file designated by
-   <code class="parameter">filename</code> is a valid upload file (meaning
+   <code class="parameter">from</code> is a valid upload file (meaning
    that it was uploaded via PHP&#039;s HTTP POST upload mechanism). If
    the file is valid, it will be moved to the filename given by
-   <code class="parameter">destination</code>.
+   <code class="parameter">to</code>.
   </p>
   <p class="para">
    This sort of check is especially important if there is any chance
@@ -61,7 +61,7 @@
 
     
      <dt>
-<code class="parameter">filename</code></dt>
+<code class="parameter">from</code></dt>
 
      <dd>
 
@@ -73,7 +73,7 @@
     
     
      <dt>
-<code class="parameter">destination</code></dt>
+<code class="parameter">to</code></dt>
 
      <dd>
 
@@ -92,19 +92,19 @@
  <div class="refsect1 returnvalues" id="refsect1-function.move-uploaded-file-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns <strong><code>TRUE</code></strong> on success.
+   Returns <strong><code>true</code></strong> on success.
   </p>
   <p class="para">
-   If <code class="parameter">filename</code> is not a valid upload file,
+   If <code class="parameter">from</code> is not a valid upload file,
    then no action will occur, and
    <span class="function"><strong>move_uploaded_file()</strong></span> will return
-   <strong><code>FALSE</code></strong>.
+   <strong><code>false</code></strong>.
   </p>
   <p class="para">
-   If <code class="parameter">filename</code> is a valid upload file, but
+   If <code class="parameter">from</code> is a valid upload file, but
    cannot be moved for some reason, no action will occur, and
    <span class="function"><strong>move_uploaded_file()</strong></span> will return
-   <strong><code>FALSE</code></strong>. Additionally, a warning will be issued.
+   <strong><code>false</code></strong>. Additionally, a warning will be issued.
   </p>
  </div>
 
@@ -112,7 +112,7 @@
  <div class="refsect1 examples" id="refsect1-function.move-uploaded-file-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-2668">
+   <div class="example" id="example-2683">
     <p><strong>Example #1 Uploading multiple files</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -133,8 +133,8 @@
     <span class="function"><strong>move_uploaded_file()</strong></span> is
     <a href="ini.core.html#ini.open-basedir" class="link">open_basedir</a>
     aware. However, restrictions are placed only on the
-    <code class="parameter">destination</code> path as to allow the moving
-    of uploaded files in which <code class="parameter">filename</code> may conflict
+    <code class="parameter">to</code> path as to allow the moving
+    of uploaded files in which <code class="parameter">from</code> may conflict
     with such restrictions. <span class="function"><strong>move_uploaded_file()</strong></span> ensures
     the safety of this operation by allowing only those files uploaded
     through PHP to be moved.

@@ -36,8 +36,8 @@
    <span class="modifier">public</span> <span class="methodname"><strong>Memcached::getMultiByKey</strong></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$server_key</code></span>
    , <span class="methodparam"><span class="type">array</span> <code class="parameter">$keys</code></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code></span>
-  ] ) : <span class="type"><span class="type">array</span>|<span class="type"><span class="type false">false</span></span></span></div>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code> = ?</span>
+   ) : <span class="type"><span class="type">array</span>|<span class="type"><span class="type false">false</span></span></span></div>
 
   <p class="para rdfs-comment">
    <span class="function"><strong>Memcached::getMultiByKey()</strong></span> is functionally equivalent to
@@ -98,7 +98,7 @@
  <div class="refsect1 returnvalues" id="refsect1-memcached.getmultibykey-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns the array of found items or <strong><code>FALSE</code></strong> on failure.
+   Returns the array of found items or <strong><code>false</code></strong> on failure.
    Use <span class="methodname"><a href="memcached.getresultcode.html" class="methodname">Memcached::getResultCode()</a></span> if necessary.
   </p>
  </div>

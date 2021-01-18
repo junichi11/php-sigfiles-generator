@@ -39,9 +39,9 @@
   <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="modifier">static</span> <span class="methodname"><strong>IntlDateFormatter::formatObject</strong></span>
     ( <span class="methodparam"><span class="type">object</span> <code class="parameter">$object</code></span>
-   [, <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">$format</code><span class="initializer"> = NULL</span></span>
-   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$locale</code><span class="initializer"> = NULL</span></span>
-  ]] ) : <span class="type"><span class="type">string</span>|<span class="type"><span class="type false">false</span></span></span></div>
+   , <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$format</code><span class="initializer"> = NULL</span></span>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$locale</code><span class="initializer"> = NULL</span></span>
+   ) : <span class="type"><span class="type">string</span>|<span class="type"><span class="type false">false</span></span></span></div>
 
   <p class="para rdfs-comment">
    Procedural style
@@ -50,9 +50,9 @@
    <span class="modifier">public</span> <span class="modifier">static</span>
    <span class="methodname"><strong>datefmt_format_object</strong></span>
     ( <span class="methodparam"><span class="type">object</span> <code class="parameter">$object</code></span>
-   [, <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">$format</code><span class="initializer"> = NULL</span></span>
-   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$locale</code><span class="initializer"> = NULL</span></span>
-  ]] ) : <span class="type"><span class="type">string</span>|<span class="type"><span class="type false">false</span></span></span></div>
+   , <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$format</code><span class="initializer"> = NULL</span></span>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$locale</code><span class="initializer"> = NULL</span></span>
+   ) : <span class="type"><span class="type">string</span>|<span class="type"><span class="type false">false</span></span></span></div>
 
   
   <p class="para rdfs-comment">
@@ -106,7 +106,7 @@
       the value of one of these constants (in which case it will be used both
       for the time and the date) or a <span class="type">string</span> with the format
       described in <a href="http://www.icu-project.org/apiref/icu4c/classSimpleDateFormat.html#details" class="link external">&raquo;&nbsp;the ICU
-      documentation</a>. If <strong><code>NULL</code></strong>, the default style will be used.
+      documentation</a>. If <strong><code>null</code></strong>, the default style will be used.
      </p>
     </dd>
 
@@ -118,7 +118,7 @@
     <dd>
 
      <p class="para">
-      The locale to use, or <strong><code>NULL</code></strong> to use the <a href="intl.configuration.html#ini.intl.default-locale" class="link">default one</a>.
+      The locale to use, or <strong><code>null</code></strong> to use the <a href="intl.configuration.html#ini.intl.default-locale" class="link">default one</a>.
      </p>
     </dd>
 
@@ -131,7 +131,7 @@
  <div class="refsect1 returnvalues" id="refsect1-intldateformatter.formatobject-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   A string with result or <strong><code>FALSE</code></strong> on failure.
+   A string with result or <strong><code>false</code></strong> on failure.
   </p>
  </div>
 
@@ -140,7 +140,7 @@
  <div class="refsect1 examples" id="refsect1-intldateformatter.formatobject-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-2887">
+   <div class="example" id="example-2902">
     <p><strong>Example #1 <span class="function"><strong>IntlDateFormatter::formatObject()</strong></span> examples</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

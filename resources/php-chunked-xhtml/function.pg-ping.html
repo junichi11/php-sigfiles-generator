@@ -34,8 +34,8 @@
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>pg_ping</strong></span>
-    ([ <span class="methodparam"><span class="type">resource</span> <code class="parameter">$connection</code></span>
-  ] ) : <span class="type">bool</span></div>
+    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$connection</code> = ?</span>
+   ) : <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
    <span class="function"><strong>pg_ping()</strong></span> pings a database connection and tries to
@@ -73,7 +73,7 @@
  <div class="refsect1 returnvalues" id="refsect1-function.pg-ping-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns <strong><code>TRUE</code></strong> on success or <strong><code>FALSE</code></strong> on failure.
+   Returns <strong><code>true</code></strong> on success or <strong><code>false</code></strong> on failure.
   </p>
  </div>
 
@@ -81,7 +81,7 @@
  <div class="refsect1 examples" id="refsect1-function.pg-ping-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-2368">
+   <div class="example" id="example-2381">
     <p><strong>Example #1 <span class="function"><strong>pg_ping()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

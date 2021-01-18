@@ -34,8 +34,8 @@
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>curl_multi_add_handle</strong></span>
-    ( <span class="methodparam"><span class="type"><span class="type CurlMultiHandle">CurlMultiHandle</span></span> <code class="parameter">$multi_handle</code></span>
-   , <span class="methodparam"><span class="type"><span class="type CurlHandle">CurlHandle</span></span> <code class="parameter">$handle</code></span>
+    ( <span class="methodparam"><span class="type"><a href="class.curlmultihandle.html" class="type CurlMultiHandle">CurlMultiHandle</a></span> <code class="parameter">$multi_handle</code></span>
+   , <span class="methodparam"><span class="type"><a href="class.curlhandle.html" class="type CurlHandle">CurlHandle</a></span> <code class="parameter">$handle</code></span>
    ) : <span class="type">int</span></div>
 
   <p class="para rdfs-comment">
@@ -95,7 +95,7 @@
      <tr>
  <td>8.0.0</td>
  <td>
-  <code class="parameter">multi_handle</code> expects a <strong class="classname">CurlMultiHandle</strong>
+  <code class="parameter">multi_handle</code> expects a <a href="class.curlmultihandle.html" class="classname">CurlMultiHandle</a>
   instance now; previously, a <span class="type">resource</span> was expected.
  </td>
 </tr>
@@ -103,7 +103,7 @@
      <tr>
  <td>8.0.0</td>
  <td>
-  <code class="parameter">handle</code> expects a <strong class="classname">CurlHandle</strong>
+  <code class="parameter">handle</code> expects a <a href="class.curlhandle.html" class="classname">CurlHandle</a>
   instance now; previously, a <span class="type">resource</span> was expected.
  </td>
 </tr>
@@ -118,7 +118,7 @@
  <div class="refsect1 examples" id="refsect1-function.curl-multi-add-handle-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-4692">
+   <div class="example" id="example-4714">
     <p><strong>Example #1 <span class="function"><strong>curl_multi_add_handle()</strong></span> example</strong></p>
     <div class="example-contents"><p>
      This example will create two cURL handles, add them to a multi

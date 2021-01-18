@@ -33,10 +33,10 @@
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>in_array</strong></span>
-    ( <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">$needle</code></span>
+    ( <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$needle</code></span>
    , <span class="methodparam"><span class="type">array</span> <code class="parameter">$haystack</code></span>
-   [, <span class="methodparam"><span class="type">bool</span> <code class="parameter">$strict</code><span class="initializer"> = <strong><code>FALSE</code></strong></span></span>
-  ] ) : <span class="type">bool</span></div>
+   , <span class="methodparam"><span class="type">bool</span> <code class="parameter">$strict</code><span class="initializer"> = <strong><code>false</code></strong></span></span>
+   ) : <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
    Searches for <code class="parameter">needle</code> in <code class="parameter">haystack</code> using loose comparison
@@ -86,7 +86,7 @@
      <dd>
 
       <p class="para">
-       If the third parameter <code class="parameter">strict</code> is set to <strong><code>TRUE</code></strong>
+       If the third parameter <code class="parameter">strict</code> is set to <strong><code>true</code></strong>
        then the <span class="function"><strong>in_array()</strong></span> function will also check the
        <a href="language.types.html" class="link">types</a> of the
        <code class="parameter">needle</code> in the <code class="parameter">haystack</code>.
@@ -102,15 +102,15 @@
  <div class="refsect1 returnvalues" id="refsect1-function.in-array-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns <strong><code>TRUE</code></strong> if <code class="parameter">needle</code> is found in the array,
-   <strong><code>FALSE</code></strong> otherwise.
+   Returns <strong><code>true</code></strong> if <code class="parameter">needle</code> is found in the array,
+   <strong><code>false</code></strong> otherwise.
   </p>
  </div>
 
  <div class="refsect1 examples" id="refsect1-function.in-array-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-5476">
+   <div class="example" id="example-5497">
     <p><strong>Example #1 <span class="function"><strong>in_array()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -131,7 +131,7 @@ Got Irix
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-5477">
+   <div class="example" id="example-5498">
     <p><strong>Example #2 <span class="function"><strong>in_array()</strong></span> with strict example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -149,7 +149,7 @@ Got Irix
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-5478">
+   <div class="example" id="example-5499">
     <p><strong>Example #3 <span class="function"><strong>in_array()</strong></span> with an array as needle</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -174,7 +174,7 @@ Got Irix
   <p class="para">
    <ul class="simplelist">
     <li class="member"><span class="function"><a href="function.array-search.html" class="function" rel="rdfs-seeAlso">array_search()</a> - Searches the array for a given value and returns the first corresponding key if successful</span></li>
-    <li class="member"><span class="function"><a href="function.isset.html" class="function" rel="rdfs-seeAlso">isset()</a> - Determine if a variable is declared and is different than NULL</span></li>
+    <li class="member"><span class="function"><a href="function.isset.html" class="function" rel="rdfs-seeAlso">isset()</a> - Determine if a variable is declared and is different than null</span></li>
     <li class="member"><span class="function"><a href="function.array-key-exists.html" class="function" rel="rdfs-seeAlso">array_key_exists()</a> - Checks if the given key or index exists in the array</span></li>
    </ul>
   </p>

@@ -35,7 +35,7 @@
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>php_sapi_name</strong></span>
     (
-   ) : <span class="type">string</span></div>
+   ) : <span class="type"><span class="type">string</span>|<span class="type"><span class="type false">false</span></span></span></div>
 
   <p class="simpara">
    Returns a lowercase string that describes the type of interface
@@ -50,7 +50,7 @@
  <div class="refsect1 returnvalues" id="refsect1-function.php-sapi-name-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns the interface type, as a lowercase string.
+   Returns the interface type, as a lowercase string,  or <strong><code>false</code></strong> on failure.
   </p>
   <p class="para">
    Although not exhaustive, the possible return values include 
@@ -60,7 +60,7 @@
    <code class="literal">cgi-fcgi</code>, <code class="literal">cli</code>, <code class="literal">cli-server</code>,
    <code class="literal">embed</code>, <code class="literal">fpm-fcgi</code>,
    <code class="literal">litespeed</code>, 
-   <code class="literal">nsapi</code>, <code class="literal">phpdbg</code>.
+   <code class="literal">phpdbg</code>.
   </p>
  </div>
 
@@ -68,7 +68,7 @@
  <div class="refsect1 examples" id="refsect1-function.php-sapi-name-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-540">
+   <div class="example" id="example-553">
     <p><strong>Example #1 <span class="function"><strong>php_sapi_name()</strong></span> example</strong></p>
     <div class="example-contents"><p>
      This example checks for the substring <code class="literal">cgi</code>

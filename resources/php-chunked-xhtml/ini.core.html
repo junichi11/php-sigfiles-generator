@@ -177,13 +177,6 @@
        </tr>
 
        <tr>
-        <td><a href="ini.core.html#ini.zend.ze1-compatibility-mode" class="link">zend.ze1_compatibility_mode</a></td>
-        <td>&quot;0&quot;</td>
-        <td>PHP_INI_ALL</td>
-        <td>Removed in PHP 5.3.0</td>
-       </tr>
-
-       <tr>
         <td>detect_unicode</td>
         <td>&quot;1&quot;</td>
         <td>PHP_INI_ALL</td>
@@ -501,34 +494,7 @@ the configuration directives.</p>
       </dd>
 
      
-     
-     
-      <dt id="ini.zend.ze1-compatibility-mode">
-       <code class="parameter">zend.ze1_compatibility_mode</code>
-       <span class="type">bool</span>
-      </dt>
 
-      <dd>
-
-       <p class="para">
-        Enable compatibility mode with Zend Engine 1 (PHP 4).  It affects
-        the cloning, casting (objects with no properties cast to <strong><code>FALSE</code></strong> or 0), and <a href="language.oop5.object-comparison.html" class="link">comparing of objects</a>.
-        In this mode, objects are passed by value instead of reference by
-        default.
-       </p>
-       <p class="para">
-        See also the section titled
-        <a href="migration5.html" class="link">Migrating from PHP 4 to PHP 5</a>.
-       </p>
-       <div class="warning"><strong class="warning">Warning</strong>
-        <p class="simpara">This feature has been <em class="emphasis">DEPRECATED</em> and <em class="emphasis">REMOVED</em>
-         as of PHP 5.3.0.
-        </p>
-       </div>
-      </dd>
-
-     
-     
      
       <dt id="ini.hard-timeout">
        <code class="parameter">hard_timeout</code>
@@ -1458,7 +1424,7 @@ in <a href="faq.using.html#faq.using.shorthandbytes" class="link">this FAQ</a>, 
      
       <dt id="ini.always-populate-raw-post-data">
        <code class="parameter">always_populate_raw_post_data</code>
-       <span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span>
+       <span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span>
       </dt>
 
       <dd>
@@ -1467,7 +1433,7 @@ in <a href="faq.using.html#faq.using.shorthandbytes" class="link">this FAQ</a>, 
 <em class="emphasis">DEPRECATED</em> in PHP 5.6.0, and
 <em class="emphasis">REMOVED</em> as of PHP 7.0.0.</p></div>
        <p class="para">
-        If set to <strong><code>TRUE</code></strong>, PHP will always populate the
+        If set to <strong><code>true</code></strong>, PHP will always populate the
         <var class="varname">$HTTP_RAW_POST_DATA</var> containing the raw POST data.
         Otherwise, the variable is populated only when the MIME type of the
         data is unrecognised.
@@ -1704,7 +1670,7 @@ the configuration directives.</p>
         <span class="function"><a href="function.set-include-path.html" class="function">set_include_path()</a></span>.
        </p>
        <p class="para">
-        <div class="example" id="example-6081">
+        <div class="example" id="example-6008">
          <p><strong>Example #1 Unix include_path</strong></p>
          <div class="example-contents">
 <div class="php.inicode"><pre class="php.inicode">include_path=&quot;.:/php/includes&quot;</pre>
@@ -1714,7 +1680,7 @@ the configuration directives.</p>
         </div>
        </p>
        <p class="para">
-        <div class="example" id="example-6082">
+        <div class="example" id="example-6009">
          <p><strong>Example #2 Windows include_path</strong></p>
          <div class="example-contents">
 <div class="php.inicode"><pre class="php.inicode">include_path=&quot;.;c:\php\includes&quot;</pre>
@@ -1742,7 +1708,7 @@ the configuration directives.</p>
         </p>       
        </p></blockquote>
        <p class="para">
-        <div class="example" id="example-6083">
+        <div class="example" id="example-6010">
          <p><strong>Example #3 Unix include_path using ${USER} env variable</strong></p>
          <div class="example-contents">
 <div class="php.inicode"><pre class="php.inicode">include_path = &quot;.:${USER}/pear/php&quot;</pre>

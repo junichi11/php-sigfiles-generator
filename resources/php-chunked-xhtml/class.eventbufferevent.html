@@ -239,12 +239,12 @@
     <span class="type">int</span>
      <code class="parameter">$port</code>
    </span>
-   [, <span class="methodparam">
+   , <span class="methodparam">
     <span class="type">int</span>
      <code class="parameter">$family</code>
     <span class="initializer"> = EventUtil::AF_UNSPEC</span>
    </span>
-  ] ) : <span class="type">bool</span></div>
+   ) : <span class="type">bool</span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span>
    <span class="methodname"><a href="eventbufferevent.construct.html" class="methodname">__construct</a></span>
@@ -252,32 +252,32 @@
     <span class="type"><a href="class.eventbase.html" class="type EventBase">EventBase</a></span>
      <code class="parameter">$base</code>
    </span>
-   [, <span class="methodparam">
-    <span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span>
+   , <span class="methodparam">
+    <span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span>
      <code class="parameter">$socket</code>
-    <span class="initializer"> = <strong><code>NULL</code></strong></span>
+    <span class="initializer"> = <strong><code>null</code></strong></span>
    </span>
-   [, <span class="methodparam">
+   , <span class="methodparam">
     <span class="type">int</span>
      <code class="parameter">$options</code>
     <span class="initializer"> = 0</span>
    </span>
-   [, <span class="methodparam">
+   , <span class="methodparam">
     <span class="type"><a href="language.types.callable.html" class="type callable">callable</a></span>
      <code class="parameter">$readcb</code>
-    <span class="initializer"> = <strong><code>NULL</code></strong></span>
+    <span class="initializer"> = <strong><code>null</code></strong></span>
    </span>
-   [, <span class="methodparam">
+   , <span class="methodparam">
     <span class="type"><a href="language.types.callable.html" class="type callable">callable</a></span>
      <code class="parameter">$writecb</code>
-    <span class="initializer"> = <strong><code>NULL</code></strong></span>
+    <span class="initializer"> = <strong><code>null</code></strong></span>
    </span>
-   [, <span class="methodparam">
+   , <span class="methodparam">
     <span class="type"><a href="language.types.callable.html" class="type callable">callable</a></span>
      <code class="parameter">$eventcb</code>
-    <span class="initializer"> = <strong><code>NULL</code></strong></span>
+    <span class="initializer"> = <strong><code>null</code></strong></span>
    </span>
-  ]]]]] )</div>
+   )</div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span>
    <span class="modifier">static</span>
@@ -287,12 +287,12 @@
     <span class="type"><a href="class.eventbase.html" class="type EventBase">EventBase</a></span>
      <code class="parameter">$base</code>
    </span>
-   [, <span class="methodparam">
+   , <span class="methodparam">
     <span class="type">int</span>
      <code class="parameter">$options</code>
     <span class="initializer"> = 0</span>
    </span>
-  ] ) : <span class="type">array</span></div>
+   ) : <span class="type">array</span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span>
    
@@ -375,11 +375,11 @@
     <span class="type"><a href="language.types.callable.html" class="type callable">callable</a></span>
      <code class="parameter">$eventcb</code>
    </span>
-   [, <span class="methodparam">
+   , <span class="methodparam">
     <span class="type">string</span>
      <code class="parameter">$arg</code>
-   </span>
-  ] ) : <span class="type"><span class="type void">void</span></span></div>
+    = ?</span>
+   ) : <span class="type"><span class="type void">void</span></span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span>
    
@@ -446,12 +446,12 @@
     <span class="type">int</span>
      <code class="parameter">$state</code>
    </span>
-   [, <span class="methodparam">
+   , <span class="methodparam">
     <span class="type">int</span>
      <code class="parameter">$options</code>
     <span class="initializer"> = 0</span>
    </span>
-  ] ) : <span class="type"><a href="class.eventbufferevent.html" class="type EventBufferEvent">EventBufferEvent</a></span></div>
+   ) : <span class="type"><a href="class.eventbufferevent.html" class="type EventBufferEvent">EventBufferEvent</a></span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span>
    
@@ -492,7 +492,7 @@
      <code class="parameter">$base</code>
    </span>
    , <span class="methodparam">
-    <span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span>
+    <span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span>
      <code class="parameter">$socket</code>
    </span>
    , <span class="methodparam">
@@ -503,11 +503,11 @@
     <span class="type">int</span>
      <code class="parameter">$state</code>
    </span>
-   [, <span class="methodparam">
+   , <span class="methodparam">
     <span class="type">int</span>
      <code class="parameter">$options</code>
-   </span>
-  ] ) : <span class="type"><a href="class.eventbufferevent.html" class="type EventBufferEvent">EventBufferEvent</a></span></div>
+    = ?</span>
+   ) : <span class="type"><a href="class.eventbufferevent.html" class="type EventBufferEvent">EventBufferEvent</a></span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span>
    
@@ -544,7 +544,7 @@
 
       <p class="para">
        Numeric file descriptor associated with the buffer event. Normally
-       represents a bound socket. Equals to <strong><code>NULL</code></strong>, if there is no file
+       represents a bound socket. Equals to <strong><code>null</code></strong>, if there is no file
        descriptor(socket) associated with the buffer event.
       </p>
      </dd>

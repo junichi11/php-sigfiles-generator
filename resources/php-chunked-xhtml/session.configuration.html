@@ -302,20 +302,6 @@ The behaviour of these functions is affected by settings in <var class="filename
      <td>Removed in PHP 7.1.0</td>
     </tr>
 
-    <tr>
-     <td><a href="session.configuration.html#ini.session.bug-compat-42" class="link">session.bug_compat_42</a></td>
-     <td>&quot;1&quot;</td>
-     <td>PHP_INI_ALL</td>
-     <td>Removed in PHP 5.4.0.</td>
-    </tr>
-
-    <tr>
-     <td><a href="session.configuration.html#ini.session.bug-compat-warn" class="link">session.bug_compat_warn</a></td>
-     <td>&quot;1&quot;</td>
-     <td>PHP_INI_ALL</td>
-     <td>Removed in PHP 5.4.0.</td>
-    </tr>
-
    </tbody>
   
  </table>
@@ -944,59 +930,6 @@ PHP_INI_* modes, see the <a href="configuration.changes.modes.html" class="xref"
    </dd>
 
   
-  
-  
-   <dt id="ini.session.bug-compat-42">
-    <code class="parameter">session.bug_compat_42</code>
-    <span class="type">bool</span>
-   </dt>
-
-   <dd>
-
-    <span class="simpara">
-     PHP versions 4.2.3 and lower have an undocumented feature/bug that
-     allows you to initialize a session variable in the global scope,
-     albeit <a href="ini.core.html#ini.register-globals" class="link">register_globals</a>
-     is disabled.  PHP 4.3.0 and later will warn you, if this feature is
-     used, and if <a href="session.configuration.html#ini.session.bug-compat-warn" class="link">
-     session.bug_compat_warn</a> is also enabled.  This feature/bug can be
-     disabled by disabling this directive.
-    </span>
-    <blockquote class="note"><p><strong class="note">Note</strong>: 
-     <span class="simpara">
-      Removed in PHP 5.4.0.
-     </span>
-    </p></blockquote>
-   </dd>
-
-  
-  
-  
-   <dt id="ini.session.bug-compat-warn">
-    <code class="parameter">session.bug_compat_warn</code>
-    <span class="type">bool</span>
-   </dt>
-
-   <dd>
-
-    <span class="simpara">
-     PHP versions 4.2.3 and lower have an undocumented feature/bug that
-     allows you to initialize a session variable in the global scope,
-     albeit <a href="ini.core.html#ini.register-globals" class="link">register_globals</a>
-     is disabled.  PHP 4.3.0 and later will warn you, if this feature is
-     used by enabling both 
-     <a href="session.configuration.html#ini.session.bug-compat-42" class="link">session.bug_compat_42</a>
-     and <a href="session.configuration.html#ini.session.bug-compat-warn" class="link">
-     session.bug_compat_warn</a>.
-    </span>
-    <blockquote class="note"><p><strong class="note">Note</strong>: 
-     <span class="simpara">
-      Removed in PHP 5.4.0.
-     </span>
-    </p></blockquote>
-   </dd>
-
-  
 
   
    <dt id="ini.session.sid-length">
@@ -1073,7 +1006,7 @@ PHP_INI_* modes, see the <a href="configuration.changes.modes.html" class="xref"
   
    <dt id="ini.session.hash-function">
     <code class="parameter">session.hash_function</code>
-    <span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span>
+    <span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span>
    </dt>
 
    <dd>
@@ -1207,7 +1140,7 @@ PHP_INI_* modes, see the <a href="configuration.changes.modes.html" class="xref"
   
    <dt id="ini.session.upload-progress.freq">
     <code class="parameter">session.upload_progress.freq</code>
-    <span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span>
+    <span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span>
    </dt>
 
    <dd>

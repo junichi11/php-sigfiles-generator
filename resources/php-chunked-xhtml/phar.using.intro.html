@@ -88,10 +88,10 @@ php coolapplication.phar
  <p class="para">
   In addition, verification of phar file contents can be done using any of the
   supported symmetric hash algorithms (MD5, SHA1, SHA256 and SHA512 if ext/hash is enabled)
-  and using asymmetric public/private key signing using OpenSSL (new in Phar 2.0.0).  To
+  and using asymmetric public/private key signing using OpenSSL.  To
   take advantage of OpenSSL signing, you need to generate a public/private key pair, and
   use the private key to set the signature using
-  <span class="function"><a href="phardata.setsignaturealgorithm.html" class="function">Phar::setSignatureAlgorithm()</a></span>.  In addition, the public key
+  <span class="function"><a href="phar.setsignaturealgorithm.html" class="function">Phar::setSignatureAlgorithm()</a></span>.  In addition, the public key
   as extracted using this code:
   <div class="example-contents">
    <div class="phpcode"><code><span style="color: #000000">
@@ -106,7 +106,7 @@ php coolapplication.phar
   the OpenSSL signature.
  </p>
  <p class="para">
-  As of version 2.0.0, The <a href="class.phar.html" class="classname">Phar</a> class also provides 3 static methods, <span class="function"><a href="phar.webphar.html" class="function">Phar::webPhar()</a></span>,
+  The <a href="class.phar.html" class="classname">Phar</a> class also provides 3 static methods, <span class="function"><a href="phar.webphar.html" class="function">Phar::webPhar()</a></span>,
   <span class="function"><a href="phar.mungserver.html" class="function">Phar::mungServer()</a></span> and <span class="function"><a href="phar.interceptfilefuncs.html" class="function">Phar::interceptFileFuncs()</a></span> that are crucial
   to packaging up PHP applications designed for usage on regular filesystems and for web-based applications.
   <span class="function"><a href="phar.webphar.html" class="function">Phar::webPhar()</a></span> implements a front controller that routes HTTP calls to the correct

@@ -40,8 +40,8 @@
    , <span class="methodparam"><span class="type">array</span> <code class="parameter reference">&$write</code></span>
    , <span class="methodparam"><span class="type">array</span> <code class="parameter reference">&$except</code></span>
    , <span class="methodparam"><span class="type">int</span> <code class="parameter">$tv_sec</code></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$tv_usec</code><span class="initializer"> = 0</span></span>
-  ] ) : <span class="type">int</span></div>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$tv_usec</code><span class="initializer"> = 0</span></span>
+   ) : <span class="type">int</span></div>
 
   <p class="para rdfs-comment">
    The <span class="function"><strong>stream_select()</strong></span> function accepts arrays of streams and
@@ -126,7 +126,7 @@
        current status of the streams.
       </p>
       <p class="para">
-       If <code class="parameter">tv_sec</code> is <strong><code>NULL</code></strong> <span class="function"><strong>stream_select()</strong></span>
+       If <code class="parameter">tv_sec</code> is <strong><code>null</code></strong> <span class="function"><strong>stream_select()</strong></span>
        can block indefinitely, returning only when an event on one of the
        watched streams occurs (or if a signal interrupts the system call).
       </p>
@@ -175,7 +175,7 @@
   <p class="para">
    On success <span class="function"><strong>stream_select()</strong></span> returns the number of
    stream resources contained in the modified arrays, which may be zero if
-   the timeout expires before anything interesting happens. On error <strong><code>FALSE</code></strong>
+   the timeout expires before anything interesting happens. On error <strong><code>false</code></strong>
    is returned and a warning raised (this can happen if the system call is
    interrupted by an incoming signal).
   </p>
@@ -185,7 +185,7 @@
  <div class="refsect1 examples" id="refsect1-function.stream-select-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-4280">
+   <div class="example" id="example-4295">
     <p><strong>Example #1 <span class="function"><strong>stream_select()</strong></span> Example</strong></p>
     <div class="example-contents"><p>
      This example checks to see if data has arrived for reading on either
@@ -210,7 +210,7 @@
   <blockquote class="note"><p><strong class="note">Note</strong>: 
    <p class="para">
     Due to a limitation in the current Zend Engine it is not possible to pass a
-    constant modifier like <strong><code>NULL</code></strong> directly as a parameter to a function
+    constant modifier like <strong><code>null</code></strong> directly as a parameter to a function
     which expects this parameter to be passed by reference. Instead use a
     temporary variable or an expression with the leftmost member being a
     temporary variable:
@@ -227,7 +227,7 @@
    <p class="para">
    Be sure to use the <code class="literal">===</code> operator when checking for an
    error. Since the <span class="function"><strong>stream_select()</strong></span> may return 0 the
-   comparison with <code class="literal">==</code> would evaluate to <strong><code>TRUE</code></strong>:
+   comparison with <code class="literal">==</code> would evaluate to <strong><code>true</code></strong>:
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
 <span style="color: #0000BB">&lt;?php<br />$e&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">NULL</span><span style="color: #007700">;<br />if&nbsp;(</span><span style="color: #0000BB">false&nbsp;</span><span style="color: #007700">===&nbsp;</span><span style="color: #0000BB">stream_select</span><span style="color: #007700">(</span><span style="color: #0000BB">$r</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$w</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$e</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">))&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"stream_select()&nbsp;failed\n"</span><span style="color: #007700">;<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
@@ -256,7 +256,7 @@
    <p class="para">
     Use of <span class="function"><strong>stream_select()</strong></span> on
     file descriptors returned by <span class="function"><a href="function.proc-open.html" class="function">proc_open()</a></span> will fail
-    and return <strong><code>FALSE</code></strong> under Windows.
+    and return <strong><code>false</code></strong> under Windows.
    </p>
    <p class="para">
     <strong><code>STDIN</code></strong> from a console changes status as soon as <em class="emphasis">any</em>

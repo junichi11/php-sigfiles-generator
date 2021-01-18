@@ -26,16 +26,16 @@
   <div id="layout-content"><div id="imagick.identifyimage" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">Imagick::identifyImage</h1>
-  <p class="verinfo">(PECL imagick 2.0.0)</p><p class="refpurpose"><span class="refname">Imagick::identifyImage</span> &mdash; <span class="dc-title">Identifies an image and fetches attributes</span></p>
+  <p class="verinfo">(PECL imagick 2, PECL imagick 3)</p><p class="refpurpose"><span class="refname">Imagick::identifyImage</span> &mdash; <span class="dc-title">Identifies an image and fetches attributes</span></p>
 
  </div>
 
  <div class="refsect1 description" id="refsect1-imagick.identifyimage-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>Imagick::identifyImage</strong></span>
-    ([ <span class="methodparam"><span class="type">bool</span> <code class="parameter">$appendRawOutput</code><span class="initializer"> = <strong><code>FALSE</code></strong></span></span>
-  ] ) : <span class="type">array</span></div>
+   <span class="modifier">public</span> <span class="methodname"><strong>Imagick::identifyImage</strong></span>
+    ( <span class="methodparam"><span class="type">bool</span> <code class="parameter">$appendRawOutput</code><span class="initializer"> = <strong><code>false</code></strong></span></span>
+   ) : <span class="type">array</span></div>
 
   <p class="para rdfs-comment">
    Identifies an image and returns the attributes.  Attributes include
@@ -56,7 +56,7 @@
      <dd>
 
       <p class="para">
-         If <strong><code>TRUE</code></strong> then the raw output is appended to the array.
+         If <strong><code>true</code></strong> then the raw output is appended to the array.
       </p>
      </dd>
 
@@ -78,7 +78,7 @@
  
  <div class="refsect1 examples" id="refsect1-imagick.identifyimage-examples">
   <p class="para">
-   <div class="example" id="example-3270">
+   <div class="example" id="example-3285">
    <p><strong>Example #1 Example Result Format</strong></p>
    <div class="example-contents screen">
 <div class="examplescode"><pre class="examplescode">Array

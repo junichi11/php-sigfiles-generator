@@ -26,22 +26,22 @@
   <div id="layout-content"><div id="language.oop5.references" class="sect1">
   <h2 class="title">Objects and references</h2>
   <p class="para">
-   One of the key-points of PHP 5 OOP that is often mentioned is that 
+   One of the key-points of PHP OOP that is often mentioned is that 
    &quot;objects are passed by references by default&quot;. This is not completely true. 
    This section rectifies that general thought using some examples.
   </p>
 
   <p class="para">
    A PHP reference is an alias, which allows two different variables to write
-   to the same value. As of PHP 5, an object variable doesn&#039;t contain the object
-   itself as value anymore. It only contains an object identifier which allows
+   to the same value. In PHP, an object variable doesn&#039;t contain the object
+   itself as value. It only contains an object identifier which allows
    object accessors to find the actual object. When an object is sent by 
    argument, returned or assigned to another variable, the different variables
    are not aliases: they hold a copy of the identifier, which points to the same
    object.
   </p>
 
-  <div class="example" id="example-262">
+  <div class="example" id="example-270">
    <p><strong>Example #1 References and Objects</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

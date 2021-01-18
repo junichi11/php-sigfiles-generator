@@ -34,16 +34,11 @@
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>odbc_procedurecolumns</strong></span>
-    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$connection_id</code></span>
-   ) : <span class="type"><span class="type">resource</span>|<span class="type"><span class="type false">false</span></span></span></div>
-
-  <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>odbc_procedurecolumns</strong></span>
-    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$connection_id</code></span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$catalog</code></span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$schema</code></span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$proc</code></span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$column</code></span>
+    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$odbc</code></span>
+   , <span class="methodparam"><span class="type"><span class="type">string</span>|<span class="type">null</span></span> <code class="parameter">$catalog</code><span class="initializer"> = <strong><code>null</code></strong></span></span>
+   , <span class="methodparam"><span class="type"><span class="type">string</span>|<span class="type">null</span></span> <code class="parameter">$schema</code><span class="initializer"> = <strong><code>null</code></strong></span></span>
+   , <span class="methodparam"><span class="type"><span class="type">string</span>|<span class="type">null</span></span> <code class="parameter">$procedure</code><span class="initializer"> = <strong><code>null</code></strong></span></span>
+   , <span class="methodparam"><span class="type"><span class="type">string</span>|<span class="type">null</span></span> <code class="parameter">$column</code><span class="initializer"> = <strong><code>null</code></strong></span></span>
    ) : <span class="type"><span class="type">resource</span>|<span class="type"><span class="type false">false</span></span></span></div>
 
   <p class="para rdfs-comment">
@@ -59,7 +54,7 @@
 
     
      <dt>
-<code class="parameter">connection_id</code></dt>
+<code class="parameter">odbc</code></dt>
 
      <dd>
 
@@ -97,7 +92,7 @@ and <code class="literal">_</code> to match a single character.
     
     
      <dt>
-<code class="parameter">proc</code></dt>
+<code class="parameter">procedure</code></dt>
 
      <dd>
 
@@ -136,7 +131,7 @@ and <code class="literal">_</code> to match a single character.
   <p class="para">
    Returns the list of input and output parameters, as well as the
    columns that make up the result set for the specified procedures. 
-   Returns an ODBC result identifier or <strong><code>FALSE</code></strong> on failure.
+   Returns an ODBC result identifier or <strong><code>false</code></strong> on failure.
   </p>
   <p class="para">
    The result set has the following columns:
@@ -170,9 +165,37 @@ and <code class="literal">_</code> to match a single character.
  </div>
 
 
+ <div class="refsect1 changelog" id="refsect1-function.odbc-procedurecolumns-changelog">
+  <h3 class="title">Changelog</h3>
+  <table class="doctable informaltable">
+   
+    <thead>
+     <tr>
+      <th>Version</th>
+      <th>Description</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+      <td>8.0.0</td>
+      <td>
+       Prior to this version, the function could only be called with either one
+       or five arguments.
+      </td>
+     </tr>
+
+    </tbody>
+   
+  </table>
+
+ </div>
+
+
  <div class="refsect1 examples" id="refsect1-function.odbc-procedurecolumns-examples">
   <h3 class="title">Examples</h3>
-  <div class="example" id="example-967">
+  <div class="example" id="example-980">
    <p><strong>Example #1 List Columns of a stored Procedure</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

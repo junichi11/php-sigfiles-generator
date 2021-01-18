@@ -34,14 +34,14 @@
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="modifier">static</span> <span class="methodname"><strong>IntlChar::isxdigit</strong></span>
-    ( <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">$codepoint</code></span>
+    ( <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$codepoint</code></span>
    ) : <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
    Determines whether the specified code point is a hexadecimal digit.
   </p>
   <p class="para">
-   <strong><code>TRUE</code></strong> for characters with general category &quot;Nd&quot; (decimal digit numbers) as
+   <strong><code>true</code></strong> for characters with general category &quot;Nd&quot; (decimal digit numbers) as
    well as Latin letters a-f and A-F in both ASCII and Fullwidth ASCII.
    (That is, for letters with code points 0041..0046, 0061..0066, FF21..FF26, FF41..FF46.)
   </p>
@@ -73,8 +73,8 @@
  <div class="refsect1 returnvalues" id="refsect1-intlchar.isxdigit-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns <strong><code>TRUE</code></strong> if
-   <code class="parameter">codepoint</code> is a hexadecimal character, <strong><code>FALSE</code></strong> if not.
+   Returns <strong><code>true</code></strong> if
+   <code class="parameter">codepoint</code> is a hexadecimal character, <strong><code>false</code></strong> if not.
   </p>
  </div>
 
@@ -98,7 +98,7 @@
 
  <div class="refsect1 examples" id="refsect1-intlchar.isxdigit-examples">
   <h3 class="title">Examples</h3>
-  <div class="example" id="example-3002">
+  <div class="example" id="example-3017">
    <p><strong>Example #1 Testing different code points</strong></p>
    <div class="example-contents">
     <div class="phpcode"><code><span style="color: #000000">

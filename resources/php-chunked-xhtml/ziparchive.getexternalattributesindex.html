@@ -37,8 +37,8 @@
     ( <span class="methodparam"><span class="type">int</span> <code class="parameter">$index</code></span>
    , <span class="methodparam"><span class="type">int</span> <code class="parameter reference">&$opsys</code></span>
    , <span class="methodparam"><span class="type">int</span> <code class="parameter reference">&$attr</code></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code></span>
-  ] ) : <span class="type">bool</span></div>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code> = ?</span>
+   ) : <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
    Retrieve the external attributes of an entry defined by its index.
@@ -107,7 +107,7 @@
  <div class="refsect1 returnvalues" id="refsect1-ziparchive.getexternalattributesindex-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns <strong><code>TRUE</code></strong> on success or <strong><code>FALSE</code></strong> on failure.
+   Returns <strong><code>true</code></strong> on success or <strong><code>false</code></strong> on failure.
   </p>
  </div>
 
@@ -118,7 +118,7 @@
       archive <var class="filename">test.zip</var> and 
       set the Unix rights from external attributes.
     </p>
-    <div class="example" id="example-813">
+    <div class="example" id="example-825">
      <p><strong>Example #1 Extract all entries with Unix rights</strong></p>
      <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

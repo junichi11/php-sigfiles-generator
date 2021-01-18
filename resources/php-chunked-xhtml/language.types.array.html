@@ -312,13 +312,13 @@ string(3) &quot;foo&quot;
       Attempting to access an array key which has not been defined is
       the same as accessing any other undefined variable:
       an <strong><code>E_NOTICE</code></strong>-level error message will be
-      issued, and the result will be <strong><code>NULL</code></strong>.
+      issued, and the result will be <strong><code>null</code></strong>.
     </p>
    </p></blockquote>
    <blockquote class="note"><p><strong class="note">Note</strong>: 
     <p class="para">
      Array dereferencing a scalar value which is not a <span class="type">string</span>
-     yields <strong><code>NULL</code></strong>. Prior to PHP 7.4.0, that did not issue an error message.
+     yields <strong><code>null</code></strong>. Prior to PHP 7.4.0, that did not issue an error message.
      As of PHP 7.4.0, this issues <strong><code>E_NOTICE</code></strong>;
      as of PHP 8.0.0, this issues <strong><code>E_WARNING</code></strong>.
     </p>
@@ -687,7 +687,7 @@ Good: 2
   </p>
   
   <p class="para">
-   Converting <strong><code>NULL</code></strong> to an <span class="type">array</span> results in an empty
+   Converting <strong><code>null</code></strong> to an <span class="type">array</span> results in an empty
    <span class="type">array</span>.
   </p>
  </div>

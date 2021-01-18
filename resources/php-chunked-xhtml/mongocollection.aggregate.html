@@ -35,8 +35,8 @@
   <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><strong>MongoCollection::aggregate</strong></span>
     ( <span class="methodparam"><span class="type">array</span> <code class="parameter">$pipeline</code></span>
-   [, <span class="methodparam"><span class="type">array</span> <code class="parameter">$options</code></span>
-  ] ) : <span class="type">array</span></div>
+   , <span class="methodparam"><span class="type">array</span> <code class="parameter">$options</code> = ?</span>
+   ) : <span class="type">array</span></div>
 
   <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><strong>MongoCollection::aggregate</strong></span>
@@ -203,7 +203,7 @@
 
  <div class="refsect1 examples" id="refsect1-mongocollection.aggregate-examples">
   <h3 class="title">Examples</h3>
-  <div class="example" id="example-1386">
+  <div class="example" id="example-1398">
    <p><strong>Example #1 <span class="methodname"><strong>MongoCollection::aggregate()</strong></span> example</strong></p>
    <div class="example-contents"><p>
     The following example aggregation operation pivots data to create a set of
@@ -262,7 +262,7 @@ array(2) {
    Use mongoimport to load this data set into your mongod instance.
   </p>
 
-  <div class="example" id="example-1387">
+  <div class="example" id="example-1399">
    <p><strong>Example #2 <span class="methodname"><strong>MongoCollection::aggregate()</strong></span> example</strong></p>
    <div class="example-contents"><p>
     To return all states with a population greater than 10 million, use the following aggregation operation:
@@ -338,7 +338,7 @@ array(2) {
    </div>
   </div>
 
-  <div class="example" id="example-1388">
+  <div class="example" id="example-1400">
    <p><strong>Example #3 <span class="methodname"><strong>MongoCollection::aggregate()</strong></span> example</strong></p>
    <div class="example-contents"><p>
     To return the average populations for cities in each state, use the following aggregation operation:
@@ -394,7 +394,7 @@ array(2) {
    </div>
   </div>
 
-  <div class="example" id="example-1389">
+  <div class="example" id="example-1401">
    <p><strong>Example #4 <span class="methodname"><strong>MongoCollection::aggregate()</strong></span> with command options</strong></p>
    <div class="example-contents"><p>
     To return information on how the pipeline will be processed we use the

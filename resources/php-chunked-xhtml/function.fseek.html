@@ -34,14 +34,14 @@
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>fseek</strong></span>
-    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$handle</code></span>
+    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$stream</code></span>
    , <span class="methodparam"><span class="type">int</span> <code class="parameter">$offset</code></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$whence</code><span class="initializer"> = SEEK_SET</span></span>
-  ] ) : <span class="type">int</span></div>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$whence</code><span class="initializer"> = <strong><code>SEEK_SET</code></strong></span></span>
+   ) : <span class="type">int</span></div>
 
   <p class="para rdfs-comment">
    Sets the file position indicator for the file referenced by
-   <code class="parameter">handle</code>. The new position, measured in bytes
+   <code class="parameter">stream</code>. The new position, measured in bytes
    from the beginning of the file, is obtained by adding
    <code class="parameter">offset</code> to the position specified by
    <code class="parameter">whence</code>.
@@ -63,7 +63,7 @@
 
     
      <dt>
-<code class="parameter">handle</code></dt>
+<code class="parameter">stream</code></dt>
 
      <dd>
 
@@ -124,7 +124,7 @@ that is typically created using <span class="function"><a href="function.fopen.h
  <div class="refsect1 examples" id="refsect1-function.fseek-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-2648">
+   <div class="example" id="example-2663">
     <p><strong>Example #1 <span class="function"><strong>fseek()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

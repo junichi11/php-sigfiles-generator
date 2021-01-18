@@ -48,7 +48,7 @@ namespace {
 
 		/**
 		 * Resume execution of the generator
-		 * <p>Calling <b>Generator::next()</b> has the same effect as calling <code>Generator::send()</code> with <b><code>NULL</code></b> as argument.</p>
+		 * <p>Calling <b>Generator::next()</b> has the same effect as calling <code>Generator::send()</code> with <b><code>null</code></b> as argument.</p>
 		 * @return void <p>No value is returned.</p>
 		 * @link https://php.net/manual/en/generator.next.php
 		 * @since PHP 5 >= 5.5.0, PHP 7, PHP 8
@@ -86,7 +86,7 @@ namespace {
 
 		/**
 		 * Check if the iterator has been closed
-		 * @return bool <p>Returns <b><code>FALSE</code></b> if the iterator has been closed. Otherwise returns <b><code>TRUE</code></b>.</p>
+		 * @return bool <p>Returns <b><code>false</code></b> if the iterator has been closed. Otherwise returns <b><code>true</code></b>.</p>
 		 * @link https://php.net/manual/en/generator.valid.php
 		 * @since PHP 5 >= 5.5.0, PHP 7, PHP 8
 		 */

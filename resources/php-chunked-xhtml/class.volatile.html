@@ -88,9 +88,9 @@
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="threaded.from.html" class="methodname">Threaded::from</a></span>
     ( <span class="methodparam"><span class="type"><a href="class.closure.html" class="type Closure">Closure</a></span> <code class="parameter">$run</code></span>
-   [, <span class="methodparam"><span class="type"><a href="class.closure.html" class="type Closure">Closure</a></span> <code class="parameter">$construct</code></span>
-   [, <span class="methodparam"><span class="type">array</span> <code class="parameter">$args</code></span>
-  ]] ) : <span class="type"><a href="class.threaded.html" class="type Threaded">Threaded</a></span></div>
+   , <span class="methodparam"><span class="type"><a href="class.closure.html" class="type Closure">Closure</a></span> <code class="parameter">$construct</code> = ?</span>
+   , <span class="methodparam"><span class="type">array</span> <code class="parameter">$args</code> = ?</span>
+   ) : <span class="type"><a href="class.threaded.html" class="type Threaded">Threaded</a></span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="threaded.getterminationinfo.html" class="methodname">Threaded::getTerminationInfo</a></span>
     (
@@ -113,9 +113,9 @@
    ) : <span class="type">bool</span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="threaded.merge.html" class="methodname">Threaded::merge</a></span>
-    ( <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">$from</code></span>
-   [, <span class="methodparam"><span class="type">bool</span> <code class="parameter">$overwrite</code></span>
-  ] ) : <span class="type">bool</span></div>
+    ( <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$from</code></span>
+   , <span class="methodparam"><span class="type">bool</span> <code class="parameter">$overwrite</code> = ?</span>
+   ) : <span class="type">bool</span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="threaded.notify.html" class="methodname">Threaded::notify</a></span>
     (
@@ -135,20 +135,20 @@
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="threaded.shift.html" class="methodname">Threaded::shift</a></span>
     (
-   ) : <span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span></div>
+   ) : <span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="threaded.synchronized.html" class="methodname">Threaded::synchronized</a></span>
     ( <span class="methodparam"><span class="type"><a href="class.closure.html" class="type Closure">Closure</a></span> <code class="parameter">$block</code></span>
-   , <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">...$args</code></span>
-   ) : <span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span></div>
+   , <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">...$args</code></span>
+   ) : <span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="threaded.unlock.html" class="methodname">Threaded::unlock</a></span>
     (
    ) : <span class="type">bool</span></div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="threaded.wait.html" class="methodname">Threaded::wait</a></span>
-    ([ <span class="methodparam"><span class="type">int</span> <code class="parameter">$timeout</code></span>
-  ] ) : <span class="type">bool</span></div>
+    ( <span class="methodparam"><span class="type">int</span> <code class="parameter">$timeout</code> = ?</span>
+   ) : <span class="type">bool</span></div>
 
    }</div>
 
@@ -157,7 +157,7 @@
 
   <div class="section" id="volatile.examples">
    <h2 class="title">Examples</h2>
-   <div class="example" id="example-3850">
+   <div class="example" id="example-3866">
     <p><strong>Example #1 New immutability semantics of Threaded</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -174,7 +174,7 @@ RuntimeException: Threaded members previously set to Threaded objects are immuta
 </pre></div>
     </div>
    </div>
-   <div class="example" id="example-3851">
+   <div class="example" id="example-3867">
     <p><strong>Example #2 Volatile use-case</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

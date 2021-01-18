@@ -167,7 +167,7 @@ namespace {
 	/**
 	 * Checks if terminal color definitions can be changed
 	 * <p>Checks whether the terminal has color capabilities and whether the programmer can change color definitions using <code>ncurses_init_color()</code>. ncurses must be initialized using <code>ncurses_init()</code> before calling this function.</p>
-	 * @return bool <p>Return <b><code>TRUE</code></b> if the programmer can change color definitions, <b><code>FALSE</code></b> otherwise.</p>
+	 * @return bool <p>Return <b><code>true</code></b> if the programmer can change color definitions, <b><code>false</code></b> otherwise.</p>
 	 * @link https://php.net/manual/en/function.ncurses-can-change-color.php
 	 * @see ncurses_has_colors(), ncurses_init_color(), ncurses_start_color()
 	 * @since PHP 4 >= 4.0.7, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
@@ -177,7 +177,7 @@ namespace {
 	/**
 	 * Switch off input buffering
 	 * <p>This function is <i>EXPERIMENTAL</i>. The behaviour of this function, its name, and surrounding documentation may change without notice in a future release of PHP. This function should be used at your own risk.</p><p>Disables line buffering and character processing (interrupt and flow control characters are unaffected), making characters typed by the user immediately available to the program.</p>
-	 * @return bool <p>Returns <b><code>TRUE</code></b> or <b><code>NCURSES_ERR</code></b> if any error occurred.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> or <b><code>NCURSES_ERR</code></b> if any error occurred.</p>
 	 * @link https://php.net/manual/en/function.ncurses-cbreak.php
 	 * @see ncurses_nocbreak()
 	 * @since PHP 4 >= 4.0.7, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
@@ -187,7 +187,7 @@ namespace {
 	/**
 	 * Clear screen
 	 * <p>This function is <i>EXPERIMENTAL</i>. The behaviour of this function, its name, and surrounding documentation may change without notice in a future release of PHP. This function should be used at your own risk.</p><p>Clears the screen completely without setting blanks.</p><p>Note: <b>ncurses_clear()</b> clears the screen without setting blanks, which have the current background rendition. To clear screen with blanks, use <code>ncurses_erase()</code>.</p>
-	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.ncurses-clear.php
 	 * @see ncurses_erase()
 	 * @since PHP 4 >= 4.0.7, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
@@ -197,7 +197,7 @@ namespace {
 	/**
 	 * Clear screen from current position to bottom
 	 * <p>This function is <i>EXPERIMENTAL</i>. The behaviour of this function, its name, and surrounding documentation may change without notice in a future release of PHP. This function should be used at your own risk.</p><p>Erases all lines from cursor to end of screen and creates blanks. Blanks created by <b>ncurses_clrtobot()</b> have the current background rendition.</p>
-	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.ncurses-clrtobot.php
 	 * @see ncurses_clear(), ncurses_clrtoeol()
 	 * @since PHP 4 >= 4.0.7, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
@@ -207,7 +207,7 @@ namespace {
 	/**
 	 * Clear screen from current position to end of line
 	 * <p>This function is <i>EXPERIMENTAL</i>. The behaviour of this function, its name, and surrounding documentation may change without notice in a future release of PHP. This function should be used at your own risk.</p><p>Erases the current line from cursor position to the end. Blanks created by <b>ncurses_clrtoeol()</b> have the current background rendition.</p>
-	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.ncurses-clrtoeol.php
 	 * @see ncurses_clear(), ncurses_clrtobot()
 	 * @since PHP 4 >= 4.0.7, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
@@ -252,7 +252,7 @@ namespace {
 	/**
 	 * Saves terminals (program) mode
 	 * <p>This function is <i>EXPERIMENTAL</i>. The behaviour of this function, its name, and surrounding documentation may change without notice in a future release of PHP. This function should be used at your own risk.</p><p>Saves the current terminal modes for program (in curses) for use by <code>ncurses_reset_prog_mode()</code>.</p>
-	 * @return bool <p>Returns <b><code>FALSE</code></b> on success, otherwise <b><code>TRUE</code></b>.</p>
+	 * @return bool <p>Returns <b><code>false</code></b> on success, otherwise <b><code>true</code></b>.</p>
 	 * @link https://php.net/manual/en/function.ncurses-def-prog-mode.php
 	 * @see ncurses_reset_prog_mode()
 	 * @since PHP 4 >= 4.0.7, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
@@ -262,7 +262,7 @@ namespace {
 	/**
 	 * Saves terminals (shell) mode
 	 * <p>This function is <i>EXPERIMENTAL</i>. The behaviour of this function, its name, and surrounding documentation may change without notice in a future release of PHP. This function should be used at your own risk.</p><p>Saves the current terminal modes for shell (not in curses) for use by <code>ncurses_reset_shell_mode()</code>.</p>
-	 * @return bool <p>Returns <b><code>FALSE</code></b> on success, <b><code>TRUE</code></b> otherwise.</p>
+	 * @return bool <p>Returns <b><code>false</code></b> on success, <b><code>true</code></b> otherwise.</p>
 	 * @link https://php.net/manual/en/function.ncurses-def-shell-mode.php
 	 * @see ncurses_reset_shell_mode()
 	 * @since PHP 4 >= 4.0.7, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
@@ -303,7 +303,7 @@ namespace {
 	/**
 	 * Delete character at current position, move rest of line left
 	 * <p>This function is <i>EXPERIMENTAL</i>. The behaviour of this function, its name, and surrounding documentation may change without notice in a future release of PHP. This function should be used at your own risk.</p><p>Deletes the character under the cursor. All characters to the right of the cursor on the same line are moved to the left one position and the last character on the line is filled with a blank. The cursor position does not change.</p>
-	 * @return bool <p>Returns <b><code>FALSE</code></b> on success, <b><code>TRUE</code></b> otherwise.</p>
+	 * @return bool <p>Returns <b><code>false</code></b> on success, <b><code>true</code></b> otherwise.</p>
 	 * @link https://php.net/manual/en/function.ncurses-delch.php
 	 * @see ncurses_deleteln()
 	 * @since PHP 4 >= 4.0.7, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
@@ -313,7 +313,7 @@ namespace {
 	/**
 	 * Delete line at current position, move rest of screen up
 	 * <p>This function is <i>EXPERIMENTAL</i>. The behaviour of this function, its name, and surrounding documentation may change without notice in a future release of PHP. This function should be used at your own risk.</p><p>Deletes the current line under cursor position. All lines below the current line are moved up one line. The bottom line of window is cleared. Cursor position does not change.</p>
-	 * @return bool <p>Returns <b><code>FALSE</code></b> on success, otherwise <b><code>TRUE</code></b>.</p>
+	 * @return bool <p>Returns <b><code>false</code></b> on success, otherwise <b><code>true</code></b>.</p>
 	 * @link https://php.net/manual/en/function.ncurses-deleteln.php
 	 * @see ncurses_delch()
 	 * @since PHP 4 >= 4.0.7, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
@@ -333,7 +333,7 @@ namespace {
 	/**
 	 * Write all prepared refreshes to terminal
 	 * <p>This function is <i>EXPERIMENTAL</i>. The behaviour of this function, its name, and surrounding documentation may change without notice in a future release of PHP. This function should be used at your own risk.</p><p>Compares the virtual screen to the physical screen and updates the physical screen. This way is more effective than using multiple refresh calls.</p>
-	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.ncurses-doupdate.php
 	 * @since PHP 4 >= 4.0.7, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
 	 */
@@ -342,7 +342,7 @@ namespace {
 	/**
 	 * Activate keyboard input echo
 	 * <p>This function is <i>EXPERIMENTAL</i>. The behaviour of this function, its name, and surrounding documentation may change without notice in a future release of PHP. This function should be used at your own risk.</p><p>Enables echo mode. All characters typed by user are echoed by <code>ncurses_getch()</code>.</p>
-	 * @return bool <p>Returns <b><code>FALSE</code></b> on success, <b><code>TRUE</code></b> if any error occurred.</p>
+	 * @return bool <p>Returns <b><code>false</code></b> on success, <b><code>true</code></b> if any error occurred.</p>
 	 * @link https://php.net/manual/en/function.ncurses-echo.php
 	 * @see ncurses_noecho()
 	 * @since PHP 4 >= 4.0.7, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
@@ -371,7 +371,7 @@ namespace {
 	/**
 	 * Erase terminal screen
 	 * <p>This function is <i>EXPERIMENTAL</i>. The behaviour of this function, its name, and surrounding documentation may change without notice in a future release of PHP. This function should be used at your own risk.</p><p>Fills the terminal screen with blanks.</p><p>Created blanks have the current background rendition, set by <code>ncurses_bkgd()</code>.</p>
-	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.ncurses-erase.php
 	 * @see ncurses_bkgd(), ncurses_clear()
 	 * @since PHP 4 >= 4.0.7, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
@@ -400,7 +400,7 @@ namespace {
 	/**
 	 * Flash terminal screen (visual bell)
 	 * <p>This function is <i>EXPERIMENTAL</i>. The behaviour of this function, its name, and surrounding documentation may change without notice in a future release of PHP. This function should be used at your own risk.</p><p>Flashes the screen, and if its not possible, sends an audible alert (bell).</p>
-	 * @return bool <p>Returns <b><code>FALSE</code></b> on success, otherwise <b><code>TRUE</code></b>.</p>
+	 * @return bool <p>Returns <b><code>false</code></b> on success, otherwise <b><code>true</code></b>.</p>
 	 * @link https://php.net/manual/en/function.ncurses-flash.php
 	 * @see ncurses_beep()
 	 * @since PHP 4 >= 4.0.7, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
@@ -410,7 +410,7 @@ namespace {
 	/**
 	 * Flush keyboard input buffer
 	 * <p>This function is <i>EXPERIMENTAL</i>. The behaviour of this function, its name, and surrounding documentation may change without notice in a future release of PHP. This function should be used at your own risk.</p><p>Throws away any typeahead that has been typed and has not yet been read by your program.</p>
-	 * @return bool <p>Returns <b><code>FALSE</code></b> on success, otherwise <b><code>TRUE</code></b>.</p>
+	 * @return bool <p>Returns <b><code>false</code></b> on success, otherwise <b><code>true</code></b>.</p>
 	 * @link https://php.net/manual/en/function.ncurses-flushinp.php
 	 * @since PHP 4 >= 4.0.7, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
 	 */
@@ -441,7 +441,7 @@ namespace {
 	 * Reads mouse event
 	 * <p>This function is <i>EXPERIMENTAL</i>. The behaviour of this function, its name, and surrounding documentation may change without notice in a future release of PHP. This function should be used at your own risk.</p><p><b>ncurses_getmouse()</b> reads mouse event out of queue.</p>
 	 * @param array $mevent <p>Event options will be delivered in this parameter which has to be an array, passed by reference (see example below).</p> <p>On success an associative array with following keys will be delivered:</p><ul> <li> <p>"id" : Id to distinguish multiple devices</p> </li> <li> <p>"x" : screen relative x-position in character cells</p> </li> <li> <p>"y" : screen relative y-position in character cells</p> </li> <li> <p>"z" : currently not supported</p> </li> <li> <p>"mmask" : Mouse action</p> </li> </ul>
-	 * @return bool <p>Returns <b><code>FALSE</code></b> if a mouse event is actually visible in the given window, otherwise returns <b><code>TRUE</code></b>.</p>
+	 * @return bool <p>Returns <b><code>false</code></b> if a mouse event is actually visible in the given window, otherwise returns <b><code>true</code></b>.</p>
 	 * @link https://php.net/manual/en/function.ncurses-getmouse.php
 	 * @see ncurses_ungetmouse()
 	 * @since PHP 4 >= 4.2.0, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
@@ -473,7 +473,7 @@ namespace {
 	/**
 	 * Checks if terminal has color capabilities
 	 * <p>Checks whether the terminal has color capabilities. This function can be used to write terminal-independent programs. ncurses must be initialized using <code>ncurses_init()</code> before calling this function.</p>
-	 * @return bool <p>Return <b><code>TRUE</code></b> if the terminal has color capabilities, <b><code>FALSE</code></b> otherwise.</p>
+	 * @return bool <p>Return <b><code>true</code></b> if the terminal has color capabilities, <b><code>false</code></b> otherwise.</p>
 	 * @link https://php.net/manual/en/function.ncurses-has-colors.php
 	 * @see ncurses_can_change_color(), ncurses_start_color()
 	 * @since PHP 4 >= 4.0.7, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
@@ -483,7 +483,7 @@ namespace {
 	/**
 	 * Check for insert- and delete-capabilities
 	 * <p>This function is <i>EXPERIMENTAL</i>. The behaviour of this function, its name, and surrounding documentation may change without notice in a future release of PHP. This function should be used at your own risk.</p><p>Checks whether the terminal has insert and delete capabilities.</p>
-	 * @return bool <p>Returns <b><code>TRUE</code></b> if the terminal has insert/delete-capabilities, <b><code>FALSE</code></b> otherwise.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> if the terminal has insert/delete-capabilities, <b><code>false</code></b> otherwise.</p>
 	 * @link https://php.net/manual/en/function.ncurses-has-ic.php
 	 * @see ncurses_has_il()
 	 * @since PHP 4 >= 4.0.7, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
@@ -493,7 +493,7 @@ namespace {
 	/**
 	 * Check for line insert- and delete-capabilities
 	 * <p>This function is <i>EXPERIMENTAL</i>. The behaviour of this function, its name, and surrounding documentation may change without notice in a future release of PHP. This function should be used at your own risk.</p><p>Checks whether the terminal has insert- and delete-line-capabilities.</p>
-	 * @return bool <p>Returns <b><code>TRUE</code></b> if the terminal has insert/delete-line capabilities, <b><code>FALSE</code></b> otherwise.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> if the terminal has insert/delete-line capabilities, <b><code>false</code></b> otherwise.</p>
 	 * @link https://php.net/manual/en/function.ncurses-has-il.php
 	 * @see ncurses_has_ic()
 	 * @since PHP 4 >= 4.0.7, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
@@ -629,7 +629,7 @@ namespace {
 	/**
 	 * Ncurses is in endwin mode, normal screen output may be performed
 	 * <p>This function is <i>EXPERIMENTAL</i>. The behaviour of this function, its name, and surrounding documentation may change without notice in a future release of PHP. This function should be used at your own risk.</p><p>Checks if ncurses is in endwin mode.</p>
-	 * @return bool <p>Returns <b><code>TRUE</code></b>, if <code>ncurses_end()</code> has been called without any subsequent calls to <code>ncurses_wrefresh()</code>, <b><code>FALSE</code></b> otherwise.</p>
+	 * @return bool <p>Returns <b><code>true</code></b>, if <code>ncurses_end()</code> has been called without any subsequent calls to <code>ncurses_wrefresh()</code>, <b><code>false</code></b> otherwise.</p>
 	 * @link https://php.net/manual/en/function.ncurses-isendwin.php
 	 * @see ncurses_end(), ncurses_wrefresh()
 	 * @since PHP 4 >= 4.0.7, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
@@ -671,7 +671,7 @@ namespace {
 	/**
 	 * Returns terminals description
 	 * <p>This function is <i>EXPERIMENTAL</i>. The behaviour of this function, its name, and surrounding documentation may change without notice in a future release of PHP. This function should be used at your own risk.</p><p>Returns a verbose description of the terminal.</p>
-	 * @return string <p>Returns the description, as a string truncated to 128 characters. On errors, returns <b><code>NULL</code></b>.</p>
+	 * @return string <p>Returns the description, as a string truncated to 128 characters. On errors, returns <b><code>null</code></b>.</p>
 	 * @link https://php.net/manual/en/function.ncurses-longname.php
 	 * @see ncurses_termname()
 	 * @since PHP 4 >= 4.2.0, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
@@ -949,7 +949,7 @@ namespace {
 	/**
 	 * Switch terminal to cooked mode
 	 * <p>This function is <i>EXPERIMENTAL</i>. The behaviour of this function, its name, and surrounding documentation may change without notice in a future release of PHP. This function should be used at your own risk.</p><p>Returns terminal to normal (cooked) mode. Initially the terminal may or may not be in cbreak mode as the mode is inherited. Therefore a program should call <code>ncurses_cbreak()</code> and <b>ncurses_nocbreak()</b> explicitly.</p>
-	 * @return bool <p>Returns <b><code>TRUE</code></b> if any error occurred, otherwise <b><code>FALSE</code></b>.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> if any error occurred, otherwise <b><code>false</code></b>.</p>
 	 * @link https://php.net/manual/en/function.ncurses-nocbreak.php
 	 * @see ncurses_cbreak()
 	 * @since PHP 4 >= 4.0.7, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
@@ -959,7 +959,7 @@ namespace {
 	/**
 	 * Switch off keyboard input echo
 	 * <p>This function is <i>EXPERIMENTAL</i>. The behaviour of this function, its name, and surrounding documentation may change without notice in a future release of PHP. This function should be used at your own risk.</p><p>Prevents echoing of user typed characters.</p>
-	 * @return bool <p>Returns <b><code>TRUE</code></b> if any error occurred, <b><code>FALSE</code></b> otherwise.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> if any error occurred, <b><code>false</code></b> otherwise.</p>
 	 * @link https://php.net/manual/en/function.ncurses-noecho.php
 	 * @see ncurses_echo(), ncurses_getch()
 	 * @since PHP 4 >= 4.0.7, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
@@ -987,7 +987,7 @@ namespace {
 	/**
 	 * Switch terminal out of raw mode
 	 * <p>This function is <i>EXPERIMENTAL</i>. The behaviour of this function, its name, and surrounding documentation may change without notice in a future release of PHP. This function should be used at your own risk.</p><p>Switches the terminal out of raw mode. Raw mode is similar to cbreak mode, in that characters typed are immediately passed through to the user program. The difference is that in raw mode, the interrupt, quit, suspend and flow control characters are all passed through uninterpreted, instead of generating a signal.</p>
-	 * @return bool <p>Returns <b><code>TRUE</code></b> if any error occurred, otherwise <b><code>FALSE</code></b>.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> if any error occurred, otherwise <b><code>false</code></b>.</p>
 	 * @link https://php.net/manual/en/function.ncurses-noraw.php
 	 * @see ncurses_raw(), ncurses_cbreak(), ncurses_nocbreak()
 	 * @since PHP 4 >= 4.0.7, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
@@ -1091,7 +1091,7 @@ namespace {
 	/**
 	 * Switch terminal into raw mode
 	 * <p>This function is <i>EXPERIMENTAL</i>. The behaviour of this function, its name, and surrounding documentation may change without notice in a future release of PHP. This function should be used at your own risk.</p><p>Places the terminal in raw mode. Raw mode is similar to cbreak mode, in that characters typed are immediately passed through to the user program. The difference is that in raw mode, the interrupt, quit, suspend and flow control characters are all passed through uninterpreted, instead of generating a signal.</p>
-	 * @return bool <p>Returns <b><code>TRUE</code></b> if any error occurred, otherwise <b><code>FALSE</code></b>.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> if any error occurred, otherwise <b><code>false</code></b>.</p>
 	 * @link https://php.net/manual/en/function.ncurses-raw.php
 	 * @see ncurses_noraw(), ncurses_cbreak(), ncurses_nocbreak()
 	 * @since PHP 4 >= 4.0.7, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
@@ -1140,7 +1140,7 @@ namespace {
 	/**
 	 * Restores saved terminal state
 	 * <p>This function is <i>EXPERIMENTAL</i>. The behaviour of this function, its name, and surrounding documentation may change without notice in a future release of PHP. This function should be used at your own risk.</p><p>Restores the terminal state, which was previously saved by calling <code>ncurses_savetty()</code>.</p>
-	 * @return bool <p>Always returns <b><code>FALSE</code></b>.</p>
+	 * @return bool <p>Always returns <b><code>false</code></b>.</p>
 	 * @link https://php.net/manual/en/function.ncurses-resetty.php
 	 * @see ncurses_savetty()
 	 * @since PHP 4 >= 4.0.7, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
@@ -1150,7 +1150,7 @@ namespace {
 	/**
 	 * Saves terminal state
 	 * <p>This function is <i>EXPERIMENTAL</i>. The behaviour of this function, its name, and surrounding documentation may change without notice in a future release of PHP. This function should be used at your own risk.</p><p>Saves the current terminal state. The saved terminal state can be restored with <code>ncurses_resetty()</code>.</p>
-	 * @return bool <p>Always returns <b><code>FALSE</code></b>.</p>
+	 * @return bool <p>Always returns <b><code>false</code></b>.</p>
 	 * @link https://php.net/manual/en/function.ncurses-savetty.php
 	 * @see ncurses_resetty()
 	 * @since PHP 4 >= 4.0.7, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
@@ -1259,7 +1259,7 @@ namespace {
 	/**
 	 * Clears soft labels from screen
 	 * <p>This function is <i>EXPERIMENTAL</i>. The behaviour of this function, its name, and surrounding documentation may change without notice in a future release of PHP. This function should be used at your own risk.</p><p>The function <b>ncurses_slk_clear()</b> clears soft label keys from screen.</p>
-	 * @return bool <p>Returns <b><code>TRUE</code></b> on errors, <b><code>FALSE</code></b> otherwise.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> on errors, <b><code>false</code></b> otherwise.</p>
 	 * @link https://php.net/manual/en/function.ncurses-slk-clear.php
 	 * @since PHP 4 >= 4.0.7, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
 	 */
@@ -1279,7 +1279,7 @@ namespace {
 	 * Initializes soft label key functions
 	 * <p>This function is <i>EXPERIMENTAL</i>. The behaviour of this function, its name, and surrounding documentation may change without notice in a future release of PHP. This function should be used at your own risk.</p><p>Initializes soft label key functions</p><p>This function must be called before <code>ncurses_init()</code> or <code>ncurses_newwin()</code> is called.</p>
 	 * @param int $format <p>If <code>ncurses_init()</code> eventually uses a line from stdscr to emulate the soft labels, then this parameter determines how the labels are arranged of the screen.</p> <p>0 indicates a 3-2-3 arrangement of the labels, 1 indicates a 4-4 arrangement and 2 indicates the PC like 4-4-4 mode, but in addition an index line will be created.</p>
-	 * @return bool <p>Returns <b><code>TRUE</code></b> on success or <b><code>FALSE</code></b> on failure.</p>
+	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.ncurses-slk-init.php
 	 * @since PHP 4 >= 4.0.7, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
 	 */
@@ -1373,7 +1373,7 @@ namespace {
 	/**
 	 * Returns terminals (short)-name
 	 * <p>This function is <i>EXPERIMENTAL</i>. The behaviour of this function, its name, and surrounding documentation may change without notice in a future release of PHP. This function should be used at your own risk.</p><p>Returns terminals shortname.</p>
-	 * @return string <p>Returns the shortname of the terminal, truncated to 14 characters. On errors, returns <b><code>NULL</code></b>.</p>
+	 * @return string <p>Returns the shortname of the terminal, truncated to 14 characters. On errors, returns <b><code>null</code></b>.</p>
 	 * @link https://php.net/manual/en/function.ncurses-termname.php
 	 * @see ncurses_longname()
 	 * @since PHP 4 >= 4.2.0, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
@@ -1424,7 +1424,7 @@ namespace {
 	 * Pushes mouse event to queue
 	 * <p>This function is <i>EXPERIMENTAL</i>. The behaviour of this function, its name, and surrounding documentation may change without notice in a future release of PHP. This function should be used at your own risk.</p><p>Pushes a KEY_MOUSE event onto the input queue and associates with this event the given state data and screen-relative character cell coordinates, specified in <code>mevent</code>.</p>
 	 * @param array $mevent <p>An associative array specifying the event options:</p><ul> <li> <p>"id" : Id to distinguish multiple devices</p> </li> <li> <p>"x" : screen relative x-position in character cells</p> </li> <li> <p>"y" : screen relative y-position in character cells</p> </li> <li> <p>"z" : currently not supported</p> </li> <li> <p>"mmask" : Mouse action</p> </li> </ul>
-	 * @return bool <p>Returns <b><code>FALSE</code></b> on success, <b><code>TRUE</code></b> otherwise.</p>
+	 * @return bool <p>Returns <b><code>false</code></b> on success, <b><code>true</code></b> otherwise.</p>
 	 * @link https://php.net/manual/en/function.ncurses-ungetmouse.php
 	 * @see ncurses_getmouse()
 	 * @since PHP 4 >= 4.2.0, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
@@ -1511,7 +1511,7 @@ namespace {
 	 * @link https://php.net/manual/en/function.ncurses-waddstr.php
 	 * @since PHP 4 >= 4.2.0, PHP 5 < 5.3.0, PECL ncurses >= 1.0.0
 	 */
-	function ncurses_waddstr($window, string $str, int $n = NULL): int {}
+	function ncurses_waddstr($window, string $str, int $n = null): int {}
 
 	/**
 	 * Turns off attributes for a window

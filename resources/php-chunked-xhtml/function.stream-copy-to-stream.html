@@ -35,9 +35,9 @@
    <span class="methodname"><strong>stream_copy_to_stream</strong></span>
     ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$source</code></span>
    , <span class="methodparam"><span class="type">resource</span> <code class="parameter">$dest</code></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$maxlength</code><span class="initializer"> = -1</span></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$offset</code><span class="initializer"> = 0</span></span>
-  ]] ) : <span class="type"><span class="type">int</span>|<span class="type"><span class="type false">false</span></span></span></div>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$maxlength</code><span class="initializer"> = -1</span></span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$offset</code><span class="initializer"> = 0</span></span>
+   ) : <span class="type"><span class="type">int</span>|<span class="type"><span class="type false">false</span></span></span></div>
 
   <p class="para rdfs-comment">
    Makes a copy of up to <code class="parameter">maxlength</code> bytes
@@ -112,7 +112,7 @@
  <div class="refsect1 returnvalues" id="refsect1-function.stream-copy-to-stream-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns the total count of bytes copied,  or <strong><code>FALSE</code></strong> on failure.
+   Returns the total count of bytes copied,  or <strong><code>false</code></strong> on failure.
   </p>
  </div>
 
@@ -120,7 +120,7 @@
  <div class="refsect1 examples" id="refsect1-function.stream-copy-to-stream-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-4264">
+   <div class="example" id="example-4279">
     <p><strong>Example #1 A <span class="function"><strong>stream_copy_to_stream()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

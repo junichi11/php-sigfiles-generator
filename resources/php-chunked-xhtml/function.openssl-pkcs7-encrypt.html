@@ -36,11 +36,11 @@
    <span class="methodname"><strong>openssl_pkcs7_encrypt</strong></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$infile</code></span>
    , <span class="methodparam"><span class="type">string</span> <code class="parameter">$outfile</code></span>
-   , <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">$recipcerts</code></span>
+   , <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$recipcerts</code></span>
    , <span class="methodparam"><span class="type">array</span> <code class="parameter">$headers</code></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code><span class="initializer"> = 0</span></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$cipherid</code><span class="initializer"> = OPENSSL_CIPHER_RC2_40</span></span>
-  ]] ) : <span class="type">bool</span></div>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code><span class="initializer"> = 0</span></span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$cipherid</code><span class="initializer"> = OPENSSL_CIPHER_RC2_40</span></span>
+   ) : <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
    <span class="function"><strong>openssl_pkcs7_encrypt()</strong></span> takes the contents of the
@@ -143,7 +143,7 @@
  <div class="refsect1 returnvalues" id="refsect1-function.openssl-pkcs7-encrypt-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns <strong><code>TRUE</code></strong> on success or <strong><code>FALSE</code></strong> on failure.
+   Returns <strong><code>true</code></strong> on success or <strong><code>false</code></strong> on failure.
   </p>
  </div>
 
@@ -151,7 +151,7 @@
  <div class="refsect1 examples" id="refsect1-function.openssl-pkcs7-encrypt-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-918">
+   <div class="example" id="example-930">
     <p><strong>Example #1 <span class="function"><strong>openssl_pkcs7_encrypt()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

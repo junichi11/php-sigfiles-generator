@@ -34,8 +34,8 @@
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
    <span class="methodname"><strong>session_start</strong></span>
-    ([ <span class="methodparam"><span class="type">array</span> <code class="parameter">$options</code><span class="initializer"> = array()</span></span>
-  ] ) : <span class="type">bool</span></div>
+    ( <span class="methodparam"><span class="type">array</span> <code class="parameter">$options</code><span class="initializer"> = []</span></span>
+   ) : <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
    <span class="function"><strong>session_start()</strong></span> creates a session or resumes the
@@ -89,7 +89,7 @@
      <p class="para">
       In addition to the normal set of configuration directives, a
       <code class="literal">read_and_close</code> option may also be provided. If set to
-      <strong><code>TRUE</code></strong>, this will result in the session being closed immediately after
+      <strong><code>true</code></strong>, this will result in the session being closed immediately after
       being read, thereby avoiding unnecessary locking if the session data
       won&#039;t be changed.
      </p>
@@ -104,8 +104,8 @@
  <div class="refsect1 returnvalues" id="refsect1-function.session-start-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   This function returns <strong><code>TRUE</code></strong> if a session was successfully started,
-   otherwise <strong><code>FALSE</code></strong>.
+   This function returns <strong><code>true</code></strong> if a session was successfully started,
+   otherwise <strong><code>false</code></strong>.
   </p>
  </div>
 
@@ -127,7 +127,7 @@
       <tr>
        <td>7.1.0</td>
        <td>
-        <span class="function"><strong>session_start()</strong></span> now returns <strong><code>FALSE</code></strong> and no longer
+        <span class="function"><strong>session_start()</strong></span> now returns <strong><code>false</code></strong> and no longer
         initializes <var class="varname"><a href="reserved.variables.session.html" class="classname">$_SESSION</a></var> when it failed to start the
         session.
        </td>
@@ -147,7 +147,7 @@
    <h4 class="title">A basic session example</h4>
 
    <p class="para">
-    <div class="example" id="example-5210">
+    <div class="example" id="example-5231">
      <p><strong>Example #1 <var class="filename">page1.php</var></strong></p>
      <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -167,7 +167,7 @@
     <strong><code>SID</code></strong> is all about.
    </p>
    <p class="para">
-    <div class="example" id="example-5211">
+    <div class="example" id="example-5232">
      <p><strong>Example #2 <var class="filename">page2.php</var></strong></p>
      <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -183,7 +183,7 @@
   <div class="refsect2 unknown-unknown-exampleu" id="refsect2-function.session-start-unknown-unknown-exampleu">
    <h4 class="title">Providing options to <span class="function"><strong>session_start()</strong></span></h4>
 
-   <div class="example" id="example-5212">
+   <div class="example" id="example-5233">
     <p><strong>Example #3 Overriding the cookie lifetime</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -194,7 +194,7 @@
 
    </div>
 
-   <div class="example" id="example-5213">
+   <div class="example" id="example-5234">
     <p><strong>Example #4 Reading the session and closing it</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
