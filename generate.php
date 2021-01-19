@@ -4,6 +4,7 @@ require __DIR__ . '/bootstrap.php';
 
 use utils\Files;
 use utils\Log;
+use utils\Strings;
 use zip\SigfilesZipper;
 
 Log::start(false);
@@ -30,7 +31,7 @@ PhpGenerator::report();
 // zip
 if (Config::get()->zipOnGenerating()) {
     echo NEW_LINE;
-    Log::info('Generate phpsigfiles-' . Config::get()->sigfilesVersion() . '.zip');
+    Log::info('Generate phpsigfiles' . Strings::appendPrefix(Config::get()->sigfilesVersion(), '-') . '.zip');
     $licenseFiles = glob(__DIR__ . '/resources/licenses/*');
     SigfilesZipper::generate($licenseFiles);
 }

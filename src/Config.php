@@ -46,7 +46,7 @@ final class Config {
     }
 
     public function sigfilesVersion(): string {
-        return $this->config['other']['sigfiles.version'];
+        return trim($this->config['other']['sigfiles.version']);
     }
 
     public function license(): string {
@@ -63,6 +63,10 @@ final class Config {
 
     public function zipOnGenerating(): bool {
         return $this->config['zip']['on.generating'];
+    }
+
+    public function isSha1PrefixedZip(): bool {
+        return $this->config['zip']['sha1.prefix'];
     }
 
     public function isBlacklistType(string $type): bool {
