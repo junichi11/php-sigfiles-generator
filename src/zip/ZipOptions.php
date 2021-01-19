@@ -6,26 +6,22 @@ use Config;
 
 class ZipOptions {
 
-    /** @var string */
-    private $outputDir;
+    private string $outputDir;
 
-    /** @var string */
-    private $subDir;
+    private string $subDir;
 
-    /** @var string */
-    private $sigfilesVersion;
+    private string $sigfilesVersion;
 
-    /** @var string */
-    private $zipFileName;
+    private string $zipFileName;
 
-    /** @var bool */
-    private $overwrite;
+    private bool $overwrite;
 
-    /** @var string */
-    private $licenseFileDir;
+    private string $licenseFileDir;
 
     /** @var string[] */
-    private $licenseFiles;
+    private array $licenseFiles;
+
+    private bool $isSha1Prefixed;
 
     public static function create() {
         return new self;
@@ -39,6 +35,7 @@ class ZipOptions {
         $this->overwrite = Config::get()->overwriteZip();
         $this->licenseFileDir = 'META-INF';
         $this->licenseFiles = [];
+        $this->isSha1Prefixed = Config::get()->isSha1PrefixedZip();
     }
 
     public function getOutputDir(): string {
@@ -67,6 +64,10 @@ class ZipOptions {
 
     public function getLicenseFiles(): array {
         return $this->licenseFiles;
+    }
+
+    public function isSha1Prefixed(): bool {
+        return $this->isSha1Prefixed;
     }
 
     public function setOutputDir(string $outputDir): ZipOptions {
@@ -104,4 +105,8 @@ class ZipOptions {
         return $this;
     }
 
+    public function setSha1Prefixed(bool $isSha1Prefixed): ZipOptions {
+        $this->isSha1Prefixed = $isSha1Prefixed;
+        return $this;
+    }
 }

@@ -28,4 +28,17 @@ final class Strings {
         return str_repeat("\t", $indent) . $text . ($appendNewLine ? NEW_LINE : '');
     }
 
+    public static function appendPrefix(string $text, string $prefix, bool $ignoreEmptyText = true) {
+        if ($text === '' && $ignoreEmptyText) {
+            return $text;
+        }
+        return $prefix . $text;
+    }
+
+    public static function appendSuffix(string $text, string $suffix, bool $ignoreEmptyText = true) {
+        if ($text === '' && $ignoreEmptyText) {
+            return $text;
+        }
+        return $text . $suffix;
+    }
 }
