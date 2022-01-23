@@ -26,19 +26,14 @@
   <div id="layout-content"><div id="function.number-format" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">number_format</h1>
-  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">number_format</span> &mdash; <span class="dc-title">Format a number with grouped thousands</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">number_format</span> &mdash; <span class="dc-title">Format a number with grouped thousands</span></p>
 
  </div>
  
  <div class="refsect1 description" id="refsect1-function.number-format-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>number_format</strong></span>
-    ( <span class="methodparam"><span class="type">float</span> <code class="parameter">$num</code></span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$decimals</code><span class="initializer"> = 0</span></span>
-   , <span class="methodparam"><span class="type"><span class="type">string</span>|<span class="type">null</span></span> <code class="parameter">$decimal_separator</code><span class="initializer"> = &quot;.&quot;</span></span>
-   , <span class="methodparam"><span class="type"><span class="type">string</span>|<span class="type">null</span></span> <code class="parameter">$thousands_separator</code><span class="initializer"> = &quot;,&quot;</span></span>
-   ) : <span class="type">string</span></div>
+   <span class="methodname"><strong>number_format</strong></span>(<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">float</span> <code class="parameter">$num</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">int</span> <code class="parameter">$decimals</code><span class="initializer"> = 0</span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">?</span><span class="type"><span class="type">string</span><span class="type"></span></span> <code class="parameter">$decimal_separator</code><span class="initializer"> = &quot;.&quot;</span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">?</span><span class="type"><span class="type">string</span><span class="type"></span></span> <code class="parameter">$thousands_separator</code><span class="initializer"> = &quot;,&quot;</span></span><br>): <span class="type">string</span></div>
 
   <p class="para rdfs-comment">
    Formats a number with grouped thousands and optionally decimal digits.
@@ -50,7 +45,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">num</code></dt>
@@ -157,7 +151,7 @@
  <div class="refsect1 examples" id="refsect1-function.number-format-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-5319">
+   <div class="example" id="example-4808">
     <p><strong>Example #1 <span class="function"><strong>number_format()</strong></span> Example</strong></p>
     <div class="example-contents"><p>
      For instance, French notation usually use two decimals,

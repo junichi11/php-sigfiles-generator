@@ -34,7 +34,7 @@
   <div class="section" id="mongodb-driver-session.intro">
    <h2 class="title">Introduction</h2>
    <p class="para">
-    The <strong class="classname">MongoDB\Driver\Session</strong> class represents a
+    The <span class="classname"><strong class="classname">MongoDB\Driver\Session</strong></span> class represents a
     client session and is returned by
     <span class="methodname"><a href="mongodb-driver-manager.startsession.html" class="methodname">MongoDB\Driver\Manager::startSession()</a></span>. Commands,
     queries, and write operations may then be associated the session.
@@ -53,7 +53,7 @@
     <div class="classsynopsisinfo">
      <span class="modifier">final</span>
      <span class="ooclass">
-      <strong class="classname">MongoDB\Driver\Session</strong>
+      <span class="modifier">class</span> <strong class="classname">MongoDB\Driver\Session</strong>
      </span>
      {</div>
 
@@ -62,96 +62,41 @@
     <div class="fieldsynopsis">
      <span class="modifier">const</span>
      <span class="type">string</span>
-      <var class="fieldsynopsis_varname"><a href="class.mongodb-driver-session.html#mongodb-driver-session.constants.transaction-none"><var class="varname">TRANSACTION_NONE</var></a></var>
-     <span class="initializer"> = none</span>
-    ;</div>
+      <var class="fieldsynopsis_varname"><a href="class.mongodb-driver-session.html#mongodb-driver-session.constants.transaction-none"><var class="varname">TRANSACTION_NONE</var></a></var><span class="initializer"> = none</span>;</div>
 
-    <div class="fieldsynopsis">
-     <span class="modifier">const</span>
+    <div class="fieldsynopsis"><span class="modifier">const</span>
      <span class="type">string</span>
-      <var class="fieldsynopsis_varname"><a href="class.mongodb-driver-session.html#mongodb-driver-session.constants.transaction-starting"><var class="varname">TRANSACTION_STARTING</var></a></var>
-     <span class="initializer"> = starting</span>
-    ;</div>
+      <var class="fieldsynopsis_varname"><a href="class.mongodb-driver-session.html#mongodb-driver-session.constants.transaction-starting"><var class="varname">TRANSACTION_STARTING</var></a></var><span class="initializer"> = starting</span>;</div>
 
-    <div class="fieldsynopsis">
-     <span class="modifier">const</span>
+    <div class="fieldsynopsis"><span class="modifier">const</span>
      <span class="type">string</span>
-      <var class="fieldsynopsis_varname"><a href="class.mongodb-driver-session.html#mongodb-driver-session.constants.transaction-in-progress"><var class="varname">TRANSACTION_IN_PROGRESS</var></a></var>
-     <span class="initializer"> = in_progress</span>
-    ;</div>
+      <var class="fieldsynopsis_varname"><a href="class.mongodb-driver-session.html#mongodb-driver-session.constants.transaction-in-progress"><var class="varname">TRANSACTION_IN_PROGRESS</var></a></var><span class="initializer"> = in_progress</span>;</div>
 
-    <div class="fieldsynopsis">
-     <span class="modifier">const</span>
+    <div class="fieldsynopsis"><span class="modifier">const</span>
      <span class="type">string</span>
-      <var class="fieldsynopsis_varname"><a href="class.mongodb-driver-session.html#mongodb-driver-session.constants.transaction-committed"><var class="varname">TRANSACTION_COMMITTED</var></a></var>
-     <span class="initializer"> = committed</span>
-    ;</div>
+      <var class="fieldsynopsis_varname"><a href="class.mongodb-driver-session.html#mongodb-driver-session.constants.transaction-committed"><var class="varname">TRANSACTION_COMMITTED</var></a></var><span class="initializer"> = committed</span>;</div>
 
-    <div class="fieldsynopsis">
-     <span class="modifier">const</span>
+    <div class="fieldsynopsis"><span class="modifier">const</span>
      <span class="type">string</span>
-      <var class="fieldsynopsis_varname"><a href="class.mongodb-driver-session.html#mongodb-driver-session.constants.transaction-aborted"><var class="varname">TRANSACTION_ABORTED</var></a></var>
-     <span class="initializer"> = aborted</span>
-    ;</div>
+      <var class="fieldsynopsis_varname"><a href="class.mongodb-driver-session.html#mongodb-driver-session.constants.transaction-aborted"><var class="varname">TRANSACTION_ABORTED</var></a></var><span class="initializer"> = aborted</span>;</div>
 
 
     <div class="classsynopsisinfo classsynopsisinfo_comment">/* Methods */</div>
     <div class="methodsynopsis dc-description">
-   <span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><a href="mongodb-driver-session.aborttransaction.html" class="methodname">abortTransaction</a></span>
-    (
-   ) : <span class="type"><span class="type void">void</span></span></div>
-<div class="methodsynopsis dc-description">
-   <span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><a href="mongodb-driver-session.advanceclustertime.html" class="methodname">advanceClusterTime</a></span>
-    ( <span class="methodparam"><span class="type"><span class="type">array</span>|<span class="type">object</span></span> <code class="parameter">$clusterTime</code></span>
-   ) : <span class="type"><span class="type void">void</span></span></div>
-<div class="methodsynopsis dc-description">
-   <span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><a href="mongodb-driver-session.advanceoperationtime.html" class="methodname">advanceOperationTime</a></span>
-    ( <span class="methodparam"><span class="type"><a href="class.mongodb-bson-timestampinterface.html" class="type MongoDB\BSON\TimestampInterface">MongoDB\BSON\TimestampInterface</a></span> <code class="parameter">$operationTime</code></span>
-   ) : <span class="type"><span class="type void">void</span></span></div>
-<div class="methodsynopsis dc-description">
-   <span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><a href="mongodb-driver-session.committransaction.html" class="methodname">commitTransaction</a></span>
-    (
-   ) : <span class="type"><span class="type void">void</span></span></div>
-<div class="methodsynopsis dc-description">
-   <span class="modifier">final</span> <span class="modifier">private</span> <span class="methodname"><a href="mongodb-driver-session.construct.html" class="methodname">__construct</a></span>
-    (
-   )</div>
-<div class="methodsynopsis dc-description">
-   <span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><a href="mongodb-driver-session.endsession.html" class="methodname">endSession</a></span>
-    (
-   ) : <span class="type"><span class="type void">void</span></span></div>
-<div class="methodsynopsis dc-description">
-   <span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><a href="mongodb-driver-session.getclustertime.html" class="methodname">getClusterTime</a></span>
-    (
-   ) : <span class="type"><span class="type">object</span>|<span class="type">null</span></span></div>
-<div class="methodsynopsis dc-description">
-   <span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><a href="mongodb-driver-session.getlogicalsessionid.html" class="methodname">getLogicalSessionId</a></span>
-    (
-   ) : <span class="type">object</span></div>
-<div class="methodsynopsis dc-description">
-   <span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><a href="mongodb-driver-session.getoperationtime.html" class="methodname">getOperationTime</a></span>
-    (
-   ) : <span class="type"><span class="type"><a href="class.mongodb-bson-timestamp.html" class="type MongoDB\BSON\Timestamp">MongoDB\BSON\Timestamp</a></span>|<span class="type">null</span></span></div>
-<div class="methodsynopsis dc-description">
-   <span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><a href="mongodb-driver-session.getserver.html" class="methodname">getServer</a></span>
-    (
-   ) : <span class="type"><span class="type"><a href="class.mongodb-driver-server.html" class="type MongoDB\Driver\Server">MongoDB\Driver\Server</a></span>|<span class="type">null</span></span></div>
-<div class="methodsynopsis dc-description">
-   <span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><a href="mongodb-driver-session.gettransactionoptions.html" class="methodname">getTransactionOptions</a></span>
-    (
-   ) : <span class="type"><span class="type">array</span>|<span class="type">null</span></span></div>
-<div class="methodsynopsis dc-description">
-   <span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><a href="mongodb-driver-session.gettransactionstate.html" class="methodname">getTransactionState</a></span>
-    (
-   ) : <span class="type">string</span></div>
-<div class="methodsynopsis dc-description">
-   <span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><a href="mongodb-driver-session.isintransaction.html" class="methodname">isInTransaction</a></span>
-    (
-   ) : <span class="type">bool</span></div>
-<div class="methodsynopsis dc-description">
-   <span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><a href="mongodb-driver-session.starttransaction.html" class="methodname">startTransaction</a></span>
-    ( <span class="methodparam"><span class="type">array</span> <code class="parameter">$options</code> = ?</span>
-   ) : <span class="type"><span class="type void">void</span></span></div>
+   <span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><a href="mongodb-driver-session.aborttransaction.html" class="methodname">abortTransaction</a></span>(): <span class="type"><span class="type void">void</span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><a href="mongodb-driver-session.advanceclustertime.html" class="methodname">advanceClusterTime</a></span>(<span class="methodparam"><span class="type"><span class="type">array</span>|<span class="type">object</span></span> <code class="parameter">$clusterTime</code></span>): <span class="type"><span class="type void">void</span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><a href="mongodb-driver-session.advanceoperationtime.html" class="methodname">advanceOperationTime</a></span>(<span class="methodparam"><span class="type"><a href="class.mongodb-bson-timestampinterface.html" class="type MongoDB\BSON\TimestampInterface">MongoDB\BSON\TimestampInterface</a></span> <code class="parameter">$operationTime</code></span>): <span class="type"><span class="type void">void</span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><a href="mongodb-driver-session.committransaction.html" class="methodname">commitTransaction</a></span>(): <span class="type"><span class="type void">void</span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">final</span> <span class="modifier">private</span> <span class="methodname"><a href="mongodb-driver-session.construct.html" class="methodname">__construct</a></span>()</div>
+<div class="methodsynopsis dc-description"><span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><a href="mongodb-driver-session.endsession.html" class="methodname">endSession</a></span>(): <span class="type"><span class="type void">void</span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><a href="mongodb-driver-session.getclustertime.html" class="methodname">getClusterTime</a></span>(): <span class="type"><span class="type">?</span><span class="type">object</span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><a href="mongodb-driver-session.getlogicalsessionid.html" class="methodname">getLogicalSessionId</a></span>(): <span class="type">object</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><a href="mongodb-driver-session.getoperationtime.html" class="methodname">getOperationTime</a></span>(): <span class="type"><span class="type">?</span><span class="type"><a href="class.mongodb-bson-timestamp.html" class="type MongoDB\BSON\Timestamp">MongoDB\BSON\Timestamp</a></span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><a href="mongodb-driver-session.getserver.html" class="methodname">getServer</a></span>(): <span class="type"><span class="type">?</span><span class="type"><a href="class.mongodb-driver-server.html" class="type MongoDB\Driver\Server">MongoDB\Driver\Server</a></span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><a href="mongodb-driver-session.gettransactionoptions.html" class="methodname">getTransactionOptions</a></span>(): <span class="type"><span class="type">?</span><span class="type">array</span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><a href="mongodb-driver-session.gettransactionstate.html" class="methodname">getTransactionState</a></span>(): <span class="type">string</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><a href="mongodb-driver-session.isintransaction.html" class="methodname">isInTransaction</a></span>(): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><a href="mongodb-driver-session.starttransaction.html" class="methodname">startTransaction</a></span>(<span class="methodparam"><span class="type">array</span> <code class="parameter">$options</code><span class="initializer"> = ?</span></span>): <span class="type"><span class="type void">void</span></span></div>
 
    }</div>
 
@@ -162,7 +107,6 @@
   <div class="section" id="mongodb-driver-session.constants">
    <h2 class="title">Predefined Constants</h2>
    <dl>
-
 
     
      <dt id="mongodb-driver-session.constants.transaction-none"><strong><code>MongoDB\Driver\Session::TRANSACTION_NONE</code></strong></dt>

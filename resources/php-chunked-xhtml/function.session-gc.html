@@ -26,15 +26,13 @@
   <div id="layout-content"><div id="function.session-gc" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">session_gc</h1>
-  <p class="verinfo">(PHP 7 &gt;= 7.1.0)</p><p class="refpurpose"><span class="refname">session_gc</span> &mdash; <span class="dc-title">Perform session data garbage collection</span></p>
+  <p class="verinfo">(PHP 7 &gt;= 7.1.0, PHP 8)</p><p class="refpurpose"><span class="refname">session_gc</span> &mdash; <span class="dc-title">Perform session data garbage collection</span></p>
 
  </div>
  <div class="refsect1 description" id="refsect1-function.session-gc-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>session_gc</strong></span>
-    (
-   ) : <span class="type"><span class="type">int</span>|<span class="type"><span class="type false">false</span></span></span></div>
+   <span class="methodname"><strong>session_gc</strong></span>(): <span class="type"><span class="type">int</span>|<span class="type"><span class="type false">false</span></span></span></div>
 
   <p class="para rdfs-comment">
    <span class="function"><strong>session_gc()</strong></span> is used to perform session data
@@ -58,6 +56,12 @@
  </div>
 
 
+ <div class="refsect1 parameters" id="refsect1-function.session-gc-parameters">
+  <h3 class="title">Parameters</h3>
+  <p class="para">This function has no parameters.</p>
+ </div>
+
+
  <div class="refsect1 returnvalues" id="refsect1-function.session-gc-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
@@ -75,7 +79,7 @@
  <div class="refsect1 examples" id="refsect1-function.session-gc-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-5224">
+   <div class="example" id="example-4723">
     <p><strong>Example #1 <span class="function"><strong>session_gc()</strong></span> example for task managers like cron</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -85,7 +89,7 @@
     </div>
 
    </div>
-   <div class="example" id="example-5225">
+   <div class="example" id="example-4724">
     <p><strong>Example #2 <span class="function"><strong>session_gc()</strong></span> example for user accessible script</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

@@ -33,12 +33,7 @@
  <div class="refsect1 description" id="refsect1-function.fdf-set-value-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>fdf_set_value</strong></span>
-    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$fdf_document</code></span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$fieldname</code></span>
-   , <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$value</code></span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$isName</code> = ?</span>
-   ) : <span class="type">bool</span></div>
+   <span class="methodname"><strong>fdf_set_value</strong></span>(<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">resource</span> <code class="parameter">$fdf_document</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$fieldname</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$value</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">int</span> <code class="parameter">$isName</code><span class="initializer"> = ?</span></span><br>): <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
    Sets the <code class="parameter">value</code> for the given field.
@@ -50,7 +45,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">fdf_document</code></dt>
@@ -103,8 +97,8 @@
        </p>
        <p class="para">
         The value is no longer used in the current toolkit version 5.0. For
-        compatibility reasons it is still supported as an optional parameter
-        beginning with PHP 4.3, but ignored internally.
+        compatibility reasons it is still supported as an optional parameter,
+        but ignored internally.
        </p>
       </p></blockquote>
      </dd>
@@ -120,36 +114,6 @@
   <h3 class="title">Return Values</h3>
   <p class="para">
    Returns <strong><code>true</code></strong> on success or <strong><code>false</code></strong> on failure.
-  </p>
- </div>
-
-
- <div class="refsect1 changelog" id="refsect1-function.fdf-set-value-changelog">
-  <h3 class="title">Changelog</h3>
-  <p class="para">
-   <table class="doctable informaltable">
-    
-     <thead>
-      <tr>
-       <th>Version</th>
-       <th>Description</th>
-      </tr>
-
-     </thead>
-
-     <tbody class="tbody">
-      <tr>
-       <td>4.3.0</td>
-       <td>
-        Support for arrays in the <code class="parameter">value</code> parameter was
-        added.
-       </td>
-      </tr>
-
-     </tbody>
-    
-   </table>
-
   </p>
  </div>
 

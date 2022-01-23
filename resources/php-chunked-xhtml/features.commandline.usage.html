@@ -50,12 +50,6 @@ $ php -f my_script.php
       restriction on which files can be executed; in particular, the filename
       is not required have a <code class="literal">.php</code> extension.
      </p>
-     <blockquote class="note"><p><strong class="note">Note</strong>: 
-      <p class="para">
-       If arguments need to be passed to the script when using
-       <strong class="option unknown">-f</strong>, the first argument must be <code class="literal">--</code>.
-      </p>
-     </p></blockquote>
     </li>
     <li class="listitem">
      <p class="para">
@@ -111,7 +105,7 @@ $ some_application | some_filter | php | sort -u &gt; final_output.txt
    first index (zero) always contains the name of the script as called from the
    command line. Note that, if the code is executed in-line using the command
    line switch <strong class="option unknown">-r</strong>, the value of <var class="varname"><a href="reserved.variables.argv.html" class="classname">$argv[0]</a></var>
-   will be just a dash (<code class="literal">-</code>). The same is true if the code is
+   will be <code class="literal">&quot;Standard input code&quot;</code>; prior to PHP 7.2.0, it was a dash (<code class="literal">&quot;-&quot;</code>) instead. The same is true if the code is
    executed via a pipe from <code class="literal">STDIN</code>.
   </p>
 
@@ -162,7 +156,7 @@ array(2) {
    the script can be executed like any other shell or perl script:
   </p>
   
-  <div class="example" id="example-441">
+  <div class="example" id="example-458">
    <p><strong>Example #1 Execute PHP script as shell script</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -212,7 +206,7 @@ array(4) {
   </p>
   
   <p class="para">
-   <div class="example" id="example-442">
+   <div class="example" id="example-459">
     <p><strong>Example #2 Script intended to be run from command line (script.php)</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -248,7 +242,7 @@ array(4) {
   </p>
   
   <p class="para">
-   <div class="example" id="example-443">
+   <div class="example" id="example-460">
     <p><strong>Example #3 Batch file to run a command line PHP script (script.bat)</strong></p>
     <div class="example-contents">
 <div class="shellcode"><pre class="shellcode">@echo OFF
@@ -275,7 +269,7 @@ array(4) {
   <p class="para">
    On Windows, PHP can be configured to run without the need to
    supply the <var class="filename">C:\php\php.exe</var> or the <code class="literal">.php</code>
-   extension, as described in <a href="install.windows.legacy.index.html#install.windows.legacy.commandline" class="link">Command
+   extension, as described in <a href="install.windows.commandline.html" class="link">Command
    Line PHP on Microsoft Windows</a>.
   </p>
 

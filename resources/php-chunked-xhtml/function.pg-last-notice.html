@@ -26,7 +26,7 @@
   <div id="layout-content"><div id="function.pg-last-notice" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">pg_last_notice</h1> 
-  <p class="verinfo">(PHP 4 &gt;= 4.0.6, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">pg_last_notice</span> &mdash; <span class="dc-title">
+  <p class="verinfo">(PHP 4 &gt;= 4.0.6, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">pg_last_notice</span> &mdash; <span class="dc-title">
    Returns the last notice message from PostgreSQL server
   </span></p>
 
@@ -35,10 +35,7 @@
  <div class="refsect1 description" id="refsect1-function.pg-last-notice-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>pg_last_notice</strong></span>
-    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$connection</code></span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$option</code><span class="initializer"> = PGSQL_NOTICE_LAST</span></span>
-   ) : <span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span></div>
+   <span class="methodname"><strong>pg_last_notice</strong></span>(<span class="methodparam"><span class="type"><a href="class.pgsql-connection.html" class="type PgSql\Connection">PgSql\Connection</a></span> <code class="parameter">$connection</code></span>, <span class="methodparam"><span class="type">int</span> <code class="parameter">$mode</code><span class="initializer"> = <strong><code>PGSQL_NOTICE_LAST</code></strong></span></span>): <span class="type"><span class="type">array</span>|<span class="type">string</span>|<span class="type">bool</span></span></div>
 
   <p class="para rdfs-comment">
    <span class="function"><strong>pg_last_notice()</strong></span> returns the last notice
@@ -68,22 +65,19 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">connection</code></dt>
 
      <dd>
 
-      <p class="para">
-       PostgreSQL database connection resource.
-      </p>
+      <p class="para">An <span class="classname"><a href="class.pgsql-connection.html" class="classname">PgSql\Connection</a></span> instance.</p>
      </dd>
 
     
     
      <dt>
-<code class="parameter">option</code></dt>
+<code class="parameter">mode</code></dt>
 
      <dd>
 
@@ -108,31 +102,7 @@
    given <code class="parameter">connection</code> with
    <strong><code>PGSQL_NOTICE_LAST</code></strong>,
    an <span class="type">array</span> with <strong><code>PGSQL_NOTICE_ALL</code></strong>,
-   a <span class="type">bool</span> with <strong><code>PGSQL_NOTICE_CLEAR</code></strong>,
-   or <strong><code>false</code></strong> on error.
-  </p>
- </div>
-
-
- <div class="refsect1 examples" id="refsect1-function.pg-last-notice-examples">
-  <h3 class="title">Examples</h3>
-  <p class="para">
-   <div class="example" id="example-2361">
-    <p><strong>Example #1 <span class="function"><strong>pg_last_notice()</strong></span> example</strong></p>
-    <div class="example-contents">
-<div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />&nbsp;&nbsp;$pgsql_conn&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">pg_connect</span><span style="color: #007700">(</span><span style="color: #DD0000">"dbname=mark&nbsp;host=localhost"</span><span style="color: #007700">);<br />&nbsp;&nbsp;<br />&nbsp;&nbsp;</span><span style="color: #0000BB">$res&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">pg_query</span><span style="color: #007700">(</span><span style="color: #DD0000">"CREATE&nbsp;TABLE&nbsp;test&nbsp;(id&nbsp;SERIAL)"</span><span style="color: #007700">);<br />&nbsp;&nbsp;<br />&nbsp;&nbsp;</span><span style="color: #0000BB">$notice&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">pg_last_notice</span><span style="color: #007700">(</span><span style="color: #0000BB">$pgsql_conn</span><span style="color: #007700">);<br />&nbsp;&nbsp;<br />&nbsp;&nbsp;echo&nbsp;</span><span style="color: #0000BB">$notice</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">?&gt;</span>
-</span>
-</code></div>
-    </div>
-
-    <div class="example-contents"><p>The above example will output:</p></div>
-    <div class="example-contents screen">
-<div class="cdata"><pre>
-CREATE TABLE will create implicit sequence &quot;test_id_seq&quot; for &quot;serial&quot; column &quot;test.id&quot;
-</pre></div>
-    </div>
-   </div>
+   a <span class="type">bool</span> with <strong><code>PGSQL_NOTICE_CLEAR</code></strong>.
   </p>
  </div>
 
@@ -152,9 +122,17 @@ CREATE TABLE will create implicit sequence &quot;test_id_seq&quot; for &quot;ser
 
      <tbody class="tbody">
       <tr>
+ <td>8.1.0</td>
+ <td>
+  The <code class="parameter">connection</code> parameter expects an <span class="classname"><a href="class.pgsql-connection.html" class="classname">PgSql\Connection</a></span>
+  instance now; previously, a <a href="language.types.resource.html" class="link">resource</a> was expected.
+ </td>
+</tr>
+
+      <tr>
        <td>7.1.0</td>
        <td>
-        The <code class="parameter">option</code> parameter was added.
+        The <code class="parameter">mode</code> parameter was added.
        </td>
       </tr>
 
@@ -162,6 +140,29 @@ CREATE TABLE will create implicit sequence &quot;test_id_seq&quot; for &quot;ser
     
    </table>
 
+  </p>
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-function.pg-last-notice-examples">
+  <h3 class="title">Examples</h3>
+  <p class="para">
+   <div class="example" id="example-1915">
+    <p><strong>Example #1 <span class="function"><strong>pg_last_notice()</strong></span> example</strong></p>
+    <div class="example-contents">
+     <div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />&nbsp;&nbsp;$pgsql_conn&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">pg_connect</span><span style="color: #007700">(</span><span style="color: #DD0000">"dbname=mark&nbsp;host=localhost"</span><span style="color: #007700">);<br />&nbsp;&nbsp;<br />&nbsp;&nbsp;</span><span style="color: #0000BB">$res&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">pg_query</span><span style="color: #007700">(</span><span style="color: #DD0000">"CREATE&nbsp;TABLE&nbsp;test&nbsp;(id&nbsp;SERIAL)"</span><span style="color: #007700">);<br />&nbsp;&nbsp;<br />&nbsp;&nbsp;</span><span style="color: #0000BB">$notice&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">pg_last_notice</span><span style="color: #007700">(</span><span style="color: #0000BB">$pgsql_conn</span><span style="color: #007700">);<br />&nbsp;&nbsp;<br />&nbsp;&nbsp;echo&nbsp;</span><span style="color: #0000BB">$notice</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>The above example will output:</p></div>
+    <div class="example-contents screen">
+     <div class="cdata"><pre>
+CREATE TABLE will create implicit sequence &quot;test_id_seq&quot; for &quot;serial&quot; column &quot;test.id&quot;
+</pre></div>
+    </div>
+   </div>
   </p>
  </div>
 

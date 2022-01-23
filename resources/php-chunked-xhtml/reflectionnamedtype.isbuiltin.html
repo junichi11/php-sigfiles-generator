@@ -26,19 +26,18 @@
   <div id="layout-content"><div id="reflectionnamedtype.isbuiltin" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">ReflectionNamedType::isBuiltin</h1>
-  <p class="verinfo">(PHP 7)</p><p class="refpurpose"><span class="refname">ReflectionNamedType::isBuiltin</span> &mdash; <span class="dc-title">Checks if it is a built-in type</span></p>
+  <p class="verinfo">(PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">ReflectionNamedType::isBuiltin</span> &mdash; <span class="dc-title">Checks if it is a built-in type</span></p>
 
  </div>
 
  <div class="refsect1 description" id="refsect1-reflectionnamedtype.isbuiltin-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><strong>ReflectionNamedType::isBuiltin</strong></span>
-    (
-   ) : <span class="type">bool</span></div>
+   <span class="modifier">public</span> <span class="methodname"><strong>ReflectionNamedType::isBuiltin</strong></span>(): <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
-   Checks if the type is a built-in type in PHP.
+   Checks if the type is a built-in type in PHP. A built-in type is any type that
+   is not a class, interface, or trait.
   </p>
  </div>
 
@@ -60,7 +59,7 @@
  <div class="refsect1 examples" id="refsect1-reflectionnamedtype.isbuiltin-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-5727">
+   <div class="example" id="example-5171">
     <p><strong>Example #1 <span class="methodname"><strong>ReflectionNamedType::isBuiltin()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

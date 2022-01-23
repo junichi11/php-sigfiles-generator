@@ -10,7 +10,7 @@
  <body class="docs"><div class="navbar navbar-fixed-top">
   <div class="navbar-inner clearfix">
     <ul class="nav" style="width: 100%">
-      <li style="float: left;"><a href="function.oci-set-module-name.html">« oci_set_module_name</a></li>
+      <li style="float: left;"><a href="function.oci-set-prefetch-lob.html">« oci_set_prefetch_lob</a></li>
       <li style="float: right;"><a href="function.oci-statement-type.html">oci_statement_type »</a></li>
     </ul>
   </div>
@@ -26,17 +26,14 @@
   <div id="layout-content"><div id="function.oci-set-prefetch" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">oci_set_prefetch</h1>
-  <p class="verinfo">(PHP 5, PHP 7, PECL OCI8 &gt;= 1.1.0)</p><p class="refpurpose"><span class="refname">oci_set_prefetch</span> &mdash; <span class="dc-title">Sets number of rows to be prefetched by queries</span></p>
+  <p class="verinfo">(PHP 5, PHP 7, PHP 8, PECL OCI8 &gt;= 1.1.0)</p><p class="refpurpose"><span class="refname">oci_set_prefetch</span> &mdash; <span class="dc-title">Sets number of rows to be prefetched by queries</span></p>
 
  </div>
  
  <div class="refsect1 description" id="refsect1-function.oci-set-prefetch-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>oci_set_prefetch</strong></span>
-    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$statement</code></span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$rows</code></span>
-   ) : <span class="type">bool</span></div>
+   <span class="methodname"><strong>oci_set_prefetch</strong></span>(<span class="methodparam"><span class="type">resource</span> <code class="parameter">$statement</code></span>, <span class="methodparam"><span class="type">int</span> <code class="parameter">$rows</code></span>): <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
    Sets the number of rows to be buffered by the Oracle Client
@@ -97,7 +94,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">statement</code></dt>
@@ -179,7 +175,7 @@ CURSOR</code> statement identifier.</p>
  <div class="refsect1 examples" id="refsect1-function.oci-set-prefetch-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-2308">
+   <div class="example" id="example-1868">
     <p><strong>Example #1 Changing the default prefetch value for a query</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -191,7 +187,7 @@ CURSOR</code> statement identifier.</p>
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-2309">
+   <div class="example" id="example-1869">
     <p><strong>Example #2 Changing the default prefetch for a REF CURSOR fetch</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -210,7 +206,7 @@ CURSOR</code> statement identifier.</p>
    the number of extra rows fetched in each OCI8 internal request to
    the database, so setting it to <strong><code>0</code></strong> means only
    fetch one row at a time.
-   <div class="example" id="example-2310">
+   <div class="example" id="example-1870">
     <p><strong>Example #3 Setting the prefetch value when passing a REF CURSOR back to Oracle</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

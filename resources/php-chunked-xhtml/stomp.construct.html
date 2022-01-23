@@ -33,23 +33,12 @@
 
  <div class="refsect1 description" id="refsect1-stomp.construct-description">
   <h3 class="title">Description</h3>
-  <p class="para">Object oriented style (constructor):</p>
+  <p class="para">Object-oriented style (constructor):</p>
    <div class="methodsynopsis dc-description">
-    <span class="modifier">public</span> <span class="methodname"><strong>Stomp::__construct</strong></span>
-     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$broker</code><span class="initializer"> = ini_get(&quot;stomp.default_broker_uri&quot;)</span></span>
-    , <span class="methodparam"><span class="type">string</span> <code class="parameter">$username</code> = ?</span>
-    , <span class="methodparam"><span class="type">string</span> <code class="parameter">$password</code> = ?</span>
-    , <span class="methodparam"><span class="type">array</span> <code class="parameter">$headers</code> = ?</span>
-    )</div>
+    <span class="modifier">public</span> <span class="methodname"><strong>Stomp::__construct</strong></span>(<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$broker</code><span class="initializer"> = ini_get(&quot;stomp.default_broker_uri&quot;)</span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$username</code><span class="initializer"> = ?</span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$password</code><span class="initializer"> = ?</span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">array</span> <code class="parameter">$headers</code><span class="initializer"> = ?</span></span><br>)</div>
 
   <p class="para rdfs-comment">Procedural style:</p>
-   <div class="methodsynopsis dc-description">
-    <span class="methodname"><strong>stomp_connect</strong></span>
-     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$broker</code><span class="initializer"> = ini_get(&quot;stomp.default_broker_uri&quot;)</span></span>
-    , <span class="methodparam"><span class="type">string</span> <code class="parameter">$username</code> = ?</span>
-    , <span class="methodparam"><span class="type">string</span> <code class="parameter">$password</code> = ?</span>
-    , <span class="methodparam"><span class="type">array</span> <code class="parameter">$headers</code> = ?</span>
-    ) : <span class="type">resource</span></div>
+   <div class="methodsynopsis dc-description"><span class="methodname"><strong>stomp_connect</strong></span>(<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$broker</code><span class="initializer"> = ini_get(&quot;stomp.default_broker_uri&quot;)</span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$username</code><span class="initializer"> = ?</span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$password</code><span class="initializer"> = ?</span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">array</span> <code class="parameter">$headers</code><span class="initializer"> = ?</span></span><br>): <span class="type">resource</span></div>
 
   <p class="para rdfs-comment">
    Opens a connection to a stomp compliant Message Broker.
@@ -61,7 +50,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">broker</code></dt>
@@ -147,8 +135,8 @@
  <div class="refsect1 examples" id="refsect1-stomp.construct-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-5067">
-    <p><strong>Example #1 Object oriented style</strong></p>
+   <div class="example" id="example-4567">
+    <p><strong>Example #1 Object-oriented style</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
 <span style="color: #0000BB">&lt;?php<br /><br /></span><span style="color: #FF8000">/*&nbsp;connection&nbsp;*/<br /></span><span style="color: #007700">try&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$stomp&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">Stomp</span><span style="color: #007700">(</span><span style="color: #DD0000">'tcp://localhost:61613'</span><span style="color: #007700">);<br />}&nbsp;catch(</span><span style="color: #0000BB">StompException&nbsp;$e</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;die(</span><span style="color: #DD0000">'Connection&nbsp;failed:&nbsp;'&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">$e</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getMessage</span><span style="color: #007700">());<br />}<br /><br /></span><span style="color: #FF8000">/*&nbsp;close&nbsp;connection&nbsp;*/<br /></span><span style="color: #007700">unset(</span><span style="color: #0000BB">$stomp</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">?&gt;</span>
@@ -159,7 +147,7 @@
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-5068">
+   <div class="example" id="example-4568">
     <p><strong>Example #2 Procedural style</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

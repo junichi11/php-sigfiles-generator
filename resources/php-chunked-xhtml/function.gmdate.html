@@ -26,17 +26,14 @@
   <div id="layout-content"><div id="function.gmdate" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">gmdate</h1>
-  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">gmdate</span> &mdash; <span class="dc-title">Format a GMT/UTC date/time</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">gmdate</span> &mdash; <span class="dc-title">Format a GMT/UTC date/time</span></p>
 
  </div>
 
  <div class="refsect1 description" id="refsect1-function.gmdate-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>gmdate</strong></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$format</code></span>
-   , <span class="methodparam"><span class="type"><span class="type">int</span>|<span class="type">null</span></span> <code class="parameter">$timestamp</code><span class="initializer"> = <strong><code>null</code></strong></span></span>
-   ) : <span class="type">string</span></div>
+   <span class="methodname"><strong>gmdate</strong></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$format</code></span>, <span class="methodparam"><span class="type">?</span><span class="type"><span class="type">int</span><span class="type"></span></span> <code class="parameter">$timestamp</code><span class="initializer"> = <strong><code>null</code></strong></span></span>): <span class="type">string</span></div>
 
   <p class="para rdfs-comment">
    Identical to the <span class="function"><a href="function.date.html" class="function">date()</a></span> function except that
@@ -49,7 +46,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">format</code></dt>
@@ -122,7 +118,7 @@ words, it defaults to the value of <span class="function"><a href="function.time
  <div class="refsect1 examples" id="refsect1-function.gmdate-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-2577">
+   <div class="example" id="example-2089">
     <p><strong>Example #1 <span class="function"><strong>gmdate()</strong></span> example</strong></p>
     <div class="example-contents"><p>
      When run in Finland (GMT +0200), the first line below prints &quot;Jan 01
@@ -147,7 +143,7 @@ words, it defaults to the value of <span class="function"><a href="function.time
     <li class="member"><span class="function"><a href="function.date.html" class="function" rel="rdfs-seeAlso">date()</a> - Format a local time/date</span></li>
     <li class="member"><span class="function"><a href="function.mktime.html" class="function" rel="rdfs-seeAlso">mktime()</a> - Get Unix timestamp for a date</span></li>
     <li class="member"><span class="function"><a href="function.gmmktime.html" class="function" rel="rdfs-seeAlso">gmmktime()</a> - Get Unix timestamp for a GMT date</span></li>
-    <li class="member"><span class="function"><a href="function.strftime.html" class="function" rel="rdfs-seeAlso">strftime()</a> - Format a local time/date according to locale settings</span></li>
+    <li class="member"><span class="methodname"><a href="intldateformatter.format.html" class="methodname" rel="rdfs-seeAlso">IntlDateFormatter::format()</a> - Format the date/time value as a string</span></li>
    </ul>
   </p>
  </div>

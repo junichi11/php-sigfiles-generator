@@ -26,20 +26,13 @@
   <div id="layout-content"><div id="function.imap-open" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">imap_open</h1>
-  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">imap_open</span> &mdash; <span class="dc-title">Open an <acronym title="Internet Message Access Protocol">IMAP</acronym> stream to a mailbox</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">imap_open</span> &mdash; <span class="dc-title">Open an <acronym title="Internet Message Access Protocol">IMAP</acronym> stream to a mailbox</span></p>
 
  </div>
  <div class="refsect1 description" id="refsect1-function.imap-open-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>imap_open</strong></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$mailbox</code></span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$user</code></span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$password</code></span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code><span class="initializer"> = 0</span></span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$retries</code><span class="initializer"> = 0</span></span>
-   , <span class="methodparam"><span class="type">array</span> <code class="parameter">$options</code><span class="initializer"> = []</span></span>
-   ) : <span class="type"><span class="type">resource</span>|<span class="type"><span class="type false">false</span></span></span></div>
+   <span class="methodname"><strong>imap_open</strong></span>(<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$mailbox</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$user</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$password</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code><span class="initializer"> = 0</span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">int</span> <code class="parameter">$retries</code><span class="initializer"> = 0</span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">array</span> <code class="parameter">$options</code><span class="initializer"> = []</span></span><br>): <span class="type"><span class="type"><a href="class.imap-connection.html" class="type IMAP\Connection">IMAP\Connection</a></span>|<span class="type"><span class="type false">false</span></span></span></div>
 
   <p class="para rdfs-comment">
    Opens an <acronym title="Internet Message Access Protocol">IMAP</acronym> stream to a <code class="parameter">mailbox</code>.
@@ -55,7 +48,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">mailbox</code></dt>
@@ -350,15 +342,43 @@ Passing untrusted data to this parameter is <em class="emphasis">insecure</em>, 
  <div class="refsect1 returnvalues" id="refsect1-function.imap-open-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns an IMAP stream on success or <strong><code>false</code></strong> on error.
+   Returns an <span class="classname"><a href="class.imap-connection.html" class="classname">IMAP\Connection</a></span> instance on success, or <strong><code>false</code></strong> on failure.
   </p>
+ </div>
+
+
+ <div class="refsect1 changelog" id="refsect1-function.imap-open-changelog">
+  <h3 class="title">Changelog</h3>
+  <table class="doctable informaltable">
+   
+    <thead>
+     <tr>
+      <th>Version</th>
+      <th>Description</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+      <td>8.1.0</td>
+      <td>
+       Returns an <span class="classname"><a href="class.imap-connection.html" class="classname">IMAP\Connection</a></span> instance now;
+       previously, a <a href="language.types.resource.html" class="link">resource</a> was returned.
+      </td>
+     </tr>
+
+    </tbody>
+   
+  </table>
+
  </div>
 
 
  <div class="refsect1 examples" id="refsect1-function.imap-open-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-3505">
+   <div class="example" id="example-3020">
     <p><strong>Example #1 Different use of <span class="function"><strong>imap_open()</strong></span></strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -368,7 +388,7 @@ Passing untrusted data to this parameter is <em class="emphasis">insecure</em>, 
     </div>
 
    </div>
-   <div class="example" id="example-3506">
+   <div class="example" id="example-3021">
     <p><strong>Example #2 <span class="function"><strong>imap_open()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

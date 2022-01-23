@@ -26,16 +26,14 @@
   <div id="layout-content"><div id="soapserver.addfunction" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">SoapServer::addFunction</h1>
-  <p class="verinfo">(PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">SoapServer::addFunction</span> &mdash; <span class="dc-title">Adds one or more functions to handle SOAP requests</span></p>
+  <p class="verinfo">(PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">SoapServer::addFunction</span> &mdash; <span class="dc-title">Adds one or more functions to handle SOAP requests</span></p>
 
  </div>
 
  <div class="refsect1 description" id="refsect1-soapserver.addfunction-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><strong>SoapServer::addFunction</strong></span>
-    ( <span class="methodparam"><span class="type"><span class="type">array</span>|<span class="type">string</span>|<span class="type">int</span></span> <code class="parameter">$functions</code></span>
-   ) : <span class="type"><span class="type void">void</span></span></div>
+   <span class="modifier">public</span> <span class="methodname"><strong>SoapServer::addFunction</strong></span>(<span class="methodparam"><span class="type"><span class="type">array</span>|<span class="type">string</span>|<span class="type">int</span></span> <code class="parameter">$functions</code></span>): <span class="type"><span class="type void">void</span></span></div>
 
   <p class="para rdfs-comment">
    Exports one or more functions for remote clients
@@ -47,7 +45,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">functions</code></dt>
@@ -92,7 +89,7 @@
  <div class="refsect1 examples" id="refsect1-soapserver.addfunction-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-5830">
+   <div class="example" id="example-5280">
     <p><strong>Example #1 <span class="function"><strong>SoapServer::addFunction()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -110,7 +107,7 @@
   <h3 class="title">See Also</h3>
   <p class="para">
    <ul class="simplelist">
-    <li class="member"><span class="methodname"><a href="soapserver.soapserver.html" class="methodname" rel="rdfs-seeAlso">SoapServer::SoapServer()</a> - SoapServer constructor</span></li>
+    <li class="member"><span class="methodname"><a href="soapserver.construct.html" class="methodname" rel="rdfs-seeAlso">SoapServer::__construct()</a> - SoapServer constructor</span></li>
     <li class="member"><span class="methodname"><a href="soapserver.setclass.html" class="methodname" rel="rdfs-seeAlso">SoapServer::setClass()</a> - Sets the class which handles SOAP requests</span></li>
    </ul>
   </p>

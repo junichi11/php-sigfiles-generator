@@ -28,7 +28,7 @@
   <div id="layout-content"><div id="function.strspn" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">strspn</h1>
-  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">strspn</span> &mdash; <span class="dc-title">
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">strspn</span> &mdash; <span class="dc-title">
    Finds the length of the initial segment of a string consisting
    entirely of characters contained within a given mask
   </span></p>
@@ -38,12 +38,7 @@
  <div class="refsect1 description" id="refsect1-function.strspn-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>strspn</strong></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$string</code></span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$characters</code></span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$offset</code><span class="initializer"> = 0</span></span>
-   , <span class="methodparam"><span class="type"><span class="type">int</span>|<span class="type">null</span></span> <code class="parameter">$length</code><span class="initializer"> = <strong><code>null</code></strong></span></span>
-   ) : <span class="type">int</span></div>
+   <span class="methodname"><strong>strspn</strong></span>(<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$string</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$characters</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">int</span> <code class="parameter">$offset</code><span class="initializer"> = 0</span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">?</span><span class="type"><span class="type">int</span><span class="type"></span></span> <code class="parameter">$length</code><span class="initializer"> = <strong><code>null</code></strong></span></span><br>): <span class="type">int</span></div>
 
   <p class="para rdfs-comment">
    Finds the length of the initial segment of <code class="parameter">string</code>
@@ -53,8 +48,8 @@
    If <code class="parameter">offset</code> and <code class="parameter">length</code>
    are omitted, then all of <code class="parameter">string</code> will be
    examined. If they are included, then the effect will be the same as
-   calling <code class="literal">strspn(substr($subject, $start, $length),
-   $mask)</code> (see <a href="function.substr.html" class="xref">substr</a>
+   calling <code class="literal">strspn(substr($string, $offset, $length),
+   $characters)</code> (see <a href="function.substr.html" class="xref">substr</a>
    for more information).
   </p>
   <p class="para">
@@ -80,7 +75,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">string</code></dt>
@@ -212,7 +206,7 @@
  <div class="refsect1 examples" id="refsect1-function.strspn-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-5377">
+   <div class="example" id="example-4868">
     <p><strong>Example #1 <span class="function"><strong>strspn()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

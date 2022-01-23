@@ -33,9 +33,7 @@
  <div class="refsect1 description" id="refsect1-function.db2-pclose-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>db2_pclose</strong></span>
-    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$resource</code></span>      
-   ) : <span class="type">bool</span></div>
+   <span class="methodname"><strong>db2_pclose</strong></span>(<span class="methodparam"><span class="type">resource</span> <code class="parameter">$resource</code></span>): <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
    This function closes a DB2 client connection created with 
@@ -63,7 +61,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">connection</code></dt>
@@ -93,7 +90,7 @@
  <div class="refsect1 examples" id="refsect1-function.db2-pclose-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-1272">
+   <div class="example" id="db2-pclose.example.basic">
     <p><strong>Example #1 Closing a persistent connection</strong></p>
     <div class="example-contents"><p>
       The following example demonstrates a successful attempt to close a 

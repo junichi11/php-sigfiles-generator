@@ -26,19 +26,14 @@
   <div id="layout-content"><div id="function.imagecropauto" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">imagecropauto</h1>
-  <p class="verinfo">(PHP 5 &gt;= 5.5.0, PHP 7)</p><p class="refpurpose"><span class="refname">imagecropauto</span> &mdash; <span class="dc-title">Crop an image automatically using one of the available modes</span></p>
+  <p class="verinfo">(PHP 5 &gt;= 5.5.0, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">imagecropauto</span> &mdash; <span class="dc-title">Crop an image automatically using one of the available modes</span></p>
 
  </div>
 
  <div class="refsect1 description" id="refsect1-function.imagecropauto-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>imagecropauto</strong></span>
-    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$image</code></span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$mode</code><span class="initializer"> = <strong><code>IMG_CROP_DEFAULT</code></strong></span></span>
-   , <span class="methodparam"><span class="type">float</span> <code class="parameter">$threshold</code><span class="initializer"> = .5</span></span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$color</code><span class="initializer"> = -1</span></span>
-   ) : <span class="type"><span class="type">resource</span>|<span class="type"><span class="type false">false</span></span></span></div>
+   <span class="methodname"><strong>imagecropauto</strong></span>(<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type"><a href="class.gdimage.html" class="type GdImage">GdImage</a></span> <code class="parameter">$image</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">int</span> <code class="parameter">$mode</code><span class="initializer"> = <strong><code>IMG_CROP_DEFAULT</code></strong></span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">float</span> <code class="parameter">$threshold</code><span class="initializer"> = 0.5</span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">int</span> <code class="parameter">$color</code><span class="initializer"> = -1</span></span><br>): <span class="type"><span class="type"><a href="class.gdimage.html" class="type GdImage">GdImage</a></span>|<span class="type"><span class="type false">false</span></span></span></div>
 
   <p class="para rdfs-comment">
    Automatically crops an image according to the given
@@ -50,12 +45,11 @@
  <div class="refsect1 parameters" id="refsect1-function.imagecropauto-parameters">
   <h3 class="title">Parameters</h3>
   <dl>
-
    <dt>
-<code class="parameter">
-image</code></dt>
+
+<code class="parameter">image</code></dt>
 <dd>
-<p class="para">An image resource, returned by one of the image creation functions,
+<p class="para">A <span class="classname"><a href="class.gdimage.html" class="classname">GdImage</a></span> object, returned by one of the image creation functions,
 such as <span class="function"><a href="function.imagecreatetruecolor.html" class="function">imagecreatetruecolor()</a></span>.</p></dd>
 
    
@@ -68,7 +62,6 @@ such as <span class="function"><a href="function.imagecreatetruecolor.html" clas
       One of the following constants:
      </p>
      <dl>
-
       
        <dt>
 <strong><code>IMG_CROP_DEFAULT</code></strong></dt>
@@ -197,7 +190,7 @@ such as <span class="function"><a href="function.imagecreatetruecolor.html" clas
  <div class="refsect1 returnvalues" id="refsect1-function.imagecropauto-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns a cropped image resource on success or <strong><code>false</code></strong> on failure.
+   Returns a cropped image object on success or <strong><code>false</code></strong> on failure.
    If the complete image was cropped, <span class="function"><a href="function.imagecrop.html" class="function">imagecrop()</a></span> returns <strong><code>false</code></strong>.
   </p>
  </div>
@@ -216,6 +209,22 @@ such as <span class="function"><a href="function.imagecreatetruecolor.html" clas
     </thead>
 
     <tbody class="tbody">
+     <tr>
+ <td>8.0.0</td>
+ <td>
+  <code class="parameter">image</code> expects a <span class="classname"><a href="class.gdimage.html" class="classname">GdImage</a></span>
+  instance now; previously, a <span class="type">resource</span> was expected.
+ </td>
+</tr>
+
+     <tr>
+      <td>8.0.0</td>
+      <td>
+       On success, this function returns a <span class="classname"><a href="class.gdimage.html" class="classname">GDImage</a></span> instance now;
+       previously, a <span class="type">resource</span> was returned.
+      </td>
+     </tr>
+
      <tr>
       <td>7.4.0</td>
       <td>
@@ -246,18 +255,18 @@ such as <span class="function"><a href="function.imagecreatetruecolor.html" clas
  <div class="refsect1 examples" id="refsect1-function.imagecropauto-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-3142">
+   <div class="example" id="example-2658">
     <p><strong>Example #1 Proper handling of auto-cropping</strong></p>
     <div class="example-contents"><p>
      As noted in the return value section, <span class="function"><strong>imagecropauto()</strong></span>
      returns <strong><code>false</code></strong> if the whole image
-     was cropped. In this example we have an image resource
+     was cropped. In this example we have an image object
      <code class="literal">$im</code> which should be automatically cropped only if there
      is something to crop; otherwise we want to proceed with the original image.
     </p></div>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$cropped&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">imagecropauto</span><span style="color: #007700">(</span><span style="color: #0000BB">$im</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">IMG_CROP_DEFAULT</span><span style="color: #007700">);<br />if&nbsp;(</span><span style="color: #0000BB">$cropped&nbsp;</span><span style="color: #007700">!==&nbsp;</span><span style="color: #0000BB">false</span><span style="color: #007700">)&nbsp;{&nbsp;</span><span style="color: #FF8000">//&nbsp;in&nbsp;case&nbsp;a&nbsp;new&nbsp;image&nbsp;resource&nbsp;was&nbsp;returned<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">imagedestroy</span><span style="color: #007700">(</span><span style="color: #0000BB">$im</span><span style="color: #007700">);&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;we&nbsp;destroy&nbsp;the&nbsp;original&nbsp;image<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$im&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$cropped</span><span style="color: #007700">;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;and&nbsp;assign&nbsp;the&nbsp;cropped&nbsp;image&nbsp;to&nbsp;$im<br /></span><span style="color: #007700">}<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$cropped&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">imagecropauto</span><span style="color: #007700">(</span><span style="color: #0000BB">$im</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">IMG_CROP_DEFAULT</span><span style="color: #007700">);<br />if&nbsp;(</span><span style="color: #0000BB">$cropped&nbsp;</span><span style="color: #007700">!==&nbsp;</span><span style="color: #0000BB">false</span><span style="color: #007700">)&nbsp;{&nbsp;</span><span style="color: #FF8000">//&nbsp;in&nbsp;case&nbsp;a&nbsp;new&nbsp;image&nbsp;object&nbsp;was&nbsp;returned<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">imagedestroy</span><span style="color: #007700">(</span><span style="color: #0000BB">$im</span><span style="color: #007700">);&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;we&nbsp;destroy&nbsp;the&nbsp;original&nbsp;image<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$im&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$cropped</span><span style="color: #007700">;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;and&nbsp;assign&nbsp;the&nbsp;cropped&nbsp;image&nbsp;to&nbsp;$im<br /></span><span style="color: #007700">}<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

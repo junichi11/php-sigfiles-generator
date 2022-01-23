@@ -26,16 +26,14 @@
   <div id="layout-content"><div id="function.ob-implicit-flush" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">ob_implicit_flush</h1>
-  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">ob_implicit_flush</span> &mdash; <span class="dc-title">Turn implicit flush on/off</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">ob_implicit_flush</span> &mdash; <span class="dc-title">Turn implicit flush on/off</span></p>
 
  </div>
  
  <div class="refsect1 description" id="refsect1-function.ob-implicit-flush-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>ob_implicit_flush</strong></span>
-    ( <span class="methodparam"><span class="type">int</span> <code class="parameter">$flag</code><span class="initializer"> = 1</span></span>
-   ) : <span class="type"><span class="type void">void</span></span></div>
+   <span class="methodname"><strong>ob_implicit_flush</strong></span>(<span class="methodparam"><span class="type">bool</span> <code class="parameter">$enable</code><span class="initializer"> = <strong><code>true</code></strong></span></span>): <span class="type"><span class="type void">void</span></span></div>
 
   <p class="para rdfs-comment">
    <span class="function"><strong>ob_implicit_flush()</strong></span> will turn implicit flushing on or
@@ -50,15 +48,14 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
-<code class="parameter">flag</code></dt>
+<code class="parameter">enable</code></dt>
 
      <dd>
 
       <p class="para">
-       <code class="literal">1</code> to turn implicit flushing on, <code class="literal">0</code> otherwise.
+       <code class="literal">true</code> to turn implicit flushing on, <code class="literal">false</code> otherwise.
       </p>
      </dd>
 
@@ -74,6 +71,34 @@
   <p class="para">
    No value is returned.
   </p>
+ </div>
+
+
+ <div class="refsect1 changelog" id="refsect1-function.ob-implicit-flush-changelog">
+  <h3 class="title">Changelog</h3>
+  <table class="doctable informaltable">
+   
+    <thead>
+     <tr>
+      <th>Version</th>
+      <th>Description</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+      <td>8.0.0</td>
+      <td>
+       The <code class="parameter">enable</code> expects a <span class="type">bool</span> value now;
+       previously, an <span class="type">int</span> was expected.
+      </td>
+     </tr>
+
+    </tbody>
+   
+  </table>
+
  </div>
 
 

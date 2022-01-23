@@ -26,22 +26,26 @@
   <div id="layout-content"><div id="function.posix-geteuid" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">posix_geteuid</h1>
-  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">posix_geteuid</span> &mdash; <span class="dc-title">Return the effective user ID of the current process</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">posix_geteuid</span> &mdash; <span class="dc-title">Return the effective user ID of the current process</span></p>
 
  </div>
 
  <div class="refsect1 description" id="refsect1-function.posix-geteuid-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>posix_geteuid</strong></span>
-    (
-   ) : <span class="type">int</span></div>
+   <span class="methodname"><strong>posix_geteuid</strong></span>(): <span class="type">int</span></div>
 
   <p class="para rdfs-comment">
    Return the numeric effective user ID of the current process. See
    also <span class="function"><a href="function.posix-getpwuid.html" class="function">posix_getpwuid()</a></span> for information on how
    to convert this into a useable username.
   </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-function.posix-geteuid-parameters">
+  <h3 class="title">Parameters</h3>
+  <p class="para">This function has no parameters.</p>
  </div>
 
 
@@ -56,7 +60,7 @@
  <div class="refsect1 examples" id="refsect1-function.posix-geteuid-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-3784">
+   <div class="example" id="example-3305">
     <p><strong>Example #1 <span class="function"><strong>posix_geteuid()</strong></span> example</strong></p>
     <div class="example-contents"><p>This example will show the current user id then set the
     effective user id to a separate id using

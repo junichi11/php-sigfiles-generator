@@ -26,20 +26,14 @@
   <div id="layout-content"><div id="function.fgetcsv" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">fgetcsv</h1>
-  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">fgetcsv</span> &mdash; <span class="dc-title">Gets line from file pointer and parse for CSV fields</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">fgetcsv</span> &mdash; <span class="dc-title">Gets line from file pointer and parse for CSV fields</span></p>
 
  </div>
  
  <div class="refsect1 description" id="refsect1-function.fgetcsv-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>fgetcsv</strong></span>
-    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$handle</code></span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$length</code><span class="initializer"> = 0</span></span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$delimiter</code><span class="initializer"> = &quot;,&quot;</span></span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$enclosure</code><span class="initializer"> = &#039;&quot;&#039;</span></span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$escape</code><span class="initializer"> = &quot;\\&quot;</span></span>
-   ) : <span class="type">array</span></div>
+   <span class="methodname"><strong>fgetcsv</strong></span>(<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">resource</span> <code class="parameter">$stream</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">?</span><span class="type"><span class="type">int</span><span class="type"></span></span> <code class="parameter">$length</code><span class="initializer"> = <strong><code>null</code></strong></span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$separator</code><span class="initializer"> = &quot;,&quot;</span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$enclosure</code><span class="initializer"> = &quot;\&quot;&quot;</span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$escape</code><span class="initializer"> = &quot;\\&quot;</span></span><br>): <span class="type"><span class="type">array</span>|<span class="type"><span class="type false">false</span></span></span></div>
 
   <p class="para rdfs-comment">
    Similar to <span class="function"><a href="function.fgets.html" class="function">fgets()</a></span> except that
@@ -61,10 +55,9 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
-<code class="parameter">handle</code></dt>
+<code class="parameter">stream</code></dt>
 
      <dd>
 
@@ -89,21 +82,21 @@
        unless the split would occur inside an enclosure.
       </p>
       <p class="para">
-       Omitting this parameter (or setting it to 0 in PHP
-       5.1.0 and later) the maximum line length is not limited, which is
-       slightly slower.
+       Omitting this parameter (or setting it to 0,
+       or <strong><code>null</code></strong> in PHP 8.0.0 or later) the maximum line length is not limited,
+       which is slightly slower.
       </p>
      </dd>
 
     
     
      <dt>
-<code class="parameter">delimiter</code></dt>
+<code class="parameter">separator</code></dt>
 
      <dd>
 
       <p class="para">
-       The optional <code class="parameter">delimiter</code> parameter sets the field delimiter (one character only).
+       The optional <code class="parameter">separator</code> parameter sets the field separator (one single-byte character only).
       </p>
      </dd>
 
@@ -115,7 +108,7 @@
      <dd>
 
       <p class="para">
-       The optional <code class="parameter">enclosure</code> parameter sets the field enclosure character (one character only).
+       The optional <code class="parameter">enclosure</code> parameter sets the field enclosure character (one single-byte character only).
       </p>
      </dd>
 
@@ -127,7 +120,7 @@
      <dd>
 
       <p class="para">
-       The optional <code class="parameter">escape</code> parameter sets the escape character (at most one character).
+       The optional <code class="parameter">escape</code> parameter sets the escape character (at most one single-byte character).
        An empty string (<code class="literal">&quot;&quot;</code>) disables the proprietary escape mechanism.
       </p>
       <blockquote class="note"><p><strong class="note">Note</strong>: 
@@ -154,7 +147,7 @@
  <div class="refsect1 returnvalues" id="refsect1-function.fgetcsv-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns an indexed array containing the fields read.
+   Returns an indexed array containing the fields read on success,  or <strong><code>false</code></strong> on failure.
   </p>
   <blockquote class="note"><p><strong class="note">Note</strong>: 
    <p class="para">
@@ -168,11 +161,6 @@ the line endings when reading files either on or created by a Macintosh
 computer, enabling the
 <a href="filesystem.configuration.html#ini.auto-detect-line-endings" class="link">auto_detect_line_endings</a>
 run-time configuration option may help resolve the problem.</span></p></blockquote>
-  <p class="para">
-   <span class="function"><strong>fgetcsv()</strong></span> returns <strong><code>null</code></strong> if an invalid
-   <code class="parameter">handle</code> is supplied or <strong><code>false</code></strong> on other errors,
-   including end of file.
-  </p>
  </div>
 
 
@@ -190,6 +178,13 @@ run-time configuration option may help resolve the problem.</span></p></blockquo
      </thead>
 
      <tbody class="tbody">
+      <tr>
+       <td>8.0.0</td>
+       <td>
+        <code class="parameter">length</code> is now nullable.
+       </td>
+      </tr>
+
       <tr>
        <td>7.4.0</td>
        <td>
@@ -209,7 +204,7 @@ run-time configuration option may help resolve the problem.</span></p></blockquo
  <div class="refsect1 examples" id="refsect1-function.fgetcsv-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-2631">
+   <div class="example" id="example-2143">
     <p><strong>Example #1 Read and print the entire contents of a CSV file</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

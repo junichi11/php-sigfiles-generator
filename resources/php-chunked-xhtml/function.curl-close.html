@@ -26,18 +26,22 @@
   <div id="layout-content"><div id="function.curl-close" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">curl_close</h1>
-  <p class="verinfo">(PHP 4 &gt;= 4.0.2, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">curl_close</span> &mdash; <span class="dc-title">Close a cURL session</span></p>
+  <p class="verinfo">(PHP 4 &gt;= 4.0.2, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">curl_close</span> &mdash; <span class="dc-title">Close a cURL session</span></p>
 
  </div>
  
  <div class="refsect1 description" id="refsect1-function.curl-close-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>curl_close</strong></span>
-    ( <span class="methodparam"><span class="type"><a href="class.curlhandle.html" class="type CurlHandle">CurlHandle</a></span> <code class="parameter">$handle</code></span>
-   ) : <span class="type"><span class="type void">void</span></span></div>
+   <span class="methodname"><strong>curl_close</strong></span>(<span class="methodparam"><span class="type"><a href="class.curlhandle.html" class="type CurlHandle">CurlHandle</a></span> <code class="parameter">$handle</code></span>): <span class="type"><span class="type void">void</span></span></div>
 
-  <p class="para rdfs-comment">
+  <blockquote class="note"><p><strong class="note">Note</strong>: 
+ <p class="para">
+  This function has no effect. Prior to PHP 8.0.0, this function was used to close the resource.
+ </p>
+</p></blockquote>
+
+  <p class="para">
    Closes a cURL session and frees all resources.  The cURL handle,
    <code class="parameter">handle</code>, is also deleted.
   </p>
@@ -48,7 +52,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     <dt>
 <code class="parameter">handle</code>
 </dt>
@@ -86,7 +89,7 @@
      <tr>
  <td>8.0.0</td>
  <td>
-  <code class="parameter">handle</code> expects a <a href="class.curlhandle.html" class="classname">CurlHandle</a>
+  <code class="parameter">handle</code> expects a <span class="classname"><a href="class.curlhandle.html" class="classname">CurlHandle</a></span>
   instance now; previously, a <span class="type">resource</span> was expected.
  </td>
 </tr>
@@ -101,7 +104,7 @@
  <div class="refsect1 examples" id="refsect1-function.curl-close-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-4705">
+   <div class="example" id="example-4206">
     <p><strong>Example #1 Initializing a new cURL session and fetching a web page</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

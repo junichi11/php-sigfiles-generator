@@ -26,18 +26,14 @@
   <div id="layout-content"><div id="function.socket-bind" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">socket_bind</h1>
-  <p class="verinfo">(PHP 4 &gt;= 4.1.0, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">socket_bind</span> &mdash; <span class="dc-title">Binds a name to a socket</span></p>
+  <p class="verinfo">(PHP 4 &gt;= 4.1.0, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">socket_bind</span> &mdash; <span class="dc-title">Binds a name to a socket</span></p>
 
  </div>
 
  <div class="refsect1 description" id="refsect1-function.socket-bind-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>socket_bind</strong></span>
-    ( <span class="methodparam"><span class="type"><a href="class.socket.html" class="type Socket">Socket</a></span> <code class="parameter">$socket</code></span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$address</code></span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$port</code><span class="initializer"> = 0</span></span>
-   ) : <span class="type">bool</span></div>
+   <span class="methodname"><strong>socket_bind</strong></span>(<span class="methodparam"><span class="type"><a href="class.socket.html" class="type Socket">Socket</a></span> <code class="parameter">$socket</code></span>, <span class="methodparam"><span class="type">string</span> <code class="parameter">$address</code></span>, <span class="methodparam"><span class="type">int</span> <code class="parameter">$port</code><span class="initializer"> = 0</span></span>): <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
    Binds the name given in <code class="parameter">address</code> to the socket
@@ -52,7 +48,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">socket</code></dt>
@@ -60,7 +55,7 @@
      <dd>
 
       <p class="para">
-       A <a href="class.socket.html" class="classname">Socket</a> instance created with <span class="function"><a href="function.socket-create.html" class="function">socket_create()</a></span>.
+       A <span class="classname"><a href="class.socket.html" class="classname">Socket</a></span> instance created with <span class="function"><a href="function.socket-create.html" class="function">socket_create()</a></span>.
       </p>
      </dd>
 
@@ -133,7 +128,7 @@
      <tr>
   <td>8.0.0</td>
   <td>
-   <code class="parameter">socket</code> is a <a href="class.socket.html" class="classname">Socket</a> instance now;
+   <code class="parameter">socket</code> is a <span class="classname"><a href="class.socket.html" class="classname">Socket</a></span> instance now;
    previously, it was a <span class="type">resource</span>.
   </td>
  </tr>
@@ -148,7 +143,7 @@
  <div class="refsect1 examples" id="refsect1-function.socket-bind-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="snmp.construct.example.basic">
+   <div class="example" id="example-4514">
     <p><strong>Example #1 Using <span class="function"><strong>socket_bind()</strong></span> to set the source address</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

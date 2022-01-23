@@ -33,10 +33,7 @@
  <div class="refsect1 description" id="refsect1-function.rrd-update-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>rrd_update</strong></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$filename</code></span>
-   , <span class="methodparam"><span class="type">array</span> <code class="parameter">$options</code></span>
-   ) : <span class="type">bool</span></div>
+   <span class="methodname"><strong>rrd_update</strong></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$filename</code></span>, <span class="methodparam"><span class="type">array</span> <code class="parameter">$options</code></span>): <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
    Updates the RRD database file. The input data is time interpolated according to the
@@ -48,7 +45,6 @@
  <div class="refsect1 parameters" id="refsect1-function.rrd-update-parameters">
   <h3 class="title">Parameters</h3>
   <dl>
-
    
     <dt>
 <code class="parameter">filename</code></dt>
@@ -82,7 +78,7 @@
  <div class="refsect1 returnvalues" id="refsect1-function.rrd-update-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns <strong><code>true</code></strong> on success, <strong><code>false</code></strong> when error occurs.
+   Returns <strong><code>true</code></strong> on success or <strong><code>false</code></strong> on failure.
   </p>
  </div>
 

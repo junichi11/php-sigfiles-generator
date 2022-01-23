@@ -35,10 +35,7 @@
  <div class="refsect1 description" id="refsect1-function.unserialize-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>unserialize</strong></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$data</code></span>
-   , <span class="methodparam"><span class="type">array</span> <code class="parameter">$options</code><span class="initializer"> = []</span></span>
-   ) : <span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span></div>
+   <span class="methodname"><strong>unserialize</strong></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$data</code></span>, <span class="methodparam"><span class="type">array</span> <code class="parameter">$options</code><span class="initializer"> = []</span></span>): <span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span></div>
 
   <p class="simpara">
    <span class="function"><strong>unserialize()</strong></span> takes a single serialized variable and
@@ -67,7 +64,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">data</code></dt>
@@ -132,7 +128,7 @@
             classes. If this option is defined and
             <span class="function"><strong>unserialize()</strong></span> encounters an object of a class
             that isn&#039;t to be accepted, then the object will be instantiated as
-            <strong class="classname">__PHP_Incomplete_Class</strong> instead.
+            <span class="classname"><strong class="classname">__PHP_Incomplete_Class</strong></span> instead.
            </span>
            <span class="simpara">
             Omitting this option is the same as defining it as <strong><code>true</code></strong>: PHP
@@ -171,7 +167,7 @@
  <div class="refsect1 errors" id="refsect1-function.unserialize-errors">
   <h3 class="title">Errors/Exceptions</h3>
   <p class="para">
-   Objects may throw <a href="class.throwable.html" class="classname">Throwable</a>s in their unserialization handlers.
+   Objects may throw <span class="classname"><a href="class.throwable.html" class="classname">Throwable</a></span>s in their unserialization handlers.
   </p>
  </div>
 
@@ -201,22 +197,6 @@
        </td>
       </tr>
 
-      <tr>
-       <td>7.0.0</td>
-       <td>
-        The <code class="parameter">options</code> parameter has been added.
-       </td>
-      </tr>
-
-      <tr>
-       <td>5.6.0</td>
-       <td>
-        Manipulating the serialised data by replacing <code class="literal">C:</code>
-        with <code class="literal">O:</code> to force object instantiation without
-        calling the constructor will now fail.
-       </td>
-      </tr>
-
      </tbody>
     
    </table>
@@ -228,7 +208,7 @@
  <div class="refsect1 examples" id="refsect1-function.unserialize-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-5794">
+   <div class="example" id="example-5244">
     <p><strong>Example #1 <span class="function"><strong>unserialize()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -240,7 +220,7 @@
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-5795">
+   <div class="example" id="example-5245">
     <p><strong>Example #2 unserialize_callback_func example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

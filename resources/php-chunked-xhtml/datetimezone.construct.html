@@ -27,23 +27,18 @@
  <div class="refnamediv">
   <h1 class="refname">DateTimeZone::__construct</h1>
   <h1 class="refname">timezone_open</h1>
-  <p class="verinfo">(PHP 5 &gt;= 5.2.0, PHP 7)</p><p class="refpurpose"><span class="refname">DateTimeZone::__construct</span> -- <span class="refname">timezone_open</span> &mdash; <span class="dc-title">Creates new DateTimeZone object</span></p>
+  <p class="verinfo">(PHP 5 &gt;= 5.2.0, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">DateTimeZone::__construct</span> -- <span class="refname">timezone_open</span> &mdash; <span class="dc-title">Creates new DateTimeZone object</span></p>
 
  </div>
 
  <div class="refsect1 description" id="refsect1-datetimezone.construct-description">
   <h3 class="title">Description</h3>
-  <p class="para">Object oriented style</p>
+  <p class="para">Object-oriented style</p>
   <div class="constructorsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><strong>DateTimeZone::__construct</strong></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$timezone</code></span>
-   )</div>
+   <span class="modifier">public</span> <span class="methodname"><strong>DateTimeZone::__construct</strong></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$timezone</code></span>)</div>
 
   <p class="para rdfs-comment">Procedural style</p>
-  <div class="methodsynopsis dc-description">
-   <span class="methodname"><a href="function.timezone-open.html" class="methodname">timezone_open</a></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$timezone</code></span>
-   ) : <span class="type"><span class="type"><a href="class.datetimezone.html" class="type DateTimeZone">DateTimeZone</a></span>|<span class="type"><span class="type false">false</span></span></span></div>
+  <div class="methodsynopsis dc-description"><span class="methodname"><a href="function.timezone-open.html" class="methodname">timezone_open</a></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$timezone</code></span>): <span class="type"><span class="type"><a href="class.datetimezone.html" class="type DateTimeZone">DateTimeZone</a></span>|<span class="type"><span class="type false">false</span></span></span></div>
 
   <p class="para rdfs-comment">
    Creates new DateTimeZone object.
@@ -55,7 +50,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">timezone</code></dt>
@@ -78,7 +72,7 @@
  <div class="refsect1 returnvalues" id="refsect1-datetimezone.construct-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns <a href="class.datetimezone.html" class="classname">DateTimeZone</a> on success.
+   Returns <span class="classname"><a href="class.datetimezone.html" class="classname">DateTimeZone</a></span> on success.
    Procedural style returns <strong><code>false</code></strong> on failure.
   </p>
  </div>
@@ -87,37 +81,8 @@
  <div class="refsect1 errors" id="refsect1-datetimezone.construct-errors">
   <h3 class="title">Errors/Exceptions</h3>
   <p class="para">
-   This method throws <a href="class.exception.html" class="classname">Exception</a> if the timezone supplied is not
+   This method throws <span class="classname"><a href="class.exception.html" class="classname">Exception</a></span> if the timezone supplied is not
    recognised as a valid timezone.
-  </p>
- </div>
-
-
- <div class="refsect1 changelog" id="refsect1-datetimezone.construct-changelog">
-  <h3 class="title">Changelog</h3>
-  <p class="para">
-   <table class="doctable informaltable">
-    
-     <thead>
-      <tr>
-       <th>Version</th>
-       <th>Description</th>
-      </tr>
-
-     </thead>
-
-     <tbody class="tbody">
-      <tr>
-       <td>5.5.10</td>
-       <td>
-        The <code class="parameter">timezone</code> parameter accepts offset values.
-       </td>
-      </tr>
-
-     </tbody>
-    
-   </table>
-
   </p>
  </div>
 
@@ -125,8 +90,8 @@
  <div class="refsect1 examples" id="refsect1-datetimezone.construct-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-2540">
-    <p><strong>Example #1 Catching errors when instantiating <a href="class.datetimezone.html" class="classname">DateTimeZone</a></strong></p>
+   <div class="example" id="example-2052">
+    <p><strong>Example #1 Catching errors when instantiating <span class="classname"><a href="class.datetimezone.html" class="classname">DateTimeZone</a></span></strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
 <span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;Error&nbsp;handling&nbsp;by&nbsp;catching&nbsp;exceptions<br /></span><span style="color: #0000BB">$timezones&nbsp;</span><span style="color: #007700">=&nbsp;array(</span><span style="color: #DD0000">'Europe/London'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'Mars/Phobos'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'Jupiter/Europa'</span><span style="color: #007700">);<br /><br />foreach&nbsp;(</span><span style="color: #0000BB">$timezones&nbsp;</span><span style="color: #007700">as&nbsp;</span><span style="color: #0000BB">$tz</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;try&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$mars&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">DateTimeZone</span><span style="color: #007700">(</span><span style="color: #0000BB">$tz</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;catch(</span><span style="color: #0000BB">Exception&nbsp;$e</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #0000BB">$e</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getMessage</span><span style="color: #007700">()&nbsp;.&nbsp;</span><span style="color: #DD0000">'&lt;br&nbsp;/&gt;'</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />}<br /></span><span style="color: #0000BB">?&gt;</span>

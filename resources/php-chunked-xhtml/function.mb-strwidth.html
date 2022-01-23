@@ -26,22 +26,21 @@
   <div id="layout-content"><div id="function.mb-strwidth" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">mb_strwidth</h1>
-  <p class="verinfo">(PHP 4 &gt;= 4.0.6, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">mb_strwidth</span> &mdash; <span class="dc-title">Return width of string</span></p>
+  <p class="verinfo">(PHP 4 &gt;= 4.0.6, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">mb_strwidth</span> &mdash; <span class="dc-title">Return width of string</span></p>
 
  </div>
    
  <div class="refsect1 description" id="refsect1-function.mb-strwidth-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>mb_strwidth</strong></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$string</code></span>
-   , <span class="methodparam"><span class="type"><span class="type">string</span>|<span class="type">null</span></span> <code class="parameter">$encoding</code><span class="initializer"> = <strong><code>null</code></strong></span></span>
-   ) : <span class="type">int</span></div>
+   <span class="methodname"><strong>mb_strwidth</strong></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$string</code></span>, <span class="methodparam"><span class="type">?</span><span class="type"><span class="type">string</span><span class="type"></span></span> <code class="parameter">$encoding</code><span class="initializer"> = <strong><code>null</code></strong></span></span>): <span class="type">int</span></div>
 
   <p class="para rdfs-comment">
    Returns the width of <span class="type">string</span> <code class="parameter">string</code>,
    where halfwidth characters count as <code class="literal">1</code>, and fullwidth
    characters count as <code class="literal">2</code>.
+   See <a href="http://www.unicode.org/reports/tr11/" class="link external">&raquo;&nbsp;http://www.unicode.org/reports/tr11/</a>
+   for details regarding East Asian character widths.
   </p>
   <p class="para">
    The fullwidth characters are:
@@ -93,7 +92,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">string</code></dt>
@@ -156,6 +154,28 @@ encoding value will be used.</p>
    
   </table>
 
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-function.mb-strwidth-examples">
+  <h3 class="title">Examples</h3>
+  <div class="example" id="mb-strwidth.example.basic">
+   <p><strong>Example #1 <span class="function"><strong>mb_strwidth()</strong></span> example</strong></p>
+   <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />var_dump</span><span style="color: #007700">(<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">mb_strwidth</span><span style="color: #007700">(</span><span style="color: #DD0000">'a'</span><span style="color: #007700">),&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;LATIN&nbsp;SMALL&nbsp;LETTER&nbsp;A<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">mb_strwidth</span><span style="color: #007700">(</span><span style="color: #DD0000">"\u{ff41}"</span><span style="color: #007700">)&nbsp;</span><span style="color: #FF8000">//&nbsp;FULLWIDTH&nbsp;LATIN&nbsp;SMALL&nbsp;LETTER&nbsp;A<br /></span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+   </div>
+
+   <div class="example-contents"><p>The above example will output:</p></div>
+   <div class="example-contents screen">
+<div class="cdata"><pre>
+int(1)
+int(2)
+</pre></div>
+   </div>
+  </div>
  </div>
 
 

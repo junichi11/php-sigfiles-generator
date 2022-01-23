@@ -26,17 +26,14 @@
   <div id="layout-content"><div id="function.shm-get-var" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">shm_get_var</h1>
-  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">shm_get_var</span> &mdash; <span class="dc-title">Returns a variable from shared memory</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">shm_get_var</span> &mdash; <span class="dc-title">Returns a variable from shared memory</span></p>
 
  </div>
  
  <div class="refsect1 description" id="refsect1-function.shm-get-var-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>shm_get_var</strong></span>
-    ( <span class="methodparam"><span class="type"><span class="type SysvSharedMemory">SysvSharedMemory</span></span> <code class="parameter">$shm</code></span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$key</code></span>
-   ) : <span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span></div>
+   <span class="methodname"><strong>shm_get_var</strong></span>(<span class="methodparam"><span class="type"><a href="class.sysvsharedmemory.html" class="type SysvSharedMemory">SysvSharedMemory</a></span> <code class="parameter">$shm</code></span>, <span class="methodparam"><span class="type">int</span> <code class="parameter">$key</code></span>): <span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span></div>
 
   <p class="para rdfs-comment">
    <span class="function"><strong>shm_get_var()</strong></span> returns the variable with a given
@@ -50,7 +47,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">shm</code></dt>
@@ -106,7 +102,7 @@
       <tr>
        <td>8.0.0</td>
        <td>
-        <code class="parameter">shm</code> expects a <strong class="classname">SysvSharedMemory</strong>
+        <code class="parameter">shm</code> expects a <span class="classname"><a href="class.sysvsharedmemory.html" class="classname">SysvSharedMemory</a></span>
         instance now; previously, a <span class="type">resource</span> was expected.
        </td>
       </tr>

@@ -26,20 +26,17 @@
   <div id="layout-content"><div id="function.stream-set-write-buffer" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">stream_set_write_buffer</h1>
-  <p class="verinfo">(PHP 4 &gt;= 4.3.0, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">stream_set_write_buffer</span> &mdash; <span class="dc-title">Sets write file buffering on the given stream</span></p>
+  <p class="verinfo">(PHP 4 &gt;= 4.3.0, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">stream_set_write_buffer</span> &mdash; <span class="dc-title">Sets write file buffering on the given stream</span></p>
 
  </div>
  <div class="refsect1 description" id="refsect1-function.stream-set-write-buffer-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>stream_set_write_buffer</strong></span>
-    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$stream</code></span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$buffer</code></span>
-   ) : <span class="type">int</span></div>
+   <span class="methodname"><strong>stream_set_write_buffer</strong></span>(<span class="methodparam"><span class="type">resource</span> <code class="parameter">$stream</code></span>, <span class="methodparam"><span class="type">int</span> <code class="parameter">$size</code></span>): <span class="type">int</span></div>
 
   <p class="para rdfs-comment">
    Sets the buffering for write operations on the given <code class="parameter">stream</code>
-   to <code class="parameter">buffer</code> bytes.
+   to <code class="parameter">size</code> bytes.
   </p>
  </div>
 
@@ -48,7 +45,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">stream</code></dt>
@@ -63,12 +59,12 @@
     
     
      <dt>
-<code class="parameter">buffer</code></dt>
+<code class="parameter">size</code></dt>
 
      <dd>
 
       <p class="para">
-       The number of bytes to buffer. If <code class="parameter">buffer</code>
+       The number of bytes to buffer. If <code class="parameter">size</code>
        is 0 then write operations are unbuffered.  This ensures that all writes
        with <span class="function"><a href="function.fwrite.html" class="function">fwrite()</a></span> are completed before other processes are
        allowed to write to that output stream.
@@ -93,7 +89,7 @@
  <div class="refsect1 examples" id="refsect1-function.stream-set-write-buffer-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-4297">
+   <div class="example" id="example-3793">
     <p><strong>Example #1 <span class="function"><strong>stream_set_write_buffer()</strong></span> example</strong></p>
     <div class="example-contents"><p>
      The following example demonstrates how to use

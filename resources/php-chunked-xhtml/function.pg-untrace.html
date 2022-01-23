@@ -26,16 +26,14 @@
   <div id="layout-content"><div id="function.pg-untrace" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">pg_untrace</h1>
-  <p class="verinfo">(PHP 4 &gt;= 4.0.1, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">pg_untrace</span> &mdash; <span class="dc-title">Disable tracing of a PostgreSQL connection</span></p>
+  <p class="verinfo">(PHP 4 &gt;= 4.0.1, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">pg_untrace</span> &mdash; <span class="dc-title">Disable tracing of a PostgreSQL connection</span></p>
 
  </div>
 
  <div class="refsect1 description" id="refsect1-function.pg-untrace-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>pg_untrace</strong></span>
-    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$connection</code> = ?</span>
-   ) : <span class="type">bool</span></div>
+   <span class="methodname"><strong>pg_untrace</strong></span>(<span class="methodparam"><span class="type">?</span><span class="type"><span class="type"><a href="class.pgsql-connection.html" class="type PgSql\Connection">PgSql\Connection</a></span><span class="type"></span></span> <code class="parameter">$connection</code><span class="initializer"> = <strong><code>null</code></strong></span></span>): <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
    Stop tracing started by <span class="function"><a href="function.pg-trace.html" class="function">pg_trace()</a></span>.
@@ -47,19 +45,16 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">connection</code></dt>
 
      <dd>
 
-      <p class="para">
-       PostgreSQL database connection resource.  When 
-       <code class="parameter">connection</code> is not present, the default connection 
-       is used. The default connection is the last connection made by 
-       <span class="function"><a href="function.pg-connect.html" class="function">pg_connect()</a></span> or <span class="function"><a href="function.pg-pconnect.html" class="function">pg_pconnect()</a></span>.
-      </p>
+      <p class="para">An <span class="classname"><a href="class.pgsql-connection.html" class="classname">PgSql\Connection</a></span> instance.
+When <code class="parameter">connection</code> is <strong><code>null</code></strong>, the default connection is used.
+The default connection is the last connection made by <span class="function"><a href="function.pg-connect.html" class="function">pg_connect()</a></span>
+or <span class="function"><a href="function.pg-pconnect.html" class="function">pg_pconnect()</a></span>.</p>
      </dd>
 
     
@@ -76,11 +71,46 @@
   </p>
  </div>
 
+
+ <div class="refsect1 changelog" id="refsect1-function.pg-untrace-changelog">
+  <h3 class="title">Changelog</h3>
+  <table class="doctable informaltable">
+   
+    <thead>
+     <tr>
+      <th>Version</th>
+      <th>Description</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+ <td>8.1.0</td>
+ <td>
+  The <code class="parameter">connection</code> parameter expects an <span class="classname"><a href="class.pgsql-connection.html" class="classname">PgSql\Connection</a></span>
+  instance now; previously, a <a href="language.types.resource.html" class="link">resource</a> was expected.
+ </td>
+</tr>
+
+     <tr>
+      <td>8.0.0</td>
+      <td>
+       <code class="parameter">connection</code> is now nullable.
+      </td>
+     </tr>
+
+    </tbody>
+   
+  </table>
+
+ </div>
+
  
  <div class="refsect1 examples" id="refsect1-function.pg-untrace-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-2403">
+   <div class="example" id="example-1957">
     <p><strong>Example #1 <span class="function"><strong>pg_untrace()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

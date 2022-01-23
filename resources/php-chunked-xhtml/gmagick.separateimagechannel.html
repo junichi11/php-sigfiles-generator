@@ -33,16 +33,11 @@
  <div class="refsect1 description" id="refsect1-gmagick.separateimagechannel-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><strong>Gmagick::separateimagechannel</strong></span>
-    ( <span class="methodparam"><span class="type">int</span> <code class="parameter">$channel</code></span>
-   ) : <span class="type"><a href="class.gmagick.html" class="type Gmagick">Gmagick</a></span></div>
+   <span class="modifier">public</span> <span class="methodname"><strong>Gmagick::separateimagechannel</strong></span>(<span class="methodparam"><span class="type">int</span> <code class="parameter">$channel</code></span>): <span class="type"><a href="class.gmagick.html" class="type Gmagick">Gmagick</a></span></div>
 
   <p class="para rdfs-comment">
    Separates a channel from the image and returns a grayscale image. A channel is a particular color component of each pixel in the image. 
   </p>
-
-   
-
  </div>
 
 
@@ -50,7 +45,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">channel</code></dt>
@@ -58,7 +52,8 @@
      <dd>
 
       <p class="para">
-       Identify which channel to extract: RedChannel, GreenChannel, BlueChannel, OpacityChannel, CyanChannel, MagentaChannel, YellowChannel, BlackChannel.
+       One of the <a href="gmagick.constants.html#gmagick.constants.channel" class="link">Channel</a> constant
+       (<code class="literal">Gmagick::CHANNEL_*</code>).
       </p>
      </dd>
 
@@ -72,7 +67,7 @@
  <div class="refsect1 returnvalues" id="refsect1-gmagick.separateimagechannel-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   The Gmagick object on success
+   The <span class="classname"><a href="class.gmagick.html" class="classname">Gmagick</a></span> object.
   </p>
  </div>
 
@@ -81,7 +76,7 @@
   <h3 class="title">Errors/Exceptions</h3>
   <p class="para">
    Throws an
-<strong class="classname">GmagickException</strong> on error.
+<span class="classname"><strong class="classname">GmagickException</strong></span> on error.
   </p>
  </div>
 

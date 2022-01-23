@@ -26,20 +26,14 @@
   <div id="layout-content"><div id="function.mb-encode-mimeheader" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">mb_encode_mimeheader</h1>
-  <p class="verinfo">(PHP 4 &gt;= 4.0.6, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">mb_encode_mimeheader</span> &mdash; <span class="dc-title">Encode string for MIME header</span></p>
+  <p class="verinfo">(PHP 4 &gt;= 4.0.6, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">mb_encode_mimeheader</span> &mdash; <span class="dc-title">Encode string for MIME header</span></p>
 
  </div>
    
  <div class="refsect1 description" id="refsect1-function.mb-encode-mimeheader-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>mb_encode_mimeheader</strong></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$string</code></span>
-   , <span class="methodparam"><span class="type"><span class="type">string</span>|<span class="type">null</span></span> <code class="parameter">$charset</code><span class="initializer"> = <strong><code>null</code></strong></span></span>
-   , <span class="methodparam"><span class="type"><span class="type">string</span>|<span class="type">null</span></span> <code class="parameter">$transfer_encoding</code><span class="initializer"> = <strong><code>null</code></strong></span></span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$newline</code><span class="initializer"> = &quot;\r\n&quot;</span></span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$indent</code><span class="initializer"> = 0</span></span>
-   ) : <span class="type">string</span></div>
+   <span class="methodname"><strong>mb_encode_mimeheader</strong></span>(<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$string</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">?</span><span class="type"><span class="type">string</span><span class="type"></span></span> <code class="parameter">$charset</code><span class="initializer"> = <strong><code>null</code></strong></span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">?</span><span class="type"><span class="type">string</span><span class="type"></span></span> <code class="parameter">$transfer_encoding</code><span class="initializer"> = <strong><code>null</code></strong></span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$newline</code><span class="initializer"> = &quot;\r\n&quot;</span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">int</span> <code class="parameter">$indent</code><span class="initializer"> = 0</span></span><br>): <span class="type">string</span></div>
 
   <p class="para rdfs-comment">
    Encodes a given <span class="type">string</span>
@@ -52,7 +46,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">string</code></dt>
@@ -170,15 +163,21 @@
  <div class="refsect1 examples" id="refsect1-function.mb-encode-mimeheader-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-3042">
+   <div class="example" id="example-2556">
     <p><strong>Example #1 <span class="function"><strong>mb_encode_mimeheader()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$name&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">""</span><span style="color: #007700">;&nbsp;</span><span style="color: #FF8000">//&nbsp;kanji<br /></span><span style="color: #0000BB">$mbox&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">"kru"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$doma&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">"gtinn.mon"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$addr&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">mb_encode_mimeheader</span><span style="color: #007700">(</span><span style="color: #0000BB">$name</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"UTF-7"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"Q"</span><span style="color: #007700">)&nbsp;.&nbsp;</span><span style="color: #DD0000">"&nbsp;&lt;"&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">$mbox&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #DD0000">"@"&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">$doma&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #DD0000">"&gt;"</span><span style="color: #007700">;<br />echo&nbsp;</span><span style="color: #0000BB">$addr</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$name&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">"太郎"</span><span style="color: #007700">;&nbsp;</span><span style="color: #FF8000">//&nbsp;kanji<br /></span><span style="color: #0000BB">$mbox&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">"kru"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$doma&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">"gtinn.mon"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$addr&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'"'&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">addcslashes</span><span style="color: #007700">(</span><span style="color: #0000BB">mb_encode_mimeheader</span><span style="color: #007700">(</span><span style="color: #0000BB">$name</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"UTF-7"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"Q"</span><span style="color: #007700">),&nbsp;</span><span style="color: #DD0000">'"'</span><span style="color: #007700">)&nbsp;.&nbsp;</span><span style="color: #DD0000">'"&nbsp;&lt;'&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">$mbox&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #DD0000">"@"&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">$doma&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #DD0000">"&gt;"</span><span style="color: #007700">;<br />echo&nbsp;</span><span style="color: #0000BB">$addr</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
 
+    <div class="example-contents"><p>The above example will output:</p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>
+&quot;=?UTF-7?Q?+WSqQzg-?=&quot; &lt;kru@gtinn.mon&gt;
+</pre></div>
+    </div>
    </div>
   </p>
  </div>

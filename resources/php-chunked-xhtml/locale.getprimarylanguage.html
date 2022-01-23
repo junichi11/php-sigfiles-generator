@@ -27,31 +27,22 @@
  <div class="refnamediv">
   <h1 class="refname">Locale::getPrimaryLanguage</h1>
   <h1 class="refname">locale_get_primary_language</h1>
-  <p class="verinfo">(PHP 5 &gt;= 5.3.0, PHP 7, PECL intl &gt;= 1.0.0)</p><p class="refpurpose"><span class="refname">Locale::getPrimaryLanguage</span> -- <span class="refname">locale_get_primary_language</span> &mdash; <span class="dc-title">Gets the primary language for the input locale</span></p>
+  <p class="verinfo">(PHP 5 &gt;= 5.3.0, PHP 7, PHP 8, PECL intl &gt;= 1.0.0)</p><p class="refpurpose"><span class="refname">Locale::getPrimaryLanguage</span> -- <span class="refname">locale_get_primary_language</span> &mdash; <span class="dc-title">Gets the primary language for the input locale</span></p>
 
  </div>
 
  <div class="refsect1 description" id="refsect1-locale.getprimarylanguage-description">
   <h3 class="title">Description</h3>
   <p class="para">
-   Object oriented style
+   Object-oriented style
   </p>
   <div class="methodsynopsis dc-description">
-   <span class="modifier">public</span>
-   <span class="modifier">static</span>
-   
-   <span class="methodname"><strong>Locale::getPrimaryLanguage</strong></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$locale</code></span>
-   ) : <span class="type">string</span></div>
+   <span class="modifier">public</span> <span class="modifier">static</span> <span class="methodname"><strong>Locale::getPrimaryLanguage</strong></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$locale</code></span>): <span class="type"><span class="type">?</span><span class="type">string</span></span></div>
 
   <p class="para rdfs-comment">
    Procedural style
   </p>
-  <div class="methodsynopsis dc-description">
-   
-   <span class="methodname"><strong>locale_get_primary_language</strong></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$locale</code></span>
-   ) : <span class="type">string</span></div>
+  <div class="methodsynopsis dc-description"><span class="methodname"><strong>locale_get_primary_language</strong></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$locale</code></span>): <span class="type"><span class="type">?</span><span class="type">string</span></span></div>
 
   <p class="para rdfs-comment">
    Gets the primary language for the input locale
@@ -63,7 +54,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">locale</code></dt>
@@ -86,14 +76,15 @@
  <div class="refsect1 returnvalues" id="refsect1-locale.getprimarylanguage-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   The language code associated with the language or <strong><code>null</code></strong> in case of error.
+   The language code associated with the language.
   </p>
+  <p class="para">Returns <strong><code>null</code></strong> when the length of <code class="parameter">locale</code> exceeds <strong><code>INTL_MAX_LOCALE_LEN</code></strong>.</p>
  </div>
 
 
  <div class="refsect1 examples" id="refsect1-locale.getprimarylanguage-examples">
   <h3 class="title">Examples</h3>
-  <div class="example" id="example-2828">
+  <div class="example" id="example-2341">
    <p><strong>Example #1 <span class="function"><strong>locale_get_primary_language()</strong></span> example</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -103,7 +94,7 @@
    </div>
 
   </div>
-  <div class="example" id="example-2829">
+  <div class="example" id="example-2342">
    <p><strong>Example #2 OO example</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

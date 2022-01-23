@@ -39,10 +39,9 @@
   </p>
 
   <p class="para">
-   An object copy is created by using the <em class="emphasis">clone</em> keyword (which calls the
-   object&#039;s <a href="language.oop5.cloning.html#object.clone" class="link">__clone()</a> method if possible).
-   An object&#039;s <a href="language.oop5.cloning.html#object.clone" class="link">__clone()</a> method
-   cannot be called directly.
+   An object copy is created by using the <code class="literal">clone</code> keyword
+   (which calls the object&#039;s <a href="language.oop5.cloning.html#object.clone" class="link">__clone()</a>
+   method if possible).
   </p>
 
   <div class="informalexample">
@@ -61,9 +60,7 @@ $copy_of_object = clone $object;
   </p>
 
   <div class="methodsynopsis dc-description" id="object.clone">
-   <span class="methodname"><strong>__clone</strong></span>
-    (
-   ) : <span class="type"><span class="type void">void</span></span></div>
+   <span class="methodname"><strong>__clone</strong></span>(): <span class="type"><span class="type void">void</span></span></div>
 
 
   <p class="para">
@@ -72,7 +69,7 @@ $copy_of_object = clone $object;
    necessary properties that need to be changed.
   </p>
 
-  <div class="example" id="language.oop5.traits.properties.example">
+  <div class="example" id="example-274">
    <p><strong>Example #1 Cloning an object</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -122,7 +119,7 @@ MyCloneable Object
    It is possible to access a member of a freshly cloned
    object in a single expression:
   </p>
-  <div class="example" id="language.oop5.traits.properties.conflicts">
+  <div class="example" id="example-275">
    <p><strong>Example #2 Access member of freshly cloned object</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

@@ -26,16 +26,14 @@
   <div id="layout-content"><div id="function.soundex" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">soundex</h1>
-  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">soundex</span> &mdash; <span class="dc-title">Calculate the soundex key of a string</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">soundex</span> &mdash; <span class="dc-title">Calculate the soundex key of a string</span></p>
 
  </div>
  
  <div class="refsect1 description" id="refsect1-function.soundex-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>soundex</strong></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$string</code></span>
-   ) : <span class="type">string</span></div>
+   <span class="methodname"><strong>soundex</strong></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$string</code></span>): <span class="type">string</span></div>
 
   <p class="para rdfs-comment">
    Calculates the soundex key of <code class="parameter">string</code>.
@@ -44,8 +42,7 @@
    Soundex keys have the property that words pronounced similarly
    produce the same soundex key, and can thus be used to simplify
    searches in databases where you know the pronunciation but not
-   the spelling. This soundex function returns a string 4 characters
-   long, starting with a letter.
+   the spelling.
   </p>
   <p class="para">
    This particular soundex function is one described by Donald Knuth
@@ -59,7 +56,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">string</code></dt>
@@ -81,7 +77,9 @@
  <div class="refsect1 returnvalues" id="refsect1-function.soundex-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns the soundex key as a <span class="type">string</span>.
+   Returns the soundex key as a <span class="type">string</span> with four characters.
+   If at least one letter is contained in <code class="parameter">string</code>, the returned
+   string starts with a letter. Otherwise <code class="literal">&quot;0000&quot;</code> is returned.
   </p>
  </div>
 
@@ -117,7 +115,7 @@
  <div class="refsect1 examples" id="refsect1-function.soundex-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-5333">
+   <div class="example" id="example-4824">
     <p><strong>Example #1 Soundex Examples</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

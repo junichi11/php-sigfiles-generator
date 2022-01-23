@@ -26,22 +26,18 @@
   <div id="layout-content"><div id="function.pcntl-sigprocmask" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">pcntl_sigprocmask</h1>
-  <p class="verinfo">(PHP 5 &gt;= 5.3.0, PHP 7)</p><p class="refpurpose"><span class="refname">pcntl_sigprocmask</span> &mdash; <span class="dc-title">Sets and retrieves blocked signals</span></p>
+  <p class="verinfo">(PHP 5 &gt;= 5.3.0, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">pcntl_sigprocmask</span> &mdash; <span class="dc-title">Sets and retrieves blocked signals</span></p>
 
  </div>
  
  <div class="refsect1 description" id="refsect1-function.pcntl-sigprocmask-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>pcntl_sigprocmask</strong></span>
-    ( <span class="methodparam"><span class="type">int</span> <code class="parameter">$how</code></span>
-   , <span class="methodparam"><span class="type">array</span> <code class="parameter">$set</code></span>
-   , <span class="methodparam"><span class="type">array</span> <code class="parameter reference">&$oldset</code> = ?</span>
-   ) : <span class="type">bool</span></div>
+   <span class="methodname"><strong>pcntl_sigprocmask</strong></span>(<span class="methodparam"><span class="type">int</span> <code class="parameter">$mode</code></span>, <span class="methodparam"><span class="type">array</span> <code class="parameter">$signals</code></span>, <span class="methodparam"><span class="type">array</span> <code class="parameter reference">&$old_signals</code><span class="initializer"> = <strong><code>null</code></strong></span></span>): <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
    The <span class="function"><strong>pcntl_sigprocmask()</strong></span> function adds, removes or sets blocked
-   signals, depending on the <code class="parameter">how</code> parameter.
+   signals, depending on the <code class="parameter">mode</code> parameter.
   </p>
  </div>
 
@@ -50,10 +46,9 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
-<code class="parameter">how</code></dt>
+<code class="parameter">mode</code></dt>
 
      <dd>
 
@@ -74,7 +69,7 @@
     
     
      <dt>
-<code class="parameter">set</code></dt>
+<code class="parameter">signals</code></dt>
 
      <dd>
 
@@ -86,12 +81,12 @@
     
     
      <dt>
-<code class="parameter">oldset</code></dt>
+<code class="parameter">old_signals</code></dt>
 
      <dd>
 
       <p class="para">
-       The <code class="parameter">oldset</code> parameter is set to an array
+       The <code class="parameter">old_signals</code> parameter is set to an array
        containing the list of the previously blocked signals.
       </p>
      </dd>
@@ -114,7 +109,7 @@
  <div class="refsect1 examples" id="refsect1-function.pcntl-sigprocmask-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-3777">
+   <div class="example" id="example-3298">
     <p><strong>Example #1 <span class="function"><strong>pcntl_sigprocmask()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

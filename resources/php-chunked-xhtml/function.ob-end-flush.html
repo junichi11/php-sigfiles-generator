@@ -26,16 +26,14 @@
   <div id="layout-content"><div id="function.ob-end-flush" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">ob_end_flush</h1>
-  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">ob_end_flush</span> &mdash; <span class="dc-title">Flush (send) the output buffer and turn off output buffering</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">ob_end_flush</span> &mdash; <span class="dc-title">Flush (send) the output buffer and turn off output buffering</span></p>
 
  </div>
  
  <div class="refsect1 description" id="refsect1-function.ob-end-flush-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>ob_end_flush</strong></span>
-    (
-   ) : <span class="type">bool</span></div>
+   <span class="methodname"><strong>ob_end_flush</strong></span>(): <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
    This function will send the contents of the topmost output buffer (if
@@ -60,6 +58,12 @@
  </div>
 
 
+ <div class="refsect1 parameters" id="refsect1-function.ob-end-flush-parameters">
+  <h3 class="title">Parameters</h3>
+  <p class="para">This function has no parameters.</p>
+ </div>
+
+
  <div class="refsect1 returnvalues" id="refsect1-function.ob-end-flush-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
@@ -81,7 +85,7 @@
  <div class="refsect1 examples" id="refsect1-function.ob-end-flush-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-507">
+   <div class="example" id="example-522">
     <p><strong>Example #1 <span class="function"><strong>ob_end_flush()</strong></span> example</strong></p>
     <div class="example-contents"><p>
      The following example shows an easy way to flush and end all output

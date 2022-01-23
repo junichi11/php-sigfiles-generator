@@ -41,7 +41,7 @@
    The following is a list of changes to the entire ext/mysql extension.
   </p>
   <p class="para">
-   <table class="doctable informaltable">
+   <table id="changelog.mysql.global.table" class="doctable informaltable">
     
      <thead>
       <tr>
@@ -62,34 +62,6 @@
        </td>
       </tr>
 
-      <tr>
-       <td>5.5.0</td>
-       <td>
-        <p class="para">
-         This extension has been deprecated. Connecting to a MySQL database
-         via <span class="function"><a href="function.mysql-connect.html" class="function">mysql_connect()</a></span>,
-         <span class="function"><a href="function.mysql-pconnect.html" class="function">mysql_pconnect()</a></span> or an implicit connection via any
-         other <code class="literal">mysql_*</code> function will generate an
-         <strong><code>E_DEPRECATED</code></strong> error.
-        </p>
-       </td>
-      </tr>
-
-      <tr>
-       <td>5.5.0</td>
-       <td>
-        <p class="para">
-         All of the old deprecated functions and aliases now emit
-         <strong><code>E_DEPRECATED</code></strong> errors. These functions are:
-        </p>
-        <p class="para">
-         mysql(), mysql_fieldname(), mysql_fieldtable(), mysql_fieldlen(), mysql_fieldtype(), mysql_fieldflags(), mysql_selectdb(),
-         mysql_createdb(), mysql_dropdb(), mysql_freeresult(), mysql_numfields(), mysql_numrows(), mysql_listdbs(), mysql_listtables(),
-         mysql_listfields(), mysql_db_name(), mysql_dbname(), mysql_tablename(), and mysql_table_name().
-         </p>
-       </td>
-      </tr>
-
      </tbody>
     
    </table>
@@ -103,11 +75,7 @@
    The following list is a compilation of changelog entries from
    the ext/mysql functions.
   </p>
-  <table class='doctable table' rules='groups'><thead><tr><th>Version</th><th>Function</th><th>Description</th></tr></thead><tbody class="gen-changelog v"><tr><td>5.5.0</td><td><a href='function.mysql-connect.html'>mysql_connect</a></td><td>This function will generate an E_DEPRECATED
-        error.</td></tr><tr><td>&nbsp;</td><td><a href='function.mysql-db-name.html'>mysql_db_name</a></td><td>The mysql_list_dbs function is deprecated, 
-        and emits an E_DEPRECATED level error.</td></tr><tr><td>&nbsp;</td><td><a href='function.mysql-pconnect.html'>mysql_pconnect</a></td><td>This function will generate an E_DEPRECATED
-        error.</td></tr><tr><td>&nbsp;</td><td><a href='function.mysql-tablename.html'>mysql_tablename</a></td><td>The mysql_tablename function is deprecated, 
-        and emits an E_DEPRECATED level error.</td></tr></tbody><tbody class="gen-changelog v5-5-0"><tr><td>4.3.7</td><td><a href='function.mysql-list-tables.html'>mysql_list_tables</a></td><td>This function became deprecated.</td></tr></tbody></table>
+  <table class='doctable table' rules='groups'><thead><tr><th>Version</th><th>Function</th><th>Description</th></tr></thead></tbody></table>
  </div>
 
 </div>

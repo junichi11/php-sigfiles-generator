@@ -26,21 +26,17 @@
   <div id="layout-content"><div id="function.pg-lo-close" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">pg_lo_close</h1>
-  <p class="verinfo">(PHP 4 &gt;= 4.2.0, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">pg_lo_close</span> &mdash; <span class="dc-title">Close a large object</span></p>
+  <p class="verinfo">(PHP 4 &gt;= 4.2.0, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">pg_lo_close</span> &mdash; <span class="dc-title">Close a large object</span></p>
 
  </div>
 
  <div class="refsect1 description" id="refsect1-function.pg-lo-close-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>pg_lo_close</strong></span>
-    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$large_object</code></span>
-   ) : <span class="type">bool</span></div>
+   <span class="methodname"><strong>pg_lo_close</strong></span>(<span class="methodparam"><span class="type"><a href="class.pgsql-lob.html" class="type PgSql\Lob">PgSql\Lob</a></span> <code class="parameter">$lob</code></span>): <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
-   <span class="function"><strong>pg_lo_close()</strong></span> closes a large
-   object. <code class="parameter">large_object</code> is a resource for the
-   large object from <span class="function"><a href="function.pg-lo-open.html" class="function">pg_lo_open()</a></span>.
+   <span class="function"><strong>pg_lo_close()</strong></span> closes a large object.
   </p>
   <p class="para">
    To use the large object interface, it is necessary to
@@ -58,16 +54,13 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
-<code class="parameter">result</code></dt>
+<code class="parameter">lob</code></dt>
 
      <dd>
 
-      <p class="para">
-       PostgreSQL large object (LOB) resource, returned by <span class="function"><a href="function.pg-lo-open.html" class="function">pg_lo_open()</a></span>.
-      </p>
+      <p class="para">An <span class="classname"><a href="class.pgsql-lob.html" class="classname">PgSql\Lob</a></span> instance, returned by <span class="function"><a href="function.pg-lo-open.html" class="function">pg_lo_open()</a></span>.</p>
      </dd>
 
     
@@ -84,11 +77,39 @@
   </p>
  </div>
 
+
+ <div class="refsect1 changelog" id="refsect1-function.pg-lo-close-changelog">
+  <h3 class="title">Changelog</h3>
+  <table class="doctable informaltable">
+   
+    <thead>
+     <tr>
+      <th>Version</th>
+      <th>Description</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+ <td>8.1.0</td>
+ <td>
+  The <code class="parameter">lob</code> parameter expects an <span class="classname"><a href="class.pgsql-lob.html" class="classname">PgSql\Lob</a></span>
+  instance now; previously, a <a href="language.types.resource.html" class="link">resource</a> was expected.
+ </td>
+</tr>
+
+    </tbody>
+   
+  </table>
+
+ </div>
+
  
  <div class="refsect1 examples" id="refsect1-function.pg-lo-close-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-2363">
+   <div class="example" id="example-1917">
     <p><strong>Example #1 <span class="function"><strong>pg_lo_close()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

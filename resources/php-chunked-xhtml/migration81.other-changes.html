@@ -1,0 +1,243 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Other Changes</title>
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="migration81.deprecated.html">« Deprecated Features</a></li>
+      <li style="float: right;"><a href="migration80.html">Migrating from PHP 7.4.x to PHP 8.0.x »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="migration81.html">Migrating from PHP 8.0.x to PHP 8.1.x</a></li>
+    <li>Other Changes</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="migration81.other-changes" class="sect1">
+ <h2 class="title">Other Changes</h2>
+
+ <div class="sect2" id="migration81.other-changes.sapi">
+  <h3 class="title">Changes in SAPI Modules</h3>
+
+  <div class="sect3" id="migration81.other-changes.sapi.cli">
+   <h4 class="title">CLI</h4>
+
+   <p class="para">
+    Using <strong class="option unknown">-a</strong> without the <a href="book.readline.html" class="link">readline extension</a> will now result in an error.
+    Previously, <strong class="option unknown">-a</strong> without readline had the same behavior as
+    calling <strong class="command">php</strong> without any arguments, apart from printing an additional
+    <code class="literal">&quot;Interactive mode enabled&quot;</code> message.
+    This mode was <em class="emphasis">not</em> interactive.
+   </p>
+  </div>
+
+  <div class="sect3" id="migration81.other-changes.sapi.phpdbg">
+   <h4 class="title">PHPDBG</h4>
+
+   <p class="para">
+    Remote functionality from <a href="book.phpdbg.html" class="link">phpdbg</a> has been removed.
+   </p>
+  </div>
+ </div>
+
+ <div class="sect2" id="migration81.other-changes.functions">
+  <h3 class="title">Changed Functions</h3>
+
+  <div class="sect3" id="migration81.other-changes.functions.core">
+   <h4 class="title">Core</h4>
+
+   <p class="para">
+    The order of properties used in <a href="control-structures.foreach.html" class="link">foreach</a>, <span class="function"><a href="function.var-dump.html" class="function">var_dump()</a></span>,
+    <span class="function"><a href="function.serialize.html" class="function">serialize()</a></span>, object comparison, etc. was changed.
+    Properties are now ordered naturally according to their declaration
+    and inheritance. Properties declared in a base class are going
+    to be before the child properties.
+   </p>
+   <p class="para">
+    This order is consistent with internal layout of properties in
+    <code class="code">zend_object</code> structure and repeats the order in
+    <code class="code">default_properties_table[]</code> and <code class="code">properties_info_table[]</code>.
+    The old order was not documented and was caused by class inheritance implementation details.
+   </p>
+  </div>
+
+  <div class="sect3" id="migration81.other-changes.functions.filter">
+   <h4 class="title">Filter</h4>
+
+   <p class="para">
+    The <strong><code>FILTER_FLAG_ALLOW_OCTAL</code></strong> flag of the
+    <strong><code>FILTER_VALIDATE_INT</code></strong> filter
+    now accept octal string with the leading octal prefix
+    (<code class="literal">&quot;0o&quot;</code>/<code class="literal">&quot;0O&quot;</code>).
+   </p>
+  </div>
+
+  <div class="sect3" id="migration81.other-changes.functions.gmp">
+   <h4 class="title">GMP</h4>
+
+   <p class="para">
+    All <a href="book.gmp.html" class="link">GMP</a> functions now accept octal string with the leading octal prefix
+    (<code class="literal">&quot;0o&quot;</code>/<code class="literal">&quot;0O&quot;</code>).
+   </p>
+  </div>
+
+  <div class="sect3" id="migration81.other-changes.functions.pdo-odbc">
+   <h4 class="title">PDO ODBC</h4>
+
+   <p class="para">
+    <span class="methodname"><a href="pdo.getattribute.html" class="methodname">PDO::getAttribute()</a></span> with
+    <strong><code>PDO::ATTR_SERVER_INFO</code></strong> and
+    <strong><code>PDO::ATTR_SERVER_VERSION</code></strong>
+    now return values instead of throwing <span class="classname"><a href="class.pdoexception.html" class="classname">PDOException</a></span>.
+   </p>
+  </div>
+
+  <div class="sect3" id="migration81.other-changes.functions.reflection">
+   <h4 class="title">Reflection</h4>
+
+   <p class="para">
+    <span class="methodname"><a href="reflectionproperty.setaccessible.html" class="methodname">ReflectionProperty::setAccessible()</a></span> and
+    <span class="methodname"><a href="reflectionmethod.setaccessible.html" class="methodname">ReflectionMethod::setAccessible()</a></span>
+    no longer have an effect.
+    Properties and methods are now always considered accessible via Reflection.
+   </p>
+  </div>
+
+  <div class="sect3" id="migration81.other-changes.functions.standard">
+   <h4 class="title">Standard</h4>
+
+   <p class="para">
+    <span class="function"><a href="function.syslog.html" class="function">syslog()</a></span> is now binary safe.
+   </p>
+  </div>
+ </div>
+
+ <div class="sect2" id="migration81.other-changes.extensions">
+  <h3 class="title">Other Changes to Extensions</h3>
+
+  <div class="sect3" id="migration81.other-changes.extensions.gd">
+   <h4 class="title">GD</h4>
+
+   <p class="para">
+    <span class="function"><a href="function.imagewebp.html" class="function">imagewebp()</a></span> can now do lossless WebP encoding
+    by passing <strong><code>IMG_WEBP_LOSSLESS</code></strong> as the quality.
+   </p>
+   <p class="para">
+    This constant is only defined, if the used libgd supports
+    lossless WebP encoding.
+   </p>
+  </div>
+
+  <div class="sect3" id="migration81.other-changes.extensions.mysqli">
+   <h4 class="title">MySQLi</h4>
+
+   <p class="para">
+    <span class="methodname"><a href="mysqli-stmt.next-result.html" class="methodname">mysqli_stmt::next_result()</a></span> and
+    <span class="methodname"><a href="mysqli-result.fetch-all.html" class="methodname">mysqli::fetch_all()</a></span>
+    are now available when linking against libmysqlclient.
+   </p>
+  </div>
+
+  <div class="sect3" id="migration81.other-changes.extensions.openssl">
+   <h4 class="title">OpenSSL</h4>
+
+   <ul class="itemizedlist">
+    <li class="listitem">
+     <p class="para">
+      The <a href="book.openssl.html" class="link">OpenSSL extension</a> now requires at least OpenSSL version 1.0.2.
+     </p>
+    </li>
+    <li class="listitem">
+     <p class="para">
+      OpenSSL 3.0 is now supported. Be aware that many ciphers are no longer
+      enabled by default (part of the legacy provider), and that parameter
+      validation (e.g. minimum key sizes) is stricter now.
+     </p>
+    </li>
+   </ul>
+  </div>
+
+  <div class="sect3" id="migration81.other-changes.extensions.phar">
+   <h4 class="title">Phar</h4>
+
+   <ul class="itemizedlist">
+    <li class="listitem">
+     <p class="para">
+      SHA256 is now used by default for signatures.
+     </p>
+    </li>
+    <li class="listitem">
+     <p class="para">
+      Added support for OpenSSL_SHA256 and OpenSSL_SHA512 signatures.
+     </p>
+    </li>
+   </ul>
+  </div>
+
+  <div class="sect3" id="migration81.other-changes.extensions.snmp">
+   <h4 class="title">SNMP</h4>
+
+   <ul class="itemizedlist">
+    <li class="listitem">
+     <p class="para">
+      Added support for SHA256 and SHA512 for the security protocol.
+     </p>
+    </li>
+   </ul>
+  </div>
+
+  <div class="sect3" id="migration81.other-changes.extensions.standard">
+   <h4 class="title">Standard</h4>
+
+   <p class="para">
+    <code class="code">--with-password-argon2</code> now uses pkg-config to detect libargon2.
+    As such, an alternative libargon2 location should now be specified using
+    <var class="envar">PKG_CONFIG_PATH</var>.
+   </p>
+  </div>
+ </div>
+
+ <div class="sect2" id="migration81.other-changes.ini">
+  <h3 class="title">Changes to INI File Handling</h3>
+
+  <ul class="itemizedlist">
+   <li class="listitem">
+    <p class="para">
+     The <a href="errorfunc.configuration.html#ini.log-errors-max-len" class="link">log_errors_max_len</a>
+     INI directive has been removed.
+     It no longer had an effect since PHP 8.0.0.
+    </p>
+   </li>
+   <li class="listitem">
+    <p class="para">
+     A leading dollar in a quoted string can now be escaped: <code class="literal">&quot;\${&quot;</code> will now be
+     interpreted as a string with contents <code class="literal">${</code>.
+    </p>
+   </li>
+   <li class="listitem">
+    <p class="para">
+     Backslashes in double quoted strings are now more consistently treated as
+     escape characters. Previously, <code class="literal">&quot;foo\\&quot;</code> followed by
+     something other than a newline was not considered as a terminated string.
+     It is now interpreted as a string with contents <code class="literal">foo\</code>.
+     However, as an exception, the string <code class="literal">&quot;foo\&quot;</code>
+     followed by a newline will continue to be treated as a valid string with
+     contents <code class="literal">foo\</code> rather than an unterminated string.
+     This exception exists to support naive uses of Windows file paths such as
+     <code class="literal">&quot;C:\foo\&quot;</code>.
+    </p>
+   </li>
+  </ul>
+ </div>
+
+</div></div></div></body></html>

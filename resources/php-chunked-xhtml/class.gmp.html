@@ -11,7 +11,7 @@
   <div class="navbar-inner clearfix">
     <ul class="nav" style="width: 100%">
       <li style="float: left;"><a href="function.gmp-xor.html">« gmp_xor</a></li>
-      <li style="float: right;"><a href="book.math.html">Math »</a></li>
+      <li style="float: right;"><a href="gmp.serialize.html">GMP::__serialize »</a></li>
     </ul>
   </div>
 </div>
@@ -28,7 +28,7 @@
  <h1 class="title">The GMP class</h1>
  
 
- <div class="partintro"><p class="verinfo">(PHP 5 &gt;= 5.6.0, PHP 7)</p>
+ <div class="partintro"><p class="verinfo">(PHP 5 &gt;= 5.6.0, PHP 7, PHP 8)</p>
   <div class="section" id="gmp.intro">
    <h2 class="title">Introduction</h2>
    <p class="para">
@@ -39,8 +39,8 @@
    </p>
    <blockquote class="note"><p><strong class="note">Note</strong>: 
     <p class="para">
-     No object oriented interface is provided to manipulate
-     <strong class="classname">GMP</strong> objects. Please use the
+     No object-oriented interface is provided to manipulate
+     <span class="classname"><strong class="classname">GMP</strong></span> objects. Please use the
      <a href="book.gmp.html" class="link">procedural GMP API</a>.
     </p>
    </p></blockquote>
@@ -48,19 +48,35 @@
 
   <div class="section" id="gmp.synopsis">
    <div class="classsynopsis">
-    <div class="ooclass"></div>
+    <div class="ooclass">
+     
+    </div>
 
     <div class="classsynopsisinfo">
      <span class="ooclass">
-      <strong class="classname">GMP</strong>
-     </span>
-     <span class="oointerface">implements 
-      <span class="interfacename"><a href="class.serializable.html" class="interfacename">Serializable</a></span>
+      <span class="modifier">class</span> <strong class="classname">GMP</strong>
      </span>
      {</div>
+
+    <div class="classsynopsisinfo classsynopsisinfo_comment">/* Methods */</div>
+    <div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="methodname"><a href="gmp.serialize.html" class="methodname">__serialize</a></span>(): <span class="type">array</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="gmp.unserialize.html" class="methodname">__unserialize</a></span>(<span class="methodparam"><span class="type">array</span> <code class="parameter">$data</code></span>): <span class="type"><span class="type void">void</span></span></div>
+
    }</div>
   </div>
  </div>
 
+ 
+
+
+
+
+
+
+
+
+
+<h2>Table of Contents</h2><ul class="chunklist chunklist_reference"><li><a href="gmp.serialize.html">GMP::__serialize</a> — Serializes the GMP object</li><li><a href="gmp.unserialize.html">GMP::__unserialize</a> — Deserializes the data parameter into a GMP object</li></ul>
 </div>
 </div></div></body></html>

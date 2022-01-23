@@ -311,7 +311,7 @@ The behaviour of these functions is affected by settings in <var class="filename
 
      <tr>
       <td><a href="opcache.configuration.html#ini.opcache.cache-id" class="link">opcache.cache_id</a></td>
-      <td>&quot;1&quot;</td>
+      <td>&quot;&quot;</td>
       <td>PHP_INI_SYSTEM</td>
       <td>Windows only. Available as of PHP 7.4.0</td>
      </tr>
@@ -455,7 +455,6 @@ the configuration directives.</p>
  
  <p class="para">
   <dl>
-
    
     <dt id="ini.opcache.enable">
      <code class="parameter">opcache.enable</code>
@@ -698,6 +697,9 @@ the configuration directives.</p>
 
      <p class="para">
       A bitmask that controls which optimisation passes are executed.
+      The default is to apply all safe optimizations.
+      Changing the default is mostly useful for debugging/developing the optimizer
+      (see also <a href="opcache.configuration.html#ini.opcache.opt_debug_level" class="link">opcache.opt_debug_level</a>).
      </p>
     </dd>
 
@@ -1009,6 +1011,12 @@ the configuration directives.</p>
      <p class="para">
       Enables or disables opcode caching in shared memory.
      </p>
+     <blockquote class="note"><p><strong class="note">Note</strong>: 
+      <p class="para">
+       Prior to PHP 8.1.0, disabling this directive with an already populated
+       file cache required to manually clear the file cache.
+      </p>
+     </p></blockquote>
     </dd>
 
    
@@ -1128,6 +1136,13 @@ the configuration directives.</p>
       under the same user account having the same cache ID share a single OPcache instance.
       The value of the cache ID can be freely chosen.
      </p>
+     <div class="tip"><strong class="tip">Tip</strong>
+      <p class="simpara">
+       For IIS, different application pools can have their own OPcache instance
+       by using the environment variable <var class="envar">APP_POOL_ID</var> as
+       <code class="parameter">opcache.cache_id</code>.
+      </p>
+     </div>
     </dd>
 
    
@@ -1154,7 +1169,6 @@ the configuration directives.</p>
      <p class="para">
       For advanced usage, this option accepts a 4-digit integer <code class="literal">CRTO</code>, where the digits mean:
       <dl>
-
        
         <dt>
 <code class="literal">C</code> (CPU-specific optimization flags)</dt>
@@ -1273,7 +1287,9 @@ in <a href="faq.using.html#faq.using.shorthandbytes" class="link">this FAQ</a>, 
 
      <p class="para">
       Debugging option that disables JIT compilation after compiling a certain number of functions.
-      This may be helpful to bisect the source of a JIT miscompilation.
+      This may be helpful to bisect the source of a JIT miscompilation. Note: this option only works
+      when JIT trigger is set to 0 (compile on script load) or 1 (compile on first execution),
+      e.g., <code class="code">opcache.jit=1215</code>. See more in <a href="opcache.configuration.html#ini.opcache.jit" class="link">opcache.jit</a> option.
      </p>
     </dd>
 
@@ -1348,6 +1364,9 @@ in <a href="faq.using.html#faq.using.shorthandbytes" class="link">this FAQ</a>, 
 
      <p class="para">
       After how many iterations a loop is considered hot.
+      Valid value range is <code class="code">[0,255]</code>; for any setting out of this range,
+      e.g., -1 or 256, default value will be used instead. Specially, a zero value
+      will disable JIT to trace and compile any loops.
      </p>
     </dd>
 
@@ -1362,6 +1381,9 @@ in <a href="faq.using.html#faq.using.shorthandbytes" class="link">this FAQ</a>, 
 
      <p class="para">
       After how many calls a function is considered hot.
+      Valid value range is <code class="code">[0,255]</code>; for any setting out of this range,
+      e.g., -1 or 256, default value will be used instead. Specially, a zero value
+      will disable JIT to trace and compile any functions.
      </p>
     </dd>
 
@@ -1376,6 +1398,9 @@ in <a href="faq.using.html#faq.using.shorthandbytes" class="link">this FAQ</a>, 
 
      <p class="para">
       After how many returns a return is considered hot.
+      Valid value range is <code class="code">[0,255]</code>; for any setting out of this range,
+      e.g., -1 or 256, default value will be used instead. Specially, a zero value
+      will disable JIT to trace and compile any returns.
      </p>
     </dd>
 
@@ -1390,6 +1415,9 @@ in <a href="faq.using.html#faq.using.shorthandbytes" class="link">this FAQ</a>, 
 
      <p class="para">
       After how many exits a side exit is considered hot.
+      Valid value range is <code class="code">[0,255]</code>; for any setting out of this range,
+      e.g., -1 or 256, default value will be used instead. Specially, a zero value
+      will disable JIT to trace and compile any side exits.
      </p>
     </dd>
 

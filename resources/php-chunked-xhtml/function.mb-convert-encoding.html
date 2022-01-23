@@ -26,18 +26,14 @@
   <div id="layout-content"><div id="function.mb-convert-encoding" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">mb_convert_encoding</h1>
-  <p class="verinfo">(PHP 4 &gt;= 4.0.6, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">mb_convert_encoding</span> &mdash; <span class="dc-title">Convert character encoding</span></p>
+  <p class="verinfo">(PHP 4 &gt;= 4.0.6, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">mb_convert_encoding</span> &mdash; <span class="dc-title">Convert character encoding</span></p>
 
  </div>
    
  <div class="refsect1 description" id="refsect1-function.mb-convert-encoding-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>mb_convert_encoding</strong></span>
-    ( <span class="methodparam"><span class="type"><span class="type">array</span>|<span class="type">string</span></span> <code class="parameter">$string</code></span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$to_encoding</code></span>
-   , <span class="methodparam"><span class="type"><span class="type">array</span>|<span class="type">string</span>|<span class="type">null</span></span> <code class="parameter">$from_encoding</code><span class="initializer"> = <strong><code>null</code></strong></span></span>
-   ) : <span class="type"><span class="type">array</span>|<span class="type">string</span>|<span class="type"><span class="type false">false</span></span></span></div>
+   <span class="methodname"><strong>mb_convert_encoding</strong></span>(<span class="methodparam"><span class="type"><span class="type">array</span>|<span class="type">string</span></span> <code class="parameter">$string</code></span>, <span class="methodparam"><span class="type">string</span> <code class="parameter">$to_encoding</code></span>, <span class="methodparam"><span class="type"><span class="type">array</span>|<span class="type">string</span>|<span class="type">null</span></span> <code class="parameter">$from_encoding</code><span class="initializer"> = <strong><code>null</code></strong></span></span>): <span class="type"><span class="type">array</span>|<span class="type">string</span>|<span class="type"><span class="type false">false</span></span></span></div>
 
   <p class="para rdfs-comment">
    Converts the character encoding of <code class="parameter">string</code>
@@ -53,7 +49,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">string</code></dt>
@@ -112,6 +107,17 @@
  </div>
 
 
+ <div class="refsect1 errors" id="refsect1-function.mb-convert-encoding-errors">
+  <h3 class="title">Errors/Exceptions</h3>
+  <p class="para">
+   As of PHP 8.0.0, a <span class="classname"><a href="class.valueerror.html" class="classname">ValueError</a></span> is thrown if the
+   value of <code class="parameter">to_encoding</code> or 
+   <code class="parameter">from_encoding</code> is an invalid encoding.
+   Prior to PHP 8.0.0, a <strong><code>E_WARNING</code></strong> was emitted instead.
+  </p>
+ </div>
+
+
  <div class="refsect1 changelog" id="refsect1-function.mb-convert-encoding-changelog">
   <h3 class="title">Changelog</h3>
   <table class="doctable informaltable">
@@ -125,6 +131,24 @@
     </thead>
 
     <tbody class="tbody">
+     <tr>
+      <td>8.0.0</td>
+      <td>
+       <span class="function"><strong>mb_convert_encoding()</strong></span> will now throw a
+       <span class="classname"><a href="class.valueerror.html" class="classname">ValueError</a></span> when 
+       <code class="parameter">to_encoding</code> is passed an invalid encoding.
+      </td>
+     </tr>
+
+     <tr>
+      <td>8.0.0</td>
+      <td>
+       <span class="function"><strong>mb_convert_encoding()</strong></span> will now throw a
+       <span class="classname"><a href="class.valueerror.html" class="classname">ValueError</a></span> when 
+       <code class="parameter">from_encoding</code> is passed an invalid encoding.
+      </td>
+     </tr>
+
      <tr>
       <td>8.0.0</td>
       <td>
@@ -150,7 +174,7 @@
  <div class="refsect1 examples" id="refsect1-function.mb-convert-encoding-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-3034">
+   <div class="example" id="example-2546">
     <p><strong>Example #1 <span class="function"><strong>mb_convert_encoding()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

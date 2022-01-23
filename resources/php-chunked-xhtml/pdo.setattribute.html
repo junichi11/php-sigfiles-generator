@@ -26,7 +26,7 @@
   <div id="layout-content"><div id="pdo.setattribute" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">PDO::setAttribute</h1>
-  <p class="verinfo">(PHP 5 &gt;= 5.1.0, PHP 7, PECL pdo &gt;= 0.1.0)</p><p class="refpurpose"><span class="refname">PDO::setAttribute</span> &mdash; <span class="dc-title">
+  <p class="verinfo">(PHP 5 &gt;= 5.1.0, PHP 7, PHP 8, PECL pdo &gt;= 0.1.0)</p><p class="refpurpose"><span class="refname">PDO::setAttribute</span> &mdash; <span class="dc-title">
    Set an attribute
   </span></p>
 
@@ -34,16 +34,15 @@
  <div class="refsect1 description" id="refsect1-pdo.setattribute-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><strong>PDO::setAttribute</strong></span>
-    ( <span class="methodparam"><span class="type">int</span> <code class="parameter">$attribute</code></span>
-   , <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$value</code></span>
-   ) : <span class="type">bool</span></div>
+   <span class="modifier">public</span> <span class="methodname"><strong>PDO::setAttribute</strong></span>(<span class="methodparam"><span class="type">int</span> <code class="parameter">$attribute</code></span>, <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$value</code></span>): <span class="type">bool</span></div>
 
 
   <p class="para rdfs-comment">
    Sets an attribute on the database handle. Some of the available generic
    attributes are listed below; some drivers may make use of
    additional driver specific attributes.
+   Note that driver specific attributes <em class="emphasis">must not</em> be used
+   with other drivers.
    <ul class="itemizedlist">
     <li class="listitem"><p class="para">
      <code class="literal">PDO::ATTR_CASE</code>: Force column names to a specific case.

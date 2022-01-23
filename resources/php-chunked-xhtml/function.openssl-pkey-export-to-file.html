@@ -10,7 +10,7 @@
  <body class="docs"><div class="navbar navbar-fixed-top">
   <div class="navbar-inner clearfix">
     <ul class="nav" style="width: 100%">
-      <li style="float: left;"><a href="function.openssl-pkcs7-verify.html">« openssl_pkcs7_verify</a></li>
+      <li style="float: left;"><a href="function.openssl-pkey-derive.html">« openssl_pkey_derive</a></li>
       <li style="float: right;"><a href="function.openssl-pkey-export.html">openssl_pkey_export »</a></li>
     </ul>
   </div>
@@ -26,24 +26,19 @@
   <div id="layout-content"><div id="function.openssl-pkey-export-to-file" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">openssl_pkey_export_to_file</h1>
-  <p class="verinfo">(PHP 4 &gt;= 4.2.0, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">openssl_pkey_export_to_file</span> &mdash; <span class="dc-title">Gets an exportable representation of a key into a file </span></p>
+  <p class="verinfo">(PHP 4 &gt;= 4.2.0, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">openssl_pkey_export_to_file</span> &mdash; <span class="dc-title">Gets an exportable representation of a key into a file </span></p>
 
  </div>
  
  <div class="refsect1 description" id="refsect1-function.openssl-pkey-export-to-file-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>openssl_pkey_export_to_file</strong></span>
-    ( <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$key</code></span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$outfilename</code></span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$passphrase</code> = ?</span>
-   , <span class="methodparam"><span class="type">array</span> <code class="parameter">$configargs</code> = ?</span>
-   ) : <span class="type">bool</span></div>
+   <span class="methodname"><strong>openssl_pkey_export_to_file</strong></span>(<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type"><span class="type"><a href="class.opensslasymmetrickey.html" class="type OpenSSLAsymmetricKey">OpenSSLAsymmetricKey</a></span>|<span class="type"><a href="class.opensslcertificate.html" class="type OpenSSLCertificate">OpenSSLCertificate</a></span>|<span class="type">array</span>|<span class="type">string</span></span> <code class="parameter">$key</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$output_filename</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">?</span><span class="type"><span class="type">string</span><span class="type"></span></span> <code class="parameter">$passphrase</code><span class="initializer"> = <strong><code>null</code></strong></span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">?</span><span class="type"><span class="type">array</span><span class="type"></span></span> <code class="parameter">$options</code><span class="initializer"> = <strong><code>null</code></strong></span></span><br>): <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
    <span class="function"><strong>openssl_pkey_export_to_file()</strong></span> saves an ascii-armoured
    (PEM encoded) rendition of <code class="parameter">key</code> into the file named
-   by <code class="parameter">outfilename</code>.  
+   by <code class="parameter">output_filename</code>.  
   </p>
   <blockquote class="note"><p><strong class="note">Note</strong>: 
  <span class="simpara">
@@ -60,7 +55,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">key</code></dt>
@@ -74,7 +68,7 @@
     
     
      <dt>
-<code class="parameter">outfilename</code></dt>
+<code class="parameter">output_filename</code></dt>
 
      <dd>
 
@@ -99,15 +93,15 @@
     
     
      <dt>
-<code class="parameter">configargs</code></dt>
+<code class="parameter">options</code></dt>
 
      <dd>
 
       <p class="para">
-       <code class="parameter">configargs</code> can be used to fine-tune the export
+       <code class="parameter">options</code> can be used to fine-tune the export
        process by specifying and/or overriding options for the openssl
        configuration file. See <span class="function"><a href="function.openssl-csr-new.html" class="function">openssl_csr_new()</a></span> for more
-       information about <code class="parameter">configargs</code>.
+       information about <code class="parameter">options</code>.
       </p>
      </dd>
 
@@ -125,5 +119,34 @@
   </p>
  </div>
 
+
+ <div class="refsect1 changelog" id="refsect1-function.openssl-pkey-export-to-file-changelog">
+  <h3 class="title">Changelog</h3>
+  <table class="doctable informaltable">
+   
+    <thead>
+     <tr>
+      <th>Version</th>
+      <th>Description</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+      <td>8.0.0</td>
+      <td>
+       <code class="parameter">key</code> accepts an <span class="classname"><a href="class.opensslasymmetrickey.html" class="classname">OpenSSLAsymmetricKey</a></span>
+       or <span class="classname"><a href="class.opensslcertificate.html" class="classname">OpenSSLCertificate</a></span> instance now;
+       previously, a <a href="language.types.resource.html" class="link">resource</a> of type <code class="literal">OpenSSL key</code> or <code class="literal">OpenSSL X.509</code>
+       was accepted.
+      </td>
+     </tr>
+
+    </tbody>
+   
+  </table>
+
+ </div>
 
 </div></div></div></body></html>

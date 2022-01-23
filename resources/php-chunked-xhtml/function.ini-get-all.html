@@ -26,17 +26,14 @@
   <div id="layout-content"><div id="function.ini-get-all" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">ini_get_all</h1>
-  <p class="verinfo">(PHP 4 &gt;= 4.2.0, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">ini_get_all</span> &mdash; <span class="dc-title">Gets all configuration options</span></p>
+  <p class="verinfo">(PHP 4 &gt;= 4.2.0, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">ini_get_all</span> &mdash; <span class="dc-title">Gets all configuration options</span></p>
 
  </div>
  
  <div class="refsect1 description" id="refsect1-function.ini-get-all-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>ini_get_all</strong></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$extension</code> = ?</span>
-   , <span class="methodparam"><span class="type">bool</span> <code class="parameter">$details</code><span class="initializer"> = <strong><code>true</code></strong></span></span>
-   ) : <span class="type">array</span></div>
+   <span class="methodname"><strong>ini_get_all</strong></span>(<span class="methodparam"><span class="type">?</span><span class="type"><span class="type">string</span><span class="type"></span></span> <code class="parameter">$extension</code><span class="initializer"> = <strong><code>null</code></strong></span></span>, <span class="methodparam"><span class="type">bool</span> <code class="parameter">$details</code><span class="initializer"> = <strong><code>true</code></strong></span></span>): <span class="type"><span class="type">array</span>|<span class="type"><span class="type false">false</span></span></span></div>
 
   <p class="para rdfs-comment">
    Returns all the registered configuration options. 
@@ -48,7 +45,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">extension</code></dt>
@@ -56,7 +52,7 @@
      <dd>
 
       <p class="para">
-       An optional extension name. If set, the function return only options
+       An optional extension name. If not <strong><code>null</code></strong> or the <span class="type">string</span> <code class="literal">core</code>, the function returns only options
        specific for that extension.
       </p>
      </dd>
@@ -111,22 +107,11 @@
   </p></blockquote>
  </div>
 
- 
- <div class="refsect1 notes" id="refsect1-function.ini-get-all-notes">
-  <h3 class="title">Notes</h3>
-  <blockquote class="note"><p><strong class="note">Note</strong>: 
-   <p class="para">
-    <span class="function"><strong>ini_get_all()</strong></span> ignores &quot;array&quot; ini options such as
-    pdo.dsn.*.
-   </p>
-  </p></blockquote>
- </div>
-
 
  <div class="refsect1 examples" id="refsect1-function.ini-get-all-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-545">
+   <div class="example" id="example-560">
     <p><strong>Example #1 <span class="function"><strong>ini_get_all()</strong></span> examples</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -178,7 +163,7 @@ Array
 </pre></div>
     </div>
    </div>
-   <div class="example" id="example-546">
+   <div class="example" id="example-561">
     <p><strong>Example #2 Disabling <code class="parameter">details</code></strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -206,6 +191,17 @@ Array
     </div>
    </div>
   </p>
+ </div>
+
+
+ <div class="refsect1 notes" id="refsect1-function.ini-get-all-notes">
+  <h3 class="title">Notes</h3>
+  <blockquote class="note"><p><strong class="note">Note</strong>: 
+   <p class="para">
+    <span class="function"><strong>ini_get_all()</strong></span> ignores &quot;array&quot; ini options such as
+    pdo.dsn.*.
+   </p>
+  </p></blockquote>
  </div>
 
 

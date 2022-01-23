@@ -2,7 +2,7 @@
 <html>
  <head>
   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-  <title>Returns a string description of the last connect error</title>
+  <title>Returns a description of the last connection error</title>
 <link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-base.css" />
 <link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-medium.css" />
 
@@ -19,7 +19,7 @@
   <ul class="breadcrumbs-container">
     <li><a href="index.html">PHP Manual</a></li>
     <li><a href="class.mysqli.html">mysqli</a></li>
-    <li>Returns a string description of the last connect error</li>
+    <li>Returns a description of the last connection error</li>
   </ul>
 </div>
 <div id="layout">
@@ -27,25 +27,28 @@
  <div class="refnamediv">
   <h1 class="refname">mysqli::$connect_error</h1>
   <h1 class="refname">mysqli_connect_error</h1>
-  <p class="verinfo">(PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">mysqli::$connect_error</span> -- <span class="refname">mysqli_connect_error</span> &mdash; <span class="dc-title">Returns a string description of the last connect error</span></p>
+  <p class="verinfo">(PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">mysqli::$connect_error</span> -- <span class="refname">mysqli_connect_error</span> &mdash; <span class="dc-title">Returns a description of the last connection error</span></p>
 
  </div>
 
  <div class="refsect1 description" id="refsect1-mysqli.connect-error-description">
   <h3 class="title">Description</h3>
-  <p class="para">Object oriented style</p>
-  <div class="fieldsynopsis"><span class="type">string</span> <var class="varname"><a href="mysqli.connect-error.html">$mysqli-&gt;connect_error</a></var>;</div>
+  <p class="para">Object-oriented style</p>
+  <div class="fieldsynopsis"><span class="type">?</span><span class="type"><span class="type">string</span><span class="type"></span></span> <var class="varname"><a href="mysqli.connect-error.html">$mysqli-&gt;connect_error</a></var>;</div>
 
   <p class="para">Procedural style</p>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>mysqli_connect_error</strong></span>
-    (
-   ) : <span class="type">string</span></div>
+   <span class="methodname"><strong>mysqli_connect_error</strong></span>(): <span class="type"><span class="type">?</span><span class="type">string</span></span></div>
 
   <p class="para rdfs-comment">
-   Returns the last error message string from the last call to 
-   <span class="function"><a href="function.mysqli-connect.html" class="function">mysqli_connect()</a></span>.
+   Returns the error message from the last connection attempt.
   </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-mysqli.connect-error-parameters">
+  <h3 class="title">Parameters</h3>
+  <p class="para">This function has no parameters.</p>
  </div>
 
  
@@ -59,12 +62,12 @@
 
  <div class="refsect1 examples" id="refsect1-mysqli.connect-error-examples">
   <h3 class="title">Examples</h3>
-  <div class="example" id="example-1667">
+  <div class="example" id="example-1424">
    <p><strong>Example #1 <var class="varname">$mysqli->connect_error</var> example</strong></p>
-   <div class="example-contents"><p>Object oriented style</p></div>
+   <div class="example-contents"><p>Object-oriented style</p></div>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$mysqli&nbsp;</span><span style="color: #007700">=&nbsp;@new&nbsp;</span><span style="color: #0000BB">mysqli</span><span style="color: #007700">(</span><span style="color: #DD0000">'localhost'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'fake_user'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'my_password'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'my_db'</span><span style="color: #007700">);<br /><br />if&nbsp;(</span><span style="color: #0000BB">$mysqli</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">connect_error</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;die(</span><span style="color: #DD0000">'Connect&nbsp;Error:&nbsp;'&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">$mysqli</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">connect_error</span><span style="color: #007700">);<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">/*&nbsp;@&nbsp;is&nbsp;used&nbsp;to&nbsp;suppress&nbsp;default&nbsp;error&nbsp;messages&nbsp;*/<br /></span><span style="color: #0000BB">$mysqli&nbsp;</span><span style="color: #007700">=&nbsp;@new&nbsp;</span><span style="color: #0000BB">mysqli</span><span style="color: #007700">(</span><span style="color: #DD0000">'localhost'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'fake_user'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'my_password'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'my_db'</span><span style="color: #007700">);<br /><br />if&nbsp;(</span><span style="color: #0000BB">$mysqli</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">connect_error</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">/*&nbsp;Use&nbsp;your&nbsp;preferred&nbsp;error&nbsp;logging&nbsp;method&nbsp;here&nbsp;*/<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">error_log</span><span style="color: #007700">(</span><span style="color: #DD0000">'Connection&nbsp;error:&nbsp;'&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">$mysqli</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">connect_error</span><span style="color: #007700">);<br />}</span>
 </span>
 </code></div>
    </div>
@@ -72,7 +75,7 @@
    <div class="example-contents"><p>Procedural style</p></div>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$link&nbsp;</span><span style="color: #007700">=&nbsp;@</span><span style="color: #0000BB">mysqli_connect</span><span style="color: #007700">(</span><span style="color: #DD0000">'localhost'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'fake_user'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'my_password'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'my_db'</span><span style="color: #007700">);<br /><br />if&nbsp;(!</span><span style="color: #0000BB">$link</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;die(</span><span style="color: #DD0000">'Connect&nbsp;Error:&nbsp;'&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">mysqli_connect_error</span><span style="color: #007700">());<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">/*&nbsp;@&nbsp;is&nbsp;used&nbsp;to&nbsp;suppress&nbsp;default&nbsp;error&nbsp;messages&nbsp;*/<br /></span><span style="color: #0000BB">$link&nbsp;</span><span style="color: #007700">=&nbsp;@</span><span style="color: #0000BB">mysqli_connect</span><span style="color: #007700">(</span><span style="color: #DD0000">'localhost'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'fake_user'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'my_password'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'my_db'</span><span style="color: #007700">);<br /><br />if&nbsp;(!</span><span style="color: #0000BB">$link</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">/*&nbsp;Use&nbsp;your&nbsp;preferred&nbsp;error&nbsp;logging&nbsp;method&nbsp;here&nbsp;*/<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">error_log</span><span style="color: #007700">(</span><span style="color: #DD0000">'Connection&nbsp;error:&nbsp;'&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">mysqli_connect_error</span><span style="color: #007700">());<br />}</span>
 </span>
 </code></div>
    </div>
@@ -80,7 +83,7 @@
    <div class="example-contents"><p>The above examples will output:</p></div>
    <div class="example-contents screen">
 <div class="cdata"><pre>
-Connect Error: Access denied for user &#039;fake_user&#039;@&#039;localhost&#039; (using password: YES)
+Connection error: Access denied for user &#039;fake_user&#039;@&#039;localhost&#039; (using password: YES)
 </pre></div>
    </div>
   </div>

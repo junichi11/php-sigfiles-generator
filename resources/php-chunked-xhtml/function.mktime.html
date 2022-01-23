@@ -26,21 +26,14 @@
   <div id="layout-content"><div id="function.mktime" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">mktime</h1>
-  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">mktime</span> &mdash; <span class="dc-title">Get Unix timestamp for a date</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">mktime</span> &mdash; <span class="dc-title">Get Unix timestamp for a date</span></p>
 
  </div>
 
  <div class="refsect1 description" id="refsect1-function.mktime-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>mktime</strong></span>
-    ( <span class="methodparam"><span class="type">int</span> <code class="parameter">$hour</code></span>
-   , <span class="methodparam"><span class="type"><span class="type">int</span>|<span class="type">null</span></span> <code class="parameter">$minute</code><span class="initializer"> = <strong><code>null</code></strong></span></span>
-   , <span class="methodparam"><span class="type"><span class="type">int</span>|<span class="type">null</span></span> <code class="parameter">$second</code><span class="initializer"> = <strong><code>null</code></strong></span></span>
-   , <span class="methodparam"><span class="type"><span class="type">int</span>|<span class="type">null</span></span> <code class="parameter">$month</code><span class="initializer"> = <strong><code>null</code></strong></span></span>
-   , <span class="methodparam"><span class="type"><span class="type">int</span>|<span class="type">null</span></span> <code class="parameter">$day</code><span class="initializer"> = <strong><code>null</code></strong></span></span>
-   , <span class="methodparam"><span class="type"><span class="type">int</span>|<span class="type">null</span></span> <code class="parameter">$year</code><span class="initializer"> = <strong><code>null</code></strong></span></span>
-   ) : <span class="type"><span class="type">int</span>|<span class="type"><span class="type false">false</span></span></span></div>
+   <span class="methodname"><strong>mktime</strong></span>(<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">int</span> <code class="parameter">$hour</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">?</span><span class="type"><span class="type">int</span><span class="type"></span></span> <code class="parameter">$minute</code><span class="initializer"> = <strong><code>null</code></strong></span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">?</span><span class="type"><span class="type">int</span><span class="type"></span></span> <code class="parameter">$second</code><span class="initializer"> = <strong><code>null</code></strong></span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">?</span><span class="type"><span class="type">int</span><span class="type"></span></span> <code class="parameter">$month</code><span class="initializer"> = <strong><code>null</code></strong></span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">?</span><span class="type"><span class="type">int</span><span class="type"></span></span> <code class="parameter">$day</code><span class="initializer"> = <strong><code>null</code></strong></span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">?</span><span class="type"><span class="type">int</span><span class="type"></span></span> <code class="parameter">$year</code><span class="initializer"> = <strong><code>null</code></strong></span></span><br>): <span class="type"><span class="type">int</span>|<span class="type"><span class="type false">false</span></span></span></div>
 
   <p class="para rdfs-comment">
    Returns the Unix timestamp corresponding to the arguments
@@ -64,7 +57,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">hour</code></dt>
@@ -149,41 +141,8 @@
        with values between 0-69 mapping to 2000-2069 and 70-100 to
        1970-2000. On systems where time_t is a 32bit signed integer, as
        most common today, the valid range for <code class="parameter">year</code> 
-       is somewhere between 1901 and 2038. However, before PHP 5.1.0 this
-       range was limited from 1970 to 2038 on some systems (e.g. Windows).
+       is somewhere between 1901 and 2038.
       </p>
-     </dd>
-
-    
-    
-     <dt>
-<code class="parameter">isDST</code></dt>
-
-     <dd>
-
-      <p class="para">
-       This parameter can be set to 1 if the time is during daylight savings time (DST), 
-       0 if it is not, or -1 (the default) if it is unknown whether the time is within 
-       daylight savings time or not. If it&#039;s unknown, PHP tries to figure it out itself.
-       This can cause unexpected (but not incorrect) results.
-       Some times are invalid if DST is enabled on the system PHP is running on or 
-       <code class="parameter">isDST</code> is set to 1. If DST is enabled in e.g. 2:00, all times 
-       between 2:00 and 3:00 are invalid and <span class="function"><strong>mktime()</strong></span> returns an undefined 
-       (usually negative) value. 
-       Some systems (e.g. Solaris 8) enable DST at midnight so time 0:30 of the day when DST 
-       is enabled is evaluated as 23:30 of the previous day.
-      </p>
-      <blockquote class="note"><p><strong class="note">Note</strong>: 
-       <p class="para">
-        As of PHP 5.1.0, this parameter became deprecated. As a result, the
-        new timezone handling features should be used instead.
-       </p>
-      </p></blockquote>
-      <blockquote class="note"><p><strong class="note">Note</strong>: 
-       <p class="para">
-        This parameter has been removed in PHP 7.0.0.
-       </p>
-      </p></blockquote>
      </dd>
 
     
@@ -207,11 +166,8 @@
  <div class="refsect1 errors" id="refsect1-function.mktime-errors">
   <h3 class="title">Errors/Exceptions</h3>
   <p class="para">
-Every call to a date/time function will generate a <strong><code>E_NOTICE</code></strong>
-if the time zone is not valid, and/or a <strong><code>E_STRICT</code></strong>
-or <strong><code>E_WARNING</code></strong> message
-if using the system settings or the <var class="varname">TZ</var> environment
-variable. See also <span class="function"><a href="function.date-default-timezone-set.html" class="function">date_default_timezone_set()</a></span></p>
+Every call to a date/time function will generate a <strong><code>E_WARNING</code></strong>
+if the time zone is not valid. See also <span class="function"><a href="function.date-default-timezone-set.html" class="function">date_default_timezone_set()</a></span></p>
  </div>
 
 
@@ -255,11 +211,11 @@ variable. See also <span class="function"><a href="function.date-default-timezon
  <div class="refsect1 examples" id="refsect1-function.mktime-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-2585">
+   <div class="example" id="example-2096">
     <p><strong>Example #1 <span class="function"><strong>mktime()</strong></span> basic example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;Set&nbsp;the&nbsp;default&nbsp;timezone&nbsp;to&nbsp;use.&nbsp;Available&nbsp;as&nbsp;of&nbsp;PHP&nbsp;5.1<br /></span><span style="color: #0000BB">date_default_timezone_set</span><span style="color: #007700">(</span><span style="color: #DD0000">'UTC'</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;Prints:&nbsp;July&nbsp;1,&nbsp;2000&nbsp;is&nbsp;on&nbsp;a&nbsp;Saturday<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #DD0000">"July&nbsp;1,&nbsp;2000&nbsp;is&nbsp;on&nbsp;a&nbsp;"&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">date</span><span style="color: #007700">(</span><span style="color: #DD0000">"l"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">mktime</span><span style="color: #007700">(</span><span style="color: #0000BB">0</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">7</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">2000</span><span style="color: #007700">));<br /><br /></span><span style="color: #FF8000">//&nbsp;Prints&nbsp;something&nbsp;like:&nbsp;2006-04-05T01:02:03+00:00<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #0000BB">date</span><span style="color: #007700">(</span><span style="color: #DD0000">'c'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">mktime</span><span style="color: #007700">(</span><span style="color: #0000BB">1</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">2</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">3</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">4</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">5</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">2006</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;Set&nbsp;the&nbsp;default&nbsp;timezone&nbsp;to&nbsp;use.<br /></span><span style="color: #0000BB">date_default_timezone_set</span><span style="color: #007700">(</span><span style="color: #DD0000">'UTC'</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;Prints:&nbsp;July&nbsp;1,&nbsp;2000&nbsp;is&nbsp;on&nbsp;a&nbsp;Saturday<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #DD0000">"July&nbsp;1,&nbsp;2000&nbsp;is&nbsp;on&nbsp;a&nbsp;"&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">date</span><span style="color: #007700">(</span><span style="color: #DD0000">"l"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">mktime</span><span style="color: #007700">(</span><span style="color: #0000BB">0</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">7</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">2000</span><span style="color: #007700">));<br /><br /></span><span style="color: #FF8000">//&nbsp;Prints&nbsp;something&nbsp;like:&nbsp;2006-04-05T01:02:03+00:00<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #0000BB">date</span><span style="color: #007700">(</span><span style="color: #DD0000">'c'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">mktime</span><span style="color: #007700">(</span><span style="color: #0000BB">1</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">2</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">3</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">4</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">5</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">2006</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
@@ -267,7 +223,7 @@ variable. See also <span class="function"><a href="function.date-default-timezon
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-2586">
+   <div class="example" id="example-2097">
     <p><strong>Example #2 <span class="function"><strong>mktime()</strong></span> example</strong></p>
     <div class="example-contents"><p>
      <span class="function"><strong>mktime()</strong></span> is useful for doing date arithmetic
@@ -285,7 +241,7 @@ variable. See also <span class="function"><a href="function.date-default-timezon
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-2587">
+   <div class="example" id="example-2098">
     <p><strong>Example #3 Last day of a month</strong></p>
     <div class="example-contents"><p>
      The last day of any given month can be expressed as the &quot;0&quot; day
@@ -301,18 +257,6 @@ variable. See also <span class="function"><a href="function.date-default-timezon
 
    </div>
   </p>
- </div>
-
-
- <div class="refsect1 notes" id="refsect1-function.mktime-notes">
-  <h3 class="title">Notes</h3>
-  <div class="caution"><strong class="caution">Caution</strong>
-   <p class="para">
-    Before PHP 5.1.0, negative timestamps were not supported under any known
-    version of Windows and some other systems as well. Therefore the range of
-    valid years was limited to 1970 through 2038.
-   </p>
-  </div>
  </div>
 
 

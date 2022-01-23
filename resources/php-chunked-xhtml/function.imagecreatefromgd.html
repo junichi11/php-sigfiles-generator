@@ -26,15 +26,13 @@
   <div id="layout-content"><div id="function.imagecreatefromgd" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">imagecreatefromgd</h1>
-  <p class="verinfo">(PHP 4 &gt;= 4.0.7, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">imagecreatefromgd</span> &mdash; <span class="dc-title">Create a new image from GD file or URL</span></p>
+  <p class="verinfo">(PHP 4 &gt;= 4.0.7, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">imagecreatefromgd</span> &mdash; <span class="dc-title">Create a new image from GD file or URL</span></p>
 
  </div>
  <div class="refsect1 description" id="refsect1-function.imagecreatefromgd-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>imagecreatefromgd</strong></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$filename</code></span>
-   ) : <span class="type">resource</span></div>
+   <span class="methodname"><strong>imagecreatefromgd</strong></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$filename</code></span>): <span class="type"><span class="type"><a href="class.gdimage.html" class="type GdImage">GdImage</a></span>|<span class="type"><span class="type false">false</span></span></span></div>
 
   <p class="para rdfs-comment">
    Create a new image from GD file or URL.
@@ -52,7 +50,6 @@ provide.</p></div>
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">filename</code></dt>
@@ -72,17 +69,46 @@ provide.</p></div>
 
  <div class="refsect1 returnvalues" id="refsect1-function.imagecreatefromgd-returnvalues">
   <h3 class="title">Return Values</h3>
-  <p class="para">Returns an image resource identifier on success, <strong><code>false</code></strong> on errors.</p>
+  <p class="para">Returns an image object on success, <strong><code>false</code></strong> on errors.</p>
  </div>
+
+
+ <div class="refsect1 changelog" id="refsect1-function.imagecreatefromgd-changelog">
+  <h3 class="title">Changelog</h3>
+  <table class="doctable informaltable">
+   
+    <thead>
+     <tr>
+      <th>Version</th>
+      <th>Description</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+      <td>8.0.0</td>
+      <td>
+       On success, this function returns a <span class="classname"><a href="class.gdimage.html" class="classname">GDImage</a></span> instance now;
+       previously, a <span class="type">resource</span> was returned.
+      </td>
+     </tr>
+
+    </tbody>
+   
+  </table>
+
+ </div>
+
 
  <div class="refsect1 examples" id="refsect1-function.imagecreatefromgd-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-3131">
+   <div class="example" id="example-2647">
     <p><strong>Example #1 <span class="function"><strong>imagecreatefromgd()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;Load&nbsp;the&nbsp;gd&nbsp;image<br /></span><span style="color: #0000BB">$im&nbsp;</span><span style="color: #007700">=&nbsp;@</span><span style="color: #0000BB">imagecreatefromgd</span><span style="color: #007700">(</span><span style="color: #DD0000">'./test.gd'</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;Test&nbsp;if&nbsp;the&nbsp;image&nbsp;was&nbsp;loaded<br /></span><span style="color: #007700">if(!</span><span style="color: #0000BB">is_resource</span><span style="color: #007700">(</span><span style="color: #0000BB">$im</span><span style="color: #007700">))<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;die(</span><span style="color: #DD0000">'Unable&nbsp;to&nbsp;load&nbsp;gd&nbsp;image!'</span><span style="color: #007700">);<br />}<br /><br /></span><span style="color: #FF8000">//&nbsp;Do&nbsp;image&nbsp;operations&nbsp;here<br /><br />//&nbsp;Save&nbsp;the&nbsp;image<br /></span><span style="color: #0000BB">imagegd</span><span style="color: #007700">(</span><span style="color: #0000BB">$im</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'./test_updated.gd'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">imagedestroy</span><span style="color: #007700">(</span><span style="color: #0000BB">$im</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;Load&nbsp;the&nbsp;gd&nbsp;image<br /></span><span style="color: #0000BB">$im&nbsp;</span><span style="color: #007700">=&nbsp;@</span><span style="color: #0000BB">imagecreatefromgd</span><span style="color: #007700">(</span><span style="color: #DD0000">'./test.gd'</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;Test&nbsp;if&nbsp;the&nbsp;image&nbsp;was&nbsp;loaded<br /></span><span style="color: #007700">if(!</span><span style="color: #0000BB">$im</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;die(</span><span style="color: #DD0000">'Unable&nbsp;to&nbsp;load&nbsp;gd&nbsp;image!'</span><span style="color: #007700">);<br />}<br /><br /></span><span style="color: #FF8000">//&nbsp;Do&nbsp;image&nbsp;operations&nbsp;here<br /><br />//&nbsp;Save&nbsp;the&nbsp;image<br /></span><span style="color: #0000BB">imagegd</span><span style="color: #007700">(</span><span style="color: #0000BB">$im</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'./test_updated.gd'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">imagedestroy</span><span style="color: #007700">(</span><span style="color: #0000BB">$im</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

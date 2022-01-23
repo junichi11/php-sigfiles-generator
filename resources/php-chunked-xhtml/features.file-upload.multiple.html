@@ -36,7 +36,7 @@
     HTML form as you do with multiple selects and checkboxes:
    </p>
    <p class="para">
-    <div class="example" id="example-425">
+    <div class="example" id="example-441">
      <p><strong>Example #1 Uploading multiple files</strong></p>
      <div class="example-contents">
 <div class="htmlcode"><pre class="htmlcode">&lt;form action=&quot;file-upload.php&quot; method=&quot;post&quot; enctype=&quot;multipart/form-data&quot;&gt;
@@ -56,10 +56,6 @@
     <var class="varname"><a href="reserved.variables.files.html" class="classname">$_FILES['userfile']['name']</a></var>, and
     <var class="varname"><a href="reserved.variables.files.html" class="classname">$_FILES['userfile']['size']</a></var> will be
     initialized.
-    When
-    <a href="ini.core.html#ini.register-globals" class="link">register_globals</a> is on, globals for uploaded
-    files are also initialized. Each of these will be a numerically
-    indexed array of the appropriate values for the submitted files.
    </p>
    <p class="simpara">
     For instance, assume that the filenames
@@ -81,11 +77,47 @@
    </p>
    <div class="warning"><strong class="warning">Warning</strong>
     <p class="simpara">
-     As of PHP 5.2.12, the
+     The
      <a href="ini.core.html#ini.max-file-uploads" class="link">max_file_uploads</a>
      configuration setting acts as a limit on the number of files that can be
      uploaded in one request. You will need to ensure that your form does not
      try to upload more files in one request than this limit.
     </p>
    </div>
+   <p class="para">
+    <div class="example" id="example-442">
+     <p><strong>Example #2 Uploading an entire directory</strong></p>
+     <div class="example-contents"><p>
+      In HTML file upload fields, it is possible to upload an entire directory with the <code class="literal">webkitdirectory</code> attribute.
+      This feature is supported in most modern browsers.
+     </p></div>
+     <div class="example-contents"><p>
+      With the <code class="literal">full_path</code> information, it is possible to store the relative paths,
+      or reconstruct the same directory in the server.
+     </p></div>
+     <div class="example-contents">
+<div class="htmlcode"><pre class="htmlcode">&lt;form action=&quot;file-upload.php&quot; method=&quot;post&quot; enctype=&quot;multipart/form-data&quot;&gt;
+  Send this directory:&lt;br /&gt;
+  &lt;input name=&quot;userfile[]&quot; type=&quot;file&quot; webkitdirectory multiple /&gt;
+  &lt;input type=&quot;submit&quot; value=&quot;Send files&quot; /&gt;
+&lt;/form&gt;</pre>
+</div>
+     </div>
+
+    </div>
+
+    <div class="warning"><strong class="warning">Warning</strong>
+     <p class="simpara">
+      The <code class="literal">webkitdirectory</code> attribute is non-standard and is not on a standards track.
+      Do not use it on production sites facing the Web: it will not work for every user.
+      There may also be large incompatibilities between implementations and the behavior may change in the future.
+     </p>
+     <p class="simpara">
+      PHP only parses the relative path information submitted by the browser/user-agent,
+      and passes that information to the <var class="varname"><a href="reserved.variables.files.html" class="classname">$_FILES</a></var> array.
+      There is no guarantee that the values in the <code class="literal">full_path</code> array contains a real directory structure,
+      and the PHP application must not trust this information.
+     </p>
+    </div>
+   </p>
   </div></div></div></body></html>

@@ -26,21 +26,18 @@
   <div id="layout-content"><div id="function.imagepalettecopy" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">imagepalettecopy</h1>
-  <p class="verinfo">(PHP 4 &gt;= 4.0.1, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">imagepalettecopy</span> &mdash; <span class="dc-title">Copy the palette from one image to another</span></p>
+  <p class="verinfo">(PHP 4 &gt;= 4.0.1, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">imagepalettecopy</span> &mdash; <span class="dc-title">Copy the palette from one image to another</span></p>
 
  </div>
  <div class="refsect1 description" id="refsect1-function.imagepalettecopy-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>imagepalettecopy</strong></span>
-    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$destination</code></span>
-   , <span class="methodparam"><span class="type">resource</span> <code class="parameter">$source</code></span>
-   ) : <span class="type"><span class="type void">void</span></span></div>
+   <span class="methodname"><strong>imagepalettecopy</strong></span>(<span class="methodparam"><span class="type"><a href="class.gdimage.html" class="type GdImage">GdImage</a></span> <code class="parameter">$dst</code></span>, <span class="methodparam"><span class="type"><a href="class.gdimage.html" class="type GdImage">GdImage</a></span> <code class="parameter">$src</code></span>): <span class="type"><span class="type void">void</span></span></div>
 
   <p class="para rdfs-comment">
    <span class="function"><strong>imagepalettecopy()</strong></span> copies the palette from the
-   <code class="parameter">source</code> image to the 
-   <code class="parameter">destination</code> image.
+   <code class="parameter">src</code> image to the 
+   <code class="parameter">dst</code> image.
   </p>
  </div>
 
@@ -48,27 +45,26 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
-<code class="parameter">destination</code></dt>
+<code class="parameter">dst</code></dt>
 
      <dd>
 
       <p class="para">
-       The destination image resource.
+       The destination image object.
       </p>
      </dd>
 
     
     
      <dt>
-<code class="parameter">source</code></dt>
+<code class="parameter">src</code></dt>
 
      <dd>
 
       <p class="para">
-       The source image resource.
+       The source image object.
       </p>
      </dd>
 
@@ -85,10 +81,40 @@
   </p>
  </div>
 
+
+ <div class="refsect1 changelog" id="refsect1-function.imagepalettecopy-changelog">
+  <h3 class="title">Changelog</h3>
+  <table class="doctable informaltable">
+   
+    <thead>
+     <tr>
+      <th>Version</th>
+      <th>Description</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+      <td>8.0.0</td>
+      <td>
+       <code class="parameter">dst</code> and <code class="parameter">src</code> expect
+       <span class="classname"><a href="class.gdimage.html" class="classname">GdImage</a></span> instances now; previously, <span class="type">resource</span>s
+       were expected.
+      </td>
+     </tr>
+
+    </tbody>
+   
+  </table>
+
+ </div>
+
+
  <div class="refsect1 examples" id="refsect1-function.imagepalettecopy-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-3186">
+   <div class="example" id="example-2702">
     <p><strong>Example #1 <span class="function"><strong>imagepalettecopy()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

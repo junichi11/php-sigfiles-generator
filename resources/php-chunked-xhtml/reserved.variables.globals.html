@@ -43,7 +43,7 @@
  <div class="refsect1 examples" id="refsect1-reserved.variables.globals-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-335">
+   <div class="example" id="variable.globals.basic">
     <p><strong>Example #1 <var class="varname">$GLOBALS</var> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -62,6 +62,21 @@ $foo in current scope: local variable
     </div>
    </div>
   </p>
+  <div class="warning"><strong class="warning">Warning</strong>
+   <p class="para">
+    As of PHP 8.1.0, write access to the entire <var class="varname">$GLOBALS</var> array is no longer supported:
+    <div class="example" id="variable.globals.entire_write_error">
+     <p><strong>Example #2 writing entire <var class="varname">$GLOBALS</var> will result in error.</strong></p>
+     <div class="example-contents">
+ <div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />&nbsp;</span><span style="color: #FF8000">//&nbsp;Generates&nbsp;compile-time&nbsp;error:<br />&nbsp;</span><span style="color: #0000BB">$GLOBALS&nbsp;</span><span style="color: #007700">=&nbsp;[];<br />&nbsp;</span><span style="color: #0000BB">$GLOBALS&nbsp;</span><span style="color: #007700">+=&nbsp;[];<br />&nbsp;</span><span style="color: #0000BB">$GLOBALS&nbsp;</span><span style="color: #007700">=&amp;&nbsp;</span><span style="color: #0000BB">$x</span><span style="color: #007700">;<br />&nbsp;</span><span style="color: #0000BB">$x&nbsp;</span><span style="color: #007700">=&amp;&nbsp;</span><span style="color: #0000BB">$GLOBALS</span><span style="color: #007700">;<br />&nbsp;unset(</span><span style="color: #0000BB">$GLOBALS</span><span style="color: #007700">);<br />&nbsp;</span><span style="color: #0000BB">array_pop</span><span style="color: #007700">(</span><span style="color: #0000BB">$GLOBALS</span><span style="color: #007700">);<br />&nbsp;</span><span style="color: #FF8000">//&nbsp;...and&nbsp;any&nbsp;other&nbsp;write/read-write&nbsp;operation&nbsp;on&nbsp;$GLOBALS<br />&nbsp;</span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+     </div>
+
+    </div>
+   </p>
+  </div>
  </div>
 
  
@@ -77,6 +92,20 @@ all scopes throughout a script. There is no need to do
    <p class="para">
     Unlike all of the other <a href="language.variables.superglobals.html" class="link">superglobals</a>,
     <var class="varname">$GLOBALS</var> has essentially always been available in PHP.
+   </p>
+  </p></blockquote>
+  <blockquote class="note"><p><strong class="note">Note</strong>: 
+   <p class="para">
+     As of PHP 8.1.0, <var class="varname">$GLOBALS</var> is now a read-only copy of the global symbol table. That is, global variables cannot be modified via its copy. Previously, <var class="varname">$GLOBALS</var> array is excluded from the usual by-value behavior of PHP arrays and global variables can be modified via its copy.
+     <div class="informalexample">
+     <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;Before&nbsp;PHP&nbsp;8.1.0<br /></span><span style="color: #0000BB">$a&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$globals&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$GLOBALS</span><span style="color: #007700">;&nbsp;</span><span style="color: #FF8000">//&nbsp;Ostensibly&nbsp;by-value&nbsp;copy<br /></span><span style="color: #0000BB">$globals</span><span style="color: #007700">[</span><span style="color: #DD0000">'a'</span><span style="color: #007700">]&nbsp;=&nbsp;</span><span style="color: #0000BB">2</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$a</span><span style="color: #007700">);&nbsp;</span><span style="color: #FF8000">//&nbsp;int(2)<br /><br />//&nbsp;As&nbsp;of&nbsp;PHP&nbsp;8.1.0<br />//&nbsp;this&nbsp;no&nbsp;longer&nbsp;modifies&nbsp;$a.&nbsp;The&nbsp;previous&nbsp;behavior&nbsp;violated&nbsp;by-value&nbsp;semantics.<br /></span><span style="color: #0000BB">$globals&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$GLOBALS</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$globals</span><span style="color: #007700">[</span><span style="color: #DD0000">'a'</span><span style="color: #007700">]&nbsp;=&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">;<br /><br /></span><span style="color: #FF8000">//&nbsp;To&nbsp;restore&nbsp;the&nbsp;previous&nbsp;behavior,&nbsp;iterate&nbsp;its&nbsp;copy&nbsp;and&nbsp;assign&nbsp;each&nbsp;property&nbsp;back&nbsp;to&nbsp;$GLOBALS.<br /></span><span style="color: #007700">foreach&nbsp;(</span><span style="color: #0000BB">$globals&nbsp;</span><span style="color: #007700">as&nbsp;</span><span style="color: #0000BB">$key&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">$value</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$GLOBALS</span><span style="color: #007700">[</span><span style="color: #0000BB">$key</span><span style="color: #007700">]&nbsp;=&nbsp;</span><span style="color: #0000BB">$value</span><span style="color: #007700">;<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+     </div>
+
+    </div>
    </p>
   </p></blockquote>
  </div>

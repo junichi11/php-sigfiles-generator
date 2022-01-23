@@ -33,17 +33,11 @@
  <div class="refsect1 description" id="refsect1-gmagick.readimagefile-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><strong>Gmagick::readimagefile</strong></span>
-    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$fp</code></span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$filename</code> = ?</span>
-   ) : <span class="type"><a href="class.gmagick.html" class="type Gmagick">Gmagick</a></span></div>
+   <span class="modifier">public</span> <span class="methodname"><strong>Gmagick::readimagefile</strong></span>(<span class="methodparam"><span class="type">resource</span> <code class="parameter">$fp</code></span>, <span class="methodparam"><span class="type">string</span> <code class="parameter">$filename</code><span class="initializer"> = ?</span></span>): <span class="type"><a href="class.gmagick.html" class="type Gmagick">Gmagick</a></span></div>
 
   <p class="para rdfs-comment">
    Reads an image or image sequence from an open file descriptor.
   </p>
-
-   
-
  </div>
 
 
@@ -51,7 +45,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">fp</code></dt>
@@ -73,7 +66,7 @@
  <div class="refsect1 returnvalues" id="refsect1-gmagick.readimagefile-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   The Gmagick object on success
+   The <span class="classname"><a href="class.gmagick.html" class="classname">Gmagick</a></span> object.
   </p>
  </div>
 
@@ -82,7 +75,7 @@
   <h3 class="title">Errors/Exceptions</h3>
   <p class="para">
    Throws an
-<strong class="classname">GmagickException</strong> on error.
+<span class="classname"><strong class="classname">GmagickException</strong></span> on error.
   </p>
  </div>
 

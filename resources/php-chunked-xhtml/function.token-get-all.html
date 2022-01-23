@@ -26,16 +26,13 @@
   <div id="layout-content"><div id="function.token-get-all" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">token_get_all</h1>
-  <p class="verinfo">(PHP 4 &gt;= 4.2.0, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">token_get_all</span> &mdash; <span class="dc-title">Split given source into PHP tokens</span></p>
+  <p class="verinfo">(PHP 4 &gt;= 4.2.0, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">token_get_all</span> &mdash; <span class="dc-title">Split given source into PHP tokens</span></p>
 
  </div>
  <div class="refsect1 description" id="refsect1-function.token-get-all-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>token_get_all</strong></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$code</code></span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code><span class="initializer"> = 0</span></span>
-   ) : <span class="type">array</span></div>
+   <span class="methodname"><strong>token_get_all</strong></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$code</code></span>, <span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code><span class="initializer"> = 0</span></span>): <span class="type">array</span></div>
 
   <p class="para rdfs-comment">
    <span class="function"><strong>token_get_all()</strong></span> parses the given <code class="parameter">code</code> 
@@ -52,7 +49,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">code</code></dt>
@@ -104,7 +100,7 @@
  <div class="refsect1 examples" id="refsect1-function.token-get-all-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-4348">
+   <div class="example" id="example-3844">
     <p><strong>Example #1 <span class="function"><strong>token_get_all()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -126,7 +122,7 @@ Line 1: T_CLOSE_TAG (&#039;?&gt;&#039;)
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-4349">
+   <div class="example" id="example-3845">
     <p><strong>Example #2 <span class="function"><strong>token_get_all()</strong></span> incorrect usage example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -150,7 +146,7 @@ Line 1: T_INLINE_HTML (&#039;/* comment */&#039;)
    PHP tags in a normal file.
   </p>
   <p class="para">
-   <div class="example" id="example-4350">
+   <div class="example" id="example-3846">
     <p><strong>Example #3 
      <span class="function"><strong>token_get_all()</strong></span> on a class using a reserved word example
     </strong></p>

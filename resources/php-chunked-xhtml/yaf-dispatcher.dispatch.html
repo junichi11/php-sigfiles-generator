@@ -33,13 +33,11 @@
  <div class="refsect1 description" id="refsect1-yaf-dispatcher.dispatch-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><strong>Yaf_Dispatcher::dispatch</strong></span>
-    ( <span class="methodparam"><span class="type"><a href="class.yaf-request-abstract.html" class="type Yaf_Request_Abstract">Yaf_Request_Abstract</a></span> <code class="parameter">$request</code></span>
-   ) : <span class="type"><a href="class.yaf-response-abstract.html" class="type Yaf_Response_Abstract">Yaf_Response_Abstract</a></span></div>
+   <span class="modifier">public</span> <span class="methodname"><strong>Yaf_Dispatcher::dispatch</strong></span>(<span class="methodparam"><span class="type"><a href="class.yaf-request-abstract.html" class="type Yaf_Request_Abstract">Yaf_Request_Abstract</a></span> <code class="parameter">$request</code></span>): <span class="type"><a href="class.yaf-response-abstract.html" class="type Yaf_Response_Abstract">Yaf_Response_Abstract</a></span></div>
 
   <p class="para rdfs-comment">
    This method does the heavy work of the
-   <a href="class.yaf-dispatcher.html" class="classname">Yaf_Dispatcher</a>. It take a request object.
+   <span class="classname"><a href="class.yaf-dispatcher.html" class="classname">Yaf_Dispatcher</a></span>. It take a request object.
   </p>
   <p class="para">
    The dispatch process has three distinct events:
@@ -49,11 +47,11 @@
    <li class="member">Response</li>
   </ul>
    Routing takes place exactly once, using the values in the request object
-   when dispatch() is called. Dispatching takes place in a loop; a request may
+   when <span class="function"><strong>Yaf_Dispatcher::dispatch()</strong></span> is called. Dispatching takes place in a loop; a request may
    either indicate multiple actions to dispatch, or the controller or a plugin
    may reset the request object to force additional actions to dispatch(see
-   <a href="class.yaf-plugin-abstract.html" class="classname">Yaf_Plugin_Abstract</a>. When all is done, the 
-   <a href="class.yaf-dispatcher.html" class="classname">Yaf_Dispatcher</a> returns a response.
+   <span class="classname"><a href="class.yaf-plugin-abstract.html" class="classname">Yaf_Plugin_Abstract</a></span>. When all is done, the 
+   <span class="classname"><a href="class.yaf-dispatcher.html" class="classname">Yaf_Dispatcher</a></span> returns a response.
   </p>
 
 
@@ -64,7 +62,6 @@
  <div class="refsect1 parameters" id="refsect1-yaf-dispatcher.dispatch-parameters">
   <h3 class="title">Parameters</h3>
   <dl>
-
    
     <dt>
 <code class="parameter">request</code></dt>

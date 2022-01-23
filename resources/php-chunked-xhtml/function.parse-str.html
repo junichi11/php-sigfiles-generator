@@ -26,17 +26,14 @@
   <div id="layout-content"><div id="function.parse-str" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">parse_str</h1>
-  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">parse_str</span> &mdash; <span class="dc-title">Parses the string into variables</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">parse_str</span> &mdash; <span class="dc-title">Parses the string into variables</span></p>
 
  </div>
  
  <div class="refsect1 description" id="refsect1-function.parse-str-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>parse_str</strong></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$string</code></span>
-   , <span class="methodparam"><span class="type">array</span> <code class="parameter reference">&$result</code></span>
-   ) : <span class="type"><span class="type void">void</span></span></div>
+   <span class="methodname"><strong>parse_str</strong></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$string</code></span>, <span class="methodparam"><span class="type">array</span> <code class="parameter reference">&$result</code></span>): <span class="type"><span class="type void">void</span></span></div>
 
   <p class="para rdfs-comment">
    Parses <code class="parameter">string</code> as if it were the query string
@@ -50,7 +47,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">string</code></dt>
@@ -137,7 +133,7 @@
  <div class="refsect1 examples" id="refsect1-function.parse-str-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-5322">
+   <div class="example" id="example-4811">
     <p><strong>Example #1 Using <span class="function"><strong>parse_str()</strong></span></strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -153,7 +149,7 @@
    those are converted to underscores. Same applies to naming of
    respective key names in case of using this function with
    <code class="parameter">result</code> parameter.   
-   <div class="example" id="example-5323">
+   <div class="example" id="example-4812">
     <p><strong>Example #2 <span class="function"><strong>parse_str()</strong></span> name mangling</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -183,14 +179,6 @@
     Also, you may want to read the section on
     <a href="language.variables.external.html" class="link">variables from external
     sources</a>.
-   </p>
-  </p></blockquote>
-  <blockquote class="note"><p><strong class="note">Note</strong>: 
-   <p class="para">
-    The <a href="info.configuration.html#ini.magic-quotes-gpc" class="link">magic_quotes_gpc</a> setting
-    affects the output of this function, as <span class="function"><strong>parse_str()</strong></span> uses
-    the same mechanism that PHP uses to populate the <var class="varname"><a href="reserved.variables.get.html" class="classname">$_GET</a></var>,
-    <var class="varname"><a href="reserved.variables.post.html" class="classname">$_POST</a></var>, etc. variables.
    </p>
   </p></blockquote>
  </div>

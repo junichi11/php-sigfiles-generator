@@ -26,7 +26,7 @@
   <div id="layout-content"><div id="pdo.begintransaction" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">PDO::beginTransaction</h1>
-  <p class="verinfo">(PHP 5 &gt;= 5.1.0, PHP 7, PECL pdo &gt;= 0.1.0)</p><p class="refpurpose"><span class="refname">PDO::beginTransaction</span> &mdash; <span class="dc-title">
+  <p class="verinfo">(PHP 5 &gt;= 5.1.0, PHP 7, PHP 8, PECL pdo &gt;= 0.1.0)</p><p class="refpurpose"><span class="refname">PDO::beginTransaction</span> &mdash; <span class="dc-title">
    Initiates a transaction
   </span></p>
 
@@ -35,9 +35,7 @@
  <div class="refsect1 description" id="refsect1-pdo.begintransaction-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><strong>PDO::beginTransaction</strong></span>
-    (
-   ) : <span class="type">bool</span></div>
+   <span class="modifier">public</span> <span class="methodname"><strong>PDO::beginTransaction</strong></span>(): <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
    Turns off autocommit mode.  While autocommit mode is turned off, changes
@@ -57,6 +55,12 @@
  </div>
 
 
+ <div class="refsect1 parameters" id="refsect1-pdo.begintransaction-parameters">
+  <h3 class="title">Parameters</h3>
+  <p class="para">This function has no parameters.</p>
+ </div>
+
+
  <div class="refsect1 returnvalues" id="refsect1-pdo.begintransaction-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
@@ -68,7 +72,7 @@
  <div class="refsect1 errors" id="refsect1-pdo.begintransaction-errors">
   <h3 class="title">Errors/Exceptions</h3>
   <p class="para">
-   Throws a <a href="class.pdoexception.html" class="classname">PDOException</a> if there is already a transaction started or the driver does not support transactions.
+   Throws a <span class="classname"><a href="class.pdoexception.html" class="classname">PDOException</a></span> if there is already a transaction started or the driver does not support transactions.
   </p>
   <blockquote class="note"><p><strong class="note">Note</strong>: <span class="simpara">An exception is raised even when the <strong><code>PDO::ATTR_ERRMODE</code></strong> attribute is not <strong><code>PDO::ERRMODE_EXCEPTION</code></strong>.</span></p></blockquote>
  </div>
@@ -77,7 +81,7 @@
  <div class="refsect1 examples" id="refsect1-pdo.begintransaction-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-1004"><p><strong>Example #1 Roll back a transaction</strong></p>
+   <div class="example" id="example-1010"><p><strong>Example #1 Roll back a transaction</strong></p>
     <div class="example-contents"><p>
      The following example begins a transaction and issues two statements
      that modify the database before rolling back the changes. On MySQL,

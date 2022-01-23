@@ -233,16 +233,156 @@
    </p>
 
    <p class="simpara">
-    The closing identifier <em class="emphasis">must</em> begin in the first column
-    of the line. Also, the identifier must follow the same naming rules as any
+    The closing identifier may be indented by space or tab, in which case
+    the indentation will be stripped from all lines in the doc string.
+    Prior to PHP 7.3.0, the closing identifier <em class="emphasis">must</em>
+    begin in the first column of the line.
+   </p>
+
+   <p class="simpara">
+    Also, the closing identifier must follow the same naming rules as any
     other label in PHP: it must contain only alphanumeric characters and
     underscores, and must start with a non-digit character or underscore.
    </p>
 
+   <div class="example" id="example-36">
+    <p><strong>Example #1 Basic Heredoc example as of PHP 7.3.0</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;no&nbsp;indentation<br /></span><span style="color: #007700">echo&nbsp;&lt;&lt;&lt;END<br /></span><span style="color: #DD0000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;b<br />&nbsp;&nbsp;&nbsp;&nbsp;c<br />\n<br /></span><span style="color: #007700">END;<br /><br /></span><span style="color: #FF8000">//&nbsp;4&nbsp;spaces&nbsp;of&nbsp;indentation<br /></span><span style="color: #007700">echo&nbsp;&lt;&lt;&lt;END<br /></span><span style="color: #DD0000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;b<br />&nbsp;&nbsp;&nbsp;&nbsp;c<br /></span><span style="color: #007700">&nbsp;&nbsp;&nbsp;&nbsp;END;</span>
+</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>Output of the above example in PHP 7.3:</p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>
+      a
+     b
+    c
+
+  a
+ b
+c
+</pre></div>
+    </div>
+   </div>
+
+   <p class="simpara">
+    If the closing identifier is indented further than any lines of the body, then a <span class="classname"><a href="class.parseerror.html" class="classname">ParseError</a></span> will be thrown:
+   </p>
+
+   <div class="example" id="example-37">
+    <p><strong>Example #2 Closing identifier must not be indented further than any lines of the body</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">echo&nbsp;&lt;&lt;&lt;END<br /></span><span style="color: #DD0000">&nbsp;&nbsp;a<br />&nbsp;b<br />c<br /></span><span style="color: #007700">&nbsp;&nbsp;&nbsp;END;</span>
+</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>Output of the above example in PHP 7.3:</p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>
+PHP Parse error:  Invalid body indentation level (expecting an indentation level of at least 3) in example.php on line 4
+</pre></div>
+    </div>
+   </div>
+
+   <p class="simpara">
+    If the closing identifier is indented, tabs can be used as well, however,
+    tabs and spaces <em class="emphasis">must not</em> be intermixed regarding
+    the indentation of the closing identifier and the indentation of the body
+     (up to the closing identifier). In any of these cases, a <span class="classname"><a href="class.parseerror.html" class="classname">ParseError</a></span> will be thrown.
+
+    These whitespace constraints have been included because mixing tabs and
+    spaces for indentation is harmful to legibility.
+   </p>
+
+   <div class="example" id="example-38">
+    <p><strong>Example #3 Different indentation for body (spaces) closing identifier</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;All&nbsp;the&nbsp;following&nbsp;code&nbsp;do&nbsp;not&nbsp;work.<br /><br />//&nbsp;different&nbsp;indentation&nbsp;for&nbsp;body&nbsp;(spaces)&nbsp;ending&nbsp;marker&nbsp;(tabs)<br /></span><span style="color: #007700">{<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;&lt;&lt;&lt;END<br /></span><span style="color: #DD0000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a<br /></span><span style="color: #007700">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;END;<br />}<br /><br /></span><span style="color: #FF8000">//&nbsp;mixing&nbsp;spaces&nbsp;and&nbsp;tabs&nbsp;in&nbsp;body<br /></span><span style="color: #007700">{<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;&lt;&lt;&lt;END<br /></span><span style="color: #DD0000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a<br /></span><span style="color: #007700">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;END;<br />}<br /><br /></span><span style="color: #FF8000">//&nbsp;mixing&nbsp;spaces&nbsp;and&nbsp;tabs&nbsp;in&nbsp;ending&nbsp;marker<br /></span><span style="color: #007700">{<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;&lt;&lt;&lt;END<br /></span><span style="color: #DD0000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a<br /></span><span style="color: #007700">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;END;<br />}</span>
+</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>Output of the above example in PHP 7.3:</p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>
+PHP Parse error:  Invalid indentation - tabs and spaces cannot be mixed in example.php line 8
+</pre></div>
+    </div>
+   </div>
+
+   <p class="simpara">
+    The closing identifier for the body string is not required to be
+    followed by a semicolon or newline. For example, the following code
+    is allowed as of PHP 7.3.0:
+   </p>
+
+   <div class="example" id="example-39">
+    <p><strong>Example #4 Continuing an expression after a closing identifier</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$values&nbsp;</span><span style="color: #007700">=&nbsp;[&lt;&lt;&lt;END<br /></span><span style="color: #DD0000">a<br />&nbsp;&nbsp;b<br />&nbsp;&nbsp;&nbsp;&nbsp;c<br /></span><span style="color: #007700">END,&nbsp;</span><span style="color: #DD0000">'d&nbsp;e&nbsp;f'</span><span style="color: #007700">];<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$values</span><span style="color: #007700">);</span>
+</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>Output of the above example in PHP 7.3:</p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>
+array(2) {
+  [0] =&gt;
+  string(11) &quot;a
+  b
+    c&quot;
+  [1] =&gt;
+  string(5) &quot;d e f&quot;
+}
+</pre></div>
+    </div>
+   </div>
+
    <div class="warning"><strong class="warning">Warning</strong>
     <p class="simpara">
-     It is very important to note that the line with the closing identifier must
-     contain no other characters, except a semicolon (<code class="literal">;</code>).
+     If the closing identifier was found at the start of a line, then
+     regardless of whether it was a part of another word, it may be considered
+     as the closing identifier and causes a <span class="classname"><a href="class.parseerror.html" class="classname">ParseError</a></span>.
+    </p>
+
+    <div class="example" id="example-40">
+     <p><strong>Example #5 Closing identifier in body of the string tends to cause ParseError</strong></p>
+     <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$values&nbsp;</span><span style="color: #007700">=&nbsp;[&lt;&lt;&lt;END<br /></span><span style="color: #DD0000">a<br />b<br /></span><span style="color: #007700">END&nbsp;</span><span style="color: #0000BB">ING<br />END</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'d&nbsp;e&nbsp;f'</span><span style="color: #007700">];</span>
+</span>
+</code></div>
+     </div>
+
+     <div class="example-contents"><p>Output of the above example in PHP 7.3:</p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>
+PHP Parse error:  syntax error, unexpected identifier &quot;ING&quot;, expecting &quot;]&quot; in example.php on line 6
+</pre></div>
+     </div>
+    </div>
+
+    <p class="simpara">
+     To avoid this problem, it is safe for you to follow the simple rule:
+     <em class="emphasis">do not choose the closing identifier that appears in the body
+     of the text</em>.
+    </p>
+
+   </div>
+
+   <div class="warning"><strong class="warning">Warning</strong>
+    <p class="simpara">
+     Prior to PHP 7.3.0, it is very important to note that the line with the
+     closing identifier must contain no other characters, except a semicolon
+     (<code class="literal">;</code>).
      That means especially that the identifier
      <em class="emphasis">may not be indented</em>, and there may not be any spaces
      or tabs before or after the semicolon. It&#039;s also important to realize that
@@ -259,8 +399,8 @@
      current file, a parse error will result at the last line.
     </p>
 
-    <div class="example" id="example-45">
-     <p><strong>Example #1 Invalid example</strong></p>
+    <div class="example" id="example-41">
+     <p><strong>Example #6 Invalid example, prior to PHP 7.3.0</strong></p>
      <div class="example-contents">
       
 <div class="phpcode"><code><span style="color: #000000">
@@ -270,8 +410,8 @@
      </div>
 
     </div>
-    <div class="example" id="example-46">
-     <p><strong>Example #2 Valid example</strong></p>
+    <div class="example" id="example-42">
+     <p><strong>Example #7 Valid example, even if prior to PHP 7.3.0</strong></p>
      <div class="example-contents">
       
 <div class="phpcode"><code><span style="color: #000000">
@@ -296,8 +436,8 @@
     inside a heredoc as with <span class="type">string</span>s.
    </p>
 
-   <div class="example" id="example-47">
-    <p><strong>Example #3 Heredoc string quoting example</strong></p>
+   <div class="example" id="example-43">
+    <p><strong>Example #8 Heredoc string quoting example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
 <span style="color: #0000BB">&lt;?php<br />$str&nbsp;</span><span style="color: #007700">=&nbsp;&lt;&lt;&lt;EOD<br /></span><span style="color: #DD0000">Example&nbsp;of&nbsp;string<br />spanning&nbsp;multiple&nbsp;lines<br />using&nbsp;heredoc&nbsp;syntax.<br /></span><span style="color: #007700">EOD;<br /><br /></span><span style="color: #FF8000">/*&nbsp;More&nbsp;complex&nbsp;example,&nbsp;with&nbsp;variables.&nbsp;*/<br /></span><span style="color: #007700">class&nbsp;</span><span style="color: #0000BB">foo<br /></span><span style="color: #007700">{<br />&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;</span><span style="color: #0000BB">$foo</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;</span><span style="color: #0000BB">$bar</span><span style="color: #007700">;<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;function&nbsp;</span><span style="color: #0000BB">__construct</span><span style="color: #007700">()<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">foo&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'Foo'</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">bar&nbsp;</span><span style="color: #007700">=&nbsp;array(</span><span style="color: #DD0000">'Bar1'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'Bar2'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'Bar3'</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />}<br /><br /></span><span style="color: #0000BB">$foo&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">foo</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">$name&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'MyName'</span><span style="color: #007700">;<br /><br />echo&nbsp;&lt;&lt;&lt;EOT<br /></span><span style="color: #DD0000">My&nbsp;name&nbsp;is&nbsp;"</span><span style="color: #0000BB">$name</span><span style="color: #DD0000">".&nbsp;I&nbsp;am&nbsp;printing&nbsp;some&nbsp;</span><span style="color: #0000BB">$foo</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">foo</span><span style="color: #DD0000">.<br />Now,&nbsp;I&nbsp;am&nbsp;printing&nbsp;some&nbsp;</span><span style="color: #007700">{</span><span style="color: #0000BB">$foo</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">bar</span><span style="color: #007700">[</span><span style="color: #0000BB">1</span><span style="color: #007700">]}</span><span style="color: #DD0000">.<br />This&nbsp;should&nbsp;print&nbsp;a&nbsp;capital&nbsp;'A':&nbsp;\x41<br /></span><span style="color: #007700">EOT;<br /></span><span style="color: #0000BB">?&gt;</span>
@@ -319,8 +459,8 @@ This should print a capital &#039;A&#039;: A</pre></div>
     arguments:
    </p>
 
-   <div class="example" id="example-48">
-    <p><strong>Example #4 Heredoc in arguments example</strong></p>
+   <div class="example" id="example-44">
+    <p><strong>Example #9 Heredoc in arguments example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
 <span style="color: #0000BB">&lt;?php<br />var_dump</span><span style="color: #007700">(array(&lt;&lt;&lt;EOD<br /></span><span style="color: #DD0000">foobar!<br /></span><span style="color: #007700">EOD<br />));<br /></span><span style="color: #0000BB">?&gt;</span>
@@ -335,8 +475,8 @@ This should print a capital &#039;A&#039;: A</pre></div>
     properties/constants using the Heredoc syntax:
    </p>
 
-   <div class="example" id="example-49">
-    <p><strong>Example #5 Using Heredoc to initialize static values</strong></p>
+   <div class="example" id="example-45">
+    <p><strong>Example #10 Using Heredoc to initialize static values</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
 <span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;Static&nbsp;variables<br /></span><span style="color: #007700">function&nbsp;</span><span style="color: #0000BB">foo</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;static&nbsp;</span><span style="color: #0000BB">$bar&nbsp;</span><span style="color: #007700">=&nbsp;&lt;&lt;&lt;LABEL<br /></span><span style="color: #DD0000">Nothing&nbsp;in&nbsp;here...<br /></span><span style="color: #007700">LABEL;<br />}<br /><br /></span><span style="color: #FF8000">//&nbsp;Class&nbsp;properties/constants<br /></span><span style="color: #007700">class&nbsp;</span><span style="color: #0000BB">foo<br /></span><span style="color: #007700">{<br />&nbsp;&nbsp;&nbsp;&nbsp;const&nbsp;</span><span style="color: #0000BB">BAR&nbsp;</span><span style="color: #007700">=&nbsp;&lt;&lt;&lt;FOOBAR<br /></span><span style="color: #DD0000">Constant&nbsp;example<br /></span><span style="color: #007700">FOOBAR;<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;</span><span style="color: #0000BB">$baz&nbsp;</span><span style="color: #007700">=&nbsp;&lt;&lt;&lt;FOOBAR<br /></span><span style="color: #DD0000">Property&nbsp;example<br /></span><span style="color: #007700">FOOBAR;<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
@@ -351,8 +491,8 @@ This should print a capital &#039;A&#039;: A</pre></div>
     enclosed in double quotes:
    </p>
 
-   <div class="example" id="example-50">
-    <p><strong>Example #6 Using double quotes in Heredoc</strong></p>
+   <div class="example" id="example-46">
+    <p><strong>Example #11 Using double quotes in Heredoc</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
 <span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">echo&nbsp;&lt;&lt;&lt;"FOOBAR"<br /></span><span style="color: #DD0000">Hello&nbsp;World!<br /></span><span style="color: #007700">FOOBAR;<br /></span><span style="color: #0000BB">?&gt;</span>
@@ -385,8 +525,8 @@ This should print a capital &#039;A&#039;: A</pre></div>
     regarding the appearance of the closing identifier.
    </p>
 
-   <div class="example" id="example-51">
-    <p><strong>Example #7 Nowdoc string quoting example</strong></p>
+   <div class="example" id="example-47">
+    <p><strong>Example #12 Nowdoc string quoting example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
 <span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">echo&nbsp;&lt;&lt;&lt;'EOD'<br /></span><span style="color: #DD0000">Example&nbsp;of&nbsp;string&nbsp;spanning&nbsp;multiple&nbsp;lines<br />using&nbsp;nowdoc&nbsp;syntax.&nbsp;Backslashes&nbsp;are&nbsp;always&nbsp;treated&nbsp;literally,<br />e.g.&nbsp;\\&nbsp;and&nbsp;\'.<br /></span><span style="color: #007700">EOD;</span>
@@ -404,8 +544,8 @@ e.g. \\ and \&#039;.
     </div>
    </div>
 
-   <div class="example" id="example-52">
-    <p><strong>Example #8 Nowdoc string quoting example with variables</strong></p>
+   <div class="example" id="example-48">
+    <p><strong>Example #13 Nowdoc string quoting example with variables</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
 <span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">class&nbsp;</span><span style="color: #0000BB">foo<br /></span><span style="color: #007700">{<br />&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;</span><span style="color: #0000BB">$foo</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;</span><span style="color: #0000BB">$bar</span><span style="color: #007700">;<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;function&nbsp;</span><span style="color: #0000BB">__construct</span><span style="color: #007700">()<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">foo&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'Foo'</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">bar&nbsp;</span><span style="color: #007700">=&nbsp;array(</span><span style="color: #DD0000">'Bar1'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'Bar2'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'Bar3'</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />}<br /><br /></span><span style="color: #0000BB">$foo&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">foo</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">$name&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'MyName'</span><span style="color: #007700">;<br /><br />echo&nbsp;&lt;&lt;&lt;'EOT'<br /></span><span style="color: #DD0000">My&nbsp;name&nbsp;is&nbsp;"$name".&nbsp;I&nbsp;am&nbsp;printing&nbsp;some&nbsp;$foo-&gt;foo.<br />Now,&nbsp;I&nbsp;am&nbsp;printing&nbsp;some&nbsp;{$foo-&gt;bar[1]}.<br />This&nbsp;should&nbsp;not&nbsp;print&nbsp;a&nbsp;capital&nbsp;'A':&nbsp;\x41<br /></span><span style="color: #007700">EOT;<br /></span><span style="color: #0000BB">?&gt;</span>
@@ -422,8 +562,8 @@ This should not print a capital &#039;A&#039;: \x41</pre></div>
     </div>
    </div>
 
-   <div class="example" id="example-53">
-    <p><strong>Example #9 Static data example</strong></p>
+   <div class="example" id="example-49">
+    <p><strong>Example #14 Static data example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
 <span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">class&nbsp;</span><span style="color: #0000BB">foo&nbsp;</span><span style="color: #007700">{<br />&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;</span><span style="color: #0000BB">$bar&nbsp;</span><span style="color: #007700">=&nbsp;&lt;&lt;&lt;'EOT'<br /></span><span style="color: #DD0000">bar<br /></span><span style="color: #007700">EOT;<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
@@ -492,7 +632,7 @@ He drank some juice made of apples.
      object properties as to simple variables.
     </p>
 
-    <div class="example" id="example-54"><p><strong>Example #10 Simple syntax example</strong></p>
+    <div class="example" id="example-50"><p><strong>Example #15 Simple syntax example</strong></p>
      <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
 <span style="color: #0000BB">&lt;?php<br />$juices&nbsp;</span><span style="color: #007700">=&nbsp;array(</span><span style="color: #DD0000">"apple"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"orange"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"koolaid1"&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">"purple"</span><span style="color: #007700">);<br /><br />echo&nbsp;</span><span style="color: #DD0000">"He&nbsp;drank&nbsp;some&nbsp;</span><span style="color: #0000BB">$juices</span><span style="color: #007700">[</span><span style="color: #0000BB">0</span><span style="color: #007700">]</span><span style="color: #DD0000">&nbsp;juice."</span><span style="color: #007700">.</span><span style="color: #0000BB">PHP_EOL</span><span style="color: #007700">;<br />echo&nbsp;</span><span style="color: #DD0000">"He&nbsp;drank&nbsp;some&nbsp;</span><span style="color: #0000BB">$juices</span><span style="color: #007700">[</span><span style="color: #0000BB">1</span><span style="color: #007700">]</span><span style="color: #DD0000">&nbsp;juice."</span><span style="color: #007700">.</span><span style="color: #0000BB">PHP_EOL</span><span style="color: #007700">;<br />echo&nbsp;</span><span style="color: #DD0000">"He&nbsp;drank&nbsp;some&nbsp;</span><span style="color: #0000BB">$juices</span><span style="color: #007700">[</span><span style="color: #0000BB">koolaid1</span><span style="color: #007700">]</span><span style="color: #DD0000">&nbsp;juice."</span><span style="color: #007700">.</span><span style="color: #0000BB">PHP_EOL</span><span style="color: #007700">;<br /><br />class&nbsp;</span><span style="color: #0000BB">people&nbsp;</span><span style="color: #007700">{<br />&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;</span><span style="color: #0000BB">$john&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">"John&nbsp;Smith"</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;</span><span style="color: #0000BB">$jane&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">"Jane&nbsp;Smith"</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;</span><span style="color: #0000BB">$robert&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">"Robert&nbsp;Paulsen"</span><span style="color: #007700">;<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;</span><span style="color: #0000BB">$smith&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">"Smith"</span><span style="color: #007700">;<br />}<br /><br /></span><span style="color: #0000BB">$people&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">people</span><span style="color: #007700">();<br /><br />echo&nbsp;</span><span style="color: #DD0000">"</span><span style="color: #0000BB">$people</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">john</span><span style="color: #DD0000">&nbsp;drank&nbsp;some&nbsp;</span><span style="color: #0000BB">$juices</span><span style="color: #007700">[</span><span style="color: #0000BB">0</span><span style="color: #007700">]</span><span style="color: #DD0000">&nbsp;juice."</span><span style="color: #007700">.</span><span style="color: #0000BB">PHP_EOL</span><span style="color: #007700">;<br />echo&nbsp;</span><span style="color: #DD0000">"</span><span style="color: #0000BB">$people</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">john</span><span style="color: #DD0000">&nbsp;then&nbsp;said&nbsp;hello&nbsp;to&nbsp;</span><span style="color: #0000BB">$people</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">jane</span><span style="color: #DD0000">."</span><span style="color: #007700">.</span><span style="color: #0000BB">PHP_EOL</span><span style="color: #007700">;<br />echo&nbsp;</span><span style="color: #DD0000">"</span><span style="color: #0000BB">$people</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">john</span><span style="color: #DD0000">'s&nbsp;wife&nbsp;greeted&nbsp;</span><span style="color: #0000BB">$people</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">robert</span><span style="color: #DD0000">."</span><span style="color: #007700">.</span><span style="color: #0000BB">PHP_EOL</span><span style="color: #007700">;<br />echo&nbsp;</span><span style="color: #DD0000">"</span><span style="color: #0000BB">$people</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">robert</span><span style="color: #DD0000">&nbsp;greeted&nbsp;the&nbsp;two&nbsp;</span><span style="color: #0000BB">$people</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">smiths</span><span style="color: #DD0000">."</span><span style="color: #007700">;&nbsp;</span><span style="color: #FF8000">//&nbsp;Won't&nbsp;work<br /></span><span style="color: #0000BB">?&gt;</span>
@@ -519,7 +659,7 @@ Robert Paulsen greeted the two .
      supported.
     </p>
 
-    <div class="example" id="example-55"><p><strong>Example #11 Negative numeric indices</strong></p>
+    <div class="example" id="example-51"><p><strong>Example #16 Negative numeric indices</strong></p>
      <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
 <span style="color: #0000BB">&lt;?php<br />$string&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'string'</span><span style="color: #007700">;<br />echo&nbsp;</span><span style="color: #DD0000">"The&nbsp;character&nbsp;at&nbsp;index&nbsp;-2&nbsp;is&nbsp;</span><span style="color: #0000BB">$string</span><span style="color: #007700">[-</span><span style="color: #0000BB">2</span><span style="color: #007700">]</span><span style="color: #DD0000">."</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">PHP_EOL</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$string</span><span style="color: #007700">[-</span><span style="color: #0000BB">3</span><span style="color: #007700">]&nbsp;=&nbsp;</span><span style="color: #DD0000">'o'</span><span style="color: #007700">;<br />echo&nbsp;</span><span style="color: #DD0000">"Changing&nbsp;the&nbsp;character&nbsp;at&nbsp;index&nbsp;-3&nbsp;to&nbsp;o&nbsp;gives&nbsp;</span><span style="color: #0000BB">$string</span><span style="color: #DD0000">."</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">PHP_EOL</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">?&gt;</span>
@@ -552,8 +692,8 @@ Changing the character at index -3 to o gives strong.
     <p class="simpara">
      Any scalar variable, array element or object property with a
      <span class="type">string</span> representation can be included via this syntax.
-     Simply write the expression the same way as it would appear outside the
-     <span class="type">string</span>, and then wrap it in <code class="literal">{</code> and
+     The expression is written the same way as it would appear outside the
+     <span class="type">string</span>, and then wrapped in <code class="literal">{</code> and
      <code class="literal">}</code>. Since <code class="literal">{</code> can not be escaped, this
      syntax will only be recognised when the <code class="literal">$</code> immediately
      follows the <code class="literal">{</code>. Use <code class="literal">{\$</code> to get a
@@ -563,7 +703,7 @@ Changing the character at index -3 to o gives strong.
     <div class="informalexample">
      <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;Show&nbsp;all&nbsp;errors<br /></span><span style="color: #0000BB">error_reporting</span><span style="color: #007700">(</span><span style="color: #0000BB">E_ALL</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$great&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'fantastic'</span><span style="color: #007700">;<br /><br /></span><span style="color: #FF8000">//&nbsp;Won't&nbsp;work,&nbsp;outputs:&nbsp;This&nbsp;is&nbsp;{&nbsp;fantastic}<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #DD0000">"This&nbsp;is&nbsp;{&nbsp;</span><span style="color: #0000BB">$great</span><span style="color: #DD0000">}"</span><span style="color: #007700">;<br /><br /></span><span style="color: #FF8000">//&nbsp;Works,&nbsp;outputs:&nbsp;This&nbsp;is&nbsp;fantastic<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #DD0000">"This&nbsp;is&nbsp;</span><span style="color: #007700">{</span><span style="color: #0000BB">$great</span><span style="color: #007700">}</span><span style="color: #DD0000">"</span><span style="color: #007700">;<br /><br /></span><span style="color: #FF8000">//&nbsp;Works<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #DD0000">"This&nbsp;square&nbsp;is&nbsp;</span><span style="color: #007700">{</span><span style="color: #0000BB">$square</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">width</span><span style="color: #007700">}</span><span style="color: #DD0000">00&nbsp;centimeters&nbsp;broad."</span><span style="color: #007700">;<br /><br /><br /></span><span style="color: #FF8000">//&nbsp;Works,&nbsp;quoted&nbsp;keys&nbsp;only&nbsp;work&nbsp;using&nbsp;the&nbsp;curly&nbsp;brace&nbsp;syntax<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #DD0000">"This&nbsp;works:&nbsp;</span><span style="color: #007700">{</span><span style="color: #0000BB">$arr</span><span style="color: #007700">[</span><span style="color: #DD0000">'key'</span><span style="color: #007700">]}</span><span style="color: #DD0000">"</span><span style="color: #007700">;<br /><br /><br /></span><span style="color: #FF8000">//&nbsp;Works<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #DD0000">"This&nbsp;works:&nbsp;</span><span style="color: #007700">{</span><span style="color: #0000BB">$arr</span><span style="color: #007700">[</span><span style="color: #0000BB">4</span><span style="color: #007700">][</span><span style="color: #0000BB">3</span><span style="color: #007700">]}</span><span style="color: #DD0000">"</span><span style="color: #007700">;<br /><br /></span><span style="color: #FF8000">//&nbsp;This&nbsp;is&nbsp;wrong&nbsp;for&nbsp;the&nbsp;same&nbsp;reason&nbsp;as&nbsp;$foo[bar]&nbsp;is&nbsp;wrong&nbsp;&nbsp;outside&nbsp;a&nbsp;string.<br />//&nbsp;In&nbsp;other&nbsp;words,&nbsp;it&nbsp;will&nbsp;still&nbsp;work,&nbsp;but&nbsp;only&nbsp;because&nbsp;PHP&nbsp;first&nbsp;looks&nbsp;for&nbsp;a<br />//&nbsp;constant&nbsp;named&nbsp;foo;&nbsp;an&nbsp;error&nbsp;of&nbsp;level&nbsp;E_NOTICE&nbsp;(undefined&nbsp;constant)&nbsp;will&nbsp;be<br />//&nbsp;thrown.<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #DD0000">"This&nbsp;is&nbsp;wrong:&nbsp;</span><span style="color: #007700">{</span><span style="color: #0000BB">$arr</span><span style="color: #007700">[</span><span style="color: #0000BB">foo</span><span style="color: #007700">][</span><span style="color: #0000BB">3</span><span style="color: #007700">]}</span><span style="color: #DD0000">"</span><span style="color: #007700">;<br /><br /></span><span style="color: #FF8000">//&nbsp;Works.&nbsp;When&nbsp;using&nbsp;multi-dimensional&nbsp;arrays,&nbsp;always&nbsp;use&nbsp;braces&nbsp;around&nbsp;arrays<br />//&nbsp;when&nbsp;inside&nbsp;of&nbsp;strings<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #DD0000">"This&nbsp;works:&nbsp;</span><span style="color: #007700">{</span><span style="color: #0000BB">$arr</span><span style="color: #007700">[</span><span style="color: #DD0000">'foo'</span><span style="color: #007700">][</span><span style="color: #0000BB">3</span><span style="color: #007700">]}</span><span style="color: #DD0000">"</span><span style="color: #007700">;<br /><br /></span><span style="color: #FF8000">//&nbsp;Works.<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #DD0000">"This&nbsp;works:&nbsp;"&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">$arr</span><span style="color: #007700">[</span><span style="color: #DD0000">'foo'</span><span style="color: #007700">][</span><span style="color: #0000BB">3</span><span style="color: #007700">];<br /><br />echo&nbsp;</span><span style="color: #DD0000">"This&nbsp;works&nbsp;too:&nbsp;</span><span style="color: #007700">{</span><span style="color: #0000BB">$obj</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">values</span><span style="color: #007700">[</span><span style="color: #0000BB">3</span><span style="color: #007700">]-&gt;</span><span style="color: #0000BB">name</span><span style="color: #007700">}</span><span style="color: #DD0000">"</span><span style="color: #007700">;<br /><br />echo&nbsp;</span><span style="color: #DD0000">"This&nbsp;is&nbsp;the&nbsp;value&nbsp;of&nbsp;the&nbsp;var&nbsp;named&nbsp;</span><span style="color: #0000BB">$name</span><span style="color: #DD0000">:&nbsp;</span><span style="color: #007700">{${</span><span style="color: #0000BB">$name</span><span style="color: #007700">}}</span><span style="color: #DD0000">"</span><span style="color: #007700">;<br /><br />echo&nbsp;</span><span style="color: #DD0000">"This&nbsp;is&nbsp;the&nbsp;value&nbsp;of&nbsp;the&nbsp;var&nbsp;named&nbsp;by&nbsp;the&nbsp;return&nbsp;value&nbsp;of&nbsp;getName():&nbsp;</span><span style="color: #007700">{${</span><span style="color: #0000BB">getName</span><span style="color: #007700">()}}</span><span style="color: #DD0000">"</span><span style="color: #007700">;<br /><br />echo&nbsp;</span><span style="color: #DD0000">"This&nbsp;is&nbsp;the&nbsp;value&nbsp;of&nbsp;the&nbsp;var&nbsp;named&nbsp;by&nbsp;the&nbsp;return&nbsp;value&nbsp;of&nbsp;\$object-&gt;getName():&nbsp;</span><span style="color: #007700">{${</span><span style="color: #0000BB">$object</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getName</span><span style="color: #007700">()}}</span><span style="color: #DD0000">"</span><span style="color: #007700">;<br /><br /></span><span style="color: #FF8000">//&nbsp;Won't&nbsp;work,&nbsp;outputs:&nbsp;This&nbsp;is&nbsp;the&nbsp;return&nbsp;value&nbsp;of&nbsp;getName():&nbsp;{getName()}<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #DD0000">"This&nbsp;is&nbsp;the&nbsp;return&nbsp;value&nbsp;of&nbsp;getName():&nbsp;{getName()}"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;Show&nbsp;all&nbsp;errors<br /></span><span style="color: #0000BB">error_reporting</span><span style="color: #007700">(</span><span style="color: #0000BB">E_ALL</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$great&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'fantastic'</span><span style="color: #007700">;<br /><br /></span><span style="color: #FF8000">//&nbsp;Won't&nbsp;work,&nbsp;outputs:&nbsp;This&nbsp;is&nbsp;{&nbsp;fantastic}<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #DD0000">"This&nbsp;is&nbsp;{&nbsp;</span><span style="color: #0000BB">$great</span><span style="color: #DD0000">}"</span><span style="color: #007700">;<br /><br /></span><span style="color: #FF8000">//&nbsp;Works,&nbsp;outputs:&nbsp;This&nbsp;is&nbsp;fantastic<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #DD0000">"This&nbsp;is&nbsp;</span><span style="color: #007700">{</span><span style="color: #0000BB">$great</span><span style="color: #007700">}</span><span style="color: #DD0000">"</span><span style="color: #007700">;<br /><br /></span><span style="color: #FF8000">//&nbsp;Works<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #DD0000">"This&nbsp;square&nbsp;is&nbsp;</span><span style="color: #007700">{</span><span style="color: #0000BB">$square</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">width</span><span style="color: #007700">}</span><span style="color: #DD0000">00&nbsp;centimeters&nbsp;broad."</span><span style="color: #007700">;<br /><br /><br /></span><span style="color: #FF8000">//&nbsp;Works,&nbsp;quoted&nbsp;keys&nbsp;only&nbsp;work&nbsp;using&nbsp;the&nbsp;curly&nbsp;brace&nbsp;syntax<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #DD0000">"This&nbsp;works:&nbsp;</span><span style="color: #007700">{</span><span style="color: #0000BB">$arr</span><span style="color: #007700">[</span><span style="color: #DD0000">'key'</span><span style="color: #007700">]}</span><span style="color: #DD0000">"</span><span style="color: #007700">;<br /><br /><br /></span><span style="color: #FF8000">//&nbsp;Works<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #DD0000">"This&nbsp;works:&nbsp;</span><span style="color: #007700">{</span><span style="color: #0000BB">$arr</span><span style="color: #007700">[</span><span style="color: #0000BB">4</span><span style="color: #007700">][</span><span style="color: #0000BB">3</span><span style="color: #007700">]}</span><span style="color: #DD0000">"</span><span style="color: #007700">;<br /><br /></span><span style="color: #FF8000">//&nbsp;This&nbsp;is&nbsp;wrong&nbsp;for&nbsp;the&nbsp;same&nbsp;reason&nbsp;as&nbsp;$foo[bar]&nbsp;is&nbsp;wrong&nbsp;&nbsp;outside&nbsp;a&nbsp;string.<br />//&nbsp;In&nbsp;other&nbsp;words,&nbsp;it&nbsp;will&nbsp;still&nbsp;work,&nbsp;but&nbsp;only&nbsp;because&nbsp;PHP&nbsp;first&nbsp;looks&nbsp;for&nbsp;a<br />//&nbsp;constant&nbsp;named&nbsp;foo;&nbsp;an&nbsp;error&nbsp;of&nbsp;level&nbsp;E_NOTICE&nbsp;(undefined&nbsp;constant)&nbsp;will&nbsp;be<br />//&nbsp;thrown.<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #DD0000">"This&nbsp;is&nbsp;wrong:&nbsp;</span><span style="color: #007700">{</span><span style="color: #0000BB">$arr</span><span style="color: #007700">[</span><span style="color: #0000BB">foo</span><span style="color: #007700">][</span><span style="color: #0000BB">3</span><span style="color: #007700">]}</span><span style="color: #DD0000">"</span><span style="color: #007700">;<br /><br /></span><span style="color: #FF8000">//&nbsp;Works.&nbsp;When&nbsp;using&nbsp;multi-dimensional&nbsp;arrays,&nbsp;always&nbsp;use&nbsp;braces&nbsp;around&nbsp;arrays<br />//&nbsp;when&nbsp;inside&nbsp;of&nbsp;strings<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #DD0000">"This&nbsp;works:&nbsp;</span><span style="color: #007700">{</span><span style="color: #0000BB">$arr</span><span style="color: #007700">[</span><span style="color: #DD0000">'foo'</span><span style="color: #007700">][</span><span style="color: #0000BB">3</span><span style="color: #007700">]}</span><span style="color: #DD0000">"</span><span style="color: #007700">;<br /><br /></span><span style="color: #FF8000">//&nbsp;Works.<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #DD0000">"This&nbsp;works:&nbsp;"&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">$arr</span><span style="color: #007700">[</span><span style="color: #DD0000">'foo'</span><span style="color: #007700">][</span><span style="color: #0000BB">3</span><span style="color: #007700">];<br /><br />echo&nbsp;</span><span style="color: #DD0000">"This&nbsp;works&nbsp;too:&nbsp;</span><span style="color: #007700">{</span><span style="color: #0000BB">$obj</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">values</span><span style="color: #007700">[</span><span style="color: #0000BB">3</span><span style="color: #007700">]-&gt;</span><span style="color: #0000BB">name</span><span style="color: #007700">}</span><span style="color: #DD0000">"</span><span style="color: #007700">;<br /><br />echo&nbsp;</span><span style="color: #DD0000">"This&nbsp;is&nbsp;the&nbsp;value&nbsp;of&nbsp;the&nbsp;var&nbsp;named&nbsp;</span><span style="color: #0000BB">$name</span><span style="color: #DD0000">:&nbsp;</span><span style="color: #007700">{${</span><span style="color: #0000BB">$name</span><span style="color: #007700">}}</span><span style="color: #DD0000">"</span><span style="color: #007700">;<br /><br />echo&nbsp;</span><span style="color: #DD0000">"This&nbsp;is&nbsp;the&nbsp;value&nbsp;of&nbsp;the&nbsp;var&nbsp;named&nbsp;by&nbsp;the&nbsp;return&nbsp;value&nbsp;of&nbsp;getName():&nbsp;</span><span style="color: #007700">{${</span><span style="color: #0000BB">getName</span><span style="color: #007700">()}}</span><span style="color: #DD0000">"</span><span style="color: #007700">;<br /><br />echo&nbsp;</span><span style="color: #DD0000">"This&nbsp;is&nbsp;the&nbsp;value&nbsp;of&nbsp;the&nbsp;var&nbsp;named&nbsp;by&nbsp;the&nbsp;return&nbsp;value&nbsp;of&nbsp;\$object-&gt;getName():&nbsp;</span><span style="color: #007700">{${</span><span style="color: #0000BB">$object</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getName</span><span style="color: #007700">()}}</span><span style="color: #DD0000">"</span><span style="color: #007700">;<br /><br /></span><span style="color: #FF8000">//&nbsp;Won't&nbsp;work,&nbsp;outputs:&nbsp;This&nbsp;is&nbsp;the&nbsp;return&nbsp;value&nbsp;of&nbsp;getName():&nbsp;{getName()}<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #DD0000">"This&nbsp;is&nbsp;the&nbsp;return&nbsp;value&nbsp;of&nbsp;getName():&nbsp;{getName()}"</span><span style="color: #007700">;<br /><br /></span><span style="color: #FF8000">//&nbsp;Won't&nbsp;work,&nbsp;outputs:&nbsp;C:\folder\{fantastic}.txt<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #DD0000">"C:\folder\{</span><span style="color: #0000BB">$great</span><span style="color: #DD0000">}.txt"<br /></span><span style="color: #FF8000">//&nbsp;Works,&nbsp;outputs:&nbsp;C:\folder\fantastic.txt<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #DD0000">"C:\\folder\\</span><span style="color: #007700">{</span><span style="color: #0000BB">$great</span><span style="color: #007700">}</span><span style="color: #DD0000">.txt"<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
 
@@ -643,8 +783,9 @@ I am bar.
 
    <blockquote class="note"><p><strong class="note">Note</strong>: 
     <span class="simpara">
-     <span class="type">String</span>s may also be accessed using braces, as in
+     Prior to PHP 8.0.0, <span class="type">string</span>s could also be accessed using braces, as in
      <var class="varname">$str{42}</var>, for the same purpose.
+     This curly brace syntax was deprecated as of PHP 7.4.0 and no longer supported as of PHP 8.0.0.
     </span>
    </p></blockquote>
 
@@ -675,8 +816,8 @@ I am bar.
     </span>
    </p></blockquote>
 
-   <div class="example" id="example-56">
-    <p><strong>Example #12 Some string examples</strong></p>
+   <div class="example" id="example-52">
+    <p><strong>Example #17 Some string examples</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
 <span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;Get&nbsp;the&nbsp;first&nbsp;character&nbsp;of&nbsp;a&nbsp;string<br /></span><span style="color: #0000BB">$str&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'This&nbsp;is&nbsp;a&nbsp;test.'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$first&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$str</span><span style="color: #007700">[</span><span style="color: #0000BB">0</span><span style="color: #007700">];<br /><br /></span><span style="color: #FF8000">//&nbsp;Get&nbsp;the&nbsp;third&nbsp;character&nbsp;of&nbsp;a&nbsp;string<br /></span><span style="color: #0000BB">$third&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$str</span><span style="color: #007700">[</span><span style="color: #0000BB">2</span><span style="color: #007700">];<br /><br /></span><span style="color: #FF8000">//&nbsp;Get&nbsp;the&nbsp;last&nbsp;character&nbsp;of&nbsp;a&nbsp;string.<br /></span><span style="color: #0000BB">$str&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'This&nbsp;is&nbsp;still&nbsp;a&nbsp;test.'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$last&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$str</span><span style="color: #007700">[</span><span style="color: #0000BB">strlen</span><span style="color: #007700">(</span><span style="color: #0000BB">$str</span><span style="color: #007700">)-</span><span style="color: #0000BB">1</span><span style="color: #007700">];<br /><br /></span><span style="color: #FF8000">//&nbsp;Modify&nbsp;the&nbsp;last&nbsp;character&nbsp;of&nbsp;a&nbsp;string<br /></span><span style="color: #0000BB">$str&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'Look&nbsp;at&nbsp;the&nbsp;sea'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$str</span><span style="color: #007700">[</span><span style="color: #0000BB">strlen</span><span style="color: #007700">(</span><span style="color: #0000BB">$str</span><span style="color: #007700">)-</span><span style="color: #0000BB">1</span><span style="color: #007700">]&nbsp;=&nbsp;</span><span style="color: #DD0000">'e'</span><span style="color: #007700">;<br /><br /></span><span style="color: #0000BB">?&gt;</span>
@@ -691,9 +832,9 @@ I am bar.
     otherwise a warning will be thrown.
    </p>
 
-   <div class="example" id="example-57">
+   <div class="example" id="example-53">
     
-    <p><strong>Example #13 Example of Illegal String Offsets</strong></p>
+    <p><strong>Example #18 Example of Illegal String Offsets</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
 <span style="color: #0000BB">&lt;?php<br />$str&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'abc'</span><span style="color: #007700">;<br /><br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$str</span><span style="color: #007700">[</span><span style="color: #DD0000">'1'</span><span style="color: #007700">]);<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(isset(</span><span style="color: #0000BB">$str</span><span style="color: #007700">[</span><span style="color: #DD0000">'1'</span><span style="color: #007700">]));<br /><br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$str</span><span style="color: #007700">[</span><span style="color: #DD0000">'1.0'</span><span style="color: #007700">]);<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(isset(</span><span style="color: #0000BB">$str</span><span style="color: #007700">[</span><span style="color: #DD0000">'1.0'</span><span style="color: #007700">]));<br /><br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$str</span><span style="color: #007700">[</span><span style="color: #DD0000">'x'</span><span style="color: #007700">]);<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(isset(</span><span style="color: #0000BB">$str</span><span style="color: #007700">[</span><span style="color: #DD0000">'x'</span><span style="color: #007700">]));<br /><br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$str</span><span style="color: #007700">[</span><span style="color: #DD0000">'1x'</span><span style="color: #007700">]);<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(isset(</span><span style="color: #0000BB">$str</span><span style="color: #007700">[</span><span style="color: #DD0000">'1x'</span><span style="color: #007700">]));<br /></span><span style="color: #0000BB">?&gt;</span>

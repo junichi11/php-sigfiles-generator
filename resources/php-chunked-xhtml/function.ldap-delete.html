@@ -26,18 +26,14 @@
   <div id="layout-content"><div id="function.ldap-delete" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">ldap_delete</h1>
-  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">ldap_delete</span> &mdash; <span class="dc-title">Delete an entry from a directory</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">ldap_delete</span> &mdash; <span class="dc-title">Delete an entry from a directory</span></p>
 
  </div>
 
  <div class="refsect1 description" id="refsect1-function.ldap-delete-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>ldap_delete</strong></span>
-    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$ldap</code></span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$dn</code></span>
-   , <span class="methodparam"><span class="type"><span class="type">array</span>|<span class="type">null</span></span> <code class="parameter">$controls</code><span class="initializer"> = <strong><code>null</code></strong></span></span>
-   ) : <span class="type">bool</span></div>
+   <span class="methodname"><strong>ldap_delete</strong></span>(<span class="methodparam"><span class="type"><a href="class.ldap-connection.html" class="type LDAP\Connection">LDAP\Connection</a></span> <code class="parameter">$ldap</code></span>, <span class="methodparam"><span class="type">string</span> <code class="parameter">$dn</code></span>, <span class="methodparam"><span class="type">?</span><span class="type"><span class="type">array</span><span class="type"></span></span> <code class="parameter">$controls</code><span class="initializer"> = <strong><code>null</code></strong></span></span>): <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
    Deletes a particular entry in LDAP directory.
@@ -49,7 +45,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">ldap</code></dt>
@@ -57,7 +52,7 @@
      <dd>
 
       <p class="para">
-       An LDAP link identifier, returned by <span class="function"><a href="function.ldap-connect.html" class="function">ldap_connect()</a></span>.
+       An <span class="classname"><a href="class.ldap-connection.html" class="classname">LDAP\Connection</a></span> instance, returned by <span class="function"><a href="function.ldap-connect.html" class="function">ldap_connect()</a></span>.
       </p>
      </dd>
 
@@ -114,6 +109,14 @@
      </thead>
 
      <tbody class="tbody">
+      <tr>
+ <td>8.1.0</td>
+ <td>
+  The <code class="parameter">ldap</code> parameter expects an <span class="classname"><a href="class.ldap-connection.html" class="classname">LDAP\Connection</a></span>
+  instance now; previously, a <a href="language.types.resource.html" class="link">resource</a> was expected.
+ </td>
+</tr>
+
       <tr>
  <td>8.0.0</td>
  <td>

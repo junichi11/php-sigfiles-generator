@@ -26,16 +26,14 @@
   <div id="layout-content"><div id="function.jdtounix" class="refentry"> 
  <div class="refnamediv">
   <h1 class="refname">jdtounix</h1>
-  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">jdtounix</span> &mdash; <span class="dc-title">Convert Julian Day to Unix timestamp</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">jdtounix</span> &mdash; <span class="dc-title">Convert Julian Day to Unix timestamp</span></p>
 
  </div>
 
  <div class="refsect1 description" id="refsect1-function.jdtounix-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>jdtounix</strong></span>
-    ( <span class="methodparam"><span class="type">int</span> <code class="parameter">$julian_day</code></span>
-   ) : <span class="type">int</span></div>
+   <span class="methodname"><strong>jdtounix</strong></span>(<span class="methodparam"><span class="type">int</span> <code class="parameter">$julian_day</code></span>): <span class="type">int</span></div>
 
   <p class="para rdfs-comment">
    This function will return a Unix timestamp corresponding to the
@@ -49,7 +47,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">julian_day</code></dt>
@@ -81,7 +78,7 @@
   <h3 class="title">Errors/Exceptions</h3>
   <p class="para">
    If <code class="parameter">julian_day</code> is outside of the allowed range,
-   a <a href="class.valueerror.html" class="classname">ValueError</a> is thrown.
+   a <span class="classname"><a href="class.valueerror.html" class="classname">ValueError</a></span> is thrown.
   </p>
  </div>
 
@@ -103,7 +100,7 @@
       <td>8.0.0</td>
       <td>
        This function no longer returns <strong><code>false</code></strong> on failure, but raises a
-       <a href="class.valueerror.html" class="classname">ValueError</a> instead.
+       <span class="classname"><a href="class.valueerror.html" class="classname">ValueError</a></span> instead.
       </td>
      </tr>
 

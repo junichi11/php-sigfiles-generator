@@ -26,20 +26,14 @@
   <div id="layout-content"><div id="function.dns-get-record" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">dns_get_record</h1>
-  <p class="verinfo">(PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">dns_get_record</span> &mdash; <span class="dc-title">Fetch DNS Resource Records associated with a hostname</span></p>
+  <p class="verinfo">(PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">dns_get_record</span> &mdash; <span class="dc-title">Fetch DNS Resource Records associated with a hostname</span></p>
 
  </div>
  
  <div class="refsect1 description" id="refsect1-function.dns-get-record-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>dns_get_record</strong></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$hostname</code></span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$type</code><span class="initializer"> = <strong><code>DNS_ANY</code></strong></span></span>
-   , <span class="methodparam"><span class="type">array</span> <code class="parameter reference">&$authoritative_name_servers</code><span class="initializer"> = <strong><code>null</code></strong></span></span>
-   , <span class="methodparam"><span class="type">array</span> <code class="parameter reference">&$additional_records</code><span class="initializer"> = <strong><code>null</code></strong></span></span>
-   , <span class="methodparam"><span class="type">bool</span> <code class="parameter">$raw</code><span class="initializer"> = <strong><code>false</code></strong></span></span>
-   ) : <span class="type"><span class="type">array</span>|<span class="type"><span class="type false">false</span></span></span></div>
+   <span class="methodname"><strong>dns_get_record</strong></span>(<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$hostname</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">int</span> <code class="parameter">$type</code><span class="initializer"> = <strong><code>DNS_ANY</code></strong></span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">array</span> <code class="parameter reference">&$authoritative_name_servers</code><span class="initializer"> = <strong><code>null</code></strong></span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">array</span> <code class="parameter reference">&$additional_records</code><span class="initializer"> = <strong><code>null</code></strong></span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">bool</span> <code class="parameter">$raw</code><span class="initializer"> = <strong><code>false</code></strong></span></span><br>): <span class="type"><span class="type">array</span>|<span class="type"><span class="type false">false</span></span></span></div>
 
   <p class="para rdfs-comment">
    Fetch DNS Resource Records associated with the given
@@ -52,7 +46,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">hostname</code></dt>
@@ -107,7 +100,8 @@
       </p></blockquote>
       <blockquote class="note"><p><strong class="note">Note</strong>: 
        <p class="para">
-        <strong><code>DNS_CAA</code></strong> is not supported on Windows.
+        Windows: <strong><code>DNS_CAA</code></strong> is not supported.
+        Support for <strong><code>DNS_A6</code></strong> is not implemented.
        </p>
       </p></blockquote>
      </dd>
@@ -330,7 +324,7 @@
       </tr>
 
       <tr>
-       <td><code class="literal">A6</code>(PHP &gt;= 5.1.0)</td>
+       <td><code class="literal">A6</code></td>
        <td>
         <code class="literal">masklen</code>: Length (in bits) to inherit from the target
         specified by <code class="parameter">chain</code>.
@@ -404,7 +398,7 @@
  <div class="refsect1 examples" id="refsect1-function.dns-get-record-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-4938">
+   <div class="example" id="example-4438">
     <p><strong>Example #1 Using <span class="function"><strong>dns_get_record()</strong></span></strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -442,7 +436,7 @@ Array
 </pre></div>
     </div>
    </div>
-   <div class="example" id="example-4939">
+   <div class="example" id="example-4439">
     <p><strong>Example #2 Using <span class="function"><strong>dns_get_record()</strong></span> and DNS_ANY</strong></p>
     <div class="example-contents"><p>
      Since it&#039;s very common to want the IP address of a mail server
@@ -576,18 +570,6 @@ Additional = Array
     </div>
    </div>
   </p>
- </div>
-
-
- <div class="refsect1 notes" id="refsect1-function.dns-get-record-notes">
-  <h3 class="title">Notes</h3>
-  <blockquote class="note"><p><strong class="note">Note</strong>: 
-   <p class="para">
-    For compatibility with versions before PHP 5.3.0 on some operating systems,
-    try the <a href="https://pear.php.net/" class="link external">&raquo;&nbsp;PEAR</a> class
-    <a href="https://pear.php.net/package/Net_DNS" class="link external">&raquo;&nbsp;Net_DNS</a>.
-   </p>
-  </p></blockquote>
  </div>
 
 

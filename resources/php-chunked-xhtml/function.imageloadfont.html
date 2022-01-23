@@ -26,15 +26,13 @@
   <div id="layout-content"><div id="function.imageloadfont" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">imageloadfont</h1>
-  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">imageloadfont</span> &mdash; <span class="dc-title">Load a new font</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">imageloadfont</span> &mdash; <span class="dc-title">Load a new font</span></p>
 
  </div>
  <div class="refsect1 description" id="refsect1-function.imageloadfont-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>imageloadfont</strong></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$file</code></span>
-   ) : <span class="type">int</span></div>
+   <span class="methodname"><strong>imageloadfont</strong></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$filename</code></span>): <span class="type"><span class="type"><a href="class.gdfont.html" class="type GdFont">GdFont</a></span>|<span class="type"><span class="type false">false</span></span></span></div>
 
   <p class="para rdfs-comment">
    <span class="function"><strong>imageloadfont()</strong></span> loads a user-defined bitmap and returns
@@ -46,10 +44,9 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
-<code class="parameter">file</code></dt>
+<code class="parameter">filename</code></dt>
 
      <dd>
 
@@ -123,15 +120,45 @@
  <div class="refsect1 returnvalues" id="refsect1-function.imageloadfont-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   The font identifier which is always bigger than 5 to avoid conflicts with
-   built-in fonts or <strong><code>false</code></strong> on errors.
+   Returns an <span class="classname"><a href="class.gdfont.html" class="classname">GdFont</a></span> instance, or <strong><code>false</code></strong> on failure.
   </p>
  </div>
 
+
+ <div class="refsect1 changelog" id="refsect1-function.imageloadfont-changelog">
+  <h3 class="title">Changelog</h3>
+  <p class="para">
+   <table class="doctable informaltable">
+    
+     <thead>
+      <tr>
+       <th>Version</th>
+       <th>Description</th>
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr>
+       <td>8.1.0</td>
+       <td>
+        Returns an <span class="classname"><a href="class.gdfont.html" class="classname">GdFont</a></span> instance now;
+        previously, an <span class="type">int</span> was returned.
+       </td>
+      </tr>
+
+     </tbody>
+    
+   </table>
+
+  </p>
+ </div>
+
+ 
  <div class="refsect1 examples" id="refsect1-function.imageloadfont-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-3184">
+   <div class="example" id="example-2700">
     <p><strong>Example #1 <span class="function"><strong>imageloadfont()</strong></span> usage example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

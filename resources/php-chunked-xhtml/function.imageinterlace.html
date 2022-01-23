@@ -26,16 +26,13 @@
   <div id="layout-content"><div id="function.imageinterlace" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">imageinterlace</h1>
-  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">imageinterlace</span> &mdash; <span class="dc-title">Enable or disable interlace</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">imageinterlace</span> &mdash; <span class="dc-title">Enable or disable interlace</span></p>
 
  </div>
  <div class="refsect1 description" id="refsect1-function.imageinterlace-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>imageinterlace</strong></span>
-    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$image</code></span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$interlace</code><span class="initializer"> = 0</span></span>
-   ) : <span class="type">int</span></div>
+   <span class="methodname"><strong>imageinterlace</strong></span>(<span class="methodparam"><span class="type"><a href="class.gdimage.html" class="type GdImage">GdImage</a></span> <code class="parameter">$image</code></span>, <span class="methodparam"><span class="type">?</span><span class="type"><span class="type">bool</span><span class="type"></span></span> <code class="parameter">$enable</code><span class="initializer"> = <strong><code>null</code></strong></span></span>): <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
    <span class="function"><strong>imageinterlace()</strong></span> turns the interlace bit on or off.
@@ -50,12 +47,11 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     <dt>
-<code class="parameter">
-image</code></dt>
+
+<code class="parameter">image</code></dt>
 <dd>
-<p class="para">An image resource, returned by one of the image creation functions,
+<p class="para">A <span class="classname"><a href="class.gdimage.html" class="classname">GdImage</a></span> object, returned by one of the image creation functions,
 such as <span class="function"><a href="function.imagecreatetruecolor.html" class="function">imagecreatetruecolor()</a></span>.</p></dd>
 
     
@@ -65,8 +61,8 @@ such as <span class="function"><a href="function.imagecreatetruecolor.html" clas
      <dd>
 
       <p class="para">
-       If non-zero, the image will be interlaced, else the interlace bit is
-       turned off.
+       If <strong><code>true</code></strong>, the image will be interlaced, if <strong><code>false</code></strong> the interlace bit is turned off.
+       Passing <strong><code>null</code></strong> will result in the interlacing behavior not being changed.
       </p>
      </dd>
 
@@ -79,14 +75,60 @@ such as <span class="function"><a href="function.imagecreatetruecolor.html" clas
  <div class="refsect1 returnvalues" id="refsect1-function.imageinterlace-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns 1 if the interlace bit is set for the image, 0 otherwise.
+   Returns <strong><code>true</code></strong> if the interlace bit is set for the image, <strong><code>false</code></strong> otherwise.
   </p>
  </div>
+
+
+ <div class="refsect1 changelog" id="refsect1-function.imageinterlace-changelog">
+  <h3 class="title">Changelog</h3>
+  <table class="doctable informaltable">
+   
+    <thead>
+     <tr>
+      <th>Version</th>
+      <th>Description</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+      <td>8.0.5</td>
+      <td>
+       <span class="function"><strong>imageinterlace()</strong></span> returns a <span class="type">bool</span> now;
+       previously it returned an <span class="type">int</span>
+       (non-zero for interlaced images, zero otherwise).
+      </td>
+     </tr>
+
+     <tr>
+ <td>8.0.0</td>
+ <td>
+  <code class="parameter">image</code> expects a <span class="classname"><a href="class.gdimage.html" class="classname">GdImage</a></span>
+  instance now; previously, a <span class="type">resource</span> was expected.
+ </td>
+</tr>
+
+     <tr>
+      <td>8.0.0</td>
+      <td>
+       <code class="parameter">enable</code> expects a <span class="type">bool</span> now;
+       previously it expected an <span class="type">int</span>.
+      </td>
+     </tr>
+
+    </tbody>
+   
+  </table>
+
+ </div>
+
 
  <div class="refsect1 examples" id="refsect1-function.imageinterlace-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-3177">
+   <div class="example" id="example-2693">
     <p><strong>Example #1 Turn on interlacing using <span class="function"><strong>imageinterlace()</strong></span></strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

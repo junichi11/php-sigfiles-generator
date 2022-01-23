@@ -26,16 +26,14 @@
   <div id="layout-content"><div id="directoryiterator.construct" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">DirectoryIterator::__construct</h1>
-  <p class="verinfo">(PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">DirectoryIterator::__construct</span> &mdash; <span class="dc-title">Constructs a new directory iterator from a path</span></p>
+  <p class="verinfo">(PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">DirectoryIterator::__construct</span> &mdash; <span class="dc-title">Constructs a new directory iterator from a path</span></p>
 
  </div>
 
  <div class="refsect1 description" id="refsect1-directoryiterator.construct-description">
   <h3 class="title">Description</h3>
   <div class="constructorsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><strong>DirectoryIterator::__construct</strong></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$path</code></span>
-   )</div>
+   <span class="modifier">public</span> <span class="methodname"><strong>DirectoryIterator::__construct</strong></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$directory</code></span>)</div>
 
 
   <p class="para rdfs-comment">
@@ -48,10 +46,9 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
-<code class="parameter">path</code></dt>
+<code class="parameter">directory</code></dt>
 
      <dd>
 
@@ -70,12 +67,12 @@
  <div class="refsect1 errors" id="refsect1-directoryiterator.construct-errors">
   <h3 class="title">Errors/Exceptions</h3>
   <p class="para">
-   Throws an <a href="class.unexpectedvalueexception.html" class="classname">UnexpectedValueException</a>
-   if the <code class="parameter">path</code> cannot be opened.
+   Throws an <span class="classname"><a href="class.unexpectedvalueexception.html" class="classname">UnexpectedValueException</a></span>
+   if the <code class="parameter">directory</code> cannot be opened.
   </p>
   <p class="para">
-   Throws a <a href="class.runtimeexception.html" class="classname">RuntimeException</a>
-   if the <code class="parameter">path</code> is an empty string.
+   Throws a <span class="classname"><a href="class.runtimeexception.html" class="classname">RuntimeException</a></span>
+   if the <code class="parameter">directory</code> is an empty string.
   </p>
  </div>
 
@@ -83,7 +80,7 @@
  <div class="refsect1 examples" id="refsect1-directoryiterator.construct-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-4100">
+   <div class="example" id="example-3601">
     <p><strong>Example #1 A <span class="methodname"><strong>DirectoryIterator::__construct()</strong></span> example</strong></p>
      <div class="example-contents"><p>
       This example will list the contents of the directory containing the script.
@@ -104,8 +101,8 @@
   <h3 class="title">See Also</h3>
   <p class="para">
    <ul class="simplelist">
-    <li class="member"><a href="class.splfileinfo.html" class="classname">SplFileInfo</a></li>
-    <li class="member"><a href="class.iterator.html" class="classname">Iterator</a></li>
+    <li class="member"><span class="classname"><a href="class.splfileinfo.html" class="classname">SplFileInfo</a></span></li>
+    <li class="member"><span class="classname"><a href="class.iterator.html" class="classname">Iterator</a></span></li>
    </ul>
   </p>
  </div>

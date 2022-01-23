@@ -59,9 +59,11 @@ The behaviour of these functions is affected by settings in <var class="filename
 
     <tr>
      <td><a href="errorfunc.configuration.html#ini.display-startup-errors" class="link">display_startup_errors</a></td>
-     <td>&quot;0&quot;</td>
+     <td>&quot;1&quot;</td>
      <td>PHP_INI_ALL</td>
-     <td class="empty">&nbsp;</td>
+     <td>
+       Prior to PHP 8.0.0, the default value was <code class="literal">&quot;0&quot;</code>.
+     </td>
     </tr>
 
     <tr>
@@ -103,7 +105,7 @@ The behaviour of these functions is affected by settings in <var class="filename
      <td><a href="errorfunc.configuration.html#ini.track-errors" class="link">track_errors</a></td>
      <td>&quot;0&quot;</td>
      <td>PHP_INI_ALL</td>
-     <td>Deprecated as of PHP 7.2.0.</td>
+     <td>Deprecated as of PHP 7.2.0, removed as of PHP 8.0.0.</td>
     </tr>
 
     <tr>
@@ -196,7 +198,6 @@ the configuration directives.</p>
 
  <p class="para">
   <dl>
-
    
     <dt id="ini.error-reporting">
      <code class="parameter">error_reporting</code>
@@ -215,45 +216,18 @@ the configuration directives.</p>
       <a href="errorfunc.configuration.html#ini.display-errors" class="link">display_errors</a> directive.
      </p>
      <p class="para">
-      PHP 5.3 or later, the default value
-      is <strong><code>E_ALL</code></strong> &amp;
-      ~<strong><code>E_NOTICE</code></strong> &amp;
-      ~<strong><code>E_STRICT</code></strong> &amp;
-      ~<strong><code>E_DEPRECATED</code></strong>. This setting does not
-      show <strong><code>E_NOTICE</code></strong>, <strong><code>E_STRICT</code></strong>
-      and <strong><code>E_DEPRECATED</code></strong> level errors. You may want
-      to show them during development. 
-      Prior to PHP 5.3.0, the default value
-      is <strong><code>E_ALL</code></strong> &amp;
-      ~<strong><code>E_NOTICE</code></strong> &amp;
-      ~<strong><code>E_STRICT</code></strong>.
+      The default value is <strong><code>E_ALL</code></strong>.
      </p>
-     <blockquote class="note"><p><strong class="note">Note</strong>: 
-      <p class="para">Enabling <strong><code>E_NOTICE</code></strong> during development has
-      some benefits. For debugging purposes: NOTICE messages will warn you
-      about possible bugs in your code. For example, use of unassigned values
-      is warned. It is extremely useful to find typos and
-      to save time for debugging. NOTICE messages will warn you about bad style.
-      For example, <code class="literal">$arr[item]</code> is better to be written as
-      <code class="literal">$arr[&#039;item&#039;]</code> since PHP tries to treat
-      <code class="literal">&quot;item&quot;</code> as constant. If it is not a constant, PHP assumes
-      it is a string index for the array.
-      </p>
-     </p></blockquote>
-     <blockquote class="note"><p><strong class="note">Note</strong>: 
-      <p class="para">
-       Prior to PHP 5.4.0 <strong><code>E_STRICT</code></strong> was not included within
-       <strong><code>E_ALL</code></strong>, so you would have to explicitly enable this kind of
-       error level in PHP &lt; 5.4.0. Enabling <strong><code>E_STRICT</code></strong> during development
-       has some benefits. STRICT messages provide suggestions that can help
-       ensure the best interoperability and forward compatibility of your code.
-       These messages may include things such as calling non-static methods
-       statically, defining properties in a compatible class definition while
-       defined in a used trait, and prior to PHP 5.3 some deprecated features
-       would issue <strong><code>E_STRICT</code></strong> errors such as assigning
-       objects by reference upon instantiation.
-      </p>
-     </p></blockquote>
+     <p class="para">
+      Prior to PHP 8.0.0, the default value was:
+      <strong class="userinput"><code><strong><code>E_ALL</code></strong> &amp;
+       ~<strong><code>E_NOTICE</code></strong> &amp;
+       ~<strong><code>E_STRICT</code></strong> &amp;
+       ~<strong><code>E_DEPRECATED</code></strong></code></strong>.
+      This means diagnostics of level <strong><code>E_NOTICE</code></strong>,
+      <strong><code>E_STRICT</code></strong> and <strong><code>E_DEPRECATED</code></strong>
+      were not shown.
+     </p>
      <blockquote class="note"><p><strong class="note">Note</strong>: 
       <strong>PHP Constants outside of PHP</strong><br />
       <p class="para">
@@ -285,8 +259,7 @@ the configuration directives.</p>
      </p>
      <p class="para">
       Value <code class="literal">&quot;stderr&quot;</code> sends the errors to <code class="literal">stderr</code>
-      instead of <code class="literal">stdout</code>. The value is available as of PHP
-      5.2.4. In earlier versions, this directive was of type <span class="type">bool</span>.
+      instead of <code class="literal">stdout</code>.
      </p>
      <blockquote class="note"><p><strong class="note">Note</strong>: 
       <p class="para">
@@ -565,6 +538,8 @@ in <a href="faq.using.html#faq.using.shorthandbytes" class="link">this FAQ</a>, 
 
      <p class="para">
       String to output before an error message.
+      Only used when the error message is displayed on screen. The main purpose
+      is to be able to prepend additional HTML markup to the error message.
      </p>
     </dd>
 
@@ -580,6 +555,8 @@ in <a href="faq.using.html#faq.using.shorthandbytes" class="link">this FAQ</a>, 
 
      <p class="para">
       String to output after an error message.
+      Only used when the error message is displayed on screen. The main purpose
+      is to be able to append additional HTML markup to the error message.
      </p>
     </dd>
 
@@ -636,21 +613,39 @@ in <a href="faq.using.html#faq.using.shorthandbytes" class="link">this FAQ</a>, 
      <p class="para">
       Specifies the filter type to filter the logged messages. Allowed
       characters are passed unmodified; all others are written in their
-      hexadecimal representation prefixed with <code class="literal">\x</code>. There are
-      three supported filter types:
+      hexadecimal representation prefixed with <code class="literal">\x</code>. 
       <ul class="itemizedlist">
        <li class="listitem">
-        <span class="simpara"><code class="literal">all</code> – all characters</span>
+        <span class="simpara"><code class="literal">all</code> – the logged string will be split 
+         at newline characters, and all characters are passed unaltered
+        </span>
        </li>
        <li class="listitem">
-        <span class="simpara"><code class="literal">no-ctrl</code> – all characters except control characters</span>
+        <span class="simpara"><code class="literal">ascii</code> – the logged string will be split 
+         at newline characters, and any non-printable 7-bit ASCII characters will be escaped
+        </span>
        </li>
        <li class="listitem">
-        <span class="simpara"><code class="literal">ascii</code> – all printable ASCII characters and <code class="literal">NL</code></span>
+        <span class="simpara"><code class="literal">no-ctrl</code> – the logged string will be split 
+         at newline characters, and any non-printable characters will be escaped
+        </span>
+       </li>
+       <li class="listitem">
+        <span class="simpara"><code class="literal">raw</code> – all characters are passed to the system 
+         logger unaltered, without splitting at newlines (identical to PHP before 7.3)
+        </span>
        </li>
       </ul>
-      Only effective if <a href="errorfunc.configuration.html#ini.error-log" class="link">error_log</a> is set to &quot;syslog&quot;.
+      This setting will affect logging via <a href="errorfunc.configuration.html#ini.error-log" class="link">error_log</a> set to &quot;syslog&quot; and calls to <span class="function"><a href="function.syslog.html" class="function">syslog()</a></span>.
      </p>
+     <blockquote class="note"><p><strong class="note">Note</strong>: 
+      <p class="para">
+       The <code class="literal">raw</code> filter type is available as of PHP 7.3.8 and PHP 7.4.0.
+      </p>
+     </p></blockquote>
+     <span class="simpara">
+      This directive is not supported on Windows.
+     </span>
     </dd>
 
    

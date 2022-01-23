@@ -26,16 +26,13 @@
   <div id="layout-content"><div id="splfixedarray.setsize" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">SplFixedArray::setSize</h1>
-  <p class="verinfo">(PHP 5 &gt;= 5.3.0, PHP 7)</p><p class="refpurpose"><span class="refname">SplFixedArray::setSize</span> &mdash; <span class="dc-title">Change the size of an array</span></p>
+  <p class="verinfo">(PHP 5 &gt;= 5.3.0, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">SplFixedArray::setSize</span> &mdash; <span class="dc-title">Change the size of an array</span></p>
 
  </div>
  
  <div class="refsect1 description" id="refsect1-splfixedarray.setsize-description">
   <h3 class="title">Description</h3>
-  <div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><strong>SplFixedArray::setSize</strong></span>
-    ( <span class="methodparam"><span class="type">int</span> <code class="parameter">$size</code></span>
-   ) : <span class="type">bool</span></div>
+  <div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><strong>SplFixedArray::setSize</strong></span>(<span class="methodparam"><span class="type">int</span> <code class="parameter">$size</code></span>): <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
    Change the size of an array to the new size of <code class="parameter">size</code>. If 
@@ -50,7 +47,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">size</code></dt>
@@ -81,7 +77,7 @@
  <div class="refsect1 errors" id="refsect1-splfixedarray.setsize-errors">
   <h3 class="title">Errors/Exceptions</h3>
   <p class="para">
-   Throws <a href="class.invalidargumentexception.html" class="classname">InvalidArgumentException</a> when <code class="parameter">size</code> is less than zero.
+   Throws <span class="classname"><a href="class.invalidargumentexception.html" class="classname">InvalidArgumentException</a></span> when <code class="parameter">size</code> is less than zero.
   </p>
   <p class="para">
    Raises <strong><code>E_WARNING</code></strong> when <code class="parameter">size</code> cannot be used as a number.
@@ -93,7 +89,7 @@
  <div class="refsect1 examples" id="refsect1-splfixedarray.setsize-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-4061">
+   <div class="example" id="example-3562">
     <p><strong>Example #1 <span class="function"><strong>SplFixedArray::setSize()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

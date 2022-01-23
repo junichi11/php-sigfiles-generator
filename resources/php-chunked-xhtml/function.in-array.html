@@ -26,17 +26,13 @@
   <div id="layout-content"><div id="function.in-array" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">in_array</h1>
-  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">in_array</span> &mdash; <span class="dc-title">Checks if a value exists in an array</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">in_array</span> &mdash; <span class="dc-title">Checks if a value exists in an array</span></p>
 
  </div>
  <div class="refsect1 description" id="refsect1-function.in-array-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>in_array</strong></span>
-    ( <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$needle</code></span>
-   , <span class="methodparam"><span class="type">array</span> <code class="parameter">$haystack</code></span>
-   , <span class="methodparam"><span class="type">bool</span> <code class="parameter">$strict</code><span class="initializer"> = <strong><code>false</code></strong></span></span>
-   ) : <span class="type">bool</span></div>
+   <span class="methodname"><strong>in_array</strong></span>(<span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$needle</code></span>, <span class="methodparam"><span class="type">array</span> <code class="parameter">$haystack</code></span>, <span class="methodparam"><span class="type">bool</span> <code class="parameter">$strict</code><span class="initializer"> = <strong><code>false</code></strong></span></span>): <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
    Searches for <code class="parameter">needle</code> in <code class="parameter">haystack</code> using loose comparison
@@ -48,7 +44,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">needle</code></dt>
@@ -110,7 +105,7 @@
  <div class="refsect1 examples" id="refsect1-function.in-array-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-5497">
+   <div class="example" id="example-4994">
     <p><strong>Example #1 <span class="function"><strong>in_array()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -131,7 +126,7 @@ Got Irix
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-5498">
+   <div class="example" id="example-4995">
     <p><strong>Example #2 <span class="function"><strong>in_array()</strong></span> with strict example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -149,7 +144,7 @@ Got Irix
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-5499">
+   <div class="example" id="example-4996">
     <p><strong>Example #3 <span class="function"><strong>in_array()</strong></span> with an array as needle</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

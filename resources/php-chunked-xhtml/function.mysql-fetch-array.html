@@ -34,8 +34,7 @@
   <div class="warning"><strong class="warning">Warning</strong>
    <p class="para">This extension was deprecated in PHP 5.5.0, and it was removed in PHP 7.0.0.
 Instead, the <a href="book.mysqli.html" class="link">MySQLi</a> or <a href="ref.pdo-mysql.html" class="link">PDO_MySQL</a> extension should be used.
-See also <a href="mysqlinfo.api.choosing.html" class="link">MySQL: choosing an API</a> guide and
-<a href="faq.databases.html#faq.databases.mysql.deprecated" class="link">related FAQ</a> for more information.
+See also <a href="mysqlinfo.api.choosing.html" class="link">MySQL: choosing an API</a> guide.
 Alternatives to this function include:</p>
    <ul class="simplelist">
     <li class="member"><span class="function"><a href="mysqli-result.fetch-array.html" class="function">mysqli_fetch_array()</a></span></li>
@@ -47,10 +46,7 @@ Alternatives to this function include:</p>
  <div class="refsect1 description" id="refsect1-function.mysql-fetch-array-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>mysql_fetch_array</strong></span>
-    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$result</code></span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$result_type</code><span class="initializer"> = MYSQL_BOTH</span></span>
-   ) : <span class="type">array</span></div>
+   <span class="methodname"><strong>mysql_fetch_array</strong></span>(<span class="methodparam"><span class="type">resource</span> <code class="parameter">$result</code></span>, <span class="methodparam"><span class="type">int</span> <code class="parameter">$result_type</code><span class="initializer"> = MYSQL_BOTH</span></span>): <span class="type">array</span></div>
 
   <p class="para rdfs-comment">
    Returns an array that corresponds to the fetched row
@@ -63,10 +59,9 @@ Alternatives to this function include:</p>
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     <dt>
-<code class="parameter">
-result</code></dt>
+
+<code class="parameter">result</code></dt>
 <dd>
 <p class="para">The result <span class="type">resource</span> that
 is being evaluated. This result comes from a call to
@@ -118,7 +113,7 @@ is being evaluated. This result comes from a call to
  <div class="refsect1 examples" id="refsect1-function.mysql-fetch-array-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-1973">
+   <div class="example" id="example-1728">
     <p><strong>Example #1 Query with aliased duplicate field names</strong></p>
     <div class="example-contents">
 <div class="sqlcode"><pre class="sqlcode">SELECT table1.field AS foo, table2.field AS bar FROM table1, table2</pre>
@@ -128,7 +123,7 @@ is being evaluated. This result comes from a call to
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-1974">
+   <div class="example" id="example-1729">
     <p><strong>Example #2 <span class="function"><strong>mysql_fetch_array()</strong></span> with <strong><code>MYSQL_NUM</code></strong></strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -140,7 +135,7 @@ is being evaluated. This result comes from a call to
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-1975">
+   <div class="example" id="example-1730">
     <p><strong>Example #3 <span class="function"><strong>mysql_fetch_array()</strong></span> with <strong><code>MYSQL_ASSOC</code></strong></strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -152,7 +147,7 @@ is being evaluated. This result comes from a call to
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-1976">
+   <div class="example" id="example-1731">
     <p><strong>Example #4 <span class="function"><strong>mysql_fetch_array()</strong></span> with <strong><code>MYSQL_BOTH</code></strong></strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

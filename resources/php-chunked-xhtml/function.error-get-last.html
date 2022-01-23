@@ -26,19 +26,23 @@
   <div id="layout-content"><div id="function.error-get-last" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">error_get_last</h1>
-  <p class="verinfo">(PHP 5 &gt;= 5.2.0, PHP 7)</p><p class="refpurpose"><span class="refname">error_get_last</span> &mdash; <span class="dc-title">Get the last occurred error</span></p>
+  <p class="verinfo">(PHP 5 &gt;= 5.2.0, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">error_get_last</span> &mdash; <span class="dc-title">Get the last occurred error</span></p>
 
  </div>
  <div class="refsect1 description" id="refsect1-function.error-get-last-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>error_get_last</strong></span>
-    (
-   ) : <span class="type"><span class="type">array</span>|<span class="type">null</span></span></div>
+   <span class="methodname"><strong>error_get_last</strong></span>(): <span class="type"><span class="type">?</span><span class="type">array</span></span></div>
 
   <p class="para rdfs-comment">
    Gets information about the last error that occurred.
   </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-function.error-get-last-parameters">
+  <h3 class="title">Parameters</h3>
+  <p class="para">This function has no parameters.</p>
  </div>
 
 
@@ -56,7 +60,7 @@
  <div class="refsect1 examples" id="refsect1-function.error-get-last-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-487">
+   <div class="example" id="example-503">
     <p><strong>Example #1 An <span class="function"><strong>error_get_last()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

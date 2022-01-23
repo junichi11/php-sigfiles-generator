@@ -34,10 +34,10 @@
    </p>
    <p class="simpara">
     Anonymous functions are implemented using the <a href="class.closure.html" class="link">
-    <a href="class.closure.html" class="classname">Closure</a></a> class.
+    <span class="classname"><a href="class.closure.html" class="classname">Closure</a></span></a> class.
    </p>
 
-   <div class="example" id="example-178">
+   <div class="example" id="example-177">
     <p><strong>Example #1 Anonymous function example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -51,12 +51,12 @@
    <p class="simpara">
     Closures can also be used as the values of variables; PHP automatically 
     converts such expressions into instances of the
-    <a href="class.closure.html" class="classname">Closure</a> internal class. Assigning a closure to a
+    <span class="classname"><a href="class.closure.html" class="classname">Closure</a></span> internal class. Assigning a closure to a
     variable uses the same syntax as any other assignment, including the
     trailing semicolon:
    </p>
 
-   <div class="example" id="example-179">
+   <div class="example" id="example-178">
     <p><strong>Example #2 Anonymous function variable assignment example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -72,13 +72,15 @@
     variables must be passed to the <code class="literal">use</code> language construct.
     As of PHP 7.1, these variables must not include <a href="language.variables.predefined.html" class="link">superglobals</a>,
     <var class="varname">$this</var>, or variables with the same name as a parameter.
+    A return type declaration of the function has to be placed
+    <em class="emphasis">after</em> the <code class="literal">use</code> clause.
    </p>
 
-   <div class="example" id="example-180">
+   <div class="example" id="example-179">
     <p><strong>Example #3 Inheriting variables from the parent scope</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$message&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'hello'</span><span style="color: #007700">;<br /><br /></span><span style="color: #FF8000">//&nbsp;No&nbsp;"use"<br /></span><span style="color: #0000BB">$example&nbsp;</span><span style="color: #007700">=&nbsp;function&nbsp;()&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$message</span><span style="color: #007700">);<br />};<br /></span><span style="color: #0000BB">$example</span><span style="color: #007700">();<br /><br /></span><span style="color: #FF8000">//&nbsp;Inherit&nbsp;$message<br /></span><span style="color: #0000BB">$example&nbsp;</span><span style="color: #007700">=&nbsp;function&nbsp;()&nbsp;use&nbsp;(</span><span style="color: #0000BB">$message</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$message</span><span style="color: #007700">);<br />};<br /></span><span style="color: #0000BB">$example</span><span style="color: #007700">();<br /><br /></span><span style="color: #FF8000">//&nbsp;Inherited&nbsp;variable's&nbsp;value&nbsp;is&nbsp;from&nbsp;when&nbsp;the&nbsp;function<br />//&nbsp;is&nbsp;defined,&nbsp;not&nbsp;when&nbsp;called<br /></span><span style="color: #0000BB">$message&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'world'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$example</span><span style="color: #007700">();<br /><br /></span><span style="color: #FF8000">//&nbsp;Reset&nbsp;message<br /></span><span style="color: #0000BB">$message&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'hello'</span><span style="color: #007700">;<br /><br /></span><span style="color: #FF8000">//&nbsp;Inherit&nbsp;by-reference<br /></span><span style="color: #0000BB">$example&nbsp;</span><span style="color: #007700">=&nbsp;function&nbsp;()&nbsp;use&nbsp;(&amp;</span><span style="color: #0000BB">$message</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$message</span><span style="color: #007700">);<br />};<br /></span><span style="color: #0000BB">$example</span><span style="color: #007700">();<br /><br /></span><span style="color: #FF8000">//&nbsp;The&nbsp;changed&nbsp;value&nbsp;in&nbsp;the&nbsp;parent&nbsp;scope<br />//&nbsp;is&nbsp;reflected&nbsp;inside&nbsp;the&nbsp;function&nbsp;call<br /></span><span style="color: #0000BB">$message&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'world'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$example</span><span style="color: #007700">();<br /><br /></span><span style="color: #FF8000">//&nbsp;Closures&nbsp;can&nbsp;also&nbsp;accept&nbsp;regular&nbsp;arguments<br /></span><span style="color: #0000BB">$example&nbsp;</span><span style="color: #007700">=&nbsp;function&nbsp;(</span><span style="color: #0000BB">$arg</span><span style="color: #007700">)&nbsp;use&nbsp;(</span><span style="color: #0000BB">$message</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$arg&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #DD0000">'&nbsp;'&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">$message</span><span style="color: #007700">);<br />};<br /></span><span style="color: #0000BB">$example</span><span style="color: #007700">(</span><span style="color: #DD0000">"hello"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$message&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'hello'</span><span style="color: #007700">;<br /><br /></span><span style="color: #FF8000">//&nbsp;No&nbsp;"use"<br /></span><span style="color: #0000BB">$example&nbsp;</span><span style="color: #007700">=&nbsp;function&nbsp;()&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$message</span><span style="color: #007700">);<br />};<br /></span><span style="color: #0000BB">$example</span><span style="color: #007700">();<br /><br /></span><span style="color: #FF8000">//&nbsp;Inherit&nbsp;$message<br /></span><span style="color: #0000BB">$example&nbsp;</span><span style="color: #007700">=&nbsp;function&nbsp;()&nbsp;use&nbsp;(</span><span style="color: #0000BB">$message</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$message</span><span style="color: #007700">);<br />};<br /></span><span style="color: #0000BB">$example</span><span style="color: #007700">();<br /><br /></span><span style="color: #FF8000">//&nbsp;Inherited&nbsp;variable's&nbsp;value&nbsp;is&nbsp;from&nbsp;when&nbsp;the&nbsp;function<br />//&nbsp;is&nbsp;defined,&nbsp;not&nbsp;when&nbsp;called<br /></span><span style="color: #0000BB">$message&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'world'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$example</span><span style="color: #007700">();<br /><br /></span><span style="color: #FF8000">//&nbsp;Reset&nbsp;message<br /></span><span style="color: #0000BB">$message&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'hello'</span><span style="color: #007700">;<br /><br /></span><span style="color: #FF8000">//&nbsp;Inherit&nbsp;by-reference<br /></span><span style="color: #0000BB">$example&nbsp;</span><span style="color: #007700">=&nbsp;function&nbsp;()&nbsp;use&nbsp;(&amp;</span><span style="color: #0000BB">$message</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$message</span><span style="color: #007700">);<br />};<br /></span><span style="color: #0000BB">$example</span><span style="color: #007700">();<br /><br /></span><span style="color: #FF8000">//&nbsp;The&nbsp;changed&nbsp;value&nbsp;in&nbsp;the&nbsp;parent&nbsp;scope<br />//&nbsp;is&nbsp;reflected&nbsp;inside&nbsp;the&nbsp;function&nbsp;call<br /></span><span style="color: #0000BB">$message&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'world'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$example</span><span style="color: #007700">();<br /><br /></span><span style="color: #FF8000">//&nbsp;Closures&nbsp;can&nbsp;also&nbsp;accept&nbsp;regular&nbsp;arguments<br /></span><span style="color: #0000BB">$example&nbsp;</span><span style="color: #007700">=&nbsp;function&nbsp;(</span><span style="color: #0000BB">$arg</span><span style="color: #007700">)&nbsp;use&nbsp;(</span><span style="color: #0000BB">$message</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$arg&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #DD0000">'&nbsp;'&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">$message</span><span style="color: #007700">);<br />};<br /></span><span style="color: #0000BB">$example</span><span style="color: #007700">(</span><span style="color: #DD0000">"hello"</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;Return&nbsp;type&nbsp;declaration&nbsp;comes&nbsp;after&nbsp;the&nbsp;use&nbsp;clause<br /></span><span style="color: #0000BB">$example&nbsp;</span><span style="color: #007700">=&nbsp;function&nbsp;()&nbsp;use&nbsp;(</span><span style="color: #0000BB">$message</span><span style="color: #007700">):&nbsp;</span><span style="color: #0000BB">string&nbsp;</span><span style="color: #007700">{<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #DD0000">"hello&nbsp;</span><span style="color: #0000BB">$message</span><span style="color: #DD0000">"</span><span style="color: #007700">;<br />};<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$example</span><span style="color: #007700">());<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
@@ -93,6 +95,7 @@ string(5) &quot;hello&quot;
 string(5) &quot;hello&quot;
 string(5) &quot;hello&quot;
 string(5) &quot;world&quot;
+string(11) &quot;hello world&quot;
 string(11) &quot;hello world&quot;
 </pre></div>
     </div>
@@ -111,7 +114,7 @@ string(11) &quot;hello world&quot;
     was called from). See the following example:
    </p>
 
-   <div class="example" id="example-181">
+   <div class="example" id="example-180">
     <p><strong>Example #4 Closures and scoping</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -122,7 +125,7 @@ string(11) &quot;hello world&quot;
 
    </div>
 
-   <div class="example" id="example-182">
+   <div class="example" id="example-181">
     <p><strong>Example #5 Automatic binding of <code class="literal">$this</code></strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -157,7 +160,7 @@ object(Test)#1 (0) {
      them. Objects may also not be bound to them at runtime.
     </p>
     <p class="para">
-     <div class="example" id="example-183">
+     <div class="example" id="example-182">
       <p><strong>Example #6 Attempting to use <code class="literal">$this</code> inside a static anonymous function</strong></p>
       <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -177,7 +180,7 @@ NULL
     </p>
 
     <p class="para">
-     <div class="example" id="example-184">
+     <div class="example" id="example-183">
       <p><strong>Example #7 Attempting to bind an object to a static anonymous function</strong></p>
       <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

@@ -26,7 +26,7 @@
   <div id="layout-content"><div id="domimplementation.hasfeature" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">DOMImplementation::hasFeature</h1>
-  <p class="verinfo">(PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">DOMImplementation::hasFeature</span> &mdash; <span class="dc-title">
+  <p class="verinfo">(PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">DOMImplementation::hasFeature</span> &mdash; <span class="dc-title">
    Test if the DOM implementation implements a specific feature
   </span></p>
 
@@ -34,10 +34,7 @@
  <div class="refsect1 description" id="refsect1-domimplementation.hasfeature-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><strong>DOMImplementation::hasFeature</strong></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$feature</code></span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$version</code></span>
-   ) : <span class="type">bool</span></div>
+   <span class="modifier">public</span> <span class="methodname"><strong>DOMImplementation::hasFeature</strong></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$feature</code></span>, <span class="methodparam"><span class="type">string</span> <code class="parameter">$version</code></span>): <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
    Test if the DOM implementation implements a specific 
@@ -53,7 +50,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">feature</code></dt>
@@ -94,12 +90,14 @@
 
  <div class="refsect1 errors" id="refsect1-domimplementation.hasfeature-errors">
   <h3 class="title">Errors/Exceptions</h3>
-  <p class="para">This method <em class="emphasis">may</em> be called statically, but will issue an <strong><code>E_STRICT</code></strong> error.</p>
+  <p class="para">Prior to PHP 8.0.0 this method
+<em class="emphasis">could</em> be called statically, but would issue an <strong><code>E_DEPRECATED</code></strong> error.
+As of PHP 8.0.0 calling this method statically throws an <span class="classname"><a href="class.error.html" class="classname">Error</a></span> exception</p>
  </div>
 
  <div class="refsect1 examples" id="refsect1-domimplementation.hasfeature-examples">
   <h3 class="title">Examples</h3>
-  <div class="example" id="example-5907">
+  <div class="example" id="example-5357">
    <p><strong>Example #1 Testing your DOM Implementation</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

@@ -26,18 +26,14 @@
   <div id="layout-content"><div id="function.iterator-apply" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">iterator_apply</h1>
-  <p class="verinfo">(PHP 5 &gt;= 5.1.0, PHP 7)</p><p class="refpurpose"><span class="refname">iterator_apply</span> &mdash; <span class="dc-title">Call a function for every element in an iterator</span></p>
+  <p class="verinfo">(PHP 5 &gt;= 5.1.0, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">iterator_apply</span> &mdash; <span class="dc-title">Call a function for every element in an iterator</span></p>
 
  </div>
 
  <div class="refsect1 description" id="refsect1-function.iterator-apply-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>iterator_apply</strong></span>
-    ( <span class="methodparam"><span class="type"><a href="class.traversable.html" class="type Traversable">Traversable</a></span> <code class="parameter">$iterator</code></span>
-   , <span class="methodparam"><span class="type"><a href="language.types.callable.html" class="type callable">callable</a></span> <code class="parameter">$function</code></span>
-   , <span class="methodparam"><span class="type">array</span> <code class="parameter">$args</code><span class="initializer"> = <strong><code>null</code></strong></span></span>
-   ) : <span class="type">int</span></div>
+   <span class="methodname"><strong>iterator_apply</strong></span>(<span class="methodparam"><span class="type"><a href="class.traversable.html" class="type Traversable">Traversable</a></span> <code class="parameter">$iterator</code></span>, <span class="methodparam"><span class="type"><a href="language.types.callable.html" class="type callable">callable</a></span> <code class="parameter">$callback</code></span>, <span class="methodparam"><span class="type">?</span><span class="type"><span class="type">array</span><span class="type"></span></span> <code class="parameter">$args</code><span class="initializer"> = <strong><code>null</code></strong></span></span>): <span class="type">int</span></div>
 
   <p class="para rdfs-comment">
    Calls a function for every element in an iterator.
@@ -49,7 +45,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">iterator</code></dt>
@@ -64,7 +59,7 @@
     
     
      <dt>
-<code class="parameter">function</code></dt>
+<code class="parameter">callback</code></dt>
 
      <dd>
 
@@ -92,7 +87,7 @@
       <p class="para">
        An <span class="type">array</span> of arguments; each element of
        <code class="parameter">args</code> is passed to the callback
-       <code class="parameter">function</code> as separate argument.
+       <code class="parameter">callback</code> as separate argument.
       </p>
      </dd>
 
@@ -115,7 +110,7 @@
  <div class="refsect1 examples" id="refsect1-function.iterator-apply-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-4174">
+   <div class="example" id="example-3675">
     <p><strong>Example #1 <span class="function"><strong>iterator_apply()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

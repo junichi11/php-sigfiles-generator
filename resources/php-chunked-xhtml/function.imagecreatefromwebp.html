@@ -26,20 +26,19 @@
   <div id="layout-content"><div id="function.imagecreatefromwebp" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">imagecreatefromwebp</h1>
-  <p class="verinfo">(PHP 5 &gt;= 5.4.0, PHP 7)</p><p class="refpurpose"><span class="refname">imagecreatefromwebp</span> &mdash; <span class="dc-title">Create a new image from file or URL</span></p>
+  <p class="verinfo">(PHP 5 &gt;= 5.4.0, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">imagecreatefromwebp</span> &mdash; <span class="dc-title">Create a new image from file or URL</span></p>
 
  </div>
 
  <div class="refsect1 description" id="refsect1-function.imagecreatefromwebp-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>imagecreatefromwebp</strong></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$filename</code></span>
-   ) : <span class="type">resource</span></div>
+   <span class="methodname"><strong>imagecreatefromwebp</strong></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$filename</code></span>): <span class="type"><span class="type"><a href="class.gdimage.html" class="type GdImage">GdImage</a></span>|<span class="type"><span class="type false">false</span></span></span></div>
 
   <p class="para rdfs-comment">
    <span class="function"><strong>imagecreatefromwebp()</strong></span> returns an image identifier
    representing the image obtained from the given filename.
+   Note that animated WebP files cannot be read.
   </p>
   <div class="tip"><strong class="tip">Tip</strong><p class="simpara">A URL can be used as a
 filename with this function if the <a href="filesystem.configuration.html#ini.allow-url-fopen" class="link">fopen wrappers</a> have been enabled.
@@ -55,7 +54,6 @@ provide.</p></div>
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">filename</code></dt>
@@ -76,14 +74,42 @@ provide.</p></div>
 
  <div class="refsect1 returnvalues" id="refsect1-function.imagecreatefromwebp-returnvalues">
   <h3 class="title">Return Values</h3>
-  <p class="para">Returns an image resource identifier on success, <strong><code>false</code></strong> on errors.</p>
+  <p class="para">Returns an image object on success, <strong><code>false</code></strong> on errors.</p>
+ </div>
+
+
+ <div class="refsect1 changelog" id="refsect1-function.imagecreatefromwebp-changelog">
+  <h3 class="title">Changelog</h3>
+  <table class="doctable informaltable">
+   
+    <thead>
+     <tr>
+      <th>Version</th>
+      <th>Description</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+      <td>8.0.0</td>
+      <td>
+       On success, this function returns a <span class="classname"><a href="class.gdimage.html" class="classname">GDImage</a></span> instance now;
+       previously, a <span class="type">resource</span> was returned.
+      </td>
+     </tr>
+
+    </tbody>
+   
+  </table>
+
  </div>
 
 
  <div class="refsect1 examples" id="refsect1-function.imagecreatefromwebp-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-3137">
+   <div class="example" id="example-2653">
     <p><strong>Example #1 Convert an WebP image to a jpeg image using <span class="function"><strong>imagecreatefromwebp()</strong></span></strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

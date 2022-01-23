@@ -26,24 +26,14 @@
   <div id="layout-content"><div id="function.version-compare" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">version_compare</h1>
-  <p class="verinfo">(PHP 4 &gt;= 4.1.0, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">version_compare</span> &mdash; <span class="dc-title">Compares two &quot;PHP-standardized&quot; version number strings</span></p>
+  <p class="verinfo">(PHP 4 &gt;= 4.1.0, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">version_compare</span> &mdash; <span class="dc-title">Compares two &quot;PHP-standardized&quot; version number strings</span></p>
 
  </div>
  
  <div class="refsect1 description" id="refsect1-function.version-compare-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>version_compare</strong></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$version1</code></span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$version2</code></span>
-   ) : <span class="type">int</span></div>
-
-  <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>version_compare</strong></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$version1</code></span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$version2</code></span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$operator</code></span>
-   ) : <span class="type">bool</span></div>
+   <span class="methodname"><strong>version_compare</strong></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$version1</code></span>, <span class="methodparam"><span class="type">string</span> <code class="parameter">$version2</code></span>, <span class="methodparam"><span class="type">?</span><span class="type"><span class="type">string</span><span class="type"></span></span> <code class="parameter">$operator</code><span class="initializer"> = <strong><code>null</code></strong></span></span>): <span class="type"><span class="type">int</span>|<span class="type">bool</span></span></div>
 
   <p class="para rdfs-comment">
    <span class="function"><strong>version_compare()</strong></span> compares two &quot;PHP-standardized&quot;
@@ -72,7 +62,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">version1</code></dt>
@@ -104,14 +93,13 @@
      <dd>
 
       <p class="para">
-       If the third optional <code class="parameter">operator</code> argument is
-       specified, test for a particular relationship. The possible operators
+       An optional operator. The possible operators
        are: <code class="literal">&lt;</code>, <code class="literal">lt</code>,
        <code class="literal">&lt;=</code>, <code class="literal">le</code>, <code class="literal">&gt;</code>,
        <code class="literal">gt</code>, <code class="literal">&gt;=</code>, <code class="literal">ge</code>,
        <code class="literal">==</code>, <code class="literal">=</code>, <code class="literal">eq</code>,
        <code class="literal">!=</code>, <code class="literal">&lt;&gt;</code>, <code class="literal">ne</code>
-       respectively. 
+       respectively.
       </p>
       <p class="para">
        This parameter is case-sensitive, values should be lowercase.
@@ -129,15 +117,14 @@
   <h3 class="title">Return Values</h3>
   <p class="para">
    By default, <span class="function"><strong>version_compare()</strong></span> returns
-   <code class="literal">-1</code> if the first version is lower than the second, 
+   <code class="literal">-1</code> if the first version is lower than the second,
    <code class="literal">0</code> if they are equal, and
-   <code class="literal">1</code> if the second is lower. 
+   <code class="literal">1</code> if the second is lower.
   </p>
   <p class="para">
    When using the optional <code class="parameter">operator</code> argument, the
    function will return <strong><code>true</code></strong> if the relationship is the one specified
    by the operator, <strong><code>false</code></strong> otherwise.
-   If an unsupported <code class="parameter">operator</code> is given, <strong><code>null</code></strong> is returned.
   </p>
  </div>
 
@@ -150,7 +137,7 @@
    the code.
   </p>
   <p class="para">
-   <div class="example" id="example-567">
+   <div class="example" id="example-582">
     <p><strong>Example #1 <span class="function"><strong>version_compare()</strong></span> examples</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

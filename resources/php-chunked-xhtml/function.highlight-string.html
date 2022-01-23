@@ -26,17 +26,14 @@
   <div id="layout-content"><div id="function.highlight-string" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">highlight_string</h1>
-  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">highlight_string</span> &mdash; <span class="dc-title">Syntax highlighting of a string</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">highlight_string</span> &mdash; <span class="dc-title">Syntax highlighting of a string</span></p>
 
  </div>
  
  <div class="refsect1 description" id="refsect1-function.highlight-string-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>highlight_string</strong></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$str</code></span>
-   , <span class="methodparam"><span class="type">bool</span> <code class="parameter">$return</code><span class="initializer"> = <strong><code>false</code></strong></span></span>
-   ) : <span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span></div>
+   <span class="methodname"><strong>highlight_string</strong></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$string</code></span>, <span class="methodparam"><span class="type">bool</span> <code class="parameter">$return</code><span class="initializer"> = <strong><code>false</code></strong></span></span>): <span class="type"><span class="type">string</span>|<span class="type">bool</span></span></div>
 
   <p class="simpara">
    Outputs or returns html markup for a syntax highlighted version of the given PHP code
@@ -49,10 +46,9 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
-<code class="parameter">str</code></dt>
+<code class="parameter">string</code></dt>
 
      <dd>
 
@@ -94,7 +90,7 @@
  <div class="refsect1 examples" id="refsect1-function.highlight-string-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-3999">
+   <div class="example" id="example-3501">
     <p><strong>Example #1 <span class="function"><strong>highlight_string()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

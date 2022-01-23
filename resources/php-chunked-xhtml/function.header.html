@@ -26,18 +26,14 @@
   <div id="layout-content"><div id="function.header" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">header</h1>
-  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">header</span> &mdash; <span class="dc-title">Send a raw HTTP header</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">header</span> &mdash; <span class="dc-title">Send a raw HTTP header</span></p>
 
  </div>
  
  <div class="refsect1 description" id="refsect1-function.header-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>header</strong></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$header</code></span>
-   , <span class="methodparam"><span class="type">bool</span> <code class="parameter">$replace</code><span class="initializer"> = <strong><code>true</code></strong></span></span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$response_code</code><span class="initializer"> = 0</span></span>
-   ) : <span class="type"><span class="type void">void</span></span></div>
+   <span class="methodname"><strong>header</strong></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$header</code></span>, <span class="methodparam"><span class="type">bool</span> <code class="parameter">$replace</code><span class="initializer"> = <strong><code>true</code></strong></span></span>, <span class="methodparam"><span class="type">int</span> <code class="parameter">$response_code</code><span class="initializer"> = 0</span></span>): <span class="type"><span class="type void">void</span></span></div>
 
   <p class="para rdfs-comment">
    <span class="function"><strong>header()</strong></span> is used to send a raw <acronym title="Hypertext Transfer Protocol">HTTP</acronym>
@@ -69,7 +65,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">header</code></dt>
@@ -92,7 +87,7 @@
        <div class="informalexample">
         <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />header</span><span style="color: #007700">(</span><span style="color: #DD0000">"HTTP/1.0&nbsp;404&nbsp;Not&nbsp;Found"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;This&nbsp;example&nbsp;illustrates&nbsp;the&nbsp;"HTTP/"&nbsp;special&nbsp;case<br />//&nbsp;Better&nbsp;alternatives&nbsp;in&nbsp;typical&nbsp;use&nbsp;cases&nbsp;include:<br />//&nbsp;1.&nbsp;header($_SERVER["SERVER_PROTOCOL"]&nbsp;.&nbsp;"&nbsp;404&nbsp;Not&nbsp;Found");<br />//&nbsp;&nbsp;&nbsp;&nbsp;(to&nbsp;override&nbsp;http&nbsp;status&nbsp;messages&nbsp;for&nbsp;clients&nbsp;that&nbsp;are&nbsp;still&nbsp;using&nbsp;HTTP/1.0)<br />//&nbsp;2.&nbsp;http_response_code(404);&nbsp;(to&nbsp;use&nbsp;the&nbsp;default&nbsp;message)<br /></span><span style="color: #0000BB">header</span><span style="color: #007700">(</span><span style="color: #DD0000">"HTTP/1.1&nbsp;404&nbsp;Not&nbsp;Found"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
         </div>
@@ -175,10 +170,19 @@
  </div>
 
 
+ <div class="refsect1 errors" id="refsect1-function.header-errors">
+  <h3 class="title">Errors/Exceptions</h3>
+  <p class="para">
+   On failure to schedule the header to be sent, <span class="function"><strong>header()</strong></span>
+   issues an <strong><code>E_WARNING</code></strong> level error.
+  </p>
+ </div>
+
+
  <div class="refsect1 examples" id="refsect1-function.header-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-4951">
+   <div class="example" id="example-4451">
     <p><strong>Example #1 Download dialog</strong></p>
     <div class="example-contents"><p>
      If you want the user to be prompted to save the data you are
@@ -196,7 +200,7 @@
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-4952">
+   <div class="example" id="example-4452">
     <p><strong>Example #2 Caching directives</strong></p>
     <div class="example-contents"><p>
      PHP scripts often generate dynamic content that must not be cached
@@ -265,14 +269,6 @@
   </p></blockquote>
   <blockquote class="note"><p><strong class="note">Note</strong>: 
    <p class="para">
-    There is a bug in Microsoft Internet Explorer 4.01 that prevents
-    this from working. There is no workaround. There is also a bug
-    in Microsoft Internet Explorer 5.5 that interferes with this,
-    which can be resolved by upgrading to Service Pack 2 or later.
-   </p>
-  </p></blockquote>
-  <blockquote class="note"><p><strong class="note">Note</strong>: 
-   <p class="para">
     Most contemporary clients accept relative <acronym title="Uniform Resource Identifier">URI</acronym>s as argument to
     <a href="http://tools.ietf.org/html/rfc7231#section-7.1.2" class="link external">&raquo;&nbsp;Location:</a>,
     but some older clients require an absolute URI
@@ -310,6 +306,7 @@
     <li class="member"><span class="function"><a href="function.setcookie.html" class="function" rel="rdfs-seeAlso">setcookie()</a> - Send a cookie</span></li>
     <li class="member"><span class="function"><a href="function.http-response-code.html" class="function" rel="rdfs-seeAlso">http_response_code()</a> - Get or Set the HTTP response code</span></li>
     <li class="member"><span class="function"><a href="function.header-remove.html" class="function" rel="rdfs-seeAlso">header_remove()</a> - Remove previously set headers</span></li>
+    <li class="member"><span class="function"><strong>header_list()</strong></span></li>
     <li class="member">
      The section on <a href="features.http-auth.html" class="link">HTTP
      authentication</a>

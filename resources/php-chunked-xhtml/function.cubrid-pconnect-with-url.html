@@ -33,11 +33,7 @@
  <div class="refsect1 description" id="refsect1-function.cubrid-pconnect-with-url-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>cubrid_pconnect_with_url</strong></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$conn_url</code></span>  
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$userid</code> = ?</span>  
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$passwd</code> = ?</span>  
-   ) : <span class="type">resource</span></div>
+   <span class="methodname"><strong>cubrid_pconnect_with_url</strong></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$conn_url</code></span>, <span class="methodparam"><span class="type">string</span> <code class="parameter">$userid</code><span class="initializer"> = ?</span></span>, <span class="methodparam"><span class="type">string</span> <code class="parameter">$passwd</code><span class="initializer"> = ?</span></span>): <span class="type">resource</span></div>
 
   <p class="para rdfs-comment">
    Establishes a persistent connection to a CUBRID server.
@@ -160,7 +156,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">conn_url</code></dt>
@@ -194,17 +189,14 @@
  <div class="refsect1 returnvalues" id="refsect1-function.cubrid-pconnect-with-url-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Connection identifier, when process is successful. 
-  </p>
-  <p class="para">
-   <strong><code>false</code></strong>, when process is unsuccessful.
+   Connection identifier, when process is successful, or <strong><code>false</code></strong> on failure.
   </p>
  </div>
 
  
  <div class="refsect1 examples" id="refsect1-function.cubrid-pconnect-with-url-examples">
   <h3 class="title">Examples</h3>
-  <div class="example" id="example-1136">
+  <div class="example" id="example-1143">
    <p><strong>Example #1 <span class="function"><strong>cubrid_pconnect_with_url()</strong></span> url without properties example</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -215,7 +207,7 @@
 
   </div>
   
-  <div class="example" id="example-1137">
+  <div class="example" id="example-1144">
    <p><strong>Example #2 <span class="function"><strong>cubrid_pconnect_with_url()</strong></span> url with properties example</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

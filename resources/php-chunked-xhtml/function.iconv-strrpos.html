@@ -26,18 +26,14 @@
   <div id="layout-content"><div id="function.iconv-strrpos" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">iconv_strrpos</h1>
-  <p class="verinfo">(PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">iconv_strrpos</span> &mdash; <span class="dc-title">Finds the last occurrence of a needle within a haystack</span></p>
+  <p class="verinfo">(PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">iconv_strrpos</span> &mdash; <span class="dc-title">Finds the last occurrence of a needle within a haystack</span></p>
 
  </div>
  
  <div class="refsect1 description" id="refsect1-function.iconv-strrpos-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>iconv_strrpos</strong></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$haystack</code></span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$needle</code></span>
-   , <span class="methodparam"><span class="type"><span class="type">string</span>|<span class="type">null</span></span> <code class="parameter">$encoding</code><span class="initializer"> = <strong><code>null</code></strong></span></span>
-   ) : <span class="type"><span class="type">int</span>|<span class="type"><span class="type false">false</span></span></span></div>
+   <span class="methodname"><strong>iconv_strrpos</strong></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$haystack</code></span>, <span class="methodparam"><span class="type">string</span> <code class="parameter">$needle</code></span>, <span class="methodparam"><span class="type">?</span><span class="type"><span class="type">string</span><span class="type"></span></span> <code class="parameter">$encoding</code><span class="initializer"> = <strong><code>null</code></strong></span></span>): <span class="type"><span class="type">int</span>|<span class="type"><span class="type false">false</span></span></span></div>
 
   <p class="para rdfs-comment">
    Finds the last occurrence of a <code class="parameter">needle</code>
@@ -57,7 +53,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">haystack</code></dt>

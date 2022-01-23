@@ -10,7 +10,7 @@
  <body class="docs"><div class="navbar navbar-fixed-top">
   <div class="navbar-inner clearfix">
     <ul class="nav" style="width: 100%">
-      <li style="float: left;"><a href="pdostatement.getcolumnmeta.html">« PDOStatement::getColumnMeta</a></li>
+      <li style="float: left;"><a href="pdostatement.getiterator.html">« PDOStatement::getIterator</a></li>
       <li style="float: right;"><a href="pdostatement.rowcount.html">PDOStatement::rowCount »</a></li>
     </ul>
   </div>
@@ -26,7 +26,7 @@
   <div id="layout-content"><div id="pdostatement.nextrowset" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">PDOStatement::nextRowset</h1>
-  <p class="verinfo">(PHP 5 &gt;= 5.1.0, PHP 7, PECL pdo &gt;= 0.2.0)</p><p class="refpurpose"><span class="refname">PDOStatement::nextRowset</span> &mdash; <span class="dc-title">
+  <p class="verinfo">(PHP 5 &gt;= 5.1.0, PHP 7, PHP 8, PECL pdo &gt;= 0.2.0)</p><p class="refpurpose"><span class="refname">PDOStatement::nextRowset</span> &mdash; <span class="dc-title">
    Advances to the next rowset in a multi-rowset statement handle
   </span></p>
 
@@ -34,9 +34,7 @@
  <div class="refsect1 description" id="refsect1-pdostatement.nextrowset-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><strong>PDOStatement::nextRowset</strong></span>
-    (
-   ) : <span class="type">bool</span></div>
+   <span class="modifier">public</span> <span class="methodname"><strong>PDOStatement::nextRowset</strong></span>(): <span class="type">bool</span></div>
 
 
   <p class="para rdfs-comment">
@@ -46,8 +44,14 @@
    second and subsequent rowsets associated with a PDOStatement object. Each
    rowset can have a different set of columns from the preceding rowset.
   </p>
-
  </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-pdostatement.nextrowset-parameters">
+  <h3 class="title">Parameters</h3>
+  <p class="para">This function has no parameters.</p>
+ </div>
+
 
  <div class="refsect1 returnvalues" id="refsect1-pdostatement.nextrowset-returnvalues">
   <h3 class="title">Return Values</h3>
@@ -60,13 +64,14 @@
  <div class="refsect1 examples" id="refsect1-pdostatement.nextrowset-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-1049">
+   <div class="example" id="example-1056">
     <p><strong>Example #1 Fetching multiple rowsets returned from a stored procedure</strong></p>
     <div class="example-contents"><p>
      The following example shows how to call a stored procedure,
-     MULTIPLE_ROWSETS, that returns three rowsets. We use a do / while loop to
-     loop over the <span class="function"><strong>PDOStatement::nextRowset()</strong></span> method, which
-     returns false and terminates the loop when no more rowsets can be returned.
+     <code class="literal">MULTIPLE_ROWSETS</code>, which returns three rowsets. We use a 
+     <a href="control-structures.do.while.html" class="link">do-while</a> loop to
+     call the <span class="methodname"><strong>PDOStatement::nextRowset()</strong></span> method until it
+     returns <strong><code>false</code></strong> and terminates the loop when no more rowsets are available.
     </p></div>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -104,7 +109,7 @@ banana   yellow
     <li class="member"><span class="function"><a href="pdostatement.columncount.html" class="function" rel="rdfs-seeAlso">PDOStatement::columnCount()</a> - Returns the number of columns in the result set</span></li>
     <li class="member"><span class="function"><a href="pdostatement.execute.html" class="function" rel="rdfs-seeAlso">PDOStatement::execute()</a> - Executes a prepared statement</span></li>
     <li class="member"><span class="function"><a href="pdostatement.getcolumnmeta.html" class="function" rel="rdfs-seeAlso">PDOStatement::getColumnMeta()</a> - Returns metadata for a column in a result set</span></li>
-    <li class="member"><span class="function"><a href="pdo.query.html" class="function" rel="rdfs-seeAlso">PDO::query()</a> - Executes an SQL statement, returning a result set as a PDOStatement object</span></li>
+    <li class="member"><span class="function"><a href="pdo.query.html" class="function" rel="rdfs-seeAlso">PDO::query()</a> - Prepares and executes an SQL statement without placeholders</span></li>
    </ul>
   </p>
  </div>

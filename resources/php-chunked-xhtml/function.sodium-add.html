@@ -26,33 +26,26 @@
   <div id="layout-content"><div id="function.sodium-add" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">sodium_add</h1>
-  <p class="verinfo">(PHP 7 &gt;= 7.2.0)</p><p class="refpurpose"><span class="refname">sodium_add</span> &mdash; <span class="dc-title">Add large numbers</span></p>
+  <p class="verinfo">(PHP 7 &gt;= 7.2.0, PHP 8)</p><p class="refpurpose"><span class="refname">sodium_add</span> &mdash; <span class="dc-title">Add large numbers</span></p>
 
  </div>
 
  <div class="refsect1 description" id="refsect1-function.sodium-add-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>sodium_add</strong></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter reference">&$string1</code></span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$string2</code></span>
-   ) : <span class="type"><span class="type void">void</span></span></div>
+   <span class="methodname"><strong>sodium_add</strong></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter reference">&$string1</code></span>, <span class="methodparam"><span class="type">string</span> <code class="parameter">$string2</code></span>): <span class="type"><span class="type void">void</span></span></div>
 
   <p class="para rdfs-comment">
-
+   This adds the parameter <code class="parameter">string2</code> to <code class="parameter">string1</code>, overwriting
+   the value stored in <code class="parameter">string1</code>. This function assumes both parameters are binary
+   strings that represent unsigned integers in little-endian byte order.
   </p>
-
-  <div class="warning"><strong class="warning">Warning</strong><p class="simpara">This function is
-currently not documented; only its argument list is available.
-</p></div>
-
  </div>
 
 
  <div class="refsect1 parameters" id="refsect1-function.sodium-add-parameters">
   <h3 class="title">Parameters</h3>
   <dl>
-
    
     <dt>
 <code class="parameter">string1</code></dt>
@@ -60,7 +53,8 @@ currently not documented; only its argument list is available.
     <dd>
 
      <p class="para">
-      
+      String representing an arbitrary-length unsigned integer in little-endian byte order.
+      This parameter is passed by reference and will hold the sum of the two parameters.
      </p>
     </dd>
 
@@ -72,7 +66,7 @@ currently not documented; only its argument list is available.
     <dd>
 
      <p class="para">
-      
+      String representing an arbitrary-length unsigned integer in little-endian byte order.
      </p>
     </dd>
 

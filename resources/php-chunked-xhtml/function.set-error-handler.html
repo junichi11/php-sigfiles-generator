@@ -26,20 +26,17 @@
   <div id="layout-content"><div id="function.set-error-handler" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">set_error_handler</h1>
-  <p class="verinfo">(PHP 4 &gt;= 4.0.1, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">set_error_handler</span> &mdash; <span class="dc-title">Sets a user-defined error handler function</span></p>
+  <p class="verinfo">(PHP 4 &gt;= 4.0.1, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">set_error_handler</span> &mdash; <span class="dc-title">Sets a user-defined error handler function</span></p>
 
  </div>
 
  <div class="refsect1 description" id="refsect1-function.set-error-handler-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>set_error_handler</strong></span>
-    ( <span class="methodparam"><span class="type"><a href="language.types.callable.html" class="type callable">callable</a></span> <code class="parameter">$error_handler</code></span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$error_types</code><span class="initializer"> = E_ALL | E_STRICT</span></span>
-   ) : <span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span></div>
+   <span class="methodname"><strong>set_error_handler</strong></span>(<span class="methodparam"><span class="type">?</span><span class="type"><span class="type"><a href="language.types.callable.html" class="type callable">callable</a></span><span class="type"></span></span> <code class="parameter">$callback</code></span>, <span class="methodparam"><span class="type">int</span> <code class="parameter">$error_levels</code><span class="initializer"> = <strong><code>E_ALL</code></strong></span></span>): <span class="type"><span class="type">?</span><span class="type"><a href="language.types.callable.html" class="type callable">callable</a></span></span></div>
 
   <p class="para rdfs-comment">
-   Sets a user function (<code class="parameter">error_handler</code>) to handle
+   Sets a user function (<code class="parameter">callback</code>) to handle
    errors in a script.
   </p>
   <p class="para">
@@ -51,17 +48,24 @@
   </p>
   <p class="para">
    It is important to remember that the standard PHP error handler is completely
-   bypassed for the error types specified by <code class="parameter">error_types</code> 
+   bypassed for the error types specified by <code class="parameter">error_levels</code> 
    unless the callback function returns <strong><code>false</code></strong>.
    <span class="function"><a href="function.error-reporting.html" class="function">error_reporting()</a></span> settings will have no effect and your
    error handler will be called regardless - however you are still able to read 
    the current value of 
    <a href="errorfunc.configuration.html#ini.error-reporting" class="link">error_reporting</a> and act
-   appropriately. Of particular note is that this value will be 0 if the
-   statement that caused the error was prepended by the
-   <a href="language.operators.errorcontrol.html" class="link">@ error-control
-   operator</a>.
+   appropriately.
   </p>
+
+  <div class="warning"><strong class="warning">Warning</strong>
+   <p class="para">
+    Prior to PHP 8.0.0, the <code class="parameter">errno</code> value was always
+    <code class="literal">0</code> if the expression which caused the diagnostic
+    was prepended by the
+    <a href="language.operators.errorcontrol.html" class="link">@ error-control operator</a>.
+   </p>
+  </div>
+
   <p class="para">
    Also note that it is your responsibility to <span class="function"><a href="function.die.html" class="function">die()</a></span> if
    necessary. If the error-handler function returns, script execution
@@ -88,31 +92,21 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
-<code class="parameter">error_handler</code></dt>
+<code class="parameter">callback</code></dt>
 
      <dd>
 
       <p class="para">
-       A callback with the following signature.
-       <strong><code>null</code></strong> may be passed instead, to reset this handler to its default state.
-       Instead of a function name, an array containing an object reference 
-       and a method name can also be supplied.
+       If <strong><code>null</code></strong> is passed, the handler is reset to its default state.
+       Otherwise, the handler is a callback with the following signature:
       </p>
       <p class="para">
        <div class="methodsynopsis dc-description">
-        <span class="methodname"><span class="replaceable">handler</span></span>
-         ( <span class="methodparam"><span class="type">int</span> <code class="parameter">$errno</code></span>
-        , <span class="methodparam"><span class="type">string</span> <code class="parameter">$errstr</code></span>
-        , <span class="methodparam"><span class="type">string</span> <code class="parameter">$errfile</code> = ?</span>
-        , <span class="methodparam"><span class="type">int</span> <code class="parameter">$errline</code> = ?</span>
-        , <span class="methodparam"><span class="type">array</span> <code class="parameter">$errcontext</code> = ?</span>
-        ) : <span class="type">bool</span></div>
+        <span class="methodname"><span class="replaceable">handler</span></span>(<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">int</span> <code class="parameter">$errno</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$errstr</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$errfile</code><span class="initializer"> = ?</span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">int</span> <code class="parameter">$errline</code><span class="initializer"> = ?</span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">array</span> <code class="parameter">$errcontext</code><span class="initializer"> = ?</span></span><br>): <span class="type">bool</span></div>
 
        <dl>
-
         
          <dt>
 <code class="parameter">errno</code></dt>
@@ -201,15 +195,15 @@
     
     
      <dt>
-<code class="parameter">error_types</code></dt>
+<code class="parameter">error_levels</code></dt>
 
      <dd>
 
       <p class="para">
        Can be used to mask the triggering of the
-       <code class="parameter">error_handler</code> function just like the <a href="errorfunc.configuration.html#ini.error-reporting" class="link">error_reporting</a> ini setting 
+       <code class="parameter">callback</code> function just like the <a href="errorfunc.configuration.html#ini.error-reporting" class="link">error_reporting</a> ini setting 
        controls which errors are shown. Without this mask set the
-       <code class="parameter">error_handler</code> will be called for every error
+       <code class="parameter">callback</code> will be called for every error
        regardless to the setting of the <a href="errorfunc.configuration.html#ini.error-reporting" class="link">error_reporting</a> setting.
       </p>
      </dd>
@@ -224,9 +218,9 @@
  <div class="refsect1 returnvalues" id="refsect1-function.set-error-handler-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns a string containing the previously defined error handler (if any). If
-   the built-in error handler is used <strong><code>null</code></strong> is returned. <strong><code>null</code></strong> is also returned
-   in case of an error such as an invalid callback. If the previous error handler
+   Returns the previously defined error handler (if any). If
+   the built-in error handler is used <strong><code>null</code></strong> is returned.
+   If the previous error handler
    was a class method, this function will return an indexed array with the class
    and the method name.
   </p>
@@ -247,6 +241,15 @@
      </thead>
 
      <tbody class="tbody">
+      <tr>
+       <td>8.0.0</td>
+       <td>
+        <code class="parameter">errno</code> is no longer <code class="literal">0</code> when
+        the expression was suppressed by the
+        <a href="language.operators.errorcontrol.html" class="link">@ error-control operator</a>
+       </td>
+      </tr>
+
       <tr>
        <td>8.0.0</td>
        <td>
@@ -272,7 +275,7 @@
  <div class="refsect1 examples" id="refsect1-function.set-error-handler-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-492">
+   <div class="example" id="example-508">
     <p><strong>Example #1 Error handling with <span class="function"><strong>set_error_handler()</strong></span> and <span class="function"><a href="function.trigger-error.html" class="function">trigger_error()</a></span></strong></p>
     <div class="example-contents"><p>
      The example below shows the handling of internal exceptions by
@@ -331,7 +334,7 @@ Aborting...&lt;br /&gt;
   <h3 class="title">See Also</h3>
   <p class="para">
    <ul class="simplelist">
-    <li class="member"><a href="class.errorexception.html" class="classname">ErrorException</a></li>
+    <li class="member"><span class="classname"><a href="class.errorexception.html" class="classname">ErrorException</a></span></li>
     <li class="member"><span class="function"><a href="function.error-reporting.html" class="function" rel="rdfs-seeAlso">error_reporting()</a> - Sets which PHP errors are reported</span></li>
     <li class="member"><span class="function"><a href="function.restore-error-handler.html" class="function" rel="rdfs-seeAlso">restore_error_handler()</a> - Restores the previous error handler function</span></li>
     <li class="member"><span class="function"><a href="function.trigger-error.html" class="function" rel="rdfs-seeAlso">trigger_error()</a> - Generates a user-level error/warning/notice message</span></li>

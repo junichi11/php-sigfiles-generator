@@ -27,23 +27,17 @@
  <div class="refnamediv">
   <h1 class="refname">DateTimeZone::getOffset</h1>
   <h1 class="refname">timezone_offset_get</h1>
-  <p class="verinfo">(PHP 5 &gt;= 5.2.0, PHP 7)</p><p class="refpurpose"><span class="refname">DateTimeZone::getOffset</span> -- <span class="refname">timezone_offset_get</span> &mdash; <span class="dc-title">Returns the timezone offset from GMT</span></p>
+  <p class="verinfo">(PHP 5 &gt;= 5.2.0, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">DateTimeZone::getOffset</span> -- <span class="refname">timezone_offset_get</span> &mdash; <span class="dc-title">Returns the timezone offset from GMT</span></p>
 
  </div>
  <div class="refsect1 description" id="refsect1-datetimezone.getoffset-description">
   <h3 class="title">Description</h3>
-  <p class="para">Object oriented style</p>
+  <p class="para">Object-oriented style</p>
   <div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><strong>DateTimeZone::getOffset</strong></span>
-    ( <span class="methodparam"><span class="type"><a href="class.datetimeinterface.html" class="type DateTimeInterface">DateTimeInterface</a></span> <code class="parameter">$datetime</code></span>
-   ) : <span class="type">int</span></div>
+   <span class="modifier">public</span> <span class="methodname"><strong>DateTimeZone::getOffset</strong></span>(<span class="methodparam"><span class="type"><a href="class.datetimeinterface.html" class="type DateTimeInterface">DateTimeInterface</a></span> <code class="parameter">$datetime</code></span>): <span class="type">int</span></div>
 
   <p class="para rdfs-comment">Procedural style</p>
-  <div class="methodsynopsis dc-description">
-   <span class="methodname"><a href="function.timezone-offset-get.html" class="methodname">timezone_offset_get</a></span>
-    ( <span class="methodparam"><span class="type"><a href="class.datetimezone.html" class="type DateTimeZone">DateTimeZone</a></span> <code class="parameter">$object</code></span>
-   , <span class="methodparam"><span class="type"><a href="class.datetimeinterface.html" class="type DateTimeInterface">DateTimeInterface</a></span> <code class="parameter">$datetime</code></span>
-   ) : <span class="type">int</span></div>
+  <div class="methodsynopsis dc-description"><span class="methodname"><a href="function.timezone-offset-get.html" class="methodname">timezone_offset_get</a></span>(<span class="methodparam"><span class="type"><a href="class.datetimezone.html" class="type DateTimeZone">DateTimeZone</a></span> <code class="parameter">$object</code></span>, <span class="methodparam"><span class="type"><a href="class.datetimeinterface.html" class="type DateTimeInterface">DateTimeInterface</a></span> <code class="parameter">$datetime</code></span>): <span class="type">int</span></div>
 
   <p class="para rdfs-comment">
    This function returns the offset to GMT for the date/time specified in the
@@ -57,12 +51,11 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     <dt>
-<code class="parameter">
-object</code></dt>
+
+<code class="parameter">object</code></dt>
 <dd>
-<p class="para">Procedural style only: A <a href="class.datetimezone.html" class="classname">DateTimeZone</a> object
+<p class="para">Procedural style only: A <span class="classname"><a href="class.datetimezone.html" class="classname">DateTimeZone</a></span> object
 returned by <span class="function"><a href="function.timezone-open.html" class="function">timezone_open()</a></span></p></dd>
 
     
@@ -112,15 +105,6 @@ returned by <span class="function"><a href="function.timezone-open.html" class="
        </td>
       </tr>
 
-      <tr>
-       <td>5.5.19, 5.6.3</td>
-       <td>
-        <code class="parameter">datetime</code> type changed to
-        <span class="interfacename"><a href="class.datetimeinterface.html" class="interfacename">DateTimeInterface</a></span>.
-        Previously, <a href="class.datetime.html" class="classname">DateTime</a>.
-       </td>
-      </tr>
-
      </tbody>
     
    </table>
@@ -132,7 +116,7 @@ returned by <span class="function"><a href="function.timezone-open.html" class="
  <div class="refsect1 examples" id="refsect1-datetimezone.getoffset-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-2542">
+   <div class="example" id="example-2054">
     <p><strong>Example #1 <span class="function"><strong>DateTimeZone::getOffset()</strong></span> examples</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

@@ -27,30 +27,22 @@
  <div class="refnamediv">
   <h1 class="refname">ResourceBundle::getErrorCode</h1>
   <h1 class="refname">resourcebundle_get_error_code</h1>
-  <p class="verinfo">(PHP 5 &gt;= 5.3.2, PHP 7, PECL intl &gt;= 2.0.0)</p><p class="refpurpose"><span class="refname">ResourceBundle::getErrorCode</span> -- <span class="refname">resourcebundle_get_error_code</span> &mdash; <span class="dc-title">Get bundle&#039;s last error code</span></p>
+  <p class="verinfo">(PHP 5 &gt;= 5.3.2, PHP 7, PHP 8, PECL intl &gt;= 2.0.0)</p><p class="refpurpose"><span class="refname">ResourceBundle::getErrorCode</span> -- <span class="refname">resourcebundle_get_error_code</span> &mdash; <span class="dc-title">Get bundle&#039;s last error code</span></p>
 
  </div>
 
  <div class="refsect1 description" id="refsect1-resourcebundle.geterrorcode-description">
   <h3 class="title">Description</h3>
   <p class="para">
-   Object oriented style
+   Object-oriented style
   </p>
   <div class="methodsynopsis dc-description">
-   <span class="modifier">public</span>
-   
-   <span class="methodname"><strong>ResourceBundle::getErrorCode</strong></span>
-    (
-   ) : <span class="type">int</span></div>
+   <span class="modifier">public</span> <span class="methodname"><strong>ResourceBundle::getErrorCode</strong></span>(): <span class="type">int</span></div>
 
   <p class="para rdfs-comment">
    Procedural style
   </p>
-  <div class="methodsynopsis dc-description">
-   
-   <span class="methodname"><strong>resourcebundle_get_error_code</strong></span>
-    ( <span class="methodparam"><span class="type"><a href="class.resourcebundle.html" class="type ResourceBundle">ResourceBundle</a></span> <code class="parameter">$r</code></span>
-   ) : <span class="type">int</span></div>
+  <div class="methodsynopsis dc-description"><span class="methodname"><strong>resourcebundle_get_error_code</strong></span>(<span class="methodparam"><span class="type"><a href="class.resourcebundle.html" class="type ResourceBundle">ResourceBundle</a></span> <code class="parameter">$bundle</code></span>): <span class="type">int</span></div>
 
   <p class="para rdfs-comment">
    Get error code from the last function performed by the bundle object.
@@ -62,15 +54,14 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
-<code class="parameter">r</code></dt>
+<code class="parameter">bundle</code></dt>
 
      <dd>
 
       <p class="para">
-       <a href="class.resourcebundle.html" class="classname">ResourceBundle</a> object.
+       <span class="classname"><a href="class.resourcebundle.html" class="classname">ResourceBundle</a></span> object.
       </p>
      </dd>
 
@@ -92,7 +83,7 @@
 
  <div class="refsect1 examples" id="refsect1-resourcebundle.geterrorcode-examples">
   <h3 class="title">Examples</h3>
-  <div class="example" id="example-2941">
+  <div class="example" id="example-2452">
    <p><strong>Example #1 <span class="function"><strong>resourcebundle_get_error_code()</strong></span> example</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -102,7 +93,7 @@
    </div>
 
   </div>
-  <div class="example" id="example-2942">
+  <div class="example" id="example-2453">
    <p><strong>Example #2 OO example</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

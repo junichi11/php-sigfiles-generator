@@ -26,17 +26,14 @@
   <div id="layout-content"><div id="function.ldap-set-rebind-proc" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">ldap_set_rebind_proc</h1>
-  <p class="verinfo">(PHP 4 &gt;= 4.2.0, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">ldap_set_rebind_proc</span> &mdash; <span class="dc-title">Set a callback function to do re-binds on referral chasing</span></p>
+  <p class="verinfo">(PHP 4 &gt;= 4.2.0, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">ldap_set_rebind_proc</span> &mdash; <span class="dc-title">Set a callback function to do re-binds on referral chasing</span></p>
 
  </div>
 
  <div class="refsect1 description" id="refsect1-function.ldap-set-rebind-proc-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>ldap_set_rebind_proc</strong></span>
-    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$ldap</code></span>
-   , <span class="methodparam"><span class="type"><span class="type"><a href="language.types.callable.html" class="type callable">callable</a></span>|<span class="type">null</span></span> <code class="parameter">$callback</code></span>
-   ) : <span class="type">bool</span></div>
+   <span class="methodname"><strong>ldap_set_rebind_proc</strong></span>(<span class="methodparam"><span class="type"><a href="class.ldap-connection.html" class="type LDAP\Connection">LDAP\Connection</a></span> <code class="parameter">$ldap</code></span>, <span class="methodparam"><span class="type">?</span><span class="type"><span class="type"><a href="language.types.callable.html" class="type callable">callable</a></span><span class="type"></span></span> <code class="parameter">$callback</code></span>): <span class="type">bool</span></div>
 
   <div class="warning"><strong class="warning">Warning</strong><p class="simpara">This function is
 currently not documented; only its argument list is available.
@@ -57,6 +54,14 @@ currently not documented; only its argument list is available.
     </thead>
 
     <tbody class="tbody">
+     <tr>
+ <td>8.1.0</td>
+ <td>
+  The <code class="parameter">ldap</code> parameter expects an <span class="classname"><a href="class.ldap-connection.html" class="classname">LDAP\Connection</a></span>
+  instance now; previously, a <a href="language.types.resource.html" class="link">resource</a> was expected.
+ </td>
+</tr>
+
      <tr>
       <td>8.0.0</td>
       <td>

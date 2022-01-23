@@ -32,7 +32,6 @@
    <div class="sect2">
     <h3 class="title">List of global <var class="filename">php-fpm.conf</var> directives</h3>
     <dl>
-
      
       <dt id="pid">
        <code class="parameter">pid</code>
@@ -251,7 +250,7 @@
 
        <p class="para">
         Set open file descriptor rlimit for the master process.
-        Default value: Set open file descriptor rlimit for the master process.
+        Default value: system defined value.
        </p>
       </dd>
 
@@ -316,7 +315,6 @@
      These are settings that can be tweaked per pool.
     </p>
     <dl>
-
      
       <dt id="listen">
        <code class="parameter">listen</code>
@@ -362,7 +360,7 @@
         original PHP FastCGI (5.2.2+). Makes sense only with a tcp listening socket.
         Each address must be separated by a comma. If this value is left blank,
         connections will be accepted from any ip address. Default value: any.
-        IPv6 addresses are allowed since PHP 5.5.20 and 5.6.4.
+        IPv6 addresses are allowed.
        </p>
       </dd>
 
@@ -423,7 +421,7 @@
        <p class="para">
         When POSIX Access Control Lists are supported you can set them using this option.
         When set, <code class="literal">listen.owner</code> and <code class="literal">listen.group</code>
-        are ignored. Value is a comma separated list of user names. Since PHP 5.6.5.
+        are ignored. Value is a comma separated list of user names.
        </p>
       </dd>
 
@@ -438,7 +436,7 @@
 
        <p class="para">
         See <code class="literal">listen.acl_users</code>.
-        Value is a comma separated list of group names. Since PHP 5.6.5.
+        Value is a comma separated list of group names.
        </p>
       </dd>
 
@@ -856,7 +854,7 @@
         Clear environment in FPM workers.
         Prevents arbitrary environment variables from reaching FPM worker processes
         by clearing the environment in workers before env vars specified in this
-        pool configuration are added. Since PHP 5.4.27, 5.5.11, and 5.6.0.
+        pool configuration are added.
         Default value: Yes.
        </p>
       </dd>
@@ -905,7 +903,149 @@
 
        <p class="para">
         The access log format.
-        Default value: &quot;%R - %u %t \&quot;%m %r\&quot; %s&quot;
+        Default value: <code class="literal">&quot;%R - %u %t \&quot;%m %r\&quot; %s&quot;</code>:
+        <table id="fpm.configuration.access.format" class="doctable table">
+         <caption><strong>Valid options</strong></caption>
+         
+          <thead>
+           <tr>
+            <th>Placeholder</th>
+            <th>Description</th>
+           </tr>
+
+          </thead>
+
+          <tbody class="tbody">
+           <tr>
+            <td>
+             <strong><code>%C</code></strong>
+            </td>
+            <td>%CPU</td>
+           </tr>
+
+           <tr>
+            <td>
+             <strong><code>%d</code></strong>
+            </td>
+            <td>duration µs</td>
+           </tr>
+
+           <tr>
+            <td>
+             <strong><code>%e</code></strong>
+            </td>
+            <td>fastcgi env</td>
+           </tr>
+
+           <tr>
+            <td>
+             <strong><code>%f</code></strong>
+            </td>
+            <td>script</td>
+           </tr>
+
+           <tr>
+            <td>
+             <strong><code>%l</code></strong>
+            </td>
+            <td>content length</td>
+           </tr>
+
+           <tr>
+            <td>
+             <strong><code>%m</code></strong>
+            </td>
+            <td>method</td>
+           </tr>
+
+           <tr>
+            <td>
+             <strong><code>%M</code></strong>
+            </td>
+            <td>memory</td>
+           </tr>
+
+           <tr>
+            <td>
+             <strong><code>%n</code></strong>
+            </td>
+            <td>pool name</td>
+           </tr>
+
+           <tr>
+            <td>
+             <strong><code>%o</code></strong>
+            </td>
+            <td>header output</td>
+           </tr>
+
+           <tr>
+            <td>
+             <strong><code>%p</code></strong>
+            </td>
+            <td>PID</td>
+           </tr>
+
+           <tr>
+            <td>
+             <strong><code>%q</code></strong>
+            </td>
+            <td>query string</td>
+           </tr>
+
+           <tr>
+            <td>
+             <strong><code>%Q</code></strong>
+            </td>
+            <td>the glue between %q and %r</td>
+           </tr>
+
+           <tr>
+            <td>
+             <strong><code>%r</code></strong>
+            </td>
+            <td>request URI</td>
+           </tr>
+
+           <tr>
+            <td>
+             <strong><code>%R</code></strong>
+            </td>
+            <td>remote IP address</td>
+           </tr>
+
+           <tr>
+            <td>
+             <strong><code>%s</code></strong>
+            </td>
+            <td>status</td>
+           </tr>
+
+           <tr>
+            <td>
+             <strong><code>%T</code></strong>
+            </td>
+            <td>time</td>
+           </tr>
+
+           <tr>
+            <td>
+             <strong><code>%t</code></strong>
+            </td>
+            <td>time</td>
+           </tr>
+
+           <tr>
+            <td>
+             <strong><code>%u</code></strong>
+            </td>
+            <td>remote user</td>
+           </tr>
+
+          </tbody>
+         
+        </table>
+
        </p>
       </dd>
 
@@ -915,7 +1055,7 @@
     <p class="para">
      It&#039;s possible to pass additional environment variables and update PHP settings of a certain pool.
      To do this, you need to add the following options to the pool configuration file.
-     <div class="example" id="example-33">
+     <div class="example" id="example-24">
       <p><strong>Example #1 Passing environment variables and PHP settings to a pool</strong></p>
       <div class="example-contents">
 <div class="inicode"><pre class="inicode">env[HOSTNAME] = $HOSTNAME
@@ -946,8 +1086,8 @@ php_admin_value[memory_limit] = 32M</pre>
      cannot be overridden with <span class="function"><a href="function.ini-set.html" class="function">ini_set()</a></span>.
     </p>
     <p class="para">
-     As of 5.3.3, PHP settings are also possible to be set in webserver.
-     <div class="example" id="example-34">
+     PHP settings can be set in the webserver configuration.
+     <div class="example" id="example-25">
       <p><strong>Example #2 set PHP settings in nginx.conf</strong></p>
       <div class="example-contents">
        <div class="inicode"><pre class="inicode">set $php_value &quot;pcre.backtrack_limit=424242&quot;;
@@ -968,6 +1108,12 @@ fastcgi_param  PHP_ADMIN_VALUE &quot;open_basedir=/var/www/htdocs&quot;;</pre>
        <a href="install.fpm.configuration.html#listen-allowed-clients" class="link">listen.allowed_clients</a>.
       </p>
      </div>
+     <blockquote class="note"><p><strong class="note">Note</strong>: 
+      <span class="simpara">
+       Pools are not a security mechanism, because they do not provide full
+       separation; e.g. all pools would use a single OPcache instance.
+      </span>
+     </p></blockquote>
     </p>
    </div>
 

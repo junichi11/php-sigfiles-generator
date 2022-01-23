@@ -35,16 +35,15 @@
    (see next section for the download).
   </p>
   <p class="para">
-   To compile an extension into PHP, please refer to <a href="install.windows.legacy.index.html#install.windows.legacy.building" class="link">
+   To compile an extension into PHP, please refer to <a href="install.windows.building.html" class="link">
    building from source</a> documentation.
   </p>
   <p class="para">
-   To compile a standalone extension (aka a DLL file), please refer to <a href="install.windows.legacy.index.html#install.windows.legacy.building" class="link">
+   To compile a standalone extension (aka a DLL file), please refer to <a href="install.windows.building.html" class="link">
    building from source</a> documentation. If the DLL file is available neither with your 
    PHP distribution nor in PECL, you may have to compile it before you can start using the 
    extension.
   </p>
-
   <div class="sect2" id="install.pecl.windows.find">
    <h3 class="title">Where to find an extension?</h3>
    <p class="para">
@@ -108,7 +107,7 @@
     tell you <em class="emphasis">all</em> about your PHP settings:
    </p>
    <p class="para">
-    <div class="example" id="example-35">
+    <div class="example" id="example-26">
      <p><strong>Example #1 <span class="function"><a href="function.phpinfo.html" class="function">phpinfo()</a></span> call</strong></p>
      <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -193,7 +192,7 @@ Loaded Configuration File   C:\Program Files\PHP\5.2\php.ini
     have anything to do with PHP itself.
    </p>
    <p class="para">
-    Common problems are the location of the DLL, the value of the &quot;<a href="ini.core.html#ini.extension-dir" class="link">
+    Common problems are the location of the DLL and the DLLs it depends on, the value of the &quot;<a href="ini.core.html#ini.extension-dir" class="link">
     extension_dir</a>&quot; setting inside <var class="filename">php.ini</var> and compile-time setting mismatches.
    </p>
    <p class="para">

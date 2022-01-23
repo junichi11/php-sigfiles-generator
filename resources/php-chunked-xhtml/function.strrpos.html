@@ -26,18 +26,14 @@
   <div id="layout-content"><div id="function.strrpos" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">strrpos</h1>
-  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">strrpos</span> &mdash; <span class="dc-title">Find the position of the last occurrence of a substring in a string</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">strrpos</span> &mdash; <span class="dc-title">Find the position of the last occurrence of a substring in a string</span></p>
 
  </div>
  
  <div class="refsect1 description" id="refsect1-function.strrpos-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>strrpos</strong></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$haystack</code></span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$needle</code></span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$offset</code><span class="initializer"> = 0</span></span>
-   ) : <span class="type"><span class="type">int</span>|<span class="type"><span class="type false">false</span></span></span></div>
+   <span class="methodname"><strong>strrpos</strong></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$haystack</code></span>, <span class="methodparam"><span class="type">string</span> <code class="parameter">$needle</code></span>, <span class="methodparam"><span class="type">int</span> <code class="parameter">$offset</code><span class="initializer"> = 0</span></span>): <span class="type"><span class="type">int</span>|<span class="type"><span class="type false">false</span></span></span></div>
 
   <p class="para rdfs-comment">
    Find the numeric position of the last occurrence of
@@ -50,7 +46,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">haystack</code></dt>
@@ -176,7 +171,7 @@ function.</p></div>
  <div class="refsect1 examples" id="refsect1-function.strrpos-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-5375">
+   <div class="example" id="example-4866">
     <p><strong>Example #1 Checking if a needle is in the haystack</strong></p>
     <div class="example-contents"><p>
      It is easy to mistake the return values for &quot;character found at
@@ -193,7 +188,7 @@ function.</p></div>
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-5376">
+   <div class="example" id="example-4867">
     <p><strong>Example #2 Searching with offsets</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

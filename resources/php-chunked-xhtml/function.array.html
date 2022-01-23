@@ -26,15 +26,13 @@
   <div id="layout-content"><div id="function.array" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">array</h1>
-  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">array</span> &mdash; <span class="dc-title">Create an array</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">array</span> &mdash; <span class="dc-title">Create an array</span></p>
 
  </div>
  <div class="refsect1 description" id="refsect1-function.array-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>array</strong></span>
-    ( <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">...$values</code></span>
-   ) : <span class="type">array</span></div>
+   <span class="methodname"><strong>array</strong></span>(<span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">...$values</code></span>): <span class="type">array</span></div>
 
   <p class="para rdfs-comment">
    Creates an array. Read the section on the
@@ -47,7 +45,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">values</code></dt>
@@ -91,7 +88,7 @@
    two-dimensional array, how to specify keys for associative
    arrays, and how to skip-and-continue numeric indices in normal
    arrays.
-   <div class="example" id="example-5483">
+   <div class="example" id="example-4978">
     <p><strong>Example #1 <span class="function"><strong>array()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -103,7 +100,7 @@
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-5484">
+   <div class="example" id="example-4979">
     <p><strong>Example #2 Automatic index with <span class="function"><strong>array()</strong></span></strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -136,7 +133,7 @@ Array
   </p>
   <p class="para">
    This example creates a 1-based array.
-   <div class="example" id="example-5485">
+   <div class="example" id="example-4980">
     <p><strong>Example #3 1-based index with <span class="function"><strong>array()</strong></span></strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -161,7 +158,7 @@ Array
   <p class="para">
    As in Perl, you can access a value from the array inside double quotes.
    However, with PHP you&#039;ll need to enclose your array between curly braces.
-   <div class="example" id="example-5486">
+   <div class="example" id="example-4981">
     <p><strong>Example #4 Accessing an array inside double quotes</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -192,7 +189,7 @@ Array
    <ul class="simplelist">
     <li class="member"><span class="function"><a href="function.array-pad.html" class="function" rel="rdfs-seeAlso">array_pad()</a> - Pad array to the specified length with a value</span></li>
     <li class="member"><span class="function"><a href="function.list.html" class="function" rel="rdfs-seeAlso">list()</a> - Assign variables as if they were an array</span></li>
-    <li class="member"><span class="function"><a href="function.count.html" class="function" rel="rdfs-seeAlso">count()</a> - Count all elements in an array, or something in an object</span></li>
+    <li class="member"><span class="function"><a href="function.count.html" class="function" rel="rdfs-seeAlso">count()</a> - Counts all elements in an array or in a Countable object</span></li>
     <li class="member"><span class="function"><a href="function.range.html" class="function" rel="rdfs-seeAlso">range()</a> - Create an array containing a range of elements</span></li>
     <li class="member"><a href="control-structures.foreach.html" class="link">foreach</a></li>
     <li class="member">The <a href="language.types.array.html" class="link">array</a> type</li>

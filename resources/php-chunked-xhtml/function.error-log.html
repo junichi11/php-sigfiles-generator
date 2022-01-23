@@ -26,19 +26,14 @@
   <div id="layout-content"><div id="function.error-log" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">error_log</h1>
-  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">error_log</span> &mdash; <span class="dc-title">Send an error message to the defined error handling routines</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">error_log</span> &mdash; <span class="dc-title">Send an error message to the defined error handling routines</span></p>
 
  </div>
 
  <div class="refsect1 description" id="refsect1-function.error-log-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>error_log</strong></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$message</code></span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$message_type</code><span class="initializer"> = 0</span></span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$destination</code> = ?</span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$extra_headers</code> = ?</span>
-   ) : <span class="type">bool</span></div>
+   <span class="methodname"><strong>error_log</strong></span>(<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$message</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">int</span> <code class="parameter">$message_type</code><span class="initializer"> = 0</span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">?</span><span class="type"><span class="type">string</span><span class="type"></span></span> <code class="parameter">$destination</code><span class="initializer"> = <strong><code>null</code></strong></span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">?</span><span class="type"><span class="type">string</span><span class="type"></span></span> <code class="parameter">$additional_headers</code><span class="initializer"> = <strong><code>null</code></strong></span></span><br>): <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
    Sends an error message to the web server&#039;s error log or to a file.
@@ -50,7 +45,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">message</code></dt>
@@ -94,7 +88,7 @@
             <code class="parameter">message</code> is sent by email to the address in
             the <code class="parameter">destination</code> parameter.  This is the only
             message type where the fourth parameter,
-            <code class="parameter">extra_headers</code> is used.
+            <code class="parameter">additional_headers</code> is used.
            </td>
           </tr>
 
@@ -145,7 +139,7 @@
     
     
      <dt>
-<code class="parameter">extra_headers</code></dt>
+<code class="parameter">additional_headers</code></dt>
 
      <dd>
 
@@ -168,6 +162,53 @@
   <h3 class="title">Return Values</h3>
   <p class="para">
    Returns <strong><code>true</code></strong> on success or <strong><code>false</code></strong> on failure.
+   If <code class="parameter">message_type</code> is zero, this function always returns <strong><code>true</code></strong>,
+   regardless of whether the error could be logged or not.
+  </p>
+ </div>
+
+
+ <div class="refsect1 changelog" id="refsect1-function.error-log-changelog">
+  <h3 class="title">Changelog</h3>
+  <table class="doctable informaltable">
+   
+    <thead>
+     <tr>
+      <th>Version</th>
+      <th>Description</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+      <td>8.0.0</td>
+      <td>
+       <code class="parameter">destination</code> and
+       <code class="parameter">additional_headers</code> are now nullable.
+      </td>
+     </tr>
+
+    </tbody>
+   
+  </table>
+
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-function.error-log-examples">
+  <h3 class="title">Examples</h3>
+  <p class="para">
+   <div class="example" id="example-504">
+    <p><strong>Example #1 <span class="function"><strong>error_log()</strong></span> examples</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;Send&nbsp;notification&nbsp;through&nbsp;the&nbsp;server&nbsp;log&nbsp;if&nbsp;we&nbsp;can&nbsp;not<br />//&nbsp;connect&nbsp;to&nbsp;the&nbsp;database.<br /></span><span style="color: #007700">if&nbsp;(!</span><span style="color: #0000BB">Ora_Logon</span><span style="color: #007700">(</span><span style="color: #0000BB">$username</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$password</span><span style="color: #007700">))&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">error_log</span><span style="color: #007700">(</span><span style="color: #DD0000">"Oracle&nbsp;database&nbsp;not&nbsp;available!"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">);<br />}<br /><br /></span><span style="color: #FF8000">//&nbsp;Notify&nbsp;administrator&nbsp;by&nbsp;email&nbsp;if&nbsp;we&nbsp;run&nbsp;out&nbsp;of&nbsp;FOO<br /></span><span style="color: #007700">if&nbsp;(!(</span><span style="color: #0000BB">$foo&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">allocate_new_foo</span><span style="color: #007700">()))&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">error_log</span><span style="color: #007700">(</span><span style="color: #DD0000">"Big&nbsp;trouble,&nbsp;we're&nbsp;all&nbsp;out&nbsp;of&nbsp;FOOs!"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">"operator@example.com"</span><span style="color: #007700">);<br />}<br /><br /></span><span style="color: #FF8000">//&nbsp;another&nbsp;way&nbsp;to&nbsp;call&nbsp;error_log():<br /></span><span style="color: #0000BB">error_log</span><span style="color: #007700">(</span><span style="color: #DD0000">"You&nbsp;messed&nbsp;up!"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">3</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"/var/tmp/my-errors.log"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+   </div>
   </p>
  </div>
 
@@ -184,23 +225,6 @@
     <code class="parameter">message</code> should not contain null character. Note that <code class="parameter">message</code> may be sent to file, mail, syslog, etc. Use appropriate conversion/escape function, <span class="function"><a href="function.base64-encode.html" class="function">base64_encode()</a></span>, <span class="function"><a href="function.rawurlencode.html" class="function">rawurlencode()</a></span> or <span class="function"><a href="function.addslashes.html" class="function">addslashes()</a></span> before calling <span class="function"><strong>error_log()</strong></span>.
    </p>
   </div>
- </div>
-
-
- <div class="refsect1 examples" id="refsect1-function.error-log-examples">
-  <h3 class="title">Examples</h3>
-  <p class="para">
-   <div class="example" id="example-488">
-    <p><strong>Example #1 <span class="function"><strong>error_log()</strong></span> examples</strong></p>
-    <div class="example-contents">
-<div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;Send&nbsp;notification&nbsp;through&nbsp;the&nbsp;server&nbsp;log&nbsp;if&nbsp;we&nbsp;can&nbsp;not<br />//&nbsp;connect&nbsp;to&nbsp;the&nbsp;database.<br /></span><span style="color: #007700">if&nbsp;(!</span><span style="color: #0000BB">Ora_Logon</span><span style="color: #007700">(</span><span style="color: #0000BB">$username</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$password</span><span style="color: #007700">))&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">error_log</span><span style="color: #007700">(</span><span style="color: #DD0000">"Oracle&nbsp;database&nbsp;not&nbsp;available!"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">);<br />}<br /><br /></span><span style="color: #FF8000">//&nbsp;Notify&nbsp;administrator&nbsp;by&nbsp;email&nbsp;if&nbsp;we&nbsp;run&nbsp;out&nbsp;of&nbsp;FOO<br /></span><span style="color: #007700">if&nbsp;(!(</span><span style="color: #0000BB">$foo&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">allocate_new_foo</span><span style="color: #007700">()))&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">error_log</span><span style="color: #007700">(</span><span style="color: #DD0000">"Big&nbsp;trouble,&nbsp;we're&nbsp;all&nbsp;out&nbsp;of&nbsp;FOOs!"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">"operator@example.com"</span><span style="color: #007700">);<br />}<br /><br /></span><span style="color: #FF8000">//&nbsp;another&nbsp;way&nbsp;to&nbsp;call&nbsp;error_log():<br /></span><span style="color: #0000BB">error_log</span><span style="color: #007700">(</span><span style="color: #DD0000">"You&nbsp;messed&nbsp;up!"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">3</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"/var/tmp/my-errors.log"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
-</span>
-</code></div>
-    </div>
-
-   </div>
-  </p>
  </div>
 
 

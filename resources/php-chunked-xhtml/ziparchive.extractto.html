@@ -26,16 +26,13 @@
   <div id="layout-content"><div id="ziparchive.extractto" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">ZipArchive::extractTo</h1>
-  <p class="verinfo">(PHP 5 &gt;= 5.2.0, PHP 7, PECL zip &gt;= 1.1.0)</p><p class="refpurpose"><span class="refname">ZipArchive::extractTo</span> &mdash; <span class="dc-title">Extract the archive contents</span></p>
+  <p class="verinfo">(PHP 5 &gt;= 5.2.0, PHP 7, PHP 8, PECL zip &gt;= 1.1.0)</p><p class="refpurpose"><span class="refname">ZipArchive::extractTo</span> &mdash; <span class="dc-title">Extract the archive contents</span></p>
 
  </div>
  <div class="refsect1 description" id="refsect1-ziparchive.extractto-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><strong>ZipArchive::extractTo</strong></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$pathto</code></span>
-   , <span class="methodparam"><span class="type"><span class="type">array</span>|<span class="type">string</span>|<span class="type">null</span></span> <code class="parameter">$files</code><span class="initializer"> = <strong><code>null</code></strong></span></span>
-   ) : <span class="type">bool</span></div>
+   <span class="modifier">public</span> <span class="methodname"><strong>ZipArchive::extractTo</strong></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$pathto</code></span>, <span class="methodparam"><span class="type"><span class="type">array</span>|<span class="type">string</span>|<span class="type">null</span></span> <code class="parameter">$files</code><span class="initializer"> = <strong><code>null</code></strong></span></span>): <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
    Extract the complete archive or the given files to the specified
@@ -55,7 +52,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">pathto</code></dt>
@@ -95,7 +91,7 @@
 
  <div class="refsect1 examples" id="refsect1-ziparchive.extractto-examples">
   <h3 class="title">Examples</h3>
-    <div class="example" id="example-820">
+    <div class="example" id="example-823">
      <p><strong>Example #1 Extract all entries</strong></p>
      <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -105,7 +101,7 @@
      </div>
 
     </div>
-    <div class="example" id="example-821">
+    <div class="example" id="example-824">
      <p><strong>Example #2 Extract two entries</strong></p>
      <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -116,5 +112,14 @@
 
     </div>
    </div>
+
+
+ <div class="refsect1 notes" id="refsect1-ziparchive.extractto-notes">
+  <h3 class="title">Notes</h3>
+  <blockquote class="note"><p><strong class="note">Note</strong>: <p class="para">Windows NTFS file systems
+do not support some characters in filenames, namely <code class="literal">&lt;|&gt;*?&quot;:</code>. Filenames with a trailing dot
+are not supported either. Contrary to some extraction tools, this method does not replace these characters with
+an underscore, but instead fails to extract such files.</p></p></blockquote>
+ </div>
 
 </div></div></div></body></html>

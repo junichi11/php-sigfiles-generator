@@ -51,7 +51,7 @@
     the user home directories.
    </p>
    <p class="para">
-    <div class="example" id="context.curl.example-post">
+    <div class="example" id="example-414">
      <p><strong>Example #1 Poor variable checking leads to....</strong></p>
      <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -67,7 +67,7 @@
    In this case, you&#039;d want to use some other form of authentication.
    Consider what could happen if the variables submitted were
    &quot;../etc/&quot; and &quot;passwd&quot;. The code would then effectively read:
-    <div class="example" id="context.zip.example-password">
+    <div class="example" id="example-415">
      <p><strong>Example #2 ... A filesystem attack</strong></p>
      <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -92,7 +92,7 @@
      </li>
     </ul>
     Here is an improved script:
-    <div class="example" id="wrappers.http.example.basic">
+    <div class="example" id="example-416">
      <p><strong>Example #3 More secure file name checking</strong></p>
      <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -106,7 +106,7 @@
     system allowed users to create their own user logins, and a user
     chose the login &quot;../etc/&quot;, the system is once again exposed. For
     this reason, you may prefer to write a more customized check:
-    <div class="example" id="example-397">
+    <div class="example" id="example-417">
      <p><strong>Example #4 More secure file name checking</strong></p>
      <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

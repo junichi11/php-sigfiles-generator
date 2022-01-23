@@ -207,11 +207,11 @@ int(2)
  </div>
 
  <div class="sect2" id="migration72.incompatible.is_object-on-incomplete_class">
-  <h3 class="title"><span class="function"><a href="function.is-object.html" class="function">is_object()</a></span> and <strong class="classname">__PHP_Incomplete_Class</strong></h3>
+  <h3 class="title"><span class="function"><a href="function.is-object.html" class="function">is_object()</a></span> and <span class="classname"><strong class="classname">__PHP_Incomplete_Class</strong></span></h3>
 
   <p class="para">
    Previously, using <span class="function"><a href="function.is-object.html" class="function">is_object()</a></span> on the
-   <strong class="classname">__PHP_Incomplete_Class</strong> class would return <strong><code>false</code></strong>.
+   <span class="classname"><strong class="classname">__PHP_Incomplete_Class</strong></span> class would return <strong><code>false</code></strong>.
    Now, <strong><code>true</code></strong> will be returned.
   </p>
  </div>
@@ -223,7 +223,7 @@ int(2)
    Unqualified references to undefined constants will now generate an
    <strong><code>E_WARNING</code></strong> (instead of an <strong><code>E_NOTICE</code></strong>).
    In the next major version of PHP, they will generate
-   <a href="class.error.html" class="classname">Error</a> exceptions.
+   <span class="classname"><a href="class.error.html" class="classname">Error</a></span> exceptions.
   </p>
  </div>
 

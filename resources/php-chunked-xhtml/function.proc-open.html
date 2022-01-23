@@ -26,7 +26,7 @@
   <div id="layout-content"><div id="function.proc-open" class="refentry">
    <div class="refnamediv">
     <h1 class="refname">proc_open</h1>
-    <p class="verinfo">(PHP 4 &gt;= 4.3.0, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">proc_open</span> &mdash; <span class="dc-title">
+    <p class="verinfo">(PHP 4 &gt;= 4.3.0, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">proc_open</span> &mdash; <span class="dc-title">
      Execute a command and open file pointers for input/output
     </span></p>
 
@@ -34,14 +34,7 @@
    <div class="refsect1 description" id="refsect1-function.proc-open-description">
     <h3 class="title">Description</h3>
      <div class="methodsynopsis dc-description">
-      <span class="methodname"><strong>proc_open</strong></span>
-       ( <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$cmd</code></span>
-      , <span class="methodparam"><span class="type">array</span> <code class="parameter">$descriptorspec</code></span>
-      , <span class="methodparam"><span class="type">array</span> <code class="parameter reference">&$pipes</code></span>
-      , <span class="methodparam"><span class="type">string</span> <code class="parameter">$cwd</code><span class="initializer"> = <strong><code>null</code></strong></span></span>
-      , <span class="methodparam"><span class="type">array</span> <code class="parameter">$env</code><span class="initializer"> = <strong><code>null</code></strong></span></span>
-      , <span class="methodparam"><span class="type">array</span> <code class="parameter">$other_options</code><span class="initializer"> = <strong><code>null</code></strong></span></span>
-      ) : <span class="type">resource</span></div>
+   <span class="methodname"><strong>proc_open</strong></span>(<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type"><span class="type">array</span>|<span class="type">string</span></span> <code class="parameter">$command</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">array</span> <code class="parameter">$descriptor_spec</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">array</span> <code class="parameter reference">&$pipes</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">?</span><span class="type"><span class="type">string</span><span class="type"></span></span> <code class="parameter">$cwd</code><span class="initializer"> = <strong><code>null</code></strong></span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">?</span><span class="type"><span class="type">array</span><span class="type"></span></span> <code class="parameter">$env_vars</code><span class="initializer"> = <strong><code>null</code></strong></span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">?</span><span class="type"><span class="type">array</span><span class="type"></span></span> <code class="parameter">$options</code><span class="initializer"> = <strong><code>null</code></strong></span></span><br>): <span class="type"><span class="type">resource</span>|<span class="type"><span class="type false">false</span></span></span></div>
 
     <p class="para rdfs-comment">
      <span class="function"><strong>proc_open()</strong></span> is similar to <span class="function"><a href="function.popen.html" class="function">popen()</a></span>
@@ -57,10 +50,9 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
-<code class="parameter">cmd</code></dt>
+<code class="parameter">command</code></dt>
 
      <dd>
 
@@ -71,19 +63,19 @@
       <blockquote class="note"><p><strong class="note">Note</strong>: 
        <span class="simpara">
         On <em class="emphasis">Windows</em>, unless <code class="literal">bypass_shell</code> is set to <strong><code>true</code></strong> in
-        <code class="parameter">other_options</code>, the <code class="parameter">cmd</code> is
+        <code class="parameter">options</code>, the <code class="parameter">command</code> is
         passed to <strong class="command">cmd.exe</strong> (actually, <code class="literal">%ComSpec%</code>)
         with the <code class="literal">/c</code> flag as <em class="emphasis">unquoted</em> string
         (i.e. exactly as has been given to <span class="function"><strong>proc_open()</strong></span>).
         This can cause <strong class="command">cmd.exe</strong> to remove enclosing quotes from
-        <code class="parameter">cmd</code> (for details see the <strong class="command">cmd.exe</strong> documentation),
+        <code class="parameter">command</code> (for details see the <strong class="command">cmd.exe</strong> documentation),
         resulting in unexpected, and potentially even dangerous behavior, because
         <strong class="command">cmd.exe</strong> error messages may contain (parts of) the passed
-        <code class="parameter">cmd</code> (see example below).
+        <code class="parameter">command</code> (see example below).
        </span>
       </p></blockquote>
       <p class="para">
-       As of PHP 7.4.0, <code class="parameter">cmd</code> may be passed as <span class="type">array</span> of command parameters.
+       As of PHP 7.4.0, <code class="parameter">command</code> may be passed as <span class="type">array</span> of command parameters.
        In this case the process will be opened directly (without going through a shell)
        and PHP will take care of any necessary argument escaping.
       </p>
@@ -99,7 +91,7 @@
     
     
      <dt>
-<code class="parameter">descriptorspec</code></dt>
+<code class="parameter">descriptor_spec</code></dt>
 
      <dd>
 
@@ -117,6 +109,7 @@
          element is either <code class="literal">r</code> to pass the read end of the pipe
          to the process, or <code class="literal">w</code> to pass the write end) and
          <code class="literal">file</code> (the second element is a filename).
+         Note that anything else than <code class="literal">w</code> is treated like <code class="literal">r</code>.
         </li>
         <li class="member">
          A stream resource representing a real file descriptor (e.g. opened file,
@@ -166,7 +159,7 @@
     
     
      <dt>
-<code class="parameter">env</code></dt>
+<code class="parameter">env_vars</code></dt>
 
      <dd>
 
@@ -179,7 +172,7 @@
     
     
      <dt>
-<code class="parameter">other_options</code></dt>
+<code class="parameter">options</code></dt>
 
      <dd>
 
@@ -246,7 +239,7 @@
        <td>7.4.4</td>
        <td>
         Added the <code class="literal">create_new_console</code> option to the
-        <code class="parameter">other_options</code> parameter.
+        <code class="parameter">options</code> parameter.
        </td>
       </tr>
 
@@ -254,7 +247,7 @@
        <td>7.4.0</td>
        <td>
         <span class="function"><strong>proc_open()</strong></span> now also accepts an <span class="type">array</span>
-        for the <code class="parameter">cmd</code>.
+        for the <code class="parameter">command</code>.
        </td>
       </tr>
 
@@ -262,7 +255,7 @@
        <td>7.4.0</td>
        <td>
         Added the <code class="literal">create_process_group</code> option to the
-        <code class="parameter">other_options</code> parameter.
+        <code class="parameter">options</code> parameter.
        </td>
       </tr>
 
@@ -277,7 +270,7 @@
  <div class="refsect1 examples" id="refsect1-function.proc-open-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-3809">
+   <div class="example" id="example-3330">
     <p><strong>Example #1 A <span class="function"><strong>proc_open()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -304,7 +297,7 @@ command returned 0
   </p>
 
   <p class="para">
-   <div class="example" id="example-3810">
+   <div class="example" id="example-3331">
     <p><strong>Example #2 <span class="function"><strong>proc_open()</strong></span> quirk on Windows</strong></p>
     <div class="example-contents"><p>
      While one may expect the following program to search the file
@@ -327,7 +320,7 @@ operable program or batch file.
     </div>
     <div class="example-contents"><p>
      To work around that behavior, it is usually sufficient to enclose the
-     <code class="parameter">cmd</code> in additional quotes:
+     <code class="parameter">command</code> in additional quotes:
     </p></div>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -372,7 +365,7 @@ $cmd&nbsp;=&nbsp;'""findstr"&nbsp;"search"&nbsp;"filename.txt""';</span>
     <li class="member"><span class="function"><a href="function.system.html" class="function" rel="rdfs-seeAlso">system()</a> - Execute an external program and display the output</span></li>
     <li class="member"><span class="function"><a href="function.passthru.html" class="function" rel="rdfs-seeAlso">passthru()</a> - Execute an external program and display raw output</span></li>
     <li class="member"><span class="function"><a href="function.stream-select.html" class="function" rel="rdfs-seeAlso">stream_select()</a> - Runs the equivalent of the select() system call on the given
-   arrays of streams with a timeout specified by tv_sec and tv_usec</span></li>
+   arrays of streams with a timeout specified by seconds and microseconds</span></li>
     <li class="member">The <a href="language.operators.execution.html" class="link">backtick operator</a></li>
    </ul>
   </p>

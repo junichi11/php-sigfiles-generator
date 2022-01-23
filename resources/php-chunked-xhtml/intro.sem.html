@@ -26,7 +26,7 @@
   <div id="layout-content"><div id="intro.sem" class="preface">
   <h1 class="title">Introduction</h1>
   <p class="para">
-   This module provides wrappers for the System V IPC family of functions.
+   These modules provide wrappers for the System V IPC family of functions.
    It includes semaphores, shared memory and inter-process messaging (IPC).
   </p>
   <p class="para">
@@ -81,6 +81,11 @@
    data between processes, without the need for setting up an alternative
    using Unix domain sockets.
   </p>
-  <blockquote class="note"><p><strong class="note">Note</strong>: <span class="simpara">This extension is not
-available on Windows platforms.</span></p></blockquote>
+  <blockquote class="note"><p><strong class="note">Note</strong>: 
+   <span class="simpara">
+    Only the shared memory functions and <span class="function"><a href="function.ftok.html" class="function">ftok()</a></span> are available
+    on Windows. Neither semaphores nor inter-process messaging functions are
+    supported on that platform.
+   </span>
+  </p></blockquote>
  </div></div></div></body></html>

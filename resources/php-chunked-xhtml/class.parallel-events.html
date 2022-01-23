@@ -46,56 +46,30 @@
     <div class="classsynopsisinfo">
      <span class="ooclass">
       <span class="modifier">final</span>
-      <strong class="classname">parallel\Events</strong>
+      <span class="modifier">class</span> <strong class="classname">parallel\Events</strong>
      </span>
-     <span class="oointerface">implements 
-      <span class="interfacename"><a href="class.countable.html" class="interfacename">Countable</a></span>
-     </span>
-     <span class="oointerface">, 
-      <span class="interfacename"><a href="class.traversable.html" class="interfacename">Traversable</a></span>
-     </span>
-     {</div>
+     <span class="oointerface"><span class="modifier">implements</span> 
+       <a href="class.countable.html" class="interfacename">Countable</a></span><span class="oointerface">,  <a href="class.traversable.html" class="interfacename">Traversable</a></span> {</div>
 
    
     <div class="classsynopsisinfo classsynopsisinfo_comment">/* Input */</div>
     <div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><a href="parallel-events.setinput.html" class="methodname">setInput</a></span>
-    ( <span class="methodparam"><span class="type"><span class="type Input">Input</span></span> <code class="parameter">$input</code></span>
-   ) : <span class="type"><span class="type void">void</span></span></div>
+   <span class="modifier">public</span> <span class="methodname"><a href="parallel-events.setinput.html" class="methodname">setInput</a></span>(<span class="methodparam"><span class="type"><span class="type Input">Input</span></span> <code class="parameter">$input</code></span>): <span class="type"><span class="type void">void</span></span></div>
 
 
     <div class="classsynopsisinfo classsynopsisinfo_comment">/* Targets */</div>
-    <div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><a href="parallel-events.addchannel.html" class="methodname">addChannel</a></span>
-    ( <span class="methodparam"><span class="type"><a href="class.parallel-channel.html" class="type parallel\Channel">parallel\Channel</a></span> <code class="parameter">$channel</code></span>
-   ) : <span class="type"><span class="type void">void</span></span></div>
-<div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><a href="parallel-events.addfuture.html" class="methodname">addFuture</a></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$name</code></span>
-   , <span class="methodparam"><span class="type"><a href="class.parallel-future.html" class="type parallel\Future">parallel\Future</a></span> <code class="parameter">$future</code></span>
-   ) : <span class="type"><span class="type void">void</span></span></div>
-<div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><a href="parallel-events.remove.html" class="methodname">remove</a></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$target</code></span>
-   ) : <span class="type"><span class="type void">void</span></span></div>
+    <div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="parallel-events.addchannel.html" class="methodname">addChannel</a></span>(<span class="methodparam"><span class="type"><a href="class.parallel-channel.html" class="type parallel\Channel">parallel\Channel</a></span> <code class="parameter">$channel</code></span>): <span class="type"><span class="type void">void</span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="parallel-events.addfuture.html" class="methodname">addFuture</a></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$name</code></span>, <span class="methodparam"><span class="type"><a href="class.parallel-future.html" class="type parallel\Future">parallel\Future</a></span> <code class="parameter">$future</code></span>): <span class="type"><span class="type void">void</span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="parallel-events.remove.html" class="methodname">remove</a></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$target</code></span>): <span class="type"><span class="type void">void</span></span></div>
 
 
     <div class="classsynopsisinfo classsynopsisinfo_comment">/* Behaviour */</div>
-    <div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><a href="parallel-events.setblocking.html" class="methodname">setBlocking</a></span>
-    ( <span class="methodparam"><span class="type">bool</span> <code class="parameter">$blocking</code></span>
-   ) : <span class="type"><span class="type void">void</span></span></div>
-<div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><a href="parallel-events.settimeout.html" class="methodname">setTimeout</a></span>
-    ( <span class="methodparam"><span class="type">int</span> <code class="parameter">$timeout</code></span>
-   ) : <span class="type"><span class="type void">void</span></span></div>
+    <div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="parallel-events.setblocking.html" class="methodname">setBlocking</a></span>(<span class="methodparam"><span class="type">bool</span> <code class="parameter">$blocking</code></span>): <span class="type"><span class="type void">void</span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="parallel-events.settimeout.html" class="methodname">setTimeout</a></span>(<span class="methodparam"><span class="type">int</span> <code class="parameter">$timeout</code></span>): <span class="type"><span class="type void">void</span></span></div>
 
 
     <div class="classsynopsisinfo classsynopsisinfo_comment">/* Polling */</div>
-    <div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><a href="parallel-events.poll.html" class="methodname">poll</a></span>
-    (
-   ) : <span class="type"><span class="type"><a href="class.event.html" class="type Event">Event</a></span>|<span class="type">null</span></span></div>
+    <div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="parallel-events.poll.html" class="methodname">poll</a></span>(): <span class="type"><span class="type">?</span><span class="type"><a href="class.parallel-events-event.html" class="type parallel\Events\Event">parallel\Events\Event</a></span></span></div>
 
    }</div>
 

@@ -26,18 +26,13 @@
   <div id="layout-content"><div id="function.stream-filter-prepend" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">stream_filter_prepend</h1>
-  <p class="verinfo">(PHP 4 &gt;= 4.3.0, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">stream_filter_prepend</span> &mdash; <span class="dc-title">Attach a filter to a stream</span></p>
+  <p class="verinfo">(PHP 4 &gt;= 4.3.0, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">stream_filter_prepend</span> &mdash; <span class="dc-title">Attach a filter to a stream</span></p>
 
  </div>
  <div class="refsect1 description" id="refsect1-function.stream-filter-prepend-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>stream_filter_prepend</strong></span>
-    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$stream</code></span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$filtername</code></span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$read_write</code> = ?</span>
-   , <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$params</code> = ?</span>
-   ) : <span class="type">resource</span></div>
+   <span class="methodname"><strong>stream_filter_prepend</strong></span>(<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">resource</span> <code class="parameter">$stream</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$filtername</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">int</span> <code class="parameter">$read_write</code><span class="initializer"> = ?</span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$params</code><span class="initializer"> = ?</span></span><br>): <span class="type">resource</span></div>
 
   <p class="para rdfs-comment">
    Adds <code class="parameter">filtername</code> to the list of filters
@@ -50,7 +45,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">stream</code></dt>

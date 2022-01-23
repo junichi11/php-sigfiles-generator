@@ -26,16 +26,14 @@
   <div id="layout-content"><div id="reflectionextension.clone" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">ReflectionExtension::__clone</h1>
-  <p class="verinfo">(PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">ReflectionExtension::__clone</span> &mdash; <span class="dc-title">Clones</span></p>
+  <p class="verinfo">(PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">ReflectionExtension::__clone</span> &mdash; <span class="dc-title">Clones</span></p>
 
  </div>
 
  <div class="refsect1 description" id="refsect1-reflectionextension.clone-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="modifier">final</span> <span class="modifier">private</span> <span class="methodname"><strong>ReflectionExtension::__clone</strong></span>
-    (
-   ) : <span class="type"><span class="type void">void</span></span></div>
+   <span class="modifier">private</span> <span class="methodname"><strong>ReflectionExtension::__clone</strong></span>(): <span class="type"><span class="type void">void</span></span></div>
 
   <p class="para rdfs-comment">
    The clone method prevents an object from being cloned. Reflection objects 
@@ -55,6 +53,33 @@
   <p class="para">
    No value is returned, if called a fatal error will occur.
   </p>
+ </div>
+
+
+ <div class="refsect1 changelog" id="refsect1-reflectionextension.clone-changelog">
+  <h3 class="title">Changelog</h3>
+  <table class="doctable informaltable">
+   
+    <thead>
+     <tr>
+      <th>Version</th>
+      <th>Description</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+      <td>8.1.0</td>
+      <td>
+       This method is no longer <span class="modifier">final</span>.
+      </td>
+     </tr>
+
+    </tbody>
+   
+  </table>
+
  </div>
 
 

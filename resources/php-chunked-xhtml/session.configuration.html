@@ -122,30 +122,30 @@ The behaviour of these functions is affected by settings in <var class="filename
 
     <tr>
      <td><a href="session.configuration.html#ini.session.cookie-secure" class="link">session.cookie_secure</a></td>
-     <td>&quot;&quot;</td>
+     <td>&quot;0&quot;</td>
      <td>PHP_INI_ALL</td>
-     <td class="empty">&nbsp;</td>
+     <td>Prior to PHP 7.2.0, the default was <code class="literal">&quot;&quot;</code>.</td>
     </tr>
 
     <tr>
      <td><a href="session.configuration.html#ini.session.cookie-httponly" class="link">session.cookie_httponly</a></td>
-     <td>&quot;&quot;</td>
+     <td>&quot;0&quot;</td>
      <td>PHP_INI_ALL</td>
-     <td>Available since PHP 5.2.0.</td>
+     <td>Prior to PHP 7.2.0, the default was <code class="literal">&quot;&quot;</code>.</td>
     </tr>
 
     <tr>
      <td><a href="session.configuration.html#ini.session.cookie-samesite" class="link">session.cookie_samesite</a></td>
      <td>&quot;&quot;</td>
      <td>PHP_INI_ALL</td>
-     <td>Available since PHP 7.3.0.</td>
+     <td>Available as of PHP 7.3.0.</td>
     </tr>
 
     <tr>
      <td><a href="session.configuration.html#ini.session.use-strict-mode" class="link">session.use_strict_mode</a></td>
      <td>&quot;0&quot;</td>
      <td>PHP_INI_ALL</td>
-     <td>Available since PHP 5.5.2.</td>
+     <td class="empty">&nbsp;</td>
     </tr>
 
     <tr>
@@ -194,112 +194,105 @@ The behaviour of these functions is affected by settings in <var class="filename
      <td><a href="session.configuration.html#ini.session.trans-sid-tags" class="link">session.trans_sid_tags</a></td>
      <td>&quot;a=href,area=href,frame=src,form=&quot;</td>
      <td>PHP_INI_ALL</td>
-     <td>Available since PHP 7.1.0.</td>
+     <td>Available as of PHP 7.1.0.</td>
     </tr>
 
     <tr>
      <td><a href="session.configuration.html#ini.session.trans-sid-hosts" class="link">session.trans_sid_hosts</a></td>
      <td><code class="literal">$_SERVER[&#039;HTTP_HOST&#039;]</code></td>
      <td>PHP_INI_ALL</td>
-     <td>Available since PHP 7.1.0.</td>
+     <td>Available as of PHP 7.1.0.</td>
     </tr>
 
     <tr>
      <td><a href="session.configuration.html#ini.session.sid-length" class="link">session.sid_length</a></td>
      <td>&quot;32&quot;</td>
      <td>PHP_INI_ALL</td>
-     <td>Available since PHP 7.1.0.</td>
+     <td>Available as of PHP 7.1.0.</td>
     </tr>
 
     <tr>
      <td><a href="session.configuration.html#ini.session.sid-bits-per-character" class="link">session.sid_bits_per_character</a></td>
      <td>&quot;4&quot;</td>
      <td>PHP_INI_ALL</td>
-     <td>Available since PHP 7.1.0.</td>
+     <td>Available as of PHP 7.1.0.</td>
     </tr>
 
     <tr>
      <td><a href="session.configuration.html#ini.session.upload-progress.enabled" class="link">session.upload_progress.enabled</a></td>
      <td>&quot;1&quot;</td>
      <td>PHP_INI_PERDIR</td>
-     <td>Available since PHP 5.4.0.</td>
+     <td class="empty">&nbsp;</td>
     </tr>
 
     <tr>
      <td><a href="session.configuration.html#ini.session.upload-progress.cleanup" class="link">session.upload_progress.cleanup</a></td>
      <td>&quot;1&quot;</td>
      <td>PHP_INI_PERDIR</td>
-     <td>Available since PHP 5.4.0.</td>
+     <td class="empty">&nbsp;</td>
     </tr>
 
     <tr>
      <td><a href="session.configuration.html#ini.session.upload-progress.prefix" class="link">session.upload_progress.prefix</a></td>
      <td>&quot;upload_progress_&quot;</td>
      <td>PHP_INI_PERDIR</td>
-     <td>Available since PHP 5.4.0.</td>
+     <td class="empty">&nbsp;</td>
     </tr>
 
     <tr>
      <td><a href="session.configuration.html#ini.session.upload-progress.name" class="link">session.upload_progress.name</a></td>
      <td>&quot;PHP_SESSION_UPLOAD_PROGRESS&quot;</td>
      <td>PHP_INI_PERDIR</td>
-     <td>Available since PHP 5.4.0.</td>
+     <td class="empty">&nbsp;</td>
     </tr>
 
     <tr>
      <td><a href="session.configuration.html#ini.session.upload-progress.freq" class="link">session.upload_progress.freq</a></td>
      <td>&quot;1%&quot;</td>
      <td>PHP_INI_PERDIR</td>
-     <td>Available since PHP 5.4.0.</td>
+     <td class="empty">&nbsp;</td>
     </tr>
 
     <tr>
      <td><a href="session.configuration.html#ini.session.upload-progress.min-freq" class="link">session.upload_progress.min_freq</a></td>
      <td>&quot;1&quot;</td>
      <td>PHP_INI_PERDIR</td>
-     <td>Available since PHP 5.4.0.</td>
+     <td class="empty">&nbsp;</td>
     </tr>
 
     <tr>
      <td><a href="session.configuration.html#ini.session.lazy-write" class="link">session.lazy_write</a></td>
      <td>&quot;1&quot;</td>
      <td>PHP_INI_ALL</td>
-     <td>Available since PHP 7.0.0.</td>
-    </tr>
-
-    <tr>
-     <td><a href="outcontrol.configuration.html#ini.url-rewriter.tags" class="link">url_rewriter.tags</a></td>
-     <td>&quot;a=href,area=href,frame=src,form=&quot;</td>
-     <td>PHP_INI_ALL</td>
-     <td>Since PHP 7.1.0, this INI is no longer used by session.</td>
+     <td class="empty">&nbsp;</td>
     </tr>
 
     <tr>
      <td><a href="session.configuration.html#ini.session.hash-function" class="link">session.hash_function</a></td>
      <td>&quot;0&quot;</td>
      <td>PHP_INI_ALL</td>
-     <td>Removed in PHP 7.1.0.</td>
+     <td>Removed as of PHP 7.1.0.</td>
     </tr>
 
     <tr>
      <td><a href="session.configuration.html#ini.session.hash-bits-per-character" class="link">session.hash_bits_per_character</a></td>
      <td>&quot;4&quot;</td>
      <td>PHP_INI_ALL</td>
-     <td>Removed in PHP 7.1.0.</td>
+     <td>Removed as of PHP 7.1.0.</td>
     </tr>
 
     <tr>
      <td><a href="session.configuration.html#ini.session.entropy-file" class="link">session.entropy_file</a></td>
      <td>&quot;&quot;</td>
      <td>PHP_INI_ALL</td>
-     <td>Removed in PHP 7.1.0.</td>
+     <td>Removed as of PHP 7.1.0.</td>
     </tr>
 
     <tr>
      <td><a href="session.configuration.html#ini.session.entropy-length" class="link">session.entropy_length</a></td>
      <td>&quot;0&quot;</td>
      <td>PHP_INI_ALL</td>
-     <td>Removed in PHP 7.1.0</td>
+     <td>Removed as of PHP 7.1.0</td>
     </tr>
 
    </tbody>
@@ -314,7 +307,6 @@ PHP_INI_* modes, see the <a href="configuration.changes.modes.html" class="xref"
   options which you can place in your <var class="filename">php.ini</var> file. We will give a
   short overview.
  <dl>
-
 
   
    <dt id="ini.session.save-handler">
@@ -454,8 +446,7 @@ PHP_INI_* modes, see the <a href="configuration.changes.modes.html" class="xref"
      <code class="literal">php_binary</code>) and WDDX are supported (name
      <code class="literal">wddx</code>). WDDX is only available, if PHP is
      compiled with <a href="ref.wddx.html" class="link">WDDX
-     support</a>. <code class="literal">php_serialize</code> is available
-     from PHP 5.5.4. <code class="literal">php_serialize</code> uses plain
+     support</a>. <code class="literal">php_serialize</code> uses plain
      serialize/unserialize function internally and does not have
      limitations that <code class="literal">php</code>
      and <code class="literal">php_binary</code> have. Older serialize handlers
@@ -571,7 +562,7 @@ PHP_INI_* modes, see the <a href="configuration.changes.modes.html" class="xref"
      which are available on many Unix systems.
     </span>
     <span class="simpara">
-     This feature is supported on Windows since PHP 5.3.3. Setting 
+     This feature is supported on Windows. Setting 
      <code class="literal">session.entropy_length</code> to a non zero value
      will make PHP use the Windows Random API as entropy source.
     </span>
@@ -580,9 +571,9 @@ PHP_INI_* modes, see the <a href="configuration.changes.modes.html" class="xref"
       Removed in PHP 7.1.0.
      </span>
      <span class="simpara">
-      As of PHP 5.4.0 <code class="literal">session.entropy_file</code> defaults
+      <code class="literal">session.entropy_file</code> defaults
       to <code class="literal">/dev/urandom</code> or <code class="literal">/dev/arandom</code>
-      if it is available. In PHP 5.3.0 this directive is left empty by default.
+      if it is available.
      </span>
     </p></blockquote>
    </dd>
@@ -639,7 +630,7 @@ PHP_INI_* modes, see the <a href="configuration.changes.modes.html" class="xref"
       does not implement <span class="methodname"><a href="sessionupdatetimestamphandlerinterface.validateid.html" class="methodname">SessionUpdateTimestampHandlerInterface::validateId()</a></span>,
       nor supplies the <code class="parameter">validate_sid</code> callback, respectively,
       strict session ID mode is effectively disabled, regardless of the value of this directive.
-      Particularly note that <a href="class.sessionhandler.html" class="classname">SessionHandler</a> does <em class="emphasis">not</em>
+      Particularly note that <span class="classname"><a href="class.sessionhandler.html" class="classname">SessionHandler</a></span> does <em class="emphasis">not</em>
       implement <span class="methodname"><strong>SessionHandler::validateId()</strong></span>.
      </p>
     </div>
@@ -678,7 +669,7 @@ PHP_INI_* modes, see the <a href="configuration.changes.modes.html" class="xref"
      cookies to store the session id on the client side.
      Enabling this setting prevents attacks involved passing session
      ids in URLs.
-     Defaults to <code class="literal">1</code> (enabled) since PHP 5.3.0.
+     Defaults to <code class="literal">1</code> (enabled).
     </span>
    </dd>
 
@@ -1017,7 +1008,7 @@ PHP_INI_* modes, see the <a href="configuration.changes.modes.html" class="xref"
      &#039;1&#039; means SHA-1 (160 bits).
     </span>
     <p class="para">
-     Since PHP 5.3.0 it is also possible to specify any of the algorithms
+     It is also possible to specify any of the algorithms
      provided by the <a href="ref.hash.html" class="link">hash extension</a> (if it is
      available), like <code class="literal">sha512</code> or
      <code class="literal">whirlpool</code>. A complete list of supported algorithms can
@@ -1025,7 +1016,7 @@ PHP_INI_* modes, see the <a href="configuration.changes.modes.html" class="xref"
     </p>
     <blockquote class="note"><p><strong class="note">Note</strong>: 
      <span class="simpara">
-      This setting was introduced in PHP 5. Removed in PHP 7.1.0.
+      Removed in PHP 7.1.0.
      </span>
     </p></blockquote>
    </dd>
@@ -1190,13 +1181,6 @@ PHP_INI_* modes, see the <a href="configuration.changes.modes.html" class="xref"
 
  </dl>
 
- </p>
-
- <p class="para">
-  The
-  <a href="ini.core.html#ini.register-globals" class="link"><code class="literal">register_globals</code></a>
-  configuration settings influence how the session variables get
-  stored and restored.
  </p>
 
  <p class="para">

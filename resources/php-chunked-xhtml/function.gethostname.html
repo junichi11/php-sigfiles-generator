@@ -26,21 +26,25 @@
   <div id="layout-content"><div id="function.gethostname" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">gethostname</h1>
-  <p class="verinfo">(PHP 5 &gt;= 5.3.0, PHP 7)</p><p class="refpurpose"><span class="refname">gethostname</span> &mdash; <span class="dc-title">Gets the host name</span></p>
+  <p class="verinfo">(PHP 5 &gt;= 5.3.0, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">gethostname</span> &mdash; <span class="dc-title">Gets the host name</span></p>
 
  </div>
  
  <div class="refsect1 description" id="refsect1-function.gethostname-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>gethostname</strong></span>
-    (
-   ) : <span class="type"><span class="type">string</span>|<span class="type"><span class="type false">false</span></span></span></div>
+   <span class="methodname"><strong>gethostname</strong></span>(): <span class="type"><span class="type">string</span>|<span class="type"><span class="type false">false</span></span></span></div>
 
   <p class="para rdfs-comment">
    <span class="function"><strong>gethostname()</strong></span> gets the standard host name for 
    the local machine.
   </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-function.gethostname-parameters">
+  <h3 class="title">Parameters</h3>
+  <p class="para">This function has no parameters.</p>
  </div>
 
 
@@ -56,11 +60,11 @@
  <div class="refsect1 examples" id="refsect1-function.gethostname-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-4945">
+   <div class="example" id="example-4445">
     <p><strong>Example #1 A simple <span class="function"><strong>gethostname()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #0000BB">gethostname</span><span style="color: #007700">();&nbsp;</span><span style="color: #FF8000">//&nbsp;may&nbsp;output&nbsp;e.g,:&nbsp;sandie<br /><br />//&nbsp;Or,&nbsp;an&nbsp;option&nbsp;that&nbsp;also&nbsp;works&nbsp;before&nbsp;PHP&nbsp;5.3<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #0000BB">php_uname</span><span style="color: #007700">(</span><span style="color: #DD0000">'n'</span><span style="color: #007700">);&nbsp;</span><span style="color: #FF8000">//&nbsp;may&nbsp;output&nbsp;e.g,:&nbsp;sandie<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #0000BB">gethostname</span><span style="color: #007700">();&nbsp;</span><span style="color: #FF8000">//&nbsp;may&nbsp;output&nbsp;e.g,:&nbsp;sandie<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

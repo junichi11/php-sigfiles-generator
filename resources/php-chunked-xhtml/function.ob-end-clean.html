@@ -26,16 +26,14 @@
   <div id="layout-content"><div id="function.ob-end-clean" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">ob_end_clean</h1>
-  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">ob_end_clean</span> &mdash; <span class="dc-title">Clean (erase) the output buffer and turn off output buffering</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">ob_end_clean</span> &mdash; <span class="dc-title">Clean (erase) the output buffer and turn off output buffering</span></p>
 
  </div>
  
  <div class="refsect1 description" id="refsect1-function.ob-end-clean-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>ob_end_clean</strong></span>
-    (
-   ) : <span class="type">bool</span></div>
+   <span class="methodname"><strong>ob_end_clean</strong></span>(): <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
    This function discards the contents of the topmost output buffer and turns
@@ -50,6 +48,12 @@
    and <a href="outcontrol.constants.html#constant.php-output-handler-removable" class="link">PHP_OUTPUT_HANDLER_REMOVABLE</a>
    flags. Otherwise <span class="function"><strong>ob_end_clean()</strong></span> will not work.
   </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-function.ob-end-clean-parameters">
+  <h3 class="title">Parameters</h3>
+  <p class="para">This function has no parameters.</p>
  </div>
 
 
@@ -77,7 +81,7 @@
    The following example shows an easy way to get rid of all output buffers:
   </p>
   <p class="para">
-   <div class="example" id="example-506">
+   <div class="example" id="example-521">
     <p><strong>Example #1 <span class="function"><strong>ob_end_clean()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

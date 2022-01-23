@@ -1,0 +1,65 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Serialization</title>
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="language.enumerations.listing.html">« Value listing</a></li>
+      <li style="float: right;"><a href="language.enumerations.examples.html">Examples »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="language.enumerations.html">Enumerations</a></li>
+    <li>Serialization</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="language.enumerations.serialization" class="sect1">
+  <h2 class="title">Serialization</h2>
+
+  <p class="para">
+   Enumerations are serialized differently from objects.  Specifically, they have a new serialization code,
+   <code class="literal">&quot;E&quot;</code>, that specifies the name of the enum case.  The deserialization routine is then
+   able to use that to set a variable to the existing singleton value.  That ensures that:
+  </p>
+
+  <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />Suit</span><span style="color: #007700">::</span><span style="color: #0000BB">Hearts&nbsp;</span><span style="color: #007700">===&nbsp;</span><span style="color: #0000BB">unserialize</span><span style="color: #007700">(</span><span style="color: #0000BB">serialize</span><span style="color: #007700">(</span><span style="color: #0000BB">Suit</span><span style="color: #007700">::</span><span style="color: #0000BB">Hearts</span><span style="color: #007700">));<br /><br />print&nbsp;</span><span style="color: #0000BB">serialize</span><span style="color: #007700">(</span><span style="color: #0000BB">Suit</span><span style="color: #007700">::</span><span style="color: #0000BB">Hearts</span><span style="color: #007700">);<br /></span><span style="color: #FF8000">//&nbsp;E:11:"Suit:Hearts";<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+  </div>
+
+
+  <p class="para">
+   On deserialization, if an enum and case cannot be found to match a serialized
+   value a warning will be issued and <code class="literal">false</code> returned.</p>
+
+  <p class="para">
+   If a Pure Enum is serialized to JSON, an error will be thrown.  If a Backed Enum
+   is serialized to JSON, it will be represented by its value scalar only, in the
+   appropriate type.  The behavior of both may be overridden by implementing
+   <span class="classname"><a href="class.jsonserializable.html" class="classname">JsonSerializable</a></span>.
+  </p>
+
+  <p class="para">For <span class="function"><a href="function.print-r.html" class="function">print_r()</a></span>, the output of an enum case is slightly different
+   from objects to minimize confusion.
+  </p>
+
+  <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />enum&nbsp;Foo&nbsp;</span><span style="color: #007700">{<br />&nbsp;&nbsp;&nbsp;&nbsp;case&nbsp;</span><span style="color: #0000BB">Bar</span><span style="color: #007700">;<br />}<br /><br /></span><span style="color: #0000BB">enum&nbsp;Baz</span><span style="color: #007700">:&nbsp;</span><span style="color: #0000BB">int&nbsp;</span><span style="color: #007700">{<br />&nbsp;&nbsp;&nbsp;&nbsp;case&nbsp;</span><span style="color: #0000BB">Beep&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">5</span><span style="color: #007700">;<br />}<br /><br /></span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">Foo</span><span style="color: #007700">::</span><span style="color: #0000BB">Bar</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">Baz</span><span style="color: #007700">::</span><span style="color: #0000BB">Beep</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">/*&nbsp;Produces<br /><br />Foo&nbsp;Enum&nbsp;(<br />&nbsp;&nbsp;&nbsp;&nbsp;[name]&nbsp;=&gt;&nbsp;Bar<br />)<br />Baz&nbsp;Enum:int&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;[name]&nbsp;=&gt;&nbsp;Beep<br />&nbsp;&nbsp;&nbsp;&nbsp;[value]&nbsp;=&gt;&nbsp;5<br />}<br />*/<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+  </div>
+
+ </div></div></div></body></html>

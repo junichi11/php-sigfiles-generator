@@ -26,16 +26,14 @@
   <div id="layout-content"><div id="reflectionclass.getproperties" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">ReflectionClass::getProperties</h1>
-  <p class="verinfo">(PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">ReflectionClass::getProperties</span> &mdash; <span class="dc-title">Gets properties</span></p>
+  <p class="verinfo">(PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">ReflectionClass::getProperties</span> &mdash; <span class="dc-title">Gets properties</span></p>
 
  </div>
 
  <div class="refsect1 description" id="refsect1-reflectionclass.getproperties-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><strong>ReflectionClass::getProperties</strong></span>
-    ( <span class="methodparam"><span class="type"><span class="type">int</span>|<span class="type">null</span></span> <code class="parameter">$filter</code><span class="initializer"> = <strong><code>null</code></strong></span></span>
-   ) : <span class="type">array</span></div>
+   <span class="modifier">public</span> <span class="methodname"><strong>ReflectionClass::getProperties</strong></span>(<span class="methodparam"><span class="type">?</span><span class="type"><span class="type">int</span><span class="type"></span></span> <code class="parameter">$filter</code><span class="initializer"> = <strong><code>null</code></strong></span></span>): <span class="type">array</span></div>
 
   <p class="para rdfs-comment">
    Retrieves reflected properties.
@@ -47,7 +45,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">filter</code></dt>
@@ -71,7 +68,7 @@
  <div class="refsect1 returnvalues" id="refsect1-reflectionclass.getproperties-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   An array of <a href="class.reflectionproperty.html" class="classname">ReflectionProperty</a> objects.
+   An array of <span class="classname"><a href="class.reflectionproperty.html" class="classname">ReflectionProperty</a></span> objects.
   </p>
  </div>
 
@@ -105,7 +102,7 @@
 
  <div class="refsect1 examples" id="refsect1-reflectionclass.getproperties-examples">
   <h3 class="title">Examples</h3>
-  <div class="example" id="example-5678">
+  <div class="example" id="reflectionclass.getproperties.example.filter">
    <p><strong>Example #1 <span class="function"><strong>ReflectionClass::getProperties()</strong></span> filtering example</strong></p>
    <div class="example-contents"><p>
     This example demonstrates usage of the optional <code class="parameter">filter</code>
@@ -151,7 +148,7 @@ array(2) {
   <p class="para">
    <ul class="simplelist">
     <li class="member"><span class="methodname"><a href="reflectionclass.getproperty.html" class="methodname" rel="rdfs-seeAlso">ReflectionClass::getProperty()</a> - Gets a ReflectionProperty for a class's property</span></li>
-    <li class="member"><a href="class.reflectionproperty.html" class="classname">ReflectionProperty</a></li>
+    <li class="member"><span class="classname"><a href="class.reflectionproperty.html" class="classname">ReflectionProperty</a></span></li>
     <li class="member"><a href="class.reflectionproperty.html#reflectionproperty.constants.modifiers" class="link">ReflectionProperty modifier constants</a></li>
    </ul>
   </p>

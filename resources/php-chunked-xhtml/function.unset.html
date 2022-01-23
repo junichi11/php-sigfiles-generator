@@ -33,10 +33,7 @@
  <div class="refsect1 description" id="refsect1-function.unset-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>unset</strong></span>
-    ( <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$var</code></span>
-   , <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">...$vars</code></span>
-   ) : <span class="type"><span class="type void">void</span></span></div>
+   <span class="methodname"><strong>unset</strong></span>(<span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$var</code></span>, <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">...$vars</code></span>): <span class="type"><span class="type void">void</span></span></div>
 
   <p class="para rdfs-comment">
    <span class="function"><strong>unset()</strong></span> destroys the specified variables. 
@@ -146,7 +143,6 @@ Before unset: 3, after unset: 23
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">var</code></dt>
@@ -188,7 +184,7 @@ Before unset: 3, after unset: 23
  <div class="refsect1 examples" id="refsect1-function.unset-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-5796">
+   <div class="example" id="example-5246">
     <p><strong>Example #1 <span class="function"><strong>unset()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -198,7 +194,7 @@ Before unset: 3, after unset: 23
     </div>
 
    </div>
-   <div class="example" id="example-5797">
+   <div class="example" id="example-5247">
     <p><strong>Example #2 Using <code class="literal">(unset)</code> casting</strong></p>
     <div class="example-contents"><p>
      <a href="language.types.null.html#language.types.null.casting" class="link"><code class="literal">(unset)</code></a>
@@ -206,7 +202,7 @@ Before unset: 3, after unset: 23
      <span class="function"><strong>unset()</strong></span> function. <code class="literal">(unset)</code>
      casting serves only as a <code class="literal">NULL</code>-type cast, for
      completeness. It does not alter the variable it&#039;s casting.
-     The (unset) cast is deprecated as of PHP 7.2.0.
+     The (unset) cast is deprecated as of PHP 7.2.0, removed as of 8.0.0.
     </p></div>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

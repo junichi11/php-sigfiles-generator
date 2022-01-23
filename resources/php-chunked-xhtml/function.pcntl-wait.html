@@ -26,18 +26,14 @@
   <div id="layout-content"><div id="function.pcntl-wait" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">pcntl_wait</h1>
-  <p class="verinfo">(PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">pcntl_wait</span> &mdash; <span class="dc-title">Waits on or returns the status of a forked child</span></p>
+  <p class="verinfo">(PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">pcntl_wait</span> &mdash; <span class="dc-title">Waits on or returns the status of a forked child</span></p>
 
  </div>
  
  <div class="refsect1 description" id="refsect1-function.pcntl-wait-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>pcntl_wait</strong></span>
-    ( <span class="methodparam"><span class="type">int</span> <code class="parameter reference">&$status</code></span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$options</code><span class="initializer"> = 0</span></span>
-   , <span class="methodparam"><span class="type">array</span> <code class="parameter reference">&$rusage</code> = ?</span>
-   ) : <span class="type">int</span></div>
+   <span class="methodname"><strong>pcntl_wait</strong></span>(<span class="methodparam"><span class="type">int</span> <code class="parameter reference">&$status</code></span>, <span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code><span class="initializer"> = 0</span></span>, <span class="methodparam"><span class="type">array</span> <code class="parameter reference">&$resource_usage</code><span class="initializer"> = []</span></span>): <span class="type">int</span></div>
 
   <p class="para rdfs-comment">
    The wait function suspends execution of the current process until a
@@ -51,8 +47,8 @@
   <blockquote class="note"><p><strong class="note">Note</strong>: 
    <p class="para">
     This function is equivalent to calling <span class="function"><a href="function.pcntl-waitpid.html" class="function">pcntl_waitpid()</a></span>
-    with a <code class="literal">-1</code> <code class="parameter">pid</code> and no
-    <code class="parameter">options</code>.
+    with a <code class="literal">-1</code> <code class="parameter">process_id</code> and no
+    <code class="parameter">flags</code>.
    </p>
   </p></blockquote>
  </div>
@@ -62,7 +58,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">status</code></dt>
@@ -85,20 +80,20 @@
     
     
      <dt>
-<code class="parameter">options</code></dt>
+<code class="parameter">flags</code></dt>
 
      <dd>
 
       <p class="para">
        If wait3 is available on your system (mostly BSD-style systems), you can
-       provide the optional <code class="parameter">options</code> parameter.  If this
+       provide the optional <code class="parameter">flags</code> parameter.  If this
        parameter is not provided, wait will be used for the system call.  If
-       wait3 is not available, providing a value for <code class="parameter">options
-       </code> will have no effect. The value of <code class="parameter">options
-       </code> is the value of zero or more of the following two constants
+       wait3 is not available, providing a value for <code class="parameter">flags</code>
+       will have no effect. The value of <code class="parameter">flags</code>
+       is the value of zero or more of the following two constants
        <code class="literal">OR</code>&#039;ed together:
        <table class="doctable table">
-        <caption><strong>Possible values for <code class="parameter">options</code></strong></caption>
+        <caption><strong>Possible values for <code class="parameter">flags</code></strong></caption>
         
          <tbody class="tbody">
           <tr>

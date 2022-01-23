@@ -26,16 +26,13 @@
   <div id="layout-content"><div id="function.imagelayereffect" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">imagelayereffect</h1>
-  <p class="verinfo">(PHP 4 &gt;= 4.3.0, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">imagelayereffect</span> &mdash; <span class="dc-title">Set the alpha blending flag to use layering effects</span></p>
+  <p class="verinfo">(PHP 4 &gt;= 4.3.0, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">imagelayereffect</span> &mdash; <span class="dc-title">Set the alpha blending flag to use layering effects</span></p>
 
  </div>
  <div class="refsect1 description" id="refsect1-function.imagelayereffect-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>imagelayereffect</strong></span>
-    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$image</code></span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$effect</code></span>
-   ) : <span class="type">bool</span></div>
+   <span class="methodname"><strong>imagelayereffect</strong></span>(<span class="methodparam"><span class="type"><a href="class.gdimage.html" class="type GdImage">GdImage</a></span> <code class="parameter">$image</code></span>, <span class="methodparam"><span class="type">int</span> <code class="parameter">$effect</code></span>): <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
    Set the alpha blending flag to use layering effects.
@@ -46,12 +43,11 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     <dt>
-<code class="parameter">
-image</code></dt>
+
+<code class="parameter">image</code></dt>
 <dd>
-<p class="para">An image resource, returned by one of the image creation functions,
+<p class="para">A <span class="classname"><a href="class.gdimage.html" class="classname">GdImage</a></span> object, returned by one of the image creation functions,
 such as <span class="function"><a href="function.imagecreatetruecolor.html" class="function">imagecreatetruecolor()</a></span>.</p></dd>
 
     
@@ -63,7 +59,6 @@ such as <span class="function"><a href="function.imagecreatetruecolor.html" clas
       <p class="para">
        One of the following constants:
        <dl>
-
         
          <dt>
 <strong><code>IMG_EFFECT_REPLACE</code></strong></dt>
@@ -161,6 +156,14 @@ such as <span class="function"><a href="function.imagecreatetruecolor.html" clas
 
     <tbody class="tbody">
      <tr>
+ <td>8.0.0</td>
+ <td>
+  <code class="parameter">image</code> expects a <span class="classname"><a href="class.gdimage.html" class="classname">GdImage</a></span>
+  instance now; previously, a <span class="type">resource</span> was expected.
+ </td>
+</tr>
+
+     <tr>
       <td>7.2.0</td>
       <td>
        Added <strong><code>IMG_EFFECT_MULTIPLY</code></strong> (requires system libgd &gt;=
@@ -177,7 +180,7 @@ such as <span class="function"><a href="function.imagecreatetruecolor.html" clas
 
  <div class="refsect1 examples" id="refsect1-function.imagelayereffect-examples">
   <h3 class="title">Examples</h3>
-  <div class="example" id="example-3182">
+  <div class="example" id="example-2698">
    <p><strong>Example #1 <span class="function"><strong>imagelayereffect()</strong></span> example</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

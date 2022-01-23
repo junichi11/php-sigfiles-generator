@@ -26,17 +26,14 @@
   <div id="layout-content"><div id="function.gmp-binomial" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">gmp_binomial</h1>
-  <p class="verinfo">(PHP 7 &gt;= 7.3.0)</p><p class="refpurpose"><span class="refname">gmp_binomial</span> &mdash; <span class="dc-title">Calculates binomial coefficient</span></p>
+  <p class="verinfo">(PHP 7 &gt;= 7.3.0, PHP 8)</p><p class="refpurpose"><span class="refname">gmp_binomial</span> &mdash; <span class="dc-title">Calculates binomial coefficient</span></p>
 
  </div>
 
   <div class="refsect1 description" id="refsect1-function.gmp-binomial-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>gmp_binomial</strong></span>
-    ( <span class="methodparam"><span class="type"><span class="type"><a href="class.gmp.html" class="type GMP">GMP</a></span>|<span class="type">int</span>|<span class="type">string</span></span> <code class="parameter">$n</code></span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$k</code></span>
-   ) : <span class="type"><a href="class.gmp.html" class="type GMP">GMP</a></span></div>
+   <span class="methodname"><strong>gmp_binomial</strong></span>(<span class="methodparam"><span class="type"><span class="type"><a href="class.gmp.html" class="type GMP">GMP</a></span>|<span class="type">int</span>|<span class="type">string</span></span> <code class="parameter">$n</code></span>, <span class="methodparam"><span class="type">int</span> <code class="parameter">$k</code></span>): <span class="type"><a href="class.gmp.html" class="type GMP">GMP</a></span></div>
 
   <p class="para rdfs-comment">
    Calculates the binomial coefficient C(n, k).
@@ -49,14 +46,13 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">n</code></dt>
 
      <dd>
 
-      <p class="para">A <a href="class.gmp.html" class="classname">GMP</a> object, an <span class="type">int</span> or a numeric <span class="type">string</span>.</p>
+      <p class="para">A <span class="classname"><a href="class.gmp.html" class="classname">GMP</a></span> object, an <span class="type">int</span> or a numeric <span class="type">string</span>.</p>
      </dd>
 
     
@@ -89,7 +85,7 @@
  <div class="refsect1 errors" id="refsect1-function.gmp-binomial-errors">
   <h3 class="title">Errors/Exceptions</h3>
   <p class="para">
-   Throws <a href="class.valueerror.html" class="classname">ValueError</a> if <code class="parameter">k</code> is negative.
+   Throws <span class="classname"><a href="class.valueerror.html" class="classname">ValueError</a></span> if <code class="parameter">k</code> is negative.
    Prior to PHP 8.0.0, <strong><code>E_WARNING</code></strong> was issued instead.
   </p>
  </div>

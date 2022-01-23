@@ -33,14 +33,11 @@
  <div class="refsect1 description" id="refsect1-function.cubrid-get-db-parameter-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>cubrid_get_db_parameter</strong></span>
-    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$conn_identifier</code></span>  
-   ) : <span class="type">array</span></div>
+   <span class="methodname"><strong>cubrid_get_db_parameter</strong></span>(<span class="methodparam"><span class="type">resource</span> <code class="parameter">$conn_identifier</code></span>): <span class="type">array</span></div>
 
   <p class="para rdfs-comment">
-   This function returns the CUBRID database parameters or it returns FALSE on
-   failure. It returns an associative array with the values for the following
-   parameters:
+   This function returns the CUBRID database parameters, or <strong><code>false</code></strong> on failure. 
+   It returns an associative array with the values for the following parameters:
   </p>
   <p class="para">
   <ul class="simplelist">
@@ -171,7 +168,6 @@
  <h3 class="title">Parameters</h3>
  <p class="para">
   <dl>
-
    
     <dt>
 <code class="parameter">conn_identifier</code></dt>
@@ -192,10 +188,7 @@
  <div class="refsect1 returnvalues" id="refsect1-function.cubrid-get-db-parameter-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   An associative array with CUBRID database parameters; on success.
-  </p>
-   <p class="para">
-    <strong><code>false</code></strong> on failure.
+   An associative array with CUBRID database parameters; on success, or <strong><code>false</code></strong> on failure.
   </p>
  </div>
 
@@ -232,7 +225,7 @@
 
  <div class="refsect1 examples" id="refsect1-function.cubrid-get-db-parameter-examples">
   <h3 class="title">Examples</h3>
-  <div class="example" id="example-1110">
+  <div class="example" id="example-1117">
    <p><strong>Example #1 <span class="function"><strong>cubrid_get_db_parameter()</strong></span> example</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

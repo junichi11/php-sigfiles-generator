@@ -86,20 +86,6 @@ The behaviour of these functions is affected by settings in <var class="filename
      </tr>
 
      <tr>
-      <td><a href="session.configuration.html#ini.session.save-handler" class="link">session.save_handler</a></td>
-      <td>&quot;files&quot;</td>
-      <td>PHP_INI_ALL</td>
-      <td>Supported since memcache 2.1.2</td>
-     </tr>
-
-     <tr>
-      <td><a href="session.configuration.html#ini.session.save-path" class="link">session.save_path</a></td>
-      <td>&quot;&quot;</td>
-      <td>PHP_INI_ALL</td>
-      <td>Supported since memcache 2.1.2</td>
-     </tr>
-
-     <tr>
       <td><a href="memcache.ini.html#ini.memcache.protocol" class="link">memcache.protocol</a></td>
       <td>ascii</td>
       <td>&gt;PHP_INI_ALL</td>
@@ -138,6 +124,38 @@ The behaviour of these functions is affected by settings in <var class="filename
    
   </table>
 
+  <table class="doctable table">
+   <caption><strong>Session Configuration Options Affecting Memcache Behavior</strong></caption>
+   
+    <thead>
+     <tr>
+      <th>Name</th>
+      <th>Default</th>
+      <th>Changeable</th>
+      <th>Changelog</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+      <td><a href="memcache.ini.html#ini.memcache.save-handler" class="link">session.save_handler</a></td>
+      <td>&quot;files&quot;</td>
+      <td>PHP_INI_ALL</td>
+      <td>Supported since memcache 2.1.2</td>
+     </tr>
+
+     <tr>
+      <td><a href="memcache.ini.html#ini.memcache.save-path" class="link">session.save_path</a></td>
+      <td>&quot;&quot;</td>
+      <td>PHP_INI_ALL</td>
+      <td>Supported since memcache 2.1.2</td>
+     </tr>
+
+    </tbody>
+   
+  </table>
+
   For further details and definitions of the
 PHP_INI_* modes, see the <a href="configuration.changes.modes.html" class="xref">Where a configuration setting may be set</a>.
  </p>
@@ -147,7 +165,6 @@ the configuration directives.</p>
 
 <p class="para">
  <dl>
-
   
   
    <dt id="ini.memcache.allow-failover">
@@ -251,42 +268,6 @@ the configuration directives.</p>
   
 
   
-   <dt id="ini.memcache.session-handler">
-    <code class="parameter">session.save_handler</code>
-    <span class="type">string</span>
-   </dt>
-
-   <dd>
-
-    <p class="para">
-     Use memcache as a session handler by setting this value to <code class="literal">memcache</code>.
-    </p>
-   </dd>
-
-  
-
-  
-   <dt id="ini.memcache.save-path">
-    <code class="parameter">session.save_path</code>
-    <span class="type">string</span>
-   </dt>
-
-   <dd>
-
-    <p class="para">
-     Defines a comma separated of server urls to use for session storage, for example
-     <code class="literal">&quot;tcp://host1:11211, tcp://host2:11211&quot;</code>.
-    </p>
-    <p class="para">
-     Each url may contain parameters which are applied to that server, they are the same 
-     as for the <span class="function"><a href="memcache.addserver.html" class="function">Memcache::addServer()</a></span> method. For example 
-     <code class="literal">&quot;tcp://host1:11211?persistent=1&amp;weight=1&amp;timeout=1&amp;retry_interval=15&quot;</code>
-    </p>
-   </dd>
-
-  
-
-  
    <dt id="ini.memcache.protocol">
     <code class="parameter">memcache.protocol</code>
     <span class="type">string</span>
@@ -356,6 +337,42 @@ the configuration directives.</p>
 
     <p class="para">
      
+    </p>
+   </dd>
+
+  
+
+  
+   <dt id="ini.memcache.save-handler">
+    <code class="parameter">session.save_handler</code>
+    <span class="type">string</span>
+   </dt>
+
+   <dd>
+
+    <p class="para">
+     Use memcache as a session handler by setting this value to <code class="literal">memcache</code>.
+    </p>
+   </dd>
+
+  
+
+  
+   <dt id="ini.memcache.save-path">
+    <code class="parameter">session.save_path</code>
+    <span class="type">string</span>
+   </dt>
+
+   <dd>
+
+    <p class="para">
+     Defines a comma separated of server urls to use for session storage, for example
+     <code class="literal">&quot;tcp://host1:11211, tcp://host2:11211&quot;</code>.
+    </p>
+    <p class="para">
+     Each url may contain parameters which are applied to that server, they are the same 
+     as for the <span class="function"><a href="memcache.addserver.html" class="function">Memcache::addServer()</a></span> method. For example 
+     <code class="literal">&quot;tcp://host1:11211?persistent=1&amp;weight=1&amp;timeout=1&amp;retry_interval=15&quot;</code>
     </p>
    </dd>
 

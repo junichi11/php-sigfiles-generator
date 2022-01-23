@@ -26,16 +26,14 @@
   <div id="layout-content"><div id="function.stream-context-get-params" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">stream_context_get_params</h1>
-  <p class="verinfo">(PHP 5 &gt;= 5.3.0, PHP 7)</p><p class="refpurpose"><span class="refname">stream_context_get_params</span> &mdash; <span class="dc-title">Retrieves parameters from a context</span></p>
+  <p class="verinfo">(PHP 5 &gt;= 5.3.0, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">stream_context_get_params</span> &mdash; <span class="dc-title">Retrieves parameters from a context</span></p>
 
  </div>
 
  <div class="refsect1 description" id="refsect1-function.stream-context-get-params-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>stream_context_get_params</strong></span>
-    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$stream_or_context</code></span>
-   ) : <span class="type">array</span></div>
+   <span class="methodname"><strong>stream_context_get_params</strong></span>(<span class="methodparam"><span class="type">resource</span> <code class="parameter">$context</code></span>): <span class="type">array</span></div>
 
   <p class="para rdfs-comment">
    Retrieves parameter and options information from the stream or context.
@@ -47,10 +45,9 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
-<code class="parameter">stream_or_context</code></dt>
+<code class="parameter">context</code></dt>
 
      <dd>
 
@@ -78,7 +75,7 @@
  <div class="refsect1 examples" id="refsect1-function.stream-context-get-params-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-4277">
+   <div class="example" id="example-3772">
     <p><strong>Example #1 <span class="function"><strong>stream_context_get_params()</strong></span> example</strong></p>
     <div class="example-contents"><p>
      Basic usage example

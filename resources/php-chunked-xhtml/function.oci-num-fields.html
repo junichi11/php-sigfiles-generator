@@ -26,16 +26,14 @@
   <div id="layout-content"><div id="function.oci-num-fields" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">oci_num_fields</h1>
-  <p class="verinfo">(PHP 5, PHP 7, PECL OCI8 &gt;= 1.1.0)</p><p class="refpurpose"><span class="refname">oci_num_fields</span> &mdash; <span class="dc-title">Returns the number of result columns in a statement</span></p>
+  <p class="verinfo">(PHP 5, PHP 7, PHP 8, PECL OCI8 &gt;= 1.1.0)</p><p class="refpurpose"><span class="refname">oci_num_fields</span> &mdash; <span class="dc-title">Returns the number of result columns in a statement</span></p>
 
  </div>
  
  <div class="refsect1 description" id="refsect1-function.oci-num-fields-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>oci_num_fields</strong></span>
-    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$statement</code></span>
-   ) : <span class="type">int</span></div>
+   <span class="methodname"><strong>oci_num_fields</strong></span>(<span class="methodparam"><span class="type">resource</span> <code class="parameter">$statement</code></span>): <span class="type">int</span></div>
 
   <p class="para rdfs-comment">
    Gets the number of columns in the given <code class="parameter">statement</code>.
@@ -47,7 +45,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">statement</code></dt>
@@ -69,7 +66,7 @@
  <div class="refsect1 returnvalues" id="refsect1-function.oci-num-fields-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns the number of columns as an integer, or <strong><code>false</code></strong> on errors.
+   Returns the number of columns as an <span class="type">int</span>.
   </p>
  </div>
 
@@ -77,7 +74,7 @@
  <div class="refsect1 examples" id="refsect1-function.oci-num-fields-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-2290">
+   <div class="example" id="example-1849">
     <p><strong>Example #1 <span class="function"><strong>oci_num_fields()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

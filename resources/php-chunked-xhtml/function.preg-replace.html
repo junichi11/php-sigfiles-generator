@@ -26,20 +26,14 @@
   <div id="layout-content"><div id="function.preg-replace" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">preg_replace</h1>
-  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">preg_replace</span> &mdash; <span class="dc-title">Perform a regular expression search and replace</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">preg_replace</span> &mdash; <span class="dc-title">Perform a regular expression search and replace</span></p>
 
  </div>
 
  <div class="refsect1 description" id="refsect1-function.preg-replace-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>preg_replace</strong></span>
-    ( <span class="methodparam"><span class="type"><span class="type">string</span>|<span class="type">array</span></span> <code class="parameter">$pattern</code></span>
-   , <span class="methodparam"><span class="type"><span class="type">string</span>|<span class="type">array</span></span> <code class="parameter">$replacement</code></span>
-   , <span class="methodparam"><span class="type"><span class="type">string</span>|<span class="type">array</span></span> <code class="parameter">$subject</code></span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$limit</code><span class="initializer"> = -1</span></span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter reference">&$count</code><span class="initializer"> = <strong><code>null</code></strong></span></span>
-   ) : <span class="type"><span class="type">string</span>|<span class="type">array</span>|<span class="type">null</span></span></div>
+   <span class="methodname"><strong>preg_replace</strong></span>(<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type"><span class="type">string</span>|<span class="type">array</span></span> <code class="parameter">$pattern</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type"><span class="type">string</span>|<span class="type">array</span></span> <code class="parameter">$replacement</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type"><span class="type">string</span>|<span class="type">array</span></span> <code class="parameter">$subject</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">int</span> <code class="parameter">$limit</code><span class="initializer"> = -1</span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">int</span> <code class="parameter reference">&$count</code><span class="initializer"> = <strong><code>null</code></strong></span></span><br>): <span class="type"><span class="type">string</span>|<span class="type">array</span>|<span class="type">null</span></span></div>
 
   <p class="para rdfs-comment">
    Searches <code class="parameter">subject</code> for matches to
@@ -53,7 +47,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">pattern</code></dt>
@@ -195,17 +188,19 @@
  <div class="refsect1 errors" id="refsect1-function.preg-replace-errors">
   <h3 class="title">Errors/Exceptions</h3>
   <p class="para">
-   As of PHP 5.5.0 <strong><code>E_DEPRECATED</code></strong> level error is emitted when
-   passing in the &quot;\e&quot; modifier. As of PHP 7.0.0 using the &quot;\e&quot; modifier is an error;
+   Using the &quot;\e&quot; modifier is an error;
    an <strong><code>E_WARNING</code></strong> is emitted in this case.
   </p>
+  <p class="para">
+If the regex pattern passed does not compile to a valid regex, an <strong><code>E_WARNING</code></strong> is emitted.
+</p>
  </div>
 
 
  <div class="refsect1 examples" id="refsect1-function.preg-replace-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-5260">
+   <div class="example" id="example-4759">
     <p><strong>Example #1 Using backreferences followed by numeric literals</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -223,7 +218,7 @@ April1,2003
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-5261">
+   <div class="example" id="example-4760">
     <p><strong>Example #2 Using indexed arrays with <span class="function"><strong>preg_replace()</strong></span></strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -257,7 +252,7 @@ The slow black bear jumps over the lazy dog.
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-5262">
+   <div class="example" id="example-4761">
     <p><strong>Example #3 Replacing several values</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -275,7 +270,7 @@ $startDate = 5/27/1999
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-5263">
+   <div class="example" id="example-4762">
     <p><strong>Example #4 Strip whitespace</strong></p>
     <div class="example-contents"><p>
      This example strips excess whitespace from a string.
@@ -290,7 +285,7 @@ $startDate = 5/27/1999
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-5264">
+   <div class="example" id="example-4763">
     <p><strong>Example #5 Using the <code class="parameter">count</code> parameter</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

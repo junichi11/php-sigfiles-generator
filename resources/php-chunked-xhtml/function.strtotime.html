@@ -26,16 +26,13 @@
   <div id="layout-content"><div id="function.strtotime" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">strtotime</h1>
-  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">strtotime</span> &mdash; <span class="dc-title">Parse about any English textual datetime description into a Unix timestamp</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">strtotime</span> &mdash; <span class="dc-title">Parse about any English textual datetime description into a Unix timestamp</span></p>
 
  </div>
  <div class="refsect1 description" id="refsect1-function.strtotime-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>strtotime</strong></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$datetime</code></span>
-   , <span class="methodparam"><span class="type"><span class="type">int</span>|<span class="type">null</span></span> <code class="parameter">$baseTimestamp</code><span class="initializer"> = <strong><code>null</code></strong></span></span>
-   ) : <span class="type"><span class="type">int</span>|<span class="type"><span class="type false">false</span></span></span></div>
+   <span class="methodname"><strong>strtotime</strong></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$datetime</code></span>, <span class="methodparam"><span class="type">?</span><span class="type"><span class="type">int</span><span class="type"></span></span> <code class="parameter">$baseTimestamp</code><span class="initializer"> = <strong><code>null</code></strong></span></span>): <span class="type"><span class="type">int</span>|<span class="type"><span class="type false">false</span></span></span></div>
 
   <p class="simpara">
    The function expects to be given a string containing an English date format
@@ -48,7 +45,7 @@
   <p class="para">
     The Unix timestamp that this function returns does not contain information
     about time zones. In order to do calculations with date/time information,
-    you should use the more capable <a href="class.datetimeimmutable.html" class="classname">DateTimeImmutable</a>.
+    you should use the more capable <span class="classname"><a href="class.datetimeimmutable.html" class="classname">DateTimeImmutable</a></span>.
    </p>
   </div>
   <p class="para">
@@ -65,7 +62,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">datetime</code></dt>
@@ -107,11 +103,8 @@
   <h3 class="title">Errors/Exceptions</h3>
    
    <p class="para">
-Every call to a date/time function will generate a <strong><code>E_NOTICE</code></strong>
-if the time zone is not valid, and/or a <strong><code>E_STRICT</code></strong>
-or <strong><code>E_WARNING</code></strong> message
-if using the system settings or the <var class="varname">TZ</var> environment
-variable. See also <span class="function"><a href="function.date-default-timezone-set.html" class="function">date_default_timezone_set()</a></span></p>
+Every call to a date/time function will generate a <strong><code>E_WARNING</code></strong>
+if the time zone is not valid. See also <span class="function"><a href="function.date-default-timezone-set.html" class="function">date_default_timezone_set()</a></span></p>
  
  </div>
 
@@ -148,7 +141,7 @@ variable. See also <span class="function"><a href="function.date-default-timezon
  <div class="refsect1 examples" id="refsect1-function.strtotime-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-2593">
+   <div class="example" id="example-2104">
     <p><strong>Example #1 A <span class="function"><strong>strtotime()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -160,11 +153,11 @@ variable. See also <span class="function"><a href="function.date-default-timezon
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-2594">
+   <div class="example" id="example-2105">
     <p><strong>Example #2 Checking for failure</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$str&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'Not&nbsp;Good'</span><span style="color: #007700">;<br /><br /></span><span style="color: #FF8000">//&nbsp;previous&nbsp;to&nbsp;PHP&nbsp;5.1.0&nbsp;you&nbsp;would&nbsp;compare&nbsp;with&nbsp;-1,&nbsp;instead&nbsp;of&nbsp;false<br /></span><span style="color: #007700">if&nbsp;((</span><span style="color: #0000BB">$timestamp&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">strtotime</span><span style="color: #007700">(</span><span style="color: #0000BB">$str</span><span style="color: #007700">))&nbsp;===&nbsp;</span><span style="color: #0000BB">false</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"The&nbsp;string&nbsp;(</span><span style="color: #0000BB">$str</span><span style="color: #DD0000">)&nbsp;is&nbsp;bogus"</span><span style="color: #007700">;<br />}&nbsp;else&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"</span><span style="color: #0000BB">$str</span><span style="color: #DD0000">&nbsp;==&nbsp;"&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">date</span><span style="color: #007700">(</span><span style="color: #DD0000">'l&nbsp;dS&nbsp;\o\f&nbsp;F&nbsp;Y&nbsp;h:i:s&nbsp;A'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$timestamp</span><span style="color: #007700">);<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$str&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'Not&nbsp;Good'</span><span style="color: #007700">;<br /><br />if&nbsp;((</span><span style="color: #0000BB">$timestamp&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">strtotime</span><span style="color: #007700">(</span><span style="color: #0000BB">$str</span><span style="color: #007700">))&nbsp;===&nbsp;</span><span style="color: #0000BB">false</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"The&nbsp;string&nbsp;(</span><span style="color: #0000BB">$str</span><span style="color: #DD0000">)&nbsp;is&nbsp;bogus"</span><span style="color: #007700">;<br />}&nbsp;else&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"</span><span style="color: #0000BB">$str</span><span style="color: #DD0000">&nbsp;==&nbsp;"&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">date</span><span style="color: #007700">(</span><span style="color: #DD0000">'l&nbsp;dS&nbsp;\o\f&nbsp;F&nbsp;Y&nbsp;h:i:s&nbsp;A'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$timestamp</span><span style="color: #007700">);<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
@@ -190,12 +183,6 @@ variable. See also <span class="function"><a href="function.date-default-timezon
     1901 20:45:54 UTC to Tue, 19 Jan 2038 03:14:07 UTC. (These are
     the dates that correspond to the minimum and maximum values for
     a 32-bit signed integer.)
-   </p>
-   <p class="para">
-    Prior to PHP 5.1.0, not all platforms support negative timestamps, therefore
-    your date range may be limited to no earlier than the Unix epoch. This
-    means that e.g. dates prior to Jan 1, 1970 will not work on Windows,
-    some Linux distributions, and a few other operating systems.
    </p>
    <p class="para">
     For 64-bit versions of PHP, the valid range of a timestamp is effectively
@@ -225,8 +212,7 @@ variable. See also <span class="function"><a href="function.date-default-timezon
    <p class="para">
     Using this function for mathematical operations is not advisable.
     It is better to use <span class="methodname"><a href="datetime.add.html" class="methodname">DateTime::add()</a></span> and
-    <span class="methodname"><a href="datetime.sub.html" class="methodname">DateTime::sub()</a></span> in PHP 5.3 and later, or
-    <span class="methodname"><a href="datetime.modify.html" class="methodname">DateTime::modify()</a></span> in PHP 5.2.
+    <span class="methodname"><a href="datetime.sub.html" class="methodname">DateTime::sub()</a></span>.
    </p>
   </p></blockquote>
  </div>

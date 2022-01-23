@@ -32,11 +32,7 @@
   <div class="refsect1 description" id="refsect1-function.db2-set-option-description">
     <h3 class="title">Description</h3>
     <div class="methodsynopsis dc-description">
-      <span class="methodname"><strong>db2_set_option</strong></span>
-       ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$resource</code></span>      
-      , <span class="methodparam"><span class="type">array</span> <code class="parameter">$options</code></span>
-      , <span class="methodparam"><span class="type">int</span> <code class="parameter">$type</code></span>
-     ) : <span class="type">bool</span></div>
+      <span class="methodname"><strong>db2_set_option</strong></span>(<span class="methodparam"><span class="type">resource</span> <code class="parameter">$resource</code></span>, <span class="methodparam"><span class="type">array</span> <code class="parameter">$options</code></span>, <span class="methodparam"><span class="type">int</span> <code class="parameter">$type</code></span>): <span class="type">bool</span></div>
 
     <p class="para rdfs-comment">
      Sets options for a statement resource or a connection resource. You
@@ -48,7 +44,6 @@
     <h3 class="title">Parameters</h3>
     <p class="para">
       <dl>
-
         
           <dt>
 <code class="parameter">resource</code></dt>
@@ -77,7 +72,6 @@
              the column names (lower, upper, or natural) that will appear in a
              result set.
               <dl>
-
                 
                   <dt>
 <code class="parameter">autocommit</code></dt>
@@ -190,7 +184,6 @@
              The following new i5/OS options are available in ibm_db2 version 1.5.1 
              and later. These options apply only when running PHP and ibm_db2 natively on i5 systems.
               <dl>
-
                 
                   <dt>
 <code class="parameter">i5_fetch_only</code></dt>
@@ -216,7 +209,6 @@
             <p class="para">
              The following new option is available in ibm_db2 version 1.8.0 and later.
               <dl>
-
                 
                   <dt>
 <code class="parameter">rowcount</code></dt>
@@ -242,7 +234,6 @@
             <p class="para">
              The following new options are available in ibm_db2 version 1.7.0 and later.
               <dl>
-
                 
                   <dt>
 <code class="parameter">trusted_user</code></dt>
@@ -290,7 +281,6 @@
               </p>
              </p></blockquote>
              <dl>
-
               
                <dt>
 <code class="parameter">userid</code></dt>
@@ -630,7 +620,7 @@
     <h3 class="title">Examples</h3>
     <p class="para">
 
-      <div class="example" id="example-1279">
+      <div class="example" id="example-1262">
         <p><strong>Example #1 Setting one parameter with a connection resource</strong></p>
         <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -643,7 +633,7 @@
         <div class="example-contents screen"><div class="cdata"><pre>Options Set Successfully</pre></div></div>
       </div>
 
-      <div class="example" id="example-1280">
+      <div class="example" id="example-1263">
         <p><strong>Example #2 Setting multiple parameters with a connection resource</strong></p>
         <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -657,7 +647,7 @@
       </div>
 
       
-      <div class="example" id="example-1281">
+      <div class="example" id="example-1264">
         <p><strong>Example #3 Setting multiple parameters with an invalid key</strong></p>
         <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -671,7 +661,7 @@
       </div>
 
       
-      <div class="example" id="example-1282">
+      <div class="example" id="example-1265">
         <p><strong>Example #4 Setting multiple parameters with an invalid value</strong></p>
         <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -684,7 +674,7 @@
         <div class="example-contents screen"><div class="cdata"><pre>Could Not Set Options</pre></div></div>
       </div>
 
-      <div class="example" id="db2-last-insert-id.example.basic">
+      <div class="example" id="example-1266">
         <p><strong>Example #5 Setting multiple parameters with a connection resource and the wrong type</strong></p>
         <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -697,7 +687,7 @@
         <div class="example-contents screen"><div class="cdata"><pre>Could Not Set Options</pre></div></div>
       </div>
 
-      <div class="example" id="example-1284">
+      <div class="example" id="example-1267">
         <p><strong>Example #6 Setting multiple parameters with the wrong resource</strong></p>
         <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -710,7 +700,7 @@
         <div class="example-contents screen"><div class="cdata"><pre>Could Not Set Options</pre></div></div>
       </div>
 
-      <div class="example" id="example-1285">
+      <div class="example" id="example-1268">
         <p><strong>Example #7 Putting it all together</strong></p>
         <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -756,7 +746,7 @@ Array
     [comm] =&gt; 1904.00
 )</pre></div></div>
       </div>
-      <div class="example" id="example-1286">
+      <div class="example" id="example-1269">
         <p><strong>Example #8 i5/OS cursors are read-only</strong></p>
         <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

@@ -26,20 +26,17 @@
   <div id="layout-content"><div id="function.rmdir" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">rmdir</h1>
-  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">rmdir</span> &mdash; <span class="dc-title">Removes directory</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">rmdir</span> &mdash; <span class="dc-title">Removes directory</span></p>
 
  </div>
  
  <div class="refsect1 description" id="refsect1-function.rmdir-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>rmdir</strong></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$dirname</code></span>
-   , <span class="methodparam"><span class="type">resource</span> <code class="parameter">$context</code> = ?</span>
-   ) : <span class="type">bool</span></div>
+   <span class="methodname"><strong>rmdir</strong></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$directory</code></span>, <span class="methodparam"><span class="type">?</span><span class="type"><span class="type">resource</span><span class="type"></span></span> <code class="parameter">$context</code><span class="initializer"> = <strong><code>null</code></strong></span></span>): <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
-   Attempts to remove the directory named by <code class="parameter">dirname</code>.
+   Attempts to remove the directory named by <code class="parameter">directory</code>.
    The directory must be empty, and the relevant permissions must permit this.
    A <strong><code>E_WARNING</code></strong> level error will be generated on failure.
   </p>
@@ -50,10 +47,9 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
-<code class="parameter">dirname</code></dt>
+<code class="parameter">directory</code></dt>
 
      <dd>
 
@@ -69,9 +65,8 @@
 
      <dd>
 
-      <blockquote class="note"><p><strong class="note">Note</strong>: <span class="simpara">Context support was added
-with PHP 5.0.0. For a description of <code class="literal">contexts</code>, refer to
-<a href="book.stream.html" class="xref">Streams</a>.</span></p></blockquote>
+      <p class="para">A <a href="stream.contexts.html" class="link">context stream</a>
+<span class="type">resource</span>.</p>
      </dd>
 
     
@@ -92,7 +87,7 @@ with PHP 5.0.0. For a description of <code class="literal">contexts</code>, refe
  <div class="refsect1 examples" id="refsect1-function.rmdir-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-2702">
+   <div class="example" id="example-2216">
     <p><strong>Example #1 <span class="function"><strong>rmdir()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

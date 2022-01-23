@@ -26,18 +26,14 @@
   <div id="layout-content"><div id="function.socket-getsockname" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">socket_getsockname</h1>
-  <p class="verinfo">(PHP 4 &gt;= 4.1.0, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">socket_getsockname</span> &mdash; <span class="dc-title">Queries the local side of the given socket which may either result in host/port or in a Unix filesystem path, dependent on its type</span></p>
+  <p class="verinfo">(PHP 4 &gt;= 4.1.0, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">socket_getsockname</span> &mdash; <span class="dc-title">Queries the local side of the given socket which may either result in host/port or in a Unix filesystem path, dependent on its type</span></p>
 
  </div>
  
  <div class="refsect1 description" id="refsect1-function.socket-getsockname-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>socket_getsockname</strong></span>
-    ( <span class="methodparam"><span class="type"><a href="class.socket.html" class="type Socket">Socket</a></span> <code class="parameter">$socket</code></span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter reference">&$address</code></span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter reference">&$port</code><span class="initializer"> = <strong><code>null</code></strong></span></span>
-   ) : <span class="type">bool</span></div>
+   <span class="methodname"><strong>socket_getsockname</strong></span>(<span class="methodparam"><span class="type"><a href="class.socket.html" class="type Socket">Socket</a></span> <code class="parameter">$socket</code></span>, <span class="methodparam"><span class="type">string</span> <code class="parameter reference">&$address</code></span>, <span class="methodparam"><span class="type">int</span> <code class="parameter reference">&$port</code><span class="initializer"> = <strong><code>null</code></strong></span></span>): <span class="type">bool</span></div>
 
   <blockquote class="note"><p><strong class="note">Note</strong>: 
    <span class="simpara">
@@ -55,7 +51,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">socket</code></dt>
@@ -63,7 +58,7 @@
      <dd>
 
       <p class="para">
-       A <a href="class.socket.html" class="classname">Socket</a> instance created with <span class="function"><a href="function.socket-create.html" class="function">socket_create()</a></span>
+       A <span class="classname"><a href="class.socket.html" class="classname">Socket</a></span> instance created with <span class="function"><a href="function.socket-create.html" class="function">socket_create()</a></span>
        or <span class="function"><a href="function.socket-accept.html" class="function">socket_accept()</a></span>.
       </p>
      </dd>
@@ -137,7 +132,7 @@
      <tr>
   <td>8.0.0</td>
   <td>
-   <code class="parameter">socket</code> is a <a href="class.socket.html" class="classname">Socket</a> instance now;
+   <code class="parameter">socket</code> is a <span class="classname"><a href="class.socket.html" class="classname">Socket</a></span> instance now;
    previously, it was a <span class="type">resource</span>.
   </td>
  </tr>

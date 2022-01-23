@@ -26,16 +26,14 @@
   <div id="layout-content"><div id="function.openssl-pkey-new" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">openssl_pkey_new</h1>
-  <p class="verinfo">(PHP 4 &gt;= 4.2.0, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">openssl_pkey_new</span> &mdash; <span class="dc-title">Generates a new private key </span></p>
+  <p class="verinfo">(PHP 4 &gt;= 4.2.0, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">openssl_pkey_new</span> &mdash; <span class="dc-title">Generates a new private key </span></p>
 
  </div>
  
  <div class="refsect1 description" id="refsect1-function.openssl-pkey-new-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>openssl_pkey_new</strong></span>
-    ( <span class="methodparam"><span class="type">array</span> <code class="parameter">$configargs</code> = ?</span>
-   ) : <span class="type">resource</span></div>
+   <span class="methodname"><strong>openssl_pkey_new</strong></span>(<span class="methodparam"><span class="type">?</span><span class="type"><span class="type">array</span><span class="type"></span></span> <code class="parameter">$options</code><span class="initializer"> = <strong><code>null</code></strong></span></span>): <span class="type"><span class="type"><a href="class.opensslasymmetrickey.html" class="type OpenSSLAsymmetricKey">OpenSSLAsymmetricKey</a></span>|<span class="type"><span class="type false">false</span></span></span></div>
 
   <p class="para rdfs-comment">
    <span class="function"><strong>openssl_pkey_new()</strong></span> generates a new private
@@ -57,18 +55,17 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
-<code class="parameter">configargs</code></dt>
+<code class="parameter">options</code></dt>
 
      <dd>
 
       <p class="para">
        You can finetune the key generation (such as specifying the number of
-       bits) using <code class="parameter">configargs</code>.  See
+       bits) using <code class="parameter">options</code>.  See
        <span class="function"><a href="function.openssl-csr-new.html" class="function">openssl_csr_new()</a></span> for more information about
-       <code class="parameter">configargs</code>.
+       <code class="parameter">options</code>.
       </p>
      </dd>
 
@@ -82,7 +79,7 @@
  <div class="refsect1 returnvalues" id="refsect1-function.openssl-pkey-new-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns a resource identifier for the pkey on success, or <strong><code>false</code></strong> on
+   Returns an <span class="classname"><a href="class.opensslasymmetrickey.html" class="classname">OpenSSLAsymmetricKey</a></span> instance for the pkey on success, or <strong><code>false</code></strong> on
    error.
   </p>
  </div>
@@ -102,8 +99,16 @@
 
     <tbody class="tbody">
      <tr>
+      <td>8.0.0</td>
+      <td>
+       On success, this function returns an <span class="classname"><a href="class.opensslasymmetrickey.html" class="classname">OpenSSLAsymmetricKey</a></span> instance now;
+       previously, a <a href="language.types.resource.html" class="link">resource</a> of type <code class="literal">OpenSSL key</code> was returned.
+      </td>
+     </tr>
+
+     <tr>
       <td>7.1.0</td>
-      <td>The <code class="parameter">curve_name</code> configarg was added to make it possible to create EC keys.</td>
+      <td>The <code class="parameter">curve_name</code> option was added to make it possible to create EC keys.</td>
      </tr>
 
     </tbody>
@@ -115,7 +120,7 @@
 
  <div class="refsect1 examples" id="refsect1-function.openssl-pkey-new-examples">
   <h3 class="title">Examples</h3>
-  <div class="example" id="example-932">
+  <div class="example" id="function.openssl-pkey-new.example.public-key">
    <p><strong>Example #1 Obtain the public key from a private key</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

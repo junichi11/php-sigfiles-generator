@@ -163,10 +163,10 @@
       <tr>
        <td><strong><code>FILTER_NULL_ON_FAILURE</code></strong></td>
        <td>
-        <strong><code>FILTER_VALIDATE_BOOLEAN</code></strong>
+        any <a href="filter.filters.validate.html" class="link"><strong><code>FILTER_VALIDATE_*</code></strong></a>
        </td>
        <td>
-        Returns <strong><code>null</code></strong> for unrecognized boolean values.
+        Returns <strong><code>null</code></strong> for unrecognized values.
        </td>
       </tr>
 
@@ -257,6 +257,10 @@
          Fails validation for the following reserved IPv6 ranges:
          <code class="literal">::1/128</code>, <code class="literal">::/128</code>,
          <code class="literal">::ffff:0:0/96</code> and <code class="literal">fe80::/10</code>.
+        </p>
+        <p class="para">
+         These are the ranges that are marked as Reserved-By-Protocol in
+         <a href="http://www.faqs.org/rfcs/rfc6890" class="link external">&raquo;&nbsp;RFC 6890</a>.
         </p>
        </td>
       </tr>
@@ -361,20 +365,6 @@
         <td>7.1.0</td>
         <td>
          <strong><code>FILTER_FLAG_EMAIL_UNICODE</code></strong> has been added.
-        </td>
-       </tr>
-
-       <tr>
-        <td>5.3.2</td>
-        <td>
-         <strong><code>FILTER_FLAG_STRIP_BACKTICK</code></strong> has been added.
-        </td>
-       </tr>
-
-       <tr>
-        <td>5.2.10</td>
-        <td>
-         <strong><code>FILTER_FLAG_NO_RES_RANGE</code></strong> supports also IPv6 addresses.
         </td>
        </tr>
 

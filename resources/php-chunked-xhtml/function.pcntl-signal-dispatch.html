@@ -26,22 +26,26 @@
   <div id="layout-content"><div id="function.pcntl-signal-dispatch" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">pcntl_signal_dispatch</h1>
-  <p class="verinfo">(PHP 5 &gt;= 5.3.0, PHP 7)</p><p class="refpurpose"><span class="refname">pcntl_signal_dispatch</span> &mdash; <span class="dc-title">Calls signal handlers for pending signals</span></p>
+  <p class="verinfo">(PHP 5 &gt;= 5.3.0, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">pcntl_signal_dispatch</span> &mdash; <span class="dc-title">Calls signal handlers for pending signals</span></p>
 
  </div>
  
  <div class="refsect1 description" id="refsect1-function.pcntl-signal-dispatch-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>pcntl_signal_dispatch</strong></span>
-    (
-   ) : <span class="type">bool</span></div>
+   <span class="methodname"><strong>pcntl_signal_dispatch</strong></span>(): <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
    The <span class="function"><strong>pcntl_signal_dispatch()</strong></span> function calls the signal 
    handlers installed by <span class="function"><a href="function.pcntl-signal.html" class="function">pcntl_signal()</a></span> for each pending
    signal.
   </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-function.pcntl-signal-dispatch-parameters">
+  <h3 class="title">Parameters</h3>
+  <p class="para">This function has no parameters.</p>
  </div>
 
 
@@ -56,7 +60,7 @@
  <div class="refsect1 examples" id="refsect1-function.pcntl-signal-dispatch-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-3774">
+   <div class="example" id="example-3295">
     <p><strong>Example #1 <span class="function"><strong>pcntl_signal_dispatch()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

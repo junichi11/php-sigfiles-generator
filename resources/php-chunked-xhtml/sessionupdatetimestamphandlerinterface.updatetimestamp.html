@@ -26,17 +26,14 @@
   <div id="layout-content"><div id="sessionupdatetimestamphandlerinterface.updatetimestamp" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">SessionUpdateTimestampHandlerInterface::updateTimestamp</h1>
-  <p class="verinfo">(PHP 7)</p><p class="refpurpose"><span class="refname">SessionUpdateTimestampHandlerInterface::updateTimestamp</span> &mdash; <span class="dc-title">Update timestamp</span></p>
+  <p class="verinfo">(PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">SessionUpdateTimestampHandlerInterface::updateTimestamp</span> &mdash; <span class="dc-title">Update timestamp</span></p>
 
  </div>
 
  <div class="refsect1 description" id="refsect1-sessionupdatetimestamphandlerinterface.updatetimestamp-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="modifier">abstract</span> <span class="modifier">public</span> <span class="methodname"><strong>SessionUpdateTimestampHandlerInterface::updateTimestamp</strong></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$id</code></span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$data</code></span>
-   ) : <span class="type">bool</span></div>
+   <span class="modifier">public</span> <span class="methodname"><strong>SessionUpdateTimestampHandlerInterface::updateTimestamp</strong></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$id</code></span>, <span class="methodparam"><span class="type">string</span> <code class="parameter">$data</code></span>): <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
    Updates the last modification timestamp of the session.
@@ -48,7 +45,6 @@
  <div class="refsect1 parameters" id="refsect1-sessionupdatetimestamphandlerinterface.updatetimestamp-parameters">
   <h3 class="title">Parameters</h3>
   <dl>
-
    
     <dt>
 <code class="parameter">id</code></dt>

@@ -26,17 +26,14 @@
   <div id="layout-content"><div id="reflectionmethod.invokeargs" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">ReflectionMethod::invokeArgs</h1>
-  <p class="verinfo">(PHP 5 &gt;= 5.1.2, PHP 7)</p><p class="refpurpose"><span class="refname">ReflectionMethod::invokeArgs</span> &mdash; <span class="dc-title">Invoke args</span></p>
+  <p class="verinfo">(PHP 5 &gt;= 5.1.2, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">ReflectionMethod::invokeArgs</span> &mdash; <span class="dc-title">Invoke args</span></p>
 
  </div>
 
  <div class="refsect1 description" id="refsect1-reflectionmethod.invokeargs-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><strong>ReflectionMethod::invokeArgs</strong></span>
-    ( <span class="methodparam"><span class="type"><span class="type">object</span>|<span class="type">null</span></span> <code class="parameter">$object</code></span>
-   , <span class="methodparam"><span class="type">array</span> <code class="parameter">$args</code></span>
-   ) : <span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span></div>
+   <span class="modifier">public</span> <span class="methodname"><strong>ReflectionMethod::invokeArgs</strong></span>(<span class="methodparam"><span class="type">?</span><span class="type"><span class="type">object</span><span class="type"></span></span> <code class="parameter">$object</code></span>, <span class="methodparam"><span class="type">array</span> <code class="parameter">$args</code></span>): <span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span></div>
 
   <p class="para rdfs-comment">
    Invokes the reflected method and pass its arguments as array.
@@ -49,7 +46,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">object</code></dt>
@@ -92,11 +88,11 @@
  <div class="refsect1 errors" id="refsect1-reflectionmethod.invokeargs-errors">
   <h3 class="title">Errors/Exceptions</h3>
   <p class="para">
-   A <a href="class.reflectionexception.html" class="classname">ReflectionException</a> if the <code class="parameter">object</code>
+   A <span class="classname"><a href="class.reflectionexception.html" class="classname">ReflectionException</a></span> if the <code class="parameter">object</code>
    parameter does not contain an instance of the class that this method was declared in.
   </p>
   <p class="para">
-   A <a href="class.reflectionexception.html" class="classname">ReflectionException</a> if the method invocation failed.
+   A <span class="classname"><a href="class.reflectionexception.html" class="classname">ReflectionException</a></span> if the method invocation failed.
   </p>
  </div>
 
@@ -104,7 +100,7 @@
  <div class="refsect1 examples" id="refsect1-reflectionmethod.invokeargs-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-5724">
+   <div class="example" id="example-5168">
     <p><strong>Example #1 <span class="methodname"><strong>ReflectionMethod::invokeArgs()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

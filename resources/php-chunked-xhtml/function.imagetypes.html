@@ -26,21 +26,26 @@
   <div id="layout-content"><div id="function.imagetypes" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">imagetypes</h1>
-  <p class="verinfo">(PHP 4 &gt;= 4.0.2, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">imagetypes</span> &mdash; <span class="dc-title">Return the image types supported by this PHP build</span></p>
+  <p class="verinfo">(PHP 4 &gt;= 4.0.2, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">imagetypes</span> &mdash; <span class="dc-title">Return the image types supported by this PHP build</span></p>
 
  </div>
  <div class="refsect1 description" id="refsect1-function.imagetypes-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>imagetypes</strong></span>
-    (
-   ) : <span class="type">int</span></div>
+   <span class="methodname"><strong>imagetypes</strong></span>(): <span class="type">int</span></div>
 
   <p class="para rdfs-comment">
    Returns the image types supported by the current PHP installation.
   </p>
  </div>
 
+
+ <div class="refsect1 parameters" id="refsect1-function.imagetypes-parameters">
+  <h3 class="title">Parameters</h3>
+  <p class="para">This function has no parameters.</p>
+ </div>
+
+ 
  <div class="refsect1 returnvalues" id="refsect1-function.imagetypes-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
@@ -53,24 +58,8 @@
   </p>
  </div>
 
- <div class="refsect1 examples" id="refsect1-function.imagetypes-examples">
-  <h3 class="title">Examples</h3>
-  <p class="para">
-   <div class="example" id="example-3206">
-    <p><strong>Example #1 Checking for PNG support</strong></p>
-    <div class="example-contents">
-<div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">if&nbsp;(</span><span style="color: #0000BB">imagetypes</span><span style="color: #007700">()&nbsp;&amp;&nbsp;</span><span style="color: #0000BB">IMG_PNG</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"PNG&nbsp;Support&nbsp;is&nbsp;enabled"</span><span style="color: #007700">;<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
-</span>
-</code></div>
-    </div>
 
-   </div>
-  </p>
- </div>
-
-
-<div class="refsect1 changelog" id="refsect1-function.imagetypes-changelog">
+ <div class="refsect1 changelog" id="refsect1-function.imagetypes-changelog">
   <h3 class="title">Changelog</h3>
   <p class="para">
    <table class="doctable informaltable">
@@ -102,6 +91,23 @@
     
    </table>
 
+  </p>
+ </div>
+
+ 
+ <div class="refsect1 examples" id="refsect1-function.imagetypes-examples">
+  <h3 class="title">Examples</h3>
+  <p class="para">
+   <div class="example" id="example-2722">
+    <p><strong>Example #1 Checking for PNG support</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">if&nbsp;(</span><span style="color: #0000BB">imagetypes</span><span style="color: #007700">()&nbsp;&amp;&nbsp;</span><span style="color: #0000BB">IMG_PNG</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"PNG&nbsp;Support&nbsp;is&nbsp;enabled"</span><span style="color: #007700">;<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+   </div>
   </p>
  </div>
 

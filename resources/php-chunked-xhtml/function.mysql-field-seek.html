@@ -34,8 +34,7 @@
   <div class="warning"><strong class="warning">Warning</strong>
    <p class="para">This extension was deprecated in PHP 5.5.0, and it was removed in PHP 7.0.0.
 Instead, the <a href="book.mysqli.html" class="link">MySQLi</a> or <a href="ref.pdo-mysql.html" class="link">PDO_MySQL</a> extension should be used.
-See also <a href="mysqlinfo.api.choosing.html" class="link">MySQL: choosing an API</a> guide and
-<a href="faq.databases.html#faq.databases.mysql.deprecated" class="link">related FAQ</a> for more information.
+See also <a href="mysqlinfo.api.choosing.html" class="link">MySQL: choosing an API</a> guide.
 Alternatives to this function include:</p>
    <ul class="simplelist">
     <li class="member"><span class="function"><a href="mysqli-result.field-seek.html" class="function">mysqli_field_seek()</a></span></li>
@@ -51,10 +50,7 @@ Alternatives to this function include:</p>
  <div class="refsect1 description" id="refsect1-function.mysql-field-seek-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>mysql_field_seek</strong></span>
-    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$result</code></span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$field_offset</code></span>
-   ) : <span class="type">bool</span></div>
+   <span class="methodname"><strong>mysql_field_seek</strong></span>(<span class="methodparam"><span class="type">resource</span> <code class="parameter">$result</code></span>, <span class="methodparam"><span class="type">int</span> <code class="parameter">$field_offset</code></span>): <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
    Seeks to the specified field offset.  If the next call to
@@ -69,18 +65,17 @@ Alternatives to this function include:</p>
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     <dt>
-<code class="parameter">
-result</code></dt>
+
+<code class="parameter">result</code></dt>
 <dd>
 <p class="para">The result <span class="type">resource</span> that
 is being evaluated. This result comes from a call to
 <span class="function"><a href="function.mysql-query.html" class="function">mysql_query()</a></span>.</p></dd>
 
     <dt>
-<code class="parameter">
-field_offset</code></dt>
+
+<code class="parameter">field_offset</code></dt>
 <dd>
 <p class="para">The numerical field offset. The
 <code class="parameter">field_offset</code> starts at <code class="literal">0</code>. If

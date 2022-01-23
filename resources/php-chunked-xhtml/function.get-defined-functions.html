@@ -26,16 +26,14 @@
   <div id="layout-content"><div id="function.get-defined-functions" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">get_defined_functions</h1>
-  <p class="verinfo">(PHP 4 &gt;= 4.0.4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">get_defined_functions</span> &mdash; <span class="dc-title">Returns an array of all defined functions</span></p>
+  <p class="verinfo">(PHP 4 &gt;= 4.0.4, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">get_defined_functions</span> &mdash; <span class="dc-title">Returns an array of all defined functions</span></p>
 
  </div>
  
  <div class="refsect1 description" id="refsect1-function.get-defined-functions-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>get_defined_functions</strong></span>
-    ( <span class="methodparam"><span class="type">bool</span> <code class="parameter">$exclude_disabled</code><span class="initializer"> = <strong><code>false</code></strong></span></span>
-   ) : <span class="type">array</span></div>
+   <span class="methodname"><strong>get_defined_functions</strong></span>(<span class="methodparam"><span class="type">bool</span> <code class="parameter">$exclude_disabled</code><span class="initializer"> = <strong><code>true</code></strong></span></span>): <span class="type">array</span></div>
 
   <p class="para rdfs-comment">
    Gets an array of all defined functions.
@@ -46,7 +44,6 @@
  <div class="refsect1 parameters" id="refsect1-function.get-defined-functions-parameters">
   <h3 class="title">Parameters</h3>
   <dl>
-
    
     <dt>
 <code class="parameter">exclude_disabled</code></dt>
@@ -90,6 +87,14 @@
 
     <tbody class="tbody">
      <tr>
+      <td>8.0.0</td>
+      <td>
+       The default value of the <code class="parameter">exclude_disabled</code> parameter
+       has been changed from <strong><code>false</code></strong> to <strong><code>true</code></strong>.
+      </td>
+     </tr>
+
+     <tr>
       <td>7.0.15, 7.1.1</td>
       <td>
        The <code class="parameter">exclude_disabled</code> parameter has been added.
@@ -106,7 +111,7 @@
  <div class="refsect1 examples" id="refsect1-function.get-defined-functions-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-5603">
+   <div class="example" id="example-5093">
     <p><strong>Example #1 <span class="function"><strong>get_defined_functions()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

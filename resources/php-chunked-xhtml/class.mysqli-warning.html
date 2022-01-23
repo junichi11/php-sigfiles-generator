@@ -11,7 +11,7 @@
   <div class="navbar-inner clearfix">
     <ul class="nav" style="width: 100%">
       <li style="float: left;"><a href="mysqli-driver.report-mode.html">« mysqli_driver::$report_mode</a></li>
-      <li style="float: right;"><a href="mysqli-warning.next.html">mysqli_warning::next »</a></li>
+      <li style="float: right;"><a href="mysqli-warning.construct.html">mysqli_warning::__construct »</a></li>
     </ul>
   </div>
 </div>
@@ -27,7 +27,7 @@
  <h1 class="title">The mysqli_warning class</h1>
  
  
- <div class="partintro"><p class="verinfo">(PHP 5, PHP 7)</p>
+ <div class="partintro"><p class="verinfo">(PHP 5, PHP 7, PHP 8)</p>
  
 
   <div class="section" id="mysqli-warning.intro">
@@ -43,39 +43,37 @@
 
 
    <div class="classsynopsis">
-    <div class="ooclass"></div>
-
+    <div class="ooclass">
+     
+    </div>
 
     <div class="classsynopsisinfo">
      <span class="ooclass">
       <span class="modifier">final</span>
-      <strong class="classname">mysqli_warning</strong>
+      <span class="modifier">class</span> <strong class="classname">mysqli_warning</strong>
      </span>
      {</div>
 
     <div class="classsynopsisinfo classsynopsisinfo_comment">/* Properties */</div>
     <div class="fieldsynopsis">
      <span class="modifier">public</span>
-      <var class="varname"><a href="class.mysqli-warning.html#mysqli-warning.props.message">$<var class="varname">message</var></a></var>
-    ;</div>
+     <span class="type">string</span>
+      <var class="varname"><a href="class.mysqli-warning.html#mysqli-warning.props.message">$<var class="varname">message</var></a></var>;</div>
 
-    <div class="fieldsynopsis">
-     <span class="modifier">public</span>
-      <var class="varname"><a href="class.mysqli-warning.html#mysqli-warning.props.sqlstate">$<var class="varname">sqlstate</var></a></var>
-    ;</div>
+    <div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="type">string</span>
+      <var class="varname"><a href="class.mysqli-warning.html#mysqli-warning.props.sqlstate">$<var class="varname">sqlstate</var></a></var>;</div>
 
-    <div class="fieldsynopsis">
-     <span class="modifier">public</span>
-      <var class="varname"><a href="class.mysqli-warning.html#mysqli-warning.props.errno">$<var class="varname">errno</var></a></var>
-    ;</div>
+    <div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="type">int</span>
+      <var class="varname"><a href="class.mysqli-warning.html#mysqli-warning.props.errno">$<var class="varname">errno</var></a></var>;</div>
 
 
-    
     <div class="classsynopsisinfo classsynopsisinfo_comment">/* Methods */</div>
-    <div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><a href="mysqli-warning.next.html" class="methodname">next</a></span>
-    (
-   ) : <span class="type">bool</span></div>
+    <div class="constructorsynopsis dc-description">
+   <span class="modifier">private</span> <span class="methodname"><a href="mysqli-warning.construct.html" class="methodname">__construct</a></span>()</div>
+
+    <div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="mysqli-warning.next.html" class="methodname">next</a></span>(): <span class="type">bool</span></div>
 
    }</div>
 
@@ -87,7 +85,6 @@
   <div class="section" id="mysqli-warning.props">
    <h2 class="title">Properties</h2>
    <dl>
-
     
      <dt id="mysqli-warning.props.message"><var class="varname">message</var></dt>
 
@@ -132,6 +129,8 @@
 
 
 
-<h2>Table of Contents</h2><ul class="chunklist chunklist_reference"><li><a href="mysqli-warning.next.html">mysqli_warning::next</a> — Fetch next warning</li></ul>
+
+
+<h2>Table of Contents</h2><ul class="chunklist chunklist_reference"><li><a href="mysqli-warning.construct.html">mysqli_warning::__construct</a> — Private constructor to disallow direct instantiation</li><li><a href="mysqli-warning.next.html">mysqli_warning::next</a> — Fetch next warning</li></ul>
 </div>
 </div></div></body></html>

@@ -26,17 +26,13 @@
   <div id="layout-content"><div id="function.imap-status" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">imap_status</h1>
-  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">imap_status</span> &mdash; <span class="dc-title">Returns status information on a mailbox</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">imap_status</span> &mdash; <span class="dc-title">Returns status information on a mailbox</span></p>
 
  </div>
  <div class="refsect1 description" id="refsect1-function.imap-status-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>imap_status</strong></span>
-    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$imap</code></span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$mailbox</code></span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code></span>
-   ) : <span class="type"><span class="type"><span class="type stdClass">stdClass</span></span>|<span class="type"><span class="type false">false</span></span></span></div>
+   <span class="methodname"><strong>imap_status</strong></span>(<span class="methodparam"><span class="type"><a href="class.imap-connection.html" class="type IMAP\Connection">IMAP\Connection</a></span> <code class="parameter">$imap</code></span>, <span class="methodparam"><span class="type">string</span> <code class="parameter">$mailbox</code></span>, <span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code></span>): <span class="type"><span class="type"><span class="type stdClass">stdClass</span></span>|<span class="type"><span class="type false">false</span></span></span></div>
 
   <p class="para rdfs-comment">
    Gets status information about the given <code class="parameter">mailbox</code>.
@@ -47,13 +43,11 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     <dt>
-<code class="parameter">
-imap</code></dt>
+
+<code class="parameter">imap</code></dt>
 <dd>
-<p class="para">An IMAP stream returned by
-<span class="function"><a href="function.imap-open.html" class="function">imap_open()</a></span>.</p></dd>
+<p class="para">An <span class="classname"><a href="class.imap-connection.html" class="classname">IMAP\Connection</a></span> instance.</p></dd>
 
     
      <dt>
@@ -141,10 +135,39 @@ Passing untrusted data to this parameter is <em class="emphasis">insecure</em>, 
   </p>
  </div>
 
+
+ <div class="refsect1 changelog" id="refsect1-function.imap-status-changelog">
+  <h3 class="title">Changelog</h3>
+  <table class="doctable informaltable">
+   
+    <thead>
+     <tr>
+      <th>Version</th>
+      <th>Description</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+ <td>8.1.0</td>
+ <td>
+  The <code class="parameter">imap</code> parameter expects an <span class="classname"><a href="class.imap-connection.html" class="classname">IMAP\Connection</a></span>
+  instance now; previously, a <a href="language.types.resource.html" class="link">resource</a> was expected.
+ </td>
+</tr>
+
+    </tbody>
+   
+  </table>
+
+ </div>
+
+ 
  <div class="refsect1 examples" id="refsect1-function.imap-status-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-3514">
+   <div class="example" id="example-3029">
     <p><strong>Example #1 <span class="function"><strong>imap_status()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

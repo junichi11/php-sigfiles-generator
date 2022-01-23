@@ -2,7 +2,7 @@
 <html>
  <head>
   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-  <title>Verify that the contents of a variable can be called as a function</title>
+  <title>Verify that a value can be called as a function from the current scope.</title>
 <link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-base.css" />
 <link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-medium.css" />
 
@@ -19,7 +19,7 @@
   <ul class="breadcrumbs-container">
     <li><a href="index.html">PHP Manual</a></li>
     <li><a href="ref.var.html">Variable handling Functions</a></li>
-    <li>Verify that the contents of a variable can be called as a function</li>
+    <li>Verify that a value can be called as a function from the current scope.</li>
   </ul>
 </div>
 <div id="layout">
@@ -27,7 +27,7 @@
  <div class="refnamediv">
   <h1 class="refname">is_callable</h1>
   <p class="verinfo">(PHP 4 &gt;= 4.0.6, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">is_callable</span> &mdash; <span class="dc-title">
-   Verify that the contents of a variable can be called as a function
+   Verify that a value can be called as a function from the current scope.
   </span></p>
 
  </div>
@@ -35,11 +35,7 @@
  <div class="refsect1 description" id="refsect1-function.is-callable-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>is_callable</strong></span>
-    ( <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$value</code></span>
-   , <span class="methodparam"><span class="type">bool</span> <code class="parameter">$syntax_only</code><span class="initializer"> = <strong><code>false</code></strong></span></span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter reference">&$callable_name</code><span class="initializer"> = <strong><code>null</code></strong></span></span>
-   ) : <span class="type">bool</span></div>
+   <span class="methodname"><strong>is_callable</strong></span>(<span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$value</code></span>, <span class="methodparam"><span class="type">bool</span> <code class="parameter">$syntax_only</code><span class="initializer"> = <strong><code>false</code></strong></span></span>, <span class="methodparam"><span class="type">string</span> <code class="parameter reference">&$callable_name</code><span class="initializer"> = <strong><code>null</code></strong></span></span>): <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
    Verify that a value is a <span class="type"><a href="language.types.callable.html" class="type callable">callable</a></span>.
@@ -51,7 +47,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">value</code></dt>
@@ -114,7 +109,7 @@
  <div class="refsect1 examples" id="refsect1-function.is-callable-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-5775">
+   <div class="example" id="example-5224">
     <p><strong>Example #1 <span class="function"><strong>is_callable()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -124,14 +119,11 @@
     </div>
 
    </div>   
-   <div class="example" id="example-5776">
+   <div class="example" id="example-5225">
     <p><strong>Example #2 <span class="function"><strong>is_callable()</strong></span> and constructors</strong></p>
     <div class="example-contents"><p>
-     As of PHP 5.3.0 <span class="function"><strong>is_callable()</strong></span> reports constructors as
-     not being callable. This affects PHP 5 style constructors
-     (<code class="literal">__construct</code>) as well as PHP 4 style constructors (i.e.
-     methods with the same name as the class). Formerly, both cases have been
-     considered callable.
+     <span class="function"><strong>is_callable()</strong></span> reports constructors as
+     not being callable.
     </p></div>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -149,6 +141,27 @@ bool(false)
     </div>
    </div>
   </p>   
+ </div>
+
+
+ <div class="refsect1 notes" id="refsect1-function.is-callable-notes">
+  <h3 class="title">Notes</h3>
+  <ul class="simplelist">
+   <li class="member">
+    An object is always callable if it implements <a href="language.oop5.magic.html#object.invoke" class="link">__invoke()</a>,
+    and that method is visible in the current scope.
+   </li>
+   <li class="member">
+    A class name is callable if it implements <a href="language.oop5.overloading.html#object.callstatic" class="link">__callStatic()</a>.
+   </li>
+   <li class="member">
+    If an object implements <a href="language.oop5.overloading.html#object.call" class="link">__call()</a>, then this function will
+    return <strong><code>true</code></strong> for any method on that object, even if the method is not defined.
+   </li>
+   <li class="member">
+    This function may trigger autoloading if called with the name of a class.
+   </li>
+  </ul>
  </div>
 
 

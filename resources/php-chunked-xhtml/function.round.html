@@ -26,20 +26,16 @@
   <div id="layout-content"><div id="function.round" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">round</h1>
-  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">round</span> &mdash; <span class="dc-title">Rounds a float</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">round</span> &mdash; <span class="dc-title">Rounds a float</span></p>
 
  </div>
  <div class="refsect1 description" id="refsect1-function.round-description">
   <h3 class="title">Description</h3>
    <div class="methodsynopsis dc-description">
-    <span class="methodname"><strong>round</strong></span>
-     ( <span class="methodparam"><span class="type">float</span> <code class="parameter">$val</code></span>
-    , <span class="methodparam"><span class="type">int</span> <code class="parameter">$precision</code><span class="initializer"> = 0</span></span>
-    , <span class="methodparam"><span class="type">int</span> <code class="parameter">$mode</code><span class="initializer"> = PHP_ROUND_HALF_UP</span></span>
-    ) : <span class="type">float</span></div>
+   <span class="methodname"><strong>round</strong></span>(<span class="methodparam"><span class="type"><span class="type">int</span>|<span class="type">float</span></span> <code class="parameter">$num</code></span>, <span class="methodparam"><span class="type">int</span> <code class="parameter">$precision</code><span class="initializer"> = 0</span></span>, <span class="methodparam"><span class="type">int</span> <code class="parameter">$mode</code><span class="initializer"> = <strong><code>PHP_ROUND_HALF_UP</code></strong></span></span>): <span class="type">float</span></div>
 
   <p class="para rdfs-comment">
-   Returns the rounded value of <code class="parameter">val</code> to
+   Returns the rounded value of <code class="parameter">num</code> to
    specified <code class="parameter">precision</code>
    (number of digits after the decimal point).
    <code class="parameter">precision</code> can also be negative or zero (default).
@@ -51,10 +47,9 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
-<code class="parameter">val</code></dt>
+<code class="parameter">num</code></dt>
 
      <dd>
 
@@ -74,14 +69,14 @@
        The optional number of decimal digits to round to.
       </p>
       <p class="para">
-       If the <code class="parameter">precision</code> is positive, <code class="parameter">val</code> is
+       If the <code class="parameter">precision</code> is positive, <code class="parameter">num</code> is
        rounded to <code class="parameter">precision</code> significant digits after the decimal point.
       </p>
       <p class="para">
-       If the <code class="parameter">precision</code> is negative, <code class="parameter">val</code> is
+       If the <code class="parameter">precision</code> is negative, <code class="parameter">num</code> is
        rounded to <code class="parameter">precision</code> significant digits before the decimal point,
        i.e. to the nearest multiple of <code class="literal">pow(10, -precision)</code>, e.g. for a
-       <code class="parameter">precision</code> of -1 <code class="parameter">val</code> is rounded to tens,
+       <code class="parameter">precision</code> of -1 <code class="parameter">num</code> is rounded to tens,
        for a <code class="parameter">precision</code> of -2 to hundreds, etc.
       </p>
      </dd>
@@ -109,7 +104,7 @@
           <tr>
            <td><strong><code>PHP_ROUND_HALF_UP</code></strong></td>
            <td>
-            Rounds <code class="parameter">val</code> away from zero when it is half way there,
+            Rounds <code class="parameter">num</code> away from zero when it is half way there,
             making 1.5 into 2 and -1.5 into -2.
            </td>
           </tr>
@@ -117,7 +112,7 @@
           <tr>
            <td><strong><code>PHP_ROUND_HALF_DOWN</code></strong></td>
            <td>
-            Rounds <code class="parameter">val</code> towards zero when it is half way there,
+            Rounds <code class="parameter">num</code> towards zero when it is half way there,
             making 1.5 into 1 and -1.5 into -1.
            </td>
           </tr>
@@ -125,7 +120,7 @@
           <tr>
            <td><strong><code>PHP_ROUND_HALF_EVEN</code></strong></td>
            <td>
-            Rounds <code class="parameter">val</code> towards the nearest even value when it is half way
+            Rounds <code class="parameter">num</code> towards the nearest even value when it is half way
             there, making both 1.5 and 2.5 into 2.
            </td>
           </tr>
@@ -133,8 +128,8 @@
           <tr>
            <td><strong><code>PHP_ROUND_HALF_ODD</code></strong></td>
            <td>
-            Rounds <code class="parameter">val</code> towards the nearest odd value when it is half way
-            there, making 1.5 into 1 and and 2.5 into 3.
+            Rounds <code class="parameter">num</code> towards the nearest odd value when it is half way
+            there, making 1.5 into 1 and 2.5 into 3.
            </td>
           </tr>
 
@@ -158,10 +153,39 @@
   </p>
  </div>
 
+
+ <div class="refsect1 changelog" id="refsect1-function.round-changelog">
+  <h3 class="title">Changelog</h3>
+  <table class="doctable informaltable">
+   
+    <thead>
+     <tr>
+      <th>Version</th>
+      <th>Description</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+      <td>8.0.0</td>
+      <td>
+       <code class="parameter">num</code> no longer accepts internal objects which support
+       numeric conversion.
+      </td>
+     </tr>
+
+    </tbody>
+   
+  </table>
+
+ </div>
+
+
  <div class="refsect1 examples" id="refsect1-function.round-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-3616">
+   <div class="example" id="example-3131">
     <p><strong>Example #1 <span class="function"><strong>round()</strong></span> examples</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -188,7 +212,7 @@ float(1000)
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-3617">
+   <div class="example" id="example-3132">
     <p><strong>Example #2 How <code class="parameter">precision</code> affects a float</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -212,7 +236,7 @@ float(0)
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-3618">
+   <div class="example" id="example-3133">
     <p><strong>Example #3 <code class="parameter">mode</code> examples</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -240,7 +264,7 @@ float(9)
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-3619">
+   <div class="example" id="example-3134">
     <p><strong>Example #4 <code class="parameter">mode</code> with <code class="parameter">precision</code> examples</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

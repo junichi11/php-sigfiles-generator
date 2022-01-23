@@ -26,17 +26,14 @@
   <div id="layout-content"><div id="function.popen" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">popen</h1>
-  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">popen</span> &mdash; <span class="dc-title">Opens process file pointer</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">popen</span> &mdash; <span class="dc-title">Opens process file pointer</span></p>
 
  </div>
  
  <div class="refsect1 description" id="refsect1-function.popen-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>popen</strong></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$command</code></span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$mode</code></span>
-   ) : <span class="type"><span class="type">resource</span>|<span class="type"><span class="type false">false</span></span></span></div>
+   <span class="methodname"><strong>popen</strong></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$command</code></span>, <span class="methodparam"><span class="type">string</span> <code class="parameter">$mode</code></span>): <span class="type"><span class="type">resource</span>|<span class="type"><span class="type false">false</span></span></span></div>
 
   <p class="para rdfs-comment">
    Opens a pipe to a process executed by forking the command given
@@ -49,7 +46,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">command</code></dt>
@@ -109,7 +105,7 @@
  <div class="refsect1 examples" id="refsect1-function.popen-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-2692">
+   <div class="example" id="example-2206">
     <p><strong>Example #1 <span class="function"><strong>popen()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -124,7 +120,7 @@
    If the command to be executed could not be found, a valid
    resource is returned. This may seem odd, but makes sense; it
    allows you to access any error message returned by the shell:
-   <div class="example" id="example-2693">
+   <div class="example" id="example-2207">
     <p><strong>Example #2 <span class="function"><strong>popen()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

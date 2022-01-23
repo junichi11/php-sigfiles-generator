@@ -27,24 +27,22 @@
  <div class="refnamediv">
   <h1 class="refname">mysqli::$protocol_version</h1>
   <h1 class="refname">mysqli_get_proto_info</h1>
-  <p class="verinfo">(PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">mysqli::$protocol_version</span> -- <span class="refname">mysqli_get_proto_info</span> &mdash; <span class="dc-title">Returns the version of the MySQL protocol used</span></p>
+  <p class="verinfo">(PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">mysqli::$protocol_version</span> -- <span class="refname">mysqli_get_proto_info</span> &mdash; <span class="dc-title">Returns the version of the MySQL protocol used</span></p>
 
  </div>
 
  <div class="refsect1 description" id="refsect1-mysqli.get-proto-info-description">
   <h3 class="title">Description</h3>
-  <p class="para">Object oriented style</p>
-  <div class="fieldsynopsis"><span class="type">string</span> <var class="varname"><a href="mysqli.get-proto-info.html">$mysqli-&gt;protocol_version</a></var>;</div>
+  <p class="para">Object-oriented style</p>
+  <div class="fieldsynopsis"><span class="type">int</span> <var class="varname"><a href="mysqli.get-proto-info.html">$mysqli-&gt;protocol_version</a></var>;</div>
 
   <p class="para">Procedural style</p>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>mysqli_get_proto_info</strong></span>
-    ( <span class="methodparam"><span class="type"><a href="class.mysqli.html" class="type mysqli">mysqli</a></span> <code class="parameter">$link</code></span>
-   ) : <span class="type">int</span></div>
+   <span class="methodname"><strong>mysqli_get_proto_info</strong></span>(<span class="methodparam"><span class="type"><a href="class.mysqli.html" class="type mysqli">mysqli</a></span> <code class="parameter">$mysql</code></span>): <span class="type">int</span></div>
 
   <p class="para rdfs-comment">
    Returns an integer representing the MySQL protocol version used by the
-   connection represented by the <code class="parameter">link</code> parameter.
+   connection represented by the <code class="parameter">mysql</code> parameter.
   </p>
  </div>
 
@@ -53,12 +51,11 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     <dt>
-<code class="parameter">
-link</code></dt>
+
+<code class="parameter">mysql</code></dt>
 <dd>
-<p class="para">Procedural style only: A link identifier
+<p class="para">Procedural style only: A <span class="classname"><a href="class.mysqli.html" class="classname">mysqli</a></span> object
 returned by <span class="function"><a href="function.mysqli-connect.html" class="function">mysqli_connect()</a></span> or <span class="function"><a href="mysqli.init.html" class="function">mysqli_init()</a></span>
 </p></dd>
 
@@ -78,9 +75,9 @@ returned by <span class="function"><a href="function.mysqli-connect.html" class=
 
  <div class="refsect1 examples" id="refsect1-mysqli.get-proto-info-examples">
   <h3 class="title">Examples</h3>
-  <div class="example" id="example-1681">
+  <div class="example" id="example-1438">
    <p><strong>Example #1 <var class="varname">$mysqli->protocol_version</var> example</strong></p>
-   <div class="example-contents"><p>Object oriented style</p></div>
+   <div class="example-contents"><p>Object-oriented style</p></div>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
 <span style="color: #0000BB">&lt;?php<br />$mysqli&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">mysqli</span><span style="color: #007700">(</span><span style="color: #DD0000">"localhost"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"my_user"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"my_password"</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">/*&nbsp;check&nbsp;connection&nbsp;*/<br /></span><span style="color: #007700">if&nbsp;(</span><span style="color: #0000BB">mysqli_connect_errno</span><span style="color: #007700">())&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">printf</span><span style="color: #007700">(</span><span style="color: #DD0000">"Connect&nbsp;failed:&nbsp;%s\n"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">mysqli_connect_error</span><span style="color: #007700">());<br />&nbsp;&nbsp;&nbsp;&nbsp;exit();<br />}<br /><br /></span><span style="color: #FF8000">/*&nbsp;print&nbsp;protocol&nbsp;version&nbsp;*/<br /></span><span style="color: #0000BB">printf</span><span style="color: #007700">(</span><span style="color: #DD0000">"Protocol&nbsp;version:&nbsp;%d\n"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$mysqli</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">protocol_version</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">/*&nbsp;close&nbsp;connection&nbsp;*/<br /></span><span style="color: #0000BB">$mysqli</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">close</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">?&gt;</span>

@@ -26,18 +26,13 @@
   <div id="layout-content"><div id="function.dba-open" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">dba_open</h1>
-  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">dba_open</span> &mdash; <span class="dc-title">Open database</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">dba_open</span> &mdash; <span class="dc-title">Open database</span></p>
 
  </div>
  <div class="refsect1 description" id="refsect1-function.dba-open-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>dba_open</strong></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$path</code></span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$mode</code></span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$handler</code> = ?</span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">...$args</code></span>
-   ) : <span class="type"><span class="type">resource</span>|<span class="type"><span class="type false">false</span></span></span></div>
+   <span class="methodname"><strong>dba_open</strong></span>(<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$path</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$mode</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$handler</code><span class="initializer"> = ?</span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">...$args</code></span><br>): <span class="type"><span class="type">resource</span>|<span class="type"><span class="type false">false</span></span></span></div>
 
   <p class="para rdfs-comment">
    <span class="function"><strong>dba_open()</strong></span> establishes a database instance for
@@ -50,7 +45,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">path</code></dt>
@@ -182,7 +176,7 @@
         </table>
 
         <ul class="simplelist">
-         <li class="member">ok: the second call will be successfull.</li>
+         <li class="member">ok: the second call will be successful.</li>
          <li class="member">wait: the second call waits until <span class="function"><a href="function.dba-close.html" class="function">dba_close()</a></span> is called for the first.</li>
          <li class="member">false: the second call returns false.</li>
          <li class="member">illegal: you must not mix <code class="literal">&quot;l&quot;</code> and <code class="literal">&quot;d&quot;</code> modifiers for <code class="parameter">mode</code> parameter.</li>

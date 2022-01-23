@@ -43,106 +43,69 @@
  
 
    <div class="classsynopsis">
-    <div class="ooclass"></div>
- 
+    <div class="ooclass">
+     
+    </div>
 
     <div class="classsynopsisinfo">
      <span class="ooclass">
-      <strong class="classname">ErrorException</strong>
+      <span class="modifier">class</span> <strong class="classname">ErrorException</strong>
      </span>
- 
+
      <span class="ooclass">
       <span class="modifier">extends</span>
-      <a href="class.exception.html" class="classname">Exception</a>
+       <a href="class.exception.html" class="classname">Exception</a>
      </span>
      {</div>
 
- 
     <div class="classsynopsisinfo classsynopsisinfo_comment">/* Properties */</div>
     <div class="fieldsynopsis">
      <span class="modifier">protected</span>
      <span class="type">int</span>
-      <var class="varname"><a href="class.errorexception.html#errorexception.props.severity">$<var class="varname">severity</var></a></var>
-    ;</div>
+      <var class="varname"><a href="class.errorexception.html#errorexception.props.severity">$<var class="varname">severity</var></a></var><span class="initializer"> = E_ERROR</span>;</div>
 
- 
+
     <div class="classsynopsisinfo classsynopsisinfo_comment">/* Inherited properties */</div>
-    <div class="fieldsynopsis">
-     <span class="modifier">protected</span>
+    <div class="fieldsynopsis"><span class="modifier">protected</span>
      <span class="type">string</span>
-      <var class="varname"><a href="class.exception.html#exception.props.message">$<var class="varname">message</var></a></var>
-    ;</div>
-<div class="fieldsynopsis">
-     <span class="modifier">protected</span>
-     <span class="type">int</span>
-      <var class="varname"><a href="class.exception.html#exception.props.code">$<var class="varname">code</var></a></var>
-    ;</div>
-<div class="fieldsynopsis">
-     <span class="modifier">protected</span>
+      <var class="varname"><a href="class.exception.html#exception.props.message">$<var class="varname">message</var></a></var><span class="initializer"> = &quot;&quot;</span>;</div>
+<div class="fieldsynopsis"><span class="modifier">private</span>
      <span class="type">string</span>
-      <var class="varname"><a href="class.exception.html#exception.props.file">$<var class="varname">file</var></a></var>
-    ;</div>
-<div class="fieldsynopsis">
-     <span class="modifier">protected</span>
+      <var class="varname"><a href="class.exception.html#exception.props.string">$<var class="varname">string</var></a></var><span class="initializer"> = &quot;&quot;</span>;</div>
+<div class="fieldsynopsis"><span class="modifier">protected</span>
      <span class="type">int</span>
-      <var class="varname"><a href="class.exception.html#exception.props.line">$<var class="varname">line</var></a></var>
-    ;</div>
+      <var class="varname"><a href="class.exception.html#exception.props.code">$<var class="varname">code</var></a></var>;</div>
+<div class="fieldsynopsis"><span class="modifier">protected</span>
+     <span class="type">string</span>
+      <var class="varname"><a href="class.exception.html#exception.props.file">$<var class="varname">file</var></a></var><span class="initializer"> = &quot;&quot;</span>;</div>
+<div class="fieldsynopsis"><span class="modifier">protected</span>
+     <span class="type">int</span>
+      <var class="varname"><a href="class.exception.html#exception.props.line">$<var class="varname">line</var></a></var>;</div>
+<div class="fieldsynopsis"><span class="modifier">private</span>
+     <span class="type">array</span>
+      <var class="varname"><a href="class.exception.html#exception.props.trace">$<var class="varname">trace</var></a></var><span class="initializer"> = []</span>;</div>
+<div class="fieldsynopsis"><span class="modifier">private</span>
+     <span class="type">?</span><span class="type"><span class="type"><a href="class.throwable.html" class="type Throwable">Throwable</a></span><span class="type"></span></span>
+      <var class="varname"><a href="class.exception.html#exception.props.previous">$<var class="varname">previous</var></a></var><span class="initializer"> = null</span>;</div>
 
 
     <div class="classsynopsisinfo classsynopsisinfo_comment">/* Methods */</div>
     <div class="constructorsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><a href="errorexception.construct.html" class="methodname">__construct</a></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$message</code><span class="initializer"> = &quot;&quot;</span></span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$code</code><span class="initializer"> = 0</span></span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$severity</code><span class="initializer"> = E_ERROR</span></span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$filename</code><span class="initializer"> = __FILE__</span></span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$lineno</code><span class="initializer"> = __LINE__</span></span>
-   , <span class="methodparam"><span class="type"><a href="class.exception.html" class="type Exception">Exception</a></span> <code class="parameter">$previous</code><span class="initializer"> = <strong><code>null</code></strong></span></span>
-   )</div>
+   <span class="modifier">public</span> <span class="methodname"><a href="errorexception.construct.html" class="methodname">__construct</a></span>(<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$message</code><span class="initializer"> = &quot;&quot;</span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">int</span> <code class="parameter">$code</code><span class="initializer"> = 0</span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">int</span> <code class="parameter">$severity</code><span class="initializer"> = <strong><code>E_ERROR</code></strong></span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">?</span><span class="type"><span class="type">string</span><span class="type"></span></span> <code class="parameter">$filename</code><span class="initializer"> = <strong><code>null</code></strong></span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">?</span><span class="type"><span class="type">int</span><span class="type"></span></span> <code class="parameter">$line</code><span class="initializer"> = <strong><code>null</code></strong></span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">?</span><span class="type"><span class="type"><a href="class.throwable.html" class="type Throwable">Throwable</a></span><span class="type"></span></span> <code class="parameter">$previous</code><span class="initializer"> = <strong><code>null</code></strong></span></span><br>)</div>
 
-    <div class="methodsynopsis dc-description">
-   <span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><a href="errorexception.getseverity.html" class="methodname">getSeverity</a></span>
-    (
-   ) : <span class="type">int</span></div>
+    <div class="methodsynopsis dc-description"><span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><a href="errorexception.getseverity.html" class="methodname">getSeverity</a></span>(): <span class="type">int</span></div>
 
- 
+
     <div class="classsynopsisinfo classsynopsisinfo_comment">/* Inherited methods */</div>
-    <div class="methodsynopsis dc-description">
-   <span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><a href="exception.getmessage.html" class="methodname">Exception::getMessage</a></span>
-    (
-   ) : <span class="type">string</span></div>
-<div class="methodsynopsis dc-description">
-   <span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><a href="exception.getprevious.html" class="methodname">Exception::getPrevious</a></span>
-    (
-   ) : <span class="type"><a href="class.throwable.html" class="type Throwable">Throwable</a></span></div>
-<div class="methodsynopsis dc-description">
-   <span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><a href="exception.getcode.html" class="methodname">Exception::getCode</a></span>
-    (
-   ) : <span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span></div>
-<div class="methodsynopsis dc-description">
-   <span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><a href="exception.getfile.html" class="methodname">Exception::getFile</a></span>
-    (
-   ) : <span class="type">string</span></div>
-<div class="methodsynopsis dc-description">
-   <span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><a href="exception.getline.html" class="methodname">Exception::getLine</a></span>
-    (
-   ) : <span class="type">int</span></div>
-<div class="methodsynopsis dc-description">
-   <span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><a href="exception.gettrace.html" class="methodname">Exception::getTrace</a></span>
-    (
-   ) : <span class="type">array</span></div>
-<div class="methodsynopsis dc-description">
-   <span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><a href="exception.gettraceasstring.html" class="methodname">Exception::getTraceAsString</a></span>
-    (
-   ) : <span class="type">string</span></div>
-<div class="methodsynopsis dc-description">
-   <span class="modifier">public</span>  <span class="methodname"><a href="exception.tostring.html" class="methodname">Exception::__toString</a></span>
-    (
-   ) : <span class="type">string</span></div>
-<div class="methodsynopsis dc-description">
-   <span class="modifier">final</span> <span class="modifier">private</span> <span class="methodname"><a href="exception.clone.html" class="methodname">Exception::__clone</a></span>
-    (
-   ) : <span class="type"><span class="type void">void</span></span></div>
+    <div class="methodsynopsis dc-description"><span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><a href="exception.getmessage.html" class="methodname">Exception::getMessage</a></span>(): <span class="type">string</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><a href="exception.getprevious.html" class="methodname">Exception::getPrevious</a></span>(): <span class="type"><span class="type">?</span><span class="type"><a href="class.throwable.html" class="type Throwable">Throwable</a></span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><a href="exception.getcode.html" class="methodname">Exception::getCode</a></span>(): <span class="type">int</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><a href="exception.getfile.html" class="methodname">Exception::getFile</a></span>(): <span class="type">string</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><a href="exception.getline.html" class="methodname">Exception::getLine</a></span>(): <span class="type">int</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><a href="exception.gettrace.html" class="methodname">Exception::getTrace</a></span>(): <span class="type">array</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><a href="exception.gettraceasstring.html" class="methodname">Exception::getTraceAsString</a></span>(): <span class="type">string</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="exception.tostring.html" class="methodname">Exception::__toString</a></span>(): <span class="type">string</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">private</span> <span class="methodname"><a href="exception.clone.html" class="methodname">Exception::__clone</a></span>(): <span class="type"><span class="type void">void</span></span></div>
 
    }</div>
 
@@ -153,7 +116,6 @@
   <div class="section" id="errorexception.props">
    <h2 class="title">Properties</h2>
    <dl>
-
     
      <dt id="errorexception.props.severity"><var class="varname">severity</var></dt>
 
@@ -171,7 +133,7 @@
   <div class="section" id="errorexception.examples">
    <h2 class="title">Examples</h2>
    <p class="para">
-    <div class="example" id="variable.post.basic">
+    <div class="example" id="errorexception.example.error-handler">
      <p><strong>Example #1 Use <span class="function"><a href="function.set-error-handler.html" class="function">set_error_handler()</a></span> to change error messages into ErrorException.</strong></p>
      <div class="example-contents">
  <div class="phpcode"><code><span style="color: #000000">
@@ -200,9 +162,6 @@ Stack trace:
  
  
 
-
-
- 
 
 
 

@@ -29,7 +29,7 @@
  <div class="refnamediv">
   <h1 class="refname">DateTime::add</h1>
   <h1 class="refname">date_add</h1>
-  <p class="verinfo">(PHP 5 &gt;= 5.3.0, PHP 7)</p><p class="refpurpose"><span class="refname">DateTime::add</span> -- <span class="refname">date_add</span> &mdash; <span class="dc-title">
+  <p class="verinfo">(PHP 5 &gt;= 5.3.0, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">DateTime::add</span> -- <span class="refname">date_add</span> &mdash; <span class="dc-title">
    Adds an amount of days, months, years, hours, minutes and seconds to a
    DateTime object
   </span></p>
@@ -38,22 +38,16 @@
 
  <div class="refsect1 description" id="refsect1-datetime.add-description">
   <h3 class="title">Description</h3>
-  <p class="para">Object oriented style</p>
+  <p class="para">Object-oriented style</p>
   <div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><strong>DateTime::add</strong></span>
-    ( <span class="methodparam"><span class="type"><a href="class.dateinterval.html" class="type DateInterval">DateInterval</a></span> <code class="parameter">$interval</code></span>
-   ) : <span class="type"><a href="class.datetime.html" class="type DateTime">DateTime</a></span></div>
+   <span class="modifier">public</span> <span class="methodname"><strong>DateTime::add</strong></span>(<span class="methodparam"><span class="type"><a href="class.dateinterval.html" class="type DateInterval">DateInterval</a></span> <code class="parameter">$interval</code></span>): <span class="type"><a href="class.datetime.html" class="type DateTime">DateTime</a></span></div>
 
   <p class="para rdfs-comment">Procedural style</p>
-  <div class="methodsynopsis dc-description">
-   <span class="methodname"><a href="function.date-add.html" class="methodname">date_add</a></span>
-    ( <span class="methodparam"><span class="type"><a href="class.datetime.html" class="type DateTime">DateTime</a></span> <code class="parameter">$object</code></span>
-   , <span class="methodparam"><span class="type"><a href="class.dateinterval.html" class="type DateInterval">DateInterval</a></span> <code class="parameter">$interval</code></span>
-   ) : <span class="type"><a href="class.datetime.html" class="type DateTime">DateTime</a></span></div>
+  <div class="methodsynopsis dc-description"><span class="methodname"><a href="function.date-add.html" class="methodname">date_add</a></span>(<span class="methodparam"><span class="type"><a href="class.datetime.html" class="type DateTime">DateTime</a></span> <code class="parameter">$object</code></span>, <span class="methodparam"><span class="type"><a href="class.dateinterval.html" class="type DateInterval">DateInterval</a></span> <code class="parameter">$interval</code></span>): <span class="type"><a href="class.datetime.html" class="type DateTime">DateTime</a></span></div>
 
   <p class="para rdfs-comment">
-   Adds the specified <a href="class.dateinterval.html" class="classname">DateInterval</a> object to the
-   specified <a href="class.datetime.html" class="classname">DateTime</a> object.
+   Adds the specified <span class="classname"><a href="class.dateinterval.html" class="classname">DateInterval</a></span> object to the
+   specified <span class="classname"><a href="class.datetime.html" class="classname">DateTime</a></span> object.
   </p>
  </div>
 
@@ -61,12 +55,11 @@
  <div class="refsect1 parameters" id="refsect1-datetime.add-parameters">
   <h3 class="title">Parameters</h3>
   <dl>
-
    <dt>
 <code class="parameter">object</code></dt>
 
 <dd>
-<p class="para">Procedural style only: A <a href="class.datetime.html" class="classname">DateTime</a> object
+<p class="para">Procedural style only: A <span class="classname"><a href="class.datetime.html" class="classname">DateTime</a></span> object
 returned by <span class="function"><a href="function.date-create.html" class="function">date_create()</a></span>.
 The function modifies this object.</p></dd>
 
@@ -79,7 +72,7 @@ The function modifies this object.</p></dd>
     <dd>
 
      <p class="para">
-      A <a href="class.dateinterval.html" class="classname">DateInterval</a> object
+      A <span class="classname"><a href="class.dateinterval.html" class="classname">DateInterval</a></span> object
      </p>
     </dd>
 
@@ -92,16 +85,16 @@ The function modifies this object.</p></dd>
  <div class="refsect1 returnvalues" id="refsect1-datetime.add-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns the <a href="class.datetime.html" class="classname">DateTime</a> object for method chaining or <strong><code>false</code></strong> on failure.
+   Returns the <span class="classname"><a href="class.datetime.html" class="classname">DateTime</a></span> object for method chaining or <strong><code>false</code></strong> on failure.
   </p>
  </div>
 
 
  <div class="refsect1 examples" id="refsect1-datetime.add-examples">
   <h3 class="title">Examples</h3>
-  <div class="example" id="example-2506">
+  <div class="example" id="example-2019">
    <p><strong>Example #1 <span class="function"><strong>DateTime::add()</strong></span> example</strong></p>
-   <div class="example-contents"><p>Object oriented style</p></div>
+   <div class="example-contents"><p>Object-oriented style</p></div>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
 <span style="color: #0000BB">&lt;?php<br />$date&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">DateTime</span><span style="color: #007700">(</span><span style="color: #DD0000">'2000-01-01'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$date</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">add</span><span style="color: #007700">(new&nbsp;</span><span style="color: #0000BB">DateInterval</span><span style="color: #007700">(</span><span style="color: #DD0000">'P10D'</span><span style="color: #007700">));<br />echo&nbsp;</span><span style="color: #0000BB">$date</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">format</span><span style="color: #007700">(</span><span style="color: #DD0000">'Y-m-d'</span><span style="color: #007700">)&nbsp;.&nbsp;</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">?&gt;</span>
@@ -124,7 +117,7 @@ The function modifies this object.</p></dd>
 </pre></div>
    </div>
   </div>
-  <div class="example" id="example-2507">
+  <div class="example" id="example-2020">
    <p><strong>Example #2 Further <span class="function"><strong>DateTime::add()</strong></span> examples</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -141,7 +134,7 @@ The function modifies this object.</p></dd>
 </pre></div>
    </div>
   </div>
-  <div class="example" id="example-2508">
+  <div class="example" id="example-2021">
    <p><strong>Example #3 Beware when adding months</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -158,15 +151,6 @@ The function modifies this object.</p></dd>
 </pre></div>
    </div>
   </div>
- </div>
-
-
- <div class="refsect1 notes" id="refsect1-datetime.add-notes">
-  <h3 class="title">Notes</h3>
-  <p class="para">
-   <span class="function"><a href="datetime.modify.html" class="function">DateTime::modify()</a></span>
-   is an alternative when using PHP 5.2.
-  </p>
  </div>
 
 

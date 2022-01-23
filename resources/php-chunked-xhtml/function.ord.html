@@ -26,16 +26,14 @@
   <div id="layout-content"><div id="function.ord" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">ord</h1>
-  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">ord</span> &mdash; <span class="dc-title">Convert the first byte of a string to a value between 0 and 255</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">ord</span> &mdash; <span class="dc-title">Convert the first byte of a string to a value between 0 and 255</span></p>
 
  </div>
  
  <div class="refsect1 description" id="refsect1-function.ord-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>ord</strong></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$character</code></span>
-   ) : <span class="type">int</span></div>
+   <span class="methodname"><strong>ord</strong></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$character</code></span>): <span class="type">int</span></div>
 
   <p class="para rdfs-comment">
    Interprets the binary value of the first byte of
@@ -54,7 +52,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">character</code></dt>
@@ -84,7 +81,7 @@
  <div class="refsect1 examples" id="refsect1-function.ord-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-5320">
+   <div class="example" id="example-4809">
     <p><strong>Example #1 <span class="function"><strong>ord()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -96,7 +93,7 @@
    </div>
  </p>
  <p class="para"> 
-   <div class="example" id="example-5321">
+   <div class="example" id="example-4810">
     <p><strong>Example #2 Examining the individual bytes of a UTF-8 string</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -122,8 +119,9 @@ Byte 3 of $str has value 152<br />
   <p class="para">
    <ul class="simplelist">
     <li class="member"><span class="function"><a href="function.chr.html" class="function" rel="rdfs-seeAlso">chr()</a> - Generate a single-byte string from a number</span></li>
-    <li class="member">An <a href="http://www.asciitable.com" class="link external">&raquo;&nbsp;ASCII-table</a></li>
-    <li class="member"><span class="function"><a href="function.mb-ord.html" class="function" rel="rdfs-seeAlso">mb_ord()</a> - Get code point of character</span></li>
+    <li class="member">An <a href="https://www.man7.org/linux/man-pages/man7/ascii.7.html" class="link external">&raquo;&nbsp;ASCII-table</a></li>
+    <li class="member"><span class="function"><a href="function.mb-ord.html" class="function" rel="rdfs-seeAlso">mb_ord()</a> - Get Unicode code point of character</span></li>
+    <li class="member"><span class="function"><a href="intlchar.ord.html" class="function" rel="rdfs-seeAlso">IntlChar::ord()</a> - Return Unicode code point value of character</span></li>
    </ul>
   </p>
  </div>

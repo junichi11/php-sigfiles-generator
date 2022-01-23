@@ -26,16 +26,14 @@
   <div id="layout-content"><div id="function.pg-transaction-status" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">pg_transaction_status</h1>
-  <p class="verinfo">(PHP 5 &gt;= 5.1.0, PHP 7)</p><p class="refpurpose"><span class="refname">pg_transaction_status</span> &mdash; <span class="dc-title">Returns the current in-transaction status of the server</span></p>
+  <p class="verinfo">(PHP 5 &gt;= 5.1.0, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">pg_transaction_status</span> &mdash; <span class="dc-title">Returns the current in-transaction status of the server</span></p>
 
  </div>
 
  <div class="refsect1 description" id="refsect1-function.pg-transaction-status-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>pg_transaction_status</strong></span>
-    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$connection</code></span>
-   ) : <span class="type">int</span></div>
+   <span class="methodname"><strong>pg_transaction_status</strong></span>(<span class="methodparam"><span class="type"><a href="class.pgsql-connection.html" class="type PgSql\Connection">PgSql\Connection</a></span> <code class="parameter">$connection</code></span>): <span class="type">int</span></div>
 
   <p class="para rdfs-comment">
     Returns the current in-transaction status of the server.
@@ -55,16 +53,13 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">connection</code></dt>
 
      <dd>
 
-      <p class="para">
-       PostgreSQL database connection resource.
-      </p>
+      <p class="para">An <span class="classname"><a href="class.pgsql-connection.html" class="classname">PgSql\Connection</a></span> instance.</p>
      </dd>
 
     
@@ -86,11 +81,39 @@
   </p>
  </div>
 
+
+ <div class="refsect1 changelog" id="refsect1-function.pg-transaction-status-changelog">
+  <h3 class="title">Changelog</h3>
+  <table class="doctable informaltable">
+   
+    <thead>
+     <tr>
+      <th>Version</th>
+      <th>Description</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+ <td>8.1.0</td>
+ <td>
+  The <code class="parameter">connection</code> parameter expects an <span class="classname"><a href="class.pgsql-connection.html" class="classname">PgSql\Connection</a></span>
+  instance now; previously, a <a href="language.types.resource.html" class="link">resource</a> was expected.
+ </td>
+</tr>
+
+    </tbody>
+   
+  </table>
+
+ </div>
+
  
  <div class="refsect1 examples" id="refsect1-function.pg-transaction-status-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-2400">
+   <div class="example" id="example-1954">
     <p><strong>Example #1 <span class="function"><strong>pg_transaction_status()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

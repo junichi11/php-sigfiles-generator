@@ -26,17 +26,14 @@
   <div id="layout-content"><div id="function.checkdnsrr" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">checkdnsrr</h1>
-  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">checkdnsrr</span> &mdash; <span class="dc-title">Check DNS records corresponding to a given Internet host name or IP address</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">checkdnsrr</span> &mdash; <span class="dc-title">Check DNS records corresponding to a given Internet host name or IP address</span></p>
 
  </div>
  
  <div class="refsect1 description" id="refsect1-function.checkdnsrr-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>checkdnsrr</strong></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$hostname</code></span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$type</code><span class="initializer"> = &quot;MX&quot;</span></span>
-   ) : <span class="type">bool</span></div>
+   <span class="methodname"><strong>checkdnsrr</strong></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$hostname</code></span>, <span class="methodparam"><span class="type">string</span> <code class="parameter">$type</code><span class="initializer"> = &quot;MX&quot;</span></span>): <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
    Searches DNS for records of type <code class="parameter">type</code>
@@ -49,7 +46,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">hostname</code></dt>

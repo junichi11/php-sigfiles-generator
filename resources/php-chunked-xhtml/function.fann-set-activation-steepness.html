@@ -33,12 +33,7 @@
  <div class="refsect1 description" id="refsect1-function.fann-set-activation-steepness-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>fann_set_activation_steepness</strong></span>
-    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$ann</code></span>
-   , <span class="methodparam"><span class="type">float</span> <code class="parameter">$activation_steepness</code></span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$layer</code></span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$neuron</code></span>
-   ) : <span class="type">bool</span></div>
+   <span class="methodname"><strong>fann_set_activation_steepness</strong></span>(<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">resource</span> <code class="parameter">$ann</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">float</span> <code class="parameter">$activation_steepness</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">int</span> <code class="parameter">$layer</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">int</span> <code class="parameter">$neuron</code></span><br>): <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
    Set the activation steepness for neuron number <code class="literal">neuron</code> in layer number <code class="literal">layer</code>,
@@ -49,7 +44,7 @@
   </p>
   <p class="para">
    The steepness of an activation function says something about how fast the activation function goes from
-   the minimum to the maximum. A high value for the activation function will also give a more agressive training.
+   the minimum to the maximum. A high value for the activation function will also give a more aggressive training.
   </p>
   <p class="para">
    When training neural networks where the output values should be at the extremes
@@ -64,7 +59,6 @@
  <div class="refsect1 parameters" id="refsect1-function.fann-set-activation-steepness-parameters">
   <h3 class="title">Parameters</h3>
   <dl>
-
    
     <dt>
 <code class="parameter">ann</code></dt>

@@ -26,16 +26,13 @@
   <div id="layout-content"><div id="function.interface-exists" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">interface_exists</h1>
-  <p class="verinfo">(PHP 5 &gt;= 5.0.2, PHP 7)</p><p class="refpurpose"><span class="refname">interface_exists</span> &mdash; <span class="dc-title">Checks if the interface has been defined</span></p>
+  <p class="verinfo">(PHP 5 &gt;= 5.0.2, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">interface_exists</span> &mdash; <span class="dc-title">Checks if the interface has been defined</span></p>
 
  </div>
  <div class="refsect1 description" id="refsect1-function.interface-exists-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>interface_exists</strong></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$interface_name</code></span>
-   , <span class="methodparam"><span class="type">bool</span> <code class="parameter">$autoload</code><span class="initializer"> = <strong><code>true</code></strong></span></span>
-   ) : <span class="type">bool</span></div>
+   <span class="methodname"><strong>interface_exists</strong></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$interface</code></span>, <span class="methodparam"><span class="type">bool</span> <code class="parameter">$autoload</code><span class="initializer"> = <strong><code>true</code></strong></span></span>): <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
    Checks if the given interface has been defined.
@@ -46,10 +43,9 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
-<code class="parameter">interface_name</code></dt>
+<code class="parameter">interface</code></dt>
 
      <dd>
 
@@ -80,14 +76,14 @@
   <h3 class="title">Return Values</h3>
   <p class="para">
    Returns <strong><code>true</code></strong> if the interface given by 
-   <code class="parameter">interface_name</code> has been defined, <strong><code>false</code></strong> otherwise.
+   <code class="parameter">interface</code> has been defined, <strong><code>false</code></strong> otherwise.
   </p>
  </div>
 
  <div class="refsect1 examples" id="refsect1-function.interface-exists-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-5542">
+   <div class="example" id="example-5041">
     <p><strong>Example #1 <span class="function"><strong>interface_exists()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -107,6 +103,7 @@
     <li class="member"><span class="function"><a href="function.get-declared-interfaces.html" class="function" rel="rdfs-seeAlso">get_declared_interfaces()</a> - Returns an array of all declared interfaces</span></li>
     <li class="member"><span class="function"><a href="function.class-implements.html" class="function" rel="rdfs-seeAlso">class_implements()</a> - Return the interfaces which are implemented by the given class or interface</span></li>
     <li class="member"><span class="function"><a href="function.class-exists.html" class="function" rel="rdfs-seeAlso">class_exists()</a> - Checks if the class has been defined</span></li>
+    <li class="member"><span class="function"><a href="function.enum-exists.html" class="function" rel="rdfs-seeAlso">enum_exists()</a> - Checks if the enum has been defined</span></li>
    </ul>
   </p>
  </div>

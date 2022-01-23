@@ -26,16 +26,14 @@
   <div id="layout-content"><div id="intlchar.isalnum" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">IntlChar::isalnum</h1>
-  <p class="verinfo">(PHP 7)</p><p class="refpurpose"><span class="refname">IntlChar::isalnum</span> &mdash; <span class="dc-title">Check if code point is an alphanumeric character</span></p>
+  <p class="verinfo">(PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">IntlChar::isalnum</span> &mdash; <span class="dc-title">Check if code point is an alphanumeric character</span></p>
 
  </div>
 
  <div class="refsect1 description" id="refsect1-intlchar.isalnum-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="modifier">static</span> <span class="methodname"><strong>IntlChar::isalnum</strong></span>
-    ( <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$codepoint</code></span>
-   ) : <span class="type">bool</span></div>
+   <span class="modifier">public</span> <span class="modifier">static</span> <span class="methodname"><strong>IntlChar::isalnum</strong></span>(<span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$codepoint</code></span>): <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
    Determines whether the specified code point is an alphanumeric character (letter or digit).  <strong><code>true</code></strong> for characters with general categories &quot;L&quot; (letters) and &quot;Nd&quot; (decimal digit numbers).
@@ -46,7 +44,6 @@
  <div class="refsect1 parameters" id="refsect1-intlchar.isalnum-parameters">
   <h3 class="title">Parameters</h3>
   <dl>
-
    
     <dt>
 <code class="parameter">codepoint</code></dt>
@@ -73,7 +70,7 @@
 
  <div class="refsect1 examples" id="refsect1-intlchar.isalnum-examples">
   <h3 class="title">Examples</h3>
-  <div class="example" id="example-2990">
+  <div class="example" id="example-2501">
    <p><strong>Example #1 Testing different code points</strong></p>
    <div class="example-contents">
     <div class="phpcode"><code><span style="color: #000000">

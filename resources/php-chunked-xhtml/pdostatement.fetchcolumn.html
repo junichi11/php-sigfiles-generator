@@ -26,7 +26,7 @@
   <div id="layout-content"><div id="pdostatement.fetchcolumn" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">PDOStatement::fetchColumn</h1>
-  <p class="verinfo">(PHP 5 &gt;= 5.1.0, PHP 7, PECL pdo &gt;= 0.9.0)</p><p class="refpurpose"><span class="refname">PDOStatement::fetchColumn</span> &mdash; <span class="dc-title">
+  <p class="verinfo">(PHP 5 &gt;= 5.1.0, PHP 7, PHP 8, PECL pdo &gt;= 0.9.0)</p><p class="refpurpose"><span class="refname">PDOStatement::fetchColumn</span> &mdash; <span class="dc-title">
    Returns a single column from the next row of a result set
   </span></p>
 
@@ -35,9 +35,7 @@
  <div class="refsect1 description" id="refsect1-pdostatement.fetchcolumn-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><strong>PDOStatement::fetchColumn</strong></span>
-    ( <span class="methodparam"><span class="type">int</span> <code class="parameter">$column_number</code><span class="initializer"> = 0</span></span>
-   ) : <span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span></div>
+   <span class="modifier">public</span> <span class="methodname"><strong>PDOStatement::fetchColumn</strong></span>(<span class="methodparam"><span class="type">int</span> <code class="parameter">$column</code><span class="initializer"> = 0</span></span>): <span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span></div>
 
 
   <p class="para rdfs-comment">
@@ -60,10 +58,9 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
-<code class="parameter">column_number</code></dt>
+<code class="parameter">column</code></dt>
 
      <dd>
 
@@ -99,7 +96,7 @@
  <div class="refsect1 examples" id="refsect1-pdostatement.fetchcolumn-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-1047"><p><strong>Example #1 Return first column of the next row</strong></p>
+   <div class="example" id="example-1054"><p><strong>Example #1 Return first column of the next row</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
 <span style="color: #0000BB">&lt;?php<br />$sth&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$dbh</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">prepare</span><span style="color: #007700">(</span><span style="color: #DD0000">"SELECT&nbsp;name,&nbsp;colour&nbsp;FROM&nbsp;fruit"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$sth</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">execute</span><span style="color: #007700">();<br /><br />print(</span><span style="color: #DD0000">"Fetch&nbsp;the&nbsp;first&nbsp;column&nbsp;from&nbsp;the&nbsp;first&nbsp;row&nbsp;in&nbsp;the&nbsp;result&nbsp;set:\n"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$result&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$sth</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">fetchColumn</span><span style="color: #007700">();<br />print(</span><span style="color: #DD0000">"name&nbsp;=&nbsp;</span><span style="color: #0000BB">$result</span><span style="color: #DD0000">\n"</span><span style="color: #007700">);<br /><br />print(</span><span style="color: #DD0000">"Fetch&nbsp;the&nbsp;second&nbsp;column&nbsp;from&nbsp;the&nbsp;second&nbsp;row&nbsp;in&nbsp;the&nbsp;result&nbsp;set:\n"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$result&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$sth</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">fetchColumn</span><span style="color: #007700">(</span><span style="color: #0000BB">1</span><span style="color: #007700">);<br />print(</span><span style="color: #DD0000">"colour&nbsp;=&nbsp;</span><span style="color: #0000BB">$result</span><span style="color: #DD0000">\n"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
@@ -125,9 +122,9 @@ colour = red
   <h3 class="title">See Also</h3>
   <p class="para">
    <ul class="simplelist">
-    <li class="member"><span class="function"><a href="pdo.query.html" class="function" rel="rdfs-seeAlso">PDO::query()</a> - Executes an SQL statement, returning a result set as a PDOStatement object</span></li>
+    <li class="member"><span class="function"><a href="pdo.query.html" class="function" rel="rdfs-seeAlso">PDO::query()</a> - Prepares and executes an SQL statement without placeholders</span></li>
     <li class="member"><span class="function"><a href="pdostatement.fetch.html" class="function" rel="rdfs-seeAlso">PDOStatement::fetch()</a> - Fetches the next row from a result set</span></li>
-    <li class="member"><span class="function"><a href="pdostatement.fetchall.html" class="function" rel="rdfs-seeAlso">PDOStatement::fetchAll()</a> - Returns an array containing all of the result set rows</span></li>
+    <li class="member"><span class="function"><a href="pdostatement.fetchall.html" class="function" rel="rdfs-seeAlso">PDOStatement::fetchAll()</a> - Fetches the remaining rows from a result set</span></li>
     <li class="member"><span class="function"><a href="pdo.prepare.html" class="function" rel="rdfs-seeAlso">PDO::prepare()</a> - Prepares a statement for execution and returns a statement object</span></li>
     <li class="member"><span class="function"><a href="pdostatement.setfetchmode.html" class="function" rel="rdfs-seeAlso">PDOStatement::setFetchMode()</a> - Set the default fetch mode for this statement</span></li>
    </ul>

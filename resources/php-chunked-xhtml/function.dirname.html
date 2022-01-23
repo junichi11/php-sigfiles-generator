@@ -26,17 +26,14 @@
   <div id="layout-content"><div id="function.dirname" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">dirname</h1>
-  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">dirname</span> &mdash; <span class="dc-title">Returns a parent directory&#039;s path</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">dirname</span> &mdash; <span class="dc-title">Returns a parent directory&#039;s path</span></p>
 
  </div>
  
  <div class="refsect1 description" id="refsect1-function.dirname-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>dirname</strong></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$path</code></span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$levels</code><span class="initializer"> = 1</span></span>
-   ) : <span class="type">string</span></div>
+   <span class="methodname"><strong>dirname</strong></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$path</code></span>, <span class="methodparam"><span class="type">int</span> <code class="parameter">$levels</code><span class="initializer"> = 1</span></span>): <span class="type">string</span></div>
 
   <p class="para rdfs-comment">
    Given a string containing the path of a file or directory, this function
@@ -52,9 +49,16 @@
   </p></blockquote>
   <div class="caution"><strong class="caution">Caution</strong>
    <p class="para">
-    <span class="function"><strong>dirname()</strong></span> is locale aware, so for it to see the 
-    correct directory name with multibyte character paths, the matching locale must 
-    be set using the <span class="function"><a href="function.setlocale.html" class="function">setlocale()</a></span> function.
+    On Windows, <span class="function"><strong>dirname()</strong></span> assumes the currently set codepage, so for it to see the 
+    correct directory name with multibyte character paths, the matching codepage must 
+    be set.
+    If <code class="parameter">path</code> contains characters which are invalid for the
+    current codepage, the behavior of <span class="function"><strong>dirname()</strong></span> is undefined.
+   </p>
+   <p class="para">
+    On other systems, <span class="function"><strong>dirname()</strong></span> assumes <code class="parameter">path</code>
+    to be encoded in an ASCII compatible encoding. Otherwise the behavior of the
+    the function is undefined.
    </p>
   </div>
  </div>
@@ -64,7 +68,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">path</code></dt>
@@ -112,6 +115,22 @@
    <code class="parameter">path</code> with any trailing
    <code class="literal">/component</code> removed.
   </p>
+
+  <div class="caution"><strong class="caution">Caution</strong>
+   <p class="para">
+    Be careful when using this function in a loop that can reach the
+    top-level directory as this can result in an infinite loop.
+    <div class="informalexample">
+     <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />dirname</span><span style="color: #007700">(</span><span style="color: #DD0000">'.'</span><span style="color: #007700">);&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;Will&nbsp;return&nbsp;'.'.<br /></span><span style="color: #0000BB">dirname</span><span style="color: #007700">(</span><span style="color: #DD0000">'/'</span><span style="color: #007700">);&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;Will&nbsp;return&nbsp;`\`&nbsp;on&nbsp;Windows&nbsp;and&nbsp;'/'&nbsp;on&nbsp;*nix&nbsp;systems.<br /></span><span style="color: #0000BB">dirname</span><span style="color: #007700">(</span><span style="color: #DD0000">'\\'</span><span style="color: #007700">);&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;Will&nbsp;return&nbsp;`\`&nbsp;on&nbsp;Windows&nbsp;and&nbsp;'.'&nbsp;on&nbsp;*nix&nbsp;systems.<br /></span><span style="color: #0000BB">dirname</span><span style="color: #007700">(</span><span style="color: #DD0000">'C:\\'</span><span style="color: #007700">);&nbsp;</span><span style="color: #FF8000">//&nbsp;Will&nbsp;return&nbsp;'C:\'&nbsp;on&nbsp;Windows&nbsp;and&nbsp;'.'&nbsp;on&nbsp;*nix&nbsp;systems.<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+     </div>
+
+    </div>
+   </p>
+  </div>
  </div>
 
 
@@ -147,7 +166,7 @@
  <div class="refsect1 examples" id="refsect1-function.dirname-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-2623">
+   <div class="example" id="example-2134">
     <p><strong>Example #1 <span class="function"><strong>dirname()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

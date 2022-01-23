@@ -26,26 +26,17 @@
   <div id="layout-content"><div id="function.session-set-cookie-params" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">session_set_cookie_params</h1>
-  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">session_set_cookie_params</span> &mdash; <span class="dc-title">Set the session cookie parameters</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">session_set_cookie_params</span> &mdash; <span class="dc-title">Set the session cookie parameters</span></p>
 
  </div>
 
  <div class="refsect1 description" id="refsect1-function.session-set-cookie-params-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>session_set_cookie_params</strong></span>
-    ( <span class="methodparam"><span class="type">int</span> <code class="parameter">$lifetime_or_options</code></span>
-   , <span class="methodparam"><span class="type"><span class="type">string</span>|<span class="type">null</span></span> <code class="parameter">$path</code><span class="initializer"> = <strong><code>null</code></strong></span></span>
-   , <span class="methodparam"><span class="type"><span class="type">string</span>|<span class="type">null</span></span> <code class="parameter">$domain</code><span class="initializer"> = <strong><code>null</code></strong></span></span>
-   , <span class="methodparam"><span class="type"><span class="type">bool</span>|<span class="type">null</span></span> <code class="parameter">$secure</code><span class="initializer"> = <strong><code>null</code></strong></span></span>
-   , <span class="methodparam"><span class="type"><span class="type">bool</span>|<span class="type">null</span></span> <code class="parameter">$httponly</code><span class="initializer"> = <strong><code>null</code></strong></span></span>
-   ) : <span class="type">bool</span></div>
+   <span class="methodname"><strong>session_set_cookie_params</strong></span>(<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">int</span> <code class="parameter">$lifetime_or_options</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">?</span><span class="type"><span class="type">string</span><span class="type"></span></span> <code class="parameter">$path</code><span class="initializer"> = <strong><code>null</code></strong></span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">?</span><span class="type"><span class="type">string</span><span class="type"></span></span> <code class="parameter">$domain</code><span class="initializer"> = <strong><code>null</code></strong></span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">?</span><span class="type"><span class="type">bool</span><span class="type"></span></span> <code class="parameter">$secure</code><span class="initializer"> = <strong><code>null</code></strong></span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">?</span><span class="type"><span class="type">bool</span><span class="type"></span></span> <code class="parameter">$httponly</code><span class="initializer"> = <strong><code>null</code></strong></span></span><br>): <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">Alternative signature available as of PHP 7.3.0:</p>
-  <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>session_set_cookie_params</strong></span>
-    ( <span class="methodparam"><span class="type">array</span> <code class="parameter">$lifetime_or_options</code></span>
-   ) : <span class="type">bool</span></div>
+  <div class="methodsynopsis dc-description"><span class="methodname"><strong>session_set_cookie_params</strong></span>(<span class="methodparam"><span class="type">array</span> <code class="parameter">$lifetime_or_options</code></span>): <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
    Set cookie parameters defined in the <var class="filename">php.ini</var> file. The effect of this
@@ -64,7 +55,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">lifetime_or_options</code></dt>

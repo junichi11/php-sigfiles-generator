@@ -33,9 +33,7 @@
  <div class="refsect1 description" id="refsect1-mongodb-driver-session.advanceclustertime-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><strong>MongoDB\Driver\Session::advanceClusterTime</strong></span>
-    ( <span class="methodparam"><span class="type"><span class="type">array</span>|<span class="type">object</span></span> <code class="parameter">$clusterTime</code></span>
-   ) : <span class="type"><span class="type void">void</span></span></div>
+   <span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><strong>MongoDB\Driver\Session::advanceClusterTime</strong></span>(<span class="methodparam"><span class="type"><span class="type">array</span>|<span class="type">object</span></span> <code class="parameter">$clusterTime</code></span>): <span class="type"><span class="type void">void</span></span></div>
 
   <p class="para rdfs-comment">
    Advances the cluster time for this session. If the cluster time is less than
@@ -54,7 +52,6 @@
  <div class="refsect1 parameters" id="refsect1-mongodb-driver-session.advanceclustertime-parameters">
   <h3 class="title">Parameters</h3>
   <dl>
-
    
     <dt>
 <code class="parameter">clusterTime</code></dt>
@@ -86,7 +83,7 @@
  <div class="refsect1 errors" id="refsect1-mongodb-driver-session.advanceclustertime-errors">
   <h3 class="title">Errors/Exceptions</h3>
   <ul class="simplelist">
-   <li class="member">Throws <a href="class.mongodb-driver-exception-invalidargumentexception.html" class="classname">MongoDB\Driver\Exception\InvalidArgumentException</a> on argument parsing errors.</li>
+   <li class="member">Throws <span class="classname"><a href="class.mongodb-driver-exception-invalidargumentexception.html" class="classname">MongoDB\Driver\Exception\InvalidArgumentException</a></span> on argument parsing errors.</li>
   </ul>
  </div>
 

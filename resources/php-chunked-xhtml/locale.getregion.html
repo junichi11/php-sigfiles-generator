@@ -27,31 +27,22 @@
  <div class="refnamediv">
   <h1 class="refname">Locale::getRegion</h1>
   <h1 class="refname">locale_get_region</h1>
-  <p class="verinfo">(PHP 5 &gt;= 5.3.0, PHP 7, PECL intl &gt;= 1.0.0)</p><p class="refpurpose"><span class="refname">Locale::getRegion</span> -- <span class="refname">locale_get_region</span> &mdash; <span class="dc-title">Gets the region for the input locale</span></p>
+  <p class="verinfo">(PHP 5 &gt;= 5.3.0, PHP 7, PHP 8, PECL intl &gt;= 1.0.0)</p><p class="refpurpose"><span class="refname">Locale::getRegion</span> -- <span class="refname">locale_get_region</span> &mdash; <span class="dc-title">Gets the region for the input locale</span></p>
 
  </div>
 
  <div class="refsect1 description" id="refsect1-locale.getregion-description">
   <h3 class="title">Description</h3>
   <p class="para">
-   Object oriented style
+   Object-oriented style
   </p>
   <div class="methodsynopsis dc-description">
-   <span class="modifier">public</span>
-   <span class="modifier">static</span>
-   
-   <span class="methodname"><strong>Locale::getRegion</strong></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$locale</code></span>
-   ) : <span class="type">string</span></div>
+   <span class="modifier">public</span> <span class="modifier">static</span> <span class="methodname"><strong>Locale::getRegion</strong></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$locale</code></span>): <span class="type"><span class="type">?</span><span class="type">string</span></span></div>
 
   <p class="para rdfs-comment">
    Procedural style
   </p>
-  <div class="methodsynopsis dc-description">
-   
-   <span class="methodname"><strong>locale_get_region</strong></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$locale</code></span>
-   ) : <span class="type">string</span></div>
+  <div class="methodsynopsis dc-description"><span class="methodname"><strong>locale_get_region</strong></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$locale</code></span>): <span class="type"><span class="type">?</span><span class="type">string</span></span></div>
 
   <p class="para rdfs-comment">
    Gets the region for the input locale.
@@ -63,7 +54,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">locale</code></dt>
@@ -88,12 +78,13 @@
   <p class="para">
    The region subtag for the locale or <strong><code>null</code></strong> if not present
   </p>
+  <p class="para">Returns <strong><code>null</code></strong> when the length of <code class="parameter">locale</code> exceeds <strong><code>INTL_MAX_LOCALE_LEN</code></strong>.</p>
  </div>
 
 
  <div class="refsect1 examples" id="refsect1-locale.getregion-examples">
   <h3 class="title">Examples</h3>
-  <div class="example" id="example-2830">
+  <div class="example" id="example-2343">
    <p><strong>Example #1 <span class="function"><strong>locale_get_region()</strong></span> example</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -103,7 +94,7 @@
    </div>
 
   </div>
-  <div class="example" id="example-2831">
+  <div class="example" id="example-2344">
    <p><strong>Example #2 OO example</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

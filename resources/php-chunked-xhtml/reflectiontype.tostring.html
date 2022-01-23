@@ -26,7 +26,7 @@
   <div id="layout-content"><div id="reflectiontype.tostring" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">ReflectionType::__toString</h1>
-  <p class="verinfo">(PHP 7)</p><p class="refpurpose"><span class="refname">ReflectionType::__toString</span> &mdash; <span class="dc-title">To string</span></p>
+  <p class="verinfo">(PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">ReflectionType::__toString</span> &mdash; <span class="dc-title">To string</span></p>
 
  </div>
 
@@ -39,9 +39,7 @@ is highly discouraged.</p></div>
  <div class="refsect1 description" id="refsect1-reflectiontype.tostring-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><strong>ReflectionType::__toString</strong></span>
-    (
-   ) : <span class="type">string</span></div>
+   <span class="modifier">public</span> <span class="methodname"><strong>ReflectionType::__toString</strong></span>(): <span class="type">string</span></div>
 
   <p class="para rdfs-comment">
    Gets the parameter type name.
@@ -59,30 +57,6 @@ is highly discouraged.</p></div>
   <h3 class="title">Return Values</h3>
   <p class="para">
    Returns the type of the parameter.
-  </p>
- </div>
-
-
- <div class="refsect1 examples" id="refsect1-reflectiontype.tostring-examples">
-  <h3 class="title">Examples</h3>
-  <p class="para">
-   <div class="example" id="example-5750">
-    <p><strong>Example #1 <span class="methodname"><strong>ReflectionType::__toString()</strong></span> example</strong></p>
-    <div class="example-contents">
-<div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">function&nbsp;</span><span style="color: #0000BB">someFunction</span><span style="color: #007700">(</span><span style="color: #0000BB">string&nbsp;$param</span><span style="color: #007700">)&nbsp;{}<br /><br /></span><span style="color: #0000BB">$reflectionFunc&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">ReflectionFunction</span><span style="color: #007700">(</span><span style="color: #DD0000">'someFunction'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$reflectionParam&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$reflectionFunc</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getParameters</span><span style="color: #007700">()[</span><span style="color: #0000BB">0</span><span style="color: #007700">];<br /><br />echo&nbsp;</span><span style="color: #0000BB">$reflectionParam</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getType</span><span style="color: #007700">();</span>
-</span>
-</code></div>
-    </div>
-
-    <div class="example-contents"><p>The above example will output
-something similar to:</p></div>
-    <div class="example-contents screen">
-<div class="cdata"><pre>
-string
-</pre></div>
-    </div>
-   </div>
   </p>
  </div>
 
@@ -114,11 +88,35 @@ string
  </div>
 
 
+ <div class="refsect1 examples" id="refsect1-reflectiontype.tostring-examples">
+  <h3 class="title">Examples</h3>
+  <p class="para">
+   <div class="example" id="example-5198">
+    <p><strong>Example #1 <span class="methodname"><strong>ReflectionType::__toString()</strong></span> example</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">function&nbsp;</span><span style="color: #0000BB">someFunction</span><span style="color: #007700">(</span><span style="color: #0000BB">string&nbsp;$param</span><span style="color: #007700">)&nbsp;{}<br /><br /></span><span style="color: #0000BB">$reflectionFunc&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">ReflectionFunction</span><span style="color: #007700">(</span><span style="color: #DD0000">'someFunction'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$reflectionParam&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$reflectionFunc</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getParameters</span><span style="color: #007700">()[</span><span style="color: #0000BB">0</span><span style="color: #007700">];<br /><br />echo&nbsp;</span><span style="color: #0000BB">$reflectionParam</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getType</span><span style="color: #007700">();</span>
+</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>The above example will output
+something similar to:</p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>
+string
+</pre></div>
+    </div>
+   </div>
+  </p>
+ </div>
+
+
  <div class="refsect1 seealso" id="refsect1-reflectiontype.tostring-seealso">
   <h3 class="title">See Also</h3>
   <p class="para">
    <ul class="simplelist">
-    <li class="member"><span class="methodname"><a href="reflectionnamedtype.getname.html" class="methodname" rel="rdfs-seeAlso">ReflectionNamedType::getName()</a> - Get the text of the type hint</span></li>
+    <li class="member"><span class="methodname"><a href="reflectionnamedtype.getname.html" class="methodname" rel="rdfs-seeAlso">ReflectionNamedType::getName()</a> - Get the name of the type as a string</span></li>
     <li class="member"><span class="methodname"><a href="reflectionnamedtype.isbuiltin.html" class="methodname" rel="rdfs-seeAlso">ReflectionNamedType::isBuiltin()</a> - Checks if it is a built-in type</span></li>
     <li class="member"><span class="methodname"><a href="reflectiontype.allowsnull.html" class="methodname" rel="rdfs-seeAlso">ReflectionType::allowsNull()</a> - Checks if null is allowed</span></li>
     <li class="member"><span class="methodname"><a href="reflectionuniontype.gettypes.html" class="methodname" rel="rdfs-seeAlso">ReflectionUnionType::getTypes()</a> - Returns the types included in the union type</span></li>

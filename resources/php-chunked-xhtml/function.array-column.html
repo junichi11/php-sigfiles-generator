@@ -26,17 +26,13 @@
   <div id="layout-content"><div id="function.array-column" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">array_column</h1>
-  <p class="verinfo">(PHP 5 &gt;= 5.5.0, PHP 7)</p><p class="refpurpose"><span class="refname">array_column</span> &mdash; <span class="dc-title">Return the values from a single column in the input array</span></p>
+  <p class="verinfo">(PHP 5 &gt;= 5.5.0, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">array_column</span> &mdash; <span class="dc-title">Return the values from a single column in the input array</span></p>
 
  </div>
  <div class="refsect1 description" id="refsect1-function.array-column-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>array_column</strong></span>
-    ( <span class="methodparam"><span class="type">array</span> <code class="parameter">$array</code></span>
-   , <span class="methodparam"><span class="type"><span class="type">int</span>|<span class="type">string</span>|<span class="type">null</span></span> <code class="parameter">$column_key</code></span>
-   , <span class="methodparam"><span class="type"><span class="type">int</span>|<span class="type">string</span>|<span class="type">null</span></span> <code class="parameter">$index_key</code><span class="initializer"> = <strong><code>null</code></strong></span></span>
-   ) : <span class="type">array</span></div>
+   <span class="methodname"><strong>array_column</strong></span>(<span class="methodparam"><span class="type">array</span> <code class="parameter">$array</code></span>, <span class="methodparam"><span class="type"><span class="type">int</span>|<span class="type">string</span>|<span class="type">null</span></span> <code class="parameter">$column_key</code></span>, <span class="methodparam"><span class="type"><span class="type">int</span>|<span class="type">string</span>|<span class="type">null</span></span> <code class="parameter">$index_key</code><span class="initializer"> = <strong><code>null</code></strong></span></span>): <span class="type">array</span></div>
 
   <p class="para rdfs-comment">
    <span class="function"><strong>array_column()</strong></span> returns the values from a single column of
@@ -52,7 +48,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">array</code></dt>
@@ -96,8 +91,8 @@
        The column to use as the index/keys for the returned array. This value
        may be the integer key of the column, or it may be the string key name.
        The value is <a href="language.types.array.html#language.types.array.key-casts" class="link">cast</a>
-       as usual for array keys (however, objects supporting conversion to string
-       are also allowed).
+       as usual for array keys (however, prior to PHP 8.0.0, objects supporting
+       conversion to string were also allowed).
       </p>
      </dd>
 
@@ -129,10 +124,10 @@
 
      <tbody class="tbody">
       <tr>
-       <td>7.0.0</td>
+       <td>8.0.0</td>
        <td>
-        Added the ability for the <code class="parameter">array</code> parameter to be
-        an array of objects.
+        Objects in columns indicated by <code class="parameter">index_key</code> parameter
+        will no longer be cast to string and will now throw a <span class="classname"><a href="class.typeerror.html" class="classname">TypeError</a></span> instead.
        </td>
       </tr>
 
@@ -146,7 +141,7 @@
  <div class="refsect1 examples" id="refsect1-function.array-column-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-5409">
+   <div class="example" id="example-4902">
     <p><strong>Example #1 Get the column of first names from a recordset</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -170,7 +165,7 @@ Array
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-5410">
+   <div class="example" id="example-4903">
     <p><strong>Example #2 
      Get the column of last names from a recordset, indexed by the &quot;id&quot; column
     </strong></p>
@@ -196,7 +191,7 @@ Array
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-5411">
+   <div class="example" id="example-4904">
     <p><strong>Example #3 
      Get the column of usernames from the public &quot;username&quot; property of an
      object
@@ -222,7 +217,7 @@ Array
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-5412">
+   <div class="example" id="example-4905">
     <p><strong>Example #4 
      Get the column of names from the private &quot;name&quot; property of an object
      using the magic <span class="function"><strong>__get()</strong></span> method.
@@ -251,18 +246,5 @@ Array
   </p>
  </div>
 
-
- <div class="refsect1 seealso" id="refsect1-function.array-column-seealso">
-  <h3 class="title">See Also</h3>
-  <p class="para">
-   <ul class="simplelist">
-    <li class="member">
-     <a href="https://github.com/ramsey/array_column/blob/master/src/array_column.php" class="link external">&raquo;&nbsp;Recommended
-     userland implementation for PHP lower than 5.5</a>
-    </li>
-   </ul>
-  </p>
- </div>
- 
 
 </div></div></div></body></html>

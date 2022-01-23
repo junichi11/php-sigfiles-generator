@@ -26,22 +26,13 @@
   <div id="layout-content"><div id="function.imagettftext" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">imagettftext</h1>
-  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">imagettftext</span> &mdash; <span class="dc-title">Write text to the image using TrueType fonts</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">imagettftext</span> &mdash; <span class="dc-title">Write text to the image using TrueType fonts</span></p>
 
  </div>
  <div class="refsect1 description" id="refsect1-function.imagettftext-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>imagettftext</strong></span>
-    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$image</code></span>
-   , <span class="methodparam"><span class="type">float</span> <code class="parameter">$size</code></span>
-   , <span class="methodparam"><span class="type">float</span> <code class="parameter">$angle</code></span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$x</code></span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$y</code></span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$color</code></span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$fontfile</code></span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$text</code></span>
-   ) : <span class="type">array</span></div>
+   <span class="methodname"><strong>imagettftext</strong></span>(<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type"><a href="class.gdimage.html" class="type GdImage">GdImage</a></span> <code class="parameter">$image</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">float</span> <code class="parameter">$size</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">float</span> <code class="parameter">$angle</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">int</span> <code class="parameter">$x</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">int</span> <code class="parameter">$y</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">int</span> <code class="parameter">$color</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$font_filename</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$text</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">array</span> <code class="parameter">$options</code><span class="initializer"> = []</span></span><br>): <span class="type"><span class="type">array</span>|<span class="type"><span class="type false">false</span></span></span></div>
 
   <p class="para rdfs-comment">
    Writes the given <code class="parameter">text</code> into the image using TrueType
@@ -49,9 +40,10 @@
   </p>
   <blockquote class="note"><p><strong class="note">Note</strong>: 
    <p class="para">
-    <span class="function"><a href="function.imagefttext.html" class="function">imagefttext()</a></span> is an extended variant of
-    <span class="function"><strong>imagettftext()</strong></span> which additionally supports the
+    Prior to PHP 8.0.0, <span class="function"><a href="function.imagefttext.html" class="function">imagefttext()</a></span> was an extended variant of
+    <span class="function"><strong>imagettftext()</strong></span> which additionally supported the
     <code class="parameter">extrainfo</code>.
+    As of PHP 8.0.0, <span class="function"><strong>imagettftext()</strong></span> is an alias of <span class="function"><a href="function.imagefttext.html" class="function">imagefttext()</a></span>.
    </p>
   </p></blockquote>
  </div>
@@ -60,12 +52,11 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     <dt>
-<code class="parameter">
-image</code></dt>
+
+<code class="parameter">image</code></dt>
 <dd>
-<p class="para">An image resource, returned by one of the image creation functions,
+<p class="para">A <span class="classname"><a href="class.gdimage.html" class="classname">GdImage</a></span> object, returned by one of the image creation functions,
 such as <span class="function"><a href="function.imagecreatetruecolor.html" class="function">imagecreatetruecolor()</a></span>.</p></dd>
 
     
@@ -225,10 +216,38 @@ such as <span class="function"><a href="function.imagecreatetruecolor.html" clas
   </p>
  </div>
 
+
+ <div class="refsect1 changelog" id="refsect1-function.imagettftext-changelog">
+  <h3 class="title">Changelog</h3>
+  <table class="doctable informaltable">
+   
+    <thead>
+     <tr>
+      <th>Version</th>
+      <th>Description</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+      <td>8.0.0</td>
+      <td>
+       The <code class="parameter">options</code> has been added.
+      </td>
+     </tr>
+
+    </tbody>
+   
+  </table>
+
+ </div>
+
+
  <div class="refsect1 examples" id="refsect1-function.imagettftext-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="imageresolution.example.basic">
+   <div class="example" id="example-2721">
     <p><strong>Example #1 <span class="function"><strong>imagettftext()</strong></span> example</strong></p>
     <div class="example-contents"><p>
      This example script will produce a white PNG 400x30 pixels, with

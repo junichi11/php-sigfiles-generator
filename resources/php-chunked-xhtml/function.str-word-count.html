@@ -26,7 +26,7 @@
   <div id="layout-content"><div id="function.str-word-count" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">str_word_count</h1>
-  <p class="verinfo">(PHP 4 &gt;= 4.3.0, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">str_word_count</span> &mdash; <span class="dc-title">
+  <p class="verinfo">(PHP 4 &gt;= 4.3.0, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">str_word_count</span> &mdash; <span class="dc-title">
    Return information about words used in a string
   </span></p>
 
@@ -34,11 +34,7 @@
  <div class="refsect1 description" id="refsect1-function.str-word-count-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>str_word_count</strong></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$string</code></span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$format</code><span class="initializer"> = 0</span></span>
-   , <span class="methodparam"><span class="type"><span class="type">string</span>|<span class="type">null</span></span> <code class="parameter">$characters</code><span class="initializer"> = <strong><code>null</code></strong></span></span>
-   ) : <span class="type"><span class="type">array</span>|<span class="type">int</span></span></div>
+   <span class="methodname"><strong>str_word_count</strong></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$string</code></span>, <span class="methodparam"><span class="type">int</span> <code class="parameter">$format</code><span class="initializer"> = 0</span></span>, <span class="methodparam"><span class="type">?</span><span class="type"><span class="type">string</span><span class="type"></span></span> <code class="parameter">$characters</code><span class="initializer"> = <strong><code>null</code></strong></span></span>): <span class="type"><span class="type">array</span>|<span class="type">int</span></span></div>
 
   <p class="para rdfs-comment">
    Counts the number of words inside <code class="parameter">string</code>. 
@@ -53,6 +49,7 @@
    For the purpose of this function, &#039;word&#039; is defined as a locale dependent
    string containing alphabetic characters, which also may contain, but not start
    with &quot;&#039;&quot; and &quot;-&quot; characters.
+   Note that multibyte locales are not supported.
   </p>
  </div>
 
@@ -61,7 +58,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">string</code></dt>
@@ -164,7 +160,7 @@
  <div class="refsect1 examples" id="refsect1-function.str-word-count-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-5356">
+   <div class="example" id="example-4847">
     <p><strong>Example #1 A <span class="function"><strong>str_word_count()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -222,7 +218,6 @@ Array
    <ul class="simplelist">
     <li class="member"><span class="function"><a href="function.explode.html" class="function" rel="rdfs-seeAlso">explode()</a> - Split a string by a string</span></li>
     <li class="member"><span class="function"><a href="function.preg-split.html" class="function" rel="rdfs-seeAlso">preg_split()</a> - Split string by a regular expression</span></li>
-    <li class="member"><span class="function"><a href="function.split.html" class="function" rel="rdfs-seeAlso">split()</a> - Split string into array by regular expression</span></li>
     <li class="member"><span class="function"><a href="function.count-chars.html" class="function" rel="rdfs-seeAlso">count_chars()</a> - Return information about characters used in a string</span></li>
     <li class="member"><span class="function"><a href="function.substr-count.html" class="function" rel="rdfs-seeAlso">substr_count()</a> - Count the number of substring occurrences</span></li>
    </ul>

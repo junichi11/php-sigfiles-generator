@@ -26,18 +26,14 @@
   <div id="layout-content"><div id="function.oci-new-collection" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">oci_new_collection</h1>
-  <p class="verinfo">(PHP 5, PHP 7, PECL OCI8 &gt;= 1.1.0)</p><p class="refpurpose"><span class="refname">oci_new_collection</span> &mdash; <span class="dc-title">Allocates new collection object</span></p>
+  <p class="verinfo">(PHP 5, PHP 7, PHP 8, PECL OCI8 &gt;= 1.1.0)</p><p class="refpurpose"><span class="refname">oci_new_collection</span> &mdash; <span class="dc-title">Allocates new collection object</span></p>
 
  </div>
  
  <div class="refsect1 description" id="refsect1-function.oci-new-collection-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>oci_new_collection</strong></span>
-    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$connection</code></span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$tdo</code></span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$schema</code><span class="initializer"> = <strong><code>null</code></strong></span></span>
-   ) : <span class="type"><span class="type OCICollection">OCICollection</span></span></div>
+   <span class="methodname"><strong>oci_new_collection</strong></span>(<span class="methodparam"><span class="type">resource</span> <code class="parameter">$connection</code></span>, <span class="methodparam"><span class="type">string</span> <code class="parameter">$type_name</code></span>, <span class="methodparam"><span class="type">?</span><span class="type"><span class="type">string</span><span class="type"></span></span> <code class="parameter">$schema</code><span class="initializer"> = <strong><code>null</code></strong></span></span>): <span class="type"><span class="type"><a href="class.ocicollection.html" class="type OCICollection">OCICollection</a></span>|<span class="type"><span class="type false">false</span></span></span></div>
 
   <p class="para rdfs-comment">
    Allocates a new collection object.
@@ -49,7 +45,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">connection</code></dt>
@@ -65,7 +60,7 @@
     
     
      <dt>
-<code class="parameter">tdo</code></dt>
+<code class="parameter">type_name</code></dt>
 
      <dd>
 
@@ -83,7 +78,7 @@
 
       <p class="para">
        Should point to the scheme, where the named type was created. The name
-       of the current user is the default value.
+       of the current user is used when <strong><code>null</code></strong> is passed.
       </p>
      </dd>
 
@@ -97,9 +92,36 @@
  <div class="refsect1 returnvalues" id="refsect1-function.oci-new-collection-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns a new <a href="class.OCI-Collection.html" class="classname">OCICollection</a> object or <strong><code>false</code></strong> on
+   Returns a new <span class="classname"><a href="class.ocicollection.html" class="classname">OCICollection</a></span> object or <strong><code>false</code></strong> on
    error.
   </p>
+ </div>
+
+
+ <div class="refsect1 changelog" id="refsect1-function.oci-new-collection-changelog">
+  <h3 class="title">Changelog</h3>
+  <table class="doctable informaltable">
+   
+    <thead>
+     <tr>
+      <th>Version</th>
+      <th>Description</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+      <td>8.0.0, PECL OCI8 3.0.0</td>
+      <td>
+       <code class="parameter">schema</code> is now nullable.
+      </td>
+     </tr>
+
+    </tbody>
+   
+  </table>
+
  </div>
 
 
@@ -107,7 +129,7 @@
   <h3 class="title">Notes</h3>
   <blockquote class="note"><p><strong class="note">Note</strong>: 
    <p class="para">
-    The OCICollection class was called OCI-Collection prior to PHP 8 and OCI8 3.0.0.
+    The <span class="classname"><a href="class.ocicollection.html" class="classname">OCICollection</a></span> class was called <span class="classname"><strong class="classname">OCI-Collection</strong></span> prior to PHP 8 and OCI8 3.0.0.
    </p>
   </p></blockquote>
   <blockquote class="note"><p><strong class="note">Note</strong>: 

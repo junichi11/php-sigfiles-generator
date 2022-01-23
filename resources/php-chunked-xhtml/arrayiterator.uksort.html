@@ -26,16 +26,14 @@
   <div id="layout-content"><div id="arrayiterator.uksort" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">ArrayIterator::uksort</h1>
-  <p class="verinfo">(PHP 5 &gt;= 5.2.0, PHP 7)</p><p class="refpurpose"><span class="refname">ArrayIterator::uksort</span> &mdash; <span class="dc-title">Sort by keys using a user-defined comparison function</span></p>
+  <p class="verinfo">(PHP 5 &gt;= 5.2.0, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">ArrayIterator::uksort</span> &mdash; <span class="dc-title">Sort by keys using a user-defined comparison function</span></p>
 
  </div>
 
  <div class="refsect1 description" id="refsect1-arrayiterator.uksort-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><strong>ArrayIterator::uksort</strong></span>
-    ( <span class="methodparam"><span class="type"><a href="language.types.callable.html" class="type callable">callable</a></span> <code class="parameter">$cmp_function</code></span>
-   ) : <span class="type"><span class="type void">void</span></span></div>
+   <span class="modifier">public</span> <span class="methodname"><strong>ArrayIterator::uksort</strong></span>(<span class="methodparam"><span class="type"><a href="language.types.callable.html" class="type callable">callable</a></span> <code class="parameter">$callback</code></span>): <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
    This method sorts the elements by keys using a user-supplied comparison
@@ -43,7 +41,8 @@
   </p>
   <blockquote class="note"><p><strong class="note">Note</strong>: 
  <p class="para">
-  If two members compare as equal, their relative order in the sorted array is undefined.
+  If two members compare as equal, they retain their original order.
+  Prior to PHP 8.0.0, their relative order in the sorted array was undefined.
  </p>
 </p></blockquote>
 
@@ -54,17 +53,16 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
-<code class="parameter">cmp_function</code></dt>
+<code class="parameter">callback</code></dt>
 
      <dd>
 
       <p class="para">
        The comparison function must return an integer less than, equal to, or greater than zero if the first argument is considered to be respectively less than, equal to, or greater than the second.
       </p>
-      <div class="methodsynopsis dc-description"><span class="methodname"><span class="replaceable">callback</span></span> ( <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$a</code></span>, <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$b</code></span> ) : <span class="type">int</span></div>
+      <div class="methodsynopsis dc-description"><span class="methodname"><span class="replaceable">callback</span></span>(<span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$a</code></span>, <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$b</code></span>): <span class="type">int</span></div>
 
      </dd>
 
@@ -78,7 +76,7 @@
  <div class="refsect1 returnvalues" id="refsect1-arrayiterator.uksort-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   No value is returned.
+   Always returns <strong><code>true</code></strong>.
   </p>
  </div>
 
@@ -87,8 +85,11 @@
   <h3 class="title">See Also</h3>
   <p class="para">
    <ul class="simplelist">
-    <li class="member"><span class="methodname"><a href="arrayiterator.ksort.html" class="methodname" rel="rdfs-seeAlso">ArrayIterator::ksort()</a> - Sort array by keys</span></li>
-    <li class="member"><span class="methodname"><a href="arrayiterator.uasort.html" class="methodname" rel="rdfs-seeAlso">ArrayIterator::uasort()</a> - Sort with a user-defined comparison function and maintain index association</span></li>
+    <li class="member"><span class="methodname"><a href="arrayiterator.asort.html" class="methodname" rel="rdfs-seeAlso">ArrayIterator::asort()</a> - Sort entries by values</span></li>
+    <li class="member"><span class="methodname"><a href="arrayiterator.ksort.html" class="methodname" rel="rdfs-seeAlso">ArrayIterator::ksort()</a> - Sort entries by keys</span></li>
+    <li class="member"><span class="methodname"><a href="arrayiterator.natcasesort.html" class="methodname" rel="rdfs-seeAlso">ArrayIterator::natcasesort()</a> - Sort entries naturally, case insensitive</span></li>
+    <li class="member"><span class="methodname"><a href="arrayiterator.natsort.html" class="methodname" rel="rdfs-seeAlso">ArrayIterator::natsort()</a> - Sort entries naturally</span></li>
+    <li class="member"><span class="methodname"><strong>ArrayIterator::uksort()</strong></span></li>
     <li class="member"><span class="function"><a href="function.uksort.html" class="function" rel="rdfs-seeAlso">uksort()</a> - Sort an array by keys using a user-defined comparison function</span></li>
    </ul>
   </p>

@@ -26,17 +26,13 @@
   <div id="layout-content"><div id="function.curl-getinfo" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">curl_getinfo</h1>
-  <p class="verinfo">(PHP 4 &gt;= 4.0.4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">curl_getinfo</span> &mdash; <span class="dc-title">Get information regarding a specific transfer</span></p>
+  <p class="verinfo">(PHP 4 &gt;= 4.0.4, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">curl_getinfo</span> &mdash; <span class="dc-title">Get information regarding a specific transfer</span></p>
 
  </div>
  
  <div class="refsect1 description" id="refsect1-function.curl-getinfo-description">
   <h3 class="title">Description</h3>
-  <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>curl_getinfo</strong></span>
-    ( <span class="methodparam"><span class="type"><a href="class.curlhandle.html" class="type CurlHandle">CurlHandle</a></span> <code class="parameter">$handle</code></span>
-   , <span class="methodparam"><span class="type"><span class="type">int</span>|<span class="type">null</span></span> <code class="parameter">$option</code><span class="initializer"> = <strong><code>null</code></strong></span></span>
-   ) : <span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span></div>
+  <div class="methodsynopsis dc-description"><span class="methodname"><strong>curl_getinfo</strong></span>(<span class="methodparam"><span class="type"><a href="class.curlhandle.html" class="type CurlHandle">CurlHandle</a></span> <code class="parameter">$handle</code></span>, <span class="methodparam"><span class="type">?</span><span class="type"><span class="type">int</span><span class="type"></span></span> <code class="parameter">$option</code><span class="initializer"> = <strong><code>null</code></strong></span></span>): <span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span></div>
 
   <p class="para rdfs-comment">
    Gets information about the last transfer. 
@@ -48,7 +44,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     <dt>
 <code class="parameter">handle</code>
 </dt>
@@ -73,7 +68,7 @@
         <li class="listitem">
          <span class="simpara">
           <strong><code>CURLINFO_HTTP_CODE</code></strong> -  The last response code.
-          As of PHP 5.5.0 and cURL 7.10.8, this is a legacy alias of
+          As of cURL 7.10.8, this is a legacy alias of
           <strong><code>CURLINFO_RESPONSE_CODE</code></strong>
          </span>
         </li>
@@ -551,7 +546,7 @@
       <tr>
  <td>8.0.0</td>
  <td>
-  <code class="parameter">handle</code> expects a <a href="class.curlhandle.html" class="classname">CurlHandle</a>
+  <code class="parameter">handle</code> expects a <span class="classname"><a href="class.curlhandle.html" class="classname">CurlHandle</a></span>
   instance now; previously, a <span class="type">resource</span> was expected.
  </td>
 </tr>
@@ -599,7 +594,7 @@
  <div class="refsect1 examples" id="refsect1-function.curl-getinfo-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-4711">
+   <div class="example" id="example-4212">
     <p><strong>Example #1 <span class="function"><strong>curl_getinfo()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -611,7 +606,7 @@
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-4712">
+   <div class="example" id="example-4213">
     <p><strong>Example #2 <span class="function"><strong>curl_getinfo()</strong></span> example with <code class="parameter">option</code> parameter</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

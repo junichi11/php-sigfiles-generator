@@ -47,7 +47,7 @@
     own <a href="language.oop5.constants.html" class="link">constants</a>, <a href="language.oop5.properties.html" class="link">variables</a>
     (called &quot;properties&quot;), and functions (called &quot;methods&quot;).
    </p>
-   <div class="example" id="example-189">
+   <div class="example" id="example-191">
     <p><strong>Example #1 Simple Class definition</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -60,16 +60,16 @@
    <p class="para">
     The pseudo-variable <var class="varname">$this</var> is available when a
     method is called from within an object context.
-    <var class="varname">$this</var> is a reference to the calling object.
+    <var class="varname">$this</var> is the value of the calling object.
    </p>
    <div class="warning"><strong class="warning">Warning</strong>
     <p class="para">
      Calling a non-static method statically throws an
-     <a href="class.error.html" class="classname">Error</a>.
+     <span class="classname"><a href="class.error.html" class="classname">Error</a></span>.
      Prior to PHP 8.0.0, this would generate a deprecation notice,
      and <var class="varname">$this</var> would be undefined.
     </p>
-    <div class="example" id="example-190">
+    <div class="example" id="language.oop5.basic.class.this">
      <p><strong>Example #2 Some examples of the <var class="varname">$this</var> pseudo-variable</strong></p>
      <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -134,7 +134,7 @@ Stack trace:
     </p>
    </p></blockquote>
 
-   <div class="example" id="example-191">
+   <div class="example" id="example-193">
     <p><strong>Example #3 Creating an instance</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -143,6 +143,39 @@ Stack trace:
 </code></div>
     </div>
 
+   </div>
+   <p class="para">
+    As of PHP 8.0.0, using <code class="literal">new</code> with arbitrary expressions
+    is supported. This allows more complex instantiation if the expression
+    produces a <span class="type">string</span>. The expressions must be wrapped in parentheses.
+   </p>
+   <div class="example" id="example-194">
+    <p><strong>Example #4 Creating an instance using an arbitrary expression</strong></p>
+    <div class="example-contents"><p>
+     In the given example we show multiple examples of valid arbitrary expressions that produce a class name.
+     This shows a call to a function, string concatenation, and the <strong><code>::class</code></strong> constant.
+    </p></div>
+    <div class="example-contents">
+     <div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /><br /></span><span style="color: #007700">class&nbsp;</span><span style="color: #0000BB">ClassA&nbsp;</span><span style="color: #007700">extends&nbsp;\</span><span style="color: #0000BB">stdClass&nbsp;</span><span style="color: #007700">{}<br />class&nbsp;</span><span style="color: #0000BB">ClassB&nbsp;</span><span style="color: #007700">extends&nbsp;\</span><span style="color: #0000BB">stdClass&nbsp;</span><span style="color: #007700">{}<br />class&nbsp;</span><span style="color: #0000BB">ClassC&nbsp;</span><span style="color: #007700">extends&nbsp;</span><span style="color: #0000BB">ClassB&nbsp;</span><span style="color: #007700">{}<br />class&nbsp;</span><span style="color: #0000BB">ClassD&nbsp;</span><span style="color: #007700">extends&nbsp;</span><span style="color: #0000BB">ClassA&nbsp;</span><span style="color: #007700">{}<br /><br />function&nbsp;</span><span style="color: #0000BB">getSomeClass</span><span style="color: #007700">():&nbsp;</span><span style="color: #0000BB">string<br /></span><span style="color: #007700">{<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #DD0000">'ClassA'</span><span style="color: #007700">;<br />}<br /><br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(new&nbsp;(</span><span style="color: #0000BB">getSomeClass</span><span style="color: #007700">()));<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(new&nbsp;(</span><span style="color: #DD0000">'Class'&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #DD0000">'B'</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(new&nbsp;(</span><span style="color: #DD0000">'Class'&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #DD0000">'C'</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(new&nbsp;(</span><span style="color: #0000BB">ClassD</span><span style="color: #007700">::class));<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>Output of the above example in PHP 8:</p></div>
+    <div class="example-contents screen">
+     <div class="cdata"><pre>
+object(ClassA)#1 (0) {
+}
+object(ClassB)#1 (0) {
+}
+object(ClassC)#1 (0) {
+}
+object(ClassD)#1 (0) {
+}
+
+</pre></div>
+    </div>
    </div>
    <p class="para">
     In the class context, it is possible to create a new object by
@@ -155,8 +188,8 @@ Stack trace:
     of an already created object can be made by
     <a href="language.oop5.cloning.html" class="link">cloning</a> it.
    </p>
-   <div class="example" id="example-192">
-    <p><strong>Example #4 Object Assignment</strong></p>
+   <div class="example" id="example-195">
+    <p><strong>Example #5 Object Assignment</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
 <span style="color: #0000BB">&lt;?php<br /><br />$instance&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">SimpleClass</span><span style="color: #007700">();<br /><br /></span><span style="color: #0000BB">$assigned&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">=&nbsp;&nbsp;</span><span style="color: #0000BB">$instance</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$reference&nbsp;&nbsp;</span><span style="color: #007700">=&amp;&nbsp;</span><span style="color: #0000BB">$instance</span><span style="color: #007700">;<br /><br /></span><span style="color: #0000BB">$instance</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">var&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'$assigned&nbsp;will&nbsp;have&nbsp;this&nbsp;value'</span><span style="color: #007700">;<br /><br /></span><span style="color: #0000BB">$instance&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">null</span><span style="color: #007700">;&nbsp;</span><span style="color: #FF8000">//&nbsp;$instance&nbsp;and&nbsp;$reference&nbsp;become&nbsp;null<br /><br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$instance</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$reference</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$assigned</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
@@ -179,8 +212,8 @@ object(SimpleClass)#1 (1) {
    <p class="para">
     It&#039;s possible to create instances of an object in a couple of ways:
    </p>
-   <div class="example" id="example-193">
-    <p><strong>Example #5 Creating new objects</strong></p>
+   <div class="example" id="example-196">
+    <p><strong>Example #6 Creating new objects</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
 <span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">class&nbsp;</span><span style="color: #0000BB">Test<br /></span><span style="color: #007700">{<br />&nbsp;&nbsp;&nbsp;&nbsp;static&nbsp;public&nbsp;function&nbsp;</span><span style="color: #0000BB">getNew</span><span style="color: #007700">()<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;new&nbsp;static;<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />}<br /><br />class&nbsp;</span><span style="color: #0000BB">Child&nbsp;</span><span style="color: #007700">extends&nbsp;</span><span style="color: #0000BB">Test<br /></span><span style="color: #007700">{}<br /><br /></span><span style="color: #0000BB">$obj1&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">Test</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">$obj2&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">$obj1</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$obj1&nbsp;</span><span style="color: #007700">!==&nbsp;</span><span style="color: #0000BB">$obj2</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$obj3&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">Test</span><span style="color: #007700">::</span><span style="color: #0000BB">getNew</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$obj3&nbsp;</span><span style="color: #007700">instanceof&nbsp;</span><span style="color: #0000BB">Test</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$obj4&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">Child</span><span style="color: #007700">::</span><span style="color: #0000BB">getNew</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$obj4&nbsp;</span><span style="color: #007700">instanceof&nbsp;</span><span style="color: #0000BB">Child</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
@@ -202,8 +235,8 @@ bool(true)
     It is possible to access a member of a newly created object
     in a single expression:
    </p>
-   <div class="example" id="example-194">
-    <p><strong>Example #6 Access member of newly created object</strong></p>
+   <div class="example" id="example-197">
+    <p><strong>Example #7 Access member of newly created object</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
 <span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">echo&nbsp;(new&nbsp;</span><span style="color: #0000BB">DateTime</span><span style="color: #007700">())-&gt;</span><span style="color: #0000BB">format</span><span style="color: #007700">(</span><span style="color: #DD0000">'Y'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
@@ -237,8 +270,8 @@ something similar to:</p></div>
     will be accessed or a method will be called, solely depends on the context,
     i.e. whether the usage is a variable access or a function call.
    </p>
-   <div class="example" id="example-195">
-    <p><strong>Example #7 Property access vs. method call</strong></p>
+   <div class="example" id="example-198">
+    <p><strong>Example #8 Property access vs. method call</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
 <span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">class&nbsp;</span><span style="color: #0000BB">Foo<br /></span><span style="color: #007700">{<br />&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;</span><span style="color: #0000BB">$bar&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'property'</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;function&nbsp;</span><span style="color: #0000BB">bar</span><span style="color: #007700">()&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #DD0000">'method'</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />}<br /><br /></span><span style="color: #0000BB">$obj&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">Foo</span><span style="color: #007700">();<br />echo&nbsp;</span><span style="color: #0000BB">$obj</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">bar</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">PHP_EOL</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$obj</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">bar</span><span style="color: #007700">(),&nbsp;</span><span style="color: #0000BB">PHP_EOL</span><span style="color: #007700">;</span>
@@ -261,8 +294,8 @@ method
     instance. It is possible to call such a property directly
     by enclosing it in parentheses.
    </p>
-   <div class="example" id="example-196">
-    <p><strong>Example #8 Calling an anonymous function stored in a property</strong></p>
+   <div class="example" id="example-199">
+    <p><strong>Example #9 Calling an anonymous function stored in a property</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
 <span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">class&nbsp;</span><span style="color: #0000BB">Foo<br /></span><span style="color: #007700">{<br />&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;</span><span style="color: #0000BB">$bar</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;function&nbsp;</span><span style="color: #0000BB">__construct</span><span style="color: #007700">()&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">bar&nbsp;</span><span style="color: #007700">=&nbsp;function()&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">42</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;};<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />}<br /><br /></span><span style="color: #0000BB">$obj&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">Foo</span><span style="color: #007700">();<br /><br />echo&nbsp;(</span><span style="color: #0000BB">$obj</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">bar</span><span style="color: #007700">)(),&nbsp;</span><span style="color: #0000BB">PHP_EOL</span><span style="color: #007700">;</span>
@@ -292,14 +325,19 @@ method
    <p class="para">
     The inherited constants, methods, and properties can be overridden by
     redeclaring them with the same name defined in the parent
-    class. However, if the parent class has defined a method
-    as <a href="language.oop5.final.html" class="link">final</a>, that method
-    may not be overridden.  It is possible to access the overridden
+    class. However, if the parent class has defined a method or constant
+    as <a href="language.oop5.final.html" class="link">final</a>,
+    they may not be overridden.  It is possible to access the overridden
     methods or static properties by referencing them
     with <a href="language.oop5.paamayim-nekudotayim.html" class="link">parent::</a>.
    </p>
-   <div class="example" id="example-197">
-    <p><strong>Example #9 Simple Class Inheritance</strong></p>
+   <blockquote class="note"><p><strong class="note">Note</strong>: 
+    <span class="simpara">
+     As of PHP 8.1.0, constants may be declared as final.
+    </span>
+   </p></blockquote>
+   <div class="example" id="example-200">
+    <p><strong>Example #10 Simple Class Inheritance</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
 <span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">class&nbsp;</span><span style="color: #0000BB">ExtendClass&nbsp;</span><span style="color: #007700">extends&nbsp;</span><span style="color: #0000BB">SimpleClass<br /></span><span style="color: #007700">{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;Redefine&nbsp;the&nbsp;parent&nbsp;method<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">function&nbsp;</span><span style="color: #0000BB">displayVar</span><span style="color: #007700">()<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"Extending&nbsp;class\n"</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">parent</span><span style="color: #007700">::</span><span style="color: #0000BB">displayVar</span><span style="color: #007700">();<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />}<br /><br /></span><span style="color: #0000BB">$extended&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">ExtendClass</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">$extended</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">displayVar</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">?&gt;</span>
@@ -331,8 +369,8 @@ a default value
      compatibility rules, and thus won&#039;t emit a fatal error in case of a
      signature mismatch.
     </p>
-    <div class="example" id="example-198">
-     <p><strong>Example #10 Compatible child methods</strong></p>
+    <div class="example" id="example-201">
+     <p><strong>Example #11 Compatible child methods</strong></p>
      <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
 <span style="color: #0000BB">&lt;?php<br /><br /></span><span style="color: #007700">class&nbsp;</span><span style="color: #0000BB">Base<br /></span><span style="color: #007700">{<br />&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;function&nbsp;</span><span style="color: #0000BB">foo</span><span style="color: #007700">(</span><span style="color: #0000BB">int&nbsp;$a</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"Valid\n"</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />}<br /><br />class&nbsp;</span><span style="color: #0000BB">Extend1&nbsp;</span><span style="color: #007700">extends&nbsp;</span><span style="color: #0000BB">Base<br /></span><span style="color: #007700">{<br />&nbsp;&nbsp;&nbsp;&nbsp;function&nbsp;</span><span style="color: #0000BB">foo</span><span style="color: #007700">(</span><span style="color: #0000BB">int&nbsp;$a&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">5</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">parent</span><span style="color: #007700">::</span><span style="color: #0000BB">foo</span><span style="color: #007700">(</span><span style="color: #0000BB">$a</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />}<br /><br />class&nbsp;</span><span style="color: #0000BB">Extend2&nbsp;</span><span style="color: #007700">extends&nbsp;</span><span style="color: #0000BB">Base<br /></span><span style="color: #007700">{<br />&nbsp;&nbsp;&nbsp;&nbsp;function&nbsp;</span><span style="color: #0000BB">foo</span><span style="color: #007700">(</span><span style="color: #0000BB">int&nbsp;$a</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$b&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">5</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">parent</span><span style="color: #007700">::</span><span style="color: #0000BB">foo</span><span style="color: #007700">(</span><span style="color: #0000BB">$a</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />}<br /><br /></span><span style="color: #0000BB">$extended1&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">Extend1</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">$extended1</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">foo</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">$extended2&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">Extend2</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">$extended2</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">foo</span><span style="color: #007700">(</span><span style="color: #0000BB">1</span><span style="color: #007700">);</span>
@@ -353,8 +391,8 @@ Valid
      The following examples demonstrate that a child method which removes a parameter, or makes an optional
      parameter mandatory, is not compatible with the parent method.
     </p>
-    <div class="example" id="example-199">
-     <p><strong>Example #11 Fatal error when a child method removes a parameter</strong></p>
+    <div class="example" id="example-202">
+     <p><strong>Example #12 Fatal error when a child method removes a parameter</strong></p>
      <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
 <span style="color: #0000BB">&lt;?php<br /><br /></span><span style="color: #007700">class&nbsp;</span><span style="color: #0000BB">Base<br /></span><span style="color: #007700">{<br />&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;function&nbsp;</span><span style="color: #0000BB">foo</span><span style="color: #007700">(</span><span style="color: #0000BB">int&nbsp;$a&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">5</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"Valid\n"</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />}<br /><br />class&nbsp;</span><span style="color: #0000BB">Extend&nbsp;</span><span style="color: #007700">extends&nbsp;</span><span style="color: #0000BB">Base<br /></span><span style="color: #007700">{<br />&nbsp;&nbsp;&nbsp;&nbsp;function&nbsp;</span><span style="color: #0000BB">foo</span><span style="color: #007700">()<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">parent</span><span style="color: #007700">::</span><span style="color: #0000BB">foo</span><span style="color: #007700">(</span><span style="color: #0000BB">1</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />}</span>
@@ -369,8 +407,8 @@ Fatal error: Declaration of Extend::foo() must be compatible with Base::foo(int 
 </pre></div>
      </div>
     </div>
-    <div class="example" id="example-200">
-     <p><strong>Example #12 Fatal error when a child method makes an optional parameter mandatory</strong></p>
+    <div class="example" id="example-203">
+     <p><strong>Example #13 Fatal error when a child method makes an optional parameter mandatory</strong></p>
      <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
 <span style="color: #0000BB">&lt;?php<br /><br /></span><span style="color: #007700">class&nbsp;</span><span style="color: #0000BB">Base<br /></span><span style="color: #007700">{<br />&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;function&nbsp;</span><span style="color: #0000BB">foo</span><span style="color: #007700">(</span><span style="color: #0000BB">int&nbsp;$a&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">5</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"Valid\n"</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />}<br /><br />class&nbsp;</span><span style="color: #0000BB">Extend&nbsp;</span><span style="color: #007700">extends&nbsp;</span><span style="color: #0000BB">Base<br /></span><span style="color: #007700">{<br />&nbsp;&nbsp;&nbsp;&nbsp;function&nbsp;</span><span style="color: #0000BB">foo</span><span style="color: #007700">(</span><span style="color: #0000BB">int&nbsp;$a</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">parent</span><span style="color: #007700">::</span><span style="color: #0000BB">foo</span><span style="color: #007700">(</span><span style="color: #0000BB">$a</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />}</span>
@@ -390,12 +428,12 @@ Fatal error: Declaration of Extend::foo(int $a) must be compatible with Base::fo
      <p class="para">
       Renaming a method&#039;s parameter in a child class is not a signature
       incompatibility. However, this is discouraged as it will result in a
-      runtime <a href="class.error.html" class="classname">Error</a> if
+      runtime <span class="classname"><a href="class.error.html" class="classname">Error</a></span> if
       <a href="functions.arguments.html#functions.named-arguments" class="link">named arguments</a>
       are used.
      </p>
-     <div class="example" id="example-201">
-      <p><strong>Example #13 Error when using named arguments and parameters were renamed in a child class</strong></p>
+     <div class="example" id="example-204">
+      <p><strong>Example #14 Error when using named arguments and parameters were renamed in a child class</strong></p>
       <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
 <span style="color: #0000BB">&lt;?php<br /><br /></span><span style="color: #007700">class&nbsp;</span><span style="color: #0000BB">A&nbsp;</span><span style="color: #007700">{<br />&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;function&nbsp;</span><span style="color: #0000BB">test</span><span style="color: #007700">(</span><span style="color: #0000BB">$foo</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$bar</span><span style="color: #007700">)&nbsp;{}<br />}<br /><br />class&nbsp;</span><span style="color: #0000BB">B&nbsp;</span><span style="color: #007700">extends&nbsp;</span><span style="color: #0000BB">A&nbsp;</span><span style="color: #007700">{<br />&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;function&nbsp;</span><span style="color: #0000BB">test</span><span style="color: #007700">(</span><span style="color: #0000BB">$a</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$b</span><span style="color: #007700">)&nbsp;{}<br />}<br /><br /></span><span style="color: #0000BB">$obj&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">B</span><span style="color: #007700">;<br /><br /></span><span style="color: #FF8000">//&nbsp;Pass&nbsp;parameters&nbsp;according&nbsp;to&nbsp;A::test()&nbsp;contract<br /></span><span style="color: #0000BB">$obj</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">test</span><span style="color: #007700">(</span><span style="color: #0000BB">foo</span><span style="color: #007700">:&nbsp;</span><span style="color: #DD0000">"foo"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">bar</span><span style="color: #007700">:&nbsp;</span><span style="color: #DD0000">"bar"</span><span style="color: #007700">);&nbsp;</span><span style="color: #FF8000">//&nbsp;ERROR!</span>
@@ -423,14 +461,14 @@ Stack trace:
 
    <p class="para">
     The <code class="literal">class</code> keyword is also used for class
-    name resolution. You can get a string containing the fully qualified name
-    of the <code class="literal">ClassName</code> class by using
-    <code class="literal">ClassName::class</code>. This is particularly useful with
+    name resolution.
+    To obtain the fully qualified name of a class <code class="literal">ClassName</code>
+    use <code class="literal">ClassName::class</code>. This is particularly useful with
     <a href="language.namespaces.html" class="link">namespaced</a> classes.
    </p>
    <p class="para">
-    <div class="example" id="example-202">
-     <p><strong>Example #14 Class name resolution</strong></p>
+    <div class="example" id="language.oop5.basic.class.class.name">
+     <p><strong>Example #15 Class name resolution</strong></p>
      <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
 <span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">namespace&nbsp;</span><span style="color: #0000BB">NS&nbsp;</span><span style="color: #007700">{<br />&nbsp;&nbsp;&nbsp;&nbsp;class&nbsp;</span><span style="color: #0000BB">ClassName&nbsp;</span><span style="color: #007700">{<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #0000BB">ClassName</span><span style="color: #007700">::class;<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
@@ -453,8 +491,8 @@ NS\ClassName
      are expanded even if the class does not exist. No error is issued in
      that case.
     </p>
-    <div class="example" id="example-203">
-     <p><strong>Example #15 Missing class name resolution</strong></p>
+    <div class="example" id="language.oop5.basic.class.class.fail">
+     <p><strong>Example #16 Missing class name resolution</strong></p>
      <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
 <span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">print&nbsp;</span><span style="color: #0000BB">Does</span><span style="color: #007700">\</span><span style="color: #0000BB">Not</span><span style="color: #007700">\</span><span style="color: #0000BB">Exist</span><span style="color: #007700">::class;<br /></span><span style="color: #0000BB">?&gt;</span>
@@ -475,8 +513,8 @@ Does\Not\Exist
     objects. This resolution happens at runtime, not compile time. Its effect is
     the same as calling <span class="function"><a href="function.get-class.html" class="function">get_class()</a></span> on the object.
    </p>
-   <div class="example" id="example-204">
-    <p><strong>Example #16 Object name resolution</strong></p>
+   <div class="example" id="language.oop5.basic.class.class.object">
+    <p><strong>Example #17 Object name resolution</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
 <span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">namespace&nbsp;</span><span style="color: #0000BB">NS&nbsp;</span><span style="color: #007700">{<br />&nbsp;&nbsp;&nbsp;&nbsp;class&nbsp;</span><span style="color: #0000BB">ClassName&nbsp;</span><span style="color: #007700">{<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />}<br /></span><span style="color: #0000BB">$c&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">ClassName</span><span style="color: #007700">();<br />print&nbsp;</span><span style="color: #0000BB">$c</span><span style="color: #007700">::class;<br /></span><span style="color: #0000BB">?&gt;</span>
@@ -507,8 +545,8 @@ NS\ClassName
    check first, but more compact.
   </p>
   <p class="para">
-   <div class="example" id="language.oop5.basic.class.this">
-    <p><strong>Example #17 Nullsafe Operator</strong></p>
+   <div class="example" id="example-208">
+    <p><strong>Example #18 Nullsafe Operator</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
 <span style="color: #0000BB">&lt;?php<br /><br /></span><span style="color: #FF8000">//&nbsp;As&nbsp;of&nbsp;PHP&nbsp;8.0.0,&nbsp;this&nbsp;line:<br /></span><span style="color: #0000BB">$result&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$repository</span><span style="color: #007700">?-&gt;</span><span style="color: #0000BB">getUser</span><span style="color: #007700">(</span><span style="color: #0000BB">5</span><span style="color: #007700">)?-&gt;</span><span style="color: #0000BB">name</span><span style="color: #007700">;<br /><br /></span><span style="color: #FF8000">//&nbsp;Is&nbsp;equivalent&nbsp;to&nbsp;the&nbsp;following&nbsp;code&nbsp;block:<br /></span><span style="color: #007700">if&nbsp;(</span><span style="color: #0000BB">is_null</span><span style="color: #007700">(</span><span style="color: #0000BB">$repository</span><span style="color: #007700">))&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$result&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">null</span><span style="color: #007700">;<br />}&nbsp;else&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$user&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$repository</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getUser</span><span style="color: #007700">(</span><span style="color: #0000BB">5</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(</span><span style="color: #0000BB">is_null</span><span style="color: #007700">(</span><span style="color: #0000BB">$user</span><span style="color: #007700">))&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$result&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">null</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;else&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$result&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$user</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">name</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />}<br /></span><span style="color: #0000BB">?&gt;</span>

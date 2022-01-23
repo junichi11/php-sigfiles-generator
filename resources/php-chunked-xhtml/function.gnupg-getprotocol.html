@@ -10,7 +10,7 @@
  <body class="docs"><div class="navbar navbar-fixed-top">
   <div class="navbar-inner clearfix">
     <ul class="nav" style="width: 100%">
-      <li style="float: left;"><a href="function.gnupg-geterror.html">« gnupg_geterror</a></li>
+      <li style="float: left;"><a href="function.gnupg-geterrorinfo.html">« gnupg_geterrorinfo</a></li>
       <li style="float: right;"><a href="function.gnupg-import.html">gnupg_import »</a></li>
     </ul>
   </div>
@@ -33,9 +33,7 @@
  <div class="refsect1 description" id="refsect1-function.gnupg-getprotocol-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>gnupg_getprotocol</strong></span>
-    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$identifier</code></span>
-   ) : <span class="type">int</span></div>
+   <span class="methodname"><strong>gnupg_getprotocol</strong></span>(<span class="methodparam"><span class="type">resource</span> <code class="parameter">$identifier</code></span>): <span class="type">int</span></div>
 
  </div>
 
@@ -44,7 +42,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">identifier</code></dt>
@@ -52,7 +49,7 @@
      <dd>
 
       <p class="para">The gnupg identifier, from a call to
-<span class="function"><a href="function.gnupg-init.html" class="function">gnupg_init()</a></span> or <strong class="classname">gnupg</strong>.</p>
+<span class="function"><a href="function.gnupg-init.html" class="function">gnupg_init()</a></span> or <span class="classname"><strong class="classname">gnupg</strong></span>.</p>
      </dd>
 
     
@@ -75,7 +72,7 @@
  <div class="refsect1 examples" id="refsect1-function.gnupg-getprotocol-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-3660">
+   <div class="example" id="example-3179">
     <p><strong>Example #1 Procedural <span class="function"><strong>gnupg_getprotocol()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -85,11 +82,11 @@
     </div>
 
    </div>
-   <div class="example" id="example-3661">
+   <div class="example" id="example-3180">
     <p><strong>Example #2 OO <span class="function"><strong>gnupg_getprotocol()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$gpg&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">gnupg</span><span style="color: #007700">();<br />echo&nbsp;</span><span style="color: #0000BB">$gpg&nbsp;</span><span style="color: #007700">-&gt;&nbsp;</span><span style="color: #0000BB">getprotocol</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$gpg&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">gnupg</span><span style="color: #007700">();<br />echo&nbsp;</span><span style="color: #0000BB">$gpg</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getprotocol</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

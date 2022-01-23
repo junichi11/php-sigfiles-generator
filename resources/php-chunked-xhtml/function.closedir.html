@@ -26,16 +26,14 @@
   <div id="layout-content"><div id="function.closedir" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">closedir</h1>
-  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">closedir</span> &mdash; <span class="dc-title">Close directory handle</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">closedir</span> &mdash; <span class="dc-title">Close directory handle</span></p>
 
  </div>
 
  <div class="refsect1 description" id="refsect1-function.closedir-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>closedir</strong></span>
-    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$dir_handle</code> = ?</span>
-   ) : <span class="type"><span class="type void">void</span></span></div>
+   <span class="methodname"><strong>closedir</strong></span>(<span class="methodparam"><span class="type">?</span><span class="type"><span class="type">resource</span><span class="type"></span></span> <code class="parameter">$dir_handle</code><span class="initializer"> = <strong><code>null</code></strong></span></span>): <span class="type"><span class="type void">void</span></span></div>
 
   <p class="para rdfs-comment">
    Closes the directory stream indicated by
@@ -49,7 +47,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">dir_handle</code></dt>
@@ -71,10 +68,18 @@
  </div>
 
 
+ <div class="refsect1 returnvalues" id="refsect1-function.closedir-returnvalues">
+  <h3 class="title">Return Values</h3>
+  <p class="para">
+   No value is returned.
+  </p>
+ </div>
+
+
  <div class="refsect1 examples" id="refsect1-function.closedir-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-2606">
+   <div class="example" id="example-2117">
     <p><strong>Example #1 <span class="function"><strong>closedir()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

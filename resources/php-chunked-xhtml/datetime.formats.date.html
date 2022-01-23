@@ -28,7 +28,7 @@
   
   <p class="para">
    This page describes the different date formats that the
-   <span class="function"><a href="function.strtotime.html" class="function">strtotime()</a></span>, <a href="class.datetime.html" class="classname">DateTime</a> and
+   <span class="function"><a href="function.strtotime.html" class="function">strtotime()</a></span>, <span class="classname"><a href="class.datetime.html" class="classname">DateTime</a></span> and
    <span class="function"><a href="function.date-create.html" class="function">date_create()</a></span> parser understands.
   </p>
   
@@ -202,7 +202,7 @@
 
      <tr>
       <td>Day and textual month</td>
-      <td><code class="literal">d</code> ([ .\t-])* <code class="literal">m</code></td>
+      <td><code class="literal">dd</code> ([ .\t-])* <code class="literal">m</code></td>
       <td>&quot;1 July&quot;, &quot;17 Apr&quot;, &quot;9.May&quot;</td>
      </tr>
 
@@ -308,7 +308,7 @@
    </p>
   </p></blockquote>
   
-  <blockquote class="note"><p><strong class="note">Note</strong>: 
+  <div class="caution"><strong class="caution">Caution</strong>
    <p class="para">
     It is possible to over- and underflow the <code class="literal">dd</code> and
     <code class="literal">DD</code> format. Day 0 means the last day of previous
@@ -317,7 +317,7 @@
     to &quot;2008-07-01&quot; (June only has 30 days).
    </p>
    <p class="para">
-    Note that as of PHP 5.1.0 the day range is restricted to 0-31 as indicated
+    Note that the day range is restricted to 0-31 as indicated
     by the regular expression above. Thus &quot;2008-06-32&quot; is not a valid date
     string, for instance.
    </p>
@@ -335,5 +335,5 @@
     &quot;-0001-11-30&quot; (the year -1 in the ISO 8601 calendar, which is 2 BC
     in the proleptic Gregorian calendar).
    </p>
-  </p></blockquote>
+  </div>
  </div></div></div></body></html>

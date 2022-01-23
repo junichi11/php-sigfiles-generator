@@ -26,16 +26,14 @@
   <div id="layout-content"><div id="function.escapeshellarg" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">escapeshellarg</h1>
-  <p class="verinfo">(PHP 4 &gt;= 4.0.3, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">escapeshellarg</span> &mdash; <span class="dc-title">Escape a string to be used as a shell argument</span></p>
+  <p class="verinfo">(PHP 4 &gt;= 4.0.3, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">escapeshellarg</span> &mdash; <span class="dc-title">Escape a string to be used as a shell argument</span></p>
 
  </div>
 
  <div class="refsect1 description" id="refsect1-function.escapeshellarg-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>escapeshellarg</strong></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$arg</code></span>
-   ) : <span class="type">string</span></div>
+   <span class="methodname"><strong>escapeshellarg</strong></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$arg</code></span>): <span class="type">string</span></div>
 
   <p class="para rdfs-comment">
    <span class="function"><strong>escapeshellarg()</strong></span> adds single quotes around a string
@@ -50,6 +48,8 @@
    On Windows, <span class="function"><strong>escapeshellarg()</strong></span> instead replaces percent
    signs, exclamation marks (delayed variable substitution) and double quotes
    with spaces and adds double quotes around the string.
+   Furthermore, each streak of consecutive backslashes (<code class="literal">\</code>)
+   is escaped by one additional backslash.
   </p>
  </div>
 
@@ -58,7 +58,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">arg</code></dt>
@@ -88,7 +87,7 @@
  <div class="refsect1 examples" id="refsect1-function.escapeshellarg-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-3805">
+   <div class="example" id="example-3326">
     <p><strong>Example #1 <span class="function"><strong>escapeshellarg()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

@@ -39,10 +39,7 @@ is highly discouraged.</p></div>
  <div class="refsect1 description" id="refsect1-function.create-function-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>create_function</strong></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$args</code></span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$code</code></span>
-   ) : <span class="type">string</span></div>
+   <span class="methodname"><strong>create_function</strong></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$args</code></span>, <span class="methodparam"><span class="type">string</span> <code class="parameter">$code</code></span>): <span class="type">string</span></div>
 
   <p class="para rdfs-comment">
    Creates an anonymous function from the parameters passed, and
@@ -55,7 +52,7 @@ is highly discouraged.</p></div>
     and memory usage characteristics.
    </p>
    <p class="para">
-    If you are using PHP 5.3.0 or newer a native
+    A native
     <a href="functions.anonymous.html" class="link">anonymous function</a> should be used instead.
    </p>
   </div>
@@ -69,7 +66,6 @@ is highly discouraged.</p></div>
    names from parsing, otherwise, if you use double quotes there will be a
    need to escape the variable names, e.g. <code class="literal">\$avar</code>.
    <dl>
-
     
      <dt>
 <code class="parameter">args</code></dt>
@@ -111,7 +107,7 @@ is highly discouraged.</p></div>
  <div class="refsect1 examples" id="refsect1-function.create-function-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-5589">
+   <div class="example" id="example-5082">
     <p><strong>Example #1 
      Creating an anonymous function with <span class="function"><strong>create_function()</strong></span>
     </strong></p>
@@ -133,7 +129,7 @@ is highly discouraged.</p></div>
    of operations to a list of parameters:
   </p>
   <p class="para">
-   <div class="example" id="example-5590">
+   <div class="example" id="example-5083">
     <p><strong>Example #2 
      Making a general processing function with
      <span class="function"><strong>create_function()</strong></span>
@@ -171,7 +167,7 @@ similar(a,b) = 11(45.833333333333%)
    <span class="function"><a href="function.array-walk.html" class="function">array_walk()</a></span> or <span class="function"><a href="function.usort.html" class="function">usort()</a></span>
   </p>
   <p class="para">
-   <div class="example" id="example-5591">
+   <div class="example" id="example-5084">
     <p><strong>Example #3 Using anonymous functions as callback functions</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

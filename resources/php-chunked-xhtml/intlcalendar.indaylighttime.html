@@ -26,27 +26,22 @@
   <div id="layout-content"><div id="intlcalendar.indaylighttime" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">IntlCalendar::inDaylightTime</h1>
-  <p class="verinfo">(PHP 5 &gt;= 5.5.0, PHP 7, PECL &gt;= 3.0.0a1)</p><p class="refpurpose"><span class="refname">IntlCalendar::inDaylightTime</span> &mdash; <span class="dc-title">Whether the objectʼs time is in Daylight Savings Time</span></p>
+  <p class="verinfo">(PHP 5 &gt;= 5.5.0, PHP 7, PHP 8, PECL &gt;= 3.0.0a1)</p><p class="refpurpose"><span class="refname">IntlCalendar::inDaylightTime</span> &mdash; <span class="dc-title">Whether the objectʼs time is in Daylight Savings Time</span></p>
 
  </div>
 
  <div class="refsect1 description" id="refsect1-intlcalendar.indaylighttime-description">
   <h3 class="title">Description</h3>
   <p class="para">
-   Object oriented style
+   Object-oriented style
   </p>
   <div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><strong>IntlCalendar::inDaylightTime</strong></span>
-    (
-   ) : <span class="type">bool</span></div>
+   <span class="modifier">public</span> <span class="methodname"><strong>IntlCalendar::inDaylightTime</strong></span>(): <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
    Procedural style
   </p>
-  <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>intlcal_in_daylight_time</strong></span>
-    ( <span class="methodparam"><span class="type"><a href="class.intlcalendar.html" class="type IntlCalendar">IntlCalendar</a></span> <code class="parameter">$cal</code></span>
-   ) : <span class="type">bool</span></div>
+  <div class="methodsynopsis dc-description"><span class="methodname"><strong>intlcal_in_daylight_time</strong></span>(<span class="methodparam"><span class="type"><a href="class.intlcalendar.html" class="type IntlCalendar">IntlCalendar</a></span> <code class="parameter">$calendar</code></span>): <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
    Whether, for the instant represented by this object and for this objectʼs
@@ -58,16 +53,13 @@
  <div class="refsect1 parameters" id="refsect1-intlcalendar.indaylighttime-parameters">
   <h3 class="title">Parameters</h3>
   <dl>
-
    
     <dt>
-<code class="parameter">cal</code></dt>
+<code class="parameter">calendar</code></dt>
 
     <dd>
 
-     <p class="para">
-      The IntlCalendar resource.
-     </p>
+     <p class="para">An <span class="classname"><a href="class.intlcalendar.html" class="classname">IntlCalendar</a></span> instance.</p>
     </dd>
 
    
@@ -80,10 +72,8 @@
   <h3 class="title">Return Values</h3>
   <p class="para">
    Returns <strong><code>true</code></strong> if the date is in Daylight Savings Time, <strong><code>false</code></strong> otherwise.
-   The value <strong><code>false</code></strong> may also be returned on failure, for instance after
-   specifying invalid field values on non-lenient mode; use <a href="intl.configuration.html#ini.intl.use-exceptions" class="link">exceptions</a> or query
-   <span class="function"><a href="function.intl-get-error-code.html" class="function">intl_get_error_code()</a></span> to disambiguate.
   </p>
+  <p class="para">On failure <strong><code>false</code></strong> is also returned. To detect error conditions use <span class="function"><a href="function.intl-get-error-code.html" class="function">intl_get_error_code()</a></span>, or set up Intl to throw <a href="intl.configuration.html#ini.intl.use-exceptions" class="link">exceptions</a>.</p>
  </div>
 
 
@@ -92,7 +82,7 @@
  <div class="refsect1 examples" id="refsect1-intlcalendar.indaylighttime-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-2887">
+   <div class="example" id="example-2400">
    <p><strong>Example #1 <span class="function"><strong>IntlCalendar::inDaylightTime()</strong></span></strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

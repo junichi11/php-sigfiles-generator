@@ -26,16 +26,14 @@
   <div id="layout-content"><div id="function.random-bytes" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">random_bytes</h1>
-  <p class="verinfo">(PHP 7)</p><p class="refpurpose"><span class="refname">random_bytes</span> &mdash; <span class="dc-title">Generates cryptographically secure pseudo-random bytes</span></p>
+  <p class="verinfo">(PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">random_bytes</span> &mdash; <span class="dc-title">Generates cryptographically secure pseudo-random bytes</span></p>
 
  </div>
 
  <div class="refsect1 description" id="refsect1-function.random-bytes-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>random_bytes</strong></span>
-    ( <span class="methodparam"><span class="type">int</span> <code class="parameter">$length</code></span>
-   ) : <span class="type">string</span></div>
+   <span class="methodname"><strong>random_bytes</strong></span>(<span class="methodparam"><span class="type">int</span> <code class="parameter">$length</code></span>): <span class="type">string</span></div>
 
   <p class="para rdfs-comment">
    Generates an arbitrary length string of cryptographic random bytes that are
@@ -71,7 +69,7 @@
  <li class="listitem">
   <span class="simpara">
    If none of the aforementioned sources are available, then an
-   <a href="class.exception.html" class="classname">Exception</a> will be thrown.
+   <span class="classname"><a href="class.exception.html" class="classname">Exception</a></span> will be thrown.
   </span>
  </li>
 </ul>
@@ -91,7 +89,6 @@
  <div class="refsect1 parameters" id="refsect1-function.random-bytes-parameters">
   <h3 class="title">Parameters</h3>
   <dl>
-
    
     <dt>
 <code class="parameter">length</code></dt>
@@ -125,12 +122,12 @@
  <li class="listitem">
   <span class="simpara">
    If an appropriate source of randomness cannot be found,
-   an <a href="class.exception.html" class="classname">Exception</a> will be thrown.
+   an <span class="classname"><a href="class.exception.html" class="classname">Exception</a></span> will be thrown.
   </span>
  </li>
  <li class="listitem">
   <span class="simpara">
-    If invalid parameters are given, a <a href="class.typeerror.html" class="classname">TypeError</a>
+    If invalid parameters are given, a <span class="classname"><a href="class.typeerror.html" class="classname">TypeError</a></span>
     will be thrown.
   </span>
  </li>
@@ -138,7 +135,7 @@
    <li class="listitem">
     <span class="simpara">
      If an invalid <code class="parameter">length</code> of bytes is given, an
-     <a href="class.error.html" class="classname">Error</a> will be thrown.
+     <span class="classname"><a href="class.error.html" class="classname">Error</a></span> will be thrown.
     </span>
    </li>
   </ul>
@@ -147,7 +144,7 @@
 
  <div class="refsect1 examples" id="refsect1-function.random-bytes-examples">
   <h3 class="title">Examples</h3>
-  <div class="example" id="example-873">
+  <div class="example" id="random-bytes.example.basic">
    <p><strong>Example #1 <span class="function"><strong>random_bytes()</strong></span> example</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

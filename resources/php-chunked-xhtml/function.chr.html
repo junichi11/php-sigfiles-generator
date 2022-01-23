@@ -26,16 +26,14 @@
   <div id="layout-content"><div id="function.chr" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">chr</h1>
-  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">chr</span> &mdash; <span class="dc-title">Generate a single-byte string from a number</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">chr</span> &mdash; <span class="dc-title">Generate a single-byte string from a number</span></p>
 
  </div>
  
  <div class="refsect1 description" id="refsect1-function.chr-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>chr</strong></span>
-    ( <span class="methodparam"><span class="type">int</span> <code class="parameter">$codepoint</code></span>
-   ) : <span class="type">string</span></div>
+   <span class="methodname"><strong>chr</strong></span>(<span class="methodparam"><span class="type">int</span> <code class="parameter">$codepoint</code></span>): <span class="type">string</span></div>
 
   <p class="para rdfs-comment">
    Returns a one-character string containing the character specified
@@ -54,7 +52,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">codepoint</code></dt>
@@ -122,7 +119,7 @@ while&nbsp;($bytevalue&nbsp;&lt;&nbsp;0)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;$by
  <div class="refsect1 examples" id="refsect1-function.chr-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-5281">
+   <div class="example" id="example-4769">
     <p><strong>Example #1 <span class="function"><strong>chr()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -132,7 +129,7 @@ while&nbsp;($bytevalue&nbsp;&lt;&nbsp;0)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;$by
     </div>
 
    </div>
-   <div class="example" id="example-5282">
+   <div class="example" id="example-4770">
     <p><strong>Example #2 Overflow behavior</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -150,7 +147,7 @@ aA
    </div>
   </p>
   <p class="para"> 
-   <div class="example" id="example-5283">
+   <div class="example" id="example-4771">
     <p><strong>Example #3 Building a UTF-8 string from individual bytes</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -174,8 +171,9 @@ aA
    <ul class="simplelist">
     <li class="member"><span class="function"><a href="function.sprintf.html" class="function" rel="rdfs-seeAlso">sprintf()</a> - Return a formatted string</span> with a format string of <code class="literal">%c</code></li>
     <li class="member"><span class="function"><a href="function.ord.html" class="function">ord()</a></span></li>
-    <li class="member">An <a href="http://www.asciitable.com" class="link external">&raquo;&nbsp;ASCII-table</a></li>
+    <li class="member">An <a href="https://www.man7.org/linux/man-pages/man7/ascii.7.html" class="link external">&raquo;&nbsp;ASCII-table</a></li>
     <li class="member"><span class="function"><a href="function.mb-chr.html" class="function">mb_chr()</a></span></li>
+    <li class="member"><span class="function"><a href="intlchar.chr.html" class="function">IntlChar::chr()</a></span></li>
    </ul>
   </p>
  </div>

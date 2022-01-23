@@ -11,7 +11,7 @@
   <div class="navbar-inner clearfix">
     <ul class="nav" style="width: 100%">
       <li style="float: left;"><a href="function.ftp-ssl-connect.html">« ftp_ssl_connect</a></li>
-      <li style="float: right;"><a href="book.gearman.html">Gearman »</a></li>
+      <li style="float: right;"><a href="class.ftp-connection.html">FTP\Connection »</a></li>
     </ul>
   </div>
 </div>
@@ -26,15 +26,13 @@
   <div id="layout-content"><div id="function.ftp-systype" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">ftp_systype</h1>
-  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">ftp_systype</span> &mdash; <span class="dc-title">Returns the system type identifier of the remote FTP server</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">ftp_systype</span> &mdash; <span class="dc-title">Returns the system type identifier of the remote FTP server</span></p>
 
  </div>
  <div class="refsect1 description" id="refsect1-function.ftp-systype-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>ftp_systype</strong></span>
-    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$ftp</code></span>
-   ) : <span class="type"><span class="type">string</span>|<span class="type"><span class="type false">false</span></span></span></div>
+   <span class="methodname"><strong>ftp_systype</strong></span>(<span class="methodparam"><span class="type"><a href="class.ftp-connection.html" class="type FTP\Connection">FTP\Connection</a></span> <code class="parameter">$ftp</code></span>): <span class="type"><span class="type">string</span>|<span class="type"><span class="type false">false</span></span></span></div>
 
   <p class="para rdfs-comment">
    Returns the system type identifier of the remote FTP server.
@@ -45,16 +43,13 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">ftp</code></dt>
 
      <dd>
 
-      <p class="para">
-       The link identifier of the FTP connection.
-      </p>
+       <p class="para">An <span class="classname"><a href="class.ftp-connection.html" class="classname">FTP\Connection</a></span> instance.</p>
      </dd>
 
     
@@ -70,10 +65,39 @@
   </p>
  </div>
 
+
+ <div class="refsect1 changelog" id="refsect1-function.ftp-systype-changelog">
+  <h3 class="title">Changelog</h3>
+  <table class="doctable informaltable">
+   
+    <thead>
+     <tr>
+      <th>Version</th>
+      <th>Description</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+ <td>8.1.0</td>
+ <td>
+  The <code class="parameter">ftp</code> parameter expects an <span class="classname"><a href="class.ftp-connection.html" class="classname">FTP\Connection</a></span>
+  instance now; previously, a <a href="language.types.resource.html" class="link">resource</a> was expected.
+ </td>
+</tr>
+
+    </tbody>
+   
+  </table>
+
+ </div>
+
+ 
  <div class="refsect1 examples" id="refsect1-function.ftp-systype-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-4810">
+   <div class="example" id="example-4311">
     <p><strong>Example #1 <span class="function"><strong>ftp_systype()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

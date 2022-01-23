@@ -34,8 +34,7 @@
   <div class="warning"><strong class="warning">Warning</strong>
    <p class="para">This extension was deprecated in PHP 5.5.0, and it was removed in PHP 7.0.0.
 Instead, the <a href="book.mysqli.html" class="link">MySQLi</a> or <a href="ref.pdo-mysql.html" class="link">PDO_MySQL</a> extension should be used.
-See also <a href="mysqlinfo.api.choosing.html" class="link">MySQL: choosing an API</a> guide and
-<a href="faq.databases.html#faq.databases.mysql.deprecated" class="link">related FAQ</a> for more information.
+See also <a href="mysqlinfo.api.choosing.html" class="link">MySQL: choosing an API</a> guide.
 Alternatives to this function include:</p>
    <ul class="simplelist">
     <li class="member">
@@ -51,11 +50,7 @@ Alternatives to this function include:</p>
  <div class="refsect1 description" id="refsect1-function.mysql-result-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>mysql_result</strong></span>
-    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$result</code></span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$row</code></span>
-   , <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$field</code><span class="initializer"> = 0</span></span>
-   ) : <span class="type">string</span></div>
+   <span class="methodname"><strong>mysql_result</strong></span>(<span class="methodparam"><span class="type">resource</span> <code class="parameter">$result</code></span>, <span class="methodparam"><span class="type">int</span> <code class="parameter">$row</code></span>, <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$field</code><span class="initializer"> = 0</span></span>): <span class="type">string</span></div>
 
   <p class="para rdfs-comment">
    Retrieves the contents of one cell from a MySQL result set.
@@ -76,10 +71,9 @@ Alternatives to this function include:</p>
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     <dt>
-<code class="parameter">
-result</code></dt>
+
+<code class="parameter">result</code></dt>
 <dd>
 <p class="para">The result <span class="type">resource</span> that
 is being evaluated. This result comes from a call to
@@ -134,7 +128,7 @@ is being evaluated. This result comes from a call to
  <div class="refsect1 examples" id="refsect1-function.mysql-result-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-2007">
+   <div class="example" id="example-1762">
     <p><strong>Example #1 <span class="function"><strong>mysql_result()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

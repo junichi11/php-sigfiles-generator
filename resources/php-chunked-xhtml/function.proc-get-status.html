@@ -26,16 +26,14 @@
   <div id="layout-content"><div id="function.proc-get-status" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">proc_get_status</h1>
-  <p class="verinfo">(PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">proc_get_status</span> &mdash; <span class="dc-title">Get information about a process opened by <span class="function"><a href="function.proc-open.html" class="function">proc_open()</a></span></span></p>
+  <p class="verinfo">(PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">proc_get_status</span> &mdash; <span class="dc-title">Get information about a process opened by <span class="function"><a href="function.proc-open.html" class="function">proc_open()</a></span></span></p>
 
  </div>
 
  <div class="refsect1 description" id="refsect1-function.proc-get-status-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>proc_get_status</strong></span>
-    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$process</code></span>
-   ) : <span class="type">array</span></div>
+   <span class="methodname"><strong>proc_get_status</strong></span>(<span class="methodparam"><span class="type">resource</span> <code class="parameter">$process</code></span>): <span class="type">array</span></div>
 
   <p class="para rdfs-comment">
    <span class="function"><strong>proc_get_status()</strong></span> fetches data about a
@@ -48,7 +46,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">process</code></dt>
@@ -71,8 +68,8 @@
  <div class="refsect1 returnvalues" id="refsect1-function.proc-get-status-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   An <span class="type">array</span> of collected information on success, and <strong><code>false</code></strong>
-   on failure. The returned array contains the following elements:
+   An <span class="type">array</span> of collected information.
+   The returned array contains the following elements:
   </p>
   <p class="para">
   <table class="doctable informaltable">

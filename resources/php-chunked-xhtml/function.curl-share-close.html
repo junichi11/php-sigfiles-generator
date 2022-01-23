@@ -26,18 +26,22 @@
   <div id="layout-content"><div id="function.curl-share-close" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">curl_share_close</h1>
-  <p class="verinfo">(PHP 5 &gt;= 5.5.0, PHP 7)</p><p class="refpurpose"><span class="refname">curl_share_close</span> &mdash; <span class="dc-title">Close a cURL share handle</span></p>
+  <p class="verinfo">(PHP 5 &gt;= 5.5.0, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">curl_share_close</span> &mdash; <span class="dc-title">Close a cURL share handle</span></p>
 
  </div>
 
  <div class="refsect1 description" id="refsect1-function.curl-share-close-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>curl_share_close</strong></span>
-    ( <span class="methodparam"><span class="type"><a href="class.curlsharehandle.html" class="type CurlShareHandle">CurlShareHandle</a></span> <code class="parameter">$share_handle</code></span>
-   ) : <span class="type"><span class="type void">void</span></span></div>
+   <span class="methodname"><strong>curl_share_close</strong></span>(<span class="methodparam"><span class="type"><a href="class.curlsharehandle.html" class="type CurlShareHandle">CurlShareHandle</a></span> <code class="parameter">$share_handle</code></span>): <span class="type"><span class="type void">void</span></span></div>
 
-  <p class="para rdfs-comment">
+  <blockquote class="note"><p><strong class="note">Note</strong>: 
+ <p class="para">
+  This function has no effect. Prior to PHP 8.0.0, this function was used to close the resource.
+ </p>
+</p></blockquote>
+
+  <p class="para">
    Closes a cURL share handle and frees all resources.
   </p>
 
@@ -47,7 +51,6 @@
  <div class="refsect1 parameters" id="refsect1-function.curl-share-close-parameters">
   <h3 class="title">Parameters</h3>
   <dl>
-
    <dt>
 <code class="parameter">share_handle</code>
 </dt>
@@ -84,7 +87,7 @@
      <tr>
  <td>8.0.0</td>
  <td>
-  <code class="parameter">share_handle</code> expects a <a href="class.curlsharehandle.html" class="classname">CurlShareHandle</a>
+  <code class="parameter">share_handle</code> expects a <span class="classname"><a href="class.curlsharehandle.html" class="classname">CurlShareHandle</a></span>
   instance now; previously, a <span class="type">resource</span> was expected.
  </td>
 </tr>
@@ -99,7 +102,7 @@
  <div class="refsect1 examples" id="refsect1-function.curl-share-close-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-4724">
+   <div class="example" id="example-4224">
     <p><strong>Example #1 <span class="function"><a href="function.curl-share-setopt.html" class="function">curl_share_setopt()</a></span> example</strong></p>
     <div class="example-contents"><p>
      This example will create a cURL share handle, add two cURL handles to it,

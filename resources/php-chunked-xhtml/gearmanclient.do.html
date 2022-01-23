@@ -33,11 +33,7 @@
  <div class="refsect1 description" id="refsect1-gearmanclient.do-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><strong>GearmanClient::do</strong></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$function_name</code></span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$workload</code></span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$unique</code> = ?</span>
-   ) : <span class="type">string</span></div>
+   <span class="modifier">public</span> <span class="methodname"><strong>GearmanClient::do</strong></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$function_name</code></span>, <span class="methodparam"><span class="type">string</span> <code class="parameter">$workload</code></span>, <span class="methodparam"><span class="type">string</span> <code class="parameter">$unique</code><span class="initializer"> = ?</span></span>): <span class="type">string</span></div>
 
   <p class="para rdfs-comment">
    The <span class="methodname"><strong>GearmanClient::do()</strong></span> method is deprecated as of
@@ -50,7 +46,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">function_name</code></dt>
@@ -104,7 +99,7 @@
  <div class="refsect1 examples" id="refsect1-gearmanclient.do-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-4822">
+   <div class="example" id="example-4323">
     <p><strong>Example #1 Simple job submission with immediate return</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -130,7 +125,7 @@ Success: !olleH
 </pre></div>
     </div>
    </div>
-   <div class="example" id="example-4823">
+   <div class="example" id="example-4324">
     <p><strong>Example #2 Submitting a job and retrieving incremental status</strong></p>
     <div class="example-contents"><p>
      A job is submitted and the script loops to retrieve status information.

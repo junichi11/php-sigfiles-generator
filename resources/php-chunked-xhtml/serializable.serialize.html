@@ -33,9 +33,7 @@
  <div class="refsect1 description" id="refsect1-serializable.serialize-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="modifier">abstract</span> <span class="modifier">public</span> <span class="methodname"><strong>Serializable::serialize</strong></span>
-    (
-   ) : <span class="type">string</span></div>
+   <span class="modifier">public</span> <span class="methodname"><strong>Serializable::serialize</strong></span>(): <span class="type"><span class="type">?</span><span class="type">string</span></span></div>
 
   <p class="para rdfs-comment">
    Should return the string representation of the object.
@@ -61,7 +59,7 @@
  <div class="refsect1 errors" id="refsect1-serializable.serialize-errors">
   <h3 class="title">Errors/Exceptions</h3>
   <p class="para">
-   Throws <a href="class.exception.html" class="classname">Exception</a> when returning other types than strings and
+   Throws <span class="classname"><a href="class.exception.html" class="classname">Exception</a></span> when returning other types than strings and
    <strong><code>null</code></strong>.
   </p>
  </div>

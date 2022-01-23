@@ -26,16 +26,14 @@
   <div id="layout-content"><div id="function.gettimeofday" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">gettimeofday</h1>
-  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">gettimeofday</span> &mdash; <span class="dc-title">Get current time</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">gettimeofday</span> &mdash; <span class="dc-title">Get current time</span></p>
 
  </div>
 
  <div class="refsect1 description" id="refsect1-function.gettimeofday-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>gettimeofday</strong></span>
-    ( <span class="methodparam"><span class="type">bool</span> <code class="parameter">$as_float</code><span class="initializer"> = <strong><code>false</code></strong></span></span>
-   ) : <span class="type"><span class="type">array</span>|<span class="type">float</span></span></div>
+   <span class="methodname"><strong>gettimeofday</strong></span>(<span class="methodparam"><span class="type">bool</span> <code class="parameter">$as_float</code><span class="initializer"> = <strong><code>false</code></strong></span></span>): <span class="type"><span class="type">array</span>|<span class="type">float</span></span></div>
 
   <p class="para rdfs-comment">
    This is an interface to gettimeofday(2). It returns an
@@ -49,7 +47,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">as_float</code></dt>
@@ -105,7 +102,7 @@
  <div class="refsect1 examples" id="refsect1-function.gettimeofday-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-2576">
+   <div class="example" id="example-2088">
     <p><strong>Example #1 <span class="function"><strong>gettimeofday()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

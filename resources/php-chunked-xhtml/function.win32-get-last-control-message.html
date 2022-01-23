@@ -32,9 +32,7 @@
  <div class="refsect1 description" id="refsect1-function.win32-get-last-control-message-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>win32_get_last_control_message</strong></span>
-    (
-   ) : <span class="type">int</span></div>
+   <span class="methodname"><strong>win32_get_last_control_message</strong></span>(): <span class="type">int</span></div>
 
   
   <p class="para rdfs-comment">
@@ -51,6 +49,13 @@
   </div>
   
  </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-function.win32-get-last-control-message-parameters">
+  <h3 class="title">Parameters</h3>
+  <p class="para">This function has no parameters.</p>
+ </div>
+
 
  <div class="refsect1 returnvalues" id="refsect1-function.win32-get-last-control-message-returnvalues">
   <h3 class="title">Return Values</h3>
@@ -87,7 +92,7 @@
   </p>
    <p class="para">
     As of version 1.0.0, will throw a 
-    <a href="class.win32serviceexception.html" class="classname">Win32ServiceException</a> if SAPI is not 
+    <span class="classname"><a href="class.win32serviceexception.html" class="classname">Win32ServiceException</a></span> if SAPI is not 
     <code class="literal">&quot;cli&quot;</code>
    </p>
  </div>
@@ -110,7 +115,7 @@
       <tr>
        <td>PECL win32service 1.0.0</td>
        <td>
-        Throws a <a href="class.valueerror.html" class="classname">ValueError</a> on invalid data in parameters,
+        Throws a <span class="classname"><a href="class.valueerror.html" class="classname">ValueError</a></span> on invalid data in parameters,
         previously <strong><code>false</code></strong> was returned.
        </td>
       </tr>
@@ -118,7 +123,7 @@
       <tr>
        <td>PECL win32service 1.0.0</td>
        <td>
-        Throws a <a href="class.win32serviceexception.html" class="classname">Win32ServiceException</a> on error,
+        Throws a <span class="classname"><a href="class.win32serviceexception.html" class="classname">Win32ServiceException</a></span> on error,
         previously a 
         <a href="win32service.constants.errors.html" class="link">Win32 Error Code</a>
         was returned.

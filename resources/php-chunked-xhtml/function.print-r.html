@@ -35,10 +35,7 @@
  <div class="refsect1 description" id="refsect1-function.print-r-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>print_r</strong></span>
-    ( <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$value</code></span>
-   , <span class="methodparam"><span class="type">bool</span> <code class="parameter">$return</code><span class="initializer"> = <strong><code>false</code></strong></span></span>
-   ) : <span class="type"><span class="type">string</span>|<span class="type">bool</span></span></div>
+   <span class="methodname"><strong>print_r</strong></span>(<span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$value</code></span>, <span class="methodparam"><span class="type">bool</span> <code class="parameter">$return</code><span class="initializer"> = <strong><code>false</code></strong></span></span>): <span class="type"><span class="type">string</span>|<span class="type">bool</span></span></div>
 
   <p class="para rdfs-comment">
    <span class="function"><strong>print_r()</strong></span> displays information about a variable
@@ -57,7 +54,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">value</code></dt>
@@ -105,18 +101,10 @@
  </div>
 
 
- <div class="refsect1 notes" id="refsect1-function.print-r-notes">
-  <h3 class="title">Notes</h3>
-  <blockquote class="note"><p><strong class="note">Note</strong>: <p class="para">When the <code class="parameter">return</code> parameter
-is used, this function uses internal output buffering so it cannot be used inside an
-<span class="function"><a href="function.ob-start.html" class="function">ob_start()</a></span> callback function.</p></p></blockquote>
- </div>
-
-
  <div class="refsect1 examples" id="refsect1-function.print-r-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-5789">
+   <div class="example" id="example-5239">
     <p><strong>Example #1 <span class="function"><strong>print_r()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -145,7 +133,7 @@ Array
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-5790">
+   <div class="example" id="example-5240">
     <p><strong>Example #2 <code class="parameter">return</code> parameter example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -156,6 +144,14 @@ Array
 
    </div>
   </p>
+ </div>
+
+
+ <div class="refsect1 notes" id="refsect1-function.print-r-notes">
+  <h3 class="title">Notes</h3>
+  <blockquote class="note"><p><strong class="note">Note</strong>: <p class="para">When the <code class="parameter">return</code> parameter
+is used, this function uses internal output buffering prior to PHP 7.1.0, so it cannot be used inside an
+<span class="function"><a href="function.ob-start.html" class="function">ob_start()</a></span> callback function.</p></p></blockquote>
  </div>
 
 

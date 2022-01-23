@@ -26,18 +26,14 @@
   <div id="layout-content"><div id="function.bcpow" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">bcpow</h1>
-  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">bcpow</span> &mdash; <span class="dc-title">Raise an arbitrary precision number to another</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">bcpow</span> &mdash; <span class="dc-title">Raise an arbitrary precision number to another</span></p>
 
  </div>
  
  <div class="refsect1 description" id="refsect1-function.bcpow-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>bcpow</strong></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$num</code></span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$exponent</code></span>
-   , <span class="methodparam"><span class="type"><span class="type">int</span>|<span class="type">null</span></span> <code class="parameter">$scale</code><span class="initializer"> = <strong><code>null</code></strong></span></span>
-   ) : <span class="type">string</span></div>
+   <span class="methodname"><strong>bcpow</strong></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$num</code></span>, <span class="methodparam"><span class="type">string</span> <code class="parameter">$exponent</code></span>, <span class="methodparam"><span class="type">?</span><span class="type"><span class="type">int</span><span class="type"></span></span> <code class="parameter">$scale</code><span class="initializer"> = <strong><code>null</code></strong></span></span>): <span class="type">string</span></div>
 
   <p class="para rdfs-comment">
    Raise <code class="parameter">num</code> to the power 
@@ -50,7 +46,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">num</code></dt>
@@ -78,8 +73,8 @@
 
     
     <dt>
-<code class="parameter">
-scale</code></dt>
+
+<code class="parameter">scale</code></dt>
 <dd>
 <p class="para">This optional parameter is used to set the number
 of digits after the decimal place in the result. If omitted, it will default to the scale set
@@ -130,7 +125,7 @@ this has not been set.</p></dd>
 
  <div class="refsect1 examples" id="refsect1-function.bcpow-examples">
   <h3 class="title">Examples</h3>
-  <div class="example" id="example-3535">
+  <div class="example" id="example-3050">
    <p><strong>Example #1 <span class="function"><strong>bcpow()</strong></span> example</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -151,7 +146,7 @@ this has not been set.</p></dd>
     decimal point than the <code class="parameter">scale</code> parameter would
     indicate. This only occurs when the result doesn&#039;t require all of the
     precision allowed by the <code class="parameter">scale</code>. For example:
-    <div class="example" id="example-3536">
+    <div class="example" id="example-3051">
      <p><strong>Example #2 <span class="function"><strong>bcpow()</strong></span> scale example</strong></p>
      <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

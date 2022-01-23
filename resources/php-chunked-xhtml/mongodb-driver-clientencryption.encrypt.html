@@ -11,7 +11,7 @@
   <div class="navbar-inner clearfix">
     <ul class="nav" style="width: 100%">
       <li style="float: left;"><a href="mongodb-driver-clientencryption.decrypt.html">« MongoDB\Driver\ClientEncryption::decrypt</a></li>
-      <li style="float: right;"><a href="class.mongodb-driver-writeconcern.html">MongoDB\Driver\WriteConcern »</a></li>
+      <li style="float: right;"><a href="class.mongodb-driver-serverapi.html">MongoDB\Driver\ServerApi »</a></li>
     </ul>
   </div>
 </div>
@@ -33,10 +33,7 @@
  <div class="refsect1 description" id="refsect1-mongodb-driver-clientencryption.encrypt-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><strong>MongoDB\Driver\ClientEncryption::encrypt</strong></span>
-    ( <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$value</code></span>
-   , <span class="methodparam"><span class="type">array</span> <code class="parameter">$options</code> = ?</span>
-   ) : <span class="type"><a href="class.mongodb-bson-binary.html" class="type MongoDB\BSON\Binary">MongoDB\BSON\Binary</a></span></div>
+   <span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><strong>MongoDB\Driver\ClientEncryption::encrypt</strong></span>(<span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$value</code></span>, <span class="methodparam"><span class="type">array</span> <code class="parameter">$options</code><span class="initializer"> = ?</span></span>): <span class="type"><a href="class.mongodb-bson-binary.html" class="type MongoDB\BSON\Binary">MongoDB\BSON\Binary</a></span></div>
 
   <p class="para rdfs-comment">
    Encrypts the value.
@@ -47,7 +44,6 @@
  <div class="refsect1 parameters" id="refsect1-mongodb-driver-clientencryption.encrypt-parameters">
   <h3 class="title">Parameters</h3>
   <dl>
-
    
     <dt>
 <code class="parameter">value</code></dt>
@@ -88,7 +84,7 @@
           <td>
            <p class="para">
             The encryption algorithm to be used. Use the constants defined in
-            <a href="class.mongodb-driver-clientencryption.html" class="classname">MongoDB\Driver\ClientEncryption</a>.
+            <span class="classname"><a href="class.mongodb-driver-clientencryption.html" class="classname">MongoDB\Driver\ClientEncryption</a></span>.
            </p>
           </td>
          </tr>
@@ -106,7 +102,7 @@
 
          <tr>
           <td>keyId</td>
-          <td><a href="class.mongodb-bson-binary.html" class="classname">MongoDB\BSON\Binary</a></td>
+          <td><span class="classname"><a href="class.mongodb-bson-binary.html" class="classname">MongoDB\BSON\Binary</a></span></td>
           <td>
            <p class="para">
             Identifies a data key by <code class="literal">_id</code>. The value is a UUID
@@ -138,7 +134,7 @@
   <h3 class="title">Return Values</h3>
   <p class="para">
    Returns the encrypted value as
-   <a href="class.mongodb-bson-binary.html" class="classname">MongoDB\BSON\Binary</a> object with subtype 6.
+   <span class="classname"><a href="class.mongodb-bson-binary.html" class="classname">MongoDB\BSON\Binary</a></span> object with subtype 6.
   </p>
  </div>
 
@@ -146,8 +142,8 @@
  <div class="refsect1 errors" id="refsect1-mongodb-driver-clientencryption.encrypt-errors">
   <h3 class="title">Errors/Exceptions</h3>
   <ul class="simplelist">
-   <li class="member">Throws <a href="class.mongodb-driver-exception-invalidargumentexception.html" class="classname">MongoDB\Driver\Exception\InvalidArgumentException</a> on argument parsing errors.</li>
-   <li class="member">Throws <a href="class.mongodb-driver-exception-encryptionexception.html" class="classname">MongoDB\Driver\Exception\EncryptionException</a> if an error occurs while encrypting the value</li>
+   <li class="member">Throws <span class="classname"><a href="class.mongodb-driver-exception-invalidargumentexception.html" class="classname">MongoDB\Driver\Exception\InvalidArgumentException</a></span> on argument parsing errors.</li>
+   <li class="member">Throws <span class="classname"><a href="class.mongodb-driver-exception-encryptionexception.html" class="classname">MongoDB\Driver\Exception\EncryptionException</a></span> if an error occurs while encrypting the value</li>
   </ul>
  </div>
 

@@ -26,16 +26,14 @@
   <div id="layout-content"><div id="function.oci-close" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">oci_close</h1>
-  <p class="verinfo">(PHP 5, PHP 7, PECL OCI8 &gt;= 1.1.0)</p><p class="refpurpose"><span class="refname">oci_close</span> &mdash; <span class="dc-title">Closes an Oracle connection</span></p>
+  <p class="verinfo">(PHP 5, PHP 7, PHP 8, PECL OCI8 &gt;= 1.1.0)</p><p class="refpurpose"><span class="refname">oci_close</span> &mdash; <span class="dc-title">Closes an Oracle connection</span></p>
 
  </div>
  
  <div class="refsect1 description" id="refsect1-function.oci-close-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>oci_close</strong></span>
-    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$connection</code></span>
-   ) : <span class="type">bool</span></div>
+   <span class="methodname"><strong>oci_close</strong></span>(<span class="methodparam"><span class="type">resource</span> <code class="parameter">$connection</code></span>): <span class="type"><span class="type">?</span><span class="type">bool</span></span></div>
 
   <p class="para rdfs-comment">
    Unsets <code class="parameter">connection</code>.  The underlying database
@@ -54,7 +52,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">connection</code></dt>
@@ -78,14 +75,15 @@
  <div class="refsect1 returnvalues" id="refsect1-function.oci-close-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns <strong><code>true</code></strong> on success or <strong><code>false</code></strong> on failure.
+   Returns <strong><code>null</code></strong> when <a href="oci8.configuration.html#ini.oci8.old-oci-close-semantics" class="link">oci8.old_oci_close_semantics</a> is enabled,
+   or <strong><code>true</code></strong> otherwise.
   </p>
  </div>
 
 
  <div class="refsect1 examples" id="refsect1-function.oci-close-examples">
   <h3 class="title">Examples</h3>
-  <div class="example" id="example-2233">
+  <div class="example" id="example-1792">
    <p><strong>Example #1 Closing a connection</strong></p>
    <div class="example-contents"><p>
     Resources associated with a connection should be closed to ensure
@@ -101,7 +99,7 @@
 
   </div>
 
-  <div class="example" id="example-2234">
+  <div class="example" id="example-1793">
    <p><strong>Example #2 Database connections are not closed until all references are closed</strong></p>
    <div class="example-contents"><p>
     The internal refcount of a connection identifier must be zero
@@ -116,7 +114,7 @@
 
   </div>
 
-  <div class="example" id="example-2235">
+  <div class="example" id="example-1794">
    <p><strong>Example #3 Closing a connection opened more than once</strong></p>
    <div class="example-contents"><p>
      When database credentials are reused, both connections must be closed
@@ -131,7 +129,7 @@
 
   </div>
 
-  <div class="example" id="example-2236">
+  <div class="example" id="example-1795">
    <p><strong>Example #4 Connections are closed when variables go out of scope</strong></p>
    <div class="example-contents"><p>
     When all variables referencing a connection go out of scope and

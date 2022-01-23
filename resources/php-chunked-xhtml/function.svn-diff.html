@@ -33,12 +33,7 @@
  <div class="refsect1 description" id="refsect1-function.svn-diff-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>svn_diff</strong></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$path1</code></span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$rev1</code></span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$path2</code></span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$rev2</code></span>
-   ) : <span class="type">array</span></div>
+   <span class="methodname"><strong>svn_diff</strong></span>(<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$path1</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">int</span> <code class="parameter">$rev1</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$path2</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">int</span> <code class="parameter">$rev2</code></span><br>): <span class="type">array</span></div>
 
   <p class="para rdfs-comment">
    Recursively diffs two paths, <code class="parameter">path1</code> and
@@ -57,7 +52,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">path1</code></dt>
@@ -142,16 +136,6 @@
  </div>
 
 
- <div class="refsect1 notes" id="refsect1-function.svn-diff-notes">
-  <h3 class="title">Notes</h3>
-  <div class="warning"><strong class="warning">Warning</strong><p class="simpara">This function is
-<em class="emphasis">EXPERIMENTAL</em>. The behaviour of this function, its name, and
-surrounding documentation may change without notice in a future release of PHP.
-This function should be used at your own risk.
-</p></div>
- </div>
-
-
  
 
  
@@ -159,7 +143,7 @@ This function should be used at your own risk.
  <div class="refsect1 examples" id="refsect1-function.svn-diff-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-5089">
+   <div class="example" id="example-4589">
     <p><strong>Example #1 Basic example</strong></p>
     <div class="example-contents"><p>
      This example demonstrates the basic usage of this function, and
@@ -185,7 +169,7 @@ Index: http://www.example.com/svnroot/trunk/foo
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-5090">
+   <div class="example" id="example-4590">
     <p><strong>Example #2 Diffing two revisions of a repository path</strong></p>
     <div class="example-contents"><p>
      This example implements a wrapper function that allows a user
@@ -202,7 +186,7 @@ Index: http://www.example.com/svnroot/trunk/foo
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-5091">
+   <div class="example" id="example-4591">
     <p><strong>Example #3 Portably diffing two local files</strong></p>
     <div class="example-contents"><p>
      This example implements a wrapper function that portably
@@ -221,6 +205,16 @@ Index: http://www.example.com/svnroot/trunk/foo
  </div>
 
 
+ <div class="refsect1 notes" id="refsect1-function.svn-diff-notes">
+  <h3 class="title">Notes</h3>
+  <div class="warning"><strong class="warning">Warning</strong><p class="simpara">This function is
+<em class="emphasis">EXPERIMENTAL</em>. The behaviour of this function, its name, and
+surrounding documentation may change without notice in a future release of PHP.
+This function should be used at your own risk.
+</p></div>
+ </div>
+
+ 
  <div class="refsect1 seealso" id="refsect1-function.svn-diff-seealso">
   <h3 class="title">See Also</h3>
   <p class="para">

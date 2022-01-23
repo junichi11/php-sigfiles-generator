@@ -26,20 +26,14 @@
   <div id="layout-content"><div id="function.oci-fetch-all" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">oci_fetch_all</h1>
-  <p class="verinfo">(PHP 5, PHP 7, PECL OCI8 &gt;= 1.1.0)</p><p class="refpurpose"><span class="refname">oci_fetch_all</span> &mdash; <span class="dc-title">Fetches multiple rows from a query into a two-dimensional array</span></p>
+  <p class="verinfo">(PHP 5, PHP 7, PHP 8, PECL OCI8 &gt;= 1.1.0)</p><p class="refpurpose"><span class="refname">oci_fetch_all</span> &mdash; <span class="dc-title">Fetches multiple rows from a query into a two-dimensional array</span></p>
 
  </div>
  
  <div class="refsect1 description" id="refsect1-function.oci-fetch-all-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>oci_fetch_all</strong></span>
-    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$statement</code></span>
-   , <span class="methodparam"><span class="type">array</span> <code class="parameter reference">&$output</code></span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$skip</code><span class="initializer"> = 0</span></span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$maxrows</code><span class="initializer"> = -1</span></span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code><span class="initializer"> = <strong><code>OCI_FETCHSTATEMENT_BY_COLUMN</code></strong> + <strong><code>OCI_ASSOC</code></strong></span></span>
-   ) : <span class="type"><span class="type">int</span>|<span class="type"><span class="type false">false</span></span></span></div>
+   <span class="methodname"><strong>oci_fetch_all</strong></span>(<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">resource</span> <code class="parameter">$statement</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">array</span> <code class="parameter reference">&$output</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">int</span> <code class="parameter">$offset</code><span class="initializer"> = 0</span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">int</span> <code class="parameter">$limit</code><span class="initializer"> = -1</span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code><span class="initializer"> = OCI_FETCHSTATEMENT_BY_COLUMN | OCI_ASSOC</span></span><br>): <span class="type">int</span></div>
 
   <p class="para rdfs-comment">
    Fetches multiple rows from a query into a two-dimensional array.
@@ -56,7 +50,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">statement</code></dt>
@@ -92,7 +85,7 @@ CURSOR</code> statement identifier.</p>
     
     
      <dt>
-<code class="parameter">skip</code></dt>
+<code class="parameter">offset</code></dt>
 
      <dd>
 
@@ -106,13 +99,13 @@ CURSOR</code> statement identifier.</p>
     
     
      <dt>
-<code class="parameter">maxrows</code></dt>
+<code class="parameter">limit</code></dt>
 
      <dd>
 
       <p class="para">
        The number of rows to return.  The default is -1 meaning return
-       all the rows from <code class="parameter">skip</code> + 1 onwards.
+       all the rows from <code class="parameter">offset</code> + 1 onwards.
       </p>
      </dd>
 
@@ -216,7 +209,7 @@ CURSOR</code> statement identifier.</p>
   <h3 class="title">Return Values</h3>
   <p class="para">
    Returns the number of rows in <code class="parameter">output</code>, which
-   may be 0 or more,  or <strong><code>false</code></strong> on failure.
+   may be 0 or more.
   </p>
  </div>
 
@@ -224,7 +217,7 @@ CURSOR</code> statement identifier.</p>
  <div class="refsect1 examples" id="refsect1-function.oci-fetch-all-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-2254">
+   <div class="example" id="example-1813">
     <p><strong>Example #1 <span class="function"><strong>oci_fetch_all()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -236,7 +229,7 @@ CURSOR</code> statement identifier.</p>
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-2255">
+   <div class="example" id="example-1814">
     <p><strong>Example #2 <span class="function"><strong>oci_fetch_all()</strong></span> example with <strong><code>OCI_FETCHSTATEMENT_BY_ROW</code></strong></strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -248,7 +241,7 @@ CURSOR</code> statement identifier.</p>
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-2256">
+   <div class="example" id="example-1815">
     <p><strong>Example #3 <span class="function"><strong>oci_fetch_all()</strong></span> with <strong><code>OCI_NUM</code></strong></strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -266,7 +259,7 @@ CURSOR</code> statement identifier.</p>
   <h3 class="title">Notes</h3>
   <blockquote class="note"><p><strong class="note">Note</strong>: 
    <p class="para">
-     Using <code class="parameter">skip</code> is very inefficient.  All the
+     Using <code class="parameter">offset</code> is very inefficient.  All the
      rows to be skipped are included in the result set that is
      returned from the database to PHP.  They are then discarded.  It
      is more efficient to use SQL to restrict the offset and range of

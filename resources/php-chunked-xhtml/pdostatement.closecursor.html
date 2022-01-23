@@ -26,7 +26,7 @@
   <div id="layout-content"><div id="pdostatement.closecursor" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">PDOStatement::closeCursor</h1>
-  <p class="verinfo">(PHP 5 &gt;= 5.1.0, PHP 7, PECL pdo &gt;= 0.9.0)</p><p class="refpurpose"><span class="refname">PDOStatement::closeCursor</span> &mdash; <span class="dc-title">
+  <p class="verinfo">(PHP 5 &gt;= 5.1.0, PHP 7, PHP 8, PECL pdo &gt;= 0.9.0)</p><p class="refpurpose"><span class="refname">PDOStatement::closeCursor</span> &mdash; <span class="dc-title">
    Closes the cursor, enabling the statement to be executed again
   </span></p>
 
@@ -34,9 +34,7 @@
  <div class="refsect1 description" id="refsect1-pdostatement.closecursor-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><strong>PDOStatement::closeCursor</strong></span>
-    (
-   ) : <span class="type">bool</span></div>
+   <span class="modifier">public</span> <span class="methodname"><strong>PDOStatement::closeCursor</strong></span>(): <span class="type">bool</span></div>
 
 
   <p class="para rdfs-comment">
@@ -64,7 +62,12 @@
    </div>
 
   </p>
+ </div>
 
+
+ <div class="refsect1 parameters" id="refsect1-pdostatement.closecursor-parameters">
+  <h3 class="title">Parameters</h3>
+  <p class="para">This function has no parameters.</p>
  </div>
 
 
@@ -79,7 +82,7 @@
  <div class="refsect1 examples" id="refsect1-pdostatement.closecursor-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-1028">
+   <div class="example" id="example-1035">
     <p><strong>Example #1 A <span class="function"><strong>PDOStatement::closeCursor()</strong></span> example</strong></p>
     <div class="example-contents"><p>
      In the following example, the <var class="varname">$stmt</var> PDOStatement

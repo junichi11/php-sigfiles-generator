@@ -26,22 +26,20 @@
   <div id="layout-content"><div id="function.preg-last-error" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">preg_last_error</h1>
-  <p class="verinfo">(PHP 5 &gt;= 5.2.0, PHP 7)</p><p class="refpurpose"><span class="refname">preg_last_error</span> &mdash; <span class="dc-title">Returns the error code of the last PCRE regex execution</span></p>
+  <p class="verinfo">(PHP 5 &gt;= 5.2.0, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">preg_last_error</span> &mdash; <span class="dc-title">Returns the error code of the last PCRE regex execution</span></p>
 
  </div>
 
  <div class="refsect1 description" id="refsect1-function.preg-last-error-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>preg_last_error</strong></span>
-    (
-   ) : <span class="type">int</span></div>
+   <span class="methodname"><strong>preg_last_error</strong></span>(): <span class="type">int</span></div>
 
   <p class="para rdfs-comment">
    Returns the error code of the last PCRE regex execution.
   </p>
   <p class="para">
-   <div class="example" id="example-5246">
+   <div class="example" id="example-4745">
     <p><strong>Example #1 <span class="function"><strong>preg_last_error()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -60,6 +58,12 @@ Backtrack limit was exhausted!
   </p>
  </div>
 
+
+ <div class="refsect1 parameters" id="refsect1-function.preg-last-error-parameters">
+  <h3 class="title">Parameters</h3>
+  <p class="para">This function has no parameters.</p>
+ </div>
+
   
  <div class="refsect1 returnvalues" id="refsect1-function.preg-last-error-returnvalues">
   <h3 class="title">Return Values</h3>
@@ -71,8 +75,8 @@ Backtrack limit was exhausted!
     <li class="member"><strong><code>PREG_BACKTRACK_LIMIT_ERROR</code></strong> (see also <a href="pcre.configuration.html#ini.pcre.backtrack-limit" class="link">pcre.backtrack_limit</a>)</li>
     <li class="member"><strong><code>PREG_RECURSION_LIMIT_ERROR</code></strong> (see also <a href="pcre.configuration.html#ini.pcre.recursion-limit" class="link">pcre.recursion_limit</a>)</li>
     <li class="member"><strong><code>PREG_BAD_UTF8_ERROR</code></strong></li>
-    <li class="member"><strong><code>PREG_BAD_UTF8_OFFSET_ERROR</code></strong> (since PHP 5.3.0)</li>
-    <li class="member"><strong><code>PREG_JIT_STACKLIMIT_ERROR</code></strong> (since PHP 7.0.0)</li>
+    <li class="member"><strong><code>PREG_BAD_UTF8_OFFSET_ERROR</code></strong></li>
+    <li class="member"><strong><code>PREG_JIT_STACKLIMIT_ERROR</code></strong></li>
    </ul>
   </p>
  </div>

@@ -27,27 +27,21 @@
  <div class="refnamediv">
   <h1 class="refname">DateTime::setTimezone</h1>
   <h1 class="refname">date_timezone_set</h1>
-  <p class="verinfo">(PHP 5 &gt;= 5.2.0, PHP 7)</p><p class="refpurpose"><span class="refname">DateTime::setTimezone</span> -- <span class="refname">date_timezone_set</span> &mdash; <span class="dc-title">Sets the time zone for the DateTime object</span></p>
+  <p class="verinfo">(PHP 5 &gt;= 5.2.0, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">DateTime::setTimezone</span> -- <span class="refname">date_timezone_set</span> &mdash; <span class="dc-title">Sets the time zone for the DateTime object</span></p>
 
  </div>
 
  <div class="refsect1 description" id="refsect1-datetime.settimezone-description">
   <h3 class="title">Description</h3>
-  <p class="para">Object oriented style</p>
+  <p class="para">Object-oriented style</p>
   <div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><strong>DateTime::setTimezone</strong></span>
-    ( <span class="methodparam"><span class="type"><a href="class.datetimezone.html" class="type DateTimeZone">DateTimeZone</a></span> <code class="parameter">$timezone</code></span>
-   ) : <span class="type"><a href="class.datetime.html" class="type DateTime">DateTime</a></span></div>
+   <span class="modifier">public</span> <span class="methodname"><strong>DateTime::setTimezone</strong></span>(<span class="methodparam"><span class="type"><a href="class.datetimezone.html" class="type DateTimeZone">DateTimeZone</a></span> <code class="parameter">$timezone</code></span>): <span class="type"><a href="class.datetime.html" class="type DateTime">DateTime</a></span></div>
 
   <p class="para rdfs-comment">Procedural style</p>
-  <div class="methodsynopsis dc-description">
-   <span class="methodname"><a href="function.date-timezone-set.html" class="methodname">date_timezone_set</a></span>
-    ( <span class="methodparam"><span class="type"><a href="class.datetime.html" class="type DateTime">DateTime</a></span> <code class="parameter">$object</code></span>
-   , <span class="methodparam"><span class="type"><a href="class.datetimezone.html" class="type DateTimeZone">DateTimeZone</a></span> <code class="parameter">$timezone</code></span>
-   ) : <span class="type"><a href="class.datetime.html" class="type DateTime">DateTime</a></span></div>
+  <div class="methodsynopsis dc-description"><span class="methodname"><a href="function.date-timezone-set.html" class="methodname">date_timezone_set</a></span>(<span class="methodparam"><span class="type"><a href="class.datetime.html" class="type DateTime">DateTime</a></span> <code class="parameter">$object</code></span>, <span class="methodparam"><span class="type"><a href="class.datetimezone.html" class="type DateTimeZone">DateTimeZone</a></span> <code class="parameter">$timezone</code></span>): <span class="type"><a href="class.datetime.html" class="type DateTime">DateTime</a></span></div>
 
   <p class="para rdfs-comment">
-   Sets a new timezone for a <a href="class.datetime.html" class="classname">DateTime</a> <span class="type">object</span>.
+   Sets a new timezone for a <span class="classname"><a href="class.datetime.html" class="classname">DateTime</a></span> <span class="type">object</span>.
   </p>
  </div>
 
@@ -55,12 +49,11 @@
  <div class="refsect1 parameters" id="refsect1-datetime.settimezone-parameters">
   <h3 class="title">Parameters</h3>
   <dl>
-
    <dt>
 <code class="parameter">object</code></dt>
 
 <dd>
-<p class="para">Procedural style only: A <a href="class.datetime.html" class="classname">DateTime</a> object
+<p class="para">Procedural style only: A <span class="classname"><a href="class.datetime.html" class="classname">DateTime</a></span> object
 returned by <span class="function"><a href="function.date-create.html" class="function">date_create()</a></span>.
 The function modifies this object.</p></dd>
 
@@ -71,7 +64,7 @@ The function modifies this object.</p></dd>
     <dd>
 
      <p class="para">
-      A <a href="class.datetimezone.html" class="classname">DateTimeZone</a> object representing the
+      A <span class="classname"><a href="class.datetimezone.html" class="classname">DateTimeZone</a></span> object representing the
       desired time zone.
      </p>
     </dd>
@@ -85,16 +78,16 @@ The function modifies this object.</p></dd>
  <div class="refsect1 returnvalues" id="refsect1-datetime.settimezone-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns the <a href="class.datetime.html" class="classname">DateTime</a> object for method chaining or <strong><code>false</code></strong> on failure.
+   Returns the <span class="classname"><a href="class.datetime.html" class="classname">DateTime</a></span> object for method chaining.
   </p>
  </div>
 
 
  <div class="refsect1 examples" id="refsect1-datetime.settimezone-examples">
   <h3 class="title">Examples</h3>
-  <div class="example" id="example-2528">
+  <div class="example" id="example-2040">
    <p><strong>Example #1 <span class="function"><strong>DateTime::setTimeZone()</strong></span> example</strong></p>
-   <div class="example-contents"><p>Object oriented style</p></div>
+   <div class="example-contents"><p>Object-oriented style</p></div>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
 <span style="color: #0000BB">&lt;?php<br />$date&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">DateTime</span><span style="color: #007700">(</span><span style="color: #DD0000">'2000-01-01'</span><span style="color: #007700">,&nbsp;new&nbsp;</span><span style="color: #0000BB">DateTimeZone</span><span style="color: #007700">(</span><span style="color: #DD0000">'Pacific/Nauru'</span><span style="color: #007700">));<br />echo&nbsp;</span><span style="color: #0000BB">$date</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">format</span><span style="color: #007700">(</span><span style="color: #DD0000">'Y-m-d&nbsp;H:i:sP'</span><span style="color: #007700">)&nbsp;.&nbsp;</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br /><br /></span><span style="color: #0000BB">$date</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">setTimezone</span><span style="color: #007700">(new&nbsp;</span><span style="color: #0000BB">DateTimeZone</span><span style="color: #007700">(</span><span style="color: #DD0000">'Pacific/Chatham'</span><span style="color: #007700">));<br />echo&nbsp;</span><span style="color: #0000BB">$date</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">format</span><span style="color: #007700">(</span><span style="color: #DD0000">'Y-m-d&nbsp;H:i:sP'</span><span style="color: #007700">)&nbsp;.&nbsp;</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">?&gt;</span>

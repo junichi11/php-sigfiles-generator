@@ -158,7 +158,7 @@
     </li>
     <li class="listitem">
      <p class="para">
-      <span class="function"><a href="function.each.html" class="function">each()</a></span> has been removed. <a href="control-structures.foreach.html" class="link">foreach</a> or <a href="class.arrayiterator.html" class="classname">ArrayIterator</a>
+      <span class="function"><a href="function.each.html" class="function">each()</a></span> has been removed. <a href="control-structures.foreach.html" class="link">foreach</a> or <span class="classname"><a href="class.arrayiterator.html" class="classname">ArrayIterator</a></span>
       should be used instead.
      </p>
     </li>
@@ -186,7 +186,7 @@
       The behavior of <span class="function"><a href="function.array-key-exists.html" class="function">array_key_exists()</a></span> regarding the type of the
       <code class="parameter">key</code> parameter has been made consistent with <span class="function"><a href="function.isset.html" class="function">isset()</a></span> and
       normal array access. All key types now use the usual coercions and array/object keys throw a
-      <a href="class.typeerror.html" class="classname">TypeError</a>.
+      <span class="classname"><a href="class.typeerror.html" class="classname">TypeError</a></span>.
      </p>
     </li>
     <li class="listitem">
@@ -227,7 +227,7 @@
      <p class="para">
       <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;Replace<br /></span><span style="color: #007700">function&nbsp;</span><span style="color: #0000BB">my_error_handler</span><span style="color: #007700">(</span><span style="color: #0000BB">$err_no</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$err_msg</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$filename</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$linenum</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(</span><span style="color: #0000BB">error_reporting</span><span style="color: #007700">()&nbsp;==&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return;&nbsp;</span><span style="color: #FF8000">//&nbsp;Silenced<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">}<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;...<br /></span><span style="color: #007700">}<br /><br /></span><span style="color: #FF8000">//&nbsp;With<br /></span><span style="color: #007700">function&nbsp;</span><span style="color: #0000BB">my_error_handler</span><span style="color: #007700">(</span><span style="color: #0000BB">$err_no</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$err_msg</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$filename</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$linenum</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(!(</span><span style="color: #0000BB">error_reporting</span><span style="color: #007700">()&nbsp;&amp;&nbsp;</span><span style="color: #0000BB">$err_no</span><span style="color: #007700">))&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return;&nbsp;</span><span style="color: #FF8000">//&nbsp;Silenced<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">}<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;...<br /></span><span style="color: #007700">}<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;Replace<br /></span><span style="color: #007700">function&nbsp;</span><span style="color: #0000BB">my_error_handler</span><span style="color: #007700">(</span><span style="color: #0000BB">$err_no</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$err_msg</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$filename</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$linenum</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(</span><span style="color: #0000BB">error_reporting</span><span style="color: #007700">()&nbsp;==&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">false</span><span style="color: #007700">;&nbsp;</span><span style="color: #FF8000">//&nbsp;Silenced<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">}<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;...<br /></span><span style="color: #007700">}<br /><br /></span><span style="color: #FF8000">//&nbsp;With<br /></span><span style="color: #007700">function&nbsp;</span><span style="color: #0000BB">my_error_handler</span><span style="color: #007700">(</span><span style="color: #0000BB">$err_no</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$err_msg</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$filename</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$linenum</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(!(</span><span style="color: #0000BB">error_reporting</span><span style="color: #007700">()&nbsp;&amp;&nbsp;</span><span style="color: #0000BB">$err_no</span><span style="color: #007700">))&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">false</span><span style="color: #007700">;&nbsp;</span><span style="color: #FF8000">//&nbsp;Silenced<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">}<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;...<br /></span><span style="color: #007700">}<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
       </div>
@@ -287,7 +287,7 @@
     </li>
     <li class="listitem">
      <p class="para">
-      A number of warnings have been converted into <a href="class.error.html" class="classname">Error</a> exceptions:
+      A number of warnings have been converted into <span class="classname"><a href="class.error.html" class="classname">Error</a></span> exceptions:
      </p>
      <p class="para">
       <ul class="simplelist">
@@ -338,7 +338,7 @@
     <li class="listitem">
      <p class="para">
       Unexpected characters in source files (such as NUL bytes outside of strings) will now result in a
-      <a href="class.parseerror.html" class="classname">ParseError</a> exception instead of a compile warning.
+      <span class="classname"><a href="class.parseerror.html" class="classname">ParseError</a></span> exception instead of a compile warning.
      </p>
     </li>
     <li class="listitem">
@@ -351,7 +351,7 @@
      <p class="para">
       The compile time fatal error &quot;Only variables can be passed by reference&quot; has been delayed until
       runtime, and converted into an &quot;Argument cannot be passed by reference&quot;
-      <a href="class.error.html" class="classname">Error</a> exception.
+      <span class="classname"><a href="class.error.html" class="classname">Error</a></span> exception.
      </p>
     </li>
     <li class="listitem">
@@ -433,7 +433,7 @@
       <code class="literal">*</code>, <code class="literal">/</code>, <code class="literal">**</code>, <code class="literal">%</code>,
       <code class="literal">&lt;&lt;</code>, <code class="literal">&gt;&gt;</code>, <code class="literal">&amp;</code>,
       <code class="literal">|</code>, <code class="literal">^</code>, <code class="literal">~</code>, <code class="literal">++</code>,
-      <code class="literal">--</code> will now consistently throw a <a href="class.typeerror.html" class="classname">TypeError</a> when one of
+      <code class="literal">--</code> will now consistently throw a <span class="classname"><a href="class.typeerror.html" class="classname">TypeError</a></span> when one of
       the operands is an <span class="type">array</span>, <a href="language.types.resource.html" class="link">resource</a> or non-overloaded <span class="type">object</span>. The only exception to this is
       the array <code class="literal">+</code> array merge operation, which remains supported.
       
@@ -529,7 +529,7 @@
       well-formed numeric value encountered&quot; will now emit an <strong><code>E_WARNING</code></strong> &quot;A
       non-numeric value encountered&quot; and all strings which emitted an <strong><code>E_WARNING</code></strong> &quot;A
       non-numeric value encountered&quot; will now throw a
-      <a href="class.typeerror.html" class="classname">TypeError</a>. This mostly affects:
+      <span class="classname"><a href="class.typeerror.html" class="classname">TypeError</a></span>. This mostly affects:
      </p>
      <p class="para">
       <ul class="simplelist">
@@ -538,7 +538,7 @@
       </ul>
      </p>
      <p class="para">
-      This <strong><code>E_WARNING</code></strong> to <a href="class.typeerror.html" class="classname">TypeError</a> change also affects the
+      This <strong><code>E_WARNING</code></strong> to <span class="classname"><a href="class.typeerror.html" class="classname">TypeError</a></span> change also affects the
       <strong><code>E_WARNING</code></strong> &quot;Illegal string offset &#039;string&#039;&quot; for illegal string offsets. The
       behavior of explicit casts to int/float from strings has not been changed.
       
@@ -597,31 +597,31 @@
   <ul class="itemizedlist">
     <li class="listitem">
      <p class="para">
-      <span class="function"><a href="function.curl-init.html" class="function">curl_init()</a></span> will now return a <a href="class.curlhandle.html" class="classname">CurlHandle</a> object rather
+      <span class="function"><a href="function.curl-init.html" class="function">curl_init()</a></span> will now return a <span class="classname"><a href="class.curlhandle.html" class="classname">CurlHandle</a></span> object rather
       than a <a href="language.types.resource.html" class="link">resource</a>. The <span class="function"><a href="function.curl-close.html" class="function">curl_close()</a></span> function no longer has an effect,
-      instead the <a href="class.curlhandle.html" class="classname">CurlHandle</a> instance is automatically destroyed if it is no
+      instead the <span class="classname"><a href="class.curlhandle.html" class="classname">CurlHandle</a></span> instance is automatically destroyed if it is no
       longer referenced.
      </p>
     </li>
     <li class="listitem">
      <p class="para">
-      <span class="function"><a href="function.curl-multi-init.html" class="function">curl_multi_init()</a></span> will now return a <a href="class.curlmultihandle.html" class="classname">CurlMultiHandle</a>
+      <span class="function"><a href="function.curl-multi-init.html" class="function">curl_multi_init()</a></span> will now return a <span class="classname"><a href="class.curlmultihandle.html" class="classname">CurlMultiHandle</a></span>
       object rather than a <a href="language.types.resource.html" class="link">resource</a>. The <span class="function"><a href="function.curl-multi-close.html" class="function">curl_multi_close()</a></span> function no
-      longer has an effect, instead the <a href="class.curlmultihandle.html" class="classname">CurlMultiHandle</a> instance is
+      longer has an effect, instead the <span class="classname"><a href="class.curlmultihandle.html" class="classname">CurlMultiHandle</a></span> instance is
       automatically destroyed if it is no longer referenced.
      </p>
     </li>
     <li class="listitem">
      <p class="para">
-      <span class="function"><a href="function.curl-share-init.html" class="function">curl_share_init()</a></span> will now return a <a href="class.curlsharehandle.html" class="classname">CurlShareHandle</a>
+      <span class="function"><a href="function.curl-share-init.html" class="function">curl_share_init()</a></span> will now return a <span class="classname"><a href="class.curlsharehandle.html" class="classname">CurlShareHandle</a></span>
       object rather than a <a href="language.types.resource.html" class="link">resource</a>. The <span class="function"><a href="function.curl-share-close.html" class="function">curl_share_close()</a></span> function no
-      longer has an effect, instead the <a href="class.curlsharehandle.html" class="classname">CurlShareHandle</a> instance is
+      longer has an effect, instead the <span class="classname"><a href="class.curlsharehandle.html" class="classname">CurlShareHandle</a></span> instance is
       automatically destroyed if it is no longer referenced.
      </p>
     </li>
    <li class="listitem">
     <p class="para">
-     <span class="function"><a href="function.enchant-broker-init.html" class="function">enchant_broker_init()</a></span> will now return an <a href="class.enchantbroker.html" class="classname">EnchantBroker</a>
+     <span class="function"><a href="function.enchant-broker-init.html" class="function">enchant_broker_init()</a></span> will now return an <span class="classname"><a href="class.enchantbroker.html" class="classname">EnchantBroker</a></span>
      object rather than a <a href="language.types.resource.html" class="link">resource</a>.
     </p>
    </li>
@@ -629,46 +629,46 @@
     <p class="para">
      <span class="function"><a href="function.enchant-broker-request-dict.html" class="function">enchant_broker_request_dict()</a></span> and
      <span class="function"><a href="function.enchant-broker-request-pwl-dict.html" class="function">enchant_broker_request_pwl_dict()</a></span> will now return an
-     <a href="class.enchantdictionary.html" class="classname">EnchantDictionary</a> object rather than a <a href="language.types.resource.html" class="link">resource</a>.
+     <span class="classname"><a href="class.enchantdictionary.html" class="classname">EnchantDictionary</a></span> object rather than a <a href="language.types.resource.html" class="link">resource</a>.
     </p>
    </li>
    <li class="listitem">
     <p class="para">
-     The GD extension now uses <a href="class.gdimage.html" class="classname">GdImage</a> objects as the underlying data structure
+     The GD extension now uses <span class="classname"><a href="class.gdimage.html" class="classname">GdImage</a></span> objects as the underlying data structure
      for images, rather than <a href="language.types.resource.html" class="link">resource</a>s.
      The <span class="function"><a href="function.imagedestroy.html" class="function">imagedestroy()</a></span> function no longer has an effect; instead the
-     <a href="class.gdimage.html" class="classname">GdImage</a> instance is automatically destroyed if it is no longer referenced.
+     <span class="classname"><a href="class.gdimage.html" class="classname">GdImage</a></span> instance is automatically destroyed if it is no longer referenced.
     </p>
    </li>
    <li class="listitem">
     <p class="para">
      <span class="function"><a href="function.openssl-x509-read.html" class="function">openssl_x509_read()</a></span> and <span class="function"><a href="function.openssl-csr-sign.html" class="function">openssl_csr_sign()</a></span> will now return
-     an <a href="class.opensslcertificate.html" class="classname">OpenSSLCertificate</a> object rather than a <a href="language.types.resource.html" class="link">resource</a>.
+     an <span class="classname"><a href="class.opensslcertificate.html" class="classname">OpenSSLCertificate</a></span> object rather than a <a href="language.types.resource.html" class="link">resource</a>.
      The <span class="function"><a href="function.openssl-x509-free.html" class="function">openssl_x509_free()</a></span> function is deprecated and no longer has an effect,
-     instead the <a href="class.opensslcertificate.html" class="classname">OpenSSLCertificate</a> instance is automatically destroyed if it
+     instead the <span class="classname"><a href="class.opensslcertificate.html" class="classname">OpenSSLCertificate</a></span> instance is automatically destroyed if it
      is no longer referenced.
     </p>
    </li>
    <li class="listitem">
     <p class="para">
      <span class="function"><a href="function.openssl-csr-new.html" class="function">openssl_csr_new()</a></span> will now return an
-     <a href="class.opensslcertificatesigningrequest.html" class="classname">OpenSSLCertificateSigningRequest</a> object rather than a <a href="language.types.resource.html" class="link">resource</a>.
+     <span class="classname"><a href="class.opensslcertificatesigningrequest.html" class="classname">OpenSSLCertificateSigningRequest</a></span> object rather than a <a href="language.types.resource.html" class="link">resource</a>.
     </p>
    </li>
    <li class="listitem">
     <p class="para">
      <span class="function"><a href="function.openssl-pkey-new.html" class="function">openssl_pkey_new()</a></span> will now return an
-     <a href="class.opensslasymmetrickey.html" class="classname">OpenSSLAsymmetricKey</a> object rather than a <a href="language.types.resource.html" class="link">resource</a>.
+     <span class="classname"><a href="class.opensslasymmetrickey.html" class="classname">OpenSSLAsymmetricKey</a></span> object rather than a <a href="language.types.resource.html" class="link">resource</a>.
      The <span class="function"><a href="function.openssl-pkey-free.html" class="function">openssl_pkey_free()</a></span> function is deprecated and no longer has an effect,
-     instead the <a href="class.opensslasymmetrickey.html" class="classname">OpenSSLAsymmetricKey</a> instance is automatically destroyed if it
+     instead the <span class="classname"><a href="class.opensslasymmetrickey.html" class="classname">OpenSSLAsymmetricKey</a></span> instance is automatically destroyed if it
      is no longer referenced.
     </p>
    </li>
    <li class="listitem">
      <p class="para">
-      <span class="function"><a href="function.shmop-open.html" class="function">shmop_open()</a></span> will now return a <a href="class.shmop.html" class="classname">Shmop</a> object rather than
+      <span class="function"><a href="function.shmop-open.html" class="function">shmop_open()</a></span> will now return a <span class="classname"><a href="class.shmop.html" class="classname">Shmop</a></span> object rather than
       a <a href="language.types.resource.html" class="link">resource</a>. The <span class="function"><a href="function.shmop-close.html" class="function">shmop_close()</a></span> function no longer has an effect, and is
-      deprecated; instead the <a href="class.shmop.html" class="classname">Shmop</a> instance is automatically destroyed if it is
+      deprecated; instead the <span class="classname"><a href="class.shmop.html" class="classname">Shmop</a></span> instance is automatically destroyed if it is
       no longer referenced.
      </p>
     </li>
@@ -678,33 +678,33 @@
      <span class="function"><a href="function.socket-accept.html" class="function">socket_accept()</a></span>, <span class="function"><a href="function.socket-import-stream.html" class="function">socket_import_stream()</a></span>,
      <span class="function"><a href="function.socket-addrinfo-connect.html" class="function">socket_addrinfo_connect()</a></span>, <span class="function"><a href="function.socket-addrinfo-bind.html" class="function">socket_addrinfo_bind()</a></span>, and
      <span class="function"><a href="function.socket-wsaprotocol-info-import.html" class="function">socket_wsaprotocol_info_import()</a></span> will now return a
-     <a href="class.socket.html" class="classname">Socket</a> object rather than a <a href="language.types.resource.html" class="link">resource</a>.
+     <span class="classname"><a href="class.socket.html" class="classname">Socket</a></span> object rather than a <a href="language.types.resource.html" class="link">resource</a>.
      <span class="function"><a href="function.socket-addrinfo-lookup.html" class="function">socket_addrinfo_lookup()</a></span> will now return an array of
-     <a href="class.addressinfo.html" class="classname">AddressInfo</a> objects rather than <a href="language.types.resource.html" class="link">resource</a>s.
+     <span class="classname"><a href="class.addressinfo.html" class="classname">AddressInfo</a></span> objects rather than <a href="language.types.resource.html" class="link">resource</a>s.
     </p>
    </li>
    <li class="listitem">
     <p class="para">
-     <span class="function"><a href="function.msg-get-queue.html" class="function">msg_get_queue()</a></span> will now return an <strong class="classname">SysvMessageQueue</strong>
+     <span class="function"><a href="function.msg-get-queue.html" class="function">msg_get_queue()</a></span> will now return an <span class="classname"><a href="class.sysvmessagequeue.html" class="classname">SysvMessageQueue</a></span>
      object rather than a <a href="language.types.resource.html" class="link">resource</a>.
     </p>
    </li>
    <li class="listitem">
     <p class="para">
-     <span class="function"><a href="function.sem-get.html" class="function">sem_get()</a></span> will now return an <strong class="classname">SysvSemaphore</strong> object
+     <span class="function"><a href="function.sem-get.html" class="function">sem_get()</a></span> will now return an <span class="classname"><a href="class.sysvsemaphore.html" class="classname">SysvSemaphore</a></span> object
      rather than a <a href="language.types.resource.html" class="link">resource</a>.
     </p>
    </li>
    <li class="listitem">
     <p class="para">
-     <span class="function"><a href="function.shm-attach.html" class="function">shm_attach()</a></span> will now return an <strong class="classname">SysvSharedMemory</strong> object
+     <span class="function"><a href="function.shm-attach.html" class="function">shm_attach()</a></span> will now return an <span class="classname"><a href="class.sysvsharedmemory.html" class="classname">SysvSharedMemory</a></span> object
      rather than a <a href="language.types.resource.html" class="link">resource</a>.
     </p>
    </li>
    <li class="listitem">
     <p class="para">
      <span class="function"><a href="function.xml-parser-create.html" class="function">xml_parser_create()</a></span> and <span class="function"><a href="function.xml-parser-create-ns.html" class="function">xml_parser_create_ns()</a></span> will now
-     return an <a href="class.xmlparser.html" class="classname">XMLParser</a> object rather than a <a href="language.types.resource.html" class="link">resource</a>. The
+     return an <span class="classname"><a href="class.xmlparser.html" class="classname">XMLParser</a></span> object rather than a <a href="language.types.resource.html" class="link">resource</a>. The
      <span class="function"><a href="function.xml-parser-free.html" class="function">xml_parser_free()</a></span> function no longer has an effect, instead the XMLParser
      instance is automatically destroyed if it is no longer referenced.
     </p>
@@ -712,18 +712,18 @@
    <li class="listitem">
     <p class="para">
      The <a href="book.xmlwriter.html" class="link">XMLWriter</a> functions now accept and return, respectively,
-     <a href="class.xmlwriter.html" class="classname">XMLWriter</a> objects instead of <a href="language.types.resource.html" class="link">resource</a>s.
+     <span class="classname"><a href="class.xmlwriter.html" class="classname">XMLWriter</a></span> objects instead of <a href="language.types.resource.html" class="link">resource</a>s.
     </p>
    </li>
    <li class="listitem">
     <p class="para">
-     <span class="function"><a href="function.inflate-init.html" class="function">inflate_init()</a></span> will now return an <a href="class.inflatecontext.html" class="classname">InflateContext</a> object
+     <span class="function"><a href="function.inflate-init.html" class="function">inflate_init()</a></span> will now return an <span class="classname"><a href="class.inflatecontext.html" class="classname">InflateContext</a></span> object
      rather than a <a href="language.types.resource.html" class="link">resource</a>.
     </p>
    </li>
    <li class="listitem">
     <p class="para">
-     <span class="function"><a href="function.deflate-init.html" class="function">deflate_init()</a></span> will now return a <a href="class.deflatecontext.html" class="classname">DeflateContext</a> object
+     <span class="function"><a href="function.deflate-init.html" class="function">deflate_init()</a></span> will now return a <span class="classname"><a href="class.deflatecontext.html" class="classname">DeflateContext</a></span> object
      rather than a <a href="language.types.resource.html" class="link">resource</a>.
     </p>
    </li>
@@ -771,15 +771,34 @@
   </p>
   <p class="para">
    <ul class="simplelist">
-    <li class="member">DOMNameList</li>
-    <li class="member">DomImplementationList</li>
-    <li class="member">DOMConfiguration</li>
-    <li class="member">DomError</li>
-    <li class="member">DomErrorHandler</li>
-    <li class="member">DOMImplementationSource</li>
-    <li class="member">DOMLocator</li>
-    <li class="member">DOMUserDataHandler</li>
-    <li class="member">DOMTypeInfo</li>
+    <li class="member"><span class="classname"><strong class="classname">DOMNameList</strong></span></li>
+    <li class="member"><span class="classname"><strong class="classname">DomImplementationList</strong></span></li>
+    <li class="member"><span class="classname"><strong class="classname">DOMConfiguration</strong></span></li>
+    <li class="member"><span class="classname"><strong class="classname">DomError</strong></span></li>
+    <li class="member"><span class="classname"><strong class="classname">DomErrorHandler</strong></span></li>
+    <li class="member"><span class="classname"><strong class="classname">DOMImplementationSource</strong></span></li>
+    <li class="member"><span class="classname"><strong class="classname">DOMLocator</strong></span></li>
+    <li class="member"><span class="classname"><strong class="classname">DOMUserDataHandler</strong></span></li>
+    <li class="member"><span class="classname"><strong class="classname">DOMTypeInfo</strong></span></li>
+    <li class="member"><span class="classname"><strong class="classname">DOMStringExtend</strong></span></li>
+   </ul>
+  </p>
+  <p class="para">
+   Unimplemented methods from the DOM extension that had no behavior have been removed:
+  </p>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="methodname"><strong>DOMNamedNodeMap::setNamedItem()</strong></span></li>
+    <li class="member"><span class="methodname"><strong>DOMNamedNodeMap::removeNamedItem()</strong></span></li>
+    <li class="member"><span class="methodname"><strong>DOMNamedNodeMap::setNamedItemNS()</strong></span></li>
+    <li class="member"><span class="methodname"><strong>DOMNamedNodeMap::removeNamedItem()</strong></span></li>
+    <li class="member"><span class="methodname"><strong>DOMText::replaceWholeText()</strong></span></li>
+    <li class="member"><span class="methodname"><strong>DOMNode::compareDocumentPosition()</strong></span></li>
+    <li class="member"><span class="methodname"><strong>DOMNode::isEqualNode()</strong></span></li>
+    <li class="member"><span class="methodname"><strong>DOMNode::getFeature()</strong></span></li>
+    <li class="member"><span class="methodname"><strong>DOMNode::setUserData()</strong></span></li>
+    <li class="member"><span class="methodname"><strong>DOMNode::getUserData()</strong></span></li>
+    <li class="member"><span class="methodname"><strong>DOMDocument::renameNode()</strong></span></li>
    </ul>
   </p>
  </div>
@@ -1038,8 +1057,8 @@
   <ul class="itemizedlist">
    <li class="listitem">
     <p class="para">
-     The <strong class="classname">OCI-Lob</strong> class is now called <a href="class.OCI-Lob.html" class="classname">OCILob</a>, and the
-     <strong class="classname">OCI-Collection</strong> class is now called <a href="class.OCI-Collection.html" class="classname">OCICollection</a>
+     The <span class="classname"><strong class="classname">OCI-Lob</strong></span> class is now called <span class="classname"><a href="class.ocilob.html" class="classname">OCILob</a></span>, and the
+     <span class="classname"><strong class="classname">OCI-Collection</strong></span> class is now called <span class="classname"><a href="class.ocicollection.html" class="classname">OCICollection</a></span>
      for name compliance enforced by PHP 8 arginfo type annotation tooling.
     </p>
    </li>
@@ -1243,7 +1262,7 @@
    <li class="listitem">
     <p class="para">
      <span class="methodname"><strong>ReflectionType::isBuiltin()</strong></span> method has been moved to
-     <a href="class.reflectionnamedtype.html" class="classname">ReflectionNamedType</a>. <a href="class.reflectionuniontype.html" class="classname">ReflectionUnionType</a> does not
+     <span class="classname"><a href="class.reflectionnamedtype.html" class="classname">ReflectionNamedType</a></span>. <span class="classname"><a href="class.reflectionuniontype.html" class="classname">ReflectionUnionType</a></span> does not
      have it.
     </p>
    </li>
@@ -1295,13 +1314,13 @@
    <li class="listitem">
     <p class="para">
      <span class="function"><a href="function.spl-autoload-register.html" class="function">spl_autoload_register()</a></span> will now always throw a
-     <a href="class.typeerror.html" class="classname">TypeError</a> on invalid arguments, therefore the second argument
+     <span class="classname"><a href="class.typeerror.html" class="classname">TypeError</a></span> on invalid arguments, therefore the second argument
      <code class="parameter">do_throw</code> is ignored and a notice will be emitted if it is set to <strong><code>false</code></strong>.
     </p>
    </li>
    <li class="listitem">
     <p class="para">
-     <a href="class.splfixedarray.html" class="classname">SplFixedArray</a> is now an <span class="interfacename"><a href="class.iteratoraggregate.html" class="interfacename">IteratorAggregate</a></span>
+     <span class="classname"><a href="class.splfixedarray.html" class="classname">SplFixedArray</a></span> is now an <span class="interfacename"><a href="class.iteratoraggregate.html" class="interfacename">IteratorAggregate</a></span>
      and not an <span class="interfacename"><a href="class.iterator.html" class="interfacename">Iterator</a></span>.
      <span class="methodname"><a href="splfixedarray.rewind.html" class="methodname">SplFixedArray::rewind()</a></span>, <span class="methodname"><a href="splfixedarray.current.html" class="methodname">SplFixedArray::current()</a></span>,
      <span class="methodname"><a href="splfixedarray.key.html" class="methodname">SplFixedArray::key()</a></span>, <span class="methodname"><a href="splfixedarray.next.html" class="methodname">SplFixedArray::next()</a></span>, and
@@ -1310,7 +1329,7 @@
      iteration over SplFixedArray must now obtain an
      <span class="interfacename"><a href="class.iterator.html" class="interfacename">Iterator</a></span> through
      <span class="methodname"><strong>SplFixedArray::getIterator()</strong></span>. This means that
-     <a href="class.splfixedarray.html" class="classname">SplFixedArray</a> is now safe to use in nested loops.
+     <span class="classname"><a href="class.splfixedarray.html" class="classname">SplFixedArray</a></span> is now safe to use in nested loops.
     </p>
    </li>
   </ul>

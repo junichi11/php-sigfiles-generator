@@ -26,16 +26,13 @@
   <div id="layout-content"><div id="function.imageantialias" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">imageantialias</h1>
-  <p class="verinfo">(PHP 4 &gt;= 4.3.2, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">imageantialias</span> &mdash; <span class="dc-title">Should antialias functions be used or not</span></p>
+  <p class="verinfo">(PHP 4 &gt;= 4.3.2, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">imageantialias</span> &mdash; <span class="dc-title">Should antialias functions be used or not</span></p>
 
  </div>
  <div class="refsect1 description" id="refsect1-function.imageantialias-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>imageantialias</strong></span>
-    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$image</code></span>
-   , <span class="methodparam"><span class="type">bool</span> <code class="parameter">$enabled</code></span>
-   ) : <span class="type">bool</span></div>
+   <span class="methodname"><strong>imageantialias</strong></span>(<span class="methodparam"><span class="type"><a href="class.gdimage.html" class="type GdImage">GdImage</a></span> <code class="parameter">$image</code></span>, <span class="methodparam"><span class="type">bool</span> <code class="parameter">$enable</code></span>): <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
    Activate the fast drawing antialiased methods for lines and wired polygons.
@@ -57,17 +54,16 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     <dt>
-<code class="parameter">
-image</code></dt>
+
+<code class="parameter">image</code></dt>
 <dd>
-<p class="para">An image resource, returned by one of the image creation functions,
+<p class="para">A <span class="classname"><a href="class.gdimage.html" class="classname">GdImage</a></span> object, returned by one of the image creation functions,
 such as <span class="function"><a href="function.imagecreatetruecolor.html" class="function">imagecreatetruecolor()</a></span>.</p></dd>
 
     
      <dt>
-<code class="parameter">enabled</code></dt>
+<code class="parameter">enable</code></dt>
 
      <dd>
 
@@ -104,6 +100,14 @@ such as <span class="function"><a href="function.imagecreatetruecolor.html" clas
 
     <tbody class="tbody">
      <tr>
+ <td>8.0.0</td>
+ <td>
+  <code class="parameter">image</code> expects a <span class="classname"><a href="class.gdimage.html" class="classname">GdImage</a></span>
+  instance now; previously, a <span class="type">resource</span> was expected.
+ </td>
+</tr>
+
+     <tr>
       <td>7.2.0</td>
       <td>
        <span class="function"><strong>imageantialias()</strong></span> is now generally available. Formerly
@@ -122,7 +126,7 @@ such as <span class="function"><a href="function.imagecreatetruecolor.html" clas
  <div class="refsect1 examples" id="refsect1-function.imageantialias-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-3096">
+   <div class="example" id="example-2612">
     <p><strong>Example #1 A comparison of two lines, one with anti-aliasing switched on</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

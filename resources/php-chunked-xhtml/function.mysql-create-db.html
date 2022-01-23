@@ -35,8 +35,7 @@
    <p class="para">This function was deprecated in PHP 4.3.0, and it
 and the entire <a href="book.mysql.html" class="link">original MySQL extension</a> was removed in PHP 7.0.0.
 Instead, use either the actively developed <a href="book.mysqli.html" class="link">MySQLi</a> or <a href="ref.pdo-mysql.html" class="link">PDO_MySQL</a> extensions.
-See also the <a href="mysqlinfo.api.choosing.html" class="link">MySQL: choosing an API</a> guide and its
-<a href="faq.databases.html#faq.databases.mysql.deprecated" class="link">related FAQ entry</a> for additional information. 
+See also the <a href="mysqlinfo.api.choosing.html" class="link">MySQL: choosing an API</a> guide.
 Alternatives to this function include:</p>
    <ul class="simplelist">
     <li class="member"><span class="function"><a href="mysqli.query.html" class="function">mysqli_query()</a></span></li>
@@ -48,10 +47,7 @@ Alternatives to this function include:</p>
  <div class="refsect1 description" id="refsect1-function.mysql-create-db-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>mysql_create_db</strong></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$database_name</code></span>
-   , <span class="methodparam"><span class="type">resource</span> <code class="parameter">$link_identifier</code><span class="initializer"> = NULL</span></span>
-   ) : <span class="type">bool</span></div>
+   <span class="methodname"><strong>mysql_create_db</strong></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$database_name</code></span>, <span class="methodparam"><span class="type">resource</span> <code class="parameter">$link_identifier</code><span class="initializer"> = NULL</span></span>): <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
    <span class="function"><strong>mysql_create_db()</strong></span> attempts to create a new
@@ -65,7 +61,6 @@ Alternatives to this function include:</p>
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">database_name</code></dt>
@@ -79,8 +74,8 @@ Alternatives to this function include:</p>
 
     
     <dt>
-<code class="parameter">
-link_identifier</code></dt>
+
+<code class="parameter">link_identifier</code></dt>
 <dd>
 <p class="para">The MySQL connection. If the
 link identifier is not specified, the last link opened by
@@ -107,7 +102,7 @@ with no arguments. If no connection is found or established, an
  <div class="refsect1 examples" id="refsect1-function.mysql-create-db-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-1965">
+   <div class="example" id="example-1720">
     <p><strong>Example #1 <span class="function"><strong>mysql_create_db()</strong></span> alternative example</strong></p>
     <div class="example-contents"><p>
      The function <span class="function"><strong>mysql_create_db()</strong></span> is deprecated. It is 

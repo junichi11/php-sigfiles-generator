@@ -34,10 +34,7 @@
  <div class="refsect1 description" id="refsect1-function.db2-execute-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>db2_execute</strong></span>
-    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$stmt</code></span>
-   , <span class="methodparam"><span class="type">array</span> <code class="parameter">$parameters</code> = ?</span>
-   ) : <span class="type">bool</span></div>
+   <span class="methodname"><strong>db2_execute</strong></span>(<span class="methodparam"><span class="type">resource</span> <code class="parameter">$stmt</code></span>, <span class="methodparam"><span class="type">array</span> <code class="parameter">$parameters</code><span class="initializer"> = ?</span></span>): <span class="type">bool</span></div>
 
 
 
@@ -68,7 +65,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">stmt</code></dt>
@@ -110,7 +106,7 @@
  <div class="refsect1 examples" id="refsect1-function.db2-execute-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-1253">
+   <div class="example" id="example-1236">
     <p><strong>Example #1 Preparing and executing an SQL statement with parameter markers</strong></p>
     <div class="example-contents"><p>
      The following example prepares an INSERT statement that accepts four
@@ -131,7 +127,7 @@ Successfully added new pet.
 </pre></div>
     </div>
    </div>
-   <div class="example" id="example-1254">
+   <div class="example" id="example-1237">
     <p><strong>Example #2 Calling a stored procedure with an OUT parameter</strong></p>
     <div class="example-contents"><p>
      The following example prepares a CALL statement that accepts one 
@@ -157,7 +153,7 @@ I have 7 pets!
 </pre></div>
     </div>
    </div>
-   <div class="example" id="example-1255">
+   <div class="example" id="example-1238">
     <p><strong>Example #3 Returning XML data as an SQL ResultSet</strong></p>
     <div class="example-contents"><p>
      The following example demonstrates how to work with documents stored 
@@ -180,7 +176,7 @@ I have 7 pets!
 </pre></div>
     </div>
    </div>
-   <div class="example" id="example-1256">
+   <div class="example" id="example-1239">
     <p><strong>Example #4 Performing a &quot;JOIN&quot; with XML data</strong></p>
     <div class="example-contents"><p>
      The following example works with documents stored in 2 different 
@@ -203,7 +199,7 @@ I have 7 pets!
 </pre></div>
     </div>
    </div>
-   <div class="example" id="example-1257">
+   <div class="example" id="example-1240">
     <p><strong>Example #5 Returning SQL data as part of a larger XML document</strong></p>
     <div class="example-contents"><p>
      The following example works with a portion of the PRODUCT.DESCRIPTION 

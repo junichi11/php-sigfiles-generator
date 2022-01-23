@@ -26,7 +26,7 @@
   <div id="layout-content"><div id="dateperiod.getenddate" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">DatePeriod::getEndDate</h1>
-  <p class="verinfo">(PHP 5 &gt;= 5.6.5, PHP 7)</p><p class="refpurpose"><span class="refname">DatePeriod::getEndDate</span> &mdash; <span class="dc-title">
+  <p class="verinfo">(PHP 5 &gt;= 5.6.5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">DatePeriod::getEndDate</span> &mdash; <span class="dc-title">
    Gets the end date
   </span></p>
 
@@ -34,11 +34,9 @@
 
  <div class="refsect1 description" id="refsect1-dateperiod.getenddate-description">
   <h3 class="title">Description</h3>
-  <p class="para">Object oriented style</p>
+  <p class="para">Object-oriented style</p>
   <div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><strong>DatePeriod::getEndDate</strong></span>
-    (
-   ) : <span class="type"><span class="type"><a href="class.datetimeinterface.html" class="type DateTimeInterface">DateTimeInterface</a></span>|<span class="type">null</span></span></div>
+   <span class="modifier">public</span> <span class="methodname"><strong>DatePeriod::getEndDate</strong></span>(): <span class="type"><span class="type">?</span><span class="type"><a href="class.datetimeinterface.html" class="type DateTimeInterface">DateTimeInterface</a></span></span></div>
 
   <p class="para rdfs-comment">
    Gets the end date of the period.
@@ -55,20 +53,20 @@
  <div class="refsect1 returnvalues" id="refsect1-dateperiod.getenddate-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns <strong><code>null</code></strong> if the <a href="class.dateperiod.html" class="classname">DatePeriod</a> does
+   Returns <strong><code>null</code></strong> if the <span class="classname"><a href="class.dateperiod.html" class="classname">DatePeriod</a></span> does
    not have an end date. For example, when initialized with the
    <code class="parameter">recurrences</code> parameter, or the
    <code class="parameter">isostr</code> parameter without an
    end date.
   </p>
   <p class="para">
-   Returns a <a href="class.datetimeimmutable.html" class="classname">DateTimeImmutable</a> <span class="type">object</span>
-   when the <a href="class.dateperiod.html" class="classname">DatePeriod</a> is initialized with a
-   <a href="class.datetimeimmutable.html" class="classname">DateTimeImmutable</a> <span class="type">object</span>
+   Returns a <span class="classname"><a href="class.datetimeimmutable.html" class="classname">DateTimeImmutable</a></span> <span class="type">object</span>
+   when the <span class="classname"><a href="class.dateperiod.html" class="classname">DatePeriod</a></span> is initialized with a
+   <span class="classname"><a href="class.datetimeimmutable.html" class="classname">DateTimeImmutable</a></span> <span class="type">object</span>
    as the <code class="parameter">end</code> parameter.
   </p>
   <p class="para">
-   Returns a <a href="class.datetime.html" class="classname">DateTime</a> <span class="type">object</span>
+   Returns a <span class="classname"><a href="class.datetime.html" class="classname">DateTime</a></span> <span class="type">object</span>
    otherwise.
   </p>
  </div>
@@ -76,7 +74,7 @@
 
  <div class="refsect1 examples" id="refsect1-dateperiod.getenddate-examples">
   <h3 class="title">Examples</h3>
-  <div class="example" id="example-2554">
+  <div class="example" id="example-2066">
    <p><strong>Example #1 <span class="methodname"><strong>DatePeriod::getEndDate()</strong></span> example</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -92,7 +90,7 @@
 </pre></div>
    </div>
   </div>
-  <div class="example" id="example-2555">
+  <div class="example" id="example-2067">
    <p><strong>Example #2 <span class="methodname"><strong>DatePeriod::getEndDate()</strong></span> without an end date</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

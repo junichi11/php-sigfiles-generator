@@ -26,16 +26,14 @@
   <div id="layout-content"><div id="function.fpassthru" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">fpassthru</h1>
-  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">fpassthru</span> &mdash; <span class="dc-title">Output all remaining data on a file pointer</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">fpassthru</span> &mdash; <span class="dc-title">Output all remaining data on a file pointer</span></p>
 
  </div>
  
  <div class="refsect1 description" id="refsect1-function.fpassthru-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>fpassthru</strong></span>
-    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$stream</code></span>
-   ) : <span class="type">int</span></div>
+   <span class="methodname"><strong>fpassthru</strong></span>(<span class="methodparam"><span class="type">resource</span> <code class="parameter">$stream</code></span>): <span class="type">int</span></div>
 
   <p class="para rdfs-comment">
    Reads to EOF on the given file pointer from the current position and
@@ -59,7 +57,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">stream</code></dt>
@@ -82,9 +79,7 @@ a file successfully opened by <span class="function"><a href="function.fopen.htm
  <div class="refsect1 returnvalues" id="refsect1-function.fpassthru-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   If an error occurs, <span class="function"><strong>fpassthru()</strong></span> returns
-   <strong><code>false</code></strong>.  Otherwise, <span class="function"><strong>fpassthru()</strong></span> returns
-   the number of characters read from <code class="parameter">stream</code>
+   Returns the number of characters read from <code class="parameter">stream</code>
    and passed through to the output.
   </p>
  </div>
@@ -93,7 +88,7 @@ a file successfully opened by <span class="function"><a href="function.fopen.htm
  <div class="refsect1 examples" id="refsect1-function.fpassthru-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-2656">
+   <div class="example" id="example-2168">
     <p><strong>Example #1 Using <span class="function"><strong>fpassthru()</strong></span> with binary files</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

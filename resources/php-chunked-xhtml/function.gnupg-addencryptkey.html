@@ -33,10 +33,7 @@
  <div class="refsect1 description" id="refsect1-function.gnupg-addencryptkey-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>gnupg_addencryptkey</strong></span>
-    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$identifier</code></span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$fingerprint</code></span>
-   ) : <span class="type">bool</span></div>
+   <span class="methodname"><strong>gnupg_addencryptkey</strong></span>(<span class="methodparam"><span class="type">resource</span> <code class="parameter">$identifier</code></span>, <span class="methodparam"><span class="type">string</span> <code class="parameter">$fingerprint</code></span>): <span class="type">bool</span></div>
 
  </div>
 
@@ -45,7 +42,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">identifier</code></dt>
@@ -53,7 +49,7 @@
      <dd>
 
       <p class="para">The gnupg identifier, from a call to
-<span class="function"><a href="function.gnupg-init.html" class="function">gnupg_init()</a></span> or <strong class="classname">gnupg</strong>.</p>
+<span class="function"><a href="function.gnupg-init.html" class="function">gnupg_init()</a></span> or <span class="classname"><strong class="classname">gnupg</strong></span>.</p>
      </dd>
 
     
@@ -84,7 +80,7 @@
  <div class="refsect1 examples" id="refsect1-function.gnupg-addencryptkey-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-3638">
+   <div class="example" id="example-3153">
     <p><strong>Example #1 Procedural <span class="function"><strong>gnupg_addencryptkey()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -94,11 +90,11 @@
     </div>
 
    </div>
-   <div class="example" id="example-3639">
+   <div class="example" id="example-3154">
     <p><strong>Example #2 OO <span class="function"><strong>gnupg_addencryptkey()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$gpg&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">gnupg</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">$gpg&nbsp;</span><span style="color: #007700">-&gt;&nbsp;</span><span style="color: #0000BB">addencryptkey</span><span style="color: #007700">(</span><span style="color: #DD0000">"8660281B6051D071D94B5B230549F9DC851566DC"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$gpg&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">gnupg</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">$gpg</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">addencryptkey</span><span style="color: #007700">(</span><span style="color: #DD0000">"8660281B6051D071D94B5B230549F9DC851566DC"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

@@ -26,16 +26,14 @@
   <div id="layout-content"><div id="function.json-last-error" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">json_last_error</h1>
-  <p class="verinfo">(PHP 5 &gt;= 5.3.0, PHP 7)</p><p class="refpurpose"><span class="refname">json_last_error</span> &mdash; <span class="dc-title">Returns the last error occurred</span></p>
+  <p class="verinfo">(PHP 5 &gt;= 5.3.0, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">json_last_error</span> &mdash; <span class="dc-title">Returns the last error occurred</span></p>
 
  </div>
 
  <div class="refsect1 description" id="refsect1-function.json-last-error-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>json_last_error</strong></span>
-    (
-   ) : <span class="type">int</span></div>
+   <span class="methodname"><strong>json_last_error</strong></span>(): <span class="type">int</span></div>
 
   <p class="para rdfs-comment">
    Returns the last error (if any) occurred during the last JSON encoding/decoding,
@@ -102,13 +100,13 @@
      <tr>
       <td><strong><code>JSON_ERROR_UTF8</code></strong></td>
       <td>Malformed UTF-8 characters, possibly incorrectly encoded</td>
-      <td>PHP 5.3.3</td>
+      <td class="empty">&nbsp;</td>
      </tr>
 
      <tr>
       <td><strong><code>JSON_ERROR_RECURSION</code></strong></td>
       <td>One or more recursive references in the value to be encoded</td>
-      <td>PHP 5.5.0</td>
+      <td class="empty">&nbsp;</td>
      </tr>
 
      <tr>
@@ -119,25 +117,25 @@
        or <a href="function.is-infinite.html" class="link"><strong><code>INF</code></strong></a>
        values in the value to be encoded
       </td>
-      <td>PHP 5.5.0</td>
+      <td class="empty">&nbsp;</td>
      </tr>
 
      <tr>
       <td><strong><code>JSON_ERROR_UNSUPPORTED_TYPE</code></strong></td>
       <td>A value of a type that cannot be encoded was given</td>
-      <td>PHP 5.5.0</td>
+      <td class="empty">&nbsp;</td>
      </tr>
 
      <tr>
       <td><strong><code>JSON_ERROR_INVALID_PROPERTY_NAME</code></strong></td>
       <td>A property name that cannot be encoded was given</td>
-      <td>PHP 7.0.0</td>
+      <td class="empty">&nbsp;</td>
      </tr>
 
      <tr>
       <td><strong><code>JSON_ERROR_UTF16</code></strong></td>
       <td>Malformed UTF-16 characters, possibly incorrectly encoded</td>
-      <td>PHP 7.0.0</td>
+      <td class="empty">&nbsp;</td>
      </tr>
 
     </tbody>
@@ -150,7 +148,7 @@
  <div class="refsect1 examples" id="refsect1-function.json-last-error-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-3973">
+   <div class="example" id="example-3475">
     <p><strong>Example #1 <span class="function"><strong>json_last_error()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -169,7 +167,7 @@ Decoding: {&#039;Organization&#039;: &#039;PHP Documentation Team&#039;} - Synta
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-3974">
+   <div class="example" id="example-3476">
     <p><strong>Example #2 <span class="function"><strong>json_last_error()</strong></span> with <span class="function"><a href="function.json-encode.html" class="function">json_encode()</a></span></strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -188,7 +186,7 @@ bool(true)
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-3975">
+   <div class="example" id="example-3477">
     <p><strong>Example #3 <span class="function"><strong>json_last_error()</strong></span> and <strong><code>JSON_THROW_ON_ERROR</code></strong></strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

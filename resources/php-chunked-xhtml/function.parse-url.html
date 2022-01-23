@@ -26,17 +26,14 @@
   <div id="layout-content"><div id="function.parse-url" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">parse_url</h1>
-  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">parse_url</span> &mdash; <span class="dc-title">Parse a URL and return its components</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">parse_url</span> &mdash; <span class="dc-title">Parse a URL and return its components</span></p>
 
  </div>
 
  <div class="refsect1 description" id="refsect1-function.parse-url-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>parse_url</strong></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$url</code></span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$component</code><span class="initializer"> = -1</span></span>
-   ) : <span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span></div>
+   <span class="methodname"><strong>parse_url</strong></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$url</code></span>, <span class="methodparam"><span class="type">int</span> <code class="parameter">$component</code><span class="initializer"> = -1</span></span>): <span class="type"><span class="type">int</span>|<span class="type">string</span>|<span class="type">array</span>|<span class="type">null</span>|<span class="type"><span class="type false">false</span></span></span></div>
 
   <p class="para rdfs-comment">
    This function parses a URL and returns an associative array containing any
@@ -45,7 +42,7 @@
   </p>
   <p class="para">
    This function is <em class="emphasis">not</em> meant to validate
-   the given URL, it only breaks it up into the above listed parts. Partial
+   the given URL, it only breaks it up into the above listed parts. Partial and invalid
    URLs are also accepted, <span class="function"><strong>parse_url()</strong></span> tries its best to
    parse them correctly.
   </p>
@@ -56,7 +53,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">url</code></dt>
@@ -64,8 +60,7 @@
      <dd>
 
       <p class="para">
-       The URL to parse. Invalid characters are replaced by
-       <code class="literal">_</code>.
+       The URL to parse.
       </p>
      </dd>
 
@@ -73,7 +68,6 @@
    </dl>
 
    <dl>
-
     
      <dt>
 <code class="parameter">component</code></dt>
@@ -158,14 +152,63 @@
    <span class="type">int</span>, in the case of <strong><code>PHP_URL_PORT</code></strong>)
    instead of an <span class="type">array</span>. If the requested component doesn&#039;t exist
    within the given URL, <strong><code>null</code></strong> will be returned.
+   As of PHP 8.0.0, <span class="function"><strong>parse_url()</strong></span> distinguishes absent and empty
+   queries and fragments:
   </p>
+  <p class="para">
+   <div class="informalexample">
+    <div class="example-contents screen">
+<div class="cdata"><pre>
+http://example.com/foo → query = null, fragment = null
+http://example.com/foo? → query = &quot;&quot;,   fragment = null
+http://example.com/foo# → query = null, fragment = &quot;&quot;
+http://example.com/foo?# → query = &quot;&quot;,   fragment = &quot;&quot;
+</pre></div>
+    </div>
+   </div>
+  </p>
+  <p class="para">
+    Previously all cases resulted in query and fragment being <strong><code>null</code></strong>.
+  </p>
+  <p class="para">
+   Note that control characters (cf. <span class="function"><a href="function.ctype-cntrl.html" class="function">ctype_cntrl()</a></span>) in the
+   components are replaced with underscores (<code class="literal">_</code>).
+  </p>
+ </div>
+
+
+ <div class="refsect1 changelog" id="refsect1-function.parse-url-changelog">
+  <h3 class="title">Changelog</h3>
+  <table class="doctable informaltable">
+   
+    <thead>
+     <tr>
+      <th>Version</th>
+      <th>Description</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+      <td>8.0.0</td>
+      <td>
+       <span class="function"><strong>parse_url()</strong></span> will now distinguish absent and empty queries
+       and fragments.
+      </td>
+     </tr>
+
+    </tbody>
+   
+  </table>
+
  </div>
 
 
  <div class="refsect1 examples" id="refsect1-function.parse-url-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-4362">
+   <div class="example" id="example-3858">
     <p><strong>Example #1 A <span class="function"><strong>parse_url()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -208,7 +251,7 @@ string(6) &quot;anchor&quot;
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-4363">
+   <div class="example" id="example-3859">
     <p><strong>Example #2 A <span class="function"><strong>parse_url()</strong></span> example with missing scheme</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -237,11 +280,15 @@ array(3) {
 
  <div class="refsect1 notes" id="refsect1-function.parse-url-notes">
   <h3 class="title">Notes</h3>
-  <blockquote class="note"><p><strong class="note">Note</strong>: 
+  <div class="caution"><strong class="caution">Caution</strong>
    <p class="para">
-    This function may not give correct results for relative URLs.
+    This function may not give correct results for relative or invalid URLs,
+    and the results may not even match common behavior of HTTP clients.
+    If URLs from untrusted input need to be parsed, extra validation is
+    required, e.g. by using <span class="function"><a href="function.filter-var.html" class="function">filter_var()</a></span> with the
+    <strong><code>FILTER_VALIDATE_URL</code></strong> filter.
    </p>
-  </p></blockquote>
+  </div>
   <blockquote class="note"><p><strong class="note">Note</strong>: 
    <p class="para">
     This function is intended specifically for the purpose of parsing URLs

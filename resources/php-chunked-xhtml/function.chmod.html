@@ -26,17 +26,14 @@
   <div id="layout-content"><div id="function.chmod" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">chmod</h1>
-  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">chmod</span> &mdash; <span class="dc-title">Changes file mode</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">chmod</span> &mdash; <span class="dc-title">Changes file mode</span></p>
 
  </div>
  
  <div class="refsect1 description" id="refsect1-function.chmod-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>chmod</strong></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$filename</code></span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$permissions</code></span>
-   ) : <span class="type">bool</span></div>
+   <span class="methodname"><strong>chmod</strong></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$filename</code></span>, <span class="methodparam"><span class="type">int</span> <code class="parameter">$permissions</code></span>): <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
    Attempts to change the mode of the specified file to that given in
@@ -49,7 +46,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">filename</code></dt>
@@ -121,6 +117,14 @@
   <h3 class="title">Return Values</h3>
   <p class="para">
    Returns <strong><code>true</code></strong> on success or <strong><code>false</code></strong> on failure.
+  </p>
+ </div>
+
+
+ <div class="refsect1 errors" id="refsect1-function.chmod-errors">
+  <h3 class="title">Errors/Exceptions</h3>
+  <p class="para">
+   Upon failure, an <strong><code>E_WARNING</code></strong> is emitted.
   </p>
  </div>
 

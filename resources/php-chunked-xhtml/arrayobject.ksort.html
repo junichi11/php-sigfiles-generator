@@ -26,27 +26,31 @@
   <div id="layout-content"><div id="arrayobject.ksort" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">ArrayObject::ksort</h1>
-  <p class="verinfo">(PHP 5 &gt;= 5.2.0, PHP 7)</p><p class="refpurpose"><span class="refname">ArrayObject::ksort</span> &mdash; <span class="dc-title">Sort the entries by key</span></p>
+  <p class="verinfo">(PHP 5 &gt;= 5.2.0, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">ArrayObject::ksort</span> &mdash; <span class="dc-title">Sort the entries by key</span></p>
 
  </div>
  <div class="refsect1 description" id="refsect1-arrayobject.ksort-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><strong>ArrayObject::ksort</strong></span>
-    ( <span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code><span class="initializer"> = <strong><code>SORT_REGULAR</code></strong></span></span>
-   ) : <span class="type"><span class="type void">void</span></span></div>
+   <span class="modifier">public</span> <span class="methodname"><strong>ArrayObject::ksort</strong></span>(<span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code><span class="initializer"> = <strong><code>SORT_REGULAR</code></strong></span></span>): <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
    Sorts the entries by key, maintaining key to entry correlations. This is
    useful mainly for associative arrays.
   </p>
+  <blockquote class="note"><p><strong class="note">Note</strong>: 
+ <p class="para">
+  If two members compare as equal, they retain their original order.
+  Prior to PHP 8.0.0, their relative order in the sorted array was undefined.
+ </p>
+</p></blockquote>
+
  </div>
 
 
  <div class="refsect1 parameters" id="refsect1-arrayobject.ksort-parameters">
   <h3 class="title">Parameters</h3>
   <dl>
-
    
   <dt>
 <code class="parameter">flags</code></dt>
@@ -105,7 +109,7 @@
  <div class="refsect1 returnvalues" id="refsect1-arrayobject.ksort-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   No value is returned.
+   Always returns <strong><code>true</code></strong>.
   </p>
  </div>
 
@@ -113,7 +117,7 @@
  <div class="refsect1 examples" id="refsect1-arrayobject.ksort-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-4250">
+   <div class="example" id="example-3751">
     <p><strong>Example #1 <span class="function"><strong>ArrayObject::ksort()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -145,6 +149,7 @@ d = lemon
     <li class="member"><span class="methodname"><a href="arrayobject.natcasesort.html" class="methodname" rel="rdfs-seeAlso">ArrayObject::natcasesort()</a> - Sort an array using a case insensitive &quot;natural order&quot; algorithm</span></li>
     <li class="member"><span class="methodname"><a href="arrayobject.uasort.html" class="methodname" rel="rdfs-seeAlso">ArrayObject::uasort()</a> - Sort the entries with a user-defined comparison function and maintain key association</span></li>
     <li class="member"><span class="methodname"><a href="arrayobject.uksort.html" class="methodname" rel="rdfs-seeAlso">ArrayObject::uksort()</a> - Sort the entries by keys using a user-defined comparison function</span></li>
+    <li class="member"><span class="function"><a href="function.ksort.html" class="function" rel="rdfs-seeAlso">ksort()</a> - Sort an array by key in ascending order</span></li>
    </ul>
   </p>
  </div>

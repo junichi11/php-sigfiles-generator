@@ -27,23 +27,17 @@
  <div class="refnamediv">
   <h1 class="refname">XMLWriter::startDtdElement</h1>
   <h1 class="refname">xmlwriter_start_dtd_element</h1>
-  <p class="verinfo">(PHP 5 &gt;= 5.1.2, PHP 7, PECL xmlwriter &gt;= 0.1.0)</p><p class="refpurpose"><span class="refname">XMLWriter::startDtdElement</span> -- <span class="refname">xmlwriter_start_dtd_element</span> &mdash; <span class="dc-title">Create start DTD element</span></p>
+  <p class="verinfo">(PHP 5 &gt;= 5.1.2, PHP 7, PHP 8, PECL xmlwriter &gt;= 0.1.0)</p><p class="refpurpose"><span class="refname">XMLWriter::startDtdElement</span> -- <span class="refname">xmlwriter_start_dtd_element</span> &mdash; <span class="dc-title">Create start DTD element</span></p>
 
  </div>
  <div class="refsect1 description" id="refsect1-xmlwriter.startdtdelement-description">
   <h3 class="title">Description</h3>
-  <p class="para">Object oriented style</p>
+  <p class="para">Object-oriented style</p>
   <div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><strong>XMLWriter::startDtdElement</strong></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$qualifiedName</code></span>
-   ) : <span class="type">bool</span></div>
+   <span class="modifier">public</span> <span class="methodname"><strong>XMLWriter::startDtdElement</strong></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$qualifiedName</code></span>): <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">Procedural style</p>
-  <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>xmlwriter_start_dtd_element</strong></span>
-    ( <span class="methodparam"><span class="type"><a href="class.xmlwriter.html" class="type XMLWriter">XMLWriter</a></span> <code class="parameter">$writer</code></span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$qualifiedName</code></span>
-   ) : <span class="type">bool</span></div>
+  <div class="methodsynopsis dc-description"><span class="methodname"><strong>xmlwriter_start_dtd_element</strong></span>(<span class="methodparam"><span class="type"><a href="class.xmlwriter.html" class="type XMLWriter">XMLWriter</a></span> <code class="parameter">$writer</code></span>, <span class="methodparam"><span class="type">string</span> <code class="parameter">$qualifiedName</code></span>): <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
    Starts a DTD element.
@@ -54,13 +48,12 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     <dt>
-<code class="parameter">
-writer</code></dt>
+
+<code class="parameter">writer</code></dt>
 <dd>
 <p class="para">Only for procedural calls.
-The <a href="class.xmlwriter.html" class="classname">XMLWriter</a> instance that is being modified. This object is returned from a call to <span class="function"><a href="xmlwriter.openuri.html" class="function">xmlwriter_open_uri()</a></span> or <span class="function"><a href="xmlwriter.openmemory.html" class="function">xmlwriter_open_memory()</a></span>.</p></dd>
+The <span class="classname"><a href="class.xmlwriter.html" class="classname">XMLWriter</a></span> instance that is being modified. This object is returned from a call to <span class="function"><a href="xmlwriter.openuri.html" class="function">xmlwriter_open_uri()</a></span> or <span class="function"><a href="xmlwriter.openmemory.html" class="function">xmlwriter_open_memory()</a></span>.</p></dd>
 
     
      <dt>
@@ -104,7 +97,7 @@ The <a href="class.xmlwriter.html" class="classname">XMLWriter</a> instance that
      <tr>
  <td>8.0.0</td>
  <td>
-  <code class="parameter">writer</code> expects an <a href="class.xmlwriter.html" class="classname">XMLWriter</a>
+  <code class="parameter">writer</code> expects an <span class="classname"><a href="class.xmlwriter.html" class="classname">XMLWriter</a></span>
   instance now; previously, a <span class="type">resource</span> was expected.
  </td>
 </tr>

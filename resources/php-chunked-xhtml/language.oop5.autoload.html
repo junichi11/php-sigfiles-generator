@@ -37,33 +37,17 @@
    if they are currently not defined. By registering autoloaders, PHP is given
    a last chance to load the class or interface before it fails with an error.
   </p>
-  <div class="tip"><strong class="tip">Tip</strong>
+  <div class="caution"><strong class="caution">Caution</strong>
    <p class="para">
-    Although the <span class="function"><a href="function.autoload.html" class="function">__autoload()</a></span> function can also be used for
-    autoloading classes and interfaces, it&#039;s preferred to use the
-    <span class="function"><a href="function.spl-autoload-register.html" class="function">spl_autoload_register()</a></span> function. This is because it is
-    a more flexible alternative (enabling for any number of autoloaders to be
-    specified in the application, such as in third party libraries). For this
-    reason, using <span class="function"><a href="function.autoload.html" class="function">__autoload()</a></span> is discouraged and deprecated
-    as of PHP 7.2.0.
+    Prior to PHP 8.0.0, it was possible to use <span class="function"><a href="function.autoload.html" class="function">__autoload()</a></span>
+    to autoload classes and interfaces. However, it is a less flexible
+    alternative to <span class="function"><a href="function.spl-autoload-register.html" class="function">spl_autoload_register()</a></span> and
+    <span class="function"><a href="function.autoload.html" class="function">__autoload()</a></span> is deprecated as of PHP 7.2.0, and removed
+    as of PHP 8.0.0.
    </p>
   </div>
-  <blockquote class="note"><p><strong class="note">Note</strong>: 
-   <p class="para">
-    Autoloading is not available if using PHP in CLI
-    <a href="features.commandline.html" class="link">interactive mode</a>.
-   </p>
-  </p></blockquote>
-  <blockquote class="note"><p><strong class="note">Note</strong>: 
-   <p class="para">
-    If the class name is used e.g. in <span class="function"><a href="function.call-user-func.html" class="function">call_user_func()</a></span> then
-    it can contain some dangerous characters such as <code class="literal">../</code>.
-    It is recommended to not use the user-input in such functions or at least
-    verify the input in <span class="function"><a href="function.autoload.html" class="function">__autoload()</a></span>.
-   </p>
-  </p></blockquote>
   <p class="para">
-   <div class="example" id="example-213">
+   <div class="example" id="example-221">
     <p><strong>Example #1 Autoload example</strong></p>
     <div class="example-contents"><p>
      This example attempts to load the classes <code class="literal">MyClass1</code>
@@ -78,7 +62,7 @@
     </div>
 
    </div>
-   <div class="example" id="example-214">
+   <div class="example" id="example-222">
     <p><strong>Example #2 Autoload other example</strong></p>
     <div class="example-contents"><p>
      This example attempts to load the interface <code class="literal">ITest</code>.
@@ -91,7 +75,7 @@
     </div>
 
    </div>
-   <div class="example" id="example-215">
+   <div class="example" id="example-223">
     <p><strong>Example #3 Autoloading with exception handling</strong></p>
     <div class="example-contents"><p>
      This example throws an exception and demonstrates the try/catch block.
@@ -111,7 +95,7 @@ Unable to load NonLoadableClass.
 </pre></div>
     </div>
    </div>
-   <div class="example" id="example-216">
+   <div class="example" id="example-224">
     <p><strong>Example #4 Autoloading with exception handling - Missing custom exception</strong></p>
     <div class="example-contents"><p>
      This example throws an exception for a non-loadable, custom exception.

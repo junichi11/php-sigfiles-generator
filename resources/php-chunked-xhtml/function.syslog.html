@@ -26,17 +26,14 @@
   <div id="layout-content"><div id="function.syslog" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">syslog</h1>
-  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">syslog</span> &mdash; <span class="dc-title">Generate a system log message</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">syslog</span> &mdash; <span class="dc-title">Generate a system log message</span></p>
 
  </div>
  
  <div class="refsect1 description" id="refsect1-function.syslog-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>syslog</strong></span>
-    ( <span class="methodparam"><span class="type">int</span> <code class="parameter">$priority</code></span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$message</code></span>
-   ) : <span class="type">bool</span></div>
+   <span class="methodname"><strong>syslog</strong></span>(<span class="methodparam"><span class="type">int</span> <code class="parameter">$priority</code></span>, <span class="methodparam"><span class="type">string</span> <code class="parameter">$message</code></span>): <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
    <span class="function"><strong>syslog()</strong></span> generates a log message that will be
@@ -57,7 +54,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">priority</code></dt>
@@ -134,10 +130,7 @@
      <dd>
 
       <p class="para">
-       The message to send, except that the two characters
-       <code class="literal">%m</code> will be replaced by the error message string
-       (strerror) corresponding to the present value of
-       <span class="errortype">errno</span>.
+       The message to send.
       </p>
      </dd>
 
@@ -159,7 +152,7 @@
  <div class="refsect1 examples" id="refsect1-function.syslog-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-4964">
+   <div class="example" id="example-4464">
     <p><strong>Example #1 Using <span class="function"><strong>syslog()</strong></span></strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -176,7 +169,7 @@
  <div class="refsect1 notes" id="refsect1-function.syslog-notes">
   <h3 class="title">Notes</h3>
   <p class="para">
-   On Windows NT, the syslog service is emulated using the Event
+   On Windows, the syslog service is emulated using the Event
    Log.
   </p>
   <blockquote class="note"><p><strong class="note">Note</strong>: 
@@ -196,6 +189,7 @@
    <ul class="simplelist">
     <li class="member"><span class="function"><a href="function.openlog.html" class="function" rel="rdfs-seeAlso">openlog()</a> - Open connection to system logger</span></li>
     <li class="member"><span class="function"><a href="function.closelog.html" class="function" rel="rdfs-seeAlso">closelog()</a> - Close connection to system logger</span></li>
+    <li class="member"><a href="errorfunc.configuration.html#ini.syslog.filter" class="link">syslog.filter</a> INI setting (starting with PHP 7.3)</li>
    </ul>
   </p>
  </div>

@@ -26,23 +26,19 @@
   <div id="layout-content"><div id="function.openssl-pkcs12-read" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">openssl_pkcs12_read</h1>
-  <p class="verinfo">(PHP 5 &gt;= 5.2.2, PHP 7)</p><p class="refpurpose"><span class="refname">openssl_pkcs12_read</span> &mdash; <span class="dc-title">Parse a PKCS#12 Certificate Store into an array</span></p>
+  <p class="verinfo">(PHP 5 &gt;= 5.2.2, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">openssl_pkcs12_read</span> &mdash; <span class="dc-title">Parse a PKCS#12 Certificate Store into an array</span></p>
 
  </div>
  
  <div class="refsect1 description" id="refsect1-function.openssl-pkcs12-read-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>openssl_pkcs12_read</strong></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$pkcs12</code></span>
-   , <span class="methodparam"><span class="type">array</span> <code class="parameter reference">&$certs</code></span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$pass</code></span>
-   ) : <span class="type">bool</span></div>
+   <span class="methodname"><strong>openssl_pkcs12_read</strong></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$pkcs12</code></span>, <span class="methodparam"><span class="type">array</span> <code class="parameter reference">&$certificates</code></span>, <span class="methodparam"><span class="type">string</span> <code class="parameter">$passphrase</code></span>): <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
    <span class="function"><strong>openssl_pkcs12_read()</strong></span> parses the PKCS#12 certificate store supplied by
    <code class="parameter">pkcs12</code> into a array named
-   <code class="parameter">certs</code>.
+   <code class="parameter">certificates</code>.
   </p>
  </div>
 
@@ -51,7 +47,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">pkcs12</code></dt>
@@ -66,7 +61,7 @@
     
     
      <dt>
-<code class="parameter">certs</code></dt>
+<code class="parameter">certificates</code></dt>
 
      <dd>
 
@@ -78,7 +73,7 @@
     
     
      <dt>
-<code class="parameter">pass</code></dt>
+<code class="parameter">passphrase</code></dt>
 
      <dd>
 
@@ -104,7 +99,7 @@
 
  <div class="refsect1 examples" id="refsect1-function.openssl-pkcs12-read-examples">
   <h3 class="title">Examples</h3>
-  <div class="example" id="example-928">
+  <div class="example" id="example-932">
    <p><strong>Example #1 <span class="function"><strong>openssl_pkcs12_read()</strong></span> example</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

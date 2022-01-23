@@ -27,27 +27,18 @@
  <div class="refnamediv">
   <h1 class="refname">DateTime::createFromFormat</h1>
   <h1 class="refname">date_create_from_format</h1>
-  <p class="verinfo">(PHP 5 &gt;= 5.3.0, PHP 7)</p><p class="refpurpose"><span class="refname">DateTime::createFromFormat</span> -- <span class="refname">date_create_from_format</span> &mdash; <span class="dc-title">Parses a time string according to a specified format</span></p>
+  <p class="verinfo">(PHP 5 &gt;= 5.3.0, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">DateTime::createFromFormat</span> -- <span class="refname">date_create_from_format</span> &mdash; <span class="dc-title">Parses a time string according to a specified format</span></p>
 
  </div>
 
  <div class="refsect1 description" id="refsect1-datetime.createfromformat-description">
   <h3 class="title">Description</h3>
-  <p class="para">Object oriented style</p>
+  <p class="para">Object-oriented style</p>
   <div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="modifier">static</span> <span class="methodname"><strong>DateTime::createFromFormat</strong></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$format</code></span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$datetime</code></span>
-   , <span class="methodparam"><span class="type"><span class="type"><a href="class.datetimezone.html" class="type DateTimeZone">DateTimeZone</a></span>|<span class="type">null</span></span> <code class="parameter">$timezone</code><span class="initializer"> = <strong><code>null</code></strong></span></span>
-   ) : <span class="type"><span class="type"><a href="class.datetime.html" class="type DateTime">DateTime</a></span>|<span class="type"><span class="type false">false</span></span></span></div>
+   <span class="modifier">public</span> <span class="modifier">static</span> <span class="methodname"><strong>DateTime::createFromFormat</strong></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$format</code></span>, <span class="methodparam"><span class="type">string</span> <code class="parameter">$datetime</code></span>, <span class="methodparam"><span class="type">?</span><span class="type"><span class="type"><a href="class.datetimezone.html" class="type DateTimeZone">DateTimeZone</a></span><span class="type"></span></span> <code class="parameter">$timezone</code><span class="initializer"> = <strong><code>null</code></strong></span></span>): <span class="type"><span class="type"><a href="class.datetime.html" class="type DateTime">DateTime</a></span>|<span class="type"><span class="type false">false</span></span></span></div>
 
   <p class="para rdfs-comment">Procedural style</p>
-  <div class="methodsynopsis dc-description">
-   <span class="methodname"><a href="function.date-create-from-format.html" class="methodname">date_create_from_format</a></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$format</code></span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$datetime</code></span>
-   , <span class="methodparam"><span class="type"><span class="type"><a href="class.datetimezone.html" class="type DateTimeZone">DateTimeZone</a></span>|<span class="type">null</span></span> <code class="parameter">$timezone</code><span class="initializer"> = <strong><code>null</code></strong></span></span>
-   ) : <span class="type"><span class="type"><a href="class.datetime.html" class="type DateTime">DateTime</a></span>|<span class="type"><span class="type false">false</span></span></span></div>
+  <div class="methodsynopsis dc-description"><span class="methodname"><a href="function.date-create-from-format.html" class="methodname">date_create_from_format</a></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$format</code></span>, <span class="methodparam"><span class="type">string</span> <code class="parameter">$datetime</code></span>, <span class="methodparam"><span class="type">?</span><span class="type"><span class="type"><a href="class.datetimezone.html" class="type DateTimeZone">DateTimeZone</a></span><span class="type"></span></span> <code class="parameter">$timezone</code><span class="initializer"> = <strong><code>null</code></strong></span></span>): <span class="type"><span class="type"><a href="class.datetime.html" class="type DateTime">DateTime</a></span>|<span class="type"><span class="type false">false</span></span></span></div>
 
   <p class="para rdfs-comment">
    Returns a new DateTime object representing the date and time specified by the
@@ -60,7 +51,6 @@
  <div class="refsect1 parameters" id="refsect1-datetime.createfromformat-parameters">
   <h3 class="title">Parameters</h3>
   <dl>
-
    
     <dt>
 <code class="parameter">format</code></dt>
@@ -123,7 +113,10 @@
 
          <tr>
           <td><code class="literal">z</code></td>
-          <td>The day of the year (starting from 0)</td>
+          <td>
+           The day of the year (starting from 0);
+           must be preceded by <code class="literal">Y</code> or <code class="literal">y</code>.
+          </td>
           <td><code class="literal">0</code> through <code class="literal">365</code></td>
          </tr>
 
@@ -318,7 +311,10 @@
          <tr>
           <td><code class="literal">!</code></td>
           <td>Resets all fields (year, month, day, hour, minute, second,
-          fraction and timezone information) to the Unix Epoch</td>
+          fraction and timezone information) to zero-like values (
+           <code class="literal">0</code> for hour, minute, second and fraction,
+           <code class="literal">1</code> for month and day, <code class="literal">1970</code>
+           for year and <code class="literal">UTC</code> for timezone information)</td>
           <td>Without <code class="literal">!,</code> all fields will be set to the
           current date and time.</td>
          </tr>
@@ -326,7 +322,7 @@
          <tr>
           <td><code class="literal">|</code></td>
           <td>Resets all fields (year, month, day, hour, minute, second,
-          fraction and timezone information) to the Unix Epoch if they have
+          fraction and timezone information) to zero-like values if they have
           not been parsed yet</td>
           <td><code class="literal">Y-m-d|</code> will set the year, month and day
           to the information found in the string to parse, and sets the hour,
@@ -394,7 +390,7 @@
     <dd>
 
      <p class="para">
-      A <a href="class.datetimezone.html" class="classname">DateTimeZone</a> object representing the
+      A <span class="classname"><a href="class.datetimezone.html" class="classname">DateTimeZone</a></span> object representing the
       desired time zone.
      </p>
      <p class="para">
@@ -459,9 +455,9 @@
 
  <div class="refsect1 examples" id="refsect1-datetime.createfromformat-examples">
   <h3 class="title">Examples</h3>
-  <div class="example" id="example-2511">
+  <div class="example" id="example-2024">
    <p><strong>Example #1 <span class="function"><strong>DateTime::createFromFormat()</strong></span> example</strong></p>
-   <div class="example-contents"><p>Object oriented style</p></div>
+   <div class="example-contents"><p>Object-oriented style</p></div>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
 <span style="color: #0000BB">&lt;?php<br />$date&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">DateTime</span><span style="color: #007700">::</span><span style="color: #0000BB">createFromFormat</span><span style="color: #007700">(</span><span style="color: #DD0000">'j-M-Y'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'15-Feb-2009'</span><span style="color: #007700">);<br />echo&nbsp;</span><span style="color: #0000BB">$date</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">format</span><span style="color: #007700">(</span><span style="color: #DD0000">'Y-m-d'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
@@ -484,7 +480,7 @@
 </pre></div>
    </div>
   </div>
-  <div class="example" id="example-2512">
+  <div class="example" id="example-2025">
    <p><strong>Example #2 Intricacies of <span class="function"><strong>DateTime::createFromFormat()</strong></span></strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -505,7 +501,7 @@ Format: !d; 1970-01-15 00:00:00
 </pre></div>
    </div>
   </div>
-  <div class="example" id="example-2513">
+  <div class="example" id="example-2026">
    <p><strong>Example #3 Format string with literal characters</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

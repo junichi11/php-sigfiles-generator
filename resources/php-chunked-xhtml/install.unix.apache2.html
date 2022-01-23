@@ -10,7 +10,7 @@
  <body class="docs"><div class="navbar navbar-fixed-top">
   <div class="navbar-inner clearfix">
     <ul class="nav" style="width: 100%">
-      <li style="float: left;"><a href="install.unix.apache.html">« Apache 1.3.x on Unix systems</a></li>
+      <li style="float: left;"><a href="install.unix.html">« Installation on Unix systems</a></li>
       <li style="float: right;"><a href="install.unix.nginx.html">Nginx 1.4.x on Unix systems »</a></li>
     </ul>
   </div>
@@ -154,7 +154,7 @@ apxs to apxs2.
      <div class="example-contents screen">
 <div class="cdata"><pre>
 cd ../php-NN
-./configure --with-apxs2=/usr/local/apache2/bin/apxs --with-mysql
+./configure --with-apxs2=/usr/local/apache2/bin/apxs --with-pdo-mysql
 make
 make install
 </pre></div>
@@ -204,14 +204,25 @@ cp php.ini-development /usr/local/lib/php.ini
 
     <li class="listitem">
 
- <p class="para">
-   Edit your httpd.conf to load the PHP module.  The path on the right hand
-    side of the LoadModule statement must point to the path of the PHP
-    module on your system.  The make install from above may have already
-    added this for you, but be sure to check.
-</p>
+     <p class="para">
+      Edit your httpd.conf to load the PHP module.  The path on the right hand
+      side of the LoadModule statement must point to the path of the PHP
+      module on your system.  The make install from above may have already
+      added this for you, but be sure to check.
+     </p>
 
-      <div class="informalexample">
+     <div class="informalexample">
+       <p class="para">
+        For PHP 8:
+       </p>
+       <div class="example-contents">
+<div class="apache-confcode"><pre class="apache-confcode">LoadModule php_module modules/libphp.so</pre>
+</div>
+      </div>
+
+     </div>
+
+     <div class="informalexample">
        <p class="para">
         For PHP 7:
        </p>
@@ -222,20 +233,9 @@ cp php.ini-development /usr/local/lib/php.ini
 
      </div>
 
-      <div class="informalexample">
-       <p class="para">
-        For PHP 5:
-       </p>
-       <div class="example-contents">
-<div class="apache-confcode"><pre class="apache-confcode">LoadModule php5_module modules/libphp5.so</pre>
-</div>
-       </div>
+    </li>
 
-      </div>
-
-      </li>
-
-      <li class="listitem">
+    <li class="listitem">
 
     <p class="para">
     Tell Apache to parse certain extensions as PHP.  For example, let&#039;s have

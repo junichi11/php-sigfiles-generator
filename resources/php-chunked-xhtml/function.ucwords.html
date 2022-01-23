@@ -26,26 +26,23 @@
   <div id="layout-content"><div id="function.ucwords" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">ucwords</h1>
-  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">ucwords</span> &mdash; <span class="dc-title">Uppercase the first character of each word in a string</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">ucwords</span> &mdash; <span class="dc-title">Uppercase the first character of each word in a string</span></p>
 
  </div>
  
  <div class="refsect1 description" id="refsect1-function.ucwords-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>ucwords</strong></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$string</code></span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$separators</code><span class="initializer"> = &quot; \t\r\n\f\v&quot;</span></span>
-   ) : <span class="type">string</span></div>
+   <span class="methodname"><strong>ucwords</strong></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$string</code></span>, <span class="methodparam"><span class="type">string</span> <code class="parameter">$separators</code><span class="initializer"> = &quot; \t\r\n\f\v&quot;</span></span>): <span class="type">string</span></div>
 
   <p class="para rdfs-comment">
    Returns a string with the first character of each word in
    <code class="parameter">string</code> capitalized, if that character is alphabetic.
   </p>
   <p class="para">
-   The definition of a word is any string of characters that is immediately
-   after any character listed in the <code class="parameter">separators</code> parameter
-   (By default these are: space, form-feed, newline, carriage return, horizontal tab, and vertical tab).
+   For this function, a word is a string of characters that are not listed in 
+   the <code class="parameter">separators</code> parameter. By default, these are: 
+   space, horizontal tab, carriage return, newline, form-feed and vertical tab.
   </p>
  </div>
 
@@ -54,7 +51,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">string</code></dt>
@@ -96,7 +92,7 @@
  <div class="refsect1 examples" id="refsect1-function.ucwords-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-5398">
+   <div class="example" id="example-4891">
     <p><strong>Example #1 <span class="function"><strong>ucwords()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -109,7 +105,7 @@
   </p>
 
   <p class="para">
-   <div class="example" id="example-5399">
+   <div class="example" id="example-4892">
     <p><strong>Example #2 <span class="function"><strong>ucwords()</strong></span> example with custom delimiter</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -122,7 +118,7 @@
   </p>
 
   <p class="para">
-   <div class="example" id="example-5400">
+   <div class="example" id="example-4893">
     <p><strong>Example #3 <span class="function"><strong>ucwords()</strong></span> example with additional delimiters</strong></p>
     <div class="example-contents">
      <div class="phpcode"><code><span style="color: #000000">

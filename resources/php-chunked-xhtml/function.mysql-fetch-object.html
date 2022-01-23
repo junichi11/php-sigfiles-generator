@@ -34,8 +34,7 @@
   <div class="warning"><strong class="warning">Warning</strong>
    <p class="para">This extension was deprecated in PHP 5.5.0, and it was removed in PHP 7.0.0.
 Instead, the <a href="book.mysqli.html" class="link">MySQLi</a> or <a href="ref.pdo-mysql.html" class="link">PDO_MySQL</a> extension should be used.
-See also <a href="mysqlinfo.api.choosing.html" class="link">MySQL: choosing an API</a> guide and
-<a href="faq.databases.html#faq.databases.mysql.deprecated" class="link">related FAQ</a> for more information.
+See also <a href="mysqlinfo.api.choosing.html" class="link">MySQL: choosing an API</a> guide.
 Alternatives to this function include:</p>
    <ul class="simplelist">
     <li class="member"><span class="function"><a href="mysqli-result.fetch-object.html" class="function">mysqli_fetch_object()</a></span></li>
@@ -47,11 +46,7 @@ Alternatives to this function include:</p>
  <div class="refsect1 description" id="refsect1-function.mysql-fetch-object-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>mysql_fetch_object</strong></span>
-    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$result</code></span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$class_name</code> = ?</span>
-   , <span class="methodparam"><span class="type">array</span> <code class="parameter">$params</code> = ?</span>
-   ) : <span class="type">object</span></div>
+   <span class="methodname"><strong>mysql_fetch_object</strong></span>(<span class="methodparam"><span class="type">resource</span> <code class="parameter">$result</code></span>, <span class="methodparam"><span class="type">string</span> <code class="parameter">$class_name</code><span class="initializer"> = ?</span></span>, <span class="methodparam"><span class="type">array</span> <code class="parameter">$params</code><span class="initializer"> = ?</span></span>): <span class="type">object</span></div>
 
   <p class="para rdfs-comment">
    Returns an object with properties that correspond to the fetched row
@@ -64,10 +59,9 @@ Alternatives to this function include:</p>
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     <dt>
-<code class="parameter">
-result</code></dt>
+
+<code class="parameter">result</code></dt>
 <dd>
 <p class="para">The result <span class="type">resource</span> that
 is being evaluated. This result comes from a call to
@@ -81,7 +75,7 @@ is being evaluated. This result comes from a call to
 
        <p class="para">
         The name of the class to instantiate, set the properties of and return.
-        If not specified, a <strong class="classname">stdClass</strong> object is returned.
+        If not specified, a <span class="classname"><strong class="classname">stdClass</strong></span> object is returned.
        </p>
      </dd>
 
@@ -117,7 +111,7 @@ is being evaluated. This result comes from a call to
  <div class="refsect1 examples" id="refsect1-function.mysql-fetch-object-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-1980">
+   <div class="example" id="example-1735">
     <p><strong>Example #1 <span class="function"><strong>mysql_fetch_object()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -129,7 +123,7 @@ is being evaluated. This result comes from a call to
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-1981">
+   <div class="example" id="example-1736">
     <p><strong>Example #2 <span class="function"><strong>mysql_fetch_object()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

@@ -26,17 +26,14 @@
   <div id="layout-content"><div id="function.date-default-timezone-get" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">date_default_timezone_get</h1>
-  <p class="verinfo">(PHP 5 &gt;= 5.1.0, PHP 7)</p><p class="refpurpose"><span class="refname">date_default_timezone_get</span> &mdash; <span class="dc-title">
+  <p class="verinfo">(PHP 5 &gt;= 5.1.0, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">date_default_timezone_get</span> &mdash; <span class="dc-title">
    Gets the default timezone used by all date/time functions in a script
   </span></p>
 
  </div>
  <div class="refsect1 description" id="refsect1-function.date-default-timezone-get-description">
   <h3 class="title">Description</h3>
-  <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>date_default_timezone_get</strong></span>
-    (
-   ) : <span class="type">string</span></div>
+  <div class="methodsynopsis dc-description"><span class="methodname"><strong>date_default_timezone_get</strong></span>(): <span class="type">string</span></div>
 
   <p class="para rdfs-comment">
    In order of preference, this function returns the default timezone by:
@@ -49,22 +46,13 @@
     </li>
     <li class="listitem">
      <p class="para">
-      Prior to PHP 5.4.0 <em class="emphasis">only</em>: Reading the <var class="varname">TZ</var>
-      environment variable (if non empty)
-     </p>
-    </li>
-    <li class="listitem">
-     <p class="para">
       Reading the value of the <a href="datetime.configuration.html#ini.date.timezone" class="link">date.timezone</a> ini option
       (if set)
      </p>
     </li>
     <li class="listitem">
      <p class="para">
-      Prior to PHP 5.4.0 <em class="emphasis">only</em>: Querying the host operating system (if supported
-      and allowed by the OS). This uses an algorithm
-      that has to <em class="emphasis">guess</em> the timezone. This is by no means going to work correctly for 
-      every situation. A warning is shown when this stage is reached. Do not rely on it to be guessed
+      A warning is shown when this stage is reached. Do not rely on it to be guessed
       correctly, and set <a href="datetime.configuration.html#ini.date.timezone" class="link">date.timezone</a> to the correct timezone
       instead.
      </p>
@@ -78,6 +66,12 @@
  </div>
 
 
+ <div class="refsect1 parameters" id="refsect1-function.date-default-timezone-get-parameters">
+  <h3 class="title">Parameters</h3>
+  <p class="para">This function has no parameters.</p>
+ </div>
+
+ 
  <div class="refsect1 returnvalues" id="refsect1-function.date-default-timezone-get-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
@@ -89,7 +83,7 @@
  <div class="refsect1 examples" id="refsect1-function.date-default-timezone-get-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-2558">
+   <div class="example" id="example-2070">
     <p><strong>Example #1 Getting the default timezone</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -109,7 +103,7 @@ date.timezone: Europe/London
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-2559">
+   <div class="example" id="example-2071">
     <p><strong>Example #2 Getting the abbreviation of a timezone</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

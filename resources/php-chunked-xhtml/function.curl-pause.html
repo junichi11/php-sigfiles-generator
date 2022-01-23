@@ -26,17 +26,14 @@
   <div id="layout-content"><div id="function.curl-pause" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">curl_pause</h1>
-  <p class="verinfo">(PHP 5 &gt;= 5.5.0, PHP 7)</p><p class="refpurpose"><span class="refname">curl_pause</span> &mdash; <span class="dc-title">Pause and unpause a connection</span></p>
+  <p class="verinfo">(PHP 5 &gt;= 5.5.0, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">curl_pause</span> &mdash; <span class="dc-title">Pause and unpause a connection</span></p>
 
  </div>
 
  <div class="refsect1 description" id="refsect1-function.curl-pause-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>curl_pause</strong></span>
-    ( <span class="methodparam"><span class="type"><a href="class.curlhandle.html" class="type CurlHandle">CurlHandle</a></span> <code class="parameter">$handle</code></span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code></span>
-   ) : <span class="type">int</span></div>
+   <span class="methodname"><strong>curl_pause</strong></span>(<span class="methodparam"><span class="type"><a href="class.curlhandle.html" class="type CurlHandle">CurlHandle</a></span> <code class="parameter">$handle</code></span>, <span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code></span>): <span class="type">int</span></div>
 
   <p class="para rdfs-comment">
 
@@ -52,7 +49,6 @@ currently not documented; only its argument list is available.
  <div class="refsect1 parameters" id="refsect1-function.curl-pause-parameters">
   <h3 class="title">Parameters</h3>
   <dl>
-
    <dt>
 <code class="parameter">handle</code>
 </dt>
@@ -101,7 +97,7 @@ currently not documented; only its argument list is available.
      <tr>
  <td>8.0.0</td>
  <td>
-  <code class="parameter">handle</code> expects a <a href="class.curlhandle.html" class="classname">CurlHandle</a>
+  <code class="parameter">handle</code> expects a <span class="classname"><a href="class.curlhandle.html" class="classname">CurlHandle</a></span>
   instance now; previously, a <span class="type">resource</span> was expected.
  </td>
 </tr>

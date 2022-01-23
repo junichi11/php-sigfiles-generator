@@ -33,12 +33,10 @@
  <div class="refsect1 description" id="refsect1-mongodb-driver-session.getserver-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><strong>MongoDB\Driver\Session::getServer</strong></span>
-    (
-   ) : <span class="type"><span class="type"><a href="class.mongodb-driver-server.html" class="type MongoDB\Driver\Server">MongoDB\Driver\Server</a></span>|<span class="type">null</span></span></div>
+   <span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><strong>MongoDB\Driver\Session::getServer</strong></span>(): <span class="type"><span class="type">?</span><span class="type"><a href="class.mongodb-driver-server.html" class="type MongoDB\Driver\Server">MongoDB\Driver\Server</a></span></span></div>
 
   <p class="para rdfs-comment">
-   Returns the <a href="class.mongodb-driver-server.html" class="classname">MongoDB\Driver\Server</a> to which this
+   Returns the <span class="classname"><a href="class.mongodb-driver-server.html" class="classname">MongoDB\Driver\Server</a></span> to which this
    session is pinned. If the session is not pinned to a server, <strong><code>null</code></strong> will be
    returned.
   </p>
@@ -60,7 +58,7 @@
  <div class="refsect1 returnvalues" id="refsect1-mongodb-driver-session.getserver-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns the <a href="class.mongodb-driver-server.html" class="classname">MongoDB\Driver\Server</a> to which this
+   Returns the <span class="classname"><a href="class.mongodb-driver-server.html" class="classname">MongoDB\Driver\Server</a></span> to which this
    session is pinned, or <strong><code>null</code></strong> if the session is not pinned to any server.
   </p>
  </div>
@@ -69,7 +67,7 @@
  <div class="refsect1 errors" id="refsect1-mongodb-driver-session.getserver-errors">
   <h3 class="title">Errors/Exceptions</h3>
   <ul class="simplelist">
-   <li class="member">Throws <a href="class.mongodb-driver-exception-invalidargumentexception.html" class="classname">MongoDB\Driver\Exception\InvalidArgumentException</a> on argument parsing errors.</li>
+   <li class="member">Throws <span class="classname"><a href="class.mongodb-driver-exception-invalidargumentexception.html" class="classname">MongoDB\Driver\Exception\InvalidArgumentException</a></span> on argument parsing errors.</li>
   </ul>
  </div>
 

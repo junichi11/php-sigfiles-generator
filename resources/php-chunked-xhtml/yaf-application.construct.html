@@ -33,13 +33,10 @@
  <div class="refsect1 description" id="refsect1-yaf-application.construct-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><strong>Yaf_Application::__construct</strong></span>
-    ( <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$config</code></span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$envrion</code> = ?</span>
-   )</div>
+   <span class="modifier">public</span> <span class="methodname"><strong>Yaf_Application::__construct</strong></span>(<span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$config</code></span>, <span class="methodparam"><span class="type">string</span> <code class="parameter">$envrion</code><span class="initializer"> = ?</span></span>)</div>
 
   <p class="para rdfs-comment">
-   Instance a <a href="class.yaf-application.html" class="classname">Yaf_Application</a>.
+   Instance a <span class="classname"><a href="class.yaf-application.html" class="classname">Yaf_Application</a></span>.
   </p>
 
 
@@ -50,7 +47,6 @@
  <div class="refsect1 parameters" id="refsect1-yaf-application.construct-parameters">
   <h3 class="title">Parameters</h3>
   <dl>
-
    
     <dt>
 <code class="parameter">config</code></dt>
@@ -74,7 +70,7 @@
      </p>
      <p class="para">
        And the config entry(and there default value) list blow:
-      <div class="example" id="example-4388">
+      <div class="example" id="example-3884">
        <p><strong>Example #1 A ini config file example</strong></p>
        <div class="example-contents">
 <div class="inicode"><pre class="inicode">[product]
@@ -135,11 +131,11 @@ ap.modules=Index</pre>
 
  <div class="refsect1 examples" id="refsect1-yaf-application.construct-examples">
   <h3 class="title">Examples</h3>
-  <div class="example" id="example-4389">
+  <div class="example" id="example-3885">
    <p><strong>Example #2 <span class="function"><strong>Yaf_Application::__construct()</strong></span>example</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />defined</span><span style="color: #007700">(</span><span style="color: #DD0000">'APPLICATION_PATH'</span><span style="color: #007700">)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;APPLICATION_PATH&nbsp;will&nbsp;be&nbsp;used&nbsp;in&nbsp;the&nbsp;ini&nbsp;config&nbsp;file<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">||&nbsp;</span><span style="color: #0000BB">define</span><span style="color: #007700">(</span><span style="color: #DD0000">'APPLICATION_PATH'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">__DIR__</span><span style="color: #007700">));&nbsp;</span><span style="color: #FF8000">//__DIR__&nbsp;was&nbsp;introduced&nbsp;after&nbsp;PHP&nbsp;5.3<br /><br /></span><span style="color: #0000BB">$application&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">Yaf_Application</span><span style="color: #007700">(</span><span style="color: #0000BB">APPLICATION_PATH</span><span style="color: #007700">.</span><span style="color: #DD0000">'/conf/application.ini'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$application</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">bootstrap</span><span style="color: #007700">()-&gt;</span><span style="color: #0000BB">run</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />defined</span><span style="color: #007700">(</span><span style="color: #DD0000">'APPLICATION_PATH'</span><span style="color: #007700">)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;APPLICATION_PATH&nbsp;will&nbsp;be&nbsp;used&nbsp;in&nbsp;the&nbsp;ini&nbsp;config&nbsp;file<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">||&nbsp;</span><span style="color: #0000BB">define</span><span style="color: #007700">(</span><span style="color: #DD0000">'APPLICATION_PATH'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">__DIR__</span><span style="color: #007700">));<br /><br /></span><span style="color: #0000BB">$application&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">Yaf_Application</span><span style="color: #007700">(</span><span style="color: #0000BB">APPLICATION_PATH</span><span style="color: #007700">.</span><span style="color: #DD0000">'/conf/application.ini'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$application</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">bootstrap</span><span style="color: #007700">()-&gt;</span><span style="color: #0000BB">run</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
    </div>
@@ -151,7 +147,7 @@ something similar to:</p></div>
 </pre></div>
    </div>
   </div>
-  <div class="example" id="example-4390">
+  <div class="example" id="example-3886">
    <p><strong>Example #3 <span class="function"><strong>Yaf_Application::__construct()</strong></span>example</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -173,7 +169,7 @@ something similar to:</p></div>
  <div class="refsect1 seealso" id="refsect1-yaf-application.construct-seealso">
   <h3 class="title">See Also</h3>
   <ul class="simplelist">
-   <li class="member"><a href="class.yaf-config-ini.html" class="classname">Yaf_Config_Ini</a></li>
+   <li class="member"><span class="classname"><a href="class.yaf-config-ini.html" class="classname">Yaf_Config_Ini</a></span></li>
   </ul>
  </div>
 

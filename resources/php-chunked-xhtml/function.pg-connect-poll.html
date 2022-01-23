@@ -28,7 +28,7 @@
   <div id="layout-content"><div id="function.pg-connect-poll" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">pg_connect_poll</h1>
-  <p class="verinfo">(PHP 5 &gt;= 5.6.0, PHP 7)</p><p class="refpurpose"><span class="refname">pg_connect_poll</span> &mdash; <span class="dc-title">
+  <p class="verinfo">(PHP 5 &gt;= 5.6.0, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">pg_connect_poll</span> &mdash; <span class="dc-title">
    Poll the status of an in-progress asynchronous PostgreSQL connection
    attempt
   </span></p>
@@ -38,9 +38,7 @@
  <div class="refsect1 description" id="refsect1-function.pg-connect-poll-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>pg_connect_poll</strong></span>
-    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$connection</code></span>
-   ) : <span class="type">int</span></div>
+   <span class="methodname"><strong>pg_connect_poll</strong></span>(<span class="methodparam"><span class="type"><a href="class.pgsql-connection.html" class="type PgSql\Connection">PgSql\Connection</a></span> <code class="parameter">$connection</code></span>): <span class="type">int</span></div>
 
   <p class="para rdfs-comment">
    <span class="function"><strong>pg_connect_poll()</strong></span> polls the status of a PostgreSQL
@@ -53,16 +51,13 @@
  <div class="refsect1 parameters" id="refsect1-function.pg-connect-poll-parameters">
   <h3 class="title">Parameters</h3>
   <dl>
-
    
     <dt>
 <code class="parameter">connection</code></dt>
 
     <dd>
 
-     <p class="para">
-      PostgreSQL database connection resource.
-     </p>
+     <p class="para">An <span class="classname"><a href="class.pgsql-connection.html" class="classname">PgSql\Connection</a></span> instance.</p>
     </dd>
 
    
@@ -80,6 +75,34 @@
    <strong><code>PGSQL_POLLING_OK</code></strong>, or
    <strong><code>PGSQL_POLLING_ACTIVE</code></strong>.
   </p>
+ </div>
+
+
+ <div class="refsect1 changelog" id="refsect1-function.pg-connect-poll-changelog">
+  <h3 class="title">Changelog</h3>
+  <table class="doctable informaltable">
+   
+    <thead>
+     <tr>
+      <th>Version</th>
+      <th>Description</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+ <td>8.1.0</td>
+ <td>
+  The <code class="parameter">connection</code> parameter expects an <span class="classname"><a href="class.pgsql-connection.html" class="classname">PgSql\Connection</a></span>
+  instance now; previously, a <a href="language.types.resource.html" class="link">resource</a> was expected.
+ </td>
+</tr>
+
+    </tbody>
+   
+  </table>
+
  </div>
 
 </div></div></div></body></html>

@@ -39,19 +39,17 @@
     <li class="listitem">
      <span class="simpara">
       SAPI module specific location (<code class="literal">PHPIniDir</code> directive
-      in Apache 2, <code class="literal">-c</code> command line option in CGI and CLI,
-      <code class="literal">php_ini</code> parameter in NSAPI)
+      in Apache 2, <code class="literal">-c</code> command line option in CGI and CLI)
      </span>
     </li>
     <li class="listitem">
      <span class="simpara">
-      The <var class="varname">PHPRC</var> environment variable. Before PHP 5.2.0,
-      this was checked after the registry key mentioned below.
+      The <var class="varname">PHPRC</var> environment variable.
      </span>
     </li>
     <li class="listitem">
      <span class="simpara">
-      As of PHP 5.2.0, the location of the <code class="literal">php.ini</code> file
+      The location of the <code class="literal">php.ini</code> file
       can be set for different versions of PHP. The root of the registry keys depends on 32- or 64-bitness of the installed OS and PHP.
       For 32-bit PHP on a 32-bit OS or a 64-bit PHP on a 64-bit OS use <code class="literal">[(HKEY_LOCAL_MACHINE\SOFTWARE\PHP]</code> for 32-bit version of PHP on a 64-bit OS use <code class="literal">[HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\PHP]</code>] instead.
       For same bitness installation the following registry keys
@@ -114,7 +112,7 @@
    Using environment variables can be used in <var class="filename">php.ini</var> as shown below.
   </p>
   <p class="para">
-   <div class="example" id="example-36">
+   <div class="example" id="example-27">
     <p><strong>Example #1 <var class="filename">php.ini</var> Environment Variables</strong></p>
      <div class="example-contents">
 <div class="inicode"><pre class="inicode">; PHP_MEMORY_LIMIT is taken from environment
@@ -131,11 +129,11 @@ memory_limit = ${PHP_MEMORY_LIMIT}</pre>
    PHP directives are necessarily documented in this manual: for a complete list
    of directives available in your PHP version, please read your well commented
    <var class="filename">php.ini</var> file. Alternatively, you may find
-   <a href="https://git.php.net/?p=php-src.git;a=blob;f=php.ini-production;hb=HEAD" class="link external">&raquo;&nbsp;the latest <var class="filename">php.ini</var></a> from Git
+   <a href="https://github.com/php/php-src/blob/master/php.ini-production" class="link external">&raquo;&nbsp;the latest <var class="filename">php.ini</var></a> from Git
    helpful too.
   </p>
   <p class="para">
-   <div class="example" id="example-37">
+   <div class="example" id="example-28">
     <p><strong>Example #2 <var class="filename">php.ini</var> example</strong></p>
     <div class="example-contents">
 <div class="inicode"><pre class="inicode">; any text on a line after an unquoted semicolon (;) is ignored
@@ -158,7 +156,7 @@ include_path = &quot;.;c:\php\lib&quot;</pre>
    </div>
   </p>
   <p class="para">
-   Since PHP 5.1.0, it is possible to refer to existing .ini variables from
+   It is possible to refer to existing .ini variables from
    within .ini files. Example: <code class="literal">open_basedir = ${open_basedir}
    &quot;:/new/dir&quot;</code>.
   </p>
@@ -168,8 +166,8 @@ include_path = &quot;.;c:\php\lib&quot;</pre>
    <p class="para">
     It is possible to configure PHP to scan for .ini files in a directory
     after reading <var class="filename">php.ini</var>. This can be done at compile time by setting the
-    <strong class="option configure">--with-config-file-scan-dir</strong> option. In
-    PHP 5.2.0 and later, the scan directory can then be overridden at run time
+    <strong class="option configure">--with-config-file-scan-dir</strong> option. 
+    The scan directory can then be overridden at run time
     by setting the <var class="varname">PHP_INI_SCAN_DIR</var> environment variable.
    </p>
 
@@ -214,56 +212,5 @@ $ PHP_INI_SCAN_DIR=/usr/local/etc/php.d: php
 </pre></div>
     </div>
    </div>
-  </div>
-  <div class="sect2" id="configuration.file.changelog">
-   <h3 class="title">Changelog</h3>
-
-   <p class="para">
-    <table class="doctable informaltable">
-     
-      <thead>
-       <tr>
-        <th>Version</th>
-        <th>Description</th>
-       </tr>
-
-      </thead>
-
-      <tbody class="tbody">
-       <tr>
-        <td>7.0.0</td>
-        <td>
-         Hash marks (<code class="literal">#</code>) are no longer recognized as comments.
-        </td>
-       </tr>
-
-       <tr>
-        <td>5.3.0</td>
-        <td>
-         Hash marks (<code class="literal">#</code>) should no longer be used as comments
-         and will throw a deprecation warning if used.
-        </td>
-       </tr>
-
-       <tr>
-        <td>5.2.0</td>
-        <td>
-         The <var class="varname">PHP_INI_SCAN_DIR</var> environment variable can be
-         set to override the scan directory set via the configure script.
-        </td>
-       </tr>
-
-       <tr>
-        <td>5.1.0</td>
-        <td>
-         It is possible to refer to existing .ini variables from within .ini files.
-        </td>
-       </tr>
-
-      </tbody>
-     
-    </table>
-
-   </p>
   </div>
  </div></div></div></body></html>

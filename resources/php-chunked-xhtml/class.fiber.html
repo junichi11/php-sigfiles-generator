@@ -1,0 +1,132 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>The Fiber class</title>
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="generator.wakeup.html">« Generator::__wakeup</a></li>
+      <li style="float: right;"><a href="fiber.construct.html">Fiber::__construct »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="reserved.interfaces.html">Predefined Interfaces and Classes</a></li>
+    <li>The Fiber class</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="class.fiber" class="reference">
+ <h1 class="title">The Fiber class</h1>
+ 
+
+ <div class="partintro"><p class="verinfo">(PHP 8 &gt;= 8.1.0)</p>
+
+
+  <div class="section" id="fiber.intro">
+   <h2 class="title">Introduction</h2>
+   <p class="para">
+    Fibers represent full-stack, interruptible functions. Fibers may be suspended from anywhere in the call-stack,
+    pausing execution within the fiber until the fiber is resumed at a later time.
+   </p>
+  </div>
+
+
+  <div class="section" id="fiber.synopsis">
+   <h2 class="title">Class synopsis</h2>
+
+
+   <div class="classsynopsis">
+    <div class="ooclass">
+     
+    </div>
+
+    <div class="classsynopsisinfo">
+     <span class="ooclass">
+      <span class="modifier">final</span>
+      <span class="modifier">class</span> <strong class="classname">Fiber</strong>
+     </span>
+     {</div>
+
+    <div class="classsynopsisinfo classsynopsisinfo_comment">/* Methods */</div>
+    <div class="constructorsynopsis dc-description">
+   <span class="modifier">public</span> <span class="methodname"><a href="fiber.construct.html" class="methodname">__construct</a></span>(<span class="methodparam"><span class="type"><a href="language.types.callable.html" class="type callable">callable</a></span> <code class="parameter">$callback</code></span>)</div>
+
+    <div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="fiber.start.html" class="methodname">start</a></span>(<span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">...$args</code></span>): <span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="fiber.resume.html" class="methodname">resume</a></span>(<span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$value</code><span class="initializer"> = <strong><code>null</code></strong></span></span>): <span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="fiber.throw.html" class="methodname">throw</a></span>(<span class="methodparam"><span class="type"><a href="class.throwable.html" class="type Throwable">Throwable</a></span> <code class="parameter">$exception</code></span>): <span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="fiber.getreturn.html" class="methodname">getReturn</a></span>(): <span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="fiber.isstarted.html" class="methodname">isStarted</a></span>(): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="fiber.issuspended.html" class="methodname">isSuspended</a></span>(): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="fiber.isrunning.html" class="methodname">isRunning</a></span>(): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="fiber.isterminated.html" class="methodname">isTerminated</a></span>(): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="modifier">static</span> <span class="methodname"><a href="fiber.suspend.html" class="methodname">suspend</a></span>(<span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$value</code><span class="initializer"> = <strong><code>null</code></strong></span></span>): <span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="modifier">static</span> <span class="methodname"><a href="fiber.getcurrent.html" class="methodname">getCurrent</a></span>(): <span class="type"><span class="type">?</span><span class="type"><a href="class.fiber.html" class="type Fiber">Fiber</a></span></span></div>
+
+   }</div>
+
+
+  </div>
+
+  <div class="section" id="fiber.seealso">
+   <h2 class="title">See Also</h2>
+   <p class="para"><a href="language.fibers.html" class="link">Fibers overview</a></p>
+  </div>
+
+ </div>
+
+ 
+
+
+
+ 
+
+
+
+ 
+
+
+
+ 
+
+
+
+ 
+
+
+
+ 
+
+
+
+ 
+
+
+
+ 
+
+
+
+ 
+
+
+
+ 
+
+
+
+ 
+
+
+
+
+<h2>Table of Contents</h2><ul class="chunklist chunklist_reference"><li><a href="fiber.construct.html">Fiber::__construct</a> — Creates a new Fiber instance</li><li><a href="fiber.start.html">Fiber::start</a> — Start execution of the fiber</li><li><a href="fiber.resume.html">Fiber::resume</a> — Resumes execution of the fiber with a value</li><li><a href="fiber.throw.html">Fiber::throw</a> — Resumes execution of the fiber with an exception</li><li><a href="fiber.getreturn.html">Fiber::getReturn</a> — Gets the value returned by the Fiber</li><li><a href="fiber.isstarted.html">Fiber::isStarted</a> — Determines if the fiber has started</li><li><a href="fiber.issuspended.html">Fiber::isSuspended</a> — Determines if the fiber is suspended</li><li><a href="fiber.isrunning.html">Fiber::isRunning</a> — Determines if the fiber is running</li><li><a href="fiber.isterminated.html">Fiber::isTerminated</a> — Determines if the fiber has terminated</li><li><a href="fiber.suspend.html">Fiber::suspend</a> — Suspends execution of the current fiber</li><li><a href="fiber.getcurrent.html">Fiber::getCurrent</a> — Gets the currently executing Fiber instance</li></ul>
+</div>
+</div></div></body></html>

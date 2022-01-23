@@ -26,17 +26,13 @@
   <div id="layout-content"><div id="function.extract" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">extract</h1>
-  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">extract</span> &mdash; <span class="dc-title">Import variables into the current symbol table from an array</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">extract</span> &mdash; <span class="dc-title">Import variables into the current symbol table from an array</span></p>
 
  </div>
  <div class="refsect1 description" id="refsect1-function.extract-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>extract</strong></span>
-    ( <span class="methodparam"><span class="type">array</span> <code class="parameter reference">&$array</code></span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code><span class="initializer"> = <strong><code>EXTR_OVERWRITE</code></strong></span></span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$prefix</code><span class="initializer"> = &quot;&quot;</span></span>
-   ) : <span class="type">int</span></div>
+   <span class="methodname"><strong>extract</strong></span>(<span class="methodparam"><span class="type">array</span> <code class="parameter reference">&$array</code></span>, <span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code><span class="initializer"> = <strong><code>EXTR_OVERWRITE</code></strong></span></span>, <span class="methodparam"><span class="type">string</span> <code class="parameter">$prefix</code><span class="initializer"> = &quot;&quot;</span></span>): <span class="type">int</span></div>
 
   <p class="para rdfs-comment">
    Import variables from an array into the current symbol table.
@@ -58,7 +54,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">array</code></dt>
@@ -90,7 +85,6 @@
        by the extraction <code class="parameter">flags</code>. It can be one of the
        following values:
        <dl>
-
         
          <dt>
 <strong><code>EXTR_OVERWRITE</code></strong></dt>
@@ -243,7 +237,7 @@
  <div class="refsect1 examples" id="refsect1-function.extract-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-5496">
+   <div class="example" id="example-4993">
     <p><strong>Example #1 <span class="function"><strong>extract()</strong></span> example</strong></p>
     <div class="example-contents"><p>
      A possible use for <span class="function"><strong>extract()</strong></span> is to import into the

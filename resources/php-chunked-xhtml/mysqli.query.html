@@ -27,26 +27,18 @@
  <div class="refnamediv">
   <h1 class="refname">mysqli::query</h1>
   <h1 class="refname">mysqli_query</h1>
-  <p class="verinfo">(PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">mysqli::query</span> -- <span class="refname">mysqli_query</span> &mdash; <span class="dc-title">Performs a query on the database</span></p>
+  <p class="verinfo">(PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">mysqli::query</span> -- <span class="refname">mysqli_query</span> &mdash; <span class="dc-title">Performs a query on the database</span></p>
 
  </div>
 
  <div class="refsect1 description" id="refsect1-mysqli.query-description">
   <h3 class="title">Description</h3>
-  <p class="para">Object oriented style</p>
+  <p class="para">Object-oriented style</p>
   <div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><strong>mysqli::query</strong></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$query</code></span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$resultmode</code><span class="initializer"> = MYSQLI_STORE_RESULT</span></span>
-   ) : <span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span></div>
+   <span class="modifier">public</span> <span class="methodname"><strong>mysqli::query</strong></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$query</code></span>, <span class="methodparam"><span class="type">int</span> <code class="parameter">$result_mode</code><span class="initializer"> = <strong><code>MYSQLI_STORE_RESULT</code></strong></span></span>): <span class="type"><span class="type"><a href="class.mysqli-result.html" class="type mysqli_result">mysqli_result</a></span>|<span class="type">bool</span></span></div>
 
   <p class="para rdfs-comment">Procedural style</p>
-  <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>mysqli_query</strong></span>
-    ( <span class="methodparam"><span class="type"><a href="class.mysqli.html" class="type mysqli">mysqli</a></span> <code class="parameter">$link</code></span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$query</code></span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$resultmode</code><span class="initializer"> = MYSQLI_STORE_RESULT</span></span>
-   ) : <span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span></div>
+  <div class="methodsynopsis dc-description"><span class="methodname"><strong>mysqli_query</strong></span>(<span class="methodparam"><span class="type"><a href="class.mysqli.html" class="type mysqli">mysqli</a></span> <code class="parameter">$mysql</code></span>, <span class="methodparam"><span class="type">string</span> <code class="parameter">$query</code></span>, <span class="methodparam"><span class="type">int</span> <code class="parameter">$result_mode</code><span class="initializer"> = <strong><code>MYSQLI_STORE_RESULT</code></strong></span></span>): <span class="type"><span class="type"><a href="class.mysqli-result.html" class="type mysqli_result">mysqli_result</a></span>|<span class="type">bool</span></span></div>
 
   <p class="para rdfs-comment">
    Performs a <code class="parameter">query</code> against the database.
@@ -97,12 +89,11 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     <dt>
-<code class="parameter">
-link</code></dt>
+
+<code class="parameter">mysql</code></dt>
 <dd>
-<p class="para">Procedural style only: A link identifier
+<p class="para">Procedural style only: A <span class="classname"><a href="class.mysqli.html" class="classname">mysqli</a></span> object
 returned by <span class="function"><a href="function.mysqli-connect.html" class="function">mysqli_connect()</a></span> or <span class="function"><a href="mysqli.init.html" class="function">mysqli_init()</a></span>
 </p></dd>
 
@@ -115,33 +106,46 @@ returned by <span class="function"><a href="function.mysqli-connect.html" class=
       <p class="para">
        The query string.
       </p>
-      <p class="para">
-       Data inside the query should be <a href="mysqli.real-escape-string.html" class="link">properly escaped</a>.
-      </p>
+      <div class="warning"><strong class="warning">Warning</strong>
+<h1 class="title">Security warning: SQL injection</h1><p class="para">If the query contains any variable
+input then <a href="mysqli.quickstart.prepared-statements.html" class="link">parameterized
+prepared statements</a> should be used instead. Alternatively, the
+data must be properly formatted and all strings must be escaped using 
+the <span class="function"><a href="mysqli.real-escape-string.html" class="function">mysqli_real_escape_string()</a></span>
+function.</p></div>
      </dd>
 
     
     
      <dt>
-<code class="parameter">resultmode</code></dt>
+<code class="parameter">result_mode</code></dt>
 
      <dd>
 
       <p class="para">
-       Either the constant <strong><code>MYSQLI_USE_RESULT</code></strong> or
-       <strong><code>MYSQLI_STORE_RESULT</code></strong> depending on the desired
-       behavior. By default, <strong><code>MYSQLI_STORE_RESULT</code></strong> is used.
+       The result mode can be one of 3 constants indicating how the result will
+       be returned from the MySQL server.
       </p>
       <p class="para">
-       If you use <strong><code>MYSQLI_USE_RESULT</code></strong> all subsequent calls
-       will return error <code class="literal">Commands out of sync</code> unless you
-       call <span class="function"><a href="mysqli-result.free.html" class="function">mysqli_free_result()</a></span>
+       <strong><code>MYSQLI_STORE_RESULT</code></strong> (default) - returns a
+       <span class="classname"><a href="class.mysqli-result.html" class="classname">mysqli_result</a></span> object with buffered result set.
       </p>
       <p class="para">
-       With <strong><code>MYSQLI_ASYNC</code></strong> (available with mysqlnd), it is
-       possible to perform query asynchronously.
+       <strong><code>MYSQLI_USE_RESULT</code></strong> - returns a
+       <span class="classname"><a href="class.mysqli-result.html" class="classname">mysqli_result</a></span> object with unbuffered result set. 
+       As long as there are pending records waiting to be fetched, the
+       connection line will be busy and all subsequent calls will return error 
+       <code class="literal">Commands out of sync</code>. To avoid the error all records 
+       must be fetched from the server or the result set must be discarded by
+       calling <span class="function"><a href="mysqli-result.free.html" class="function">mysqli_free_result()</a></span>.
+      </p>
+      <p class="para">
+       <strong><code>MYSQLI_ASYNC</code></strong> (available with mysqlnd) - the query is
+       performed asynchronously and no result set is immediately returned.
        <span class="function"><a href="mysqli.poll.html" class="function">mysqli_poll()</a></span> is then used to get results from such
-       queries.
+       queries. Used in combination with either
+       <strong><code>MYSQLI_STORE_RESULT</code></strong> or
+       <strong><code>MYSQLI_USE_RESULT</code></strong> constant.
       </p>
      </dd>
 
@@ -155,9 +159,11 @@ returned by <span class="function"><a href="function.mysqli-connect.html" class=
  <div class="refsect1 returnvalues" id="refsect1-mysqli.query-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns <strong><code>false</code></strong> on failure. For successful <code class="literal">SELECT, SHOW, DESCRIBE</code> or
-   <code class="literal">EXPLAIN</code> queries <span class="function"><strong>mysqli_query()</strong></span> will return
-   a <a href="class.mysqli-result.html" class="classname">mysqli_result</a> object. For other successful queries <span class="function"><strong>mysqli_query()</strong></span> will
+   Returns <strong><code>false</code></strong> on failure. For successful queries which produce a result
+   set, such as <code class="literal">SELECT, SHOW, DESCRIBE</code> or
+   <code class="literal">EXPLAIN</code>, <span class="function"><strong>mysqli_query()</strong></span> will return
+   a <span class="classname"><a href="class.mysqli-result.html" class="classname">mysqli_result</a></span> object. For other successful queries,
+   <span class="function"><strong>mysqli_query()</strong></span> will
    return <strong><code>true</code></strong>.
   </p>
  </div>
@@ -165,12 +171,12 @@ returned by <span class="function"><a href="function.mysqli-connect.html" class=
 
  <div class="refsect1 examples" id="refsect1-mysqli.query-examples">
   <h3 class="title">Examples</h3>
-  <div class="example" id="example-1691">
+  <div class="example" id="example-1448">
    <p><strong>Example #1 <span class="methodname"><strong>mysqli::query()</strong></span> example</strong></p>
-   <div class="example-contents"><p>Object oriented style</p></div>
+   <div class="example-contents"><p>Object-oriented style</p></div>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$mysqli&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">mysqli</span><span style="color: #007700">(</span><span style="color: #DD0000">"localhost"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"my_user"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"my_password"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"world"</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">/*&nbsp;check&nbsp;connection&nbsp;*/<br /></span><span style="color: #007700">if&nbsp;(</span><span style="color: #0000BB">$mysqli</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">connect_errno</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">printf</span><span style="color: #007700">(</span><span style="color: #DD0000">"Connect&nbsp;failed:&nbsp;%s\n"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$mysqli</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">connect_error</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;exit();<br />}<br /><br /></span><span style="color: #FF8000">/*&nbsp;Create&nbsp;table&nbsp;doesn't&nbsp;return&nbsp;a&nbsp;resultset&nbsp;*/<br /></span><span style="color: #007700">if&nbsp;(</span><span style="color: #0000BB">$mysqli</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">query</span><span style="color: #007700">(</span><span style="color: #DD0000">"CREATE&nbsp;TEMPORARY&nbsp;TABLE&nbsp;myCity&nbsp;LIKE&nbsp;City"</span><span style="color: #007700">)&nbsp;===&nbsp;</span><span style="color: #0000BB">TRUE</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">printf</span><span style="color: #007700">(</span><span style="color: #DD0000">"Table&nbsp;myCity&nbsp;successfully&nbsp;created.\n"</span><span style="color: #007700">);<br />}<br /><br /></span><span style="color: #FF8000">/*&nbsp;Select&nbsp;queries&nbsp;return&nbsp;a&nbsp;resultset&nbsp;*/<br /></span><span style="color: #007700">if&nbsp;(</span><span style="color: #0000BB">$result&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$mysqli</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">query</span><span style="color: #007700">(</span><span style="color: #DD0000">"SELECT&nbsp;Name&nbsp;FROM&nbsp;City&nbsp;LIMIT&nbsp;10"</span><span style="color: #007700">))&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">printf</span><span style="color: #007700">(</span><span style="color: #DD0000">"Select&nbsp;returned&nbsp;%d&nbsp;rows.\n"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$result</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">num_rows</span><span style="color: #007700">);<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">/*&nbsp;free&nbsp;result&nbsp;set&nbsp;*/<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$result</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">close</span><span style="color: #007700">();<br />}<br /><br /></span><span style="color: #FF8000">/*&nbsp;If&nbsp;we&nbsp;have&nbsp;to&nbsp;retrieve&nbsp;large&nbsp;amount&nbsp;of&nbsp;data&nbsp;we&nbsp;use&nbsp;MYSQLI_USE_RESULT&nbsp;*/<br /></span><span style="color: #007700">if&nbsp;(</span><span style="color: #0000BB">$result&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$mysqli</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">query</span><span style="color: #007700">(</span><span style="color: #DD0000">"SELECT&nbsp;*&nbsp;FROM&nbsp;City"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">MYSQLI_USE_RESULT</span><span style="color: #007700">))&nbsp;{<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">/*&nbsp;Note,&nbsp;that&nbsp;we&nbsp;can't&nbsp;execute&nbsp;any&nbsp;functions&nbsp;which&nbsp;interact&nbsp;with&nbsp;the<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;server&nbsp;until&nbsp;result&nbsp;set&nbsp;was&nbsp;closed.&nbsp;All&nbsp;calls&nbsp;will&nbsp;return&nbsp;an<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'out&nbsp;of&nbsp;sync'&nbsp;error&nbsp;*/<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">if&nbsp;(!</span><span style="color: #0000BB">$mysqli</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">query</span><span style="color: #007700">(</span><span style="color: #DD0000">"SET&nbsp;@a:='this&nbsp;will&nbsp;not&nbsp;work'"</span><span style="color: #007700">))&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">printf</span><span style="color: #007700">(</span><span style="color: #DD0000">"Error:&nbsp;%s\n"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$mysqli</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">error</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$result</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">close</span><span style="color: #007700">();<br />}<br /><br /></span><span style="color: #0000BB">$mysqli</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">close</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /><br />mysqli_report</span><span style="color: #007700">(</span><span style="color: #0000BB">MYSQLI_REPORT_ERROR&nbsp;</span><span style="color: #007700">|&nbsp;</span><span style="color: #0000BB">MYSQLI_REPORT_STRICT</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$mysqli&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">mysqli</span><span style="color: #007700">(</span><span style="color: #DD0000">"localhost"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"my_user"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"my_password"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"world"</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">/*&nbsp;Create&nbsp;table&nbsp;doesn't&nbsp;return&nbsp;a&nbsp;resultset&nbsp;*/<br /></span><span style="color: #0000BB">$mysqli</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">query</span><span style="color: #007700">(</span><span style="color: #DD0000">"CREATE&nbsp;TEMPORARY&nbsp;TABLE&nbsp;myCity&nbsp;LIKE&nbsp;City"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">printf</span><span style="color: #007700">(</span><span style="color: #DD0000">"Table&nbsp;myCity&nbsp;successfully&nbsp;created.\n"</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">/*&nbsp;Select&nbsp;queries&nbsp;return&nbsp;a&nbsp;resultset&nbsp;*/<br /></span><span style="color: #0000BB">$result&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$mysqli</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">query</span><span style="color: #007700">(</span><span style="color: #DD0000">"SELECT&nbsp;Name&nbsp;FROM&nbsp;City&nbsp;LIMIT&nbsp;10"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">printf</span><span style="color: #007700">(</span><span style="color: #DD0000">"Select&nbsp;returned&nbsp;%d&nbsp;rows.\n"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$result</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">num_rows</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">/*&nbsp;If&nbsp;we&nbsp;have&nbsp;to&nbsp;retrieve&nbsp;large&nbsp;amount&nbsp;of&nbsp;data&nbsp;we&nbsp;use&nbsp;MYSQLI_USE_RESULT&nbsp;*/<br /></span><span style="color: #0000BB">$result&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$mysqli</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">query</span><span style="color: #007700">(</span><span style="color: #DD0000">"SELECT&nbsp;*&nbsp;FROM&nbsp;City"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">MYSQLI_USE_RESULT</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">/*&nbsp;Note,&nbsp;that&nbsp;we&nbsp;can't&nbsp;execute&nbsp;any&nbsp;functions&nbsp;which&nbsp;interact&nbsp;with&nbsp;the<br />&nbsp;&nbsp;&nbsp;&nbsp;server&nbsp;until&nbsp;all&nbsp;records&nbsp;have&nbsp;been&nbsp;fully&nbsp;retrieved&nbsp;or&nbsp;the&nbsp;result<br />&nbsp;&nbsp;&nbsp;&nbsp;set&nbsp;was&nbsp;closed.&nbsp;All&nbsp;calls&nbsp;will&nbsp;return&nbsp;an&nbsp;'out&nbsp;of&nbsp;sync'&nbsp;error&nbsp;*/<br /></span><span style="color: #0000BB">$mysqli</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">query</span><span style="color: #007700">(</span><span style="color: #DD0000">"SET&nbsp;@a:='this&nbsp;will&nbsp;not&nbsp;work'"</span><span style="color: #007700">);</span>
 </span>
 </code></div>
    </div>
@@ -178,17 +184,19 @@ returned by <span class="function"><a href="function.mysqli-connect.html" class=
    <div class="example-contents"><p>Procedural style</p></div>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$link&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">mysqli_connect</span><span style="color: #007700">(</span><span style="color: #DD0000">"localhost"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"my_user"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"my_password"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"world"</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">/*&nbsp;check&nbsp;connection&nbsp;*/<br /></span><span style="color: #007700">if&nbsp;(</span><span style="color: #0000BB">mysqli_connect_errno</span><span style="color: #007700">())&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">printf</span><span style="color: #007700">(</span><span style="color: #DD0000">"Connect&nbsp;failed:&nbsp;%s\n"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">mysqli_connect_error</span><span style="color: #007700">());<br />&nbsp;&nbsp;&nbsp;&nbsp;exit();<br />}<br /><br /></span><span style="color: #FF8000">/*&nbsp;Create&nbsp;table&nbsp;doesn't&nbsp;return&nbsp;a&nbsp;resultset&nbsp;*/<br /></span><span style="color: #007700">if&nbsp;(</span><span style="color: #0000BB">mysqli_query</span><span style="color: #007700">(</span><span style="color: #0000BB">$link</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"CREATE&nbsp;TEMPORARY&nbsp;TABLE&nbsp;myCity&nbsp;LIKE&nbsp;City"</span><span style="color: #007700">)&nbsp;===&nbsp;</span><span style="color: #0000BB">TRUE</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">printf</span><span style="color: #007700">(</span><span style="color: #DD0000">"Table&nbsp;myCity&nbsp;successfully&nbsp;created.\n"</span><span style="color: #007700">);<br />}<br /><br /></span><span style="color: #FF8000">/*&nbsp;Select&nbsp;queries&nbsp;return&nbsp;a&nbsp;resultset&nbsp;*/<br /></span><span style="color: #007700">if&nbsp;(</span><span style="color: #0000BB">$result&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">mysqli_query</span><span style="color: #007700">(</span><span style="color: #0000BB">$link</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"SELECT&nbsp;Name&nbsp;FROM&nbsp;City&nbsp;LIMIT&nbsp;10"</span><span style="color: #007700">))&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">printf</span><span style="color: #007700">(</span><span style="color: #DD0000">"Select&nbsp;returned&nbsp;%d&nbsp;rows.\n"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">mysqli_num_rows</span><span style="color: #007700">(</span><span style="color: #0000BB">$result</span><span style="color: #007700">));<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">/*&nbsp;free&nbsp;result&nbsp;set&nbsp;*/<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">mysqli_free_result</span><span style="color: #007700">(</span><span style="color: #0000BB">$result</span><span style="color: #007700">);<br />}<br /><br /></span><span style="color: #FF8000">/*&nbsp;If&nbsp;we&nbsp;have&nbsp;to&nbsp;retrieve&nbsp;large&nbsp;amount&nbsp;of&nbsp;data&nbsp;we&nbsp;use&nbsp;MYSQLI_USE_RESULT&nbsp;*/<br /></span><span style="color: #007700">if&nbsp;(</span><span style="color: #0000BB">$result&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">mysqli_query</span><span style="color: #007700">(</span><span style="color: #0000BB">$link</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"SELECT&nbsp;*&nbsp;FROM&nbsp;City"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">MYSQLI_USE_RESULT</span><span style="color: #007700">))&nbsp;{<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">/*&nbsp;Note,&nbsp;that&nbsp;we&nbsp;can't&nbsp;execute&nbsp;any&nbsp;functions&nbsp;which&nbsp;interact&nbsp;with&nbsp;the<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;server&nbsp;until&nbsp;result&nbsp;set&nbsp;was&nbsp;closed.&nbsp;All&nbsp;calls&nbsp;will&nbsp;return&nbsp;an<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'out&nbsp;of&nbsp;sync'&nbsp;error&nbsp;*/<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">if&nbsp;(!</span><span style="color: #0000BB">mysqli_query</span><span style="color: #007700">(</span><span style="color: #0000BB">$link</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"SET&nbsp;@a:='this&nbsp;will&nbsp;not&nbsp;work'"</span><span style="color: #007700">))&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">printf</span><span style="color: #007700">(</span><span style="color: #DD0000">"Error:&nbsp;%s\n"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">mysqli_error</span><span style="color: #007700">(</span><span style="color: #0000BB">$link</span><span style="color: #007700">));<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">mysqli_free_result</span><span style="color: #007700">(</span><span style="color: #0000BB">$result</span><span style="color: #007700">);<br />}<br /><br /></span><span style="color: #0000BB">mysqli_close</span><span style="color: #007700">(</span><span style="color: #0000BB">$link</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /><br />mysqli_report</span><span style="color: #007700">(</span><span style="color: #0000BB">MYSQLI_REPORT_ERROR&nbsp;</span><span style="color: #007700">|&nbsp;</span><span style="color: #0000BB">MYSQLI_REPORT_STRICT</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$link&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">mysqli_connect</span><span style="color: #007700">(</span><span style="color: #DD0000">"localhost"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"my_user"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"my_password"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"world"</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">/*&nbsp;Create&nbsp;table&nbsp;doesn't&nbsp;return&nbsp;a&nbsp;resultset&nbsp;*/<br /></span><span style="color: #0000BB">mysqli_query</span><span style="color: #007700">(</span><span style="color: #0000BB">$link</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"CREATE&nbsp;TEMPORARY&nbsp;TABLE&nbsp;myCity&nbsp;LIKE&nbsp;City"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">printf</span><span style="color: #007700">(</span><span style="color: #DD0000">"Table&nbsp;myCity&nbsp;successfully&nbsp;created.\n"</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">/*&nbsp;Select&nbsp;queries&nbsp;return&nbsp;a&nbsp;resultset&nbsp;*/<br /></span><span style="color: #0000BB">$result&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">mysqli_query</span><span style="color: #007700">(</span><span style="color: #0000BB">$link</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"SELECT&nbsp;Name&nbsp;FROM&nbsp;City&nbsp;LIMIT&nbsp;10"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">printf</span><span style="color: #007700">(</span><span style="color: #DD0000">"Select&nbsp;returned&nbsp;%d&nbsp;rows.\n"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">mysqli_num_rows</span><span style="color: #007700">(</span><span style="color: #0000BB">$result</span><span style="color: #007700">));<br /><br /></span><span style="color: #FF8000">/*&nbsp;If&nbsp;we&nbsp;have&nbsp;to&nbsp;retrieve&nbsp;large&nbsp;amount&nbsp;of&nbsp;data&nbsp;we&nbsp;use&nbsp;MYSQLI_USE_RESULT&nbsp;*/<br /></span><span style="color: #0000BB">$result&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">mysqli_query</span><span style="color: #007700">(</span><span style="color: #0000BB">$link</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"SELECT&nbsp;*&nbsp;FROM&nbsp;City"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">MYSQLI_USE_RESULT</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">/*&nbsp;Note,&nbsp;that&nbsp;we&nbsp;can't&nbsp;execute&nbsp;any&nbsp;functions&nbsp;which&nbsp;interact&nbsp;with&nbsp;the<br />&nbsp;&nbsp;&nbsp;&nbsp;server&nbsp;until&nbsp;all&nbsp;records&nbsp;have&nbsp;been&nbsp;fully&nbsp;retrieved&nbsp;or&nbsp;the&nbsp;result<br />&nbsp;&nbsp;&nbsp;&nbsp;set&nbsp;was&nbsp;closed.&nbsp;All&nbsp;calls&nbsp;will&nbsp;return&nbsp;an&nbsp;'out&nbsp;of&nbsp;sync'&nbsp;error&nbsp;*/<br /></span><span style="color: #0000BB">mysqli_query</span><span style="color: #007700">(</span><span style="color: #0000BB">$link</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"SET&nbsp;@a:='this&nbsp;will&nbsp;not&nbsp;work'"</span><span style="color: #007700">);</span>
 </span>
 </code></div>
    </div>
 
-   <div class="example-contents"><p>The above examples will output:</p></div>
+   <div class="example-contents"><p>The above examples will output
+something similar to:</p></div>
    <div class="example-contents screen">
 <div class="cdata"><pre>
 Table myCity successfully created.
 Select returned 10 rows.
-Error: Commands out of sync;  You can&#039;t run this command now
+
+Fatal error: Uncaught mysqli_sql_exception: Commands out of sync; you can&#039;t run this command now in...
 </pre></div>
    </div>
   </div>
@@ -200,7 +208,8 @@ Error: Commands out of sync;  You can&#039;t run this command now
   <p class="para">
    <ul class="simplelist">
     <li class="member"><span class="function"><a href="mysqli.real-query.html" class="function" rel="rdfs-seeAlso">mysqli_real_query()</a> - Execute an SQL query</span></li>
-    <li class="member"><span class="function"><a href="mysqli.multi-query.html" class="function" rel="rdfs-seeAlso">mysqli_multi_query()</a> - Performs a query on the database</span></li>
+    <li class="member"><span class="function"><a href="mysqli.multi-query.html" class="function" rel="rdfs-seeAlso">mysqli_multi_query()</a> - Performs one or more queries on the database</span></li>
+    <li class="member"><span class="function"><a href="mysqli.prepare.html" class="function" rel="rdfs-seeAlso">mysqli_prepare()</a> - Prepares an SQL statement for execution</span></li>
     <li class="member"><span class="function"><a href="mysqli-result.free.html" class="function" rel="rdfs-seeAlso">mysqli_free_result()</a> - Frees the memory associated with a result</span></li>
    </ul>
   </p>

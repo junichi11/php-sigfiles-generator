@@ -26,29 +26,22 @@
   <div id="layout-content"><div id="function.openssl-seal" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">openssl_seal</h1>
-  <p class="verinfo">(PHP 4 &gt;= 4.0.4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">openssl_seal</span> &mdash; <span class="dc-title">Seal (encrypt) data</span></p>
+  <p class="verinfo">(PHP 4 &gt;= 4.0.4, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">openssl_seal</span> &mdash; <span class="dc-title">Seal (encrypt) data</span></p>
 
  </div>
  
  <div class="refsect1 description" id="refsect1-function.openssl-seal-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>openssl_seal</strong></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$data</code></span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter reference">&$sealed_data</code></span>
-   , <span class="methodparam"><span class="type">array</span> <code class="parameter reference">&$env_keys</code></span>
-   , <span class="methodparam"><span class="type">array</span> <code class="parameter">$pub_key_ids</code></span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$method</code><span class="initializer"> = &quot;RC4&quot;</span></span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter reference">&$iv</code> = ?</span>
-   ) : <span class="type">int</span></div>
+   <span class="methodname"><strong>openssl_seal</strong></span>(<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$data</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter reference">&$sealed_data</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">array</span> <code class="parameter reference">&$encrypted_keys</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">array</span> <code class="parameter">$public_key</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$cipher_algo</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter reference">&$iv</code><span class="initializer"> = <strong><code>null</code></strong></span></span><br>): <span class="type"><span class="type">int</span>|<span class="type"><span class="type false">false</span></span></span></div>
 
   <p class="para rdfs-comment">
    <span class="function"><strong>openssl_seal()</strong></span> seals (encrypts)
-   <code class="parameter">data</code> by using the given <code class="parameter">method</code> with a randomly generated
+   <code class="parameter">data</code> by using the given <code class="parameter">cipher_algo</code> with a randomly generated
    secret key. The key is encrypted with each of the public keys
-   associated with the identifiers in <code class="parameter">pub_key_ids</code>
+   associated with the identifiers in <code class="parameter">public_key</code>
    and each encrypted key is returned
-   in <code class="parameter">env_keys</code>. This means that one can send
+   in <code class="parameter">encrypted_keys</code>. This means that one can send
    sealed data to multiple recipients (provided one has obtained their
    public keys). Each recipient must receive both the sealed data and
    the envelope key that was encrypted with the recipient&#039;s public key.
@@ -60,7 +53,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">data</code></dt>
@@ -87,7 +79,7 @@
     
     
      <dt>
-<code class="parameter">env_keys</code></dt>
+<code class="parameter">encrypted_keys</code></dt>
 
      <dd>
 
@@ -99,19 +91,19 @@
     
     
      <dt>
-<code class="parameter">pub_key_ids</code></dt>
+<code class="parameter">public_key</code></dt>
 
      <dd>
 
       <p class="para">
-       Array of public key resource identifiers.
+       Array of <span class="classname"><a href="class.opensslasymmetrickey.html" class="classname">OpenSSLAsymmetricKey</a></span> instances containing public keys.
       </p>
      </dd>
 
     
     
      <dt>
-<code class="parameter">method</code></dt>
+<code class="parameter">cipher_algo</code></dt>
 
      <dd>
 
@@ -151,15 +143,59 @@
    Returns the length of the sealed data on success, or <strong><code>false</code></strong> on error.
    If successful the sealed data is returned in
    <code class="parameter">sealed_data</code>, and the envelope keys in
-   <code class="parameter">env_keys</code>.
+   <code class="parameter">encrypted_keys</code>.
   </p>
+ </div>
+
+
+ <div class="refsect1 changelog" id="refsect1-function.openssl-seal-changelog">
+  <h3 class="title">Changelog</h3>
+  <table class="doctable informaltable">
+   
+    <thead>
+     <tr>
+      <th>Version</th>
+      <th>Description</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+      <td>8.0.0</td>
+      <td>
+       <code class="parameter">public_key</code> accepts an <span class="type">array</span> of
+       <span class="classname"><a href="class.opensslasymmetrickey.html" class="classname">OpenSSLAsymmetricKey</a></span> instances now;
+       previously, an <span class="type">array</span> of <a href="language.types.resource.html" class="link">resource</a>s of type <code class="literal">OpenSSL key</code>
+       was accepted.
+      </td>
+     </tr>
+
+     <tr>
+      <td>8.0.0</td>
+      <td>
+       <code class="parameter">cipher_algo</code> is no longer an optional parameter.
+      </td>
+     </tr>
+
+     <tr>
+      <td>8.0.0</td>
+      <td>
+       <code class="parameter">iv</code> is nullable now.
+      </td>
+     </tr>
+
+    </tbody>
+   
+  </table>
+
  </div>
 
 
  <div class="refsect1 examples" id="refsect1-function.openssl-seal-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-934">
+   <div class="example" id="example-940">
     <p><strong>Example #1 <span class="function"><strong>openssl_seal()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

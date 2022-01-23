@@ -26,18 +26,14 @@
   <div id="layout-content"><div id="function.sodium-crypto-pwhash-str" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">sodium_crypto_pwhash_str</h1>
-  <p class="verinfo">(PHP 7 &gt;= 7.2.0)</p><p class="refpurpose"><span class="refname">sodium_crypto_pwhash_str</span> &mdash; <span class="dc-title">Get an ASCII-encoded hash</span></p>
+  <p class="verinfo">(PHP 7 &gt;= 7.2.0, PHP 8)</p><p class="refpurpose"><span class="refname">sodium_crypto_pwhash_str</span> &mdash; <span class="dc-title">Get an ASCII-encoded hash</span></p>
 
  </div>
 
  <div class="refsect1 description" id="refsect1-function.sodium-crypto-pwhash-str-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>sodium_crypto_pwhash_str</strong></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$password</code></span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$opslimit</code></span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$memlimit</code></span>
-   ) : <span class="type">string</span></div>
+   <span class="methodname"><strong>sodium_crypto_pwhash_str</strong></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$password</code></span>, <span class="methodparam"><span class="type">int</span> <code class="parameter">$opslimit</code></span>, <span class="methodparam"><span class="type">int</span> <code class="parameter">$memlimit</code></span>): <span class="type">string</span></div>
 
   <p class="para rdfs-comment">
 Uses a CPU- and memory-hard hash algorithm along with a randomly-generated salt, and memory and CPU limits to generate an ASCII-encoded hash suitable for password storage.
@@ -48,7 +44,6 @@ Uses a CPU- and memory-hard hash algorithm along with a randomly-generated salt,
  <div class="refsect1 parameters" id="refsect1-function.sodium-crypto-pwhash-str-parameters">
   <h3 class="title">Parameters</h3>
   <dl>
-
    
     <dt>
 <code class="parameter">password</code></dt>
@@ -104,21 +99,11 @@ Uses a CPU- and memory-hard hash algorithm along with a randomly-generated salt,
  </div>
 
 
- <div class="refsect1 notes" id="refsect1-function.sodium-crypto-pwhash-str-notes">
-  <h3 class="title">Notes</h3>
-  <blockquote class="note"><p><strong class="note">Note</strong>: 
-   <p class="para">
-    Hashes are calculated using the Argon2ID algorithm, providing resistance to both GPU and side-channel attacks. In contrast to the <span class="function"><a href="function.password-hash.html" class="function">password_hash()</a></span> function, there is no salt parameter (a salt is generated automatically), and the <code class="parameter">opslimit</code> and <code class="parameter">memlimit</code> parameters are not optional.
-   </p>
-  </p></blockquote>
- </div>
-
-
   <div class="refsect1 examples" id="refsect1-function.sodium-crypto-pwhash-str-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="openssl_spki_export.example.keygen">
-    <p><strong>Example #1 <span class="function"><a href="function.password-hash.html" class="function">password_hash()</a></span> example</strong></p>
+   <div class="example" id="example-966">
+    <p><strong>Example #1 <span class="function"><strong>sodium_crypto_pwhash_str()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
 <span style="color: #0000BB">&lt;?php<br />$password&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'password'</span><span style="color: #007700">;<br />echo&nbsp;</span><span style="color: #0000BB">sodium_crypto_pwhash_str</span><span style="color: #007700">(<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$password</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">SODIUM_CRYPTO_PWHASH_OPSLIMIT_INTERACTIVE</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">SODIUM_CRYPTO_PWHASH_MEMLIMIT_INTERACTIVE<br /></span><span style="color: #007700">);</span>
@@ -137,13 +122,28 @@ $argon2id$v=19$m=65536,t=2,p=1$oWIfdaXwWwhVmovOBc2NAQ$EbsZ+JnZyyavkafS0hoc4HdaOB
   </p> 
  </div>
 
+
+ <div class="refsect1 notes" id="refsect1-function.sodium-crypto-pwhash-str-notes">
+  <h3 class="title">Notes</h3>
+  <blockquote class="note"><p><strong class="note">Note</strong>: 
+   <p class="para">
+    Hashes are calculated using the Argon2ID algorithm,
+    providing resistance to both GPU and side-channel attacks.
+    In contrast to the <span class="function"><a href="function.password-hash.html" class="function">password_hash()</a></span> function,
+    there is no salt parameter (a salt is generated automatically),
+    and the <code class="parameter">opslimit</code> and
+    <code class="parameter">memlimit</code> parameters are not optional.
+   </p>
+  </p></blockquote>
+ </div>
+
  
  <div class="refsect1 seealso" id="refsect1-function.sodium-crypto-pwhash-str-seealso">
   <h3 class="title">See Also</h3>
   <p class="para">
    <ul class="simplelist">
     <li class="member"><span class="function"><a href="function.sodium-crypto-pwhash-str-verify.html" class="function" rel="rdfs-seeAlso">sodium_crypto_pwhash_str_verify()</a> - Verifies that a password matches a hash</span></li>
-    <li class="member"><span class="function"><a href="function.sodium-crypto-pwhash.html" class="function" rel="rdfs-seeAlso">sodium_crypto_pwhash()</a> - Derive a key from a password</span></li>
+    <li class="member"><span class="function"><a href="function.sodium-crypto-pwhash.html" class="function" rel="rdfs-seeAlso">sodium_crypto_pwhash()</a> - Derive a key from a password, using Argon2</span></li>
     <li class="member"><span class="function"><a href="function.password-hash.html" class="function" rel="rdfs-seeAlso">password_hash()</a> - Creates a password hash</span></li>
     <li class="member"><span class="function"><a href="function.password-verify.html" class="function" rel="rdfs-seeAlso">password_verify()</a> - Verifies that a password matches a hash</span></li>
     <li class="member"><a href="https://download.libsodium.org/doc/password_hashing/the_argon2i_function.html" class="link external">&raquo;&nbsp;Libsodium Argon2 docs</a></li>

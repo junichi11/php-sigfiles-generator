@@ -26,19 +26,14 @@
   <div id="layout-content"><div id="function.openssl-x509-checkpurpose" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">openssl_x509_checkpurpose</h1>
-  <p class="verinfo">(PHP 4 &gt;= 4.0.6, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">openssl_x509_checkpurpose</span> &mdash; <span class="dc-title">Verifies if a certificate can be used for a particular purpose</span></p>
+  <p class="verinfo">(PHP 4 &gt;= 4.0.6, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">openssl_x509_checkpurpose</span> &mdash; <span class="dc-title">Verifies if a certificate can be used for a particular purpose</span></p>
 
  </div>
  
  <div class="refsect1 description" id="refsect1-function.openssl-x509-checkpurpose-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>openssl_x509_checkpurpose</strong></span>
-    ( <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$x509cert</code></span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$purpose</code></span>
-   , <span class="methodparam"><span class="type">array</span> <code class="parameter">$cainfo</code><span class="initializer"> = array()</span></span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$untrustedfile</code> = ?</span>
-   ) : <span class="type">int</span></div>
+   <span class="methodname"><strong>openssl_x509_checkpurpose</strong></span>(<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type"><span class="type"><a href="class.opensslcertificate.html" class="type OpenSSLCertificate">OpenSSLCertificate</a></span>|<span class="type">string</span></span> <code class="parameter">$certificate</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">int</span> <code class="parameter">$purpose</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">array</span> <code class="parameter">$ca_info</code><span class="initializer"> = []</span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">?</span><span class="type"><span class="type">string</span><span class="type"></span></span> <code class="parameter">$untrusted_certificates_file</code><span class="initializer"> = <strong><code>null</code></strong></span></span><br>): <span class="type"><span class="type">bool</span>|<span class="type">int</span></span></div>
 
   <p class="para rdfs-comment">
    <span class="function"><strong>openssl_x509_checkpurpose()</strong></span> examines a certificate to
@@ -51,10 +46,9 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
-<code class="parameter">x509cert</code></dt>
+<code class="parameter">certificate</code></dt>
 
      <dd>
 
@@ -132,12 +126,12 @@
     
     
      <dt>
-<code class="parameter">cainfo</code></dt>
+<code class="parameter">ca_info</code></dt>
 
      <dd>
 
       <p class="para">
-       <code class="parameter">cainfo</code> should be an array of trusted CA files/dirs
+       <code class="parameter">ca_info</code> should be an array of trusted CA files/dirs
        as described in <a href="openssl.cert.verification.html" class="link">Certificate
        Verification</a>.
       </p>
@@ -146,7 +140,7 @@
     
     
      <dt>
-<code class="parameter">untrustedfile</code></dt>
+<code class="parameter">untrusted_certificates_file</code></dt>
 
      <dd>
 
@@ -172,5 +166,39 @@
   </p>
  </div>
 
+
+ <div class="refsect1 changelog" id="refsect1-function.openssl-x509-checkpurpose-changelog">
+  <h3 class="title">Changelog</h3>
+  <table class="doctable informaltable">
+   
+    <thead>
+     <tr>
+      <th>Version</th>
+      <th>Description</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+      <td>8.0.0</td>
+      <td>
+       <code class="parameter">certificate</code> accepts an <span class="classname"><a href="class.opensslcertificate.html" class="classname">OpenSSLCertificate</a></span> instance now;
+       previously, a <a href="language.types.resource.html" class="link">resource</a> of type <code class="literal">OpenSSL X.509</code> was accepted.
+      </td>
+     </tr>
+
+     <tr>
+      <td>8.0.0</td>
+      <td>
+       <code class="parameter">untrusted_certificates_file</code> is nullable now.
+      </td>
+     </tr>
+
+    </tbody>
+   
+  </table>
+
+ </div>
 
 </div></div></div></body></html>

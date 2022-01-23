@@ -2,7 +2,7 @@
 <html>
  <head>
   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-  <title>Returns an array containing all of the result set rows</title>
+  <title>Fetches the remaining rows from a result set</title>
 <link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-base.css" />
 <link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-medium.css" />
 
@@ -19,27 +19,31 @@
   <ul class="breadcrumbs-container">
     <li><a href="index.html">PHP Manual</a></li>
     <li><a href="class.pdostatement.html">PDOStatement</a></li>
-    <li>Returns an array containing all of the result set rows</li>
+    <li>Fetches the remaining rows from a result set</li>
   </ul>
 </div>
 <div id="layout">
   <div id="layout-content"><div id="pdostatement.fetchall" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">PDOStatement::fetchAll</h1>
-  <p class="verinfo">(PHP 5 &gt;= 5.1.0, PHP 7, PECL pdo &gt;= 0.1.0)</p><p class="refpurpose"><span class="refname">PDOStatement::fetchAll</span> &mdash; <span class="dc-title">
-   Returns an array containing all of the result set rows
+  <p class="verinfo">(PHP 5 &gt;= 5.1.0, PHP 7, PHP 8, PECL pdo &gt;= 0.1.0)</p><p class="refpurpose"><span class="refname">PDOStatement::fetchAll</span> &mdash; <span class="dc-title">
+   Fetches the remaining rows from a result set
   </span></p>
 
  </div>
  <div class="refsect1 description" id="refsect1-pdostatement.fetchall-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><strong>PDOStatement::fetchAll</strong></span>
-    ( <span class="methodparam"><span class="type">int</span> <code class="parameter">$fetch_style</code> = ?</span>
-   , <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$fetch_argument</code> = ?</span>
-   , <span class="methodparam"><span class="type">array</span> <code class="parameter">$ctor_args</code><span class="initializer"> = array()</span></span>
-   ) : <span class="type">array</span></div>
+   <span class="modifier">public</span> <span class="methodname"><strong>PDOStatement::fetchAll</strong></span>(<span class="methodparam"><span class="type">int</span> <code class="parameter">$mode</code><span class="initializer"> = PDO::FETCH_DEFAULT</span></span>): <span class="type">array</span></div>
 
+
+  <div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><strong>PDOStatement::fetchAll</strong></span>(<span class="methodparam"><span class="type">int</span> <code class="parameter">$mode</code><span class="initializer"> = PDO::FETCH_COLUMN</span></span>, <span class="methodparam"><span class="type">int</span> <code class="parameter">$column</code></span>): <span class="type">array</span></div>
+
+
+  <div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><strong>PDOStatement::fetchAll</strong></span>(<span class="methodparam"><span class="type">int</span> <code class="parameter">$mode</code><span class="initializer"> = PDO::FETCH_CLASS</span></span>, <span class="methodparam"><span class="type">string</span> <code class="parameter">$class</code></span>, <span class="methodparam"><span class="type">?</span><span class="type"><span class="type">array</span><span class="type"></span></span> <code class="parameter">$constructorArgs</code></span>): <span class="type">array</span></div>
+
+
+  <div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><strong>PDOStatement::fetchAll</strong></span>(<span class="methodparam"><span class="type">int</span> <code class="parameter">$mode</code><span class="initializer"> = PDO::FETCH_FUNC</span></span>, <span class="methodparam"><span class="type"><a href="language.types.callable.html" class="type callable">callable</a></span> <code class="parameter">$callback</code></span>): <span class="type">array</span></div>
 
  </div>
 
@@ -48,10 +52,9 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
-<code class="parameter">fetch_style</code></dt>
+<code class="parameter">mode</code></dt>
 
      <dd>
 
@@ -65,7 +68,7 @@
        To return an array consisting of all values of a single column from
        the result set, specify <strong><code>PDO::FETCH_COLUMN</code></strong>. You
        can specify which column you want with the
-       <code class="parameter">fetch_argument</code> parameter.
+       <code class="parameter">column</code> parameter.
       </p>
       <p class="para">
        To fetch only the unique values of a single column from the result set,
@@ -82,13 +85,13 @@
     
     
      <dt>
-<code class="parameter">fetch_argument</code></dt>
+<code class="parameter">args</code></dt>
 
      <dd>
 
       <p class="para">
        This argument has a different meaning depending on the value of 
-       the <code class="parameter">fetch_style</code> parameter:
+       the <code class="parameter">mode</code> parameter:
        <ul class="itemizedlist">
         <li class="listitem">
          <p class="para">
@@ -115,12 +118,12 @@
     
     
      <dt>
-<code class="parameter">ctor_args</code></dt>
+<code class="parameter">constructorArgs</code></dt>
 
      <dd>
 
       <p class="para">
-       Arguments of custom class constructor when the <code class="parameter">fetch_style</code> 
+       Arguments of custom class constructor when the <code class="parameter">mode</code> 
        parameter is <strong><code>PDO::FETCH_CLASS</code></strong>.
       </p>
      </dd>
@@ -139,7 +142,7 @@
    all of the remaining rows in the result set. The array represents each
    row as either an array of column values or an object with properties
    corresponding to each column name. An empty array is returned if there
-   are zero results to fetch, or <strong><code>false</code></strong> on failure.
+   are zero results to fetch.
   </p>
   <p class="para">
    Using this method to fetch large result sets will result in a heavy
@@ -152,10 +155,38 @@
  </div>
 
 
+ <div class="refsect1 changelog" id="refsect1-pdostatement.fetchall-changelog">
+  <h3 class="title">Changelog</h3>
+  <table class="doctable informaltable">
+   
+    <thead>
+     <tr>
+      <th>Version</th>
+      <th>Description</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+      <td>8.0.0</td>
+      <td>
+       This method always returns an <span class="type">array</span> now, while previously <strong><code>false</code></strong> may have
+       been returned on failure.
+      </td>
+     </tr>
+
+    </tbody>
+   
+  </table>
+
+ </div>
+
+
  <div class="refsect1 examples" id="refsect1-pdostatement.fetchall-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-1042"><p><strong>Example #1 Fetch all remaining rows in a result set</strong></p>
+   <div class="example" id="example-1049"><p><strong>Example #1 Fetch all remaining rows in a result set</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
 <span style="color: #0000BB">&lt;?php<br />$sth&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$dbh</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">prepare</span><span style="color: #007700">(</span><span style="color: #DD0000">"SELECT&nbsp;name,&nbsp;colour&nbsp;FROM&nbsp;fruit"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$sth</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">execute</span><span style="color: #007700">();<br /><br /></span><span style="color: #FF8000">/*&nbsp;Fetch&nbsp;all&nbsp;of&nbsp;the&nbsp;remaining&nbsp;rows&nbsp;in&nbsp;the&nbsp;result&nbsp;set&nbsp;*/<br /></span><span style="color: #007700">print(</span><span style="color: #DD0000">"Fetch&nbsp;all&nbsp;of&nbsp;the&nbsp;remaining&nbsp;rows&nbsp;in&nbsp;the&nbsp;result&nbsp;set:\n"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$result&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$sth</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">fetchAll</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">$result</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
@@ -198,7 +229,7 @@ Array
 </pre></div>
     </div>
    </div>
-   <div class="example" id="example-1043"><p><strong>Example #2 Fetching all values of a single column from a result set</strong></p>
+   <div class="example" id="example-1050"><p><strong>Example #2 Fetching all values of a single column from a result set</strong></p>
     <div class="example-contents"><p>
      The following example demonstrates how to return all of the values of a
      single column from a result set, even though the SQL statement itself
@@ -227,7 +258,7 @@ Array(3)
 </pre></div>
     </div>
    </div>
-   <div class="example" id="example-1044"><p><strong>Example #3 Grouping all values by a single column</strong></p>
+   <div class="example" id="example-1051"><p><strong>Example #3 Grouping all values by a single column</strong></p>
     <div class="example-contents"><p>
      The following example demonstrates how to return an associative array
      grouped by the values of the specified column in the result set. The
@@ -272,7 +303,7 @@ array(3) {
 </pre></div>
     </div>
    </div>
-   <div class="example" id="example-1045"><p><strong>Example #4 Instantiating a class for each result</strong></p>
+   <div class="example" id="example-1052"><p><strong>Example #4 Instantiating a class for each result</strong></p>
     <div class="example-contents"><p>
      The following example demonstrates the behaviour of the
      <strong><code>PDO::FETCH_CLASS</code></strong> fetch style.
@@ -328,7 +359,7 @@ array(3) {
 </pre></div>
     </div>
    </div>
-   <div class="example" id="example-1046"><p><strong>Example #5 Calling a function for each result</strong></p>
+   <div class="example" id="example-1053"><p><strong>Example #5 Calling a function for each result</strong></p>
     <div class="example-contents"><p>
      The following example demonstrates the behaviour of the
      <strong><code>PDO::FETCH_FUNC</code></strong> fetch style.
@@ -368,7 +399,7 @@ array(3) {
   <h3 class="title">See Also</h3>
   <p class="para">
    <ul class="simplelist">
-    <li class="member"><span class="function"><a href="pdo.query.html" class="function" rel="rdfs-seeAlso">PDO::query()</a> - Executes an SQL statement, returning a result set as a PDOStatement object</span></li>
+    <li class="member"><span class="function"><a href="pdo.query.html" class="function" rel="rdfs-seeAlso">PDO::query()</a> - Prepares and executes an SQL statement without placeholders</span></li>
     <li class="member"><span class="function"><a href="pdostatement.fetch.html" class="function" rel="rdfs-seeAlso">PDOStatement::fetch()</a> - Fetches the next row from a result set</span></li>
     <li class="member"><span class="function"><a href="pdostatement.fetchcolumn.html" class="function" rel="rdfs-seeAlso">PDOStatement::fetchColumn()</a> - Returns a single column from the next row of a result set</span></li>
     <li class="member"><span class="function"><a href="pdo.prepare.html" class="function" rel="rdfs-seeAlso">PDO::prepare()</a> - Prepares a statement for execution and returns a statement object</span></li>

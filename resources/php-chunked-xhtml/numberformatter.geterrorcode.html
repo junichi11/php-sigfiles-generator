@@ -27,30 +27,22 @@
  <div class="refnamediv">
   <h1 class="refname">NumberFormatter::getErrorCode</h1>
   <h1 class="refname">numfmt_get_error_code</h1>
-  <p class="verinfo">(PHP 5 &gt;= 5.3.0, PHP 7, PECL intl &gt;= 1.0.0)</p><p class="refpurpose"><span class="refname">NumberFormatter::getErrorCode</span> -- <span class="refname">numfmt_get_error_code</span> &mdash; <span class="dc-title">Get formatter&#039;s last error code</span></p>
+  <p class="verinfo">(PHP 5 &gt;= 5.3.0, PHP 7, PHP 8, PECL intl &gt;= 1.0.0)</p><p class="refpurpose"><span class="refname">NumberFormatter::getErrorCode</span> -- <span class="refname">numfmt_get_error_code</span> &mdash; <span class="dc-title">Get formatter&#039;s last error code</span></p>
 
  </div>
 
  <div class="refsect1 description" id="refsect1-numberformatter.geterrorcode-description">
   <h3 class="title">Description</h3>
   <p class="para">
-   Object oriented style
+   Object-oriented style
   </p>
   <div class="methodsynopsis dc-description">
-   <span class="modifier">public</span>
-   
-   <span class="methodname"><strong>NumberFormatter::getErrorCode</strong></span>
-    (
-   ) : <span class="type">int</span></div>
+   <span class="modifier">public</span> <span class="methodname"><strong>NumberFormatter::getErrorCode</strong></span>(): <span class="type">int</span></div>
 
   <p class="para rdfs-comment">
    Procedural style
   </p>
-  <div class="methodsynopsis dc-description">
-   
-   <span class="methodname"><strong>numfmt_get_error_code</strong></span>
-    ( <span class="methodparam"><span class="type"><a href="class.numberformatter.html" class="type NumberFormatter">NumberFormatter</a></span> <code class="parameter">$fmt</code></span>
-   ) : <span class="type">int</span></div>
+  <div class="methodsynopsis dc-description"><span class="methodname"><strong>numfmt_get_error_code</strong></span>(<span class="methodparam"><span class="type"><a href="class.numberformatter.html" class="type NumberFormatter">NumberFormatter</a></span> <code class="parameter">$formatter</code></span>): <span class="type">int</span></div>
 
   <p class="para rdfs-comment">
    Get error code from the last function performed by the formatter.
@@ -62,15 +54,14 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
-<code class="parameter">fmt</code></dt>
+<code class="parameter">formatter</code></dt>
 
      <dd>
 
       <p class="para">
-       <a href="class.numberformatter.html" class="classname">NumberFormatter</a> object.
+       <span class="classname"><a href="class.numberformatter.html" class="classname">NumberFormatter</a></span> object.
       </p>
      </dd>
 
@@ -92,7 +83,7 @@
 
  <div class="refsect1 examples" id="refsect1-numberformatter.geterrorcode-examples">
   <h3 class="title">Examples</h3>
-  <div class="example" id="example-2783">
+  <div class="example" id="example-2295">
    <p><strong>Example #1 <span class="function"><strong>numfmt_get_error_code()</strong></span> example</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -102,7 +93,7 @@
    </div>
 
   </div>
-  <div class="example" id="example-2784">
+  <div class="example" id="example-2296">
    <p><strong>Example #2 OO example</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

@@ -33,10 +33,7 @@
  <div class="refsect1 description" id="refsect1-mongodb-driver-clientencryption.createdatakey-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><strong>MongoDB\Driver\ClientEncryption::createDataKey</strong></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$kmsProvider</code></span>
-   , <span class="methodparam"><span class="type">array</span> <code class="parameter">$options</code> = ?</span>
-   ) : <span class="type"><a href="class.mongodb-bson-binary.html" class="type MongoDB\BSON\Binary">MongoDB\BSON\Binary</a></span></div>
+   <span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><strong>MongoDB\Driver\ClientEncryption::createDataKey</strong></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$kmsProvider</code></span>, <span class="methodparam"><span class="type">array</span> <code class="parameter">$options</code><span class="initializer"> = ?</span></span>): <span class="type"><a href="class.mongodb-bson-binary.html" class="type MongoDB\BSON\Binary">MongoDB\BSON\Binary</a></span></div>
 
   <p class="para rdfs-comment">
    Creates a new key document and inserts it into the key vault collection.
@@ -47,7 +44,6 @@
  <div class="refsect1 parameters" id="refsect1-mongodb-driver-clientencryption.createdatakey-parameters">
   <h3 class="title">Parameters</h3>
   <dl>
-
    
     <dt>
 <code class="parameter">kmsProvider</code></dt>
@@ -55,8 +51,10 @@
     <dd>
 
      <p class="para">
-      The KMS provider (<code class="literal">&quot;local&quot;</code> or <code class="literal">&quot;aws&quot;</code>) that
-      will be used to encrypt the new encryption key.
+      The KMS provider (e.g. <code class="literal">&quot;local&quot;</code>,
+      <code class="literal">&quot;aws&quot;</code>, <code class="literal">&quot;azure&quot;</code>,
+      <code class="literal">&quot;gcp&quot;</code>) that will be used to encrypt the new encryption
+      key.
      </p>
     </dd>
 
@@ -88,8 +86,12 @@
           <td>
            <p class="para">
             The masterKey identifies a KMS-specific key used to encrypt the new
-            data key. If the kmsProvider is <code class="literal">aws</code> it is
-            required and has the following fields:
+            data key. This option is required unless
+            <code class="parameter">kmsProvider</code> is <code class="literal">&quot;local&quot;</code>.
+           </p>
+           <p class="para">
+            If <code class="parameter">kmsProvider</code> is <code class="literal">&quot;aws&quot;</code>,
+            this option is required and has the following fields:
             <table class="doctable table">
              <caption><strong>AWS masterKey options</strong></caption>
              
@@ -119,6 +121,102 @@
                 <td>endpoint</td>
                 <td>string</td>
                 <td>Optional. An alternate host identifier to send KMS requests to. May include port number.</td>
+               </tr>
+
+              </tbody>
+             
+            </table>
+
+           </p>
+           <p class="para">
+            If <code class="parameter">kmsProvider</code> is <code class="literal">&quot;azure&quot;</code>,
+            this option is required and has the following fields:
+            <table class="doctable table">
+             <caption><strong>Azure masterKey options</strong></caption>
+             
+              <thead>
+               <tr>
+                <th>Option</th>
+                <th>Type</th>
+                <th>Description</th>
+               </tr>
+
+              </thead>
+
+              <tbody class="tbody">
+               <tr>
+                <td>keyVaultEndpoint</td>
+                <td>string</td>
+                <td>Required. Host with optional port (e.g. &quot;example.vault.azure.net&quot;).</td>
+               </tr>
+
+               <tr>
+                <td>keyName</td>
+                <td>string</td>
+                <td>Required.</td>
+               </tr>
+
+               <tr>
+                <td>keyVersion</td>
+                <td>string</td>
+                <td>Optional. A specific version of the named key. Defaults to using the key&#039;s primary version.</td>
+               </tr>
+
+              </tbody>
+             
+            </table>
+
+           </p>
+           <p class="para">
+            If <code class="parameter">kmsProvider</code> is <code class="literal">&quot;gcp&quot;</code>,
+            this option is required and has the following fields:
+            <table class="doctable table">
+             <caption><strong>GCP masterKey options</strong></caption>
+             
+              <thead>
+               <tr>
+                <th>Option</th>
+                <th>Type</th>
+                <th>Description</th>
+               </tr>
+
+              </thead>
+
+              <tbody class="tbody">
+               <tr>
+                <td>projectId</td>
+                <td>string</td>
+                <td>Required.</td>
+               </tr>
+
+               <tr>
+                <td>location</td>
+                <td>string</td>
+                <td>Required.</td>
+               </tr>
+
+               <tr>
+                <td>keyRing</td>
+                <td>string</td>
+                <td>Required.</td>
+               </tr>
+
+               <tr>
+                <td>keyName</td>
+                <td>string</td>
+                <td>Required.</td>
+               </tr>
+
+               <tr>
+                <td>keyVersion</td>
+                <td>string</td>
+                <td>Optional. A specific version of the named key. Defaults to using the key&#039;s primary version.</td>
+               </tr>
+
+               <tr>
+                <td>endpoint</td>
+                <td>string</td>
+                <td>Optional. Host with optional port. Defaults to &quot;cloudkms.googleapis.com&quot;.</td>
                </tr>
 
               </tbody>
@@ -159,7 +257,7 @@
   <h3 class="title">Return Values</h3>
   <p class="para">
    Returns the identifier of the new key as a
-   <a href="class.mongodb-bson-binary.html" class="classname">MongoDB\BSON\Binary</a> object with subtype 4 (UUID).
+   <span class="classname"><a href="class.mongodb-bson-binary.html" class="classname">MongoDB\BSON\Binary</a></span> object with subtype 4 (UUID).
   </p>
  </div>
 
@@ -167,9 +265,39 @@
  <div class="refsect1 errors" id="refsect1-mongodb-driver-clientencryption.createdatakey-errors">
   <h3 class="title">Errors/Exceptions</h3>
   <ul class="simplelist">
-   <li class="member">Throws <a href="class.mongodb-driver-exception-invalidargumentexception.html" class="classname">MongoDB\Driver\Exception\InvalidArgumentException</a> on argument parsing errors.</li>
-   <li class="member">Throws <a href="class.mongodb-driver-exception-encryptionexception.html" class="classname">MongoDB\Driver\Exception\EncryptionException</a> if an error occurs while creating the data key</li>
+   <li class="member">Throws <span class="classname"><a href="class.mongodb-driver-exception-invalidargumentexception.html" class="classname">MongoDB\Driver\Exception\InvalidArgumentException</a></span> on argument parsing errors.</li>
+   <li class="member">Throws <span class="classname"><a href="class.mongodb-driver-exception-encryptionexception.html" class="classname">MongoDB\Driver\Exception\EncryptionException</a></span> if an error occurs while creating the data key</li>
   </ul>
+ </div>
+
+
+ <div class="refsect1 changelog" id="refsect1-mongodb-driver-clientencryption.createdatakey-changelog">
+  <h3 class="title">Changelog</h3>
+  <p class="para">
+   <table class="doctable informaltable">
+    
+     <thead>
+      <tr>
+       <th>Version</th>
+       <th>Description</th>
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr>
+       <td>PECL mongodb 1.10.0</td>
+       <td>
+        Azure and GCP are now supported as KMS providers for client-side
+        encryption.
+       </td>
+      </tr>
+
+     </tbody>
+    
+   </table>
+
+  </p>
  </div>
 
  

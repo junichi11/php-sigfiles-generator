@@ -26,22 +26,19 @@
   <div id="layout-content"><div id="function.openssl-x509-verify" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">openssl_x509_verify</h1>
-  <p class="verinfo">(PHP 7 &gt;= 7.4.0)</p><p class="refpurpose"><span class="refname">openssl_x509_verify</span> &mdash; <span class="dc-title">Verifies digital signature of x509 certificate against a public key</span></p>
+  <p class="verinfo">(PHP 7 &gt;= 7.4.0, PHP 8)</p><p class="refpurpose"><span class="refname">openssl_x509_verify</span> &mdash; <span class="dc-title">Verifies digital signature of x509 certificate against a public key</span></p>
 
  </div>
  
  <div class="refsect1 description" id="refsect1-function.openssl-x509-verify-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>openssl_x509_verify</strong></span>
-    ( <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$x509</code></span>
-   , <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$pub_key_id</code></span>
-   ) : <span class="type">int</span></div>
+   <span class="methodname"><strong>openssl_x509_verify</strong></span>(<span class="methodparam"><span class="type"><span class="type"><a href="class.opensslcertificate.html" class="type OpenSSLCertificate">OpenSSLCertificate</a></span>|<span class="type">string</span></span> <code class="parameter">$certificate</code></span>, <span class="methodparam"><span class="type"><span class="type"><a href="class.opensslasymmetrickey.html" class="type OpenSSLAsymmetricKey">OpenSSLAsymmetricKey</a></span>|<span class="type"><a href="class.opensslcertificate.html" class="type OpenSSLCertificate">OpenSSLCertificate</a></span>|<span class="type">array</span>|<span class="type">string</span></span> <code class="parameter">$public_key</code></span>): <span class="type">int</span></div>
 
   <p class="para rdfs-comment">
    <span class="function"><strong>openssl_x509_verify()</strong></span> verifies that the 
-   <code class="parameter">x509</code> certificate was signed by the private 
-   key corresponding to public key <code class="parameter">pub_key_id</code>.  
+   <code class="parameter">certificate</code> certificate was signed by the private 
+   key corresponding to public key <code class="parameter">public_key</code>.  
   </p>
  </div>
 
@@ -50,7 +47,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
  <dt>
 <code class="parameter">x509</code></dt>
@@ -65,12 +61,12 @@
 
     
      <dt>
-<code class="parameter">pub_key_id</code></dt>
+<code class="parameter">public_key</code></dt>
 
      <dd>
 
       <p class="para">
-       <span class="type">resource</span> - a key, returned by <span class="function"><a href="function.openssl-get-publickey.html" class="function">openssl_get_publickey()</a></span>
+       <span class="classname"><a href="class.opensslasymmetrickey.html" class="classname">OpenSSLAsymmetricKey</a></span> - a key, returned by <span class="function"><a href="function.openssl-get-publickey.html" class="function">openssl_get_publickey()</a></span>
       </p>
       <p class="para">
        <span class="type">string</span> - a PEM formatted key, example, &quot;-----BEGIN PUBLIC KEY-----
@@ -94,10 +90,48 @@ MIIBCgK...&quot;
  </div>
 
 
+ <div class="refsect1 changelog" id="refsect1-function.openssl-x509-verify-changelog">
+  <h3 class="title">Changelog</h3>
+  <table class="doctable informaltable">
+   
+    <thead>
+     <tr>
+      <th>Version</th>
+      <th>Description</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+      <td>8.0.0</td>
+      <td>
+       <code class="parameter">certificate</code> accepts an <span class="classname"><a href="class.opensslcertificate.html" class="classname">OpenSSLCertificate</a></span> instance now;
+       previously, a <a href="language.types.resource.html" class="link">resource</a> of type <code class="literal">OpenSSL X.509</code> was accepted.
+      </td>
+     </tr>
+
+     <tr>
+      <td>8.0.0</td>
+      <td>
+       <code class="parameter">public_key</code> accepts an <span class="classname"><a href="class.opensslasymmetrickey.html" class="classname">OpenSSLAsymmetricKey</a></span>
+       or <span class="classname"><a href="class.opensslcertificate.html" class="classname">OpenSSLCertificate</a></span> instance now;
+       previously, a <a href="language.types.resource.html" class="link">resource</a> of type <code class="literal">OpenSSL key</code> or <code class="literal">OpenSSL X.509</code>
+       was accepted.
+      </td>
+     </tr>
+
+    </tbody>
+   
+  </table>
+
+ </div>
+
+
  <div class="refsect1 examples" id="refsect1-function.openssl-x509-verify-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-946">
+   <div class="example" id="example-952">
     <p><strong>Example #1 <span class="function"><strong>openssl_x509_verify()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

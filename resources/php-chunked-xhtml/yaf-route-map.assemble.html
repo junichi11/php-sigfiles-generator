@@ -33,10 +33,7 @@
  <div class="refsect1 description" id="refsect1-yaf-route-map.assemble-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><strong>Yaf_Route_Map::assemble</strong></span>
-    ( <span class="methodparam"><span class="type">array</span> <code class="parameter">$info</code></span>
-   , <span class="methodparam"><span class="type">array</span> <code class="parameter">$query</code> = ?</span>
-   ) : <span class="type">string</span></div>
+   <span class="modifier">public</span> <span class="methodname"><strong>Yaf_Route_Map::assemble</strong></span>(<span class="methodparam"><span class="type">array</span> <code class="parameter">$info</code></span>, <span class="methodparam"><span class="type">array</span> <code class="parameter">$query</code><span class="initializer"> = ?</span></span>): <span class="type">string</span></div>
 
   <p class="para rdfs-comment">
    Assemble a url.
@@ -47,7 +44,6 @@
  <div class="refsect1 parameters" id="refsect1-yaf-route-map.assemble-parameters">
   <h3 class="title">Parameters</h3>
   <dl>
-
    
     <dt>
 <code class="parameter">info</code></dt>
@@ -77,9 +73,25 @@
  </div>
 
 
+ <div class="refsect1 returnvalues" id="refsect1-yaf-route-map.assemble-returnvalues">
+  <h3 class="title">Return Values</h3>
+  <p class="para">
+   Returns <span class="type">string</span> on success or <strong><code>null</code></strong> on failure.
+  </p>
+ </div>
+
+
+ <div class="refsect1 errors" id="refsect1-yaf-route-map.assemble-errors">
+  <h3 class="title">Errors/Exceptions</h3>
+  <p class="para">
+   May throw <span class="classname"><a href="class.yaf-exception-typeerror.html" class="classname">Yaf_Exception_TypeError</a></span>.
+  </p>
+ </div>
+
+
  <div class="refsect1 examples" id="refsect1-yaf-route-map.assemble-examples">
   <h3 class="title">Examples</h3>
-  <div class="example" id="example-4436">
+  <div class="example" id="example-3932">
    <p><strong>Example #1 <span class="function"><strong>Yaf_Route_Map::assemble()</strong></span>example</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -97,14 +109,6 @@ string(%d) &quot;/foo/bar/_/tkey1/tval1/tkey2/tval2&quot;
 </pre></div>
    </div>
   </div>
- </div>
-
-
- <div class="refsect1 returnvalues" id="refsect1-yaf-route-map.assemble-returnvalues">
-  <h3 class="title">Return Values</h3>
-  <p class="para">
-  
-  </p>
  </div>
 
 

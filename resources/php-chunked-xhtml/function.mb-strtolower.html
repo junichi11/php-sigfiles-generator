@@ -26,17 +26,14 @@
   <div id="layout-content"><div id="function.mb-strtolower" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">mb_strtolower</h1>
-  <p class="verinfo">(PHP 4 &gt;= 4.3.0, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">mb_strtolower</span> &mdash; <span class="dc-title">Make a string lowercase</span></p>
+  <p class="verinfo">(PHP 4 &gt;= 4.3.0, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">mb_strtolower</span> &mdash; <span class="dc-title">Make a string lowercase</span></p>
 
  </div>
    
  <div class="refsect1 description" id="refsect1-function.mb-strtolower-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>mb_strtolower</strong></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$string</code></span>
-   , <span class="methodparam"><span class="type"><span class="type">string</span>|<span class="type">null</span></span> <code class="parameter">$encoding</code><span class="initializer"> = <strong><code>null</code></strong></span></span>
-   ) : <span class="type">string</span></div>
+   <span class="methodname"><strong>mb_strtolower</strong></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$string</code></span>, <span class="methodparam"><span class="type">?</span><span class="type"><span class="type">string</span><span class="type"></span></span> <code class="parameter">$encoding</code><span class="initializer"> = <strong><code>null</code></strong></span></span>): <span class="type">string</span></div>
 
   <p class="para rdfs-comment">
    Returns <code class="parameter">string</code>
@@ -49,7 +46,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">string</code></dt>
@@ -88,24 +84,10 @@ encoding value will be used.</p>
  </div>
 
 
- <div class="refsect1 unicode" id="refsect1-function.mb-strtolower-unicode">
-  <h3 class="title">Unicode</h3>
-  <p class="para">
-   For more information about the Unicode properties, please see <a href="http://www.unicode.org/unicode/reports/tr21/" class="link external">&raquo;&nbsp;http://www.unicode.org/unicode/reports/tr21/</a>.
-  </p>
-  <p class="para">
-   By contrast to <span class="function"><a href="function.strtolower.html" class="function">strtolower()</a></span>, &#039;alphabetic&#039; is
-   determined by the Unicode character properties. Thus the behaviour
-   of this function is not affected by locale settings and it can convert
-   any characters that have &#039;alphabetic&#039; property, such as A-umlaut (Ä). 
-  </p>
-</div>
-
-
  <div class="refsect1 examples" id="refsect1-function.mb-strtolower-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-3053">
+   <div class="example" id="example-2568">
     <p><strong>Example #1 <span class="function"><strong>mb_strtolower()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -118,7 +100,7 @@ encoding value will be used.</p>
   </p>
 
   <p class="para">
-   <div class="example" id="example-3054">
+   <div class="example" id="example-2569">
     <p><strong>Example #2 <span class="function"><strong>mb_strtolower()</strong></span> example with non-Latin UTF-8 text</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -128,6 +110,20 @@ encoding value will be used.</p>
     </div>
 
    </div>
+  </p>
+ </div>
+
+
+ <div class="refsect1 notes" id="refsect1-function.mb-strtolower-notes">
+  <h3 class="title">Notes</h3>
+  <p class="para">
+   By contrast to <span class="function"><a href="function.strtolower.html" class="function">strtolower()</a></span>, &#039;alphabetic&#039; is
+   determined by the Unicode character properties. Thus the behaviour
+   of this function is not affected by locale settings and it can convert
+   any characters that have &#039;alphabetic&#039; property, such as a-umlaut (ä).
+  </p>
+  <p class="para">
+   For more information about the Unicode properties, please see <a href="http://www.unicode.org/reports/tr21/" class="link external">&raquo;&nbsp;http://www.unicode.org/reports/tr21/</a>.
   </p>
  </div>
 

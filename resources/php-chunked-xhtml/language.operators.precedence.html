@@ -47,8 +47,13 @@
     Operators of equal precedence that are non-associative cannot be used
     next to each other, for example <code class="literal">1 &lt; 2 &gt; 1</code> is
     illegal in PHP. The expression <code class="literal">1 &lt;= 1 == 1</code> on the
-    other hand is legal, because the <code class="literal">==</code> operator has lesser
+    other hand is legal, because the <code class="literal">==</code> operator has a lower
     precedence than the <code class="literal">&lt;=</code> operator.
+   </p>
+   <p class="para">
+    Associativity is only meaningful for binary (and ternary) operators.
+    Unary operators are either prefix or postfix so this notion is not applicable.
+    For example <code class="literal">!!$a</code> can only be grouped as <code class="literal">!(!$a)</code>.
    </p>
    <p class="para">
     Use of parentheses, even when not strictly necessary, can often increase
@@ -90,6 +95,8 @@
        <tr>
         <td>(n/a)</td>
         <td>
+         <code class="literal">+</code> 
+         <code class="literal">-</code> 
          <code class="literal">++</code> 
          <code class="literal">--</code> 
          <code class="literal">~</code> 
@@ -102,7 +109,11 @@
          <code class="literal">@</code>
         </td>
         <td>
-         <a href="language.types.html" class="link">types</a> and <a href="language.operators.increment.html" class="link">increment/decrement</a>
+         <a href="language.operators.arithmetic.html" class="link">arithmetic</a> (unary <code class="literal">+</code> and <code class="literal">-</code>),
+         <a href="language.operators.increment.html" class="link">increment/decrement</a>,
+         <a href="language.operators.bitwise.html" class="link">bitwise</a>,
+         <a href="language.types.type-juggling.html#language.types.typecasting" class="link">type casting</a> and
+         <a href="language.operators.errorcontrol.html" class="link">error control</a>
         </td>
        </tr>
 
@@ -110,7 +121,7 @@
         <td>left</td>
         <td><code class="literal">instanceof</code></td>
         <td>
-         <a href="language.types.html" class="link">types</a>
+         <a href="language.operators.type.html" class="link">type</a>
         </td>
        </tr>
 
@@ -142,8 +153,10 @@
          <code class="literal">.</code>
         </td>
         <td>
-         <a href="language.operators.arithmetic.html" class="link">arithmetic</a> and
-         <a href="language.operators.string.html" class="link">string</a></td>
+         <a href="language.operators.arithmetic.html" class="link">arithmetic</a> (binary <code class="literal">+</code> and <code class="literal">-</code>),
+         <a href="language.operators.array.html" class="link">array</a> and
+         <a href="language.operators.string.html" class="link">string</a> (<code class="literal">.</code> prior to PHP 8.0.0)
+        </td>
        </tr>
 
        <tr>
@@ -154,6 +167,14 @@
         </td>
         <td>
          <a href="language.operators.bitwise.html" class="link">bitwise</a>
+        </td>
+       </tr>
+
+       <tr>
+        <td>left</td>
+        <td><code class="literal">.</code></td>
+        <td>
+         <a href="language.operators.string.html" class="link">string</a> (as of PHP 8.0.0)
         </td>
        </tr>
 
@@ -234,10 +255,11 @@
        </tr>
 
        <tr>
-        <td>left</td>
+        <td>non-associative</td>
         <td><code class="literal">? :</code></td>
         <td>
          <a href="language.operators.comparison.html#language.operators.comparison.ternary" class="link">ternary</a>
+         (left-associative prior to PHP 8.0.0)
         </td>
        </tr>
 
@@ -316,11 +338,11 @@
 
    </p>
    <p class="para">
-    <div class="example" id="example-109">
+    <div class="example" id="example-107">
      <p><strong>Example #1 Associativity</strong></p>
      <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$a&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">3&nbsp;</span><span style="color: #007700">*&nbsp;</span><span style="color: #0000BB">3&nbsp;</span><span style="color: #007700">%&nbsp;</span><span style="color: #0000BB">5</span><span style="color: #007700">;&nbsp;</span><span style="color: #FF8000">//&nbsp;(3&nbsp;*&nbsp;3)&nbsp;%&nbsp;5&nbsp;=&nbsp;4<br />//&nbsp;ternary&nbsp;operator&nbsp;associativity&nbsp;differs&nbsp;from&nbsp;C/C++<br /></span><span style="color: #0000BB">$a&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">true&nbsp;</span><span style="color: #007700">?&nbsp;</span><span style="color: #0000BB">0&nbsp;</span><span style="color: #007700">:&nbsp;</span><span style="color: #0000BB">true&nbsp;</span><span style="color: #007700">?&nbsp;</span><span style="color: #0000BB">1&nbsp;</span><span style="color: #007700">:&nbsp;</span><span style="color: #0000BB">2</span><span style="color: #007700">;&nbsp;</span><span style="color: #FF8000">//&nbsp;(true&nbsp;?&nbsp;0&nbsp;:&nbsp;true)&nbsp;?&nbsp;1&nbsp;:&nbsp;2&nbsp;=&nbsp;2<br /><br /></span><span style="color: #0000BB">$a&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$b&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">2</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$a&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$b&nbsp;</span><span style="color: #007700">+=&nbsp;</span><span style="color: #0000BB">3</span><span style="color: #007700">;&nbsp;</span><span style="color: #FF8000">//&nbsp;$a&nbsp;=&nbsp;($b&nbsp;+=&nbsp;3)&nbsp;-&gt;&nbsp;$a&nbsp;=&nbsp;5,&nbsp;$b&nbsp;=&nbsp;5<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$a&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">3&nbsp;</span><span style="color: #007700">*&nbsp;</span><span style="color: #0000BB">3&nbsp;</span><span style="color: #007700">%&nbsp;</span><span style="color: #0000BB">5</span><span style="color: #007700">;&nbsp;</span><span style="color: #FF8000">//&nbsp;(3&nbsp;*&nbsp;3)&nbsp;%&nbsp;5&nbsp;=&nbsp;4<br />//&nbsp;ternary&nbsp;operator&nbsp;associativity&nbsp;differs&nbsp;from&nbsp;C/C++<br /></span><span style="color: #0000BB">$a&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">true&nbsp;</span><span style="color: #007700">?&nbsp;</span><span style="color: #0000BB">0&nbsp;</span><span style="color: #007700">:&nbsp;</span><span style="color: #0000BB">true&nbsp;</span><span style="color: #007700">?&nbsp;</span><span style="color: #0000BB">1&nbsp;</span><span style="color: #007700">:&nbsp;</span><span style="color: #0000BB">2</span><span style="color: #007700">;&nbsp;</span><span style="color: #FF8000">//&nbsp;(true&nbsp;?&nbsp;0&nbsp;:&nbsp;true)&nbsp;?&nbsp;1&nbsp;:&nbsp;2&nbsp;=&nbsp;2&nbsp;(prior&nbsp;to&nbsp;PHP&nbsp;8.0.0)<br /><br /></span><span style="color: #0000BB">$a&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$b&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">2</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$a&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$b&nbsp;</span><span style="color: #007700">+=&nbsp;</span><span style="color: #0000BB">3</span><span style="color: #007700">;&nbsp;</span><span style="color: #FF8000">//&nbsp;$a&nbsp;=&nbsp;($b&nbsp;+=&nbsp;3)&nbsp;-&gt;&nbsp;$a&nbsp;=&nbsp;5,&nbsp;$b&nbsp;=&nbsp;5<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
      </div>
@@ -334,7 +356,7 @@
     and code that assumes a specific order of evaluation should be avoided,
     because the behavior can change between versions of PHP or depending on
     the surrounding code.
-    <div class="example" id="example-110">
+    <div class="example" id="example-108">
      <p><strong>Example #2 Undefined order of evaluation</strong></p>
      <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -344,11 +366,11 @@
      </div>
 
     </div>
-    <div class="example" id="example-111">
-     <p><strong>Example #3 <code class="literal">+</code>, <code class="literal">-</code> and <code class="literal">.</code> have the same precedence</strong></p>
+    <div class="example" id="example-109">
+     <p><strong>Example #3 <code class="literal">+</code>, <code class="literal">-</code> and <code class="literal">.</code> have the same precedence (prior to PHP 8.0.0)</strong></p>
      <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$x&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">4</span><span style="color: #007700">;<br /></span><span style="color: #FF8000">//&nbsp;this&nbsp;line&nbsp;might&nbsp;result&nbsp;in&nbsp;unexpected&nbsp;output:<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #DD0000">"x&nbsp;minus&nbsp;one&nbsp;equals&nbsp;"&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">$x</span><span style="color: #007700">-</span><span style="color: #0000BB">1&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #DD0000">",&nbsp;or&nbsp;so&nbsp;I&nbsp;hope\n"</span><span style="color: #007700">;<br /></span><span style="color: #FF8000">//&nbsp;because&nbsp;it&nbsp;is&nbsp;evaluated&nbsp;like&nbsp;this&nbsp;line:<br /></span><span style="color: #007700">echo&nbsp;((</span><span style="color: #DD0000">"x&nbsp;minus&nbsp;one&nbsp;equals&nbsp;"&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">$x</span><span style="color: #007700">)&nbsp;-&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">)&nbsp;.&nbsp;</span><span style="color: #DD0000">",&nbsp;or&nbsp;so&nbsp;I&nbsp;hope\n"</span><span style="color: #007700">;<br /></span><span style="color: #FF8000">//&nbsp;the&nbsp;desired&nbsp;precedence&nbsp;can&nbsp;be&nbsp;enforced&nbsp;by&nbsp;using&nbsp;parentheses:<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #DD0000">"x&nbsp;minus&nbsp;one&nbsp;equals&nbsp;"&nbsp;</span><span style="color: #007700">.&nbsp;(</span><span style="color: #0000BB">$x</span><span style="color: #007700">-</span><span style="color: #0000BB">1</span><span style="color: #007700">)&nbsp;.&nbsp;</span><span style="color: #DD0000">",&nbsp;or&nbsp;so&nbsp;I&nbsp;hope\n"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$x&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">4</span><span style="color: #007700">;<br /></span><span style="color: #FF8000">//&nbsp;this&nbsp;line&nbsp;might&nbsp;result&nbsp;in&nbsp;unexpected&nbsp;output:<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #DD0000">"x&nbsp;minus&nbsp;one&nbsp;equals&nbsp;"&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">$x</span><span style="color: #007700">-</span><span style="color: #0000BB">1&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #DD0000">",&nbsp;or&nbsp;so&nbsp;I&nbsp;hope\n"</span><span style="color: #007700">;<br /></span><span style="color: #FF8000">//&nbsp;because&nbsp;it&nbsp;is&nbsp;evaluated&nbsp;like&nbsp;this&nbsp;line&nbsp;(prior&nbsp;to&nbsp;PHP&nbsp;8.0.0):<br /></span><span style="color: #007700">echo&nbsp;((</span><span style="color: #DD0000">"x&nbsp;minus&nbsp;one&nbsp;equals&nbsp;"&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">$x</span><span style="color: #007700">)&nbsp;-&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">)&nbsp;.&nbsp;</span><span style="color: #DD0000">",&nbsp;or&nbsp;so&nbsp;I&nbsp;hope\n"</span><span style="color: #007700">;<br /></span><span style="color: #FF8000">//&nbsp;the&nbsp;desired&nbsp;precedence&nbsp;can&nbsp;be&nbsp;enforced&nbsp;by&nbsp;using&nbsp;parentheses:<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #DD0000">"x&nbsp;minus&nbsp;one&nbsp;equals&nbsp;"&nbsp;</span><span style="color: #007700">.&nbsp;(</span><span style="color: #0000BB">$x</span><span style="color: #007700">-</span><span style="color: #0000BB">1</span><span style="color: #007700">)&nbsp;.&nbsp;</span><span style="color: #DD0000">",&nbsp;or&nbsp;so&nbsp;I&nbsp;hope\n"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
      </div>
@@ -372,4 +394,59 @@ x minus one equals 3, or so I hope
      put into <var class="varname">$a</var>.
     </p>
    </p></blockquote>
+   <div class="sect2">
+    <h3 class="title">Changelog</h3>
+    <table class="doctable informaltable">
+     
+      <thead>
+       <tr>
+        <th>Version</th>
+        <th>Description</th>
+       </tr>
+
+      </thead>
+
+      <tbody class="tbody">
+       <tr>
+        <td>8.0.0</td>
+        <td>
+         String concatenation (<code class="literal">.</code>) now has a lower precedence than
+         arithmetic addition/subtraction (<code class="literal">+</code> and <code class="literal">-</code>) and
+         bitwise shift left/right (<code class="literal">&lt;&lt;</code> and <code class="literal">&gt;&gt;</code>);
+         previously it had the same precedence as <code class="literal">+</code> and <code class="literal">-</code>
+         and a higher precedence than <code class="literal">&lt;&lt;</code> and <code class="literal">&gt;&gt;</code>.
+        </td>
+       </tr>
+
+       <tr>
+        <td>8.0.0</td>
+        <td>
+         The ternary operator (<code class="literal">? :</code>) is non-associative now;
+         previously it was left-associative.
+        </td>
+       </tr>
+
+       <tr>
+        <td>7.4.0</td>
+        <td>
+         Relying on the precedence of string concatenation (<code class="literal">.</code>) relative to
+         arithmetic addition/subtraction (<code class="literal">+</code> or <code class="literal">-</code>) or
+         bitwise shift left/right (<code class="literal">&lt;&lt;</code> or <code class="literal">&gt;&gt;</code>),
+         i.e. using them together in an unparenthesized expression, is deprecated.
+        </td>
+       </tr>
+
+       <tr>
+        <td>7.4.0</td>
+        <td>
+         Relying on left-associativity of the ternary operator (<code class="literal">? :</code>),
+         i.e. nesting multiple unparenthesized ternary operators, is deprecated.
+        </td>
+       </tr>
+
+      </tbody>
+     
+    </table>
+
+   </div>
   </div></div></div></body></html>

@@ -34,7 +34,7 @@
   <div class="section" id="mongodb-driver-clientencryption.intro">
    <h2 class="title">Introduction</h2>
    <p class="para">
-    The <strong class="classname">MongoDB\Driver\ClientEncryption</strong> class handles
+    The <span class="classname"><strong class="classname">MongoDB\Driver\ClientEncryption</strong></span> class handles
     creation of data keys for client-side encryption, as well as manually
     encrypting and decrypting values.
    </p>
@@ -52,7 +52,7 @@
     <div class="classsynopsisinfo">
      <span class="modifier">final</span>
      <span class="ooclass">
-      <strong class="classname">MongoDB\Driver\ClientEncryption</strong>
+      <span class="modifier">class</span> <strong class="classname">MongoDB\Driver\ClientEncryption</strong>
      </span>
      {</div>
     
@@ -62,33 +62,18 @@
     <div class="fieldsynopsis">
      <span class="modifier">const</span>
      <span class="type">string</span>
-      <var class="fieldsynopsis_varname"><a href="class.mongodb-driver-clientencryption.html#mongodb-driver-clientencryption.constants.deterministic"><var class="varname">AEAD_AES_256_CBC_HMAC_SHA_512_DETERMINISTIC</var></a></var>
-     <span class="initializer"> = AEAD_AES_256_CBC_HMAC_SHA_512-Deterministic</span>
-    ;</div>
+      <var class="fieldsynopsis_varname"><a href="class.mongodb-driver-clientencryption.html#mongodb-driver-clientencryption.constants.deterministic"><var class="varname">AEAD_AES_256_CBC_HMAC_SHA_512_DETERMINISTIC</var></a></var><span class="initializer"> = AEAD_AES_256_CBC_HMAC_SHA_512-Deterministic</span>;</div>
 
-    <div class="fieldsynopsis">
-     <span class="modifier">const</span>
+    <div class="fieldsynopsis"><span class="modifier">const</span>
      <span class="type">string</span>
-      <var class="fieldsynopsis_varname"><a href="class.mongodb-driver-clientencryption.html#mongodb-driver-clientencryption.constants.random"><var class="varname">AEAD_AES_256_CBC_HMAC_SHA_512_RANDOM</var></a></var>
-     <span class="initializer"> = AEAD_AES_256_CBC_HMAC_SHA_512-Random</span>
-    ;</div>
+      <var class="fieldsynopsis_varname"><a href="class.mongodb-driver-clientencryption.html#mongodb-driver-clientencryption.constants.random"><var class="varname">AEAD_AES_256_CBC_HMAC_SHA_512_RANDOM</var></a></var><span class="initializer"> = AEAD_AES_256_CBC_HMAC_SHA_512-Random</span>;</div>
 
 
     <div class="classsynopsisinfo classsynopsisinfo_comment">/* Methods */</div>
     <div class="methodsynopsis dc-description">
-   <span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><a href="mongodb-driver-clientencryption.createdatakey.html" class="methodname">createDataKey</a></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$kmsProvider</code></span>
-   , <span class="methodparam"><span class="type">array</span> <code class="parameter">$options</code> = ?</span>
-   ) : <span class="type"><a href="class.mongodb-bson-binary.html" class="type MongoDB\BSON\Binary">MongoDB\BSON\Binary</a></span></div>
-<div class="methodsynopsis dc-description">
-   <span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><a href="mongodb-driver-clientencryption.decrypt.html" class="methodname">decrypt</a></span>
-    ( <span class="methodparam"><span class="type"><a href="class.mongodb-bson-binary.html" class="type MongoDB\BSON\Binary">MongoDB\BSON\Binary</a></span> <code class="parameter">$value</code></span>
-   ) : <span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span></div>
-<div class="methodsynopsis dc-description">
-   <span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><a href="mongodb-driver-clientencryption.encrypt.html" class="methodname">encrypt</a></span>
-    ( <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$value</code></span>
-   , <span class="methodparam"><span class="type">array</span> <code class="parameter">$options</code> = ?</span>
-   ) : <span class="type"><a href="class.mongodb-bson-binary.html" class="type MongoDB\BSON\Binary">MongoDB\BSON\Binary</a></span></div>
+   <span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><a href="mongodb-driver-clientencryption.createdatakey.html" class="methodname">createDataKey</a></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$kmsProvider</code></span>, <span class="methodparam"><span class="type">array</span> <code class="parameter">$options</code><span class="initializer"> = ?</span></span>): <span class="type"><a href="class.mongodb-bson-binary.html" class="type MongoDB\BSON\Binary">MongoDB\BSON\Binary</a></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><a href="mongodb-driver-clientencryption.decrypt.html" class="methodname">decrypt</a></span>(<span class="methodparam"><span class="type"><a href="class.mongodb-bson-binary.html" class="type MongoDB\BSON\Binary">MongoDB\BSON\Binary</a></span> <code class="parameter">$value</code></span>): <span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><a href="mongodb-driver-clientencryption.encrypt.html" class="methodname">encrypt</a></span>(<span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$value</code></span>, <span class="methodparam"><span class="type">array</span> <code class="parameter">$options</code><span class="initializer"> = ?</span></span>): <span class="type"><a href="class.mongodb-bson-binary.html" class="type MongoDB\BSON\Binary">MongoDB\BSON\Binary</a></span></div>
 
    }</div>
    
@@ -99,7 +84,6 @@
   <div class="section" id="mongodb-driver-clientencryption.constants">
    <h2 class="title">Predefined Constants</h2>
    <dl>
-
 
     
      <dt id="mongodb-driver-clientencryption.constants.deterministic"><strong><code>MongoDB\Driver\ClientEncryption::AEAD_AES_256_CBC_HMAC_SHA_512_DETERMINISTIC</code></strong></dt>

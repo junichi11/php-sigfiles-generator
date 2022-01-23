@@ -34,22 +34,22 @@
   <div class="section" id="yaf-router.intro">
    <h2 class="title">Introduction</h2>
    <p class="para">
-   <strong class="classname">Yaf_Router</strong> is the standard framework router. Routing is
+   <span class="classname"><strong class="classname">Yaf_Router</strong></span> is the standard framework router. Routing is
    the process of taking a URI endpoint (that part of the URI which comes
    after the base URI: see <span class="methodname"><a href="yaf-request-abstract.setbaseuri.html" class="methodname">Yaf_Request_Abstract::setBaseUri()</a></span>)
    and decomposing it into parameters to determine which module, controller, and
    action of that controller should receive the request. This values of the module,
    controller, action and other parameters are packaged into a
-   <a href="class.yaf-request-abstract.html" class="classname">Yaf_Request_Abstract</a> object which is then processed by
-   <a href="class.yaf-dispatcher.html" class="classname">Yaf_Dispatcher</a>. Routing occurs only once: when the request
+   <span class="classname"><a href="class.yaf-request-abstract.html" class="classname">Yaf_Request_Abstract</a></span> object which is then processed by
+   <span class="classname"><a href="class.yaf-dispatcher.html" class="classname">Yaf_Dispatcher</a></span>. Routing occurs only once: when the request
    is initially received and before the first controller is dispatched.
 
-   <strong class="classname">Yaf_Router</strong> is designed to allow for mod_rewrite-like
+   <span class="classname"><strong class="classname">Yaf_Router</strong></span> is designed to allow for mod_rewrite-like
    functionality using pure PHP structures. It is very loosely based on Ruby
    on Rails routing and does not require any prior knowledge of webserver URL
    rewriting. It is designed to work with a single Apache mod_rewrite rule
    (one of):
-   <div class="example" id="example-4449">
+   <div class="example" id="example-3945">
     <p><strong>Example #1 Rewrite rule for Apache</strong></p>
    <div class="example-contents">
 <div class="confcode"><pre class="confcode">RewriteEngine on
@@ -59,7 +59,7 @@ RewriteRule !\.(js|ico|gif|jpg|png|css|html)$ index.php</pre>
 
    </div>
    or (preferred):
-   <div class="example" id="example-4450">
+   <div class="example" id="example-3946">
    <p><strong>Example #2 Rewrite rule for Apache</strong></p>
    <div class="example-contents">
 <div class="confcode"><pre class="confcode">RewriteEngine On
@@ -73,7 +73,7 @@ RewriteRule ^.*$ index.php [NC,L]</pre>
 
   </div>
    If using Lighttpd, the following rewrite rule is valid:
-   <div class="example" id="example-4451">
+   <div class="example" id="example-3947">
     <p><strong>Example #3 Rewrite rule for Lighttpd</strong></p>
    <div class="example-contents">
 <div class="confcode"><pre class="confcode">url.rewrite-once = (
@@ -86,7 +86,7 @@ RewriteRule ^.*$ index.php [NC,L]</pre>
 
   </div>
    If using Nginx, use the following rewrite rule:
-   <div class="example" id="example-4452">
+   <div class="example" id="example-3948">
     <p><strong>Example #4 Rewrite rule for Nginx</strong></p>
    <div class="example-contents">
 <div class="confcode"><pre class="confcode">server {
@@ -110,8 +110,8 @@ RewriteRule ^.*$ index.php [NC,L]</pre>
   <div class="section" id="yaf-router.default">
    <h2 class="title">Default route</h2>
    <p class="para">
-    <strong class="classname">Yaf_Router</strong> comes preconfigured with a default route
-    <a href="class.yaf-route-static.html" class="classname">Yaf_Route_Static</a>, which will match URIs in the shape of 
+    <span class="classname"><strong class="classname">Yaf_Router</strong></span> comes preconfigured with a default route
+    <span class="classname"><a href="class.yaf-route-static.html" class="classname">Yaf_Route_Static</a></span>, which will match URIs in the shape of 
     controller/action. Additionally, a module name may be specified as the first
     path element, allowing URIs of the form module/controller/action. Finally, 
     it will also match any additional parameters appended to the URI by default 
@@ -127,8 +127,8 @@ RewriteRule ^.*$ index.php [NC,L]</pre>
 
    <p class="para">
    Some examples of how such routes are matched:
-   <div class="example" id="example-4453">
-    <p><strong>Example #5 <a href="class.yaf-route-static.html" class="classname">Yaf_Route_Static</a>(default route)example</strong></p>
+   <div class="example" id="example-3949">
+    <p><strong>Example #5 <span class="classname"><a href="class.yaf-route-static.html" class="classname">Yaf_Route_Static</a></span>(default route)example</strong></p>
    <div class="example-contents">
 <div class="confcode"><pre class="confcode">// Assuming the following configure:
 $conf = array(
@@ -183,53 +183,29 @@ http://example/blog/archive/list/sort/alpha/date/desc
 
     <div class="classsynopsisinfo">
      <span class="ooclass">
-      <strong class="classname">Yaf_Router</strong>
+      <span class="modifier">class</span> <strong class="classname">Yaf_Router</strong>
      </span>
      {</div>
 
     <div class="classsynopsisinfo classsynopsisinfo_comment">/* Properties */</div>
     <div class="fieldsynopsis">
      <span class="modifier">protected</span>
-      <var class="varname"><a href="class.yaf-router.html#yaf-router.props.routes">$<var class="varname">_routes</var></a></var>
-    ;</div>
+      <var class="varname"><a href="class.yaf-router.html#yaf-router.props.routes">$<var class="varname">_routes</var></a></var>;</div>
 
-    <div class="fieldsynopsis">
-     <span class="modifier">protected</span>
-      <var class="varname"><a href="class.yaf-router.html#yaf-router.props.current">$<var class="varname">_current</var></a></var>
-    ;</div>
+    <div class="fieldsynopsis"><span class="modifier">protected</span>
+      <var class="varname"><a href="class.yaf-router.html#yaf-router.props.current">$<var class="varname">_current</var></a></var>;</div>
 
 
     
     <div class="classsynopsisinfo classsynopsisinfo_comment">/* Methods */</div>
     <div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><a href="yaf-router.addconfig.html" class="methodname">addConfig</a></span>
-    ( <span class="methodparam"><span class="type"><a href="class.yaf-config-abstract.html" class="type Yaf_Config_Abstract">Yaf_Config_Abstract</a></span> <code class="parameter">$config</code></span>
-   ) : <span class="type">bool</span></div>
-<div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><a href="yaf-router.addroute.html" class="methodname">addRoute</a></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$name</code></span>
-   , <span class="methodparam"><span class="type"><span class="type Yaf_Route_Abstract">Yaf_Route_Abstract</span></span> <code class="parameter">$route</code></span>
-   ) : <span class="type">bool</span></div>
-<div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><a href="yaf-router.construct.html" class="methodname">__construct</a></span>
-    (
-   )</div>
-<div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><a href="yaf-router.getcurrentroute.html" class="methodname">getCurrentRoute</a></span>
-    (
-   ) : <span class="type">string</span></div>
-<div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><a href="yaf-router.getroute.html" class="methodname">getRoute</a></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$name</code></span>
-   ) : <span class="type"><a href="class.yaf-route-interface.html" class="type Yaf_Route_Interface">Yaf_Route_Interface</a></span></div>
-<div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><a href="yaf-router.getroutes.html" class="methodname">getRoutes</a></span>
-    (
-   ) : <span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span></div>
-<div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><a href="yaf-router.route.html" class="methodname">route</a></span>
-    ( <span class="methodparam"><span class="type"><a href="class.yaf-request-abstract.html" class="type Yaf_Request_Abstract">Yaf_Request_Abstract</a></span> <code class="parameter">$request</code></span>
-   ) : <span class="type">bool</span></div>
+   <span class="modifier">public</span> <span class="methodname"><a href="yaf-router.addconfig.html" class="methodname">addConfig</a></span>(<span class="methodparam"><span class="type"><a href="class.yaf-config-abstract.html" class="type Yaf_Config_Abstract">Yaf_Config_Abstract</a></span> <code class="parameter">$config</code></span>): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="yaf-router.addroute.html" class="methodname">addRoute</a></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$name</code></span>, <span class="methodparam"><span class="type"><span class="type Yaf_Route_Abstract">Yaf_Route_Abstract</span></span> <code class="parameter">$route</code></span>): <span class="type">bool</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="yaf-router.construct.html" class="methodname">__construct</a></span>()</div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="yaf-router.getcurrentroute.html" class="methodname">getCurrentRoute</a></span>(): <span class="type">string</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="yaf-router.getroute.html" class="methodname">getRoute</a></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$name</code></span>): <span class="type"><a href="class.yaf-route-interface.html" class="type Yaf_Route_Interface">Yaf_Route_Interface</a></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="yaf-router.getroutes.html" class="methodname">getRoutes</a></span>(): <span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="yaf-router.route.html" class="methodname">route</a></span>(<span class="methodparam"><span class="type"><a href="class.yaf-request-abstract.html" class="type Yaf_Request_Abstract">Yaf_Request_Abstract</a></span> <code class="parameter">$request</code></span>): <span class="type">bool</span></div>
 
    }</div>
 
@@ -241,7 +217,6 @@ http://example/blog/archive/list/sort/alpha/date/desc
   <div class="section" id="yaf-router.props">
    <h2 class="title">Properties</h2>
    <dl>
-
     
      <dt id="yaf-router.props.routes"><var class="varname">_routes</var></dt>
 

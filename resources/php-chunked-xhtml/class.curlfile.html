@@ -28,17 +28,17 @@
  <h1 class="title">The CURLFile class</h1>
  
 
- <div class="partintro"><p class="verinfo">(PHP 5 &gt;= 5.5.0, PHP 7)</p>
+ <div class="partintro"><p class="verinfo">(PHP 5 &gt;= 5.5.0, PHP 7, PHP 8)</p>
 
 
   <div class="section" id="curlfile.intro">
    <h2 class="title">Introduction</h2>
    <p class="para">
-    <strong class="classname">CURLFile</strong> should be used to upload a file with
+    This class or <span class="classname"><a href="class.curlstringfile.html" class="classname">CURLStringFile</a></span> should be used to upload a file with
     <strong><code>CURLOPT_POSTFIELDS</code></strong>.
    </p>
    <p class="para">
-    Unserialization of <strong class="classname">CURLFile</strong> instances is not allowed.
+    Unserialization of <span class="classname"><strong class="classname">CURLFile</strong></span> instances is not allowed.
     As of PHP 7.4.0, serialization is forbidden in the first place.
    </p>
   </div>
@@ -49,64 +49,40 @@
 
 
    <div class="classsynopsis">
-    <div class="ooclass"></div>
-
+    <div class="ooclass">
+     
+    </div>
 
     <div class="classsynopsisinfo">
      <span class="ooclass">
-      <strong class="classname">CURLFile</strong>
+      <span class="modifier">class</span> <strong class="classname">CURLFile</strong>
      </span>
      {</div>
 
     <div class="classsynopsisinfo classsynopsisinfo_comment">/* Properties */</div>
     <div class="fieldsynopsis">
      <span class="modifier">public</span>
-     <span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span>
-      <var class="varname"><a href="class.curlfile.html#curlfile.props.name">$<var class="varname">name</var></a></var>
-    ;</div>
+     <span class="type">string</span>
+      <var class="varname"><a href="class.curlfile.html#curlfile.props.name">$<var class="varname">name</var></a></var><span class="initializer"> = &quot;&quot;</span>;</div>
 
-    <div class="fieldsynopsis">
-     <span class="modifier">public</span>
-     <span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span>
-      <var class="varname"><a href="class.curlfile.html#curlfile.props.mime">$<var class="varname">mime</var></a></var>
-    ;</div>
+    <div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="type">string</span>
+      <var class="varname"><a href="class.curlfile.html#curlfile.props.mime">$<var class="varname">mime</var></a></var><span class="initializer"> = &quot;&quot;</span>;</div>
 
-    <div class="fieldsynopsis">
-     <span class="modifier">public</span>
-     <span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span>
-      <var class="varname"><a href="class.curlfile.html#curlfile.props.postname">$<var class="varname">postname</var></a></var>
-    ;</div>
+    <div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="type">string</span>
+      <var class="varname"><a href="class.curlfile.html#curlfile.props.postname">$<var class="varname">postname</var></a></var><span class="initializer"> = &quot;&quot;</span>;</div>
 
 
-    
     <div class="classsynopsisinfo classsynopsisinfo_comment">/* Methods */</div>
     <div class="constructorsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><a href="curlfile.construct.html" class="methodname">__construct</a></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$filename</code></span>
-   , <span class="methodparam"><span class="type"><span class="type">string</span>|<span class="type">null</span></span> <code class="parameter">$mime_type</code><span class="initializer"> = <strong><code>null</code></strong></span></span>
-   , <span class="methodparam"><span class="type"><span class="type">string</span>|<span class="type">null</span></span> <code class="parameter">$posted_filename</code><span class="initializer"> = <strong><code>null</code></strong></span></span>
-   )</div>
+   <span class="modifier">public</span> <span class="methodname"><a href="curlfile.construct.html" class="methodname">__construct</a></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$filename</code></span>, <span class="methodparam"><span class="type">?</span><span class="type"><span class="type">string</span><span class="type"></span></span> <code class="parameter">$mime_type</code><span class="initializer"> = <strong><code>null</code></strong></span></span>, <span class="methodparam"><span class="type">?</span><span class="type"><span class="type">string</span><span class="type"></span></span> <code class="parameter">$posted_filename</code><span class="initializer"> = <strong><code>null</code></strong></span></span>)</div>
 
-    <div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><a href="curlfile.getfilename.html" class="methodname">getFilename</a></span>
-    (
-   ) : <span class="type">string</span></div>
-<div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><a href="curlfile.getmimetype.html" class="methodname">getMimeType</a></span>
-    (
-   ) : <span class="type">string</span></div>
-<div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><a href="curlfile.getpostfilename.html" class="methodname">getPostFilename</a></span>
-    (
-   ) : <span class="type">string</span></div>
-<div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><a href="curlfile.setmimetype.html" class="methodname">setMimeType</a></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$mime_type</code></span>
-   ) : <span class="type"><span class="type void">void</span></span></div>
-<div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><a href="curlfile.setpostfilename.html" class="methodname">setPostFilename</a></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$posted_filename</code></span>
-   ) : <span class="type"><span class="type void">void</span></span></div>
+    <div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="curlfile.getfilename.html" class="methodname">getFilename</a></span>(): <span class="type">string</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="curlfile.getmimetype.html" class="methodname">getMimeType</a></span>(): <span class="type">string</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="curlfile.getpostfilename.html" class="methodname">getPostFilename</a></span>(): <span class="type">string</span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="curlfile.setmimetype.html" class="methodname">setMimeType</a></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$mime_type</code></span>): <span class="type"><span class="type void">void</span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="curlfile.setpostfilename.html" class="methodname">setPostFilename</a></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$posted_filename</code></span>): <span class="type"><span class="type void">void</span></span></div>
 
    }</div>
 
@@ -118,7 +94,6 @@
   <div class="section" id="curlfile.props">
    <h2 class="title">Properties</h2>
    <dl>
-
     
      <dt id="curlfile.props.name"><var class="varname">name</var></dt>
 
@@ -158,6 +133,7 @@
      <li class="member">
       <span class="function"><a href="function.curl-setopt.html" class="function">curl_setopt()</a></span>
      </li>
+     <li class="member"><span class="classname"><a href="class.curlstringfile.html" class="classname">CURLStringFile</a></span></li>
     </ul>
    </p>
   </div>

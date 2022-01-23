@@ -26,16 +26,14 @@
   <div id="layout-content"><div id="reflectionclass.newinstanceargs" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">ReflectionClass::newInstanceArgs</h1>
-  <p class="verinfo">(PHP 5 &gt;= 5.1.3, PHP 7)</p><p class="refpurpose"><span class="refname">ReflectionClass::newInstanceArgs</span> &mdash; <span class="dc-title">Creates a new class instance from given arguments</span></p>
+  <p class="verinfo">(PHP 5 &gt;= 5.1.3, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">ReflectionClass::newInstanceArgs</span> &mdash; <span class="dc-title">Creates a new class instance from given arguments</span></p>
 
  </div>
 
  <div class="refsect1 description" id="refsect1-reflectionclass.newinstanceargs-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><strong>ReflectionClass::newInstanceArgs</strong></span>
-    ( <span class="methodparam"><span class="type">array</span> <code class="parameter">$args</code><span class="initializer"> = []</span></span>
-   ) : <span class="type">object</span></div>
+   <span class="modifier">public</span> <span class="methodname"><strong>ReflectionClass::newInstanceArgs</strong></span>(<span class="methodparam"><span class="type">array</span> <code class="parameter">$args</code><span class="initializer"> = []</span></span>): <span class="type"><span class="type">?</span><span class="type">object</span></span></div>
 
   <p class="para rdfs-comment">
    Creates a new instance of the class, the given arguments are passed to the
@@ -49,7 +47,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">args</code></dt>
@@ -71,7 +68,19 @@
  <div class="refsect1 returnvalues" id="refsect1-reflectionclass.newinstanceargs-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns a new instance of the class.
+   Returns a new instance of the class, or <strong><code>null</code></strong> on failure.
+  </p>
+ </div>
+
+
+ <div class="refsect1 errors" id="refsect1-reflectionclass.newinstanceargs-errors">
+  <h3 class="title">Errors/Exceptions</h3>
+  <p class="para">
+   A <span class="classname"><a href="class.reflectionexception.html" class="classname">ReflectionException</a></span> if the class constructor is not public.
+  </p>
+  <p class="para">
+   A <span class="classname"><a href="class.reflectionexception.html" class="classname">ReflectionException</a></span> if the class does not have a constructor
+   and the <code class="parameter">args</code> parameter contains one or more parameters.
   </p>
  </div>
 
@@ -79,7 +88,7 @@
  <div class="refsect1 examples" id="refsect1-reflectionclass.newinstanceargs-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-5696">
+   <div class="example" id="example-5133">
     <p><strong>Example #1 Basic usage of <span class="methodname"><strong>ReflectionClass::newInstanceArgs()</strong></span></strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -98,18 +107,6 @@ object(ReflectionFunction)#2 (1) {
 </pre></div>
     </div>
    </div>
-  </p>
- </div>
-
-
- <div class="refsect1 errors" id="refsect1-reflectionclass.newinstanceargs-errors">
-  <h3 class="title">Errors/Exceptions</h3>
-  <p class="para">
-   A <a href="class.reflectionexception.html" class="classname">ReflectionException</a> if the class constructor is not public.
-  </p>
-  <p class="para">
-   A <a href="class.reflectionexception.html" class="classname">ReflectionException</a> if the class does not have a constructor
-   and the <code class="parameter">args</code> parameter contains one or more parameters.
   </p>
  </div>
 

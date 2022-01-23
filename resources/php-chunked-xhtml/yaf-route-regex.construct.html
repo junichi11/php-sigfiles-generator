@@ -33,13 +33,7 @@
  <div class="refsect1 description" id="refsect1-yaf-route-regex.construct-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><strong>Yaf_Route_Regex::__construct</strong></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$match</code></span>
-   , <span class="methodparam"><span class="type">array</span> <code class="parameter">$route</code></span>
-   , <span class="methodparam"><span class="type">array</span> <code class="parameter">$map</code> = ?</span>
-   , <span class="methodparam"><span class="type">array</span> <code class="parameter">$verify</code> = ?</span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$reverse</code> = ?</span>
-   )</div>
+   <span class="modifier">public</span> <span class="methodname"><strong>Yaf_Route_Regex::__construct</strong></span>(<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$match</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">array</span> <code class="parameter">$route</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">array</span> <code class="parameter">$map</code><span class="initializer"> = ?</span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">array</span> <code class="parameter">$verify</code><span class="initializer"> = ?</span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$reverse</code><span class="initializer"> = ?</span></span><br>)</div>
 
   <p class="para rdfs-comment">
   </p>
@@ -50,7 +44,6 @@
  <div class="refsect1 parameters" id="refsect1-yaf-route-regex.construct-parameters">
   <h3 class="title">Parameters</h3>
   <dl>
-
    
     <dt>
 <code class="parameter">match</code></dt>
@@ -59,7 +52,7 @@
 
      <p class="para">
        A complete Regex pattern, will be used to match a request uri, if
-       doesn&#039;t matched, <a href="class.yaf-route-regex.html" class="classname">Yaf_Route_Regex</a> will return
+       doesn&#039;t matched, <span class="classname"><a href="class.yaf-route-regex.html" class="classname">Yaf_Route_Regex</a></span> will return
        <strong><code>false</code></strong>.
      </p>
     </dd>
@@ -73,7 +66,7 @@
 
      <p class="para">
       When the match pattern matches the request uri,
-      <a href="class.yaf-route-regex.html" class="classname">Yaf_Route_Regex</a> will use this to decide which
+      <span class="classname"><a href="class.yaf-route-regex.html" class="classname">Yaf_Route_Regex</a></span> will use this to decide which
       m/c/a to routed.
      </p>
      <p class="para">
@@ -140,7 +133,7 @@
 
  <div class="refsect1 examples" id="refsect1-yaf-route-regex.construct-examples">
   <h3 class="title">Examples</h3>
-  <div class="example" id="example-4441">
+  <div class="example" id="example-3937">
    <p><strong>Example #1 <span class="function"><strong>Yaf_Route_Regex()</strong></span>example</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -150,7 +143,7 @@
    </div>
 
   </div>
-  <div class="example" id="example-4442">
+  <div class="example" id="example-3938">
    <p><strong>Example #2 <span class="function"><strong>Yaf_Route_Regex(as of 2.3.0)()</strong></span>example</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -160,7 +153,7 @@
    </div>
 
   </div>
-  <div class="example" id="example-4443">
+  <div class="example" id="example-3939">
    <p><strong>Example #3 <span class="function"><strong>Yaf_Route_Regex and named capture ground(as of 2.3.0)()</strong></span>example</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -170,7 +163,7 @@
    </div>
 
   </div>
-  <div class="example" id="example-4444">
+  <div class="example" id="example-3940">
    <p><strong>Example #4 <span class="function"><strong>Yaf_Route_Regex()</strong></span>example</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -188,11 +181,11 @@
   <ul class="simplelist">
    <li class="member"><span class="methodname"><a href="yaf-router.addroute.html" class="methodname" rel="rdfs-seeAlso">Yaf_Router::addRoute()</a> - Add new Route into Router</span></li>
    <li class="member"><span class="methodname"><a href="yaf-router.addconfig.html" class="methodname" rel="rdfs-seeAlso">Yaf_Router::addConfig()</a> - Add config-defined routes into Router</span></li>
-   <li class="member"><a href="class.yaf-route-static.html" class="classname">Yaf_Route_Static</a></li>
-   <li class="member"><a href="class.yaf-route-supervar.html" class="classname">Yaf_Route_Supervar</a></li>
-   <li class="member"><a href="class.yaf-route-simple.html" class="classname">Yaf_Route_Simple</a></li>
-   <li class="member"><a href="class.yaf-route-rewrite.html" class="classname">Yaf_Route_Rewrite</a></li>
-   <li class="member"><a href="class.yaf-route-map.html" class="classname">Yaf_Route_Map</a></li>
+   <li class="member"><span class="classname"><a href="class.yaf-route-static.html" class="classname">Yaf_Route_Static</a></span></li>
+   <li class="member"><span class="classname"><a href="class.yaf-route-supervar.html" class="classname">Yaf_Route_Supervar</a></span></li>
+   <li class="member"><span class="classname"><a href="class.yaf-route-simple.html" class="classname">Yaf_Route_Simple</a></span></li>
+   <li class="member"><span class="classname"><a href="class.yaf-route-rewrite.html" class="classname">Yaf_Route_Rewrite</a></span></li>
+   <li class="member"><span class="classname"><a href="class.yaf-route-map.html" class="classname">Yaf_Route_Map</a></span></li>
   </ul>                       
  </div>
   

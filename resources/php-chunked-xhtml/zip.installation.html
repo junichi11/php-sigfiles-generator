@@ -36,26 +36,24 @@
     configure option.
     Previously, zip support had to be enabled by using the <strong class="option configure">--enable-zip</strong>
     configure option.
-   </p>
-   <p class="para">
-    As of PHP 5.6.0 a <strong class="option configure">--with-libzip=DIR</strong>
-    configure option has been added to use a system libzip installation. libzip
-    version 0.11 is required, with 0.11.2 or later recommended.
+    As of PHP 7.4.0, the bundled libzip is removed.
    </p>
    <p class="para">
     As of PHP 7.3.0, building against the bundled libzip is discouraged, but
     still possible by adding <strong class="option configure">--without-libzip</strong>
     to the configuration.
-    As of PHP 7.4.0, the bundled libzip is removed.
+   </p>
+   <p class="para">
+    A <strong class="option configure">--with-libzip=DIR</strong>
+    configure option has been added to use a system libzip installation. libzip
+    version 0.11 is required, with 0.11.2 or later recommended.
    </p>
   </div>
   
   <div class="section" id="zip.installation.new.windows">
    <h2 class="title">Windows</h2>
    <p class="para">
-    As of PHP 5.3 this extension is built-in. Before,
-    Windows users need to enable <var class="filename">php_zip.dll</var> inside
-    of <var class="filename">php.ini</var> in order to use these functions.
+    This extension is built-in.
    </p>
   </div>
  </div>

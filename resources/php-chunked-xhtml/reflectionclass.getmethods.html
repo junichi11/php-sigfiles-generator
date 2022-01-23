@@ -26,16 +26,14 @@
   <div id="layout-content"><div id="reflectionclass.getmethods" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">ReflectionClass::getMethods</h1>
-  <p class="verinfo">(PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">ReflectionClass::getMethods</span> &mdash; <span class="dc-title">Gets an array of methods</span></p>
+  <p class="verinfo">(PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">ReflectionClass::getMethods</span> &mdash; <span class="dc-title">Gets an array of methods</span></p>
 
  </div>
 
  <div class="refsect1 description" id="refsect1-reflectionclass.getmethods-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><strong>ReflectionClass::getMethods</strong></span>
-    ( <span class="methodparam"><span class="type"><span class="type">int</span>|<span class="type">null</span></span> <code class="parameter">$filter</code><span class="initializer"> = <strong><code>null</code></strong></span></span>
-   ) : <span class="type">array</span></div>
+   <span class="modifier">public</span> <span class="methodname"><strong>ReflectionClass::getMethods</strong></span>(<span class="methodparam"><span class="type">?</span><span class="type"><span class="type">int</span><span class="type"></span></span> <code class="parameter">$filter</code><span class="initializer"> = <strong><code>null</code></strong></span></span>): <span class="type">array</span></div>
 
   <p class="para rdfs-comment">
    Gets an array of methods for the class.
@@ -47,7 +45,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">filter</code></dt>
@@ -87,7 +84,7 @@
  <div class="refsect1 returnvalues" id="refsect1-reflectionclass.getmethods-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   An <span class="type">array</span> of <a href="class.reflectionmethod.html" class="classname">ReflectionMethod</a> objects
+   An <span class="type">array</span> of <span class="classname"><a href="class.reflectionmethod.html" class="classname">ReflectionMethod</a></span> objects
    reflecting each method.
   </p>
  </div>
@@ -123,7 +120,7 @@
  <div class="refsect1 examples" id="refsect1-reflectionclass.getmethods-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-5674">
+   <div class="example" id="example-5111">
     <p><strong>Example #1 Basic usage of <span class="methodname"><strong>ReflectionClass::getMethods()</strong></span></strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -163,7 +160,7 @@ array(3) {
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-5675">
+   <div class="example" id="example-5112">
     <p><strong>Example #2 Filtering results from <span class="methodname"><strong>ReflectionClass::getMethods()</strong></span></strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

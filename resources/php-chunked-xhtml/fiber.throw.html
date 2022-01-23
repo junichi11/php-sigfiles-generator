@@ -1,0 +1,76 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Resumes execution of the fiber with an exception</title>
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="fiber.resume.html">« Fiber::resume</a></li>
+      <li style="float: right;"><a href="fiber.getreturn.html">Fiber::getReturn »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="class.fiber.html">Fiber</a></li>
+    <li>Resumes execution of the fiber with an exception</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="fiber.throw" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">Fiber::throw</h1>
+  <p class="verinfo">(PHP 8 &gt;= 8.1.0)</p><p class="refpurpose"><span class="refname">Fiber::throw</span> &mdash; <span class="dc-title">Resumes execution of the fiber with an exception</span></p>
+
+ </div>
+
+ <div class="refsect1 description" id="refsect1-fiber.throw-description">
+  <h3 class="title">Description</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="methodname"><strong>Fiber::throw</strong></span>(<span class="methodparam"><span class="type"><a href="class.throwable.html" class="type Throwable">Throwable</a></span> <code class="parameter">$exception</code></span>): <span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span></div>
+
+  <p class="para rdfs-comment">
+   Resumes the fiber by throwing the given exception from the current <span class="methodname"><a href="fiber.suspend.html" class="methodname">Fiber::suspend()</a></span> call.
+  </p>
+  <p class="para">
+   If the fiber is not suspended when this method is called, a <span class="classname"><a href="class.fibererror.html" class="classname">FiberError</a></span> will be thrown.
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-fiber.throw-parameters">
+  <h3 class="title">Parameters</h3>
+  <dl>
+   
+    <dt>
+<code class="parameter">exception</code></dt>
+
+    <dd>
+
+     <p class="para">
+      The exception to throw into the fiber from the current <span class="methodname"><a href="fiber.suspend.html" class="methodname">Fiber::suspend()</a></span> call.
+     </p>
+    </dd>
+
+   
+  </dl>
+
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-fiber.throw-returnvalues">
+  <h3 class="title">Return Values</h3>
+  <p class="para">
+   The value provided to the next call to <span class="methodname"><a href="fiber.suspend.html" class="methodname">Fiber::suspend()</a></span> or <strong><code>null</code></strong> if the fiber returns.
+   If the fiber throws an exception before suspending, it will be thrown from the call to this method.
+  </p>
+ </div>
+
+
+</div></div></div></body></html>

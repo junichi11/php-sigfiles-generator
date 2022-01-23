@@ -115,7 +115,10 @@
   <p class="para">
    <span class="function"><a href="function.libxml-disable-entity-loader.html" class="function">libxml_disable_entity_loader()</a></span> has been deprecated. As libxml 2.9.0 is now
    required, external entity loading is guaranteed to be disabled by default, and this function is
-   no longer needed to protect against XXE attacks.
+   no longer needed to protect against XXE attacks, unless the (still vulnerable)
+   <strong><code>LIBXML_NOENT</code></strong> is used.
+   In that case, it is recommended to refactor the code using
+   <span class="function"><a href="function.libxml-set-external-entity-loader.html" class="function">libxml_set_external_entity_loader()</a></span> to suppress loading of external entities.
   </p>
  </div>
 
@@ -201,7 +204,7 @@
    </li>
    <li class="listitem">
     <p class="para">
-     The procedural API of Zip is deprecated. Use <a href="class.ziparchive.html" class="classname">ZipArchive</a> instead.
+     The procedural API of Zip is deprecated. Use <span class="classname"><a href="class.ziparchive.html" class="classname">ZipArchive</a></span> instead.
      Iteration over all entries can be accomplished using <span class="methodname"><a href="ziparchive.statindex.html" class="methodname">ZipArchive::statIndex()</a></span>
      and a <a href="control-structures.for.html" class="link">for</a> loop:
     </p>
@@ -225,7 +228,7 @@
    <li class="listitem">
     <p class="para">
      <span class="methodname"><a href="reflectionfunction.isdisabled.html" class="methodname">ReflectionFunction::isDisabled()</a></span> is deprecated, as it is no longer
-     possible to create a <a href="class.reflectionfunction.html" class="classname">ReflectionFunction</a> for a disabled function. This
+     possible to create a <span class="classname"><a href="class.reflectionfunction.html" class="classname">ReflectionFunction</a></span> for a disabled function. This
      method now always returns <strong><code>false</code></strong>.
     </p>
    </li>
@@ -235,7 +238,7 @@
      <span class="methodname"><a href="reflectionparameter.isarray.html" class="methodname">ReflectionParameter::isArray()</a></span>, and
      <span class="methodname"><a href="reflectionparameter.iscallable.html" class="methodname">ReflectionParameter::isCallable()</a></span> are deprecated.
      <span class="methodname"><a href="reflectionparameter.gettype.html" class="methodname">ReflectionParameter::getType()</a></span> and the
-     <a href="class.reflectiontype.html" class="classname">ReflectionType</a> APIs should be used instead.
+     <span class="classname"><a href="class.reflectiontype.html" class="classname">ReflectionType</a></span> APIs should be used instead.
     </p>
    </li>
   </ul>

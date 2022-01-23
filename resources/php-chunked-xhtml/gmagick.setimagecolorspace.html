@@ -33,15 +33,11 @@
  <div class="refsect1 description" id="refsect1-gmagick.setimagecolorspace-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><strong>Gmagick::setimagecolorspace</strong></span>
-    ( <span class="methodparam"><span class="type">int</span> <code class="parameter">$colorspace</code></span>
-   ) : <span class="type"><a href="class.gmagick.html" class="type Gmagick">Gmagick</a></span></div>
+   <span class="modifier">public</span> <span class="methodname"><strong>Gmagick::setimagecolorspace</strong></span>(<span class="methodparam"><span class="type">int</span> <code class="parameter">$colorspace</code></span>): <span class="type"><a href="class.gmagick.html" class="type Gmagick">Gmagick</a></span></div>
 
   <p class="para rdfs-comment">
    Sets the image colorspace. 
   </p>
-
-   
 
  </div>
 
@@ -50,7 +46,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">colorspace</code></dt>
@@ -58,7 +53,8 @@
      <dd>
 
       <p class="para">
-       The image colorspace: UndefinedColorspace, RGBColorspace, GRAYColorspace, TransparentColorspace, OHTAColorspace, XYZColorspace, YCbCrColorspace, YCCColorspace, YIQColorspace, YPbPrColorspace, YPbPrColorspace, YUVColorspace, CMYKColorspace, sRGBColorspace, HSLColorspace, or HWBColorspace.
+       One of the <a href="gmagick.constants.html#gmagick.constants.colorspace" class="link">Colorspace</a> constant
+       (<code class="literal">Gmagick::COLORSPACE_*</code>).
       </p>
      </dd>
 
@@ -72,7 +68,7 @@
  <div class="refsect1 returnvalues" id="refsect1-gmagick.setimagecolorspace-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   The Gmagick object on success
+   The <span class="classname"><a href="class.gmagick.html" class="classname">Gmagick</a></span> object.
   </p>
  </div>
 
@@ -81,7 +77,7 @@
   <h3 class="title">Errors/Exceptions</h3>
   <p class="para">
    Throws an
-<strong class="classname">GmagickException</strong> on error.
+<span class="classname"><strong class="classname">GmagickException</strong></span> on error.
   </p>
  </div>
 

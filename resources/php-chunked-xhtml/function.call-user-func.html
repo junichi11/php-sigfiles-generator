@@ -26,17 +26,14 @@
   <div id="layout-content"><div id="function.call-user-func" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">call_user_func</h1>
-  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">call_user_func</span> &mdash; <span class="dc-title">Call the callback given by the first parameter</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">call_user_func</span> &mdash; <span class="dc-title">Call the callback given by the first parameter</span></p>
 
  </div>
 
  <div class="refsect1 description" id="refsect1-function.call-user-func-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>call_user_func</strong></span>
-    ( <span class="methodparam"><span class="type"><a href="language.types.callable.html" class="type callable">callable</a></span> <code class="parameter">$callback</code></span>
-   , <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">...$args</code></span>
-   ) : <span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span></div>
+   <span class="methodname"><strong>call_user_func</strong></span>(<span class="methodparam"><span class="type"><a href="language.types.callable.html" class="type callable">callable</a></span> <code class="parameter">$callback</code></span>, <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">...$args</code></span>): <span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span></div>
 
   <p class="para rdfs-comment">
    Calls the <code class="parameter">callback</code> given by the first parameter and passes
@@ -49,7 +46,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">callback</code></dt>
@@ -75,11 +71,11 @@
        <p class="para">
         Note that the parameters for <span class="function"><strong>call_user_func()</strong></span> are
         not passed by reference.
-        <div class="example" id="example-5584">
+        <div class="example" id="example-5077">
          <p><strong>Example #1 <span class="function"><strong>call_user_func()</strong></span> example and references</strong></p>
          <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />error_reporting</span><span style="color: #007700">(</span><span style="color: #0000BB">E_ALL</span><span style="color: #007700">);<br />function&nbsp;</span><span style="color: #0000BB">increment</span><span style="color: #007700">(&amp;</span><span style="color: #0000BB">$var</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$var</span><span style="color: #007700">++;<br />}<br /><br /></span><span style="color: #0000BB">$a&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">call_user_func</span><span style="color: #007700">(</span><span style="color: #DD0000">'increment'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$a</span><span style="color: #007700">);<br />echo&nbsp;</span><span style="color: #0000BB">$a</span><span style="color: #007700">.</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br /><br /></span><span style="color: #FF8000">//&nbsp;You&nbsp;can&nbsp;use&nbsp;this&nbsp;instead<br /></span><span style="color: #0000BB">call_user_func_array</span><span style="color: #007700">(</span><span style="color: #DD0000">'increment'</span><span style="color: #007700">,&nbsp;array(&amp;</span><span style="color: #0000BB">$a</span><span style="color: #007700">));<br />echo&nbsp;</span><span style="color: #0000BB">$a</span><span style="color: #007700">.</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />error_reporting</span><span style="color: #007700">(</span><span style="color: #0000BB">E_ALL</span><span style="color: #007700">);<br />function&nbsp;</span><span style="color: #0000BB">increment</span><span style="color: #007700">(&amp;</span><span style="color: #0000BB">$var</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$var</span><span style="color: #007700">++;<br />}<br /><br /></span><span style="color: #0000BB">$a&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">call_user_func</span><span style="color: #007700">(</span><span style="color: #DD0000">'increment'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$a</span><span style="color: #007700">);<br />echo&nbsp;</span><span style="color: #0000BB">$a</span><span style="color: #007700">.</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br /><br /></span><span style="color: #FF8000">//&nbsp;it&nbsp;is&nbsp;possible&nbsp;to&nbsp;use&nbsp;this&nbsp;instead<br /></span><span style="color: #0000BB">call_user_func_array</span><span style="color: #007700">(</span><span style="color: #DD0000">'increment'</span><span style="color: #007700">,&nbsp;array(&amp;</span><span style="color: #0000BB">$a</span><span style="color: #007700">));<br />echo&nbsp;</span><span style="color: #0000BB">$a</span><span style="color: #007700">.</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br /><br /></span><span style="color: #FF8000">//&nbsp;it&nbsp;is&nbsp;also&nbsp;possible&nbsp;to&nbsp;use&nbsp;a&nbsp;variable&nbsp;function<br /></span><span style="color: #0000BB">$increment&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'increment'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$increment</span><span style="color: #007700">(</span><span style="color: #0000BB">$a</span><span style="color: #007700">);<br />echo&nbsp;</span><span style="color: #0000BB">$a</span><span style="color: #007700">.</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
          </div>
@@ -90,6 +86,7 @@
 Warning: Parameter 1 to increment() expected to be a reference, value given in â€¦
 0
 1
+2
 </pre></div>
          </div>
         </div>
@@ -115,7 +112,7 @@ Warning: Parameter 1 to increment() expected to be a reference, value given in â
  <div class="refsect1 examples" id="refsect1-function.call-user-func-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-5585">
+   <div class="example" id="example-5078">
     <p><strong>Example #2 <span class="function"><strong>call_user_func()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -132,11 +129,11 @@ You wanted a shave haircut, no problem
 </pre></div>
     </div>
    </div>
-   <div class="example" id="example-5586">
+   <div class="example" id="example-5079">
     <p><strong>Example #3 <span class="function"><strong>call_user_func()</strong></span> using namespace name</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /><br /></span><span style="color: #007700">namespace&nbsp;</span><span style="color: #0000BB">Foobar</span><span style="color: #007700">;<br /><br />class&nbsp;</span><span style="color: #0000BB">Foo&nbsp;</span><span style="color: #007700">{<br />&nbsp;&nbsp;&nbsp;&nbsp;static&nbsp;public&nbsp;function&nbsp;</span><span style="color: #0000BB">test</span><span style="color: #007700">()&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print&nbsp;</span><span style="color: #DD0000">"Hello&nbsp;world!\n"</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />}<br /><br /></span><span style="color: #0000BB">call_user_func</span><span style="color: #007700">(</span><span style="color: #0000BB">__NAMESPACE__&nbsp;</span><span style="color: #007700">.</span><span style="color: #DD0000">'\Foo::test'</span><span style="color: #007700">);&nbsp;</span><span style="color: #FF8000">//&nbsp;As&nbsp;of&nbsp;PHP&nbsp;5.3.0<br /></span><span style="color: #0000BB">call_user_func</span><span style="color: #007700">(array(</span><span style="color: #0000BB">__NAMESPACE__&nbsp;</span><span style="color: #007700">.</span><span style="color: #DD0000">'\Foo'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'test'</span><span style="color: #007700">));&nbsp;</span><span style="color: #FF8000">//&nbsp;As&nbsp;of&nbsp;PHP&nbsp;5.3.0<br /><br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /><br /></span><span style="color: #007700">namespace&nbsp;</span><span style="color: #0000BB">Foobar</span><span style="color: #007700">;<br /><br />class&nbsp;</span><span style="color: #0000BB">Foo&nbsp;</span><span style="color: #007700">{<br />&nbsp;&nbsp;&nbsp;&nbsp;static&nbsp;public&nbsp;function&nbsp;</span><span style="color: #0000BB">test</span><span style="color: #007700">()&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print&nbsp;</span><span style="color: #DD0000">"Hello&nbsp;world!\n"</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />}<br /><br /></span><span style="color: #0000BB">call_user_func</span><span style="color: #007700">(</span><span style="color: #0000BB">__NAMESPACE__&nbsp;</span><span style="color: #007700">.</span><span style="color: #DD0000">'\Foo::test'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">call_user_func</span><span style="color: #007700">(array(</span><span style="color: #0000BB">__NAMESPACE__&nbsp;</span><span style="color: #007700">.</span><span style="color: #DD0000">'\Foo'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'test'</span><span style="color: #007700">));<br /><br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
@@ -149,11 +146,11 @@ Hello world!
 </pre></div>
     </div>
    </div>
-   <div class="example" id="example-5587">
+   <div class="example" id="example-5080">
     <p><strong>Example #4 Using a class method with <span class="function"><strong>call_user_func()</strong></span></strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /><br /></span><span style="color: #007700">class&nbsp;</span><span style="color: #0000BB">myclass&nbsp;</span><span style="color: #007700">{<br />&nbsp;&nbsp;&nbsp;&nbsp;static&nbsp;function&nbsp;</span><span style="color: #0000BB">say_hello</span><span style="color: #007700">()<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"Hello!\n"</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />}<br /><br /></span><span style="color: #0000BB">$classname&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">"myclass"</span><span style="color: #007700">;<br /><br /></span><span style="color: #0000BB">call_user_func</span><span style="color: #007700">(array(</span><span style="color: #0000BB">$classname</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'say_hello'</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">call_user_func</span><span style="color: #007700">(</span><span style="color: #0000BB">$classname&nbsp;</span><span style="color: #007700">.</span><span style="color: #DD0000">'::say_hello'</span><span style="color: #007700">);&nbsp;</span><span style="color: #FF8000">//&nbsp;As&nbsp;of&nbsp;5.2.3<br /><br /></span><span style="color: #0000BB">$myobject&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">myclass</span><span style="color: #007700">();<br /><br /></span><span style="color: #0000BB">call_user_func</span><span style="color: #007700">(array(</span><span style="color: #0000BB">$myobject</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'say_hello'</span><span style="color: #007700">));<br /><br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /><br /></span><span style="color: #007700">class&nbsp;</span><span style="color: #0000BB">myclass&nbsp;</span><span style="color: #007700">{<br />&nbsp;&nbsp;&nbsp;&nbsp;static&nbsp;function&nbsp;</span><span style="color: #0000BB">say_hello</span><span style="color: #007700">()<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"Hello!\n"</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />}<br /><br /></span><span style="color: #0000BB">$classname&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">"myclass"</span><span style="color: #007700">;<br /><br /></span><span style="color: #0000BB">call_user_func</span><span style="color: #007700">(array(</span><span style="color: #0000BB">$classname</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'say_hello'</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">call_user_func</span><span style="color: #007700">(</span><span style="color: #0000BB">$classname&nbsp;</span><span style="color: #007700">.</span><span style="color: #DD0000">'::say_hello'</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$myobject&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">myclass</span><span style="color: #007700">();<br /><br /></span><span style="color: #0000BB">call_user_func</span><span style="color: #007700">(array(</span><span style="color: #0000BB">$myobject</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'say_hello'</span><span style="color: #007700">));<br /><br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
@@ -167,11 +164,11 @@ Hello!
 </pre></div>
     </div>   
    </div>
-   <div class="example" id="example-5588">
+   <div class="example" id="example-5081">
     <p><strong>Example #5 Using lambda function with <span class="function"><strong>call_user_func()</strong></span></strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />call_user_func</span><span style="color: #007700">(function(</span><span style="color: #0000BB">$arg</span><span style="color: #007700">)&nbsp;{&nbsp;print&nbsp;</span><span style="color: #DD0000">"[</span><span style="color: #0000BB">$arg</span><span style="color: #DD0000">]\n"</span><span style="color: #007700">;&nbsp;},&nbsp;</span><span style="color: #DD0000">'test'</span><span style="color: #007700">);&nbsp;</span><span style="color: #FF8000">/*&nbsp;As&nbsp;of&nbsp;PHP&nbsp;5.3.0&nbsp;*/<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />call_user_func</span><span style="color: #007700">(function(</span><span style="color: #0000BB">$arg</span><span style="color: #007700">)&nbsp;{&nbsp;print&nbsp;</span><span style="color: #DD0000">"[</span><span style="color: #0000BB">$arg</span><span style="color: #DD0000">]\n"</span><span style="color: #007700">;&nbsp;},&nbsp;</span><span style="color: #DD0000">'test'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
@@ -200,7 +197,8 @@ called if there is an uncaught exception thrown in a previous callback.</p></p><
   <p class="para">
    <ul class="simplelist">
     <li class="member"><span class="function"><a href="function.call-user-func-array.html" class="function" rel="rdfs-seeAlso">call_user_func_array()</a> - Call a callback with an array of parameters</span></li>
-    <li class="member"><span class="function"><a href="function.is-callable.html" class="function" rel="rdfs-seeAlso">is_callable()</a> - Verify that the contents of a variable can be called as a function</span></li>
+    <li class="member"><span class="function"><a href="function.is-callable.html" class="function" rel="rdfs-seeAlso">is_callable()</a> - Verify that a value can be called as a function from the current scope.</span></li>
+    <li class="member"><a href="functions.variable-functions.html" class="link">Variable functions</a></li>
     <li class="member"><span class="methodname"><a href="reflectionfunction.invoke.html" class="methodname" rel="rdfs-seeAlso">ReflectionFunction::invoke()</a> - Invokes function</span></li>
     <li class="member"><span class="methodname"><a href="reflectionmethod.invoke.html" class="methodname" rel="rdfs-seeAlso">ReflectionMethod::invoke()</a> - Invoke</span></li>
    </ul>

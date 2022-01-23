@@ -26,16 +26,13 @@
   <div id="layout-content"><div id="function.stream-set-blocking" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">stream_set_blocking</h1>
-  <p class="verinfo">(PHP 4 &gt;= 4.3.0, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">stream_set_blocking</span> &mdash; <span class="dc-title">Set blocking/non-blocking mode on a stream</span></p>
+  <p class="verinfo">(PHP 4 &gt;= 4.3.0, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">stream_set_blocking</span> &mdash; <span class="dc-title">Set blocking/non-blocking mode on a stream</span></p>
 
  </div>
  <div class="refsect1 description" id="refsect1-function.stream-set-blocking-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>stream_set_blocking</strong></span>
-    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$stream</code></span>
-   , <span class="methodparam"><span class="type">bool</span> <code class="parameter">$enable</code></span>
-   ) : <span class="type">bool</span></div>
+   <span class="methodname"><strong>stream_set_blocking</strong></span>(<span class="methodparam"><span class="type">resource</span> <code class="parameter">$stream</code></span>, <span class="methodparam"><span class="type">bool</span> <code class="parameter">$enable</code></span>): <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
    Sets blocking or non-blocking mode on a <code class="parameter">stream</code>.
@@ -51,7 +48,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">stream</code></dt>
@@ -100,13 +96,6 @@
  <div class="refsect1 notes" id="refsect1-function.stream-set-blocking-notes">
   <h3 class="title">Notes</h3>
   <blockquote class="note"><p><strong class="note">Note</strong>: 
-   <p class="para">
-    This function was previously called as
-    <span class="function"><strong>set_socket_blocking()</strong></span> and later
-    <span class="function"><a href="function.socket-set-blocking.html" class="function">socket_set_blocking()</a></span> but this usage is deprecated.
-   </p>
-  </p></blockquote>
-  <blockquote class="note"><p><strong class="note">Note</strong>: 
    <p class="para">On Windows, this has no affect on local files. Non-blocking IO for local files is not supported on Windows.
    </p>
   </p></blockquote>
@@ -117,7 +106,7 @@
   <h3 class="title">See Also</h3>
   <ul class="simplelist">
    <li class="member"><span class="function"><a href="function.stream-select.html" class="function" rel="rdfs-seeAlso">stream_select()</a> - Runs the equivalent of the select() system call on the given
-   arrays of streams with a timeout specified by tv_sec and tv_usec</span></li>
+   arrays of streams with a timeout specified by seconds and microseconds</span></li>
   </ul>
  </div>
 

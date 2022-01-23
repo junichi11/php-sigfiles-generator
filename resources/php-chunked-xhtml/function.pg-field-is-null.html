@@ -26,28 +26,20 @@
   <div id="layout-content"><div id="function.pg-field-is-null" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">pg_field_is_null</h1>
-  <p class="verinfo">(PHP 4 &gt;= 4.2.0, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">pg_field_is_null</span> &mdash; <span class="dc-title">Test if a field is SQL <code class="literal">NULL</code></span></p>
+  <p class="verinfo">(PHP 4 &gt;= 4.2.0, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">pg_field_is_null</span> &mdash; <span class="dc-title">Test if a field is SQL <code class="literal">NULL</code></span></p>
 
  </div>
 
  <div class="refsect1 description" id="refsect1-function.pg-field-is-null-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>pg_field_is_null</strong></span>
-    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$result</code></span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$row</code></span>
-   , <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$field</code></span>
-   ) : <span class="type">int</span></div>
+   <span class="methodname"><strong>pg_field_is_null</strong></span>(<span class="methodparam"><span class="type"><a href="class.pgsql-result.html" class="type PgSql\Result">PgSql\Result</a></span> <code class="parameter">$result</code></span>, <span class="methodparam"><span class="type">int</span> <code class="parameter">$row</code></span>, <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$field</code></span>): <span class="type">int</span></div>
 
-  <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>pg_field_is_null</strong></span>
-    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$result</code></span>
-   , <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$field</code></span>
-   ) : <span class="type">int</span></div>
+  <div class="methodsynopsis dc-description"><span class="methodname"><strong>pg_field_is_null</strong></span>(<span class="methodparam"><span class="type"><a href="class.pgsql-result.html" class="type PgSql\Result">PgSql\Result</a></span> <code class="parameter">$result</code></span>, <span class="methodparam"><span class="type"><a href="language.types.declarations.html#language.types.declarations.mixed" class="type mixed">mixed</a></span> <code class="parameter">$field</code></span>): <span class="type">int</span></div>
 
   <p class="para rdfs-comment">
-   <span class="function"><strong>pg_field_is_null()</strong></span> tests if a field in a PostgreSQL
-   result resource is SQL <code class="literal">NULL</code> or not.
+   <span class="function"><strong>pg_field_is_null()</strong></span> tests if a field in an <span class="classname"><a href="class.pgsql-result.html" class="classname">PgSql\Result</a></span> instance
+   is SQL <code class="literal">NULL</code> or not.
   </p>
   <blockquote class="note"><p><strong class="note">Note</strong>: 
    <p class="para">
@@ -61,18 +53,14 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">result</code></dt>
 
      <dd>
 
-      <p class="para">
-       PostgreSQL query result resource, returned by <span class="function"><a href="function.pg-query.html" class="function">pg_query()</a></span>,
-       <span class="function"><a href="function.pg-query-params.html" class="function">pg_query_params()</a></span> or <span class="function"><a href="function.pg-execute.html" class="function">pg_execute()</a></span>
-       (among others).
-      </p>
+      <p class="para">An <span class="classname"><a href="class.pgsql-result.html" class="classname">PgSql\Result</a></span> instance, returned by <span class="function"><a href="function.pg-query.html" class="function">pg_query()</a></span>,
+<span class="function"><a href="function.pg-query-params.html" class="function">pg_query_params()</a></span> or <span class="function"><a href="function.pg-execute.html" class="function">pg_execute()</a></span>(among others).</p>
      </dd>
 
     
@@ -116,11 +104,39 @@
   </p>
  </div>
 
+
+ <div class="refsect1 changelog" id="refsect1-function.pg-field-is-null-changelog">
+  <h3 class="title">Changelog</h3>
+  <table class="doctable informaltable">
+   
+    <thead>
+     <tr>
+      <th>Version</th>
+      <th>Description</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+ <td>8.1.0</td>
+ <td>
+  The <code class="parameter">result</code> parameter expects an <span class="classname"><a href="class.pgsql-result.html" class="classname">PgSql\Result</a></span>
+  instance now; previously, a <a href="language.types.resource.html" class="link">resource</a> was expected.
+ </td>
+</tr>
+
+    </tbody>
+   
+  </table>
+
+ </div>
+
  
  <div class="refsect1 examples" id="refsect1-function.pg-field-is-null-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-2346">
+   <div class="example" id="example-1900">
     <p><strong>Example #1 <span class="function"><strong>pg_field_is_null()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

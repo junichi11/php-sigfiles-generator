@@ -26,18 +26,13 @@
   <div id="layout-content"><div id="function.imap-reopen" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">imap_reopen</h1>
-  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">imap_reopen</span> &mdash; <span class="dc-title">Reopen <acronym title="Internet Message Access Protocol">IMAP</acronym> stream to new mailbox</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">imap_reopen</span> &mdash; <span class="dc-title">Reopen <acronym title="Internet Message Access Protocol">IMAP</acronym> stream to new mailbox</span></p>
 
  </div>
  <div class="refsect1 description" id="refsect1-function.imap-reopen-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>imap_reopen</strong></span>
-    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$imap</code></span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$mailbox</code></span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code><span class="initializer"> = 0</span></span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$retries</code><span class="initializer"> = 0</span></span>
-   ) : <span class="type">bool</span></div>
+   <span class="methodname"><strong>imap_reopen</strong></span>(<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type"><a href="class.imap-connection.html" class="type IMAP\Connection">IMAP\Connection</a></span> <code class="parameter">$imap</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$mailbox</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code><span class="initializer"> = 0</span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">int</span> <code class="parameter">$retries</code><span class="initializer"> = 0</span></span><br>): <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
    Reopens the specified stream to a new <code class="parameter">mailbox</code> on an
@@ -49,13 +44,11 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     <dt>
-<code class="parameter">
-imap</code></dt>
+
+<code class="parameter">imap</code></dt>
 <dd>
-<p class="para">An IMAP stream returned by
-<span class="function"><a href="function.imap-open.html" class="function">imap_open()</a></span>.</p></dd>
+<p class="para">An <span class="classname"><a href="class.imap-connection.html" class="classname">IMAP\Connection</a></span> instance.</p></dd>
 
     
      <dt>
@@ -144,10 +137,38 @@ Passing untrusted data to this parameter is <em class="emphasis">insecure</em>, 
  </div>
 
 
+ <div class="refsect1 changelog" id="refsect1-function.imap-reopen-changelog">
+  <h3 class="title">Changelog</h3>
+  <table class="doctable informaltable">
+   
+    <thead>
+     <tr>
+      <th>Version</th>
+      <th>Description</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+ <td>8.1.0</td>
+ <td>
+  The <code class="parameter">imap</code> parameter expects an <span class="classname"><a href="class.imap-connection.html" class="classname">IMAP\Connection</a></span>
+  instance now; previously, a <a href="language.types.resource.html" class="link">resource</a> was expected.
+ </td>
+</tr>
+
+    </tbody>
+   
+  </table>
+
+ </div>
+
+
  <div class="refsect1 examples" id="refsect1-function.imap-reopen-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-3508">
+   <div class="example" id="example-3023">
     <p><strong>Example #1 <span class="function"><strong>imap_reopen()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

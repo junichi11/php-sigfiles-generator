@@ -27,29 +27,21 @@
  <div class="refnamediv">
   <h1 class="refname">IntlDateFormatter::localtime</h1>
   <h1 class="refname">datefmt_localtime</h1>
-  <p class="verinfo">(PHP 5 &gt;= 5.3.0, PHP 7, PECL intl &gt;= 1.0.0)</p><p class="refpurpose"><span class="refname">IntlDateFormatter::localtime</span> -- <span class="refname">datefmt_localtime</span> &mdash; <span class="dc-title">Parse string to a field-based time value</span></p>
+  <p class="verinfo">(PHP 5 &gt;= 5.3.0, PHP 7, PHP 8, PECL intl &gt;= 1.0.0)</p><p class="refpurpose"><span class="refname">IntlDateFormatter::localtime</span> -- <span class="refname">datefmt_localtime</span> &mdash; <span class="dc-title">Parse string to a field-based time value</span></p>
 
  </div>
  <div class="refsect1 description" id="refsect1-intldateformatter.localtime-description">
   <h3 class="title">Description</h3>
   <p class="para">
-   Object oriented style
+   Object-oriented style
   </p>
    <div class="methodsynopsis dc-description">
-    <span class="modifier">public</span> <span class="methodname"><strong>IntlDateFormatter::localtime</strong></span>
-     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$value</code></span>
-    , <span class="methodparam"><span class="type">int</span> <code class="parameter reference">&$position</code> = ?</span>
-    ) : <span class="type">array</span></div>
+   <span class="modifier">public</span> <span class="methodname"><strong>IntlDateFormatter::localtime</strong></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$string</code></span>, <span class="methodparam"><span class="type">int</span> <code class="parameter reference">&$offset</code><span class="initializer"> = <strong><code>null</code></strong></span></span>): <span class="type"><span class="type">array</span>|<span class="type"><span class="type false">false</span></span></span></div>
 
   <p class="para rdfs-comment">
    Procedural style
   </p>
-  <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>datefmt_localtime</strong></span>
-   ( <span class="methodparam"><span class="type"><a href="class.intldateformatter.html" class="type IntlDateFormatter">IntlDateFormatter</a></span> <code class="parameter">$fmt</code></span>
-  , <span class="methodparam"><span class="type">string</span> <code class="parameter">$value</code></span>
-  , <span class="methodparam"><span class="type">int</span> <code class="parameter reference">&$position</code> = ?</span>
-   ) : <span class="type">array</span></div>
+  <div class="methodsynopsis dc-description"><span class="methodname"><strong>datefmt_localtime</strong></span>(<span class="methodparam"><span class="type"><a href="class.intldateformatter.html" class="type IntlDateFormatter">IntlDateFormatter</a></span> <code class="parameter">$formatter</code></span>, <span class="methodparam"><span class="type">string</span> <code class="parameter">$string</code></span>, <span class="methodparam"><span class="type">int</span> <code class="parameter reference">&$offset</code><span class="initializer"> = <strong><code>null</code></strong></span></span>): <span class="type"><span class="type">array</span>|<span class="type"><span class="type false">false</span></span></span></div>
 
   <p class="para rdfs-comment">
    Converts string $value to a field-based time value ( an array of various fields), starting at
@@ -62,10 +54,9 @@ $parse_pos and consuming as much of the input value as possible.
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
-<code class="parameter">fmt</code></dt>
+<code class="parameter">formatter</code></dt>
 
      <dd>
 
@@ -77,7 +68,7 @@ $parse_pos and consuming as much of the input value as possible.
     
     
      <dt>
-<code class="parameter">value</code></dt>
+<code class="parameter">string</code></dt>
 
      <dd>
 
@@ -89,7 +80,7 @@ $parse_pos and consuming as much of the input value as possible.
     
     
      <dt>
-<code class="parameter">position</code></dt>
+<code class="parameter">offset</code></dt>
 
      <dd>
 
@@ -112,14 +103,15 @@ $parse_pos and consuming as much of the input value as possible.
  <div class="refsect1 returnvalues" id="refsect1-intldateformatter.localtime-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Localtime compatible array of integers  : contains 24 hour clock value in tm_hour field
+   Localtime compatible array of integers  : contains 24 hour clock value in tm_hour field,
+    or <strong><code>false</code></strong> on failure.
    </p>
  </div>
 
  
  <div class="refsect1 examples" id="refsect1-intldateformatter.localtime-examples">
   <h3 class="title">Examples</h3>
-   <div class="example" id="example-2923">
+   <div class="example" id="example-2436">
     <p><strong>Example #1 <span class="function"><strong>datefmt_localtime()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -129,7 +121,7 @@ $parse_pos and consuming as much of the input value as possible.
     </div>
 
    </div>
-   <div class="example" id="example-2924">
+   <div class="example" id="example-2437">
     <p><strong>Example #2 OO example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

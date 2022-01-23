@@ -29,33 +29,22 @@
   <h1 class="refname">DateTimeImmutable::getTimestamp</h1>
   <h1 class="refname">DateTimeInterface::getTimestamp</h1>
   <h1 class="refname">date_timestamp_get</h1>
-  <p class="verinfo">(PHP 5 &gt;= 5.3.0, PHP 7)</p><p class="refpurpose"><span class="refname">DateTime::getTimestamp</span> -- <span class="refname">DateTimeImmutable::getTimestamp</span> -- <span class="refname">DateTimeInterface::getTimestamp</span> -- <span class="refname">date_timestamp_get</span> &mdash; <span class="dc-title">Gets the Unix timestamp</span></p>
+  <p class="verinfo">(PHP 5 &gt;= 5.3.0, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">DateTime::getTimestamp</span> -- <span class="refname">DateTimeImmutable::getTimestamp</span> -- <span class="refname">DateTimeInterface::getTimestamp</span> -- <span class="refname">date_timestamp_get</span> &mdash; <span class="dc-title">Gets the Unix timestamp</span></p>
 
  </div>
 
  <div class="refsect1 description" id="refsect1-datetime.gettimestamp-description">
   <h3 class="title">Description</h3>
-  <p class="para">Object oriented style</p>
+  <p class="para">Object-oriented style</p>
   <div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><strong>DateTime::getTimestamp</strong></span>
-    (
-   ) : <span class="type">int</span></div>
+   <span class="modifier">public</span> <span class="methodname"><strong>DateTime::getTimestamp</strong></span>(): <span class="type">int</span></div>
 
-  <div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><strong>DateTimeImmutable::getTimestamp</strong></span>
-    (
-   ) : <span class="type">int</span></div>
+  <div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><strong>DateTimeImmutable::getTimestamp</strong></span>(): <span class="type">int</span></div>
 
-  <div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><strong>DateTimeInterface::getTimestamp</strong></span>
-    (
-   ) : <span class="type">int</span></div>
+  <div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><strong>DateTimeInterface::getTimestamp</strong></span>(): <span class="type">int</span></div>
 
   <p class="para rdfs-comment">Procedural style</p>
-  <div class="methodsynopsis dc-description">
-   <span class="methodname"><a href="function.date-timestamp-get.html" class="methodname">date_timestamp_get</a></span>
-    ( <span class="methodparam"><span class="type"><a href="class.datetimeinterface.html" class="type DateTimeInterface">DateTimeInterface</a></span> <code class="parameter">$object</code></span>
-   ) : <span class="type">int</span></div>
+  <div class="methodsynopsis dc-description"><span class="methodname"><a href="function.date-timestamp-get.html" class="methodname">date_timestamp_get</a></span>(<span class="methodparam"><span class="type"><a href="class.datetimeinterface.html" class="type DateTimeInterface">DateTimeInterface</a></span> <code class="parameter">$object</code></span>): <span class="type">int</span></div>
 
   <p class="para rdfs-comment">
    Gets the Unix timestamp.
@@ -73,6 +62,17 @@
   <h3 class="title">Return Values</h3>
   <p class="para">
    Returns the Unix timestamp representing the date.
+  </p>
+ </div>
+
+
+ <div class="refsect1 errors" id="refsect1-datetime.gettimestamp-errors">
+  <h3 class="title">Errors/Exceptions</h3>
+  <p class="para">
+   If the timestamp cannot be represented as <span class="type">int</span>, a <span class="classname"><a href="class.valueerror.html" class="classname">ValueError</a></span>
+   is thrown. Prior to PHP 8.0.0, <strong><code>false</code></strong> was returned in this case.
+   Still, the timestamp can be retrieved as <span class="type">string</span> by using
+   <span class="methodname"><a href="datetime.format.html" class="methodname">DateTimeInterface::format()</a></span> with the <code class="literal">U</code> format.
   </p>
  </div>
 
@@ -106,9 +106,9 @@
 
  <div class="refsect1 examples" id="refsect1-datetime.gettimestamp-examples">
   <h3 class="title">Examples</h3>
-  <div class="example" id="example-2538">
+  <div class="example" id="example-2050">
    <p><strong>Example #1 <span class="function"><strong>DateTime::getTimestamp()</strong></span> example</strong></p>
-   <div class="example-contents"><p>Object oriented style</p></div>
+   <div class="example-contents"><p>Object-oriented style</p></div>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
 <span style="color: #0000BB">&lt;?php<br />$date&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">DateTime</span><span style="color: #007700">();<br />echo&nbsp;</span><span style="color: #0000BB">$date</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getTimestamp</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">?&gt;</span>
@@ -132,16 +132,6 @@ something similar to:</p></div>
 </pre></div>
    </div>
   </div>
- </div>
-
-
- <div class="refsect1 notes" id="refsect1-datetime.gettimestamp-notes">
-  <h3 class="title">Notes</h3>
-  <p class="para">
-   Using <code class="literal">U</code> as the parameter to
-   <span class="function"><a href="datetime.format.html" class="function">DateTime::format()</a></span>
-   is an alternative when using PHP 5.2.
-  </p>
  </div>
 
 

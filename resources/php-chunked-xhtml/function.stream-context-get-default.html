@@ -26,16 +26,14 @@
   <div id="layout-content"><div id="function.stream-context-get-default" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">stream_context_get_default</h1>
-  <p class="verinfo">(PHP 5 &gt;= 5.1.0, PHP 7)</p><p class="refpurpose"><span class="refname">stream_context_get_default</span> &mdash; <span class="dc-title">Retrieve the default stream context</span></p>
+  <p class="verinfo">(PHP 5 &gt;= 5.1.0, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">stream_context_get_default</span> &mdash; <span class="dc-title">Retrieve the default stream context</span></p>
 
  </div>
  
  <div class="refsect1 description" id="refsect1-function.stream-context-get-default-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>stream_context_get_default</strong></span>
-    ( <span class="methodparam"><span class="type">array</span> <code class="parameter">$options</code> = ?</span>
-   ) : <span class="type">resource</span></div>
+   <span class="methodname"><strong>stream_context_get_default</strong></span>(<span class="methodparam"><span class="type">?</span><span class="type"><span class="type">array</span><span class="type"></span></span> <code class="parameter">$options</code><span class="initializer"> = <strong><code>null</code></strong></span></span>): <span class="type">resource</span></div>
 
   <p class="simpara">
    Returns the default stream context which is used whenever file operations
@@ -51,7 +49,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">options</code></dt>
@@ -61,14 +58,8 @@
       <span class="simpara">
        <code class="parameter">options</code> must be an associative
        array of associative arrays in the format
-       <code class="literal">$arr[&#039;wrapper&#039;][&#039;option&#039;] = $value</code>.
+       <code class="literal">$arr[&#039;wrapper&#039;][&#039;option&#039;] = $value</code>, or <strong><code>null</code></strong>.
       </span>
-      <blockquote class="note"><p><strong class="note">Note</strong>: 
-       <p class="para">
-        As of PHP 5.3.0, the <span class="function"><a href="function.stream-context-set-default.html" class="function">stream_context_set_default()</a></span> function
-        can be used to set the default context.
-       </p>
-      </p></blockquote>
      </dd>
 
     
@@ -86,10 +77,37 @@
  </div>
 
 
+ <div class="refsect1 changelog" id="refsect1-function.stream-context-get-default-changelog">
+  <h3 class="title">Changelog</h3>
+  <table class="doctable informaltable">
+   
+    <thead>
+     <tr>
+      <th>Version</th>
+      <th>Description</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+      <td>8.0.0</td>
+      <td>
+       <code class="parameter">options</code> is now nullable.
+      </td>
+     </tr>
+
+    </tbody>
+   
+  </table>
+
+ </div>
+
+
  <div class="refsect1 examples" id="refsect1-function.stream-context-get-default-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-4275">
+   <div class="example" id="stream-context-get-default.example.basic">
     <p><strong>Example #1 Using <span class="function"><strong>stream_context_get_default()</strong></span></strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -108,6 +126,7 @@
   <p class="para">
    <ul class="simplelist">
     <li class="member"><span class="function"><a href="function.stream-context-create.html" class="function" rel="rdfs-seeAlso">stream_context_create()</a> - Creates a stream context</span></li>
+    <li class="member"><span class="function"><a href="function.stream-context-set-default.html" class="function" rel="rdfs-seeAlso">stream_context_set_default()</a> - Set the default stream context</span></li>
     <li class="member">Listing of supported wrappers with context options (<a href="wrappers.html" class="xref">Supported Protocols and Wrappers</a>).</li>
    </ul>
   </p>

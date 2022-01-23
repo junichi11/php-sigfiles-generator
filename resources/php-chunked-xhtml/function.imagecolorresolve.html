@@ -26,18 +26,13 @@
   <div id="layout-content"><div id="function.imagecolorresolve" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">imagecolorresolve</h1>
-  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">imagecolorresolve</span> &mdash; <span class="dc-title">Get the index of the specified color or its closest possible alternative</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">imagecolorresolve</span> &mdash; <span class="dc-title">Get the index of the specified color or its closest possible alternative</span></p>
 
  </div>
  <div class="refsect1 description" id="refsect1-function.imagecolorresolve-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>imagecolorresolve</strong></span>
-    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$image</code></span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$red</code></span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$green</code></span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$blue</code></span>
-   ) : <span class="type">int</span></div>
+   <span class="methodname"><strong>imagecolorresolve</strong></span>(<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type"><a href="class.gdimage.html" class="type GdImage">GdImage</a></span> <code class="parameter">$image</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">int</span> <code class="parameter">$red</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">int</span> <code class="parameter">$green</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">int</span> <code class="parameter">$blue</code></span><br>): <span class="type">int</span></div>
 
   <p class="para rdfs-comment">
    This function is guaranteed to return a color index for a
@@ -51,12 +46,11 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     <dt>
-<code class="parameter">
-image</code></dt>
+
+<code class="parameter">image</code></dt>
 <dd>
-<p class="para">An image resource, returned by one of the image creation functions,
+<p class="para">A <span class="classname"><a href="class.gdimage.html" class="classname">GdImage</a></span> object, returned by one of the image creation functions,
 such as <span class="function"><a href="function.imagecreatetruecolor.html" class="function">imagecreatetruecolor()</a></span>.</p></dd>
 
     
@@ -101,9 +95,38 @@ such as <span class="function"><a href="function.imagecreatetruecolor.html" clas
   </p>
  </div>
 
+
+ <div class="refsect1 changelog" id="refsect1-function.imagecolorresolve-changelog">
+  <h3 class="title">Changelog</h3>
+  <table class="doctable informaltable">
+   
+    <thead>
+     <tr>
+      <th>Version</th>
+      <th>Description</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+ <td>8.0.0</td>
+ <td>
+  <code class="parameter">image</code> expects a <span class="classname"><a href="class.gdimage.html" class="classname">GdImage</a></span>
+  instance now; previously, a <span class="type">resource</span> was expected.
+ </td>
+</tr>
+
+    </tbody>
+   
+  </table>
+
+ </div>
+
+
  <div class="refsect1 examples" id="refsect1-function.imagecolorresolve-examples">
   <h3 class="title">Examples</h3>
-  <div class="example" id="example-3113">
+  <div class="example" id="example-2629">
    <p><strong>Example #1 Using <span class="function"><strong>imagecoloresolve()</strong></span> to get colors from an image</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

@@ -63,7 +63,7 @@
     <code class="literal">__CLASS__</code> are resolved using the class in which the
     function belongs, as in where it was defined:
    </p>
-   <div class="example" id="example-266">
+   <div class="example" id="example-277">
     <p><strong>Example #1 <code class="literal">self::</code> usage</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -88,13 +88,13 @@ A
    <p class="para">
     Late static bindings tries to solve that limitation by introducing a
     keyword that references the class that was initially called at runtime.
-    Basically, a keyword that would allow you to reference
+    Basically, a keyword that would allow referencing
     <code class="literal">B</code> from <code class="literal">test()</code> in the previous
     example. It was decided not to introduce a new keyword but rather use
     <code class="literal">static</code> that was already reserved.
    </p>
 
-   <div class="example" id="example-267">
+   <div class="example" id="example-278">
     <p><strong>Example #2 <code class="literal">static::</code> simple usage</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -119,7 +119,7 @@ B
      can only refer to static properties.
     </p>
    </p></blockquote>
-   <div class="example" id="example-268">
+   <div class="example" id="example-279">
     <p><strong>Example #3 <code class="literal">static::</code> usage in a non-static context</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -147,7 +147,7 @@ Fatal error:  Call to private method C::foo() from context &#039;A&#039; in /tmp
      <code class="literal">parent::</code> or <code class="literal">self::</code> will forward the
      calling information.
     </p>
-    <div class="example" id="example-269">
+    <div class="example" id="example-280">
      <p><strong>Example #4 Forwarding and non-forwarding calls</strong></p>
      <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

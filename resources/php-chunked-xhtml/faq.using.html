@@ -49,10 +49,6 @@
       regular expression?  I&#039;d also like to convert &quot; to \&quot; and
       \ to \\.
      
-    </a></li><li><a href="#faq.register-globals">
-     
-      How does the PHP directive register_globals affect me?
-     
     </a></li><li><a href="#faq.using.wrong-order">
      
       When I do the following, the output is printed in 
@@ -118,27 +114,16 @@ echo &quot;myfunc($variable) = &quot; . myfunc($variable);
       PDFLib?  I&#039;d like something that&#039;s 
       free and doesn&#039;t require external PDF libraries.
      
-    </a></li><li><a href="#faq.using.cgi-vars">
-     
-      I&#039;m trying to access one of the standard CGI
-      variables (such as $DOCUMENT_ROOT or
-      $HTTP_REFERER) in a user-defined
-      function, and it can&#039;t seem to find it. What&#039;s wrong?
-     
     </a></li><li><a href="#faq.using.shorthandbytes">
      
       A few PHP directives may also take on shorthand byte values, as opposed
       to only int byte values.  What are all the available
       shorthand byte options?
      
-    </a></li><li><a href="#faq.using.windowslocalhostissue">
-     
-      Windows: I keep getting connection timeouts when using localhost, 
-      whereas &quot;127.0.0.1&quot; works?
-     
     </a></li></ol></div>
 
    <dl class="qandaentry" id="faq.using.parameterorder">
+    
     <dt><strong>
      
       I cannot remember the parameter order of PHP functions, are they random?
@@ -208,58 +193,6 @@ echo &quot;myfunc($variable) = &quot; . myfunc($variable);
      </p>
     </dd>
    </dl>
-
-   <dl class="qandaentry" id="faq.register-globals">
-    <dt><strong>
-     
-      How does the PHP directive register_globals affect me?
-     
-    </strong></dt>
-    <dd class="answer">
-     <div class="warning"><strong class="warning">Warning</strong><p class="simpara">This feature has been
-<em class="emphasis">DEPRECATED</em> as of PHP 5.3.0 and <em class="emphasis">REMOVED</em>
-as of PHP 5.4.0.</p></div>
-     <p class="para">
-      First, an explanation about what this ini setting does. Let&#039;s say the
-      following URL is used:
-      <code class="literal">http://example.com/foo.php?animal=cat</code>
-      and in <var class="filename">foo.php</var> we might have the following
-      PHP code:
-     </p>
-     <p class="para">
-      <div class="example-contents">
-<div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;Using&nbsp;$_GET&nbsp;here&nbsp;is&nbsp;preferred<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #0000BB">$_GET</span><span style="color: #007700">[</span><span style="color: #DD0000">'animal'</span><span style="color: #007700">];<br /><br /></span><span style="color: #FF8000">//&nbsp;For&nbsp;$animal&nbsp;to&nbsp;exist,&nbsp;register_globals&nbsp;must&nbsp;be&nbsp;on<br />//&nbsp;DO&nbsp;NOT&nbsp;DO&nbsp;THIS<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #0000BB">$animal</span><span style="color: #007700">;<br /><br /></span><span style="color: #FF8000">//&nbsp;This&nbsp;applies&nbsp;to&nbsp;all&nbsp;variables,&nbsp;so&nbsp;$_SERVER&nbsp;too<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #0000BB">$_SERVER</span><span style="color: #007700">[</span><span style="color: #DD0000">'PHP_SELF'</span><span style="color: #007700">];<br /><br /></span><span style="color: #FF8000">//&nbsp;Again,&nbsp;for&nbsp;$PHP_SELF&nbsp;to&nbsp;exist,&nbsp;register_globals&nbsp;must&nbsp;be&nbsp;on<br />//&nbsp;DO&nbsp;NOT&nbsp;DO&nbsp;THIS<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #0000BB">$PHP_SELF</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">?&gt;</span>
-</span>
-</code></div>
-     </div>
-
-    </p>
-    <p class="para">
-     The code above demonstrates how register_globals creates a lot of
-     variables. For years this type of coding has been frowned upon, and for
-     years it&#039;s been disabled by default. So although most web hosts disable
-     register_globals, there are still outdated articles, tutorials, and books
-     that require it to be on. Plan accordingly.
-    </p>
-    <p class="para">
-     See also the following resources for additional information:
-     <ul class="simplelist">
-      <li class="member">The <a href="ini.core.html#ini.register-globals" class="link">register_globals</a> directive</li>
-      <li class="member">The <a href="security.globals.html" class="link">security chapter about register globals</a></li>
-      <li class="member"><a href="language.variables.external.html" class="link">Handling external variables</a></li>
-      <li class="member">Use <a href="language.variables.superglobals.html" class="link">superglobals</a> instead</li>
-     </ul>
-    </p>
-    <blockquote class="note"><p><strong class="note">Note</strong>: 
-     <p class="para">
-      In the example above, we used an <acronym title="Uniform Resource Locator">URL</acronym> that contained
-      a QUERY_STRING. Passing information like this is done through a GET HTTP
-      Request, so this is why the superglobal <var class="varname"><a href="reserved.variables.get.html" class="classname">$_GET</a></var> was used.
-     </p>
-    </p></blockquote>
-   </dd>
-  </dl>
 
    <dl class="qandaentry" id="faq.using.wrong-order">
     <dt><strong>
@@ -451,13 +384,6 @@ as of PHP 5.4.0.</p></div>
       outside of PHP</a> as it describes common scenarios for 
       external variables, like from a HTML form, a Cookie, and the URL.
      </p>
-     
-     <blockquote class="note"><p><strong class="note">Note</strong>: <strong>register_globals: important
-note</strong><br /><p class="para">As of PHP 4.2.0, the default value for the PHP directive
-<a href="ini.core.html#ini.register-globals" class="link">register_globals</a> is <em class="emphasis">
-off</em>. The PHP community discourages developers from relying on this directive, and encourages the use
-of other means, such as the <a href="language.variables.predefined.html" class="link">superglobals</a>.</p></p></blockquote>
-
     </dd>
    </dl>
 
@@ -479,38 +405,6 @@ of other means, such as the <a href="language.variables.predefined.html" class="
     </dd>
    </dl>
 
-   <dl class="qandaentry" id="faq.using.cgi-vars">
-    <dt><strong>
-     
-      I&#039;m trying to access one of the standard CGI
-      variables (such as <var class="varname">$DOCUMENT_ROOT</var> or
-      <var class="varname">$HTTP_REFERER</var>) in a user-defined
-      function, and it can&#039;t seem to find it. What&#039;s wrong?
-     
-    </strong></dt>
-    <dd class="answer">
-     <p class="para">
-      It&#039;s important to realize that the PHP directive <a href="ini.core.html#ini.register-globals" class="link">register_globals</a> also affects
-      server and environment variables.  When register_globals = off (the
-      default is off since PHP 4.2.0), <var class="varname">$DOCUMENT_ROOT</var>
-      will not exist. Instead, use <var class="varname"><a href="reserved.variables.server.html" class="classname">$_SERVER['DOCUMENT_ROOT']
-      </a></var>.  If register_globals = on then the variables
-      <var class="varname">$DOCUMENT_ROOT</var> and
-      <var class="varname"><a href="reserved.variables.globals.html" class="classname">$GLOBALS['DOCUMENT_ROOT']</a></var> will also exist.
-     </p>
-     <p class="para">
-      If you&#039;re sure register_globals = on and wonder why
-      <var class="varname">$DOCUMENT_ROOT</var> isn&#039;t available inside functions,
-      it&#039;s because these are like any other variables and would 
-      require <code class="literal">global $DOCUMENT_ROOT</code> inside the
-      function.  See also the manual page on 
-      <a href="language.variables.scope.html" class="link">variable scope</a>.  It&#039;s
-      preferred to code with register_globals = off.
-     </p>
-
-    </dd>
-   </dl>
-
    <dl class="qandaentry" id="faq.using.shorthandbytes">
     <dt><strong>
      
@@ -522,7 +416,7 @@ of other means, such as the <a href="language.variables.predefined.html" class="
     <dd class="answer">
      <p class="para">
       The available options are K (for Kilobytes), M (for Megabytes) and G (for
-      Gigabytes; available since PHP 5.1.0), and are all case-insensitive.
+      Gigabytes), and are all case-insensitive.
       Anything else assumes bytes. <code class="literal">1M</code> equals one Megabyte or
       <code class="literal">1048576</code> bytes. <code class="literal">1K</code> equals one
       Kilobyte or <code class="literal">1024</code> bytes. These shorthand notations may
@@ -540,24 +434,6 @@ of other means, such as the <a href="language.variables.predefined.html" class="
      </p></blockquote>
     </dd>
    </dl>
-
-   <dl class="qandaentry" id="faq.using.windowslocalhostissue">
-    <dt><strong>
-     
-      Windows: I keep getting connection timeouts when using <code class="literal">localhost</code>, 
-      whereas <code class="literal">&quot;127.0.0.1&quot;</code> works?
-     
-    </strong></dt>
-    <dd class="answer">
-     <p class="para">
-      Prior to PHP 5.3.4, there was a bug in the network resolving code inside PHP that 
-      caused <code class="literal">localhost</code> in all stream related situations to fail if IPv6 
-      was enabled. To work around this issue you can either use <code class="literal">&quot;127.0.0.1&quot;</code> 
-      or disable IPv6 resolving in the <var class="filename">hosts</var> file.
-     </p>
-    </dd>
-   </dl>
-
   
  </div>
 </div></div></body></html>

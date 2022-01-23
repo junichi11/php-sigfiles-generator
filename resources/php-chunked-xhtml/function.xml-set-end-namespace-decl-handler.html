@@ -26,17 +26,14 @@
   <div id="layout-content"><div id="function.xml-set-end-namespace-decl-handler" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">xml_set_end_namespace_decl_handler</h1>
-  <p class="verinfo">(PHP 4 &gt;= 4.0.5, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">xml_set_end_namespace_decl_handler</span> &mdash; <span class="dc-title">Set up end namespace declaration handler</span></p>
+  <p class="verinfo">(PHP 4 &gt;= 4.0.5, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">xml_set_end_namespace_decl_handler</span> &mdash; <span class="dc-title">Set up end namespace declaration handler</span></p>
 
  </div>
 
  <div class="refsect1 description" id="refsect1-function.xml-set-end-namespace-decl-handler-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>xml_set_end_namespace_decl_handler</strong></span>
-    ( <span class="methodparam"><span class="type"><a href="class.xmlparser.html" class="type XMLParser">XMLParser</a></span> <code class="parameter">$parser</code></span>
-   , <span class="methodparam"><span class="type"><a href="language.types.callable.html" class="type callable">callable</a></span> <code class="parameter">$handler</code></span>
-   ) : <span class="type">bool</span></div>
+   <span class="methodname"><strong>xml_set_end_namespace_decl_handler</strong></span>(<span class="methodparam"><span class="type"><a href="class.xmlparser.html" class="type XMLParser">XMLParser</a></span> <code class="parameter">$parser</code></span>, <span class="methodparam"><span class="type"><a href="language.types.callable.html" class="type callable">callable</a></span> <code class="parameter">$handler</code></span>): <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
    Set a handler to be called when leaving the scope of a namespace
@@ -57,7 +54,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">parser</code></dt>
@@ -89,13 +85,9 @@
        <span class="function"><a href="function.xml-get-error-code.html" class="function">xml_get_error_code()</a></span> will return
        <strong><code>XML_ERROR_EXTERNAL_ENTITY_HANDLING</code></strong>.
        <div class="methodsynopsis dc-description">
-        <span class="methodname"><span class="replaceable">handler</span></span>
-         ( <span class="methodparam"><span class="type"><a href="class.xmlparser.html" class="type XMLParser">XMLParser</a></span> <code class="parameter">$parser</code></span>
-        , <span class="methodparam"><span class="type">string</span> <code class="parameter">$prefix</code></span>
-        )</div>
+        <span class="methodname"><span class="replaceable">handler</span></span>(<span class="methodparam"><span class="type"><a href="class.xmlparser.html" class="type XMLParser">XMLParser</a></span> <code class="parameter">$parser</code></span>, <span class="methodparam"><span class="type">string</span> <code class="parameter">$prefix</code></span>)</div>
 
        <dl>
-
         
          <dt>
 <code class="parameter">parser</code></dt>
@@ -164,7 +156,7 @@ supplied.</span></p></blockquote>
       <tr>
  <td>8.0.0</td>
  <td>
-  <code class="parameter">parser</code> expects an <a href="class.xmlparser.html" class="classname">XMLParser</a>
+  <code class="parameter">parser</code> expects an <span class="classname"><a href="class.xmlparser.html" class="classname">XMLParser</a></span>
   instance now; previously, a <span class="type">resource</span> was expected.
  </td>
 </tr>

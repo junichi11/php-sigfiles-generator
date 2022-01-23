@@ -11,7 +11,7 @@
   <div class="navbar-inner clearfix">
     <ul class="nav" style="width: 100%">
       <li style="float: left;"><a href="install.windows.recommended.html">« Recommended Configuration on Windows systems</a></li>
-      <li style="float: right;"><a href="install.windows.troubleshooting.html">Troubleshooting PHP on Windows »</a></li>
+      <li style="float: right;"><a href="install.windows.building.html">Building from source »</a></li>
     </ul>
   </div>
 </div>
@@ -35,7 +35,7 @@
     On Windows Desktop, IIS has to be added via the Control Panel&#039;s Add/Remove Programs.
     The Microsoft documentation has <a href="https://docs.microsoft.com/en-us/previous-versions/ms181052(v=vs.80)" class="link external">&raquo;&nbsp;detailed instructions</a>.
     For desktop web apps and web-development, IIS/Express or PHP Desktop can also be used.
-    <div class="example" id="install.unix.nginx.configure.nginx.php">
+    <div class="example" id="example-19">
      <p><strong>Example #1 Command line to configure IIS and PHP</strong></p>
      <div class="example-contents">
 <div class="cdata"><pre>
@@ -66,8 +66,6 @@ REM Configure FastCGI Variables
      </div>
 
     </div>
-
-    See also the <a href="install.windows.legacy.index.html#install.windows.legacy.iis7" class="link">old IIS installation instructions</a>.
    </p>
   </div>
 
@@ -78,7 +76,6 @@ REM Configure FastCGI Variables
     The Apache builds of ApacheLounge are recommended, but other options include XAMPP, WampServer and BitNami, which provide automatic installer tools.
     PHP can be used on Apache through mod_php or mod_fastcgi.
     mod_php requires a TS build of Apache built with same version of Visual C and same CPU (x86 or x64).
-    See also the <a href="install.windows.legacy.index.html#install.windows.legacy.apache2" class="link">old Apache installation instructions</a>.
    </p>
   </div>
  </div>
@@ -99,10 +96,10 @@ REM Configure FastCGI Variables
      <p class="para">Non-Thread-Safe(NTS) - for IIS and other FastCGI web servers (Apache with mod_fastcgi) and recommended for command-line scripts</p>
     </li>
     <li class="listitem">
-     <p class="para">x86 - production use of PHP 5.5 and up.</p>
+     <p class="para">x86 - for 32-bits systems.</p>
     </li>
     <li class="listitem">
-     <p class="para">x64 - production use of PHP 7 (unless its a 32-bit only version of Windows). PHP 5.5 and 5.6 x64 builds are experimental.</p>
+     <p class="para">x64 - for 64-bits systems.</p>
     </li>
    </ul>
   </p>

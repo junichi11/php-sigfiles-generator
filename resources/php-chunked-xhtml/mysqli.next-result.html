@@ -27,23 +27,18 @@
  <div class="refnamediv">
   <h1 class="refname">mysqli::next_result</h1>
   <h1 class="refname">mysqli_next_result</h1>
-  <p class="verinfo">(PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">mysqli::next_result</span> -- <span class="refname">mysqli_next_result</span> &mdash; <span class="dc-title">Prepare next result from multi_query</span></p>
+  <p class="verinfo">(PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">mysqli::next_result</span> -- <span class="refname">mysqli_next_result</span> &mdash; <span class="dc-title">Prepare next result from multi_query</span></p>
 
  </div>
 
  <div class="refsect1 description" id="refsect1-mysqli.next-result-description">
   <h3 class="title">Description</h3>
-  <p class="para">Object oriented style</p>
+  <p class="para">Object-oriented style</p>
   <div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><strong>mysqli::next_result</strong></span>
-    (
-   ) : <span class="type">bool</span></div>
+   <span class="modifier">public</span> <span class="methodname"><strong>mysqli::next_result</strong></span>(): <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">Procedural style</p>
-  <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>mysqli_next_result</strong></span>
-    ( <span class="methodparam"><span class="type"><a href="class.mysqli.html" class="type mysqli">mysqli</a></span> <code class="parameter">$link</code></span>
-   ) : <span class="type">bool</span></div>
+  <div class="methodsynopsis dc-description"><span class="methodname"><strong>mysqli_next_result</strong></span>(<span class="methodparam"><span class="type"><a href="class.mysqli.html" class="type mysqli">mysqli</a></span> <code class="parameter">$mysql</code></span>): <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
    Prepares next result set from a previous call to 
@@ -58,12 +53,11 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     <dt>
-<code class="parameter">
-link</code></dt>
+
+<code class="parameter">mysql</code></dt>
 <dd>
-<p class="para">Procedural style only: A link identifier
+<p class="para">Procedural style only: A <span class="classname"><a href="class.mysqli.html" class="classname">mysqli</a></span> object
 returned by <span class="function"><a href="function.mysqli-connect.html" class="function">mysqli_connect()</a></span> or <span class="function"><a href="mysqli.init.html" class="function">mysqli_init()</a></span>
 </p></dd>
 
@@ -93,7 +87,7 @@ returned by <span class="function"><a href="function.mysqli-connect.html" class=
   <h3 class="title">See Also</h3>
   <p class="para">
    <ul class="simplelist">
-    <li class="member"><span class="function"><a href="mysqli.multi-query.html" class="function" rel="rdfs-seeAlso">mysqli_multi_query()</a> - Performs a query on the database</span></li>
+    <li class="member"><span class="function"><a href="mysqli.multi-query.html" class="function" rel="rdfs-seeAlso">mysqli_multi_query()</a> - Performs one or more queries on the database</span></li>
     <li class="member"><span class="function"><a href="mysqli.more-results.html" class="function" rel="rdfs-seeAlso">mysqli_more_results()</a> - Check if there are any more query results from a multi query</span></li>
     <li class="member"><span class="function"><a href="mysqli.store-result.html" class="function" rel="rdfs-seeAlso">mysqli_store_result()</a> - Transfers a result set from the last query</span></li>
     <li class="member"><span class="function"><a href="mysqli.use-result.html" class="function" rel="rdfs-seeAlso">mysqli_use_result()</a> - Initiate a result set retrieval</span></li>

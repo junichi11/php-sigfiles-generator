@@ -26,29 +26,20 @@
   <div id="layout-content"><div id="function.imagecopy" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">imagecopy</h1>
-  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">imagecopy</span> &mdash; <span class="dc-title">Copy part of an image</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">imagecopy</span> &mdash; <span class="dc-title">Copy part of an image</span></p>
 
  </div>
  <div class="refsect1 description" id="refsect1-function.imagecopy-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>imagecopy</strong></span>
-    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$dst_im</code></span>
-   , <span class="methodparam"><span class="type">resource</span> <code class="parameter">$src_im</code></span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$dst_x</code></span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$dst_y</code></span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$src_x</code></span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$src_y</code></span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$src_w</code></span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$src_h</code></span>
-   ) : <span class="type">bool</span></div>
+   <span class="methodname"><strong>imagecopy</strong></span>(<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type"><a href="class.gdimage.html" class="type GdImage">GdImage</a></span> <code class="parameter">$dst_image</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type"><a href="class.gdimage.html" class="type GdImage">GdImage</a></span> <code class="parameter">$src_image</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">int</span> <code class="parameter">$dst_x</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">int</span> <code class="parameter">$dst_y</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">int</span> <code class="parameter">$src_x</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">int</span> <code class="parameter">$src_y</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">int</span> <code class="parameter">$src_width</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">int</span> <code class="parameter">$src_height</code></span><br>): <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
-   Copy a part of <code class="parameter">src_im</code> onto
-   <code class="parameter">dst_im</code> starting at the x,y coordinates
+   Copy a part of <code class="parameter">src_image</code> onto
+   <code class="parameter">dst_image</code> starting at the x,y coordinates
    <code class="parameter">src_x</code>, <code class="parameter">src_y </code> with
-   a width of <code class="parameter">src_w</code> and a height of
-   <code class="parameter">src_h</code>.  The portion defined will be copied
+   a width of <code class="parameter">src_width</code> and a height of
+   <code class="parameter">src_height</code>.  The portion defined will be copied
    onto the x,y coordinates, <code class="parameter">dst_x</code> and
    <code class="parameter">dst_y</code>.
   </p>
@@ -58,10 +49,9 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
-<code class="parameter">dst_im</code></dt>
+<code class="parameter">dst_image</code></dt>
 
      <dd>
 
@@ -71,7 +61,7 @@
     
     
      <dt>
-<code class="parameter">src_im</code></dt>
+<code class="parameter">src_image</code></dt>
 
      <dd>
 
@@ -129,7 +119,7 @@
     
     
      <dt>
-<code class="parameter">src_w</code></dt>
+<code class="parameter">src_width</code></dt>
 
      <dd>
 
@@ -139,7 +129,7 @@
     
     
      <dt>
-<code class="parameter">src_h</code></dt>
+<code class="parameter">src_height</code></dt>
 
      <dd>
 
@@ -159,11 +149,41 @@
   </p>
  </div>
 
+
+ <div class="refsect1 changelog" id="refsect1-function.imagecopy-changelog">
+  <h3 class="title">Changelog</h3>
+  <table class="doctable informaltable">
+   
+    <thead>
+     <tr>
+      <th>Version</th>
+      <th>Description</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+      <td>8.0.0</td>
+      <td>
+       <code class="parameter">dst_image</code> and <code class="parameter">src_image</code> expect
+       <span class="classname"><a href="class.gdimage.html" class="classname">GdImage</a></span> instances now; previously, <span class="type">resource</span>s
+       were expected.
+      </td>
+     </tr>
+
+    </tbody>
+   
+  </table>
+
+ </div>
+
+
  <div class="refsect1 examples" id="refsect1-function.imagecopy-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
 
-  <div class="example" id="example-3121">
+  <div class="example" id="example-2637">
    <p><strong>Example #1 Cropping the PHP.net logo</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

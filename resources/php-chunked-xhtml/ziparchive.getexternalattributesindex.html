@@ -26,19 +26,13 @@
   <div id="layout-content"><div id="ziparchive.getexternalattributesindex" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">ZipArchive::getExternalAttributesIndex</h1>
-  <p class="verinfo">(PHP 5 &gt;= 5.6.0, PHP 7, PECL zip &gt;= 1.12.4)</p><p class="refpurpose"><span class="refname">ZipArchive::getExternalAttributesIndex</span> &mdash; <span class="dc-title">Retrieve the external attributes of an entry defined by its index</span></p>
+  <p class="verinfo">(PHP 5 &gt;= 5.6.0, PHP 7, PHP 8, PECL zip &gt;= 1.12.4)</p><p class="refpurpose"><span class="refname">ZipArchive::getExternalAttributesIndex</span> &mdash; <span class="dc-title">Retrieve the external attributes of an entry defined by its index</span></p>
 
  </div>
  <div class="refsect1 description" id="refsect1-ziparchive.getexternalattributesindex-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> 
-   <span class="methodname"><strong>ZipArchive::GetExternalAttributesIndex</strong></span>
-    ( <span class="methodparam"><span class="type">int</span> <code class="parameter">$index</code></span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter reference">&$opsys</code></span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter reference">&$attr</code></span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code> = ?</span>
-   ) : <span class="type">bool</span></div>
+   <span class="modifier">public</span> <span class="methodname"><strong>ZipArchive::GetExternalAttributesIndex</strong></span>(<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">int</span> <code class="parameter">$index</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">int</span> <code class="parameter reference">&$opsys</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">int</span> <code class="parameter reference">&$attr</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code><span class="initializer"> = ?</span></span><br>): <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
    Retrieve the external attributes of an entry defined by its index.
@@ -49,7 +43,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">index</code></dt>
@@ -118,7 +111,7 @@
       archive <var class="filename">test.zip</var> and 
       set the Unix rights from external attributes.
     </p>
-    <div class="example" id="example-825">
+    <div class="example" id="example-828">
      <p><strong>Example #1 Extract all entries with Unix rights</strong></p>
      <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

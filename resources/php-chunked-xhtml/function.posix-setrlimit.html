@@ -26,18 +26,14 @@
   <div id="layout-content"><div id="function.posix-setrlimit" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">posix_setrlimit</h1>
-  <p class="verinfo">(PHP 7)</p><p class="refpurpose"><span class="refname">posix_setrlimit</span> &mdash; <span class="dc-title">Set system resource limits</span></p>
+  <p class="verinfo">(PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">posix_setrlimit</span> &mdash; <span class="dc-title">Set system resource limits</span></p>
 
  </div>
  
  <div class="refsect1 description" id="refsect1-function.posix-setrlimit-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>posix_setrlimit</strong></span>
-    ( <span class="methodparam"><span class="type">int</span> <code class="parameter">$resource</code></span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$soft_limit</code></span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$hard_limit</code></span>
-   ) : <span class="type">bool</span></div>
+   <span class="methodname"><strong>posix_setrlimit</strong></span>(<span class="methodparam"><span class="type">int</span> <code class="parameter">$resource</code></span>, <span class="methodparam"><span class="type">int</span> <code class="parameter">$soft_limit</code></span>, <span class="methodparam"><span class="type">int</span> <code class="parameter">$hard_limit</code></span>): <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
    <span class="function"><strong>posix_setrlimit()</strong></span> sets the soft and hard limits for a
@@ -59,7 +55,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">resource</code></dt>

@@ -35,8 +35,7 @@
    <p class="para">This function was deprecated in PHP 4.3.0, and it
 and the entire <a href="book.mysql.html" class="link">original MySQL extension</a> was removed in PHP 7.0.0.
 Instead, use either the actively developed <a href="book.mysqli.html" class="link">MySQLi</a> or <a href="ref.pdo-mysql.html" class="link">PDO_MySQL</a> extensions.
-See also the <a href="mysqlinfo.api.choosing.html" class="link">MySQL: choosing an API</a> guide and its
-<a href="faq.databases.html#faq.databases.mysql.deprecated" class="link">related FAQ entry</a> for additional information. 
+See also the <a href="mysqlinfo.api.choosing.html" class="link">MySQL: choosing an API</a> guide.
 Alternatives to this function include:</p>
    <ul class="simplelist">
     <li class="member"><span class="function"><a href="function.mysqli-escape-string.html" class="function">mysqli_escape_string()</a></span></li>
@@ -48,9 +47,7 @@ Alternatives to this function include:</p>
  <div class="refsect1 description" id="refsect1-function.mysql-escape-string-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>mysql_escape_string</strong></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$unescaped_string</code></span>
-   ) : <span class="type">string</span></div>
+   <span class="methodname"><strong>mysql_escape_string</strong></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$unescaped_string</code></span>): <span class="type">string</span></div>
 
   <p class="para rdfs-comment">
    This function will escape the <code class="parameter">unescaped_string</code>,
@@ -71,7 +68,6 @@ Alternatives to this function include:</p>
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">unescaped_string</code></dt>
@@ -101,7 +97,7 @@ Alternatives to this function include:</p>
  <div class="refsect1 examples" id="refsect1-function.mysql-escape-string-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-1972">
+   <div class="example" id="example-1727">
     <p><strong>Example #1 <span class="function"><strong>mysql_escape_string()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

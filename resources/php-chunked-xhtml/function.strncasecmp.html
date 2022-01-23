@@ -26,18 +26,14 @@
   <div id="layout-content"><div id="function.strncasecmp" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">strncasecmp</h1>
-  <p class="verinfo">(PHP 4 &gt;= 4.0.2, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">strncasecmp</span> &mdash; <span class="dc-title">Binary safe case-insensitive string comparison of the first n characters</span></p>
+  <p class="verinfo">(PHP 4 &gt;= 4.0.2, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">strncasecmp</span> &mdash; <span class="dc-title">Binary safe case-insensitive string comparison of the first n characters</span></p>
 
  </div>
  
  <div class="refsect1 description" id="refsect1-function.strncasecmp-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>strncasecmp</strong></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$str1</code></span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$str2</code></span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$len</code></span>
-   ) : <span class="type">int</span></div>
+   <span class="methodname"><strong>strncasecmp</strong></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$string1</code></span>, <span class="methodparam"><span class="type">string</span> <code class="parameter">$string2</code></span>, <span class="methodparam"><span class="type">int</span> <code class="parameter">$length</code></span>): <span class="type">int</span></div>
 
   <p class="para rdfs-comment">
    This function is similar to <span class="function"><a href="function.strcasecmp.html" class="function">strcasecmp()</a></span>, with the
@@ -51,10 +47,9 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
-<code class="parameter">str1</code></dt>
+<code class="parameter">string1</code></dt>
 
      <dd>
 
@@ -66,7 +61,7 @@
     
     
      <dt>
-<code class="parameter">str2</code></dt>
+<code class="parameter">string2</code></dt>
 
      <dd>
 
@@ -78,7 +73,7 @@
     
     
      <dt>
-<code class="parameter">len</code></dt>
+<code class="parameter">length</code></dt>
 
      <dd>
 
@@ -97,9 +92,9 @@
  <div class="refsect1 returnvalues" id="refsect1-function.strncasecmp-returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns &lt; 0 if <code class="parameter">str1</code> is less than
-   <code class="parameter">str2</code>; &gt; 0 if <code class="parameter">str1</code> is
-   greater than <code class="parameter">str2</code>, and 0 if they are equal.
+   Returns &lt; 0 if <code class="parameter">string1</code> is less than
+   <code class="parameter">string2</code>; &gt; 0 if <code class="parameter">string1</code> is
+   greater than <code class="parameter">string2</code>, and 0 if they are equal.
   </p>
  </div>
 

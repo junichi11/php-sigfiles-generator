@@ -26,39 +26,25 @@
   <div id="layout-content"><div id="pdostatement.setfetchmode" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">PDOStatement::setFetchMode</h1>
-  <p class="verinfo">(PHP 5 &gt;= 5.1.0, PHP 7, PECL pdo &gt;= 0.2.0)</p><p class="refpurpose"><span class="refname">PDOStatement::setFetchMode</span> &mdash; <span class="dc-title">
+  <p class="verinfo">(PHP 5 &gt;= 5.1.0, PHP 7, PHP 8, PECL pdo &gt;= 0.2.0)</p><p class="refpurpose"><span class="refname">PDOStatement::setFetchMode</span> &mdash; <span class="dc-title">
    Set the default fetch mode for this statement
   </span></p>
 
  </div>
  <div class="refsect1 description" id="refsect1-pdostatement.setfetchmode-description">
   <h3 class="title">Description</h3>
-  <div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><strong>PDOStatement::setFetchMode</strong></span>
-    ( <span class="methodparam"><span class="type">int</span> <code class="parameter">$mode</code></span>
-   ) : <span class="type">bool</span></div>
-
 
   <div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><strong>PDOStatement::setFetchMode</strong></span>
-    ( <span class="methodparam"><span class="type">int</span> <code class="parameter">$mode</code><span class="initializer"> = PDO::FETCH_COLUMN</span></span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$colno</code></span>
-   ) : <span class="type">bool</span></div>
+   <span class="modifier">public</span> <span class="methodname"><strong>PDOStatement::setFetchMode</strong></span>(<span class="methodparam"><span class="type">int</span> <code class="parameter">$mode</code></span>): <span class="type">bool</span></div>
 
 
-  <div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><strong>PDOStatement::setFetchMode</strong></span>
-    ( <span class="methodparam"><span class="type">int</span> <code class="parameter">$mode</code><span class="initializer"> = PDO::FETCH_CLASS</span></span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$classname</code></span>
-   , <span class="methodparam"><span class="type">array</span> <code class="parameter">$ctorargs</code></span>
-   ) : <span class="type">bool</span></div>
+  <div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><strong>PDOStatement::setFetchMode</strong></span>(<span class="methodparam"><span class="type">int</span> <code class="parameter">$mode</code><span class="initializer"> = PDO::FETCH_COLUMN</span></span>, <span class="methodparam"><span class="type">int</span> <code class="parameter">$colno</code></span>): <span class="type">bool</span></div>
 
 
-  <div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><strong>PDOStatement::setFetchMode</strong></span>
-    ( <span class="methodparam"><span class="type">int</span> <code class="parameter">$mode</code><span class="initializer"> = PDO::FETCH_INTO</span></span>
-   , <span class="methodparam"><span class="type">object</span> <code class="parameter">$object</code></span>
-   ) : <span class="type">bool</span></div>
+  <div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><strong>PDOStatement::setFetchMode</strong></span>(<span class="methodparam"><span class="type">int</span> <code class="parameter">$mode</code><span class="initializer"> = PDO::FETCH_CLASS</span></span>, <span class="methodparam"><span class="type">string</span> <code class="parameter">$class</code></span>, <span class="methodparam"><span class="type">?</span><span class="type"><span class="type">array</span><span class="type"></span></span> <code class="parameter">$constructorArgs</code></span>): <span class="type">bool</span></div>
+
+
+  <div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><strong>PDOStatement::setFetchMode</strong></span>(<span class="methodparam"><span class="type">int</span> <code class="parameter">$mode</code><span class="initializer"> = PDO::FETCH_INTO</span></span>, <span class="methodparam"><span class="type">object</span> <code class="parameter">$object</code></span>): <span class="type">bool</span></div>
 
 
  </div>
@@ -67,7 +53,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">mode</code></dt>
@@ -94,7 +79,7 @@
     
     
     <dt>
-<code class="parameter">classname</code></dt>
+<code class="parameter">class</code></dt>
 
      <dd>
 
@@ -106,7 +91,7 @@
     
     
      <dt>
-<code class="parameter">ctorargs</code></dt>
+<code class="parameter">constructorArgs</code></dt>
 
      <dd>
 
@@ -145,7 +130,7 @@
  <div class="refsect1 examples" id="refsect1-pdostatement.setfetchmode-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-1052">
+   <div class="example" id="example-1059">
     <p><strong>Example #1 Setting the fetch mode</strong></p>
     <div class="example-contents"><p>
      The following example demonstrates how
@@ -154,12 +139,13 @@
     </p></div>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$sql&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'SELECT&nbsp;name,&nbsp;colour,&nbsp;calories&nbsp;FROM&nbsp;fruit'</span><span style="color: #007700">;<br />try&nbsp;{<br />&nbsp;&nbsp;</span><span style="color: #0000BB">$stmt&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$dbh</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">query</span><span style="color: #007700">(</span><span style="color: #0000BB">$sql</span><span style="color: #007700">);<br />&nbsp;&nbsp;</span><span style="color: #0000BB">$result&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$stmt</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">setFetchMode</span><span style="color: #007700">(</span><span style="color: #0000BB">PDO</span><span style="color: #007700">::</span><span style="color: #0000BB">FETCH_NUM</span><span style="color: #007700">);<br />&nbsp;&nbsp;while&nbsp;(</span><span style="color: #0000BB">$row&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$stmt</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">fetch</span><span style="color: #007700">())&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;print&nbsp;</span><span style="color: #0000BB">$row</span><span style="color: #007700">[</span><span style="color: #0000BB">0</span><span style="color: #007700">]&nbsp;.&nbsp;</span><span style="color: #DD0000">"\t"&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">$row</span><span style="color: #007700">[</span><span style="color: #0000BB">1</span><span style="color: #007700">]&nbsp;.&nbsp;</span><span style="color: #DD0000">"\t"&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">$row</span><span style="color: #007700">[</span><span style="color: #0000BB">2</span><span style="color: #007700">]&nbsp;.&nbsp;</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br />&nbsp;&nbsp;}<br />}<br />catch&nbsp;(</span><span style="color: #0000BB">PDOException&nbsp;$e</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;print&nbsp;</span><span style="color: #0000BB">$e</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getMessage</span><span style="color: #007700">();<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$stmt&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$dbh</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">query</span><span style="color: #007700">(</span><span style="color: #DD0000">'SELECT&nbsp;name,&nbsp;colour,&nbsp;calories&nbsp;FROM&nbsp;fruit'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$stmt</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">setFetchMode</span><span style="color: #007700">(</span><span style="color: #0000BB">PDO</span><span style="color: #007700">::</span><span style="color: #0000BB">FETCH_NUM</span><span style="color: #007700">);<br />foreach&nbsp;(</span><span style="color: #0000BB">$stmt&nbsp;</span><span style="color: #007700">as&nbsp;</span><span style="color: #0000BB">$row</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;print&nbsp;</span><span style="color: #0000BB">$row</span><span style="color: #007700">[</span><span style="color: #0000BB">0</span><span style="color: #007700">]&nbsp;.&nbsp;</span><span style="color: #DD0000">"\t"&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">$row</span><span style="color: #007700">[</span><span style="color: #0000BB">1</span><span style="color: #007700">]&nbsp;.&nbsp;</span><span style="color: #DD0000">"\t"&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">$row</span><span style="color: #007700">[</span><span style="color: #0000BB">2</span><span style="color: #007700">]&nbsp;.&nbsp;</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br />}</span>
 </span>
 </code></div>
     </div>
 
-    <div class="example-contents"><p>The above example will output:</p></div>
+    <div class="example-contents"><p>The above example will output
+something similar to:</p></div>
     <div class="example-contents screen">
 <div class="cdata"><pre>
 apple   red     150
@@ -168,7 +154,6 @@ orange  orange  300
 kiwi    brown   75
 lemon   yellow  25
 pear    green   150
-watermelon      pink    90
 </pre></div>
     </div>
    </div>

@@ -26,22 +26,26 @@
   <div id="layout-content"><div id="function.get-included-files" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">get_included_files</h1>
-  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">get_included_files</span> &mdash; <span class="dc-title">Returns an array with the names of included or required files</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">get_included_files</span> &mdash; <span class="dc-title">Returns an array with the names of included or required files</span></p>
 
  </div>
  
  <div class="refsect1 description" id="refsect1-function.get-included-files-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>get_included_files</strong></span>
-    (
-   ) : <span class="type">array</span></div>
+   <span class="methodname"><strong>get_included_files</strong></span>(): <span class="type">array</span></div>
 
   <p class="para rdfs-comment">
    Gets the names of all files that have been included using
    <span class="function"><a href="function.include.html" class="function">include</a></span>, <span class="function"><a href="function.include-once.html" class="function">include_once</a></span>,
    <span class="function"><a href="function.require.html" class="function">require</a></span> or <span class="function"><a href="function.require-once.html" class="function">require_once</a></span>.
   </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-function.get-included-files-parameters">
+  <h3 class="title">Parameters</h3>
+  <p class="para">This function has no parameters.</p>
  </div>
 
 
@@ -65,7 +69,7 @@
  <div class="refsect1 examples" id="refsect1-function.get-included-files-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-533">
+   <div class="example" id="example-548">
     <p><strong>Example #1 <span class="function"><strong>get_included_files()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

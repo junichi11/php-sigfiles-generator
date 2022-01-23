@@ -26,25 +26,21 @@
   <div id="layout-content"><div id="function.rename" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">rename</h1>
-  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">rename</span> &mdash; <span class="dc-title">Renames a file or directory</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">rename</span> &mdash; <span class="dc-title">Renames a file or directory</span></p>
 
  </div>
  
  <div class="refsect1 description" id="refsect1-function.rename-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>rename</strong></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$oldname</code></span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$newname</code></span>
-   , <span class="methodparam"><span class="type">resource</span> <code class="parameter">$context</code> = ?</span>
-   ) : <span class="type">bool</span></div>
+   <span class="methodname"><strong>rename</strong></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$from</code></span>, <span class="methodparam"><span class="type">string</span> <code class="parameter">$to</code></span>, <span class="methodparam"><span class="type">?</span><span class="type"><span class="type">resource</span><span class="type"></span></span> <code class="parameter">$context</code><span class="initializer"> = <strong><code>null</code></strong></span></span>): <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
-   Attempts to rename <code class="parameter">oldname</code> to
-   <code class="parameter">newname</code>, moving it between directories if necessary.
-   If renaming a file and <code class="parameter">newname</code> exists,
+   Attempts to rename <code class="parameter">from</code> to
+   <code class="parameter">to</code>, moving it between directories if necessary.
+   If renaming a file and <code class="parameter">to</code> exists,
    it will be overwritten. If renaming a directory and
-   <code class="parameter">newname</code> exists,
+   <code class="parameter">to</code> exists,
    this function will emit a warning.
   </p>
  </div>
@@ -54,10 +50,9 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
-<code class="parameter">oldname</code></dt>
+<code class="parameter">from</code></dt>
 
      <dd>
 
@@ -66,9 +61,9 @@
       </p>
       <blockquote class="note"><p><strong class="note">Note</strong>: 
        <p class="para">
-        The wrapper used in <code class="parameter">oldname</code>
+        The wrapper used in <code class="parameter">from</code>
         <em class="emphasis">must</em> match the wrapper used in
-        <code class="parameter">newname</code>.
+        <code class="parameter">to</code>.
        </p>
       </p></blockquote>
      </dd>
@@ -76,7 +71,7 @@
     
     
      <dt>
-<code class="parameter">newname</code></dt>
+<code class="parameter">to</code></dt>
 
      <dd>
 
@@ -84,7 +79,7 @@
        The new name.
        <blockquote class="note"><p><strong class="note">Note</strong>: 
         <span class="simpara">
-         On Windows, if <code class="parameter">newname</code> already exists, it must be writable.
+         On Windows, if <code class="parameter">to</code> already exists, it must be writable.
          Otherwise <span class="function"><strong>rename()</strong></span> fails and issues <strong><code>E_WARNING</code></strong>.
         </span>
        </p></blockquote>
@@ -98,9 +93,8 @@
 
      <dd>
 
-      <blockquote class="note"><p><strong class="note">Note</strong>: <span class="simpara">Context support was added
-with PHP 5.0.0. For a description of <code class="literal">contexts</code>, refer to
-<a href="book.stream.html" class="xref">Streams</a>.</span></p></blockquote>
+      <p class="para">A <a href="stream.contexts.html" class="link">context stream</a>
+<span class="type">resource</span>.</p>
      </dd>
 
     
@@ -121,7 +115,7 @@ with PHP 5.0.0. For a description of <code class="literal">contexts</code>, refe
  <div class="refsect1 examples" id="refsect1-function.rename-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-2700">
+   <div class="example" id="example-2214">
     <p><strong>Example #1 Example with <span class="function"><strong>rename()</strong></span></strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

@@ -31,7 +31,7 @@
    Generators provide an easy way to implement simple
    <a href="language.oop5.iterations.html" class="link">iterators</a> without the
    overhead or complexity of implementing a class that implements the
-   <a href="class.iterator.html" class="classname">Iterator</a> interface.
+   <span class="classname"><a href="class.iterator.html" class="classname">Iterator</a></span> interface.
   </p>
 
   <p class="para">
@@ -59,11 +59,11 @@
   <p class="para">
    As an alternative, we can implement an <code class="literal">xrange()</code>
    generator, which will only ever need enough memory to create an
-   <a href="class.iterator.html" class="classname">Iterator</a> object and track the current state of the
+   <span class="classname"><a href="class.iterator.html" class="classname">Iterator</a></span> object and track the current state of the
    generator internally, which turns out to be less than 1 kilobyte.
   </p>
 
-  <div class="example" id="example-317">
+  <div class="example" id="example-331">
    <p><strong>Example #1 Implementing <span class="function"><a href="function.range.html" class="function">range()</a></span> as a generator</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -82,11 +82,11 @@ Single digit odd numbers from xrange(): 1 3 5 7 9
   </div>
 
   <div class="sect2" id="language.generators.object">
-   <h3 class="title"><a href="class.generator.html" class="classname">Generator</a> objects</h3>
+   <h3 class="title"><span class="classname"><a href="class.generator.html" class="classname">Generator</a></span> objects</h3>
    <p class="para">
     When a generator function is called, a new object of the
-    internal <a href="class.generator.html" class="classname">Generator</a> class is returned. This object
-    implements the <a href="class.iterator.html" class="classname">Iterator</a> interface in much the same
+    internal <span class="classname"><a href="class.generator.html" class="classname">Generator</a></span> class is returned. This object
+    implements the <span class="classname"><a href="class.iterator.html" class="classname">Iterator</a></span> interface in much the same
     way as a forward-only iterator object would, and provides methods that can
     be called to manipulate the state of the generator, including sending
     values to and returning values from it.

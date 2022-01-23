@@ -33,7 +33,6 @@ been compiled into PHP or dynamically loaded at runtime.
 </p>
  <dl>
 
-
   
    <dt id="memcached.constants.opt-compression"><strong><code>Memcached::OPT_COMPRESSION</code></strong></dt>
 
@@ -43,7 +42,7 @@ been compiled into PHP or dynamically loaded at runtime.
      item values longer than a certain threshold (currently 100 bytes) will be
      compressed during storage and decompressed during retrieval
      transparently.</p>
-    <p class="para">Type: <code class="literal">boolean</code>, default: <strong><code>true</code></strong>.</p>
+    <p class="para">Type: <span class="type">bool</span>, default: <strong><code>true</code></strong>.</p>
    </dd>
 
   
@@ -61,7 +60,7 @@ been compiled into PHP or dynamically loaded at runtime.
      <code class="literal">--enable-memcached-igbinary</code> option and the
      <code class="literal">igbinary</code> extension is loaded.
     </p>
-    <p class="para">Type: <code class="literal">integer</code>, default: <strong><code>Memcached::SERIALIZER_PHP</code></strong>.</p>
+    <p class="para">Type: <span class="type">int</span>, default: <strong><code>Memcached::SERIALIZER_PHP</code></strong>.</p>
    </dd>
 
   
@@ -93,7 +92,7 @@ been compiled into PHP or dynamically loaded at runtime.
 
    <dd>
 
-    <p class="para">The JSON serializer. Requires PHP 5.2.10+.</p>
+    <p class="para">The JSON serializer.</p>
    </dd>
 
   
@@ -108,7 +107,7 @@ been compiled into PHP or dynamically loaded at runtime.
      longer than <code class="literal">128</code> characters and will reduce the
      maximum available key size. The prefix is applied only to the item keys,
      not to the server keys.</p>
-    <p class="para">Type: <code class="literal">string</code>, default: <code class="literal">&quot;&quot;</code>.</p>
+    <p class="para">Type: <span class="type">string</span>, default: <code class="literal">&quot;&quot;</code>.</p>
    </dd>
 
   
@@ -122,7 +121,7 @@ been compiled into PHP or dynamically loaded at runtime.
      values are supplied via <strong><code>Memcached::HASH_*</code></strong> constants.
      Each hash algorithm has its advantages and its disadvantages. Go with the
      default if you don&#039;t know or don&#039;t care.</p>
-    <p class="para">Type: <code class="literal">integer</code>, default: <strong><code>Memcached::HASH_DEFAULT</code></strong></p>
+    <p class="para">Type: <span class="type">int</span>, default: <strong><code>Memcached::HASH_DEFAULT</code></strong></p>
    </dd>
 
   
@@ -226,7 +225,7 @@ been compiled into PHP or dynamically loaded at runtime.
      Currently supported methods are modulo and consistent hashing. Consistent
      hashing delivers better distribution and allows servers to be added to
      the cluster with minimal cache losses.</p>
-    <p class="para">Type: <code class="literal">integer</code>, default: <strong><code>Memcached::DISTRIBUTION_MODULA.</code></strong></p>
+    <p class="para">Type: <span class="type">int</span>, default: <strong><code>Memcached::DISTRIBUTION_MODULA.</code></strong></p>
    </dd>
 
   
@@ -269,7 +268,7 @@ been compiled into PHP or dynamically loaded at runtime.
      releases.
      </p>
     </p></blockquote>
-    <p class="para">Type: <code class="literal">boolean</code>, default: <strong><code>false</code></strong>.</p>
+    <p class="para">Type: <span class="type">bool</span>, default: <strong><code>false</code></strong>.</p>
    </dd>
 
   
@@ -284,7 +283,7 @@ been compiled into PHP or dynamically loaded at runtime.
      retrieves data causes this buffer to be sent to the remote connection.
      Quitting the connection or closing down the connection will also cause
      the buffered data to be pushed to the remote connection.</p>
-    <p class="para">Type: <code class="literal">boolean</code>, default: <strong><code>false</code></strong>.</p>
+    <p class="para">Type: <span class="type">bool</span>, default: <strong><code>false</code></strong>.</p>
    </dd>
 
   
@@ -296,7 +295,7 @@ been compiled into PHP or dynamically loaded at runtime.
 
     <p class="para">Enable the use of the binary protocol. Please note that you cannot
      toggle this option on an open connection.</p>
-    <p class="para">Type: <code class="literal">boolean</code>, default: <strong><code>false</code></strong>.</p>
+    <p class="para">Type: <span class="type">bool</span>, default: <strong><code>false</code></strong>.</p>
    </dd>
 
   
@@ -308,7 +307,23 @@ been compiled into PHP or dynamically loaded at runtime.
 
     <p class="para">Enables or disables asynchronous I/O. This is the fastest transport
      available for storage functions.</p>
-    <p class="para">Type: <code class="literal">boolean</code>, default: <strong><code>false</code></strong>.</p>
+    <p class="para">Type: <span class="type">bool</span>, default: <strong><code>false</code></strong>.</p>
+   </dd>
+
+  
+
+  
+   <dt id="memcached.constants.opt-noreply"><strong><code>Memcached::OPT_NOREPLY</code></strong></dt>
+
+   <dd>
+
+    <p class="para">
+     Enables or disables ignoring the result of storage commands 
+     (set, add, replace, append, prepend, delete, increment, decrement, etc.). 
+     Storage commands will be sent without spending time waiting for a reply 
+     (there would be no reply).
+     Retrieval commands such as <span class="function"><a href="memcached.get.html" class="function">Memcached::get()</a></span> are unaffected by this setting.</p>
+    <p class="para">Type: <span class="type">bool</span>, default: <strong><code>false</code></strong>.</p>
    </dd>
 
   
@@ -320,7 +335,7 @@ been compiled into PHP or dynamically loaded at runtime.
 
     <p class="para">Enables or disables the no-delay feature for connecting sockets (may
      be faster in some environments).</p>
-    <p class="para">Type: <code class="literal">boolean</code>, default: <strong><code>false</code></strong>.</p>
+    <p class="para">Type: <span class="type">bool</span>, default: <strong><code>false</code></strong>.</p>
    </dd>
 
   
@@ -331,7 +346,7 @@ been compiled into PHP or dynamically loaded at runtime.
    <dd>
 
     <p class="para">The maximum socket send buffer in bytes.</p>
-    <p class="para">Type: <code class="literal">integer</code>, default: varies by platform/kernel
+    <p class="para">Type: <span class="type">int</span>, default: varies by platform/kernel
      configuration.</p>
    </dd>
 
@@ -343,7 +358,7 @@ been compiled into PHP or dynamically loaded at runtime.
    <dd>
 
     <p class="para">The maximum socket receive buffer in bytes.</p>
-    <p class="para">Type: <code class="literal">integer</code>, default: varies by platform/kernel
+    <p class="para">Type: <span class="type">int</span>, default: varies by platform/kernel
      configuration.</p>
    </dd>
 
@@ -356,7 +371,7 @@ been compiled into PHP or dynamically loaded at runtime.
 
     <p class="para">In non-blocking mode this set the value of the timeout during socket
      connection, in milliseconds.</p>
-    <p class="para">Type: <code class="literal">integer</code>, default: <code class="literal">1000</code>.</p>
+    <p class="para">Type: <span class="type">int</span>, default: <code class="literal">1000</code>.</p>
    </dd>
 
   
@@ -368,7 +383,7 @@ been compiled into PHP or dynamically loaded at runtime.
 
     <p class="para">The amount of time, in seconds, to wait until retrying a failed
      connection attempt.</p>
-    <p class="para">Type: <code class="literal">integer</code>, default: <code class="literal">0</code>.</p>
+    <p class="para">Type: <span class="type">int</span>, default: <code class="literal">0</code>.</p>
    </dd>
 
   
@@ -381,7 +396,7 @@ been compiled into PHP or dynamically loaded at runtime.
     <p class="para">Socket sending timeout, in microseconds. In cases where you cannot
      use non-blocking I/O this will allow you to still have timeouts on the
      sending of data.</p>
-    <p class="para">Type: <code class="literal">integer</code>, default: <code class="literal">0</code>.</p>
+    <p class="para">Type: <span class="type">int</span>, default: <code class="literal">0</code>.</p>
    </dd>
 
   
@@ -394,7 +409,7 @@ been compiled into PHP or dynamically loaded at runtime.
     <p class="para">Socket reading timeout, in microseconds. In cases where you cannot
      use non-blocking I/O this will allow you to still have timeouts on the
      reading of data.</p>
-    <p class="para">Type: <code class="literal">integer</code>, default: <code class="literal">0</code>.</p>
+    <p class="para">Type: <span class="type">int</span>, default: <code class="literal">0</code>.</p>
    </dd>
 
   
@@ -405,7 +420,7 @@ been compiled into PHP or dynamically loaded at runtime.
    <dd>
 
     <p class="para">Timeout for connection polling, in milliseconds.</p>
-    <p class="para">Type: <code class="literal">integer</code>, default: <code class="literal">1000</code>.</p>
+    <p class="para">Type: <span class="type">int</span>, default: <code class="literal">1000</code>.</p>
    </dd>
 
   
@@ -416,7 +431,7 @@ been compiled into PHP or dynamically loaded at runtime.
    <dd>
 
     <p class="para">Enables or disables caching of DNS lookups.</p>
-    <p class="para">Type: <code class="literal">boolean</code>, default: <strong><code>false</code></strong>.</p>
+    <p class="para">Type: <span class="type">bool</span>, default: <strong><code>false</code></strong>.</p>
    </dd>
 
   
@@ -429,7 +444,7 @@ been compiled into PHP or dynamically loaded at runtime.
     <p class="para">Specifies the failure limit for server connection attempts. The
      server will be removed after this many continuous connection
      failures.</p>
-    <p class="para">Type: <code class="literal">integer</code>, default: <code class="literal">0</code>.</p>
+    <p class="para">Type: <span class="type">int</span>, default: <code class="literal">0</code>.</p>
    </dd>
 
   
@@ -440,7 +455,7 @@ been compiled into PHP or dynamically loaded at runtime.
    <dd>
 
     <p class="para">Indicates whether igbinary serializer support is available.</p>
-    <p class="para">Type: <code class="literal">boolean</code>.</p>
+    <p class="para">Type: <span class="type">bool</span>.</p>
    </dd>
 
   
@@ -451,7 +466,7 @@ been compiled into PHP or dynamically loaded at runtime.
    <dd>
 
     <p class="para">Indicates whether JSON serializer support is available.</p>
-    <p class="para">Type: <code class="literal">boolean</code>.</p>
+    <p class="para">Type: <span class="type">bool</span>.</p>
    </dd>
 
   
@@ -462,7 +477,7 @@ been compiled into PHP or dynamically loaded at runtime.
    <dd>
 
     <p class="para">Indicates whether msgpack serializer support is available.</p>
-    <p class="para">Type: <code class="literal">boolean</code>.</p>
+    <p class="para">Type: <span class="type">bool</span>.</p>
     <p class="para">Available as of Memcached 3.0.0.</p>
    </dd>
 
@@ -473,7 +488,7 @@ been compiled into PHP or dynamically loaded at runtime.
 
    <dd>
 
-    <p class="para">Type: <code class="literal">boolean</code>.</p>
+    <p class="para">Type: <span class="type">bool</span>.</p>
     <p class="para">Available as of Memcached 3.0.0.</p>
    </dd>
 
@@ -484,7 +499,7 @@ been compiled into PHP or dynamically loaded at runtime.
 
    <dd>
 
-    <p class="para">Type: <code class="literal">boolean</code>.</p>
+    <p class="para">Type: <span class="type">bool</span>.</p>
     <p class="para">Available as of Memcached 3.0.0.</p>
    </dd>
 

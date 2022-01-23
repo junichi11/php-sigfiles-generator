@@ -26,15 +26,13 @@
   <div id="layout-content"><div id="function.imagefontwidth" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">imagefontwidth</h1>
-  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">imagefontwidth</span> &mdash; <span class="dc-title">Get font width</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">imagefontwidth</span> &mdash; <span class="dc-title">Get font width</span></p>
 
  </div>
  <div class="refsect1 description" id="refsect1-function.imagefontwidth-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>imagefontwidth</strong></span>
-    ( <span class="methodparam"><span class="type">int</span> <code class="parameter">$font</code></span>
-   ) : <span class="type">int</span></div>
+   <span class="methodname"><strong>imagefontwidth</strong></span>(<span class="methodparam"><span class="type"><span class="type"><a href="class.gdfont.html" class="type GdFont">GdFont</a></span>|<span class="type">int</span></span> <code class="parameter">$font</code></span>): <span class="type">int</span></div>
 
   <p class="para rdfs-comment">
    Returns the pixel width of a character in font.
@@ -45,15 +43,13 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     <dt>
-<code class="parameter">
-font</code></dt>
+
+<code class="parameter">font</code></dt>
 <dd>
 <p class="para">Can be 1, 2, 3, 4, 5 for built-in
-fonts in latin2 encoding (where higher numbers corresponding to larger fonts) or any of your
-own font identifiers registered with <span class="function"><a href="function.imageloadfont.html" class="function">imageloadfont()</a></span>.
-</p></dd>
+fonts in latin2 encoding (where higher numbers corresponding to larger fonts) or <span class="classname"><a href="class.gdfont.html" class="classname">GdFont</a></span> instance,
+returned by <span class="function"><a href="function.imageloadfont.html" class="function">imageloadfont()</a></span>.</p></dd>
 
    </dl>
 
@@ -67,10 +63,41 @@ own font identifiers registered with <span class="function"><a href="function.im
   </p>
  </div>
 
+
+ <div class="refsect1 changelog" id="refsect1-function.imagefontwidth-changelog">
+ <h3 class="title">Changelog</h3>
+ <p class="para">
+  <table class="doctable informaltable">
+   
+    <thead>
+     <tr>
+      <th>Version</th>
+      <th>Description</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+  <td>8.1.0</td>
+  <td>
+  The <code class="parameter">font</code> parameter now accepts both an <span class="classname"><a href="class.gdfont.html" class="classname">GdFont</a></span> instance
+  and an <span class="type">int</span>; previously only <span class="type">int</span> was accepted.
+  </td>
+</tr>
+
+    </tbody>
+   
+  </table>
+
+ </p>
+</div>
+
+ 
  <div class="refsect1 examples" id="refsect1-function.imagefontwidth-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-3163">
+   <div class="example" id="example-2679">
     <p><strong>Example #1 Using <span class="function"><strong>imagefontwidth()</strong></span> on built-in fonts</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -87,7 +114,7 @@ Font width: 8
 </pre></div>
     </div>
    </div>
-   <div class="example" id="example-3164">
+   <div class="example" id="example-2680">
     <p><strong>Example #2 Using <span class="function"><strong>imagefontwidth()</strong></span> together with <span class="function"><a href="function.imageloadfont.html" class="function">imageloadfont()</a></span></strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

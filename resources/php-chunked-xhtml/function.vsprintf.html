@@ -26,17 +26,14 @@
   <div id="layout-content"><div id="function.vsprintf" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">vsprintf</h1>
-  <p class="verinfo">(PHP 4 &gt;= 4.1.0, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">vsprintf</span> &mdash; <span class="dc-title">Return a formatted string</span></p>
+  <p class="verinfo">(PHP 4 &gt;= 4.1.0, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">vsprintf</span> &mdash; <span class="dc-title">Return a formatted string</span></p>
 
  </div>
  
  <div class="refsect1 description" id="refsect1-function.vsprintf-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>vsprintf</strong></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$format</code></span>
-   , <span class="methodparam"><span class="type">array</span> <code class="parameter">$values</code></span>
-   ) : <span class="type">string</span></div>
+   <span class="methodname"><strong>vsprintf</strong></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$format</code></span>, <span class="methodparam"><span class="type">array</span> <code class="parameter">$values</code></span>): <span class="type">string</span></div>
 
   <p class="para rdfs-comment">
    Operates as <span class="function"><a href="function.sprintf.html" class="function">sprintf()</a></span> but accepts an array of
@@ -49,7 +46,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
 
  <dt>
@@ -162,7 +158,8 @@
      </li>
      <li class="listitem">
       <span class="simpara">
-       For <code class="literal">g</code> and <code class="literal">G</code>
+       For <code class="literal">g</code>, <code class="literal">G</code>,
+       <code class="literal">h</code> and <code class="literal">H</code>
        specifiers: this is the maximum number of significant
        digits to be printed.
       </span>
@@ -238,9 +235,6 @@
        <td><code class="literal">e</code></td>
        <td>
         The argument is treated as scientific notation (e.g. 1.2e+2).
-        The precision specifier stands for the number of digits after the
-        decimal point since PHP 5.2.1. In earlier versions, it was taken as
-        number of significant digits (one less).
        </td>
       </tr>
 
@@ -265,7 +259,6 @@
        <td>
         The argument is treated as a float and presented
         as a floating-point number (non-locale aware).
-        Available as of PHP 5.0.3.
        </td>
       </tr>
 
@@ -383,12 +376,12 @@
 
      <tbody class="tbody">
       <tr>
-       <td><code class="literal">string</code></td>
+       <td><span class="type">string</span></td>
        <td><code class="literal">s</code></td>
       </tr>
 
       <tr>
-       <td><code class="literal">integer</code></td>
+       <td><span class="type">int</span></td>
        <td>
         <code class="literal">d</code>,
         <code class="literal">u</code>,
@@ -401,14 +394,16 @@
       </tr>
 
       <tr>
-       <td><code class="literal">double</code></td>
+       <td><span class="type">float</span></td>
        <td>
-        <code class="literal">g</code>,
-        <code class="literal">G</code>,
         <code class="literal">e</code>,
         <code class="literal">E</code>,
         <code class="literal">f</code>,
-        <code class="literal">F</code>
+        <code class="literal">F</code>,
+        <code class="literal">g</code>,
+        <code class="literal">G</code>,
+        <code class="literal">h</code>,
+        <code class="literal">H</code>
        </td>
       </tr>
 
@@ -477,7 +472,7 @@
  <div class="refsect1 examples" id="refsect1-function.vsprintf-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-5403">
+   <div class="example" id="example-4896">
     <p><strong>Example #1 <span class="function"><strong>vsprintf()</strong></span>: zero-padded integers</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

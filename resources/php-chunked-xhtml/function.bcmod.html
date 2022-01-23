@@ -26,18 +26,14 @@
   <div id="layout-content"><div id="function.bcmod" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">bcmod</h1>
-  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">bcmod</span> &mdash; <span class="dc-title">Get modulus of an arbitrary precision number</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">bcmod</span> &mdash; <span class="dc-title">Get modulus of an arbitrary precision number</span></p>
 
  </div>
  
  <div class="refsect1 description" id="refsect1-function.bcmod-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>bcmod</strong></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$num1</code></span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$num2</code></span>
-   , <span class="methodparam"><span class="type"><span class="type">int</span>|<span class="type">null</span></span> <code class="parameter">$scale</code><span class="initializer"> = <strong><code>null</code></strong></span></span>
-   ) : <span class="type">string</span></div>
+   <span class="methodname"><strong>bcmod</strong></span>(<span class="methodparam"><span class="type">string</span> <code class="parameter">$num1</code></span>, <span class="methodparam"><span class="type">string</span> <code class="parameter">$num2</code></span>, <span class="methodparam"><span class="type">?</span><span class="type"><span class="type">int</span><span class="type"></span></span> <code class="parameter">$scale</code><span class="initializer"> = <strong><code>null</code></strong></span></span>): <span class="type">string</span></div>
 
   <p class="para rdfs-comment">
    Get the remainder of dividing <code class="parameter">num1</code> by
@@ -52,7 +48,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">num1</code></dt>
@@ -138,7 +133,7 @@
 
  <div class="refsect1 examples" id="refsect1-function.bcmod-examples">
   <h3 class="title">Examples</h3>
-  <div class="example" id="example-3531">
+  <div class="example" id="example-3046">
    <p><strong>Example #1 <span class="function"><strong>bcmod()</strong></span> example</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -148,7 +143,7 @@
    </div>
 
   </div>
-  <div class="example" id="imap-utf8.example.basic">
+  <div class="example" id="example-3047">
    <p><strong>Example #2 <span class="function"><strong>bcmod()</strong></span> with decimals</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

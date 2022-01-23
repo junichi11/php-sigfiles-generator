@@ -26,22 +26,17 @@
   <div id="layout-content"><div id="function.mkdir" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">mkdir</h1>
-  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">mkdir</span> &mdash; <span class="dc-title">Makes directory</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">mkdir</span> &mdash; <span class="dc-title">Makes directory</span></p>
 
  </div>
  
  <div class="refsect1 description" id="refsect1-function.mkdir-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>mkdir</strong></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$pathname</code></span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$mode</code><span class="initializer"> = 0777</span></span>
-   , <span class="methodparam"><span class="type">bool</span> <code class="parameter">$recursive</code><span class="initializer"> = <strong><code>false</code></strong></span></span>
-   , <span class="methodparam"><span class="type">resource</span> <code class="parameter">$context</code> = ?</span>
-   ) : <span class="type">bool</span></div>
+   <span class="methodname"><strong>mkdir</strong></span>(<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">string</span> <code class="parameter">$directory</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">int</span> <code class="parameter">$permissions</code><span class="initializer"> = 0777</span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">bool</span> <code class="parameter">$recursive</code><span class="initializer"> = <strong><code>false</code></strong></span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type">?</span><span class="type"><span class="type">resource</span><span class="type"></span></span> <code class="parameter">$context</code><span class="initializer"> = <strong><code>null</code></strong></span></span><br>): <span class="type">bool</span></div>
 
   <p class="para rdfs-comment">
-   Attempts to create the directory specified by pathname. 
+   Attempts to create the directory specified by <code class="parameter">directory</code>.
   </p>
  </div>
 
@@ -50,10 +45,9 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
-<code class="parameter">pathname</code></dt>
+<code class="parameter">directory</code></dt>
 
      <dd>
 
@@ -65,23 +59,23 @@
     
     
      <dt>
-<code class="parameter">mode</code></dt>
+<code class="parameter">permissions</code></dt>
 
      <dd>
 
       <p class="para">
-       The mode is 0777 by default, which means the widest possible
-       access. For more information on modes, read the details
+       The permissions are 0777 by default, which means the widest possible
+       access. For more information on permissions, read the details
        on the <span class="function"><a href="function.chmod.html" class="function">chmod()</a></span> page.
       </p>
       <blockquote class="note"><p><strong class="note">Note</strong>: 
        <p class="para">
-        <code class="parameter">mode</code> is ignored on Windows.
+        <code class="parameter">permissions</code> is ignored on Windows.
        </p>
       </p></blockquote>
       <p class="para">
-       Note that you probably want to specify the mode as an octal number,
-       which means it should have a leading zero. The mode is also modified
+       Note that you probably want to specify the <code class="parameter">permissions</code> as an octal number,
+       which means it should have a leading zero. The <code class="parameter">permissions</code> is also modified
        by the current umask, which you can change using
        <span class="function"><a href="function.umask.html" class="function">umask()</a></span>.
       </p>
@@ -96,7 +90,7 @@
 
       <p class="para">
        Allows the creation of nested directories specified in the 
-       <code class="parameter">pathname</code>.
+       <code class="parameter">directory</code>.
       </p>
      </dd>
 
@@ -107,9 +101,8 @@
 
      <dd>
 
-      <blockquote class="note"><p><strong class="note">Note</strong>: <span class="simpara">Context support was added
-with PHP 5.0.0. For a description of <code class="literal">contexts</code>, refer to
-<a href="book.stream.html" class="xref">Streams</a>.</span></p></blockquote>
+      <p class="para">A <a href="stream.contexts.html" class="link">context stream</a>
+<span class="type">resource</span>.</p>
      </dd>
 
     
@@ -127,10 +120,23 @@ with PHP 5.0.0. For a description of <code class="literal">contexts</code>, refe
  </div>
 
 
+ <div class="refsect1 errors" id="refsect1-function.mkdir-errors">
+  <h3 class="title">Errors/Exceptions</h3>
+  <p class="para">
+   Emits an <strong><code>E_WARNING</code></strong> level error if the directory
+   already exists.
+  </p>
+  <p class="para">
+   Emits an <strong><code>E_WARNING</code></strong> level error if the relevant
+   permissions prevent creating the directory.
+  </p>
+ </div>
+
+
  <div class="refsect1 examples" id="refsect1-function.mkdir-examples">
   <h3 class="title">Examples</h3>
   <p class="para">
-   <div class="example" id="example-2681">
+   <div class="example" id="example-2194">
     <p><strong>Example #1 <span class="function"><strong>mkdir()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -142,29 +148,16 @@ with PHP 5.0.0. For a description of <code class="literal">contexts</code>, refe
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-2682">
+   <div class="example" id="example-2195">
     <p><strong>Example #2 <span class="function"><strong>mkdir()</strong></span> using the <code class="parameter">recursive</code> parameter</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;Desired&nbsp;folder&nbsp;structure<br /></span><span style="color: #0000BB">$structure&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'./depth1/depth2/depth3/'</span><span style="color: #007700">;<br /><br /></span><span style="color: #FF8000">//&nbsp;To&nbsp;create&nbsp;the&nbsp;nested&nbsp;structure,&nbsp;the&nbsp;$recursive&nbsp;parameter&nbsp;<br />//&nbsp;to&nbsp;mkdir()&nbsp;must&nbsp;be&nbsp;specified.<br /><br /></span><span style="color: #007700">if&nbsp;(!</span><span style="color: #0000BB">mkdir</span><span style="color: #007700">(</span><span style="color: #0000BB">$structure</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0777</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">true</span><span style="color: #007700">))&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;die(</span><span style="color: #DD0000">'Failed&nbsp;to&nbsp;create&nbsp;folders...'</span><span style="color: #007700">);<br />}<br /><br /></span><span style="color: #FF8000">//&nbsp;...<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;Desired&nbsp;directory&nbsp;structure<br /></span><span style="color: #0000BB">$structure&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'./depth1/depth2/depth3/'</span><span style="color: #007700">;<br /><br /></span><span style="color: #FF8000">//&nbsp;To&nbsp;create&nbsp;the&nbsp;nested&nbsp;structure,&nbsp;the&nbsp;$recursive&nbsp;parameter&nbsp;<br />//&nbsp;to&nbsp;mkdir()&nbsp;must&nbsp;be&nbsp;specified.<br /><br /></span><span style="color: #007700">if&nbsp;(!</span><span style="color: #0000BB">mkdir</span><span style="color: #007700">(</span><span style="color: #0000BB">$structure</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0777</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">true</span><span style="color: #007700">))&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;die(</span><span style="color: #DD0000">'Failed&nbsp;to&nbsp;create&nbsp;directories...'</span><span style="color: #007700">);<br />}<br /><br /></span><span style="color: #FF8000">//&nbsp;...<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
 
    </div>
-  </p>
- </div>
-
-
- <div class="refsect1 errors" id="refsect1-function.mkdir-errors">
-  <h3 class="title">Errors/Exceptions</h3>
-  <p class="para">
-   Emits an <strong><code>E_WARNING</code></strong> level error if the directory
-   already exists.
-  </p>
-  <p class="para">
-   Emits an <strong><code>E_WARNING</code></strong> level error if the relevant
-   permissions prevent creating the directory.
   </p>
  </div>
 

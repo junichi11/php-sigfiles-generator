@@ -26,18 +26,28 @@
   <div id="layout-content"><div id="function.openssl-pkey-free" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">openssl_pkey_free</h1>
-  <p class="verinfo">(PHP 4 &gt;= 4.2.0, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">openssl_pkey_free</span> &mdash; <span class="dc-title">Frees a private key</span></p>
+  <p class="verinfo">(PHP 4 &gt;= 4.2.0, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">openssl_pkey_free</span> &mdash; <span class="dc-title">Frees a private key</span></p>
 
+ </div>
+
+ <div id="function.openssl-pkey-free-refsynopsisdiv">
+  <div class="warning"><strong class="warning">Warning</strong><p class="simpara">This function has been
+<em class="emphasis">DEPRECATED</em> as of PHP 8.0.0. Relying on this function
+is highly discouraged.</p></div>
  </div>
  
  <div class="refsect1 description" id="refsect1-function.openssl-pkey-free-description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>openssl_pkey_free</strong></span>
-    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$key</code></span>
-   ) : <span class="type"><span class="type void">void</span></span></div>
+   <span class="methodname"><strong>openssl_pkey_free</strong></span>(<span class="methodparam"><span class="type"><a href="class.opensslasymmetrickey.html" class="type OpenSSLAsymmetricKey">OpenSSLAsymmetricKey</a></span> <code class="parameter">$key</code></span>): <span class="type"><span class="type void">void</span></span></div>
 
-  <p class="para rdfs-comment">
+  <blockquote class="note"><p><strong class="note">Note</strong>: 
+ <p class="para">
+  This function has no effect. Prior to PHP 8.0.0, this function was used to close the resource.
+ </p>
+</p></blockquote>
+
+  <p class="para">
    This function frees a private key created by
    <span class="function"><a href="function.openssl-pkey-new.html" class="function">openssl_pkey_new()</a></span>.
   </p>
@@ -48,7 +58,6 @@
   <h3 class="title">Parameters</h3>
   <p class="para">
    <dl>
-
     
      <dt>
 <code class="parameter">key</code></dt>
@@ -74,5 +83,39 @@
   </p>
  </div>
 
+
+ <div class="refsect1 changelog" id="refsect1-function.openssl-pkey-free-changelog">
+  <h3 class="title">Changelog</h3>
+  <table class="doctable informaltable">
+   
+    <thead>
+     <tr>
+      <th>Version</th>
+      <th>Description</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+      <td>8.0.0</td>
+      <td>
+       This function is now deprecated as it doesn&#039;t have an effect anymore.
+      </td>
+     </tr>
+
+     <tr>
+      <td>8.0.0</td>
+      <td>
+       <code class="parameter">key</code> accepts an <span class="classname"><a href="class.opensslasymmetrickey.html" class="classname">OpenSSLAsymmetricKey</a></span> now;
+       previously, a <a href="language.types.resource.html" class="link">resource</a> of type <code class="literal">OpenSSL key</code> was accepted.
+      </td>
+     </tr>
+
+    </tbody>
+   
+  </table>
+
+ </div>
 
 </div></div></div></body></html>
