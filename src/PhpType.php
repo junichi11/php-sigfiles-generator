@@ -79,7 +79,9 @@ abstract class PhpType extends SigFileElement {
                 $field->addModifier($modifier);
             }
             $type = Html::querySingleValue($this->xpath(), './*[@class="type"]', $fieldNode, true);
-            if ($type === null) {
+            if ($type === '?') {
+                $type = implode("", Html::queryValues($this->xpath(), './*[@class="type"]', $fieldNode));
+            } elseif ($type === null) {
                 $type = 'mixed';
             }
             $field->setType($type);
