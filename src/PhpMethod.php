@@ -134,6 +134,11 @@ class PhpMethod extends SigFileElement {
                 continue;
             }
             $type = Html::queryFirstValue($this->xpath(), '*[@class="type"]', $param);
+            if ($type === "?") {
+                // e.g. function.apache-note.html
+                // <span class="type">?</span><span class="type"><span class="type">string</span><span class="type"></span></span>
+                $type = implode("", Html::queryValues($this->xpath(), '*[@class="type"]', $param));
+            }
             $reference = false;
             $name = Html::querySingleValue($this->xpath(), '*[@class="parameter"]', $param, true);
             if (!$name) {
