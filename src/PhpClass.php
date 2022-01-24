@@ -19,7 +19,9 @@ class PhpClass extends PhpType {
             $out .= implode(' ', $this->modifiers);
             $out .= ' ';
         }
-        $out .= 'class ';
+        if (!in_array('class', $this->modifiers, true)) {
+            $out .= 'class ';
+        }
         $out .= $this->name->getName();
         $supertypePrefix = PhpName::DEFAULT_NAMESPACE;
         $first = true;
