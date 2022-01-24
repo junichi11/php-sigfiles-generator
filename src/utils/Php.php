@@ -25,6 +25,7 @@ final class Php {
         'resource',
         'string',
         'void',
+        'static',
     ];
 
     /** @var string[] */
