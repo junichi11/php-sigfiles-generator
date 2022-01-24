@@ -205,7 +205,11 @@ class PhpMethod extends SigFileElement {
     protected function detectMethodNode(): ?DOMNode {
         $nodes = Html::queryNodes($this->xpath(), '//div[@class="methodsynopsis dc-description"]', null, true);
         if ($nodes->length === 0) {
-            $nodes = Html::queryNodes($this->xpath(), '//div[@class="constructorsynopsis dc-description"]', null, false);
+            $nodes = Html::queryNodes($this->xpath(), '//div[@class="constructorsynopsis dc-description"]', null, true);
+        }
+        if ($nodes->length === 0) {
+            // e.g. phar.destruct.html
+            $nodes = Html::queryNodes($this->xpath(), '//div[@class="destructorsynopsis dc-description"]', null, false);
         }
         if ($nodes->length === 1) {
             return $nodes->item(0);
