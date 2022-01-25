@@ -32,7 +32,7 @@ namespace {
 	define('E_CORE_WARNING', 32);
 
 	/**
-	 * Error reporting constant. Available since PHP 5.3.0
+	 * Error reporting constant.
 	 */
 	define('E_DEPRECATED', 8192);
 
@@ -52,7 +52,7 @@ namespace {
 	define('E_PARSE', 4);
 
 	/**
-	 * Error reporting constant. Available since PHP 5.2.0
+	 * Error reporting constant.
 	 */
 	define('E_RECOVERABLE_ERROR', 4096);
 
@@ -62,7 +62,7 @@ namespace {
 	define('E_STRICT', 2048);
 
 	/**
-	 * Error reporting constant. Available since PHP 5.3.0
+	 * Error reporting constant.
 	 */
 	define('E_USER_DEPRECATED', 16384);
 
@@ -101,12 +101,12 @@ namespace {
 	define('PEAR_INSTALL_DIR', '/usr/share/php');
 
 	/**
-	 * Specifies the PHP binary path during script execution. Available since PHP 5.4.
+	 * Specifies the PHP binary path during script execution.
 	 */
 	define('PHP_BINARY', '/usr/bin/php7.4');
 
 	/**
-	 * Specifies where the binaries were installed into.
+	 * The value <b>--bindir</b> was set to at configure. On Windows, it is the value <b>--with-prefix</b> was set to at configure.
 	 */
 	define('PHP_BINDIR', '/usr/bin');
 
@@ -116,21 +116,21 @@ namespace {
 
 	define('PHP_DATADIR', '/usr/share/php/7.4');
 
-	/**
-	 * Available since PHP 5.2.7.
-	 */
 	define('PHP_DEBUG', 0);
 
 	/**
-	 * The correct 'End Of Line' symbol for this platform. Available since PHP 5.0.2
+	 * The correct 'End Of Line' symbol for this platform.
 	 */
 	define('PHP_EOL', '
 ');
 
+	/**
+	 * The default directory where to look for dynamically loadable extensions (unless overridden by extension_dir). Defaults to <b><code>PHP_PREFIX</code></b> (or <code>PHP_PREFIX . "\\ext"</code> on Windows).
+	 */
 	define('PHP_EXTENSION_DIR', '/usr/lib/php/20190902');
 
 	/**
-	 * The current PHP "extra" version as a string (e.g., '-extra' from version "5.2.7-extra"). Often used by distribution vendors to indicate a package version. Available since PHP 5.2.7.
+	 * The current PHP "extra" version as a string (e.g., '-extra' from version "5.2.7-extra"). Often used by distribution vendors to indicate a package version.
 	 */
 	define('PHP_EXTRA_VERSION', '');
 
@@ -160,17 +160,17 @@ namespace {
 	define('PHP_FLOAT_MIN', 2.2250738585072E-308);
 
 	/**
-	 * The largest integer supported in this build of PHP. Usually int(2147483647) in 32 bit systems and int(9223372036854775807) in 64 bit systems. Available since PHP 5.0.5
+	 * The largest integer supported in this build of PHP. Usually int(2147483647) in 32 bit systems and int(9223372036854775807) in 64 bit systems.
 	 */
 	define('PHP_INT_MAX', 9223372036854775807);
 
 	/**
-	 * The smallest integer supported in this build of PHP. Usually int(-2147483648) in 32 bit systems and int(-9223372036854775808) in 64 bit systems. Available since PHP 7.0.0. Usually, PHP_INT_MIN === ~PHP_INT_MAX.
+	 * The smallest integer supported in this build of PHP. Usually int(-2147483648) in 32 bit systems and int(-9223372036854775808) in 64 bit systems. Usually, PHP_INT_MIN === ~PHP_INT_MAX.
 	 */
 	define('PHP_INT_MIN', -9223372036854775808);
 
 	/**
-	 * The size of an integer in bytes in this build of PHP. Available since PHP 5.0.5
+	 * The size of an integer in bytes in this build of PHP.
 	 */
 	define('PHP_INT_SIZE', 8);
 
@@ -179,22 +179,22 @@ namespace {
 	define('PHP_LOCALSTATEDIR', '/var');
 
 	/**
-	 * The current PHP "major" version as an integer (e.g., int(5) from version "5.2.7-extra"). Available since PHP 5.2.7.
+	 * The current PHP "major" version as an integer (e.g., int(5) from version "5.2.7-extra").
 	 */
 	define('PHP_MAJOR_VERSION', 7);
 
 	/**
-	 * Specifies where the manpages were installed into. Available since PHP 5.3.7.
+	 * Specifies where the manpages were installed into.
 	 */
 	define('PHP_MANDIR', '/usr/share/man');
 
 	/**
-	 * The maximum length of filenames (including path) supported by this build of PHP. Available since PHP 5.3.0.
+	 * The maximum length of filenames (including path) supported by this build of PHP.
 	 */
 	define('PHP_MAXPATHLEN', 4096);
 
 	/**
-	 * The current PHP "minor" version as an integer (e.g., int(2) from version "5.2.7-extra"). Available since PHP 5.2.7.
+	 * The current PHP "minor" version as an integer (e.g., int(2) from version "5.2.7-extra").
 	 */
 	define('PHP_MINOR_VERSION', 4);
 
@@ -209,12 +209,12 @@ namespace {
 	define('PHP_OS_FAMILY', 'Linux');
 
 	/**
-	 * The value "--prefix" was set to at configure.
+	 * The value <b>--prefix</b> was set to at configure. On Windows, it is the value <b>--with-prefix</b> was set to at configure.
 	 */
 	define('PHP_PREFIX', '/usr');
 
 	/**
-	 * The current PHP "release" version as an integer (e.g., int(7) from version "5.2.7-extra"). Available since PHP 5.2.7.
+	 * The current PHP "release" version as an integer (e.g., int(7) from version "5.2.7-extra").
 	 */
 	define('PHP_RELEASE_VERSION', 3);
 
@@ -236,7 +236,7 @@ namespace {
 	define('PHP_VERSION', '7.4.3');
 
 	/**
-	 * The current PHP version as an integer, useful for version comparisons (e.g., int(50207) from version "5.2.7-extra"). Available since PHP 5.2.7.
+	 * The current PHP version as an integer, useful for version comparisons (e.g., int(50207) from version "5.2.7-extra").
 	 */
 	define('PHP_VERSION_ID', 70403);
 
@@ -250,9 +250,6 @@ namespace {
 	 */
 	define('PHP_WINDOWS_EVENT_CTRL_C', null);
 
-	/**
-	 * Available since PHP 5.2.7.
-	 */
 	define('PHP_ZTS', 0);
 
 	/**

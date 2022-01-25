@@ -8,12 +8,12 @@ namespace {
 	 * Adds non-existent function or method
 	 * <p>Adds a non-existent function or method.</p>
 	 * @param string $function <p>The name of the function or method.</p>
-	 * @param \Closure $handler <p>The Closure that defines the new function or method.</p>
+	 * @param \Closure $handler <p>The <code>Closure</code> that defines the new function or method.</p>
 	 * @param int $flags <p>Flags to set for the new function or method.</p>
 	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.uopz-add-function.php
 	 * @see uopz_del_function(), uopz_set_return()
-	 * @since PECL uopz 5, PECL uopz 6
+	 * @since PECL uopz 5, PECL uopz 6, PECL uopz 7
 	 */
 	function uopz_add_function(string $function, \Closure $handler, int &$flags = ZEND_ACC_PUBLIC): bool {}
 
@@ -24,7 +24,7 @@ namespace {
 	 * @return void <p>No value is returned.</p>
 	 * @link https://php.net/manual/en/function.uopz-allow-exit.php
 	 * @see uopz_get_exit_status()
-	 * @since PECL uopz 5, PECL uopz 6
+	 * @since PECL uopz 5, PECL uopz 6, PECL uopz 7
 	 */
 	function uopz_allow_exit(bool $allow): void {}
 
@@ -69,7 +69,7 @@ namespace {
 	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.uopz-del-function.php
 	 * @see uopz_add_function(), uopz_unset_return()
-	 * @since PECL uopz 5, PECL uopz 6
+	 * @since PECL uopz 5, PECL uopz 6, PECL uopz 7
 	 */
 	function uopz_del_function(string $function): bool {}
 
@@ -90,7 +90,7 @@ namespace {
 	 * @param string $parent <p>The name of the class to inherit</p>
 	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.uopz-extend.php
-	 * @since PECL uopz 1, PECL uopz 2, PECL uopz 5, PECL uopz 6
+	 * @since PECL uopz 1, PECL uopz 2, PECL uopz 5, PECL uopz 6, PECL uopz 7 < 7.1.0
 	 */
 	function uopz_extend(string $class, string $parent): bool {}
 
@@ -101,7 +101,7 @@ namespace {
 	 * @param int $flags <p>A valid set of ZEND_ACC_ flags. If omitted, <b>uopz_flags()</b> acts as getter.</p>
 	 * @return int <p>If setting, returns old flags, else returns flags</p>
 	 * @link https://php.net/manual/en/function.uopz-flags.php
-	 * @since PECL uopz 2 >= 2.0.2, PECL uopz 5, PECL uopz 6
+	 * @since PECL uopz 2 >= 2.0.2, PECL uopz 5, PECL uopz 6, PECL uopz 7
 	 */
 	function uopz_flags(string $function, int $flags = PHP_INT_MAX): int {}
 
@@ -123,7 +123,7 @@ namespace {
 	 * @return mixed <p>This function returns the last exit status, or <b><code>null</code></b> if <code>exit()</code> has not been called.</p>
 	 * @link https://php.net/manual/en/function.uopz-get-exit-status.php
 	 * @see uopz_allow_exit()
-	 * @since PECL uopz 5, PECL uopz 6
+	 * @since PECL uopz 5, PECL uopz , PECL uopz 7
 	 */
 	function uopz_get_exit_status(): mixed {}
 
@@ -134,7 +134,7 @@ namespace {
 	 * @return Closure <p>Returns the previously set hook on a function or method, or <b><code>null</code></b> if no hook has been set.</p>
 	 * @link https://php.net/manual/en/function.uopz-get-hook.php
 	 * @see uopz_set_hook(), uopz_unset_hook()
-	 * @since PECL uopz 5, PECL uopz 6
+	 * @since PECL uopz 5, PECL uopz 6, PECL uopz 7
 	 */
 	function uopz_get_hook(string $function): \Closure {}
 
@@ -145,7 +145,7 @@ namespace {
 	 * @return mixed <p>Either a string containing the name of the mock, or an object, or <b><code>null</code></b> if no mock has been set.</p>
 	 * @link https://php.net/manual/en/function.uopz-get-mock.php
 	 * @see uopz_set_mock(), uopz_unset_mock()
-	 * @since PECL uopz 5, PECL uopz 6
+	 * @since PECL uopz 5, PECL uopz 6, PECL uopz 7
 	 */
 	function uopz_get_mock(string $class): mixed {}
 
@@ -157,7 +157,7 @@ namespace {
 	 * @return mixed <p>Returns the value of the class or instance property, or <b><code>null</code></b> if the property is not defined.</p>
 	 * @link https://php.net/manual/en/function.uopz-get-property.php
 	 * @see uopz_set_property()
-	 * @since PECL uopz 5, PECL uopz 6
+	 * @since PECL uopz 5, PECL uopz 6, PECL uopz 7
 	 */
 	function uopz_get_property(string $class, string $property): mixed {}
 
@@ -167,7 +167,7 @@ namespace {
 	 * @param string $function <p>The name of the function</p>
 	 * @return mixed <p>The return value or Closure previously set.</p>
 	 * @link https://php.net/manual/en/function.uopz-get-return.php
-	 * @since PECL uopz 5, PECL uopz 6
+	 * @since PECL uopz 5, PECL uopz 6, PECL uopz 7
 	 */
 	function uopz_get_return(string $function): mixed {}
 
@@ -179,7 +179,7 @@ namespace {
 	 * @return array <p>Returns an associative <code>array</code> of variable names mapped to their current values on success, or <b><code>null</code></b> if the function or method does not exist.</p>
 	 * @link https://php.net/manual/en/function.uopz-get-static.php
 	 * @see uopz_set_static()
-	 * @since PECL uopz 5, PECL uopz 6
+	 * @since PECL uopz 5, PECL uopz 6, PECL uopz 7
 	 */
 	function uopz_get_static(string $class, string $function): array {}
 
@@ -190,7 +190,7 @@ namespace {
 	 * @param string $interface
 	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.uopz-implement.php
-	 * @since PECL uopz 1, PECL uopz 2, PECL uopz 5, PECL uopz 6
+	 * @since PECL uopz 1, PECL uopz 2, PECL uopz 5, PECL uopz 6, PECL uopz 7 < 7.1.0
 	 */
 	function uopz_implement(string $class, string $interface): bool {}
 
@@ -212,7 +212,7 @@ namespace {
 	 * @param mixed $value <p>The new value for the constant, must be a valid type for a constant variable</p>
 	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.uopz-redefine.php
-	 * @since PECL uopz 1, PECL uopz 2, PECL uopz 5, PECL uopz 6
+	 * @since PECL uopz 1, PECL uopz 2, PECL uopz 5, PECL uopz 6, PECL uopz 7
 	 */
 	function uopz_redefine(string $constant, mixed $value): bool {}
 
@@ -245,7 +245,7 @@ namespace {
 	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.uopz-set-hook.php
 	 * @see uopz_get_hook(), uopz_unset_hook()
-	 * @since PECL uopz 5, PECL uopz 6
+	 * @since PECL uopz 5, PECL uopz 6, PECL uopz 7
 	 */
 	function uopz_set_hook(string $function, \Closure $hook): bool {}
 
@@ -254,10 +254,10 @@ namespace {
 	 * <p>If <code>mock</code> is a string containing the name of a class then it will be instantiated instead of <code>class</code>. <code>mock</code> can also be an object.</p><p><b>Note</b>:</p><p>Only dynamic access to properties and methods will use the <code>mock</code> object. Static access still uses the original <code>class</code>. See example below.</p>
 	 * @param string $class <p>The name of the class to be mocked.</p>
 	 * @param mixed $mock <p>The mock to use in the form of a string containing the name of the class to use or an object. If a string is passed, it has to be the fully qualified class name. It is recommended to use the <code>::class</code> magic constant in this case.</p>
-	 * @return void
+	 * @return void <p>No value is returned.</p>
 	 * @link https://php.net/manual/en/function.uopz-set-mock.php
 	 * @see uopz_get_mock(), uopz_unset_mock()
-	 * @since PECL uopz 5, PECL uopz 6
+	 * @since PECL uopz 5, PECL uopz 6, PECL uopz 7
 	 */
 	function uopz_set_mock(string $class, mixed $mock): void {}
 
@@ -270,7 +270,7 @@ namespace {
 	 * @return void <p>No value is returned.</p>
 	 * @link https://php.net/manual/en/function.uopz-set-property.php
 	 * @see uopz_get_property()
-	 * @since PECL uopz 5, PECL uopz 6
+	 * @since PECL uopz 5, PECL uopz 6, PECL uopz 7
 	 */
 	function uopz_set_property(string $class, string $property, mixed $value): void {}
 
@@ -282,7 +282,7 @@ namespace {
 	 * @param bool $execute <p>If true, and a Closure was provided as the value, the Closure will be executed in place of the original function.</p>
 	 * @return bool <p>True if succeeded, false otherwise.</p>
 	 * @link https://php.net/manual/en/function.uopz-set-return.php
-	 * @since PECL uopz 5, PECL uopz 6
+	 * @since PECL uopz 5, PECL uopz 6, PECL uopz 7
 	 */
 	function uopz_set_return(string $function, mixed $value, bool $execute = false): bool {}
 
@@ -294,7 +294,7 @@ namespace {
 	 * @return void <p>No value is returned.</p>
 	 * @link https://php.net/manual/en/function.uopz-set-static.php
 	 * @see uopz_get_static()
-	 * @since PECL uopz 5, PECL uopz 6
+	 * @since PECL uopz 5, PECL uopz , PECL uopz 7
 	 */
 	function uopz_set_static(string $function, array $static): void {}
 
@@ -304,7 +304,7 @@ namespace {
 	 * @param string $constant <p>The name of an existing constant</p>
 	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.uopz-undefine.php
-	 * @since PECL uopz 1, PECL uopz 2, PECL uopz 5, PECL uopz 6
+	 * @since PECL uopz 1, PECL uopz 2, PECL uopz 5, PECL uopz 6, PECL uopz 7
 	 */
 	function uopz_undefine(string $constant): bool {}
 
@@ -315,7 +315,7 @@ namespace {
 	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.uopz-unset-hook.php
 	 * @see uopz_set_hook(), uopz_get_hook()
-	 * @since PECL uopz 5, PECL uopz 6
+	 * @since PECL uopz 5, PECL uopz 6, PECL uopz 7
 	 */
 	function uopz_unset_hook(string $function): bool {}
 
@@ -323,10 +323,10 @@ namespace {
 	 * Unset previously set mock
 	 * <p>Unsets the previously set mock for <code>class</code>.</p>
 	 * @param string $class <p>The name of the mocked class.</p>
-	 * @return void
+	 * @return void <p>No value is returned.</p>
 	 * @link https://php.net/manual/en/function.uopz-unset-mock.php
 	 * @see uopz_set_mock(), uopz_get_mock()
-	 * @since PECL uopz 5, PECL uopz 6
+	 * @since PECL uopz 5, PECL uopz 6, PECL uopz 7
 	 */
 	function uopz_unset_mock(string $class): void {}
 
@@ -336,7 +336,7 @@ namespace {
 	 * @param string $function <p>The name of the function</p>
 	 * @return bool <p>True on success</p>
 	 * @link https://php.net/manual/en/function.uopz-unset-return.php
-	 * @since PECL uopz 5, PECL uopz 6
+	 * @since PECL uopz 5, PECL uopz 6, PECL uopz 7
 	 */
 	function uopz_unset_return(string $function): bool {}
 

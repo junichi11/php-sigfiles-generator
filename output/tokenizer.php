@@ -9,7 +9,7 @@ namespace {
 	 * @link https://php.net/manual/en/class.phptoken.php
 	 * @since PHP 8
 	 */
-	class PhpToken {
+	class PhpToken implements \Stringable {
 
 		/**
 		 * @var int <p>One of the T_&#42; constants, or an ASCII codepoint representing a single-char token.</p>
@@ -62,12 +62,12 @@ namespace {
 		/**
 		 * Returns the name of the token.
 		 * <p>Returns the name of the token.</p>
-		 * @return string|null <p>An ASCII character for single-char tokens, or one of T_&#42; constant names for known tokens (see List of Parser Tokens), or <b><code>null</code></b> for unknown tokens.</p>
+		 * @return ?string <p>An ASCII character for single-char tokens, or one of T_&#42; constant names for known tokens (see List of Parser Tokens), or <b><code>null</code></b> for unknown tokens.</p>
 		 * @link https://php.net/manual/en/phptoken.gettokenname.php
 		 * @see PhpToken::tokenize(), token_name()
 		 * @since PHP 8
 		 */
-		public function getTokenName(): string|null {}
+		public function getTokenName(): ?string {}
 
 		/**
 		 * Tells whether the token is of given kind.
@@ -111,7 +111,7 @@ namespace {
 	 * @return array <p>An array of token identifiers. Each individual token identifier is either a single character (i.e.: <code>;</code>, <code>.</code>, <code>&gt;</code>, <code>!</code>, etc...), or a three element array containing the token index in element 0, the string content of the original token in element 1 and the line number in element 2.</p>
 	 * @link https://php.net/manual/en/function.token-get-all.php
 	 * @see PhpToken::tokenize(), token_name()
-	 * @since PHP 4 >= 4.2.0, PHP 5, PHP 7
+	 * @since PHP 4 >= 4.2.0, PHP 5, PHP 7, PHP 8
 	 */
 	function token_get_all(string $code, int $flags = 0): array {}
 
@@ -122,7 +122,7 @@ namespace {
 	 * @return string <p>The symbolic name of the given <code>id</code>.</p>
 	 * @link https://php.net/manual/en/function.token-name.php
 	 * @see PhpToken::getTokenName()
-	 * @since PHP 4 >= 4.2.0, PHP 5, PHP 7
+	 * @since PHP 4 >= 4.2.0, PHP 5, PHP 7, PHP 8
 	 */
 	function token_name(int $id): string {}
 

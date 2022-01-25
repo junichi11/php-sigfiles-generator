@@ -10,7 +10,7 @@ namespace {
 	 * @link https://php.net/manual/en/class.generator.php
 	 * @since PHP 5 >= 5.5.0, PHP 7, PHP 8
 	 */
-	class Generator implements \Iterator {
+	final class Generator implements \Iterator {
 
 		/**
 		 * Serialize callback

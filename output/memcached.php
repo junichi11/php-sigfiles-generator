@@ -12,13 +12,13 @@ namespace {
 	class Memcached {
 
 		/**
-		 * @var integer <p>Enables or disables payload compression. When enabled, item values longer than a certain threshold (currently 100 bytes) will be compressed during storage and decompressed during retrieval transparently.</p> <p>Type: <code>boolean</code>, default: <b><code>true</code></b>.</p>
+		 * @var integer <p>Enables or disables payload compression. When enabled, item values longer than a certain threshold (currently 100 bytes) will be compressed during storage and decompressed during retrieval transparently.</p> <p>Type: <code>bool</code>, default: <b><code>true</code></b>.</p>
 		 * @link https://php.net/manual/en/memcached.constants.php
 		 */
 		const OPT_COMPRESSION = -1001;
 
 		/**
-		 * @var integer <p>Specifies the serializer to use for serializing non-scalar values. The valid serializers are <b><code>Memcached::SERIALIZER_PHP</code></b> or <b><code>Memcached::SERIALIZER_IGBINARY</code></b>. The latter is supported only when memcached is configured with <code>--enable-memcached-igbinary</code> option and the <code>igbinary</code> extension is loaded.</p> <p>Type: <code>integer</code>, default: <b><code>Memcached::SERIALIZER_PHP</code></b>.</p>
+		 * @var integer <p>Specifies the serializer to use for serializing non-scalar values. The valid serializers are <b><code>Memcached::SERIALIZER_PHP</code></b> or <b><code>Memcached::SERIALIZER_IGBINARY</code></b>. The latter is supported only when memcached is configured with <code>--enable-memcached-igbinary</code> option and the <code>igbinary</code> extension is loaded.</p> <p>Type: <code>int</code>, default: <b><code>Memcached::SERIALIZER_PHP</code></b>.</p>
 		 * @link https://php.net/manual/en/memcached.constants.php
 		 */
 		const OPT_SERIALIZER = -1003;
@@ -36,7 +36,7 @@ namespace {
 		const SERIALIZER_IGBINARY = 2;
 
 		/**
-		 * @var integer <p>The JSON serializer. Requires PHP 5.2.10+.</p>
+		 * @var integer <p>The JSON serializer.</p>
 		 * @link https://php.net/manual/en/memcached.constants.php
 		 */
 		const SERIALIZER_JSON = 3;
@@ -48,7 +48,7 @@ namespace {
 		const OPT_PREFIX_KEY = -1002;
 
 		/**
-		 * @var integer <p>Specifies the hashing algorithm used for the item keys. The valid values are supplied via <b><code>Memcached::HASH_&#42;</code></b> constants. Each hash algorithm has its advantages and its disadvantages. Go with the default if you don't know or don't care.</p> <p>Type: <code>integer</code>, default: <b><code>Memcached::HASH_DEFAULT</code></b></p>
+		 * @var integer <p>Specifies the hashing algorithm used for the item keys. The valid values are supplied via <b><code>Memcached::HASH_&#42;</code></b> constants. Each hash algorithm has its advantages and its disadvantages. Go with the default if you don't know or don't care.</p> <p>Type: <code>int</code>, default: <b><code>Memcached::HASH_DEFAULT</code></b></p>
 		 * @link https://php.net/manual/en/memcached.constants.php
 		 */
 		const OPT_HASH = 2;
@@ -108,7 +108,7 @@ namespace {
 		const HASH_MURMUR = 8;
 
 		/**
-		 * @var integer <p>Specifies the method of distributing item keys to the servers. Currently supported methods are modulo and consistent hashing. Consistent hashing delivers better distribution and allows servers to be added to the cluster with minimal cache losses.</p> <p>Type: <code>integer</code>, default: <b><code>Memcached::DISTRIBUTION_MODULA.</code></b></p>
+		 * @var integer <p>Specifies the method of distributing item keys to the servers. Currently supported methods are modulo and consistent hashing. Consistent hashing delivers better distribution and allows servers to be added to the cluster with minimal cache losses.</p> <p>Type: <code>int</code>, default: <b><code>Memcached::DISTRIBUTION_MODULA.</code></b></p>
 		 * @link https://php.net/manual/en/memcached.constants.php
 		 */
 		const OPT_DISTRIBUTION = 9;
@@ -126,115 +126,121 @@ namespace {
 		const DISTRIBUTION_CONSISTENT = 1;
 
 		/**
-		 * @var integer <p>Enables or disables compatibility with libketama-like behavior. When enabled, the item key hashing algorithm is set to MD5 and distribution is set to be weighted consistent hashing distribution. This is useful because other libketama-based clients (Python, Ruby, etc.) with the same server configuration will be able to access the keys transparently.</p> <p><b>Note</b>:</p><p>It is highly recommended to enable this option if you want to use consistent hashing, and it may be enabled by default in future releases.</p>  <p>Type: <code>boolean</code>, default: <b><code>false</code></b>.</p>
+		 * @var integer <p>Enables or disables compatibility with libketama-like behavior. When enabled, the item key hashing algorithm is set to MD5 and distribution is set to be weighted consistent hashing distribution. This is useful because other libketama-based clients (Python, Ruby, etc.) with the same server configuration will be able to access the keys transparently.</p> <p><b>Note</b>:</p><p>It is highly recommended to enable this option if you want to use consistent hashing, and it may be enabled by default in future releases.</p>  <p>Type: <code>bool</code>, default: <b><code>false</code></b>.</p>
 		 * @link https://php.net/manual/en/memcached.constants.php
 		 */
 		const OPT_LIBKETAMA_COMPATIBLE = 16;
 
 		/**
-		 * @var integer <p>Enables or disables buffered I/O. Enabling buffered I/O causes storage commands to "buffer" instead of being sent. Any action that retrieves data causes this buffer to be sent to the remote connection. Quitting the connection or closing down the connection will also cause the buffered data to be pushed to the remote connection.</p> <p>Type: <code>boolean</code>, default: <b><code>false</code></b>.</p>
+		 * @var integer <p>Enables or disables buffered I/O. Enabling buffered I/O causes storage commands to "buffer" instead of being sent. Any action that retrieves data causes this buffer to be sent to the remote connection. Quitting the connection or closing down the connection will also cause the buffered data to be pushed to the remote connection.</p> <p>Type: <code>bool</code>, default: <b><code>false</code></b>.</p>
 		 * @link https://php.net/manual/en/memcached.constants.php
 		 */
 		const OPT_BUFFER_WRITES = 10;
 
 		/**
-		 * @var integer <p>Enable the use of the binary protocol. Please note that you cannot toggle this option on an open connection.</p> <p>Type: <code>boolean</code>, default: <b><code>false</code></b>.</p>
+		 * @var integer <p>Enable the use of the binary protocol. Please note that you cannot toggle this option on an open connection.</p> <p>Type: <code>bool</code>, default: <b><code>false</code></b>.</p>
 		 * @link https://php.net/manual/en/memcached.constants.php
 		 */
 		const OPT_BINARY_PROTOCOL = 18;
 
 		/**
-		 * @var integer <p>Enables or disables asynchronous I/O. This is the fastest transport available for storage functions.</p> <p>Type: <code>boolean</code>, default: <b><code>false</code></b>.</p>
+		 * @var integer <p>Enables or disables asynchronous I/O. This is the fastest transport available for storage functions.</p> <p>Type: <code>bool</code>, default: <b><code>false</code></b>.</p>
 		 * @link https://php.net/manual/en/memcached.constants.php
 		 */
 		const OPT_NO_BLOCK = 0;
 
 		/**
-		 * @var integer <p>Enables or disables the no-delay feature for connecting sockets (may be faster in some environments).</p> <p>Type: <code>boolean</code>, default: <b><code>false</code></b>.</p>
+		 * @var integer <p>Enables or disables ignoring the result of storage commands (set, add, replace, append, prepend, delete, increment, decrement, etc.). Storage commands will be sent without spending time waiting for a reply (there would be no reply). Retrieval commands such as <code>Memcached::get()</code> are unaffected by this setting.</p> <p>Type: <code>bool</code>, default: <b><code>false</code></b>.</p>
+		 * @link https://php.net/manual/en/memcached.constants.php
+		 */
+		const OPT_NOREPLY = 26;
+
+		/**
+		 * @var integer <p>Enables or disables the no-delay feature for connecting sockets (may be faster in some environments).</p> <p>Type: <code>bool</code>, default: <b><code>false</code></b>.</p>
 		 * @link https://php.net/manual/en/memcached.constants.php
 		 */
 		const OPT_TCP_NODELAY = 1;
 
 		/**
-		 * @var integer <p>The maximum socket send buffer in bytes.</p> <p>Type: <code>integer</code>, default: varies by platform/kernel configuration.</p>
+		 * @var integer <p>The maximum socket send buffer in bytes.</p> <p>Type: <code>int</code>, default: varies by platform/kernel configuration.</p>
 		 * @link https://php.net/manual/en/memcached.constants.php
 		 */
 		const OPT_SOCKET_SEND_SIZE = 4;
 
 		/**
-		 * @var integer <p>The maximum socket receive buffer in bytes.</p> <p>Type: <code>integer</code>, default: varies by platform/kernel configuration.</p>
+		 * @var integer <p>The maximum socket receive buffer in bytes.</p> <p>Type: <code>int</code>, default: varies by platform/kernel configuration.</p>
 		 * @link https://php.net/manual/en/memcached.constants.php
 		 */
 		const OPT_SOCKET_RECV_SIZE = 5;
 
 		/**
-		 * @var integer <p>In non-blocking mode this set the value of the timeout during socket connection, in milliseconds.</p> <p>Type: <code>integer</code>, default: <code>1000</code>.</p>
+		 * @var integer <p>In non-blocking mode this set the value of the timeout during socket connection, in milliseconds.</p> <p>Type: <code>int</code>, default: <code>1000</code>.</p>
 		 * @link https://php.net/manual/en/memcached.constants.php
 		 */
 		const OPT_CONNECT_TIMEOUT = 14;
 
 		/**
-		 * @var integer <p>The amount of time, in seconds, to wait until retrying a failed connection attempt.</p> <p>Type: <code>integer</code>, default: <code>0</code>.</p>
+		 * @var integer <p>The amount of time, in seconds, to wait until retrying a failed connection attempt.</p> <p>Type: <code>int</code>, default: <code>0</code>.</p>
 		 * @link https://php.net/manual/en/memcached.constants.php
 		 */
 		const OPT_RETRY_TIMEOUT = 15;
 
 		/**
-		 * @var integer <p>Socket sending timeout, in microseconds. In cases where you cannot use non-blocking I/O this will allow you to still have timeouts on the sending of data.</p> <p>Type: <code>integer</code>, default: <code>0</code>.</p>
+		 * @var integer <p>Socket sending timeout, in microseconds. In cases where you cannot use non-blocking I/O this will allow you to still have timeouts on the sending of data.</p> <p>Type: <code>int</code>, default: <code>0</code>.</p>
 		 * @link https://php.net/manual/en/memcached.constants.php
 		 */
 		const OPT_SEND_TIMEOUT = 19;
 
 		/**
-		 * @var integer <p>Socket reading timeout, in microseconds. In cases where you cannot use non-blocking I/O this will allow you to still have timeouts on the reading of data.</p> <p>Type: <code>integer</code>, default: <code>0</code>.</p>
+		 * @var integer <p>Socket reading timeout, in microseconds. In cases where you cannot use non-blocking I/O this will allow you to still have timeouts on the reading of data.</p> <p>Type: <code>int</code>, default: <code>0</code>.</p>
 		 * @link https://php.net/manual/en/memcached.constants.php
 		 */
 		const OPT_RECV_TIMEOUT = 20;
 
 		/**
-		 * @var integer <p>Timeout for connection polling, in milliseconds.</p> <p>Type: <code>integer</code>, default: <code>1000</code>.</p>
+		 * @var integer <p>Timeout for connection polling, in milliseconds.</p> <p>Type: <code>int</code>, default: <code>1000</code>.</p>
 		 * @link https://php.net/manual/en/memcached.constants.php
 		 */
 		const OPT_POLL_TIMEOUT = 8;
 
 		/**
-		 * @var integer <p>Enables or disables caching of DNS lookups.</p> <p>Type: <code>boolean</code>, default: <b><code>false</code></b>.</p>
+		 * @var integer <p>Enables or disables caching of DNS lookups.</p> <p>Type: <code>bool</code>, default: <b><code>false</code></b>.</p>
 		 * @link https://php.net/manual/en/memcached.constants.php
 		 */
 		const OPT_CACHE_LOOKUPS = 6;
 
 		/**
-		 * @var integer <p>Specifies the failure limit for server connection attempts. The server will be removed after this many continuous connection failures.</p> <p>Type: <code>integer</code>, default: <code>0</code>.</p>
+		 * @var integer <p>Specifies the failure limit for server connection attempts. The server will be removed after this many continuous connection failures.</p> <p>Type: <code>int</code>, default: <code>0</code>.</p>
 		 * @link https://php.net/manual/en/memcached.constants.php
 		 */
 		const OPT_SERVER_FAILURE_LIMIT = 21;
 
 		/**
-		 * @var boolean <p>Indicates whether igbinary serializer support is available.</p> <p>Type: <code>boolean</code>.</p>
+		 * @var boolean <p>Indicates whether igbinary serializer support is available.</p> <p>Type: <code>bool</code>.</p>
 		 * @link https://php.net/manual/en/memcached.constants.php
 		 */
 		const HAVE_IGBINARY = 1;
 
 		/**
-		 * @var boolean <p>Indicates whether JSON serializer support is available.</p> <p>Type: <code>boolean</code>.</p>
+		 * @var boolean <p>Indicates whether JSON serializer support is available.</p> <p>Type: <code>bool</code>.</p>
 		 * @link https://php.net/manual/en/memcached.constants.php
 		 */
 		const HAVE_JSON = 1;
 
 		/**
-		 * @var boolean <p>Indicates whether msgpack serializer support is available.</p> <p>Type: <code>boolean</code>.</p> <p>Available as of Memcached 3.0.0.</p>
+		 * @var boolean <p>Indicates whether msgpack serializer support is available.</p> <p>Type: <code>bool</code>.</p> <p>Available as of Memcached 3.0.0.</p>
 		 * @link https://php.net/manual/en/memcached.constants.php
 		 */
 		const HAVE_MSGPACK = 1;
 
 		/**
-		 * @var boolean <p>Type: <code>boolean</code>.</p> <p>Available as of Memcached 3.0.0.</p>
+		 * @var boolean <p>Type: <code>bool</code>.</p> <p>Available as of Memcached 3.0.0.</p>
 		 * @link https://php.net/manual/en/memcached.constants.php
 		 */
 		const HAVE_SESSION = 1;
 
 		/**
-		 * @var boolean <p>Type: <code>boolean</code>.</p> <p>Available as of Memcached 3.0.0.</p>
+		 * @var boolean <p>Type: <code>bool</code>.</p> <p>Available as of Memcached 3.0.0.</p>
 		 * @link https://php.net/manual/en/memcached.constants.php
 		 */
 		const HAVE_SASL = 1;
@@ -935,9 +941,9 @@ namespace {
 
 		/**
 		 * Set a Memcached option
-		 * <p>This method sets the value of a Memcached <code>option</code>. Some options correspond to the ones defined by libmemcached, and some are specific to the extension. See Memcached Constants for more information.</p><p>The options listed below require values specified via constants.</p><p><code>Memcached::OPT_HASH</code> requires <code>Memcached::HASH_&#42;</code> values.</p><p><code>Memcached::OPT_DISTRIBUTION</code> requires <code>Memcached::DISTRIBUTION_&#42;</code> values.</p>
-		 * @param int $option
-		 * @param mixed $value
+		 * <p>This method sets the value of a Memcached <code>option</code>. Some options correspond to the ones defined by libmemcached, and some are specific to the extension.</p>
+		 * @param int $option <p>One of the <code>Memcached::OPT_&#42;</code> constant. See Memcached Constants for more information.</p>
+		 * @param mixed $value <p>The value to be set.</p> <p><b>Note</b>:</p><p>The options listed below require values specified via constants.</p><ul> <li><code>Memcached::OPT_HASH</code> requires <code>Memcached::HASH_&#42;</code> values.</li> <li><code>Memcached::OPT_DISTRIBUTION</code> requires <code>Memcached::DISTRIBUTION_&#42;</code> values.</li> </ul>
 		 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/memcached.setoption.php
 		 * @since PECL memcached >= 0.1.0
@@ -999,7 +1005,13 @@ namespace {
 		 * @var string <p>The exception message</p>
 		 * @link https://php.net/manual/en/class.exception.php#exception.props.message
 		 */
-		protected $message;
+		protected $message = "";
+
+		/**
+		 * @var string <p>The string representation of the stack trace</p>
+		 * @link https://php.net/manual/en/class.exception.php#exception.props.string
+		 */
+		private $string = "";
 
 		/**
 		 * @var int <p>The exception code</p>
@@ -1011,7 +1023,7 @@ namespace {
 		 * @var string <p>The filename where the exception was created</p>
 		 * @link https://php.net/manual/en/class.exception.php#exception.props.file
 		 */
-		protected $file;
+		protected $file = "";
 
 		/**
 		 * @var int <p>The line where the exception was created</p>
@@ -1020,13 +1032,25 @@ namespace {
 		protected $line;
 
 		/**
+		 * @var array <p>The stack trace as an array</p>
+		 * @link https://php.net/manual/en/class.exception.php#exception.props.trace
+		 */
+		private $trace = [];
+
+		/**
+		 * @var ?Throwable <p>The previously thrown exception</p>
+		 * @link https://php.net/manual/en/class.exception.php#exception.props.previous
+		 */
+		private $previous = null;
+
+		/**
 		 * Clone the exception
 		 * <p>Tries to clone the Exception, which results in Fatal error.</p>
 		 * @return void <p>No value is returned.</p>
 		 * @link https://php.net/manual/en/exception.clone.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
-		final private function __clone() {}
+		private function __clone() {}
 
 		/**
 		 * String representation of the exception
@@ -1040,11 +1064,11 @@ namespace {
 		/**
 		 * Gets the Exception code
 		 * <p>Returns the Exception code.</p>
-		 * @return mixed <p>Returns the exception code as <code>int</code> in Exception but possibly as other type in Exception descendants (for example as <code>string</code> in PDOException).</p>
+		 * @return int <p>Returns the exception code as <code>int</code> in <code>Exception</code> but possibly as other type in <code>Exception</code> descendants (for example as <code>string</code> in <code>PDOException</code>).</p>
 		 * @link https://php.net/manual/en/exception.getcode.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
-		final public function getCode(): mixed {}
+		final public function getCode(): int {}
 
 		/**
 		 * Gets the file in which the exception was created
@@ -1074,13 +1098,13 @@ namespace {
 		final public function getMessage(): string {}
 
 		/**
-		 * Returns previous Exception
-		 * <p>Returns previous exception (the third parameter of <code>Exception::__construct()</code>).</p>
-		 * @return Throwable <p>Returns the previous Throwable if available or <b><code>null</code></b> otherwise.</p>
+		 * Returns previous Throwable
+		 * <p>Returns previous <code>Throwable</code> (which had been passed as the third parameter of <code>Exception::__construct()</code>).</p>
+		 * @return ?Throwable <p>Returns the previous <code>Throwable</code> if available or <b><code>null</code></b> otherwise.</p>
 		 * @link https://php.net/manual/en/exception.getprevious.php
 		 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8
 		 */
-		final public function getPrevious(): \Throwable {}
+		final public function getPrevious(): ?\Throwable {}
 
 		/**
 		 * Gets the stack trace

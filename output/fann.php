@@ -329,7 +329,7 @@ namespace {
 
 	/**
 	 * Returns the activation steepness for supplied neuron and layer number
-	 * <p>Get the activation steepness for neuron number <code>neuron</code> in layer number <code>layer</code>, counting the input layer as layer 0.</p><p>It is not possible to get activation steepness for the neurons in the input layer.</p><p>The steepness of an activation function says something about how fast the activation function goes from the minimum to the maximum. A high value for the activation function will also give a more agressive training.</p><p>When training neural networks where the output values should be at the extremes (usually 0 and 1, depending on the activation function), a steep activation function can be used (e.g. 1.0).</p><p>The default activation steepness is 0.5.</p>
+	 * <p>Get the activation steepness for neuron number <code>neuron</code> in layer number <code>layer</code>, counting the input layer as layer 0.</p><p>It is not possible to get activation steepness for the neurons in the input layer.</p><p>The steepness of an activation function says something about how fast the activation function goes from the minimum to the maximum. A high value for the activation function will also give a more aggressive training.</p><p>When training neural networks where the output values should be at the extremes (usually 0 and 1, depending on the activation function), a steep activation function can be used (e.g. 1.0).</p><p>The default activation steepness is 0.5.</p>
 	 * @param resource $ann <p>Neural network <code>resource</code>.</p>
 	 * @param int $layer <p>Layer number</p>
 	 * @param int $neuron <p>Neuron number</p>
@@ -929,7 +929,7 @@ namespace {
 	/**
 	 * Reads a file that stores training data
 	 * <p>Reads a file that stores training data.</p>
-	 * @param string $filename <p>The input file in the following format:</p>  <pre>num_train_data num_input num_output inputdata seperated by space outputdata seperated by space . . . inputdata seperated by space outputdata seperated by space</pre>
+	 * @param string $filename <p>The input file in the following format:</p>  <pre>num_train_data num_input num_output inputdata separated by space outputdata separated by space . . . inputdata separated by space outputdata separated by space</pre>
 	 * @return resource <p>Returns a train data <code>resource</code> on success, or <b><code>false</code></b> on error.</p>
 	 * @link https://php.net/manual/en/function.fann-read-train-from-file.php
 	 * @see fann_train_on_data(), fann_destroy_train(), fann_save_train()
@@ -1133,7 +1133,7 @@ namespace {
 
 	/**
 	 * Sets the activation steepness for supplied neuron and layer number
-	 * <p>Set the activation steepness for neuron number <code>neuron</code> in layer number <code>layer</code>, counting the input layer as layer 0.</p><p>It is not possible to set activation steepness for the neurons in the input layer.</p><p>The steepness of an activation function says something about how fast the activation function goes from the minimum to the maximum. A high value for the activation function will also give a more agressive training.</p><p>When training neural networks where the output values should be at the extremes (usually 0 and 1, depending on the activation function), a steep activation function can be used (e.g. 1.0).</p><p>The default activation steepness is 0.5.</p>
+	 * <p>Set the activation steepness for neuron number <code>neuron</code> in layer number <code>layer</code>, counting the input layer as layer 0.</p><p>It is not possible to set activation steepness for the neurons in the input layer.</p><p>The steepness of an activation function says something about how fast the activation function goes from the minimum to the maximum. A high value for the activation function will also give a more aggressive training.</p><p>When training neural networks where the output values should be at the extremes (usually 0 and 1, depending on the activation function), a steep activation function can be used (e.g. 1.0).</p><p>The default activation steepness is 0.5.</p>
 	 * @param resource $ann <p>Neural network <code>resource</code>.</p>
 	 * @param float $activation_steepness <p>The activation steepness.</p>
 	 * @param int $layer <p>Layer number.</p>
@@ -1626,7 +1626,7 @@ namespace {
 	 * Set connections in the network
 	 * <p>Set connections in the network.</p><p>Only the weights can be changed, connections and weights are ignored if they do not already exist in the network.</p>
 	 * @param resource $ann <p>Neural network <code>resource</code>.</p>
-	 * @param array $connections <p>An array of FANNConnection objects</p>
+	 * @param array $connections <p>An array of <code>FANNConnection</code> objects</p>
 	 * @return bool <p>Returns <b><code>true</code></b> on success, or <b><code>false</code></b> otherwise.</p>
 	 * @link https://php.net/manual/en/function.fann-set-weight-array.php
 	 * @since PECL fann >= 1.0.0
@@ -1812,7 +1812,7 @@ namespace {
 	define('FANN_E_INDEX_OUT_OF_BOUND', null);
 
 	/**
-	 * The number of input neurons in the ann data do not match
+	 * The number of input neurons in the ann and data do not match
 	 */
 	define('FANN_E_INPUT_NO_MATCH', null);
 

@@ -10,7 +10,7 @@ namespace {
 	 * @param string $var_name <p>Name of a variable to check.</p>
 	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.filter-has-var.php
-	 * @since PHP 5 >= 5.2.0, PHP 7
+	 * @since PHP 5 >= 5.2.0, PHP 7, PHP 8
 	 */
 	function filter_has_var(int $input_type, string $var_name): bool {}
 
@@ -20,7 +20,7 @@ namespace {
 	 * @return int|false <p>ID of a filter on success or <b><code>false</code></b> if filter doesn't exist.</p>
 	 * @link https://php.net/manual/en/function.filter-id.php
 	 * @see filter_list()
-	 * @since PHP 5 >= 5.2.0, PHP 7
+	 * @since PHP 5 >= 5.2.0, PHP 7, PHP 8
 	 */
 	function filter_id(string $name): int|false {}
 
@@ -33,7 +33,7 @@ namespace {
 	 * @return mixed <p>Value of the requested variable on success, <b><code>false</code></b> if the filter fails, or <b><code>null</code></b> if the <code>var_name</code> variable is not set. If the flag <b><code>FILTER_NULL_ON_FAILURE</code></b> is used, it returns <b><code>false</code></b> if the variable is not set and <b><code>null</code></b> if the filter fails.</p>
 	 * @link https://php.net/manual/en/function.filter-input.php
 	 * @see filter_var(), filter_input_array(), filter_var_array()
-	 * @since PHP 5 >= 5.2.0, PHP 7
+	 * @since PHP 5 >= 5.2.0, PHP 7, PHP 8
 	 */
 	function filter_input(int $type, string $var_name, int $filter = FILTER_DEFAULT, array|int $options = 0): mixed {}
 
@@ -46,7 +46,7 @@ namespace {
 	 * @return array|false|null <p>An array containing the values of the requested variables on success. If the input array designated by <code>type</code> is not populated, the function returns <b><code>null</code></b> if the <b><code>FILTER_NULL_ON_FAILURE</code></b> flag is not given, or <b><code>false</code></b> otherwise. For other failures, <b><code>false</code></b> is returned.</p><p>An array value will be <b><code>false</code></b> if the filter fails, or <b><code>null</code></b> if the variable is not set. Or if the flag <b><code>FILTER_NULL_ON_FAILURE</code></b> is used, it returns <b><code>false</code></b> if the variable is not set and <b><code>null</code></b> if the filter fails. If the <code>add_empty</code> parameter is <b><code>false</code></b>, no array element will be added for unset variables.</p>
 	 * @link https://php.net/manual/en/function.filter-input-array.php
 	 * @see filter_input(), filter_var_array()
-	 * @since PHP 5 >= 5.2.0, PHP 7
+	 * @since PHP 5 >= 5.2.0, PHP 7, PHP 8
 	 */
 	function filter_input_array(int $type, array|int $options = FILTER_DEFAULT, bool $add_empty = true): array|false|null {}
 
@@ -54,7 +54,7 @@ namespace {
 	 * Returns a list of all supported filters
 	 * @return array <p>Returns an array of names of all supported filters, empty array if there are no such filters. Indexes of this array are not filter IDs, they can be obtained with <code>filter_id()</code> from a name instead.</p>
 	 * @link https://php.net/manual/en/function.filter-list.php
-	 * @since PHP 5 >= 5.2.0, PHP 7
+	 * @since PHP 5 >= 5.2.0, PHP 7, PHP 8
 	 */
 	function filter_list(): array {}
 
@@ -66,7 +66,7 @@ namespace {
 	 * @return mixed <p>Returns the filtered data, or <b><code>false</code></b> if the filter fails.</p>
 	 * @link https://php.net/manual/en/function.filter-var.php
 	 * @see filter_var_array(), filter_input(), filter_input_array()
-	 * @since PHP 5 >= 5.2.0, PHP 7
+	 * @since PHP 5 >= 5.2.0, PHP 7, PHP 8
 	 */
 	function filter_var(mixed $value, int $filter = FILTER_DEFAULT, array|int $options = 0): mixed {}
 
@@ -79,7 +79,7 @@ namespace {
 	 * @return array|false|null <p>An array containing the values of the requested variables on success, or <b><code>false</code></b> on failure. An array value will be <b><code>false</code></b> if the filter fails, or <b><code>null</code></b> if the variable is not set.</p>
 	 * @link https://php.net/manual/en/function.filter-var-array.php
 	 * @see filter_input_array(), filter_var(), filter_input()
-	 * @since PHP 5 >= 5.2.0, PHP 7
+	 * @since PHP 5 >= 5.2.0, PHP 7, PHP 8
 	 */
 	function filter_var_array(array $array, array|int $options = FILTER_DEFAULT, bool $add_empty = true): array|false|null {}
 
@@ -144,7 +144,7 @@ namespace {
 	define('FILTER_FLAG_ENCODE_LOW', 16);
 
 	/**
-	 * Require host in "validate_url" filter. (Deprecated per PHP 7.3 as it is implied in the filter already.)
+	 * Require host in "validate_url" filter. (Deprecated as of PHP 7.3.0 and removed as of PHP 8.0.0, as it is implied in the filter already.)
 	 */
 	define('FILTER_FLAG_HOST_REQUIRED', 131072);
 
@@ -194,12 +194,12 @@ namespace {
 	define('FILTER_FLAG_QUERY_REQUIRED', 524288);
 
 	/**
-	 * Require scheme in "validate_url" filter. (Deprecated per PHP 7.3 as it is implied in the filter already.)
+	 * Require scheme in "validate_url" filter. (Deprecated as of PHP 7.3.0 and removed as of PHP 8.0.0, as it is implied in the filter already.)
 	 */
 	define('FILTER_FLAG_SCHEME_REQUIRED', 65536);
 
 	/**
-	 * Strips backtick characters. (Available as of PHP 5.3.2)
+	 * Strips backtick characters.
 	 */
 	define('FILTER_FLAG_STRIP_BACKTICK', 512);
 
@@ -249,7 +249,7 @@ namespace {
 	define('FILTER_SANITIZE_ENCODED', 514);
 
 	/**
-	 * ID of "magic_quotes" filter. (Deprecated per PHP 7.3.0, use FILTER_SANITIZE_ADD_SLASHES instead.)
+	 * ID of "magic_quotes" filter. (<i>DEPRECATED</i> as of PHP 7.3.0 and <i>REMOVED</i> as of PHP 8.0.0, use <b><code>FILTER_SANITIZE_ADD_SLASHES</code></b> instead.)
 	 */
 	define('FILTER_SANITIZE_MAGIC_QUOTES', 521);
 
@@ -269,12 +269,12 @@ namespace {
 	define('FILTER_SANITIZE_SPECIAL_CHARS', 515);
 
 	/**
-	 * ID of "string" filter.
+	 * ID of "string" filter. (<i>Deprecated</i> as of PHP 8.1.0, use <code>htmlspecialchars()</code> instead.)
 	 */
 	define('FILTER_SANITIZE_STRING', 513);
 
 	/**
-	 * ID of "stripped" filter.
+	 * ID of "stripped" filter. (<i>Deprecated</i> as of PHP 8.1.0, use <code>htmlspecialchars()</code> instead.)
 	 */
 	define('FILTER_SANITIZE_STRIPPED', 513);
 
@@ -287,6 +287,11 @@ namespace {
 	 * ID of "unsafe_raw" filter.
 	 */
 	define('FILTER_UNSAFE_RAW', 516);
+
+	/**
+	 * Alias of <b><code>FILTER_VALIDATE_BOOLEAN</code></b>.
+	 */
+	define('FILTER_VALIDATE_BOOL', null);
 
 	/**
 	 * ID of "boolean" filter.
@@ -319,7 +324,7 @@ namespace {
 	define('FILTER_VALIDATE_IP', 275);
 
 	/**
-	 * ID of "validate_mac_address" filter. (Available as of PHP 5.5.0)
+	 * ID of "validate_mac_address" filter.
 	 */
 	define('FILTER_VALIDATE_MAC', 276);
 

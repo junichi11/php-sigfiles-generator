@@ -39,7 +39,7 @@ namespace {
 	/**
 	 * Frees all ressources
 	 * <p>It is not needed to call this function because php frees all resources at the end of each request.</p>
-	 * @param resource $radius_handle
+	 * @param resource $radius_handle <p>The RADIUS resource.</p>
 	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.radius-close.php
 	 * @since PECL radius >= 1.1.0
@@ -72,8 +72,9 @@ namespace {
 
 	/**
 	 * Converts raw data to IP-Address
-	 * @param string $data
-	 * @return string
+	 * <p>Converts raw data to IP-Address</p>
+	 * @param string $data <p>Input data</p>
+	 * @return string <p>Returns the IP-Address.</p>
 	 * @link https://php.net/manual/en/function.radius-cvt-addr.php
 	 * @see radius_cvt_int(), radius_cvt_string()
 	 * @since PECL radius >= 1.1.0
@@ -82,8 +83,9 @@ namespace {
 
 	/**
 	 * Converts raw data to integer
-	 * @param string $data
-	 * @return int
+	 * <p>Converts raw data to integer</p>
+	 * @param string $data <p>Input data</p>
+	 * @return int <p>Returns the integer, retrieved from data.</p>
 	 * @link https://php.net/manual/en/function.radius-cvt-int.php
 	 * @see radius_cvt_addr(), radius_cvt_string()
 	 * @since PECL radius >= 1.1.0
@@ -92,8 +94,9 @@ namespace {
 
 	/**
 	 * Converts raw data to string
-	 * @param string $data
-	 * @return string
+	 * <p>Converts raw data to string</p>
+	 * @param string $data <p>Input data</p>
+	 * @return string <p>Returns the string, retrieved from data.</p>
 	 * @link https://php.net/manual/en/function.radius-cvt-string.php
 	 * @see radius_cvt_addr(), radius_cvt_int()
 	 * @since PECL radius >= 1.1.0
@@ -103,8 +106,8 @@ namespace {
 	/**
 	 * Demangles data
 	 * <p>Some data (Passwords, MS-CHAPv1 MPPE-Keys) is mangled for security reasons, and must be demangled before you can use them.</p>
-	 * @param resource $radius_handle
-	 * @param string $mangled
+	 * @param resource $radius_handle <p>The RADIUS resource.</p>
+	 * @param string $mangled <p>The mangled data to demangle</p>
 	 * @return string <p>Returns the demangled string, or <b><code>false</code></b> on error.</p>
 	 * @link https://php.net/manual/en/function.radius-demangle.php
 	 * @since PECL radius >= 1.2.0
@@ -114,8 +117,8 @@ namespace {
 	/**
 	 * Derives mppe-keys from mangled data
 	 * <p>When using MPPE with MS-CHAPv2, the send- and recv-keys are mangled (see RFC 2548), however this function is useless, because I don't think that there is or will be a PPTP-MPPE implementation in PHP.</p>
-	 * @param resource $radius_handle
-	 * @param string $mangled
+	 * @param resource $radius_handle <p>The RADIUS resource.</p>
+	 * @param string $mangled <p>The mangled data to demangle</p>
 	 * @return string <p>Returns the demangled string, or <b><code>false</code></b> on error.</p>
 	 * @link https://php.net/manual/en/function.radius-demangle-mppe-key.php
 	 * @since PECL radius >= 1.2.0
@@ -125,7 +128,7 @@ namespace {
 	/**
 	 * Extracts an attribute
 	 * <p>Like Radius requests, each response may contain zero or more attributes. After a response has been received successfully by <code>radius_send_request()</code>, its attributes can be extracted one by one using <b>radius_get_attr()</b>. Each time <b>radius_get_attr()</b> is called, it gets the next attribute from the current response.</p>
-	 * @param resource $radius_handle
+	 * @param resource $radius_handle <p>The RADIUS resource.</p>
 	 * @return mixed <p>Returns an associative array containing the attribute-type and the data, or error number &lt;= 0.</p>
 	 * @link https://php.net/manual/en/function.radius-get-attr.php
 	 * @see radius_put_attr(), radius_get_vendor_attr(), radius_put_vendor_attr(), radius_send_request()
@@ -158,7 +161,7 @@ namespace {
 	/**
 	 * Extracts a vendor specific attribute
 	 * <p>If <code>radius_get_attr()</code> returns <b><code>RADIUS_VENDOR_SPECIFIC</code></b>, <b>radius_get_vendor_attr()</b> may be called to determine the vendor.</p>
-	 * @param string $data
+	 * @param string $data <p>Input data</p>
 	 * @return array <p>Returns an associative array containing the attribute-type, vendor and the data, or <b><code>false</code></b> on error.</p>
 	 * @link https://php.net/manual/en/function.radius-get-vendor-attr.php
 	 * @see radius_get_attr(), radius_put_vendor_attr()
@@ -289,7 +292,7 @@ namespace {
 	/**
 	 * Returns the request authenticator
 	 * <p>The request authenticator is needed for demangling mangled data like passwords and encryption-keys.</p>
-	 * @param resource $radius_handle
+	 * @param resource $radius_handle <p>The RADIUS resource.</p>
 	 * @return string <p>Returns the request authenticator as string, or <b><code>false</code></b> on error.</p>
 	 * @link https://php.net/manual/en/function.radius-request-authenticator.php
 	 * @see radius_demangle()
@@ -312,7 +315,7 @@ namespace {
 	/**
 	 * Sends the request and waits for a reply
 	 * <p>After the Radius request has been constructed, it is sent by <b>radius_send_request()</b>.</p><p>The <b>radius_send_request()</b> function sends the request and waits for a valid reply, retrying the defined servers in round-robin fashion as necessary.</p>
-	 * @param resource $radius_handle
+	 * @param resource $radius_handle <p>The RADIUS resource.</p>
 	 * @return int <p>If a valid response is received, <b>radius_send_request()</b> returns the Radius code which specifies the type of the response. This will typically be <b><code>RADIUS_ACCESS_ACCEPT</code></b>, <b><code>RADIUS_ACCESS_REJECT</code></b>, or <b><code>RADIUS_ACCESS_CHALLENGE</code></b>. If no valid response is received, <b>radius_send_request()</b> returns <b><code>false</code></b>.</p>
 	 * @link https://php.net/manual/en/function.radius-send-request.php
 	 * @see radius_create_request()
@@ -323,7 +326,7 @@ namespace {
 	/**
 	 * Returns the shared secret
 	 * <p>The shared secret is needed as salt for demangling mangled data like passwords and encryption-keys.</p>
-	 * @param resource $radius_handle
+	 * @param resource $radius_handle <p>The RADIUS resource.</p>
 	 * @return string <p>Returns the server's shared secret as string, or <b><code>false</code></b> on error.</p>
 	 * @link https://php.net/manual/en/function.radius-server-secret.php
 	 * @since PECL radius >= 1.1.0
@@ -333,7 +336,7 @@ namespace {
 	/**
 	 * Returns an error message
 	 * <p>If Radius-functions fail then they record an error message. This error message can be retrieved with this function.</p>
-	 * @param resource $radius_handle
+	 * @param resource $radius_handle <p>The RADIUS resource.</p>
 	 * @return string <p>Returns error messages as string from failed radius functions.</p>
 	 * @link https://php.net/manual/en/function.radius-strerror.php
 	 * @since PECL radius >= 1.1.0

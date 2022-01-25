@@ -908,7 +908,7 @@ namespace {
 	 * @param float $bottom <p>y-coordinate of the lower left corner of the box.</p>
 	 * @param float $width <p>Width of the box.</p>
 	 * @param float $height <p>Height of the box.</p>
-	 * @param string $hmode <p>The parameter <code>hmode</code> can be "justify", "fulljustify", "right", "left", or "center". The difference of "justify" and "fulljustify" just affects the last line of the box. In fulljustify mode the last line will be left and right justified unless this is also the last line of paragraph. In justify mode it will always be left justified.</p>
+	 * @param string $hmode <p>The parameter <code>hmode</code> can be <code>justify</code>, <code>fulljustify</code>, <code>right</code>, <code>left</code>, or <code>center</code>. The difference of <code>justify</code> and <code>fulljustify</code> just affects the last line of the box. In <code>fulljustify</code> mode the last line will be left and right justified unless this is also the last line of paragraph. In <code>justify</code> mode it will always be left justified.</p>
 	 * @param string $feature
 	 * @return int <p>Number of characters that could not be written.</p>
 	 * @link https://php.net/manual/en/function.ps-show-boxed.php

@@ -104,11 +104,11 @@ namespace parallel {
 		/**
 		 * Polling
 		 * <p>Shall poll for the next event</p>
-		 * @return Event|null <p>Should there be no targets remaining, null shall be returned</p><p>Should this be a non-blocking loop, and blocking would occur, null shall be returned</p><p>Otherwise, the parallel\Events\Event returned describes the event.</p>
+		 * @return ?parallel\Events\Event <p>Should there be no targets remaining, <b><code>null</code></b> shall be returned</p><p>Should this be a non-blocking loop, and blocking would occur, <b><code>null</code></b> shall be returned</p><p>Otherwise, the <code>parallel\Events\Event</code> returned describes the event.</p>
 		 * @link https://php.net/manual/en/parallel-events.poll.php
 		 * @since 0.9.0
 		 */
-		public function poll(): \Event|null {}
+		public function poll(): ?\parallel\Events\Event {}
 
 		/**
 		 * Targets
@@ -122,7 +122,7 @@ namespace parallel {
 
 		/**
 		 * Behaviour
-		 * <p>By default when events are polled for, blocking will occur (at the PHP level) until the first event can be returned: Setting blocking mode to false will cause poll to return control if the first target polled is not ready.</p><p>This differs from setting a timeout of 0 with <code>parallel\Events::setTimeout()</code>, since a timeout of 0, while allowed, will cause an exception to be raised, which may be extremely slow or wasteful if what is really desired is non-blocking behaviour.</p><p>A non-blocking loop effects the return value of <code>parallel\Events::poll()</code>, such that it may be null before all events have been processed.</p><p>Shall set blocking mode</p>
+		 * <p>By default when events are polled for, blocking will occur (at the PHP level) until the first event can be returned: Setting blocking mode to <b><code>false</code></b> will cause poll to return control if the first target polled is not ready.</p><p>This differs from setting a timeout of 0 with <code>parallel\Events::setTimeout()</code>, since a timeout of 0, while allowed, will cause an exception to be raised, which may be extremely slow or wasteful if what is really desired is non-blocking behaviour.</p><p>A non-blocking loop effects the return value of <code>parallel\Events::poll()</code>, such that it may be <b><code>null</code></b> before all events have been processed.</p><p>Shall set blocking mode</p>
 		 * @param bool $blocking
 		 * @return void
 		 * @link https://php.net/manual/en/parallel-events.setblocking.php
@@ -142,7 +142,7 @@ namespace parallel {
 
 		/**
 		 * Behaviour
-		 * <p>By default when events are polled for, blocking will occur (at the PHP level) until the first event can be returned: Setting the timeout causes an exception to be thrown when the timeout is reached.</p><p>This differs from setting blocking mode to false with <code>parallel\Events::setBlocking()</code>, which will not cause an exception to be thrown.</p><p>Shall set the timeout in microseconds</p>
+		 * <p>By default when events are polled for, blocking will occur (at the PHP level) until the first event can be returned: Setting the timeout causes an exception to be thrown when the timeout is reached.</p><p>This differs from setting blocking mode to <b><code>false</code></b> with <code>parallel\Events::setBlocking()</code>, which will not cause an exception to be thrown.</p><p>Shall set the timeout in microseconds</p>
 		 * @param int $timeout
 		 * @return void
 		 * @link https://php.net/manual/en/parallel-events.settimeout.php
@@ -341,12 +341,12 @@ namespace parallel {
 		/**
 		 * Execution
 		 * <p>Shall schedule <code>task</code> for execution in parallel.</p><p>Shall schedule <code>task</code> for execution in parallel, passing <code>argv</code> at execution time.</p>
-		 * @param \Closure $task <p>A Closure with specific characteristics.</p>
-		 * @return Future|null <p><b>Warning</b></p> <p>The return <code>parallel\Future</code> must not be ignored when the task contains a return or throw statement.</p>
+		 * @param \Closure $task <p>A <code>Closure</code> with specific characteristics.</p>
+		 * @return ?Future <p><b>Warning</b></p> <p>The return <code>parallel\Future</code> must not be ignored when the task contains a return or throw statement.</p>
 		 * @link https://php.net/manual/en/parallel-runtime.run.php
 		 * @since 0.8.0
 		 */
-		public function run(\Closure $task): \Future|null {}
+		public function run(\Closure $task): ?\Future {}
 	}
 
 	/**

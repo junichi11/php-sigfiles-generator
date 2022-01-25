@@ -13,8 +13,8 @@ namespace {
 
 		/**
 		 * Create a GearmanClient instance
-		 * <p>Creates a GearmanClient instance representing a client that connects to the job server and submits tasks to complete.</p>
-		 * @return self <p>A GearmanClient object.</p>
+		 * <p>Creates a <code>GearmanClient</code> instance representing a client that connects to the job server and submits tasks to complete.</p>
+		 * @return self <p>A <code>GearmanClient</code> object.</p>
 		 * @link https://php.net/manual/en/gearmanclient.construct.php
 		 * @since PECL gearman >= 0.5.0
 		 */
@@ -58,7 +58,7 @@ namespace {
 		 * @param string $workload <p>Serialized data to be processed</p>
 		 * @param mixed $context <p>Application context to associate with a task</p>
 		 * @param string $unique <p>A unique ID used to identify a particular task</p>
-		 * @return GearmanTask <p>A GearmanTask object or <b><code>false</code></b> if the task could not be added.</p>
+		 * @return GearmanTask <p>A <code>GearmanTask</code> object or <b><code>false</code></b> if the task could not be added.</p>
 		 * @link https://php.net/manual/en/gearmanclient.addtask.php
 		 * @since PECL gearman >= 0.5.0
 		 */
@@ -71,7 +71,7 @@ namespace {
 		 * @param string $workload <p>Serialized data to be processed</p>
 		 * @param mixed $context <p>Application context to associate with a task</p>
 		 * @param string $unique <p>A unique ID used to identify a particular task</p>
-		 * @return GearmanTask <p>A GearmanTask object or <b><code>false</code></b> if the task could not be added.</p>
+		 * @return GearmanTask <p>A <code>GearmanTask</code> object or <b><code>false</code></b> if the task could not be added.</p>
 		 * @link https://php.net/manual/en/gearmanclient.addtaskbackground.php
 		 * @since PECL gearman >= 0.5.0
 		 */
@@ -84,7 +84,7 @@ namespace {
 		 * @param string $workload <p>Serialized data to be processed</p>
 		 * @param mixed $context <p>Application context to associate with a task</p>
 		 * @param string $unique <p>A unique ID used to identify a particular task</p>
-		 * @return GearmanTask <p>A GearmanTask object or <b><code>false</code></b> if the task could not be added.</p>
+		 * @return GearmanTask <p>A <code>GearmanTask</code> object or <b><code>false</code></b> if the task could not be added.</p>
 		 * @link https://php.net/manual/en/gearmanclient.addtaskhigh.php
 		 * @since PECL gearman >= 0.5.0
 		 */
@@ -97,7 +97,7 @@ namespace {
 		 * @param string $workload <p>Serialized data to be processed</p>
 		 * @param mixed $context <p>Application context to associate with a task</p>
 		 * @param string $unique <p>A unique ID used to identify a particular task</p>
-		 * @return GearmanTask <p>A GearmanTask object or <b><code>false</code></b> if the task could not be added.</p>
+		 * @return GearmanTask <p>A <code>GearmanTask</code> object or <b><code>false</code></b> if the task could not be added.</p>
 		 * @link https://php.net/manual/en/gearmanclient.addtaskhighbackground.php
 		 * @since PECL gearman >= 0.5.0
 		 */
@@ -110,7 +110,7 @@ namespace {
 		 * @param string $workload <p>Serialized data to be processed</p>
 		 * @param mixed $context <p>Application context to associate with a task</p>
 		 * @param string $unique <p>A unique ID used to identify a particular task</p>
-		 * @return GearmanTask <p>A GearmanTask object or <b><code>false</code></b> if the task could not be added.</p>
+		 * @return GearmanTask <p>A <code>GearmanTask</code> object or <b><code>false</code></b> if the task could not be added.</p>
 		 * @link https://php.net/manual/en/gearmanclient.addtasklow.php
 		 * @since PECL gearman >= 0.5.0
 		 */
@@ -123,7 +123,7 @@ namespace {
 		 * @param string $workload <p>Serialized data to be processed</p>
 		 * @param mixed $context <p>Application context to associate with a task</p>
 		 * @param string $unique <p>A unique ID used to identify a particular task</p>
-		 * @return GearmanTask <p>A GearmanTask object or <b><code>false</code></b> if the task could not be added.</p>
+		 * @return GearmanTask <p>A <code>GearmanTask</code> object or <b><code>false</code></b> if the task could not be added.</p>
 		 * @link https://php.net/manual/en/gearmanclient.addtasklowbackground.php
 		 * @since PECL gearman >= 0.5.0
 		 */
@@ -134,7 +134,7 @@ namespace {
 		 * <p>Used to request status information from the Gearman server, which will call the specified status callback (set using <code>GearmanClient::setStatusCallback()</code>).</p>
 		 * @param string $job_handle <p>The job handle for the task to get status for</p>
 		 * @param string $context <p>Data to be passed to the status callback, generally a reference to an array or object</p>
-		 * @return GearmanTask <p>A GearmanTask object.</p>
+		 * @return GearmanTask <p>A <code>GearmanTask</code> object.</p>
 		 * @link https://php.net/manual/en/gearmanclient.addtaskstatus.php
 		 * @since PECL gearman >= 0.5.0
 		 */
@@ -151,8 +151,8 @@ namespace {
 
 		/**
 		 * Create a copy of a GearmanClient object
-		 * <p>Creates a copy of a GearmanClient object.</p>
-		 * @return GearmanClient <p>A GearmanClient on success, <b><code>false</code></b> on failure.</p>
+		 * <p>Creates a copy of a <code>GearmanClient</code> object.</p>
+		 * @return GearmanClient <p>A <code>GearmanClient</code> on success, <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/gearmanclient.clone.php
 		 * @since PECL gearman >= 0.5.0
 		 */
@@ -202,7 +202,7 @@ namespace {
 
 		/**
 		 * Run a single high priority task
-		 * <p>Runs a single high priority task and returns a string representation of the result. It is up to the GearmanClient and GearmanWorker to agree on the format of the result. High priority tasks will get precedence over normal and low priority tasks in the job queue.</p>
+		 * <p>Runs a single high priority task and returns a string representation of the result. It is up to the <code>GearmanClient</code> and <code>GearmanWorker</code> to agree on the format of the result. High priority tasks will get precedence over normal and low priority tasks in the job queue.</p>
 		 * @param string $function_name <p>A registered function the worker is to execute</p>
 		 * @param string $workload <p>Serialized data to be processed</p>
 		 * @param string $unique <p>A unique ID used to identify a particular task</p>
@@ -235,7 +235,7 @@ namespace {
 
 		/**
 		 * Run a single low priority task
-		 * <p>Runs a single low priority task and returns a string representation of the result. It is up to the GearmanClient and GearmanWorker to agree on the format of the result. Normal and high priority tasks will get precedence over low priority tasks in the job queue.</p>
+		 * <p>Runs a single low priority task and returns a string representation of the result. It is up to the <code>GearmanClient</code> and <code>GearmanWorker</code> to agree on the format of the result. Normal and high priority tasks will get precedence over low priority tasks in the job queue.</p>
 		 * @param string $function_name <p>A registered function the worker is to execute</p>
 		 * @param string $workload <p>Serialized data to be processed</p>
 		 * @param string $unique <p>A unique ID used to identify a particular task</p>
@@ -259,7 +259,7 @@ namespace {
 
 		/**
 		 * Run a single task and return a result
-		 * <p>Runs a single task and returns a string representation of the result. It is up to the GearmanClient and GearmanWorker to agree on the format of the result.</p>
+		 * <p>Runs a single task and returns a string representation of the result. It is up to the <code>GearmanClient</code> and <code>GearmanWorker</code> to agree on the format of the result.</p>
 		 * @param string $function_name <p>A registered function the worker is to execute</p>
 		 * @param string $workload <p>Serialized data to be processed</p>
 		 * @param string $unique <p>A unique ID used to identify a particular task</p>
@@ -308,7 +308,7 @@ namespace {
 
 		/**
 		 * Get the status of a background job
-		 * <p>Gets the status for a background job given a job handle. The status information will specify whether the job is known, whether the job is currently running, and the percentage completion.</p>
+		 * <p>Object-oriented style (method):</p><p>Gets the status for a background job given a job handle. The status information will specify whether the job is known, whether the job is currently running, and the percentage completion.</p>
 		 * @param string $job_handle <p>The job handle assigned by the Gearman server</p>
 		 * @return array <p>An array containing status information for the job corresponding to the supplied job handle. The first array element is a boolean indicating whether the job is even known, the second is a boolean indicating whether the job is still running, and the third and fourth elements correspond to the numerator and denominator of the fractional completion percentage, respectively.</p>
 		 * @link https://php.net/manual/en/gearmanclient.jobstatus.php
@@ -356,7 +356,7 @@ namespace {
 
 		/**
 		 * Callback function when there is a data packet for a task (deprecated)
-		 * <p>Sets the callback function for accepting data packets for a task. The callback function should take a single argument, a GearmanTask object.</p><p><b>Note</b>:</p><p>This method has been replaced by <code>GearmanClient::setDataCallback()</code> in the 0.6.0 release of the Gearman extension.</p>
+		 * <p>Sets the callback function for accepting data packets for a task. The callback function should take a single argument, a <code>GearmanTask</code> object.</p><p><b>Note</b>:</p><p>This method has been replaced by <code>GearmanClient::setDataCallback()</code> in the 0.6.0 release of the Gearman extension.</p>
 		 * @param callable $callback <p>A function or method to call</p>
 		 * @return void <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/gearmanclient.setclientcallback.php
@@ -366,7 +366,7 @@ namespace {
 
 		/**
 		 * Set a function to be called on task completion
-		 * <p>Use to set a function to be called when a GearmanTask is completed, or when <code>GearmanJob::sendComplete()</code> is invoked by a worker (whichever happens first).</p><p>This callback executes only when executing a GearmanTask using <code>GearmanClient::runTasks()</code>. It is not used for individual jobs.</p>
+		 * <p>Use to set a function to be called when a <code>GearmanTask</code> is completed, or when <code>GearmanJob::sendComplete()</code> is invoked by a worker (whichever happens first).</p><p>This callback executes only when executing a <code>GearmanTask</code> using <code>GearmanClient::runTasks()</code>. It is not used for individual jobs.</p>
 		 * @param callable $callback <p>A function to be called</p>
 		 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/gearmanclient.setcompletecallback.php
@@ -386,7 +386,7 @@ namespace {
 
 		/**
 		 * Set a callback for when a task is queued
-		 * <p>Sets a function to be called when a task is received and queued by the Gearman job server. The callback should accept a single argument, a GearmanTask object.</p>
+		 * <p>Sets a function to be called when a task is received and queued by the Gearman job server. The callback should accept a single argument, a <code>GearmanTask</code> object.</p>
 		 * @param string $callback <p>A function to call</p>
 		 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/gearmanclient.setcreatedcallback.php
@@ -406,7 +406,7 @@ namespace {
 
 		/**
 		 * Callback function when there is a data packet for a task
-		 * <p>Sets the callback function for accepting data packets for a task. The callback function should take a single argument, a GearmanTask object.</p>
+		 * <p>Sets the callback function for accepting data packets for a task. The callback function should take a single argument, a <code>GearmanTask</code> object.</p>
 		 * @param callable $callback <p>A function or method to call</p>
 		 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/gearmanclient.setdatacallback.php
@@ -426,7 +426,7 @@ namespace {
 
 		/**
 		 * Set callback for job failure
-		 * <p>Sets the callback function to be used when a task does not complete successfully. The function should accept a single argument, a GearmanTask object.</p>
+		 * <p>Sets the callback function to be used when a task does not complete successfully. The function should accept a single argument, a <code>GearmanTask</code> object.</p>
 		 * @param callable $callback <p>A function to call</p>
 		 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/gearmanclient.setfailcallback.php
@@ -446,7 +446,7 @@ namespace {
 
 		/**
 		 * Set a callback for collecting task status
-		 * <p>Sets a callback function used for getting updated status information from a worker. The function should accept a single argument, a GearmanTask object.</p>
+		 * <p>Sets a callback function used for getting updated status information from a worker. The function should accept a single argument, a <code>GearmanTask</code> object.</p>
 		 * @param callable $callback <p>A function to call</p>
 		 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/gearmanclient.setstatuscallback.php
@@ -466,7 +466,7 @@ namespace {
 
 		/**
 		 * Set a callback for worker warnings
-		 * <p>Sets a function to be called when a worker sends a warning. The callback should accept a single argument, a GearmanTask object.</p>
+		 * <p>Sets a function to be called when a worker sends a warning. The callback should accept a single argument, a <code>GearmanTask</code> object.</p>
 		 * @param callable $callback <p>A function to call</p>
 		 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/gearmanclient.setwarningcallback.php
@@ -476,7 +476,7 @@ namespace {
 
 		/**
 		 * Set a callback for accepting incremental data updates
-		 * <p>Sets a function to be called when a worker needs to send back data prior to job completion. A worker can do this when it needs to send updates, send partial results, or flush data during long running jobs. The callback should accept a single argument, a GearmanTask object.</p>
+		 * <p>Sets a function to be called when a worker needs to send back data prior to job completion. A worker can do this when it needs to send updates, send partial results, or flush data during long running jobs. The callback should accept a single argument, a <code>GearmanTask</code> object.</p>
 		 * @param callable $callback <p>A function to call</p>
 		 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/gearmanclient.setworkloadcallback.php
@@ -492,6 +492,15 @@ namespace {
 		 * @since PECL gearman >= 0.6.0
 		 */
 		public function timeout(): int {}
+
+		/**
+		 * Wait for I/O activity on all connections in a client
+		 * <p>This waits for activity from any one of the connected servers.</p>
+		 * @return bool <p><b><code>true</code></b> on success <b><code>false</code></b> on an error.</p>
+		 * @link https://php.net/manual/en/gearmanclient.wait.php
+		 * @since PECL gearman >= 0.6.0
+		 */
+		public function wait(): bool {}
 	}
 
 	/**
@@ -504,7 +513,13 @@ namespace {
 		 * @var string <p>The exception message</p>
 		 * @link https://php.net/manual/en/class.exception.php#exception.props.message
 		 */
-		protected $message;
+		protected $message = "";
+
+		/**
+		 * @var string <p>The string representation of the stack trace</p>
+		 * @link https://php.net/manual/en/class.exception.php#exception.props.string
+		 */
+		private $string = "";
 
 		/**
 		 * @var int <p>The exception code</p>
@@ -516,7 +531,7 @@ namespace {
 		 * @var string <p>The filename where the exception was created</p>
 		 * @link https://php.net/manual/en/class.exception.php#exception.props.file
 		 */
-		protected $file;
+		protected $file = "";
 
 		/**
 		 * @var int <p>The line where the exception was created</p>
@@ -525,13 +540,25 @@ namespace {
 		protected $line;
 
 		/**
+		 * @var array <p>The stack trace as an array</p>
+		 * @link https://php.net/manual/en/class.exception.php#exception.props.trace
+		 */
+		private $trace = [];
+
+		/**
+		 * @var ?Throwable <p>The previously thrown exception</p>
+		 * @link https://php.net/manual/en/class.exception.php#exception.props.previous
+		 */
+		private $previous = null;
+
+		/**
 		 * Clone the exception
 		 * <p>Tries to clone the Exception, which results in Fatal error.</p>
 		 * @return void <p>No value is returned.</p>
 		 * @link https://php.net/manual/en/exception.clone.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
-		final private function __clone() {}
+		private function __clone() {}
 
 		/**
 		 * String representation of the exception
@@ -545,11 +572,11 @@ namespace {
 		/**
 		 * Gets the Exception code
 		 * <p>Returns the Exception code.</p>
-		 * @return mixed <p>Returns the exception code as <code>int</code> in Exception but possibly as other type in Exception descendants (for example as <code>string</code> in PDOException).</p>
+		 * @return int <p>Returns the exception code as <code>int</code> in <code>Exception</code> but possibly as other type in <code>Exception</code> descendants (for example as <code>string</code> in <code>PDOException</code>).</p>
 		 * @link https://php.net/manual/en/exception.getcode.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
-		final public function getCode(): mixed {}
+		final public function getCode(): int {}
 
 		/**
 		 * Gets the file in which the exception was created
@@ -579,13 +606,13 @@ namespace {
 		final public function getMessage(): string {}
 
 		/**
-		 * Returns previous Exception
-		 * <p>Returns previous exception (the third parameter of <code>Exception::__construct()</code>).</p>
-		 * @return Throwable <p>Returns the previous Throwable if available or <b><code>null</code></b> otherwise.</p>
+		 * Returns previous Throwable
+		 * <p>Returns previous <code>Throwable</code> (which had been passed as the third parameter of <code>Exception::__construct()</code>).</p>
+		 * @return ?Throwable <p>Returns the previous <code>Throwable</code> if available or <b><code>null</code></b> otherwise.</p>
 		 * @link https://php.net/manual/en/exception.getprevious.php
 		 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8
 		 */
-		final public function getPrevious(): \Throwable {}
+		final public function getPrevious(): ?\Throwable {}
 
 		/**
 		 * Gets the stack trace
@@ -614,8 +641,8 @@ namespace {
 
 		/**
 		 * Create a GearmanJob instance
-		 * <p>Creates a GearmanJob instance representing a job the worker is to complete.</p>
-		 * @return self <p>A GearmanJob object.</p>
+		 * <p>Creates a <code>GearmanJob</code> instance representing a job the worker is to complete.</p>
+		 * @return self <p>A <code>GearmanJob</code> object.</p>
 		 * @link https://php.net/manual/en/gearmanjob.construct.php
 		 * @since PECL gearman >= 0.5.0
 		 */
@@ -770,7 +797,7 @@ namespace {
 
 		/**
 		 * Get the unique identifier
-		 * <p>Returns the unique identifiter for this job. The identifier is assigned by the client.</p>
+		 * <p>Returns the unique identifier for this job. The identifier is assigned by the client.</p>
 		 * @return string <p>An opaque unique identifier.</p>
 		 * @link https://php.net/manual/en/gearmanjob.unique.php
 		 * @since PECL gearman >= 0.5.0
@@ -814,8 +841,8 @@ namespace {
 
 		/**
 		 * Create a GearmanTask instance
-		 * <p>Creates a GearmanTask instance representing a task to be submitted to a job server.</p>
-		 * @return self <p>A GearmanTask object.</p>
+		 * <p>Creates a <code>GearmanTask</code> instance representing a task to be submitted to a job server.</p>
+		 * @return self <p>A <code>GearmanTask</code> object.</p>
 		 * @link https://php.net/manual/en/gearmantask.construct.php
 		 * @since PECL gearman >= 0.5.0
 		 */
@@ -823,8 +850,8 @@ namespace {
 
 		/**
 		 * Create a task (deprecated)
-		 * <p>Returns a new GearmanTask object.</p><p><b>Note</b>:</p><p>This method was removed in the 0.6.0 version of the Gearman extension.</p>
-		 * @return GearmanTask|false <p>A GearmanTask oject or <b><code>false</code></b> on failure.</p>
+		 * <p>Returns a new <code>GearmanTask</code> object.</p><p><b>Note</b>:</p><p>This method was removed in the 0.6.0 version of the Gearman extension.</p>
+		 * @return GearmanTask|false <p>A <code>GearmanTask</code> oject or <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/gearmantask.create.php
 		 * @since PECL gearman <= 0.5.0
 		 */
@@ -952,7 +979,7 @@ namespace {
 
 		/**
 		 * Get the unique identifier for a task
-		 * <p>Returns the unique identifier for this task. This is assigned by the GearmanClient, as opposed to the job handle which is set by the Gearman job server.</p>
+		 * <p>Returns the unique identifier for this task. This is assigned by the <code>GearmanClient</code>, as opposed to the job handle which is set by the Gearman job server.</p>
 		 * @return string <p>The unique identifier, or <b><code>false</code></b> if no identifier is assigned.</p>
 		 * @link https://php.net/manual/en/gearmantask.unique.php
 		 * @since PECL gearman >= 0.6.0
@@ -961,7 +988,7 @@ namespace {
 
 		/**
 		 * Get the unique identifier for a task (deprecated)
-		 * <p>Returns the unique identifier for this task. This is assigned by the GearmanClient, as opposed to the job handle which is set by the Gearman job server.</p><p><b>Note</b>:</p><p>This method has been replaced by <code>GearmanTask::unique()</code> in the 0.6.0 release of the Gearman extension.</p>
+		 * <p>Returns the unique identifier for this task. This is assigned by the <code>GearmanClient</code>, as opposed to the job handle which is set by the Gearman job server.</p><p><b>Note</b>:</p><p>This method has been replaced by <code>GearmanTask::unique()</code> in the 0.6.0 release of the Gearman extension.</p>
 		 * @return string <p>The unique identifier, or <b><code>false</code></b> if no identifier is assigned.</p>
 		 * @link https://php.net/manual/en/gearmantask.uuid.php
 		 * @since PECL gearman <= 0.5.0
@@ -977,8 +1004,8 @@ namespace {
 
 		/**
 		 * Create a GearmanWorker instance
-		 * <p>Creates a GearmanWorker instance representing a worker that connects to the job server and accepts tasks to run.</p>
-		 * @return self <p>A GearmanWorker object</p>
+		 * <p>Creates a <code>GearmanWorker</code> instance representing a worker that connects to the job server and accepts tasks to run.</p>
+		 * @return self <p>A <code>GearmanWorker</code> object</p>
 		 * @link https://php.net/manual/en/gearmanworker.construct.php
 		 * @since PECL gearman >= 0.5.0
 		 */
@@ -1031,7 +1058,7 @@ namespace {
 		/**
 		 * Create a copy of the worker
 		 * <p>Creates a copy of the worker.</p>
-		 * @return void <p>A GearmanWorker object</p>
+		 * @return void <p>A <code>GearmanWorker</code> object</p>
 		 * @link https://php.net/manual/en/gearmanworker.clone.php
 		 * @since PECL gearman >= 0.5.0
 		 */
@@ -1192,7 +1219,7 @@ namespace {
 
 	/**
 	 * Get the status of a background job
-	 * <p>Gets the status for a background job given a job handle. The status information will specify whether the job is known, whether the job is currently running, and the percentage completion.</p>
+	 * <p>Object-oriented style (method):</p><p>Gets the status for a background job given a job handle. The status information will specify whether the job is known, whether the job is currently running, and the percentage completion.</p>
 	 * @param string $job_handle <p>The job handle assigned by the Gearman server</p>
 	 * @return array <p>An array containing status information for the job corresponding to the supplied job handle. The first array element is a boolean indicating whether the job is even known, the second is a boolean indicating whether the job is still running, and the third and fourth elements correspond to the numerator and denominator of the fractional completion percentage, respectively.</p>
 	 * @link https://php.net/manual/en/gearmanclient.jobstatus.php
@@ -1289,7 +1316,7 @@ namespace {
 	define('GEARMAN_NEED_WORKLOAD_FN', null);
 
 	/**
-	 * <b>GearmanClient::wait()</b> or <b>GearmanWorker()</b> was called with no connections.
+	 * <code>GearmanClient::wait()</code> or <b>GearmanWorker()</b> was called with no connections.
 	 */
 	define('GEARMAN_NO_ACTIVE_FDS', null);
 
@@ -1342,7 +1369,7 @@ namespace {
 	define('GEARMAN_TIMEOUT', null);
 
 	/**
-	 * Indicates something going very wrong in gearmand. Applies only to GearmanWorker.
+	 * Indicates something going very wrong in gearmand. Applies only to <code>GearmanWorker</code>.
 	 */
 	define('GEARMAN_UNEXPECTED_PACKET', null);
 

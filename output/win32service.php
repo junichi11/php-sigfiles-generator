@@ -15,7 +15,13 @@ namespace {
 		 * @var string <p>The exception message</p>
 		 * @link https://php.net/manual/en/class.exception.php#exception.props.message
 		 */
-		protected $message;
+		protected $message = "";
+
+		/**
+		 * @var string <p>The string representation of the stack trace</p>
+		 * @link https://php.net/manual/en/class.exception.php#exception.props.string
+		 */
+		private $string = "";
 
 		/**
 		 * @var int <p>The exception code</p>
@@ -27,7 +33,7 @@ namespace {
 		 * @var string <p>The filename where the exception was created</p>
 		 * @link https://php.net/manual/en/class.exception.php#exception.props.file
 		 */
-		protected $file;
+		protected $file = "";
 
 		/**
 		 * @var int <p>The line where the exception was created</p>
@@ -36,13 +42,25 @@ namespace {
 		protected $line;
 
 		/**
+		 * @var array <p>The stack trace as an array</p>
+		 * @link https://php.net/manual/en/class.exception.php#exception.props.trace
+		 */
+		private $trace = [];
+
+		/**
+		 * @var ?Throwable <p>The previously thrown exception</p>
+		 * @link https://php.net/manual/en/class.exception.php#exception.props.previous
+		 */
+		private $previous = null;
+
+		/**
 		 * Clone the exception
 		 * <p>Tries to clone the Exception, which results in Fatal error.</p>
 		 * @return void <p>No value is returned.</p>
 		 * @link https://php.net/manual/en/exception.clone.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
-		final private function __clone() {}
+		private function __clone() {}
 
 		/**
 		 * String representation of the exception
@@ -56,11 +74,11 @@ namespace {
 		/**
 		 * Gets the Exception code
 		 * <p>Returns the Exception code.</p>
-		 * @return mixed <p>Returns the exception code as <code>int</code> in Exception but possibly as other type in Exception descendants (for example as <code>string</code> in PDOException).</p>
+		 * @return int <p>Returns the exception code as <code>int</code> in <code>Exception</code> but possibly as other type in <code>Exception</code> descendants (for example as <code>string</code> in <code>PDOException</code>).</p>
 		 * @link https://php.net/manual/en/exception.getcode.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
-		final public function getCode(): mixed {}
+		final public function getCode(): int {}
 
 		/**
 		 * Gets the file in which the exception was created
@@ -90,13 +108,13 @@ namespace {
 		final public function getMessage(): string {}
 
 		/**
-		 * Returns previous Exception
-		 * <p>Returns previous exception (the third parameter of <code>Exception::__construct()</code>).</p>
-		 * @return Throwable <p>Returns the previous Throwable if available or <b><code>null</code></b> otherwise.</p>
+		 * Returns previous Throwable
+		 * <p>Returns previous <code>Throwable</code> (which had been passed as the third parameter of <code>Exception::__construct()</code>).</p>
+		 * @return ?Throwable <p>Returns the previous <code>Throwable</code> if available or <b><code>null</code></b> otherwise.</p>
 		 * @link https://php.net/manual/en/exception.getprevious.php
 		 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8
 		 */
-		final public function getPrevious(): \Throwable {}
+		final public function getPrevious(): ?\Throwable {}
 
 		/**
 		 * Gets the stack trace
@@ -180,7 +198,7 @@ namespace {
 	 * <p>Queries the current status for a service, returning an array of information.</p>
 	 * @param string $servicename <p>The short name of the service.</p>
 	 * @param string $machine <p>The optional machine name. If omitted, the local machine will be used.</p>
-	 * @return array <p>Returns an array consisting of the following information on success</p><p>Prior version 1.0.0, <b><code>false</code></b> if there is a problem with the parameters or a Win32 Error Code on failure.</p>  <code>ServiceType</code>  <p>The dwServiceType. See Win32Service Service Type Bitmasks.</p>   <code>CurrentState</code>  <p>The dwCurrentState. See Win32Service Service Status Constants.</p>   <code>ControlsAccepted</code>  <p>Which service controls are accepted by the service. See Win32Service Service Control Message Accepted Bitmasks.</p>   <code>Win32ExitCode</code>  <p>If the service exited, the return code from the process. This value is equal to <b><code>WIN32_ERROR_SERVICE_SPECIFIC_ERROR</code></b> if the exit mode is not gracefuly. See Win32Service error codes and <code>win32_set_service_exit_mode()</code></p>   <code>ServiceSpecificExitCode</code>  <p>If the service exited with an error condition, the service specific code that is logged in the event log is visible here. This value is equal to the value defined by <code>win32_set_service_exit_code()</code></p>   <code>CheckPoint</code>  <p>If the service is shutting down, holds the current check point number. This is used by the SCM as a kind of heart-beat to detect a wedged service process. The value of the check point is best interpreted in conjunction with the WaitHint value.</p>   <code>WaitHint</code>  <p>If the service is shutting down it will set WaitHint to a checkpoint value that will indicate 100% completion. This can be used to implement a progress indicator.</p>   <code>ProcessId</code>  <p>The Windows process identifier. If 0, the process is not running.</p>   <code>ServiceFlags</code>  <p>The dwServiceFlags. See Win32Service Service Service Flag Constants.</p>
+	 * @return array <p>Returns an array consisting of the following information on success</p><p>Prior version 1.0.0, <b><code>false</code></b> if there is a problem with the parameters or a Win32 Error Code on failure.</p>  <code>ServiceType</code>  <p>The dwServiceType. See Win32Service Service Type Bitmasks.</p>   <code>CurrentState</code>  <p>The dwCurrentState. See Win32Service Service Status Constants.</p>   <code>ControlsAccepted</code>  <p>Which service controls are accepted by the service. See Win32Service Service Control Message Accepted Bitmasks.</p>   <code>Win32ExitCode</code>  <p>If the service exited, the return code from the process. This value is equal to <b><code>WIN32_ERROR_SERVICE_SPECIFIC_ERROR</code></b> if the exit mode is not gracefuly. See Win32Service error codes and <code>win32_set_service_exit_mode()</code></p>   <code>ServiceSpecificExitCode</code>  <p>If the service exited with an error condition, the service specific code that is logged in the event log is visible here. This value is equal to the value defined by <code>win32_set_service_exit_code()</code></p>   <code>CheckPoint</code>  <p>If the service is shutting down, holds the current check point number. This is used by the SCM as a kind of heart-beat to detect a wedged service process. The value of the check point is best interpreted in conjunction with the WaitHint value.</p>   <code>WaitHint</code>  <p>If the service is shutting down it will set WaitHint to a checkpoint value that will indicate 100% completion. This can be used to implement a progress indicator.</p>   <code>ProcessId</code>  <p>The Windows process identifier. If 0, the process is not running.</p>   <code>ServiceFlags</code>  <p>The dwServiceFlags. See Win32Service Service Flag Constants.</p>
 	 * @link https://php.net/manual/en/function.win32-query-service-status.php
 	 * @since PECL win32service >=0.1.0
 	 */

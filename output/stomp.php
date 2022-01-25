@@ -13,7 +13,7 @@ namespace {
 
 		/**
 		 * Opens a connection
-		 * <p>Opens a connection to a stomp compliant Message Broker.</p>
+		 * <p>Object-oriented style (constructor):</p><p>Opens a connection to a stomp compliant Message Broker.</p>
 		 * @param string $broker <p>The broker URI</p>
 		 * @param string $username <p>The username.</p>
 		 * @param string $password <p>The password.</p>
@@ -26,7 +26,7 @@ namespace {
 
 		/**
 		 * Closes stomp connection
-		 * <p>Closes a previously opened connection.</p>
+		 * <p>Object-oriented style (destructor):</p><p>Closes a previously opened connection.</p>
 		 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/stomp.destruct.php
 		 * @since PECL stomp >= 0.1.0
@@ -35,7 +35,7 @@ namespace {
 
 		/**
 		 * Rolls back a transaction in progress
-		 * <p>Rolls back a transaction in progress.</p>
+		 * <p>Object-oriented style (method):</p><p>Rolls back a transaction in progress.</p>
 		 * @param string $transaction_id <p>The transaction to abort.</p>
 		 * @param array $headers <p>Associative array containing the additional headers (example: receipt).</p>
 		 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
@@ -46,7 +46,7 @@ namespace {
 
 		/**
 		 * Acknowledges consumption of a message
-		 * <p>Acknowledges consumption of a message from a subscription using client acknowledgment.</p>
+		 * <p>Object-oriented style (method):</p><p>Acknowledges consumption of a message from a subscription using client acknowledgment.</p>
 		 * @param mixed $msg <p>The message/messageId to be acknowledged.</p>
 		 * @param array $headers <p>Associative array containing the additional headers (example: receipt).</p>
 		 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
@@ -57,7 +57,7 @@ namespace {
 
 		/**
 		 * Starts a transaction
-		 * <p>Starts a transaction.</p>
+		 * <p>Object-oriented style (method):</p><p>Starts a transaction.</p>
 		 * @param string $transaction_id <p>The transaction id.</p>
 		 * @param array $headers <p>Associative array containing the additional headers (example: receipt).</p>
 		 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
@@ -68,7 +68,7 @@ namespace {
 
 		/**
 		 * Commits a transaction in progress
-		 * <p>Commits a transaction in progress.</p>
+		 * <p>Object-oriented style (method):</p><p>Commits a transaction in progress.</p>
 		 * @param string $transaction_id <p>The transaction id.</p>
 		 * @param array $headers <p>Associative array containing the additional headers (example: receipt).</p>
 		 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
@@ -79,7 +79,7 @@ namespace {
 
 		/**
 		 * Gets the last stomp error
-		 * <p>Gets the last stomp error.</p>
+		 * <p>Object-oriented style (method):</p><p>Gets the last stomp error.</p>
 		 * @return string <p>Returns an error string or <b><code>false</code></b> if no error occurred.</p>
 		 * @link https://php.net/manual/en/stomp.error.php
 		 * @since PECL stomp >= 0.1.0
@@ -88,7 +88,7 @@ namespace {
 
 		/**
 		 * Gets read timeout
-		 * <p>Gets read timeout</p>
+		 * <p>Object-oriented style (method):</p><p>Gets read timeout</p>
 		 * @return array <p>Returns an array with 2 elements: sec and usec.</p>
 		 * @link https://php.net/manual/en/stomp.getreadtimeout.php
 		 * @since PECL stomp >= 0.3.0
@@ -97,7 +97,7 @@ namespace {
 
 		/**
 		 * Gets the current stomp session ID
-		 * <p>Gets the current stomp session ID.</p>
+		 * <p>Object-oriented style (method):</p><p>Gets the current stomp session ID.</p>
 		 * @return string|false <p><code>string</code> session id on success or <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/stomp.getsessionid.php
 		 * @since PECL stomp >= 0.1.0
@@ -106,7 +106,7 @@ namespace {
 
 		/**
 		 * Indicates whether or not there is a frame ready to read
-		 * <p>Indicates whether or not there is a frame ready to read.</p>
+		 * <p>Object-oriented style (method):</p><p>Indicates whether or not there is a frame ready to read.</p>
 		 * @return bool <p>Returns <b><code>true</code></b> if a frame is ready to read, or <b><code>false</code></b> otherwise.</p>
 		 * @link https://php.net/manual/en/stomp.hasframe.php
 		 * @since PECL stomp >= 0.1.0
@@ -115,7 +115,7 @@ namespace {
 
 		/**
 		 * Reads the next frame
-		 * <p>Reads the next frame. It is possible to instantiate an object of a specific class, and pass parameters to that class's constructor.</p>
+		 * <p>Object-oriented style (method):</p><p>Reads the next frame. It is possible to instantiate an object of a specific class, and pass parameters to that class's constructor.</p>
 		 * @param string $class_name <p>The name of the class to instantiate. If not specified, a stompFrame object is returned.</p>
 		 * @return stompframe <p><b>Note</b>:</p><p>A transaction header may be specified, indicating that the message acknowledgment should be part of the named transaction.</p>
 		 * @link https://php.net/manual/en/stomp.readframe.php
@@ -125,7 +125,7 @@ namespace {
 
 		/**
 		 * Sends a message
-		 * <p>Sends a message to the Message Broker.</p>
+		 * <p>Object-oriented style (method):</p><p>Sends a message to the Message Broker.</p>
 		 * @param string $destination <p>Where to send the message</p>
 		 * @param mixed $msg <p>Message to send.</p>
 		 * @param array $headers <p>Associative array containing the additional headers (example: receipt).</p>
@@ -137,10 +137,10 @@ namespace {
 
 		/**
 		 * Sets read timeout
-		 * <p>Sets read timeout.</p>
+		 * <p>Object-oriented style (method):</p><p>Sets read timeout.</p>
 		 * @param int $seconds <p>The seconds part of the timeout to be set.</p>
 		 * @param int $microseconds <p>The microseconds part of the timeout to be set.</p>
-		 * @return void
+		 * @return void <p>No value is returned.</p>
 		 * @link https://php.net/manual/en/stomp.setreadtimeout.php
 		 * @since PECL stomp >= 0.3.0
 		 */
@@ -148,7 +148,7 @@ namespace {
 
 		/**
 		 * Registers to listen to a given destination
-		 * <p>Registers to listen to a given destination.</p>
+		 * <p>Object-oriented style (method):</p><p>Registers to listen to a given destination.</p>
 		 * @param string $destination <p>Destination to subscribe to.</p>
 		 * @param array $headers <p>Associative array containing the additional headers (example: receipt).</p>
 		 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
@@ -159,7 +159,7 @@ namespace {
 
 		/**
 		 * Removes an existing subscription
-		 * <p>Removes an existing subscription.</p>
+		 * <p>Object-oriented style (method):</p><p>Removes an existing subscription.</p>
 		 * @param string $destination <p>Subscription to remove.</p>
 		 * @param array $headers <p>Associative array containing the additional headers (example: receipt).</p>
 		 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
@@ -183,7 +183,7 @@ namespace {
 		 * @link https://php.net/manual/en/exception.clone.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
-		final private function __clone() {}
+		private function __clone() {}
 
 		/**
 		 * String representation of the exception
@@ -197,11 +197,11 @@ namespace {
 		/**
 		 * Gets the Exception code
 		 * <p>Returns the Exception code.</p>
-		 * @return mixed <p>Returns the exception code as <code>int</code> in Exception but possibly as other type in Exception descendants (for example as <code>string</code> in PDOException).</p>
+		 * @return int <p>Returns the exception code as <code>int</code> in <code>Exception</code> but possibly as other type in <code>Exception</code> descendants (for example as <code>string</code> in <code>PDOException</code>).</p>
 		 * @link https://php.net/manual/en/exception.getcode.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
-		final public function getCode(): mixed {}
+		final public function getCode(): int {}
 
 		/**
 		 * Get exception details
@@ -240,13 +240,13 @@ namespace {
 		final public function getMessage(): string {}
 
 		/**
-		 * Returns previous Exception
-		 * <p>Returns previous exception (the third parameter of <code>Exception::__construct()</code>).</p>
-		 * @return Throwable <p>Returns the previous Throwable if available or <b><code>null</code></b> otherwise.</p>
+		 * Returns previous Throwable
+		 * <p>Returns previous <code>Throwable</code> (which had been passed as the third parameter of <code>Exception::__construct()</code>).</p>
+		 * @return ?Throwable <p>Returns the previous <code>Throwable</code> if available or <b><code>null</code></b> otherwise.</p>
 		 * @link https://php.net/manual/en/exception.getprevious.php
 		 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8
 		 */
-		final public function getPrevious(): \Throwable {}
+		final public function getPrevious(): ?\Throwable {}
 
 		/**
 		 * Gets the stack trace
@@ -307,7 +307,7 @@ namespace {
 
 	/**
 	 * Rolls back a transaction in progress
-	 * <p>Rolls back a transaction in progress.</p>
+	 * <p>Object-oriented style (method):</p><p>Rolls back a transaction in progress.</p>
 	 * @param resource $link <p>The stomp link identifier returned by <code>stomp_connect()</code>.</p>
 	 * @param string $transaction_id <p>The transaction to abort.</p>
 	 * @param array $headers <p>Associative array containing the additional headers (example: receipt).</p>
@@ -319,7 +319,7 @@ namespace {
 
 	/**
 	 * Acknowledges consumption of a message
-	 * <p>Acknowledges consumption of a message from a subscription using client acknowledgment.</p>
+	 * <p>Object-oriented style (method):</p><p>Acknowledges consumption of a message from a subscription using client acknowledgment.</p>
 	 * @param resource $link <p>The stomp link identifier returned by <code>stomp_connect()</code>.</p>
 	 * @param mixed $msg <p>The message/messageId to be acknowledged.</p>
 	 * @param array $headers <p>Associative array containing the additional headers (example: receipt).</p>
@@ -331,7 +331,7 @@ namespace {
 
 	/**
 	 * Starts a transaction
-	 * <p>Starts a transaction.</p>
+	 * <p>Object-oriented style (method):</p><p>Starts a transaction.</p>
 	 * @param resource $link <p>The stomp link identifier returned by <code>stomp_connect()</code>.</p>
 	 * @param string $transaction_id <p>The transaction id.</p>
 	 * @param array $headers <p>Associative array containing the additional headers (example: receipt).</p>
@@ -343,7 +343,7 @@ namespace {
 
 	/**
 	 * Closes stomp connection
-	 * <p>Closes a previously opened connection.</p>
+	 * <p>Object-oriented style (destructor):</p><p>Closes a previously opened connection.</p>
 	 * @param resource $link <p>The stomp link identifier returned by <code>stomp_connect()</code>.</p>
 	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/stomp.destruct.php
@@ -353,7 +353,7 @@ namespace {
 
 	/**
 	 * Commits a transaction in progress
-	 * <p>Commits a transaction in progress.</p>
+	 * <p>Object-oriented style (method):</p><p>Commits a transaction in progress.</p>
 	 * @param resource $link <p>The stomp link identifier returned by <code>stomp_connect()</code>.</p>
 	 * @param string $transaction_id <p>The transaction id.</p>
 	 * @param array $headers <p>Associative array containing the additional headers (example: receipt).</p>
@@ -365,7 +365,7 @@ namespace {
 
 	/**
 	 * Opens a connection
-	 * <p>Opens a connection to a stomp compliant Message Broker.</p>
+	 * <p>Object-oriented style (constructor):</p><p>Opens a connection to a stomp compliant Message Broker.</p>
 	 * @param string $broker <p>The broker URI</p>
 	 * @param string $username <p>The username.</p>
 	 * @param string $password <p>The password.</p>
@@ -387,7 +387,7 @@ namespace {
 
 	/**
 	 * Gets the last stomp error
-	 * <p>Gets the last stomp error.</p>
+	 * <p>Object-oriented style (method):</p><p>Gets the last stomp error.</p>
 	 * @param resource $link <p>The stomp link identifier returned by <code>stomp_connect()</code>.</p>
 	 * @return string <p>Returns an error string or <b><code>false</code></b> if no error occurred.</p>
 	 * @link https://php.net/manual/en/stomp.error.php
@@ -397,7 +397,7 @@ namespace {
 
 	/**
 	 * Gets read timeout
-	 * <p>Gets read timeout</p>
+	 * <p>Object-oriented style (method):</p><p>Gets read timeout</p>
 	 * @param resource $link <p>The stomp link identifier returned by <code>stomp_connect()</code>.</p>
 	 * @return array <p>Returns an array with 2 elements: sec and usec.</p>
 	 * @link https://php.net/manual/en/stomp.getreadtimeout.php
@@ -407,7 +407,7 @@ namespace {
 
 	/**
 	 * Gets the current stomp session ID
-	 * <p>Gets the current stomp session ID.</p>
+	 * <p>Object-oriented style (method):</p><p>Gets the current stomp session ID.</p>
 	 * @param resource $link <p>The stomp link identifier returned by <code>stomp_connect()</code>.</p>
 	 * @return string|false <p><code>string</code> session id on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/stomp.getsessionid.php
@@ -417,7 +417,7 @@ namespace {
 
 	/**
 	 * Indicates whether or not there is a frame ready to read
-	 * <p>Indicates whether or not there is a frame ready to read.</p>
+	 * <p>Object-oriented style (method):</p><p>Indicates whether or not there is a frame ready to read.</p>
 	 * @param resource $link <p>The stomp link identifier returned by <code>stomp_connect()</code>.</p>
 	 * @return bool <p>Returns <b><code>true</code></b> if a frame is ready to read, or <b><code>false</code></b> otherwise.</p>
 	 * @link https://php.net/manual/en/stomp.hasframe.php
@@ -427,7 +427,7 @@ namespace {
 
 	/**
 	 * Reads the next frame
-	 * <p>Reads the next frame. It is possible to instantiate an object of a specific class, and pass parameters to that class's constructor.</p>
+	 * <p>Object-oriented style (method):</p><p>Reads the next frame. It is possible to instantiate an object of a specific class, and pass parameters to that class's constructor.</p>
 	 * @param resource $link <p>The stomp link identifier returned by <code>stomp_connect()</code>.</p>
 	 * @return array <p><b>Note</b>:</p><p>A transaction header may be specified, indicating that the message acknowledgment should be part of the named transaction.</p>
 	 * @link https://php.net/manual/en/stomp.readframe.php
@@ -437,7 +437,7 @@ namespace {
 
 	/**
 	 * Sends a message
-	 * <p>Sends a message to the Message Broker.</p>
+	 * <p>Object-oriented style (method):</p><p>Sends a message to the Message Broker.</p>
 	 * @param resource $link <p>The stomp link identifier returned by <code>stomp_connect()</code>.</p>
 	 * @param string $destination <p>Where to send the message</p>
 	 * @param mixed $msg <p>Message to send.</p>
@@ -450,11 +450,11 @@ namespace {
 
 	/**
 	 * Sets read timeout
-	 * <p>Sets read timeout.</p>
+	 * <p>Object-oriented style (method):</p><p>Sets read timeout.</p>
 	 * @param resource $link <p>The stomp link identifier returned by <code>stomp_connect()</code>.</p>
 	 * @param int $seconds <p>The seconds part of the timeout to be set.</p>
 	 * @param int $microseconds <p>The microseconds part of the timeout to be set.</p>
-	 * @return void
+	 * @return void <p>No value is returned.</p>
 	 * @link https://php.net/manual/en/stomp.setreadtimeout.php
 	 * @since PECL stomp >= 0.3.0
 	 */
@@ -462,7 +462,7 @@ namespace {
 
 	/**
 	 * Registers to listen to a given destination
-	 * <p>Registers to listen to a given destination.</p>
+	 * <p>Object-oriented style (method):</p><p>Registers to listen to a given destination.</p>
 	 * @param resource $link <p>The stomp link identifier returned by <code>stomp_connect()</code>.</p>
 	 * @param string $destination <p>Destination to subscribe to.</p>
 	 * @param array $headers <p>Associative array containing the additional headers (example: receipt).</p>
@@ -474,7 +474,7 @@ namespace {
 
 	/**
 	 * Removes an existing subscription
-	 * <p>Removes an existing subscription.</p>
+	 * <p>Object-oriented style (method):</p><p>Removes an existing subscription.</p>
 	 * @param resource $link <p>The stomp link identifier returned by <code>stomp_connect()</code>.</p>
 	 * @param string $destination <p>Subscription to remove.</p>
 	 * @param array $headers <p>Associative array containing the additional headers (example: receipt).</p>

@@ -6,15 +6,21 @@ namespace {
 
 	/**
 	 * @link https://php.net/manual/en/class.com-exception.php
-	 * @since PHP 5, PHP 7
+	 * @since PHP 5, PHP 7, PHP 8
 	 */
-	class com_exception extends \Exception implements \Throwable {
+	final class com_exception extends \Exception {
 
 		/**
 		 * @var string <p>The exception message</p>
 		 * @link https://php.net/manual/en/class.exception.php#exception.props.message
 		 */
-		protected $message;
+		protected $message = "";
+
+		/**
+		 * @var string <p>The string representation of the stack trace</p>
+		 * @link https://php.net/manual/en/class.exception.php#exception.props.string
+		 */
+		private $string = "";
 
 		/**
 		 * @var int <p>The exception code</p>
@@ -26,7 +32,7 @@ namespace {
 		 * @var string <p>The filename where the exception was created</p>
 		 * @link https://php.net/manual/en/class.exception.php#exception.props.file
 		 */
-		protected $file;
+		protected $file = "";
 
 		/**
 		 * @var int <p>The line where the exception was created</p>
@@ -35,13 +41,25 @@ namespace {
 		protected $line;
 
 		/**
+		 * @var array <p>The stack trace as an array</p>
+		 * @link https://php.net/manual/en/class.exception.php#exception.props.trace
+		 */
+		private $trace = [];
+
+		/**
+		 * @var ?Throwable <p>The previously thrown exception</p>
+		 * @link https://php.net/manual/en/class.exception.php#exception.props.previous
+		 */
+		private $previous = null;
+
+		/**
 		 * Clone the exception
 		 * <p>Tries to clone the Exception, which results in Fatal error.</p>
 		 * @return void <p>No value is returned.</p>
 		 * @link https://php.net/manual/en/exception.clone.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
-		final private function __clone() {}
+		private function __clone() {}
 
 		/**
 		 * String representation of the exception
@@ -55,11 +73,11 @@ namespace {
 		/**
 		 * Gets the Exception code
 		 * <p>Returns the Exception code.</p>
-		 * @return mixed <p>Returns the exception code as <code>int</code> in Exception but possibly as other type in Exception descendants (for example as <code>string</code> in PDOException).</p>
+		 * @return int <p>Returns the exception code as <code>int</code> in <code>Exception</code> but possibly as other type in <code>Exception</code> descendants (for example as <code>string</code> in <code>PDOException</code>).</p>
 		 * @link https://php.net/manual/en/exception.getcode.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
-		final public function getCode(): mixed {}
+		final public function getCode(): int {}
 
 		/**
 		 * Gets the file in which the exception was created
@@ -89,13 +107,13 @@ namespace {
 		final public function getMessage(): string {}
 
 		/**
-		 * Returns previous Exception
-		 * <p>Returns previous exception (the third parameter of <code>Exception::__construct()</code>).</p>
-		 * @return Throwable <p>Returns the previous Throwable if available or <b><code>null</code></b> otherwise.</p>
+		 * Returns previous Throwable
+		 * <p>Returns previous <code>Throwable</code> (which had been passed as the third parameter of <code>Exception::__construct()</code>).</p>
+		 * @return ?Throwable <p>Returns the previous <code>Throwable</code> if available or <b><code>null</code></b> otherwise.</p>
 		 * @link https://php.net/manual/en/exception.getprevious.php
 		 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8
 		 */
-		final public function getPrevious(): \Throwable {}
+		final public function getPrevious(): ?\Throwable {}
 
 		/**
 		 * Gets the stack trace
@@ -119,7 +137,7 @@ namespace {
 	/**
 	 * <p><b>COMPersistHelper</b> improves the interoperability of COM and PHP with regard to the php.ini directive open_basedir, and stream resources.</p>
 	 * @link https://php.net/manual/en/class.compersisthelper.php
-	 * @since PHP 5, PHP 7
+	 * @since PHP 5, PHP 7, PHP 8
 	 */
 	final class COMPersistHelper {
 
@@ -128,7 +146,7 @@ namespace {
 		 * <p>Retrieves the current name of the file associated with the object.</p>
 		 * @return string|false <p>Returns the current name of the file associated with the object.</p>
 		 * @link https://php.net/manual/en/compersisthelper.getcurfilename.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		public function GetCurFileName(): string|false {}
 
@@ -137,7 +155,7 @@ namespace {
 		 * <p>Retrieves the size of the stream (in bytes) needed to save the object.</p>
 		 * @return int <p>Returns the size of the stream (in bytes) needed to save the object.</p>
 		 * @link https://php.net/manual/en/compersisthelper.getmaxstreamsize.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		public function GetMaxStreamSize(): int {}
 
@@ -146,7 +164,7 @@ namespace {
 		 * <p>Initializes an object to a default state.</p>
 		 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/compersisthelper.initnew.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		public function InitNew(): bool {}
 
@@ -157,7 +175,7 @@ namespace {
 		 * @param int $flags The access mode to be used when opening the file. Possible values are taken from the STGM enumeration. The method can treat this value as a suggestion, adding more restrictive permissions if necessary. If <code>flags</code> is <code>0</code>, the implementation is supposed to open the file using whatever default permissions are used when a user opens the file.
 		 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/compersisthelper.loadfromfile.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		public function LoadFromFile(string $filename, int $flags = 0): bool {}
 
@@ -167,20 +185,20 @@ namespace {
 		 * @param resource $stream The stream resource from which to load the object.
 		 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/compersisthelper.loadfromstream.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		public function LoadFromStream($stream): bool {}
 
 		/**
 		 * Save object to file
 		 * <p>Saves a copy of the object to the specified file.</p>
-		 * @param string|null $filename The name of the file to which to save the object.
+		 * @param ?string $filename The name of the file to which to save the object.
 		 * @param bool $remember Indicates whether the <code>filename</code> parameter is to be used as the current working file. If <b><code>true</code></b>, <code>filename</code> becomes the current file and the object is supposed to clear its dirty flag after the save. If <b><code>false</code></b>, this save operation is a "Save A Copy As ..." operation. In this case, the current file is unchanged and the object is not supposed to clear its dirty flag.
 		 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/compersisthelper.savetofile.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
-		public function SaveToFile(string|null $filename, bool $remember = true): bool {}
+		public function SaveToFile(?string $filename, bool $remember = true): bool {}
 
 		/**
 		 * Save object to stream
@@ -188,19 +206,19 @@ namespace {
 		 * @param resource $stream The stream resource to which to save the object.
 		 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/compersisthelper.savetostream.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
 		public function SaveToStream($stream): bool {}
 
 		/**
 		 * Construct a COMPersistHelper object
 		 * <p>Constructs a persistence helper object, usually associated with a <code>variant</code>.</p>
-		 * @param \variant|null $variant A COM object which implements <b>IDispatch</b>. To be able to successfully call any of COMPersistHelper's methods, the object has to implement <b>IPersistFile</b>, <b>IPersistStream</b> and/or <b>IPersistStreamInit</b>.   Passing <b><code>null</code></b> as <code>variant</code> is only useful if the object is to be loaded from a stream by calling <code>COMPersistHelper::LoadFromStream()</code>.
+		 * @param ?\variant $variant A COM object which implements <b>IDispatch</b>. To be able to successfully call any of <code>COMPersistHelper</code>'s methods, the object has to implement <b>IPersistFile</b>, <b>IPersistStream</b> and/or <b>IPersistStreamInit</b>.   Passing <b><code>null</code></b> as <code>variant</code> is only useful if the object is to be loaded from a stream by calling <code>COMPersistHelper::LoadFromStream()</code>.
 		 * @return self
 		 * @link https://php.net/manual/en/compersisthelper.construct.php
-		 * @since PHP 5, PHP 7
+		 * @since PHP 5, PHP 7, PHP 8
 		 */
-		public function __construct(\variant|null $variant = null) {}
+		public function __construct(?\variant $variant = null) {}
 	}
 
 	/**
@@ -208,7 +226,7 @@ namespace {
 	 * <p>Generates a Globally Unique Identifier (GUID).</p><p>A GUID is generated in the same way as DCE UUID's, except that the Microsoft convention is to enclose a GUID in curly braces.</p>
 	 * @return string|false <p>Returns the GUID as a string, or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.com-create-guid.php
-	 * @since PHP 5, PHP 7
+	 * @since PHP 5, PHP 7, PHP 8
 	 */
 	function com_create_guid(): string|false {}
 
@@ -221,7 +239,7 @@ namespace {
 	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.com-event-sink.php
 	 * @see com_print_typeinfo(), com_message_pump()
-	 * @since PHP 4 >= 4.2.0, PHP 5, PHP 7
+	 * @since PHP 4 >= 4.2.0, PHP 5, PHP 7, PHP 8
 	 */
 	function com_event_sink(\variant $variant, object $sink_object, array|string|null $sink_interface = null): bool {}
 
@@ -229,12 +247,12 @@ namespace {
 	 * Returns a handle to an already running instance of a COM object
 	 * <p><b>com_get_active_object()</b> is similar to creating a new instance of a com object, except that it will only return an object to your script if the object is already running. OLE applications use something known as the "<code>Running Object Table</code>" to allow well-known applications to be launched only once; this function exposes the COM library function GetActiveObject() to get a handle on a running instance.</p>
 	 * @param string $prog_id <p><code>prog_id</code> must be either the ProgID or CLSID for the object that you want to access (for example <code>Word.Application</code>).</p>
-	 * @param int|null $codepage <p>Acts in precisely the same way that it does for the com class.</p>
+	 * @param ?int $codepage <p>Acts in precisely the same way that it does for the com class.</p>
 	 * @return variant <p>If the requested object is running, it will be returned to your script just like any other COM object.</p>
 	 * @link https://php.net/manual/en/function.com-get-active-object.php
-	 * @since PHP 5, PHP 7
+	 * @since PHP 5, PHP 7, PHP 8
 	 */
-	function com_get_active_object(string $prog_id, int|null $codepage = null): \variant {}
+	function com_get_active_object(string $prog_id, ?int $codepage = null): \variant {}
 
 	/**
 	 * Loads a Typelib
@@ -243,7 +261,7 @@ namespace {
 	 * @param bool $case_insensitive <p>The <code>case_insensitive</code> behaves inversely to the parameter <code>$case_insensitive</code> in the <code>define()</code> function.</p>
 	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.com-load-typelib.php
-	 * @since PHP 4 >= 4.1.0, PHP 5, PHP 7
+	 * @since PHP 4 >= 4.1.0, PHP 5, PHP 7, PHP 8
 	 */
 	function com_load_typelib(string $typelib, bool $case_insensitive = true): bool {}
 
@@ -253,7 +271,7 @@ namespace {
 	 * @param int $timeout_milliseconds <p>The timeout, in milliseconds.</p> <p>If you do not specify a value for <code>timeout_milliseconds</code>, then 0 will be assumed. A 0 value means that no waiting will be performed; if there are messages pending they will be dispatched as before; if there are no messages pending, the function will return <b><code>false</code></b> immediately without sleeping.</p>
 	 * @return bool <p>If a message or messages arrives before the timeout, they will be dispatched, and the function will return <b><code>true</code></b>. If the timeout occurs and no messages were processed, the return value will be <b><code>false</code></b>.</p>
 	 * @link https://php.net/manual/en/function.com-message-pump.php
-	 * @since PHP 4 >= 4.2.0, PHP 5, PHP 7
+	 * @since PHP 4 >= 4.2.0, PHP 5, PHP 7, PHP 8
 	 */
 	function com_message_pump(int $timeout_milliseconds = 0): bool {}
 
@@ -261,14 +279,14 @@ namespace {
 	 * Print out a PHP class definition for a dispatchable interface
 	 * <p>The purpose of this function is to help generate a skeleton class for use as an event sink. You may also use it to generate a dump of any COM object, provided that it supports enough of the introspection interfaces, and that you know the name of the interface you want to display.</p>
 	 * @param \variant|string $variant <p><code>variant</code> should be either an instance of a COM object, or be the name of a typelibrary (which will be resolved according to the rules set out in <code>com_load_typelib()</code>).</p>
-	 * @param string|null $dispatch_interface <p>The name of an <code>IDispatch</code> descendant interface that you want to display.</p>
+	 * @param ?string $dispatch_interface <p>The name of an <code>IDispatch</code> descendant interface that you want to display.</p>
 	 * @param bool $display_sink <p>If set to <b><code>true</code></b>, the corresponding sink interface will be displayed instead.</p>
 	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.com-print-typeinfo.php
 	 * @see com_event_sink(), com_load_typelib()
-	 * @since PHP 4 >= 4.2.0, PHP 5, PHP 7
+	 * @since PHP 4 >= 4.2.0, PHP 5, PHP 7, PHP 8
 	 */
-	function com_print_typeinfo(\variant|string $variant, string|null $dispatch_interface = null, bool $display_sink = false): bool {}
+	function com_print_typeinfo(\variant|string $variant, ?string $dispatch_interface = null, bool $display_sink = false): bool {}
 
 	/**
 	 * Returns the absolute value of a variant
@@ -277,7 +295,7 @@ namespace {
 	 * @return variant <p>Returns the absolute value of <code>value</code>.</p>
 	 * @link https://php.net/manual/en/function.variant-abs.php
 	 * @see abs()
-	 * @since PHP 5, PHP 7
+	 * @since PHP 5, PHP 7, PHP 8
 	 */
 	function variant_abs(mixed $value): \variant {}
 
@@ -289,7 +307,7 @@ namespace {
 	 * @return variant <p>Returns the result.</p>
 	 * @link https://php.net/manual/en/function.variant-add.php
 	 * @see variant_sub()
-	 * @since PHP 5, PHP 7
+	 * @since PHP 5, PHP 7, PHP 8
 	 */
 	function variant_add(mixed $left, mixed $right): \variant {}
 
@@ -301,7 +319,7 @@ namespace {
 	 * @return variant <b>Variant AND Rules</b>   If <code>left</code> is If <code>right</code> is then the result is    <b><code>true</code></b><b><code>true</code></b><b><code>true</code></b> <b><code>true</code></b><b><code>false</code></b><b><code>false</code></b> <b><code>true</code></b><b><code>null</code></b><b><code>null</code></b> <b><code>false</code></b><b><code>true</code></b><b><code>false</code></b> <b><code>false</code></b><b><code>false</code></b><b><code>false</code></b> <b><code>false</code></b><b><code>null</code></b><b><code>false</code></b> <b><code>null</code></b><b><code>true</code></b><b><code>null</code></b> <b><code>null</code></b><b><code>false</code></b><b><code>false</code></b> <b><code>null</code></b><b><code>null</code></b><b><code>null</code></b>
 	 * @link https://php.net/manual/en/function.variant-and.php
 	 * @see variant_or()
-	 * @since PHP 5, PHP 7
+	 * @since PHP 5, PHP 7, PHP 8
 	 */
 	function variant_and(mixed $left, mixed $right): \variant {}
 
@@ -313,7 +331,7 @@ namespace {
 	 * @return variant <p>Returns a variant of given <code>type</code>.</p>
 	 * @link https://php.net/manual/en/function.variant-cast.php
 	 * @see variant_set_type()
-	 * @since PHP 5, PHP 7
+	 * @since PHP 5, PHP 7, PHP 8
 	 */
 	function variant_cast(\variant $variant, int $type): \variant {}
 
@@ -324,7 +342,7 @@ namespace {
 	 * @param mixed $right <p>The right operand.</p>
 	 * @return variant <p>Returns the result of the concatenation.</p>
 	 * @link https://php.net/manual/en/function.variant-cat.php
-	 * @since PHP 5, PHP 7
+	 * @since PHP 5, PHP 7, PHP 8
 	 */
 	function variant_cat(mixed $left, mixed $right): \variant {}
 
@@ -337,7 +355,7 @@ namespace {
 	 * @param int $flags <p><code>flags</code> can be one or more of the following values OR'd together, and affects string comparisons:</p> <b>Variant Comparision Flags</b>   value meaning     <b><code>NORM_IGNORECASE</code></b> Compare case insensitively   <b><code>NORM_IGNORENONSPACE</code></b> Ignore nonspacing characters   <b><code>NORM_IGNORESYMBOLS</code></b> Ignore symbols   <b><code>NORM_IGNOREWIDTH</code></b> Ignore string width   <b><code>NORM_IGNOREKANATYPE</code></b> Ignore Kana type   <b><code>NORM_IGNOREKASHIDA</code></b> Ignore Arabic kashida characters
 	 * @return int <p>Returns one of the following:</p> <b>Variant Comparision Results</b>   value meaning     <b><code>VARCMP_LT</code></b> <code>left</code> is less than <code>right</code>    <b><code>VARCMP_EQ</code></b> <code>left</code> is equal to <code>right</code>    <b><code>VARCMP_GT</code></b> <code>left</code> is greater than <code>right</code>    <b><code>VARCMP_NULL</code></b> Either <code>left</code>, <code>right</code> or both are <b><code>null</code></b>
 	 * @link https://php.net/manual/en/function.variant-cmp.php
-	 * @since PHP 5, PHP 7
+	 * @since PHP 5, PHP 7, PHP 8
 	 */
 	function variant_cmp(mixed $left, mixed $right, int $locale_id = LOCALE_SYSTEM_DEFAULT, int $flags = 0): int {}
 
@@ -348,7 +366,7 @@ namespace {
 	 * @return variant <p>Returns a <b><code>VT_DATE</code></b> variant.</p>
 	 * @link https://php.net/manual/en/function.variant-date-from-timestamp.php
 	 * @see variant_date_to_timestamp(), mktime(), time()
-	 * @since PHP 5, PHP 7
+	 * @since PHP 5, PHP 7, PHP 8
 	 */
 	function variant_date_from_timestamp(int $timestamp): \variant {}
 
@@ -356,22 +374,22 @@ namespace {
 	 * Converts a variant date/time value to Unix timestamp
 	 * <p>Converts <code>variant</code> from a <b><code>VT_DATE</code></b> (or similar) value into a Unix timestamp. This allows easier interopability between the Unix-ish parts of PHP and COM.</p>
 	 * @param \variant $variant <p>The variant.</p>
-	 * @return int|null <p>Returns a unix timestamp, or <b><code>null</code></b> on failure.</p>
+	 * @return ?int <p>Returns a unix timestamp, or <b><code>null</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.variant-date-to-timestamp.php
 	 * @see variant_date_from_timestamp(), date(), strftime()
-	 * @since PHP 5, PHP 7
+	 * @since PHP 5, PHP 7, PHP 8
 	 */
-	function variant_date_to_timestamp(\variant $variant): int|null {}
+	function variant_date_to_timestamp(\variant $variant): ?int {}
 
 	/**
 	 * Returns the result from dividing two variants
 	 * <p>Divides <code>left</code> by <code>right</code> and returns the result.</p>
 	 * @param mixed $left <p>The left operand.</p>
 	 * @param mixed $right <p>The right operand.</p>
-	 * @return variant <b>Variant Division Rules</b>   If Then     Both expressions are of the string, date, character, boolean type Double is returned   One expression is a string type and the other a character Division and a double is returned   One expression is numeric and the other is a string Division and a double is returned.   Both expressions are numeric Division and a double is returned   Either expression is NULL NULL is returned   <code>right</code> is empty and <code>left</code> is anything but empty A com_exception with code <b><code>DISP_E_DIVBYZERO</code></b> is thrown   <code>left</code> is empty and <code>right</code> is anything but empty. 0 as type double is returned   Both expressions are empty A com_exception with code <b><code>DISP_E_OVERFLOW</code></b> is thrown
+	 * @return variant <b>Variant Division Rules</b>   If Then     Both expressions are of the string, date, character, boolean type Double is returned   One expression is a string type and the other a character Division and a double is returned   One expression is numeric and the other is a string Division and a double is returned.   Both expressions are numeric Division and a double is returned   Either expression is NULL NULL is returned   <code>right</code> is empty and <code>left</code> is anything but empty A <code>com_exception</code> with code <b><code>DISP_E_DIVBYZERO</code></b> is thrown   <code>left</code> is empty and <code>right</code> is anything but empty. 0 as type double is returned   Both expressions are empty A <code>com_exception</code> with code <b><code>DISP_E_OVERFLOW</code></b> is thrown
 	 * @link https://php.net/manual/en/function.variant-div.php
 	 * @see variant_idiv()
-	 * @since PHP 5, PHP 7
+	 * @since PHP 5, PHP 7, PHP 8
 	 */
 	function variant_div(mixed $left, mixed $right): \variant {}
 
@@ -382,7 +400,7 @@ namespace {
 	 * @param mixed $right <p>The right operand.</p>
 	 * @return variant <p>If each bit in <code>left</code> is equal to the corresponding bit in <code>right</code> then <b><code>true</code></b> is returned, otherwise <b><code>false</code></b> is returned.</p>
 	 * @link https://php.net/manual/en/function.variant-eqv.php
-	 * @since PHP 5, PHP 7
+	 * @since PHP 5, PHP 7, PHP 8
 	 */
 	function variant_eqv(mixed $left, mixed $right): \variant {}
 
@@ -393,7 +411,7 @@ namespace {
 	 * @return variant <p>If <code>value</code> is negative, then the first negative integer greater than or equal to the variant is returned, otherwise returns the integer portion of the value of <code>value</code>.</p>
 	 * @link https://php.net/manual/en/function.variant-fix.php
 	 * @see variant_int(), variant_round(), floor(), ceil(), round()
-	 * @since PHP 5, PHP 7
+	 * @since PHP 5, PHP 7, PHP 8
 	 */
 	function variant_fix(mixed $value): \variant {}
 
@@ -404,7 +422,7 @@ namespace {
 	 * @return int <p>This function returns an integer value that indicates the type of <code>variant</code>, which can be an instance of com, dotnet or variant classes. The return value can be compared to one of the <b><code>VT_XXX</code></b> constants.</p><p>The return value for COM and DOTNET objects will usually be <b><code>VT_DISPATCH</code></b>; the only reason this function works for those classes is because COM and DOTNET are descendants of VARIANT.</p>
 	 * @link https://php.net/manual/en/function.variant-get-type.php
 	 * @see variant_set_type()
-	 * @since PHP 5, PHP 7
+	 * @since PHP 5, PHP 7, PHP 8
 	 */
 	function variant_get_type(\variant $variant): int {}
 
@@ -413,10 +431,10 @@ namespace {
 	 * <p>Converts <code>left</code> and <code>right</code> to integer values, and then performs integer division.</p>
 	 * @param mixed $left <p>The left operand.</p>
 	 * @param mixed $right <p>The right operand.</p>
-	 * @return variant <b>Variant Integer Division Rules</b>   If Then     Both expressions are of the string, date, character, boolean type Division and integer is returned   One expression is a string type and the other a character Division   One expression is numeric and the other is a string Division   Both expressions are numeric Division   Either expression is NULL NULL is returned   Both expressions are empty A com_exception with code <b><code>DISP_E_DIVBYZERO</code></b> is thrown
+	 * @return variant <b>Variant Integer Division Rules</b>   If Then     Both expressions are of the string, date, character, boolean type Division and integer is returned   One expression is a string type and the other a character Division   One expression is numeric and the other is a string Division   Both expressions are numeric Division   Either expression is NULL NULL is returned   Both expressions are empty A <code>com_exception</code> with code <b><code>DISP_E_DIVBYZERO</code></b> is thrown
 	 * @link https://php.net/manual/en/function.variant-idiv.php
 	 * @see variant_div()
-	 * @since PHP 5, PHP 7
+	 * @since PHP 5, PHP 7, PHP 8
 	 */
 	function variant_idiv(mixed $left, mixed $right): \variant {}
 
@@ -427,7 +445,7 @@ namespace {
 	 * @param mixed $right <p>The right operand.</p>
 	 * @return variant <b>Variant Implication Table</b>   If <code>left</code> is If <code>right</code> is then the result is    <b><code>true</code></b><b><code>true</code></b><b><code>true</code></b> <b><code>true</code></b><b><code>false</code></b><b><code>false</code></b> <b><code>true</code></b><b><code>null</code></b><b><code>true</code></b> <b><code>false</code></b><b><code>true</code></b><b><code>true</code></b> <b><code>false</code></b><b><code>false</code></b><b><code>true</code></b> <b><code>false</code></b><b><code>null</code></b><b><code>true</code></b> <b><code>null</code></b><b><code>true</code></b><b><code>true</code></b> <b><code>null</code></b><b><code>false</code></b><b><code>null</code></b> <b><code>null</code></b><b><code>null</code></b><b><code>null</code></b>
 	 * @link https://php.net/manual/en/function.variant-imp.php
-	 * @since PHP 5, PHP 7
+	 * @since PHP 5, PHP 7, PHP 8
 	 */
 	function variant_imp(mixed $left, mixed $right): \variant {}
 
@@ -438,7 +456,7 @@ namespace {
 	 * @return variant <p>If <code>value</code> is negative, then the first negative integer greater than or equal to the variant is returned, otherwise returns the integer portion of the value of <code>value</code>.</p>
 	 * @link https://php.net/manual/en/function.variant-int.php
 	 * @see variant_fix(), variant_round(), floor(), ceil(), round()
-	 * @since PHP 5, PHP 7
+	 * @since PHP 5, PHP 7, PHP 8
 	 */
 	function variant_int(mixed $value): \variant {}
 
@@ -450,7 +468,7 @@ namespace {
 	 * @return variant <p>Returns the remainder of the division.</p>
 	 * @link https://php.net/manual/en/function.variant-mod.php
 	 * @see variant_div(), variant_idiv()
-	 * @since PHP 5, PHP 7
+	 * @since PHP 5, PHP 7, PHP 8
 	 */
 	function variant_mod(mixed $left, mixed $right): \variant {}
 
@@ -462,7 +480,7 @@ namespace {
 	 * @return variant <b>Variant Multiplication Rules</b>   If Then     Both expressions are of the string, date, character, boolean type Multiplication   One expression is a string type and the other a character Multiplication   One expression is numeric and the other is a string Multiplication   Both expressions are numeric Multiplication   Either expression is NULL NULL is returned   Both expressions are empty Empty string is returned
 	 * @link https://php.net/manual/en/function.variant-mul.php
 	 * @see variant_div(), variant_idiv()
-	 * @since PHP 5, PHP 7
+	 * @since PHP 5, PHP 7, PHP 8
 	 */
 	function variant_mul(mixed $left, mixed $right): \variant {}
 
@@ -472,7 +490,7 @@ namespace {
 	 * @param mixed $value <p>The variant.</p>
 	 * @return variant <p>Returns the result of the logical negation.</p>
 	 * @link https://php.net/manual/en/function.variant-neg.php
-	 * @since PHP 5, PHP 7
+	 * @since PHP 5, PHP 7, PHP 8
 	 */
 	function variant_neg(mixed $value): \variant {}
 
@@ -482,7 +500,7 @@ namespace {
 	 * @param mixed $value <p>The variant.</p>
 	 * @return variant <p>Returns the bitwise not negation. If <code>value</code> is <b><code>null</code></b>, the result will also be <b><code>null</code></b>.</p>
 	 * @link https://php.net/manual/en/function.variant-not.php
-	 * @since PHP 5, PHP 7
+	 * @since PHP 5, PHP 7, PHP 8
 	 */
 	function variant_not(mixed $value): \variant {}
 
@@ -494,7 +512,7 @@ namespace {
 	 * @return variant <b>Variant OR Rules</b>   If <code>left</code> is If <code>right</code> is then the result is    <b><code>true</code></b><b><code>true</code></b><b><code>true</code></b> <b><code>true</code></b><b><code>false</code></b><b><code>true</code></b> <b><code>true</code></b><b><code>null</code></b><b><code>true</code></b> <b><code>false</code></b><b><code>true</code></b><b><code>true</code></b> <b><code>false</code></b><b><code>false</code></b><b><code>false</code></b> <b><code>false</code></b><b><code>null</code></b><b><code>null</code></b> <b><code>null</code></b><b><code>true</code></b><b><code>true</code></b> <b><code>null</code></b><b><code>false</code></b><b><code>null</code></b> <b><code>null</code></b><b><code>null</code></b><b><code>null</code></b>
 	 * @link https://php.net/manual/en/function.variant-or.php
 	 * @see variant_and(), variant_xor()
-	 * @since PHP 5, PHP 7
+	 * @since PHP 5, PHP 7, PHP 8
 	 */
 	function variant_or(mixed $left, mixed $right): \variant {}
 
@@ -506,7 +524,7 @@ namespace {
 	 * @return variant <p>Returns the result of <code>left</code> to the power of <code>right</code>.</p>
 	 * @link https://php.net/manual/en/function.variant-pow.php
 	 * @see pow()
-	 * @since PHP 5, PHP 7
+	 * @since PHP 5, PHP 7, PHP 8
 	 */
 	function variant_pow(mixed $left, mixed $right): \variant {}
 
@@ -515,12 +533,12 @@ namespace {
 	 * <p>Returns the value of <code>value</code> rounded to <code>decimals</code> decimal places.</p>
 	 * @param mixed $value <p>The variant.</p>
 	 * @param int $decimals <p>Number of decimal places.</p>
-	 * @return variant|null <p>Returns the rounded value, or <b><code>null</code></b> on failure.</p>
+	 * @return ?variant <p>Returns the rounded value, or <b><code>null</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.variant-round.php
 	 * @see round()
-	 * @since PHP 5, PHP 7
+	 * @since PHP 5, PHP 7, PHP 8
 	 */
-	function variant_round(mixed $value, int $decimals): \variant|null {}
+	function variant_round(mixed $value, int $decimals): ?\variant {}
 
 	/**
 	 * Assigns a new value for a variant object
@@ -529,7 +547,7 @@ namespace {
 	 * @param mixed $value
 	 * @return void <p>No value is returned.</p>
 	 * @link https://php.net/manual/en/function.variant-set.php
-	 * @since PHP 5, PHP 7
+	 * @since PHP 5, PHP 7, PHP 8
 	 */
 	function variant_set(\variant $variant, mixed $value): void {}
 
@@ -541,7 +559,7 @@ namespace {
 	 * @return void <p>No value is returned.</p>
 	 * @link https://php.net/manual/en/function.variant-set-type.php
 	 * @see variant_cast(), variant_get_type()
-	 * @since PHP 5, PHP 7
+	 * @since PHP 5, PHP 7, PHP 8
 	 */
 	function variant_set_type(\variant $variant, int $type): void {}
 
@@ -553,7 +571,7 @@ namespace {
 	 * @return variant <b>Variant Subtraction Rules</b>   If Then     Both expressions are of the string type Subtraction   One expression is a string type and the other a character Subtraction   One expression is numeric and the other is a string Subtraction.   Both expressions are numeric Subtraction   Either expression is NULL NULL is returned   Both expressions are empty Empty string is returned
 	 * @link https://php.net/manual/en/function.variant-sub.php
 	 * @see variant_add()
-	 * @since PHP 5, PHP 7
+	 * @since PHP 5, PHP 7, PHP 8
 	 */
 	function variant_sub(mixed $left, mixed $right): \variant {}
 
@@ -565,7 +583,7 @@ namespace {
 	 * @return variant <b>Variant XOR Rules</b>   If <code>left</code> is If <code>right</code> is then the result is    <b><code>true</code></b><b><code>true</code></b><b><code>false</code></b> <b><code>true</code></b><b><code>false</code></b><b><code>true</code></b> <b><code>false</code></b><b><code>true</code></b><b><code>true</code></b> <b><code>false</code></b><b><code>false</code></b><b><code>false</code></b> <b><code>null</code></b><b><code>null</code></b><b><code>null</code></b>
 	 * @link https://php.net/manual/en/function.variant-xor.php
 	 * @see variant_or(), variant_and()
-	 * @since PHP 5, PHP 7
+	 * @since PHP 5, PHP 7, PHP 8
 	 */
 	function variant_xor(mixed $left, mixed $right): \variant {}
 

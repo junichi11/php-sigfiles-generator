@@ -32,10 +32,10 @@ namespace {
 
 		/**
 		 * Construct a new V8Js object
-		 * <p>Constructs a new V8Js object.</p>
+		 * <p>Constructs a new <code>V8Js</code> object.</p>
 		 * @param string $object_name <p>The name of the object passed to Javascript.</p>
 		 * @param array $variables <p>Map of PHP variables that will be available in Javascript. Must be an associative <code>array</code> in format <code>array("name-for-js" =&gt; "name-of-php-variable")</code>. Defaults to empty array.</p>
-		 * @param array $extensions <p>List of extensions registered using <code>V8Js::registerExtension()</code> which should be available in the Javascript context of the created V8Js object.</p><p><b>Note</b>:</p><p>Extensions registered to be enabled automatically do not need to be listed in this array. Also if an extension has dependencies, those dependencies can be omitted as well. Defaults to empty array.</p>
+		 * @param array $extensions <p>List of extensions registered using <code>V8Js::registerExtension()</code> which should be available in the Javascript context of the created <code>V8Js</code> object.</p><p><b>Note</b>:</p><p>Extensions registered to be enabled automatically do not need to be listed in this array. Also if an extension has dependencies, those dependencies can be omitted as well. Defaults to empty array.</p>
 		 * @param bool $report_uncaught_exceptions <p>Controls whether uncaught Javascript exceptions are reported immediately or not. Defaults to <b><code>true</code></b>. If set to <b><code>false</code></b> the uncaught exception can be accessed using <code>V8Js::getPendingException()</code>.</p>
 		 * @return self <p>Returns a new V8Js context object.</p>
 		 * @link https://php.net/manual/en/v8js.construct.php
@@ -66,8 +66,8 @@ namespace {
 
 		/**
 		 * Return pending uncaught Javascript exception
-		 * <p>Returns any pending uncaught Javascript exception as V8JsException left from earlier <code>V8Js::executeString()</code> call(s).</p>
-		 * @return V8JsException <p>Either V8JsException or <b><code>null</code></b>.</p>
+		 * <p>Returns any pending uncaught Javascript exception as <code>V8JsException</code> left from earlier <code>V8Js::executeString()</code> call(s).</p>
+		 * @return V8JsException <p>Either <code>V8JsException</code> or <b><code>null</code></b>.</p>
 		 * @link https://php.net/manual/en/v8js.getpendingexception.php
 		 * @since PECL v8js >= 0.1.0
 		 */
@@ -75,11 +75,11 @@ namespace {
 
 		/**
 		 * Register Javascript extensions for V8Js
-		 * <p>Registers passed Javascript <code>script</code> as extension to be used in V8Js contexts.</p>
+		 * <p>Registers passed Javascript <code>script</code> as extension to be used in <code>V8Js</code> contexts.</p>
 		 * @param string $extension_name <p>Name of the extension to be registered.</p>
 		 * @param string $script <p>The Javascript code to be registered.</p>
-		 * @param array $dependencies <p>Array of extension names the extension to be registered depends on. Any such extension is enabled automatically when this extension is loaded.</p><p><b>Note</b>:</p><p>All extensions, including the dependencies, must be registered before any V8Js are created which use them.</p>
-		 * @param bool $auto_enable <p>If set to <b><code>true</code></b>, the extension will be enabled automatically in all V8Js contexts.</p>
+		 * @param array $dependencies <p>Array of extension names the extension to be registered depends on. Any such extension is enabled automatically when this extension is loaded.</p><p><b>Note</b>:</p><p>All extensions, including the dependencies, must be registered before any <code>V8Js</code> are created which use them.</p>
+		 * @param bool $auto_enable <p>If set to <b><code>true</code></b>, the extension will be enabled automatically in all <code>V8Js</code> contexts.</p>
 		 * @return bool <p>Returns <b><code>true</code></b> if extension was registered successfully, <b><code>false</code></b> otherwise.</p>
 		 * @link https://php.net/manual/en/v8js.registerextension.php
 		 * @since PECL v8js >= 0.1.0
@@ -121,7 +121,13 @@ namespace {
 		 * @var string <p>The exception message</p>
 		 * @link https://php.net/manual/en/class.exception.php#exception.props.message
 		 */
-		protected $message;
+		protected $message = "";
+
+		/**
+		 * @var string <p>The string representation of the stack trace</p>
+		 * @link https://php.net/manual/en/class.exception.php#exception.props.string
+		 */
+		private $string = "";
 
 		/**
 		 * @var int <p>The exception code</p>
@@ -133,7 +139,7 @@ namespace {
 		 * @var string <p>The filename where the exception was created</p>
 		 * @link https://php.net/manual/en/class.exception.php#exception.props.file
 		 */
-		protected $file;
+		protected $file = "";
 
 		/**
 		 * @var int <p>The line where the exception was created</p>
@@ -142,13 +148,25 @@ namespace {
 		protected $line;
 
 		/**
+		 * @var array <p>The stack trace as an array</p>
+		 * @link https://php.net/manual/en/class.exception.php#exception.props.trace
+		 */
+		private $trace = [];
+
+		/**
+		 * @var ?Throwable <p>The previously thrown exception</p>
+		 * @link https://php.net/manual/en/class.exception.php#exception.props.previous
+		 */
+		private $previous = null;
+
+		/**
 		 * Clone the exception
 		 * <p>Tries to clone the Exception, which results in Fatal error.</p>
 		 * @return void <p>No value is returned.</p>
 		 * @link https://php.net/manual/en/exception.clone.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
-		final private function __clone() {}
+		private function __clone() {}
 
 		/**
 		 * String representation of the exception
@@ -162,11 +180,11 @@ namespace {
 		/**
 		 * Gets the Exception code
 		 * <p>Returns the Exception code.</p>
-		 * @return mixed <p>Returns the exception code as <code>int</code> in Exception but possibly as other type in Exception descendants (for example as <code>string</code> in PDOException).</p>
+		 * @return int <p>Returns the exception code as <code>int</code> in <code>Exception</code> but possibly as other type in <code>Exception</code> descendants (for example as <code>string</code> in <code>PDOException</code>).</p>
 		 * @link https://php.net/manual/en/exception.getcode.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
-		final public function getCode(): mixed {}
+		final public function getCode(): int {}
 
 		/**
 		 * Gets the file in which the exception was created
@@ -232,13 +250,13 @@ namespace {
 		final public function getMessage(): string {}
 
 		/**
-		 * Returns previous Exception
-		 * <p>Returns previous exception (the third parameter of <code>Exception::__construct()</code>).</p>
-		 * @return Throwable <p>Returns the previous Throwable if available or <b><code>null</code></b> otherwise.</p>
+		 * Returns previous Throwable
+		 * <p>Returns previous <code>Throwable</code> (which had been passed as the third parameter of <code>Exception::__construct()</code>).</p>
+		 * @return ?Throwable <p>Returns the previous <code>Throwable</code> if available or <b><code>null</code></b> otherwise.</p>
 		 * @link https://php.net/manual/en/exception.getprevious.php
 		 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8
 		 */
-		final public function getPrevious(): \Throwable {}
+		final public function getPrevious(): ?\Throwable {}
 
 		/**
 		 * Gets the stack trace

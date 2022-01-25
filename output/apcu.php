@@ -13,21 +13,21 @@ namespace {
 
 		/**
 		 * Constructs an APCUIterator iterator object
-		 * <p>Constructs an APCUIterator <code>object</code>.</p>
-		 * @param mixed $search <p>A PCRE regular expression that matches against APCu key names, either as a <code>string</code> for a single regular expression, or as an <code>array</code> of regular expressions. Or, optionally pass in <b><code>null</code></b> to skip the search.</p>
+		 * <p>Constructs an <code>APCUIterator</code> <code>object</code>.</p>
+		 * @param array|string|null $search <p>Either a PCRE regular expression that matches against APCu key names, given as a <code>string</code>. Or an <code>array</code> of <code>string</code>s with APCu key names. Or, optionally <b><code>null</code></b> to skip the search.</p>
 		 * @param int $format <p>The desired format, as configured with one or more of the APC_ITER_&#42; constants.</p>
 		 * @param int $chunk_size <p>The chunk size. Must be a value greater than 0. The default value is 100.</p>
 		 * @param int $list <p>The type to list. Either pass in <b><code>APC_LIST_ACTIVE</code></b> or <b><code>APC_LIST_DELETED</code></b>.</p>
-		 * @return self <p>An APCUIterator <code>object</code> on success, or <b><code>null</code></b> on failure.</p>
+		 * @return self <p>An <code>APCUIterator</code> <code>object</code> on success, or <b><code>null</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/apcuiterator.construct.php
 		 * @see apcu_exists(), apcu_cache_info()
 		 * @since PECL apcu >= 5.0.0
 		 */
-		public function __construct(mixed $search = null, int $format = APC_ITER_ALL, int $chunk_size = 100, int $list = APC_LIST_ACTIVE) {}
+		public function __construct(array|string|null $search = null, int $format = APC_ITER_ALL, int $chunk_size = 100, int $list = APC_LIST_ACTIVE) {}
 
 		/**
 		 * Get current item
-		 * <p>Gets the current item from the APCUIterator stack.</p>
+		 * <p>Gets the current item from the <code>APCUIterator</code> stack.</p>
 		 * @return mixed <p>Returns the current item on success, or <b><code>false</code></b> if no more items or exist, or on failure.</p>
 		 * @link https://php.net/manual/en/apcuiterator.current.php
 		 * @since PECL apcu >= 5.0.0
@@ -163,7 +163,7 @@ namespace {
 	/**
 	 * Removes a stored variable from the cache
 	 * <p>Removes a stored variable from the cache.</p>
-	 * @param mixed $key <p>A <code>key</code> used to store the value as a <code>string</code> for a single key, or as an <code>array</code> of strings for several keys, or as an APCUIterator <code>object</code>.</p>
+	 * @param mixed $key <p>A <code>key</code> used to store the value as a <code>string</code> for a single key, or as an <code>array</code> of strings for several keys, or as an <code>APCUIterator</code> <code>object</code>.</p>
 	 * @return mixed <p>If <code>key</code> is an <code>array</code>, an indexed <code>array</code> of the keys is returned. Otherwise <b><code>true</code></b> is returned on success, or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.apcu-delete.php
 	 * @see apcu_store(), apcu_fetch(), apcu_clear_cache()
@@ -234,12 +234,12 @@ namespace {
 	 * Get detailed information about the cache key
 	 * <p>Get detailed information about the cache key</p>
 	 * @param string $key <p>Get detailed information about the cache key</p>
-	 * @return array <p>null or array info</p>
+	 * @return ?array <p>An array containing the detailed information about the cache key, or <b><code>null</code></b> if the key does not exist.</p>
 	 * @link https://php.net/manual/en/function.apcu-key-info.php
 	 * @see apcu_store(), apcu_fetch(), apcu_delete()
 	 * @since No version information available, might only be in Git
 	 */
-	function apcu_key_info(string $key): array {}
+	function apcu_key_info(string $key): ?array {}
 
 	/**
 	 * Retrieves APCu Shared Memory Allocation information

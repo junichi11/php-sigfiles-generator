@@ -445,6 +445,11 @@ namespace {
 
 	define('RPMTAG_PAYLOADDIGESTALGO', null);
 
+	/**
+	 * With librpm &gt;= 4.16.
+	 */
+	define('RPMTAG_PAYLOADDIGESTALT', null);
+
 	define('RPMTAG_PAYLOADFLAGS', null);
 
 	define('RPMTAG_PAYLOADFORMAT', null);
@@ -669,6 +674,16 @@ namespace {
 	define('RPMTAG_VERIFYSCRIPTFLAGS', null);
 
 	define('RPMTAG_VERIFYSCRIPTPROG', null);
+
+	/**
+	 * With librpm &gt;= 4.17.
+	 */
+	define('RPMTAG_VERITYSIGNATUREALGO', null);
+
+	/**
+	 * With librpm &gt;= 4.17.
+	 */
+	define('RPMTAG_VERITYSIGNATURES', null);
 
 	define('RPMTAG_VERSION', null);
 

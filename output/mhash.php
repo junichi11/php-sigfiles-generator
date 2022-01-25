@@ -9,19 +9,19 @@ namespace {
 	 * <p><b>mhash()</b> applies a hash function specified by <code>algo</code> to the <code>data</code>.</p>
 	 * @param int $algo <p>The hash ID. One of the <b><code>MHASH_hashname</code></b> constants.</p>
 	 * @param string $data <p>The user input, as a string.</p>
-	 * @param string|null $key <p>If specified, the function will return the resulting HMAC instead. HMAC is keyed hashing for message authentication, or simply a message digest that depends on the specified key. Not all algorithms supported in mhash can be used in HMAC mode.</p>
+	 * @param ?string $key <p>If specified, the function will return the resulting HMAC instead. HMAC is keyed hashing for message authentication, or simply a message digest that depends on the specified key. Not all algorithms supported in mhash can be used in HMAC mode.</p>
 	 * @return string|false <p>Returns the resulting hash (also called digest) or HMAC as a string, or <b><code>false</code></b> on error.</p>
 	 * @link https://php.net/manual/en/function.mhash.php
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
-	function mhash(int $algo, string $data, string|null $key = null): string|false {}
+	function mhash(int $algo, string $data, ?string $key = null): string|false {}
 
 	/**
 	 * Gets the highest available hash ID
 	 * <p>Gets the highest available hash ID.</p>
 	 * @return int <p>Returns the highest available hash ID. Hashes are numbered from 0 to this hash ID.</p>
 	 * @link https://php.net/manual/en/function.mhash-count.php
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
 	function mhash_count(): int {}
 
@@ -31,7 +31,7 @@ namespace {
 	 * @param int $algo <p>The hash ID. One of the <b><code>MHASH_hashname</code></b> constants.</p>
 	 * @return int|false <p>Returns the size in bytes or <b><code>false</code></b>, if the <code>algo</code> does not exist.</p>
 	 * @link https://php.net/manual/en/function.mhash-get-block-size.php
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
 	function mhash_get_block_size(int $algo): int|false {}
 
@@ -41,7 +41,7 @@ namespace {
 	 * @param int $algo <p>The hash ID. One of the <b><code>MHASH_hashname</code></b> constants.</p>
 	 * @return string|false <p>Returns the name of the hash or <b><code>false</code></b>, if the hash does not exist.</p>
 	 * @link https://php.net/manual/en/function.mhash-get-hash-name.php
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
 	function mhash_get_hash_name(int $algo): string|false {}
 
@@ -54,7 +54,7 @@ namespace {
 	 * @param int $length <p>The key length, in bytes.</p>
 	 * @return string|false <p>Returns the generated key as a string, or <b><code>false</code></b> on error.</p>
 	 * @link https://php.net/manual/en/function.mhash-keygen-s2k.php
-	 * @since PHP 4 >= 4.0.4, PHP 5, PHP 7
+	 * @since PHP 4 >= 4.0.4, PHP 5, PHP 7, PHP 8
 	 */
 	function mhash_keygen_s2k(int $algo, string $password, string $salt, int $length): string|false {}
 

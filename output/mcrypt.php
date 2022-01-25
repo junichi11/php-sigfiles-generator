@@ -5,34 +5,6 @@
 namespace {
 
 	/**
-	 * Encrypts/decrypts data in CBC mode
-	 * <p>The first prototype is when linked against libmcrypt 2.2.x, the second when linked against libmcrypt 2.4.x or higher. The <code>mode</code> should be either <b><code>MCRYPT_ENCRYPT</code></b> or <b><code>MCRYPT_DECRYPT</code></b>.</p>
-	 * @param int $cipher
-	 * @param string $key
-	 * @param string $data
-	 * @param int $mode
-	 * @param string $iv
-	 * @return string
-	 * @link https://php.net/manual/en/function.mcrypt-cbc.php
-	 * @since PHP 4, PHP 5
-	 */
-	function mcrypt_cbc(int $cipher, string $key, string $data, int $mode, string $iv = null): string {}
-
-	/**
-	 * Encrypts/decrypts data in CFB mode
-	 * <p>The first prototype is when linked against libmcrypt 2.2.x, the second when linked against libmcrypt 2.4.x or higher. The <code>mode</code> should be either <b><code>MCRYPT_ENCRYPT</code></b> or <b><code>MCRYPT_DECRYPT</code></b>.</p>
-	 * @param int $cipher
-	 * @param string $key
-	 * @param string $data
-	 * @param int $mode
-	 * @param string $iv
-	 * @return string
-	 * @link https://php.net/manual/en/function.mcrypt-cfb.php
-	 * @since PHP 4, PHP 5
-	 */
-	function mcrypt_cfb(int $cipher, string $key, string $data, int $mode, string $iv): string {}
-
-	/**
 	 * Creates an initialization vector (IV) from a random source
 	 * <p>Creates an initialization vector (IV) from a random source.</p><p>The IV is only meant to give an alternative seed to the encryption routines. This IV does not need to be secret at all, though it can be desirable. You even can send it along with your ciphertext without losing security.</p>
 	 * @param int $size <p>The size of the IV.</p>
@@ -58,19 +30,6 @@ namespace {
 	 * @since PHP 4 >= 4.0.2, PHP 5, PHP 7 < 7.2.0, PECL mcrypt >= 1.0.0
 	 */
 	function mcrypt_decrypt(string $cipher, string $key, string $data, string $mode, string $iv = null): string|false {}
-
-	/**
-	 * Deprecated: Encrypts/decrypts data in ECB mode
-	 * <p>The first prototype is when linked against libmcrypt 2.2.x, the second when linked against libmcrypt 2.4.x or higher. The <code>mode</code> should be either <b><code>MCRYPT_ENCRYPT</code></b> or <b><code>MCRYPT_DECRYPT</code></b>.</p>
-	 * @param int $cipher
-	 * @param string $key
-	 * @param string $data
-	 * @param int $mode
-	 * @return string
-	 * @link https://php.net/manual/en/function.mcrypt-ecb.php
-	 * @since PHP 4, PHP 5
-	 */
-	function mcrypt_ecb(int $cipher, string $key, string $data, int $mode): string {}
 
 	/**
 	 * Returns the name of the opened algorithm
@@ -209,16 +168,6 @@ namespace {
 	 * @since PHP 4 >= 4.0.7, PHP 5, PHP 7 < 7.2.0, PECL mcrypt >= 1.0.0
 	 */
 	function mcrypt_generic_deinit($td): bool {}
-
-	/**
-	 * This function terminates encryption
-	 * <p></p><p><code>mcrypt_generic_deinit()</code> should be used instead of this function, as it can cause crashes when used with <code>mcrypt_module_close()</code> due to multiple buffer frees.</p><p>This function terminates encryption specified by the encryption descriptor (<code>td</code>). Actually it clears all buffers, and closes all the modules used. Returns <b><code>false</code></b> on error, or <b><code>true</code></b> on success.</p>
-	 * @param resource $td
-	 * @return bool
-	 * @link https://php.net/manual/en/function.mcrypt-generic-end.php
-	 * @since PHP 4 >= 4.0.2, PHP 5
-	 */
-	function mcrypt_generic_end($td): bool {}
 
 	/**
 	 * This function initializes all buffers needed for encryption
@@ -401,25 +350,11 @@ namespace {
 	function mcrypt_module_self_test(string $algorithm, string $lib_dir = null): bool {}
 
 	/**
-	 * Encrypts/decrypts data in OFB mode
-	 * <p>The first prototype is when linked against libmcrypt 2.2.x, the second when linked against libmcrypt 2.4.x or higher. The <code>mode</code> should be either <b><code>MCRYPT_ENCRYPT</code></b> or <b><code>MCRYPT_DECRYPT</code></b>.</p>
-	 * @param int $cipher
-	 * @param string $key
-	 * @param string $data
-	 * @param int $mode
-	 * @param string $iv
-	 * @return string
-	 * @link https://php.net/manual/en/function.mcrypt-ofb.php
-	 * @since PHP 4, PHP 5
-	 */
-	function mcrypt_ofb(int $cipher, string $key, string $data, int $mode, string $iv): string {}
-
-	/**
 	 * Decrypts data
 	 * <p>This function decrypts data. Note that the length of the returned string can in fact be longer than the unencrypted string, due to the padding of the data.</p>
 	 * @param resource $td <p>An encryption descriptor returned by <code>mcrypt_module_open()</code></p>
 	 * @param string $data <p>Encrypted data.</p>
-	 * @return string
+	 * @return string <p>Returns decrypted string.</p>
 	 * @link https://php.net/manual/en/function.mdecrypt-generic.php
 	 * @see mcrypt_generic(), mcrypt_generic_init(), mcrypt_generic_deinit()
 	 * @since PHP 4 >= 4.0.2, PHP 5, PHP 7 < 7.2.0, PECL mcrypt >= 1.0.0

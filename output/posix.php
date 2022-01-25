@@ -12,7 +12,7 @@ namespace {
 	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.posix-access.php
 	 * @see posix_get_last_error(), posix_strerror()
-	 * @since PHP 5 >= 5.1.0, PHP 7
+	 * @since PHP 5 >= 5.1.0, PHP 7, PHP 8
 	 */
 	function posix_access(string $filename, int $flags = 0): bool {}
 
@@ -22,7 +22,7 @@ namespace {
 	 * @return string|false <p>Upon successful completion, returns <code>string</code> of the pathname to the current controlling terminal. Otherwise <b><code>false</code></b> is returned and errno is set, which can be checked with <code>posix_get_last_error()</code>.</p>
 	 * @link https://php.net/manual/en/function.posix-ctermid.php
 	 * @see posix_ttyname(), posix_get_last_error()
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
 	function posix_ctermid(): string|false {}
 
@@ -31,7 +31,7 @@ namespace {
 	 * <p>This function is an alias of: <code>posix_get_last_error()</code>.</p>
 	 * @return int
 	 * @link https://php.net/manual/en/function.posix-errno.php
-	 * @since PHP 4 >= 4.2.0, PHP 5, PHP 7
+	 * @since PHP 4 >= 4.2.0, PHP 5, PHP 7, PHP 8
 	 */
 	function posix_errno(): int {}
 
@@ -41,7 +41,7 @@ namespace {
 	 * @return int <p>Returns the errno (error number) set by the last posix function that failed. If no errors exist, 0 is returned.</p>
 	 * @link https://php.net/manual/en/function.posix-get-last-error.php
 	 * @see posix_strerror()
-	 * @since PHP 4 >= 4.2.0, PHP 5, PHP 7
+	 * @since PHP 4 >= 4.2.0, PHP 5, PHP 7, PHP 8
 	 */
 	function posix_get_last_error(): int {}
 
@@ -50,7 +50,7 @@ namespace {
 	 * <p>Gets the absolute pathname of the script's current working directory. On error, it sets errno which can be checked using <code>posix_get_last_error()</code></p>
 	 * @return string|false <p>Returns a <code>string</code> of the absolute pathname on success. On error, returns <b><code>false</code></b> and sets errno which can be checked with <code>posix_get_last_error()</code>.</p>
 	 * @link https://php.net/manual/en/function.posix-getcwd.php
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
 	function posix_getcwd(): string|false {}
 
@@ -60,7 +60,7 @@ namespace {
 	 * @return int <p>Returns an <code>int</code> of the effective group ID.</p>
 	 * @link https://php.net/manual/en/function.posix-getegid.php
 	 * @see posix_getgrgid(), posix_getgid(), posix_setgid()
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
 	function posix_getegid(): int {}
 
@@ -70,7 +70,7 @@ namespace {
 	 * @return int <p>Returns the user id, as an <code>int</code></p>
 	 * @link https://php.net/manual/en/function.posix-geteuid.php
 	 * @see posix_getpwuid(), posix_getuid(), posix_setuid()
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
 	function posix_geteuid(): int {}
 
@@ -80,7 +80,7 @@ namespace {
 	 * @return int <p>Returns the real group id, as an <code>int</code>.</p>
 	 * @link https://php.net/manual/en/function.posix-getgid.php
 	 * @see posix_getgrgid(), posix_getegid(), posix_setgid()
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
 	function posix_getgid(): int {}
 
@@ -91,7 +91,7 @@ namespace {
 	 * @return array|false <p>The array elements returned are:</p> <b>The group information array</b>   Element Description     name  The name element contains the name of the group. This is a short, usually less than 16 character "handle" of the group, not the real, full name.    passwd  The passwd element contains the group's password in an encrypted format. Often, for example on a system employing "shadow" passwords, an asterisk is returned instead.    gid  Group ID, should be the same as the <code>group_id</code> parameter used when calling the function, and hence redundant.    members  This consists of an <code>array</code> of <code>string</code>'s for all the members in the group.     The function returns <b><code>false</code></b> on failure.
 	 * @link https://php.net/manual/en/function.posix-getgrgid.php
 	 * @see posix_getegid(), posix_getgrnam(), filegroup(), stat()
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
 	function posix_getgrgid(int $group_id): array|false {}
 
@@ -102,7 +102,7 @@ namespace {
 	 * @return array|false <p>Returns an <code>array</code> on success, or <b><code>false</code></b> on failure. The array elements returned are:</p> <b>The group information array</b>   Element Description     name  The name element contains the name of the group. This is a short, usually less than 16 character "handle" of the group, not the real, full name. This should be the same as the <code>name</code> parameter used when calling the function, and hence redundant.    passwd  The passwd element contains the group's password in an encrypted format. Often, for example on a system employing "shadow" passwords, an asterisk is returned instead.    gid  Group ID of the group in numeric form.    members  This consists of an <code>array</code> of <code>string</code>'s for all the members in the group.
 	 * @link https://php.net/manual/en/function.posix-getgrnam.php
 	 * @see posix_getegid(), posix_getgrgid(), filegroup(), stat()
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
 	function posix_getgrnam(string $name): array|false {}
 
@@ -112,7 +112,7 @@ namespace {
 	 * @return array|false <p>Returns an array of integers containing the numeric group ids of the group set of the current process, or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.posix-getgroups.php
 	 * @see posix_getgrgid()
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
 	function posix_getgroups(): array|false {}
 
@@ -122,7 +122,7 @@ namespace {
 	 * @return string|false <p>Returns the login name of the user, as a <code>string</code>, or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.posix-getlogin.php
 	 * @see posix_getpwnam()
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
 	function posix_getlogin(): string|false {}
 
@@ -133,7 +133,7 @@ namespace {
 	 * @return int|false <p>Returns the identifier, as an <code>int</code>.</p>
 	 * @link https://php.net/manual/en/function.posix-getpgid.php
 	 * @see posix_getppid()
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
 	function posix_getpgid(int $process_id): int|false {}
 
@@ -142,7 +142,7 @@ namespace {
 	 * <p>Return the process group identifier of the current process.</p>
 	 * @return int <p>Returns the identifier, as an <code>int</code>.</p>
 	 * @link https://php.net/manual/en/function.posix-getpgrp.php
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
 	function posix_getpgrp(): int {}
 
@@ -152,7 +152,7 @@ namespace {
 	 * @return int <p>Returns the identifier, as an <code>int</code>.</p>
 	 * @link https://php.net/manual/en/function.posix-getpid.php
 	 * @see posix_kill()
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
 	function posix_getpid(): int {}
 
@@ -161,7 +161,7 @@ namespace {
 	 * <p>Return the process identifier of the parent process of the current process.</p>
 	 * @return int <p>Returns the identifier, as an <code>int</code>.</p>
 	 * @link https://php.net/manual/en/function.posix-getppid.php
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
 	function posix_getppid(): int {}
 
@@ -172,7 +172,7 @@ namespace {
 	 * @return array|false <p>On success an array with the following elements is returned, else <b><code>false</code></b> is returned:</p> <b>The user information array</b>   Element Description     name  The name element contains the username of the user. This is a short, usually less than 16 character "handle" of the user, not the real, full name. This should be the same as the <code>username</code> parameter used when calling the function, and hence redundant.    passwd  The passwd element contains the user's password in an encrypted format. Often, for example on a system employing "shadow" passwords, an asterisk is returned instead.    uid  User ID of the user in numeric form.    gid  The group ID of the user. Use the function <code>posix_getgrgid()</code> to resolve the group name and a list of its members.    gecos  GECOS is an obsolete term that refers to the finger information field on a Honeywell batch processing system. The field, however, lives on, and its contents have been formalized by POSIX. The field contains a comma separated list containing the user's full name, office phone, office number, and home phone number. On most systems, only the user's full name is available.    dir  This element contains the absolute path to the home directory of the user.    shell  The shell element contains the absolute path to the executable of the user's default shell.
 	 * @link https://php.net/manual/en/function.posix-getpwnam.php
 	 * @see posix_getpwuid()
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
 	function posix_getpwnam(string $username): array|false {}
 
@@ -183,7 +183,7 @@ namespace {
 	 * @return array|false <p>Returns an associative array with the following elements:</p> <b>The user information array</b>   Element Description     name  The name element contains the username of the user. This is a short, usually less than 16 character "handle" of the user, not the real, full name.    passwd  The passwd element contains the user's password in an encrypted format. Often, for example on a system employing "shadow" passwords, an asterisk is returned instead.    uid  User ID, should be the same as the <code>user_id</code> parameter used when calling the function, and hence redundant.    gid  The group ID of the user. Use the function <code>posix_getgrgid()</code> to resolve the group name and a list of its members.    gecos  GECOS is an obsolete term that refers to the finger information field on a Honeywell batch processing system. The field, however, lives on, and its contents have been formalized by POSIX. The field contains a comma separated list containing the user's full name, office phone, office number, and home phone number. On most systems, only the user's full name is available.    dir  This element contains the absolute path to the home directory of the user.    shell  The shell element contains the absolute path to the executable of the user's default shell.     The function returns <b><code>false</code></b> on failure.
 	 * @link https://php.net/manual/en/function.posix-getpwuid.php
 	 * @see posix_getpwnam()
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
 	function posix_getpwuid(int $user_id): array|false {}
 
@@ -193,7 +193,7 @@ namespace {
 	 * @return array|false <p>Returns an associative <code>array</code> of elements for each limit that is defined. Each limit has a soft and a hard limit.</p> <b>List of possible limits returned</b>   Limit name Limit description     core  The maximum size of the core file. When 0, not core files are created. When core files are larger than this size, they will be truncated at this size.    totalmem  The maximum size of the memory of the process, in bytes.    virtualmem  The maximum size of the virtual memory for the process, in bytes.    data  The maximum size of the data segment for the process, in bytes.    stack  The maximum size of the process stack, in bytes.    rss  The maximum number of virtual pages resident in RAM    maxproc  The maximum number of processes that can be created for the real user ID of the calling process.    memlock  The maximum number of bytes of memory that may be locked into RAM.    cpu  The amount of time the process is allowed to use the CPU.    filesize  The maximum size of the data segment for the process, in bytes.    openfiles  One more than the maximum number of open file descriptors.     The function returns <b><code>false</code></b> on failure.
 	 * @link https://php.net/manual/en/function.posix-getrlimit.php
 	 * @see posix_setrlimit()
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
 	function posix_getrlimit(): array|false {}
 
@@ -204,7 +204,7 @@ namespace {
 	 * @return int|false <p>Returns the identifier, as an <code>int</code>, or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.posix-getsid.php
 	 * @see posix_getpgid(), posix_setsid()
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
 	function posix_getsid(int $process_id): int|false {}
 
@@ -214,7 +214,7 @@ namespace {
 	 * @return int <p>Returns the user id, as an <code>int</code></p>
 	 * @link https://php.net/manual/en/function.posix-getuid.php
 	 * @see posix_getpwuid()
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
 	function posix_getuid(): int {}
 
@@ -225,7 +225,7 @@ namespace {
 	 * @param int $group_id <p>Typically the group number from the password file.</p>
 	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.posix-initgroups.php
-	 * @since PHP 5 >= 5.2.0, PHP 7
+	 * @since PHP 5 >= 5.2.0, PHP 7, PHP 8
 	 */
 	function posix_initgroups(string $username, int $group_id): bool {}
 
@@ -236,7 +236,7 @@ namespace {
 	 * @return bool <p>Returns <b><code>true</code></b> if <code>file_descriptor</code> is an open descriptor connected to a terminal and <b><code>false</code></b> otherwise.</p>
 	 * @link https://php.net/manual/en/function.posix-isatty.php
 	 * @see posix_ttyname(), stream_isatty()
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
 	function posix_isatty($file_descriptor): bool {}
 
@@ -247,7 +247,7 @@ namespace {
 	 * @param int $signal <p>One of the PCNTL signals constants.</p>
 	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.posix-kill.php
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
 	function posix_kill(int $process_id, int $signal): bool {}
 
@@ -258,7 +258,7 @@ namespace {
 	 * @param int $permissions <p>The second parameter <code>permissions</code> has to be given in octal notation (e.g. 0644). The permission of the newly created <code>FIFO</code> also depends on the setting of the current <code>umask()</code>. The permissions of the created file are (mode &amp; ~umask).</p>
 	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.posix-mkfifo.php
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
 	function posix_mkfifo(string $filename, int $permissions): bool {}
 
@@ -272,7 +272,7 @@ namespace {
 	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.posix-mknod.php
 	 * @see posix_mkfifo()
-	 * @since PHP 5 >= 5.1.0, PHP 7
+	 * @since PHP 5 >= 5.1.0, PHP 7, PHP 8
 	 */
 	function posix_mknod(string $filename, int $flags, int $major = 0, int $minor = 0): bool {}
 
@@ -283,7 +283,7 @@ namespace {
 	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.posix-setegid.php
 	 * @see posix_getgrgid(), posix_getgid(), posix_setgid()
-	 * @since PHP 4 >= 4.0.2, PHP 5, PHP 7
+	 * @since PHP 4 >= 4.0.2, PHP 5, PHP 7, PHP 8
 	 */
 	function posix_setegid(int $group_id): bool {}
 
@@ -294,7 +294,7 @@ namespace {
 	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.posix-seteuid.php
 	 * @see posix_geteuid(), posix_setuid(), posix_getuid()
-	 * @since PHP 4 >= 4.0.2, PHP 5, PHP 7
+	 * @since PHP 4 >= 4.0.2, PHP 5, PHP 7, PHP 8
 	 */
 	function posix_seteuid(int $user_id): bool {}
 
@@ -305,7 +305,7 @@ namespace {
 	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.posix-setgid.php
 	 * @see posix_getgrgid(), posix_getgid()
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
 	function posix_setgid(int $group_id): bool {}
 
@@ -316,7 +316,7 @@ namespace {
 	 * @param int $process_group_id <p>The process group id.</p>
 	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.posix-setpgid.php
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
 	function posix_setpgid(int $process_id, int $process_group_id): bool {}
 
@@ -329,7 +329,7 @@ namespace {
 	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.posix-setrlimit.php
 	 * @see posix_getrlimit()
-	 * @since PHP 7
+	 * @since PHP 7, PHP 8
 	 */
 	function posix_setrlimit(int $resource, int $soft_limit, int $hard_limit): bool {}
 
@@ -338,7 +338,7 @@ namespace {
 	 * <p>Make the current process a session leader.</p>
 	 * @return int <p>Returns the session id, or -1 on errors.</p>
 	 * @link https://php.net/manual/en/function.posix-setsid.php
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
 	function posix_setsid(): int {}
 
@@ -349,7 +349,7 @@ namespace {
 	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.posix-setuid.php
 	 * @see posix_setgid(), posix_seteuid(), posix_getuid(), posix_geteuid()
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
 	function posix_setuid(int $user_id): bool {}
 
@@ -360,7 +360,7 @@ namespace {
 	 * @return string <p>Returns the error message, as a string.</p>
 	 * @link https://php.net/manual/en/function.posix-strerror.php
 	 * @see posix_get_last_error()
-	 * @since PHP 4 >= 4.2.0, PHP 5, PHP 7
+	 * @since PHP 4 >= 4.2.0, PHP 5, PHP 7, PHP 8
 	 */
 	function posix_strerror(int $error_code): string {}
 
@@ -369,7 +369,7 @@ namespace {
 	 * <p>Gets information about the current CPU usage.</p>
 	 * @return array|false <p>Returns a hash of strings with information about the current process CPU usage. The indices of the hash are:</p><ul> <li>  ticks - the number of clock ticks that have elapsed since reboot.  </li> <li>  utime - user time used by the current process.  </li> <li>  stime - system time used by the current process.  </li> <li>  cutime - user time used by current process and children.  </li> <li>  cstime - system time used by current process and children.  </li> </ul> The function returns <b><code>false</code></b> on failure.
 	 * @link https://php.net/manual/en/function.posix-times.php
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
 	function posix_times(): array|false {}
 
@@ -379,7 +379,7 @@ namespace {
 	 * @param resource|int $file_descriptor
 	 * @return string|false <p>On success, returns a <code>string</code> of the absolute path of the <code>file_descriptor</code>. On failure, returns <b><code>false</code></b></p>
 	 * @link https://php.net/manual/en/function.posix-ttyname.php
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
 	function posix_ttyname($file_descriptor): string|false {}
 
@@ -388,7 +388,7 @@ namespace {
 	 * <p>Gets information about the system.</p><p>Posix requires that assumptions must not be made about the format of the values, e.g. the assumption that a release may contain three digits or anything else returned by this function.</p>
 	 * @return array|false <p>Returns a hash of strings with information about the system. The indices of the hash are</p><ul> <li> sysname - operating system name (e.g. Linux) </li> <li> nodename - system name (e.g. valiant) </li> <li> release - operating system release (e.g. 2.2.10) </li> <li> version - operating system version (e.g. #4 Tue Jul 20 17:01:36 MEST 1999) </li> <li> machine - system architecture (e.g. i586) </li> <li> domainname - DNS domainname (e.g. example.com) </li> </ul><p>domainname is a GNU extension and not part of POSIX.1, so this field is only available on GNU systems or when using the GNU libc.</p><p>The function returns <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.posix-uname.php
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
 	function posix_uname(): array|false {}
 

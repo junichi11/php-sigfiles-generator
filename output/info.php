@@ -12,7 +12,7 @@ namespace {
 	 * @return bool <p><b><code>false</code></b> if the assertion is false, <b><code>true</code></b> otherwise.</p>
 	 * @link https://php.net/manual/en/function.assert.php
 	 * @see assert_options()
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
 	function assert(mixed $assertion, string $description = null): bool {}
 
@@ -20,23 +20,23 @@ namespace {
 	 * Set/get the various assert flags
 	 * <p>Set the various <code>assert()</code> control options or just query their current settings.</p><p><b>Note</b>:  As of PHP 7.0.0, the use of <b>assert_options()</b> is discouraged in favor of setting and getting the php.ini directives zend.assertions and assert.exception with <code>ini_set()</code> and <code>ini_get()</code>, respectively. </p>
 	 * @param int $what <p></p> <b>Assert Options</b>   Option INI Setting Default value Description     ASSERT_ACTIVE assert.active 1 enable <code>assert()</code> evaluation   ASSERT_WARNING assert.warning 1 issue a PHP warning for each failed assertion   ASSERT_BAIL assert.bail 0 terminate execution on failed assertions   ASSERT_QUIET_EVAL assert.quiet_eval 0  disable error_reporting during assertion expression evaluation    ASSERT_CALLBACK assert.callback (<b><code>null</code></b>) Callback to call on failed assertions
-	 * @param mixed $value <p>An optional new value for the option.</p> <p>The callback function set via <b><code>ASSERT_CALLBACK</code></b> or assert.callback should have the following signature:</p> <b>assert_callback</b> ( <code>string</code> <code>$file</code> , <code>int</code> <code>$line</code> , <code>string</code> <code>$assertion</code> , <code>string</code> <code>$description</code> = &#63; ) : void   <code>file</code>   The file where <code>assert()</code> has been called.    <code>line</code>   The line where <code>assert()</code> has been called.    <code>assertion</code>   The assertion that has been passed to <code>assert()</code>, converted to a string.    <code>description</code>   The description that has been passed to <code>assert()</code>.
+	 * @param mixed $value <p>An optional new value for the option.</p> <p>The callback function set via <b><code>ASSERT_CALLBACK</code></b> or assert.callback should have the following signature:</p> <b>assert_callback</b>(<br>&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code> <code>$file</code>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<code>int</code> <code>$line</code>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code> <code>$assertion</code>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<code>string</code> <code>$description</code> = &#63;<br>): void   <code>file</code>   The file where <code>assert()</code> has been called.    <code>line</code>   The line where <code>assert()</code> has been called.    <code>assertion</code>   The assertion that has been passed to <code>assert()</code>, converted to a string.    <code>description</code>   The description that has been passed to <code>assert()</code>.
 	 * @return mixed <p>Returns the original setting of any option or <b><code>false</code></b> on errors.</p>
 	 * @link https://php.net/manual/en/function.assert-options.php
 	 * @see assert()
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
 	function assert_options(int $what, mixed $value = null): mixed {}
 
 	/**
 	 * Returns the current process title
 	 * <p>Returns the current process title, as set by <code>cli_set_process_title()</code>. Note that this may not exactly match what is shown in <b>ps</b> or <b>top</b>, depending on your operating system.</p><p>This function is available only in CLI mode.</p>
-	 * @return string|null <p>Return a string with the current process title or <b><code>null</code></b> on error.</p>
+	 * @return ?string <p>Return a string with the current process title or <b><code>null</code></b> on error.</p>
 	 * @link https://php.net/manual/en/function.cli-get-process-title.php
 	 * @see cli_set_process_title()
-	 * @since PHP 5 >= 5.5.0, PHP 7
+	 * @since PHP 5 >= 5.5.0, PHP 7, PHP 8
 	 */
-	function cli_get_process_title(): string|null {}
+	function cli_get_process_title(): ?string {}
 
 	/**
 	 * Sets the process title
@@ -44,8 +44,8 @@ namespace {
 	 * @param string $title <p>The new title.</p>
 	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.cli-set-process-title.php
-	 * @see cli_get_process_title(), setproctitle()
-	 * @since PHP 5 >= 5.5.0, PHP 7
+	 * @see cli_get_process_title()
+	 * @since PHP 5 >= 5.5.0, PHP 7, PHP 8
 	 */
 	function cli_set_process_title(string $title): bool {}
 
@@ -56,27 +56,27 @@ namespace {
 	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure. If the functionality of loading modules is not available or has been disabled (by setting enable_dl off in php.ini) an <b><code>E_ERROR</code></b> is emitted and execution is stopped. If <b>dl()</b> fails because the specified library couldn't be loaded, in addition to <b><code>false</code></b> an <b><code>E_WARNING</code></b> message is emitted.</p>
 	 * @link https://php.net/manual/en/function.dl.php
 	 * @see extension_loaded()
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
 	function dl(string $extension_filename): bool {}
 
 	/**
 	 * Find out whether an extension is loaded
 	 * <p>Finds out whether the extension is loaded.</p>
-	 * @param string $name <p>The extension name. This parameter is case-insensitive.</p> <p>You can see the names of various extensions by using <code>phpinfo()</code> or if you're using the <code>CGI</code> or <code>CLI</code> version of PHP you can use the <b>-m</b> switch to list all available extensions:</p> <pre> $ php -m [PHP Modules] xml tokenizer standard sockets session posix pcre overload mysql mbstring ctype [Zend Modules] </pre>
-	 * @return bool <p>Returns <b><code>true</code></b> if the extension identified by <code>name</code> is loaded, <b><code>false</code></b> otherwise.</p>
+	 * @param string $extension <p>The extension name. This parameter is case-insensitive.</p> <p>You can see the names of various extensions by using <code>phpinfo()</code> or if you're using the <code>CGI</code> or <code>CLI</code> version of PHP you can use the <b>-m</b> switch to list all available extensions:</p> <pre> $ php -m [PHP Modules] xml tokenizer standard sockets session posix pcre overload mysql mbstring ctype [Zend Modules] </pre>
+	 * @return bool <p>Returns <b><code>true</code></b> if the extension identified by <code>extension</code> is loaded, <b><code>false</code></b> otherwise.</p>
 	 * @link https://php.net/manual/en/function.extension-loaded.php
 	 * @see get_loaded_extensions(), get_extension_funcs(), phpinfo(), dl(), function_exists()
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
-	function extension_loaded(string $name): bool {}
+	function extension_loaded(string $extension): bool {}
 
 	/**
 	 * Forces collection of any existing garbage cycles
 	 * <p>Forces collection of any existing garbage cycles.</p>
 	 * @return int <p>Returns number of collected cycles.</p>
 	 * @link https://php.net/manual/en/function.gc-collect-cycles.php
-	 * @since PHP 5 >= 5.3.0, PHP 7
+	 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8
 	 */
 	function gc_collect_cycles(): int {}
 
@@ -85,7 +85,7 @@ namespace {
 	 * <p>Deactivates the circular reference collector, setting zend.enable_gc to <code>0</code>.</p>
 	 * @return void <p>No value is returned.</p>
 	 * @link https://php.net/manual/en/function.gc-disable.php
-	 * @since PHP 5 >= 5.3.0, PHP 7
+	 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8
 	 */
 	function gc_disable(): void {}
 
@@ -94,7 +94,7 @@ namespace {
 	 * <p>Activates the circular reference collector, setting zend.enable_gc to <code>1</code>.</p>
 	 * @return void <p>No value is returned.</p>
 	 * @link https://php.net/manual/en/function.gc-enable.php
-	 * @since PHP 5 >= 5.3.0, PHP 7
+	 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8
 	 */
 	function gc_enable(): void {}
 
@@ -103,7 +103,7 @@ namespace {
 	 * <p>Returns status of the circular reference collector.</p>
 	 * @return bool <p>Returns <b><code>true</code></b> if the garbage collector is enabled, <b><code>false</code></b> otherwise.</p>
 	 * @link https://php.net/manual/en/function.gc-enabled.php
-	 * @since PHP 5 >= 5.3.0, PHP 7
+	 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8
 	 */
 	function gc_enabled(): bool {}
 
@@ -112,7 +112,7 @@ namespace {
 	 * <p>Reclaims memory used by the Zend Engine memory manager.</p>
 	 * @return int <p>Returns the number of bytes freed.</p>
 	 * @link https://php.net/manual/en/function.gc-mem-caches.php
-	 * @since PHP 7
+	 * @since PHP 7, PHP 8
 	 */
 	function gc_mem_caches(): int {}
 
@@ -121,7 +121,7 @@ namespace {
 	 * <p>Gets information about the current state of the garbage collector.</p>
 	 * @return array <p>Returns an associative array with the following elements:</p><ul> <li>  <code>"runs"</code>  </li> <li>  <code>"collected"</code>  </li> <li>  <code>"threshold"</code>  </li> <li>  <code>"roots"</code>  </li> </ul>
 	 * @link https://php.net/manual/en/function.gc-status.php
-	 * @since PHP 7 >= 7.3.0
+	 * @since PHP 7 >= 7.3.0, PHP 8
 	 */
 	function gc_status(): array {}
 
@@ -132,7 +132,7 @@ namespace {
 	 * @return string|array|false <p>Returns the current value of the PHP configuration variable specified by <code>option</code>, or <b><code>false</code></b> if an error occurs.</p>
 	 * @link https://php.net/manual/en/function.get-cfg-var.php
 	 * @see ini_get(), ini_get_all()
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
 	function get_cfg_var(string $option): string|array|false {}
 
@@ -142,7 +142,7 @@ namespace {
 	 * @return string <p>Returns the username as a string.</p>
 	 * @link https://php.net/manual/en/function.get-current-user.php
 	 * @see getmyuid(), getmygid(), getmypid(), getmyinode(), getlastmod()
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
 	function get_current_user(): string {}
 
@@ -153,20 +153,20 @@ namespace {
 	 * @return array <p>Returns an array of constant name =&gt; constant value array, optionally groupped by extension name registering the constant.</p>
 	 * @link https://php.net/manual/en/function.get-defined-constants.php
 	 * @see defined(), get_loaded_extensions(), get_defined_functions(), get_defined_vars()
-	 * @since PHP 4 >= 4.1.0, PHP 5, PHP 7
+	 * @since PHP 4 >= 4.1.0, PHP 5, PHP 7, PHP 8
 	 */
 	function get_defined_constants(bool $categorize = false): array {}
 
 	/**
 	 * Returns an array with the names of the functions of a module
-	 * <p>This function returns the names of all the functions defined in the module indicated by <code>module_name</code>.</p>
-	 * @param string $module_name <p>The module name.</p> <p><b>Note</b>:</p><p>This parameter must be in <i>lowercase</i>.</p>
-	 * @return array <p>Returns an array with all the functions, or <b><code>false</code></b> if <code>module_name</code> is not a valid extension.</p>
+	 * <p>This function returns the names of all the functions defined in the module indicated by <code>extension</code>.</p>
+	 * @param string $extension <p>The module name.</p> <p><b>Note</b>:</p><p>This parameter must be in <i>lowercase</i>.</p>
+	 * @return array|false <p>Returns an array with all the functions, or <b><code>false</code></b> if <code>extension</code> is not a valid extension.</p>
 	 * @link https://php.net/manual/en/function.get-extension-funcs.php
 	 * @see get_loaded_extensions()
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
-	function get_extension_funcs(string $module_name): array {}
+	function get_extension_funcs(string $extension): array|false {}
 
 	/**
 	 * Gets the current include_path configuration option
@@ -174,7 +174,7 @@ namespace {
 	 * @return string|false <p>Returns the path, as a string, or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.get-include-path.php
 	 * @see ini_get(), restore_include_path(), set_include_path(), include
-	 * @since PHP 4 >= 4.3.0, PHP 5, PHP 7
+	 * @since PHP 4 >= 4.3.0, PHP 5, PHP 7, PHP 8
 	 */
 	function get_include_path(): string|false {}
 
@@ -184,7 +184,7 @@ namespace {
 	 * @return array <p>Returns an array of the names of all files.</p><p>The script originally called is considered an "included file," so it will be listed together with the files referenced by <code>include</code> and family.</p><p>Files that are included or required multiple times only show up once in the returned array.</p>
 	 * @link https://php.net/manual/en/function.get-included-files.php
 	 * @see include, include_once, require, require_once, get_required_files()
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
 	function get_included_files(): array {}
 
@@ -195,7 +195,7 @@ namespace {
 	 * @return array <p>Returns an indexed array of all the modules names.</p>
 	 * @link https://php.net/manual/en/function.get-loaded-extensions.php
 	 * @see get_extension_funcs(), extension_loaded(), dl(), phpinfo()
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
 	function get_loaded_extensions(bool $zend_extensions = false): array {}
 
@@ -224,32 +224,32 @@ namespace {
 	 * <p>This function is an alias of: <code>get_included_files()</code>.</p>
 	 * @return array
 	 * @link https://php.net/manual/en/function.get-required-files.php
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
 	function get_required_files(): array {}
 
 	/**
 	 * Returns active resources
-	 * <p>Returns an array of all currently active <code>resource</code>s, optionally filtered by resource type.</p>
-	 * @param string $type <p>If defined, this will cause <b>get_resources()</b> to only return resources of the given type. A list of resource types is available.</p> <p>If the <code>string</code> <code>Unknown</code> is provided as the type, then only resources that are of an unknown type will be returned.</p> <p>If omitted, all resources will be returned.</p>
+	 * <p>Returns an array of all currently active <code>resource</code>s, optionally filtered by resource type.</p><p><b>Note</b>:  This function is meant for debugging and testing purposes. It is not supposed to be used in production environments, especially not to access or even manipulate resources which are normally not accessible (e.g. the underlying stream resource of <code>SplFileObject</code> instances). </p>
+	 * @param ?string $type <p>If defined, this will cause <b>get_resources()</b> to only return resources of the given type. A list of resource types is available.</p> <p>If the <code>string</code> <code>Unknown</code> is provided as the type, then only resources that are of an unknown type will be returned.</p> <p>If omitted, all resources will be returned.</p>
 	 * @return array <p>Returns an <code>array</code> of currently active resources, indexed by resource number.</p>
 	 * @link https://php.net/manual/en/function.get-resources.php
 	 * @see get_loaded_extensions(), get_defined_constants(), get_defined_functions(), get_defined_vars()
-	 * @since PHP 7
+	 * @since PHP 7, PHP 8
 	 */
-	function get_resources(string $type = null): array {}
+	function get_resources(?string $type = null): array {}
 
 	/**
 	 * Gets the value of an environment variable
 	 * <p>Gets the value of an environment variable.</p><p>You can see a list of all the environmental variables by using <code>phpinfo()</code>. Many of these variables are listed within RFC 3875, specifically section 4.1, "Request Meta-Variables".</p>
 	 * @param string $varname <p>The variable name.</p>
 	 * @param bool $local_only <p>Set to true to only return local environment variables (set by the operating system or putenv).</p>
-	 * @return string <p>Returns the value of the environment variable <code>varname</code>, or <b><code>false</code></b> if the environment variable <code>varname</code> does not exist. If <code>varname</code> is omitted, all environment variables are returned as associative <code>array</code>.</p>
+	 * @return string|false <p>Returns the value of the environment variable <code>varname</code>, or <b><code>false</code></b> if the environment variable <code>varname</code> does not exist. If <code>varname</code> is omitted, all environment variables are returned as associative <code>array</code>.</p>
 	 * @link https://php.net/manual/en/function.getenv.php
 	 * @see putenv(), apache_getenv()
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
-	function getenv(string $varname, bool $local_only = false): string {}
+	function getenv(string $varname, bool $local_only = false): string|false {}
 
 	/**
 	 * Gets time of last page modification
@@ -257,7 +257,7 @@ namespace {
 	 * @return int|false <p>Returns the time of the last modification of the current page. The value returned is a Unix timestamp, suitable for feeding to <code>date()</code>. Returns <b><code>false</code></b> on error.</p>
 	 * @link https://php.net/manual/en/function.getlastmod.php
 	 * @see date(), getmyuid(), getmygid(), get_current_user(), getmyinode(), getmypid(), filemtime()
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
 	function getlastmod(): int|false {}
 
@@ -267,7 +267,7 @@ namespace {
 	 * @return int|false <p>Returns the group ID of the current script, or <b><code>false</code></b> on error.</p>
 	 * @link https://php.net/manual/en/function.getmygid.php
 	 * @see getmyuid(), getmypid(), get_current_user(), getmyinode(), getlastmod()
-	 * @since PHP 4 >= 4.1.0, PHP 5, PHP 7
+	 * @since PHP 4 >= 4.1.0, PHP 5, PHP 7, PHP 8
 	 */
 	function getmygid(): int|false {}
 
@@ -277,7 +277,7 @@ namespace {
 	 * @return int|false <p>Returns the current script's inode as an integer, or <b><code>false</code></b> on error.</p>
 	 * @link https://php.net/manual/en/function.getmyinode.php
 	 * @see getmygid(), getmyuid(), getmypid(), get_current_user(), getlastmod()
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
 	function getmyinode(): int|false {}
 
@@ -287,7 +287,7 @@ namespace {
 	 * @return int|false <p>Returns the current PHP process ID, or <b><code>false</code></b> on error.</p>
 	 * @link https://php.net/manual/en/function.getmypid.php
 	 * @see getmygid(), getmyuid(), get_current_user(), getmyinode(), getlastmod()
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
 	function getmypid(): int|false {}
 
@@ -297,7 +297,7 @@ namespace {
 	 * @return int|false <p>Returns the user ID of the current script, or <b><code>false</code></b> on error.</p>
 	 * @link https://php.net/manual/en/function.getmyuid.php
 	 * @see getmygid(), getmypid(), get_current_user(), getmyinode(), getlastmod()
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
 	function getmyuid(): int|false {}
 
@@ -309,7 +309,7 @@ namespace {
 	 * @param int $rest_index If the <code>rest_index</code> parameter is present, then the index where argument parsing stopped will be written to this variable.
 	 * @return array|false <p>This function will return an array of option / argument pairs, or <b><code>false</code></b> on failure.</p><p><b>Note</b>:</p><p>The parsing of options will end at the first non-option found, anything that follows is discarded.</p>
 	 * @link https://php.net/manual/en/function.getopt.php
-	 * @since PHP 4 >= 4.3.0, PHP 5, PHP 7
+	 * @since PHP 4 >= 4.3.0, PHP 5, PHP 7, PHP 8
 	 */
 	function getopt(string $short_options, array $long_options = [], int &$rest_index = null): array|false {}
 
@@ -319,7 +319,7 @@ namespace {
 	 * @param int $mode <p>If <code>mode</code> is 1, getrusage will be called with <b><code>RUSAGE_CHILDREN</code></b>.</p>
 	 * @return array|false <p>Returns an associative array containing the data returned from the system call. All entries are accessible by using their documented field names. Returns <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.getrusage.php
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
 	function getrusage(int $mode = 0): array|false {}
 
@@ -327,12 +327,12 @@ namespace {
 	 * Alias of ini_set()
 	 * <p>This function is an alias of: <code>ini_set()</code>.</p>
 	 * @param string $option <p></p> <p>Not all the available options can be changed using <b>ini_set()</b>. There is a list of all available options in the appendix.</p>
-	 * @param string $value <p>The new value for the option.</p>
+	 * @param string|int|float|bool|null $value <p>The new value for the option.</p>
 	 * @return string|false
 	 * @link https://php.net/manual/en/function.ini-alter.php
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
-	function ini_alter(string $option, string $value): string|false {}
+	function ini_alter(string $option, string|int|float|bool|null $value): string|false {}
 
 	/**
 	 * Gets the value of a configuration option
@@ -341,21 +341,21 @@ namespace {
 	 * @return string|false <p>Returns the value of the configuration option as a string on success, or an empty string for <code>null</code> values. Returns <b><code>false</code></b> if the configuration option doesn't exist.</p>
 	 * @link https://php.net/manual/en/function.ini-get.php
 	 * @see get_cfg_var(), ini_get_all(), ini_restore(), ini_set()
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
 	function ini_get(string $option): string|false {}
 
 	/**
 	 * Gets all configuration options
 	 * <p>Returns all the registered configuration options.</p>
-	 * @param string $extension <p>An optional extension name. If set, the function return only options specific for that extension.</p>
+	 * @param ?string $extension <p>An optional extension name. If not <b><code>null</code></b> or the <code>string</code> <code>core</code>, the function returns only options specific for that extension.</p>
 	 * @param bool $details <p>Retrieve details settings or only the current value for each setting. Default is <b><code>true</code></b> (retrieve details).</p>
-	 * @return array <p>Returns an associative array with directive name as the array key. Returns <b><code>false</code></b> and raises an <b><code>E_WARNING</code></b> level error if the <code>extension</code> doesn't exist.</p><p>When <code>details</code> is <b><code>true</code></b> (default) the array will contain <code>global_value</code> (set in php.ini), <code>local_value</code> (perhaps set with <code>ini_set()</code> or .htaccess), and <code>access</code> (the access level).</p><p>When <code>details</code> is <b><code>false</code></b> the value will be the current value of the option.</p><p>See the manual section for information on what access levels mean.</p><p><b>Note</b>:</p><p>It's possible for a directive to have multiple access levels, which is why <code>access</code> shows the appropriate bitmask values.</p>
+	 * @return array|false <p>Returns an associative array with directive name as the array key. Returns <b><code>false</code></b> and raises an <b><code>E_WARNING</code></b> level error if the <code>extension</code> doesn't exist.</p><p>When <code>details</code> is <b><code>true</code></b> (default) the array will contain <code>global_value</code> (set in php.ini), <code>local_value</code> (perhaps set with <code>ini_set()</code> or .htaccess), and <code>access</code> (the access level).</p><p>When <code>details</code> is <b><code>false</code></b> the value will be the current value of the option.</p><p>See the manual section for information on what access levels mean.</p><p><b>Note</b>:</p><p>It's possible for a directive to have multiple access levels, which is why <code>access</code> shows the appropriate bitmask values.</p>
 	 * @link https://php.net/manual/en/function.ini-get-all.php
 	 * @see ini_get(), ini_restore(), ini_set(), get_loaded_extensions(), phpinfo()
-	 * @since PHP 4 >= 4.2.0, PHP 5, PHP 7
+	 * @since PHP 4 >= 4.2.0, PHP 5, PHP 7, PHP 8
 	 */
-	function ini_get_all(string $extension = null, bool $details = true): array {}
+	function ini_get_all(?string $extension = null, bool $details = true): array|false {}
 
 	/**
 	 * Restores the value of a configuration option
@@ -364,7 +364,7 @@ namespace {
 	 * @return void <p>No value is returned.</p>
 	 * @link https://php.net/manual/en/function.ini-restore.php
 	 * @see ini_get(), ini_get_all(), ini_set()
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
 	function ini_restore(string $option): void {}
 
@@ -372,13 +372,13 @@ namespace {
 	 * Sets the value of a configuration option
 	 * <p>Sets the value of the given configuration option. The configuration option will keep this new value during the script's execution, and will be restored at the script's ending.</p>
 	 * @param string $option <p></p> <p>Not all the available options can be changed using <b>ini_set()</b>. There is a list of all available options in the appendix.</p>
-	 * @param string $value <p>The new value for the option.</p>
+	 * @param string|int|float|bool|null $value <p>The new value for the option.</p>
 	 * @return string|false <p>Returns the old value on success, <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.ini-set.php
 	 * @see get_cfg_var(), ini_get(), ini_get_all(), ini_restore()
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
-	function ini_set(string $option, string $value): string|false {}
+	function ini_set(string $option, string|int|float|bool|null $value): string|false {}
 
 	/**
 	 * Returns the peak of memory allocated by PHP
@@ -387,7 +387,7 @@ namespace {
 	 * @return int <p>Returns the memory peak in bytes.</p>
 	 * @link https://php.net/manual/en/function.memory-get-peak-usage.php
 	 * @see memory_get_usage()
-	 * @since PHP 5 >= 5.2.0, PHP 7
+	 * @since PHP 5 >= 5.2.0, PHP 7, PHP 8
 	 */
 	function memory_get_peak_usage(bool $real_usage = false): int {}
 
@@ -398,7 +398,7 @@ namespace {
 	 * @return int <p>Returns the memory amount in bytes.</p>
 	 * @link https://php.net/manual/en/function.memory-get-usage.php
 	 * @see memory_get_peak_usage()
-	 * @since PHP 4 >= 4.3.2, PHP 5, PHP 7
+	 * @since PHP 4 >= 4.3.2, PHP 5, PHP 7, PHP 8
 	 */
 	function memory_get_usage(bool $real_usage = false): int {}
 
@@ -408,7 +408,7 @@ namespace {
 	 * @return string|false <p>The loaded php.ini path, or <b><code>false</code></b> if one is not loaded.</p>
 	 * @link https://php.net/manual/en/function.php-ini-loaded-file.php
 	 * @see php_ini_scanned_files(), phpinfo()
-	 * @since PHP 5 >= 5.2.4, PHP 7
+	 * @since PHP 5 >= 5.2.4, PHP 7, PHP 8
 	 */
 	function php_ini_loaded_file(): string|false {}
 
@@ -418,7 +418,7 @@ namespace {
 	 * @return string|false <p>Returns a comma-separated string of .ini files on success. Each comma is followed by a newline. If the configure directive <b>--with-config-file-scan-dir</b> wasn't set and the PHP_INI_SCAN_DIR environment variable isn't set, <b><code>false</code></b> is returned. If it was set and the directory was empty, an empty string is returned. If a file is unrecognizable, the file will still make it into the returned string but a PHP error will also result. This PHP error will be seen both at compile time and while using <b>php_ini_scanned_files()</b>.</p>
 	 * @link https://php.net/manual/en/function.php-ini-scanned-files.php
 	 * @see ini_set(), phpinfo(), php_ini_loaded_file()
-	 * @since PHP 4 >= 4.3.0, PHP 5, PHP 7
+	 * @since PHP 4 >= 4.3.0, PHP 5, PHP 7, PHP 8
 	 */
 	function php_ini_scanned_files(): string|false {}
 
@@ -427,7 +427,7 @@ namespace {
 	 * <p>Returns a lowercase string that describes the type of interface (the Server API, SAPI) that PHP is using. For example, in CLI PHP this string will be "cli" whereas with Apache it may have several different values depending on the exact SAPI used. Possible values are listed below.</p>
 	 * @return string|false <p>Returns the interface type, as a lowercase string, or <b><code>false</code></b> on failure.</p><p>Although not exhaustive, the possible return values include <code>apache</code>, <code>apache2handler</code>, <code>cgi</code> (until PHP 5.3), <code>cgi-fcgi</code>, <code>cli</code>, <code>cli-server</code>, <code>embed</code>, <code>fpm-fcgi</code>, <code>litespeed</code>, <code>phpdbg</code>.</p>
 	 * @link https://php.net/manual/en/function.php-sapi-name.php
-	 * @since PHP 4 >= 4.0.1, PHP 5, PHP 7
+	 * @since PHP 4 >= 4.0.1, PHP 5, PHP 7, PHP 8
 	 */
 	function php_sapi_name(): string|false {}
 
@@ -438,7 +438,7 @@ namespace {
 	 * @return string <p>Returns the description, as a string.</p>
 	 * @link https://php.net/manual/en/function.php-uname.php
 	 * @see phpversion(), php_sapi_name(), phpinfo()
-	 * @since PHP 4 >= 4.0.2, PHP 5, PHP 7
+	 * @since PHP 4 >= 4.0.2, PHP 5, PHP 7, PHP 8
 	 */
 	function php_uname(string $mode = "a"): string {}
 
@@ -449,7 +449,7 @@ namespace {
 	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.phpcredits.php
 	 * @see phpversion(), phpinfo()
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
 	function phpcredits(int $flags = CREDITS_ALL): bool {}
 
@@ -460,20 +460,20 @@ namespace {
 	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.phpinfo.php
 	 * @see phpversion(), phpcredits(), ini_get(), ini_set(), get_loaded_extensions()
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
 	function phpinfo(int $flags = INFO_ALL): bool {}
 
 	/**
 	 * Gets the current PHP version
 	 * <p>Returns a string containing the version of the currently running PHP parser or extension.</p>
-	 * @param string $extension <p>An optional extension name.</p>
-	 * @return string <p>If the optional <code>extension</code> parameter is specified, <b>phpversion()</b> returns the version of that extension, or <b><code>false</code></b> if there is no version information associated or the extension isn't enabled.</p>
+	 * @param ?string $extension <p>An optional extension name.</p>
+	 * @return string|false <p>Returns the current PHP version as a <code>string</code>. If a <code>string</code> argument is provided for <code>extension</code> parameter, <b>phpversion()</b> returns the version of that extension, or <b><code>false</code></b> if there is no version information associated or the extension isn't enabled.</p>
 	 * @link https://php.net/manual/en/function.phpversion.php
 	 * @see version_compare(), phpinfo(), phpcredits(), zend_version()
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
-	function phpversion(string $extension = null): string {}
+	function phpversion(?string $extension = null): string|false {}
 
 	/**
 	 * Sets the value of an environment variable
@@ -482,7 +482,7 @@ namespace {
 	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.putenv.php
 	 * @see getenv(), apache_setenv()
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
 	function putenv(string $assignment): bool {}
 
@@ -503,7 +503,7 @@ namespace {
 	 * @return string|false <p>Returns the old include_path on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.set-include-path.php
 	 * @see ini_set(), get_include_path(), restore_include_path(), include
-	 * @since PHP 4 >= 4.3.0, PHP 5, PHP 7
+	 * @since PHP 4 >= 4.3.0, PHP 5, PHP 7, PHP 8
 	 */
 	function set_include_path(string $include_path): string|false {}
 
@@ -513,7 +513,7 @@ namespace {
 	 * @param int $seconds <p>The maximum execution time, in seconds. If set to zero, no time limit is imposed.</p>
 	 * @return bool <p>Returns <b><code>true</code></b> on success, or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.set-time-limit.php
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
 	function set_time_limit(int $seconds): bool {}
 
@@ -523,7 +523,7 @@ namespace {
 	 * @return string <p>Returns the path of the temporary directory.</p>
 	 * @link https://php.net/manual/en/function.sys-get-temp-dir.php
 	 * @see tmpfile(), tempnam()
-	 * @since PHP 5 >= 5.2.1, PHP 7
+	 * @since PHP 5 >= 5.2.1, PHP 7, PHP 8
 	 */
 	function sys_get_temp_dir(): string {}
 
@@ -532,19 +532,20 @@ namespace {
 	 * <p><b>version_compare()</b> compares two "PHP-standardized" version number strings.</p><p>The function first replaces <code>_</code>, <code>-</code> and <code>+</code> with a dot <code>.</code> in the version strings and also inserts dots <code>.</code> before and after any non number so that for example '4.3.2RC1' becomes '4.3.2.RC.1'. Then it compares the parts starting from left to right. If a part contains special version strings these are handled in the following order: <code>any string not found in this list</code> &lt; <code>dev</code> &lt; <code>alpha</code> = <code>a</code> &lt; <code>beta</code> = <code>b</code> &lt; <code>RC</code> = <code>rc</code> &lt; <code>#</code> &lt; <code>pl</code> = <code>p</code>. This way not only versions with different levels like '4.1' and '4.1.2' can be compared but also any PHP specific version containing development state.</p>
 	 * @param string $version1 <p>First version number.</p>
 	 * @param string $version2 <p>Second version number.</p>
-	 * @return int <p>By default, <b>version_compare()</b> returns <code>-1</code> if the first version is lower than the second, <code>0</code> if they are equal, and <code>1</code> if the second is lower.</p><p>When using the optional <code>operator</code> argument, the function will return <b><code>true</code></b> if the relationship is the one specified by the operator, <b><code>false</code></b> otherwise. If an unsupported <code>operator</code> is given, <b><code>null</code></b> is returned.</p>
+	 * @param ?string $operator <p>An optional operator. The possible operators are: <code>&lt;</code>, <code>lt</code>, <code>&lt;=</code>, <code>le</code>, <code>&gt;</code>, <code>gt</code>, <code>&gt;=</code>, <code>ge</code>, <code>==</code>, <code>=</code>, <code>eq</code>, <code>!=</code>, <code>&lt;&gt;</code>, <code>ne</code> respectively.</p> <p>This parameter is case-sensitive, values should be lowercase.</p>
+	 * @return int|bool <p>By default, <b>version_compare()</b> returns <code>-1</code> if the first version is lower than the second, <code>0</code> if they are equal, and <code>1</code> if the second is lower.</p><p>When using the optional <code>operator</code> argument, the function will return <b><code>true</code></b> if the relationship is the one specified by the operator, <b><code>false</code></b> otherwise.</p>
 	 * @link https://php.net/manual/en/function.version-compare.php
 	 * @see phpversion(), php_uname(), function_exists()
-	 * @since PHP 4 >= 4.1.0, PHP 5, PHP 7
+	 * @since PHP 4 >= 4.1.0, PHP 5, PHP 7, PHP 8
 	 */
-	function version_compare(string $version1, string $version2): int {}
+	function version_compare(string $version1, string $version2, ?string $operator = null): int|bool {}
 
 	/**
 	 * Returns a unique identifier for the current thread
 	 * <p>This function returns a unique identifier for the current thread.</p>
 	 * @return int <p>Returns the thread id as an integer.</p>
 	 * @link https://php.net/manual/en/function.zend-thread-id.php
-	 * @since PHP 5, PHP 7
+	 * @since PHP 5, PHP 7, PHP 8
 	 */
 	function zend_thread_id(): int {}
 
@@ -554,7 +555,7 @@ namespace {
 	 * @return string <p>Returns the Zend Engine version number, as a string.</p>
 	 * @link https://php.net/manual/en/function.zend-version.php
 	 * @see phpinfo(), phpcredits(), phpversion()
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
 	function zend_version(): string {}
 

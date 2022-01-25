@@ -6,7 +6,7 @@ namespace {
 
 	/**
 	 * @link https://php.net/manual/en/class.zmq.php
-	 * @since No version information available, might only be in Git
+	 * @since PECL zmq >= 0.5.0
 	 */
 	class ZMQ {
 
@@ -358,7 +358,7 @@ namespace {
 
 	/**
 	 * @link https://php.net/manual/en/class.zmqcontext.php
-	 * @since No version information available, might only be in Git
+	 * @since PECL zmq >= 0.5.0
 	 */
 	class ZMQContext {
 
@@ -367,7 +367,7 @@ namespace {
 		 * <p>Constructs a new ZMQ context. The context is used to initialize sockets. A persistent context is required to initialize persistent sockets.</p>
 		 * @param int $io_threads <p>Number of io-threads in the context.</p>
 		 * @param bool $is_persistent <p>Whether the context is persistent. Persistent context is stored over multiple requests and is a requirement for persistent sockets.</p>
-		 * @return self <p>Throws ZMQContextException if context initialization fails.</p>
+		 * @return self
 		 * @link https://php.net/manual/en/zmqcontext.construct.php
 		 * @since PECL zmq >= 0.5.0
 		 */
@@ -389,7 +389,7 @@ namespace {
 		 * @param int $type <p><b><code>ZMQ::SOCKET_&#42;</code></b> constant to specify socket type.</p>
 		 * @param string $persistent_id <p>If <code>persistent_id</code> is specified the socket will be persisted over multiple requests.</p>
 		 * @param callable $on_new_socket <p>Callback function, which is executed when a new socket structure is created. This function does not get invoked if the underlying persistent connection is re-used. The callback takes ZMQSocket and persistent_id as two arguments.</p>
-		 * @return ZMQSocket <p>Returns a ZMQSocket object on success. Throws ZMQSocketException on error.</p>
+		 * @return ZMQSocket <p>Returns a <code>ZMQSocket</code> object.</p>
 		 * @link https://php.net/manual/en/zmqcontext.getsocket.php
 		 * @since PECL zmq >= 0.5.0
 		 */
@@ -418,7 +418,7 @@ namespace {
 
 	/**
 	 * @link https://php.net/manual/en/class.zmqdevice.php
-	 * @since No version information available, might only be in Git
+	 * @since PECL zmq >= 0.5.0
 	 */
 	class ZMQDevice {
 
@@ -508,7 +508,7 @@ namespace {
 
 	/**
 	 * @link https://php.net/manual/en/class.zmqpoll.php
-	 * @since No version information available, might only be in Git
+	 * @since PECL zmq >= 0.5.0
 	 */
 	class ZMQPoll {
 
@@ -556,7 +556,7 @@ namespace {
 		 * @param array $readable <p>Array where readable ZMQSockets/PHP streams are returned. The array will be cleared at the beginning of the operation.</p>
 		 * @param array $writable <p>Array where writable ZMQSockets/PHP streams are returned. The array will be cleared at the beginning of the operation.</p>
 		 * @param int $timeout <p>Timeout for the operation. -1 means that poll waits until at least one item has activity. Please note that starting from version 1.0.0 the poll timeout is defined in milliseconds, rather than microseconds.</p>
-		 * @return int <p>Returns an integer representing amount of items with activity. Throws ZMQPollException on error.</p>
+		 * @return int <p>Returns an integer representing the amount of items with activity.</p>
 		 * @link https://php.net/manual/en/zmqpoll.poll.php
 		 * @since PECL zmq >= 0.5.0
 		 */
@@ -575,7 +575,7 @@ namespace {
 
 	/**
 	 * @link https://php.net/manual/en/class.zmqsocket.php
-	 * @since No version information available, might only be in Git
+	 * @since PECL zmq >= 0.5.0
 	 */
 	class ZMQSocket {
 
@@ -585,8 +585,8 @@ namespace {
 		 * @param \ZMQContext $context <p>ZMQContext object.</p>
 		 * @param int $type <p>The socket type. See <b><code>ZMQ::SOCKET_&#42;</code></b> constants.</p>
 		 * @param string $persistent_id <p>If <code>persistent_id</code> is specified the socket will be persisted over multiple requests. If <code>context</code> is not persistent the socket falls back to non-persistent mode.</p>
-		 * @param callable $on_new_socket <p>Callback function, which is executed when a new socket structure is created. This function does not get invoked if the underlying persistent connection is re-used.</p>
-		 * @return self <p>Throws ZMQSocketException on error.</p>
+		 * @param callable $on_new_socket <p>Callback function, which is executed when a new socket structure is created. This function does not get invoked if the underlying persistent connection is re-used.</p>  callback(<code>ZMQSocket</code> <code>$socket</code>, <code>string</code> <code>$persistent_id</code> = <b><code>null</code></b>)
+		 * @return self
 		 * @link https://php.net/manual/en/zmqsocket.construct.php
 		 * @since PECL zmq >= 0.5.0
 		 */
@@ -608,7 +608,7 @@ namespace {
 		 * <p>Connect the socket to a remote endpoint. The endpoint is defined in format <code>transport://address</code> where transport is one of the following: inproc, ipc, tcp, pgm or epgm.</p>
 		 * @param string $dsn <p>The connect dsn, for example <code>transport://address</code>.</p>
 		 * @param bool $force <p>Tries to connect even if the socket has already been connected to given endpoint.</p>
-		 * @return ZMQSocket <p>Returns the current object. Throws ZMQSocketException on error.</p>
+		 * @return ZMQSocket <p>Returns the current object.</p>
 		 * @link https://php.net/manual/en/zmqsocket.connect.php
 		 * @since PECL zmq >= 0.5.0
 		 */
@@ -674,7 +674,7 @@ namespace {
 		 * Receives a message
 		 * <p>Receive a message from a socket. By default receiving will block until a message is available unless <b><code>ZMQ::MODE_DONTWAIT</code></b> flag is used. <b><code>ZMQ::SOCKOPT_RCVMORE</code></b> socket option can be used for receiving multi-part messages. See <code>ZMQSocket::setSockOpt()</code> for more information.</p>
 		 * @param int $mode <p>Pass mode flags to receive multipart messages or non-blocking operation. See <b><code>ZMQ::MODE_&#42;</code></b> constants.</p>
-		 * @return string <p>Returns the message. Throws ZMQSocketException in error. If <b><code>ZMQ::MODE_DONTWAIT</code></b> is used and the operation would block <code>bool</code> false shall be returned.</p>
+		 * @return string <p>Returns the message. If <b><code>ZMQ::MODE_DONTWAIT</code></b> is used and the operation would block <b><code>false</code></b> shall be returned.</p>
 		 * @link https://php.net/manual/en/zmqsocket.recv.php
 		 * @since PECL zmq >= 0.5.0
 		 */

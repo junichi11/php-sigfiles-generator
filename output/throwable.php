@@ -5,13 +5,13 @@
 namespace {
 
 	/**
-	 * <p><b>Throwable</b> is the base interface for any object that can be thrown via a <code>throw</code> statement, including Error and Exception.</p>
+	 * <p><b>Throwable</b> is the base interface for any object that can be thrown via a <code>throw</code> statement, including <code>Error</code> and <code>Exception</code>.</p>
 	 * <p><b>Note</b>:</p>
-	 * <p>PHP classes cannot implement the <b>Throwable</b> interface directly, and must instead extend Exception.</p>
+	 * <p>PHP classes cannot implement the <b>Throwable</b> interface directly, and must instead extend <code>Exception</code>.</p>
 	 * @link https://php.net/manual/en/class.throwable.php
 	 * @since PHP 7, PHP 8
 	 */
-	interface Throwable {
+	interface Throwable extends Stringable {
 
 		/**
 		 * Gets a string representation of the thrown object
@@ -24,7 +24,7 @@ namespace {
 		/**
 		 * Gets the exception code
 		 * <p>Returns the error code associated with the thrown object.</p>
-		 * @return int <p>Returns the exception code as <code>int</code> in Exception but possibly as other type in Exception descendants (for example as <code>string</code> in PDOException).</p>
+		 * @return int <p>Returns the exception code as <code>int</code> in <code>Exception</code> but possibly as other type in <code>Exception</code> descendants (for example as <code>string</code> in <code>PDOException</code>).</p>
 		 * @link https://php.net/manual/en/throwable.getcode.php
 		 * @since PHP 7, PHP 8
 		 */
@@ -60,11 +60,11 @@ namespace {
 		/**
 		 * Returns the previous Throwable
 		 * <p>Returns any previous Throwable (for example, one provided as the third parameter to <code>Exception::__construct()</code>).</p>
-		 * @return Throwable <p>Returns the previous Throwable if available, or <b><code>null</code></b> otherwise.</p>
+		 * @return ?Throwable <p>Returns the previous <code>Throwable</code> if available, or <b><code>null</code></b> otherwise.</p>
 		 * @link https://php.net/manual/en/throwable.getprevious.php
 		 * @since PHP 7, PHP 8
 		 */
-		public function getPrevious(): \Throwable;
+		public function getPrevious(): ?\Throwable;
 
 		/**
 		 * Gets the stack trace

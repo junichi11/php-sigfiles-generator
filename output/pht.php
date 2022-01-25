@@ -80,7 +80,7 @@ namespace pht {
 
 	/**
 	 * <p>The <b>pht\HashTable</b> class is one of the Inter-Thread Communication (ITC) data structures exposed by pht. It can be safely passed around between threads, and manipulated by multiple threads using the mutex locks that have been packed in with the data structure. It is reference-counted across threads, and so it does not need to be explicitly destroyed.</p>
-	 * <p>The <b>pht\HashTable</b> class enables for array access upon its objects (along with the <code>isset()</code> and <code>unset()</code> functions). The ArrayAccess interface is not explicitly implemented, however, because it is only needed for such abilities by userland classes.</p>
+	 * <p>The <b>pht\HashTable</b> class enables for array access upon its objects (along with the <code>isset()</code> and <code>unset()</code> functions). The <code>ArrayAccess</code> interface is not explicitly implemented, however, because it is only needed for such abilities by userland classes.</p>
 	 * @link https://php.net/manual/en/class.pht-hashtable.php
 	 * @since PECL pht >= 0.0.1
 	 */
@@ -97,7 +97,7 @@ namespace pht {
 
 		/**
 		 * Gets the size of the hash table
-		 * <p>Returns the current size of the hash table. This operation requires a pht\HashTable's mutex lock to be held if it is being used by multiple threads.</p>
+		 * <p>Returns the current size of the hash table. This operation requires a <code>pht\HashTable</code>'s mutex lock to be held if it is being used by multiple threads.</p>
 		 * @return int <p>The size of the hash table.</p>
 		 * @link https://php.net/manual/en/pht-hashtable.size.php
 		 * @since PECL pht >= 0.0.1
@@ -123,7 +123,7 @@ namespace pht {
 
 		/**
 		 * Returns the first value from a queue
-		 * <p>This method will remove a value from the front of the queue (in constant time). Attempting to return the front value from an empty queue will result in an Error exception.</p><p>Due to the fact that all values in a pht\Queue are serialised, extracting a value from the queue will require it to be deserialised. This can incur a noticeable performance hit if the inspection of the queue's front value is performed within a loop.</p>
+		 * <p>This method will remove a value from the front of the queue (in constant time). Attempting to return the front value from an empty queue will result in an <code>Error</code> exception.</p><p>Due to the fact that all values in a <code>pht\Queue</code> are serialised, extracting a value from the queue will require it to be deserialised. This can incur a noticeable performance hit if the inspection of the queue's front value is performed within a loop.</p>
 		 * @return mixed <p>The value on the front of the queue.</p>
 		 * @link https://php.net/manual/en/pht-queue.front.php
 		 * @since PECL pht >= 0.0.1
@@ -141,7 +141,7 @@ namespace pht {
 
 		/**
 		 * Pops a value off of the front of a queue
-		 * <p>This method will remove a value from the front of the queue (in constant time). Attempting to pop a value from an empty queue will result in an Error exception.</p>
+		 * <p>This method will remove a value from the front of the queue (in constant time). Attempting to pop a value from an empty queue will result in an <code>Error</code> exception.</p>
 		 * @return mixed <p>The value removed from the queue.</p>
 		 * @link https://php.net/manual/en/pht-queue.pop.php
 		 * @since PECL pht >= 0.0.1
@@ -151,7 +151,7 @@ namespace pht {
 		/**
 		 * Pushes a value to the end of a queue
 		 * <p>This method will add a value onto the queue.</p>
-		 * @param mixed $value <p>The value to be added to a pht\Queue. This value will be serialised (since it may be passed around between threads).</p>
+		 * @param mixed $value <p>The value to be added to a <code>pht\Queue</code>. This value will be serialised (since it may be passed around between threads).</p>
 		 * @return void <p>No return value.</p>
 		 * @link https://php.net/manual/en/pht-queue.push.php
 		 * @since PECL pht >= 0.0.1
@@ -160,7 +160,7 @@ namespace pht {
 
 		/**
 		 * Gets the size of the queue
-		 * <p>Returns the current size of the queue. This operation requires a pht\Queue's mutex lock to be held if it is being used by multiple threads.</p>
+		 * <p>Returns the current size of the queue. This operation requires a <code>pht\Queue</code>'s mutex lock to be held if it is being used by multiple threads.</p>
 		 * @return int <p>The size of the queue.</p>
 		 * @link https://php.net/manual/en/pht-queue.size.php
 		 * @since PECL pht >= 0.0.1
@@ -203,7 +203,7 @@ namespace pht {
 
 		/**
 		 * Class threading
-		 * <p>Adds a new class task to a pht\Threads internal task queue.</p>
+		 * <p>Adds a new class task to a <code>pht\Thread</code>s internal task queue.</p>
 		 * @param string $className <p>The name of the class to be threaded. This class must implement the <code>pht\Runnable</code> interface.</p>
 		 * @param mixed $ctorArgs <p>An optional list of arguments for the threaded class' constructor. These arguments will be serialised (since they are being passed to another thread).</p>
 		 * @return void <p>No return value.</p>
@@ -214,7 +214,7 @@ namespace pht {
 
 		/**
 		 * File threading
-		 * <p>Adds a new file task to a pht\Threads internal task queue.</p>
+		 * <p>Adds a new file task to a <code>pht\Thread</code>s internal task queue.</p>
 		 * @param string $fileName
 		 * @param mixed $globals <p>An optional list of arguments for the file. These arguments will be placed into a <code>$_THREAD</code> superglobal, which will be made available inside of the threaded file. All arguments will be serialised (since they are being passed to another thread).</p>
 		 * @return void <p>No return value.</p>
@@ -225,7 +225,7 @@ namespace pht {
 
 		/**
 		 * Function threading
-		 * <p>Adds a new function task to a pht\Threads internal task queue.</p>
+		 * <p>Adds a new function task to a <code>pht\Thread</code>s internal task queue.</p>
 		 * @param callable $func <p>The function to be threaded. If it is bound to an instance, then <code>$this</code> will become <b><code>null</code></b>.</p>
 		 * @param mixed $funcArgs <p>An optional list of arguments for the function. These arguments will be serialised (since they are being passed to another thread).</p>
 		 * @return void <p>No return value.</p>
@@ -245,7 +245,7 @@ namespace pht {
 
 		/**
 		 * Starts the new thread
-		 * <p>This will cause a new thread to be spawned for the associated pht\Thread object, where its internal task queue will begin to be processed.</p>
+		 * <p>This will cause a new thread to be spawned for the associated <code>pht\Thread</code> object, where its internal task queue will begin to be processed.</p>
 		 * @return void <p>No return value.</p>
 		 * @link https://php.net/manual/en/pht-thread.start.php
 		 * @since PECL pht >= 0.0.1
@@ -254,7 +254,7 @@ namespace pht {
 
 		/**
 		 * Gets a thread's task count
-		 * <p>Retrieves the current task count of a pht\Thread.</p>
+		 * <p>Retrieves the current task count of a <code>pht\Thread</code>.</p>
 		 * @return int <p>The number of tasks remaining to be processed.</p>
 		 * @link https://php.net/manual/en/pht-thread.taskCount.php
 		 * @since PECL pht >= 0.0.1
@@ -263,7 +263,7 @@ namespace pht {
 	}
 
 	/**
-	 * <p>The <b>pht\Threaded</b> interface is an internal interface used by the Inter-Thread Communication (ITC) data structures (pht\HashTable, pht\Queue, and pht\Vector). It allows those data structures to be threaded and ensures that the mutex locking API (<code>pht\Threaded::lock()</code> and <code>pht\Threaded::unlock()</code>) is implemented by each of the ITC data structures. It is not implementable by userland classes (since standalone mutex locks are not exposed).</p>
+	 * <p>The <b>pht\Threaded</b> interface is an internal interface used by the Inter-Thread Communication (ITC) data structures (<code>pht\HashTable</code>, <code>pht\Queue</code>, and <code>pht\Vector</code>). It allows those data structures to be threaded and ensures that the mutex locking API (<code>pht\Threaded::lock()</code> and <code>pht\Threaded::unlock()</code>) is implemented by each of the ITC data structures. It is not implementable by userland classes (since standalone mutex locks are not exposed).</p>
 	 * @link https://php.net/manual/en/class.pht-threaded.php
 	 * @since PECL pht >= 0.0.1
 	 */
@@ -271,7 +271,7 @@ namespace pht {
 
 		/**
 		 * Acquires the mutex lock
-		 * <p>This method will acquire the mutex lock associated with the given class (either a pht\HashTable, pht\Queue, pht\Vector, or pht\AtomicInteger).</p>
+		 * <p>This method will acquire the mutex lock associated with the given class (either a <code>pht\HashTable</code>, <code>pht\Queue</code>, <code>pht\Vector</code>, or <code>pht\AtomicInteger</code>).</p>
 		 * @return void <p>No return value.</p>
 		 * @link https://php.net/manual/en/pht-threaded.lock.php
 		 * @since PECL pht >= 0.0.1
@@ -280,7 +280,7 @@ namespace pht {
 
 		/**
 		 * Releases the mutex lock
-		 * <p>This method will unlock the mutex lock associated with the given class (either a pht\HashTable, pht\Queue, pht\Vector, or pht\AtomicInteger).</p>
+		 * <p>This method will unlock the mutex lock associated with the given class (either a <code>pht\HashTable</code>, <code>pht\Queue</code>, <code>pht\Vector</code>, or <code>pht\AtomicInteger</code>).</p>
 		 * @return void <p>No return value.</p>
 		 * @link https://php.net/manual/en/pht-threaded.unlock.php
 		 * @since PECL pht >= 0.0.1
@@ -290,7 +290,7 @@ namespace pht {
 
 	/**
 	 * <p>The <b>pht\Vector</b> class is one of the Inter-Thread Communication (ITC) data structures exposed by pht. It can be safely passed around between threads, and manipulated by multiple threads using the mutex locks that have been packed in with the data structure. It is reference-counted across threads, and so is does not need to be explicitly destroyed.</p>
-	 * <p>The <b>pht\Vector</b> class enables for array access upon its objects (along with the <code>isset()</code> and <code>unset()</code> functions). The ArrayAccess interface is not explicitly implemented, however, because it is only needed for such abilities by userland classes.</p>
+	 * <p>The <b>pht\Vector</b> class enables for array access upon its objects (along with the <code>isset()</code> and <code>unset()</code> functions). The <code>ArrayAccess</code> interface is not explicitly implemented, however, because it is only needed for such abilities by userland classes.</p>
 	 * @link https://php.net/manual/en/class.pht-vector.php
 	 * @since PECL pht >= 0.0.1
 	 */
@@ -309,8 +309,8 @@ namespace pht {
 
 		/**
 		 * Deletes a value in the vector
-		 * <p>This method deletes a value at the specified offset in the vector (in linear time).</p><p>Since the pht\Vector class supports array access, deleting values can also be performed using the array subset notation (<code>[]</code>) in combination with the <code>unset()</code> function.</p>
-		 * @param int $offset <p>The offset at which the value will be deleted at. This offset must be within the 0..(N-1) range (inclusive), where N is the size of the vector. Attempting to delete at offsets outside of this range will result in an Error exception.</p>
+		 * <p>This method deletes a value at the specified offset in the vector (in linear time).</p><p>Since the <code>pht\Vector</code> class supports array access, deleting values can also be performed using the array subset notation (<code>[]</code>) in combination with the <code>unset()</code> function.</p>
+		 * @param int $offset <p>The offset at which the value will be deleted at. This offset must be within the 0..(N-1) range (inclusive), where N is the size of the vector. Attempting to delete at offsets outside of this range will result in an <code>Error</code> exception.</p>
 		 * @return void <p>No return value.</p>
 		 * @link https://php.net/manual/en/pht-vector.deleteAt.php
 		 * @since PECL pht >= 0.0.1
@@ -321,7 +321,7 @@ namespace pht {
 		 * Inserts a value into the vector
 		 * <p>This method inserts a value at the specified offset into the vector (in linear time). The vector will automatically be resized if it is not large enough.</p>
 		 * @param mixed $value <p>The value to be inserted into the vector. This value will be serialised (since it may be passed around between threads).</p>
-		 * @param int $offset <p>The offset at which the value will be inserted at. This offset must be within the 0..N range (inclusive), where N is the size of the vector. Inserting at position N is the equivalent of using <code>pht\Vector::push()</code>, and inserting at position 0 is the equivalent of using <code>pht\Vector::unshift()</code>. Attempting to insert at offsets outside of this range will result in an Error exception.</p>
+		 * @param int $offset <p>The offset at which the value will be inserted at. This offset must be within the 0..N range (inclusive), where N is the size of the vector. Inserting at position N is the equivalent of using <code>pht\Vector::push()</code>, and inserting at position 0 is the equivalent of using <code>pht\Vector::unshift()</code>. Attempting to insert at offsets outside of this range will result in an <code>Error</code> exception.</p>
 		 * @return void <p>No return value.</p>
 		 * @link https://php.net/manual/en/pht-vector.insertAt.php
 		 * @since PECL pht >= 0.0.1
@@ -339,7 +339,7 @@ namespace pht {
 
 		/**
 		 * Pops a value to the vector
-		 * <p>This method pops a value from the end of a vector (in constant time). Popping a value from an empty vector will result in an Error exception.</p>
+		 * <p>This method pops a value from the end of a vector (in constant time). Popping a value from an empty vector will result in an <code>Error</code> exception.</p>
 		 * @return mixed <p>The value from the end of the vector.</p>
 		 * @link https://php.net/manual/en/pht-vector.pop.php
 		 * @since PECL pht >= 0.0.1
@@ -348,7 +348,7 @@ namespace pht {
 
 		/**
 		 * Pushes a value to the vector
-		 * <p>This method pushes a value onto the end of a vector (in constant time). The vector will automatically be resized if it is not large enough.</p><p>Since the pht\Vector class supports array access, new values can also be pushed onto the vector using the empty subset notation (<code>[]</code>).</p>
+		 * <p>This method pushes a value onto the end of a vector (in constant time). The vector will automatically be resized if it is not large enough.</p><p>Since the <code>pht\Vector</code> class supports array access, new values can also be pushed onto the vector using the empty subset notation (<code>[]</code>).</p>
 		 * @param mixed $value <p>The value to be pushed onto the end of the vector. This value will be serialised (since it may be passed around between threads).</p>
 		 * @return void <p>No return value.</p>
 		 * @link https://php.net/manual/en/pht-vector.push.php
@@ -369,7 +369,7 @@ namespace pht {
 
 		/**
 		 * Shifts a value from the vector
-		 * <p>This method shifts a value from the front of a vector (in linear time). Shifting a value from an empty vector will result in an Error exception.</p>
+		 * <p>This method shifts a value from the front of a vector (in linear time). Shifting a value from an empty vector will result in an <code>Error</code> exception.</p>
 		 * @return mixed <p>The value from the front of the vector.</p>
 		 * @link https://php.net/manual/en/pht-vector.shift.php
 		 * @since PECL pht >= 0.0.1
@@ -378,7 +378,7 @@ namespace pht {
 
 		/**
 		 * Gets the size of the vector
-		 * <p>Returns the current size of the vector. This operation requires a pht\Vector's mutex lock to be held if it is being used by multiple threads.</p>
+		 * <p>Returns the current size of the vector. This operation requires a <code>pht\Vector</code>'s mutex lock to be held if it is being used by multiple threads.</p>
 		 * @return int <p>The size of the vector.</p>
 		 * @link https://php.net/manual/en/pht-vector.size.php
 		 * @since PECL pht >= 0.0.1
@@ -406,9 +406,9 @@ namespace pht {
 
 		/**
 		 * Updates a value in the vector
-		 * <p>This method updates a value at the specified offset in the vector (in linear time). The vector will automatically be resized if it is not large enough.</p><p>Since the pht\Vector class supports array access, updating values can also be performed using the array subset notation (<code>[]</code>).</p>
+		 * <p>This method updates a value at the specified offset in the vector (in linear time). The vector will automatically be resized if it is not large enough.</p><p>Since the <code>pht\Vector</code> class supports array access, updating values can also be performed using the array subset notation (<code>[]</code>).</p>
 		 * @param mixed $value <p>The value to be inserted into the vector. This value will be serialised (since it may be passed around between threads).</p>
-		 * @param int $offset <p>The offset at which the value will be updated at. This offset must be within the 0..(N-1) range (inclusive), where N is the size of the vector. Attempting to update at offsets outside of this range will result in an Error exception.</p>
+		 * @param int $offset <p>The offset at which the value will be updated at. This offset must be within the 0..(N-1) range (inclusive), where N is the size of the vector. Attempting to update at offsets outside of this range will result in an <code>Error</code> exception.</p>
 		 * @return void <p>No return value.</p>
 		 * @link https://php.net/manual/en/pht-vector.updateAt.php
 		 * @since PECL pht >= 0.0.1

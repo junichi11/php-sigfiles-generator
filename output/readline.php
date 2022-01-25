@@ -7,12 +7,12 @@ namespace {
 	/**
 	 * Reads a line
 	 * <p>Reads a single line from the user. You must add this line to the history yourself using <code>readline_add_history()</code>.</p>
-	 * @param string|null $prompt <p>You may specify a string with which to prompt the user.</p>
+	 * @param ?string $prompt <p>You may specify a string with which to prompt the user.</p>
 	 * @return string|false <p>Returns a single string from the user. The line returned has the ending newline removed. If there is no more data to read, then <b><code>false</code></b> is returned.</p>
 	 * @link https://php.net/manual/en/function.readline.php
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
-	function readline(string|null $prompt = null): string|false {}
+	function readline(?string $prompt = null): string|false {}
 
 	/**
 	 * Adds a line to the history
@@ -20,7 +20,7 @@ namespace {
 	 * @param string $prompt <p>The line to be added in the history.</p>
 	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.readline-add-history.php
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
 	function readline_add_history(string $prompt): bool {}
 
@@ -32,7 +32,7 @@ namespace {
 	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.readline-callback-handler-install.php
 	 * @see readline_callback_handler_remove(), readline_callback_read_char(), stream_select()
-	 * @since PHP 5 >= 5.1.0, PHP 7
+	 * @since PHP 5 >= 5.1.0, PHP 7, PHP 8
 	 */
 	function readline_callback_handler_install(string $prompt, callable $callback): bool {}
 
@@ -42,7 +42,7 @@ namespace {
 	 * @return bool <p>Returns <b><code>true</code></b> if a previously installed callback handler was removed, or <b><code>false</code></b> if one could not be found.</p>
 	 * @link https://php.net/manual/en/function.readline-callback-handler-remove.php
 	 * @see readline_callback_handler_install(), readline_callback_read_char()
-	 * @since PHP 5 >= 5.1.0, PHP 7
+	 * @since PHP 5 >= 5.1.0, PHP 7, PHP 8
 	 */
 	function readline_callback_handler_remove(): bool {}
 
@@ -52,7 +52,7 @@ namespace {
 	 * @return void <p>No value is returned.</p>
 	 * @link https://php.net/manual/en/function.readline-callback-read-char.php
 	 * @see readline_callback_handler_install(), readline_callback_handler_remove()
-	 * @since PHP 5 >= 5.1.0, PHP 7
+	 * @since PHP 5 >= 5.1.0, PHP 7, PHP 8
 	 */
 	function readline_callback_read_char(): void {}
 
@@ -61,7 +61,7 @@ namespace {
 	 * <p>This function clears the entire command line history.</p>
 	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.readline-clear-history.php
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
 	function readline_clear_history(): bool {}
 
@@ -71,27 +71,27 @@ namespace {
 	 * @param callable $callback <p>You must supply the name of an existing function which accepts a partial command line and returns an array of possible matches.</p>
 	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.readline-completion-function.php
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
 	function readline_completion_function(callable $callback): bool {}
 
 	/**
 	 * Gets/sets various internal readline variables
 	 * <p>Gets or sets various internal readline variables.</p>
-	 * @param string|null $var_name <p>A variable name.</p>
+	 * @param ?string $var_name <p>A variable name.</p>
 	 * @param int|string|bool|null $value <p>If provided, this will be the new value of the setting.</p>
 	 * @return mixed <p>If called with no parameters, this function returns an array of values for all the setting readline uses. The elements will be indexed by the following values: done, end, erase_empty_line, library_version, line_buffer, mark, pending_input, point, prompt, readline_name, and terminal_name.</p><p>If called with one or two parameters, the old value is returned.</p>
 	 * @link https://php.net/manual/en/function.readline-info.php
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
-	function readline_info(string|null $var_name = null, int|string|bool|null $value = null): mixed {}
+	function readline_info(?string $var_name = null, int|string|bool|null $value = null): mixed {}
 
 	/**
 	 * Lists the history
 	 * <p>Gets the entire command line history.</p>
 	 * @return array <p>Returns an array of the entire command line history. The elements are indexed by integers starting at zero.</p>
 	 * @link https://php.net/manual/en/function.readline-list-history.php
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
 	function readline_list_history(): array {}
 
@@ -100,41 +100,41 @@ namespace {
 	 * <p>Tells readline that the cursor has moved to a new line.</p>
 	 * @return void <p>No value is returned.</p>
 	 * @link https://php.net/manual/en/function.readline-on-new-line.php
-	 * @since PHP 5 >= 5.1.0, PHP 7
+	 * @since PHP 5 >= 5.1.0, PHP 7, PHP 8
 	 */
 	function readline_on_new_line(): void {}
 
 	/**
 	 * Reads the history
 	 * <p>This function reads a command history from a file.</p>
-	 * @param string|null $filename <p>Path to the filename containing the command history.</p>
+	 * @param ?string $filename <p>Path to the filename containing the command history.</p>
 	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.readline-read-history.php
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
-	function readline_read_history(string|null $filename = null): bool {}
+	function readline_read_history(?string $filename = null): bool {}
 
 	/**
 	 * Redraws the display
 	 * <p>Redraws readline to redraw the display.</p>
 	 * @return void <p>No value is returned.</p>
 	 * @link https://php.net/manual/en/function.readline-redisplay.php
-	 * @since PHP 5 >= 5.1.0, PHP 7
+	 * @since PHP 5 >= 5.1.0, PHP 7, PHP 8
 	 */
 	function readline_redisplay(): void {}
 
 	/**
 	 * Writes the history
 	 * <p>This function writes the command history to a file.</p>
-	 * @param string|null $filename <p>Path to the saved file.</p>
+	 * @param ?string $filename <p>Path to the saved file.</p>
 	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.readline-write-history.php
-	 * @since PHP 4, PHP 5, PHP 7
+	 * @since PHP 4, PHP 5, PHP 7, PHP 8
 	 */
-	function readline_write_history(string|null $filename = null): bool {}
+	function readline_write_history(?string $filename = null): bool {}
 
 	/**
-	 * The library which is used for readline support; currently either <code>readline</code> or <code>libedit</code>. Available as of PHP 5.5.0.
+	 * The library which is used for readline support; currently either <code>readline</code> or <code>libedit</code>.
 	 */
 	define('READLINE_LIB', 'libedit');
 

@@ -406,7 +406,7 @@ namespace {
 	 * @param resource $fdf_document <p>The FDF document handle, returned by <code>fdf_create()</code>, <code>fdf_open()</code> or <code>fdf_open_string()</code>.</p>
 	 * @param string $fieldname <p>Name of the FDF field, as a string.</p>
 	 * @param mixed $value <p>This parameter will be stored as a string unless it is an array. In this case all array elements will be stored as a value array.</p>
-	 * @param int $isName <p><b>Note</b>:</p><p>In older versions of the FDF toolkit last parameter determined if the field value was to be converted to a PDF Name (= 1) or set to a PDF String (= 0).</p> <p>The value is no longer used in the current toolkit version 5.0. For compatibility reasons it is still supported as an optional parameter beginning with PHP 4.3, but ignored internally.</p>
+	 * @param int $isName <p><b>Note</b>:</p><p>In older versions of the FDF toolkit last parameter determined if the field value was to be converted to a PDF Name (= 1) or set to a PDF String (= 0).</p> <p>The value is no longer used in the current toolkit version 5.0. For compatibility reasons it is still supported as an optional parameter, but ignored internally.</p>
 	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.fdf-set-value.php
 	 * @see fdf_get_value(), fdf_remove_item()

@@ -11,7 +11,7 @@ namespace {
 	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.bzclose.php
 	 * @see bzopen()
-	 * @since PHP 4 >= 4.0.4, PHP 5, PHP 7
+	 * @since PHP 4 >= 4.0.4, PHP 5, PHP 7, PHP 8
 	 */
 	function bzclose($bz): bool {}
 
@@ -24,7 +24,7 @@ namespace {
 	 * @return string|int <p>The compressed string, or an error number if an error occurred.</p>
 	 * @link https://php.net/manual/en/function.bzcompress.php
 	 * @see bzdecompress()
-	 * @since PHP 4 >= 4.0.4, PHP 5, PHP 7
+	 * @since PHP 4 >= 4.0.4, PHP 5, PHP 7, PHP 8
 	 */
 	function bzcompress(string $data, int $block_size = 4, int $work_factor = 0): string|int {}
 
@@ -36,7 +36,7 @@ namespace {
 	 * @return string|int|false <p>The decompressed string, or <b><code>false</code></b> or an error number if an error occurred.</p>
 	 * @link https://php.net/manual/en/function.bzdecompress.php
 	 * @see bzcompress()
-	 * @since PHP 4 >= 4.0.4, PHP 5, PHP 7
+	 * @since PHP 4 >= 4.0.4, PHP 5, PHP 7, PHP 8
 	 */
 	function bzdecompress(string $data, bool $use_less_memory = false): string|int|false {}
 
@@ -47,7 +47,7 @@ namespace {
 	 * @return int <p>Returns the error number as an integer.</p>
 	 * @link https://php.net/manual/en/function.bzerrno.php
 	 * @see bzerror(), bzerrstr()
-	 * @since PHP 4 >= 4.0.4, PHP 5, PHP 7
+	 * @since PHP 4 >= 4.0.4, PHP 5, PHP 7, PHP 8
 	 */
 	function bzerrno($bz): int {}
 
@@ -58,7 +58,7 @@ namespace {
 	 * @return array <p>Returns an associative array, with the error code in the <code>errno</code> entry, and the error message in the <code>errstr</code> entry.</p>
 	 * @link https://php.net/manual/en/function.bzerror.php
 	 * @see bzerrno(), bzerrstr()
-	 * @since PHP 4 >= 4.0.4, PHP 5, PHP 7
+	 * @since PHP 4 >= 4.0.4, PHP 5, PHP 7, PHP 8
 	 */
 	function bzerror($bz): array {}
 
@@ -69,7 +69,7 @@ namespace {
 	 * @return string <p>Returns a string containing the error message.</p>
 	 * @link https://php.net/manual/en/function.bzerrstr.php
 	 * @see bzerrno(), bzerror()
-	 * @since PHP 4 >= 4.0.4, PHP 5, PHP 7
+	 * @since PHP 4 >= 4.0.4, PHP 5, PHP 7, PHP 8
 	 */
 	function bzerrstr($bz): string {}
 
@@ -80,7 +80,7 @@ namespace {
 	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/function.bzflush.php
 	 * @see bzread(), bzwrite()
-	 * @since PHP 4 >= 4.0.4, PHP 5, PHP 7
+	 * @since PHP 4 >= 4.0.4, PHP 5, PHP 7, PHP 8
 	 */
 	function bzflush($bz): bool {}
 
@@ -92,7 +92,7 @@ namespace {
 	 * @return resource|false <p>If the open fails, <b>bzopen()</b> returns <b><code>false</code></b>, otherwise it returns a pointer to the newly opened file.</p>
 	 * @link https://php.net/manual/en/function.bzopen.php
 	 * @see bzclose()
-	 * @since PHP 4 >= 4.0.4, PHP 5, PHP 7
+	 * @since PHP 4 >= 4.0.4, PHP 5, PHP 7, PHP 8
 	 */
 	function bzopen($file, string $mode) {}
 
@@ -104,7 +104,7 @@ namespace {
 	 * @return string|false <p>Returns the uncompressed data, or <b><code>false</code></b> on error.</p>
 	 * @link https://php.net/manual/en/function.bzread.php
 	 * @see bzwrite(), feof(), bzopen()
-	 * @since PHP 4 >= 4.0.4, PHP 5, PHP 7
+	 * @since PHP 4 >= 4.0.4, PHP 5, PHP 7, PHP 8
 	 */
 	function bzread($bz, int $length = 1024): string|false {}
 
@@ -113,12 +113,12 @@ namespace {
 	 * <p><b>bzwrite()</b> writes a string into the given bzip2 file stream.</p>
 	 * @param resource $bz <p>The file pointer. It must be valid and must point to a file successfully opened by <code>bzopen()</code>.</p>
 	 * @param string $data <p>The written data.</p>
-	 * @param int|null $length <p>If supplied, writing will stop after <code>length</code> (uncompressed) bytes have been written or the end of <code>data</code> is reached, whichever comes first.</p>
+	 * @param ?int $length <p>If supplied, writing will stop after <code>length</code> (uncompressed) bytes have been written or the end of <code>data</code> is reached, whichever comes first.</p>
 	 * @return int|false <p>Returns the number of bytes written, or <b><code>false</code></b> on error.</p>
 	 * @link https://php.net/manual/en/function.bzwrite.php
 	 * @see bzread(), bzopen()
-	 * @since PHP 4 >= 4.0.4, PHP 5, PHP 7
+	 * @since PHP 4 >= 4.0.4, PHP 5, PHP 7, PHP 8
 	 */
-	function bzwrite($bz, string $data, int|null $length = null): int|false {}
+	function bzwrite($bz, string $data, ?int $length = null): int|false {}
 
 }

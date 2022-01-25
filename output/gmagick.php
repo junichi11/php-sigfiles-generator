@@ -1619,10 +1619,46 @@ namespace {
 		const ORIENTATION_LEFTBOTTOM = null;
 
 		/**
+		 * @var int
+		 * @link https://php.net/manual/en/gmagick.constants.php
+		 */
+		const INTERLACE_UNDEFINED = null;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/gmagick.constants.php
+		 */
+		const INTERLACE_NO = null;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/gmagick.constants.php
+		 */
+		const INTERLACE_NONE = null;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/gmagick.constants.php
+		 */
+		const INTERLACE_LINE = null;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/gmagick.constants.php
+		 */
+		const INTERLACE_PLANE = null;
+
+		/**
+		 * @var int
+		 * @link https://php.net/manual/en/gmagick.constants.php
+		 */
+		const INTERLACE_PARTITION = null;
+
+		/**
 		 * The Gmagick constructor
-		 * <p>The Gmagick constructor.</p>
-		 * @param string $filename <p>The path to an image to load or array of paths</p>
-		 * @return self <p>Returns a new Gmagick object on success.</p>
+		 * <p>The <code>Gmagick</code> constructor.</p>
+		 * @param string $filename <p>The path to an image to load or array of paths.</p>
+		 * @return self <p>Returns a new <code>Gmagick</code> object.</p>
 		 * @link https://php.net/manual/en/gmagick.construct.php
 		 * @since PECL gmagick >= Unknown
 		 */
@@ -1651,12 +1687,12 @@ namespace {
 		/**
 		 * Annotates an image with text
 		 * <p>Annotates an image with text.</p>
-		 * @param \GmagickDraw $GmagickDraw <p>The GmagickDraw object that contains settings for drawing the text</p>
-		 * @param float $x <p>Horizontal offset in pixels to the left of text</p>
-		 * @param float $y <p>Vertical offset in pixels to the baseline of text</p>
-		 * @param float $angle <p>The angle at which to write the text</p>
-		 * @param string $text <p>The string to draw</p>
-		 * @return Gmagick <p>The Gmagick object with annotation made.</p>
+		 * @param \GmagickDraw $GmagickDraw <p>The <code>GmagickDraw</code> object that contains settings for drawing the text.</p>
+		 * @param float $x <p>Horizontal offset in pixels to the left of text.</p>
+		 * @param float $y <p>Vertical offset in pixels to the baseline of text.</p>
+		 * @param float $angle <p>The angle at which to write the text.</p>
+		 * @param string $text <p>The string to draw.</p>
+		 * @return Gmagick <p>The <code>Gmagick</code> object with annotation made.</p>
 		 * @link https://php.net/manual/en/gmagick.annotateimage.php
 		 * @since PECL gmagick >= Unknown
 		 */
@@ -1668,7 +1704,7 @@ namespace {
 		 * @param float $radius <p>Blur radius</p>
 		 * @param float $sigma <p>Standard deviation</p>
 		 * @param int $channel
-		 * @return Gmagick <p>The blurred Gmagick object</p>
+		 * @return Gmagick <p>The blurred <code>Gmagick</code> object</p>
 		 * @link https://php.net/manual/en/gmagick.blurimage.php
 		 * @since PECL gmagick >= Unknown
 		 */
@@ -1676,11 +1712,11 @@ namespace {
 
 		/**
 		 * Surrounds the image with a border
-		 * <p>Surrounds the image with a border of the color defined by the bordercolor GmagickPixel object or a color string.</p>
-		 * @param \GmagickPixel $color <p>GmagickPixel object or a string containing the border color</p>
-		 * @param int $width <p>Border width</p>
-		 * @param int $height <p>Border height</p>
-		 * @return Gmagick <p>The Gmagick object with border defined</p>
+		 * <p>Surrounds the image with a border of the color defined by the bordercolor <code>GmagickPixel</code> object or a color string.</p>
+		 * @param \GmagickPixel $color <p><code>GmagickPixel</code> object or a string containing the border color.</p>
+		 * @param int $width <p>Border width.</p>
+		 * @param int $height <p>Border height.</p>
+		 * @return Gmagick <p>The <code>Gmagick</code> object with border defined.</p>
 		 * @link https://php.net/manual/en/gmagick.borderimage.php
 		 * @since PECL gmagick >= Unknown
 		 */
@@ -1689,9 +1725,9 @@ namespace {
 		/**
 		 * Simulates a charcoal drawing
 		 * <p>Simulates a charcoal drawing.</p>
-		 * @param float $radius <p>The radius of the Gaussian, in pixels, not counting the center pixel</p>
-		 * @param float $sigma <p>The standard deviation of the Gaussian, in pixels</p>
-		 * @return Gmagick <p>The Gmagick object with charcoal simulation</p>
+		 * @param float $radius <p>The radius of the Gaussian, in pixels, not counting the center pixel.</p>
+		 * @param float $sigma <p>The standard deviation of the Gaussian, in pixels.</p>
+		 * @return Gmagick <p>The <code>Gmagick</code> object with charcoal simulation.</p>
 		 * @link https://php.net/manual/en/gmagick.charcoalimage.php
 		 * @since PECL gmagick >= Unknown
 		 */
@@ -1700,11 +1736,11 @@ namespace {
 		/**
 		 * Removes a region of an image and trims
 		 * <p>Removes a region of an image and collapses the image to occupy the removed portion.</p>
-		 * @param int $width <p>Width of the chopped area</p>
-		 * @param int $height <p>Height of the chopped area</p>
-		 * @param int $x <p>X origo of the chopped area</p>
-		 * @param int $y <p>Y origo of the chopped area</p>
-		 * @return Gmagick <p>The chopped Gmagick object</p>
+		 * @param int $width <p>Width of the chopped area.</p>
+		 * @param int $height <p>Height of the chopped area.</p>
+		 * @param int $x <p>X origo of the chopped area.</p>
+		 * @param int $y <p>Y origo of the chopped area.</p>
+		 * @return Gmagick <p>The chopped <code>Gmagick</code> object.</p>
 		 * @link https://php.net/manual/en/gmagick.chopimage.php
 		 * @since PECL gmagick >= Unknown
 		 */
@@ -1712,8 +1748,8 @@ namespace {
 
 		/**
 		 * Clears all resources associated to Gmagick object
-		 * <p>Clears all resources associated to Gmagick object</p>
-		 * @return Gmagick <p>The cleared Gmagick object</p>
+		 * <p>Clears all resources associated to <code>Gmagick</code> object.</p>
+		 * @return Gmagick <p>The cleared <code>Gmagick</code> object.</p>
 		 * @link https://php.net/manual/en/gmagick.clear.php
 		 * @since PECL gmagick >= Unknown
 		 */
@@ -1722,8 +1758,8 @@ namespace {
 		/**
 		 * Adds a comment to your image
 		 * <p>Adds a comment to your image.</p>
-		 * @param string $comment <p>The comment to add</p>
-		 * @return Gmagick <p>The Gmagick object with comment added.</p>
+		 * @param string $comment <p>The comment to add.</p>
+		 * @return Gmagick <p>The <code>Gmagick</code> object with comment added.</p>
 		 * @link https://php.net/manual/en/gmagick.commentimage.php
 		 * @since PECL gmagick >= Unknown
 		 */
@@ -1732,11 +1768,11 @@ namespace {
 		/**
 		 * Composite one image onto another
 		 * <p>Composite one image onto another at the specified offset.</p>
-		 * @param \Gmagick $source <p>Gmagick object which holds the composite image</p>
+		 * @param \Gmagick $source <p><code>Gmagick</code> object which holds the composite image.</p>
 		 * @param int $COMPOSE
-		 * @param int $x <p>The column offset of the composited image</p>
-		 * @param int $y <p>The row offset of the composited image</p>
-		 * @return Gmagick <p>The Gmagick object with compositions.</p>
+		 * @param int $x <p>The column offset of the composited image.</p>
+		 * @param int $y <p>The row offset of the composited image.</p>
+		 * @return Gmagick <p>The <code>Gmagick</code> object with compositions.</p>
 		 * @link https://php.net/manual/en/gmagick.compositeimage.php
 		 * @since PECL gmagick >= Unknown
 		 */
@@ -1745,11 +1781,11 @@ namespace {
 		/**
 		 * Extracts a region of the image
 		 * <p>Extracts a region of the image.</p>
-		 * @param int $width <p>The width of the crop</p>
-		 * @param int $height <p>The height of the crop</p>
-		 * @param int $x <p>The X coordinate of the cropped region's top left corner</p>
-		 * @param int $y <p>The Y coordinate of the cropped region's top left corner</p>
-		 * @return Gmagick <p>The cropped Gmagick object</p>
+		 * @param int $width <p>The width of the crop.</p>
+		 * @param int $height <p>The height of the crop.</p>
+		 * @param int $x <p>The X coordinate of the cropped region's top left corner.</p>
+		 * @param int $y <p>The Y coordinate of the cropped region's top left corner.</p>
+		 * @return Gmagick <p>The cropped <code>Gmagick</code> object.</p>
 		 * @link https://php.net/manual/en/gmagick.cropimage.php
 		 * @since PECL gmagick >= Unknown
 		 */
@@ -1758,9 +1794,9 @@ namespace {
 		/**
 		 * Creates a crop thumbnail
 		 * <p>Creates a fixed size thumbnail by first scaling the image down and cropping a specified area from the center.</p>
-		 * @param int $width <p>The width of the thumbnail</p>
-		 * @param int $height <p>The Height of the thumbnail</p>
-		 * @return Gmagick <p>The cropped Gmagick object</p>
+		 * @param int $width <p>The width of the thumbnail.</p>
+		 * @param int $height <p>The Height of the thumbnail.</p>
+		 * @return Gmagick <p>The cropped <code>Gmagick</code> object.</p>
 		 * @link https://php.net/manual/en/gmagick.cropthumbnailimage.php
 		 * @since PECL gmagick >= Unknown
 		 */
@@ -1788,7 +1824,7 @@ namespace {
 		/**
 		 * Returns certain pixel differences between images
 		 * <p>Compares each image with the next in a sequence and returns the maximum bounding region of any pixel differences it discovers.</p>
-		 * @return Gmagick <p>Returns a new Gmagick object on success.</p>
+		 * @return Gmagick <p>Returns a new <code>Gmagick</code> object.</p>
 		 * @link https://php.net/manual/en/gmagick.deconstructimages.php
 		 * @since PECL gmagick >= Unknown
 		 */
@@ -1797,7 +1833,7 @@ namespace {
 		/**
 		 * The despeckleimage purpose
 		 * <p>Reduces the speckle noise in an image while preserving the edges of the original image.</p>
-		 * @return Gmagick <p>The despeckled Gmagick object on success.</p>
+		 * @return Gmagick <p>The despeckled <code>Gmagick</code> object.</p>
 		 * @link https://php.net/manual/en/gmagick.despeckleimage.php
 		 * @since PECL gmagick >= Unknown
 		 */
@@ -1805,7 +1841,7 @@ namespace {
 
 		/**
 		 * The destroy purpose
-		 * <p>Destroys the Gmagick object and frees all resources associated with it</p>
+		 * <p>Destroys the <code>Gmagick</code> object and frees all resources associated with it</p>
 		 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/gmagick.destroy.php
 		 * @since PECL gmagick >= Unknown
@@ -1814,9 +1850,9 @@ namespace {
 
 		/**
 		 * Renders the GmagickDraw object on the current image
-		 * <p>Renders the GmagickDraw object on the current image</p>
+		 * <p>Renders the <code>GmagickDraw</code> object on the current image.</p>
 		 * @param \GmagickDraw $GmagickDraw <p>The drawing operations to render on the image.</p>
-		 * @return Gmagick <p>The drawn Gmagick object</p>
+		 * @return Gmagick <p>The drawn <code>Gmagick</code> object.</p>
 		 * @link https://php.net/manual/en/gmagick.drawimage.php
 		 * @since PECL gmagick >= Unknown
 		 */
@@ -1826,7 +1862,7 @@ namespace {
 		 * Enhance edges within the image
 		 * <p>Enhance edges within the image with a convolution filter of the given radius. Use radius 0 and it will be auto-selected.</p>
 		 * @param float $radius <p>The radius of the operation.</p>
-		 * @return Gmagick <p>The Gmagick object with edges enhanced.</p>
+		 * @return Gmagick <p>The <code>Gmagick</code> object with edges enhanced.</p>
 		 * @link https://php.net/manual/en/gmagick.edgeimage.php
 		 * @since PECL gmagick >= Unknown
 		 */
@@ -1835,9 +1871,9 @@ namespace {
 		/**
 		 * Returns a grayscale image with a three-dimensional effect
 		 * <p>Returns a grayscale image with a three-dimensional effect. We convolve the image with a Gaussian operator of the given radius and standard deviation (sigma). For reasonable results, radius should be larger than sigma. Use a radius of 0 and it will choose a suitable radius for you.</p>
-		 * @param float $radius <p>The radius of the effect</p>
-		 * @param float $sigma <p>The sigma of the effect</p>
-		 * @return Gmagick <p>The embossed Gmagick object.</p>
+		 * @param float $radius <p>The radius of the effect.</p>
+		 * @param float $sigma <p>The sigma of the effect.</p>
+		 * @return Gmagick <p>The embossed <code>Gmagick</code> object.</p>
 		 * @link https://php.net/manual/en/gmagick.embossimage.php
 		 * @since PECL gmagick >= Unknown
 		 */
@@ -1846,7 +1882,7 @@ namespace {
 		/**
 		 * Improves the quality of a noisy image
 		 * <p>Applies a digital filter that improves the quality of a noisy image.</p>
-		 * @return Gmagick <p>The enhanced Gmagick object.</p>
+		 * @return Gmagick <p>The enhanced <code>Gmagick</code> object.</p>
 		 * @link https://php.net/manual/en/gmagick.enhanceimage.php
 		 * @since PECL gmagick >= Unknown
 		 */
@@ -1855,7 +1891,7 @@ namespace {
 		/**
 		 * Equalizes the image histogram
 		 * <p>Equalizes the image histogram.</p>
-		 * @return Gmagick <p>The equalized Gmagick object.</p>
+		 * @return Gmagick <p>The equalized <code>Gmagick</code> object.</p>
 		 * @link https://php.net/manual/en/gmagick.equalizeimage.php
 		 * @since PECL gmagick >= Unknown
 		 */
@@ -1864,19 +1900,19 @@ namespace {
 		/**
 		 * Creates a vertical mirror image
 		 * <p>Creates a vertical mirror image by reflecting the pixels around the central x-axis.</p>
-		 * @return Gmagick <p>The flipped Gmagick object.</p>
+		 * @return Gmagick <p>The flipped <code>Gmagick</code> object.</p>
 		 * @link https://php.net/manual/en/gmagick.flipimage.php
-		 * @see Imagick::flopimage()
+		 * @see Gmagick::flopimage()
 		 * @since PECL gmagick >= Unknown
 		 */
 		public function flipimage(): \Gmagick {}
 
 		/**
-		 * The flopimage purpose
-		 * <p>Creates a vertical mirror image by reflecting the pixels around the central y-axis.</p>
-		 * @return Gmagick <p>The flopped Gmagick object.</p>
+		 * Creates a horizontal mirror image
+		 * <p>Creates a horizontal mirror image by reflecting the pixels around the central y-axis.</p>
+		 * @return Gmagick <p>The flopped <code>Gmagick</code> object.</p>
 		 * @link https://php.net/manual/en/gmagick.flopimage.php
-		 * @see Imagick::flipimage()
+		 * @see Gmagick::flipimage()
 		 * @since PECL gmagick >= Unknown
 		 */
 		public function flopimage(): \Gmagick {}
@@ -1884,12 +1920,12 @@ namespace {
 		/**
 		 * Adds a simulated three-dimensional border
 		 * <p>Adds a simulated three-dimensional border around the image. The width and height specify the border width of the vertical and horizontal sides of the frame. The inner and outer bevels indicate the width of the inner and outer shadows of the frame.</p>
-		 * @param \GmagickPixel $color <p>GmagickPixel object or a float representing the matte color</p>
-		 * @param int $width <p>The width of the border</p>
-		 * @param int $height <p>The height of the border</p>
-		 * @param int $inner_bevel <p>The inner bevel width</p>
-		 * @param int $outer_bevel <p>The outer bevel width</p>
-		 * @return Gmagick <p>The framed Gmagick object.</p>
+		 * @param \GmagickPixel $color <p><code>GmagickPixel</code> object or a float representing the matte color.</p>
+		 * @param int $width <p>The width of the border.</p>
+		 * @param int $height <p>The height of the border.</p>
+		 * @param int $inner_bevel <p>The inner bevel width.</p>
+		 * @param int $outer_bevel <p>The outer bevel width.</p>
+		 * @return Gmagick <p>The framed <code>Gmagick</code> object.</p>
 		 * @link https://php.net/manual/en/gmagick.frameimage.php
 		 * @since PECL gmagick >= Unknown
 		 */
@@ -1899,7 +1935,7 @@ namespace {
 		 * Gamma-corrects an image
 		 * <p>Gamma-corrects an image. The same image viewed on different devices will have perceptual differences in the way the image's intensities are represented on the screen. Specify individual gamma levels for the red, green, and blue channels, or adjust all three with the gamma parameter. Values typically range from 0.8 to 2.3.</p>
 		 * @param float $gamma <p>The amount of gamma-correction.</p>
-		 * @return Gmagick <p>The gamma corrected Gmagick object.</p>
+		 * @return Gmagick <p>The gamma corrected <code>Gmagick</code> object.</p>
 		 * @link https://php.net/manual/en/gmagick.gammaimage.php
 		 * @since PECL gmagick >= Unknown
 		 */
@@ -1944,7 +1980,7 @@ namespace {
 		/**
 		 * Returns the image border color
 		 * <p>Returns the image border color.</p>
-		 * @return GmagickPixel <p>GmagickPixel object representing the color of the border</p>
+		 * @return GmagickPixel <p><code>GmagickPixel</code> object representing the color of the border.</p>
 		 * @link https://php.net/manual/en/gmagick.getimagebordercolor.php
 		 * @since PECL gmagick >= Unknown
 		 */
@@ -2070,8 +2106,8 @@ namespace {
 
 		/**
 		 * Gets the image histogram
-		 * <p>Returns the image histogram as an array of GmagickPixel objects. Throw an GmagickException on error.</p>
-		 * @return array <p>Returns the image histogram as an array of GmagickPixel objects.</p>
+		 * <p>Returns the image histogram as an array of <code>GmagickPixel</code> objects. Throw an <b>GmagickException</b> on error.</p>
+		 * @return array <p>Returns the image histogram as an array of <code>GmagickPixel</code> objects.</p>
 		 * @link https://php.net/manual/en/gmagick.getimagehistogram.php
 		 * @since PECL gmagick >= Unknown
 		 */
@@ -2079,8 +2115,8 @@ namespace {
 
 		/**
 		 * Gets the index of the current active image
-		 * <p>Returns the index of the current active image within the Gmagick object.</p>
-		 * @return int <p>Index of current active image</p>
+		 * <p>Returns the index of the current active image within the <code>Gmagick</code> object.</p>
+		 * @return int <p>Index of current active image.</p>
 		 * @link https://php.net/manual/en/gmagick.getimageindex.php
 		 * @since PECL gmagick >= Unknown
 		 */
@@ -2224,8 +2260,8 @@ namespace {
 
 		/**
 		 * Returns the Gmagick quantum depth as a string
-		 * <p>Returns the Gmagick quantum depth as a string.</p>
-		 * @return array <p>Returns the Gmagick quantum depth as a string.</p>
+		 * <p>Returns the <code>Gmagick</code> quantum depth as a string.</p>
+		 * @return array <p>Returns the <code>Gmagick</code> quantum depth as a string.</p>
 		 * @link https://php.net/manual/en/gmagick.getquantumdepth.php
 		 * @since PECL gmagick >= Unknown
 		 */
@@ -2251,8 +2287,8 @@ namespace {
 
 		/**
 		 * Returns the size associated with the Gmagick object
-		 * <p>Returns the size associated with the Gmagick object as an array with the keys "columns" and "rows".</p>
-		 * @return array <p>Returns the size associated with the Gmagick object as an array with the keys "columns" and "rows".</p>
+		 * <p>Returns the size associated with the <code>Gmagick</code> object as an array with the keys "columns" and "rows".</p>
+		 * @return array <p>Returns the size associated with the <code>Gmagick</code> object as an array with the keys "columns" and "rows".</p>
 		 * @link https://php.net/manual/en/gmagick.getsize.php
 		 * @since PECL gmagick >= Unknown
 		 */
@@ -2269,8 +2305,8 @@ namespace {
 
 		/**
 		 * Checks if the object has more images
-		 * <p>Returns TRUE if the object has more images when traversing the list in the forward direction.</p>
-		 * @return mixed <p>Returns TRUE if the object has more images when traversing the list in the forward direction, returns FALSE if there are none.</p>
+		 * <p>Returns <b><code>true</code></b> if the object has more images when traversing the list in the forward direction.</p>
+		 * @return mixed <p>Returns <b><code>true</code></b> if the object has more images when traversing the list in the forward direction, returns <b><code>false</code></b> if there are none.</p>
 		 * @link https://php.net/manual/en/gmagick.hasnextimage.php
 		 * @since PECL gmagick >= Unknown
 		 */
@@ -2278,8 +2314,8 @@ namespace {
 
 		/**
 		 * Checks if the object has a previous image
-		 * <p>Returns TRUE if the object has more images when traversing the list in the reverse direction</p>
-		 * @return mixed <p>Returns TRUE if the object has more images when traversing the list in the reverse direction, returns FALSE if there are none.</p>
+		 * <p>Returns <b><code>true</code></b> if the object has more images when traversing the list in the reverse direction.</p>
+		 * @return mixed <p>Returns <b><code>true</code></b> if the object has more images when traversing the list in the reverse direction, returns <b><code>false</code></b> if there are none.</p>
 		 * @link https://php.net/manual/en/gmagick.haspreviousimage.php
 		 * @since PECL gmagick >= Unknown
 		 */
@@ -2288,8 +2324,8 @@ namespace {
 		/**
 		 * Creates a new image as a copy
 		 * <p>Creates a new image that is a copy of an existing one with the image pixels "imploded" by the specified percentage.</p>
-		 * @param float $radius <p>The radius of the implode</p>
-		 * @return mixed <p>Returns imploded Gmagick object.</p>
+		 * @param float $radius <p>The radius of the implode.</p>
+		 * @return mixed <p>Returns imploded <code>Gmagick</code> object.</p>
 		 * @link https://php.net/manual/en/gmagick.implodeimage.php
 		 * @since PECL gmagick >= Unknown
 		 */
@@ -2308,11 +2344,11 @@ namespace {
 		/**
 		 * Adjusts the levels of an image
 		 * <p>Adjusts the levels of an image by scaling the colors falling between specified white and black points to the full available quantum range. The parameters provided represent the black, mid, and white points. The black point specifies the darkest color in the image. Colors darker than the black point are set to zero. Mid point specifies a gamma correction to apply to the image. White point specifies the lightest color in the image. Colors brighter than the white point are set to the maximum quantum value.</p>
-		 * @param float $blackPoint <p>The image black point</p>
-		 * @param float $gamma <p>The gamma value</p>
-		 * @param float $whitePoint <p>The image white point</p>
+		 * @param float $blackPoint <p>The image black point.</p>
+		 * @param float $gamma <p>The gamma value.</p>
+		 * @param float $whitePoint <p>The image white point.</p>
 		 * @param int $channel <p>Provide any channel constant that is valid for your channel mode. To apply to more than one channel, combine channeltype constants using bitwise operators. Refer to this list of channel constants.</p>
-		 * @return mixed <p>Gmagick object with image levelled.</p>
+		 * @return mixed <p><code>Gmagick</code> object with image leveled.</p>
 		 * @link https://php.net/manual/en/gmagick.levelimage.php
 		 * @since PECL gmagick >= Unknown
 		 */
@@ -2321,7 +2357,7 @@ namespace {
 		/**
 		 * Scales an image proportionally 2x
 		 * <p>Conveniently scales an image proportionally to twice its original size.</p>
-		 * @return mixed <p>Magnified Gmagick object.</p>
+		 * @return mixed <p>Magnified <code>Gmagick</code> object.</p>
 		 * @link https://php.net/manual/en/gmagick.magnifyimage.php
 		 * @since PECL gmagick >= Unknown
 		 */
@@ -2330,9 +2366,9 @@ namespace {
 		/**
 		 * Replaces the colors of an image with the closest color from a reference image
 		 * <p>Replaces the colors of an image with the closest color from a reference image.</p>
-		 * @param \gmagick $gmagick <p>The reference image</p>
-		 * @param bool $dither <p>Set this integer value to something other than zero to dither the mapped image</p>
-		 * @return Gmagick <p>Gmagick object</p>
+		 * @param \gmagick $gmagick <p>The reference image.</p>
+		 * @param bool $dither <p>Set this integer value to something other than zero to dither the mapped image.</p>
+		 * @return Gmagick <p>The <code>Gmagick</code> object.</p>
 		 * @link https://php.net/manual/en/gmagick.mapimage.php
 		 * @since PECL gmagick >= Unknown
 		 */
@@ -2342,7 +2378,7 @@ namespace {
 		 * Applies a digital filter
 		 * <p>Applies a digital filter that improves the quality of a noisy image. Each pixel is replaced by the median in a set of neighboring pixels as defined by radius.</p>
 		 * @param float $radius <p>The radius of the pixel neighborhood.</p>
-		 * @return void <p>Gmagick object with median filter applied.</p>
+		 * @return void <p><code>Gmagick</code> object with median filter applied.</p>
 		 * @link https://php.net/manual/en/gmagick.medianfilterimage.php
 		 * @since PECL gmagick >= Unknown
 		 */
@@ -2350,8 +2386,8 @@ namespace {
 
 		/**
 		 * Scales an image proportionally to half its size
-		 * <p>A convenient method that scales an image proportionally to one-half its original size</p>
-		 * @return Gmagick <p>The Gmagick object on success</p>
+		 * <p>A convenient method that scales an image proportionally to one-half its original size.</p>
+		 * @return Gmagick <p>The <code>Gmagick</code> object.</p>
 		 * @link https://php.net/manual/en/gmagick.minifyimage.php
 		 * @since PECL gmagick >= Unknown
 		 */
@@ -2363,7 +2399,7 @@ namespace {
 		 * @param float $brightness <p>The percent change in brighness (-100 thru +100).</p>
 		 * @param float $saturation <p>The percent change in saturation (-100 thru +100)</p>
 		 * @param float $hue <p>The percent change in hue (-100 thru +100)</p>
-		 * @return Gmagick <p>The Gmagick object on success</p>
+		 * @return Gmagick <p>The <code>Gmagick</code> object.</p>
 		 * @link https://php.net/manual/en/gmagick.modulateimage.php
 		 * @since PECL gmagick >= Unknown
 		 */
@@ -2371,11 +2407,11 @@ namespace {
 
 		/**
 		 * Simulates motion blur
-		 * <p>Simulates motion blur. We convolve the image with a Gaussian operator of the given radius and standard deviation (sigma). For reasonable results, radius should be larger than sigma. Use a radius of 0 and MotionBlurImage() selects a suitable radius for you. Angle gives the angle of the blurring motion.</p>
+		 * <p>Simulates motion blur. We convolve the image with a Gaussian operator of the given radius and standard deviation (sigma). For reasonable results, radius should be larger than sigma. Use a radius of 0 and <b>Gmagick::motionblurimage()</b> selects a suitable radius for you. Angle gives the angle of the blurring motion.</p>
 		 * @param float $radius <p>The radius of the Gaussian, in pixels, not counting the center pixel.</p>
 		 * @param float $sigma <p>The standard deviation of the Gaussian, in pixels.</p>
 		 * @param float $angle <p>Apply the effect along this angle.</p>
-		 * @return Gmagick <p>The Gmagick object on success</p>
+		 * @return Gmagick <p>The <code>Gmagick</code> object.</p>
 		 * @link https://php.net/manual/en/gmagick.motionblurimage.php
 		 * @since PECL gmagick >= Unknown
 		 */
@@ -2383,12 +2419,12 @@ namespace {
 
 		/**
 		 * Creates a new image
-		 * <p>Creates a new image with the specified background color</p>
-		 * @param int $width <p>Width of the new image</p>
-		 * @param int $height <p>Height of the new image</p>
-		 * @param string $background <p>The background color used for this image (as float)</p>
+		 * <p>Creates a new image with the specified background color.</p>
+		 * @param int $width <p>Width of the new image.</p>
+		 * @param int $height <p>Height of the new image.</p>
+		 * @param string $background <p>The background color used for this image (as float).</p>
 		 * @param string $format <p>Image format.</p>
-		 * @return Gmagick <p>The Gmagick object on success</p>
+		 * @return Gmagick <p>The <code>Gmagick</code> object.</p>
 		 * @link https://php.net/manual/en/gmagick.newimage.php
 		 * @since PECL gmagick >= Unknown
 		 */
@@ -2396,7 +2432,7 @@ namespace {
 
 		/**
 		 * Moves to the next image
-		 * <p>Associates the next image in the image list with an Gmagick object.</p>
+		 * <p>Associates the next image in the image list with an <code>Gmagick</code> object.</p>
 		 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/gmagick.nextimage.php
 		 * @since PECL gmagick >= Unknown
@@ -2406,8 +2442,8 @@ namespace {
 		/**
 		 * Enhances the contrast of a color image
 		 * <p>Enhances the contrast of a color image by adjusting the pixels color to span the entire range of colors available.</p>
-		 * @param int $channel <p>Identify which channel to normalize</p>
-		 * @return Gmagick <p>The Gmagick object on success</p>
+		 * @param int $channel <p>Identify which channel to normalize.</p>
+		 * @return Gmagick <p>The <code>Gmagick</code> object.</p>
 		 * @link https://php.net/manual/en/gmagick.normalizeimage.php
 		 * @since PECL gmagick >= Unknown
 		 */
@@ -2434,10 +2470,10 @@ namespace {
 
 		/**
 		 * Adds or removes a profile from an image
-		 * <p>Adds or removes a ICC, IPTC, or generic profile from an image. If the profile is NULL, it is removed from the image otherwise added. Use a name of '&#42;' and a profile of NULL to remove all profiles from the image.</p>
+		 * <p>Adds or removes a ICC, IPTC, or generic profile from an image. If the profile is <b><code>null</code></b>, it is removed from the image otherwise added. Use a name of <code>&#42;</code> and a profile of <b><code>null</code></b> to remove all profiles from the image.</p>
 		 * @param string $name <p>Name of profile to add or remove: ICC, IPTC, or generic profile.</p>
 		 * @param string $profile <p>The profile.</p>
-		 * @return Gmagick <p>The Gmagick object on success</p>
+		 * @return Gmagick <p>The <code>Gmagick</code> object.</p>
 		 * @link https://php.net/manual/en/gmagick.profileimage.php
 		 * @since PECL gmagick >= Unknown
 		 */
@@ -2494,9 +2530,9 @@ namespace {
 
 		/**
 		 * Returns formats supported by Gmagick
-		 * <p>Returns formats supported by Gmagick.</p>
+		 * <p>Returns formats supported by <code>Gmagick</code>.</p>
 		 * @param string $pattern <p>Specifies a <code>string</code> containing a pattern.</p>
-		 * @return array <p>The Gmagick object on success</p>
+		 * @return array <p>The <code>Gmagick</code> object.</p>
 		 * @link https://php.net/manual/en/gmagick.queryformats.php
 		 * @since PECL gmagick >= Unknown
 		 */
@@ -2506,8 +2542,8 @@ namespace {
 		 * Radial blurs an image
 		 * <p>Radial blurs an image.</p>
 		 * @param float $angle <p>The angle of the blur in degrees.</p>
-		 * @param int $channel <p>Related channel</p>
-		 * @return Gmagick <p>The Gmagick object on success</p>
+		 * @param int $channel <p>Related channel.</p>
+		 * @return Gmagick <p>The <code>Gmagick</code> object.</p>
 		 * @link https://php.net/manual/en/gmagick.radialblurimage.php
 		 * @since PECL gmagick >= Unknown
 		 */
@@ -2518,10 +2554,10 @@ namespace {
 		 * <p>Creates a simulated three-dimensional button-like effect by lightening and darkening the edges of the image. Members width and height of raise_info define the width of the vertical and horizontal edge of the effect.</p>
 		 * @param int $width <p>Width of the area to raise.</p>
 		 * @param int $height <p>Height of the area to raise.</p>
-		 * @param int $x <p>X coordinate</p>
-		 * @param int $y <p>Y coordinate</p>
+		 * @param int $x <p>X coordinate.</p>
+		 * @param int $y <p>Y coordinate.</p>
 		 * @param bool $raise <p>A value other than zero creates a 3-D raise effect, otherwise it has a lowered effect.</p>
-		 * @return Gmagick <p>The Gmagick object on success</p>
+		 * @return Gmagick <p>The <code>Gmagick</code> object.</p>
 		 * @link https://php.net/manual/en/gmagick.raiseimage.php
 		 * @since PECL gmagick >= Unknown
 		 */
@@ -2531,7 +2567,7 @@ namespace {
 		 * Reads image from filename
 		 * <p>Reads image from filename.</p>
 		 * @param string $filename <p>The image filename.</p>
-		 * @return Gmagick <p>The Gmagick object on success</p>
+		 * @return Gmagick <p>The <code>Gmagick</code> object.</p>
 		 * @link https://php.net/manual/en/gmagick.read.php
 		 * @since PECL gmagick >= Unknown
 		 */
@@ -2541,7 +2577,7 @@ namespace {
 		 * Reads image from filename
 		 * <p>Reads image from filename.</p>
 		 * @param string $filename <p>The image filename.</p>
-		 * @return Gmagick <p>The Gmagick object on success</p>
+		 * @return Gmagick <p>The <code>Gmagick</code> object.</p>
 		 * @link https://php.net/manual/en/gmagick.readimage.php
 		 * @since PECL gmagick >= Unknown
 		 */
@@ -2550,9 +2586,9 @@ namespace {
 		/**
 		 * Reads image from a binary string
 		 * <p>Reads image from a binary string.</p>
-		 * @param string $imageContents <p>Content of image</p>
+		 * @param string $imageContents <p>Content of image.</p>
 		 * @param string $filename <p>The image filename.</p>
-		 * @return Gmagick <p>The Gmagick object on success</p>
+		 * @return Gmagick <p>The <code>Gmagick</code> object.</p>
 		 * @link https://php.net/manual/en/gmagick.readimageblob.php
 		 * @since PECL gmagick >= Unknown
 		 */
@@ -2563,7 +2599,7 @@ namespace {
 		 * <p>Reads an image or image sequence from an open file descriptor.</p>
 		 * @param resource $fp <p>The file descriptor.</p>
 		 * @param string $filename
-		 * @return Gmagick <p>The Gmagick object on success</p>
+		 * @return Gmagick <p>The <code>Gmagick</code> object.</p>
 		 * @link https://php.net/manual/en/gmagick.readimagefile.php
 		 * @since PECL gmagick >= Unknown
 		 */
@@ -2571,9 +2607,9 @@ namespace {
 
 		/**
 		 * Smooths the contours of an image
-		 * <p>Smooths the contours of an image while still preserving edge information. The algorithm works by replacing each pixel with its neighbor closest in value. A neighbor is defined by radius. Use a radius of 0 and Gmagick::reduceNoiseImage() selects a suitable radius for you.</p>
+		 * <p>Smooths the contours of an image while still preserving edge information. The algorithm works by replacing each pixel with its neighbor closest in value. A neighbor is defined by radius. Use a radius of 0 and <b>Gmagick::reducenoiseimage()</b> selects a suitable radius for you.</p>
 		 * @param float $radius <p>The radius of the pixel neighborhood.</p>
-		 * @return Gmagick <p>The Gmagick object on success</p>
+		 * @return Gmagick <p>The <code>Gmagick</code> object.</p>
 		 * @link https://php.net/manual/en/gmagick.reducenoiseimage.php
 		 * @since PECL gmagick >= Unknown
 		 */
@@ -2582,7 +2618,7 @@ namespace {
 		/**
 		 * Removes an image from the image list
 		 * <p>Removes an image from the image list.</p>
-		 * @return Gmagick <p>The Gmagick object on success.</p>
+		 * @return Gmagick <p>The <code>Gmagick</code> object.</p>
 		 * @link https://php.net/manual/en/gmagick.removeimage.php
 		 * @since PECL gmagick >= Unknown
 		 */
@@ -2619,7 +2655,7 @@ namespace {
 		 * @param int $filter <p>Image filter to use.</p>
 		 * @param float $blur <p>The blur factor where larger than 1 is blurry, lesser than 1 is sharp.</p>
 		 * @param bool $fit
-		 * @return Gmagick <p>The Gmagick object on success</p>
+		 * @return Gmagick <p>The <code>Gmagick</code> object.</p>
 		 * @link https://php.net/manual/en/gmagick.resizeimage.php
 		 * @since PECL gmagick >= Unknown
 		 */
@@ -2653,7 +2689,7 @@ namespace {
 		 * @param int $width <p>The number of columns in the scaled image.</p>
 		 * @param int $height <p>The number of rows in the scaled image.</p>
 		 * @param bool $fit
-		 * @return Gmagick <p>The Gmagick object on success.</p>
+		 * @return Gmagick <p>The <code>Gmagick</code> object.</p>
 		 * @link https://php.net/manual/en/gmagick.scaleimage.php
 		 * @since PECL gmagick >= Unknown
 		 */
@@ -2662,8 +2698,8 @@ namespace {
 		/**
 		 * Separates a channel from the image
 		 * <p>Separates a channel from the image and returns a grayscale image. A channel is a particular color component of each pixel in the image.</p>
-		 * @param int $channel <p>Identify which channel to extract: RedChannel, GreenChannel, BlueChannel, OpacityChannel, CyanChannel, MagentaChannel, YellowChannel, BlackChannel.</p>
-		 * @return Gmagick <p>The Gmagick object on success</p>
+		 * @param int $channel <p>One of the Channel constant (<code>Gmagick::CHANNEL_&#42;</code>).</p>
+		 * @return Gmagick <p>The <code>Gmagick</code> object.</p>
 		 * @link https://php.net/manual/en/gmagick.separateimagechannel.php
 		 * @since PECL gmagick >= Unknown
 		 */
@@ -2673,7 +2709,7 @@ namespace {
 		 * Sets the object's default compression quality
 		 * <p>Sets the object's default compression quality.</p>
 		 * @param int $quality
-		 * @return Gmagick <p>The Gmagick object on success</p>
+		 * @return Gmagick <p>The <code>Gmagick</code> object.</p>
 		 * @link https://php.net/manual/en/gmagick.setcompressionquality.php
 		 * @since No version information available, might only be in Git
 		 */
@@ -2683,7 +2719,7 @@ namespace {
 		 * Sets the filename before you read or write the image
 		 * <p>Sets the filename before you read or write an image file.</p>
 		 * @param string $filename <p>The image filename.</p>
-		 * @return Gmagick <p>The Gmagick object on success</p>
+		 * @return Gmagick <p>The <code>Gmagick</code> object.</p>
 		 * @link https://php.net/manual/en/gmagick.setfilename.php
 		 * @since PECL gmagick >= Unknown
 		 */
@@ -2693,7 +2729,7 @@ namespace {
 		 * Sets the image background color
 		 * <p>Sets the image background color.</p>
 		 * @param \GmagickPixel $color <p>The background pixel wand.</p>
-		 * @return Gmagick <p>The Gmagick object on success</p>
+		 * @return Gmagick <p>The <code>Gmagick</code> object.</p>
 		 * @link https://php.net/manual/en/gmagick.setimagebackgroundcolor.php
 		 * @since PECL gmagick >= Unknown
 		 */
@@ -2704,7 +2740,7 @@ namespace {
 		 * <p>Sets the image chromaticity blue primary point.</p>
 		 * @param float $x <p>The blue primary x-point.</p>
 		 * @param float $y <p>The blue primary y-point.</p>
-		 * @return Gmagick <p>The Gmagick object on success</p>
+		 * @return Gmagick <p>The <code>Gmagick</code> object.</p>
 		 * @link https://php.net/manual/en/gmagick.setimageblueprimary.php
 		 * @since PECL gmagick >= Unknown
 		 */
@@ -2714,7 +2750,7 @@ namespace {
 		 * Sets the image border color
 		 * <p>Sets the image border color.</p>
 		 * @param \GmagickPixel $color <p>The border pixel wand.</p>
-		 * @return Gmagick <p>The Gmagick object on success</p>
+		 * @return Gmagick <p>The <code>Gmagick</code> object.</p>
 		 * @link https://php.net/manual/en/gmagick.setimagebordercolor.php
 		 * @since PECL gmagick >= Unknown
 		 */
@@ -2723,9 +2759,9 @@ namespace {
 		/**
 		 * Sets the depth of a particular image channel
 		 * <p>Sets the depth of a particular image channel.</p>
-		 * @param int $channel <p>Identify which channel to extract: RedChannel, GreenChannel, BlueChannel, OpacityChannel, CyanChannel, MagentaChannel, YellowChannel, BlackChannel.</p>
+		 * @param int $channel <p>One of the Channel constant (<code>Gmagick::CHANNEL_&#42;</code>).</p>
 		 * @param int $depth <p>The image depth in bits.</p>
-		 * @return Gmagick <p>The Gmagick object on success</p>
+		 * @return Gmagick <p>The <code>Gmagick</code> object.</p>
 		 * @link https://php.net/manual/en/gmagick.setimagechanneldepth.php
 		 * @since PECL gmagick >= Unknown
 		 */
@@ -2734,8 +2770,8 @@ namespace {
 		/**
 		 * Sets the image colorspace
 		 * <p>Sets the image colorspace.</p>
-		 * @param int $colorspace <p>The image colorspace: UndefinedColorspace, RGBColorspace, GRAYColorspace, TransparentColorspace, OHTAColorspace, XYZColorspace, YCbCrColorspace, YCCColorspace, YIQColorspace, YPbPrColorspace, YPbPrColorspace, YUVColorspace, CMYKColorspace, sRGBColorspace, HSLColorspace, or HWBColorspace.</p>
-		 * @return Gmagick <p>The Gmagick object on success</p>
+		 * @param int $colorspace <p>One of the Colorspace constant (<code>Gmagick::COLORSPACE_&#42;</code>).</p>
+		 * @return Gmagick <p>The <code>Gmagick</code> object.</p>
 		 * @link https://php.net/manual/en/gmagick.setimagecolorspace.php
 		 * @since PECL gmagick >= Unknown
 		 */
@@ -2753,9 +2789,9 @@ namespace {
 
 		/**
 		 * Sets the image delay
-		 * <p>Sets the image delay</p>
+		 * <p>Sets the image delay.</p>
 		 * @param int $delay <p>The image delay in 1/100th of a second.</p>
-		 * @return Gmagick <p>The Gmagick object on success.</p>
+		 * @return Gmagick <p>The <code>Gmagick</code> object.</p>
 		 * @link https://php.net/manual/en/gmagick.setimagedelay.php
 		 * @since PECL gmagick >= Unknown
 		 */
@@ -2763,9 +2799,9 @@ namespace {
 
 		/**
 		 * Sets the image depth
-		 * <p>Sets the image depth</p>
+		 * <p>Sets the image depth.</p>
 		 * @param int $depth <p>The image depth in bits: 8, 16, or 32.</p>
-		 * @return Gmagick <p>The Gmagick object on success.</p>
+		 * @return Gmagick <p>The <code>Gmagick</code> object.</p>
 		 * @link https://php.net/manual/en/gmagick.setimagedepth.php
 		 * @since PECL gmagick >= Unknown
 		 */
@@ -2775,7 +2811,7 @@ namespace {
 		 * Sets the image disposal method
 		 * <p>Sets the image disposal method.</p>
 		 * @param int $disposeType <p>The image disposal type.</p>
-		 * @return Gmagick <p>The Gmagick object on success</p>
+		 * @return Gmagick <p>The <code>Gmagick</code> object.</p>
 		 * @link https://php.net/manual/en/gmagick.setimagedispose.php
 		 * @since PECL gmagick >= Unknown
 		 */
@@ -2785,7 +2821,7 @@ namespace {
 		 * Sets the filename of a particular image in a sequence
 		 * <p>Sets the filename of a particular image in a sequence.</p>
 		 * @param string $filename <p>The image filename.</p>
-		 * @return Gmagick <p>The Gmagick object on success.</p>
+		 * @return Gmagick <p>The <code>Gmagick</code> object.</p>
 		 * @link https://php.net/manual/en/gmagick.setimagefilename.php
 		 * @since PECL gmagick >= Unknown
 		 */
@@ -2795,7 +2831,7 @@ namespace {
 		 * Sets the format of a particular image
 		 * <p>Sets the format of a particular image in a sequence.</p>
 		 * @param string $imageFormat <p>The image format.</p>
-		 * @return Gmagick <p>The Gmagick object on success.</p>
+		 * @return Gmagick <p>The <code>Gmagick</code> object.</p>
 		 * @link https://php.net/manual/en/gmagick.setimageformat.php
 		 * @since PECL gmagick >= Unknown
 		 */
@@ -2805,7 +2841,7 @@ namespace {
 		 * Sets the image gamma
 		 * <p>Sets the image gamma.</p>
 		 * @param float $gamma <p>The image gamma.</p>
-		 * @return Gmagick <p>The Gmagick object on success</p>
+		 * @return Gmagick <p>The <code>Gmagick</code> object.</p>
 		 * @link https://php.net/manual/en/gmagick.setimagegamma.php
 		 * @since PECL gmagick >= Unknown
 		 */
@@ -2816,7 +2852,7 @@ namespace {
 		 * <p>Sets the image chromaticity green primary point.</p>
 		 * @param float $x <p>The chromaticity green primary x-point.</p>
 		 * @param float $y <p>The chromaticity green primary y-point.</p>
-		 * @return Gmagick <p>The Gmagick object on success.</p>
+		 * @return Gmagick <p>The <code>Gmagick</code> object.</p>
 		 * @link https://php.net/manual/en/gmagick.setimagegreenprimary.php
 		 * @since PECL gmagick >= Unknown
 		 */
@@ -2826,7 +2862,7 @@ namespace {
 		 * Set the iterator to the position in the image list specified with the index parameter
 		 * <p>Set the iterator to the position in the image list specified with the index parameter.</p>
 		 * @param int $index <p>The scene number.</p>
-		 * @return Gmagick <p>The Gmagick object on success.</p>
+		 * @return Gmagick <p>The <code>Gmagick</code> object.</p>
 		 * @link https://php.net/manual/en/gmagick.setimageindex.php
 		 * @since PECL gmagick >= Unknown
 		 */
@@ -2835,8 +2871,8 @@ namespace {
 		/**
 		 * Sets the interlace scheme of the image
 		 * <p>Sets the interlace scheme of the image.</p>
-		 * @param int $interlace <p>The image interlace scheme: NoInterlace, LineInterlace, PlaneInterlace, PartitionInterlace.</p>
-		 * @return Gmagick <p>The Gmagick object on success</p>
+		 * @param int $interlace <p>One of the Interlace constant (<code>Gmagick::INTERLACE_&#42;</code>).</p>
+		 * @return Gmagick <p>The <code>Gmagick</code> object.</p>
 		 * @link https://php.net/manual/en/gmagick.setimageinterlacescheme.php
 		 * @since PECL gmagick >= Unknown
 		 */
@@ -2846,7 +2882,7 @@ namespace {
 		 * Sets the image iterations
 		 * <p>Sets the image iterations.</p>
 		 * @param int $iterations <p>The image delay in 1/100th of a second.</p>
-		 * @return Gmagick <p>The Gmagick object on success.</p>
+		 * @return Gmagick <p>The <code>Gmagick</code> object.</p>
 		 * @link https://php.net/manual/en/gmagick.setimageiterations.php
 		 * @since PECL gmagick >= Unknown
 		 */
@@ -2877,8 +2913,8 @@ namespace {
 		/**
 		 * Sets the image rendering intent
 		 * <p>Sets the image rendering intent.</p>
-		 * @param int $rendering_intent <p>The image rendering intent: UndefinedIntent, SaturationIntent, PerceptualIntent, AbsoluteIntent, or RelativeIntent.</p>
-		 * @return Gmagick <p>The Gmagick object on success.</p>
+		 * @param int $rendering_intent <p>One of the Rendering Intent constant (<code>Gmagick::RENDERINGINTENT_&#42;</code>).</p>
+		 * @return Gmagick <p>The <code>Gmagick</code> object.</p>
 		 * @link https://php.net/manual/en/gmagick.setimagerenderingintent.php
 		 * @since PECL gmagick >= Unknown
 		 */
@@ -2899,7 +2935,7 @@ namespace {
 		 * Sets the image scene
 		 * <p>Sets the image scene.</p>
 		 * @param int $scene <p>The image scene number.</p>
-		 * @return Gmagick <p>The Gmagick object on success.</p>
+		 * @return Gmagick <p>The <code>Gmagick</code> object.</p>
 		 * @link https://php.net/manual/en/gmagick.setimagescene.php
 		 * @since PECL gmagick >= Unknown
 		 */
@@ -2908,8 +2944,8 @@ namespace {
 		/**
 		 * Sets the image type
 		 * <p>Sets the image type.</p>
-		 * @param int $imgType <p>The image type: UndefinedType, BilevelType, GrayscaleType, GrayscaleMatteType, PaletteType, PaletteMatteType, TrueColorType, TrueColorMatteType, ColorSeparationType, ColorSeparationMatteType, or OptimizeType.</p>
-		 * @return Gmagick <p>The Gmagick object on success.</p>
+		 * @param int $imgType <p>One of the Image type constant (<code>Gmagick::IMGTYPE_&#42;</code>).</p>
+		 * @return Gmagick <p>The <code>Gmagick</code> object.</p>
 		 * @link https://php.net/manual/en/gmagick.setimagetype.php
 		 * @since PECL gmagick >= Unknown
 		 */
@@ -2918,8 +2954,8 @@ namespace {
 		/**
 		 * Sets the image units of resolution
 		 * <p>Sets the image units of resolution.</p>
-		 * @param int $resolution <p>The image units of resolution : Undefinedresolution, PixelsPerInchResolution, or PixelsPerCentimeterResolution.</p>
-		 * @return Gmagick <p>The Gmagick object on success.</p>
+		 * @param int $resolution <p>One of the Resolution constant (<code>Gmagick::RESOLUTION_&#42;</code>).</p>
+		 * @return Gmagick <p>The <code>Gmagick</code> object.</p>
 		 * @link https://php.net/manual/en/gmagick.setimageunits.php
 		 * @since PECL gmagick >= Unknown
 		 */
@@ -2930,7 +2966,7 @@ namespace {
 		 * <p>Sets the image chromaticity white point.</p>
 		 * @param float $x <p>The white x-point.</p>
 		 * @param float $y <p>The white y-point.</p>
-		 * @return Gmagick <p>The Gmagick object on success.</p>
+		 * @return Gmagick <p>The <code>Gmagick</code> object.</p>
 		 * @link https://php.net/manual/en/gmagick.setimagewhitepoint.php
 		 * @since PECL gmagick >= Unknown
 		 */
@@ -2940,7 +2976,7 @@ namespace {
 		 * Sets the image sampling factors
 		 * <p>Sets the image sampling factors.</p>
 		 * @param array $factors <p>An array of doubles representing the sampling factor for each color component (in RGB order).</p>
-		 * @return Gmagick <p>The Gmagick object on success.</p>
+		 * @return Gmagick <p>The <code>Gmagick</code> object.</p>
 		 * @link https://php.net/manual/en/gmagick.setsamplingfactors.php
 		 * @since PECL gmagick >= Unknown
 		 */
@@ -2948,10 +2984,10 @@ namespace {
 
 		/**
 		 * Sets the size of the Gmagick object
-		 * <p>Sets the size of the Gmagick object. Set it before you read a raw image format such as RGB, GRAY, or CMYK.</p>
+		 * <p>Sets the size of the Gmagick object. Set it before you read a raw image format such as <b><code>Gmagick::COLORSPACE_RGB</code></b>, <b><code>Gmagick::COLORSPACE_GRAY</code></b>, or <b><code>Gmagick::COLORSPACE_CMYK</code></b>.</p>
 		 * @param int $columns <p>The width in pixels.</p>
 		 * @param int $rows <p>The height in pixels.</p>
-		 * @return Gmagick <p>The Gmagick object on success.</p>
+		 * @return Gmagick <p>The <code>Gmagick</code> object.</p>
 		 * @link https://php.net/manual/en/gmagick.setsize.php
 		 * @since PECL gmagick >= Unknown
 		 */
@@ -2963,7 +2999,7 @@ namespace {
 		 * @param mixed $color <p>The background pixel wand.</p>
 		 * @param float $xShear <p>The number of degrees to shear the image.</p>
 		 * @param float $yShear <p>The number of degrees to shear the image.</p>
-		 * @return Gmagick <p>The Gmagick object on success</p>
+		 * @return Gmagick <p>The <code>Gmagick</code> object.</p>
 		 * @link https://php.net/manual/en/gmagick.shearimage.php
 		 * @since PECL gmagick >= Unknown
 		 */
@@ -2973,7 +3009,7 @@ namespace {
 		 * Applies a solarizing effect to the image
 		 * <p>Applies a special effect to the image, similar to the effect achieved in a photo darkroom by selectively exposing areas of photo sensitive paper to light. Threshold ranges from 0 to QuantumRange and is a measure of the extent of the solarization.</p>
 		 * @param int $threshold <p>Define the extent of the solarization.</p>
-		 * @return Gmagick <p>The Gmagick object on success.</p>
+		 * @return Gmagick <p>The <code>Gmagick</code> object.</p>
 		 * @link https://php.net/manual/en/gmagick.solarizeimage.php
 		 * @since PECL gmagick >= Unknown
 		 */
@@ -2983,7 +3019,7 @@ namespace {
 		 * Randomly displaces each pixel in a block
 		 * <p>Special effects method that randomly displaces each pixel in a block defined by the radius parameter.</p>
 		 * @param float $radius <p>Choose a random pixel in a neighborhood of this extent.</p>
-		 * @return Gmagick <p>The Gmagick object on success</p>
+		 * @return Gmagick <p>The <code>Gmagick</code> object.</p>
 		 * @link https://php.net/manual/en/gmagick.spreadimage.php
 		 * @since PECL gmagick >= Unknown
 		 */
@@ -2992,7 +3028,7 @@ namespace {
 		/**
 		 * Strips an image of all profiles and comments
 		 * <p>Strips an image of all profiles and comments.</p>
-		 * @return Gmagick <p>The Gmagick object on success</p>
+		 * @return Gmagick <p>The <code>Gmagick</code> object.</p>
 		 * @link https://php.net/manual/en/gmagick.stripimage.php
 		 * @since PECL gmagick >= Unknown
 		 */
@@ -3002,7 +3038,7 @@ namespace {
 		 * Swirls the pixels about the center of the image
 		 * <p>Swirls the pixels about the center of the image, where degrees indicates the sweep of the arc through which each pixel is moved. You get a more dramatic effect as the degrees move from 1 to 360.</p>
 		 * @param float $degrees <p>Define the tightness of the swirling effect.</p>
-		 * @return Gmagick <p>The Gmagick object on success</p>
+		 * @return Gmagick <p>The <code>Gmagick</code> object.</p>
 		 * @link https://php.net/manual/en/gmagick.swirlimage.php
 		 * @since PECL gmagick >= Unknown
 		 */
@@ -3010,11 +3046,11 @@ namespace {
 
 		/**
 		 * Changes the size of an image
-		 * <p>Changes the size of an image to the given dimensions and removes any associated profiles. The goal is to produce small low cost thumbnail images suited for display on the Web. If TRUE is given as a third parameter then columns and rows parameters are used as maximums for each side. Both sides will be scaled down until the match or are smaller than the parameter given for the side.</p>
-		 * @param int $width <p>Image width</p>
-		 * @param int $height <p>Image height</p>
+		 * <p>Changes the size of an image to the given dimensions and removes any associated profiles. The goal is to produce small low cost thumbnail images suited for display on the Web. If <b><code>true</code></b> is given as a third parameter then columns and rows parameters are used as maximums for each side. Both sides will be scaled down until the match or are smaller than the parameter given for the side.</p>
+		 * @param int $width <p>Image width.</p>
+		 * @param int $height <p>Image height.</p>
 		 * @param bool $fit
-		 * @return Gmagick <p>The Gmagick object on success.</p>
+		 * @return Gmagick <p>The <code>Gmagick</code> object.</p>
 		 * @link https://php.net/manual/en/gmagick.thumbnailimage.php
 		 * @since PECL gmagick >= Unknown
 		 */
@@ -3024,7 +3060,7 @@ namespace {
 		 * Remove edges from the image
 		 * <p>Remove edges that are the background color from the image.</p>
 		 * @param float $fuzz <p>By default target must match a particular pixel color exactly. However, in many cases two colors may differ by a small amount. The fuzz member of image defines how much tolerance is acceptable to consider two colors as the same. This parameter represents the variation on the quantum range.</p>
-		 * @return Gmagick <p>The Gmagick object</p>
+		 * @return Gmagick <p>The <code>Gmagick</code> object.</p>
 		 * @link https://php.net/manual/en/gmagick.trimimage.php
 		 * @since PECL gmagick >= Unknown
 		 */
@@ -3032,10 +3068,10 @@ namespace {
 
 		/**
 		 * Writes an image to the specified filename
-		 * <p>Writes an image to the specified filename. If the filename parameter is NULL, the image is written to the filename set by Gmagick::ReadImage() or Gmagick::SetImageFilename().</p>
+		 * <p>Writes an image to the specified filename. If the filename parameter is <b><code>null</code></b>, the image is written to the filename set by <code>Gmagick::readimage()</code> or <code>Gmagick::setimagefilename()</code>.</p>
 		 * @param string $filename <p>The image filename.</p>
 		 * @param bool $all_frames
-		 * @return Gmagick <p>The Gmagick object</p>
+		 * @return Gmagick <p>The <code>Gmagick</code> object.</p>
 		 * @link https://php.net/manual/en/gmagick.writeimage.php
 		 * @since PECL gmagick >= Unknown
 		 */
@@ -3054,7 +3090,7 @@ namespace {
 		 * @param float $x <p>x ordinate to left of text</p>
 		 * @param float $y <p>y ordinate to text baseline</p>
 		 * @param string $text <p>text to draw</p>
-		 * @return GmagickDraw <p>The GmagickDraw object on success.</p>
+		 * @return GmagickDraw <p>The <code>GmagickDraw</code> object.</p>
 		 * @link https://php.net/manual/en/gmagickdraw.annotate.php
 		 * @since PECL gmagick >= Unknown
 		 */
@@ -3069,7 +3105,7 @@ namespace {
 		 * @param float $ey <p>ending y ordinate of bounding rectangle</p>
 		 * @param float $sd <p>starting degrees of rotation</p>
 		 * @param float $ed <p>ending degrees of rotation</p>
-		 * @return GmagickDraw <p>The GmagickDraw object on success.</p>
+		 * @return GmagickDraw <p>The <code>GmagickDraw</code> object.</p>
 		 * @link https://php.net/manual/en/gmagickdraw.arc.php
 		 * @since PECL gmagick >= Unknown
 		 */
@@ -3079,7 +3115,7 @@ namespace {
 		 * Draws a bezier curve
 		 * <p>Draws a bezier curve through a set of points on the image.</p>
 		 * @param array $coordinate_array <p>Coordinates array</p>
-		 * @return GmagickDraw <p>The GmagickDraw object on success</p>
+		 * @return GmagickDraw <p>The <code>GmagickDraw</code> object.</p>
 		 * @link https://php.net/manual/en/gmagickdraw.bezier.php
 		 * @since PECL gmagick >= Unknown
 		 */
@@ -3094,7 +3130,7 @@ namespace {
 		 * @param float $ry <p>radius in y</p>
 		 * @param float $start <p>starting rotation in degrees</p>
 		 * @param float $end <p>ending rotation in degrees</p>
-		 * @return GmagickDraw <p>The GmagickDraw object on success</p>
+		 * @return GmagickDraw <p>The <code>GmagickDraw</code> object.</p>
 		 * @link https://php.net/manual/en/gmagickdraw.ellipse.php
 		 * @since PECL gmagick >= Unknown
 		 */
@@ -3103,7 +3139,7 @@ namespace {
 		/**
 		 * Returns the fill color
 		 * <p>Returns the fill color used for drawing filled objects.</p>
-		 * @return GmagickPixel <p>The GmagickPixel fill color used for drawing filled objects.</p>
+		 * @return GmagickPixel <p>The <code>GmagickPixel</code> fill color used for drawing filled objects.</p>
 		 * @link https://php.net/manual/en/gmagickdraw.getfillcolor.php
 		 * @since PECL gmagick >= Unknown
 		 */
@@ -3130,7 +3166,7 @@ namespace {
 		/**
 		 * Returns the font pointsize
 		 * <p>Returns the font pointsize used when annotating with text.</p>
-		 * @return float <p>Returns the font size associated with the current GmagickDraw object.</p>
+		 * @return float <p>Returns the font size associated with the current <code>GmagickDraw</code> object.</p>
 		 * @link https://php.net/manual/en/gmagickdraw.getfontsize.php
 		 * @since PECL gmagick >= Unknown
 		 */
@@ -3139,7 +3175,7 @@ namespace {
 		/**
 		 * Returns the font style
 		 * <p>Returns the font style used when annotating with text.</p>
-		 * @return int <p>Returns the font style constant (STYLE_) associated with the GmagickDraw object or 0 if no style is set.</p>
+		 * @return int <p>Returns the font style constant (STYLE_) associated with the <code>GmagickDraw</code> object or <code>0</code> if no style is set.</p>
 		 * @link https://php.net/manual/en/gmagickdraw.getfontstyle.php
 		 * @since PECL gmagick >= Unknown
 		 */
@@ -3157,7 +3193,7 @@ namespace {
 		/**
 		 * Returns the color used for stroking object outlines
 		 * <p>Returns the color used for stroking object outlines.</p>
-		 * @return GmagickPixel <p>Returns an GmagickPixel object which describes the color.</p>
+		 * @return GmagickPixel <p>Returns an <code>GmagickPixel</code> object which describes the color.</p>
 		 * @link https://php.net/manual/en/gmagickdraw.getstrokecolor.php
 		 * @since PECL gmagick >= Unknown
 		 */
@@ -3200,13 +3236,13 @@ namespace {
 		public function gettextencoding(): mixed {}
 
 		/**
-		 * The line purpose
+		 * Draws a line
 		 * <p>Draws a line on the image using the current stroke color, stroke opacity, and stroke width.</p>
 		 * @param float $sx <p>starting x ordinate</p>
 		 * @param float $sy <p>starting y ordinate</p>
 		 * @param float $ex <p>ending x ordinate</p>
 		 * @param float $ey <p>ending y ordinate</p>
-		 * @return GmagickDraw <p>The GmagickDraw object on success</p>
+		 * @return GmagickDraw <p>The <code>GmagickDraw</code> object.</p>
 		 * @link https://php.net/manual/en/gmagickdraw.line.php
 		 * @since PECL gmagick >= Unknown
 		 */
@@ -3217,7 +3253,7 @@ namespace {
 		 * <p>Draws a point using the current stroke color and stroke thickness at the specified coordinates.</p>
 		 * @param float $x <p>target x coordinate</p>
 		 * @param float $y <p>target y coordinate</p>
-		 * @return GmagickDraw <p>The GmagickDraw object on success</p>
+		 * @return GmagickDraw <p>The <code>GmagickDraw</code> object.</p>
 		 * @link https://php.net/manual/en/gmagickdraw.point.php
 		 * @since PECL gmagick >= Unknown
 		 */
@@ -3227,7 +3263,7 @@ namespace {
 		 * Draws a polygon
 		 * <p>Draws a polygon using the current stroke, stroke width, and fill color or texture, using the specified array of coordinates.</p>
 		 * @param array $coordinates <p>coordinate array</p>
-		 * @return GmagickDraw <p>The GmagickDraw object on success</p>
+		 * @return GmagickDraw <p>The <code>GmagickDraw</code> object.</p>
 		 * @link https://php.net/manual/en/gmagickdraw.polygon.php
 		 * @since PECL gmagick >= Unknown
 		 */
@@ -3237,7 +3273,7 @@ namespace {
 		 * Draws a polyline
 		 * <p>Draws a polyline using the current stroke, stroke width, and fill color or texture, using the specified array of coordinates.</p>
 		 * @param array $coordinate_array <p>The array of coordinates</p>
-		 * @return GmagickDraw <p>The GmagickDraw object on success</p>
+		 * @return GmagickDraw <p>The <code>GmagickDraw</code> object.</p>
 		 * @link https://php.net/manual/en/gmagickdraw.polyline.php
 		 * @since PECL gmagick >= Unknown
 		 */
@@ -3250,7 +3286,7 @@ namespace {
 		 * @param float $y1 <p>y ordinate of first coordinate</p>
 		 * @param float $x2 <p>x ordinate of second coordinate</p>
 		 * @param float $y2 <p>y ordinate of second coordinate</p>
-		 * @return GmagickDraw <p>The GmagickDraw object on success</p>
+		 * @return GmagickDraw <p>The <code>GmagickDraw</code> object.</p>
 		 * @link https://php.net/manual/en/gmagickdraw.rectangle.php
 		 * @since PECL gmagick >= Unknown
 		 */
@@ -3260,7 +3296,7 @@ namespace {
 		 * Applies the specified rotation to the current coordinate space
 		 * <p>Applies the specified rotation to the current coordinate space.</p>
 		 * @param float $degrees <p>degrees of rotation</p>
-		 * @return GmagickDraw <p>The GmagickDraw object on success</p>
+		 * @return GmagickDraw <p>The <code>GmagickDraw</code> object.</p>
 		 * @link https://php.net/manual/en/gmagickdraw.rotate.php
 		 * @since PECL gmagick >= Unknown
 		 */
@@ -3275,7 +3311,7 @@ namespace {
 		 * @param float $y2 <p>y ordinate of second coordinate</p>
 		 * @param float $rx <p>radius of corner in horizontal direction</p>
 		 * @param float $ry <p>radius of corner in vertical direction</p>
-		 * @return GmagickDraw <p>The GmagickDraw object on success</p>
+		 * @return GmagickDraw <p>The <code>GmagickDraw</code> object.</p>
 		 * @link https://php.net/manual/en/gmagickdraw.roundrectangle.php
 		 * @since PECL gmagick >= Unknown
 		 */
@@ -3286,7 +3322,7 @@ namespace {
 		 * <p>Adjusts the scaling factor to apply in the horizontal and vertical directions to the current coordinate space.</p>
 		 * @param float $x <p>horizontal scale factor</p>
 		 * @param float $y <p>vertical scale factor</p>
-		 * @return GmagickDraw <p>The GmagickDraw object on success</p>
+		 * @return GmagickDraw <p>The <code>GmagickDraw</code> object.</p>
 		 * @link https://php.net/manual/en/gmagickdraw.scale.php
 		 * @since PECL gmagick >= Unknown
 		 */
@@ -3295,8 +3331,8 @@ namespace {
 		/**
 		 * Sets the fill color to be used for drawing filled objects
 		 * <p>Sets the fill color to be used for drawing filled objects.</p>
-		 * @param mixed $color <p>GmagickPixel or <code>string</code> indicating color to use for filling.</p>
-		 * @return GmagickDraw <p>The GmagickDraw object on success.</p>
+		 * @param mixed $color <p><code>GmagickPixel</code> or <code>string</code> indicating color to use for filling.</p>
+		 * @return GmagickDraw <p>The <code>GmagickDraw</code> object on success.</p>
 		 * @link https://php.net/manual/en/gmagickdraw.setfillcolor.php
 		 * @since PECL gmagick >= Unknown
 		 */
@@ -3306,7 +3342,7 @@ namespace {
 		 * The setfillopacity purpose
 		 * <p>Sets the opacity to use when drawing using the fill color or fill texture. Setting it to 1.0 will make fill full opaque.</p>
 		 * @param float $fill_opacity <p>Fill opacity</p>
-		 * @return GmagickDraw <p>The GmagickDraw object on success</p>
+		 * @return GmagickDraw <p>The <code>GmagickDraw</code> object.</p>
 		 * @link https://php.net/manual/en/gmagickdraw.setfillopacity.php
 		 * @since PECL gmagick >= Unknown
 		 */
@@ -3316,7 +3352,7 @@ namespace {
 		 * Sets the fully-specified font to use when annotating with text
 		 * <p>Sets the fully-specified font to use when annotating with text</p>
 		 * @param string $font <p>font name</p>
-		 * @return GmagickDraw <p>The GmagickDraw object on success</p>
+		 * @return GmagickDraw <p>The <code>GmagickDraw</code> object.</p>
 		 * @link https://php.net/manual/en/gmagickdraw.setfont.php
 		 * @since PECL gmagick >= Unknown
 		 */
@@ -3326,7 +3362,7 @@ namespace {
 		 * Sets the font pointsize to use when annotating with text
 		 * <p>Sets the font pointsize to use when annotating with text.</p>
 		 * @param float $pointsize <p>Text pointsize</p>
-		 * @return GmagickDraw <p>The GmagickDraw object on success</p>
+		 * @return GmagickDraw <p>The <code>GmagickDraw</code> object.</p>
 		 * @link https://php.net/manual/en/gmagickdraw.setfontsize.php
 		 * @since PECL gmagick >= Unknown
 		 */
@@ -3336,7 +3372,7 @@ namespace {
 		 * Sets the font style to use when annotating with text
 		 * <p>Sets the font style to use when annotating with text. The AnyStyle enumeration acts as a wild-card "don't care" option.</p>
 		 * @param int $style <p>Font style (NormalStyle, ItalicStyle, ObliqueStyle, AnyStyle)</p>
-		 * @return GmagickDraw <p>The GmagickDraw object on success</p>
+		 * @return GmagickDraw <p>The <code>GmagickDraw</code> object.</p>
 		 * @link https://php.net/manual/en/gmagickdraw.setfontstyle.php
 		 * @since PECL gmagick >= Unknown
 		 */
@@ -3346,7 +3382,7 @@ namespace {
 		 * Sets the font weight
 		 * <p>Sets the font weight to use when annotating with text.</p>
 		 * @param int $weight <p>Font weight (valid range 100-900)</p>
-		 * @return GmagickDraw <p>The GmagickDraw object on success</p>
+		 * @return GmagickDraw <p>The <code>GmagickDraw</code> object.</p>
 		 * @link https://php.net/manual/en/gmagickdraw.setfontweight.php
 		 * @since PECL gmagick >= Unknown
 		 */
@@ -3355,8 +3391,8 @@ namespace {
 		/**
 		 * Sets the color used for stroking object outlines
 		 * <p>Sets the color used for stroking object outlines.</p>
-		 * @param mixed $color <p>GmagickPixel or <code>string</code> representing the color for the stroke.</p>
-		 * @return GmagickDraw <p>The GmagickDraw object on success.</p>
+		 * @param mixed $color <p><code>GmagickPixel</code> or <code>string</code> representing the color for the stroke.</p>
+		 * @return GmagickDraw <p>The <code>GmagickDraw</code> object on success.</p>
 		 * @link https://php.net/manual/en/gmagickdraw.setstrokecolor.php
 		 * @since PECL gmagick >= Unknown
 		 */
@@ -3366,7 +3402,7 @@ namespace {
 		 * Specifies the opacity of stroked object outlines
 		 * <p>Specifies the opacity of stroked object outlines.</p>
 		 * @param float $stroke_opacity <p>Stroke opacity. The value 1.0 is opaque.</p>
-		 * @return GmagickDraw <p>The GmagickDraw object on success</p>
+		 * @return GmagickDraw <p>The <code>GmagickDraw</code> object.</p>
 		 * @link https://php.net/manual/en/gmagickdraw.setstrokeopacity.php
 		 * @since PECL gmagick >= Unknown
 		 */
@@ -3376,7 +3412,7 @@ namespace {
 		 * Sets the width of the stroke used to draw object outlines
 		 * <p>Sets the width of the stroke used to draw object outlines</p>
 		 * @param float $width <p>Stroke width</p>
-		 * @return GmagickDraw <p>The GmagickDraw object on success</p>
+		 * @return GmagickDraw <p>The <code>GmagickDraw</code> object.</p>
 		 * @link https://php.net/manual/en/gmagickdraw.setstrokewidth.php
 		 * @since PECL gmagick >= Unknown
 		 */
@@ -3386,7 +3422,7 @@ namespace {
 		 * Specifies a decoration
 		 * <p>Specifies a decoration to be applied when annotating with text.</p>
 		 * @param int $decoration
-		 * @return GmagickDraw <p>The GmagickDraw object on success</p>
+		 * @return GmagickDraw <p>The <code>GmagickDraw</code> object.</p>
 		 * @link https://php.net/manual/en/gmagickdraw.settextdecoration.php
 		 * @since PECL gmagick >= Unknown
 		 */
@@ -3396,7 +3432,7 @@ namespace {
 		 * Specifies the text code set
 		 * <p>Specifies the code set to use for text annotations. The only character encoding which may be specified at this time is "UTF-8" for representing Unicode as a sequence of bytes. Specify an empty string to set text encoding to the system's default. Successful text annotation using Unicode may require fonts designed to support Unicode.</p>
 		 * @param string $encoding <p>Character string specifying text encoding</p>
-		 * @return GmagickDraw <p>The GmagickDraw object on success</p>
+		 * @return GmagickDraw <p>The <code>GmagickDraw</code> object.</p>
 		 * @link https://php.net/manual/en/gmagickdraw.settextencoding.php
 		 * @since PECL gmagick >= Unknown
 		 */
@@ -3411,9 +3447,9 @@ namespace {
 
 		/**
 		 * The GmagickPixel constructor
-		 * <p>Constructs an GmagickPixel object. If a color is specified, the object is constructed and then initialised with that color before being returned.</p>
+		 * <p>Constructs an <code>GmagickPixel</code> object. If a color is specified, the object is constructed and then initialised with that color before being returned.</p>
 		 * @param string $color <p>The optional color string to use as the initial value of this object.</p>
-		 * @return self <p>The GmagickPixel object on success.</p>
+		 * @return self <p>The <code>GmagickPixel</code> object.</p>
 		 * @link https://php.net/manual/en/gmagickpixel.construct.php
 		 * @since PECL gmagick >= Unknown
 		 */
@@ -3421,7 +3457,7 @@ namespace {
 
 		/**
 		 * Returns the color
-		 * <p>Returns the color described by the GmagickPixel object, as a <code>string</code> or an <code>array</code>. If the color has an opacity channel set, this is provided as a fourth value in the list.</p>
+		 * <p>Returns the color described by the <code>GmagickPixel</code> object, as a <code>string</code> or an <code>array</code>. If the color has an opacity channel set, this is provided as a fourth value in the list.</p>
 		 * @param bool $as_array <p><b><code>true</code></b> to indicate return of <code>array</code> instead of <code>string</code>.</p>
 		 * @param bool $normalize_array <p><b><code>true</code></b> to normalize the color values.</p>
 		 * @return mixed <p>A <code>string</code> or an <code>array</code> of channel values, each normalized if <b><code>true</code></b> is given as <code>normalize_array</code>. Throws <b>GmagickPixelException</b> on error.</p>
@@ -3432,8 +3468,8 @@ namespace {
 
 		/**
 		 * Returns the color count associated with this color
-		 * <p>Returns the color count associated with this color</p>
-		 * @return int <p>Returns the color count as an integer on success, throws GmagickPixelException on failure.</p>
+		 * <p>Returns the color count associated with this color.</p>
+		 * @return int <p>Returns the color count as an integer on success, throws <b>GmagickPixelException</b> on failure.</p>
 		 * @link https://php.net/manual/en/gmagickpixel.getcolorcount.php
 		 * @since PECL gmagick >= Unknown
 		 */
@@ -3443,7 +3479,7 @@ namespace {
 		 * Gets the normalized value of the provided color channel
 		 * <p>Retrieves the value of the color channel specified, as a floating-point number between 0 and 1.</p>
 		 * @param int $color <p>The channel to check, specified as one of the Gmagick channel constants.</p>
-		 * @return float <p>The value of the channel, as a normalized floating-point number, throwing GmagickPixelException on error.</p>
+		 * @return float <p>The value of the channel, as a normalized floating-point number, throwing <b>GmagickPixelException</b> on error.</p>
 		 * @link https://php.net/manual/en/gmagickpixel.getcolorvalue.php
 		 * @since PECL gmagick >= Unknown
 		 */
@@ -3451,9 +3487,9 @@ namespace {
 
 		/**
 		 * Sets the color
-		 * <p>Sets the color described by the GmagickPixel object, with a string (e.g. "blue", "#0000ff", "rgb(0,0,255)", "cmyk(100,100,100,10)", etc.).</p>
-		 * @param string $color <p>The color definition to use in order to initialise the GmagickPixel object.</p>
-		 * @return GmagickPixel <p>The GmagickPixel object on success.</p>
+		 * <p>Sets the color described by the <code>GmagickPixel</code> object, with a string (e.g. "blue", "#0000ff", "rgb(0,0,255)", "cmyk(100,100,100,10)", etc.).</p>
+		 * @param string $color <p>The color definition to use in order to initialise the <code>GmagickPixel</code> object.</p>
+		 * @return GmagickPixel <p>The <code>GmagickPixel</code> object.</p>
 		 * @link https://php.net/manual/en/gmagickpixel.setcolor.php
 		 * @since PECL gmagick >= Unknown
 		 */
@@ -3461,10 +3497,10 @@ namespace {
 
 		/**
 		 * Sets the normalized value of one of the channels
-		 * <p>Sets the value of the specified channel of this object to the provided value, which should be between 0 and 1. This function can be used to provide an opacity channel to a GmagickPixel object.</p>
+		 * <p>Sets the value of the specified channel of this object to the provided value, which should be between 0 and 1. This function can be used to provide an opacity channel to a <code>GmagickPixel</code> object.</p>
 		 * @param int $color <p>One of the Gmagick channel color constants.</p>
 		 * @param float $value <p>The value to set this channel to, ranging from 0 to 1.</p>
-		 * @return GmagickPixel <p>The GmagickPixel object on success.</p>
+		 * @return GmagickPixel <p>The <code>GmagickPixel</code> object.</p>
 		 * @link https://php.net/manual/en/gmagickpixel.setcolorvalue.php
 		 * @since PECL gmagick >= Unknown
 		 */

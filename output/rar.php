@@ -23,7 +23,7 @@ namespace {
 
 		/**
 		 * Close RAR archive and free all resources
-		 * <p>Close RAR archive and free all allocated resources.</p>
+		 * <p>Object-oriented style (method):</p><p>Close RAR archive and free all allocated resources.</p>
 		 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/rararchive.close.php
 		 * @since PECL rar >= 2.0.0
@@ -32,7 +32,7 @@ namespace {
 
 		/**
 		 * Get comment text from the RAR archive
-		 * <p>Get the (global) comment stored in the RAR archive. It may be up to 64 KiB long.</p><p><b>Note</b>:</p><p>This extension does not support comments at the entry level.</p>
+		 * <p>Object-oriented style (method):</p><p>Get the (global) comment stored in the RAR archive. It may be up to 64 KiB long.</p><p><b>Note</b>:</p><p>This extension does not support comments at the entry level.</p>
 		 * @return string <p>Returns the comment or <b><code>null</code></b> if there is none.</p><p><b>Note</b>:</p><p>RAR has currently no support for unicode comments. The encoding of the result of this function is not specified, but it will probably be Windows-1252.</p>
 		 * @link https://php.net/manual/en/rararchive.getcomment.php
 		 * @since PECL rar >= 2.0.0
@@ -41,7 +41,7 @@ namespace {
 
 		/**
 		 * Get full list of entries from the RAR archive
-		 * <p>Get entries list (files and directories) from the RAR archive.</p><p><b>Note</b>:</p><p>If the archive has entries with the same name, this method, together with <code>RarArchive</code> <code>foreach</code> iteration and array-like access with numeric indexes, are the only ones to access all the entries (i.e., <code>RarArchive::getEntry()</code> and the  <code>rar://</code> wrapper are insufficient).</p>
+		 * <p>Object-oriented style (method):</p><p>Get entries list (files and directories) from the RAR archive.</p><p><b>Note</b>:</p><p>If the archive has entries with the same name, this method, together with <code>RarArchive</code> <code>foreach</code> iteration and array-like access with numeric indexes, are the only ones to access all the entries (i.e., <code>RarArchive::getEntry()</code> and the  <code>rar://</code> wrapper are insufficient).</p>
 		 * @return array|false <p><b>rar_list()</b> returns array of <code>RarEntry</code> objects or <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/rararchive.getentries.php
 		 * @since PECL rar >= 2.0.0
@@ -50,7 +50,7 @@ namespace {
 
 		/**
 		 * Get entry object from the RAR archive
-		 * <p>Get entry object (file or directory) from the RAR archive.</p><p><b>Note</b>:</p><p>You can also get entry objects using <code>RarArchive::getEntries()</code>.</p><p>Note that a RAR archive can have multiple entries with the same name; this method will retrieve only the first.</p>
+		 * <p>Object-oriented style (method):</p><p>Get entry object (file or directory) from the RAR archive.</p><p><b>Note</b>:</p><p>You can also get entry objects using <code>RarArchive::getEntries()</code>.</p><p>Note that a RAR archive can have multiple entries with the same name; this method will retrieve only the first.</p>
 		 * @param string $entryname <p>Path to the entry within the RAR archive.</p> <p><b>Note</b>:</p><p>The path must be the same returned by <code>RarEntry::getName()</code>.</p>
 		 * @return RarEntry|false <p>Returns the matching <code>RarEntry</code> object or <b><code>false</code></b> on failure.</p>
 		 * @link https://php.net/manual/en/rararchive.getentry.php
@@ -60,7 +60,7 @@ namespace {
 
 		/**
 		 * Test whether an archive is broken (incomplete)
-		 * <p>This function determines whether an archive is incomplete, i.e., if a volume is missing or a volume is truncated.</p>
+		 * <p>Object-oriented style (method):</p><p>This function determines whether an archive is incomplete, i.e., if a volume is missing or a volume is truncated.</p>
 		 * @return bool <p>Returns <b><code>true</code></b> if the archive is broken, <b><code>false</code></b> otherwise. This function may also return <b><code>false</code></b> if the passed file has already been closed. The only way to tell the two cases apart is to enable exceptions with <code>RarException::setUsingExceptions()</code>; however, this should be unnecessary as a program should not operate on closed files.</p>
 		 * @link https://php.net/manual/en/rararchive.isbroken.php
 		 * @since PECL rar >= 3.0.0
@@ -69,7 +69,7 @@ namespace {
 
 		/**
 		 * Check whether the RAR archive is solid
-		 * <p>Check whether the RAR archive is solid. Individual file extraction is slower on solid archives.</p>
+		 * <p>Object-oriented style (method):</p><p>Check whether the RAR archive is solid. Individual file extraction is slower on solid archives.</p>
 		 * @return bool <p>Returns <b><code>true</code></b> if the archive is solid, <b><code>false</code></b> otherwise.</p>
 		 * @link https://php.net/manual/en/rararchive.issolid.php
 		 * @since PECL rar >= 2.0.0
@@ -78,7 +78,7 @@ namespace {
 
 		/**
 		 * Open RAR archive
-		 * <p>Open specified RAR archive and return <code>RarArchive</code> instance representing it.</p><p><b>Note</b>:</p><p>If opening a multi-volume archive, the path of the first volume should be passed as the first parameter. Otherwise, not all files will be shown. This is by design.</p>
+		 * <p>Object-oriented style (method):</p><p>Open specified RAR archive and return <code>RarArchive</code> instance representing it.</p><p><b>Note</b>:</p><p>If opening a multi-volume archive, the path of the first volume should be passed as the first parameter. Otherwise, not all files will be shown. This is by design.</p>
 		 * @param string $filename <p>Path to the Rar archive.</p>
 		 * @param string $password <p>A plain password, if needed to decrypt the headers. It will also be used by default if encrypted files are found. Note that the files may have different passwords in respect to the headers and among them.</p>
 		 * @param callable $volume_callback <p>A function that receives one parameter &ndash; the path of the volume that was not found &ndash; and returns a string with the correct path for such volume or <b><code>null</code></b> if such volume does not exist or is not known. The programmer should ensure the passed function doesn't cause loops as this function is called repeatedly if the path returned in a previous call did not correspond to the needed volume. Specifying this parameter omits the notice that would otherwise be emitted whenever a volume is not found; an implementation that only returns <b><code>null</code></b> can therefore be used to merely omit such notices.</p>
@@ -90,7 +90,7 @@ namespace {
 
 		/**
 		 * Whether opening broken archives is allowed
-		 * <p>This method defines whether broken archives can be read or all the operations that attempt to extract the archive entries will fail. Broken archives are archives for which no error is detected when the file is opened but an error occurs when reading the entries.</p>
+		 * <p>Object-oriented style (method):</p><p>This method defines whether broken archives can be read or all the operations that attempt to extract the archive entries will fail. Broken archives are archives for which no error is detected when the file is opened but an error occurs when reading the entries.</p>
 		 * @param bool $allow_broken <p>Whether to allow reading broken files (<b><code>true</code></b>) or not (<b><code>false</code></b>).</p>
 		 * @return bool <p>Returns <b><code>true</code></b> or <b><code>false</code></b> on failure. It will only fail if the file has already been closed.</p>
 		 * @link https://php.net/manual/en/rararchive.setallowbroken.php
@@ -499,7 +499,7 @@ namespace {
 		 * @link https://php.net/manual/en/exception.clone.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
-		final private function __clone() {}
+		private function __clone() {}
 
 		/**
 		 * String representation of the exception
@@ -513,11 +513,11 @@ namespace {
 		/**
 		 * Gets the Exception code
 		 * <p>Returns the Exception code.</p>
-		 * @return mixed <p>Returns the exception code as <code>int</code> in Exception but possibly as other type in Exception descendants (for example as <code>string</code> in PDOException).</p>
+		 * @return int <p>Returns the exception code as <code>int</code> in <code>Exception</code> but possibly as other type in <code>Exception</code> descendants (for example as <code>string</code> in <code>PDOException</code>).</p>
 		 * @link https://php.net/manual/en/exception.getcode.php
 		 * @since PHP 5, PHP 7, PHP 8
 		 */
-		final public function getCode(): mixed {}
+		final public function getCode(): int {}
 
 		/**
 		 * Gets the file in which the exception was created
@@ -547,13 +547,13 @@ namespace {
 		final public function getMessage(): string {}
 
 		/**
-		 * Returns previous Exception
-		 * <p>Returns previous exception (the third parameter of <code>Exception::__construct()</code>).</p>
-		 * @return Throwable <p>Returns the previous Throwable if available or <b><code>null</code></b> otherwise.</p>
+		 * Returns previous Throwable
+		 * <p>Returns previous <code>Throwable</code> (which had been passed as the third parameter of <code>Exception::__construct()</code>).</p>
+		 * @return ?Throwable <p>Returns the previous <code>Throwable</code> if available or <b><code>null</code></b> otherwise.</p>
 		 * @link https://php.net/manual/en/exception.getprevious.php
 		 * @since PHP 5 >= 5.3.0, PHP 7, PHP 8
 		 */
-		final public function getPrevious(): \Throwable {}
+		final public function getPrevious(): ?\Throwable {}
 
 		/**
 		 * Gets the stack trace
@@ -586,7 +586,7 @@ namespace {
 		 * Activate and deactivate error handling with exceptions
 		 * <p>If and only if the argument is <b><code>true</code></b>, then, instead of emitting warnings and returning a special value indicating error when the UnRAR library encounters an error, an exception of type <code>RarException</code> will be thrown.</p><p>Exceptions will also be thrown for the following errors, which occur outside the library (their error code will be -1):</p>
 		 * @param bool $using_exceptions <p>Should be <b><code>true</code></b> to activate exception throwing, <b><code>false</code></b> to deactivate (the default).</p>
-		 * @return void
+		 * @return void <p>No value is returned.</p>
 		 * @link https://php.net/manual/en/rarexception.setusingexceptions.php
 		 * @since PECL rar >= 2.0.0
 		 */
@@ -595,7 +595,7 @@ namespace {
 
 	/**
 	 * Test whether an archive is broken (incomplete)
-	 * <p>This function determines whether an archive is incomplete, i.e., if a volume is missing or a volume is truncated.</p>
+	 * <p>Object-oriented style (method):</p><p>This function determines whether an archive is incomplete, i.e., if a volume is missing or a volume is truncated.</p>
 	 * @param \RarArchive $rarfile <p>A <code>RarArchive</code> object, opened with <code>rar_open()</code>.</p>
 	 * @return bool <p>Returns <b><code>true</code></b> if the archive is broken, <b><code>false</code></b> otherwise. This function may also return <b><code>false</code></b> if the passed file has already been closed. The only way to tell the two cases apart is to enable exceptions with <code>RarException::setUsingExceptions()</code>; however, this should be unnecessary as a program should not operate on closed files.</p>
 	 * @link https://php.net/manual/en/rararchive.isbroken.php
@@ -605,7 +605,7 @@ namespace {
 
 	/**
 	 * Close RAR archive and free all resources
-	 * <p>Close RAR archive and free all allocated resources.</p>
+	 * <p>Object-oriented style (method):</p><p>Close RAR archive and free all allocated resources.</p>
 	 * @param \RarArchive $rarfile <p>A <code>RarArchive</code> object, opened with <code>rar_open()</code>.</p>
 	 * @return bool <p>Returns <b><code>true</code></b> on success or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/rararchive.close.php
@@ -615,7 +615,7 @@ namespace {
 
 	/**
 	 * Get comment text from the RAR archive
-	 * <p>Get the (global) comment stored in the RAR archive. It may be up to 64 KiB long.</p><p><b>Note</b>:</p><p>This extension does not support comments at the entry level.</p>
+	 * <p>Object-oriented style (method):</p><p>Get the (global) comment stored in the RAR archive. It may be up to 64 KiB long.</p><p><b>Note</b>:</p><p>This extension does not support comments at the entry level.</p>
 	 * @param \RarArchive $rarfile <p>A <code>RarArchive</code> object, opened with <code>rar_open()</code>.</p>
 	 * @return string <p>Returns the comment or <b><code>null</code></b> if there is none.</p><p><b>Note</b>:</p><p>RAR has currently no support for unicode comments. The encoding of the result of this function is not specified, but it will probably be Windows-1252.</p>
 	 * @link https://php.net/manual/en/rararchive.getcomment.php
@@ -625,7 +625,7 @@ namespace {
 
 	/**
 	 * Get entry object from the RAR archive
-	 * <p>Get entry object (file or directory) from the RAR archive.</p><p><b>Note</b>:</p><p>You can also get entry objects using <code>RarArchive::getEntries()</code>.</p><p>Note that a RAR archive can have multiple entries with the same name; this method will retrieve only the first.</p>
+	 * <p>Object-oriented style (method):</p><p>Get entry object (file or directory) from the RAR archive.</p><p><b>Note</b>:</p><p>You can also get entry objects using <code>RarArchive::getEntries()</code>.</p><p>Note that a RAR archive can have multiple entries with the same name; this method will retrieve only the first.</p>
 	 * @param \RarArchive $rarfile <p>A <code>RarArchive</code> object, opened with <code>rar_open()</code>.</p>
 	 * @param string $entryname <p>Path to the entry within the RAR archive.</p> <p><b>Note</b>:</p><p>The path must be the same returned by <code>RarEntry::getName()</code>.</p>
 	 * @return RarEntry|false <p>Returns the matching <code>RarEntry</code> object or <b><code>false</code></b> on failure.</p>
@@ -636,7 +636,7 @@ namespace {
 
 	/**
 	 * Get full list of entries from the RAR archive
-	 * <p>Get entries list (files and directories) from the RAR archive.</p><p><b>Note</b>:</p><p>If the archive has entries with the same name, this method, together with <code>RarArchive</code> <code>foreach</code> iteration and array-like access with numeric indexes, are the only ones to access all the entries (i.e., <code>RarArchive::getEntry()</code> and the  <code>rar://</code> wrapper are insufficient).</p>
+	 * <p>Object-oriented style (method):</p><p>Get entries list (files and directories) from the RAR archive.</p><p><b>Note</b>:</p><p>If the archive has entries with the same name, this method, together with <code>RarArchive</code> <code>foreach</code> iteration and array-like access with numeric indexes, are the only ones to access all the entries (i.e., <code>RarArchive::getEntry()</code> and the  <code>rar://</code> wrapper are insufficient).</p>
 	 * @param \RarArchive $rarfile <p>A <code>RarArchive</code> object, opened with <code>rar_open()</code>.</p>
 	 * @return array|false <p><b>rar_list()</b> returns array of <code>RarEntry</code> objects or <b><code>false</code></b> on failure.</p>
 	 * @link https://php.net/manual/en/rararchive.getentries.php
@@ -646,7 +646,7 @@ namespace {
 
 	/**
 	 * Open RAR archive
-	 * <p>Open specified RAR archive and return <code>RarArchive</code> instance representing it.</p><p><b>Note</b>:</p><p>If opening a multi-volume archive, the path of the first volume should be passed as the first parameter. Otherwise, not all files will be shown. This is by design.</p>
+	 * <p>Object-oriented style (method):</p><p>Open specified RAR archive and return <code>RarArchive</code> instance representing it.</p><p><b>Note</b>:</p><p>If opening a multi-volume archive, the path of the first volume should be passed as the first parameter. Otherwise, not all files will be shown. This is by design.</p>
 	 * @param string $filename <p>Path to the Rar archive.</p>
 	 * @param string $password <p>A plain password, if needed to decrypt the headers. It will also be used by default if encrypted files are found. Note that the files may have different passwords in respect to the headers and among them.</p>
 	 * @param callable $volume_callback <p>A function that receives one parameter &ndash; the path of the volume that was not found &ndash; and returns a string with the correct path for such volume or <b><code>null</code></b> if such volume does not exist or is not known. The programmer should ensure the passed function doesn't cause loops as this function is called repeatedly if the path returned in a previous call did not correspond to the needed volume. Specifying this parameter omits the notice that would otherwise be emitted whenever a volume is not found; an implementation that only returns <b><code>null</code></b> can therefore be used to merely omit such notices.</p>
@@ -658,7 +658,7 @@ namespace {
 
 	/**
 	 * Check whether the RAR archive is solid
-	 * <p>Check whether the RAR archive is solid. Individual file extraction is slower on solid archives.</p>
+	 * <p>Object-oriented style (method):</p><p>Check whether the RAR archive is solid. Individual file extraction is slower on solid archives.</p>
 	 * @param \RarArchive $rarfile <p>A <code>RarArchive</code> object, opened with <code>rar_open()</code>.</p>
 	 * @return bool <p>Returns <b><code>true</code></b> if the archive is solid, <b><code>false</code></b> otherwise.</p>
 	 * @link https://php.net/manual/en/rararchive.issolid.php
