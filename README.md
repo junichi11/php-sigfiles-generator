@@ -1,6 +1,6 @@
 # PHP Signature Files Generator
 
-Application that generates PHP signature files from the official HTML documentation.
+Application that generates PHP signature files from the official PHP HTML documentation.
 
 ## How to run
 
